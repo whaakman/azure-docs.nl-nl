@@ -2,18 +2,18 @@
 title: Definitie van Azure beleidsstructuur | Microsoft Docs
 description: Hierin wordt beschreven hoe resourcedefinitie beleid door het beleid voor Azure wordt gebruikt voor het tot stand brengen conventies voor resources in uw organisatie door te beschrijven wanneer het beleid wordt afgedwongen en welke actie moet worden uitgevoerd.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
-ms.custom: 
-ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -70,7 +70,9 @@ De **modus** bepaalt welke resourcetypen wordt geëvalueerd voor een beleid. De 
 * `all`: resourcegroepen en alle brontypen evalueren 
 * `indexed`: alleen evalueren brontypen die ondersteuning bieden voor labels en locatie
 
-We raden u aan **modus** naar `all`. Alle beleidsdefinities gemaakt via de portal de `all` modus. Als u PowerShell of Azure CLI gebruiken, moet u opgeven de **modus** parameter en wordt ingesteld op `all`. 
+We raden u aan **modus** naar `all` in de meeste gevallen. Alle beleidsdefinities gemaakt via de portal de `all` modus. Als u PowerShell of Azure CLI gebruiken, moet u opgeven de **modus** parameter handmatig.
+
+`indexed` moet worden gebruikt wanneer u beleidsregels maken die wordt afgedwongen tags of locaties. Dit is niet vereist, maar kan resources die geen ondersteuning bieden voor tags en locaties niet worden weergegeven als niet-compatibel in de nalevingsresultaten van de. De enige uitzondering hierop vormt **resourcegroepen**. Beleidsregels die u probeert om af te dwingen locatie of labels van een resourcegroep moeten ingesteld **modus** naar `all` en specifiek doel van de `Microsoft.Resources/subscriptions/resourceGroup` type. Zie voor een voorbeeld [afdwingen resource group-tags](scripts/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parameters
 
@@ -126,7 +128,7 @@ In de **vervolgens** blok, definieert u het effect dat gebeurt wanneer de **als*
     <condition> | <logical operator>
   },
   "then": {
-    "effect": "deny | audit | append"
+    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
   }
 }
 ```
@@ -165,16 +167,22 @@ U kunt logische operators nesten. Het volgende voorbeeld wordt een **niet** bewe
 Een voorwaarde wordt geëvalueerd of een **veld** aan bepaalde criteria voldoet. De ondersteunde voorwaarden zijn:
 
 * `"equals": "value"`
+* `"notEquals": "value"`
 * `"like": "value"`
+* `"notLike": "value"`
 * `"match": "value"`
+* `"notMatch": "value"`
 * `"contains": "value"`
+* `"notContains": "value"`
 * `"in": ["value1","value2"]`
+* `"notIn": ["value1","value2"]`
 * `"containsKey": "keyName"`
+* `"notContainsKey": "keyName"`
 * `"exists": "bool"`
 
-Wanneer u de **zoals** voorwaarde, kunt u een jokerteken (*) in de waarde opgeven.
+Wanneer u de **zoals** en **notLike** voorwaarden, kunt u een jokerteken (*) in de waarde opgeven.
 
-Wanneer u de **overeen met** voorwaarde, bieden `#` vertegenwoordigt een cijfer `?` voor een letter en een ander teken dat werkelijke teken vertegenwoordigt. Zie voor voorbeelden [goedgekeurd VM-installatiekopieën](scripts/allowed-custom-images.md).
+Wanneer u de **overeen met** en **notMatch** voorwaarden bieden `#` vertegenwoordigt een cijfer `?` voor een letter en een ander teken dat werkelijke teken vertegenwoordigt. Zie voor voorbeelden [goedgekeurd VM-installatiekopieën](scripts/allowed-custom-images.md).
 
 ### <a name="fields"></a>Velden
 Voorwaarden zijn samengesteld op basis van velden. Een veld geeft eigenschappen in de nettolading van de resource-aanvraag die wordt gebruikt om de status van de resource te beschrijven.  
@@ -182,12 +190,28 @@ Voorwaarden zijn samengesteld op basis van velden. Een veld geeft eigenschappen 
 De volgende velden worden ondersteund:
 
 * `name`
+* `fullName`
+  * Retourneert de volledige naam van de bron, met inbegrip van eventuele bovenliggende items (bijvoorbeeld ' MijnServer/MijnDatabase')
 * `kind`
 * `type`
 * `location`
 * `tags`
-* `tags.*`
+* `tags.tagName`
+* `tags[tagName]`
+  * Deze syntaxis accolade ondersteunt labelnamen die punten bevatten
 * eigenschap aliassen - Zie voor een lijst [aliassen](#aliases).
+
+### <a name="alternative-accessors"></a>Alternatieve Accessors
+**Veld** is de primaire accessor in beleidsregels gebruikt. Deze inspecteert rechtstreeks de resource die wordt geëvalueerd. Beleid ondersteunt echter een andere accessor **bron**.
+
+```json
+"source": "action",
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
+
+**Bron** biedt alleen ondersteuning voor één waarde **actie**. Actie retourneert de autorisatie-actie van de aanvraag die wordt geëvalueerd. Autorisatie acties beschikbaar worden gesteld in de sectie autorisatie van de [activiteitenlogboek](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+
+Wanneer beleid evalueert bestaande resources op de achtergrond wordt ingesteld **actie** naar een `/write` autorisatie-actie op het type van de resource.
 
 ### <a name="effect"></a>Effect
 Beleid ondersteunt de volgende typen van kracht:
@@ -212,7 +236,7 @@ Voor **toevoegen**, moet u de volgende details opgeven:
 
 De waarde kan niet een tekenreeks of een object van JSON-indeling.
 
-Met **AuditIfNotExists** en **DeployIfNotExists** kunt u het bestaan van een onderliggende resource evalueren en toepassen van een regel en een bijbehorende effect wanneer die resource niet bestaat. U kunt bijvoorbeeld vereisen dat een netwerk-watcher wordt geïmplementeerd voor alle virtuele netwerken.
+Met **AuditIfNotExists** en **DeployIfNotExists** kunt u het bestaan van gerelateerde bron evalueren en toepassen van een regel en een bijbehorende effect wanneer die resource niet bestaat. U kunt bijvoorbeeld vereisen dat een netwerk-watcher wordt geïmplementeerd voor alle virtuele netwerken.
 Zie voor een voorbeeld van het controle-wanneer de extensie van een virtuele machine niet is geïmplementeerd, [controleren als de extensie is niet opgenomen](scripts/audit-ext-not-exist.md).
 
 
@@ -288,7 +312,7 @@ U eigenschap aliassen gebruiken voor toegang tot specifieke eigenschappen voor e
 | Microsoft.Compute/VirtualMachineScaleSets/sku.name | De grootte van virtuele machines in een scale-set instellen. |
 | Microsoft.Compute/VirtualMachineScaleSets/sku.tier | De laag van virtuele machines in een scale-set instellen. |
 
-Microsoft.Network/applicationGateways
+**Microsoft.Network/applicationGateways**
 
 | Alias | Beschrijving |
 | ----- | ----------- |

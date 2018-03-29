@@ -2,7 +2,7 @@
 title: Functie-engineering in gegevenswetenschap | Microsoft Docs
 description: Worden de doeleinden van functie-engineering en voorbeelden gegeven van de rol in de procedure voor de verbetering van gegevens van machine learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: 72a412c08e57491a306f405f400665e2b0d25a3c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 70a78659bc14ce5ff9358ed11ad0af68be31bd17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-engineering-in-data-science"></a>Functie-engineering in gegevenswetenschap
 In dit artikel worden de doeleinden van functie-engineering en voorbeelden gegeven van de rol in de procedure voor de verbetering van gegevens van machine learning. De voorbeelden die wordt gebruikt ter illustratie van dit proces zijn afkomstig van Azure Machine Learning Studio. 
@@ -70,7 +70,7 @@ Een vergelijking van de prestatieresultaten van de vier modellen wordt in de vol
 
 De beste resultaten worden weergegeven door functies A + B + C. Opmerking de frequentie van fouten neemt af wanneer extra functies zijn opgenomen in de trainingsgegevens. Er wordt gecontroleerd met de veronderstelling dat de functieset B, C aanvullende relevante informatie voor de taak regressie bieden. Maar de D-functie toe te voegen lijkt niet te bieden een extra verlaging van de frequentie van fouten.
 
-## <a name="example2"></a>Voorbeeld 2: Het maken van functies in analysemodel tekst
+## <a name="example2"></a> Voorbeeld 2: Het maken van functies in analysemodel tekst
 Functie-engineering is breed in taken met betrekking tot mijnbouw-tekst, zoals document indeling en het gevoel analyse toegepast. Bijvoorbeeld, als u classificeren van documenten in verscheidene categorieën wilt, is een typische veronderstelling dat de word/zinnen opgenomen in één categorie van het document is het minder waarschijnlijk om te worden uitgevoerd in een andere doc-categorie. Met andere woorden, kan de frequentie van de distributie woorden/woordgroepen kenmerkend zijn voor verschillende documentcategorieën. In toepassingen met tekst analysemodel, omdat er afzonderlijke stukjes tekstinhoud gewoonlijk gebruikt als de invoergegevens de functie engineering proces nodig voor het maken van de functies met betrekking tot woord of woordgroep frequenties.
 
 Voor deze taak, een techniek aangeroepen **hash-functie** efficiënt functies van willekeurige tekst om in te veranderen indexen wordt toegepast. In plaats van elke functie tekst (woorden/zinnen) koppelen aan een specifieke index, deze methode werkt door het toepassen van een hash-functie op de functies en hun hash-waarden als indexen rechtstreeks.

@@ -5,43 +5,58 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/20/2017
+ms.date: 03/19/2018
 ms.author: dekapur
-ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 46ba7b6e638fafa512d4a3f291c49acc1ddf02e4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="platform-level-event-and-log-generation"></a>Platform niveau gebeurtenis- en logboekbestanden genereren
-
-## <a name="monitoring-the-cluster"></a>Bewaking van het cluster
+# <a name="monitoring-the-cluster-and-platform"></a>Bewaking van het cluster en het platform
 
 Het is belangrijk om te controleren op het niveau van het platform om te bepalen of uw hardware en het cluster gedragen zich zoals verwacht. Hoewel Service Fabric kunnen toepassingen die worden uitgevoerd tijdens een hardwarefout behouden, maar u toch wilt vaststellen of een fout optreedt in een toepassing of in de onderliggende infrastructuur. Ook moet u controleren clusters beter plannen van capaciteit, ondersteuning bij het nemen van beslissingen over het toevoegen of verwijderen van de hardware.
 
 Service Fabric bevat de volgende logboek kanalen out-of-the-box:
-* Operationele kanaal: op hoog niveau bewerkingen wordt uitgevoerd door de Service Fabric en het cluster, met inbegrip van gebeurtenissen voor een knooppunt dat oefening, een nieuwe toepassing wordt geïmplementeerd of een upgrade terugdraaien, enzovoort.
-* Operationele kanaal - gedetailleerde: statusrapporten en beslissingen voor taakverdeling
-* Gegevens & Messaging-kanaal: essentiële logboeken en gebeurtenissen die worden gegenereerd in de berichtgeving (momenteel alleen de ReverseProxy) en gegevenspad (betrouwbare services-modellen)
-* Gegevens & Messaging kanaal - gedetailleerde: uitgebreide kanaal dat deze de niet-kritieke logboeken van gegevens en berichten in het cluster bevat (dit kanaal heeft een zeer groot aantal gebeurtenissen)   
+
+* **Operationele**  
+Op hoog niveau bewerkingen wordt uitgevoerd door de Service Fabric en het cluster, met inbegrip van gebeurtenissen voor een knooppunt dat oefening, een nieuwe toepassing wordt geïmplementeerd of een upgrade terugdraaien, enzovoort.
+
+* **Operationele - gedetailleerde**  
+Statusrapporten en beslissingen voor de taakverdeling.
+
+* **Gegevens & Messaging**  
+Kritieke logboeken en gebeurtenissen die worden gegenereerd in de berichtgeving (momenteel alleen de ReverseProxy) en gegevenspad (betrouwbare services-modellen).
+
+* **& Messaging - gedetailleerde gegevens**  
+Uitgebreide kanaal dat deze de niet-kritieke logboeken van gegevens en berichten in het cluster bevat (dit kanaal heeft een zeer groot aantal gebeurtenissen).
 
 Naast deze zijn er twee gestructureerde EventSource kanalen die zijn opgegeven, evenals logboeken die worden verzameld voor ondersteuning.
-* [Gebeurtenissen van betrouwbare Services](service-fabric-reliable-services-diagnostics.md): programming model specifieke gebeurtenissen
-* [Gebeurtenissen van betrouwbare actoren](service-fabric-reliable-actors-diagnostics.md): programming model specifieke gebeurtenissen en prestatiemeteritems
-* Ondersteuning voor logboeken: het systeemlogboek in logboeken die worden gegenereerd door de Service Fabric alleen moet worden gebruikt door ons bij om ondersteuning te bieden
+
+* [Reliable Services-gebeurtenissen](service-fabric-reliable-services-diagnostics.md)  
+Programmering model specifieke gebeurtenissen.
+
+* [Reliable Actors-gebeurtenissen](service-fabric-reliable-actors-diagnostics.md)  
+Programmering model specifieke gebeurtenissen en prestatiemeteritems.
+
+* Ondersteuning voor logboeken  
+Systeemlogboeken gegenereerd door de Service Fabric alleen moet worden gebruikt door ons bij om ondersteuning te bieden.
 
 Deze verschillende kanalen betrekking hebben op de meeste van de platform logboekregistratie die wordt aanbevolen. Ter verbetering van de logboekregistratie platform, overweeg investeren in een beter inzicht in het model van de gezondheid en aangepaste statusrapporten toe te voegen en toe te voegen aangepaste **prestatiemeteritems** voor het bouwen van een realtime begrip van de impact van uw Services en toepassingen op het cluster.
 
-### <a name="azure-service-fabric-health-and-load-reporting"></a>Azure Service Fabric-status en load reporting
+Om te profiteren van deze logboeken, is het raadzaam tijdens het maken van het cluster ' diagnostische gegevens ' is ingeschakeld. Door het inschakelen van diagnostische gegevens, wanneer het cluster wordt geïmplementeerd, Windows Azure Diagnostics kan bevestigt de operationele, Reliable Services en Reliable actors kanalen, en de gegevens opslaan als verder uiteengezet in [aggregeren van gebeurtenissen met Azure Diagnostische gegevens](service-fabric-diagnostics-event-aggregation-wad.md).
+
+## <a name="azure-service-fabric-health-and-load-reporting"></a>Azure Service Fabric-status en load reporting
 
 Service Fabric heeft een eigen statusmodel die is beschreven in deze artikelen:
+
 - [Inleiding tot Service Fabric-statuscontrole](service-fabric-health-introduction.md)
 - [Servicestatus rapporteren en controleren](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 - [Aangepaste Service Fabric-statusrapporten toevoegen](service-fabric-report-health.md)
@@ -58,44 +73,9 @@ Metrische gegevens ook kunt bieden u inzicht in hoe uw service wordt uitgevoerd.
 
 Alle gegevens die kan duiden op de status en prestaties van uw toepassing is geschikt is voor de metrische gegevens en de gezondheid van rapporten. Een CPU-prestatiemeteritem kan aangeven hoe uw knooppunt wordt gebruikt, maar deze niet zien of een bepaalde service is in orde, omdat er meerdere services op één knooppunt kunnen worden uitgevoerd. Metrische gegevens, zoals RPS, items verwerkt, maar alle latentie van aanvraag kan wijzen op de status van een specifieke service.
 
-Status rapporteren, vergelijkbaar met het volgende code gebruiken:
-
-  ```csharp
-    if (!result.HasValue)
-    {
-        HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
-        this.Partition.ReportInstanceHealth(healthInformation);
-    }
-  ```
-
-Als u wilt rapporteren een metriek, moet u code ongeveer als volgt gebruiken:
-
-  ```csharp
-    this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
-  ```
-
-### <a name="service-fabric-support-logs"></a>Logboeken voor service Fabric-ondersteuning
+## <a name="service-fabric-support-logs"></a>Logboeken voor service Fabric-ondersteuning
 
 Als u contact op met Microsoft ondersteuning voor hulp bij uw Azure Service Fabric-cluster moet, zijn bijna altijd Ondersteuningslogboeken vereist. Als uw cluster wordt gehost in Azure, worden logboeken automatisch geconfigureerd en verzameld als onderdeel van het maken van een cluster. De logboeken worden opgeslagen in een speciaal opslagaccount in de resourcegroep voor uw cluster. Het storage-account beschikt niet over een vaste naam, maar in het account, ziet u de blob-containers en tabellen met namen die met beginnen *fabric*. Zie voor meer informatie over het instellen van logboekverzamelingen voor een zelfstandige cluster [maken en beheren van een zelfstandige Azure Service Fabric-cluster](service-fabric-cluster-creation-for-windows-server.md) en [configuratie-instellingen voor een zelfstandige Windows cluster](service-fabric-cluster-manifest.md). Voor zelfstandige Service Fabric-exemplaren, moeten de logboeken naar een lokale bestandsshare worden verzonden. U bent **vereist** hebben deze logboeken voor ondersteuning, maar ze zijn niet bedoeld om te worden gebruikt door personen buiten het Microsoft customer support team.
-
-## <a name="enabling-diagnostics-for-a-cluster"></a>Diagnostische gegevens inschakelen voor een cluster
-
-Om te profiteren van deze logboeken, is het raadzaam tijdens het maken van het cluster ' diagnostische gegevens ' is ingeschakeld. Door het inschakelen van diagnostische gegevens, wanneer het cluster wordt geïmplementeerd, Windows Azure Diagnostics kan bevestigt de operationele, Reliable Services en Reliable actors kanalen, en de gegevens opslaan als verder uiteengezet in [aggregeren van gebeurtenissen met Azure Diagnostische gegevens](service-fabric-diagnostics-event-aggregation-wad.md).
-
-Zoals hierboven, is er ook een optioneel veld toevoegen van een instrumentatiesleutel Application Insights (AI). Als u kiest voor AI voor een analyse van gebeurtenis (voor meer informatie over dit op [analyse van gebeurtenis met Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)), hier de AppInsights resource instrumentationKey (GUID) bevatten.
-
-
-Als u containers implementeren in uw cluster gaat, schakelt u af om op te halen docker-statistieken door deze toe te voegen aan uw 'WadCfg > DiagnosticMonitorConfiguration':
-
-```json
-"DockerSources": {
-    "Stats": {
-        "enabled": true,
-        "sampleRate": "PT1M"
-    }
-},
-
-```
 
 ## <a name="measuring-performance"></a>Meten van de prestaties
 
@@ -105,9 +85,11 @@ Zie voor een lijst van te verzamelen bij gebruik van Service Fabric prestatiemet
 
 Hier zijn twee algemene manieren waarop u kunt instellen voor het verzamelen van prestatiegegevens voor het cluster:
 
-* Met behulp van een agent: dit is de beste manier om het verzamelen van prestaties van een machine Aangezien agents hebben meestal een lijst met mogelijke prestaties metrische gegevens die kunnen worden verzameld en is een relatief gemakkelijk proces voor het kiezen van de metrische gegevens die u wilt verzamelen of deze te wijzigen. Meer informatie over [de OMS configureren voor Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) en [instellen van de OMS-Agent voor Windows](../log-analytics/log-analytics-windows-agent.md) artikelen voor meer informatie over de OMS-agent is een dergelijke monitoring agent die kunnen worden opgepikt prestaties gegevens voor het cluster virtuele machines en geïmplementeerde containers.
+* **Met behulp van een agent**  
+Dit is de beste manier om het verzamelen van prestaties van een machine Aangezien agents hebben meestal een lijst met mogelijke prestaties metrische gegevens die kunnen worden verzameld en is een relatief gemakkelijk proces voor het kiezen van de metrische gegevens die u wilt verzamelen of deze te wijzigen. Meer informatie over [de OMS configureren voor Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) en [instellen van de OMS-Agent voor Windows](../log-analytics/log-analytics-windows-agent.md) artikelen voor meer informatie over de OMS-agent is een dergelijke monitoring agent die kunnen worden opgepikt prestaties gegevens voor het cluster virtuele machines en geïmplementeerde containers.
 
-* Diagnostische gegevens voor het schrijven van prestatie-items aan een tabel te configureren: voor clusters op Azure, betekent dit wijzigen van de configuratie van Azure Diagnostics om op te halen de juiste prestatiemeteritems van de virtuele machines in het cluster en het inschakelen van deze docker-statistieken kunnen worden opgepikt als dat u implementeert geen containers. Meer informatie over het configureren van [prestatiemeters in af](service-fabric-diagnostics-event-aggregation-wad.md) in Service Fabric voor het instellen van het verzamelen van prestatiemeteritems.
+* **Configuratie van diagnostische gegevens prestatiemeteritems schrijven naar een tabel**  
+Voor clusters op Azure, betekent dit dat wijzigen van de configuratie van Azure Diagnostics om op te halen de juiste prestatiemeteritems van de virtuele machines in het cluster en het inschakelen van deze docker-statistieken kunnen worden opgepikt als u geen containers wilt implementeren. Meer informatie over het configureren van [prestatiemeters in af](service-fabric-diagnostics-event-aggregation-wad.md) in Service Fabric voor het instellen van het verzamelen van prestatiemeteritems.
 
 ## <a name="next-steps"></a>Volgende stappen
 

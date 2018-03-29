@@ -2,9 +2,9 @@
 title: Met behulp van shared access signatures (SAS) in Azure Storage | Microsoft Docs
 description: Informatie over het gebruik van handtekeningen voor gedeelde toegang (SAS) om te delegeren van toegang tot Azure Storage-resources, met inbegrip van blobs, wachtrijen, tabellen en bestanden.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: tamram
-ms.openlocfilehash: 32e92e6ffc376d27297810596691f0371770e86d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: d3f8b3261f9e2e86dbcaa41b92111545abeffe54
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-shared-access-signatures-sas"></a>Met behulp van handtekeningen voor gedeelde toegang (SAS)
 
@@ -27,7 +27,7 @@ Een shared access signature (SAS) biedt een manier om beperkte toegang tot objec
 Zie voor aanvullende codevoorbeelden via SAS afgezien van wat die hier wordt gepresenteerd, [aan de slag met Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) en andere voorbeelden die beschikbaar zijn in de [Azure codevoorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage) bibliotheek. U kunt downloaden van de voorbeeldtoepassingen en ze uitvoeren of de code op GitHub bladeren.
 
 ## <a name="what-is-a-shared-access-signature"></a>Wat is er een shared access signature?
-Een shared access signature biedt gedelegeerde toegang tot bronnen in uw opslagaccount. Met een SAS kunt u clients toegang verlenen tot bronnen in uw opslagaccount zonder het delen van de sleutels van uw account. Dit is de sleutel van het gebruik van handtekeningen voor gedeelde toegang in uw toepassingen--een SAS is een veilige manier voor het delen van uw opslagresources zonder uw sleutels account gevaar te brengen.
+Een shared access signature biedt gedelegeerde toegang tot bronnen in uw opslagaccount. Met een SAS kunt u clients toegang verlenen tot bronnen in uw opslagaccount zonder het delen van de sleutels van uw account. De belangrijkste reden voor het gebruik van handtekeningen voor gedeelde toegang in uw toepassingen is dat een SAS een veilige manier is voor het delen van uw opslagresources zonder dat uw accountsleutels in gevaar komen.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -62,7 +62,7 @@ Bovendien moet u een SAS gebruiken om te verifiëren van het bronobject in een k
 ## <a name="types-of-shared-access-signatures"></a>Typen handtekeningen voor gedeelde toegang
 U kunt twee soorten handtekeningen voor gedeelde toegang maken:
 
-* **Service-SAS.** De service-SAS biedt toegang tot een resource in slechts een van de opslagservices: de Blob-, Queue-, Tabel- of File-service. Zie [samenstellen van een Service-SAS](https://msdn.microsoft.com/library/dn140255.aspx) en [voorbeelden van Service-SAS](https://msdn.microsoft.com/library/dn140256.aspx) voor gedetailleerde informatie over het maken van het service-SAS-token.
+* **Service SAS.** De service-SAS biedt toegang tot een resource in slechts een van de opslagservices: de Blob-, Queue-, Tabel- of File-service. Zie [samenstellen van een Service-SAS](https://msdn.microsoft.com/library/dn140255.aspx) en [voorbeelden van Service-SAS](https://msdn.microsoft.com/library/dn140256.aspx) voor gedetailleerde informatie over het maken van het service-SAS-token.
 * **Account-SAS.** De account SAS gemachtigden toegang tot bronnen in een of meer van de storage-services. Alle bewerkingen die beschikbaar zijn via een service-SAS zijn ook beschikbaar via een account-SAS. Met het account-SAS kunt u bovendien toegang tot de bewerkingen die betrekking hebben op een bepaalde service, zoals delegeren **Get/Set-Service-eigenschappen** en **Service statistieken ophalen**. U kunt ook toegang tot het lezen, schrijven en verwijderen van bewerkingen delegeren voor blobcontainers, tabellen, wachtrijen en bestandsshares die niet zijn toegestaan bij een service-SAS. Zie [samenstellen van een Account-SAS](https://msdn.microsoft.com/library/mt584140.aspx) voor gedetailleerde informatie over het maken van het account-SAS-token.
 
 ## <a name="how-a-shared-access-signature-works"></a>De werking van een shared access signature
@@ -85,7 +85,7 @@ De account-SAS en service-SAS-tokens bevatten enkele algemene parameters en ook 
 * **De begintijd.** Dit is de tijd waarop de SAS geldig wordt. De begintijd voor een shared access signature is optioneel. Als een begintijd wordt weggelaten, wordt de SAS onmiddellijk van kracht. De begintijd moet worden uitgedrukt in UTC (Coordinated Universal Time), met een speciale UTC-aanduiding ('Z'), bijvoorbeeld `1994-11-05T13:15:30Z`.
 * **Verlooptijd.** Dit is de tijd waarna de SAS niet meer geldig is. Aanbevolen dat u een verlooptijd voor een SAS opgeven, of deze aan een opgeslagen toegangsbeleid koppelen. Het verlooptijdstip moet worden uitgedrukt in UTC (Coordinated Universal Time), met een speciale UTC-aanduiding ('Z'), bijvoorbeeld `1994-11-05T13:15:30Z` (Zie meer hieronder).
 * **Machtigingen.** De machtigingen die zijn opgegeven voor de SAS aangeven welke bewerkingen die de client op basis van de storage-resource met behulp van de SAS kunt uitvoeren. Beschikbare machtigingen verschillen voor een account-SAS en een service-SAS.
-* **IP-ADRES.** Een optionele parameter waarmee een IP-adres of een bereik met IP-adressen buiten Azure (Zie de sectie [routering configuratie sessiestatus](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) voor Express Route) waarin om aanvragen te accepteren.
+* **IP.** Een optionele parameter waarmee een IP-adres of een bereik met IP-adressen buiten Azure (Zie de sectie [routering configuratie sessiestatus](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) voor Express Route) waarin om aanvragen te accepteren.
 * **Protocol.** Een optionele parameter waarmee het protocol is toegestaan voor een aanvraag. Mogelijke waarden zijn zowel HTTP als HTTPS (`https,http`), wordt de standaardwaarde of HTTPS (`https`). Houd er rekening mee dat HTTP alleen geen toegestane waarde is.
 * **Handtekening.** De handtekening is samengesteld uit de andere parameters opgegeven als deel token, en vervolgens versleuteld. Deze wordt gebruikt voor verificatie van de SAS.
 

@@ -2,10 +2,10 @@
 title: Azure-activiteitenlogboeken verzamelen in Log Analytics voor meerdere abonnementen | Microsoft Docs
 description: Event Hubs en Logic Apps gebruiken om gegevens uit het Azure-activiteitenlogboek te verzamelen en te verzenden naar een Azure Log Analytics-werkruimte in een andere tenant.
 services: log-analytics, logic-apps, event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 89c62563b9772fa07d63a24b4aa20857b0143f85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Azure-activiteitenlogboeken verzamelen in Log Analytics voor meerdere abonnementen
 
@@ -113,7 +113,7 @@ Voordat u een logische app maakt, moet u over de volgende informatie uit de vori
 - Log Analytics-werkruimte-id
 - Gedeelde sleutel van Log Analytics
 
-Voor het ophalen van de naam en verbindingsreeks van de event hub volgt u de stappen in [Naamruimte machtigingen van Event Hubs controleren en de verbindingsreeks zoeken](../connectors/connectors-create-api-azure-event-hubs.md#check-event-hubs-namespace-permissions-and-find-the-connection-string).
+Voor het ophalen van de naam en verbindingsreeks van de event hub volgt u de stappen in [Naamruimte machtigingen van Event Hubs controleren en de verbindingsreeks zoeken](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs).
 
 
 ### <a name="create-a-new-blank-logic-app"></a>Een nieuwe lege, logische app maken

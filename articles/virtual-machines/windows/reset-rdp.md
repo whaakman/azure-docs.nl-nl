@@ -2,10 +2,10 @@
 title: Opnieuw instellen van het wachtwoord of de configuratie van extern bureaublad op een virtuele machine van Windows | Microsoft Docs
 description: Informatie over het opnieuw instellen van wachtwoord van een account of extern bureaublad-services op een Windows-VM met de Azure-portal of Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
 ms.service: virtual-machines-windows
@@ -13,16 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
-ms.author: genli
-ms.openlocfilehash: d9ca3d393bd4544fb4efdbc779f139ca13d98bcd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 03/23/2018
+ms.author: danis
+ms.openlocfilehash: d793b101e3b6fa5a441158ef8ca9f7cd6d3a5a5b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Het opnieuw instellen van de extern bureaublad-service of het aanmeldingswachtwoord in een Windows-VM
-Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u het lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de configuratie van de extern bureaublad-service (wordt niet ondersteund op Windows-domeincontrollers). U kunt de Azure portal of de toegang van de VM-extensie in Azure PowerShell om het wachtwoord opnieuw in te gebruiken. Als u met behulp van PowerShell, controleert u of u hebt de [nieuwste PowerShell-module geïnstalleerd en geconfigureerd](/powershell/azure/overview) en u bent aangemeld bij uw Azure-abonnement. U kunt ook [deze stappen uitvoert voor virtuele machines die zijn gemaakt met het klassieke implementatiemodel](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
+Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u het lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de configuratie van de extern bureaublad-service (wordt niet ondersteund op Windows-domeincontrollers). U kunt de Azure portal of de toegang van de VM-extensie in Azure PowerShell om het wachtwoord opnieuw in te gebruiken. Zodra u zich bij de virtuele machine hebt aangemeld, moet u het wachtwoord voor die gebruiker opnieuw instellen.  
+Als u met behulp van PowerShell, controleert u of u hebt de [nieuwste PowerShell-module geïnstalleerd en geconfigureerd](/powershell/azure/overview) en u bent aangemeld bij uw Azure-abonnement. U kunt ook [deze stappen uitvoert voor virtuele machines die zijn gemaakt met het klassieke implementatiemodel](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>Op de beginwaarden configuratie of referenties
 U kunt Extern bureaublad-services en referenties herstellen op verschillende manieren, afhankelijk van uw behoeften:

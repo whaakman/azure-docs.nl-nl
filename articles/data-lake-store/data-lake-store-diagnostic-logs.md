@@ -2,7 +2,7 @@
 title: Logboeken met diagnostische gegevens voor Azure Data Lake Store weergeven | Microsoft Docs
 description: 'Begrijpen hoe instellen en toegang tot diagnoselogboeken voor Azure Data Lake Store '
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: b58a4b215b13d2e57a69a94a60e3e37471c926c8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Toegang tot diagnoselogboeken voor Azure Data Lake Store
 Informatie over het inschakelen van diagnostische logboekregistratie voor uw Data Lake Store-account en het weergeven van de logboeken die worden verzameld voor uw account.
@@ -31,7 +31,7 @@ Organisaties kunnen diagnostische logboekregistratie inschakelen voor hun Azure 
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Diagnostische logboekregistratie inschakelen voor uw Data Lake Store-account
 1. Meld u aan bij de nieuwe [Azure Portal](https://portal.azure.com).
-2. Open uw Data Lake Store-account en klik op de blade van het Data Lake Store-account **instellingen**, en klik vervolgens op **diagnostische logboeken**.
+2. Open uw Data Lake Store-account en klik op de blade van het Data Lake Store-account **diagnostische logboeken**.
 3. In de **diagnostische logboeken** blade, klikt u op **diagnostische gegevens inschakelen**.
 
     ![Diagnostische logboekregistratie inschakelen](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "logboeken met diagnostische gegevens inschakelen")
@@ -150,6 +150,7 @@ Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. E
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
+             "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
              "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
@@ -167,6 +168,7 @@ Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. E
 | category |Tekenreeks |De logboek-categorie. Bijvoorbeeld: **Audit**. |
 | operationName |Tekenreeks |De naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: getfilestatus. |
 | resultType |Tekenreeks |De status van de bewerking, bijvoorbeeld 200. |
+| resultSignature |Tekenreeks |Meer informatie over het opnieuw. |
 | correlationId |Tekenreeks |De ID van het logboek dat kan worden gebruikt om een set van gerelateerde logboekvermeldingen groepen |
 | identity |Object |De identiteit die door het logboek is gegenereerd |
 | properties |JSON |Zie hieronder voor meer informatie |
@@ -186,7 +188,7 @@ search *
 ```
 
 
-Een voorbeeld van een biedt Azure Data Lake Store voor het verwerken en analyseren van de logboekgegevens. U vindt het voorbeeld op [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+Een voorbeeld van een biedt Azure Data Lake Store voor het verwerken en analyseren van de logboekgegevens. U vindt het voorbeeld op [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Zie ook
 * [Overzicht van Azure Data Lake Store](data-lake-store-overview.md)

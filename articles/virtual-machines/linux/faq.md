@@ -2,10 +2,10 @@
 title: Veelgestelde vragen over virtuele Linux-machines in Azure | Microsoft Docs
 description: Hier vindt u antwoorden op enkele van de veelgestelde vragen over Linux virtuele machines is gemaakt met het Resource Manager-model.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-management
 ms.assetid: 3648e09c-1115-4818-93c6-688d7a54a353
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: f7fb3f24e9ca6b1827028d118cf833aad830e6a1
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8a4d93ff12affac56c12c0eab85168c609400ee2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Veelgestelde vragen over virtuele Linux-Machines
 In dit artikel komen enkele veelgestelde vragen over virtuele Linux-machines in Azure met behulp van het Resource Manager-implementatiemodel zijn gemaakt. Zie voor de Windows-versie van dit onderwerp [Veelgestelde vragen over Windows virtuele Machines](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -58,34 +58,35 @@ Ja. De computernaam mag maximaal 64 tekens lang zijn. Zie [Naming conventions re
 Ja. Naam van de resourcegroep mag maximaal 90 tekens lang zijn. Zie [Naming conventions regels en beperkingen](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie over resourcegroepen.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Wat zijn de vereisten van de gebruikersnaam bij het maken van een virtuele machine?
-Gebruikersnamen moet 1 tot 64 tekens lang zijn.
+
+Gebruikersnamen moet 1 en 32 tekens lang zijn.
 
 De volgende gebruikersnamen zijn niet toegestaan:
 
 <table>
     <tr>
-        <td style="text-align:center">Beheerder </td><td style="text-align:center"> Beheerder </td><td style="text-align:center"> Gebruiker </td><td style="text-align:center"> Gebruiker1</td>
+        <td style="text-align:center">Beheerder </td><td style="text-align:center"> beheerder </td><td style="text-align:center"> Gebruiker </td><td style="text-align:center"> Gebruiker1</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test </td><td style="text-align:center"> Gebruiker2 </td><td style="text-align:center"> Test1 </td><td style="text-align:center"> User3</td>
+        <td style="text-align:center">test </td><td style="text-align:center"> Gebruiker2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> User3</td>
     </tr>
     <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> een</td>
+        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASPNET</td>
+        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
     </tr>
     <tr>
-        <td style="text-align:center">Back-up </td><td style="text-align:center"> Console </td><td style="text-align:center"> David </td><td style="text-align:center"> Gast</td>
+        <td style="text-align:center">Back-up </td><td style="text-align:center"> console </td><td style="text-align:center"> David </td><td style="text-align:center"> Gast</td>
     </tr>
     <tr>
-        <td style="text-align:center">John </td><td style="text-align:center"> Eigenaar </td><td style="text-align:center"> hoofdmap </td><td style="text-align:center"> server</td>
+        <td style="text-align:center">John </td><td style="text-align:center"> eigenaar </td><td style="text-align:center"> hoofdmap </td><td style="text-align:center"> server</td>
     </tr>
     <tr>
-        <td style="text-align:center">SQL </td><td style="text-align:center"> Ondersteuning </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">sql </td><td style="text-align:center"> ondersteuning </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test2 </td><td style="text-align:center"> Test3 </td><td style="text-align:center"> User4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> User4 </td><td style="text-align:center"> user5</td>
     </tr>
 </table>
 

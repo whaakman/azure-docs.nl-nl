@@ -1,31 +1,31 @@
 ---
 title: 'Zelfstudie: Polybase-gegevens laden - Azure Storage Blob naar Azure SQL Data Warehouse | Microsoft Docs'
-description: "Een zelfstudie die gebruikmaakt van Azure Portal en SQL Server Management Studio om gegevens over taxi‘s in New York vanuit Azure Blob Storage te laden naar Azure SQL Data Warehouse."
+description: Een zelfstudie die gebruikmaakt van Azure Portal en SQL Server Management Studio om gegevens over taxi‘s in New York vanuit Azure Blob Storage te laden naar Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: ckarst
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-data-warehouse
 ms.custom: mvc,develop data warehouses
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 11/17/2017
+ms.date: 03/16/2018
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 4bb9b4a01d3efb90486e34d2b0eb5cfeef66e50c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Zelfstudie: PolyBase gebruiken om gegevens vanuit Azure Blob Storage te laden naar Azure SQL Data Warehouse
 
-PolyBase is de standaardlaadtechnologie voor het ophalen van gegevens in SQL Data Warehouse. In deze zelfstudie gebruikt u PolyBase om gegevens over taxi‘s in New York vanuit Azure Blob Storage te laden naar Azure SQL Data Warehouse. De zelfstudie gebruikt [Azure Portal](https://portal.azure.com) en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) voor het volgende: 
+PolyBase is de standaardlaadtechnologie voor het ophalen van gegevens in SQL Data Warehouse. In deze zelfstudie gebruikt u PolyBase om gegevens over taxi‘s in New York vanuit Azure Blob Storage te laden naar Azure SQL Data Warehouse. De zelfstudie gebruikt [Azure Portal](https://portal.azure.com) en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) voor het volgende: 
 
 > [!div class="checklist"]
 > * Een datawarehouse maken in Azure Portal
@@ -41,7 +41,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Download en installeer voordat u met deze zelfstudie begint de nieuwste versie van [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.md) (SQL Server Management Studio).
+Download en installeer voordat u met deze zelfstudie begint de nieuwste versie van [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio).
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
@@ -91,7 +91,7 @@ Volg deze stappen om een leeg SQL Data Warehouse te maken.
     ![prestaties configureren](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Klik op **Toepassen**.
-9. Selecteer op de pagina SQL Data Warehouse een **sortering** voor de lege database. Gebruik voor deze zelfstudie de standaardwaarde. Zie [Collations](/sql/t-sql/statements/collations.md) (Sorteringen) voor meer informatie over sorteringen
+9. Selecteer op de pagina SQL Data Warehouse een **sortering** voor de lege database. Gebruik voor deze zelfstudie de standaardwaarde. Zie [Collations](/sql/t-sql/statements/collations) (Sorteringen) voor meer informatie over sorteringen
 
 11. Nu u het SQL Database-formulier hebt ingevuld, klikt u op **Maken** om de database in te richten. De inrichting duurt een paar minuten. 
 
@@ -146,7 +146,7 @@ Haal de volledig gekwalificeerde servernaam van uw SQL-server op uit Azure Porta
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Als serverbeheerder verbinding maken met de server
 
-In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.md) (SQL Server Management Studio) om een verbinding tot stand te brengen met de Azure SQL-server.
+In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio) om een verbinding tot stand te brengen met de Azure SQL-server.
 
 1. Open SQL Server Management Studio.
 
@@ -221,7 +221,7 @@ De eerste stap voor het laden van gegevens bestaat uit aanmelding als LoaderRC20
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Externe tabellen voor de voorbeeldgegevens maken
 
-U bent klaar om te beginnen met het laden van gegevens in uw nieuwe datawarehouse. In deze zelfstudie wordt beschreven hoe u [Polybase](/sql/relational-databases/polybase/polybase-guide.md) gebruikt om gegevens over taxi's in New York te laden uit een Azure Storage-blob. Raadpleeg het [laadoverzicht](sql-data-warehouse-overview-load.md) voor informatie over het overbrengen van gegevens naar Azure-blobopslag of het rechtstreeks vanuit de bron laden van gegevens in SQL Data Warehouse.
+U bent klaar om te beginnen met het laden van gegevens in uw nieuwe datawarehouse. In deze zelfstudie wordt beschreven hoe u [Polybase](/sql/relational-databases/polybase/polybase-guide) gebruikt om gegevens over taxi's in New York te laden uit een Azure Storage-blob. Raadpleeg het [laadoverzicht](sql-data-warehouse-overview-load.md) voor informatie over het overbrengen van gegevens naar Azure-blobopslag of het rechtstreeks vanuit de bron laden van gegevens in SQL Data Warehouse.
 
 Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die u wilt laden. Deze informatie omvat de locatie waar de gegevens zich bevinden, de indeling van de inhoud van de gegevens en de tabeldefinitie voor de gegevens. 
 
@@ -237,7 +237,7 @@ Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die 
     CREATE MASTER KEY;
     ```
 
-4. Voer de volgende instructie [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) uit om de locatie van de Azure-blob te definiëren. Dit is de locatie van de externe taxigegevens.  Als u een opdracht die u hebt toegevoegd aan het queryvenster wilt uitvoeren, markeert u de opdrachten die u wilt uitvoeren en klikt u op **Execute**.
+4. Voer de volgende instructie [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) uit om de locatie van de Azure-blob te definiëren. Dit is de locatie van de externe taxigegevens.  Als u een opdracht die u hebt toegevoegd aan het queryvenster wilt uitvoeren, markeert u de opdrachten die u wilt uitvoeren en klikt u op **Execute**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -248,7 +248,7 @@ Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die 
     );
     ```
 
-5. Voer de volgende T-SQL-instructie [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) uit om opmaakeigenschappen en -opties voor het externe gegevensbestand op te geven. Deze instructie geeft aan dat de externe gegevens zijn opgeslagen als tekst en de waarden worden gescheiden door het pipe-teken ('| '). Het externe bestand wordt gecomprimeerd met Gzip. 
+5. Voer de volgende T-SQL-instructie [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) uit om opmaakeigenschappen en -opties voor het externe gegevensbestand op te geven. Deze instructie geeft aan dat de externe gegevens zijn opgeslagen als tekst en de waarden worden gescheiden door het pipe-teken ('| '). Het externe bestand wordt gecomprimeerd met Gzip. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -273,7 +273,7 @@ Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die 
     );
     ```
 
-6.  Voer de volgende instructie [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) uit om een schema te maken voor de externe bestandsindeling. Het schema biedt een manier om de externe tabellen die u gaat maken te organiseren.
+6.  Voer de volgende instructie [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) uit om een schema te maken voor de externe bestandsindeling. Het schema biedt een manier om de externe tabellen die u gaat maken te organiseren.
 
     ```sql
     CREATE SCHEMA ext;
@@ -456,7 +456,7 @@ In deze sectie worden de externe tabellen gebruikt die u zojuist hebt gedefiniee
 > In deze zelfstudie worden de gegevens rechtstreeks in de definitieve tabel geladen. In een productieomgeving gebruikt u meestal CREATE TABLE AS SELECT om naar een faseringstabel te laden. U kunt alle benodigde transformaties uitvoeren wanneer de gegevens zich in de faseringstabel bevinden. Als u de gegevens in de faseringstabel wilt toevoegen aan een productietabel, kunt u de instructie INSERT... SELECT gebruiken. Zie [Gegevens in een productietabel invoegen](guidance-for-loading-data.md#inserting-data-into-a-production-table) voor meer informatie.
 > 
 
-Het script gebruikt de T-SQL-instructie [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) om de gegevens uit Azure Storage Blob naar de nieuwe tabellen in het datawarehouse te laden. CTAS maakt een nieuwe tabel op basis van de resultaten van een SELECT-instructie. De nieuwe tabel heeft dezelfde gegevenstypen en kolommen als de resultaten van de selecteerinstructie. Wanneer de SELECT-instructie uit een externe tabel selecteert, importeert SQL Data Warehouse de gegevens in een relationele tabel in het datawarehouse. 
+Het script gebruikt de T-SQL-instructie [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) om de gegevens uit Azure Storage Blob naar de nieuwe tabellen in het datawarehouse te laden. CTAS maakt een nieuwe tabel op basis van de resultaten van een SELECT-instructie. De nieuwe tabel heeft dezelfde gegevenstypen en kolommen als de resultaten van de selecteerinstructie. Wanneer de SELECT-instructie uit een externe tabel selecteert, importeert SQL Data Warehouse de gegevens in een relationele tabel in het datawarehouse. 
 
 1. Voer het volgende script uit om de gegevens in de nieuwe tabellen in uw datawarehouse te laden.
 

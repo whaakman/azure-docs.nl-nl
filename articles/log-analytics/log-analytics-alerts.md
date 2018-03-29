@@ -2,7 +2,7 @@
 title: Understanding alerts in Azure Log Analytics | Microsoft Docs
 description: Waarschuwingen in logboekanalyse kunnen belangrijke informatie in de OMS-opslagplaats te identificeren en proactief zullen u informeren over problemen of acties uit om te proberen op te lossen ze aanroepen.  In dit artikel beschrijft de verschillende soorten waarschuwingsregels en hoe ze worden gedefinieerd.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: ece2e7eeb53aebbb18bce4bb34e03307b0aea74c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Informatie over waarschuwingen in Log Analytics
 
-Waarschuwingen in logboekanalyse identificeren belangrijke informatie in de opslagplaats Log Analytics.  In dit artikel worden enkele van de ontwerpbeslissingen die moeten worden gemaakt op basis van de frequentie van de verzameling van de gegevens van de query, willekeurige vertragingen bij gegevensopname mogelijk veroorzaakt door een netwerklatentie of verwerkingscapaciteit en het doorvoeren van de gegevens in het logboek wordt beschreven Analytics-opslagplaats.  Ook vindt u informatie over hoe waarschuwingsregels in logboekanalyse werk en worden de verschillen tussen verschillende soorten waarschuwingsregels beschreven.
+Waarschuwingen in Log Analytics geven belangrijke informatie in uw Log Analytics-opslagplaats aan.  In dit artikel worden enkele van de ontwerpbeslissingen die moeten worden gemaakt op basis van de frequentie van de verzameling van de gegevens van de query, willekeurige vertragingen bij gegevensopname mogelijk veroorzaakt door een netwerklatentie of verwerkingscapaciteit en het doorvoeren van de gegevens in het logboek wordt beschreven Analytics-opslagplaats.  Ook vindt u informatie over hoe waarschuwingsregels in logboekanalyse werk en worden de verschillen tussen verschillende soorten waarschuwingsregels beschreven.
 
 Voor het proces van het maken van regels voor waarschuwingen, Zie de volgende artikelen:
 
@@ -41,7 +41,7 @@ Details over de frequentie van de verzameling gegevens voor verschillende oploss
 
 ## <a name="alert-rules"></a>Waarschuwingsregels
 
-Waarschuwingen worden gemaakt door regels voor waarschuwingen die automatisch logboek zoekopdrachten met regelmatige tussenpozen worden uitgevoerd.  Een waarschuwing record wordt gemaakt als de resultaten van de zoekopdracht logboek aan bepaalde criteria voldoen.  De regel kan een of meer acties voor het proactief zullen u informeren over de waarschuwing of een ander proces aanroepen vervolgens automatisch uitgevoerd.  Verschillende soorten waarschuwingsregels gebruiken verschillende logica voor deze analyses.
+Waarschuwingen worden gemaakt door waarschuwingsregels die automatisch met regelmatige tussenpozen zoekopdrachten in logboeken uitvoeren.  Een waarschuwing record wordt gemaakt als de resultaten van de zoekopdracht logboek aan bepaalde criteria voldoen.  De regel kan vervolgens automatisch een of meer acties uitvoeren om u proactief te informeren over de waarschuwing of een ander proces aanroepen.  Verschillende soorten waarschuwingsregels gebruiken verschillende logica voor deze analyses.
 
 ![Waarschuwingen in Log Analytics](media/log-analytics-alerts/overview.png)
 
@@ -52,7 +52,7 @@ Er is een compromis tussen de betrouwbaarheid van waarschuwingen en de reactiesn
 Waarschuwingsregels worden gedefinieerd door de volgende details:
 
 - **Logboek zoeken**.  De query die wordt uitgevoerd telkens als de waarschuwingsregel wordt geactiveerd.  De records geretourneerd door deze query wordt gebruikt om te bepalen of een waarschuwing wordt gemaakt.
-- **Tijdvenster**.  Hiermee geeft u het tijdsbereik voor de query.  De query retourneert alleen de records die zijn gemaakt binnen dit bereik van de huidige tijd.  Dit kan een waarde tussen 5 minuten en 24 uur zijn. Het bereik moet breed genoeg voor redelijke vertragingen in de opname. Het tijdvenster moet twee keer de lengte van de langste vertraging die u wilt verwerken.<br> Bijvoorbeeld als u waarschuwingen voor 30 minuten vertragingen betrouwbaar wilt, moet klikt u vervolgens het bereik één uur.  
+- **Tijdvenster**.  Hiermee geeft u het tijdsbereik voor de query.  De query retourneert alleen de records die zijn gemaakt binnen dit tijdsbereik.  Dit kan een waarde tussen 5 minuten en 24 uur zijn. Het bereik moet breed genoeg voor redelijke vertragingen in de opname. Het tijdvenster moet twee keer de lengte van de langste vertraging die u wilt verwerken.<br> Bijvoorbeeld als u waarschuwingen voor 30 minuten vertragingen betrouwbaar wilt, moet klikt u vervolgens het bereik één uur.  
 
     Er zijn twee symptomen die kan treedt op als het tijdsbereik te klein is.
 
@@ -102,12 +102,12 @@ Als u wilt een waarschuwing geven wanneer de processor wordt uitgevoerd bijvoorb
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-Als u een waarschuwing geven wilt wanneer de processor gemiddeld meer dan 90% voor een bepaalde periode, gebruikt u een query met de [opdracht meten](log-analytics-search-reference.md#commands) als volgt met de drempelwaarde voor de waarschuwingsregel **groter dan 0**.
+Als u een waarschuwing geven wilt wanneer de processor gemiddeld meer dan 90% voor een bepaalde periode, gebruikt u een query met de `measure` opdracht als volgt met de drempelwaarde voor de waarschuwingsregel **groter dan 0**.
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 >[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query's in het volgende wijzigen wilt:`Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> Als uw werkruimte is bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query's in het volgende wijzigen wilt: `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
 > `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
@@ -119,7 +119,7 @@ Als u een waarschuwing geven wilt wanneer de processor gemiddeld meer dan 90% vo
 **Metrische meting** waarschuwingsregels maakt een waarschuwing voor elk object in een query met een waarde die een opgegeven drempelwaarde overschrijdt.  Ze hebben de volgende duidelijke verschillen van **aantal resultaten** waarschuwing regels.
 
 #### <a name="log-search"></a>Zoekopdrachten in logboeken
-Tijdens het gebruik van een query voor een **aantal resultaten** waarschuwing sluiten, zijn er specifieke vereisten de query voor een waarschuwingsregel metrische meting.  Het omvat een [opdracht meten](log-analytics-search-reference.md#commands) voor het groeperen van de resultaten op een bepaald veld. Met deze opdracht moet de volgende elementen bevatten.
+Tijdens het gebruik van een query voor een **aantal resultaten** waarschuwing sluiten, zijn er specifieke vereisten de query voor een waarschuwingsregel metrische meting.  Het omvat een `measure` opdracht voor het groeperen van de resultaten op een bepaald veld. Met deze opdracht moet de volgende elementen bevatten.
 
 - **Statistische functie**.  Bepaalt de berekening die wordt uitgevoerd en mogelijk een numeriek veld kunnen worden geaggregeerd.  Bijvoorbeeld: **count()** retourneert het aantal records in de query **avg(CounterValue)** wordt het gemiddelde van het veld tegenwaarde retourneren over het interval.
 - **Veld groeperen**.  Een record met een cumulatieve waarde voor elk exemplaar van dit veld wordt gemaakt en een waarschuwing worden gegenereerd voor elk.  Bijvoorbeeld, als u wilt dat er waarschuwingen gegenereerd voor elke computer, gebruikt u **door Computer**.   

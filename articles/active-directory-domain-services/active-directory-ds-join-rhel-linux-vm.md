@@ -2,7 +2,7 @@
 title: 'Azure Active Directory Domain Services: Een RHEL VM toevoegen aan een beheerd domein | Microsoft Docs'
 description: Red Hat Enterprise Linux virtuele machine toevoegen aan Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: 9046bdb5bd8ff21429c951cbe7120334bd000621
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b278f5c4c8c87590205aca13a50a82fe8712d909
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Een virtuele Red Hat Enterprise Linux 7-machine toevoegen aan een beheerd domein
 In dit artikel laat zien hoe een virtuele machine met Red Hat Enterprise Linux (RHEL) 7 toevoegen aan een beheerd domein van Azure AD Domain Services.
@@ -133,7 +133,7 @@ Controleer of de machine is toegevoegd aan het beheerde domein. Verbinding maken
 
 
 ## <a name="troubleshooting-domain-join"></a>Het oplossen van problemen aan domein toevoegen
-Raadpleeg de [probleemoplossing domein](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) artikel.
+Raadpleeg de [probleemoplossing domein](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) artikel.
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 * [Azure AD Domain Services - handleiding aan de slag](active-directory-ds-getting-started.md)

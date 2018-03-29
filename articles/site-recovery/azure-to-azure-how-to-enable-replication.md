@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 39d81ed6408e5f2c434a4fbaa681efc4c0b19a63
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e5947242295a9c57b1c73e202c061d222cd0842f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Azure virtuele machines repliceren naar een andere Azure-regio
 
@@ -50,7 +50,8 @@ Replicatie inschakelen. Deze procedure wordt ervan uitgegaan dat de primaire Azu
     - **Doellocatie**: de locatie waar de brongegevens van de virtuele machine wordt gerepliceerd. Afhankelijk van uw locatie voor geselecteerde machines, biedt Site Recovery u de lijst met doelregio geschikt is. We adviseren dat u de doellocatie hetzelfde als de locatie van de Recovery Services-kluis.
     - **Doelresourcegroep**: de resourcegroep waarin alle uw gerepliceerde virtuele machines behoren. Azure Site Recovery maakt standaard een nieuwe resourcegroep in de doelregio met naam 'asr' achtervoegsel heeft. Als resourcegroep gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt. U kunt ook aanpassen zoals weergegeven in de onderstaande sectie.
     - **Virtueel netwerk als doel**: Site Recovery maakt standaard een nieuw virtueel netwerk in de doelregio met naam 'asr' achtervoegsel heeft. Dit is toegewezen aan de bron-netwerk en voor eventuele toekomstige beveiliging gebruikt. [Meer informatie](site-recovery-network-mapping-azure-to-azure.md) over netwerktoewijzing.
-    - **Storage-accounts zijn gericht**: Site Recovery maakt standaard een nieuw doelopslagaccount mimicking de opslagconfiguratie van de bron-VM. Als storage-account al bestaat, wordt dit opnieuw gebruikt.
+    - **Storage-accounts als doel (als de bron-VM maakt geen gebruik van schijven die worden beheerd)**: Site Recovery maakt standaard een nieuw doelopslagaccount mimicking de opslagconfiguratie van de bron-VM. Als storage-account al bestaat, wordt dit opnieuw gebruikt.
+    - **Replica beheerde schijven (als de bron-VM beheerde schijven gebruikt)**: maakt Site Recovery nieuwe replica beheerd schijven in de doelregio voor het spiegelen van de bron-VM beheerde schijven met hetzelfde opslagtype (Standard of premium) als de bron-VM van schijf beheerd.
     - **Storage-accounts in de cache**: Site Recovery moet extra opslagruimte account met de naam van cache-opslag in de regio van de bron. Alle wijzigingen die plaatsvinden op de bron-VM's worden bijgehouden en verzonden naar de cache storage-account voordat deze naar de doellocatie te repliceren.
     - **Beschikbaarheidsset**: Azure Site Recovery maakt standaard een nieuwe beschikbaarheidsset voor de doelregio met naam 'asr' achtervoegsel heeft. Als beschikbaarheidsset gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt.
     - **Beleid voor wachtwoordreplicatie**: definieert de instellingen voor herstelpunt bewaren geschiedenis en app consistent de frequentie van momentopnamen. Azure Site Recovery maakt standaard een nieuw replicatiebeleid voor met de standaardinstellingen van 24 uur voor herstel bewaarperiode en "60 minuten voor de frequentie van app-consistente momentopname te maken.

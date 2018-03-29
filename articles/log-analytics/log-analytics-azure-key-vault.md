@@ -2,10 +2,10 @@
 title: Azure Sleutelkluis-oplossing in Log Analytics | Microsoft Docs
 description: U kunt de oplossing voor Azure Sleutelkluis in logboekanalyse Azure Sleutelkluis-Logboeken.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Azure Key Vault Analytics-oplossing in Log Analytics
 
@@ -118,8 +118,8 @@ De Azure Sleutelkluis-oplossing analyseert records die een soort **KeyVaults** d
 | Resource |Naam van de sleutelkluis |
 | ResourceGroup |Resourcegroep van de sleutelkluis |
 | ResourceId |Azure Resource Manager-resource-id. Voor Sleutelkluis-Logboeken is dit de Sleutelkluis-bron-ID. |
-| ResourceProvider |*MICROSOFT CORPORATION. KEYVAULT* |
-| ResourceType | *KLUIZEN* |
+| ResourceProvider |*MICROSOFT.KEYVAULT* |
+| ResourceType | *VAULTS* |
 | ResultSignature |HTTP-status (bijvoorbeeld *OK*) |
 | ResultType |Resultaat van de REST-API-aanvraag (bijvoorbeeld *geslaagd*) |
 | SubscriptionId |Azure-abonnement-ID van het abonnement met de Sleutelkluis |
@@ -137,13 +137,13 @@ De bijgewerkte oplossing gebruiken:
 2. De oplossing Azure Key Vault inschakelen met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md)
 3. Bijwerken van een opgeslagen query's, dashboards of waarschuwingen te gebruiken van het nieuwe gegevenstype
   + Type is gewijzigd van: KeyVaults naar AzureDiagnostics. Het ResourceType kunt u filteren op Sleutelkluis Logboeken.
-  - In plaats van: `Type=KeyVaults`, gebruiken`Type=AzureDiagnostics ResourceType=VAULTS`
+  - In plaats van: `KeyVaults`, gebruiken `AzureDiagnostics | where ResourceType'=="VAULTS"`
   + Velden: (veldnamen zijn hoofdlettergevoelig)
   - Voor elk veld dat een achtervoegsel van \_s, \_d, of \_g in de naam wijzigen van het eerste teken in kleine letters
-  - Voor elk veld dat een achtervoegsel van \_o in naam van de gegevens is opgesplitst in afzonderlijke velden op basis van de geneste veldnamen. Bijvoorbeeld, wordt de UPN van de aanroepfunctie opgeslagen in een veld`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+  - Voor elk veld dat een achtervoegsel van \_o in naam van de gegevens is opgesplitst in afzonderlijke velden op basis van de geneste veldnamen. Bijvoorbeeld, wordt de UPN van de aanroepfunctie opgeslagen in een veld `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    - Veld CallerIpAddress gewijzigd in CallerIPAddress
    - Veld RemoteIPCountry is niet meer aanwezig
-4. Verwijder de *Sleutelkluis Analytics (afgeschaft)* oplossing. Als u met behulp van PowerShell, gebruikt u`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
+4. Verwijder de *Sleutelkluis Analytics (afgeschaft)* oplossing. Als u met behulp van PowerShell, gebruikt u `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Gegevens verzameld voordat de wijziging niet zichtbaar in de nieuwe oplossing is. U kunt blijven opvragen voor deze gegevens met behulp van de oude Type en de veldnamen.
 

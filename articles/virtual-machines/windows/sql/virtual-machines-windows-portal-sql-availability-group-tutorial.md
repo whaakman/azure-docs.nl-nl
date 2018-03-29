@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configureren AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -356,7 +356,7 @@ Op virtuele machines in Azure vereist een SQL Server-beschikbaarheidsgroep een l
    | **Virtueel netwerk** |Gebruik de naam van de virtuele Azure-netwerk. |
    | **Subnet** |De naam van het subnet dat de virtuele machine is in gebruik.  |
    | **IP-adrestoewijzing** |Statisch |
-   | **IP-adres** |Gebruik een beschikbaar adres van subnet. |
+   | **IP-adres** |Gebruik een beschikbaar adres van subnet. Houd er rekening mee dat dit van het IP-adres van uw cluster verschilt |
    | **Abonnement** |Gebruik hetzelfde abonnement als de virtuele machine. |
    | **Locatie** |Gebruik dezelfde locatie als de virtuele machine. |
 

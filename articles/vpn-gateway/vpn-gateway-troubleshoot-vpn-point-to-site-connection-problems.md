@@ -5,8 +5,8 @@ services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 51076c225167accaf386190eeda4ec159cb5657d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Voor probleemoplossing: Problemen met de Azure-punt-naar-site-verbinding
 
@@ -289,7 +289,7 @@ Punt-naar-site VPN-client gebruikt Azure DNS-servers die zijn geconfigureerd in 
 
 ### <a name="solution"></a>Oplossing
 
-Om ervoor te zorgen dat de Azure DNS-servers die op de virtuele Azure-netwerk gebruikt op te lossen het probleem kunt oplossen door de DNS-records voor lokale bronnen. Om dit te doen, kunt u DNS-doorstuurservers of voorwaardelijke doorstuurservers. Zie voor meer informatie [naamomzetting met uw eigen DNS-server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+Om ervoor te zorgen dat de Azure DNS-servers die op de virtuele Azure-netwerk gebruikt op te lossen het probleem kunt oplossen door de DNS-records voor lokale bronnen. Om dit te doen, kunt u DNS-doorstuurservers of voorwaardelijke doorstuurservers. Zie voor meer informatie [naamomzetting met uw eigen DNS-server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 
 ## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>De punt-naar-site VPN-verbinding tot stand is gebracht, maar u nog steeds geen verbinding met Azure-resources 
 
@@ -304,7 +304,7 @@ Dit probleem oplossen [opnieuw instellen van Azure VPN-gateway](vpn-gateway-rese
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Fout: 'de functie intrekken kon geen intrekkingscontrole omdat de intrekkingsserver offline was. (Fout 0x80092013)"
 
 ### <a name="causes"></a>Oorzaken
-Deze fout treedt op als de client geen toegang http://crl3.digicert.com/ssca-sha2-g1.crl en http://crl4.digicert.com/ssca-sha2-g1.cr tot.  De controle van certificaatintrekking vereist toegang tot deze twee sites.  Dit probleem treedt meestal op de client met de proxyserver is geconfigureerd. In sommige omgevingen als de aanvragen niet via de proxyserver gaat wordt deze geweigerd op de randfirewall.
+Deze fout treedt op als de client geen toegang tot http://crl3.digicert.com/ssca-sha2-g1.crl en http://crl4.digicert.com/ssca-sha2-g1.cr.  De controle van certificaatintrekking vereist toegang tot deze twee sites.  Dit probleem treedt meestal op de client met de proxyserver is geconfigureerd. In sommige omgevingen als de aanvragen niet via de proxyserver gaat wordt deze geweigerd op de randfirewall.
 
 ### <a name="solution"></a>Oplossing
 

@@ -5,7 +5,7 @@ services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: c23b87cca66df0834a31494be7d8657ff9f2a865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98a1016f78587b4139041f140634b98fa47edfd1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Azure Blob Storage-resources beheren met Opslagverkenner (Preview)
 ## <a name="overview"></a>Overzicht
@@ -41,7 +41,7 @@ De volgende stappen laten zien hoe u van een blobcontainer in Opslagverkenner (P
 3. Met de rechtermuisknop op **Blob-Containers**, en selecteer in het contextmenu - **Blob-Container maken**.
 
    ![Contextmenu van blob-containers maken][0]
-4. Een tekstvak wordt weergegeven onder de **Blob-Containers** map. Voer de naam voor uw blob-container. Zie de [Container naamgevingsregels](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container) sectie voor een lijst van regels en beperkingen voor de naamgeving van blob-containers.
+4. Een tekstvak wordt weergegeven onder de **Blob-Containers** map. Voer een naam in voor de blobcontainer. Zie de [de container maken en machtigingen instellen](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) voor informatie over regels en beperkingen voor de naamgeving van blob-containers.
 
    ![Tekstvak voor Blob-Containers maken][1]
 5. Druk op **Enter** wanneer u klaar bent voor het maken van de blob-container of **Esc** te annuleren. Zodra de blob-container is gemaakt, die wordt weergegeven onder de **Blob-Containers** map voor het geselecteerde opslagaccount.
@@ -170,11 +170,11 @@ De volgende stappen uit te laten zien hoe de BLOB's (en mappen) beheren binnen e
 
      1. Selecteer **Uploaden** op de werkbalk van het hoofdvenster en selecteer vervolgens **Bestanden uploaden** in de vervolgkeuzelijst.
 
-        ![Menu bestanden uploaden][15]
+        ![Menu voor Bestanden uploaden][15]
      2. Selecteer in het dialoogvenster **Bestanden uploaden** de knop met de weglatingstekens (**...** ) rechts van het tekstvak **Bestanden** om de bestanden te selecteren die u wilt uploaden.
 
         ![Opties voor bestanden uploaden][16]
-     3. Geef het type **Blob-type**. Het artikel [aan de slag met Azure Blob storage met .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) worden de verschillen tussen de verschillende typen van de blob.
+     3. Geef het type **Blob-type**. Zie [de container maken en machtigingen instellen](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) voor meer informatie.
      4. Geef desgewenst een pad van de map waarin de geselecteerde bestanden worden geüpload. Als de doelmap niet bestaat, wordt deze gemaakt.
      5. Selecteer **Uploaden**.
    * **Uploaden van een map naar een blob-container**
@@ -185,7 +185,7 @@ De volgende stappen uit te laten zien hoe de BLOB's (en mappen) beheren binnen e
      2. Selecteer in het dialoogvenster **Map uploaden** de knop met de weglatingstekens (**...** ) rechts van het tekstvak **Map** om de map te selecteren waarvan u de inhoud wilt uploaden.
 
         ![Mapopties uploaden][18]
-     3. Geef het type **Blob-type**. Het artikel [aan de slag met Azure Blob storage met .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) worden de verschillen tussen de verschillende typen van de blob.
+     3. Geef het type **Blob-type**. Zie [de container maken en machtigingen instellen](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) voor meer informatie.
      4. Geef desgewenst een doelmap op waarin de inhoud van de geselecteerde map moet worden geüpload. Als de doelmap niet bestaat, wordt deze gemaakt.
      5. Selecteer **Uploaden**.
    * **Een blob naar de lokale computer downloaden**

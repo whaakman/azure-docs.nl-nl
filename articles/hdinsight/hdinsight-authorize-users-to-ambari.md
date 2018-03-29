@@ -2,12 +2,12 @@
 title: Gebruikers machtigen voor Ambari-weergaven - Azure HDInsight | Microsoft Docs
 description: Het Ambari-gebruikers en groepen machtigingen voor domein-HDInsight-clusters beheren.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: f4dfb51cf344d1ec51363ef3a9f74c1ca59119a6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Gebruikers machtigen voor Ambari-weergaven
 
@@ -35,7 +35,7 @@ Als u dit nog niet hebt gedaan, volgt u [deze instructies](./domain-joined/apach
 
 ## <a name="access-the-ambari-management-page"></a>Toegang tot de Ambari-management-pagina
 
-Om te krijgen tot de **Ambari management-pagina** op de [Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md), blader naar  **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Voer de gebruikersnaam voor de beheerder cluster en het wachtwoord die u hebt gedefinieerd bij het maken van het cluster. Selecteer vervolgens in het dashboard Ambari **beheren Ambari** onder de **admin** menu:
+Om te krijgen tot de **Ambari management-pagina** op de [Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md), blader naar **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Voer de gebruikersnaam voor de beheerder cluster en het wachtwoord die u hebt gedefinieerd bij het maken van het cluster. Selecteer vervolgens in het dashboard Ambari **beheren Ambari** onder de **admin** menu:
 
 ![Ambari beheren](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
@@ -122,7 +122,7 @@ De lijstweergave biedt mogelijkheden voor het bewerken van snelle in twee catego
 
     ![Rollen lijstweergave - gebruikers](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* De categorie groepen van de lijstweergave wordt weergegeven voor alle groepen en de rol die is toegewezen aan elke groep. In ons voorbeeld wordt de lijst met groepen worden gesynchroniseerd vanuit de Azure AD-groepen die is opgegeven in de **toegang gebruikersgroep** eigenschap van het cluster domeininstellingen. Zie [maken HDInsight-cluster](./domain-joined/apache-domain-joined-configure.md#create-an-hdinsight-cluster-in-the-vnet).
+* De categorie groepen van de lijstweergave wordt weergegeven voor alle groepen en de rol die is toegewezen aan elke groep. In ons voorbeeld wordt de lijst met groepen worden gesynchroniseerd vanuit de Azure AD-groepen die is opgegeven in de **toegang gebruikersgroep** eigenschap van het cluster domeininstellingen. Zie [maken van een domein HDInsight-cluster](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
 
     ![Rollen lijstweergave - groepen](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

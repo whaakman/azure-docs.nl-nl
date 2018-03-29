@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5245e53429278f2a346077cdb70426aaca339488
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 92445ffa7954d42ec1a864264fbfc7555986ad58
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Zelfstudie: een Java-toepassing implementeren in een Service Fabric-cluster in Azure
 Deze zelfstudie is deel drie van een reeks en laat zien hoe u een Service Fabric-toepassing implementeert in een cluster in Azure.
@@ -106,7 +106,7 @@ In de volgende stappen maakt u de benodigde resources die vereist zijn voor het 
 8. Kopieer de URL van de account-SAS en bewaar deze voor gebruik bij het maken van uw Service Fabric-cluster. Deze lijkt op de volgende URL:
 
     ```
-    https://teststorageaccount.table.core.windows.net/?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
+    ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Maak een resourcegroep die de Event Hub-resources bevat. Event Hubs wordt gebruikt om berichten te verzenden vanuit Service Fabric voor de server waarop de ELK-resources worden uitgevoerd.
@@ -163,10 +163,10 @@ In de volgende stappen maakt u de benodigde resources die vereist zijn voor het 
     Kopieer de waarde van het veld **sr** in de JSON die is geretourneerd. De veldwaarde **sr** is de SAS-token voor EventHubs. De volgende URL is een voorbeeld van het veld **sr**:
 
     ```bash
-    https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=<policy_name>
+    https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    De SAS-URL voor Event Hubs volgt de structuur: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Bijvoorbeeld: https://testeventhubs.servicebus.windows.net/testeventhubs?sr=https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    De SAS-URL voor Event Hubs volgt de structuur: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Bijvoorbeeld: https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
 12. Open het bestand *sfdeploy.parameters.json* en vervang de volgende inhoud uit de voorgaande stappen 
 

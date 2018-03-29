@@ -1,11 +1,11 @@
 ---
-title: "Incrementeel gegevens kopiëren met behulp van bijhouden van wijzigingen en Azure Data Factory | Microsoft Docs"
+title: Incrementeel gegevens kopiëren met behulp van bijhouden van wijzigingen en Azure Data Factory | Microsoft Docs
 description: 'In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee wijzigingsgegevens incrementeel uit meerdere tabellen van een lokale Microsoft SQL Server worden gekopieerd naar een Azure SQL-database. '
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 69a2967be1709c3b3e3bd9fa5854482ecc5e3aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d8299778ce5b713f4275a28c7f174a300197a6a2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Incrementeel gegevens kopiëren van Azure SQL Database naar Azure Blob Storage met behulp van technologie voor bijhouden van wijzigingen 
 In deze zelfstudie maakt u een Azure data factory met een pijplijn die gewijzigde gegevens laadt op basis van informatie over **wijzigingen** in de Azure SQL- brondatabase naar een Azure blob storage.  
@@ -235,7 +235,7 @@ Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
 ### <a name="create-azure-sql-database-linked-service"></a>Maak een gekoppelde Azure SQL Database-service.
 In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory.
 
-1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** map met de volgende inhoud: Vervang  **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; en &lt;password&gt;**  met de naam van uw Azure SQL-server, de databasenaam, gebruiker-ID en wachtwoord voordat u het bestand opslaat. 
+1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** map met de volgende inhoud: Vervang **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; en &lt;password&gt;** met de naam van uw Azure SQL-server, de databasenaam, gebruiker-ID en wachtwoord voordat u het bestand opslaat. 
 
     ```json
     {

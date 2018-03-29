@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/18/2017
+ms.date: 03/26/2018
 ms.author: ryanwi
-ms.openlocfilehash: dc7e536ce40bf95e1950e1e44844cd8fe26ea1a1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: bd57b6344baef3bdf97c850564ae2d3afa9c811e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-terminology-overview"></a>Overzicht van service Fabric-terminologie
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices. In dit artikel wordt de terminologie die wordt gebruikt door de Service Fabric om te begrijpen van de termen die worden gebruikt in de documentatie.
@@ -26,9 +26,9 @@ Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkel
 De concepten die worden vermeld in deze sectie worden ook beschreven in de volgende video's van Microsoft Virtual Academy: <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">concepten Core</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">ontwerptijd concepten</a>, en <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">Runtime concepten</a>.
 
 ## <a name="infrastructure-concepts"></a>Concepten van de infrastructuur
-**Cluster**: een set netwerk verbonden virtuele of fysieke machines waarin uw microservices worden geïmplementeerd en beheerd.  Clusters kunnen worden geschaald naar duizenden computers.
+**Cluster**: een set netwerk verbonden virtuele of fysieke machines waarin uw microservices worden geïmplementeerd en beheerd.  Clusters kunnen naar duizenden machines worden geschaald.
 
-**Knooppunt**: een machine of virtuele machine die deel uitmaakt van een cluster heet een *knooppunt*. Elk knooppunt wordt de knooppuntnaam van een (een tekenreeks) toegewezen. Knooppunten hebben kenmerken, zoals plaatsingseigenschappen. Elke computer of virtuele machine heeft een Windows-service van het automatisch starten, `FabricHost.exe`, die wordt gestart bij het opstarten en start vervolgens twee uitvoerbare bestanden: `Fabric.exe` en `FabricGateway.exe`. Deze twee uitvoerbare bestanden, vormen het knooppunt. Voor het testen van scenario's, kunt u meerdere knooppunten op een enkele computer of virtuele machine host door het uitvoeren van meerdere exemplaren van `Fabric.exe` en `FabricGateway.exe`.
+**Knooppunt**: een machine of virtuele machine die deel uitmaakt van een cluster heet een *knooppunt*. Aan elk knooppunt wordt een knooppuntnaam toegewezen (een tekenreeks). Knooppunten hebben kenmerken, zoals plaatsingseigenschappen. Elke computer of virtuele machine heeft een Windows-service van het automatisch starten, `FabricHost.exe`, die wordt gestart bij het opstarten en start vervolgens twee uitvoerbare bestanden: `Fabric.exe` en `FabricGateway.exe`. Deze twee uitvoerbare bestanden, vormen het knooppunt. Voor het testen van scenario's, kunt u meerdere knooppunten op een enkele computer of virtuele machine host door het uitvoeren van meerdere exemplaren van `Fabric.exe` en `FabricGateway.exe`.
 
 ## <a name="application-concepts"></a>Concepten van toepassing
 **Toepassingstype**: de naam of de versie die is toegewezen aan een verzameling van servicetypen. Dit is gedefinieerd in een `ApplicationManifest.xml` bestands- en ingesloten in een pakket toepassingsmap. De map wordt vervolgens gekopieerd naar het archief van de installatiekopie van het Service Fabric-cluster. Vervolgens kunt u een toepassing met de naam van dit toepassingstype binnen het cluster maken.
@@ -89,12 +89,22 @@ Lees de [implementeren van een toepassing](service-fabric-deploy-remove-applicat
    - Toepassings- en cluster upgrades ingedeeld.
    - Communiceert met andere onderdelen van het systeem.
 
+**Herstellen van service Manager**: dit is een optionele systeemservice waarmee reparatie acties worden uitgevoerd op een cluster in een manier is veilige automatable en transparante. Herstel manager wordt gebruikt in:
+   - Uitvoeren van onderhoud Azure herstelt op [Silver en Gold duurzaamheid](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Azure Service Fabric-clusters.
+   - Uitvoering van acties voor herstellen voor [Patch Orchestration toepassing](service-fabric-patch-orchestration-application.md)
+
 ## <a name="built-in-programming-models"></a>Ingebouwde programmeermodellen
-.NET Framework-programmeermodellen zijn beschikbaar voor u het Service Fabric-services bouwen:
+.NET Framework en Java programmeermodellen zijn beschikbaar voor u het Service Fabric-services bouwen:
 
 **Reliable Services**: een API staatloze en stateful services bouwen. Stateful services voor het opslaan van hun status in betrouwbare verzamelingen, zoals een woordenboek of een wachtrij. U kunt ook verschillende communicatie-stacks, zoals Web-API en Windows Communication Foundation (WCF) aansluiten.
 
 **Reliable Actors**: een API voor het bouwen van staatloze en stateful-objecten via het virtuele Actor-programmeermodel. Dit model is nuttig wanneer er veel onafhankelijke eenheden van de berekening of status. Dit model maakt gebruik van een Schakel gebaseerde threadmodel, is het verstandig om te voorkomen dat code die naar andere actoren of services illustreert omdat andere binnenkomende aanvragen door een afzonderlijke actor kan niet worden verwerkt totdat alle uitgaande aanvragen zijn voltooid.
+
+U kunt ook uw bestaande toepassingen uitvoeren in de Service-infrastructuur:
+
+**Containers**: Service Fabric ondersteunt de implementatie van Docker-containers voor Linux en Windows Server-containers op Windows Server 2016, evenals ondersteuning voor Hyper-V-isolatiemodus. In de Service Fabric [toepassingsmodel](service-fabric-application-model.md), een container vertegenwoordigt een toepassingshost welke service meerdere replica's worden geplaatst. Service Fabric geen containers kunt uitvoeren en het scenario is vergelijkbaar met het gastbesturingssysteem uitvoerbare scenario, waarin u een bestaande toepassing binnen een container van het pakket. Bovendien kunt u [Service Fabric-services in containers uitvoeren](service-fabric-services-inside-containers.md) ook.
+
+**Uitvoerbare bestanden Gast**: U kunt verschillende typen code, zoals Node.js, Java of C++ uitvoeren in Azure Service Fabric als een service. Service Fabric verwijst naar deze soorten services als gast uitvoerbare bestanden, die worden behandeld als stateless services. De voordelen voor het uitvoeren van een uitvoerbaar bestand in een Service Fabric-cluster Gast zijn hoge beschikbaarheid, statuscontrole, de levenscyclus van Toepassingsbeheer, high-density en detectie.
 
 Lees de [kiezen een programmeermodel voor uw service](service-fabric-choose-framework.md) artikel voor meer informatie.
 

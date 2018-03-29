@@ -2,7 +2,7 @@
 title: Hive-beleid configureren in het domein HDInsight - Azure | Microsoft Docs
 description: Meer informatie...
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: saurinsh
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 919a0a45c4c8c94b19ed1d602ed20df0afabd09a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Op domein HDInsight Hive-beleid configureren
 Hier leert u hoe u Apache Ranger-beleidsregels voor Hive configureert. In dit artikel maakt u twee Ranger-beleidsregels om toegang tot de hivesampletable te beperken. De hivesampletable wordt geleverd met HDInsight-clusters. Nadat u de beleidsregels hebt geconfigureerd, gebruikt u Excel en het ODBC-stuurprogramma om verbinding te maken met Hive-tabellen in HDInsight.
@@ -45,10 +45,10 @@ Hier leert u hoe u Apache Ranger-beleidsregels voor Hive configureert. In dit ar
     Op dit moment werkt Ranger alleen met Yarn en Hive.
 
 ## <a name="create-domain-users"></a>Domeingebruikers maken
-In [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Aan een domein gekoppelde HDInsight-clusters configureren) hebt u hiveruser1 en hiveuser2 gemaakt. U kunt de twee gebruikersaccount gebruiken in deze zelfstudie.
+Zie [maken van een domein HDInsight-cluster](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster), voor informatie over het maken van hiveruser1 en hiveuser2. U kunt de twee gebruikersaccounts gebruiken in deze zelfstudie.
 
 ## <a name="create-ranger-policies"></a>Ranger-beleidsregels maken
-In deze sectie maakt u twee Zwerver beleidsregels voor toegang tot hivesampletable. U geeft de machtiging SELECT op voor verschillende sets kolommen. Beide gebruikers zijn gemaakt in [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Aan een domein gekoppelde HDInsight-clusters configureren).  In de volgende sectie test u de twee beleidsregels in Excel.
+In deze sectie maakt u twee Zwerver beleidsregels voor toegang tot hivesampletable. U geeft de machtiging SELECT op voor verschillende sets kolommen. Beide gebruikers zijn gemaakt met [maken van een domein HDInsight-cluster](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). In de volgende sectie test u de twee beleidsregels in Excel.
 
 **Ranger-beleidsregels maken**
 

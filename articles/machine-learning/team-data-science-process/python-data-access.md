@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: huvalo;bradsev
-ms.openlocfilehash: 3cffb90baadef570bbb7e4e2d96741cc0420b0a2
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5f0823e07f0e583e32829b664a1d3d463092169e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Toegang tot gegevenssets met Python met behulp van de clientbibliotheek van Azure Machine Learning Python
 De evaluatieversie van Microsoft Azure Machine Learning Python-clientbibliotheek kunt inschakelen van beveiligde toegang naar uw Azure Machine Learning-gegevenssets vanuit een lokale Python-omgeving en kunt het maken en beheren van gegevenssets in een werkruimte.
@@ -41,7 +41,7 @@ De Python-clientbibliotheek is getest onder de volgende omgevingen:
 Deze is afhankelijk van de volgende pakketten:
 
 * aanvragen
-* Python-dateutil
+* python-dateutil
 * pandas
 
 Wordt u aangeraden een Python-distributie, zoals [Anaconda](http://continuum.io/downloads#all) of [bladerdak](https://store.enthought.com/downloads/), die worden geleverd met Python, IPython en de drie pakketten die hierboven worden geïnstalleerd. Hoewel IPython niet strikt vereist is, is een geweldige omgeving voor het werken en gegevens interactief te visualiseren.

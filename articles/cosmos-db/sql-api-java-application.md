@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 816ea6e575759186973e23c6adfccd389c6920d9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Een Java-webtoepassing met behulp van Azure DB die Cosmos en de SQL-API bouwen
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 12/18/2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Deze zelfstudie over Java-webtoepassingen, leest u hoe u de [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service voor het opslaan en toegang tot gegevens van een Java-toepassing die worden gehost op Azure App Service Web Apps. In dit onderwerp leert u het volgende:
 
@@ -107,7 +105,7 @@ Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar
      
    * Of Voeg de afhankelijkheids-XML voor de groeps-Id en artefact-Id rechtstreeks aan pom.xml via een teksteditor:
      
-        <dependency><groupId>com.microsoft.azure</groupId> <artifactId>azure documentdb</artifactId> <version>1.9.1</version></dependency>
+        <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
 6. Klik op **OK** en Maven de SQL Java SDK installeert.
 7. Sla het bestand pom.xml op.
 
@@ -729,7 +727,7 @@ Azure websites kunt u net zo eenvoudig als uw toepassing wordt geëxporteerd als
 3. Nu dat u een WAR-bestand in de hand hebt, kunt u gewoon uploaden naar uw Azure-website van **webapps** directory. Zie voor instructies over het uploaden van het bestand [toevoegen van een Java-toepassing naar Azure App Service Web Apps](../app-service/web-sites-java-add-app.md).
    
     Zodra het WAR-bestand is geüpload naar de map webapps, detecteert de runtime-omgeving dat u het bestand hebt toegevoegd en wordt het bestand automatisch geladen.
-4. Als u wilt het voltooide product weergeven, navigeert u naar http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ en start u uw taken toevoegt.
+4. Als u wilt het voltooide product weergeven, gaat u naar http://YOUR \_SITE\_NAME.azurewebsites.net/azure-java-sample/ en start u uw taken toevoegt.
 
 ## <a id="GetProject"></a>Het project ophalen van GitHub
 Alle voorbeelden in deze zelfstudie zijn opgenomen in het [todo](https://github.com/Azure-Samples/documentdb-java-todo-app)-project op GitHub. Als u het todo-project wilt importeren in Eclipse, moet u over de software en resources beschikken die worden vermeld in de sectie [Vereisten](#Prerequisites) en gaat u als volgt te werk:
@@ -739,7 +737,7 @@ Alle voorbeelden in deze zelfstudie zijn opgenomen in het [todo](https://github.
 3. Klik in Eclipse in het menu **File** (Bestand) op **Import** (Importeren).
 4. Klik in het venster the **Import** (Importeren) achtereenvolgens op **Git**, **Projects from Git** (Projecten van Git) en **Next** (Volgende).
 5. Klik in het venster **Select Repository Source** (Opslagplaatsbron selecteren) op **Clone URI** (URI klonen).
-6. Op de **bron Git-opslagplaats** scherm in de **URI** vak en klik vervolgens op Voer https://github.com/Azure-Samples/java-todo-app.git **volgende**.
+6. Op de **bron Git-opslagplaats** scherm in de **URI** Voer https://github.com/Azure-Samples/java-todo-app.git, en klik vervolgens op **volgende**.
 7. Zorg er in het scherm **Branch Selection** (Vertakking selecteren) voor dat **master** is geselecteerd en klik op **Next** (Volgende).
 8. Klik in het scherm **Local Destination** (Lokale bestemming) op **Browse** (Bladeren) om een map te selecteren waarnaar de opslag kan worden gekopieerd en klik op **Next** (Volgende).
 9. Zorg er in het scherm **Select a wizard to use for importing projects** (Een wizard selecteren waarmee projecten worden geïmporteerd) voor dat **Import existing projects** (Bestaande projecten selecteren) is geselecteerd en klik op **Next** (Volgende).
@@ -754,6 +752,6 @@ Alle voorbeelden in deze zelfstudie zijn opgenomen in het [todo](https://github.
 18. Klik op het tabblad **Servers** onder aan het scherm met de rechtermuisknop op **Tomcat v7.0 Server at localhost** (Tomcat v7.0 Server op localhost) en klik vervolgens op **Add and Remove** (Toevoegen en verwijderen).
 19. Verplaats in het venster **Add and Remove** (Toevoegen en verwijderen) **azure-documentdb-java-sample** naar het vak **Configured** (Geconfigureerd) en klik vervolgens op **Finish** (Voltooien).
 20. In de **Servers** tabblad, met de rechtermuisknop op **Tomcat v7.0 Server op localhost**, en klik vervolgens op **opnieuw**.
-21. Navigeer in een browser naar http://localhost:8080/azure-documentdb-java-sample/ om taken aan uw takenlijst toe te voegen. Als u de standaardpoortwaarden hebt gewijzigd, wijzigt u 8080 in de waarde die u hebt geselecteerd.
+21. Navigeer in een browser naar http://localhost:8080/azure-documentdb-java-sample/ en toe te voegen aan uw takenlijst. Als u de standaardpoortwaarden hebt gewijzigd, wijzigt u 8080 in de waarde die u hebt geselecteerd.
 22. Zie [Stap 6: Implementeren van uw toepassing naar Azure websites](#Deploy).
 

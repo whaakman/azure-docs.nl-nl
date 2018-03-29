@@ -2,9 +2,9 @@
 title: Azure Storage Analytics gebruiken voor het verzamelen van Logboeken en metrische gegevens | Microsoft Docs
 description: Storage Analytics kunt u voor het bijhouden van metrische gegevens voor alle storage-services en voor het verzamelen van Logboeken voor de opslag van Blob, wachtrijen en tabellen.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: tamram
-ms.openlocfilehash: 9ae9dd0b078911a695d441cd3891be720dc204ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: edda01cbfe1b53d934f9f4a7bb01c645fa680873
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -79,7 +79,7 @@ De volgende tabel beschrijft elk kenmerk in de naam van het logboek.
 
 | Kenmerk | Beschrijving |
 | --- | --- |
-| < Servicenaam > |De naam van de storage-service. Bijvoorbeeld: blob, table of wachtrij. |
+| <service-name> |De naam van de storage-service. Bijvoorbeeld: blob, table of wachtrij. |
 | JJJJ |Het jaar vier cijfers voor het logboek. Bijvoorbeeld: 2011. |
 | MM |De maand van de twee cijfers voor het logboek. Bijvoorbeeld: 07. |
 | DD |De maand van de twee cijfers voor het logboek. Bijvoorbeeld: 07. |
@@ -95,7 +95,7 @@ Hier volgt een voorbeeld van een URI die kan worden gebruikt voor toegang tot he
 
     https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log
 
-Wanneer een aanvraag van de opslag is geregistreerd, wordt de naam van het resulterende logboek correleert met het uur waarop de aangevraagde bewerking is voltooid. Bijvoorbeeld, als een GetBlob-aanvraag is voltooid op 18:30 uur op 7/31/2011, zou het logboek zijn geschreven met de volgende prefix:`blob/2011/07/31/1800/`
+Wanneer een aanvraag van de opslag is geregistreerd, wordt de naam van het resulterende logboek correleert met het uur waarop de aangevraagde bewerking is voltooid. Bijvoorbeeld, als een GetBlob-aanvraag is voltooid op 18:30 uur op 7/31/2011, zou het logboek zijn geschreven met de volgende prefix: `blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>Metagegevens van het logboek
 Alle logboekbestanden blobs worden opgeslagen met metagegevens die kan worden gebruikt om te bepalen welke logboekgegevens bevat van de blob. De volgende tabel beschrijft elke metagegevenskenmerk.
@@ -104,15 +104,15 @@ Alle logboekbestanden blobs worden opgeslagen met metagegevens die kan worden ge
 | --- | --- |
 | LogType |Hierin wordt beschreven of het logboek informatie over lezen bevat, schrijven of verwijderen van bewerkingen. Deze waarde kan een type of een combinatie van alle drie, gescheiden door komma's bevatten. Voorbeeld 1: schrijven; Voorbeeld 2: lezen, schrijven; Voorbeeld 3: lezen, schrijven, verwijderen. |
 | StartTime |De vroegste tijd van een vermelding in het logboek, in de vorm van jjjj-MM-ssZ. Bijvoorbeeld: 2011-07-31T18:21:46Z. |
-| Eindtijd |De laatste tijd van een vermelding in het logboek, in de vorm van jjjj-MM-ssZ. Bijvoorbeeld: 2011-07-31T18:22:09Z. |
+| EndTime |De laatste tijd van een vermelding in het logboek, in de vorm van jjjj-MM-ssZ. Bijvoorbeeld: 2011-07-31T18:22:09Z. |
 | LogVersion |De versie van de indeling voor logboekbestanden. De enige ondersteunde waarde is momenteel 1.0. |
 
 De volgende lijst bevat een compleet codevoorbeeld metagegevens met behulp van de eerdere voorbeelden.
 
-* LogType = schrijven
-* StartTime = 2011-07-31T18:21:46Z
-* EndTime = 2011-07-31T18:22:09Z
-* LogVersion = 1.0
+* LogType=write
+* StartTime=2011-07-31T18:21:46Z
+* EndTime=2011-07-31T18:22:09Z
+* LogVersion=1.0
 
 ### <a name="accessing-logging-data"></a>Toegang tot gegevens voor logboekregistratie
 Alle gegevens in de `$logs` container toegankelijk zijn via de API's van de Blob-service, inclusief de .NET API's die is geleverd door de Azure beheerde bibliotheek. Beheerder van het opslagaccount kunt lezen en verwijderen van Logboeken, maar niet maken of bijwerken van deze. Zowel de metagegevens van het logboek als de naam van het logboek kunnen worden gebruikt bij het opvragen van een logboek. Het is mogelijk voor een bepaalde tijd worden in volgorde worden weergegeven, maar de metagegevens van altijd Hiermee geeft u het interval van logboekvermeldingen in een logboek. Daarom kunt u een combinatie van logboeknamen en metagegevens bij het zoeken naar een bepaald logboek.
@@ -148,7 +148,7 @@ Zie voor meer informatie over de capaciteitsmetrieken [Storage Analytics metrisc
 ### <a name="how-metrics-are-stored"></a>Hoe metrische gegevens worden opgeslagen
 Alle metrische gegevens voor elk van de storage-services wordt opgeslagen in drie tabellen die zijn gereserveerd voor de service: één tabel voor transactie-informatie, één tabel voor de minuut transactie-informatie en een andere tabel voor informatie over capaciteit. Transactie en minuut transactie-informatie bestaat uit gegevens aanvraag en -antwoord en capaciteitsgegevens van gebruiksgegevens van de opslag bestaat. Metrische gegevens uur, minuut meetgegevens en capaciteit voor een opslagaccount Blob-service kunnen worden benaderd in tabellen die worden genoemd, zoals beschreven in de volgende tabel.
 
-| Niveau van de metrische gegevens | Namen van tabellen | Ondersteunde versies |
+| Niveau van de metrische gegevens | Tabelnamen | Ondersteunde versies |
 | --- | --- | --- |
 | Elk uur maatstaven voor primaire locatie |$MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versies vóór 2013-08-15 alleen. Deze namen worden wel nog steeds ondersteund, het raadzaam dat u overschakelt naar de onderstaande tabellen gebruiken. |
 | Elk uur maatstaven voor primaire locatie |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Alle versies, inclusief 2013-08-15. |
@@ -157,7 +157,7 @@ Alle metrische gegevens voor elk van de storage-services wordt opgeslagen in dri
 | Minuut maatstaven voor secundaire locatie |$MetricsMinuteSecondaryTransactionsBlob <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue |Alle versies, inclusief 2013-08-15. Leestoegang geografisch redundante replicatie moet zijn ingeschakeld. |
 | Capaciteit (alleen voor Blob-service) |$MetricsCapacityBlob |Alle versies, inclusief 2013-08-15. |
 
-Deze tabellen worden automatisch gemaakt wanneer Opslaganalyse is ingeschakeld voor een opslagaccount. Ze toegankelijk zijn via de naamruimte van de storage-account, bijvoorbeeld:`https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
+Deze tabellen worden automatisch gemaakt wanneer Opslaganalyse is ingeschakeld voor een opslagaccount. Ze toegankelijk zijn via de naamruimte van de storage-account, bijvoorbeeld: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
 
 ### <a name="accessing-metrics-data"></a>Toegang tot metrische gegevens
 Alle gegevens in de tabellen metrische gegevens toegankelijk zijn via de API's van de tabel-service, inclusief de .NET API's die is geleverd door de Azure beheerd bibliotheek. Beheerder van het opslagaccount kunt lezen en verwijderen van de tabelentiteiten, maar niet maken of bijwerken ze.

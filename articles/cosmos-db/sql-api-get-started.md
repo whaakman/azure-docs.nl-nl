@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
-ms.openlocfilehash: 28714106a6228b5bdaa1933d6e8ea89105eb4b30
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 870bdce0b909a882b99de92bbe5ad1e51db11a39
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Zelfstudie SQL-API aan de slag
 > [!div class="op_single_selector"]
@@ -31,8 +31,6 @@ ms.lasthandoff: 12/18/2017
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Welkom bij de zelfstudie Azure Cosmos DB SQL-API aan de slag. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u Azure Cosmos DB-resources kunt maken en er query's op kunt uitvoeren.
 
@@ -159,7 +157,7 @@ Voeg de volgende code om uw asynchrone taak met de methode **Main** uit te voere
 
 Druk op **F5** om uw toepassing uit te voeren. In het consolevenster wordt nu het bericht `End of demo, press any key to exit.` weergegeven met de bevestiging dat de verbinding is gemaakt.  U kunt vervolgens het consolevenster sluiten. 
 
-Gefeliciteerd. U hebt verbinding gemaakt met een Azure Cosmos DB-account. U gaat nu aan de slag met Azure Cosmos DB-resources.  
+Gefeliciteerd! U hebt verbinding gemaakt met een Azure Cosmos DB-account. U gaat nu aan de slag met Azure Cosmos DB-resources.  
 
 ## <a name="step-4-create-a-database"></a>Stap 4: een database maken
 Voordat u de code voor het maken van een database toevoegt, moet u een Help-methode toevoegen om naar de console te kunnen schrijven.
@@ -187,7 +185,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** na het ma
 
 Druk op **F5** om uw toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-database gemaakt.  
+Gefeliciteerd! U hebt een Azure Cosmos DB-database gemaakt.  
 
 ## <a id="CreateColl"></a>Stap 5: een verzameling maken
 > [!WARNING]
@@ -208,7 +206,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** na het ma
 
 Druk op **F5** om uw toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-documentverzameling gemaakt.  
+Gefeliciteerd! U hebt een Azure Cosmos DB-documentverzameling gemaakt.  
 
 ## <a id="CreateDoc"></a>Stap 6: JSON-documenten maken
 U kunt een [document](sql-api-resources.md#documents) maken met de methode [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) van de klasse **DocumentClient**. Documenten bestaan uit door gebruikers gedefinieerde (willekeurige) JSON-inhoud. U kunt nu een of meer documenten invoegen. Als u gegevens die u wilt opslaan in de database al hebt, kunt u de Azure DB die Cosmos [hulpprogramma voor gegevensmigratie](import-data.md) importeren van de gegevens in een database.
@@ -368,7 +366,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** na het ma
 
 Druk op **F5** om uw toepassing uit te voeren.
 
-Gefeliciteerd. U hebt twee Azure Cosmos DB-documenten gemaakt.  
+Gefeliciteerd! U hebt twee Azure Cosmos DB-documenten gemaakt.  
 
 ![Diagram waarin u de hiërarchische relatie ziet tussen het account, de online database, de verzameling en de documenten die in de NoSQL-zelfstudie worden gebruikt om een a C#-consoletoepassing te maken](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
@@ -420,7 +418,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** na het ma
 
 Druk op **F5** om uw toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een query uitgevoerd op een Azure Cosmos DB-verzameling.
+Gefeliciteerd! U hebt een query uitgevoerd op een Azure Cosmos DB-verzameling.
 
 In het volgende diagram ziet u hoe de Azure Cosmos DB SQL-querysyntaxis wordt aangeroepen voor de verzameling die u hebt gemaakt. Dezelfde logica is ook van toepassing op de LINQ-query.
 
@@ -456,7 +454,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** na de que
 
 Druk op **F5** om uw toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-document vervangen.
+Gefeliciteerd! U hebt een Azure Cosmos DB-document vervangen.
 
 ## <a id="DeleteDocument"></a>Stap 9: JSON-document verwijderen
 Azure Cosmos DB biedt ondersteuning voor het verwijderen van JSON-documenten.  
@@ -481,7 +479,7 @@ Kopieer de volgende code en plak deze in de methode **GetStartedDemo** na de twe
 
 Druk op **F5** om uw toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-document verwijderd.
+Gefeliciteerd! U hebt een Azure Cosmos DB-document verwijderd.
 
 ## <a id="DeleteDatabase"></a>Stap 10: de database verwijderen
 Als u de gemaakte database verwijdert, worden de database en alle onderliggende resources (verzamelingen, documenten, enz.) verwijderd.
@@ -498,7 +496,7 @@ Kopieer en plak de volgende code in de methode **GetStartedDemo** na het verwijd
 
 Druk op **F5** om uw toepassing uit te voeren.
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-database verwijderd.
+Gefeliciteerd! U hebt een Azure Cosmos DB-database verwijderd.
 
 ## <a id="Run"></a>Stap 11: uw C#-consoletoepassing volledig uitvoeren
 Druk in Visual Studio op F5 om de toepassing in de foutopsporingsmodus op te bouwen.
@@ -526,7 +524,7 @@ U ziet de uitvoer van uw getstarted-app in een consolevenster. De uitvoer bevat 
     Deleted Family Andersen.1
     End of demo, press any key to exit.
 
-Gefeliciteerd. U hebt de zelfstudie voltooid en beschikt nu over een werkende C#-consoletoepassing.
+Gefeliciteerd! U hebt de zelfstudie voltooid en beschikt nu over een werkende C#-consoletoepassing.
 
 ## <a id="GetSolution"></a> De volledige zelfstudieoplossing ophalen
 Als u geen tijd hebt gehad om de stappen in deze zelfstudie uit te voeren of als u alleen de codevoorbeelden wilt downloaden, kunt u deze ophalen van [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 

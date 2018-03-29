@@ -2,23 +2,23 @@
 title: Het configureren van Redis-clustering voor een Premium Azure Redis-Cache | Microsoft Docs
 description: Meer informatie over het maken en beheren van Redis-clustering voor de laag Premium Azure Redis-Cache-exemplaren
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: wesmc
-ms.openlocfilehash: 16281cca4e4bc95e145317365d42382ab11fde93
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 4af6545058ab0031d7cd1b38618b6d80204f83b9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Redis clustering voor een Premium Azure Redis-Cache configureren
 Azure Redis-Cache heeft verschillende cache aanbiedingen die flexibiliteit bij de keuze van cachegrootte en -functies bieden, zoals de Premium-laag functies zoals clustering, persistentie en virtual network-ondersteuning. Dit artikel wordt beschreven hoe u configureert in een premium Azure Redis-Cache-exemplaar clustering.
@@ -33,7 +33,7 @@ Azure Redis-Cache biedt Redis-cluster als [geïmplementeerd in Redis](http://red
 * Meer doorvoer: doorvoer lineair neemt toe naarmate u Verhoog het aantal shards. 
 * Grootte van meer geheugen: Lineair neemt toe naarmate u Verhoog het aantal shards.  
 
-Zie voor meer informatie over de grootte, doorvoer en bandbreedte van premiumcaches [welke aanbieding Redis-Cache en de grootte moet ik gebruiken?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Clustering, wordt het aantal verbindingen die beschikbaar zijn voor een geclusterde cache niet stijgt. Zie voor meer informatie over de grootte, doorvoer en bandbreedte van premiumcaches [welke aanbieding Redis-Cache en de grootte moet ik gebruiken?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 In Azure wordt Redis-cluster aangeboden als een primair/replica model waarin de elke shard heeft een paar primair/replica met replicatie waar de replicatie wordt beheerd door service van Azure Redis-Cache. 
 
@@ -75,6 +75,8 @@ Wijzigen van de clustergrootte van de op een actieve premium-cache met clusterin
 ![Clustergrootte redis][redis-cache-redis-cluster-size]
 
 Gebruik de schuifregelaar om de clustergrootte, of typ een getal tussen 1 en 10 in de **Shard aantal** tekstvak en klik op **OK** om op te slaan.
+
+Het cluster vergroten verhoogt de maximale doorvoer en cachegrootte. De clustergrootte vergroot, niet de maximale waarde. verbindingen die beschikbaar zijn voor clients.
 
 > [!NOTE]
 > Schalen van een cluster wordt uitgevoerd de [migreren](https://redis.io/commands/migrate) opdracht, die een dure opdracht, dus voor minimale invloed, kunt u deze bewerking tijdens daluren uitvoert. Tijdens de migratie ziet u een piek in de belasting van de server. Schalen van een cluster lang proces actief is en de hoeveelheid tijd is afhankelijk van het aantal sleutels en de grootte van de waarden die zijn gekoppeld aan deze sleutels.
@@ -132,7 +134,7 @@ Redis clustering op dit moment die niet alle clients ondersteunen. StackExchange
 U kunt verbinding maken met uw cache met behulp van dezelfde [eindpunten](cache-configure.md#properties), [poorten](cache-configure.md#properties), en [sleutels](cache-configure.md#access-keys) die u gebruikt bij het verbinden met een cache die geen clusteren is ingeschakeld. Redis beheert de clustering op de back-end, zodat u niet hoeft te beheren vanaf uw client.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Kan ik rechtstreeks verbinding maken met de afzonderlijke shards van mijn cache?
-Dit wordt niet officieel ondersteund. Met die gezegd, wordt elke shard bestaat uit de cache combinatie van een primair/replica, gezamenlijk aangeduid als een cache-exemplaar. U kunt verbinding maken met de exemplaren van deze cache met behulp van het redis cli-hulpprogramma in de [onstabiel](http://redis.io/download) branche van de Redis-opslagplaats op GitHub. Deze versie implementeert basisondersteuning wanneer gestart met de `-c` overschakelen. Zie voor meer informatie [met het cluster speelt](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) op [http://redis.io](http://redis.io) in de [Redis-cluster zelfstudie](http://redis.io/topics/cluster-tutorial).
+Dit wordt niet officieel ondersteund. Met die gezegd, wordt elke shard bestaat uit de cache combinatie van een primair/replica, gezamenlijk aangeduid als een cache-exemplaar. U kunt verbinding maken met de exemplaren van deze cache met behulp van het redis cli-hulpprogramma in de [onstabiel](http://redis.io/download) branche van de Redis-opslagplaats op GitHub. Deze versie implementeert basisondersteuning wanneer gestart met de `-c` overschakelen. Zie voor meer informatie [met het cluster speelt](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) op [ http://redis.io ](http://redis.io) in de [Redis-cluster zelfstudie](http://redis.io/topics/cluster-tutorial).
 
 Gebruik de volgende opdrachten voor niet-ssl.
 

@@ -2,12 +2,12 @@
 title: Maken van een Azure-schaalset die gebruikmaakt van beschikbaarheid Zones (Preview) | Microsoft Docs
 description: Informatie over het maken van virtuele Azure-machine-schaalsets die gebruikmaken van beschikbaarheid Zones voor verbeterde redundantie tegen uitval
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8b497af8bc7e3060e184dd6a029b23ccb2d2bbfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Maken van een virtuele-machineschaalset die gebruikmaakt van beschikbaarheid Zones (Preview)
 Om te voorkomen dat uw virtuele-machineschaalsets fouten datacenter-niveau, kunt u een schaal instellen voor beschikbaarheid Zones maken. Azure-regio's die ondersteuning bieden voor beschikbaarheid Zones hebben een minimum van drie afzonderlijke zones, elk met hun eigen onafhankelijke energie-bron-, netwerk- en koeling. Zie voor meer informatie [overzicht van de Zones van de beschikbaarheid](../availability-zones/az-overview.md).
@@ -41,7 +41,7 @@ Beschikbaarheid om Zones te gebruiken, moet uw schaalset worden gemaakt in een [
 
 
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
-Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in de [artikel aan de slag](virtual-machine-scale-sets-create-portal.md). Zorg ervoor dat u hebt [geregistreerd voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll). Wanneer u een ondersteunde Azure-regio selecteert, kunt u een schaal instellen in een van de beschikbare zones kunt maken, zoals wordt weergegeven in het volgende voorbeeld:
+Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-portal.md). Zorg ervoor dat u hebt [geregistreerd voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll). Wanneer u een ondersteunde Azure-regio selecteert, kunt u een schaal instellen in een van de beschikbare zones kunt maken, zoals wordt weergegeven in het volgende voorbeeld:
 
 ![Een schaal instellen in een enkele beschikbaarheid Zone maken](media/virtual-machine-scale-sets-use-availability-zones/create-portal-single-az.png)
 
@@ -49,7 +49,7 @@ De schaalaanpassingsset en de ondersteunende resources, zoals de Azure load bala
 
 
 ## <a name="use-the-azure-cli-20"></a>De Azure CLI 2.0 gebruiken
-Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in de [artikel aan de slag](virtual-machine-scale-sets-create-cli.md). Beschikbaarheid om Zones te gebruiken, moet u uw scale set maken in een ondersteunde Azure-regio en hebben [geregistreerd voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll).
+Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-cli.md). Beschikbaarheid om Zones te gebruiken, moet u uw scale set maken in een ondersteunde Azure-regio en hebben [geregistreerd voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll).
 
 Voeg de `--zones` -parameter voor de [az vmss maken](/cli/azure/vmss#az_vmss_create) opdracht en opgeven welke zone moet worden gebruikt (zoals zone *1*, *2*, of *3*). Het volgende voorbeeld wordt een enkele zone-scale set met de naam *myScaleSet* in zone *1*:
 
@@ -114,7 +114,7 @@ Het duurt enkele minuten maken en configureren van alle de schaal ingesteld voor
 
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
-Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in de [artikel aan de slag](virtual-machine-scale-sets-create-powershell.md). Beschikbaarheid om Zones te gebruiken, moet u uw scale set maken in een ondersteunde Azure-regio en hebben [geregistreerd voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll). Toevoegen de `-Zone` -parameter voor de [nieuw AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) opdracht en opgeven welke zone moet worden gebruikt (zoals zone *1*, *2*, of *3*). 
+Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-powershell.md). Beschikbaarheid om Zones te gebruiken, moet u uw scale set maken in een ondersteunde Azure-regio en hebben [geregistreerd voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll). Toevoegen de `-Zone` -parameter voor de [nieuw AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) opdracht en opgeven welke zone moet worden gebruikt (zoals zone *1*, *2*, of *3*). 
 
 Het volgende voorbeeld wordt een enkele zone scale set config met de naam *vmssConfig* in *VS-Oost 2* zone *1*:
 
@@ -178,7 +178,7 @@ Voor een compleet voorbeeld van een zone-redundante schaal en netwerkbronnen, ra
 
 
 ## <a name="use-azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen gebruiken
-Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in het artikel in ophalen gestart voor [Linux](virtual-machine-scale-sets-create-template-linux.md) of [Windows](virtual-machine-scale-sets-create-template-windows.md). Beschikbaarheid om Zones te gebruiken, moet u uw scale set maken in een ondersteunde Azure-regio en hebben [geregistreerd voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll). Voeg de `zones` eigenschap in op de *Microsoft.Compute/virtualMachineScaleSets* resource typt u in uw sjabloon en opgeven welke zone moet worden gebruikt (zoals zone *1*, *2*, of *3*).
+Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in het artikel in ophalen gestart voor [Linux](quick-create-template-linux.md) of [Windows](quick-create-template-windows.md). Beschikbaarheid om Zones te gebruiken, moet u uw scale set maken in een ondersteunde Azure-regio en hebben [geregistreerd voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll). Voeg de `zones` eigenschap in op de *Microsoft.Compute/virtualMachineScaleSets* resource typt u in uw sjabloon en opgeven welke zone moet worden gebruikt (zoals zone *1*, *2*, of *3*).
 
 Het volgende voorbeeld wordt een Linux-één zone-scale set met de naam *myScaleSet* in *VS-Oost 2* zone *1*:
 

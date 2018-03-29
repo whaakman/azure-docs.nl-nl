@@ -1,11 +1,11 @@
 ---
-title: Azure Traffic Analytics | Microsoft Docs
-description: Informatie over het analyseren van Azure-netwerk groep stroom beveiligingslogboeken met Traffic Analytics.
+title: Azure traffic analytics | Microsoft Docs
+description: Informatie over het analyseren van Azure-netwerk groep stroom beveiligingslogboeken met traffic analytics.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,56 +13,56 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: 9fc44fdd6ce01452ffc2506c599e3d05aa0803e1
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="traffic-analytics"></a>Verkeer Analytics
+# <a name="traffic-analytics"></a>Verkeer analytics
 
-Verkeer Analytics is een cloud-gebaseerde oplossing die inzicht in gebruikers- en activiteit in de cloud-netwerken biedt. Verkeer Analytics analyseert netwerk-Watcher netwerk groep (NSG) stroom beveiligingslogboeken om op te geven inzicht in het netwerkverkeer in uw Azure-cloud. Met Traffic Analytics, kunt u het volgende doen:
+Verkeer analytics is een cloud-gebaseerde oplossing die inzicht in gebruikers- en activiteit in de cloud-netwerken biedt. Verkeer analytics analyseert netwerk-Watcher netwerk groep (NSG) stroom beveiligingslogboeken om op te geven inzicht in het netwerkverkeer in uw Azure-cloud. Met traffic analytics, kunt u het volgende doen:
 
 - Netwerkactiviteit visualiseren via uw Azure-abonnementen en hotspots identificeren.
 - Beveiligingsrisico's te identificeren en beveiligen van uw netwerk, met informatie zoals open-poorten, toepassingen die proberen toegang tot internet en virtuele machines (VM) netwerken rogue verbinding maakt.
 - Begrijpen stroom verkeerspatronen over Azure-regio's en het internet om de netwerkimplementatie van uw voor de prestaties en capaciteit te optimaliseren.
 - Speldenpunt netwerk door middel van configuratiefouten leidt tot mislukte verbindingen in uw netwerk.
 
-## <a name="why-traffic-analytics"></a>Waarom Traffic Analytics?
+## <a name="why-traffic-analytics"></a>Waarom traffic analytics?
 
 Het is essentieel om te controleren, beheren en weten van uw eigen netwerk voor ongeschonden beveiliging, naleving en prestaties. Uw eigen omgeving weten is van groot belang om te beveiligen en te optimaliseren. Vaak wilt u weten de huidige status van het netwerk die verbinding maakt wanneer welke poorten geopend met het internet zijn, verwacht gedrag voor netwerk, onregelmatige netwerk gedrag, en plotselinge stijgingen in het verkeer.
 
 Cloud-netwerken zijn anders dan enterprise voor on-premises netwerken, waarin u Netflow of gelijkwaardige protocol kunnen routers en switches, die de mogelijkheid bieden voor het verzamelen van IP-netwerkverkeer, zoals het binnengaat of een netwerkinterface verlaat hebben. Door het verkeer stroomgegevens analyseren, kunt u een analyse van netwerkverkeer en het volume.
 
-Virtuele netwerken van Azure hebben NSG stroom Logboeken, waarin u informatie over binnenkomende en uitgaande IP-verkeer via een netwerk-beveiligingsgroep die is gekoppeld aan afzonderlijke netwerkinterfaces, virtuele machines of subnetten. Door het analyseren van onbewerkte NSG vloeien logboeken en invoegen intelligence van beveiliging, de topologie en Geografie, Traffic Analytics kunt u voorzien van inzicht in het netwerkverkeer in uw omgeving. Verkeer Analytics biedt informatie zoals meest communicerende hosts, meest communicerende toepassingsprotocollen, meest conversatie host paren, verkeer toegestaan/geblokkeerd, binnenkomend en uitgaand verkeer, open internet-poorten, meest blokkerende regels, verkeer distributiepunten per Azure-datacenter, virtueel netwerk, subnetten, of rogue netwerken.
+Virtuele netwerken van Azure hebben NSG stroom Logboeken, waarin u informatie over binnenkomende en uitgaande IP-verkeer via een netwerk-beveiligingsgroep die is gekoppeld aan afzonderlijke netwerkinterfaces, virtuele machines of subnetten. Door onbewerkte stroom NSG-logboeken te analyseren en invoegen intelligence van beveiliging, de topologie en Geografie verkeer kunt analytics u voorzien van inzicht in het netwerkverkeer in uw omgeving. Verkeer Analytics biedt informatie zoals meest communicerende hosts, meest communicerende toepassingsprotocollen, meest conversatie host paren, verkeer toegestaan/geblokkeerd, binnenkomend en uitgaand verkeer, open internet-poorten, meest blokkerende regels, verkeer distributiepunten per Azure-datacenter, virtueel netwerk, subnetten, of rogue netwerken.
 
 ## <a name="key-components"></a>Belangrijkste onderdelen 
 
 - **Netwerkbeveiligingsgroep (NSG)**: bevat een lijst met regels voor toestaan of weigeren van netwerkverkeer naar resources die zijn verbonden met een virtueel netwerk van Azure. NSG's kunnen worden gekoppeld aan subnetten, afzonderlijke virtuele machines (klassiek) of afzonderlijke netwerkinterfaces (NIC) die zijn gekoppeld aan VM’s (Resource Manager). Zie voor meer informatie [netwerk groep beveiligingsoverzicht](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Netwerkbeveiligingsgroep (NSG) stroom logboeken netwerk**: kunt u informatie bekijken over inkomende en uitgaande IP-verkeer via een netwerkbeveiligingsgroep. NSG-stroom logboeken zijn geschreven in json-indeling en weergeven uitgaande en inkomende stromen per regel op basis van een de NIC de stroom is van toepassing op 5-tuple informatie over de stroom (bron/het doel-IP-adres, bron/het doel-poort en protocol), en als het verkeer is toegestaan of geweigerd. Zie voor meer informatie over het NSG stroom logboeken [NSG stroom logboeken](network-watcher-nsg-flow-logging-overview.md).
-- **Meld u Analytics**: een Azure-service die u verzamelt bewakingsgegevens en slaat de gegevens in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens of aangepaste worden geleverd via de Azure-API bevatten. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Bewaking van toepassingen, zoals netwerk-Prestatiemeter en Traffic Analytics zijn gebouwd met logboekanalyse als basis. Zie voor meer informatie [Meld analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Meld u werkruimte**: een exemplaar van logboekanalyse, waar de gegevens die betrekking hebben op een Azure-account is opgeslagen. Zie voor meer informatie over Log Analytics-werkruimten [maken van een werkruimte voor logboekanalyse](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Netwerk beveiligingslogboeken groep (NSG) stroom**: kunt u informatie bekijken over inkomende en uitgaande IP-verkeer via een netwerkbeveiligingsgroep. NSG-stroom logboeken zijn geschreven in json-indeling en weergeven uitgaande en inkomende stromen per regel op basis van een de NIC de stroom is van toepassing op 5-tuple informatie over de stroom (bron/het doel-IP-adres, bron/het doel-poort en protocol), en als het verkeer is toegestaan of geweigerd. Zie voor meer informatie over het NSG stroom logboeken [NSG stroom logboeken](network-watcher-nsg-flow-logging-overview.md).
+- **Meld u Analytics**: een Azure-service die u verzamelt bewakingsgegevens en slaat de gegevens in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens of aangepaste worden geleverd via de Azure-API bevatten. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Bewaking van toepassingen, zoals netwerk prestaties bewaken en traffic analytics zijn gebouwd met behulp van logboekanalyse als basis. Zie voor meer informatie [Meld analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Meld u werkruimte**: een exemplaar van logboekanalyse, waar de gegevens die betrekking hebben op een Azure-account is opgeslagen. Zie voor meer informatie over log analytics-werkruimten [maken van een werkruimte voor logboekanalyse](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Netwerk-Watcher**: een regionale service waarmee u kunt bewaken en onderzoeken van de voorwaarden op niveau van een scenario in Azure. U kunt NSG stroom Logboeken in- en uitschakelen met de netwerk-Watcher inschakelen. Zie voor meer informatie [netwerk-Watcher](network-watcher-monitoring-overview.md#network-watcher).
 
-## <a name="how-traffic-analytics-works"></a>De werking van Traffic Analytics 
+## <a name="how-traffic-analytics-works"></a>De werking van traffic analytics 
 
-Verkeer Analytics onderzoekt het NSG-logboeken voor onbewerkte stroom en verminderde Logboeken door het samenvoegen van algemene stromen tussen de dezelfde bron-IP-adres, IP-doeladres, doelpoort en -protocol wordt vastgelegd. Bijvoorbeeld:-Host 1 (IP-adres: 10.10.10.10) naar Host 2 communicatie (IP-adres: 10.10.20.10), 100 keer gedurende een periode van 1 uur met behulp van poort (bijvoorbeeld: 80) en het protocol (bijvoorbeeld http). De verminderde logboek heeft een vermelding, die Host 1 & Host 2 uitgewisseld 100 keer gedurende een periode van 1 uur met behulp van poort *80* en protocol *HTTP*, in plaats van 100 vermeldingen. Verminderde logboeken zijn uitgebreid met Geografie, beveiliging en gegevens van de netwerktopologie en vervolgens wordt opgeslagen in een werkruimte voor logboekanalyse. De volgende afbeelding ziet de gegevensstroom:
+Verkeer analytics onderzoekt het NSG-logboeken voor onbewerkte stroom en verminderde Logboeken door het samenvoegen van algemene stromen tussen de dezelfde bron-IP-adres, IP-doeladres, doelpoort en -protocol wordt vastgelegd. Bijvoorbeeld:-Host 1 (IP-adres: 10.10.10.10) naar Host 2 communicatie (IP-adres: 10.10.20.10), 100 keer gedurende een periode van 1 uur met behulp van poort (bijvoorbeeld: 80) en het protocol (bijvoorbeeld http). De verminderde logboek heeft een vermelding, die Host 1 & Host 2 uitgewisseld 100 keer gedurende een periode van 1 uur met behulp van poort *80* en protocol *HTTP*, in plaats van 100 vermeldingen. Verminderde logboeken zijn uitgebreid met Geografie, beveiliging en gegevens van de netwerktopologie en vervolgens wordt opgeslagen in een log analytics-werkruimte. De volgende afbeelding ziet de gegevensstroom:
 
 ![De gegevensstroom voor NSG stroom logboeken verwerken](media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-Verkeer Analytics is beschikbaar in preview. Functies in de preview-versie hoeft niet dezelfde mate van beschikbaarheid en betrouwbaarheid als functies in het algemeen release.  In de preview-versie, kunt u verkeer Analytics voor nsg's in een van de volgende gebieden: West-Centraal VS, VS-Oost, VS-Oost 2, Noordelijk Centraal, VS, Zuid-centraal VS, VS-midden, VS-West, VS-West-2, West-Europa, Noord-Europa, West VK, Zuid VK, Australië-Oost , en Australië-Zuidoost. De werkruimte voor logboekanalyse moet bestaan in de West-Centraal VS, VS-Oost, West-Europa, Australië-Zuidoost of Zuid VK regio.
+Verkeer analytics is beschikbaar in preview. Functies in de preview-versie hoeft niet dezelfde mate van beschikbaarheid en betrouwbaarheid als functies in het algemeen release.  In de preview-versie, kunt u verkeer analytics voor nsg's in een van de volgende gebieden: West-Centraal VS, VS-Oost, VS-Oost 2, Noordelijk Centraal, VS, Zuid-centraal VS, VS-midden, VS-West, VS-West-2, West-Europa, Noord-Europa, West VK, Zuid VK, Australië-Oost , en Australië-Zuidoost. Log analytics-werkruimte moet bestaan in de West-Centraal VS, VS-Oost, West-Europa, Australië-Zuidoost of Zuid VK regio.
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="enable-network-watcher"></a>Inschakelen van netwerk-Watcher 
 
-Voor het analyseren van verkeer, moet u beschikken over een bestaande netwerk-Watcher of [inschakelen van een Azure-netwerk-watcher](network-watcher-create.md) verkeer voor elke regio waarin u nsg's die u wilt analyseren hebt. Analytics voor verkeer kan worden ingeschakeld voor het nsg's die worden gehost in een van de [ondersteunde regio's](#supported-regions).
+Voor het analyseren van verkeer, moet u beschikken over een bestaande netwerk-watcher of [inschakelen van een netwerk-watcher](network-watcher-create.md) verkeer voor elke regio waarin u nsg's die u wilt analyseren hebt. Analytics voor verkeer kan worden ingeschakeld voor het nsg's die worden gehost in een van de [ondersteunde regio's](#supported-regions).
 
 ### <a name="re-register-the-network-resource-provider"></a>De netwerk-resourceprovider opnieuw geregistreerd 
 
-Voordat u verkeer Analytics tijdens de preview gebruiken kunt, moet u uw netwerkresourceprovider opnieuw registreren. Klik op **probeert het** in de volgende code in de Azure-Cloud-Shell openen. De Cloud-Shell registreert u in automatisch in uw Azure-abonnement. Nadat de Cloud-Shell geopend is, voer de volgende opdracht om de netwerk-resourceprovider opnieuw geregistreerd:
+Voordat u verkeer analytics tijdens de preview gebruiken kunt, moet u uw netwerkresourceprovider opnieuw registreren. Klik op **probeert het** in de volgende code in de Azure-Cloud-Shell openen. De Cloud-Shell registreert u in automatisch in uw Azure-abonnement. Nadat de Cloud-Shell geopend is, voer de volgende opdracht om de netwerk-resourceprovider opnieuw geregistreerd:
 
 ```azurepowershell-interactive
 Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
@@ -76,7 +76,7 @@ Aan de linkerkant van de Azure portal, selecteer **Monitor**, klikt u vervolgens
 
 ![Selectie van het nsg's waarvoor het inschakelen van het NSG stroom logboek](media/traffic-analytics/selection-of-nsgs-that-require- enablement-of-nsg-flow-logging.png)
 
-Als u probeert te Traffic Analytics inschakelen voor een NSG die wordt gehost in elke regio dan het [ondersteunde regio's](#supported-regions), foutbericht 'Niet gevonden'. 
+Als u probeert te traffic analytics inschakelen voor een NSG die wordt gehost in elke regio dan het [ondersteunde regio's](#supported-regions), foutbericht 'Niet gevonden'. 
 
 ## <a name="enable-flow-log-settings"></a>Logboekinstellingen stroom inschakelen
 
@@ -107,16 +107,16 @@ Selecteer de volgende opties, zoals wordt weergegeven in de afbeelding:
 4. Selecteer *op* voor **Traffic Analytics Status**.
 5. Selecteer een bestaande werkruimte voor logboekanalyse (OMS) of selecteer **nieuwe werkruimte maken** naar een nieuwe maken. Een werkruimte voor logboekanalyse wordt gebruikt door Traffic Analytics voor het opslaan van de geaggregeerde en geïndexeerde gegevens die vervolgens wordt gebruikt voor het genereren van de analyses. Als u een bestaande werkruimte selecteert, moet bestaan in een van de [ondersteunde regio's](#traffic-analytics-supported-regions) en bijgewerkt naar de nieuwe querytaal. Als u niet wilt bijwerken van een bestaande werkruimte of geen een werkruimte in een ondersteunde regio, kunt u een nieuwe maken. Zie voor meer informatie over querytalen [Azure-logboekanalyse bijwerken naar de nieuwe logboek zoekopdracht](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    De logboekanalyse (OMS)-werkruimte die als host fungeert voor de oplossing Traffic Analytics en het nsg's hoeven niet te zijn in dezelfde regio. Bijvoorbeeld, wellicht u Traffic Analytics in een werkruimte in de regio West-Europa, terwijl er nsg's in VS-Oost en VS-West. Meerdere nsg's kunnen worden geconfigureerd in dezelfde werkruimte.
+    De log analytics-werkruimte die als host fungeert voor het analytics-oplossing van verkeer en het nsg's hoeven niet te zijn in dezelfde regio. Bijvoorbeeld, wellicht u traffic analytics in een werkruimte in de regio West-Europa, terwijl er nsg's in VS-Oost en VS-West. Meerdere nsg's kunnen worden geconfigureerd in dezelfde werkruimte.
 6. Selecteer **Opslaan**.
 
     ![Selectie van het opslagaccount, de werkruimte voor logboekanalyse en Traffic Analytics inschakelen](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
 
-Herhaal de vorige stappen voor alle andere nsg's waarvoor u wilt inschakelen van Traffic Analytics voor. Gegevens uit logboeken van de stroom is verzonden naar de werkruimte, dus zorg ervoor dat de lokale wet- en regelgeving in uw land toestaat dat de opslag van gegevens in de regio waar de werkruimte bestaat.
+Herhaal de vorige stappen voor alle andere nsg's waarvoor u wilt inschakelen van traffic analytics voor. Gegevens uit logboeken van de stroom is verzonden naar de werkruimte, dus zorg ervoor dat de lokale wet- en regelgeving in uw land toestaat dat de opslag van gegevens in de regio waar de werkruimte bestaat.
 
 ## <a name="view-traffic-analytics"></a>Analytische gegevens bekijken verkeer
 
-Selecteer op de aan de linkerkant van de portal, **alle services**, voer dan *Monitor* in de **Filter** vak. Wanneer **Monitor** wordt weergegeven in de zoekresultaten, selecteer deze. Selecteer om te verkennen Traffic Analytics en de mogelijkheden ervan, **netwerk-watcher**, klikt u vervolgens **Traffic Analytics (Preview)**.
+Selecteer op de aan de linkerkant van de portal, **alle services**, voer dan *Monitor* in de **Filter** vak. Wanneer **Monitor** wordt weergegeven in de zoekresultaten, selecteer deze. Selecteer om te verkennen traffic analytics en de mogelijkheden ervan, **netwerk-watcher**, klikt u vervolgens **Traffic Analytics (Preview)**.
 
 ![Toegang tot het dashboard met analytische verkeer](media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
@@ -276,4 +276,4 @@ Hebt u schadelijk verkeer in uw omgeving? Waar wordt deze die afkomstig zijn van
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-Als u antwoorden op veelgestelde vragen, Zie [Traffic Analytics Veelgestelde vragen over](traffic-analytics-faq.md).
+Als u antwoorden op veelgestelde vragen, Zie [Traffic analytics Veelgestelde vragen over](traffic-analytics-faq.md).

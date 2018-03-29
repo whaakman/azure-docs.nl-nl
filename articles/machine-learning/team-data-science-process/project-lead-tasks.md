@@ -1,23 +1,23 @@
 ---
 title: Gegevens wetenschap proces Project leiden taken - Azure in een team | Microsoft Docs
 description: Een overzicht van de taken voor een project leiden op een project gegevens wetenschappelijke team.
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: fe7cf1e6167de7d0dfaa5ed75c0b7f5ec23b18cf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5c769fda09e70cfb0a43e0305ffab4923fbe3307
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="project-lead-tasks"></a>Projecttaken Lead
 
@@ -127,7 +127,7 @@ In dit voorbeeld hebben we:
 
 Als u VSTS als het platform code-hosting normaal gesproken de *SSH-URL van de opslagplaats team project sjabloon* is:
 
-***SSH: / /\<VSTS servernaam\>@\<VSTS servernaam\>.visualstudio.com:22/\<uw Team projectnaam > /_git/\<uw team project sjabloon opslagplaats naam\>.*** 
+***SSH: / /\<VSTS servernaam\>@\<VSTS servernaam\>.visualstudio.com:22/\<uw Team projectnaam > /_git/\<de naam van uw team project sjabloon opslagplaats \>.*** 
 
 In dit voorbeeld hebben we:
 
@@ -151,7 +151,7 @@ Als u VSTS als het platform code-hosting normaal gesproken de _HTTPS-URL van de 
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Als u VSTS als het platform code-hosting normaal gesproken de _SSH-URL van de opslagplaats project_ _ssh is: / / < servernaam VSTS\>@< servernaam VSTS\>.visualstudio.com:22/<Your Team Project Name> / \_git / < naam van uw project-opslagplaats\>. In dit voorbeeld hebben we  ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1*** .
+Als u VSTS als het platform code-hosting normaal gesproken de _SSH-URL van de opslagplaats project_ _ssh is: / / < servernaam VSTS\>@< servernaam VSTS\>.visualstudio.com:22/<Your Team Project Name> / \_git / < naam van uw project-opslagplaats\>. In dit voorbeeld hebben we ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>Kopieer de inhoud van D3 naar D5 
 
@@ -186,7 +186,7 @@ Als uw project een aantal specifieke mappen of documenten moet, dan degene die u
 
 ### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-vsts-server"></a>Inhoud van DSProject1 in D5 toevoegen aan R5 op uw groep VSTS server
 
-U moet nu voor de push-inhoud  **_DSProject1_**  naar _R5_ -opslagplaats in uw teamproject op uw groep VSTS server. 
+U moet nu voor de push-inhoud **_DSProject1_** naar _R5_ -opslagplaats in uw teamproject op uw groep VSTS server. 
 
 
 - Ga naar map **D5**. 

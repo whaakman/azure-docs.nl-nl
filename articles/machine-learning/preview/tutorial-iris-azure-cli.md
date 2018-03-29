@@ -3,7 +3,7 @@ title: Zelfstudie-artikel voor Azure Machine Learning preview-functies - opdrach
 description: Deze zelfstudie doorloopt alle stappen die nodig zijn om een end-to-end Iris-classificatie te voltooien vanaf de opdrachtregelinterface.
 services: machine-learning
 author: ahgyger
-ms.author: ahgyger, ritbhat
+ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2d7965c0028e8f2e82db2e3ddd4eed6e20f4f443
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Zelfstudie: Iris classificeren via de opdrachtregelinterface
 Azure Machine Learning-services (preview) zijn een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.

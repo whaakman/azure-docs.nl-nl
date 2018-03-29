@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 3fc9810f2f7f86b4c795a7f008e8e1bd174a84db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
-
->[!NOTE]
-> De Load Balancer standaard SKU is momenteel in preview. Tijdens de preview, de functie hebben mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. Zie [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews (Microsoft Azure Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie. Gebruik de algemeen beschikbaar [Load Balancer basis-SKU](load-balancer-overview.md) voor uw productie-services. Om te gebruiken [beschikbaarheid Zones Preview](https://aka.ms/availabilityzones) met deze Preview vereist een [afzonderlijke aanmelding](https://aka.ms/availabilityzones), naast het aanmelden voor een Load Balancer [standaard preview](#preview-sign-up).
 
 Azure biedt uitgaande verbindingen voor implementaties van klanten via diverse verschillende methoden. Dit artikel wordt beschreven wat de scenario's zijn, wanneer ze van toepassing zijn, hoe deze werken en hoe deze te beheren.
 
@@ -55,7 +52,7 @@ Als u niet dat een virtuele machine wilt te communiceren met eindpunten buiten A
 
 In dit scenario heeft de virtuele machine een exemplaar niveau openbare IP (ILPIP) toegewezen. Zo ver mogelijk uitgaande verbindingen betreft, het maakt niet uit of de virtuele machine verdeeld wordt, of niet. Dit scenario heeft voorrang op de andere. Wanneer een ILPIP wordt gebruikt, gebruikt de virtuele machine de ILPIP voor alle uitgaande stromen.  
 
-Poort onechte (PAT) wordt niet gebruikt en de virtuele machine heeft alle kortstondige poorten beschikbaar voor gebruik.
+Een openbare IP-toegewezen aan een virtuele machine is een 1:1 relatie (plaats 1:many) en geïmplementeerd als een stateless 1:1 NAT bevinden.  Poort onechte (PAT) wordt niet gebruikt en de virtuele machine heeft alle kortstondige poorten beschikbaar voor gebruik.
 
 Als uw toepassing veel uitgaande stromen initieert en u snat omzetten poort uitputting ervaren, kunt u toewijzen van een [ILPIP te verhelpen snat omzetten beperkingen](#assignilpip). Bekijk [beheren snat omzetten uitputting](#snatexhaust) in zijn geheel.
 

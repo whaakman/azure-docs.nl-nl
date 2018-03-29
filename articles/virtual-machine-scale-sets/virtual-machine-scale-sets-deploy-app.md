@@ -2,10 +2,10 @@
 title: Een toepassing implementeert op een virtuele machine van Azure-schaalset | Microsoft Docs
 description: Meer informatie over het implementeren van toepassingen voor Linux en Windows virtuele machine-exemplaren in een schaalset
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cadd0f4c07b7e8adec4956543f67313aa8442da3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementeren van uw toepassing op virtuele-machineschaalsets
 Om toepassingen op de virtuele machine (VM)-exemplaren in een schaalset uitvoeren, moet u eerst de toepassingsonderdelen en de vereiste bestanden wilt installeren. Dit artikel bevat manieren voor het maken van een aangepaste VM-installatiekopie voor de instanties in een schaal ingesteld of installatiescripts automatisch wordt uitgevoerd op een bestaande VM-exemplaren. U leert ook hoe voor het beheren van de toepassing of updates voor het besturingssysteem op een scale-set.
@@ -28,94 +28,17 @@ Om toepassingen op de virtuele machine (VM)-exemplaren in een schaalset uitvoere
 ## <a name="build-a-custom-vm-image"></a>Een aangepaste VM-installatiekopie bouwen
 Wanneer u een van de Azure-platform-installatiekopieën maken van de exemplaren in de schaalset gebruikt, is geen extra software geïnstalleerd of geconfigureerd. U kunt automatiseren de installatie van deze onderdelen echter die wordt toegevoegd aan de tijd die nodig zijn voor het inrichten van VM-exemplaren op uw scale-sets. Als u veel configuratiewijzigingen voor de VM-instanties toepassen, is het beheer van de overhead van die configuratiescripts en taken.
 
-Als u het beheer van de configuratie en de tijd voor het inrichten van een virtuele machine, kunt u een aangepaste VM-installatiekopie dat gereed is voor uw toepassing uitvoeren zodra u een exemplaar is ingericht in de schaalset. Het algehele proces voor het maken van een aangepaste VM-installatiekopie voor scale set instanties zijn als volgt:
+Als u het beheer van de configuratie en de tijd voor het inrichten van een virtuele machine, kunt u een aangepaste VM-installatiekopie dat gereed is voor uw toepassing uitvoeren zodra u een exemplaar is ingericht in de schaalset. Voor meer informatie over het maken en gebruiken van een aangepaste installatiekopie van de virtuele machine met een schaal, raadpleegt u de volgende zelfstudies:
 
-1. Om een aangepaste VM-installatiekopie voor uw scale set exemplaren bouwt, u maken en zich aanmelden bij een virtuele machine, en vervolgens installeren en configureren van de toepassing. U kunt verpakker definiëren en bouwen van een [Linux](../virtual-machines/linux/build-image-with-packer.md) of [Windows](../virtual-machines/windows/build-image-with-packer.md) VM-installatiekopie. Of u kunt handmatig maken en configureren van de virtuele machine:
-
-    - Maak een Linux-VM met de [Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md), [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md), of de [portal](../virtual-machines/linux/quick-create-portal.md).
-    - Maken van een Windows-VM met de [Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md), wordt de [Azure CLI 2.0](../virtual-machines/windows/quick-create-cli.md), of de [portal](../virtual-machines/windows/quick-create-portal.md).
-    - Meld u aan bij een [Linux](../virtual-machines/linux/mac-create-ssh-keys.md#use-the-ssh-key-pair) of [Windows](../virtual-machines/windows/connect-logon.md) VM.
-    - Installeer en configureer de toepassingen en hulpmiddelen die nodig zijn. Als u specifieke versies van een bibliotheek of runtime nodig, een aangepaste installatiekopie van de virtuele machine kunt u definiëren van een versie en 
-
-2. Vastleggen van uw virtuele machine met de [Azure CLI 2.0](../virtual-machines/linux/capture-image.md) of [Azure PowerShell](../virtual-machines/windows/capture-image.md). Deze stap maakt de aangepaste VM-installatiekopie die wordt gebruikt voor de instanties in een schaalset vervolgens te implementeren.
-
-3. [Maken van een schaalset](virtual-machine-scale-sets-create.md) en geef de aangepaste VM-installatiekopie in de voorgaande stappen hebt gemaakt.
+- [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+- [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Een app installeren met de extensie voor aangepaste scripts
-De aangepaste Scriptextensie downloads en scripts worden uitgevoerd op Azure Virtual machines. Deze uitbreiding is handig voor post-implementatieconfiguraties, software-installaties of andere configuratie-/beheertaken. Scripts kunnen worden gedownload uit Azure Storage of GitHub, of worden geleverd in Azure Portal tijdens de uitvoering van extensies.
+Met de aangepaste scriptextensie kunnen scripts worden gedownload en uitgevoerd op virtuele machines in Azure. Deze uitbreiding is handig voor post-implementatieconfiguraties, software-installaties of andere configuratie-/beheertaken. Scripts kunnen worden gedownload uit Azure Storage of GitHub, of worden geleverd in Azure Portal tijdens de uitvoering van extensies. Voor meer informatie over het maken en gebruiken van een aangepaste installatiekopie van de virtuele machine met een schaal, raadpleegt u de volgende zelfstudies:
 
-De aangepaste scriptextensie kan worden geïntegreerd met Azure Resource Manager-sjablonen en kan ook worden uitgevoerd met de Azure CLI, PowerShell, Azure-portal of de REST-API van Azure virtuele Machine. 
-
-Zie voor meer informatie het [overzicht van de aangepaste scriptextensie](../virtual-machines/windows/extensions-customscript.md).
-
-
-### <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
-PowerShell maakt gebruik van een hashtabel voor het opslaan van het bestand te downloaden en de opdracht uit te voeren. Het volgende voorbeeld:
-
-- Hiermee geeft u de VM-exemplaren voor het downloaden van een script vanuit GitHub - *https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1*
-- Hiermee stelt u de uitbreiding voor het uitvoeren van een script voor installatie-`powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1`
-- Hiermee haalt u informatie over een instellen met schaal [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
-- De extensie is van toepassing op de VM-instanties met [Update AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
-
-De aangepaste Scriptextensie wordt toegepast op de *myScaleSet* VM-exemplaren in de resourcegroep met de naam *myResourceGroup*. Voer uw eigen namen:
-
-```powershell
-# Define the script for your Custom Script Extension to run
-$customConfig = @{
-    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
-    "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
-}
-
-# Get information about the scale set
-$vmss = Get-AzureRmVmss `
-                -ResourceGroupName "myResourceGroup" `
-                -VMScaleSetName "myScaleSet"
-
-# Add the Custom Script Extension to install IIS and configure basic website
-$vmss = Add-AzureRmVmssExtension `
-    -VirtualMachineScaleSet $vmss `
-    -Name "customScript" `
-    -Publisher "Microsoft.Compute" `
-    -Type "CustomScriptExtension" `
-    -TypeHandlerVersion 1.8 `
-    -Setting $customConfig
-
-# Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
-```
-
-Als het Upgradebeleid op uw schaalset *handmatige*, bijwerken van uw VM-exemplaren met [Update AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). Deze cmdlet geldt de configuratie van de bijgewerkte scale set voor VM-exemplaren en uw toepassing wordt geïnstalleerd.
-
-
-### <a name="use-azure-cli-20"></a>Azure CLI 2.0 gebruiken
-Als u wilt de aangepaste Scriptextensie met de Azure CLI gebruiken, moet u een JSON-bestand dat definieert welke bestanden verkrijgen en de opdrachten uit te voeren maken. Deze JSON-definities kunnen opnieuw worden gebruikt met scale set implementaties om toe te passen consistente toepassing wordt geïnstalleerd.
-
-Maak een bestand met de naam in uw huidige shell *customConfig.json* en plak de volgende configuratie. Maak bijvoorbeeld het bestand in de Cloud Shell, niet op uw lokale computer. U kunt een editor die u wilt gebruiken. Voer `sensible-editor cloudConfig.json` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien.
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
-  "commandToExecute": "./automate_nginx.sh"
-}
-```
-
-De configuratie van de aangepaste Scriptextensie toepassen op de VM-exemplaren in uw instellen met schaal [az vmss extensie set](/cli/azure/vmss/extension#az_vmss_extension_set). Het volgende voorbeeld wordt de *customConfig.json* configuratie van de *myScaleSet* VM-exemplaren in de resourcegroep met de naam *myResourceGroup*. Voer uw eigen namen:
-
-```azurecli
-az vmss extension set \
-    --publisher Microsoft.Azure.Extensions \
-    --version 2.0 \
-    --name CustomScript \
-    --resource-group myResourceGroup \
-    --vmss-name myScaleSet \
-    --settings @customConfig.json
-```
-
-Als het Upgradebeleid op uw schaalset *handmatige*, bijwerken van uw VM-exemplaren met [az vmss update-exemplaren](/cli/azure/vmss#update-instances). Deze cmdlet geldt de configuratie van de bijgewerkte scale set voor VM-exemplaren en uw toepassing wordt geïnstalleerd.
+- [Azure CLI 2.0](tutorial-install-apps-cli.md)
+- [Azure PowerShell](tutorial-install-apps-powershell.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Een app installeren op een Windows-VM met PowerShell DSC
@@ -123,8 +46,8 @@ Als het Upgradebeleid op uw schaalset *handmatige*, bijwerken van uw VM-exemplar
 
 De PowerShell DSC-uitbreiding kunt u VM-exemplaren in een instellen met PowerShell schaal aanpassen. Het volgende voorbeeld:
 
-- Hiermee geeft u de VM-exemplaren voor het downloaden van een DSC-pakket van GitHub - *https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip*
-- Hiermee stelt u de uitbreiding voor het uitvoeren van een script voor installatie-`configure-http.ps1`
+- Hiermee geeft u de VM-exemplaren voor het downloaden van een DSC-pakket van GitHub: *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
+- Hiermee stelt u de uitbreiding voor het uitvoeren van een script voor installatie- `configure-http.ps1`
 - Hiermee haalt u informatie over een instellen met schaal [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
 - De extensie is van toepassing op de VM-instanties met [Update AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
 
@@ -135,7 +58,7 @@ De DSC-uitbreiding is toegepast op de *myScaleSet* VM-exemplaren in de resourceg
 $dscConfig = @{
   "wmfVersion" = "latest";
   "configuration" = @{
-    "url" = "https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip";
+    "url" = "https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip";
     "script" = "configure-http.ps1";
     "function" = "WebsiteTest";
   };
@@ -168,7 +91,7 @@ Als het Upgradebeleid op uw schaalset *handmatige*, bijwerken van uw VM-exemplar
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Een app installeren voor een Linux-VM met cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io/latest/) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud-init gebruiken voor het installeren van pakketten en schrijven van bestanden, of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud-init wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of agents vereist om uw configuratie toe te passen.
 
-Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** om een pakket te installeren. In plaats daarvan kunt u een lijst met pakketten te installeren. Het hulpprogramma voor systeemeigen pakket cloud init automatisch gebruikt voor de distro die u selecteert.
+Cloud-init werkt ook in distributies. U gebruikt bijvoorbeeld niet **apt-get install** of **yum install** om een pakket te installeren. In plaats daarvan kunt u een lijst definiëren met te installeren pakketten. Cloud-init maakt automatisch gebruik van het hulpprogramma voor systeemeigen pakketbeheer voor de distro die u selecteert.
 
 Voor meer informatie, waaronder een voorbeeld *cloud init.txt* bestand, Zie [cloud init gebruiken voor het aanpassen van Azure Virtual machines](../virtual-machines/linux/using-cloud-init.md).
 
@@ -184,36 +107,6 @@ az vmss create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
-
-
-## <a name="install-applications-as-a-set-scales-out"></a>Toepassingen installeren als een set uitgeschaald
--Schaalsets kunnen u Verhoog het aantal VM-exemplaren die uw toepassing uitvoeren. Deze scale-out proces worden gestart handmatig of automatisch op basis van de metrische gegevens zoals CPU of geheugen gebruik.
-
-Als u een aangepaste Scriptextensie op de schaalaanpassingsset toegepast, wordt de toepassing is geïnstalleerd op elk nieuwe VM-exemplaar. Als de scale-set is gebaseerd op een aangepaste installatiekopie met de toepassing vooraf is geïnstalleerd, wordt elke nieuwe VM-instantie wordt geïmplementeerd in een bruikbaar staat. 
-
-Als de VM-instanties van de schaal set container hosts, kunt u de aangepaste Scriptextensie ophalen en uitvoeren hoeft installatiekopieën van de container. De aangepaste scriptextensie kan ook de nieuwe VM-instantie registreren met een orchestrator, zoals Azure Container Service.
-
-
-## <a name="deploy-application-updates"></a>Toepassingsupdates implementeren
-Als u uw toepassingscode, -bibliotheken of pakketten bijwerkt, kunt u de meest recente toestand van de toepassing pushen naar VM-exemplaren in een schaalset. Als u de aangepaste Scriptextensie, updates voor uw toepassing gebruikt en niet automatisch geïmplementeerd. Wijzig de configuratie aangepast Script zoals verwijzen naar een script voor installatie met de naam van een bijgewerkte versie. In een eerder voorbeeld de aangepaste Scriptextensie maakt gebruik van een script met de naam *automate_nginx.sh* als volgt:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
-  "commandToExecute": "./automate_nginx.sh"
-}
-```
-
-Eventuele wijzigingen die u voor uw toepassing worden niet blootgesteld aan de aangepaste Scriptextensie tenzij die wijzigingen script installeert. Een aanpak is het opnemen van een versienummer dat stappen met uw toepassing worden vrijgegeven. De aangepaste scriptextensie kan nu verwijzen naar *automate_nginx_v2.sh* als volgt:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx_v2.sh"],
-  "commandToExecute": "./automate_nginx_v2.sh"
-}
-```
-
-De aangepaste Scriptextensie is nu wordt uitgevoerd op de VM-instanties om toe te passen, de meest recente toepassingsupdates.
 
 
 ### <a name="install-applications-with-os-updates"></a>Toepassingen met updates voor het besturingssysteem installeren

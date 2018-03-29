@@ -2,7 +2,7 @@
 title: Gebruik van een Windows-VM-MSI voor toegang tot Azure SQL
 description: Een zelfstudie die u bij het proces helpt van het gebruik van een Windows VM beheerde Service identiteit (MSI) voor toegang tot Azure SQL.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b5bab684a7b188d1dc2e1f1f29a772aab8955e43
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure SQL
 
@@ -39,7 +39,7 @@ Deze zelfstudie laat zien hoe u een beheerde Service identiteit (MSI) voor een W
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+Aanmelden bij de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine in een nieuwe resourcegroep maken
 
@@ -137,7 +137,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Azure AD-verificatie voor de SQL server inschakelen
 
-Nu dat u hebt gemaakt van de groep en de VM MSI toegevoegd aan het lidmaatschap, kunt u [Azure AD authentication configureren voor de SQL server](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) met behulp van de volgende stappen uit:
+Nu dat u hebt gemaakt van de groep en de VM MSI toegevoegd aan het lidmaatschap, kunt u [Azure AD authentication configureren voor de SQL server](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) met behulp van de volgende stappen uit:
 
 1.  Selecteer in de Azure-portal **SQL-servers** van de linkernavigatiebalk.
 2.  Klik op de SQL-server worden ingeschakeld voor Azure AD-verificatie.
@@ -183,7 +183,7 @@ Code die wordt uitgevoerd in de virtuele machine kunt nu een token ophalen uit M
 
 Azure SQL systeemeigen ondersteunt Azure AD-verificatie, zodat deze kan rechtstreeks toegangstokens accepteren verkregen met behulp van MSI.  U gebruikt de **toegangstoken** methode voor het maken van een verbinding met SQL.  Dit maakt deel uit van de Azure SQL-integratie met Azure AD en verschilt van het verstrekken van referenties voor de verbindingsreeks.
 
-Hier volgt een voorbeeld van een .net-code van het openen van een verbinding met SQL met behulp van een toegangstoken.  Deze code moet uitvoeren op de virtuele machine worden toegang kunnen krijgen tot het eindpunt VM MSI.  **.NET framework 4.6** of hoger is vereist om de toegang tot token methode te gebruiken.  Vervang de waarden van AZURE-SQL-servernaam en DATABASE dienovereenkomstig.  Opmerking: de resource-ID voor Azure SQL-is 'https://database.windows.net/'.
+Hier volgt een voorbeeld van een .net-code van het openen van een verbinding met SQL met behulp van een toegangstoken.  Deze code moet uitvoeren op de virtuele machine worden toegang kunnen krijgen tot het eindpunt VM MSI.  **.NET framework 4.6** of hoger is vereist om de toegang tot token methode te gebruiken.  Vervang de waarden van AZURE-SQL-servernaam en DATABASE dienovereenkomstig.  Let op de resource-ID voor Azure SQL-is 'https://database.windows.net/'.
 
 ```csharp
 using System.Net;

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.custom: devcenter
-ms.openlocfilehash: a403af0f31823f89cdc79d6769dff61aeaefc4ad
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e4f9360bfde5f3212f0bbf184c52f59b2dd43d0b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: webtoepassingsontwikkeling met Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,8 +30,6 @@ ms.lasthandoff: 12/18/2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Dit artikel biedt een end-to-end-overzicht waarin wordt getoond hoe u met Azure Cosmos DB een to-do-app kunt maken. Zo ziet u hoe u effectief kunt gebruikmaken van Azure Cosmos DB voor het opslaan van en uitvoeren van query's voor JSON-documenten. De taken worden opgeslagen als JSON-documenten in Azure Cosmos DB.
 
@@ -545,7 +543,7 @@ Binnen een paar seconden zal Visual Studio publicatie van uw webtoepassing volto
 
 
 ## <a name="_Toc395637775"></a>Volgende stappen
-Gefeliciteerd. U zojuist hebt gemaakt van uw eerste ASP.NET MVC-webtoepassing met Azure Cosmos DB en gepubliceerd naar Azure. De broncode voor de volledige toepassing, met inbegrip van de functionaliteit voor details en verwijderen die niet is opgenomen in deze zelfstudie, kan worden gedownload of gekloond via [GitHub][GitHub]. Als dit wilt toevoegen aan uw app, kunt u de code ophalen en toevoegen aan deze app.
+Gefeliciteerd! U zojuist hebt gemaakt van uw eerste ASP.NET MVC-webtoepassing met Azure Cosmos DB en gepubliceerd naar Azure. De broncode voor de volledige toepassing, met inbegrip van de functionaliteit voor details en verwijderen die niet is opgenomen in deze zelfstudie, kan worden gedownload of gekloond via [GitHub][GitHub]. Als dit wilt toevoegen aan uw app, kunt u de code ophalen en toevoegen aan deze app.
 
 Om extra functionaliteit toe te voegen aan uw toepassing, bekijkt u de API's beschikbaar zijn in de [Azure Cosmos DB .NET-bibliotheek](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) harte welkom om bij te dragen naar de Azure Cosmos DB .NET-bibliotheek op [GitHub] [GitHub]. 
 

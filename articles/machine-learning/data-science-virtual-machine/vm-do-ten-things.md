@@ -2,8 +2,8 @@
 title: Tien kunt u dingen op de virtuele Machine in Azure in gegevens wetenschappelijke doen | Microsoft Docs
 description: Verschillende gegevensverkenning en modellering taak uitvoeren op de virtuele Machine voor gegevenswetenschap.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: gokuma;weig;bradsev
-ms.openlocfilehash: 71745260f45c5a5c150fdd3eac4e9a8221b8bce4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: f11aff2231a5ae6a58d5c9a3f53379a6849d226a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Tien dingen die u kunt doen in de virtuele wetenschapsgegevensmachine
 
@@ -296,7 +296,7 @@ Nadat u uw AzCopy-opdracht kopiëren naar een Azure-blob uitvoert, ziet u dat he
 U kunt ook gegevens uit het lokale bestand uploaden in uw virtuele machine met behulp van Azure Storage Explorer:
 
 * Als u wilt gegevens uploaden naar een container, selecteer de doelcontainer en klik op de **uploaden** knop.![ In Opslagverkenner uploaden](./media/vm-do-ten-things/storage-accounts.png)
-* Klik op de **...**  rechts van de **bestanden** Selecteer een of meerdere bestanden voor het uploaden van het bestandssysteem en klikt u op **uploaden** om te beginnen met de bestanden te uploaden.![ Uploaden van bestanden naar de blob](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Klik op de **... ** rechts van de **bestanden** Selecteer een of meerdere bestanden voor het uploaden van het bestandssysteem en klikt u op **uploaden** om te beginnen met de bestanden te uploaden.![ Uploaden van bestanden naar de blob](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Gegevens lezen uit Azure Blob: leesmodule Machine Learning**
 
@@ -814,7 +814,7 @@ Zodra u de gegevens importeert, kunt u gaat u naar Jupyter en opent u de noteboo
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Maak rapporten en een dashboard met Power BI Desktop
 U kunt het Vulkaan JSON-bestand uit het vorige voorbeeld Cosmos DB in Power BI om visual inzicht in de gegevens visualiseren. Gedetailleerde stappen zijn beschikbaar in de [Power BI-artikel](../../cosmos-db/powerbi-visualize.md). Hier volgen de hoofdstappen:
 
-1. Power BI Desktop openen en "Krijg gegevens." Geef de URL als: https://cahandson.blob.core.windows.net/samples/volcano.json
+1. Power BI Desktop openen en "Krijg gegevens." Geef de URL zoals: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. U ziet het JSON-records geïmporteerd als een lijst
 3. De lijst converteren naar een tabel zodat Power BI met dezelfde werken kunt
 4. Vouw de kolommen door te klikken op het uitvouwpictogram (de knop met het pictogram 'pijl-links en een pijl naar rechts' aan de rechterkant van de kolom)
@@ -861,7 +861,7 @@ Op dezelfde manier als uw behoefte VM verwerkingscapaciteit vermindert (bijvoorb
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10. Extra hulpprogramma's installeren op de virtuele machine
 Er zijn verschillende hulpprogramma's die vooraf zijn ingebouwd in de DSVM die veel van de algemene gegevens analytics moet kunt oplossen. Dit bespaart u tijd door te vermijden dat Installeer en configureer uw omgevingen één voor één en u betaalt alleen voor resources dat u geld besparen.
 
-U kunt andere Azure-gegevens en analyse-services in dit artikel voor het verbeteren van uw omgeving analytics profiel gebruiken. In sommige gevallen moet de behoeften van uw mogelijk extra hulpprogramma's, waaronder sommige eigen hulpprogramma's van derden. U hebt volledige beheerderstoegang op de virtuele machine voor het installeren van nieuwe hulpprogramma's die u nodig hebt. U kunt ook extra pakketten installeren in Python en R die niet vooraf zijn geïnstalleerd. Voor Python gebruikt u een ```conda``` of ```pip```. Voor R kunt u de ```install.packages()``` in het R-console of gebruik van de IDE en kies '**pakketten** -> **installatiepakketten...** ".
+U kunt andere Azure-gegevens en analyse-services in dit artikel voor het verbeteren van uw omgeving analytics profiel gebruiken. In sommige gevallen moet de behoeften van uw mogelijk extra hulpprogramma's, waaronder sommige eigen hulpprogramma's van derden. U hebt volledige beheerderstoegang op de virtuele machine voor het installeren van nieuwe hulpprogramma's die u nodig hebt. U kunt ook extra pakketten installeren in Python en R die niet vooraf zijn geïnstalleerd. Voor Python gebruikt u een ```conda``` of ```pip```. Voor R kunt u de ```install.packages()``` in het R-console of gebruik van de IDE en kies '**pakketten** -> **installatiepakketten... **".
 
 ## <a name="summary"></a>Samenvatting
 Dit zijn slechts enkele dingen die u op de Microsoft wetenschappelijke virtuele Machine gegevens kunt doen. Er zijn veel meer kunt u stappen ondernemen om deze een effectieve analytics-omgeving.

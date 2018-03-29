@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: dcd729da0b9e913046da1ad5619594f5ce485bdb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc6e3ca079b4d1edefa82e06dbe63b393ab2fbb3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Hoe Azure Table storage gebruiken met Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -361,8 +361,6 @@ dc.table.queryEntities(tableName,
 ```
 
 Als u de `continuationToken` object, vindt u eigenschappen zoals `nextPartitionKey`, `nextRowKey` en `targetLocation`, die kan worden gebruikt voor alle resultaten doorlopen.
-
-Er is ook een voorbeeld van een voortzetting (continuationsample.js) in de [azure Opslagknooppunt opslagplaats](https://github.com/Azure/azure-storage-node/tree/master/examples/samples) op GitHub. 
 
 ## <a name="work-with-shared-access-signatures"></a>Werken met handtekeningen voor gedeelde toegang
 Shared access signatures (SAS) zijn geen veilige manier toegang te bieden gedetailleerde tot tabellen zonder dat de naam van het Opslagaccount of sleutels. SAS worden vaak gebruikt voor beperkte toegang tot uw gegevens, zoals het toestaan van een mobiele app records wilt zoeken.

@@ -2,7 +2,7 @@
 title: Taak Browser en weergave van de taak voor Azure Data Lake Analytics-taken gebruiken | Microsoft Docs
 description: 'Informatie over het gebruik van de Browser van de taak en taak weergeven voor Azure Data Lake Analytics-taken. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Taak Browser en weergave van de taak voor Azure Data lake Analytics-taken gebruiken
 De service Azure Data Lake Analytics archiveert ingediende taken in een [queryarchief](#query-store). In dit artikel leert u het gebruik van taak Browser en taak weergeven in Azure Data Lake Tools voor Visual Studio om de historische taakinformatie te vinden. 
@@ -49,7 +49,7 @@ Weergave van de taak bevat:
       ![Status fasen Azure Data Lake Analytics-taak](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Voorbereiden: Uw script uploaden naar de cloud, compileren en optimaliseren het script met behulp van de compile-service.
-    * In de wachtrij: Taken in de wachtrij wei ze voldoende bronnen wachten zijn of de taken overschrijdt het maximumaantal gelijktijdige taken per accountbeperking. De prioriteitsinstelling bepaalt de volgorde van de taken in de wachtrij - hoe lager het getal, hoe hoger de prioriteit.
+    * In de wachtrij: Taken in de wachtrij geplaatst wanneer ze voldoende bronnen wachten, of de taken het maximumaantal gelijktijdige taken per accountbeperking overschrijdt. De prioriteitsinstelling bepaalt de volgorde van de taken in de wachtrij - hoe lager het getal, hoe hoger de prioriteit.
     * Uitvoeren: De taak daadwerkelijk wordt uitgevoerd in uw Data Lake Analytics-account.
     * Afronden: De taak is voltooid (bijvoorbeeld het bestand afronden).
       

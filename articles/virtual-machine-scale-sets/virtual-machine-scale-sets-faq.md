@@ -2,10 +2,10 @@
 title: Azure virtuele-machineschaalsets Veelgestelde vragen | Microsoft Docs
 description: Vind antwoorden op veelgestelde vragen over virtuele-machineschaalsets.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -16,15 +16,55 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure virtuele-machineschaalsets Veelgestelde vragen
 
 Vind antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure.
+
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>Veelgestelde vragen over schaalsets boven
+**V:** Hoeveel virtuele machines kan een schaalset bevatten?
+
+**A:** Een schaalset kan 0 tot 1000 virtuele machines bevatten op basis van platforminstallatiekopieën, of 0 tot 300 virtuele machines op basis van aangepaste installatiekopieën. 
+
+**V:** Worden gegevensschijven binnen schaalsets ondersteund?
+
+**A:** Ja. Een schaalset kan een configuratie voor gekoppelde gegevensschijven definiëren die op alle VM's in de set wordt toegepast. Zie [Schaalsets en gekoppelde gegevensschijven in Azure](virtual-machine-scale-sets-attached-disks.md) voor meer informatie. Andere opties voor het opslaan van gegevens zijn:
+
+* Azure-bestanden (gedeelde SMB-stations)
+* Station van het besturingssysteem
+* Tijdelijk station (lokaal, niet ondersteund met Azure Storage)
+* Azure-gegevensservice (bijvoorbeeld Azure-tabellen, Azure-blobs)
+* Externe gegevensservice (bijvoorbeeld externe database)
+
+**V:** Welke Azure-regio's ondersteunen schaalsets?
+
+**A:** Alle regio's ondersteunen schaalsets.
+
+**V:** Hoe maak ik een schaalset met behulp van een aangepaste installatiekopie?
+
+**A:** Maak een beheerde schijf op basis van uw aangepaste installatiekopie-VHD en verwijs ernaar in de sjabloon van de schaalset. [Hier volgt een voorbeeld](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+
+**V:** Als ik de capaciteit van mijn schaalset verlaag van 20 naar 15, welke virtuele machines worden er dan verwijderd?
+
+**A:** Virtuele machines worden gelijkmatig verwijderd uit updatedomeinen en foutdomeinen van de schaalset om de beschikbaarheid te maximaliseren. VM's met de hoogste id's worden het eerst verwijderd.
+
+**V:** Wat gebeurt er als ik de capaciteit verhoog van 15 naar 18?
+
+**A:** Als u de capaciteit verhoogt naar 18, worden er 3 nieuwe virtuele machines gemaakt. De id van elk VM-exemplaar wordt oplopend gegenereerd vanaf de vorige hoogste waarde (bijvoorbeeld 20, 21, 22). VM's worden verdeeld over foutdomeinen en updatedomeinen.
+
+**V:** Kan ik een uitvoeringsvolgorde toepassen wanneer ik meerdere extensies in een schaalset gebruik?
+
+**A:** Niet direct, maar bij de customScript-extensie kunt u uw script laten wachten op de voltooiing van een andere extensie. Meer informatie over de uitvoeringsvolgorde van extensies vindt u in het blogbericht: [Extensievolgorde bij virtuele-machineschaalsets in Azure](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+
+**V:** Maken schaalsets gebruik van beschikbaarheidssets van Azure?
+
+**A:** Ja. Een schaalset is een impliciete beschikbaarheidsset met vijf foutdomeinen en vijf updatedomeinen. Schaalsets met meer dan 100 virtuele machines omvatten meerdere *plaatsingsgroepen* die gelijkwaardig zijn aan meerdere beschikbaarheidssets. Zie voor meer informatie over de plaatsing van groepen [Werken met grote schaalsets voor virtuele machines](virtual-machine-scale-sets-placement-groups.md). Een beschikbaarheidsset met virtuele machines kan bestaan in hetzelfde virtuele netwerk als een schaalset met virtuele machines. Een veelvoorkomende configuratie is om beheerknooppunt-VM's (waarvoor vaak een unieke configuratie is vereist) in een beschikbaarheidsset te zetten en gegevensknooppunten in de schaalset te zetten.
+
 
 ## <a name="autoscale"></a>Automatisch schalen
 
@@ -558,7 +598,7 @@ Toevoegen voor het maken van een virtuele-machineschaalset ingesteld met een aan
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Hoe kan ik een schaal ingesteld op een openbaar IP-adres toewijzen aan elke virtuele machine configureren?
 
-Zorg ervoor dat de API-versie van de resource Microsoft.Compute/virtualMAchineScaleSets 2017-03-30 voor het maken van een virtuele-machineschaalset waarmee een openbaar IP-adres worden toegewezen aan elke VM en voeg toe een _publicipaddressconfiguration_ JSON pakket met de schaal ipConfigurations sectie ingesteld. Voorbeeld:
+Zorg ervoor dat de API-versie van de resource Microsoft.Compute/virtualMachineScaleSets 2017-03-30 voor het maken van een virtuele-machineschaalset waarmee een openbaar IP-adres worden toegewezen aan elke VM en voeg toe een _publicipaddressconfiguration_ JSON pakket met de schaal ipConfigurations sectie ingesteld. Voorbeeld:
 
 ```json
     "publicipaddressconfiguration": {
@@ -694,7 +734,7 @@ Als u eigenschapsinformatie voor elke virtuele machine zonder dat meerdere aanro
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Kan ik andere uitbreiding argumenten doorgeven aan andere virtuele machines in een virtuele-machineschaalset
 
-Nee, u kunt andere uitbreiding argumenten niet doorgeven voor andere VM's in een virtuele-machineschaalset. Extensies kunnen echter op basis van de unieke eigenschappen van de virtuele machine die ze worden uitgevoerd, bijvoorbeeld als u op de naam van de machine fungeren. Extensies kunnen ook een query metagegevens van het exemplaar op http://169.254.169.254 voor meer informatie over de VM.
+Nee, u kunt andere uitbreiding argumenten niet doorgeven voor andere VM's in een virtuele-machineschaalset. Extensies kunnen echter op basis van de unieke eigenschappen van de virtuele machine die ze worden uitgevoerd, bijvoorbeeld als u op de naam van de machine fungeren. Extensies ook kunnen een query metagegevens van het exemplaar op http://169.254.169.254 voor meer informatie over de VM.
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Waarom zijn er onderbrekingen tussen mijn namen voor machines van virtuele machine scale set VM en VM-id's? Bijvoorbeeld: 0, 1, 3...
 

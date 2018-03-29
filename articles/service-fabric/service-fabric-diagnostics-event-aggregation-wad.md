@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: f8159d8637967c3297c886ec79a002f0765047e4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ede128d23ca73dc46f2d4dc4b1dd4b1f83a2bc3f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Gebeurtenis-aggregatie en verzameling op basis van Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -169,6 +169,18 @@ Werk vervolgens de `VirtualMachineProfile` gedeelte van het bestand template.jso
 ```
 
 Nadat u het bestand template.json aanpassen zoals is beschreven, publiceert u de Resource Manager-sjabloon opnieuw. Als de sjabloon is geëxporteerd, het bestand deploy.ps1 uitvoert rapport opnieuw publiceert de sjabloon. Nadat u hebt geïmplementeerd, zorg ervoor dat **ProvisioningState** is **geslaagd**.
+
+> [!TIP]
+> Als u containers implementeren in uw cluster gaat, schakelt u af om op te halen docker-statistieken door toe te voegen aan uw **WadCfg > DiagnosticMonitorConfiguration** sectie.
+>
+>```json
+>"DockerSources": {
+>    "Stats": {
+>        "enabled": true,
+>        "sampleRate": "PT1M"
+>    }
+>},
+>```
 
 ## <a name="log-collection-configurations"></a>Meld u verzameling configuraties
 Logboeken van extra kanalen zijn ook beschikbaar voor de verzameling, Hier volgen enkele van de meest voorkomende configuraties die kunt u in de sjabloon voor clusters worden uitgevoerd in Azure.

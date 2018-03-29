@@ -2,7 +2,7 @@
 title: 'Azure Active Directory Domain Services: Een CentOS virtuele machine toevoegen aan een beheerd domein | Microsoft Docs'
 description: CentOS Linux virtuele machine toevoegen aan Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 9f3b6425f3c13080985fb168f46ea1f6be5d18ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7095e82605d12221ba7beb0c48fd3eda75a2e7b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>CentOS Linux virtuele machine toevoegen aan een beheerd domein
 In dit artikel leest u hoe een CentOS Linux virtuele machine in Azure koppelen aan een beheerd domein van Azure AD Domain Services.
@@ -133,7 +133,7 @@ Controleer of de machine is toegevoegd aan het beheerde domein. Verbinding maken
 
 
 ## <a name="troubleshooting-domain-join"></a>Het oplossen van problemen aan domein toevoegen
-Raadpleeg de [probleemoplossing domein](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) artikel.
+Raadpleeg de [probleemoplossing domein](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) artikel.
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 * [Azure AD Domain Services - handleiding aan de slag](active-directory-ds-getting-started.md)

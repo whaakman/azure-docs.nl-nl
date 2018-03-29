@@ -1,5 +1,5 @@
 ---
-title: Hoe Azure Table storage gebruiken met Java | Microsoft Docs
+title: Het gebruik van Azure Table storage of Azure DB tabel Cosmos-API met Java | Microsoft Docs
 description: Sla gestructureerde gegevens op in de cloud met Azure Table Storage, een oplossing voor NoSQL-gegevensopslag.
 services: cosmos-db
 documentationcenter: java
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/20/2018
 ms.author: mimig
-ms.openlocfilehash: 6862475e05f49c7da823bcfb70f30ee484131d12
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b11faf56ac700399fc411c7feb9910ada355e952
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="how-to-use-azure-table-storage-from-java"></a>Hoe Azure Table storage gebruiken met Java
+# <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Het gebruik van Azure Table storage of Azure DB tabel Cosmos-API met Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met behulp van de service Azure Table storage uitvoeren. De voorbeelden zijn geschreven in Java en gebruik de [Azure-opslag-SDK voor Java][Azure Storage SDK for Java]. De scenario's worden behandeld: **maken**, **aanbieding**, en **verwijderen** tabellen, evenals **invoegen**, **opvragen**, **wijzigen**, en **verwijderen** entiteiten in een tabel. Zie voor meer informatie over tabellen de [Vervolgstappen](#Next-Steps) sectie.
+Dit artikel wordt beschreven hoe u veelvoorkomende scenario's met behulp van de service Azure Table storage en Azure Cosmos DB uitvoert. De voorbeelden zijn geschreven in Java en gebruik de [Azure-opslag-SDK voor Java][Azure Storage SDK for Java]. De scenario's worden behandeld: **maken**, **aanbieding**, en **verwijderen** tabellen, evenals **invoegen**, **opvragen**, **wijzigen**, en **verwijderen** entiteiten in een tabel. Zie voor meer informatie over tabellen de [Vervolgstappen](#next-steps) sectie.
 
 > [!NOTE]
 > Een SDK is beschikbaar voor ontwikkelaars die werken met Azure Storage op Android-apparaten. Zie voor meer informatie de [Azure-opslag-SDK voor Android][Azure Storage SDK for Android].
@@ -36,12 +36,12 @@ Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met behulp va
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-java-application"></a>Een Java-toepassing maken
-In deze handleiding gebruikt u opslagfuncties die kunnen worden uitgevoerd binnen een Java-toepassing lokaal of in de code die wordt uitgevoerd binnen een Webrol of worker-rol in Azure.
+In deze handleiding gebruikt u opslagfuncties die u in een Java-toepassing uitvoeren kunt lokaal of in de code die wordt uitgevoerd in een Webrol of worker-rol in Azure.
 
-Om dit te doen, moet u Java Development Kit (JDK) installeren en een Azure storage-account maken in uw Azure-abonnement. Als u dit hebt gedaan, moet u controleren of uw ontwikkelsysteem voldoet aan de minimale vereisten en afhankelijkheden die worden vermeld in de [Azure-opslag-SDK voor Java] [ Azure Storage SDK for Java] opslagplaats op GitHub. Als uw systeem aan deze vereisten voldoet, kunt u de instructies voor het downloaden en installeren van de Azure Storage-bibliotheken voor Java op uw systeem vanuit die opslagplaats. Nadat u deze taken hebt voltooid, kunt u zich kunt maken van een Java-toepassing die gebruikmaakt van de voorbeelden in dit artikel.
+Voor het gebruik van de voorbeelden in dit artikel, Java Development Kit (JDK) installeren en een Azure storage-account maken in uw Azure-abonnement. Als u dit hebt gedaan, moet u controleren of uw ontwikkelsysteem voldoet aan de minimale vereisten en afhankelijkheden die worden vermeld in de [Azure-opslag-SDK voor Java] [ Azure Storage SDK for Java] opslagplaats op GitHub. Als uw systeem aan deze vereisten voldoet, kunt u de instructies voor het downloaden en installeren van de Azure Storage-bibliotheken voor Java op uw systeem vanuit die opslagplaats. Nadat u deze taken hebt voltooid, kunt u een Java-toepassing die gebruikmaakt van de voorbeelden in dit artikel kunt maken.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Uw toepassing configureren voor toegang tot tabelopslag
-De volgende importinstructies toevoegen aan het begin van de Java-bestand waar u Microsoft Azure storage-API's gebruiken voor toegang tot tabellen:
+De volgende importinstructies boven aan de Java-bestand waarin u wilt gebruiken van Azure storage-API's of Azure Cosmos DB tabel API toegang tot tabellen wilt toevoegen:
 
 ```java
 // Include the following imports to use table APIs
@@ -50,8 +50,10 @@ import com.microsoft.azure.storage.table.*;
 import com.microsoft.azure.storage.table.TableQuery.*;
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Een Azure-opslag-verbindingsreeks instellen
-Een Azure-opslag-client gebruikt een verbindingsreeks voor opslag voor het opslaan van eindpunten en referenties voor toegang tot gegevens beheerservices. Wanneer u in een clienttoepassing uitvoert, moet u opgeven de verbindingsreeks voor opslag in de volgende indeling met de naam van uw opslagaccount en de primaire toegangssleutel voor het opslagaccount vermeld in de [Azure-portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. Dit voorbeeld ziet hoe u een statisch veld voor het opslaan van de verbindingsreeks kunt declareren:
+## <a name="add-an-azure-storage-connection-string"></a>Toevoegen van een Azure-opslag-verbindingsreeks
+Een Azure-opslag-client gebruikt een verbindingsreeks voor opslag voor het opslaan van eindpunten en referenties voor toegang tot gegevens beheerservices. Wanneer u in een clienttoepassing uitvoert, moet u opgeven de verbindingsreeks voor opslag in de volgende indeling met de naam van uw opslagaccount en de primaire toegangssleutel voor het opslagaccount vermeld in de [Azure-portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. 
+
+Dit voorbeeld ziet hoe u een statisch veld voor het opslaan van de verbindingsreeks kunt declareren:
 
 ```java
 // Define the connection-string with your values.
@@ -61,7 +63,20 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-In een toepassing in een rol in Microsoft Azure wordt uitgevoerd, kan deze tekenreeks worden opgeslagen in het serviceconfiguratiebestand *ServiceConfiguration.cscfg*, en kunnen worden geopend met een aanroep naar de **RoleEnvironment.getConfigurationSettings** methode. Hier volgt een voorbeeld van het ophalen van de verbindingsreeks uit een **instelling** element met de naam *StorageConnectionString* in het configuratiebestand van de service:
+## <a name="add-an-azure-cosmos-db-connection-string"></a>Toevoegen van een verbindingsreeks voor Azure Cosmos-DB
+Een Azure DB die Cosmos-account gebruikt een verbindingsreeks voor het opslaan van het eindpunt voor table- en uw referenties. Wanneer u in een clienttoepassing uitvoert, moet u opgeven de Azure DB die Cosmos-verbindingsreeks in de volgende indeling hebben: met de naam van uw Azure DB die Cosmos-account en de primaire toegangssleutel voor het account wordt vermeld in de [Azure-portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. 
+
+Dit voorbeeld ziet hoe u een statisch veld voor het opslaan van de Azure DB die Cosmos-verbindingsreeks kunt declareren:
+
+```java
+public static final String storageConnectionString =
+    "DefaultEndpointsProtocol=https;" + 
+    "AccountName=your_cosmosdb_account;" + 
+    "AccountKey=your_account_key;" + 
+    "TableEndpoint=https://your_endpoint;" ;
+```
+
+In een toepassing in een rol in Azure wordt uitgevoerd, slaat u deze tekenreeks in het configuratiebestand van de service *ServiceConfiguration.cscfg*, en u toegang hebt tot het met een aanroep naar de  **RoleEnvironment.getConfigurationSettings** methode. Hier volgt een voorbeeld van het ophalen van de verbindingsreeks uit een **instelling** element met de naam *StorageConnectionString* in het configuratiebestand van de service:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -69,13 +84,19 @@ String storageConnectionString =
     RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 ```
 
-De volgende voorbeelden wordt ervan uitgegaan dat u een van deze twee methoden hebt gebruikt om op te halen van de verbindingsreeks voor opslag.
+U kunt ook de verbindingstekenreeks opslaan in het projectbestand config.properties:
 
-## <a name="how-to-create-a-table"></a>Procedure: een tabel maken
+```java
+StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_account;AccountKey=your_account_key;TableEndpoint=https://your_table_endpoint/
+```
+
+De volgende voorbeelden wordt ervan uitgegaan dat u een van deze methoden hebt gebruikt om op te halen van de verbindingsreeks voor opslag.
+
+## <a name="create-a-table"></a>Een tabel maken
 Een **CloudTableClient** object kunt u profiteren van reference-objecten voor tabellen en entiteiten. De volgende code maakt een **CloudTableClient** object en gebruikt deze om een nieuwe **CloudTable** -object met een tabel met de naam 'mensen'. 
 
 > [!NOTE]
-> Er zijn aanvullende manieren maken **CloudStorageAccount** objecten; voor meer informatie Zie **CloudStorageAccount** in de [naslaginformatie over Azure Storage Client SDK].)
+> Er zijn andere manieren maken **CloudStorageAccount** objecten; voor meer informatie Zie **CloudStorageAccount** in de [naslaginformatie over Azure Storage Client SDK]).
 >
 
 ```java
@@ -100,7 +121,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-list-the-tables"></a>Procedure: de tabellen
+## <a name="list-the-tables"></a>Geef de tabellen
 Als u een lijst met tabellen, Roep de **CloudTableClient.listTables()** methode voor het ophalen van een iterable lijst met namen van tabellen.
 
 ```java
@@ -127,7 +148,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-add-an-entity-to-a-table"></a>Procedure: een entiteit toevoegen aan een tabel
+## <a name="add-an-entity-to-a-table"></a>Een entiteit toevoegen aan een tabel
 Entiteiten worden toegewezen aan de Java-objecten met behulp van de implementatie van een aangepaste klasse **TableEntity**. Voor het gemak de **TableServiceEntity** klasse implementeert **TableEntity** en maakt gebruik van reflectie eigenschappen toe te wijzen aan getter en setter methoden met de naam van de eigenschappen. Als u wilt een entiteit toevoegen aan een tabel, moet u eerst een klasse die de eigenschappen van uw entiteit definieert maken. De volgende code definieert een entiteitsklasse die de voornaam van de klant als de rijsleutel en de achternaam als de partitiesleutel gebruikt. De partitie- en rijsleutel van een entiteit vormen samen de unieke id van de entiteit in de tabel. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd dan die met verschillende partitiesleutels.
 
 ```java
@@ -193,7 +214,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-insert-a-batch-of-entities"></a>Procedure: een batch entiteiten invoegen
+## <a name="insert-a-batch-of-entities"></a>Een batch entiteiten invoegen
 U kunt een batch entiteiten met de tabelservice invoegen in één schrijfbewerking. De volgende code maakt een **TableBatchOperation** object en vervolgens voegt u drie bewerkingen voor het invoegen. Elke bewerking insert is toegevoegd door het maken van een nieuwe entiteitsobject, de waarden in te stellen en vervolgens het aanroepen van de **invoegen** methode op de **TableBatchOperation** -object op voor de entiteit koppelen aan een nieuwe insert-bewerking. En vervolgens de code aanroepen **uitvoeren** op de **CloudTable** object, waarbij u de tabel 'gebruikers' en de **TableBatchOperation** -object, dat de batch van tabelbewerkingen met de storage-service in een afzonderlijke aanvraag verzendt.
 
 ```java
@@ -247,7 +268,7 @@ Een aantal zaken te weten over batchbewerkingen:
 * Alle entiteiten in een batchbewerking moeten dezelfde partitiesleutel hebben.
 * Een batchbewerking is beperkt tot een nettolading met gegevens van 4MB.
 
-## <a name="how-to-retrieve-all-entities-in-a-partition"></a>Hoe: alle entiteiten in een partitie ophalen
+## <a name="retrieve-all-entities-in-a-partition"></a>Alle entiteiten in een partitie ophalen
 Om te vragen een tabel voor entiteiten in een partitie, kunt u een **TableQuery**. Roep **TableQuery.from** voor het maken van een query op een bepaalde tabel die een resultaattype opgegeven retourneert. De volgende code geeft een filter voor entiteiten waarbij 'Smith' de partitiesleutel is. **TableQuery.generateFilterCondition** is een Help-methode om filters voor query's te maken. Roep **waar** op de verwijzing geretourneerd door de **TableQuery.from** methode voor het filter toepassen op de query. Wanneer de query wordt uitgevoerd met een aanroep naar **uitvoeren** op de **CloudTable** object, wordt een **Iterator** met de **CustomerEntity** resultaattype opgegeven. U kunt de **Iterator** geretourneerd in een voor elke lus in beslag neemt de resultaten. Deze code wordt de velden van elke entiteit in de queryresultaten naar de console afgedrukt.
 
 ```java
@@ -294,7 +315,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-retrieve-a-range-of-entities-in-a-partition"></a>Procedure: een bereik van entiteiten in een partitie ophalen
+## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Een bereik van entiteiten in een partitie ophalen
 Als u geen query uitvoeren op alle entiteiten in een partitie wilt, kunt u een bereik met behulp van vergelijkingsoperators in een filter opgeven. De volgende code combineert twee filters om alle entiteiten in de partitie 'Smith', waarbij de rijsleutel (voornaam) met een letter maximaal 'E begint' in het alfabet. Vervolgens worden de resultaten van de query afgedrukt. Als u de toegevoegd aan de tabel in de batch entiteiten invoegen van deze handleiding, worden slechts twee entiteiten geretourneerd ditmaal (Ben en Denise Smith); Jeff Smith is niet opgenomen.
 
 ```java
@@ -352,8 +373,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-retrieve-a-single-entity"></a>Hoe: Eén entiteit ophalen
-U kunt een query schrijven om één specifieke entiteit op te halen. De volgende code aanroepen **TableOperation.retrieve** met partitie-sleutel en rij sleutel parameters om op te geven van de klant 'Jeff Smith', in plaats van het maken van een **TableQuery** en doe hetzelfde met filters. Wanneer uitgevoerd, wordt de bewerking ophalen retourneert één entiteit in plaats van een verzameling. De **getResultAsType** methode cast het resultaat van het type van de doel-toewijzing, een **CustomerEntity** object. Als u dit type is niet compatibel met het opgegeven type voor de query, wordt er een uitzondering opgetreden. Als er is geen entiteit heeft een exacte partitie en de rijsleutel overeen met een null-waarde geretourneerd. Het opgeven van zowel partitie- als rijsleutels in een query is de snelste manier om één entiteit op te halen uit de Tabelservice.
+## <a name="retrieve-a-single-entity"></a>Eén entiteit ophalen
+U kunt een query schrijven om één specifieke entiteit op te halen. De volgende code aanroepen **TableOperation.retrieve** met partitie-sleutel en rij sleutel parameters om op te geven van de klant 'Jeff Smith', in plaats van het maken van een **TableQuery** en doe hetzelfde met filters. Wanneer uitgevoerd, wordt de bewerking ophalen retourneert één entiteit in plaats van een verzameling. De **getResultAsType** methode cast het resultaat van het type van de doel-toewijzing, een **CustomerEntity** object. Als u dit type is niet compatibel met het opgegeven type voor de query, wordt een uitzondering opgetreden. Als er is geen entiteit heeft een exacte partitie en de rijsleutel overeen met een null-waarde geretourneerd. Het opgeven van zowel partitie- als rijsleutels in een query is de snelste manier om één entiteit op te halen uit de Tabelservice.
 
 ```java
 try
@@ -392,8 +413,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-modify-an-entity"></a>Procedure: een entiteit wijzigen
-Voor het wijzigen van een entiteit ophalen uit de tabelservice, wijzigingen aanbrengen in het entiteitsobject en sla de wijzigingen terug naar de tabelservice met een vervangings- of merge-bewerking. De volgende code wijzigt het telefoonnummer van een bestaande klant. In plaats van aanroepen **TableOperation.insert** zoals we gedaan om in te voegen, wordt deze code roept **TableOperation.replace**. De **CloudTable.execute** methode roept de tabelservice en de entiteit wordt vervangen, tenzij een andere toepassing gewijzigd deze in de tijd sinds deze toepassing wordt opgehaald. Wanneer dit gebeurt, wordt een uitzondering gegenereerd en de entiteit moet worden opgehaald, gewijzigd en opnieuw worden opgeslagen. Dit patroon van een nieuwe poging optimistische gelijktijdigheid is gemeenschappelijk in een gedistribueerd opslagsysteem.
+## <a name="modify-an-entity"></a>Een entiteit wijzigen
+Voor het wijzigen van een entiteit ophalen uit de tabelservice, wijzigingen aanbrengen in het entiteitsobject en sla de wijzigingen terug naar de tabelservice met een vervangings- of merge-bewerking. De volgende code wijzigt het telefoonnummer van een bestaande klant. In plaats van aanroepen **TableOperation.insert** zoals we hebben gedaan om in te voegen, wordt deze code roept **TableOperation.replace**. De **CloudTable.execute** methode roept de tabelservice en de entiteit wordt vervangen, tenzij een andere toepassing gewijzigd deze in de tijd sinds deze toepassing wordt opgehaald. Wanneer dit gebeurt, wordt een uitzondering gegenereerd en de entiteit moet worden opgehaald, gewijzigd en opnieuw worden opgeslagen. Dit patroon van een nieuwe poging optimistische gelijktijdigheid is gemeenschappelijk in een gedistribueerd opslagsysteem.
 
 ```java
 try
@@ -432,7 +453,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-query-a-subset-of-entity-properties"></a>Hoe: query uitvoeren op een subset van entiteitseigenschappen
+## <a name="query-a-subset-of-entity-properties"></a>Een query uitvoeren op een subset van entiteitseigenschappen
 Een query naar een tabel ophalen slechts enkele eigenschappen van een entiteit. Deze methode, projectie genoemd, verbruikt minder bandbreedte en kan de queryprestaties verbeteren, vooral bij grote entiteiten. De query in de volgende code gebruikt de **Selecteer** methode om te worden alleen de e-mailadressen van entiteiten in de tabel retourneren. De resultaten worden geprojecteerd in een verzameling van **tekenreeks** met behulp van een **EntityResolver**, doet de typeconversie op de entiteiten die zijn geretourneerd door de server. U kunt meer informatie over projectie in [Azure-tabellen: blogbericht introductie tot Upsert en Query projectie][Azure Tables: Introducing Upsert and Query Projection]. Houd er rekening mee dat projectie niet wordt ondersteund op de emulator van de lokale opslag, zodat deze code wordt alleen uitgevoerd als met een account in de tabelservice.
 
 ```java
@@ -474,7 +495,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-insert-or-replace-an-entity"></a>Hoe: invoegen of vervangen van een entiteit
+## <a name="insert-or-replace-an-entity"></a>Invoegen of vervangen van een entiteit
 Vaak wilt u een entiteit toevoegen aan een tabel zonder te weten te komen of deze al in de tabel voorkomt. Een bewerking voor invoegen of vervangen, kunt u enkele vragen die de entiteit wordt ingevoegd als deze bestaat niet of u de bestaande versie vervangen als dit het geval is. Voortbouwend op de eerdere voorbeelden, met de volgende code wordt ingevoegd of vervangen van de entiteit voor 'Walter Harp'. Na het maken van een nieuwe entiteit deze code roept de **TableOperation.insertOrReplace** methode. Deze code roept vervolgens **uitvoeren** op de **CloudTable** object met de tabel en het invoegen of vervangen als de parameters van een tabel is. Bijwerken van slechts een deel van een entiteit, de **TableOperation.insertOrMerge** methode in plaats daarvan kan worden gebruikt. Houd er rekening mee dat invoegen of vervangen wordt niet ondersteund in de emulator van de lokale opslag, zodat deze code wordt alleen uitgevoerd als met een account in de tabelservice. U kunt meer informatie over invoegen of vervangen en insert-of-samenvoegen in deze [Azure-tabellen: blogbericht introductie tot Upsert en Query projectie][Azure Tables: Introducing Upsert and Query Projection].
 
 ```java
@@ -508,7 +529,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-delete-an-entity"></a>Procedure: een entiteit verwijderen
+## <a name="delete-an-entity"></a>Een entiteit verwijderen
 U kunt een entiteit gemakkelijk verwijderen nadat u deze hebt opgehaald. Wanneer de entiteit is opgehaald, aanroepen **TableOperation.delete** met de entiteit wilt verwijderen. Roep vervolgens **uitvoeren** op de **CloudTable** object. Met de volgende code wordt een klantentiteit opgehaald en verwijderd.
 
 ```java
@@ -544,8 +565,8 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-delete-a-table"></a>Procedure: een tabel verwijderen
-De volgende code wordt tot slot een tabel uit een opslagaccount verwijderd. Een tabel die is verwijderd is niet beschikbaar worden gemaakt voor een bepaalde tijd na de verwijdering, meestal minder dan 40 seconden zijn.
+## <a name="delete-a-table"></a>Een tabel verwijderen
+De volgende code wordt tot slot een tabel uit een opslagaccount verwijderd. Ongeveer 40 seconden nadat u een tabel, verwijdert u kan niet opnieuw maken. 
 
 ```java
 try
@@ -571,6 +592,7 @@ catch (Exception e)
 
 ## <a name="next-steps"></a>Volgende stappen
 
+* [Aan de slag met Azure Table-Service in Java](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
 * [Azure-opslag-SDK voor Java][Azure Storage SDK for Java]
 * [naslaginformatie over Azure Storage Client SDK][naslaginformatie over Azure Storage Client SDK]
@@ -582,7 +604,7 @@ Voor meer informatie gaat u naar [Azure voor Java-ontwikkelaars](/java/azure).
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[naslaginformatie over Azure Storage Client SDK]: http://dl.windowsazure.com/storage/javadoc/
+[naslaginformatie over Azure Storage Client SDK]: http://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

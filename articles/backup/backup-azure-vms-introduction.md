@@ -2,10 +2,10 @@
 title: Planning van uw back-upinfrastructuur VM in Azure | Microsoft Docs
 description: Belangrijke overwegingen bij het plannen van de back-up van virtuele machines in Azure
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: back-up van virtuele machines, back-up van virtuele machines
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
@@ -13,32 +13,32 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/18/2017
+ms.date: 3/23/2018
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>De infrastructuur voor back-ups van virtuele Azure-machines plannen
 In dit artikel biedt de prestaties en suggesties voor het plannen van uw back-upinfrastructuur VM resource. Definieert ook belangrijke aspecten van de Backup-service; deze aspecten kunnen essentieel bij het bepalen van uw architectuur zijn capaciteitsplanning en planning. Als u hebt [uw omgeving voorbereid](backup-azure-arm-vms-prepare.md), is de volgende stap plannen voordat u begint met [back-up van virtuele machines](backup-azure-arm-vms.md). Als u meer informatie over virtuele machines in Azure nodig hebt, raadpleegt u de [documentatie Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Hoe biedt Azure back-up van virtuele machines?
-Wanneer een back-uptaak de Azure Backup-service op het geplande tijdstip begint, wordt de Backup-extensie om een momentopname punt in tijd geactiveerd. De Azure Backup-service wordt gebruikt de _VMSnapshot_ de extensie in Windows, en de _VMSnapshotLinux_ extensie in Linux. De uitbreiding wordt geïnstalleerd tijdens de eerste VM back-up. Voor het installeren van de uitbreiding voor moet de virtuele machine worden uitgevoerd. Als de virtuele machine niet wordt uitgevoerd, maakt de Backup-service een momentopname van de onderliggende opslag (omdat er geen schrijfbewerkingen toepassing optreden terwijl de virtuele machine is gestopt).
+Wanneer de Azure Backup-service initieert een back-uptaak op het geplande tijdstip, de triggers service de Backup-extensie de momentopname van een punt in tijd. De Azure Backup-service wordt gebruikt de _VMSnapshot_ de extensie in Windows, en de _VMSnapshotLinux_ extensie in Linux. De uitbreiding wordt geïnstalleerd tijdens de eerste VM back-up. Voor het installeren van de uitbreiding voor moet de virtuele machine worden uitgevoerd. Als de VM niet actief is, wordt met de Backup-service een momentopname gemaakt van de onderliggende opslag (aangezien er geen schrijfbewerkingen van toepassingen plaatsvinden als de VM is gestopt).
 
 Wanneer een momentopname maken van VM's van Windows, coördineert de Backup-service met de Volume Shadow Copy Service (VSS) om op te halen van een consistente momentopname van de schijven van de virtuele machine. Als u een back-up van Linux VM's, kunt u uw eigen aangepaste scripts consistentie bij het maken van een VM-momentopname schrijven. Verderop in dit artikel vindt u meer informatie over het aanroepen van deze scripts.
 
-Zodra de Azure Backup-service de momentopname maakt, worden de gegevens worden overgedragen naar de kluis. Als u wilt optimaliseren, wordt de service identificeert en draagt alleen de blokken met gegevens die zijn gewijzigd sinds de vorige back-up.
+Nadat de momentopname is gemaakt met de Azure Backup-service, worden de gegevens overgedragen naar de kluis. Voor maximale efficiëntie wordt met de service geïdentificeerd welke gegevensblokken sinds de vorige back-up zijn gewijzigd. Alleen deze worden vervolgens overgedragen.
 
 ![Virtuele machine van Azure Backup-architectuur](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
-Wanneer de overdracht van gegevens voltooid is, wordt de momentopname is verwijderd en een herstelpunt wordt gemaakt.
+Wanneer de gegevensoverdracht is voltooid, wordt de momentopname verwijderd en wordt er een herstelpunt gemaakt.
 
 > [!NOTE]
 > 1. Tijdens de back-upproces bevat Azure Backup geen de tijdelijke schijf die is gekoppeld aan de virtuele machine. Zie voor meer informatie de blog op [tijdelijke opslag](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
-> 2. Aangezien Azure Backup een momentopname van het niveau van de opslag en brengt het die momentopname naar de kluis, wijzig de opslagaccountsleutels totdat de back-uptaak is voltooid.
-> 3. Premium VM's kopiëren we de momentopname naar storage-account. Dit is om ervoor te zorgen dat Azure Backup-service voldoende IOPS opgehaald voor de overdracht van gegevens naar de kluis. Deze extra exemplaar van de opslag is in rekening gebracht volgens de virtuele machine toegewezen grootte. 
+> 2. Azure back-up vergt een opslag-momentopnamen en brengt het die momentopname naar de kluis, wijzig de opslagaccountsleutels niet totdat de back-uptaak is voltooid.
+> 3. Voor VM's voor premium, Azure Backup de momentopname gekopieerd naar het opslagaccount. Dit is om ervoor te zorgen dat de back-up-service gebruikt voldoende IOP's voor het overbrengen van gegevens naar de kluis. Deze extra exemplaar van de opslag is in rekening gebracht volgens de virtuele machine toegewezen grootte. 
 >
 
 ### <a name="data-consistency"></a>Gegevensconsistentie
@@ -64,7 +64,7 @@ De volgende tabel beschrijft de soorten consistentie en de voorwaarden die ze on
 | --- | --- | --- |
 | Consistentie van toepassingen |Ja voor Windows|Consistentie van de toepassing is ideaal voor workloads zoals zorgt ervoor dat:<ol><li> De virtuele machine *opgestart*. <li>Er is *geen beschadiging*. <li>Er is *zonder verlies van gegevens*.<li> De gegevens zijn consistent zijn om de toepassing die gebruikmaakt van de gegevens met betrekking tot de toepassing op het moment van back-up--met VSS of vooraf/post script.</ol> <li>*VM's van Windows*-meest Microsoft-werkbelastingen VSS-schrijvers die specifiek acties uitvoeren die betrekking hebben op consistentie van de gegevens hebben. Microsoft SQL Server heeft bijvoorbeeld een VSS-schrijver dat ervoor zorgt dat de geschreven naar het transactielogbestand en de database correct worden uitgevoerd. Voor back-ups van virtuele machine van Windows Azure, voor het maken van een toepassingsconsistente herstelpunt, moet de Backup-extensie de VSS-workflow aanroepen en deze zijn voltooid voordat de VM-momentopname. Voor de Azure VM-momentopname worden nauwkeurige, moeten ook de VSS-schrijvers van alle virtuele machine van Azure-toepassingen uitvoeren. (Meer informatie over de [basisprincipes van VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) en duik diep in de details van [hoe het werkt](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Virtuele Linux-machines*-klanten kunnen uitvoeren [aangepaste script voor vóór en na toepassing consistentie te garanderen](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Consistentie van bestandssysteem |Ja - voor Windows-computers |Er zijn twee scenario's waar het herstelpunt kan zijn *bestandssysteem consistente*:<ul><li>Back-ups van virtuele Linux-machines in Azure, zonder pre-script/na-script of als pre-script/na-script is mislukt. <li>VSS-fout tijdens back-up voor Windows-machines in Azure.</li></ul> In beide gevallen is het beste die kan worden uitgevoerd om ervoor te zorgen dat: <ol><li> De virtuele machine *opgestart*. <li>Er is *geen beschadiging*.<li>Er is *zonder verlies van gegevens*.</ol> Toepassingen moeten hun eigen mechanisme 'bijwerken' implementeren op de herstelde gegevens. |
-| Consistentie van de crash |Nee |Deze situatie komt overeen met een virtuele machine met een 'crash' (via ofwel een zacht of hard reset). Crash consistentie gebeurt meestal wanneer de virtuele machine van Azure op het moment van back-up wordt afgesloten. Een crashconsistent herstelpunt biedt geen garanties rond de consistentie van de gegevens op het opslagmedium--vanuit het perspectief van het besturingssysteem of de toepassing. Alleen de gegevens die al op de schijf op het moment van back-up bestaat worden vastgelegd en back-up gemaakt. <br/> <br/> Hoewel er geen garanties, meestal, het besturingssysteem opnieuw is opgestart, gevolgd door het controleren van de schijf procedure, zoals chkdsk eventuele Beschadigingsfouten te herstellen. Alle gegevens in het geheugen of schrijfbewerkingen die niet zijn overgebracht naar de schijf gaan verloren. De toepassing wordt doorgaans met een eigen mechanisme voor verificatie volgt geval terugdraaien van de gegevens moet worden uitgevoerd. <br><br>Een voorbeeld: als het transactielogboek is vermeldingen die niet aanwezig in de database vervolgens de databasesoftware geen terugdraaien tot de gegevens consistent is. Wanneer gegevens worden verspreid over meerdere virtuele schijven (zoals spanned volumes), biedt een crashconsistent herstelpunt geen garanties voor de juistheid van de gegevens. |
+| Consistentie van de crash |Nee |Deze situatie komt overeen met een virtuele machine met een 'crash' (via ofwel een zacht of hard reset). Crash consistentie gebeurt meestal wanneer de virtuele machine van Azure op het moment van back-up wordt afgesloten. Een crashconsistent herstelpunt biedt geen garanties rond de consistentie van de gegevens op het opslagmedium--vanuit het perspectief van het besturingssysteem of de toepassing. Alleen de gegevens die al op de schijf op het moment van back-up bestaat worden vastgelegd en back-up gemaakt. <br/> <br/> Hoewel er geen garanties, meestal, het besturingssysteem opnieuw is opgestart, gevolgd door het controleren van de schijf procedure, zoals chkdsk eventuele Beschadigingsfouten te herstellen. Alle gegevens in het geheugen of schrijfbewerkingen die niet zijn overgebracht naar de schijf gaan verloren. De toepassing wordt doorgaans met een eigen mechanisme voor verificatie volgt geval terugdraaien van de gegevens moet worden uitgevoerd. <br><br>Een voorbeeld: als het transactielogboek vermeldingen niet aanwezig in de database heeft de databasesoftware wordt getotaliseerd terug tot de gegevens consistent is. Wanneer gegevens worden verspreid over meerdere virtuele schijven (zoals spanned volumes), biedt een crashconsistent herstelpunt geen garanties voor de juistheid van de gegevens. |
 
 ## <a name="performance-and-resource-utilization"></a>Prestatie- en -gebruik
 Zoals back-upsoftware die geïmplementeerde on-premises, moet u plannen voor de capaciteit en brongebruik behoeften back-ups van virtuele machines in Azure. De [Azure Storage beperkt](../azure-subscription-service-limits.md#storage-limits) structuur van de VM-implementaties voor optimale prestaties met minimale gevolgen voor het uitvoeren van werkbelastingen definiëren.
@@ -125,24 +125,24 @@ We raden na deze procedures bij het configureren van de back-ups voor virtuele m
 Azure Backup biedt gegevens als onderdeel van het back-upproces niet coderen. Echter versleutelde gegevens vanuit de virtuele machine en back-up van de beveiligde gegevens naadloos (meer informatie over [back-up van de versleutelde gegevens](backup-azure-vms-encryption.md)).
 
 ## <a name="calculating-the-cost-of-protected-instances"></a>Berekenen van de kosten van beveiligde instanties
-Azure virtuele machines die worden ondersteund door Azure Backup zijn onderworpen aan [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/). De exemplaren beveiligd berekening is gebaseerd op de *werkelijke* grootte van de virtuele machine, is de som van alle gegevens in de virtuele machine met uitzondering van de resource-schijf.
+Azure virtuele machines die worden ondersteund door Azure Backup zijn onderworpen aan [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/). De exemplaren beveiligd berekening is gebaseerd op de *werkelijke* grootte van de virtuele machine, is de som van alle gegevens in de virtuele machine met uitsluiting van de tijdelijke opslag.
 
-Prijzen voor back-ups van virtuele machines is *niet* op basis van de maximale ondersteunde grootte voor elke gegevensschijf gekoppeld aan de virtuele machine. Prijzen is gebaseerd op de feitelijke gegevens die zijn opgeslagen in de gegevensschijf. Op deze manier worden de back-upopslag factuur is gebaseerd op de hoeveelheid gegevens die zijn opgeslagen in Azure back-up, dit is de som van de werkelijke gegevens in elk herstelpunt.
+Prijzen voor back-ups van virtuele machines is niet gebaseerd op de maximale ondersteunde grootte voor elke gegevensschijf gekoppeld aan de virtuele machine. Prijzen is gebaseerd op de feitelijke gegevens die zijn opgeslagen in de gegevensschijf. Op deze manier worden de back-upopslag factuur is gebaseerd op de hoeveelheid gegevens die zijn opgeslagen in Azure back-up, dit is de som van de werkelijke gegevens in elk herstelpunt.
 
 Een standaard A2 grote virtuele machine die twee extra gegevensschijven met een maximale grootte van 1 TB heeft bijvoorbeeld op te halen. De volgende tabel bevat de werkelijke hoeveelheid gegevens die zijn opgeslagen op elk van deze schijven:
 
 | Schijftype | Max. grootte | Werkelijke gegevens aanwezig |
-| --- | --- | --- |
+| --------- | -------- | ----------- |
 | Besturingssysteemschijf |1023 GB |17 GB |
-| Lokale schijf / Resource-schijf |135 GB |5 GB (niet voor back-up opgenomen) |
+| Lokale schijf / tijdelijke schijf |135 GB |5 GB (niet voor back-up opgenomen) |
 | Gegevensschijf 1 |1023 GB |30 GB |
 | Gegevensschijf 2 |1023 GB |0 GB |
 
-De *werkelijke* grootte van de virtuele machine is in dit geval 17 GB + 30 GB + 0 GB = 47 GB. De grootte van deze beveiligde exemplaar (47 GB), wordt de basis voor de maandelijkse factuur. Wanneer de hoeveelheid gegevens in de virtuele machine groeit, gebruikt de beveiligd exemplaargrootte dienovereenkomstig voor facturering wijzigingen.
+De werkelijke grootte van de virtuele machine is in dit geval 17 GB + 30 GB + 0 GB = 47 GB. De grootte van deze beveiligde exemplaar (47 GB), wordt de basis voor de maandelijkse factuur. Wanneer de hoeveelheid gegevens in de virtuele machine groeit, gebruikt de beveiligd exemplaargrootte dienovereenkomstig voor facturering wijzigingen.
 
-Facturering start niet totdat de eerste geslaagde back-up is voltooid. Op dit moment begint de facturering voor zowel opslag als beveiligd exemplaren. Facturering geldt zolang er *een back-up van gegevens die zijn opgeslagen in een kluis* voor de virtuele machine. Als u de beveiliging op de virtuele machine stoppen, maar de back-upgegevens virtuele machine in een kluis bestaat, blijft de facturering.
+Facturering start niet totdat de eerste geslaagde back-up is voltooid. Op dit moment begint de facturering voor zowel opslag als beveiligd exemplaren. Facturering blijft, zolang er back-upgegevens opgeslagen in een kluis voor de virtuele machine is. Als u de beveiliging op de virtuele machine stoppen, maar de back-upgegevens virtuele machine in een kluis bestaat, blijft de facturering.
 
-Financieel voor een opgegeven virtuele machine stopt alleen als de beveiliging is gestopt *en* alle back-gegevens worden verwijderd. Wanneer de beveiliging stopt en er zijn geen actieve back-taken, de grootte van de laatste geslaagde VM back-up wordt de grootte van de beveiligde exemplaar gebruikt voor de maandelijkse factuur.
+Facturering voor een opgegeven virtuele machine stopt alleen als de beveiliging is gestopt en alle back-upgegevens wordt verwijderd. Wanneer de beveiliging stopt en er zijn geen actieve back-taken, de grootte van de laatste geslaagde VM back-up wordt de grootte van de beveiligde exemplaar gebruikt voor de maandelijkse factuur.
 
 ## <a name="questions"></a>Vragen?
 Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [stuur ons dan uw feedback](http://aka.ms/azurebackup_feedback).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 4f46e796ff1ab85c0061c70ff9a725a6945a4f5d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Overzicht van Azure Load Balancer
 
@@ -41,7 +41,7 @@ Azure Load Balancer kan worden gebruikt om:
 
 
 >[!NOTE]
-> Azure biedt een reeks volledig beheerde oplossingen voor uw scenario's voor taakverdeling.  Als u TLS-beëindiging ('SSL-offload') of HTTP/HTTPS application layer verwerking zoekt, Raadpleeg [Application Gateway](../application-gateway/application-gateway-introduction.md).  Als u op zoek bent voor globale DNS taakverdeling, Bekijk [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Uw end-to-end-scenario's kunnen profiteren van deze oplossingen combineren indien nodig.
+> Azure biedt een reeks volledig beheerde oplossingen voor uw scenario's voor taakverdeling.  Als u voor TLS-beëindiging ('SSL-offload') of per toepassing HTTP/HTTPS-laag aanvraagverwerking zoeken wilt, bekijkt u [Application Gateway](../application-gateway/application-gateway-introduction.md).  Als u op zoek bent voor globale DNS taakverdeling, Bekijk [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Uw end-to-end-scenario's kunnen profiteren van deze oplossingen combineren indien nodig.
 
 ## <a name="what-is-load-balancer"></a>Wat is load balancer?
 
@@ -107,7 +107,7 @@ Azure Load Balancer ondersteunt twee verschillende SKU's: Basic en Standard.  Er
 Echter, afhankelijk van die SKU is gekozen, afwijken het volledige scenario configuratiedetails enigszins. De Load Balancer-documentatie illustreert wanneer een artikel van toepassing op een specifieke SKU alleen. Bekijk de volgende tabel hieronder om te vergelijken en te weten over de verschillen.  Bekijk [standaard Load Balancer Overview](load-balancer-standard-overview.md) voor meer informatie.
 
 >[!NOTE]
-> Nieuwe ontwerpen moeten standaard Load Balancer gebruiken. 
+> Nieuwe ontwerpen Overweeg het gebruik van standaard Load Balancer. 
 
 Zelfstandige virtuele machines, beschikbaarheidssets en virtuele-machineschaalsets kunnen alleen worden verbonden met een SKU, niet beide. Bij gebruik met openbare IP-adressen is, zowel de Load Balancer en de openbare IP-adres SKU moet overeenkomen. Load Balancer en openbare IP-SKU's zijn niet veranderlijke.
 
@@ -118,15 +118,15 @@ _Het is een best practice om op te geven de SKU's expliciet, zelfs als deze nog 
 
 | | [Standaard SKU](load-balancer-standard-overview.md) | Basis-SKU |
 | --- | --- | --- |
-| Grootte van de back-end | maximaal 1000 exemplaren | maximaal 100 exemplaren|
+| Grootte van de back-end | maximaal 1000 exemplaren | maximaal 100 exemplaren |
 | Back-end-pool-eindpunten | Een virtuele machine in één virtueel netwerk, met inbegrip van de combinatie van virtuele machines, beschikbaarheidssets, virtuele-machineschaalset wordt ingesteld. | virtuele machines in een enkel beschikbaarheid instellen of de virtuele machine schaal instellen |
 | Beschikbaarheidszones | Zone-redundante en zonal frontends voor inkomend en uitgaand, uitgaande stromen toewijzingen zone storingen, taakverdeling cross-zone | / |
-| Diagnostiek | Azure Monitor multidimensionale metrische gegevens inclusief byte en pakket tellers, health test status, verbindingspogingen (TCP SYN), status van de uitgaande verbinding (snat omzetten geslaagde en mislukte flows), actieve gegevens vlak metingen | Azure Log analytics voor openbare Load Balancer, snat omzetten uitputting van de waarschuwing, status aantal back-end Pools |
+| Diagnostiek | Azure Monitor multidimensionale metrische gegevens inclusief byte en pakket tellers, health test status, verbindingspogingen (TCP SYN), status van de uitgaande verbinding (snat omzetten geslaagde en mislukte flows), actieve gegevens vlak metingen | Azure Log Analytics voor openbare Load Balancer, snat omzetten uitputting van de waarschuwing, status aantal back-end Pools |
 | HA poorten | Interne Load Balancer | / |
-| Standaard beveiligen | openbare IP-adres en de Load Balancer-eindpunten standaard altijd gesloten, netwerkbeveiligingsgroep gebruikt voor het expliciet geaccepteerde | Standaardwaarden openen, optionele netwerkbeveiligingsgroep |
-| Uitgaande verbindingen | Meerdere frontends per regel opt-out. Koppeling van een virtuele machine met een uitgaand adres _moet_ expliciet worden gemaakt.  Dit omvat connectiviteit met andere Azure-PaaS-services of [VNet Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md) moet worden gebruikt. Uitgaande verbindingen via standaard snat omzetten zijn niet beschikbaar wanneer een interne Load Balancer een virtuele machine fungeert. | Één frontend. Standaard-snat omzetten wordt gebruikt wanneer een virtuele machine alleen interne Load Balancer fungeert |
+| Standaard beveiligen | standaard gesloten voor openbare IP-adres en de Load Balancer-eindpunten en een netwerkbeveiligingsgroep worden gebruikt voor het expliciet geaccepteerde voor verkeer stromen | standaard open is, netwerkbeveiligingsgroep optioneel |
+| Uitgaande verbindingen | Meerdere frontends met per regel opt-out. Een uitgaande scenario _moet_ expliciet voor de virtuele machine te kunnen gebruiken uitgaande verbinding worden gemaakt.  [VNet-Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md) zonder uitgaande verbinding kan worden bereikt en kan niet worden meegeteld voor gegevens die worden verwerkt.  Openbare IP-adressen, inclusief Azure PaaS-services niet beschikbaar als de Service-eindpunten VNet, moeten worden bereikt via uitgaande verbinding en het aantal naar gegevens die worden verwerkt. Wanneer een interne Load Balancer een virtuele machine fungeert, zijn uitgaande verbindingen via standaard snat omzetten niet beschikbaar. Uitgaande snat omzetten programmering is transportprotocol bepaald op basis van het protocol van de regel voor binnenkomende taakverdeling. | Één front-end willekeurig worden geselecteerd als er meerdere frontends aanwezig zijn.  Wanneer een virtuele machine alleen interne Load Balancer fungeert, wordt standaard snat omzetten wordt gebruikt. |
 | Meerdere frontends | Binnenkomend en uitgaand | Alleen binnenkomende gegevens |
-| Bewerkingen | De meeste bewerkingen < 30 seconden | 60-90 seconden typische |
+| Beheerbewerkingen | De meeste bewerkingen < 30 seconden | 60-90 seconden typische |
 | SLA | 99,99% voor gegevenspad met twee virtuele machines die in orde | Impliciete in VM SLA | 
 | Prijzen | Kosten in rekening gebracht op basis van regels, verwerkt gegevens binnenkomende of uitgaande die zijn gekoppeld aan een resource  | Gratis |
 

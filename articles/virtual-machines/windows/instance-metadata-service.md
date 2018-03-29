@@ -2,10 +2,10 @@
 title: Service voor Azure-instantie metagegevens | Microsoft Docs
 description: RESTful-interface voor informatie over Windows-VM compute, netwerk en toekomstig onderhoud gebeurtenissen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: harijayms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 50a6004d6b52e48fe762a896f7ab1a523cee4f32
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e2a449442b766722213d2d9f279ff4a628ec3008
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure service van de metagegevens van het exemplaar
 
@@ -217,13 +217,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 **Aanvraag**
 
-Metagegevens van het exemplaar kan worden opgehaald in Windows via het hulpprogramma PowerShell `curl`: 
+Metagegevens van het exemplaar kan worden opgehaald in Windows via het `curl` programma: 
 
 ```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
-Of via de `Invoke-RestMethod` cmdlet:
+Of via de `Invoke-RestMethod` PowerShell-cmdlet:
     
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 

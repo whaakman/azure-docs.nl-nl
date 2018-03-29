@@ -1,23 +1,23 @@
 ---
 title: Team Data wetenschap proces groep Manager taken - Azure | Microsoft Docs
 description: Een overzicht van de taken voor een groepmanager op een project gegevens wetenschappelijke team.
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58cea8b0288469a76dd8c4eb967caa8e87cd3dd7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 3c39ae865ec26567f70706b042dab2aa8e4939d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="group-manager-tasks"></a>Groep Manager-taken
 
@@ -87,7 +87,7 @@ Nadat u zich aanmeldt, klikt u op **nieuw Account maken** in de rechterbovenhoek
 Vul de gegevens voor de VSTS-server die u maken wilt de **maken van uw account** wizard met de volgende waarden: 
 
 - **Server-URL**: Vervang *mysamplegroup* door uw eigen *servernaam*. De URL van uw server is het verstandig om: *https://\<servername\>. visualstudio.com*. 
-- **Beheren met behulp van code:** Selecteer  **_Git_**.
+- **Beheren met behulp van code:** Selecteer ** _Git_**.
 - **Naam van het project:** Enter *GroupCommon*. 
 - **Indelen met behulp van work:** Kies *Agile*.
 - **Host uw projecten in:** Kies een geografische locatie. In dit voorbeeld kiest *Zuid-centraal VS*. 
@@ -146,11 +146,11 @@ Naam wijzigen van de standaard **GroupCommon** opslagplaats als *GroupProjectTem
 
 ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
 
-- Klik op de **...**  rechts van de **GroupCommon** opslagplaats op het linkerdeelvenster en selecteer **Rename-opslagplaats**. 
+- Klik op de **... ** rechts van de **GroupCommon** opslagplaats op het linkerdeelvenster en selecteer **Rename-opslagplaats**. 
 
 ![12](./media/group-manager-tasks/rename-groupcommon-repo-5.png)
         
-- In de **Wijzig de naam van de opslagplaats GroupCommon** wizard die POP's, voer *GroupProjectTemplate* in de **naam** vak en klik vervolgens op **wijzigen** . 
+- In de **Wijzig de naam van de opslagplaats GroupCommon** wizard die POP's, voer *GroupProjectTemplate* in de **naam** vak en klik vervolgens op **wijzigen **. 
 
 ![13](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
 

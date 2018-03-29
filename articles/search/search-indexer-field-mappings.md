@@ -2,10 +2,10 @@
 title: Veld-verwijzingen in Azure Search indexeerfuncties
 description: Azure Search-indexeerfunctie veldtoewijzingen voor verschillen in de veldnamen en gegevensweergaven configureren
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
 ms.service: search
 ms.devlang: rest-api
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Veld-verwijzingen in Azure Search indexeerfuncties
 Wanneer u Azure Search indexeerfuncties, kunt u zelf zo nu en dan vinden in situaties waarin de invoergegevens behoorlijk het schema van de doelindex komt niet overeen. In deze gevallen kunt u **veld toewijzingen** voor het transformeren van uw gegevens in de gewenste vorm.
@@ -60,7 +60,7 @@ Een indexeerfunctie kan meerdere veldtoewijzingen hebben. Hier volgt een voorbee
 
 "fieldMappings" : [
     { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" },
+    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }
 ]
 ```
 
@@ -151,7 +151,7 @@ De volgende tabel vergelijkt verschillende base64-coderingen van de tekenreeks `
 | Base64 met opvulling | `MDA+MDA/MDA=` | URL-safe tekens gebruiken en opvulling verwijderen | Gebruik standaard base64-tekens en opvulling toevoegen |
 | Base64 zonder opvulling | `MDA+MDA/MDA` | URL-safe tekens gebruiken | Gebruik standaard base64-tekens |
 | URL-safe base64 met opvulling | `MDA-MDA_MDA=` | Opvulling verwijderen | Opvulling toevoegen |
-| URL-safe base64 zonder opvulling | `MDA-MDA_MDA` | Geen | Geen |
+| URL-safe base64 zonder opvulling | `MDA-MDA_MDA` | None | None |
 
 <a name="extractTokenAtPositionFunction"></a>
 

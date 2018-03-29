@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4171a904626d3b624b39b8a3a261df0d342012df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Azure Virtual machines beveiligt failover naar de primaire regio
 
@@ -57,7 +57,8 @@ U kunt de volgende eigenschappen van het doel VMe tijdens beveiligingspoging aan
 |---------|---------|
 |Doelresourcegroep     | Wijzig de doelresourcegroep waarin de virtuele machine wordt gemaakt. Als het onderdeel van de beveiligingspoging, het doel-virtuele machine wordt verwijderd. U kunt een nieuwe resourcegroep waaronder wilt maken van de virtuele machine na een failover.        |
 |Doel virtueel netwerk     | Het doelnetwerk kan niet worden gewijzigd tijdens de taak opnieuw beveiligen. Als u wilt wijzigen in het netwerk, de netwerktoewijzing bij het opnieuw.         |
-|Doelopslag     | U kunt het opslagaccount dat gebruikmaakt van de virtuele machine na een failover kunt wijzigen.         |
+|Doelopslag (secundaire virtuele machine wordt niet gebruikt beheerde schijven)     | U kunt het opslagaccount dat gebruikmaakt van de virtuele machine na een failover kunt wijzigen.         |
+|Replica-beheerde schijven (secundaire virtuele machine gebruikt beheerde schijven)    | In de primaire regio voor het spiegelen van de VM van de secundaire-beheerde schijven maakt site Recovery schijven van de replica die wordt beheerd.         | 
 |Cache-opslag     | U kunt opgeven dat een opslagaccount van de cache moet worden gebruikt tijdens de replicatie. Standaard is een nieuw opslagaccount voor de cache worden gemaakt, als deze niet bestaat.         |
 |Beschikbaarheidsset     |Als de virtuele machine in de secundaire regio deel van een beschikbaarheidsset uitmaakt, kunt u een beschikbaarheidsset voor het VM-doel voor de primaire regio kiezen. Standaard Site Recovery gezocht naar de bestaande beschikbaarheidsset voor de primaire regio en deze gebruiken. Aangepast, kunt u een nieuwe beschikbaarheidsset.         |
 
@@ -68,7 +69,8 @@ Standaard gebeurt het volgende:
 
 1. Een opslagaccount van de cache wordt gemaakt in de primaire regio
 2. Als het doel-storage-account (het oorspronkelijke opslagaccount in de primaire regio) niet bestaat, wordt een nieuw gemaakt. Naam van het toegewezen opslagaccount is de naam van het opslagaccount dat wordt gebruikt door de secundaire virtuele machine, voorafgegaan door 'asr'.
-3. Als de doel-beschikbaarheidsset niet bestaat, wordt een nieuw gemaakt als onderdeel van de taak opnieuw beveiligen indien nodig. Als u de instellingen waarvoor hebt aangepast, wordt de geselecteerde set gebruikt.
+3. Als uw VM beheerde schijven gebruikt, wordt beheerd door replica schijven worden gemaakt in de primaire regio voor het opslaan van de gegevens gerepliceerd van de secundaire VM-schijven. 
+4. Als de doel-beschikbaarheidsset niet bestaat, wordt een nieuw gemaakt als onderdeel van de taak opnieuw beveiligen indien nodig. Als u de instellingen waarvoor hebt aangepast, wordt de geselecteerde set gebruikt.
 
 Wanneer u een taak opnieuw beveiligen en het doel dat VM bestaat activeert, gebeurt het volgende:
 

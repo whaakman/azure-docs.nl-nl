@@ -1,23 +1,23 @@
 ---
 title: Azure Cloud Services-definitie Schema (csdef-bestand) | Microsoft Docs
-ms.custom: 
+ms.custom: ''
 ms.date: 04/14/2015
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
-caps.latest.revision: "42"
+caps.latest.revision: ''
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: b833fdc06e4193c1b478028733c336feb6d8b9ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d49112df207e3b8e781480e25855ebb259bbab8e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure Cloud Services-Schema voor de definitie (csdef-bestand)
 Het servicedefinitiebestand definieert het servicemodel voor een toepassing. Het bestand bevat de definities voor de functies die beschikbaar voor een cloudservice zijn, geeft de service-eindpunten en stelt configuratie-instellingen voor de service. Configuratie-instellingswaarden worden ingesteld in het configuratiebestand van de service, zoals beschreven door de [Cloudservice (klassiek) configuratieschema](http://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35).
@@ -61,7 +61,7 @@ Het schema voor de volgende onderwerpen wordt beschreven:
 - [WorkerRole Schema](schema-csdef-workerrole.md)
 - [NetworkTrafficRules Schema](schema-csdef-networktrafficrules.md)
 
-##  <a name="ServiceDefinition"></a>ServiceDefinition Element
+##  <a name="ServiceDefinition"></a> ServiceDefinition Element
 De `ServiceDefinition` -element is het element op het hoogste niveau van het servicedefinitiebestand.
 
 De volgende tabel beschrijft de kenmerken van de `ServiceDefinition` element.
@@ -69,6 +69,6 @@ De volgende tabel beschrijft de kenmerken van de `ServiceDefinition` element.
 | Kenmerk               | Beschrijving |
 | ----------------------- | ----------- |
 | naam                    |Vereist. De naam van de service. De naam moet uniek zijn binnen het serviceaccount.|
-| topologyChangeDiscovery | Optioneel. Hiermee geeft u het type topologie wijzigingsmelding. Mogelijke waarden zijn:<br /><br /> -   `Blast`-De update zo snel mogelijk verzendt naar alle rolinstanties. Als u de optie kiest, is de rol moet kunnen verwerken van de update topologie zonder wordt opnieuw opgestart.<br />-   `UpgradeDomainWalk`– Verzendt de update naar elke rolinstantie in de juiste volgorde nadat het vorige exemplaar heeft de update is geaccepteerd.|
+| topologyChangeDiscovery | Optioneel. Hiermee geeft u het type topologie wijzigingsmelding. Mogelijke waarden zijn:<br /><br /> -   `Blast` -De update zo snel mogelijk verzendt naar alle rolinstanties. Als u de optie kiest, is de rol moet kunnen verwerken van de update topologie zonder wordt opnieuw opgestart.<br />-   `UpgradeDomainWalk` – Verzendt de update naar elke rolinstantie in de juiste volgorde nadat het vorige exemplaar heeft de update is geaccepteerd.|
 | schemaVersion           | Optioneel. Hiermee geeft u de versie van het schema van de definitie van service. De schemaversie kunt Visual Studio, selecteer de juiste SDK's moet worden gebruikt voor schemavalidatie als meer dan één versie van de SDK is geïnstalleerd naast elkaar.|
-| upgradeDomainCount      | Optioneel. Hiermee geeft u het aantal upgradedomeinen in die functies in deze service worden toegewezen. Rolinstanties zijn toegewezen aan een upgradedomein wanneer de service wordt geïmplementeerd. Zie voor meer informatie [bijwerken van een cloud service-rol of de implementatie](cloud-services-how-to-manage-portal.md#how-to-update-a-cloud-service-role-or-deployment).<br /><br /> U kunt maximaal 20 upgradedomeinen opgeven. Als niet wordt opgegeven, is het aantal upgradedomeinen 5.|
+| upgradeDomainCount      | Optioneel. Hiermee geeft u het aantal upgradedomeinen in die functies in deze service worden toegewezen. Rolinstanties zijn toegewezen aan een upgradedomein wanneer de service wordt geïmplementeerd. Zie voor meer informatie [bijwerken van een cloud service-rol of de implementatie](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment).<br /><br /> U kunt maximaal 20 upgradedomeinen opgeven. Als niet wordt opgegeven, is het aantal upgradedomeinen 5.|

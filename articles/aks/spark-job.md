@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 9d57f572ba159191f5b634b5ea604563ac2f7801
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3991312d7f7609bb0a206ccc0ecc67123ebec469
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Apache Spark taken uitgevoerd op AKS
 
@@ -33,7 +33,7 @@ Om de stappen in dit artikel hebt voltooid, moet u het volgende.
 ## <a name="create-an-aks-cluster"></a>Een AKS-cluster maken
 
 Spark wordt gebruikt voor grootschalige gegevensverwerking en vereist dat Kubernetes knooppunten worden aangepast, zodat deze voldoen aan de vereisten van de resources Spark. We raden een minimale grootte van `Standard_D3_v2` voor uw Azure Container Service (AKS)-knooppunten.
- 
+
 Als u een cluster AKS die voldoet aan deze minimale aanbeveling, voer de volgende opdrachten.
 
 Maak een resourcegroep voor het cluster.
@@ -58,12 +58,12 @@ Als u van Azure Container register (ACR) gebruikmaakt voor het opslaan van insta
 
 ## <a name="build-the-spark-source"></a>De bron Spark bouwen
 
-Voordat u taken uitvoert Spark op een cluster AKS, moet u voor het bouwen van de Spark broncode en deze in een installatiekopie van een container van het pakket. De Spark-bron bevat scripts die kunnen worden gebruikt om dit proces te voltooien. 
+Voordat u taken uitvoert Spark op een cluster AKS, moet u voor het bouwen van de Spark broncode en deze in een installatiekopie van een container van het pakket. De Spark-bron bevat scripts die kunnen worden gebruikt om dit proces te voltooien.
 
 Kloon de opslagplaats Spark project naar uw ontwikkelsysteem.
 
 ```bash
-git clone https://github.com/apache/spark
+git clone -b branch-2.3 https://github.com/apache/spark
 ```
 
 Wijzigen in de map van de gekloonde opslagplaats en het pad van de bron Spark opslaan in een variabele.
@@ -73,7 +73,7 @@ cd spark
 sparkdir=$(pwd)
 ```
 
-Als u meerdere JDK versies zijn geïnstalleerd, stelt `JAVA_HOME` versie 8 gebruiken voor de huidige sessie. 
+Als u meerdere JDK versies zijn geïnstalleerd, stelt `JAVA_HOME` versie 8 gebruiken voor de huidige sessie.
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
@@ -85,16 +85,21 @@ Voer de volgende opdracht om de Spark broncode met ondersteuning voor Kubernetes
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-De volgende opdracht maakt de Spark container installatiekopieën en duwt deze met een installatiekopie container register. Vervang `registry.example.com` door de naam van het containerregister. Deze waarde is de naam van routeringsregister als met behulp van Docker-Hub. Als Azure Container register (ACR) wordt gebruikt, is deze waarde de servernaam van de ACR-aanmelding.
+De volgende opdrachten de installatiekopie van de container Spark maken en dit doorgeven aan een container installatiekopie-register. Vervang `registry.example.com` met de naam van het register van de container en `v1` met het label dat u wilt gebruiken. Deze waarde is de naam van routeringsregister als met behulp van Docker-Hub. Als Azure Container register (ACR) wordt gebruikt, is deze waarde de servernaam van de ACR-aanmelding.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 build
+REGISTRY_NAME=registry.example.com
+REGISTRY_TAG=v1
+```
+
+```bash
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG build
 ```
 
 De container-installatiekopie aan het register van de installatiekopie container push.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 push
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG push
 ```
 
 ## <a name="prepare-a-spark-job"></a>Een taak Spark voorbereiden
@@ -196,18 +201,10 @@ Variabele `jarUrl` bevat nu het openbaar toegankelijk pad naar het jar-bestand.
 
 ## <a name="submit-a-spark-job"></a>Verzenden van een Spark-taak
 
-Voordat u de taak Spark verzendt, moet u Kubernetes API-serveradres. Gebruik de `kubectl cluster-info` -opdracht voor dit adres.
-
-De URL waar Kubernetes API-server wordt uitgevoerd op een detecteren.
+Start kube-proxy in een apart opdrachtregel met de volgende code.
 
 ```bash
-kubectl cluster-info
-```
-
-Let op het adres en poort.
-
-```bash
-Kubernetes master is running at https://<your api server>:443
+kubectl proxy
 ```
 
 Ga terug naar de hoofdmap van Spark-opslagplaats.
@@ -216,18 +213,16 @@ Ga terug naar de hoofdmap van Spark-opslagplaats.
 cd $sparkdir
 ```
 
-Verzenden de taak met `spark-submit`. 
-
-Vervang de waarde `<kubernetes-api-server>` van uw API-serveradres en de poort. Vervang `<spark-image>` met de naam van uw installatiekopie container in de indeling van `<your container registry name>/spark:<tag>`.
+Verzenden de taak met `spark-submit`.
 
 ```bash
 ./bin/spark-submit \
-  --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
+  --master k8s://http://127.0.0.1:8001 \
   --deploy-mode cluster \
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
-  --conf spark.kubernetes.container.image=<spark-image> \
+  --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
 
@@ -315,6 +310,9 @@ Wanneer de taak, in plaats van die wijzen op een externe jar-URL, de `local://` 
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
+
+> [!WARNING]
+> Van Spark [documentatie][spark-docs]: "de planner Kubernetes is momenteel experimentele. In toekomstige versies mogelijk zijn er wijzigingen rond configuratie, installatiekopieën van de container en toegangspunten'.
 
 ## <a name="next-steps"></a>Volgende stappen
 

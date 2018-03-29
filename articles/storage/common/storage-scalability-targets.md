@@ -3,8 +3,8 @@ title: Azure Storage Scalability and Performance Targets | Microsoft Docs
 description: Meer informatie over de schaalbaarheids- en prestatiedoelen voor Azure Storage, met inbegrip van capaciteit en snelheid van aanvragen voor binnenkomende en uitgaande bandbreedte voor beide standard en premium storage-accounts. Begrijpen prestatiedoelen voor partities in elk van de Azure Storage-services.
 services: storage
 documentationcenter: na
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
 ms.service: storage
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/24/2017
-ms.author: tamram
-ms.openlocfilehash: f62f2020d40e473886cb679cdfe1c164b95f7114
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: rogarana
+ms.openlocfilehash: e393bb9e7615b893699caf5a931ede5803046892
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Schaalbaarheids- en prestatiedoelen van Azure Storage
 ## <a name="overview"></a>Overzicht
@@ -63,6 +63,6 @@ Zie voor meer informatie over de scale- en prestatiedoelen voor Azure-bestanden 
 * [Opslag prijsgegevens](https://azure.microsoft.com/pricing/details/storage/)
 * [Azure-abonnement en Servicelimieten, quota's en beperkingen](../../azure-subscription-service-limits.md)
 * [Azure Storage-replicatie](../storage-redundancy.md)
-* [Microsoft Azure Storage prestaties en schaalbaarheid controlelijst](../storage-performance-checklist.md)
+* [Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage](../storage-performance-checklist.md)
 * [Microsoft Azure Storage: Een maximaal beschikbare Cloudopslagservice met sterke consistentie](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

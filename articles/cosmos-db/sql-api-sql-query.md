@@ -3,7 +3,7 @@ title: SQL-query's voor Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over SQL-syntaxis, database-concepten en SQL-query's voor Azure Cosmos DB. SQL kan worden gebruikt als een JSON-querytaal in Azure Cosmos DB.
 keywords: SQL-syntaxis, sql-query, sql-query's, json-querytaal, database-concepten en sql-query's, statistische functies
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: LalithaMV
 manager: jhubbard
 editor: monicar
@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a79b1a97909a38b4bfba06186db875d0c0c25f03
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-query's voor Azure Cosmos-DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Microsoft Azure Cosmos DB ondersteunt documentquery's die gebruikmaken van SQL (Structured Query Language) als een JSON-querytaal op SQL-API-accounts. Azure Cosmos DB is volledig zonder schema. Doordat het gebied van de JSON-gegevensmodel rechtstreeks in de database-engine biedt deze automatische indexering van JSON-documenten zonder expliciet schema of het maken van secundaire indexen.
 
@@ -34,11 +32,17 @@ Tijdens het ontwerpen van de query language voor Cosmos DB, zijn twee drie doele
 
 We zijn ervan overtuigd dat deze mogelijkheden essentieel zijn voor het reduceren van de wrijving tussen de toepassing en de database en essentieel voor de productiviteit van ontwikkelaars zijn.
 
-We raden aan de slag door het bekijken van de volgende video, Aravind Ramachandran waar de Cosmos-DB querymogelijkheden toont, en in via onze [Queryspeelplaats](http://www.documentdb.com/sql/demo), waarbij u kunt Cosmos-database uitproberen en SQL-query's op onze gegevensset uitvoeren.
+We raden aan de slag door het bekijken van de volgende video waarin Azure Cosmos DB Program Manager Andrew Liu ziet u mogelijkheden voor het opvragen van Azure Cosmos DB en demonstreert de online [Queryspeelplaats](http://www.documentdb.com/sql/demo), waarin u Azure kunt uitproberen Cosmos DB en voer SQL-query's op onze gegevensset zoals wordt beschreven in de video.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
-> 
-> 
+> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
+>
+>
+
+Meer geavanceerde query-technieken worden getoond in deze opvolgen video:
+
+> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
+>
+>
 
 Keer vervolgens terug naar dit artikel, waar u begint met een SQL-query-zelfstudie die u bij enkele eenvoudige JSON-documenten en de SQL-opdrachten helpt.
 
@@ -110,7 +114,7 @@ Nu gaan we enkele query's op deze gegevens om een idee van de belangrijkste aspe
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultaten**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -139,7 +143,7 @@ Bekijk nu het geval waar moeten we opnieuw indelen van de JSON-uitvoer in een an
     FROM Families f 
     WHERE f.address.city = f.address.state
 
-**Resultaten**
+**Results**
 
     [{
         "Family": {
@@ -159,7 +163,7 @@ De volgende query retourneert de opgegeven namen van onderliggende items in de f
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.address.city ASC
 
-**Resultaten**
+**Results**
 
     [
       { "givenName": "Jesse" }, 
@@ -215,7 +219,7 @@ De bron kan ook worden teruggebracht naar een kleinere subset. Voor het exemplaa
     SELECT * 
     FROM Families.children
 
-**Resultaten**  
+**Results**  
 
     [
       [
@@ -253,7 +257,7 @@ Het bovenstaande voorbeeld wordt een matrix als bron gebruikt, een object kan oo
     SELECT * 
     FROM Families.address.state
 
-**Resultaten**
+**Results**
 
     [
       "WA", 
@@ -272,7 +276,7 @@ De volgende query aanvragen documenten met een eigenschap name waarvan de waarde
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultaten**
+**Results**
 
     [{
       "address": {
@@ -611,7 +615,7 @@ Het volgende voorbeeld toont een typische SELECT-query.
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultaten**
+**Results**
 
     [{
       "address": {
@@ -631,7 +635,7 @@ In het volgende voorbeeld we twee geneste eigenschappen projecteert `f.address.s
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultaten**
+**Results**
 
     [{
       "state": "WA", 
@@ -647,7 +651,7 @@ Projectie biedt ook ondersteuning voor JSON-expressies, zoals wordt weergegeven 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultaten**
+**Results**
 
     [{
       "$1": {
@@ -667,7 +671,7 @@ Bekijk de rol van `$1` hier. De `SELECT` component moet een JSON-object maken en
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultaten**
+**Results**
 
     [{
       "$1": {
@@ -693,7 +697,7 @@ Als een query twee eigenschappen met dezelfde naam heeft, moet aliasing om de na
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultaten**
+**Results**
 
     [{
       "AddressInfo": {
@@ -713,7 +717,7 @@ Naast de verwijzingen van de eigenschap ondersteunt de component SELECT ook scal
 
     SELECT "Hello World"
 
-**Resultaten**
+**Results**
 
     [{
       "$1": "Hello World"
@@ -726,7 +730,7 @@ Hier volgt een voorbeeld van een complexere die gebruikmaakt van een scalaire ex
 
     SELECT ((2 + 11 % 7)-2)/3    
 
-**Resultaten**
+**Results**
 
     [{
       "$1": 1.33333
@@ -740,7 +744,7 @@ In het volgende voorbeeld is het resultaat van de scalaire expressie die een Boo
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f    
 
-**Resultaten**
+**Results**
 
     [
       {
@@ -760,7 +764,7 @@ Een andere belangrijke functie van de SQL-API is array-object maken. In het vori
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f    
 
-**Resultaten**  
+**Results**  
 
     [
       {
@@ -784,7 +788,7 @@ De **waarde** sleutelwoord biedt een manier om JSON-waarde te retourneren. De on
 
     SELECT VALUE "Hello World"
 
-**Resultaten**
+**Results**
 
     [
       "Hello World"
@@ -798,7 +802,7 @@ De volgende query retourneert de waarde van de JSON zonder de `"address"` label 
     SELECT VALUE f.address
     FROM Families f    
 
-**Resultaten**  
+**Results**  
 
     [
       {
@@ -820,7 +824,7 @@ Het volgende voorbeeld breidt deze optie als u wilt laten zien hoe u JSON primit
     SELECT VALUE f.address.state
     FROM Families f    
 
-**Resultaten**
+**Results**
 
     [
       "WA",
@@ -837,7 +841,7 @@ De speciale operator (*) wordt ondersteund voor het document als project-is. Wan
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Resultaten**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -865,7 +869,7 @@ Het sleutelwoord TOP kan worden gebruikt om te beperken het aantal waarden van e
     SELECT TOP 1 * 
     FROM Families f 
 
-**Resultaten**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -895,7 +899,7 @@ U kunt ook uitvoeren aggregaties in de `SELECT` component. Statistische functies
     SELECT COUNT(1) 
     FROM Families f 
 
-**Resultaten**
+**Results**
 
     [{
         "$1": 2
@@ -908,7 +912,7 @@ U kunt ook de scalaire waarde van de statistische functie retourneren met behulp
     SELECT VALUE COUNT(1) 
     FROM Families f 
 
-**Resultaten**
+**Results**
 
     [ 2 ]
 
@@ -920,7 +924,7 @@ U kunt ook statistische functies uitvoeren in combinatie met filters. De volgend
     FROM Families f
     WHERE f.address.state = "WA" 
 
-**Resultaten**
+**Results**
 
     [ 1 ]
 
@@ -953,7 +957,7 @@ Hier is bijvoorbeeld een query waarmee families in volgorde van de residente pla
     FROM Families f 
     ORDER BY f.address.city
 
-**Resultaten**
+**Results**
 
     [
       {
@@ -974,7 +978,7 @@ En een query waarmee opgehaald families in volgorde van de aanmaakdatum, die wor
     FROM Families f 
     ORDER BY f.creationDate DESC
 
-**Resultaten**
+**Results**
 
     [
       {
@@ -997,7 +1001,7 @@ Een nieuwe constructie is toegevoegd de **IN** -sleutelwoord in de SQL-API om on
     SELECT * 
     FROM Families.children
 
-**Resultaten**  
+**Results**  
 
     [
       [
@@ -1031,7 +1035,7 @@ Nu we bekijken een andere query die herhaling via onderliggende elementen in de 
     SELECT * 
     FROM c IN Families.children
 
-**Resultaten**  
+**Results**  
 
     [
       {
@@ -1062,7 +1066,7 @@ Dit kan verder worden gebruikt om te filteren op elke afzonderlijke vermelding v
     FROM c IN Families.children
     WHERE c.grade = 8
 
-**Resultaten**  
+**Results**  
 
     [{
       "givenName": "Lisa"
@@ -1075,7 +1079,7 @@ U kunt ook aggregatie uitvoeren via het resultaat van de matrix herhaling. Bijvo
     SELECT COUNT(child) 
     FROM child IN Families.children
 
-**Resultaten**  
+**Results**  
 
     [
       { 
@@ -1096,7 +1100,7 @@ De volgende voorbeelden ziet de werking van de JOIN-component. In het volgende v
     FROM Families f
     JOIN f.NonExistent
 
-**Resultaten**  
+**Results**  
 
     [{
     }]
@@ -1110,7 +1114,7 @@ In het volgende voorbeeld wordt de join is tussen de hoofdmap van het document e
     FROM Families f
     JOIN f.children
 
-**Resultaten**
+**Results**
 
     [
       {
@@ -1130,7 +1134,7 @@ Het volgende voorbeeld ziet u een meer conventionele join:
     FROM Families f
     JOIN c IN f.children 
 
-**Resultaten**
+**Results**
 
     [
       {
@@ -1167,7 +1171,7 @@ Het echte hulpprogramma van de JOIN is van het vectorproduct in een shape die an
     JOIN c IN f.children 
     JOIN p IN c.pets
 
-**Resultaten**
+**Results**
 
     [
       {
@@ -1221,7 +1225,7 @@ In het volgende voorbeeld, er is een extra filter op `pet`. Dit omvat niet alle 
     JOIN p IN c.pets
     WHERE p.givenName = "Shadow"
 
-**Resultaten**
+**Results**
 
     [
       {
@@ -1271,7 +1275,7 @@ We kunnen deze UDF nu gebruiken in een query in een projectie. UDF's moeten word
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
     FROM Families
 
-**Resultaten**
+**Results**
 
     [
       {
@@ -1290,7 +1294,7 @@ De UDF kan ook worden gebruikt in een filter, zoals wordt weergegeven in het ond
     FROM Families
     WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
 
-**Resultaten**
+**Results**
 
     [{
         "id": "AndersenFamily",
@@ -1330,7 +1334,7 @@ Hieronder volgt een voorbeeld waarin de UDF oefeningen.
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
     FROM Families f    
 
-**Resultaten**
+**Results**
 
      [
       {
@@ -1436,7 +1440,7 @@ U kunt nu bijvoorbeeld query's als volgt uitvoeren:
 
     SELECT VALUE ABS(-4)
 
-**Resultaten**
+**Results**
 
     [4]
 
@@ -1491,7 +1495,7 @@ U kunt nu een query's als volgt uitvoeren met behulp van deze functies:
 
     SELECT VALUE IS_NUMBER(-4)
 
-**Resultaten**
+**Results**
 
     [true]
 
@@ -1524,7 +1528,7 @@ U kunt nu een query's als volgt uitvoeren met behulp van deze functies. U kunt b
     SELECT VALUE UPPER(Families.id)
     FROM Families
 
-**Resultaten**
+**Results**
 
     [
         "WAKEFIELDFAMILY", 
@@ -1538,7 +1542,7 @@ Of samenvoegen van strings zoals in dit voorbeeld:
     SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
     FROM Families
 
-**Resultaten**
+**Results**
 
     [{
       "id": "WakefieldFamily",
@@ -1558,7 +1562,7 @@ Tekenreeks-functies kunnen ook worden gebruikt in de component WHERE om resultat
     FROM Families
     WHERE STARTSWITH(Families.id, "Wakefield")
 
-**Resultaten**
+**Results**
 
     [{
       "id": "WakefieldFamily",
@@ -1583,7 +1587,7 @@ Matrixfuncties kunnen worden gebruikt voor het bewerken van matrices in JSON. Hi
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
 
-**Resultaten**
+**Results**
 
     [{
       "id": "WakefieldFamily"
@@ -1597,7 +1601,7 @@ U kunt opgeven dat een gedeeltelijke fragment voor overeenkomende elementen binn
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
 
-**Resultaten**
+**Results**
 
     [{
       "id": "WakefieldFamily"
@@ -1611,7 +1615,7 @@ Hier volgt een voorbeeld waarin ARRAY_LENGTH wordt gebruikt voor het aantal onde
     SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
     FROM Families 
 
-**Resultaten**
+**Results**
 
     [{
       "id": "WakefieldFamily",
@@ -1660,7 +1664,7 @@ Ruimtelijke functies kunnen worden gebruikt om uit te voeren nabijheid query's o
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
 
-**Resultaten**
+**Results**
 
     [{
       "id": "WakefieldFamily"
@@ -2012,7 +2016,7 @@ De volgende voorbeelden ziet een POST voor een SQL-API-query ten opzichte van ee
     }
 
 
-**Resultaten**
+**Results**
 
     HTTP/1.1 200 Ok
     x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
@@ -2085,7 +2089,7 @@ Het tweede voorbeeld ziet u een complexere query die meerdere resultaten uit de 
     }
 
 
-**Resultaten**
+**Results**
 
     HTTP/1.1 200 Ok
     x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
@@ -2258,9 +2262,9 @@ Het volgende voorbeeld laat zien hoe de queryDocuments op de server in JavaScrip
 4. [Azure Cosmos DB Consistency Levels][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
-7. Javascript Specification [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+7. JavaScript-specificatie [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Van evaluatietechnieken voor grote databases query [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9. Query-evaluatietechnieken voor grote databases [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Queryverwerking in parallelle relationele databasesystemen, IEEE Computer samenleving Press, 1994
 11. Lu, Ooi, Tan queryverwerking in parallelle relationele databasesystemen, IEEE Computer samenleving Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: een niet zodat vreemde taal voor gegevensverwerking, SIGMOD 2008.

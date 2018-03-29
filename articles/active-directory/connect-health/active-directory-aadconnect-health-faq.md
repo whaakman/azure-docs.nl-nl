@@ -2,7 +2,7 @@
 title: Azure Active Directory Connect Health FAQ - Azure | Microsoft Docs
 description: Deze Veelgestelde vragen over de antwoorden op vragen over Azure AD Connect Health. In deze Veelgestelde vragen worden vragen behandeld over het gebruik van de service, zoals het factureringsmodel, de mogelijkheden, beperkingen en ondersteuning.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Veelgestelde vragen over Azure AD Connect Health
 In dit artikel bevat antwoorden op veelgestelde vragen (FAQ's) over Azure Active Directory (Azure AD) Connect Health. Deze Veelgestelde vragen hebben betrekking op vragen over het gebruik van de service, waaronder het facturering model, mogelijkheden, beperkingen en ondersteuning.
@@ -175,6 +175,9 @@ CheckForMS17-010
 
 ```
 
+**V: Waarom heeft de PowerShell-cmdlet <i>Get-MsolDirSyncProvisioningError</i> minder synchronisatiefouten weergeven in het resultaat?**
+
+<i>Get-MsolDirSyncProvisioningError</i> retourneert alleen fouten bij het inrichten DirSync. Naast die toont Connect Health-portal ook andere sync fouttypen zoals exportfouten. Dit komt overeen met Azure AD Connect delta resultaat. Lees meer over [Azure AD Connect-synchronisatie fouten](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
 
 
 ## <a name="related-links"></a>Verwante koppelingen

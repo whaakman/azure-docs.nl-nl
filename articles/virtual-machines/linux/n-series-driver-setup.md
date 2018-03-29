@@ -2,10 +2,10 @@
 title: Azure N-reeks stuurprogramma-instellingen voor Linux | Microsoft Docs
 description: Het instellen van NVIDIA GPU-stuurprogramma's voor N-reeks virtuele machines waarop Linux wordt uitgevoerd in Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d353adcafed02832243277118da8480e54544ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d97afd2b5dccca64db2df7cb0d4f110987642cfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>NVIDIA GPU-stuurprogramma's installeren op N-reeks virtuele machines waarop Linux wordt uitgevoerd
 
-Als u wilt profiteren van de GPU-mogelijkheden van N-reeks virtuele machines in Azure waarop Linux wordt uitgevoerd, ondersteunde NVIDIA graphics-stuurprogramma's te installeren. Dit artikel bevat de installatiestappen stuurprogramma nadat u een VM N-serie implementeren. Stuurprogramma-installatie-informatie is ook beschikbaar voor [VM's van Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Als u wilt profiteren van de GPU-mogelijkheden van N-reeks virtuele machines in Azure waarop Linux wordt uitgevoerd, moeten de NVIDIA grafische stuurprogramma's worden geïnstalleerd. Dit artikel bevat de installatiestappen stuurprogramma nadat u een VM N-serie implementeren. Stuurprogramma-installatie-informatie is ook beschikbaar voor [VM's van Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Zie voor N-serie VM specificaties opslagcapaciteit en details van de schijf, [GPU Linux VM-grootten](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -32,15 +32,12 @@ Zie voor N-serie VM specificaties opslagcapaciteit en details van de schijf, [GP
 
 ## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Voor NC, NCv2 NCv3 en ND-serie VMs CUDA stuurprogramma's installeren
 
-Hier volgen de stappen voor het installeren van NVIDIA-stuurprogramma's uit de werkset NVIDIA CUDA op virtuele machines N-reeks. 
+Hier vindt u stappen voor het installeren van stuurprogramma's CUDA uit de werkset NVIDIA CUDA op virtuele machines N-serie. 
+
 
 C en C++-ontwikkelaars kunnen desgewenst installeren voor de volledige Toolkit om GPU-versnelde toepassingen te bouwen. Zie voor meer informatie de [CUDA installatiehandleiding](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
-> [!NOTE]
-> CUDA stuurprogramma downloadkoppelingen opgegeven op het moment van publicatie hier actueel zijn. Voor de nieuwste stuurprogramma's CUDA gaat u naar de [NVIDIA](https://developer.nvidia.com/cuda-zone) website.
->
-
-Zorg voor het installeren van CUDA Toolkit een SSH-verbinding naar elke virtuele machine. Om te controleren of het systeem een GPU die compatibel is met CUDA heeft, voer de volgende opdracht:
+Zorg voor het installeren van stuurprogramma's CUDA, een SSH-verbinding naar elke virtuele machine. Om te controleren of het systeem een GPU die compatibel is met CUDA heeft, voer de volgende opdracht:
 
 ```bash
 lspci | grep -i NVIDIA
@@ -162,16 +159,13 @@ RDMA-netwerkverbinding kan worden ingeschakeld op virtuele machines RDMA-compati
 
 ### <a name="distributions"></a>Distributies
 
-RDMA-compatibele N-reeks-virtuele machines van een installatiekopie in Azure Marketplace die ondersteuning biedt voor RDMA-connectiviteit op N-reeks virtuele machines implementeren:
+RDMA-compatibele N-reeks-virtuele machines van een van de afbeeldingen in de Azure Marketplace die ondersteuning biedt voor RDMA-connectiviteit op N-reeks virtuele machines implementeren:
   
 * **Ubuntu 16.04 LTS** - RDMA-stuurprogramma's op de virtuele machine configureren en registreren met Intel Intel MPI downloaden:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-> [!NOTE]
-> CentOS HPC-installatiekopieën worden momenteel niet aanbevolen voor RDMA-verbindingen op virtuele machines N-serie. RDMA wordt niet ondersteund op de meest recente CentOS 7.4 kernel die ondersteuning biedt voor NVIDIA GPU's.
-> 
-
+* **7.4 HPC op basis van centOS** -RDMA-stuurprogramma's en Intel MPI 5.1 zijn geïnstalleerd op de virtuele machine.
 
 ## <a name="install-grid-drivers-for-nv-series-vms"></a>RASTER stuurprogramma's installeren voor virtuele machines NV-serie
 
@@ -321,10 +315,10 @@ EndSection
  
 Daarnaast uw `"Screen"` sectie voor het gebruik van dit apparaat.
  
-De BusID kunt u vinden door te voeren
+Het decimaalteken BusID kunt u vinden door te voeren
 
 ```bash
-/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
+echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
 ```
  
 De BusID kunt wijzigen als een virtuele machine opgehaald opnieuw toegewezen of opnieuw opgestart. Daarom kunt u een script gebruiken om bij te werken de BusID in de X11 configuratie wanneer u een virtuele machine opnieuw is opgestart. Bijvoorbeeld:

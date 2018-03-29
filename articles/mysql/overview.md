@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 2689befc6a686d0ffc25d1fccbacb66cc6e10725
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b7ae08446e672c218e7278cff4f77739286fead
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Wat is Azure voor MySQL-Database?
 Azure MySQL-Database is een relationele database-service in de Microsoft-cloud op basis van de [MySQL Community Edition](https://www.mysql.com/products/community/) database-engine. Azure MySQL-Database biedt:
@@ -47,7 +47,7 @@ Hoe bepaalt u wanneer u omhoog of omlaag moet schalen? U de ingebouwde prestatie
 Azure toonaangevende-99,99% beschikbaarheid serviceovereenkomst (SLA) mogelijk gemaakt door een wereldwijd netwerk van door Microsoft beheerde datacenters, wordt voorkomen dat uw app met 24/7. Met elke Azure-Database voor de MySQL-server is u profiteren van de ingebouwde beveiliging, fouttolerantie en gegevensbeveiliging die u anders moet kopen of ontwerpen, bouwen en beheren. Met Azure-Database voor MySQL, kunt u herstellen punt in tijd voor het herstellen van een server naar een eerdere toestand, tot 35 dagen geleden.
 
 ## <a name="secure-your-data"></a>Uw gegevens beveiligen
-Azure-database-services hebben een traditie van gegevensbeveiliging die Azure-Database voor MySQL beschermt, met functies die de toegang beperken, gegevens in rust en in beweging beveiligen en helpt u bij activiteit controleren. Bezoek het [Vertrouwenscentrum van Azure](https://www.microsoft.com/en-us/TrustCenter/Security/default.aspx) voor informatie over de beveiliging van het Azure-platform.
+Azure-database-services hebben een traditie van gegevensbeveiliging die Azure-Database voor MySQL beschermt, met functies die de toegang beperken, gegevens in rust en in beweging beveiligen en helpt u bij activiteit controleren. Bezoek het [Vertrouwenscentrum van Azure](https://www.microsoft.com/en-us/trustcenter/security) voor informatie over de beveiliging van het Azure-platform.
 
 De Azure-Database voor de MySQL-service gebruikt de versleuteling van opslag voor gegevens in rust. Gegevens, inclusief back-ups worden op schijf (met uitzondering van tijdelijke bestanden die zijn gemaakt door de engine tijdens het uitvoeren van query's) versleuteld. De service maakt gebruikt van AES 256-bits versleuteling die deel uitmaakt van Azure Storage-versleuteling. De sleutels worden door het systeem beheerd. Opslagversleuteling is altijd actief en kan niet worden uitgeschakeld.
 

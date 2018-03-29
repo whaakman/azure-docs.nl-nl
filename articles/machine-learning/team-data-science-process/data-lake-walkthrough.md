@@ -2,7 +2,7 @@
 title: 'Schaalbare Gegevenswetenschap met Azure Data Lake: een end-to-end-overzicht | Microsoft Docs'
 description: Het gebruik van Azure Data Lake gegevens te verkennen en binaire classificatie taken uitvoeren op een dataset.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev; weig
-ms.openlocfilehash: b18b454d1fcdfb2b6e8ea77508f779aeabdc87a0
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 6d0f889e1cc76eced172d66755a0a9275e6b7bdf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Schaalbare Gegevenswetenschap met Azure Data Lake: een end-to-end-overzicht
 Dit overzicht toont hoe u met Azure Data Lake gegevensverkenning en binaire classificatie taken van een steekproef van de NYC taxi reis bent en ritbedrag gegevensset om te voorspellen of een tip door een tarief wordt betaald. Dit leidt u door de stappen van de [Team gegevens wetenschap proces](http://aka.ms/datascienceprocess)end-to- end, uit gegevens overname als model voor training en vervolgens naar de implementatie van een webservice die het model worden gepubliceerd.
@@ -149,7 +149,7 @@ Voor het uitvoeren van U-SQL, Visual Studio openen, klikt u op **File--> Nieuw P
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Gegevensopname: In van een openbare blob-gegevens lezen
-De locatie van de gegevens in de blob van Azure waarnaar wordt verwezen als  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**  en kunnen worden geëxtraheerd met behulp van **Extractors.Csv()**. Vervangen door uw eigen containernaam en opslagaccountnaam in de volgende scripts voor container_name@blob_storage_account_name in het adres wasb. Aangezien de bestandsnamen in dezelfde indeling, is het mogelijk te gebruiken **reis\_data_ {\*\}CSV** in alle 12 reis bestanden te lezen. 
+De locatie van de gegevens in de blob van Azure waarnaar wordt verwezen als **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** en kunnen worden geëxtraheerd met behulp van **Extractors.Csv()**. Vervangen door uw eigen containernaam en opslagaccountnaam in de volgende scripts voor container_name@blob_storage_account_name in het adres wasb. Aangezien de bestandsnamen in dezelfde indeling, is het mogelijk te gebruiken **reis\_data_ {\*\}CSV** in alle 12 reis bestanden te lezen. 
 
     ///Read in Trip data
     @trip0 =
@@ -562,7 +562,7 @@ Wilt u mogelijk maken van de machine learning-model nadat deze is opgebouwd. De 
 
 * Uw werkruimte-referenties uit de instellingen voor Azure ML studio vinden. Klik op in Azure Machine Learning Studio **instellingen** --> **naam** --> **autorisatie Tokens**. 
   
-    ![C3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
+    ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
         workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
         auth_token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'

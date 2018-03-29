@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e645d86e4527cab1e650575c4d9a10dbd4b9de4e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Controle en diagnose van aanvraagverwerking op de omgekeerde proxy
 
 Beginnen met de 5.7 release van Service Fabric, zijn reverse proxy-gebeurtenissen beschikbaar voor de verzameling. De gebeurtenissen zijn beschikbaar in twee kanalen, één met alleen foutgebeurtenissen met betrekking tot het mislukken van de verwerking van aanvragen bij de omgekeerde proxy en het tweede kanaal met uitgebreide gebeurtenissen met de vermeldingen voor geslaagde en mislukte aanvragen.
 
-Raadpleeg [reverse proxy-gebeurtenissen verzamelen](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) om in te schakelen bij het verzamelen van gebeurtenissen uit deze kanalen in lokale en Azure Service Fabric-clusters.
+Raadpleeg [reverse proxy-gebeurtenissen verzamelen](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) om in te schakelen bij het verzamelen van gebeurtenissen uit deze kanalen in lokale en Azure Service Fabric-clusters.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>Problemen oplossen met Logboeken met diagnostische gegevens
 Hier volgen enkele voorbeelden over het interpreteren van de algemene fout logboeken die een kan optreden:

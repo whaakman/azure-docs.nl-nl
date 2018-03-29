@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 2f95df26abcd2c0d5b62c395f92c359170d6d701
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Gebruik de Azure AD Graph API
 
@@ -45,7 +45,7 @@ Nadat u een B2C-tenant hebt, moet u registreren van uw toepassingen via de [Azur
 3. Kies in het navigatiedeelvenster links **alle Services**, klikt u op **App registraties**, en klik op **toevoegen**.
 4. Volg de aanwijzingen op het scherm en maak een nieuwe toepassing. 
     1. Selecteer **Web-App / API** als het toepassingstype.    
-    2. Geef **een omleidings-URI** (bijvoorbeeld https://B2CGraphAPI) als het is niet relevant zijn voor dit voorbeeld.  
+    2. Geef **elke URL met eenmalige aanmelding** (bijvoorbeeld https://B2CGraphAPI) omdat dit niet relevant voor dit voorbeeld.  
 5. De toepassing wordt nu weergegeven in de lijst met toepassingen, klikt u op het verkrijgen van de **toepassings-ID** (ook wel bekend als een Client-ID). Kopieer de verbindingsreeks als u hebt deze nodig in een volgende sectie.
 6. Klik in het menu instellingen op **sleutels** en voeg een nieuwe sleutel (ook wel bekend als clientgeheim). Ook het kopiëren voor gebruik in een volgende sectie.
 

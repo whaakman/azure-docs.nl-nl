@@ -2,10 +2,10 @@
 title: Overzicht van automatisch geschaald met virtuele Azure-machine-schaalsets | Microsoft Docs
 description: Meer informatie over de verschillende manieren waarop u kunt een virtuele machine van Azure schaal ingesteld op basis van prestaties of op een vaste planning automatisch schalen
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 868523a3aca441a47218297be2ce9f9e46dd84a1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Overzicht van automatisch schalen binnen de schaal van de virtuele machine van Azure wordt ingesteld
 Een virtuele machine van Azure scale set kan automatisch vergroten of verkleinen van het aantal VM-exemplaren die uw toepassing uitvoeren. Dit gedrag geautomatiseerde en elastische vermindert de overhead voor het controleren en optimaliseren van de prestaties van uw toepassing. U maken regels die de minimaal toegestane prestaties voor een positieve klantervaring definiëren. Wanneer deze gedefinieerde drempels wordt voldaan, maatregelen regels voor automatisch schalen die nemen om aan te passen, de capaciteit van uw scale set. U kunt ook gebeurtenissen automatisch vergroten of verkleinen de capaciteit van uw scale set op tijden vaste plannen. In dit artikel biedt een overzicht van welke prestaties metrische gegevens beschikbaar zijn en welke acties automatisch schalen kunt uitvoeren.
@@ -40,8 +40,9 @@ U kunt regels voor automatisch schalen die ingebouwde host metrische gegevens be
 Regels voor automatisch schalen die gebruikmaken van hostgebaseerde metrische gegevens, kunnen worden gemaakt met een van de volgende hulpprogramma's:
 
 - [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure-sjabloon](tutorial-autoscale-template.md)
 
 Als u wilt maken voor automatisch schalen regels die gebruikmaken van meer gedetailleerde maatstaven voor prestaties, kunt u [installeren en configureren van de extensie Azure diagnostics](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) op VM-exemplaren of [configureren van uw toepassing gebruik App Insights](#application-level-metrics-with-app-insights).
 
@@ -50,7 +51,7 @@ Regels voor automatisch schalen die gebruikmaken van de host gebaseerde metrisch
 ### <a name="metric-sources"></a>Metrische bronnen
 Regels voor automatisch schalen kunnen gebruiken om metrische gegevens van een van de volgende bronnen:
 
-| Metrische bron        | Gebruiksvoorbeeld                                                                                                                     |
+| Bron van metrische gegevens        | Gebruiksvoorbeeld                                                                                                                     |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Huidige schaalset    | Voor de host gebaseerde metrische gegevens die niet hoeven te worden geïnstalleerd of geconfigureerd als u meer agents.                                  |
 | Storage-account      | De diagnostische Azure-extensie schrijft prestatiegegevens naar Azure-opslag wordt vervolgens geconsumeerd voor het activeren van regels voor automatisch schalen. |
@@ -61,28 +62,28 @@ Regels voor automatisch schalen kunnen gebruiken om metrische gegevens van een v
 ### <a name="autoscale-rule-criteria"></a>De criteria voor automatisch schalen
 De volgende host gebaseerde metrische gegevens zijn beschikbaar voor gebruik bij het maken van regels voor automatisch schalen. Als u de diagnostische Azure-extensie of de App Insights gebruiken, definieert u welke metrische gegevens om te controleren en te gebruiken met regels voor automatisch schalen.
 
-| Metrische naam               |
+| Naam van de meetwaarde               |
 |---------------------------|
-| CPU-percentage            |
-| Het netwerk                |
-| Uit het netwerk               |
-| Schijf lezen Bytes           |
-| Schijf schrijven Bytes          |
-| Gelezen bewerkingen per seconde  |
-| Geschreven bewerkingen per seconde |
-| CPU-tegoed resterend     |
-| CPU-tegoed verbruikt      |
+| Percentage CPU            |
+| Netwerk in                |
+| Netwerk uit               |
+| Gelezen bytes op de schijf           |
+| Geschreven bytes op de schijf          |
+| Leesbewerkingen op de schijf/seconde  |
+| Schrijfbewerkingen op de schijf/seconde |
+| Resterend CPU-tegoed     |
+| Verbruikt CPU-tegoed      |
 
 Wanneer u regels voor automatisch schalen voor het bewaken van een metriek maakt, bekijken de regels een van de volgende metrische gegevens aggregatie acties:
 
 | Samenvoegingstype |
 |------------------|
-| Gemiddelde          |
+| Gemiddeld          |
 | Minimum          |
 | Maximum          |
 | Totaal            |
-| laatste             |
-| Aantal            |
+| Laatste             |
+| Count            |
 
 De regels voor automatisch schalen die zijn vervolgens geactiveerd wanneer de metrische gegevens worden vergeleken met de opgegeven drempelwaarde met een van de volgende operators:
 
@@ -93,7 +94,7 @@ De regels voor automatisch schalen die zijn vervolgens geactiveerd wanneer de me
 | Kleiner dan                |
 | Kleiner dan of gelijk aan    |
 | Gelijk aan                 |
-| Is niet gelijk aan             |
+| Niet gelijk aan             |
 
 
 ### <a name="actions-when-rules-trigger"></a>Acties als regels activeren
@@ -101,12 +102,12 @@ Wanneer een regel voor automatisch schalen triggers wordt uw scale set kan autom
 
 | Schaalaanpassing     | Gebruiksvoorbeeld                                                                                                                               |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| Aantallen per verhogen   | Een vast aantal VM-instanties maken. Dit is handig in schaalsets met een kleiner aantal virtuele machines.                                           |
-| Percentage door | Een verhoging van percentage op basis van VM-exemplaren. Geschikt voor grootschalige wordt ingesteld wanneer een vaste verhoging niet merkbaar de prestaties mogelijk verbeterd. |
-| Aantal te verhogen   | Maak zoals veel exemplaren van de VM nodig zijn voor een gewenste maximumhoeveelheid bereiken.                                                            |
-| Verklein het aantal moet worden   | Een vast aantal VM-exemplaren te verwijderen. Dit is handig in schaalsets met een kleiner aantal virtuele machines.                                           |
-| Percentage door verkleinen | Een afname op basis van een percentage van de VM-exemplaren. Geschikt voor grootschalige wordt ingesteld wanneer een vaste verhoging mogen niet aanzienlijk verlagen brongebruik en kosten. |
-| Verklein het aantal moet worden   | Worden verwijderd omdat er veel exemplaren van de VM nodig zijn voor een gewenste minimumhoeveelheid bereiken.                                                            |
+| Aantal verhogen met   | Een vast aantal VM-instanties maken. Dit is handig in schaalsets met een kleiner aantal virtuele machines.                                           |
+| Percentage verhogen met | Een verhoging van percentage op basis van VM-exemplaren. Geschikt voor grootschalige wordt ingesteld wanneer een vaste verhoging niet merkbaar de prestaties mogelijk verbeterd. |
+| Aantal verhogen tot   | Maak zoals veel exemplaren van de VM nodig zijn voor een gewenste maximumhoeveelheid bereiken.                                                            |
+| Aantal verlagen tot   | Een vast aantal VM-exemplaren te verwijderen. Dit is handig in schaalsets met een kleiner aantal virtuele machines.                                           |
+| Percentage verlagen met | Een afname op basis van een percentage van de VM-exemplaren. Geschikt voor grootschalige wordt ingesteld wanneer een vaste verhoging mogen niet aanzienlijk verlagen brongebruik en kosten. |
+| Aantal verlagen tot   | Worden verwijderd omdat er veel exemplaren van de VM nodig zijn voor een gewenste minimumhoeveelheid bereiken.                                                            |
 
 
 ## <a name="in-guest-vm-metrics-with-the-azure-diagnostics-extension"></a>Metrische gegevens in de Gast-VM met de extensie Azure diagnostics
@@ -136,9 +137,9 @@ De volgende voorbeelden zijn scenario's waarvoor het gebruik van regels voor aut
 ## <a name="next-steps"></a>Volgende stappen
 U kunt regels voor automatisch schalen die gebruikmaken van metrische gegevens op basis van een host met een van de volgende hulpprogramma's kunt maken:
 
-- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure-sjabloon](tutorial-autoscale-template.md)
 
 Dit overzicht beschreven hoe u regels voor automatisch schalen horizontaal schalen en vergroten of verkleinen met de *getal* van VM-exemplaren in uw scale ingesteld. Kunt u ook de schaal verticaal vergroten of verkleinen van de VM-instantie *grootte*. Zie voor meer informatie [verticale automatisch geschaald met de virtuele Machine-schaalsets](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 

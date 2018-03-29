@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: d4022a89b8e0e08679e1c593dc1b691a23d21471
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitor voor data Factory met Azure-Monitor  
 Cloud-toepassingen zijn complexe met veel bewegende onderdelen. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing up blijft en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen uit het verleden zijn. Bovendien kunt u bewakingsgegevens grondige om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen bij het verbeteren van de prestaties van toepassingen of onderhoud of acties die anders worden handmatige interventie moeten automatiseren.
@@ -381,7 +381,7 @@ Hier voor meer informatie] ()https://msdn.microsoft.com/en-us/library/azure/dn93
 |start| Tekenreeks | Begin van de trigger brand in timespan, UTC-notatie | `2017-06-26T20:55:29.5007959Z`|
 |status| Tekenreeks | Eindstatus of trigger met succes gestart (geslaagd of mislukt) | `Succeeded`|
 
-### <a name="metrics"></a>Metrische gegevens
+## <a name="metrics"></a>Metrische gegevens
 
 Monitor voor Azure kunt u telemetrie om meer inzicht verkrijgen in de prestaties en de status van uw workloads in Azure gebruiken. De belangrijkste type Azure telemetriegegevens is de metrische gegevens die (ook wel prestatiemeteritems) die door de meeste Azure-resources. Monitor voor Azure biedt verschillende manieren configureren en gebruiken van deze metrische gegevens voor bewaking en probleemoplossing.
 
@@ -397,6 +397,51 @@ ADFV2 verzendt de volgende metrische gegevens
 | TriggerFailedRuns    | Trigger wordt uitgevoerd metrische gegevens is mislukt     | Count    | Totaal                | Totaal aantal trigger voert is mislukt binnen een minuut      |
 
 Voor toegang tot de metrische gegevens, volg de instructies in het artikel- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## <a name="alerts"></a>Waarschuwingen
+
+U kunt waarschuwingen op ondersteunde metrische gegevens in Data Factory verhogen. Klik op de **waarschuwingen** knop op de Data Factory **Monitor** pagina.
+
+![Waarschuwingen-optie](media/monitor-using-azure-monitor/alerts_image1.png)
+
+Hiermee gaat u naar de **waarschuwingen** pagina.
+
+![pagina waarschuwingen](media/monitor-using-azure-monitor/alerts_image2.png)
+
+U kunt zich ook aanmelden bij de Azure-portal en klikt u op **Monitor -&gt; waarschuwingen** bereiken de **waarschuwingen** rechtstreeks pagina.
+
+![Waarschuwingen in het menu van de portal](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### <a name="create-alerts"></a>Waarschuwingen maken
+
+1.  Klik op **+ nieuwe waarschuwingsregel** voor het maken van een nieuwe waarschuwing.
+
+    ![nieuwe waarschuwingsregel](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  Definieer de **waarschuwing voorwaarde**.
+
+    > [!NOTE]
+    > Zorg ervoor dat u selecteert **alle** in de **filteren op resourcetype**.
+
+    ![Voorwaarde een waarschuwing, scherm 1 van 3](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![Voorwaarde een waarschuwing, scherm 2 van 3](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![Voorwaarde een waarschuwing, scherm 3 van 3](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  Definieer de **Waarschuwingsdetails**.
+
+    ![Waarschuwingsdetails](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  Definieer de **actiegroep**.
+
+    ![Actiegroep scherm 1 van 4](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![Actiegroep scherm 2 van 4](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![Actiegroep scherm 3 4](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![Actiegroep scherm 4 van 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [bewaken en beheren van pijplijnen programmatisch](monitor-programmatically.md) artikel voor meer informatie over het controleren en beheren van pijplijnen door te voeren. 

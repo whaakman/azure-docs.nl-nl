@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: cfc789b3768c21efc7a03c11370b17ac6c3985cd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer standaard
 
@@ -39,7 +39,7 @@ Een belangrijk aspect is de omvang van het virtuele netwerk voor de resource.  H
 Load Balancer resources zijn waarbinnen u hoe de multitenant-infrastructuur voor het scenario dat u wilt maken op Azure moet programma kunt express-objecten.  Er is geen directe relatie tussen resources van de Load Balancer en werkelijke infrastructuur; geen exemplaar maken van een Load Balancer niet maken, capaciteit altijd beschikbaar is en er zijn geen opstarten of schalen van vertragingen in overweging moet nemen. 
 
 >[!NOTE]
-> Azure biedt een reeks volledig beheerde oplossingen voor uw scenario's voor taakverdeling.  Als u TLS-beëindiging ('SSL-offload') of HTTP/HTTPS application layer verwerking zoekt, Raadpleeg [Application Gateway](../application-gateway/application-gateway-introduction.md).  Als u op zoek bent voor globale DNS taakverdeling, Bekijk [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Uw end-to-end-scenario's kunnen profiteren van deze oplossingen combineren indien nodig.
+> Azure biedt een reeks volledig beheerde oplossingen voor uw scenario's voor taakverdeling.  Als u voor TLS-beëindiging ('SSL-offload') of per toepassing HTTP/HTTPS-laag aanvraagverwerking zoeken wilt, bekijkt u [Application Gateway](../application-gateway/application-gateway-introduction.md).  Als u op zoek bent voor globale DNS taakverdeling, Bekijk [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Uw end-to-end-scenario's kunnen profiteren van deze oplossingen combineren indien nodig.
 
 ## <a name="why-use-standard-load-balancer"></a>Waarom standaard Load Balancer gebruiken?
 
@@ -58,7 +58,7 @@ Controleer de onderstaande tabel voor een overzicht van de verschillen tussen st
 | Diagnostiek | Azure Monitor multidimensionale metrische gegevens inclusief byte en pakket tellers, health test status, verbindingspogingen (TCP SYN), status van de uitgaande verbinding (snat omzetten geslaagde en mislukte flows), actieve gegevens vlak metingen | Azure Log Analytics voor openbare Load Balancer, snat omzetten uitputting van de waarschuwing, status aantal back-end Pools |
 | HA poorten | Interne Load Balancer | / |
 | Standaard beveiligen | standaard gesloten voor openbare IP-adres en de Load Balancer-eindpunten en een netwerkbeveiligingsgroep worden gebruikt voor het expliciet geaccepteerde voor verkeer stromen | standaard open is, netwerkbeveiligingsgroep optioneel |
-| Uitgaande verbindingen | Meerdere frontends met per regel opt-out. Een uitgaande scenario _moet_ expliciet voor de virtuele machine te kunnen gebruiken uitgaande verbinding worden gemaakt.  [VNet-Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md) zonder uitgaande verbinding kan worden bereikt en kan niet worden meegeteld voor gegevens die worden verwerkt.  Openbare IP-adressen, inclusief Azure PaaS-services niet beschikbaar als de Service-eindpunten VNet, moeten worden bereikt via uitgaande verbinding en het aantal naar gegevens die worden verwerkt. Wanneer een interne Load Balancer een virtuele machine fungeert, zijn uitgaande verbindingen via standaard snat omzetten niet beschikbaar. | Één front-end willekeurig worden geselecteerd als er meerdere frontends aanwezig zijn.  Wanneer een virtuele machine alleen interne Load Balancer fungeert, wordt standaard snat omzetten wordt gebruikt.  Uitgaande snat omzetten programmering is transportprotocol specifieke. |
+| Uitgaande verbindingen | Meerdere frontends met per regel opt-out. Een uitgaande scenario _moet_ expliciet voor de virtuele machine te kunnen gebruiken uitgaande verbinding worden gemaakt.  [VNet-Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md) zonder uitgaande verbinding kan worden bereikt en kan niet worden meegeteld voor gegevens die worden verwerkt.  Openbare IP-adressen, inclusief Azure PaaS-services niet beschikbaar als de Service-eindpunten VNet, moeten worden bereikt via uitgaande verbinding en het aantal naar gegevens die worden verwerkt. Wanneer een interne Load Balancer een virtuele machine fungeert, zijn uitgaande verbindingen via standaard snat omzetten niet beschikbaar. Uitgaande snat omzetten programmering is transportprotocol bepaald op basis van het protocol van de regel voor binnenkomende taakverdeling. | Één front-end willekeurig worden geselecteerd als er meerdere frontends aanwezig zijn.  Wanneer een virtuele machine alleen interne Load Balancer fungeert, wordt standaard snat omzetten wordt gebruikt. |
 | Meerdere frontends | Binnenkomend en uitgaand | Alleen binnenkomende gegevens |
 | Beheerbewerkingen | De meeste bewerkingen < 30 seconden | 60-90 seconden typische |
 | SLA | 99,99% voor gegevenspad met twee virtuele machines die in orde | Impliciete in VM SLA | 
@@ -218,13 +218,9 @@ Standaard Load Balancer is een bedrag product op basis van het aantal load balan
 
 ## <a name="limitations"></a>Beperkingen
 
-De volgende beperkingen toepassen op het moment van preview en nog worden gewijzigd:
-
 - Load Balancer back-end voor exemplaren kunnen niet worden gevonden in virtuele netwerken peer is ingesteld op dit moment. Alle exemplaren van de back-end moeten zich in dezelfde regio.
 - Er zijn geen veranderlijke SKU's. U kunt de SKU van een bestaande resource niet wijzigen.
 - De bron van een zelfstandige virtuele machine beschikbaarheidsset resource of bron voor virtuele machine scale set kan verwijzen naar een SKU, niet beide.
-- Inschakelen van Azure DDoS-beveiliging op het virtuele netwerk heeft gevolgen voor de duur van beheerbewerkingen.
-- IPv6 wordt niet ondersteund.
 - [Waarschuwingen van Azure controleren](../monitoring-and-diagnostics/monitoring-overview-alerts.md) worden niet ondersteund op dit moment.
 - [Abonnement bewerkingen verplaatsen](../azure-resource-manager/resource-group-move-resources.md) worden niet ondersteund voor standaard SKU LB en PIP resources.
 

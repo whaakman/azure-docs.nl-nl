@@ -1,23 +1,23 @@
 ---
 title: Toepassingspagina niet correct weergegeven voor een toepassing toepassingsproxy | Microsoft Docs
-description: "Richtlijnen wanneer de pagina is niet correct in een toepassing Proxy-toepassing weergegeven hebt geïntegreerd met Azure AD"
+description: Richtlijnen wanneer de pagina is niet correct in een toepassing Proxy-toepassing weergegeven hebt geïntegreerd met Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 03/23/2018
 ms.author: asteen
-ms.openlocfilehash: 017267620a1bcd6242bceb395966cc4190677c1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d187b545a486be28fc80e6baf8e58079ff94ec5e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Toepassingspagina weergegeven niet correct voor een toepassing toepassingsproxy
 
@@ -34,7 +34,7 @@ Als een voorbeeld van deze aanvraag, wordt ervan uitgegaan hebt u een toepassing
 
 Als het niet mogelijk om alle bronnen binnen dezelfde toepassing te publiceren, moet u meerdere toepassingen publiceren en koppelingen tussen deze twee inschakelen.
 
-Om dit te doen, wordt u aangeraden de [aangepaste domeinen](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) oplossing. Deze oplossing vereist echter dat de eigenaar van het certificaat voor uw domein en uw toepassingen volledig gekwalificeerde domeinnamen (FQDN's) gebruiken. Zie voor andere opties, de [verbroken koppelingen documentatie oplossen](https://microsoft-my.sharepoint.com/personal/harshja_microsoft_com/_layouts/15/guestaccess.aspx?guestaccesstoken=IxuG3mFVbnPWI3Yn4Qi7wCNi8VIfHS5mwPt5quh8DMw%3d&docid=2_14558cd6ddea34c1c9887dc640feb5831&rev=1).
+Om dit te doen, wordt u aangeraden de [aangepaste domeinen](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) oplossing. Deze oplossing vereist echter dat de eigenaar van het certificaat voor uw domein en uw toepassingen volledig gekwalificeerde domeinnamen (FQDN's) gebruiken. Zie voor andere opties, de [verbroken koppelingen documentatie oplossen](application-proxy-page-links-broken-problem.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 [Toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md)

@@ -2,12 +2,12 @@
 title: Maken van een Azure-schaalset met lage prioriteit VMs (Preview) | Microsoft Docs
 description: Informatie over het maken van virtuele Azure-machine-schaalsets die gebruikmaken van prioriteit Laag virtuele machines op te slaan op kosten
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: rajraj
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: memccror
-ms.openlocfilehash: 9e4970ecc538caab537281931b89bfd57d994cfa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Prioriteit Laag VM's op schaalsets (preview)
 
@@ -48,7 +48,7 @@ Als u wilt implementeren lage prioriteit VM's op schaalsets, kunt u instellen de
 
 ## <a name="use-the-azure-cli-20"></a>De Azure CLI 2.0 gebruiken
 
-Het proces voor het maken van een schaal ingesteld met lage prioriteit virtuele machines is hetzelfde als is beschreven in de [artikel aan de slag](virtual-machine-scale-sets-create-cli.md). Alleen toe te voegen de '--prioriteit '-parameter voor de cli aanroepen en stel deze in op *laag* zoals weergegeven in het voorbeeld hieronder:
+Het proces voor het maken van een schaal ingesteld met lage prioriteit virtuele machines is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-cli.md). Alleen toe te voegen de '--prioriteit '-parameter voor de cli aanroepen en stel deze in op *laag* zoals weergegeven in het voorbeeld hieronder:
 
 ```azurecli
 az vmss create \
@@ -63,7 +63,7 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
 
-Het proces voor het maken van een schaal ingesteld met lage prioriteit virtuele machines is hetzelfde als is beschreven in de [artikel aan de slag](virtual-machine-scale-sets-create-powershell.md).
+Het proces voor het maken van een schaal ingesteld met lage prioriteit virtuele machines is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-powershell.md).
 Alleen toe te voegen de '-prioriteit '-parameter voor de [nieuw AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) en wordt ingesteld op *laag* zoals weergegeven in het voorbeeld hieronder:
 
 ```powershell
@@ -77,7 +77,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Gebruik Azure Resource Manager-sjablonen
 
-Het proces voor het maken van een scale-set met lage prioriteit VM's is hetzelfde als in het artikel voor ophalen gestart voor gedetailleerde [Linux](virtual-machine-scale-sets-create-template-linux.md) of [Windows](virtual-machine-scale-sets-create-template-windows.md). Toevoegen van de prioriteitseigenschap '' op de *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource typt u in uw sjabloon en geef *laag* als de waarde. Zorg ervoor dat u *2017-10-30-preview* API-versie of hoger. 
+Het proces voor het maken van een scale-set met lage prioriteit VM's is hetzelfde als in het artikel voor ophalen gestart voor gedetailleerde [Linux](quick-create-template-linux.md) of [Windows](quick-create-template-windows.md). Toevoegen van de prioriteitseigenschap '' op de *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource typt u in uw sjabloon en geef *laag* als de waarde. Zorg ervoor dat u *2017-10-30-preview* API-versie of hoger. 
 
 De parameter 'evictionPolicy' toevoegen om de verwijdering instellen om te verwijderen, en stel op *verwijderen*.
 

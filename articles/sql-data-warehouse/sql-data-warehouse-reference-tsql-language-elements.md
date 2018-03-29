@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ea0b9a3e-e489-458e-addc-cc153e5cc158
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,38 +15,38 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd9dc070c817a7276369a9be7126b0d48dc9e4eb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="language-elements"></a>Taalelementen
 ## <a name="core-elements"></a>Core-elementen
-* [syntaxis conventies](https://msdn.microsoft.com/library/ms177563.aspx)
+* [Syntaxis conventies](https://msdn.microsoft.com/library/ms177563.aspx)
 * [naamgevingsregels voor object](https://msdn.microsoft.com/library/ms175874.aspx)
 * [gereserveerde woorden](https://msdn.microsoft.com/library/ms189822.aspx)
 * [sorteringen](https://msdn.microsoft.com/library/ff848763.aspx)
-* [opmerkingen](https://msdn.microsoft.com/library/ms181627.aspx)
-* [constanten](https://msdn.microsoft.com/library/ms179899.aspx)
-* [gegevenstypen](https://msdn.microsoft.com/library/ms187752.aspx)
+* [Opmerkingen](https://msdn.microsoft.com/library/ms181627.aspx)
+* [Constanten](https://msdn.microsoft.com/library/ms179899.aspx)
+* [Gegevenstypen](https://msdn.microsoft.com/library/ms187752.aspx)
 * [UITVOEREN](https://msdn.microsoft.com/library/ms188332.aspx)
-* [expressies](https://msdn.microsoft.com/library/ms190286.aspx)
+* [Expressies](https://msdn.microsoft.com/library/ms190286.aspx)
 * [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
 * [Tijdelijke oplossing IDENTITY-eigenschap](https://msdn.microsoft.com/library/ms186775.aspx)
-* [AFDRUKKEN](https://msdn.microsoft.com/library/ms176047.aspx)
-* [GEBRUIK](https://msdn.microsoft.com/library/ms188366.aspx)
+* [PRINT](https://msdn.microsoft.com/library/ms176047.aspx)
+* [USE](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## <a name="batches-control-of-flow-and-variables"></a>Batches van Controlestroom en variabelen
-* [BEGINT... EINDE](https://msdn.microsoft.com/library/ms190487.aspx)
-* [OPSPLITSEN](https://msdn.microsoft.com/library/ms181271.aspx)
-* [DECLAREREN@local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
-* [ALS... ANDERS](https://msdn.microsoft.com/library/ms182717.aspx)
+* [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
+* [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
+* [DECLAREREN @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
+* [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 * [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 * [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
-* [WEGGOOIEN](https://msdn.microsoft.com/library/ee677615.aspx)
-* [PROBEER... CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
-* [TIJD](https://msdn.microsoft.com/library/ms178642.aspx)
+* [THROW](https://msdn.microsoft.com/library/ee677615.aspx)
+* [TRY...CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
+* [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>Operators
 * [+ (Toevoegen)](https://msdn.microsoft.com/library/ms178565.aspx)
@@ -66,22 +66,22 @@ ms.lasthandoff: 10/11/2017
 * [<> (Niet gelijk aan)](https://msdn.microsoft.com/library/ms176020.aspx)
 * [! = (Niet gelijk aan)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [EN](https://msdn.microsoft.com/library/ms188372.aspx)
-* [TUSSEN](https://msdn.microsoft.com/library/ms187922.aspx)
-* [ER BESTAAT](https://msdn.microsoft.com/library/ms188336.aspx)
+* [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
+* [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)
 * [IN](https://msdn.microsoft.com/library/ms177682.aspx)
 * [[NOT] IS NULL](https://msdn.microsoft.com/library/ms188795.aspx)
 * [ZOALS](https://msdn.microsoft.com/library/ms179859.aspx)
-* [NIET](https://msdn.microsoft.com/library/ms189455.aspx)
+* [NOT](https://msdn.microsoft.com/library/ms189455.aspx)
 * [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Bitsgewijze operatoren
 * [& (Bitsgewijze AND)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (Bitsgewijze OR)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (Bitsgewijs exclusieve OR)](https://msdn.microsoft.com/library/ms190277.aspx)
-* [~ (Bitsgewijze niet)](https://msdn.microsoft.com/library/ms173468.aspx)
+* [~ (Bitwise NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
 * [^ = (Bitsgewijze exclusief of is gelijk aan)](https://msdn.microsoft.com/library/cc627413.aspx)
 * [| = (Bitsgewijze of is gelijk aan)](https://msdn.microsoft.com/library/cc627409.aspx)
-* [& = (Bitsgewijze AND gelijk aan)](https://msdn.microsoft.com/library/cc627427.aspx)
+* [&= (Bitwise AND EQUALS)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## <a name="functions"></a>Functies
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
@@ -91,13 +91,13 @@ ms.lasthandoff: 10/11/2017
 * [@@TRANCOUNT](https://msdn.microsoft.com/library/ms187967.aspx)
 * [@@VERSION](https://msdn.microsoft.com/library/ms177512.aspx)
 * [ABS](https://msdn.microsoft.com/library/ms189800.aspx)
-* [BOOGCOS](https://msdn.microsoft.com/library/ms178627.aspx)
+* [ACOS](https://msdn.microsoft.com/library/ms178627.aspx)
 * [ASCII](https://msdn.microsoft.com/library/ms177545.aspx)
 * [ASIN](https://msdn.microsoft.com/library/ms181581.aspx)
-* [BOOGTAN](https://msdn.microsoft.com/library/ms181746.aspx)
+* [ATAN](https://msdn.microsoft.com/library/ms181746.aspx)
 * [ATN2](https://msdn.microsoft.com/library/ms173854.aspx)
 * [BINARY_CHECKSUM](https://msdn.microsoft.com/library/ms173784.aspx)
-* [AANVRAAG](https://msdn.microsoft.com/library/ms181765.aspx)
+* [CASE](https://msdn.microsoft.com/library/ms181765.aspx)
 * [CAST en converteren](https://msdn.microsoft.com/library/ms187928.aspx)
 * [MAXIMUM](https://msdn.microsoft.com/library/ms189818.aspx)
 * [CHAR](https://msdn.microsoft.com/library/ms187323.aspx)
@@ -107,9 +107,9 @@ ms.lasthandoff: 10/11/2017
 * [COL_NAME](https://msdn.microsoft.com/library/ms174974.aspx)
 * [COLLATIONPROPERTY](https://msdn.microsoft.com/library/ms190305.aspx)
 * [CONCAT](https://msdn.microsoft.com/library/hh231515.aspx)
-* [CO 'S](https://msdn.microsoft.com/library/ms188919.aspx)
+* [COS](https://msdn.microsoft.com/library/ms188919.aspx)
 * [COT](https://msdn.microsoft.com/library/ms188921.aspx)
-* [AANTAL](https://msdn.microsoft.com/library/ms175997.aspx)
+* [COUNT](https://msdn.microsoft.com/library/ms175997.aspx)
 * [COUNT_BIG](https://msdn.microsoft.com/library/ms190317.aspx)
 * [CUME_DIST](https://msdn.microsoft.com/library/hh231078.aspx)
 * [CURRENT_TIMESTAMP](https://msdn.microsoft.com/library/ms188751.aspx)
@@ -127,7 +127,7 @@ ms.lasthandoff: 10/11/2017
 * [DAG](https://msdn.microsoft.com/library/ms176052.aspx)
 * [DB_ID](https://msdn.microsoft.com/library/ms186274.aspx)
 * [DB_NAME](https://msdn.microsoft.com/library/ms189753.aspx)
-* [GRADEN](https://msdn.microsoft.com/library/ms178566.aspx)
+* [DEGREES](https://msdn.microsoft.com/library/ms178566.aspx)
 * [DENSE_RANK](https://msdn.microsoft.com/library/ms173825.aspx)
 * [VERSCHIL](https://msdn.microsoft.com/library/ms188753.aspx)
 * [LAATSTE](https://msdn.microsoft.com/library/hh213020.aspx)
@@ -147,63 +147,63 @@ ms.lasthandoff: 10/11/2017
 * [ISDATE](https://msdn.microsoft.com/library/ms187347.aspx)
 * [ISNULL](https://msdn.microsoft.com/library/ms184325.aspx)
 * [ISNUMERIC](https://msdn.microsoft.com/library/ms186272.aspx)
-* [VERTRAGING](https://msdn.microsoft.com/library/hh231256.aspx)
+* [LAG](https://msdn.microsoft.com/library/hh231256.aspx)
 * [LAST_VALUE](https://msdn.microsoft.com/library/hh231517.aspx)
 * [LEIDEN](https://msdn.microsoft.com/library/hh213125.aspx)
-* [LINKS](https://msdn.microsoft.com/library/ms177601.aspx)
+* [LEFT](https://msdn.microsoft.com/library/ms177601.aspx)
 * [LEN](https://msdn.microsoft.com/library/ms190329.aspx)
-* [LOGBOEK](https://msdn.microsoft.com/library/ms190319.aspx)
+* [LOG](https://msdn.microsoft.com/library/ms190319.aspx)
 * [LOG10](https://msdn.microsoft.com/library/ms175121.aspx)
-* [LAGERE](https://msdn.microsoft.com/library/ms174400.aspx)
+* [LOWER](https://msdn.microsoft.com/library/ms174400.aspx)
 * [LTRIM](https://msdn.microsoft.com/library/ms177827.aspx)
-* [MAXIMUM AANTAL](https://msdn.microsoft.com/library/ms187751.aspx)
+* [MAX](https://msdn.microsoft.com/library/ms187751.aspx)
 * [MIN](https://msdn.microsoft.com/library/ms179916.aspx)
 * [MAAND](https://msdn.microsoft.com/library/ms187813.aspx)
 * [NCHAR](https://msdn.microsoft.com/library/ms182673.aspx)
 * [NTILE](https://msdn.microsoft.com/library/ms175126.aspx)
 * [NULLIF](https://msdn.microsoft.com/library/ms177562.aspx)
 * [OBJECT_ID](https://msdn.microsoft.com/library/ms190328.aspx)
-* [OBJECTNAAM](https://msdn.microsoft.com/library/ms186301.aspx)
+* [OBJECT_NAME](https://msdn.microsoft.com/library/ms186301.aspx)
 * [OBJECTPROPERTY](https://msdn.microsoft.com/library/ms176105.aspx)
 * [OIBJECTPROPERTYEX](https://msdn.microsoft.com/library/ms188390.aspx)
 * [ODBCS scalaire functies](https://msdn.microsoft.com/library/bb630290.aspx)
 * [De component OVER](https://msdn.microsoft.com/library/ms189461.aspx)
-* [RESOURCE](https://msdn.microsoft.com/library/ms188006.aspx)
+* [PARSENAME](https://msdn.microsoft.com/library/ms188006.aspx)
 * [PATINDEX](https://msdn.microsoft.com/library/ms188395.aspx)
 * [PERCENTILE_CONT](https://msdn.microsoft.com/library/hh231473.aspx)
 * [PERCENTILE_DISC](https://msdn.microsoft.com/library/hh231327.aspx)
 * [PERCENT_RANK](https://msdn.microsoft.com/library/hh213573.aspx)
 * [PI](https://msdn.microsoft.com/library/ms189512.aspx)
-* [ENERGIEBEHEER](https://msdn.microsoft.com/library/ms174276.aspx)
+* [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
 * [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
-* [RADIALEN](https://msdn.microsoft.com/library/ms189742.aspx)
+* [RADIANS](https://msdn.microsoft.com/library/ms189742.aspx)
 * [RAND](https://msdn.microsoft.com/library/ms177610.aspx)
-* [POSITIE](https://msdn.microsoft.com/library/ms176102.aspx)
-* [VERVANGEN](https://msdn.microsoft.com/library/ms186862.aspx)
+* [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
+* [REPLACE](https://msdn.microsoft.com/library/ms186862.aspx)
 * [REPLICEREN](https://msdn.microsoft.com/library/ms174383.aspx)
-* [OMKEREN](https://msdn.microsoft.com/library/ms180040.aspx)
-* [RECHTS](https://msdn.microsoft.com/library/ms177532.aspx)
+* [REVERSE](https://msdn.microsoft.com/library/ms180040.aspx)
+* [RIGHT](https://msdn.microsoft.com/library/ms177532.aspx)
 * [AFRONDEN](https://msdn.microsoft.com/library/ms175003.aspx)
-* [RESULTAAT](https://msdn.microsoft.com/library/ms186734.aspx)
+* [ROW_NUMBER](https://msdn.microsoft.com/library/ms186734.aspx)
 * [RTRIM](https://msdn.microsoft.com/library/ms178660.aspx)
 * [SCHEMA_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 * [SCHEMA_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 * [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
 * [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
-* [AANMELDING](https://msdn.microsoft.com/library/ms188420.aspx)
+* [SIGN](https://msdn.microsoft.com/library/ms188420.aspx)
 * [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 * [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
 * [GELUID](https://msdn.microsoft.com/library/ms187384.aspx)
-* [RUIMTE](https://msdn.microsoft.com/library/ms187950.aspx)
+* [SPACE](https://msdn.microsoft.com/library/ms187950.aspx)
 * [SQL_VARIANT_PROPERTY](https://msdn.microsoft.com/library/ms178550.aspx)
 * [SQRT](https://msdn.microsoft.com/library/ms176108.aspx)
-* [VIERKANTE](https://msdn.microsoft.com/library/ms173569.aspx)
+* [SQUARE](https://msdn.microsoft.com/library/ms173569.aspx)
 * [STATS_DATE](https://msdn.microsoft.com/library/ms190330.aspx)
 * [STDEV](https://msdn.microsoft.com/library/ms190474.aspx)
 * [STDEVP](https://msdn.microsoft.com/library/ms176080.aspx)
 * [STR](https://msdn.microsoft.com/library/ms189527.aspx)
-* [SPULLEN](https://msdn.microsoft.com/library/ms188043.aspx)
-* [DE SUBTEKENREEKS](https://msdn.microsoft.com/library/ms187748.aspx)
+* [STUFF](https://msdn.microsoft.com/library/ms188043.aspx)
+* [SUBSTRING](https://msdn.microsoft.com/library/ms187748.aspx)
 * [SOM](https://msdn.microsoft.com/library/ms187810.aspx)
 * [SUSER_SNAME](https://msdn.microsoft.com/library/ms174427.aspx)
 * [SWITCHOFFSET](https://msdn.microsoft.com/library/bb677244.aspx)
@@ -219,16 +219,16 @@ ms.lasthandoff: 10/11/2017
 * [TYPE_NAME](https://msdn.microsoft.com/library/ms189750.aspx)
 * [TYPEPROPERTY](https://msdn.microsoft.com/library/ms188419.aspx)
 * [UNICODE](https://msdn.microsoft.com/library/ms180059.aspx)
-* [BOVENSTE](https://msdn.microsoft.com/library/ms180055.aspx)
+* [UPPER](https://msdn.microsoft.com/library/ms180055.aspx)
 * [GEBRUIKER](https://msdn.microsoft.com/library/ms186738.aspx)
-* [GEBRUIKERSNAAM](https://msdn.microsoft.com/library/ms188014.aspx)
+* [USER_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
 * [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
 * [VARP](https://msdn.microsoft.com/library/ms188735.aspx)
-* [JAAR](https://msdn.microsoft.com/library/ms186313.aspx)
+* [YEAR](https://msdn.microsoft.com/library/ms186313.aspx)
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## <a name="transactions"></a>Transacties
-* [transacties](https://msdn.microsoft.com/library/mt204031.aspx)
+* [Transacties](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>Diagnostische sessies
 * [DIAGNOSTICS-SESSIE MAKEN](https://msdn.microsoft.com/library/mt204029.aspx)
@@ -279,11 +279,5 @@ ms.lasthandoff: 10/11/2017
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie, [SQL Data Warehouse verwijzing overzicht][SQL Data Warehouse reference overview].
+Zie voor meer TSQL-verwijzing, [SQL Data Warehouse T-SQL-instructies](sql-data-warehouse-reference-tsql-statements.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-
-<!--MSDN references-->

@@ -51,7 +51,7 @@ De app apparaat rapporteert de huidige configuratie voor het spiegelen van de ge
                 ...
                 "reported": {
                     "telemetryConfig": {
-                        "changeId": "{id of the current configuration}",
+                        "configId": "{id of the current configuration}",
                         "sendFrequency": "{current configuration}",
                         "status": "Success",
                     }
@@ -69,11 +69,11 @@ Wanneer een nieuwe gewenste configuratie wordt ontvangen, rapporteert de apparaa
                 ...
                 "reported": {
                     "telemetryConfig": {
-                        "changeId": "{id of the current configuration}",
+                        "configId": "{id of the current configuration}",
                         "sendFrequency": "{current configuration}",
                         "status": "Pending",
                         "pendingConfig": {
-                            "changeId": "{id of the pending configuration}",
+                            "configId": "{id of the pending configuration}",
                             "sendFrequency": "{pending configuration}"
                         }
                     }

@@ -7,15 +7,15 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/24/2018
 ms.author: sujayt
-ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 30ee269b3f484256001af211181a517821d79617
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery-ondersteuningsmatrix voor het repliceren van Azure naar Azure
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>De ondersteuningsmatrix voor het repliceren van een Azure-regio naar een andere
 
 
 >[!NOTE]
@@ -148,8 +148,8 @@ Virtuele machines gemigreerd met behulp van Site Recovery | Ondersteund | Als di
 --- | --- | ---
 Maximale grootte van de OS-schijven | 2048 GB | Raadpleeg [schijven die worden gebruikt door virtuele machines.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 De grootte van maximaal gegevensschijf | 4095 GB | Raadpleeg [schijven die worden gebruikt door virtuele machines.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Aantal gegevensschijven | Maximaal 64 ondersteund door een specifieke Azure VM-grootte | Raadpleeg [grootten voor virtuele machine van Azure](../virtual-machines/windows/sizes.md)
-Tijdelijke schijf | Altijd uitgesloten van replicatie | Tijdelijke schijf is uitgesloten van replicatie altijd. Plaats geen permanente gegevens niet op de tijdelijke schijf aan de hand van Azure guida NS. Raadpleeg [tijdelijke schijf op Azure Virtual machines](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) voor meer informatie.
+Aantal gegevensschijven | Maximaal 64 als ondersteund door een specifieke Azure VM-grootte | Raadpleeg [grootten voor virtuele machine van Azure](../virtual-machines/windows/sizes.md)
+Tijdelijke schijf | Altijd uitgesloten van replicatie | Tijdelijke schijf is uitgesloten van replicatie altijd. Plaats geen permanente gegevens niet op de tijdelijke schijf aan de hand van Azure richtlijnen. Raadpleeg [tijdelijke schijf op Azure Virtual machines](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) voor meer informatie.
 Snelheid van de gegevens wijzigen op de schijf | Maximaal 10 MBps per schijf voor Premium-opslag en 2 MBps per schijf voor Standard-opslag | Als de gemiddelde gegevenswijzigingssnelheid op de schijf dan 10 (voor Premium) en 2 MBps (voor standaard) continu is, replicatie wordt niet kan verwerken. Echter, als dit een ' burst ' in incidentele gegevens is en de gegevenswijzigingssnelheid is groter dan 10 MBps (voor Premium) en 2 MBps (voor Standard) voor enige tijd en ontvangt u omlaag, replicatie wordt lopen. In dit geval ziet u mogelijk enigszins vertraagd herstelpunten.
 Schijven op standaard storage-accounts | Ondersteund |
 Schijven op premium storage-accounts | Ondersteund | Als een virtuele machine schijven die zijn verdeeld over premium en standard storage-accounts bevat, kunt u een ander doel storage-account voor elke schijf om te controleren of hebt u dezelfde opslagconfiguratie van de in doelregio selecteren
@@ -174,12 +174,12 @@ V2 opslagaccounts voor algemeen gebruik (zowel Hot en Cool laag) | Nee | Transac
 ## <a name="support-for-network-configuration"></a>Ondersteuning voor netwerkconfiguratie
 **Configuratie** | **Ondersteund/niet ondersteund** | **Opmerkingen**
 --- | --- | ---
-Netwerkinterface (NIC) | Een Resourcegroepnaam kunt u het maximum aantal NIC's ondersteund door een specifieke Azure VM-grootte | NIC's worden gemaakt wanneer de virtuele machine wordt gemaakt als onderdeel van de testfailover of failover-bewerking. Het aantal NIC's op de VM-failover is afhankelijk van het aantal NIC's de bron die VM ten tijde heeft van het inschakelen van replicatie. Als u toevoegen/verwijderen NIC nadat de replicatie is ingeschakeld, heeft deze geen gevolgen voor NIC-aantal op de VM-failover.
+Netwerkinterface (NIC) | Maximum aantal NIC's ondersteund door een specifieke Azure VM-grootte | NIC's worden gemaakt wanneer de virtuele machine wordt gemaakt als onderdeel van de testfailover of failover-bewerking. Het aantal NIC's op de VM-failover is afhankelijk van het aantal NIC's de bron die VM ten tijde heeft van het inschakelen van replicatie. Als u toevoegen/verwijderen NIC nadat de replicatie is ingeschakeld, heeft deze geen gevolgen voor NIC-aantal op de VM-failover.
 Internet Load Balancer | Ondersteund | U moet de vooraf geconfigureerde taakverdeling met behulp van een azure automatiseringsscript in een herstelplan koppelen.
 Interne Load balancer | Ondersteund | U moet de vooraf geconfigureerde taakverdeling met behulp van een azure automatiseringsscript in een herstelplan koppelen.
 Openbare IP| Ondersteund | U moet een bestaand openbaar IP-adres met de NIC koppelen of maken en koppelen aan de NIC met een azure automatiseringsscript in een herstelplan.
 NSG op NIC (Resource Manager)| Ondersteund | U moet het NSG aan de NIC met een azure automatiseringsscript in een plan voor herstel koppelt.  
-NSG voor subnet (Resource Manager en Classic)| Ondersteund | U moet het NSG aan de NIC met een azure automatiseringsscript in een plan voor herstel koppelt.
+NSG voor subnet (Resource Manager en Classic)| Ondersteund | U moet het NSG aan het subnet met een azure automatiseringsscript in een plan voor herstel koppelt.
 NSG op virtuele machine (klassiek)| Ondersteund | U moet het NSG aan de NIC met een azure automatiseringsscript in een plan voor herstel koppelt.
 Gereserveerde IP-adres (statische IP) / behouden van de bron-IP | Ondersteund | Als de Netwerkadapter op de bron-VM statische IP-configuratie heeft en het doelsubnet het hetzelfde IP-adres beschikbaar is, wordt deze is toegewezen aan de VM-failover. Als het doelsubnet geen het hetzelfde IP-adres beschikbaar is, wordt een van de beschikbare IP-adressen in het subnet is gereserveerd voor deze virtuele machine. U kunt opgeven dat een vaste IP-adres van uw keuze in ' gerepliceerde item > Instellingen > berekening en netwerk > netwerkinterfaces. U kunt selecteren van de NIC en geef het subnet en IP-adres van uw keuze.
 Dynamische IP| Ondersteund | Als de Netwerkadapter op de bron-VM dynamische IP-configuratie heeft, de Netwerkadapter op de failover VM is ook standaard dynamisch. U kunt opgeven dat een vaste IP-adres van uw keuze in ' gerepliceerde item > Instellingen > berekening en netwerk > netwerkinterfaces. U kunt selecteren van de NIC en geef het subnet en IP-adres van uw keuze.

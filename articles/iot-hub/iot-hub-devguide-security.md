@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 9de332324ba853d3df0aacce2db4bbc3d4d9d62d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -338,13 +338,17 @@ Het resultaat toegang tot het lezen van alle apparaat-id's verlenen wilt, zou zi
 
 ## <a name="supported-x509-certificates"></a>Ondersteunde X.509-certificaten
 
-U kunt een X.509-certificaat gebruiken voor verificatie van een apparaat met IoT Hub. Certificaten zijn onder andere:
+U kunt een X.509-certificaat gebruiken voor verificatie van een apparaat met IoT Hub door de vingerafdruk van een certificaat of een certificeringsinstantie (CA) uploaden naar Azure IoT Hub. Verificatie met behulp van certificaatvingerafdrukken alleen wordt gecontroleerd of de vingerafdruk van het aangeboden overeenkomt met de geconfigureerde vingerafdruk. Verificatie met behulp van de certificeringsinstantie valideert de certificaatketen. 
 
-* **Een bestaand X.509-certificaat**. Een apparaat mogelijk al een X.509-certificaat dat is gekoppeld. Het apparaat kan dit certificaat gebruiken om te verifiëren met IoT Hub.
-* **Een automatisch gegenereerd en zelfondertekend certificaat X-509**. Een fabrikant of interne-implementatie van deze certificaten genereren en de bijbehorende persoonlijke sleutel (en het certificaat) opslaan op het apparaat. U kunt hulpprogramma's gebruiken zoals [OpenSSL] [ lnk-openssl] en [Windows SelfSignedCertificate] [ lnk-selfsigned] hulpprogramma voor dit doel.
-* **X.509-certificaat voor ondertekening van CA**. Als u wilt een apparaat te identificeren en deze kan worden geverifieerd met IoT Hub, kunt u een X.509-certificaat gegenereerd en ondertekend door een certificeringsinstantie (CA). IoT Hub controleert alleen of de geconfigureerde vingerafdruk komt overeen met de vingerafdruk van het weergegeven. IotHub biedt de certificaatketen niet valideren.
+Ondersteunde certificaten zijn onder andere:
+
+* **Een bestaand X.509-certificaat**. Een apparaat mogelijk al een X.509-certificaat dat is gekoppeld. Het apparaat kan dit certificaat gebruiken om te verifiëren met IoT Hub. Als u werkt met de vingerafdruk of verificatie van de CA. 
+* **X.509-certificaat voor ondertekening van CA**. Als u wilt een apparaat te identificeren en deze kan worden geverifieerd met IoT Hub, kunt u een X.509-certificaat gegenereerd en ondertekend door een certificeringsinstantie (CA). Als u werkt met de vingerafdruk of verificatie van de CA.
+* **Een automatisch gegenereerd en zelfondertekend certificaat X-509**. Een fabrikant of interne-implementatie van deze certificaten genereren en de bijbehorende persoonlijke sleutel (en het certificaat) opslaan op het apparaat. U kunt hulpprogramma's gebruiken zoals [OpenSSL] [ lnk-openssl] en [Windows SelfSignedCertificate] [ lnk-selfsigned] hulpprogramma voor dit doel. Werkt alleen met de vingerafdruk van verificatie. 
 
 Een apparaat kan gebruikmaken van een X.509-certificaat of een beveiligingstoken voor verificatie, maar niet beide.
+
+Zie voor meer informatie over verificatie met behulp van de certificeringsinstantie [conceptuele begrip van de CA X.509-certificaten](iot-hub-x509ca-concept.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Een X.509-certificaat voor een apparaat registreren
 
@@ -354,10 +358,7 @@ De [Azure IoT Service SDK voor C#] [ lnk-service-sdk] (versie 1.0.8+) biedt onde
 
 De **RegistryManager** klasse biedt een programmatische manier kunt u een apparaat registreren. In het bijzonder de **AddDeviceAsync** en **UpdateDeviceAsync** methoden kunnen u registreren en bijwerken van een apparaat in de id-register van IoT Hub. Deze twee methoden maken gebruik van een **apparaat** exemplaar als invoer. De **apparaat** klasse bevat een **verificatie** eigenschap waarmee u primaire en secundaire x.509-certificaatvingerafdrukken opgeven. De vingerafdruk van het vertegenwoordigt een SHA-1-hash van het X.509-certificaat (met behulp van binaire codering DER opgeslagen). U hebt de optie voor het opgeven van de vingerafdruk van een primaire of een secundaire vingerafdruk of beide. Primaire en secundaire vingerafdrukken worden ondersteund voor het afhandelen van certificaat rollover-scenario's.
 
-> [!NOTE]
-> IoT Hub geen vereist of het hele X.509-certificaat, alleen de vingerafdruk van het opslaan.
-
-Hier volgt een voorbeeld van C\# codefragment kunt u een apparaat met een X.509-certificaat registreren:
+Hier volgt een voorbeeld van C\# codefragment kunt u een apparaat met een vingerafdruk van het x.509-certificaat registreren:
 
 ```csharp
 var device = new Device(deviceId)

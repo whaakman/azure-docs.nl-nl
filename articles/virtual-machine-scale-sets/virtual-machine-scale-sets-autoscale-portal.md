@@ -2,10 +2,10 @@
 title: Automatisch schalen virtuele-machineschaalsets in de Azure portal | Microsoft Docs
 description: Het maken van regels voor automatisch schalen voor virtuele-machineschaalset ingesteld in de Azure portal
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: e43be53817e7fa65c3d7a95cab9821126ed88831
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 984b16dae26fb6d9d33ef68ac3e8c8b658e82e08
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatisch schalen van een virtuele-machineschaalset ingesteld in de Azure portal
 Wanneer u een schaalset maakt, definieert u het aantal VM-exemplaren die u wilt uitvoeren. Als uw toepassing vraag verandert, kunt u automatisch vergroten of verkleinen van het aantal VM-exemplaren. De mogelijkheid om te schalen kunt u met de vraag van klanten houden of reageren op wijzigingen in de toepassingsprestaties gedurende de levenscyclus van uw app.
@@ -28,7 +28,7 @@ In dit artikel leest u hoe automatisch schalen om regels te maken in de Azure po
 
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het maken van regels voor automatisch schalen, moet u een bestaande virtuele machine schaalset. U kunt een instellen met schaal maken de [Azure-portal](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), of [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md).
+Voor het maken van regels voor automatisch schalen, moet u een bestaande virtuele machine schaalset. U kunt een instellen met schaal maken de [Azure-portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), of [Azure CLI 2.0](quick-create-cli.md).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Maak een regel automatisch uit te schalen

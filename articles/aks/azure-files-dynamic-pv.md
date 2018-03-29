@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a5126bc4c5e7c9cd9832f33fc908e6c8b9e02b91
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 78f447c96afe7955f115de4bbd28015cd231bb53
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Permanente volumes met Azure-bestanden
 
@@ -133,6 +133,37 @@ kubectl create -f azure-pvc-files.yaml
 ```
 
 U hebt nu een actieve schil met uw Azure-schijf gekoppeld in de `/mnt/azure` directory. U kunt zien dat het volume dat is gekoppeld bij de inspectie van uw schil via `kubectl describe pod mypod`.
+
+## <a name="mount-options"></a>Koppelingsopties
+ 
+Standaardwaarden fileMode en dirMode verschillen tussen versies Kubernetes zoals beschreven in de volgende tabel.
+ 
+| versie | waarde |
+| ---- | ---- |
+| v1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
+| V1.8.6 of hoger | 0755 |
+| v1.9.0 | 0700 |
+| V1.9.1 of hoger | 0755 |
+ 
+Als u een cluster van versie 1.8.5 of hoger, koppelpunt opties kunnen worden opgegeven op het opslagobject klasse. Het volgende voorbeeld wordt `0777`.
+ 
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: azurefile
+provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+parameters:
+  skuName: Standard_LRS
+```
+ 
+Als u een cluster van versie 1.8.0 - 1.8.4, een beveiligingscontext kan worden opgegeven met de `runAsUser` waarde ingesteld op `0`. Zie voor meer informatie over schil beveiligingscontext [configureren van een beveiligingscontext][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Volgende stappen
 

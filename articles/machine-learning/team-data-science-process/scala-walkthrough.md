@@ -2,7 +2,7 @@
 title: Met behulp van Scala en Spark op Azure Gegevenswetenschap | Microsoft Docs
 description: Het gebruik van Scala voor bewaakte machine learning taken met de Spark schaalbare MLlib en Spark ML pakketten op een Azure HDInsight Spark-cluster.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;deguhath
-ms.openlocfilehash: 940911144993f30723ad395722742c81a4b0a71c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: dbd68508d83936964d213d94d5a30c15548cbdfc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Gegevenswetenschap met Scala en Spark op Azure
 In dit artikel leest u hoe Scala gebruiken voor beheerde machine learning taken met de Spark schaalbare MLlib en Spark ML pakketten op een Azure HDInsight Spark-cluster. Dit leidt u door de taken die deel uitmaken van de [proces voor Gegevenswetenschap](http://aka.ms/datascienceprocess): gegevensopname en verkennen, visualisatie, functie-engineering, modellering en model verbruik. De modellen in het artikel zijn logistic en lineaire regressie, willekeurige forests en verloop boosted structuren (GBTs), naast de twee algemene beheerde machine learning-taken:
@@ -42,7 +42,7 @@ De installatiestappen en code in dit artikel zijn voor Azure HDInsight 3.4 Spark
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-* U moet een Azure-abonnement hebben. Als u geen hebt nog, [ophalen van een gratis proefversie van Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* U hebt een abonnement op Azure nodig. Als u geen hebt nog, [ophalen van een gratis proefversie van Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * U moet een Azure HDInsight 3.4 Spark 1.6 cluster om de volgende procedures te voltooien. Zie de instructies in een cluster maken [aan de slag: Apache Spark maken in Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Instellen van het clustertype en de versie op de **clustertype Selecteer** menu.
 
 ![Configuratie van het HDInsight-cluster](./media/scala-walkthrough/spark-cluster-on-portal.png)
@@ -77,14 +77,14 @@ U kunt de notebook rechtstreeks vanuit GitHub op de server Jupyter-Notebook in S
 
 De Spark kernels die worden geleverd met Jupyter-notebooks hebben vooraf ingestelde contexten. U hoeft niet te de Spark expliciet zijn ingesteld of Hive-contexten voordat u begint met het werken met de toepassing die u ontwikkelt. De vooraf ingestelde contexten zijn:
 
-* `sc`voor SparkContext
-* `sqlContext`voor HiveContext
+* `sc` voor SparkContext
+* `sqlContext` voor HiveContext
 
 ### <a name="spark-magics"></a>Spark magics
 De kernel Spark biedt een aantal vooraf gedefinieerde 'magics', die zijn speciale opdrachten die u met aanroepen kunt `%%`. Twee van deze opdrachten worden gebruikt in de volgende codevoorbeelden.
 
-* `%%local`Hiermee geeft u op dat de code in de volgende regels lokaal worden uitgevoerd. De sitecode moet geldige Scala-code.
-* `%%sql -o <variable name>`voert een Hive-query op `sqlContext`. Als de `-o` parameter is doorgegeven, het resultaat van de query wordt bewaard de `%%local` Scala context als een tijdskader Spark-gegevens.
+* `%%local` Hiermee geeft u op dat de code in de volgende regels lokaal worden uitgevoerd. De sitecode moet geldige Scala-code.
+* `%%sql -o <variable name>` voert een Hive-query op `sqlContext`. Als de `-o` parameter is doorgegeven, het resultaat van de query wordt bewaard de `%%local` Scala context als een tijdskader Spark-gegevens.
 
 Voor meer informatie over de kernels voor Jupyter-notebooks en hun vooraf gedefinieerde 'magics' die u aanroept met `%%` (bijvoorbeeld `%%local`), Zie [beschikbare Kernels voor Jupyter-notebooks met HDInsight Spark Linux-clusters in HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -262,7 +262,7 @@ Nadat u de gegevens in Spark brengt, wordt de volgende stap in het proces voor G
 De uitvoer van een codefragment die u vanaf een Jupyter-notebook uitvoert is standaard beschikbaar in de context van de sessie die is opgeslagen op de worker-knooppunten. Als u wilt een reis opslaan met de werkrolknooppunten voor elke berekeningen en als alle gegevens die u nodig hebt voor de berekening is lokaal beschikbaar op het serverknooppunt Jupyter (dit is het hoofdknooppunt), kunt u de `%%local` magic het codefragment uitvoeren op de Jupyter-server.
 
 * **SQL-magic** (`%%sql`). De kernel HDInsight Spark ondersteunt eenvoudig inline HiveQL query's op SQLContext. De (`-o VARIABLE_NAME`) argument als een frame Pandas gegevens op de Jupyter-server de uitvoer van de SQL-query zich blijft voordoen. Dit betekent waarschijnlijk beschikbaar in de lokale modus.
-* `%%local`**magic**. De `%%local` magic de code wordt lokaal uitgevoerd op de Jupyter-server, waarop het hoofdknooppunt van het HDInsight-cluster. Normaal gesproken gebruikt u `%%local` magische in combinatie met de `%%sql` magische met de `-o` parameter. De `-o` parameter zou de uitvoer van de SQL-query lokaal behouden en vervolgens `%%local` magic zou de volgende reeks codefragment lokaal uitvoeren op basis van de uitvoer van de SQL-query's die lokaal wordt bewaard.
+* `%%local` **Magic**. De `%%local` magic de code wordt lokaal uitgevoerd op de Jupyter-server, waarop het hoofdknooppunt van het HDInsight-cluster. Normaal gesproken gebruikt u `%%local` magische in combinatie met de `%%sql` magische met de `-o` parameter. De `-o` parameter zou de uitvoer van de SQL-query lokaal behouden en vervolgens `%%local` magic zou de volgende reeks codefragment lokaal uitvoeren op basis van de uitvoer van de SQL-query's die lokaal wordt bewaard.
 
 ### <a name="query-the-data-by-using-sql"></a>De gegevens met behulp van SQL-query
 Deze query haalt de reizen taxi door tarief, passagiers aantal, en de tip.

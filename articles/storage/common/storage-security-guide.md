@@ -2,17 +2,17 @@
 title: Azure Storage-beveiligingshandleiding | Microsoft Docs
 description: De vele methoden voor het beveiligen van Azure Storage, inclusief maar niet beperkt tot RBAC, versleuteling van opslag-, Client-side-versleuteling, SMB 3.0 en Azure Disk Encryption van gegevens.
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: tamram
-ms.openlocfilehash: d1a81a9029f2e9b8a36ecebdcc4be44984e82515
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: cshoe
+ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -296,7 +296,7 @@ SSE is ingeschakeld voor alle opslagaccounts en kan niet worden uitgeschakeld. S
 
 De sleutels die worden gebruikt voor SSE worden beheerd door Microsoft. Microsoft oorspronkelijk de sleutels genereert en beheert hun veilige opslag, alsmede hun reguliere draaihoek, zoals gedefinieerd door intern beleid van Microsoft. De klant beheerd sleutels zijn uiteindelijk beschikbaar, samen met een migratiepad van door Microsoft beheerde sleutels naar de klant beheerde sleutels.
 
-SSE versleutelt automatisch gegevens in alle prestatielagen (standaard en Premium), alle implementatiemodellen (Azure Resource Manager en het klassieke model) en alle services van Azure Storage (Blob, Queue, Table en -bestand). 
+SSE versleutelt automatisch gegevens in alle prestatielagen (Standaard en Premium), alle implementatiemodellen (Azure Resource Manager en het klassieke model) en alle services van Azure Storage (Blob, Queue, Table en File). 
 
 ### <a name="client-side-encryption"></a>Client-side-versleuteling
 Versleuteling aan clientzijde wordt gezegd wanneer u de versleuteling van de gegevens onderweg. Deze functie kunt u uw gegevens in een clienttoepassing voordat het wordt verzonden via de kabel worden geschreven naar Azure Storage en programmatisch uw om gegevens te ontsleutelen deze bij het ophalen van Azure Storage programmatisch te versleutelen.
@@ -376,7 +376,7 @@ Versleuteling aan clientzijde meer belasting van de client is en u moet voor dit
 
 #### <a name="storage-service-encryption-sse"></a>Versleuteling van opslag-Service (SSE)
 
-SSE wordt beheerd door Azure Storage. SSE biedt geen voor de beveiliging van de gegevens onderweg, maar deze de gegevens Hiermee versleutelen zoals naar Azure Storage geschreven. SSE heeft geen invloed op prestaties van de Azure-opslag.
+SSE wordt beheerd door Azure Storage. SSE biedt geen voor de beveiliging van de gegevens onderweg, maar deze de gegevens Hiermee versleutelen zoals naar Azure Storage geschreven. SSE heeft geen invloed op de prestaties van Azure Storage.
 
 U kunt elk soort gegevens van het opslagaccount met behulp van SSE versleutelen (blok-blobs, toevoeg-blobs, pagina-blobs, tabelgegevens, wachtrijgegevens en bestanden).
 

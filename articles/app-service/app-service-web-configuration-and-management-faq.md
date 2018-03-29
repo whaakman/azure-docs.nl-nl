@@ -2,10 +2,10 @@
 title: Configuratie Veelgestelde vragen over Azure-web-apps | Microsoft Docs
 description: Vind antwoorden op veelgestelde vragen over het configureren en beheren van problemen voor de functie Web Apps van Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuratie- en veelgestelde vragen voor Web-Apps in Azure
 
@@ -251,7 +251,7 @@ Zie voor meer informatie over de geplande webtaken [een geplande webtaak maken m
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Hoe voer ik binnendringen testen voor mijn App Service-app uit?
 
-Testen binnendringen, [een aanvraag indienen](https://security-forms.azure.com/penetration-testing/terms).
+Testen binnendringen, [een aanvraag indienen](https://portal.msrc.microsoft.com/en-us/engage/pentest).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Hoe kan ik een aangepaste domeinnaam voor een App Service-web-app die gebruikmaakt van Traffic Manager configureren?
 

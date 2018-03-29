@@ -2,12 +2,12 @@
 title: Beheren van virtuele-Machineschaalsets met de Azure CLI 2.0 | Microsoft Docs
 description: Algemene Azure CLI 2.0-opdrachten voor het beheren van virtuele-Machineschaalsets, zoals het starten en stoppen van een exemplaar of de schaal wijzigen instellen capaciteit.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1afb43b65203406a7d49b0e3f641bc22d164a4a9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Een virtuele-machineschaalset ingesteld met de Azure CLI 2.0 beheren
-Gedurende de levenscyclus van een virtuele-machineschaalset, moet u wellicht een of meer beheertaken uitvoeren. Bovendien wilt u scripts maken die verschillende lifecycle-taken automatiseren. In dit artikel vindt u details van de algemene 2.0 voor Azure CLI-opdrachten die u kunnen deze taken uitvoeren.
+Gedurende de levenscyclus van een virtuele-machineschaalset, moet u wellicht een of meer beheertaken uitvoeren. Bovendien wilt u misschien scripts maken die verschillende levenscyclustaken automatiseren. In dit artikel vindt u details van de algemene 2.0 voor Azure CLI-opdrachten die u kunnen deze taken uitvoeren.
 
-Als u wilt deze beheertaken hebt voltooid, moet u de laatste build van Azure CLI 2.0. Zie voor meer informatie over het installeren en gebruiken van de meest recente versie [2.0 Azure CLI installeren](/cli/azure/install-azure-cli). Als u maken van een virtuele-machineschaalset wilt, kunt u [een schaal ingesteld in de Azure portal maken](virtual-machine-scale-sets-create-portal.md).
+Als u wilt deze beheertaken hebt voltooid, moet u de nieuwste Azure CLI 2.0. Zie voor informatie [2.0 Azure CLI installeren](/cli/azure/install-azure-cli). Als u maken van een virtuele-machineschaalset wilt, kunt u [maken van een schaal ingesteld met de Azure CLI 2.0](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Informatie over een schaalset weergeven
@@ -35,7 +35,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 ```
 
 
-## <a name="view-vms-in-a-scale-set"></a>Weergave virtuele machines in een schaalset
+## <a name="view-vms-in-a-scale-set"></a>Virtuele machines weergeven in een schaalset
 Een overzicht van VM-instantie in een schaalset gebruiken [az vmss lijstexemplaren](/cli/azure/vmss#list-instances). Het volgende voorbeeld lijst met alle VM-exemplaren in de set met de naam scale *myScaleSet* in de *myResourceGroup* resourcegroep. Uw eigen waarden opgeven voor deze namen:
 
 ```azurecli
@@ -68,7 +68,7 @@ az vmss list-instance-connection-info \
 ## <a name="change-the-capacity-of-a-scale-set"></a>De capaciteit van een schaalset wijzigen
 De voorgaande opdrachten hebt u geleerd informatie over uw schaalset en de VM-exemplaren. Als u wilt vergroten of verkleinen het aantal exemplaren in de schaalset, kunt u de capaciteit. De schaalaanpassingsset maakt of verwijdert u het vereiste aantal virtuele machines en configureert u de virtuele machines voor het ontvangen verkeer van de toepassing.
 
-Als het aantal exemplaren dat u momenteel in een schaalset hebt wilt weergeven, gebruikt [az vmss weergeven](/cli/azure/vmss#az_vmss_show) en query's uitvoeren op *sku.capacity*:
+Als u het aantal instanties wilt weergeven dat zich momenteel in een schaalset bevindt, gebruikt u [az vmss show](/cli/azure/vmss#az_vmss_show) en voert u een query uit op *sku.capacity*:
 
 ```azurecli
 az vmss show \
@@ -78,7 +78,7 @@ az vmss show \
     --output table
 ```
 
-U kunt vervolgens handmatig vergroten of verkleinen het aantal virtuele machines in de schaal in te stellen [az vmss scale](/cli/azure/vmss#az_vmss_scale). Het volgende voorbeeld wordt het aantal VM's in uw ingesteld op schaal *5*:
+U kunt vervolgens het aantal virtuele machines in de schaalset handmatig vergroten of verkleinen met [az vmss scale](/cli/azure/vmss#az_vmss_scale). Het volgende voorbeeld wordt het aantal VM's in uw ingesteld op schaal *5*:
 
 ```azurecli
 az vmss scale \

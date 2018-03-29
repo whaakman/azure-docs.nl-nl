@@ -1,6 +1,6 @@
 ---
-title: "Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio met Azure Site Recovery (preview)"
-description: "Leer hoe u herstel na noodgevallen van Azure-VM’s naar een andere Azure-regio kunt instellen met de Azure Site Recovery-service."
+title: Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio met Azure Site Recovery (preview)
+description: Leer hoe u herstel na noodgevallen van Azure-VM’s naar een andere Azure-regio kunt instellen met de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 03/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 47d9a1e8aecde8ba0f01034f1d172c3fbd87ccfe
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio (preview)
 
@@ -144,7 +144,9 @@ Site Recovery maakt standaardinstellingen en replicatiebeleid voor de doelregio.
 
 - **Cacheopslagaccounts**: Site Recovery maakt gebruik van een opslagaccount in de bronregio. Wijzigingen in de bron-VM's worden naar dit account verzonden vóór replicatie naar de doellocatie.
 
-- **Doelopslagaccounts**: Site Recovery maakt standaard een nieuw opslagaccount in de doelregio om het bron-VM-opslagaccount te spiegelen.
+- **Storage-accounts als doel (als de bron-VM maakt geen gebruik van schijven die worden beheerd)**: Site Recovery wordt standaard een nieuw opslagaccount gemaakt in de doelregio voor het spiegelen van de bron-VM storage-account.
+
+- **Replica beheerde schijven (of de bron-VM beheerde schijven gebruikt)**: standaard, maakt Site Recovery schijven van de replica die wordt beheerd in de doelregio voor het spiegelen van de bron-VM beheerde schijven met hetzelfde opslagtype (Standard of premium) als de bron-VM van beheerd schijf.
 
 - **Doelbeschikbaarheidssets**: Site Recovery maakt standaard een nieuwe beschikbaarheidsset in de doelregio met het achtervoegsel 'asr'. U kunt alleen beschikbaarheidssets toevoegen als VM’s deel uitmaken van een set in de bronregio.
 

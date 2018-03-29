@@ -2,18 +2,18 @@
 title: Azure IoT rand modulesamenstelling | Microsoft Docs
 description: Meer informatie over wat in Azure IoT rand modules terechtkomt en hoe ze kunnen worden hergebruikt
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b59a715919e38e68c3b7518932617e9950940e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7df566ced755e1e817b3107dac8f17e9f6e9b8e4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Begrijpen hoe de rand van de IoT-modules kunnen worden gebruikt, is geconfigureerd, en hergebruikt - voorbeeld
 
@@ -134,32 +134,21 @@ De bron geeft aan waar de berichten afkomstig zijn uit. Dit kan een van de volge
 ### <a name="condition"></a>Voorwaarde
 De voorwaarde is optioneel in de declaratie van een route. Als u wilt dat alle berichten van de sink doorgeven aan de bron, stelt u uit de **waar** component volledig. Of u kunt de [IoT Hub-querytaal] [ lnk-iothub-query] om te filteren op bepaalde berichten of berichttypen die voldoen aan de voorwaarde.
 
-Azure IoT-berichten worden opgemaakt als JSON en hebben altijd ten minste een **hoofdtekst** parameter. Bijvoorbeeld:
+De berichten die tussen modules in IoT Edge worden doorgegeven, worden opgemaakt hetzelfde zijn als de berichten die tussen uw apparaten en de Azure IoT Hub worden doorgegeven. Alle berichten worden opgemaakt als JSON en hebben **systemProperties**, **appProperties**, en **hoofdtekst** parameters. 
 
-```json
-"message": {
-    "body":{
-        "ambient":{
-            "temperature": 54.3421,
-            "humidity": 25
-        },
-        "machine":{
-            "status": "running",
-            "temperature": 62.2214
-        }
-    },
-    "appProperties":{
-        ...
-    }
-}
+U kunt bouwen query's om alle drie parameters met de volgende syntaxis: 
+
+* Systeemeigenschappen: `$<propertyName>` of `{$<propertyName>}`
+* Toepassingseigenschappen van de: `<propertyName>`
+* Instantie-eigenschappen: `$body.<propertyName>` 
+
+Zie voor voorbeelden over het maken van query's voor berichteigenschappen [apparaat-naar-cloud bericht routes query-expressies](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
+
+Een voorbeeld die specifiek is voor de IoT-rand is wanneer u wilt filteren op berichten dat is ontvangen op een gateway-apparaat van een leaf-apparaat. Berichten die afkomstig van modules zijn bevatten een systeemeigenschap **connectionModuleId**. Dus als u routeren van berichten van leaf-apparaten rechtstreeks naar IoT Hub wilt, gebruikt u de volgende route moeten worden uitgesloten van berichten van de module:
+
+```sql
+FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
-
-Dit voorbeeldbericht gegeven, wordt er een aantal voorwaarden die kunnen worden gedefinieerd, zoals zijn:
-* `WHERE $body.machine.status != "running"`
-* `WHERE $body.ambient.temperature <= 60 AND $body.machine.temperature >= 60`
-
-De voorwaarde kan ook worden gebruikt om te sorteren berichttypen, bijvoorbeeld in een gateway die wil routeren van berichten die vanaf leaf-apparaten binnenkomen. Berichten die afkomstig van modules zijn bevatten een bepaalde eigenschap aangeroepen **connectionModuleId**. Dus als u routeren van berichten van leaf-apparaten rechtstreeks naar IoT Hub wilt, gebruikt u de volgende route moeten worden uitgesloten van berichten van de module:
-* `FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream`
 
 ### <a name="sink"></a>Sink
 De sink definieert waar de berichten worden verzonden. Dit kan een van de volgende waarden zijn:

@@ -2,10 +2,10 @@
 title: Werk de Azure Linux Agent vanuit GitHub | Microsoft Docs
 description: Informatie over het bijwerken van Azure Linux Agent voor uw Linux-VM in Azure
 services: virtual-machines-linux
-documentationcenter: 
-author: SuperScottz
-manager: timlt
-editor: 
+documentationcenter: ''
+author: danielsollondon
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: f1f19300-987d-4f29-9393-9aba866f049c
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: mingzhan
-ms.openlocfilehash: 62e365c46d48285b2c03493debff86508b94348a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: danis
+ms.openlocfilehash: ed5bea98bc9b4849436ff5fafc90f85c99d582aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Het bijwerken van de Azure Linux Agent op een virtuele machine
 
@@ -120,7 +120,7 @@ Deze versie van Debian beschikt niet over een versie > = 2.0.16, automatisch bij
 #### <a name="check-your-current-package-version"></a>Controleer uw huidige Pakketversie
 
 ```bash
-apt list --installed | grep walinuxagent
+apt list --installed | grep waagent
 ```
 
 #### <a name="update-package-cache"></a>Update-pakket-cache
@@ -389,7 +389,7 @@ Typ vervolgens:
 sudo yum update WALinuxAgent
 ```
 
-Doorgaans is dit alles wat u nodig hebt, maar als voor een bepaalde reden moet u rechtstreeks installeren vanaf https://github.com gebruikt de volgende stappen uit.
+Dit is normaal alles wat u nodig hebt, maar als voor een bepaalde reden moet u Installeer deze via https://github.com rechtstreeks, gebruik de volgende stappen.
 
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>De Linux-Agent bijwerken wanneer er geen agentpakket voor distributie bestaat

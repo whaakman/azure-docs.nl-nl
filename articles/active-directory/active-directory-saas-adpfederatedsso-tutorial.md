@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 038b2337ea49b769c6b19e9d50a5f0f2edd13d56
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Zelfstudie: Azure Active Directory-integratie met ADP
 
@@ -122,7 +122,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en ADP domein eenmalige aanmelding informatie](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
-    In de **id** textbox, typ een URL: `https://fed.adp.com/` 
+    In de **id** textbox, typ een URL: `https://fed.adp.com` 
     
 5. De toepassing ADP verwacht de SAML-asserties in een specifieke indeling waarvoor u aangepaste kenmerktoewijzingen toevoegen aan uw configuratie van SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld voor deze. De naam van de claim wordt altijd worden **'PersonImmutableID'** en waarvan de waarde die we hebben toegewezen aan **werknemer-id**. 
 
@@ -238,10 +238,6 @@ Bij ontvangst van de bevestiging van uw vertegenwoordiger ADP uw ADP (s) en het 
  
 11. Toewijzen op bevestiging van een geslaagde test de federatieve ADP-service op individuele gebruikers of gebruikersgroepen, die verderop in de zelfstudie wordt uitgelegd en implementeer uw werknemers. 
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -319,6 +315,8 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 

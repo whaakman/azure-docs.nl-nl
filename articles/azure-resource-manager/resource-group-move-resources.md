@@ -2,7 +2,7 @@
 title: Azure-resources naar nieuwe abonnement of de resource-groep verplaatsen | Microsoft Docs
 description: Azure Resource Manager gebruiken voor resources verplaatsen naar een nieuwe resourcegroep of abonnement.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar de nieuwe resourcegroep of abonnement
 
@@ -87,6 +87,11 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
   az provider register --namespace Microsoft.Batch
   ```
 
+4. Het verplaatsen van de resources account moet ten minste de volgende machtigingen hebben:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** op de bron-resourcegroep.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** op de doel-resourcegroep.
+
 ## <a name="when-to-call-support"></a>Het aanroepen van ondersteuning
 
 U kunt de meeste resources via de selfservice bewerkingen die wordt weergegeven in dit artikel kunt verplaatsen. De bewerkingen selfservice gebruiken:
@@ -105,6 +110,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 
 * API Management
 * App Service-apps (web-apps) - Zie [App Service-beperkingen](#app-service-limitations)
+* App Service Certificates
 * Application Insights
 * Automatisering
 * Azure Cosmos DB
@@ -193,7 +199,9 @@ U kunt een virtueel netwerk niet verplaatsen naar een ander abonnement als het v
 
 ## <a name="app-service-limitations"></a>App Service-beperkingen
 
-De beperkingen voor het verplaatsen van resources in App Service verschillen op basis van of het verplaatsen van de resources binnen een abonnement of in een nieuw abonnement.
+De beperkingen voor het verplaatsen van resources in App Service verschillen op basis van of het verplaatsen van de resources binnen een abonnement of in een nieuw abonnement. 
+
+De beperkingen die worden beschreven in deze secties van toepassing op geüploade certificaten, niet-App Service-certificaten. App Service Certificate kunt u een nieuwe resourcegroep of abonnement zonder beperkingen. Als u meerdere WebApps die gebruikmaken van de dezelfde App Service-certificaat, verplaatst u eerst alle web-apps hebt vervolgens het certificaat te verplaatsen.
 
 ### <a name="moving-within-the-same-subscription"></a>Verplaatsen binnen hetzelfde abonnement
 

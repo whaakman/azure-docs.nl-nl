@@ -2,7 +2,7 @@
 title: Azure IoT-Edge van Linux simuleren | Microsoft Docs
 description: De runtime Azure IoT Edge op een gesimuleerd apparaat in Linux installeren en implementeren van uw eerste module
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Azure IoT rand implementeren op een gesimuleerd apparaat in Linux- of Mac OS - voorbeeld
 
@@ -37,7 +37,12 @@ Deze zelfstudie maakt gebruik van uw computer of virtuele machine, zoals een Int
 
 * Python pip voor het installeren van de rand van de IoT-runtime.
    * Linux: `sudo apt-get install python-pip`.
-   * Mac OS: `sudo easy_install pip`.
+     * _Houd er rekening mee dat op bepaalde distributies (bijv, Raspbian), moet u mogelijk ook bepaalde pakketten pip upgraden en installeren van extra afhankelijkheden:_
+     ```
+     sudo pip install --upgrade setuptools pip
+     sudo apt-get install python2.7-dev libffi-dev libssl-dev
+     ```
+   * MacOS: `sudo easy_install pip`.
 * Docker om uit te voeren van de rand IoT modules
    * [Docker voor Linux installeren] [ lnk-docker-ubuntu] en zorg ervoor dat deze wordt uitgevoerd. 
    * [Docker voor Mac installeert] [ lnk-docker-mac] en zorg ervoor dat deze wordt uitgevoerd. 
@@ -70,7 +75,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Configureer de runtime door uw verbindingsreeks rand van de IoT-apparaat uit het vorige gedeelte:
 ```cmd
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Start de runtime:

@@ -13,17 +13,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 71576e65d20d7e8cb7f5ff1c5f19c82439bb6807
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 > [!div class="op_single_selector"]
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
-## <a name="programming-model"></a>-Programmeermodel 
+## <a name="programming-model"></a>Programmeermodel 
 
 Uw Azure-functie moet een stateless klassenmethode die verwerkt door de invoer en uitvoer produceert. Hoewel u Exemplaarmethoden schrijven zijn toegestaan, moet alle exemplaarvelden van de klasse niet uw functie afhankelijk. Alle methoden van de functie moet een `public` aanpassingsfunctie voor toegang.
 
@@ -39,7 +39,7 @@ CosmosDB | N/A
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | N/A
 Notification Hubs | N/A
-Storage-Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
+Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Opslagwachtrij | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Table Storage | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Timer | <ul><li>`TimerTrigger`</li></ul>
@@ -272,7 +272,7 @@ Soms moet u een functie controle over in- en uitgangen hebt gedetailleerde. Spec
 
 | Speciaal Type      |       Doel        | Typische gebruiksscenario                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage<T>`  |    HTTP-Trigger     | Methode, kopteksten of query's ophalen |
+| `HttpRequestMessage<T>`  |    HTTP Trigger     | Methode, kopteksten of query's ophalen |
 | `HttpResponseMessage<T>` | HTTP-uitvoer Binding | Geretourneerde status dan 200   |
 
 > [!NOTE] 
@@ -325,9 +325,33 @@ public class Function {
 }
 ```
 
+## <a name="environment-variables"></a>Omgevingsvariabelen
+
+Vaak is het wenselijk om op te halen van geheime gegevens uit de broncode om veiligheidsredenen. Hiermee kunt code worden gepubliceerd voor bron code repo's zonder dat per ongeluk referenties aan andere ontwikkelaars. Dit kan worden gerealiseerd door met omgevingsvariabelen bij lokale uitvoering van Azure Functions, en bij het implementeren van uw functies in Azure.
+
+Omgevingsvariabelen gemakkelijk instellen bij het uitvoeren van Azure Functions lokaal, kunt u deze variabelen toevoegen aan de local.settings.json-bestand. Als een niet aanwezig in de hoofdmap van uw project functie is gerust een maken. Dit is wat het bestand moet eruitzien als:
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+Elke sleutel / waarde toewijzing in de `values` kaart wordt beschikbaar gesteld tijdens runtime als een omgevingsvariabele die toegankelijk zijn voor het aanroepen van `System.getenv("<keyname>")`, bijvoorbeeld `System.getenv("AzureWebJobsStorage")`. Toevoegen van extra sleutel / waarde-paren is geaccepteerd en aanbevolen procedure.
+
+> [!NOTE]
+> Als deze benadering wordt gemaakt, worden ervoor dat in overweging moet nemen of het toevoegen van de local.settings.json bestand naar uw opslagplaats negeren-bestand, zodat is niet doorgevoerd.
+
+Met uw code nu, afhankelijk van deze omgevingsvariabelen, kunt u aanmelden bij de Azure Portal voor het instellen van dezelfde sleutel / waarde-paren in de functie app-instellingen zo instellen dat uw code oftewel wanneer testen lokaal en wanneer geïmplementeerd in Azure.
+
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende bronnen voor meer informatie:
 
 * [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)
 * [Naslaginformatie over Azure Functions voor ontwikkelaars](functions-reference.md)
 * [Azure Functions-triggers en bindingen](functions-triggers-bindings.md)
+* [Foutopsporing op afstand Java Azure Functions met Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)

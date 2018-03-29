@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d85384620b2e4c7ba0de84e0fe82ef3e83376dd8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Een as-omgeving maken met een Azure Resource Manager-sjabloon
 
@@ -40,7 +40,7 @@ Voor het automatiseren van uw as-omgeving maken:
 
 2. Nadat u uw as ILB-omgeving is gemaakt, wordt een SSL-certificaat dat overeenkomt met uw domein ILB as-omgeving geüpload.
 
-3. Het geüploade SSL-certificaat is toegewezen aan de as-omgeving voor de ILB als de 'standaard' SSL-certificaat.  Dit certificaat wordt gebruikt voor SSL-verkeer voor apps op de as ILB-omgeving wanneer ze het algemene hoofddomein dat toegewezen aan de as-omgeving (bijvoorbeeld https://someapp.mycustomrootdomain.com) gebruiken.
+3. Het geüploade SSL-certificaat is toegewezen aan de as-omgeving voor de ILB als de 'standaard' SSL-certificaat.  Dit certificaat voor SSL-verkeer voor apps op de as ILB-omgeving wordt gebruikt bij het gebruik van het algemene hoofddomein dat toegewezen aan de as-omgeving (bijvoorbeeld https://someapp.mycustomrootdomain.com).
 
 
 ## <a name="create-the-ase"></a>De as-omgeving maken
@@ -54,10 +54,12 @@ Als u maken van een as ILB-omgeving wilt, gebruikt u deze Resource Manager-sjabl
 
 Na de *azuredeploy.parameters.json* bestand is ingevuld, de as-omgeving maken met behulp van het PowerShell-codefragment. Wijzig de bestandspaden zodat deze overeenkomen met de Resource Manager-sjabloonbestand locaties op uw computer. Vergeet niet uw eigen waarden voor de implementatienaam van Resource Manager en de naam van de resourcegroep opgeven:
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Het duurt ongeveer een uur voor de as-omgeving moet worden gemaakt. Vervolgens de as-omgeving wordt weergegeven in de portal in de lijst met ASEs voor het abonnement waarmee de implementatie is geactiveerd.
 
@@ -82,17 +84,19 @@ Gebruik de volgende PowerShell-codefragment aan:
 
 Deze PowerShell-code voor base64-codering is gebaseerd op de [PowerShell scripts blog][examplebase64encoding]:
 
-        $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```powershell
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-        $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-        $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-        $fileName = "exportedcert.pfx"
-        Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
-        $fileContentBytes = get-content -encoding byte $fileName
-        $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-        $fileContentEncoded | set-content ($fileName + ".b64")
+$fileContentBytes = get-content -encoding byte $fileName
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$fileContentEncoded | set-content ($fileName + ".b64")
+```
 
 Nadat het SSL-certificaat is gegenereerd en geconverteerd naar een base64-gecodeerde tekenreeks, gebruikt u de voorbeeld-Resource Manager-sjabloon [de standaard SSL-certificaat configureren] [ quickstartconfiguressl] op GitHub. 
 
@@ -107,41 +111,45 @@ De parameters in de *azuredeploy.parameters.json* bestand worden hier vermeld:
 
 Een afgekorte voorbeeld van *azuredeploy.parameters.json* Hier wordt weergegeven:
 
-    {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-              "appServiceEnvironmentName": {
-                   "value": "yourASENameHere"
-              },
-              "existingAseLocation": {
-                   "value": "East US 2"
-              },
-              "pfxBlobString": {
-                   "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
-              },
-              "password": {
-                   "value": "PASSWORDGOESHERE"
-              },
-              "certificateThumbprint": {
-                   "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
-              },
-              "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
-              }
-         }
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceEnvironmentName": {
+      "value": "yourASENameHere"
+    },
+    "existingAseLocation": {
+      "value": "East US 2"
+    },
+    "pfxBlobString": {
+      "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
+    },
+    "password": {
+      "value": "PASSWORDGOESHERE"
+    },
+    "certificateThumbprint": {
+      "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
+    },
+    "certificateName": {
+      "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
     }
+  }
+}
+```
 
 Na de *azuredeploy.parameters.json* bestand is ingevuld, wordt het standaard SSL-certificaat configureren met behulp van het PowerShell-codefragment. Wijzig de bestandspaden aan waar de Resource Manager-sjabloon-bestanden bevinden zich op uw computer. Vergeet niet uw eigen waarden voor de implementatienaam van Resource Manager en de naam van de resourcegroep opgeven:
 
-     $templatePath="PATH\azuredeploy.json"
-     $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Het duurt ongeveer 40 minuten per as-omgeving front-end de wijziging toepassen. Voor een standaardformaat as-omgeving die gebruikmaakt van twee front-ends, duurt de sjabloon bijvoorbeeld ongeveer één uur en 20 minuten om te voltooien. Terwijl de sjabloon die wordt uitgevoerd, kan niet de schaal van de as-omgeving.  
 
-Nadat de sjabloon is voltooid, kan apps op de as ILB-omgeving kunnen worden benaderd via HTTPS. De verbindingen zijn beveiligd met behulp van het standaard SSL-certificaat. Het standaard SSL-certificaat wordt gebruikt wanneer de apps op de as ILB-omgeving worden aangepakt met behulp van een combinatie van naam van de toepassing plus de standaardnaam van de host. Https://mycustomapp.internal-contoso.com gebruikt bijvoorbeeld de standaard SSL-certificaat voor **.internal contoso.com*.
+Nadat de sjabloon is voltooid, kan apps op de as ILB-omgeving kunnen worden benaderd via HTTPS. De verbindingen zijn beveiligd met behulp van het standaard SSL-certificaat. Het standaard SSL-certificaat wordt gebruikt wanneer de apps op de as ILB-omgeving worden aangepakt met behulp van een combinatie van naam van de toepassing plus de standaardnaam van de host. Bijvoorbeeld: https://mycustomapp.internal-contoso.com maakt gebruik van de standaard SSL-certificaat voor **.internal contoso.com*.
 
 Ontwikkelaars kunnen echter net als bij apps die worden uitgevoerd op de openbare multitenant-service, configureren aangepaste hostnamen voor afzonderlijke apps. Ze kunnen ook unieke SNI-SSL-certificaatbindingen voor afzonderlijke apps configureren.
 

@@ -2,24 +2,24 @@
 title: Regionale failover in Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over hoe handmatige en automatische failover werkt met Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Automatische regionale failover voor bedrijfscontinuïteit in Azure Cosmos-DB
 Azure Cosmos DB vereenvoudigt de algemene distributie van gegevens door het aanbieden van volledig worden beheerd, [meerdere landen/regio database accounts](distribute-data-globally.md) die wissen balans vinden tussen de consistentie, beschikbaarheid en prestaties, met bijbehorende garanties bieden. Cosmos DB accounts bieden hoge beschikbaarheid, één cijfer ms latenties, [goed gedefinieerde consistentieniveaus](consistency-levels.md), transparante regionale failover met multihoming-API's en de mogelijkheid om te schalen doorvoer en opslag overal ter wereld. 
@@ -30,9 +30,10 @@ Cosmos DB ondersteunt zowel expliciete en failovers aangestuurd beleid waarmee u
 * Hoe automatische failovers werk in Cosmos-DB en wat er gebeurt wanneer een data center gaan omlaag?
 * Hoe kunt u een handmatige failover in toepassingsarchitecturen?
 
-U kunt ook meer informatie over regionale failovers in deze Azure vrijdag video met Scott Hanselman en Principal Engineering Manager Karthik Raman.
+U kunt ook meer informatie over regionale failovers in deze video door Azure Cosmos DB Program Manager Andrew Liu, waaruit blijkt de algemene distributie-functies met inbegrip van regionale failover.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ## <a id="ConfigureMultiRegionApplications"></a>Meerdere landen/regio-toepassingen configureren
 Voordat we Duik in de failover-modi, kijken we hoe u een toepassing te profiteren van beschikbaarheid in meerdere regio's en netwerkfouten met betrekking tot regionale failovers kunt configureren.
@@ -138,7 +139,7 @@ Enkele veelvoorkomende scenario's waarbij handmatige failover kan nuttig zijn, z
 
 In dit artikel bekeken we hoe handmatige en automatische failovers werk in Cosmos-database en hoe u uw Cosmos-DB-accounts en -toepassingen wereldwijd beschikbaar kunt configureren. U kunt met behulp van de globale Replicatieondersteuning Cosmos-database, end-to-end-latentie verbeteren en ervoor te zorgen dat ze maximaal beschikbaar, zelfs in het geval van storingen regio. 
 
-## <a id="NextSteps"></a>Volgende stappen
+## <a id="NextSteps"></a>De volgende stappen
 * Meer informatie over hoe Cosmos DB ondersteunt [globale distributie](distribute-data-globally.md)
 * Meer informatie over [globale consistentie met Azure Cosmos-DB](consistency-levels.md)
 * Ontwikkelen met meerdere regio's met behulp van Azure Cosmos DB [SQL-API](tutorial-global-distribution-sql-api.md)

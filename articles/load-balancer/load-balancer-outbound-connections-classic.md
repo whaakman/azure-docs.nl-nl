@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 8a24987ae3423a02647b1dd246b40179be100c06
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ec13109173f89b53e32f903febcec13c7f38c574
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outbound-connections-classic"></a>Uitgaande verbindingen (klassiek)
 
@@ -60,7 +60,7 @@ De [-algoritme dat wordt gebruikt voor het vooraf toewijzen kortstondige poorten
 
 In dit scenario heeft de virtuele machine een exemplaar niveau openbare IP (ILPIP) toegewezen. Zo ver mogelijk uitgaande verbindingen betreft, het maakt niet uit of de virtuele machine taakverdeling eindpunt of niet heeft. Dit scenario heeft voorrang op de andere. Wanneer een ILPIP wordt gebruikt, gebruikt de virtuele machine de ILPIP voor alle uitgaande stromen.  
 
-Poort onechte (PAT) wordt niet gebruikt en de virtuele machine heeft alle kortstondige poorten beschikbaar voor gebruik.
+Een openbare IP-toegewezen aan een virtuele machine is een 1:1 relatie (plaats 1:many) en geïmplementeerd als een stateless 1:1 NAT bevinden.  Poort onechte (PAT) wordt niet gebruikt en de virtuele machine heeft alle kortstondige poorten beschikbaar voor gebruik.
 
 Als uw toepassing veel uitgaande stromen initieert en u snat omzetten poort uitputting ervaren, kunt u toewijzen van een [ILPIP te verhelpen snat omzetten beperkingen](#assignilpip). Bekijk [beheren snat omzetten uitputting](#snatexhaust) in zijn geheel.
 

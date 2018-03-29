@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Pass through-verificatie - huidige beperkingen | Micro
 description: Dit artikel wordt beschreven voor de huidige beperkingen van Azure Active Directory (Azure AD) Pass through-verificatie
 services: active-directory
 keywords: Azure AD Connect Pass through-verificatie, install Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
-documentationcenter: 
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 680e9967010771b8e3651c6f4eed81237f8fb4c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory Pass-through-verificatie: Huidige beperkingen
 
@@ -50,7 +50,7 @@ De volgende scenario's zijn _niet_ ondersteund:
 - Het Apple Device Enrollment Program (DEP van Apple) met behulp van de iOS-Configuratieassistent biedt geen ondersteuning voor moderne verificatie. Dit zal mislukken Apple DEP-apparaten inschrijven in Intune voor beheerde domeinen met behulp van Pass through-verificatie. Overweeg het gebruik van de [bedrijfsportal-app](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) als alternatief.
 
 >[!IMPORTANT]
->Als een oplossing voor niet-ondersteunde scenario's _alleen_, synchronisatie van wachtwoordhash inschakelen op de [optionele functies](active-directory-aadconnect-get-started-custom.md#optional-features) pagina in de Azure AD Connect-wizard.
+>Als een oplossing voor niet-ondersteunde scenario's _alleen_, synchronisatie van wachtwoordhash inschakelen op de [optionele functies](active-directory-aadconnect-get-started-custom.md#optional-features) pagina in de Azure AD Connect-wizard. Als u gebruikers Meld u aan bij toepassingen die worden vermeld in de 'niet-ondersteunde scenario's ' sectie, die aanvragen voor specifieke aanmelden zijn _niet_ verwerkt door de Agents van Pass through-verificatie en daarom niet worden beschreven in [ Pass through-verificatie logboeken](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
 Synchronisatie van wachtwoordhash inschakelen biedt u de optie voor het failover-verificatie als uw on-premises infrastructuur wordt onderbroken. Deze failover van Pass through-verificatie voor synchronisatie van wachtwoordhash Active Directory is niet automatisch. U moet handmatig met behulp van Azure AD Connect methode overschakelen. Als de Azure AD Connect-server uitvalt, hebt u hulp van Microsoft Support uitschakelen Pass through-verificatie vereisen.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: 0e89df79d2ff619343f914ce3a5ffe87b7bf25de
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c6425f7642d9dbecafc6779184a2a5b0cc1a2cab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Inleiding op verzamelingen van betrouwbare in Azure Service Fabric stateful services
 Betrouwbare verzamelingen kunnen u maximaal beschikbare, schaalbare en lage latentie cloud-toepassingen schrijven, alsof u schreef toepassingen voor één computer. De klassen in de **Microsoft.ServiceFabric.Data.Collections** naamruimte leveren een verzameling van verzamelingen die uw status automatisch maximaal beschikbaar maken. Ontwikkelaars moeten programma alleen voor de betrouwbare verzameling API's en laat betrouwbare verzamelingen die de status van de gerepliceerde en lokaal beheren.
@@ -44,7 +44,7 @@ Toepassingen kunnen zodat zwakkere consistentie erken terug naar de client/aanvr
 De betrouwbare verzamelingen-API's zijn een evolutie van gelijktijdige verzamelingen API's (gevonden in de **System.Collections.Concurrent** naamruimte):
 
 * Asynchrone: Retourneert een taak omdat, in tegenstelling tot gelijktijdige verzamelingen, de bewerkingen zijn gerepliceerd en opgeslagen.
-* Geen out-parameters: maakt gebruik van `ConditionalValue<T>` om een Boole-waarde en een waarde in plaats van out-parameters te retourneren. `ConditionalValue<T>`lijkt `Nullable<T>` , maar geen T moet een struct zijn vereist.
+* Geen out-parameters: maakt gebruik van `ConditionalValue<T>` om een Boole-waarde en een waarde in plaats van out-parameters te retourneren. `ConditionalValue<T>` lijkt `Nullable<T>` , maar geen T moet een struct zijn vereist.
 * Transacties: Maakt gebruik van een transactieobject zodat de gebruiker aan groep acties op meerdere betrouwbare verzamelingen in een transactie.
 
 Vandaag de dag **Microsoft.ServiceFabric.Data.Collections** bevat drie verzamelingen:
@@ -57,7 +57,6 @@ Vandaag de dag **Microsoft.ServiceFabric.Data.Collections** bevat drie verzameli
 * [Betrouwbare verzameling richtlijnen en aanbevelingen](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Werken met betrouwbare verzamelingen](service-fabric-work-with-reliable-collections.md)
 * [Transacties en vergrendelingen](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Betrouwbare status Manager en interne werking van verzameling](service-fabric-reliable-services-reliable-collections-internals.md)
 * Het beheren van gegevens
   * [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
   * [Meldingen](service-fabric-reliable-services-notifications.md)

@@ -2,18 +2,18 @@
 title: 'Azure-snelstart: blobs uploaden, downloaden en vermelden in Azure Storage met behulp van Python | Microsoft Docs'
 description: In deze snelstart maakt u een opslagaccount en een container. Vervolgens gebruikt u de opslagclientbibliotheek voor Python om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
-ms.author: tamram
-ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: cshoe
+ms.openlocfilehash: 9ea8fdcd2d21729117101748e20e52029c315e15
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Python
 
@@ -23,7 +23,7 @@ In deze zelfstudie leert u hoe u Python kunt gebruiken om blok-bobs te uploaden,
 
 Dit zijn de vereisten voor het voltooien van deze Quickstart: 
 * [Python](https://www.python.org/downloads/) installeren
-* Download en installeer [Azure Storage-SDK voor Python](storage-python-how-to-use-blob-storage.md). 
+* Download en installeer [Azure Storage-SDK voor Python](https://github.com/Azure/azure-sdk-for-python). 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

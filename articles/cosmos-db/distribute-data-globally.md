@@ -2,23 +2,23 @@
 title: Gegevens met Azure Cosmos DB globaal distribueren | Microsoft Docs
 description: Meer informatie over de wereld scale geo-replicatie, failover en gegevens herstellen met globale databases van Azure Cosmos DB, een globaal gedistribueerd, zijn voor het model database-service.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Het distribueren van gegevens met Azure Cosmos DB globaal
 Azure is alomtegenwoordige - heeft een algemene footprint tussen 30 + geografische regio's en continu groter wordt. Met de wereldwijde aanwezigheid is een van de gedifferentieerde mogelijkheden die Azure voor de ontwikkelaars biedt de mogelijkheid om te maken, implementeren en globaal gedistribueerde toepassingen eenvoudig te beheren. 
@@ -37,6 +37,11 @@ In dit artikel bieden we een overzicht van Azure Cosmos DB algemene distributie-
 
 ## <a id="EnableGlobalDistribution"></a>Klare globale distributiepunt inschakelen
 Azure Cosmos DB biedt de volgende mogelijkheden waarmee u eenvoudig wereld schaal om toepassingen te schrijven. Deze mogelijkheden zijn beschikbaar via de Azure Cosmos-DB resource provider gebaseerde [REST-API's](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) en de Azure-portal.
+
+In de volgende video toont Azure Cosmos DB Program Manager Andrew Liu de klare algemene distributie-functies.
+
+> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ### <a id="RegionalPresence"></a>De alomtegenwoordige regionale aanwezigheid 
 Azure is de geografische aanwezigheid voortdurend groeiende doordat [nieuwe gebieden](https://azure.microsoft.com/regions/) online. Azure Cosmos DB is beschikbaar in alle nieuwe Azure-regio's standaard. Hiermee kunt u een geografische regio koppelen aan uw Azure DB die Cosmos-databaseaccount zodra Azure Hiermee opent u het nieuwe gebied voor bedrijven.
@@ -226,10 +231,10 @@ Azure Cosmos DB beschrijft transparant de metrische gegevens doorvoer, latentie,
 ## <a id="References"></a>Verwijzingen
 1. Eric Brewer. [Voor robuuste gedistribueerde systemen](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)
 2. Eric Brewer. [KAPJE twaalf jaar Later – hoe de regels zijn gewijzigd](http://informatik.unibas.ch/fileadmin/Lectures/HS2012/CS341/workshops/reportsAndSlides/PresentationKevinUrban.pdf)
-3. Geurts, Lynch. - [Brewer &#39; s gissingen en haalbaarheid van consistente, beschikbaar, partitie fouttolerante webservices](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)
+3. Gilbert, Lynch. - [Brewer&#39;s gissingen en haalbaarheid van consistente, beschikbare partitie fouttolerante webservices](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)
 4. Daniel Abadi. [Consistentiecontrole voor-en nadelen in moderne gedistribueerde Database systemen ontwerp](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf)
 5. To Kleppmann. [Stop het aanroepen van databases CP of Azië](https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html)
 6. Peter Bailis et al. [Probabilistische gebonden veroudering (PBS) voor praktische gedeeltelijke quorum](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 7. Naor en wol. [Laden en de capaciteit en beschikbaarheid in een Quorum-systemen](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)
 8. Herlihy en volgende. [Lineralizability: Een juistheid voorwaarde voor gelijktijdige objecten](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)
-9. [SLA voor Azure Cosmos-DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
+9. [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)

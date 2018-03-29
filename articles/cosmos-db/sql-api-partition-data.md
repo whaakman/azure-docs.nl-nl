@@ -4,7 +4,7 @@ description: Meer informatie over hoe partitionering werkt in Azure Cosmos DB, p
 services: cosmos-db
 author: rafats
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,15 +14,13 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfed50eef02c237ce0ea4480e2e208f2e61ccbef
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Partitioneren in Azure Cosmos-database met behulp van de SQL-API
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Microsoft Azure Cosmos DB](../cosmos-db/introduction.md) is een globale gedistribueerde, meerdere model-database-service waarmee u snel, voorspelbare prestaties en schaalbaarheid naadloos samen met uw toepassing bereiken wanneer deze groeit. 
 
@@ -62,7 +60,7 @@ In de SQL-API geeft u de definitie van de partitie sleutel in de vorm van een JS
             <td valign="top"><p>Komt overeen met de waarde van doc.properties.name waar doc is voor het item (de geneste eigenschap).</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>/ID</p></td>
+            <td valign="top"><p>/id</p></td>
             <td valign="top"><p>Komt overeen met de waarde van doc.id (sleutel-id en partitie zijn dezelfde eigenschap).</p></td>
         </tr>
         <tr>

@@ -6,13 +6,13 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 5ce85761df4e0ad62c22a829f67464a3145fd827
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in Azure-Azure-replicatie
 
@@ -41,7 +41,7 @@ Netwerken zijn meestal beveiligd met behulp van firewalls en netwerkbeveiligings
 > Met behulp van een geverifieerde proxyserver voor netwerkverbinding besturingselement wordt niet ondersteund door Site Recovery en replicatie kan niet worden ingeschakeld.
 
 
-## <a name="outbound-connectivity-for-urls"></a>Uitgaande verbinding voor URL 's
+## <a name="outbound-connectivity-for-urls"></a>Uitgaande connectiviteit voor URL's
 
 Als u een URL gebaseerde, firewall-proxy om te bepalen van de uitgaande verbinding gebruikt, kunt u deze Site Recovery-URL's:
 
@@ -53,7 +53,7 @@ login.microsoftonline.com | Vereist voor autorisatie en verificatie met de Site 
 *.hypervrecoverymanager.windowsazure.com | Vereist zodat de communicatie van Site Recovery service van de virtuele machine optreden kan.
 *.servicebus.windows.net | Vereist zodat de Site Recovery-controle en diagnostische gegevens van de virtuele machine kunnen worden geschreven.
 
-## <a name="outbound-connectivity-for-ip-address-ranges"></a>Uitgaande verbinding voor IP-adresbereiken
+## <a name="outbound-connectivity-for-ip-address-ranges"></a>Uitgaande connectiviteit voor IP-adresbereiken
 
 Als u een op basis van IP-firewallproxy of NSG-regels gebruikt voor het beheren van uitgaande verbinding, moeten deze IP-adresbereiken worden toegestaan.
 
@@ -154,9 +154,10 @@ Volg deze richtlijnen voor verbindingen tussen de doellocatie en de on-premises-
 ### <a name="expressroute-configuration"></a>De configuratie van ExpressRoute
 Volg deze aanbevolen procedures voor de ExpressRoute-configuratie:
 
-- U moet een ExpressRoute-circuit maken in zowel de bron- en regio's. Vervolgens moet u een verbinding maken tussen:
-  - Het virtuele netwerk van de bron en het ExpressRoute-circuit.
-  - Het virtuele netwerk en het ExpressRoute-circuit.
+- Maak een ExpressRoute-circuit in zowel de bron- en regio's. Vervolgens moet u een verbinding maken tussen:
+    - Het virtuele netwerk van de bron en de on-premises netwerk, via het ExpressRoute-circuit in het brongebied.
+    - Het virtuele netwerk en de on-premises netwerk, via het ExpressRoute-circuit in de doelregio.
+
 
 - U kunt als onderdeel van de standaard ExpressRoute circuits maken in dezelfde geopolitieke regio. Voor het maken van ExpressRoute-circuits in andere geopolitieke regio's, Azure ExpressRoute Premium is vereist, die betrekking heeft op een incrementele kosten. (Als u al van ExpressRoute Premium gebruikmaakt, er is geen extra kosten verbonden.) Zie voor meer informatie de [ExpressRoute-locaties document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) en [ExpressRoute prijzen](https://azure.microsoft.com/pricing/details/expressroute/).
 

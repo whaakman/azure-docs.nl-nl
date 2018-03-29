@@ -2,7 +2,7 @@
 title: Met behulp van scriptacties - Azure HDInsight-clusters aanpassen | Microsoft Docs
 description: Aangepaste onderdelen toevoegen op Linux gebaseerde HDInsight-clusters met behulp van scriptacties. Scriptacties zijn Bash-scripts die kunnen worden gebruikt voor het aanpassen van de configuratie van het cluster of Voeg extra services en hulpprogramma's zoals Hue, Solr of R.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc8078a1681b8977a0748f633df02beb2f2bdc8a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Linux gebaseerde HDInsight-clusters met behulp van scriptacties aanpassen
 
@@ -210,17 +210,19 @@ Deze sectie vindt u voorbeelden van de verschillende manieren waarop die u scrip
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Gebruik de scriptactie van een van Azure Resource Manager-sjablonen
 
-Scriptacties kunnen worden gebruikt met Azure Resource Manager-sjablonen. Zie voor een voorbeeld [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
+Scriptacties kunnen worden gebruikt met Azure Resource Manager-sjablonen. Zie voor een voorbeeld [ https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/ ](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
 
 In dit voorbeeld is de scriptactie toegevoegd met de volgende code:
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 Zie de volgende documenten voor meer informatie over het implementeren van een sjabloon:
 
@@ -305,15 +307,21 @@ Zorg ervoor dat u hebt geïnstalleerd en de Azure CLI geconfigureerd voordat u v
 
 1. Als u wilt overschakelen naar de modus Azure Resource Manager, gebruik de volgende opdracht bij de opdrachtprompt:
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. Gebruik de volgende om uw Azure-abonnement te verifiëren.
 
-        azure login
+    ```bash
+    azure login
+    ```
 
 3. Gebruik de volgende opdracht toe te passen van een scriptactie naar een actief cluster
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     Als u de parameters voor deze opdracht weglaat, wordt u gevraagd deze. Als het script dat u met opgeeft `-u` accepteert parameters, kunt u deze opgeven met behulp van de `-p` parameter.
 
@@ -337,7 +345,7 @@ Zie [scriptacties uitvoeren op een actief cluster](https://msdn.microsoft.com/li
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Scriptactie toepassen op een actief cluster van de HDInsight-SDK voor .NET
 
-Zie voor een voorbeeld van het gebruik van de .NET SDK scripts toepassen op een cluster [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Zie voor een voorbeeld van het gebruik van de .NET SDK scripts toepassen op een cluster [ https://github.com/Azure-Samples/hdinsight-dotnet-script-action ](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>Geschiedenis weergeven en degraderen scriptacties promoveren
 
@@ -396,7 +404,7 @@ Het volgende voorbeeldscript wordt gedemonstreerd met behulp van de cmdlets verh
 
 ### <a name="using-the-hdinsight-net-sdk"></a>Met behulp van de HDInsight-SDK voor .NET
 
-Voor een voorbeeld van het gebruik van de .NET SDK script geschiedenis ophalen uit een cluster promoten of degraderen van scripts, Zie [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Voor een voorbeeld van het gebruik van de .NET SDK script geschiedenis ophalen uit een cluster promoten of degraderen van scripts, Zie [ https://github.com/Azure-Samples/hdinsight-dotnet-script-action ](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 > [!NOTE]
 > In dit voorbeeld demonstreert ook hoe u een HDInsight-toepassing met de .NET SDK te installeren.
@@ -413,7 +421,7 @@ Er zijn twee soorten open source-onderdelen die beschikbaar in de HDInsight-serv
 > [!WARNING]
 > Onderdelen van het HDInsight-cluster worden volledig ondersteund. Microsoft Support kunt opsporen en oplossen van problemen met betrekking tot deze onderdelen.
 >
-> Aangepaste onderdelen ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Microsoft ondersteuning mogelijk het probleem op te lossen of ze gevraagd om te benaderen beschikbare kanalen voor de open-source technologieën waar grondige kennis van deze technologie kan worden gevonden. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [http://apache.org](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
+> Aangepaste onderdelen ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Microsoft ondersteuning mogelijk het probleem op te lossen of ze gevraagd om te benaderen beschikbare kanalen voor de open-source technologieën waar grondige kennis van deze technologie kan worden gevonden. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
 
 De HDInsight-service biedt verschillende manieren om te gebruiken van aangepaste onderdelen. Hetzelfde niveau van de ondersteuning van toepassing is, ongeacht hoe een onderdeel gebruikt of is geïnstalleerd op het cluster. De volgende lijst bevat de meest voorkomende manieren dat aangepaste onderdelen op HDInsight-clusters kunnen worden gebruikt:
 
@@ -429,7 +437,7 @@ Ambari-webgebruikersinterface kunt u informatie die zijn vastgelegd door scripta
 
 ### <a name="using-the-ambari-web-ui"></a>Met behulp van de Ambari-webgebruikersinterface
 
-1. Ga naar https://CLUSTERNAME.azurehdinsight.net in uw browser. CLUSTERNAAM vervangen door de naam van uw HDInsight-cluster.
+1. Ga in de browser naar https://CLUSTERNAME.azurehdinsight.net. CLUSTERNAAM vervangen door de naam van uw HDInsight-cluster.
 
     Wanneer u wordt gevraagd, typt u de accountnaam van de beheerder (admin) en het wachtwoord voor het cluster. U moet de beheerdersreferenties in een webformulier invoeren.
 
@@ -493,7 +501,7 @@ __Oorzaak__: deze fout treedt op als u de Python Azure Storage client bijwerkt d
 
 __Resolutie__: los deze fout, handmatig verbinding maken met elk cluster knooppunt gebruikt `ssh` en gebruik de volgende opdracht om opnieuw te installeren de juiste opslag clientversie:
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 

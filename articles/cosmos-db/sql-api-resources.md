@@ -1,9 +1,9 @@
 ---
 title: Azure DB Cosmos-resourcemodel en -concepten | Microsoft Docs
-description: "Meer informatie over Azure Cosmos DB hiërarchische model van de databases, verzamelingen, door de gebruiker gedefinieerde functie (UDF), documenten, machtigingen voor het beheren van bronnen en meer."
-keywords: "Hiërarchische model cosmosdb, azure, Microsoft azure"
+description: Meer informatie over Azure Cosmos DB hiërarchische model van de databases, verzamelingen, door de gebruiker gedefinieerde functie (UDF), documenten, machtigingen voor het beheren van bronnen en meer.
+keywords: Hiërarchische model cosmosdb, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a88f17a658987e1ff3ae0e0f38d6551c3acee1da
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Hiërarchisch bronmodel en basisconcepten voor Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 De database-entiteiten die Azure Cosmos DB beheert worden aangeduid als **resources**. Elke bron wordt uniek geïdentificeerd door een logische URI. U kunt met de resources met behulp van standaard HTTP-termen, aanvraag-/ antwoordheaders en statuscodes werken. 
 
@@ -34,6 +32,12 @@ In dit artikel worden de volgende vragen:
 * Hoe ik een resource adresseren?
 * Hoe werkt ik met verzamelingen?
 * Hoe werkt ik met opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies (UDF's)?
+
+In de volgende video doorloopt Azure Cosmos DB Program Manager Andrew Liu u het resourcemodel dat Azure Cosmos DB. 
+
+> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
+>
+>
 
 ## <a name="hierarchical-resource-model"></a>Hiërarchische resourcemodel
 Als u het volgende diagram illustreert, hiërarchische Azure Cosmos DB **resourcemodel** bestaat uit sets van resources onder een databaseaccount elke adresseerbare via een logische en stabiele URI. Een set resources worden aangeduid als een **feed** in dit artikel. 
@@ -112,14 +116,14 @@ Alle resources zijn adresseerbare URI. De waarde van de **_self** eigenschap van
 
 | Waarde van de _self | Beschrijving |
 | --- | --- |
-| /DBS |Feed van databases onder een databaseaccount |
-| /DBS/ {dbName} |Database met een id die overeenkomt met de waarde {dbName} |
+| /dbs |Feed van databases onder een databaseaccount |
+| /dbs/{dbName} |Database met een id die overeenkomt met de waarde {dbName} |
 | /colls/ /DBS/ {dbName} |Feed van verzamelingen onder een database |
-| /DBS/ {dbName} /colls/ {collName} |De verzameling met een id die overeenkomt met de waarde {collName} |
+| /dbs/{dbName}/colls/{collName} |De verzameling met een id die overeenkomt met de waarde {collName} |
 | /DBS/ {dbName} /colls/ {collName} / docs |Feed van documenten in een verzameling |
-| /DBS/ {dbName} /colls/ {collName} /docs/ {docId} |Document met een id die overeenkomt met de waarde {doc} |
-| /gebruikers/ /DBS/ {dbName} |Feed gebruikers onder een database |
-| /DBS/ {dbName} /gebruikers/ {userId} |Gebruiker met een id die overeenkomt met de waarde {user} |
+| /dbs/{dbName}/colls/{collName}/docs/{docId} |Document met een id die overeenkomt met de waarde {doc} |
+| /dbs/{dbName}/users/ |Feed gebruikers onder een database |
+| /dbs/{dbName}/users/{userId} |Gebruiker met een id die overeenkomt met de waarde {user} |
 | /DBS/ {dbName} /gebruikers/ {userId} / machtigingen |Feed machtigingen onder een gebruikersaccount |
 | /DBS/ {dbName} /gebruikers/ {userId} /permissions/ {permissionId} |Machtiging met een id die overeenkomt met de waarde {machtiging} |
 
@@ -132,7 +136,7 @@ De REST API's ondersteunen van resources adressering en routering van aanvragen 
 ## <a name="database-accounts"></a>Database-accounts
 U kunt een of meer Cosmos DB database accounts met behulp van uw Azure-abonnement inrichten.
 
-U kunt maken en beheren van accounts voor Cosmos-DB-database via Azure portal op [http://portal.azure.com/](https://portal.azure.com/). Maken en beheren van een databaseaccount beheerderstoegang vereist en kan alleen worden uitgevoerd onder uw Azure-abonnement. 
+U kunt maken en beheren van accounts voor Cosmos-DB-database via Azure portal op [ http://portal.azure.com/ ](https://portal.azure.com/). Maken en beheren van een databaseaccount beheerderstoegang vereist en kan alleen worden uitgevoerd onder uw Azure-abonnement. 
 
 ### <a name="database-account-properties"></a>Eigenschappen van de database-account
 Als onderdeel van het inrichten en beheren van een databaseaccount kunt u configureren en lees de volgende eigenschappen:  

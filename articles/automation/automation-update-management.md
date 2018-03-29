@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -36,7 +36,7 @@ Het volgende diagram toont een conceptueel overzicht van het gedrag en de gegeve
 
 Nadat een computer een scan voor compatibiliteit van updates voert, verzendt de agent de informatie in bulk met logboekanalyse. Op Windows-computers wordt de nalevingsscan standaard elke twaalf uur uitgevoerd. Naast het schema voor scannen, wordt de scan voor compatibiliteit van updates binnen 15 minuten als Microsoft Monitoring Agent (MMA) opnieuw wordt opgestart voordat de installatie van update en na installatie van update gestart. Op Linux-computers wordt de nalevingsscan standaard elke drie uur uitgevoerd. Wanneer de MMA-agent opnieuw is opgestart, wordt er altijd binnen vijftien minuten een aanvullende nalevingsscan gestart.
 
-De oplossing rapporteert hoe up-to-date de computer is op basis van de bron waarmee u in de huidige configuratie synchroniseert. Als de Windows-computer is geconfigureerd om te rapporteren aan WSUS, kunnen de resultaten afwijken van wat er wordt weergegeven in Microsoft Update, afhankelijk van wanneer WSUS voor het laatst is gesynchroniseerd met Microsoft Update. Ditzelfde geldt voor Linux-computers die zijn geconfigureerd voor rapportage aan een lokale in plaats van een openbare opslagplaats.
+De oplossing rapporteert hoe up-to-date de computer is op basis van de bron waarmee u in de huidige configuratie synchroniseert. Als de Windows-computer is geconfigureerd om te rapporteren aan WSUS, kunnen de resultaten afwijken van wat er wordt weergegeven in Microsoft Update, afhankelijk van wanneer WSUS voor het laatst is gesynchroniseerd met Microsoft Update. Dit is hetzelfde voor Linux-computers die zijn geconfigureerd voor rapportage aan een lokale opslagplaats ten opzichte van een openbare opslagplaats.
 
 U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen. Updates die zijn geclassificeerd als *optioneel*, worden niet opgenomen in het implementatiebereik voor Windows-computers. Alleen vereiste updates worden uitgevoerd. De geplande implementatie wordt gedefinieerd welke doelcomputers ontvangen de toepasselijke updates door het expliciet opgeven van computers of selecteren van een [computergroep](../log-analytics/log-analytics-computer-groups.md) die is gebaseerd op het logboek van zoekopdrachten van een bepaalde set van computers. U geeft ook een planning op voor het goedkeuren en toekennen van een bepaalde tijdsperiode waarin updates mogen worden geïnstalleerd. Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en ze vereisen geen configuratie. Wanneer een update-implementatie wordt gemaakt, wordt er een planning opgesteld waarmee een masterupdate-runbook voor de in de planning opgenomen computers start op het opgegeven tijdstip. Dit master-runbook start een onderliggend runbook op elke agent die installatie van de vereiste updates uitvoert.
 

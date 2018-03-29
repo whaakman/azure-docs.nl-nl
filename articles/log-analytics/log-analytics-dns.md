@@ -2,23 +2,23 @@
 title: DNS-Analytics-oplossing in Azure Log Analytics | Microsoft Docs
 description: Instellen en gebruiken van de DNS-Analytics-oplossing in logboekanalyse voor het verzamelen van inzicht in de DNS-infrastructuur op beveiliging, prestaties en bewerkingen.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Inzicht in uw DNS-infrastructuur met de DNS-Analytics Preview oplossing verzamelen
 
@@ -145,7 +145,6 @@ De informatie helpt u bij het identificeren van de:
 
 **Steekproef DDI analysequery's**. Bevat een lijst van de meest algemene zoekquery's die rechtstreeks onbewerkte analytische gegevens ophalen.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Voorbeeldquery 's](./media/log-analytics-dns/queries.png)
 
@@ -166,7 +165,7 @@ U kunt deze query's als uitgangspunt gebruiken voor het maken van uw eigen query
 
 U kunt een query maken op de pagina logboek zoeken. U kunt uw zoekresultaten filteren met behulp van besturingselementen facet. U kunt ook een geavanceerde query's op transformatie en filter het rapport maken op uw resultaten. Start met behulp van de volgende query's:
 
-1. In de **query zoekvak**, type `Type=DnsEvents` om alle DNS-gebeurtenissen die worden gegenereerd door de DNS-servers worden beheerd door de oplossing weer te geven. De lijst met resultaten de logboekgegevens voor alle gebeurtenissen met betrekking tot lookup-query's, dynamische registraties en configuratiewijzigingen.
+1. In de **query zoekvak**, type `DnsEvents` om alle DNS-gebeurtenissen die worden gegenereerd door de DNS-servers worden beheerd door de oplossing weer te geven. De lijst met resultaten de logboekgegevens voor alle gebeurtenissen met betrekking tot lookup-query's, dynamische registraties en configuratiewijzigingen.
 
     ![DnsEvents logboek zoeken](./media/log-analytics-dns/log-search-dnsevents.png)  
 
@@ -176,7 +175,7 @@ U kunt een query maken op de pagina logboek zoeken. U kunt uw zoekresultaten fil
 
     c. Als u wilt weergeven van de logboekgegevens voor wijzigingen in de configuratie, selecteer **ConfigurationChange** als de **Subtype** filter uit het besturingselement facet aan de linkerkant. Een tabel waarin alle wijzigingsgebeurtenissen voor de configuratie voor de geselecteerde periode wordt weergegeven.
 
-2. In de **query zoekvak**, type `Type=DnsInventory` om alle DNS-inventarisatie-gerelateerde gegevens voor de DNS-servers worden beheerd door de oplossing weer te geven. De lijst met resultaten de logboekgegevens voor DNS-servers, DNS-zones en bronrecords.
+2. In de **query zoekvak**, type `DnsInventory` om alle DNS-inventarisatie-gerelateerde gegevens voor de DNS-servers worden beheerd door de oplossing weer te geven. De lijst met resultaten de logboekgegevens voor DNS-servers, DNS-zones en bronrecords.
 
     ![DnsInventory logboek zoeken](./media/log-analytics-dns/log-search-dnsinventory.png)
 

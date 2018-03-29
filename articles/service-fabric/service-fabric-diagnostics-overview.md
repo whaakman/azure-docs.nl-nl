@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f784576547f0d85a825ad9dd107c6c84cd261092
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Controle en diagnostische gegevens voor Azure Service Fabric
 
@@ -86,7 +86,7 @@ Het Service Fabric-platform omvat een statusmodel, wat zorgt voor extensible de 
 
 ![SFX health dashboard](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-Naast de meest recente statusrapporten in SFX ziet, is elk rapport ook beschikbaar als een gebeurtenis. Health-gebeurtenissen kunnen worden verzameld via het operationele kanaal (Zie [gebeurtenis aggregatie met Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events)), en opgeslagen in OMS Log Analytics voor waarschuwingen en gegevensquery's in de toekomst. Dit helpt u problemen die mogelijk van invloed op de beschikbaarheid van uw toepassing, zodat het is raadzaam dat u waarschuwingen voor scenario's juiste fouten (aangepaste waarschuwingen via OMS instellen) detecteren.
+Naast de meest recente statusrapporten in SFX ziet, is elk rapport ook beschikbaar als een gebeurtenis. Health-gebeurtenissen kunnen worden verzameld via het operationele kanaal (Zie [gebeurtenis aggregatie met Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)), en opgeslagen in OMS Log Analytics voor waarschuwingen en gegevensquery's in de toekomst. Dit helpt u problemen die mogelijk van invloed op de beschikbaarheid van uw toepassing, zodat het is raadzaam dat u waarschuwingen voor scenario's juiste fouten (aangepaste waarschuwingen via OMS instellen) detecteren.
 
 ## <a name="monitoring-workflow"></a>Bewaking van de werkstroom 
 

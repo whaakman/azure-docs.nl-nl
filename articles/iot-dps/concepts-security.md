@@ -2,25 +2,25 @@
 title: Beveiligingsconcepten in Azure IoT Hub apparaat-inrichtingsservice | Microsoft Docs
 description: Beschrijft security inrichting concepten die specifiek zijn voor apparaten met inrichtingsservice apparaat en IoT-Hub
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 03/27/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub apparaat-inrichtingsservice veiligheidsconcepten 
 
-IoT Hub apparaat-inrichtingsservice is een helper-service voor IoT-Hub die u gebruikt om zonder tussenkomst apparaat inrichten met een opgegeven IoT-hub te configureren. U kunt in een veilige en schaalbare manier miljoenen apparaten inrichten met de Service voor het inrichten van apparaten. In dit artikel biedt een overzicht van de *beveiliging* concepten betrokken bij de mobiele apparaten inrichten. Dit artikel is relevant zijn voor alle Persona's die zijn betrokken bij het voorbereiden van een apparaat voor implementatie.
+IoT Hub apparaat-inrichtingsservice is een helper-service voor IoT-Hub die u gebruikt om zonder tussenkomst apparaat inrichten met een opgegeven IoT-hub te configureren. Met de Device Provisioning Service kunt u miljoenen apparaten inrichten op een veilige en schaalbare manier. In dit artikel biedt een overzicht van de *beveiliging* concepten betrokken bij de mobiele apparaten inrichten. Dit artikel is relevant zijn voor alle Persona's die zijn betrokken bij het voorbereiden van een apparaat voor implementatie.
 
 ## <a name="attestation-mechanism"></a>Attestation-mechanisme
 
@@ -31,7 +31,7 @@ Het mechanisme voor attestation is de methode die wordt gebruikt voor het bevest
 
 Apparaat inrichtingsservice ondersteunt twee soorten attestation:
 * **X.509-certificaten** op basis van de standaard authenticatiestroom voor x.509-certificaat.
-* **SAS-tokens** op basis van een nonce uitdaging met de TPM-standaard voor sleutels. Er is geen fysieke TPM op het apparaat vereist, maar wordt verwacht dat de service met behulp van de goedkeuringssleutel per verklaren de [TPM-specificatie](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Trusted Platform Module (TPM)** op basis van een nonce uitdaging, met de TPM-standaard voor sleutels om weer te geven van een ondertekende Shared Access Signature (SAS)-token. Er is geen fysieke TPM op het apparaat vereist, maar wordt verwacht dat de service met behulp van de goedkeuringssleutel per verklaren de [TPM-specificatie](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Hardware security module
 
@@ -42,7 +42,7 @@ De hardware security module of een HSM, wordt gebruikt voor veilige, op hardware
 
 Apparaat geheimen kunnen ook worden opgeslagen in de software (geheugen), maar het is een minder veilige vorm van opslag dan een HSM.
 
-## <a name="trusted-platform-module-tpm"></a>Trusted Platform Module (TPM)
+## <a name="trusted-platform-module"></a>Trusted Platform Module
 
 TPM kan verwijzen naar een standaard voor het veilig opslaan van sleutels die worden gebruikt voor het verifiëren van het platform of het kan verwijzen naar de i/o-interface gebruikt om te communiceren met de implementatie van de standaard-modules. TPM's kunnen bestaan als discrete hardware, geïntegreerde hardware, firmware gebaseerde of op basis van software. Meer informatie over [TPM's en TPM attestation](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Apparaat inrichtingsservice biedt alleen ondersteuning voor TPM 2.0.
 
@@ -66,7 +66,7 @@ Een basiscertificaat is een zelf-ondertekend X.509-certificaat voor een certific
 
 ### <a name="intermediate-certificate"></a>Tussenliggende certificaat
 
-Er is een X.509-certificaat dat is ondertekend door het basiscertificaat (of door een andere tussenliggende certificaat met het basiscertificaat in de keten) voor een tussenliggende certificaat. De laatste tussenliggende certificaten in een keten van wordt gebruikt voor het leaf-certificaat ondertekenen. Een tussenliggende certificaat kan ook worden aangeduid als een tussenliggende CA-certificaat.
+Er is een X.509-certificaat is ondertekend door het basiscertificaat (of door een andere tussenliggende certificaat met het basiscertificaat in de keten) voor een tussenliggende certificaat. De laatste tussenliggende certificaten in een keten van wordt gebruikt voor het leaf-certificaat ondertekenen. Een tussenliggende certificaat kan ook worden aangeduid als een tussenliggende CA-certificaat.
 
 ### <a name="leaf-certificate"></a>Leaf-certificaat
 
@@ -76,10 +76,10 @@ Het certificaat of eindentiteitscertificaat, identificeert de certificaathouder.
 
 De inrichting service bevat twee soorten inschrijving vermelding die u gebruiken kunt voor het toegangsbeheer voor apparaten die gebruikmaken van het X.509-mechanisme voor attestation:  
 
-- [Afzonderlijke inschrijving](./concepts-service.md#individual-enrollment) vermeldingen zijn geconfigureerd met het certificaat voor apparaten die zijn gekoppeld aan een specifiek apparaat. Deze vermeldingen beheren inschrijving voor specifieke apparaten.
-- [Inschrijvingsgroep](./concepts-service.md#enrollment-group) vermeldingen zijn gekoppeld aan een specifieke tussenliggende of CA-basiscertificaat. Deze vermeldingen beheren inschrijving voor alle apparaten waarop die tussenliggende of het certificaat in de certificaatketen hoofdknooppunt. 
+- [Afzonderlijke inschrijving](./concepts-service.md#individual-enrollment) vermeldingen zijn geconfigureerd met het certificaat voor apparaten die zijn gekoppeld aan een specifiek apparaat. Deze vermeldingen beheren inschrijvingen voor specifieke apparaten.
+- [Inschrijvingsgroep](./concepts-service.md#enrollment-group) vermeldingen zijn gekoppeld aan een specifieke tussenliggende of CA-basiscertificaat. Deze vermeldingen beheren inschrijvingen voor alle apparaten waarop die tussenliggende of het certificaat in de certificaatketen hoofdknooppunt. 
 
-Wanneer een apparaat verbinding met de inrichting service maakt, de service bepaalt de volgorde van meer specifieke vermeldingen voor inschrijving via minder specifieke vermeldingen voor inschrijving. Dat wil zeggen, als een afzonderlijke registratie voor het apparaat bestaat, geldt de inrichting service die vermelding. Als er geen afzonderlijke inschrijving voor het apparaat en een inschrijvingsgroep voor het eerste tussenliggende certificaat in de certificaatketen van het apparaat bestaat, geldt de service die vermelding in de keten naar de hoofdmap van enzovoort. De service van toepassing is de eerste toepasselijke vermelding die wordt gevonden, zodat:
+Wanneer een apparaat verbinding met de inrichting service maakt, de service bepaalt de volgorde van meer specifieke vermeldingen voor inschrijving via minder specifieke vermeldingen voor inschrijving. Dat wil zeggen, als een afzonderlijke registratie voor het apparaat bestaat, geldt de inrichting service die vermelding. Als er geen afzonderlijke inschrijving voor het apparaat en een inschrijvingsgroep voor het eerste tussenliggende certificaat in de certificaatketen van het apparaat bestaat, geldt de service die post, enzovoort, keten naar de hoofdmap van. De service van toepassing is de eerste toepasselijke vermelding die wordt gevonden, zodat:
 
 - Als de eerste inschrijving vermelding gevonden is ingeschakeld, is de service voorziet het apparaat.
 - Als de eerste inschrijving vermelding gevonden is uitgeschakeld, wordt in de service het apparaat niet inrichten.  

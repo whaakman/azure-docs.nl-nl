@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 37cae133dda2f274a83db1df37e798c5da58c539
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Gebeurtenis-aggregatie en verzameling op basis van EventFlow
 
@@ -30,7 +30,7 @@ EventFlow binaire bestanden zijn beschikbaar als een reeks NuGet-pakketten. Even
 
 ![EventFlow NuGet-pakketten in Visual Studio-NuGet-Pakketbeheer gebruikersinterface](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-U ziet een lijst met verschillende pakketten die worden weergegeven, met labels met 'Invoer' en 'Levert'. EventFlow ondersteunt verschillende andere logboekregistratie providers en analyzers. De service die als host fungeert voor EventFlow moet de juiste pakketten, afhankelijk van de bron en bestemming voor de toepassingslogboeken bevatten. Naast het core ServiceFabric pakket, moet u ook minimaal één invoer en uitvoer geconfigureerd. U kunt bijvoorbeeld de volgende pakketten toevoegen aan verzonden EventSource gebeurtenissen naar Application Insights:
+U ziet een lijst met verschillende pakketten die worden weergegeven, met labels met 'Invoer' en 'Levert'. EventFlow ondersteunt verschillende andere logboekregistratie providers en analyzers. De service die als host fungeert voor EventFlow moet de juiste pakketten, afhankelijk van de bron en bestemming voor de toepassingslogboeken bevatten. Naast het core ServiceFabric pakket, moet u ook minimaal één invoer en uitvoer geconfigureerd. U kunt bijvoorbeeld de volgende pakketten EventSource gebeurtenissen verzenden naar Application Insights toevoegen:
 
 * `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` voor het vastleggen van gegevens uit de serviceklasse EventSource, en standard EventSources zoals *ServiceFabric-Microsoft-Services* en *Microsoft-ServiceFabric-Actors*)
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (we gaan de logboeken verzenden naar een Azure Application Insights-resource)

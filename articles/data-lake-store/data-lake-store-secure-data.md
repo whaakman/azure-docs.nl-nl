@@ -2,7 +2,7 @@
 title: De beveiliging van gegevens die zijn opgeslagen in Azure Data Lake Store | Microsoft Docs
 description: Informatie over het beveiligen van gegevens in Azure Data Lake Store met behulp van groepen en toegangsbeheerlijsten
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: aa71a1cc48449c6ef48365b301bf9e297c0597ae
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4d926ee08da593e590aa77a2ca09d8d1e1f6bb46
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>De beveiliging van gegevens die zijn opgeslagen in Azure Data Lake Store
-Gegevens beveiligen in Azure Data Lake Store is een benadering drie stappen.
+Gegevens beveiligen in Azure Data Lake Store is een benadering drie stappen.  Beide rollen gebaseerd toegangsbeheer (RBAC) en toegangsbeheerlijsten (ACL's) moeten worden ingesteld op volledig toegang tot gegevens voor gebruikers en beveiligingsgroepen in te schakelen.
 
 1. Begint met het maken van beveiligingsgroepen in Azure Active Directory (AAD). Deze beveiligingsgroepen worden gebruikt voor het implementeren van op rollen gebaseerde toegangsbeheer (RBAC) in Azure-portal. Zie voor meer informatie [toegangsbeheer op basis van rollen in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 2. De AAD-beveiligingsgroepen toewijzen aan het Azure Data Lake Store-account. Controleert de toegang voor het Data Lake Store-account van de portal en beheerbewerkingen zijn van de portal of API's.
@@ -54,67 +54,66 @@ Zie voor instructies over het maken van AAD-beveiligingsgroepen en gebruikers to
 ## <a name="assign-users-or-security-groups-to-azure-data-lake-store-accounts"></a>Gebruikers of beveiligingsgroepen toewijzen aan Azure Data Lake Store-accounts
 Als u gebruikers of beveiligingsgroepen op Azure Data Lake Store-accounts toewijst, kunt u toegang tot de beheerbewerkingen op het account met de Azure-portal en Azure Resource Manager-API's beheren. 
 
-1. Open een Azure Data Lake Store-account. Klik in het linkerdeelvenster op **Bladeren**, klikt u op **Data Lake Store**, en klik vervolgens op de accountnaam die u wilt een gebruiker of beveiligingsgroep groep toewijzen aan de blade Data Lake Store.
+1. Open een Azure Data Lake Store-account. Klik in het linkerdeelvenster op **alle resources**, en klik vervolgens op de accountnaam die u wilt een gebruiker of beveiligingsgroep groep toewijzen aan de blade alle resources.
 
-2. Klik in de instellingenblade van Data Lake Store-account op **Access Control (IAM)**. De blade door standaardlijsten **abonnementsbeheerders** als eigenaar van een groep.
+2. Klik in de blade van het Data Lake Store-account op **Access Control (IAM)**. De blade standaard bevat de abonnementseigenaren als eigenaar.
    
     ![Beveiligingsgroep toewijzen aan Azure Data Lake Store-account](./media/data-lake-store-secure-data/adl.select.user.icon.png "beveiligingsgroep toewijzen aan Azure Data Lake Store-account")
 
-    Er zijn twee manieren aan een groep toevoegen en relevante rollen toewijzen.
-   
-    * Een gebruiker of groep toevoegen aan het account en vervolgens een rol toewijzen of
-    * Een functie toevoegen en vervolgens gebruikers/groepen toewijzen aan rollen.
-     
-    In dit gedeelte kijken we de eerste benadering een groep toe te voegen en vervolgens het toewijzen van rollen. U kunt vergelijkbare stappen voor het eerst een rol selecteren en vervolgens groepen toewijzen aan die rol uitvoeren.
-4. In de **gebruikers** blade, klikt u op **toevoegen** openen de **toegang toevoegen** blade. In de **toegang toevoegen** blade, klikt u op **Selecteer een rol**, en selecteer vervolgens een rol voor de gebruiker of groep.
+3. In de **Access Control (IAM)** blade, klikt u op **toevoegen** openen de **machtigingen toevoegen** blade. In de **machtigingen toevoegen** blade, selecteer een **rol** voor de gebruikersgroep. Zoekt u de beveiligingsgroep die u eerder in Azure Active Directory gemaakt en selecteer deze. Als u een groot aantal gebruikers en groepen kunnen zoeken vanaf hebt, gebruikt de **Selecteer** tekstvak om te filteren op naam van de groep. 
    
     ![Toevoegen van een rol voor de gebruiker](./media/data-lake-store-secure-data/adl.add.user.1.png "een rol voor de gebruiker toevoegen")
    
-    De **eigenaar** en **Inzender** rol voor toegang tot een aantal functies voor beheer op de data lake-account. Voor gebruikers die met de gegevens in de data lake communiceren, u kunt deze toevoegen aan de ** lezer ** rol. Het bereik van deze rollen is beperkt tot de beheerbewerkingen die betrekking hebben op het Azure Data Lake Store-account.
+    De **eigenaar** en **Inzender** rol voor toegang tot een aantal functies voor beheer op de data lake-account. Voor gebruikers die communiceren met de gegevens in de data lake, maar nog steeds nodig om beheergegevens account weer te geven, u kunt deze toevoegen aan de **lezer** rol. Het bereik van deze rollen is beperkt tot de beheerbewerkingen die betrekking hebben op het Azure Data Lake Store-account.
    
-    Voor gegevens definiëren operations afzonderlijke bestandssysteemmachtigingen wat de gebruikers kunnen doen. Daarom een gebruiker met een lezersrol kunt beheerinstellingen voor het account alleen weergeven, maar kan mogelijk gegevens lezen en schrijven op basis van bestandssysteemmachtigingen aan hen toegewezen. Data Lake Store-bestandssysteemmachtigingen wordt beschreven op [beveiligingsgroep toewijzen als ACL's naar het bestandssysteem van Azure Data Lake Store](#filepermissions).
-5. In de **toegang toevoegen** blade, klikt u op **gebruikers toevoegen** openen de **gebruikers toevoegen** blade. In deze blade, zoekt u de beveiligingsgroep die u eerder in Azure Active Directory gemaakt. Als u een groot aantal groepen om te zoeken vanaf hebt, gebruikt u in het tekstvak boven kunt u filteren op naam van de groep. Klik op **Selecteren**.
+    Voor bewerkingen definiëren afzonderlijke bestandssysteemmachtigingen wat de gebruikers kunnen doen. Daarom een gebruiker met een lezersrol kunt beheerinstellingen voor het account alleen weergeven, maar kan mogelijk gegevens lezen en schrijven op basis van bestandssysteemmachtigingen aan hen toegewezen. Data Lake Store-bestandssysteemmachtigingen wordt beschreven op [beveiligingsgroep toewijzen als ACL's naar het bestandssysteem van Azure Data Lake Store](#filepermissions).
+
+    > [!IMPORTANT]
+    > Alleen de **eigenaar** rol kunnen automatisch toegang tot bestandssysteem. De **Inzender**, **lezer**, en alle andere functies vereisen ACL's op elk niveau van toegang tot bestanden en mappen inschakelen.  De **eigenaar** rol biedt supergebruiker bestands- en mapmachtigingen die via de ACL's kunnen niet worden overschreven. Zie voor meer informatie over hoe RBAC beleidsregels worden toegewezen aan gegevenstoegang, [RBAC voor accountbeheer](data-lake-store-security-overview.md#rbac-for-account-management).
+
+4. Als u toevoegen van een groep/gebruiker die niet wordt vermeld wilt in de **machtigingen toevoegen** blade kunt u ze uitnodigen door hun e-mailadres in de **Selecteer** in het tekstvak en vervolgens te selecteren in de lijst.
    
     ![Een beveiligingsgroep toevoegt](./media/data-lake-store-secure-data/adl.add.user.2.png "beveiligingsgroep toevoegen")
    
-    Als u toevoegen van een groep/gebruiker die niet wordt vermeld wilt, kunt u ze uitnodigen met behulp van de **uitnodigen** pictogram en het e-mailadres voor de gebruikersgroep op te geven.
-6. Klik op **OK**. Hier ziet u de beveiligingsgroep toegevoegd zoals hieronder wordt weergegeven.
+5. Klik op **Opslaan**. Hier ziet u de beveiligingsgroep toegevoegd zoals hieronder wordt weergegeven.
    
     ![Beveiligingsgroep toegevoegd](./media/data-lake-store-secure-data/adl.add.user.3.png "beveiligingsgroep toegevoegd")
 
-7. De gebruiker/beveiligingsgroep heeft nu toegang tot het Azure Data Lake Store-account. Als u toegang bieden tot specifieke gebruikers wilt, kunt u ze kunt toevoegen aan de beveiligingsgroep. Op dezelfde manier als u wilt toegang voor een gebruiker in te trekken, kunt u deze uit de beveiligingsgroep. U kunt ook meerdere beveiligingsgroepen toewijzen aan een account. 
+6. De gebruiker/beveiligingsgroep heeft nu toegang tot het Azure Data Lake Store-account. Als u toegang bieden tot specifieke gebruikers wilt, kunt u ze kunt toevoegen aan de beveiligingsgroep. Op dezelfde manier als u wilt toegang voor een gebruiker in te trekken, kunt u deze uit de beveiligingsgroep. U kunt ook meerdere beveiligingsgroepen toewijzen aan een account. 
 
-## <a name="filepermissions"></a>Gebruikers- of beveiligingsgroep als ACL's toewijzen aan het bestandssysteem van Azure Data Lake Store
+## <a name="filepermissions"></a>Gebruikers of beveiligingsgroepen als ACL's toewijzen aan het bestandssysteem van Azure Data Lake Store
 Gebruiker/beveiligingsgroepen aan het bestandssysteem van Azure Data Lake toewijst, kunt u toegangsbeheer voor gegevens die zijn opgeslagen in Azure Data Lake Store instellen.
 
 1. Klik op de blade van het Data Lake Store-account op **Gegevensverkenner**.
    
-    ![Mappen maken in Data Lake Store-account](./media/data-lake-store-secure-data/adl.start.data.explorer.png "mappen maken in Data Lake-account")
-2. In de **Data Explorer** blade, klikt u op het bestand of map waarvoor u wilt de ACL configureren en klik vervolgens op **toegang**. Als u wilt toewijzen ACL naar een bestand, klikt u op **toegang** van de **bestandsvoorbeeld** blade.
+    ![Inzien via Data Explorer](./media/data-lake-store-secure-data/adl.start.data.explorer.png "inzien via Data Explorer")
+2. In de **Data Explorer** blade, klikt u op de map waarvoor u wilt de ACL configureren en klik vervolgens op **toegang**. Als u wilt toewijzen ACL's naar een bestand, moet u eerst het bestand om te bekijken en klik vervolgens op klikken **toegang** van de **bestandsvoorbeeld** blade.
    
     ![ACL's ingesteld op Data Lake-bestandssysteem](./media/data-lake-store-secure-data/adl.acl.1.png "ACL's ingesteld op Data Lake-bestandssysteem")
-3. De **toegang** blade bevat de standaard toegang en aangepaste toegang is al toegewezen aan de hoofdmap. Klik op de **toevoegen** pictogram Aangepast niveau ACL's toevoegen.
+3. De **toegang** blade kunt u de eigenaren en machtigingen die zijn al toegewezen aan de hoofdmap. Klik op de **toevoegen** pictogram om toe te voegen extra toegang ACL's.
+    > [!IMPORTANT]
+    > Instellen van toegangsmachtigingen voor één bestand verleent per se geen een gebruiker of groep toegang tot dit bestand. Het pad naar het bestand moet toegankelijk zijn voor de toegewezen gebruiker of groep. Zie voor meer informatie over en voorbeelden [algemene scenario's die zijn gerelateerd aan machtigingen](data-lake-store-access-control.md#common-scenarios-related-to-permissions).
    
     ![Standaard- en aangepaste toegang lijst](./media/data-lake-store-secure-data/adl.acl.2.png "lijst standaard en aangepaste toegang")
    
-   * **Standaard toegang** is de toegang van de UNIX-stijl, waarbij u lezen opgeeft, schrijven, uitvoeren (rwx) op drie verschillende gebruikersklassen: eigenaar, groep en anderen.
-   * **Aangepaste toegang** komt overeen met de POSIX-ACL's waarmee u kunt machtigingen instellen voor specifieke benoemde gebruikers of groepen, en niet alleen het bestand eigenaar of groep. 
+   * De **eigenaars** en **anderen** UNIX-stijl toegang bieden, waarin u opgeeft lezen, schrijven, uitvoeren (rwx) op drie verschillende gebruikersklassen: eigenaar, groep en anderen.
+   * **Machtigingen toegewezen** komt overeen met de POSIX-ACL's waarmee u kunt machtigingen instellen voor specifieke benoemde gebruikers of groepen afgezien van de eigenaar van het bestand of de groep. 
      
      Zie voor meer informatie [HDFS-ACL's](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Zie voor meer informatie over hoe de ACL's worden geïmplementeerd in Data Lake Store, [toegangsbeheer in Data Lake Store](data-lake-store-access-control.md).
-4. Klik op de **toevoegen** pictogram openen de **aangepaste toegang toevoegen** blade. Klik op deze blade **gebruiker of groep selecteren**, en klik vervolgens in **gebruiker of groep selecteren** blade, zoekt u de beveiligingsgroep die u eerder in Azure Active Directory gemaakt. Als u een groot aantal groepen om te zoeken vanaf hebt, gebruikt u in het tekstvak boven kunt u filteren op naam van de groep. Klik op de groep die u wilt toevoegen en klik vervolgens op **Selecteer**.
+4. Klik op de **toevoegen** pictogram openen de **machtigingen toewijzen aan** blade. Klik op deze blade **gebruiker of groep selecteren**, en klik vervolgens in **gebruiker of groep selecteren** blade, zoekt u de beveiligingsgroep die u eerder in Azure Active Directory gemaakt. Als u een groot aantal groepen om te zoeken vanaf hebt, gebruikt u in het tekstvak boven kunt u filteren op naam van de groep. Klik op de groep die u wilt toevoegen en klik vervolgens op **Selecteer**.
    
     ![Een groep toevoegen](./media/data-lake-store-secure-data/adl.acl.3.png "een groep toevoegen")
-5. Klik op **Selecteer machtigingen**, selecteer de machtigingen en of u de machtigingen toewijzen als een standaard ACL wilt, toegang krijgen tot ACL of beide. Klik op **OK**.
+5. Klik op **machtigingen selecteren**, selecteer de machtigingen of de machtigingen moeten worden toegepast op recursief en of u wilt de machtigingen toewijzen als een toegang ACL, standaard ACL of beide. Klik op **OK**.
    
     ![Machtigingen toewijzen aan de groep](./media/data-lake-store-secure-data/adl.acl.4.png "machtigingen toewijzen aan de groep")
    
     Zie voor meer informatie over de machtigingen in Data Lake Store en/toegang ACL's, [toegangsbeheer in Data Lake Store](data-lake-store-access-control.md).
-6. In de **aangepaste toegang toevoegen** blade, klikt u op **OK**. De toegevoegde groep met de bijbehorende machtigingen wordt nu weergegeven in de **toegang** blade.
+6. Wanneer u op **Ok** in de **machtigingen selecteren** blade, de nieuwe groep en de bijbehorende machtigingen wordt nu weergegeven in de **toegang** blade.
    
     ![Machtigingen toewijzen aan de groep](./media/data-lake-store-secure-data/adl.acl.5.png "machtigingen toewijzen aan de groep")
    
    > [!IMPORTANT]
-   > In de huidige release kunt u slechts 9 vermeldingen onder hebt **aangepaste toegang**. Als u wilt meer dan 9-gebruikers toevoegen, moet u beveiligingsgroepen maken gebruikers toevoegen aan beveiligingsgroepen, het toevoegen van de beveiligingsgroepen die toegang bieden voor het Data Lake Store-account.
+   > U kunt maximaal 28 vermeldingen onder hebben in de huidige release **machtigingen toegewezen**. Als u wilt meer dan 28 gebruikers toevoegen, moet u beveiligingsgroepen maken gebruikers toevoegen aan beveiligingsgroepen, het toevoegen van de beveiligingsgroepen die toegang bieden voor het Data Lake Store-account.
    > 
    > 
 7. Indien nodig, kunt u ook de machtigingen wijzigen nadat u de groep hebt toegevoegd. Schakel het selectievakje voor elk machtigingstype (lezen, schrijven, uitvoeren) op basis van of u wilt verwijderen of deze machtiging toewijzen aan de beveiligingsgroep of uit. Klik op **opslaan** de wijzigingen wilt opslaan of **negeren** om de wijzigingen ongedaan te maken.
@@ -125,28 +124,27 @@ Azure Data Lake Store kunt u verdere vergrendelen toegang tot uw data store op n
 ![Firewall-instellingen en IP-toegang tot](./media/data-lake-store-secure-data/firewall-ip-access.png "Firewall-instellingen en IP-adres")
 
 ## <a name="remove-security-groups-for-an-azure-data-lake-store-account"></a>Beveiligingsgroepen voor een Azure Data Lake Store-account verwijderen
-Wanneer u beveiligingsgroepen uit Azure Data Lake Store-accounts verwijderen, wijzigt u alleen toegang aan de beheerbewerkingen op het account met de Azure Portal en Azure Resource Manager-API's.
+Wanneer u beveiligingsgroepen uit Azure Data Lake Store-accounts verwijderen, wijzigt u alleen toegang aan de beheerbewerkingen op het account met de Azure Portal en Azure Resource Manager-API's.  
 
-1. Klik in de blade van het Data Lake Store-account op **instellingen**. Van de **instellingen** blade, klikt u op **gebruikers**.
+Toegang tot gegevens ongewijzigd en nog steeds worden beheerd door de ACL's.  De uitzondering hierop zijn gebruikers/groepen in de rol van eigenaar.  Gebruikers/groepen verwijderd uit de rol van eigenaar zijn niet langer Supergebruikers en hun access terugvalt op ACL-instellingen voor toegang. 
+
+1. Klik in de blade van het Data Lake Store-account op **Access Control (IAM)**. 
    
     ![Beveiligingsgroep toewijzen aan Azure Data Lake-account](./media/data-lake-store-secure-data/adl.select.user.icon.png "beveiligingsgroep toewijzen aan Azure Data Lake-account")
-2. In de **gebruikers** blade klikt u op de beveiligingsgroep die u wilt verwijderen.
-   
-    ![Beveiligingsgroep verwijderen](./media/data-lake-store-secure-data/adl.add.user.3.png "beveiligingsgroep verwijderen")
-3. Klik op de blade voor de beveiligingsgroep **verwijderen**.
+2. In de **Access Control (IAM)** blade, klikt u op de beveiliging groep(en) die u wilt verwijderen. Klik op **verwijderen**.
    
     ![Beveiligingsgroep verwijderd](./media/data-lake-store-secure-data/adl.remove.group.png "beveiligingsgroep verwijderd")
 
 ## <a name="remove-security-group-acls-from-azure-data-lake-store-file-system"></a>Verwijderen van beveiligingsgroep ACL's van Azure Data Lake Store-bestandssysteem
-Wanneer u beveiligingsgroepen ACL's van Azure Data Lake Store-bestandssysteem verwijdert, wijzigt u de toegang tot de gegevens in de Data Lake Store.
+Wanneer u beveiligingsgroep ACL's van Azure Data Lake Store-bestandssysteem verwijdert, wijzigt u de toegang tot de gegevens in de Data Lake Store.
 
 1. Klik op de blade van het Data Lake Store-account op **Gegevensverkenner**.
    
     ![Mappen maken in Data Lake-account](./media/data-lake-store-secure-data/adl.start.data.explorer.png "mappen maken in Data Lake-account")
-2. In de **Data Explorer** blade, klikt u op het bestand of map die u wilt verwijderen van de ACL, en klik vervolgens op de blade van uw account, klikt u op de **toegang** pictogram. Als u wilt verwijderen ACL voor een bestand, klikt u op **toegang** van de **bestandsvoorbeeld** blade.
+2. In de **Data Explorer** blade, klikt u op de map waarvoor u wilt verwijderen van de ACL en klik vervolgens op **toegang**. Als u wilt verwijderen ACL's voor een bestand, moet u eerst het bestand om te bekijken en klik vervolgens op klikken **toegang** van de **bestandsvoorbeeld** blade. 
    
     ![ACL's ingesteld op Data Lake-bestandssysteem](./media/data-lake-store-secure-data/adl.acl.1.png "ACL's ingesteld op Data Lake-bestandssysteem")
-3. In de **toegang** blade van de **aangepaste toegang** sectie, klikt u op de beveiligingsgroep die u wilt verwijderen. In de **aangepaste toegang** blade, klikt u op **verwijderen** en klik vervolgens op **OK**.
+3. In de **toegang** blade, klikt u op de beveiligingsgroep die u wilt verwijderen. In de **toegang tot details** blade, klikt u op **verwijderen**.
    
     ![Machtigingen toewijzen aan de groep](./media/data-lake-store-secure-data/adl.remove.acl.png "machtigingen toewijzen aan de groep")
 

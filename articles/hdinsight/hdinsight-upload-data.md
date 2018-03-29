@@ -3,7 +3,7 @@ title: Uploaden van gegevens voor Hadoop-taken in HDInsight | Microsoft Docs
 description: Informatie over het uploaden en toegang tot gegevens voor Hadoop-taken in HDInsight met behulp van de Azure CLI, Azure Storage Explorer, Azure PowerShell, de opdrachtregel voor Hadoop of Sqoop.
 keywords: etl-hadoop-gegevens ophalen van gegevens in hadoop, hadoop laden
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ddb6291cdff7e2b65f54e89196c2b07dd6e4aaff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Upload gegevens voor Hadoop-taken in HDInsight
 
@@ -176,7 +176,7 @@ of
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-Zie voor een lijst met andere Hadoop die werken met bestanden opdrachten, [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Zie voor een lijst met andere Hadoop-opdrachten die met bestanden werken [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
 > Op de HBase-clusters standaard blokgrootte gebruikt bij het schrijven van gegevens is 256 KB. Hoewel dit goed met HBase APIs of REST-API's werkt, gebruiken de `hadoop` of `hdfs dfs` opdrachten voor het schrijven van gegevens is groter dan ~ 12 GB in een fout resulteert. Zie voor meer informatie de [uitzondering om te schrijven op blob storage](#storageexception) sectie in dit artikel.
@@ -188,7 +188,7 @@ Er zijn ook enkele toepassingen die een grafische interface bieden voor het werk
 
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Microsoft Visual Studio-hulpprogramma's voor HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Microsoft Visual Studio-hulpprogramma's voor HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure-opslagverkenner](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Cloud-opslag Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
@@ -196,10 +196,10 @@ Er zijn ook enkele toepassingen die een grafische interface bieden voor het werk
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Visual Studio-hulpprogramma's voor HDInsight
-Zie voor meer informatie [de gekoppelde resources navigeren](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+Zie voor meer informatie [de gekoppelde resources navigeren](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Azure Opslagverkenner
-*Azure Storage Explorer* is een nuttig hulpmiddel om te bekijken en wijzigen van de gegevens in BLOB's. Het is een gratis, open source-hulpprogramma dat kan worden gedownload vanaf [http://storageexplorer.com/](http://storageexplorer.com/). De broncode is beschikbaar via deze koppeling ook.
+*Azure Storage Explorer* is een nuttig hulpmiddel om te bekijken en wijzigen van de gegevens in BLOB's. Het is een gratis, open source-hulpprogramma dat kan worden gedownload vanaf [ http://storageexplorer.com/ ](http://storageexplorer.com/). De broncode is beschikbaar via deze koppeling ook.
 
 Voordat u het hulpprogramma gebruikt, moet u weten Azure naam en sleutel van uw opslagaccount. Zie voor instructies over het ophalen van deze informatie de ' How to: weergeven, kopiëren en opnieuw genereren opslag toegangssleutels ' sectie van [maken, beheren of verwijderen van een opslagaccount][azure-create-storage-account].
 
@@ -207,7 +207,7 @@ Voordat u het hulpprogramma gebruikt, moet u weten Azure naam en sleutel van uw 
 
     Voer de naam en sleutel voor het opslagaccount door uw HDInsight-cluster gebruikt en selecteer vervolgens **opslaan en openen**.
 
-    ![HDI. AzureStorageExplorer][image-azure-storage-explorer]
+    ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 2. Klik op de naam van de container die is gekoppeld aan uw HDInsight-cluster in de lijst van containers naar links van de interface. Standaard, het is de naam van het HDInsight-cluster, maar mogelijk anders als u een specifieke naam hebt ingevoerd bij het maken van het cluster.
 3. Selecteer het pictogram voor het uploaden van de werkbalk.
 

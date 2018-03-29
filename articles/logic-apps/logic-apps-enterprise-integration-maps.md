@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4445a84a6c6425110e7d705019a28b5cc5447046
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b4d626028eed09e9ce6a45fa8fa69859c082da7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="add-maps-for-xml-data-transform"></a>Toewijzingen voor transformatie van XML-gegevens toevoegen
 
@@ -28,9 +28,13 @@ Enterprise-integratie gebruikt kaarten voor het transformeren van XML-gegevens t
 
 Stel dat u regelmatig ontvangt B2B orders of facturen van een klant die de indeling YYYMMDD voor datums gebruikt. Echter in uw organisatie slaat u datums in de indeling MMDDYYY. U kunt een kaart om te gebruiken *transformeren* de datumnotatie YYYMMDD in de MMDDYYY voordat de details van de order of factuur wordt opgeslagen in de database van de activiteit klant.
 
+
 ## <a name="how-do-i-create-a-map"></a>Hoe maak ik een kaart
 
 Kunt u de projecten BizTalk-integratie met de [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "meer informatie over het enterprise-integratiepakket") voor Visual Studio 2015. Vervolgens kunt u een Integratiekaart-bestand waarmee u artikelen tussen twee XML-schemabestanden visueel toewijzen. Nadat u dit project bouwen, hebt u een XSLT-document.
+
+Als de kaart een verwijzing naar een externe assembly bevat, moeten vervolgens beide worden geüpload naar de account van de integratie. Moeten ze worden geüpload in een bepaalde volgorde eerst de assembly en klik vervolgens op de kaart die verwijst naar de assembly.
+
 
 ## <a name="how-do-i-add-a-map"></a>Hoe kan ik een kaart toevoegen
 
@@ -50,7 +54,7 @@ Kunt u de projecten BizTalk-integratie met de [Enterprise Integration Pack](logi
 
     ![](./media/logic-apps-enterprise-integration-maps/map-1.png)
 
-5. Nadat de Maps-blade wordt geopend, kiest u **toevoegen**.
+5. Nadat de toewijzingen pagina wordt geopend, kiest u **toevoegen**.
 
     ![](./media/logic-apps-enterprise-integration-maps/map-2.png)  
 
@@ -62,6 +66,19 @@ Kunt u de projecten BizTalk-integratie met de [Enterprise Integration Pack](logi
 
     ![](./media/logic-apps-enterprise-integration-maps/map-4.png)
 
+
+## <a name="how-do-i-add-an-assembly"></a>Hoe kan ik een assembly toevoegen
+Open de integratie-account waarin u wilt uploaden van de assembly.
+
+1. Kies de **assembly's** tegel.
+
+    ![integrationaccount-assembly-tegel](./media/logic-apps-enterprise-integration-maps/assemblytile.png)
+
+2. Nadat de assembly's pagina wordt geopend, kiest u **toevoegen**. Voer een **naam** voor uw assembly. Als u wilt het assembly-bestand uploaden, kies het pictogram van de map aan de rechterkant van de **Assembly** in het tekstvak. Nadat het uploadproces is voltooid, kiest u **OK**.
+
+    ![toevoegen van de assembly](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
+
+
 ## <a name="how-do-i-edit-a-map"></a>Hoe kan ik een kaart bewerken?
 
 U moet een nieuwe kaart-bestand met de wijzigingen die u wilt uploaden. U kunt de kaart voor het bewerken van eerst downloaden.
@@ -70,9 +87,9 @@ Volg deze stappen voor het uploaden van een nieuwe kaart die wordt vervangen doo
 
 1. Kies de **Maps** tegel.
 
-2. Nadat de Maps-blade wordt geopend, selecteert u de toewijzing die u wilt bewerken.
+2. Nadat de pagina Maps wordt geopend, selecteert u de toewijzing die u wilt bewerken.
 
-3. Op de **Maps** blade kiezen **Update**.
+3. Op de **Maps** pagina **Update**.
 
     ![](./media/logic-apps-enterprise-integration-maps/edit-1.png)
 
@@ -84,7 +101,7 @@ Volg deze stappen voor het uploaden van een nieuwe kaart die wordt vervangen doo
 
 1. Kies de **Maps** tegel.
 
-2. Nadat de Maps-blade wordt geopend, selecteert u de kaart die u wilt verwijderen.
+2. Nadat de pagina Maps wordt geopend, selecteert u de kaart die u wilt verwijderen.
 
 3. Kies **verwijderen**.
 

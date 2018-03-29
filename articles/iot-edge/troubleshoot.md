@@ -6,15 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/15/2017
-ms.topic: tutorial
+ms.date: 03/23/2018
+ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
+ms.openlocfilehash: b03ece52c4ff77c9e0abbc794325cd7e9a20c915
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -104,7 +104,8 @@ De Edge Agent beschikt niet over machtigingen voor toegang tot de installatiekop
 Probeer de opdracht `iotedgectl login` opnieuw uit te voeren.
 
 ## <a name="iotedgectl-cant-find-docker"></a>iotedgectl can't find Docker
-De opdracht setup of start kan niet worden uitgevoerd door iotedgectl en het volgende bericht wordt vastgelegd in de logboeken:
+
+De opdrachten `iotedgectl setup` of `iotedgectl start` mislukken en afdrukken van het volgende bericht naar de logboeken:
 ```output
 File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
   info = self._client.info()
@@ -119,6 +120,33 @@ iotedgectl can't find Docker, which is a pre-requisite.
 
 ### <a name="resolution"></a>Oplossing
 Docker installeren, controleren of het programma actief is en het nogmaals proberen.
+
+## <a name="iotedgectl-setup-fails-with-an-invalid-hostname"></a>iotedgectl installatie mislukt met een ongeldige hostnaam
+
+De opdracht `iotedgectl setup` mislukt en wordt het volgende bericht: 
+
+```output
+Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
+```
+
+### <a name="root-cause"></a>Hoofdoorzaak
+De rand van de IoT-runtime biedt slechts ondersteuning voor hostnamen die korter dan 64 tekens zijn. Dit meestal geen belemmering vormt voor fysieke computers, maar kan zich voordoen bij het instellen van de runtime op een virtuele machine. De automatisch gegenereerde hostnamen voor Windows virtuele machines die worden gehost in Azure, met name hebben vaak lang zijn. 
+
+### <a name="resolution"></a>Oplossing
+Wanneer u deze fout ziet, kunt u deze kunt oplossen door de DNS-naam van uw virtuele machine configureren en de DNS-naam in te stellen als de hostnaam in de setup-opdracht.
+
+1. Ga naar de overzichtspagina van uw virtuele machine in de Azure-portal. 
+2. Selecteer **configureren** met DNS-naam. Als uw virtuele machine is al een DNS-naam is geconfigureerd, hoeft u niet te configureren van een nieuwe. 
+
+   ![Configureer DNS-naam](./media/troubleshoot/configure-dns.png)
+
+3. Geef een waarde voor **label DNS-naam** en selecteer **opslaan**.
+4. Kopiëren van de nieuwe DNS-naam, de indeling moet  **\<DNSnamelabel\>.\< VM-locatie\>. cloudapp.azure.com**.
+5. Gebruik de volgende opdracht voor het instellen van de rand van de IoT-runtime met uw DNS-naam in de virtuele machine:
+
+   ```input
+   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
+   ```
 
 ## <a name="next-steps"></a>Volgende stappen
 Denkt u dat u een fout op het IoT Edge-platform hebt gevonden? [Verzend een probleem](https://github.com/Azure/iot-edge/issues) zodat we het product verder kunnen blijven verbeteren. 

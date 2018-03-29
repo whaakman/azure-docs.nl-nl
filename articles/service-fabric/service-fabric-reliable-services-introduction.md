@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 66e3939a59f09650ce76488c38eb46699ab9f63f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reliable-services-overview"></a>Overzicht van Reliable Services
 Azure Service Fabric vereenvoudigt schrijven en staatloze en stateful Reliable Services beheren. Dit onderwerp wordt beschreven:
@@ -111,5 +111,5 @@ Als een van de volgende kenmerkend zijn voor de behoeften van uw toepassing-serv
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Betrouwbare Services snel starten](service-fabric-reliable-services-quick-start.md)
-* [Reliable Services geavanceerde gebruik](service-fabric-reliable-services-advanced-usage.md)
+* [Betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md)
 * [Het model voor Reliable Actors](service-fabric-reliable-actors-introduction.md)

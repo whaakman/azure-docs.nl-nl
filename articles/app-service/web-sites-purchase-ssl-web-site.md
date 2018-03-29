@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 759bd1e8be8aaebbf98e1c02d67f3e56609354aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
@@ -42,8 +42,8 @@ Voer een beschrijvende **naam** voor uw SSL-certificaat en voer de **domeinnaam*
 
 Selecteer uw **abonnement**, **resourcegroep**, en **SKU van het certificaat**
 
-> [!WARNING]
-> App Service-certificaten kunnen alleen worden gebruikt door andere Services App binnen hetzelfde abonnement.  
+> [!TIP]
+> App Service-certificaten kunnen worden gebruikt voor een Azure- of Azure Services en is niet beperkt tot App-Services. Om dit te doen, moet u een lokale PFX kopie maken van een App Service-certificaat dat kunt u elke gewenste locatie. Lees voor meer informatie [een lokale pfx-exemplaar maken van een App Service-certificaat](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 >
 
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Stap 3: het certificaat wordt opgeslagen in Azure Sleutelkluis
@@ -107,7 +107,7 @@ Klik op **App Service-certificaat importeren** en selecteer het certificaat dat 
 
 ![afbeelding van het certificaat importeren invoegen](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-In de **ssl-bindingen** sectie Klik op **bindingen toevoegen**, en selecteer de naam van het domein te beveiligen met SSL en het certificaat te gebruiken met de vervolgkeuzelijsten. U kunt ook selecteren of u wilt gebruiken  **[indicatie voor Server-naam (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)**  of IP op basis van SSL.
+In de **ssl-bindingen** sectie Klik op **bindingen toevoegen**, en selecteer de naam van het domein te beveiligen met SSL en het certificaat te gebruiken met de vervolgkeuzelijsten. U kunt ook selecteren of u wilt gebruiken **[indicatie voor Server-naam (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** of IP op basis van SSL.
 
 ![afbeelding van SSL-bindingen worden ingevoegd](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 

@@ -2,7 +2,7 @@
 title: 'Azure Active Directory Domain Services: Een virtuele CoreOS Linux-machine toevoegen aan een beheerd domein | Microsoft Docs'
 description: Een virtuele CoreOS Linux-machine toevoegen aan Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 790ad85df0dbf68674e2b9c6254858100ddfd0fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c7290db73645a4e1e745142f266aabc6df735df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Een virtuele CoreOS Linux-machine toevoegen aan een beheerd domein
 In dit artikel leest u hoe een virtuele CoreOS Linux-machine in Azure koppelen aan een beheerd domein van Azure AD Domain Services.
@@ -35,7 +35,7 @@ Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u h
 ## <a name="provision-a-coreos-linux-virtual-machine"></a>Een virtuele CoreOS Linux-machine inrichten
 Een virtuele CoreOS-machine inrichten in Azure met behulp van een van de volgende methoden:
 * [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
-* [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+* [Azure-CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Dit artikel wordt de **CoreOS Linux (stabiel)** installatiekopie van de virtuele machine in Azure.
@@ -140,7 +140,7 @@ Controleer of de machine is toegevoegd aan het beheerde domein. Verbinding maken
 
 
 ## <a name="troubleshooting-domain-join"></a>Het oplossen van problemen aan domein toevoegen
-Raadpleeg de [probleemoplossing domein](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) artikel.
+Raadpleeg de [probleemoplossing domein](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) artikel.
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 * [Azure AD Domain Services - handleiding aan de slag](active-directory-ds-getting-started.md)

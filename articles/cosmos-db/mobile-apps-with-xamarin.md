@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: .net
 author: arramac
 manager: monicar
-editor: 
+editor: ''
 ms.assetid: ff97881a-b41a-499d-b7ab-4f394df0e153
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,15 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 34952fb1cbe5577fa00ed7799d51ba46e7173d7e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0cbe9a8463e8b471e3e4b0b4403c3a5d01ed59a0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Mobiele toepassingen met Xamarin en Azure Cosmos DB maken
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 De meeste mobiele apps moeten voor het opslaan van gegevens in de cloud en Azure Cosmos DB is een cloud-database voor mobiele apps. Heeft alles wat die een mobiele ontwikkelaar nodig heeft. Er is een volledig beheerde database als een service die wordt geschaald op aanvraag. Deze kan laat uw gegevens voor uw toepassing transparant, waar uw gebruikers overal ter wereld zich bevinden. Met behulp van de [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md), kunt u mobiele apps om te communiceren rechtstreeks met Azure Cosmos DB, zonder de middelste laag Xamarin inschakelen.
 

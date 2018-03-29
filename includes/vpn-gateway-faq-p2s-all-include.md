@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 735d6f51dee8e88bec2210717a11d6707686415f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 072c16a0e50a4922d44dd354b632f39b33d23cdd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 ### <a name="supportedclientos"></a>Welke clientbesturingssystemen kan ik met point-to-site gebruiken?
 
@@ -26,8 +26,8 @@ De volgende clientbesturingssystemen worden ondersteund:
 * Windows Server 2012 R2 (alleen 64-bits)
 * Windows Server 2016 (alleen 64-bits)
 * Windows 10
-* OSX versie 10.11 voor Mac (El Capitan)
-* macOS version 10.12 voor Mac (Sierra)
+* Versie van Mac OS X 10.11 (El Capitan)
+* Mac OS X-versie 10,12 (Sierra)
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hoeveel VPN-clienteindpunten kan mijn punt-naar-site-configuratie hebben?
 

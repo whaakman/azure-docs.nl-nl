@@ -3,7 +3,7 @@ title: Archiveren van de Azure Activity Log | Microsoft Docs
 description: Informatie over het archiveren van uw Azure Activity Log voor lange bewaartermijn in een opslagaccount.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiveren van de Azure Activity Log
 In dit artikel, laten we zien hoe u de Azure-portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt bij de archivering van uw [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) in een opslagaccount. Deze optie is handig als u wilt behouden uw activiteitenlogboek van meer dan 90 dagen (met volledige controle over het bewaarbeleid) voor controle, statische analyses of back-up. Als u hoeft alleen uw gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft instellen naar een opslagaccount archivering omdat activiteitenlogboek gebeurtenissen worden behouden in de Azure-platform gedurende 90 dagen zonder in te schakelen archivering.
@@ -164,7 +164,7 @@ Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix 'records
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Blobs voor analyse downloaden](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [Blobs voor analyse downloaden](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Stream het activiteitenlogboek naar Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 * [Lees meer over het activiteitenlogboek](monitoring-overview-activity-logs.md)
 

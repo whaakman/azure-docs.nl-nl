@@ -2,10 +2,10 @@
 title: PostgreSQL op een Linux-VM instellen | Microsoft Docs
 description: Meer informatie over het installeren en configureren van PostgreSQL op een virtuele Linux-machine in Azure
 services: virtual-machines-linux
-documentationcenter: 
-author: SuperScottz
-manager: timlt
-editor: 
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: mingzhan
-ms.openlocfilehash: 0bccdc1cfdbda06b57da8cd662373ef137768672
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: iainfou
+ms.openlocfilehash: 7741f861c5697da1e453c0d613b4b762511cf555
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>PostgreSQL installeren en configureren op Azure
 PostgreSQL is vergelijkbaar met Oracle en DB2 een geavanceerde open source-database. Het bevat enterprise-ready functies zoals volledige ACID naleving, betrouwbare transactionele verwerking en meerdere versie gelijktijdigheidbeheer. Het ondersteunt ook standaarden zoals ANSI SQL en SQL/MED (inclusief externe gegevens wrappers voor Oracle, MySQL, MongoDB en vele andere). Het is maximaal worden uitgebreid met ondersteuning voor meer dan 12 procedurele talen, GIN en basisvertalingen indexen, ondersteuning voor ruimtelijke gegevens en meerdere NoSQL-achtige functies voor JSON of toepassingen op basis van sleutels-waarde.

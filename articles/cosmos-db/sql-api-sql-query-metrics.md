@@ -3,7 +3,7 @@ title: SQL-query metrische gegevens voor Azure Cosmos DB SQL-API | Microsoft Doc
 description: Meer informatie over het instrumenteren en de prestaties van de SQL-query's van Azure DB die Cosmos-aanvragen voor foutopsporing.
 keywords: SQL-syntaxis, sql-query, sql-query's, json-querytaal, database-concepten en sql-query's, statistische functies
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a2a42fd65ba4344f703ca423dc451802f3f0ac76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Prestaties van query's met Azure Cosmos DB afstemmen
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB biedt een [SQL-API voor het opvragen van gegevens](sql-api-sql-query.md), zonder schema of secundaire indexen. In dit artikel biedt de volgende informatie voor ontwikkelaars:
 
@@ -177,7 +175,7 @@ Zie voor meer informatie over partitioneren en partitiesleutels, [partitioneren 
 Zie [Tips voor betere prestaties](performance-tips.md) en [prestatietests](performance-testing.md) voor het ophalen van de beste prestaties voor de clientzijde van Azure Cosmos DB. Dit omvat met de nieuwste SDK's, platform-specifieke netwerkconfiguraties als standaardaantal verbindingen, frequentie van garbagecollection, configureren en lightweight connectiviteitsopties zoals Direct/TCP. 
 
 
-#### <a name="max-item-count"></a>Maximum aantal items
+#### <a name="max-item-count"></a>Aantal items max
 Voor query's, de waarde van `MaxItemCount` kan een aanzienlijke invloed hebben op het moment dat de end-to-end-query. Elke retouren naar de server resulteert niet vaker dan het aantal items in `MaxItemCount` (standaard van 100 objecten). Als u dit op een hogere waarde (-1 is maximum- en aanbevolen) worden uw totale duur van de query verbeteren door het aantal retouren tussen server en client, met name voor query's met grote resultatensets te beperken.
 
 ```cs
@@ -191,7 +189,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ```
 
 #### <a name="max-degree-of-parallelism"></a>Maximale mate van parallelle uitvoering
-Stemmen voor query's, de `MaxDegreeOfParallelism` voor het identificeren van de aanbevolen configuraties voor uw toepassing, met name als u cross-partitie query's (zonder een filter op de partitie-sleutelwaarde) uitvoeren. `MaxDegreeOfParallelism`Hiermee bepaalt u het maximum aantal parallelle taken, dat wil zeggen, het maximum van partities parallel wordt bezocht. 
+Stemmen voor query's, de `MaxDegreeOfParallelism` voor het identificeren van de aanbevolen configuraties voor uw toepassing, met name als u cross-partitie query's (zonder een filter op de partitie-sleutelwaarde) uitvoeren. `MaxDegreeOfParallelism`  Hiermee bepaalt u het maximum aantal parallelle taken, dat wil zeggen, het maximum van partities parallel wordt bezocht. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

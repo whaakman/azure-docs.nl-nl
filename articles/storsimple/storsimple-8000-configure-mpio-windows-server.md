@@ -2,29 +2,29 @@
 title: MPIO configureren voor uw StorSimple-apparaat | Microsoft Docs
 description: Beschrijft hoe u Multipath I/O (MPIO) configureert voor uw StorSimple-apparaat is verbonden met een host waarop Windows Server 2012 R2 wordt uitgevoerd.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f2b094604f486d283574f4669fcad6f72bd4431
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>MPIO configureren voor uw StorSimple-apparaat
 
 Deze zelfstudie bevat de stappen die u moet volgen om te installeren en gebruiken van de functie Multipath I/O (MPIO) op een host waarop Windows Server 2012 R2 en verbonden met een fysiek StorSimple-apparaat. De instructies in dit artikel is van toepassing op StorSimple 8000-serie alleen fysieke apparaten. MPIO wordt momenteel niet ondersteund op een StorSimple-apparaat met Cloud.
 
-Microsoft ondersteuning voor de functie Multipath I/O (MPIO) in Windows Server naar Help-informatie samenstellen maximaal beschikbare en fouttolerantie SAN configuraties gebouwd. MPIO maakt gebruik van componenten van fysieke paden redundante: adapters, kabels en switches – om logische paden tussen de server en het opslagapparaat te creëren. Als er een onderdeelfout veroorzaakt door een logische pad mislukken, overgestapt gebruik van meerdere paden op een alternatief pad voor i/o zodat toepassingen steeds toegang hun gegevens tot nog. Bovendien afhankelijk van uw configuratie MPIO kunt ook de prestaties verbeteren door de belasting herverdeling over alle deze paden. Zie voor meer informatie [MPIO overzicht](https://technet.microsoft.com/library/cc725907.aspx "MPIO overzicht en kenmerken").
+Microsoft ondersteuning voor de functie Multipath I/O (MPIO) in Windows Server bij het opbouwen van maximaal beschikbare en fouttolerantie iSCSI-netwerkconfiguraties gebouwd. MPIO maakt gebruik van componenten van fysieke paden redundante: adapters, kabels en switches – om logische paden tussen de server en het opslagapparaat te creëren. Als er een onderdeelfout veroorzaakt door een logische pad mislukken, overgestapt gebruik van meerdere paden op een alternatief pad voor i/o zodat toepassingen steeds toegang hun gegevens tot nog. Bovendien afhankelijk van uw configuratie MPIO kunt ook de prestaties verbeteren door de belasting herverdeling over alle deze paden. Zie voor meer informatie [MPIO overzicht](https://technet.microsoft.com/library/cc725907.aspx "MPIO overzicht en kenmerken").
 
 Voor de hoge beschikbaarheid van uw StorSimple-oplossing, moet de MPIO op uw StorSimple-apparaat worden geconfigureerd. Wanneer de MPIO op de hostservers met Windows Server 2012 R2 is geïnstalleerd, worden de servers kunnen vervolgens tolereren een koppeling-, netwerk- of Interfacefout.
 
@@ -49,7 +49,7 @@ Voer de volgende procedure om de installatie van deze functie op de host Windows
 
 1. Open Serverbeheer op uw Windows Server-host. Serverbeheer wordt standaard gestart wanneer een lid van de groep Administrators zich aanmeldt bij een computer waarop Windows Server 2012 R2 of Windows Server 2012 wordt uitgevoerd. Als de Server Manager nog niet is geopend, klikt u op **Start > Serverbeheer**.
    
-   ![Serverbeheer](./media/storsimple-configure-mpio-windows-server/IC740997.png)
+   ![Server Manager](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 
 2. Klik op **Serverbeheer > Dashboard > functies en onderdelen toevoegen**. Hiermee start u de **functies en onderdelen toevoegen** wizard.
    
@@ -83,7 +83,7 @@ MPIO moet worden geconfigureerd voor het identificeren van StorSimple-volumes. V
 3. Selecteer **ondersteuning voor iSCSI-apparaten toevoegen**, en klik vervolgens op **toevoegen**.  
    ![Eigenschappen voor MPIO detecteren meerdere paden](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. Start de server wanneer u wordt gevraagd.
-5. In de **eigenschappen voor MPIO** in het dialoogvenster, klikt u op de **MPIO apparaten** tabblad. Klik op **Toevoegen**.
+5. In de **eigenschappen voor MPIO** in het dialoogvenster, klikt u op de **MPIO apparaten** tabblad. Klik op **toevoegen**.
     </br>![MPIO eigenschappen MPIO-apparaten](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. In de **MPIO-ondersteuning toevoegen** dialoogvenster onder **Hardware-ID apparaat**, voer het serienummer van uw apparaat. Als u het serienummer van het apparaat, toegang krijgen tot uw StorSimple-apparaat Manager-service. Navigeer naar **apparaten > Dashboard**. Het serienummer van het apparaat wordt weergegeven in het recht **snel in één oogopslag** deelvenster van het dashboard van het apparaat.
     </br>
@@ -139,7 +139,7 @@ Nadat MPIO op Windows Server is geconfigureerd, wordt volumes die zijn gemaakt o
     
     * Pad controleren periode = 30
     * Aantal nieuwe pogingen = 3
-    * PDO periode verwijdert = 20
+    * PDO Remove Period = 20
     * Interval voor nieuwe pogingen = 1
     * Pad controleren ingeschakeld = niet ingeschakeld.
 
@@ -149,12 +149,12 @@ Nadat MPIO op Windows Server is geconfigureerd, wordt volumes die zijn gemaakt o
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Stap 4: MPIO configureren voor hoge beschikbaarheid en taakverdeling
 
-Voor Multipath op basis van hoge beschikbaarheid en taakverdeling, moeten meerdere sessies handmatig worden toegevoegd aan het declareren van de verschillende paden die beschikbaar zijn. Bijvoorbeeld, als de host heeft twee interfaces zijn verbonden met een SAN en het apparaat heeft twee interfaces zijn verbonden met een SAN, moet u vier sessies die zijn geconfigureerd met het juiste pad permutaties (slechts twee sessies worden als elke interface van de gegevens en de hostinterface op een ander IP-subnet en kan niet worden omgeleid).
+Voor Multipath op basis van hoge beschikbaarheid en taakverdeling, moeten meerdere sessies handmatig worden toegevoegd aan het declareren van de verschillende paden die beschikbaar zijn. Bijvoorbeeld, als de host heeft twee interfaces zijn verbonden met iSCSI-netwerk en het apparaat heeft twee interfaces zijn verbonden met iSCSI-netwerk, moet u vier sessies die zijn geconfigureerd met het juiste pad permutaties (slechts twee sessies is vereist als elke DATA interface en hostinterface zich op een ander IP-subnet en kan niet worden omgeleid).
 
 **We raden u aan ten minste 8 parallelle actieve sessies tussen het apparaat en de toepassingshost van uw.** Dit kan worden bereikt door het inschakelen van 4-netwerkinterfaces op uw Windows Server-systeem. Fysieke netwerkinterfaces of virtuele interfaces via network-technologieën voor virtualisatie gebruiken op het niveau van hardware of besturingssysteem op uw Windows Server-host. Met twee netwerkinterfaces op het apparaat, worden deze configuratie zou leiden tot 8 actieve sessies. Deze configuratie helpt om het apparaat en cloud-doorvoer te optimaliseren.
 
 > [!IMPORTANT]
-> **Het is raadzaam dat u niet door elkaar 1 GbE- en 10 GbE-netwerkinterfaces. Als u twee netwerkinterfaces gebruikt, moet beide interfaces het type identiek zijn.**
+> **Het is raadzaam dat u niet door elkaar 1 GbE- en 10 GbE-netwerkinterfaces. Als u twee netwerkinterfaces gebruikt, moeten beide interfaces van een identieke type zijn.**
 
 De volgende procedure wordt beschreven hoe om toe te voegen sessies wanneer een StorSimple-apparaat met twee netwerkinterfaces is verbonden met een host met twee netwerkinterfaces. U kunt alleen 4 sessies. Gebruik dezelfde procedure met een StorSimple-apparaat met twee netwerkinterfaces verbonden met een host met vier netwerkinterfaces. U moet 8 in plaats van de hier beschreven 4-sessies te configureren.
 
@@ -172,15 +172,15 @@ De volgende procedure wordt beschreven hoe om toe te voegen sessies wanneer een 
 6. In de **geavanceerde instellingen** in het dialoogvenster:
    
    1. Op de **lokale Adapter** vervolgkeuzelijst, selecteer **Microsoft iSCSI-Initiator**.
-   2. Op de **Initiator IP** vervolgkeuzelijst, selecteert u het IP-adres van de host.
-   3. Op de **IP-adres van doel Portal** vervolgkeuzelijst, selecteer het IP-adres van de interface van de gegevens die zijn ingeschakeld op het apparaat.
+   2. Op de **Initiator IP** vervolgkeuzelijst, selecteert u het IP-adres overeenkomt met de eerste interface op de host (iSCSI-interface).
+   3. Op de **IP-adres van doel Portal** vervolgkeuzelijst, selecteer het IP-adres voor de eerste gegevens interface is ingeschakeld op het apparaat.
    4. Klik op **OK** om terug te keren naar het dialoogvenster voor iSCSI-Initiator eigenschappen.
 7. Klik op **eigenschappen**, en in de **eigenschappen** in het dialoogvenster, klikt u op **sessie toevoegen**.
 8. In de **verbinding maken met doel** selecteert u de **Multipath inschakelen** selectievakje en klik vervolgens op **Geavanceerd**.
 9. In de **geavanceerde instellingen** in het dialoogvenster:
    
    1. Op de **lokale adapter** vervolgkeuzelijst, selecteer **Microsoft iSCSI-Initiator**.
-   2. Op de **Initiator IP** vervolgkeuzelijst, selecteert u het IP-adres overeenkomt met de tweede interface op de host.
+   2. Op de **Initiator IP** vervolgkeuzelijst, selecteert u het IP-adres overeenkomt met de tweede iSCSI-interface op de host.
    3. Op de **IP-adres van doel Portal** vervolgkeuzelijst, selecteer het IP-adres voor de tweede gegevens interface is ingeschakeld op het apparaat.
    4. Klik op **OK** om terug te keren naar de **eigenschappen iSCSI-Initiator** in het dialoogvenster. U hebt nu een tweede sessie toegevoegd aan het doel.
 10. Herhaal stap 8-10 extra sessies (paden) toevoegen aan het doel. U kunt een totaal van vier sessies toevoegen met twee interfaces op de host en twee gegevensbronnen op het apparaat.

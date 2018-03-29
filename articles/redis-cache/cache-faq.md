@@ -2,10 +2,10 @@
 title: Veelgestelde vragen over Azure Redis-Cache | Microsoft Docs
 description: Meer informatie over de antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure Redis-Cache
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Veelgestelde vragen over Azure Redis Cache
 Informatie over de antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure Redis-Cache.
@@ -89,7 +89,7 @@ Er zijn verschillende manieren die u kunt aan de slag met Azure Redis-Cache.
 
 * Raadpleeg een van onze zelfstudies beschikbaar voor [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), en [Python](cache-python-get-started.md).
 * U kunt bekijken [hoe bouwen High-Performance Apps met behulp van Microsoft Azure Redis-Cache](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
-* U kunt de clientdocumentatie voor de clients die overeenkomt met de taal van de ontwikkeling van uw project voor informatie over het gebruik van Redis uitchecken. Er zijn veel Redis-clients die kunnen worden gebruikt met Azure Redis-Cache. Zie voor een lijst met Redis-clients, [http://redis.io/clients](http://redis.io/clients).
+* U kunt de clientdocumentatie voor de clients die overeenkomt met de taal van de ontwikkeling van uw project voor informatie over het gebruik van Redis uitchecken. Er zijn veel Redis-clients die kunnen worden gebruikt met Azure Redis-Cache. Zie voor een lijst met Redis-clients, [ http://redis.io/clients ](http://redis.io/clients).
 
 Als u nog een Azure-account hebt, kunt u:
 
@@ -111,7 +111,7 @@ Hieronder vindt u overwegingen voor het kiezen van een Cache-aanbieding.
 * **Redis-Cluster**: caches groter zijn dan 53 GB te maken of gegevens verdelen over meerdere Redis-knooppunten, kunt u Redis clustering, die beschikbaar is in de laag Premium. Elk knooppunt bestaat uit een combinatie van de cache primair/replica voor hoge beschikbaarheid. Zie [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md) (Clustering voor een Premium Azure Redis Cache configureren) voor meer informatie.
 * **Verbeterde beveiliging en isolatie**: implementatie van Azure Virtual Network (VNET) biedt verbeterde beveiliging en isolatie voor uw Azure Redis-Cache, evenals de subnetten, toegangscontrolebeleid, en andere functies nog toegang beperken. Zie [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md) (Virtual Network-ondersteuning voor een Premium Azure Redis Cache configureren) voor meer informatie.
 * **Configureren van Redis**: In de standaard- en Premium-lagen, configureert u Redis voor Keyspace-kennisgevingen.
-* **Maximum aantal clientverbindingen**: de Premium-laag biedt het maximum aantal clients die verbinding met Redis met een hoger aantal verbindingen voor grotere grootte caches maken kunnen. Zie voor meer informatie [prijzen van Azure Redis-Cache](https://azure.microsoft.com/pricing/details/cache/).
+* **Maximum aantal clientverbindingen**: de Premium-laag biedt het maximum aantal clients die verbinding met Redis met een hoger aantal verbindingen voor grotere grootte caches maken kunnen. Clustering, wordt het aantal verbindingen die beschikbaar zijn voor een geclusterde cache niet stijgt. Zie voor meer informatie [prijzen van Azure Redis-Cache](https://azure.microsoft.com/pricing/details/cache/).
 * **Speciale kern voor Redis-Server**: In de laag Premium alle cachegrootte hebben een speciale kern voor Redis. In de Basic-/ Standard lagen, de grootte van de C1 en hoger hebben een speciale kern voor Redis-server.
 * **Redis is één thread** zodat met meer dan twee kernen geen extra voordeel biedt ten opzichte slechts twee kernen hebben, maar grotere VM doorgaans meer bandbreedte dan kleinere hebben. Als de cacheserver of client bereikt de bandbreedtelimieten, ontvangt u time-outs aan de clientzijde.
 * **Verbeterde prestaties**: Caches in de laag Premium zijn geïmplementeerd op hardware met snellere processors geeft betere prestaties in vergelijking met de Basic- of Standard-laag. Premium-laag Caches hebben hogere doorvoer en lagere latenties.

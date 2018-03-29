@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 0fd653b1a4058ce4284bf87b0b9152a264581e5c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8bae1140d4a3ac4762bdcbabb16851d29415a8fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen zijn van toepassing op alle doelgroepen.
@@ -37,12 +37,12 @@ Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update van to
 Download | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="117500"></a>1.1.750.0
-Status: Uitgegeven Schakel klanten die deze release op dit moment wordt gedistribueerd naar een kleine en willekeurige selectie van AADConnect tenants waarop automatische clientupdate is ingeschakeld. We zullen deze groep van tenants uitvouwen in de komende weken tot 100 procent van onze klanten automatische clientupdate hebben ontvangen deze release. Hierna boekt we de build voor algemene downloaden op de bovenstaande koppeling.
+Status 22-3/2018: beschikbaar voor automatische clientupdate en downloaden.
 >[!NOTE]
 >Wanneer de upgrade naar deze nieuwe versie is voltooid, wordt deze automatisch een volledige synchronisatie en de volledige import voor de Azure AD-connector en een volledige synchronisatie voor de AD-connector activeren. Omdat dit enige tijd, afhankelijk van de grootte van uw Azure AD Connect-omgeving duren kan, zorg dat u de benodigde stappen voor de ondersteuning van dit of houd uit op het upgraden van totdat u handige even de tijd om dit te doen hebt gevonden hebt genomen.
 
 >[!NOTE]
->'AutoUpgrade is onjuist voor sommige tenants door uitgeschakeld builds hoger is dan 1.1.524.0. Om ervoor te zorgen dat uw Azure AD Connect-exemplaar nog steeds in aanmerking komen voor AutoUpgrade is, voer de volgende PowerShell-cmdlet: 'Set ADSyncAutoUpgrade - AutoupGradeState AutoUpgradeConfigurationState.Enabled'?
+>'AutoUpgrade functionaliteit is onjuist voor sommige tenants die hoger is dan 1.1.524.0 builds geïmplementeerd uitgeschakeld. Om ervoor te zorgen dat uw Azure AD Connect-exemplaar nog steeds in aanmerking komen voor AutoUpgrade is, voer de volgende PowerShell-cmdlet: 'Set ADSyncAutoUpgrade - AutoupGradeState Enabled'
 
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect

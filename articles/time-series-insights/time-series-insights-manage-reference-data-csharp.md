@@ -7,21 +7,22 @@ author: venkatgct
 ms.author: venkatja
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: b08b6af7abccb550884adc6cc90d180cfcadb2af
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.date: 03/23/2018
+ms.openlocfilehash: 61375ae3b304959d5cda37c4ce0364d566d576a5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Referentiegegevens voor een Azure Time Series Insights-omgeving beheren met C#
 
-Dit onderwerp beschrijft de C# voorbeeldcode voor het beheren van referentiegegevens voor een Azure Time Series Insights-omgeving kan worden gecompileerd.
+Dit artikel wordt een voorbeeld van C#-project kunt u compileren voor het beheren van referentiegegevens voor een Azure Time Series Insights-omgeving beschreven.
 
+## <a name="prerequistes"></a>Prerequistes
 De volgende stappen uitvoeren voordat u compileren en de voorbeeldcode uitvoeren:
 1. [Maken van een gegevensset verwijzing](time-series-insights-add-reference-data-set.md).
 
@@ -30,6 +31,11 @@ De volgende stappen uitvoeren voordat u compileren en de voorbeeldcode uitvoeren
    Zie voor meer informatie over het instellen van niet-interactieve toepassingen [verificatie en autorisatie](time-series-insights-authentication-and-authorization.md).
 
 3. Bewerk de voorbeeldcode ter vervanging van de voorbeeld-constanten, aangewezen op **DUMMY #**, in de buurt van het begin van de code. 
+
+Deze voorbeeldcode is ook beschikbaar op [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
+## <a name="project-references"></a>Projectverwijzingen
+NuGet-pakketten toevoegen `Microsoft.IdentityModel.Clients.ActiveDirectory` en `Newtonsoft.Json` voor dit voorbeeld. 
 
 ## <a name="c-sample-code"></a>C#-voorbeeldcode 
 ```csharp

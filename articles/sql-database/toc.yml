@@ -16,6 +16,7 @@
     - name: Database maken - Azure PowerShell
       href: sql-database-get-started-powershell.md
     - name: Verbinding maken en query uitvoeren
+      href: sql-database-connect-query.md
       items:
         - name: SSMS
           href: sql-database-connect-query-ssms.md

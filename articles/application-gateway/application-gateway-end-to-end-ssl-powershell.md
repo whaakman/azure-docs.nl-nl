@@ -1,24 +1,22 @@
 ---
-title: End-to-end SSL configureren met Azure Application Gateway | Microsoft Docs
+title: End-to-end SSL configureren met Azure Application Gateway
 description: Dit artikel wordt beschreven hoe u een end-to-end SSL configureren met Azure Application Gateway met behulp van PowerShell
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: df14d5c4572a250f9f8951ee3b86e87e6f652782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/27/2018
+ms.author: victorh
+ms.openlocfilehash: 2de7086d7c26d5a655ad5998678f392126ea7e1d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>End-to-end SSL configureren met behulp van Application Gateway met PowerShell
 
@@ -160,7 +158,8 @@ Alle configuratie-items zijn ingesteld voordat u de toepassingsgateway maakt. Vo
    5. Configureer het certificaat voor de toepassingsgateway. Dit certificaat wordt gebruikt om te ontsleutelen en u het verkeer in de toepassingsgateway.
 
    ```powershell
-   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+   $password = ConvertTo-SecureString  <password for certificate file> -AsPlainText -Force 
+   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $password 
    ```
 
    > [!NOTE]
@@ -177,7 +176,7 @@ Alle configuratie-items zijn ingesteld voordat u de toepassingsgateway maakt. Vo
    > [!NOTE]
    > De standaard-test haalt de openbare sleutel van de *standaard* SSL-binding op de back-end-IP-adres en vergelijkt de waarde voor openbare sleutel wordt ontvangen aan de waarde van de openbare sleutel u hier opgeeft. 
    
-   > Als u van hostheaders en Server Name vermelding (SNI) op de back-end gebruikmaakt, is de opgehaalde openbare sleutel mogelijk niet de gewenste site naar welke verkeersstromen. Als u niet zeker bent, gaat u naar https://127.0.0.1/ op de back-endservers om te controleren welk certificaat wordt gebruikt voor de *standaard* SSL-binding. Gebruik de openbare sleutel van de aanvraag die in deze sectie. Als u van hostheaders en SNI op HTTPS-bindingen gebruikmaakt en niet u een antwoord en het certificaat van een aanvraag voor een handmatige browser naar https://127.0.0.1/ op de back-endservers ontvangt, moet u een standaard SSL-binding op de ze instellen. Als u niet doet dit, mislukt de tests en de back-end is niet wilt plaatsen.
+   > Als u van hostheaders en Server Name vermelding (SNI) op de back-end gebruikmaakt, is de opgehaalde openbare sleutel mogelijk niet de gewenste site naar welke verkeersstromen. Als u niet zeker bent, gaat u naar https://127.0.0.1/ op de back-endservers om te controleren welk certificaat wordt gebruikt voor de *standaard* SSL-binding. Gebruik de openbare sleutel van de aanvraag die in deze sectie. Als u van hostheaders en SNI op HTTPS-bindingen gebruikmaakt en niet u een antwoord en het certificaat van de aanvraag van een handmatige browser naar ontvangt https://127.0.0.1/ op de back-end-servers, moet u een standaard SSL-binding op de ze instellen. Als u niet doet dit, mislukt de tests en de back-end is niet wilt plaatsen.
 
    ```powershell
    $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer

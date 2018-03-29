@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
 
@@ -397,9 +397,9 @@ Na de installatie van agent, voer de onderstaande Powershell-opdrachten voor het
 
 **Opdracht #1**
 
-> cd C:\\programmabestanden\\Microsoft Azure Active Directory-synchronisatieagent\\Modules\\AADSyncAgent
+> cd "C:\Program Files\Microsoft Azure AD Connect Agent\Modules\AADSyncAgent inrichting" Agent\\Modules\\AADSyncAgent
 
-> AADSyncAgent.psd1 import-module
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Opdracht #2**
 
@@ -416,6 +416,9 @@ Na de installatie van agent, voer de onderstaande Powershell-opdrachten voor het
 
 >[!IMPORTANT]
 >Er is momenteel een bekend probleem met de hoofdbeheerdersreferenties werkt niet als ze met een aangepast domein (voorbeeld: admin@contoso.com). Als tijdelijke oplossing maken en gebruiken van een globale beheerdersaccount met een onmicrosoft.com-domein (voorbeeld: admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>Er is momenteel een bekend probleem met de hoofdbeheerdersreferenties werkt niet als ze multi-factor authentication ingeschakeld hebben. Een tijdelijke oplossing uit te schakelen multi-factor authentication voor de globale beheerder.
 
 
 **Opdracht #4**

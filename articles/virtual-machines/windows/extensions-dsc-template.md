@@ -2,10 +2,10 @@
 title: Desired State Configuration-extensie met Azure Resource Manager-sjablonen | Microsoft Docs
 description: Meer informatie over de Sjabloondefinitie Resource Manager voor de uitbreiding Desired State Configuration (DSC) in Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
@@ -14,99 +14,121 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 0f1c53c9eafcd96e49232b75d46ef34537a1160f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ea259fc316827872cb1df8bcec385dddf8d2a461
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-extensie met Azure Resource Manager-sjablonen
 
-In dit artikel beschrijft de Azure Resource Manager-sjabloon voor de [Desired State Configuration (DSC) extensie handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+In dit artikel beschrijft de Azure Resource Manager-sjabloon voor de [Desired State Configuration (DSC) extensie handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
 > U kunt tegenkomen iets anders schema voorbeelden. De wijziging in het schema is opgetreden in de release van oktober 2016. Zie voor meer informatie [Update van de vorige indeling](#update-from-the-previous-format).
 
 ## <a name="template-example-for-a-windows-vm"></a>Voorbeeld van de sjabloon voor een virtuele machine van Windows
 
-Het volgende fragment gaat de **Resource** gedeelte van de sjabloon. De DSC-extensie neemt standaard extensie eigenschappen. Zie voor meer informatie [VirtualMachineExtension klasse](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Het volgende fragment gaat de **Resource** gedeelte van de sjabloon.
+De DSC-extensie neemt standaard extensie eigenschappen.
+Zie voor meer informatie [VirtualMachineExtension klasse](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
-            "name": "Microsoft.Powershell.DSC",
-            "type": "extensions",
-             "location": "[resourceGroup().location]",
-             "apiVersion": "2015-06-15",
-             "dependsOn": [
-                  "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-              ],
-              "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.72",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('dscExtensionUpdateTagVersion')]",
-                  "settings": {
-                    "configurationArguments": {
-                        {
-                            "Name": "RegistrationKey",
-                            "Value": {
-                                "UserName": "PLACEHOLDER_DONOTUSE",
-                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                            },
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+    "apiVersion": "2017-12-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.75",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "protectedSettings": {
+            "Items": {
+                        "registrationKeyPrivate": "registrationKey"
+            }
+            },
+            "publicSettings": {
+                "configurationArguments": [
+                    {
+                        "Name": "RegistrationKey",
+                        "Value": {
+                            "UserName": "PLACEHOLDER_DONOTUSE",
+                            "Password": "PrivateSettingsRef:registrationKeyPrivate"
                         },
-                        "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                        "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+                    },
+                    {
+                        "RegistrationUrl" : "registrationUrl",
+                    },
+                    {
+                        "NodeConfigurationName" : "nodeConfigurationName"
                     }
+                ]
+            }
+        },
+    }
+}
 ```
 
 ## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Voorbeeld van de sjabloon voor virtuele-machineschaalset van Windows wordt ingesteld
 
-Een virtuele machine scale set knooppunt heeft een **eigenschappen** sectie met een **VirtualMachineProfile, extensionProfile** kenmerk. Onder **extensies**, DSC toevoegen.
+Een virtuele machine scale set knooppunt heeft een **eigenschappen** sectie met een **VirtualMachineProfile, extensionProfile** kenmerk.
+Onder **extensies**, de details voor DSC-extensie toevoegen.
 
-De DSC-extensie neemt standaard extensie eigenschappen. Zie voor meer informatie [VirtualMachineScaleSetExtension klasse](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+De DSC-extensie neemt standaard extensie eigenschappen.
+Zie voor meer informatie [VirtualMachineScaleSetExtension klasse](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "Microsoft.Powershell.DSC",
-                    "properties": {
-                        "publisher": "Microsoft.Powershell",
-                        "type": "DSC",
-                        "typeHandlerVersion": "2.72",
-                        "autoUpgradeMinorVersion": true,
-                        "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
-                        "settings": {
-                            "configurationArguments": {
-                                {
-                                    "Name": "RegistrationKey",
-                                    "Value": {
-                                        "UserName": "PLACEHOLDER_DONOTUSE",
-                                        "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                                    },
-                                },
-                                "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                                "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+    "extensions": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+            "apiVersion": "2017-12-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.75",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "protectedSettings": {
+                    "Items": {
+                                "registrationKeyPrivate": "registrationKey"
                     }
-                ]
+                    },
+                    "publicSettings": {
+                        "configurationArguments": [
+                            {
+                                "Name": "RegistrationKey",
+                                "Value": {
+                                    "UserName": "PLACEHOLDER_DONOTUSE",
+                                    "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                                },
+                            },
+                            {
+                                "RegistrationUrl" : "registrationUrl",
+                            },
+                            {
+                                "NodeConfigurationName" : "nodeConfigurationName"
+                            }
+                        ]
+                    }
+                },
             }
         }
+    ]
+}
 ```
 
 ## <a name="detailed-settings-information"></a>Informatie over de gedetailleerde instellingen
@@ -175,7 +197,8 @@ Zie voor een lijst van de argumenten die beschikbaar voor een script voor de con
 
 ## <a name="default-configuration-script"></a>Standaard-configuratiescript
 
-Zie voor meer informatie over de volgende waarden [Local Configuration Manager-basisinstellingen](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings). U kunt het DSC-uitbreiding Standaardscript configuratie gebruiken voor het configureren van de LCM-eigenschappen die worden vermeld in de volgende tabel.
+Zie voor meer informatie over de volgende waarden [Local Configuration Manager-basisinstellingen](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+U kunt het DSC-uitbreiding Standaardscript configuratie gebruiken voor het configureren van de LCM-eigenschappen die worden vermeld in de volgende tabel.
 
 | De naam van eigenschap | Type | Beschrijving |
 | --- | --- | --- |
@@ -191,7 +214,10 @@ Zie voor meer informatie over de volgende waarden [Local Configuration Manager-b
 
 ## <a name="settings-vs-protectedsettings"></a>Vs instellingen. ProtectedSettings
 
-Alle instellingen worden opgeslagen in een tekstbestand instellingen op de virtuele machine. Eigenschappen die worden vermeld onder **instellingen** openbare eigenschappen zijn. Openbare eigenschappen worden niet in het tekstbestand instellingen versleuteld. Eigenschappen die worden vermeld onder **protectedSettings** zijn versleuteld met een certificaat en worden niet weergegeven als tekst zonder opmaak in het bestand met instellingen op de virtuele machine.
+Alle instellingen worden opgeslagen in een tekstbestand instellingen op de virtuele machine.
+Eigenschappen die worden vermeld onder **instellingen** openbare eigenschappen zijn.
+Openbare eigenschappen worden niet in het tekstbestand instellingen versleuteld.
+Eigenschappen die worden vermeld onder **protectedSettings** zijn versleuteld met een certificaat en worden niet weergegeven als tekst zonder opmaak in het bestand met instellingen op de virtuele machine.
 
 Als de configuratie moet referenties, kunt u de referenties in opnemen **protectedSettings**:
 
@@ -208,7 +234,9 @@ Als de configuratie moet referenties, kunt u de referenties in opnemen **protect
 
 ## <a name="example-configuration-script"></a>Voorbeeld-configuratiescript
 
-Het volgende voorbeeld ziet het standaardgedrag voor de DSC-uitbreiding is metagegevensinstellingen bieden aan LCM en registreren met de service Automation DSC. Configuratie-argumenten zijn verplicht.  Configuratie argumenten zijn doorgegeven aan de standaard-configuratiescript LCM metagegevens instellen.
+Het volgende voorbeeld ziet het standaardgedrag voor de DSC-uitbreiding is metagegevensinstellingen bieden aan LCM en registreren met de service Automation DSC.
+Configuratie-argumenten zijn verplicht.
+Configuratie argumenten zijn doorgegeven aan de standaard-configuratiescript LCM metagegevens instellen.
 
 ```json
 "settings": {
@@ -233,7 +261,10 @@ Het volgende voorbeeld ziet het standaardgedrag voor de DSC-uitbreiding is metag
 
 ## <a name="example-using-the-configuration-script-in-azure-storage"></a>Voorbeeld met de configuratiescript in Azure Storage
 
-Het volgende voorbeeld komt uit de [DSC-extensieoverzicht handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). In dit voorbeeld maakt gebruik van Resource Manager-sjablonen in plaats van de cmdlets voor het implementeren van de extensie. Sla de configuratie IisInstall.ps1, plaatst u het in een ZIP-bestand en upload het bestand in een toegankelijke URL. In dit voorbeeld gebruikt Azure Blob-opslag, maar u kunt een ZIP-bestanden downloaden vanaf een willekeurige locatie.
+Het volgende voorbeeld komt uit de [DSC-extensieoverzicht handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+In dit voorbeeld maakt gebruik van Resource Manager-sjablonen in plaats van de cmdlets voor het implementeren van de extensie.
+Sla de configuratie IisInstall.ps1, plaatst u het in een ZIP-bestand en upload het bestand in een toegankelijke URL.
+In dit voorbeeld gebruikt Azure Blob-opslag, maar u kunt een ZIP-bestanden downloaden vanaf een willekeurige locatie.
 
 De volgende code Hiermee geeft u de virtuele machine te downloaden van het juiste bestand en voer vervolgens de juiste PowerShell-functie in het Resource Manager-sjabloon:
 
@@ -252,7 +283,8 @@ De volgende code Hiermee geeft u de virtuele machine te downloaden van het juist
 
 ## <a name="update-from-a-previous-format"></a>Bijwerken van een vorige indeling
 
-Alle instellingen in de vorige indeling van de extensie (en de openbare eigenschappen hebben **ModulesUrl**, **ConfigurationFunction**, **SasToken**, of  **Eigenschappen**) automatisch aanpassen aan de huidige indeling van de extensie. Ze worden uitgevoerd net als voor.
+Alle instellingen in de vorige indeling van de extensie (en de openbare eigenschappen hebben **ModulesUrl**, **ConfigurationFunction**, **SasToken**, of  **Eigenschappen**) automatisch aanpassen aan de huidige indeling van de extensie.
+Ze worden uitgevoerd net als voor.
 
 Het volgende schema ziet u welke het vorige instellingenschema staande:
 
@@ -302,7 +334,9 @@ Hier ziet u hoe de vorige indeling wordt aangepast aan de huidige indeling:
 
 ## <a name="troubleshooting---error-code-1100"></a>Probleemoplossing - foutcode 1100
 
-Foutcode 1100 duidt op een probleem met de invoer van de gebruiker toe aan de DSC-uitbreiding. De tekst van deze fouten varieert en kan worden gewijzigd. Hier volgen enkele van de fouten die u kunt tegenkomen en hoe u deze kunt oplossen.
+Foutcode 1100 duidt op een probleem met de invoer van de gebruiker toe aan de DSC-uitbreiding.
+De tekst van deze fouten varieert en kan worden gewijzigd.
+Hier volgen enkele van de fouten die u kunt tegenkomen en hoe u deze kunt oplossen.
 
 ### <a name="invalid-values"></a>Ongeldige waarden
 
@@ -313,7 +347,8 @@ Alleen de mogelijke waarden zijn... en de 'nieuwste' '.
 
 **Probleem**: een opgegeven waarde is niet toegestaan.
 
-**Oplossing**: Wijzig de ongeldige waarde in een geldige waarde. Voor meer informatie, Zie de tabel in [Details](#details).
+**Oplossing**: Wijzig de ongeldige waarde in een geldige waarde.
+Voor meer informatie, Zie de tabel in [Details](#details).
 
 ### <a name="invalid-url"></a>De URL is ongeldig
 
@@ -321,7 +356,8 @@ Alleen de mogelijke waarden zijn... en de 'nieuwste' '.
 
 **Probleem**: een opgegeven URL is niet geldig.
 
-**Oplossing**: Controleer de opgegeven URL's. Zorg ervoor dat alle URL's naar geldige locaties omzetten dat de uitbreiding op de externe computer openen kunt.
+**Oplossing**: Controleer de opgegeven URL's.
+Zorg ervoor dat alle URL's naar geldige locaties omzetten dat de uitbreiding op de externe computer openen kunt.
 
 ### <a name="invalid-configurationargument-type"></a>Ongeldig type voor ConfigurationArgument
 
@@ -329,7 +365,8 @@ Alleen de mogelijke waarden zijn... en de 'nieuwste' '.
 
 **Probleem**: de *ConfigurationArguments* eigenschap kan niet worden omgezet naar een **hashtabel** object.
 
-**Oplossing**: Controleer uw *ConfigurationArguments* eigenschap een **hashtabel**. Volg de indeling die is opgegeven in het voorgaande voorbeeld. Bekijk voor aanhalingstekens, komma's en accolades.
+**Oplossing**: Controleer uw *ConfigurationArguments* eigenschap een **hashtabel**.
+Volg de indeling die is opgegeven in het voorgaande voorbeeld. Bekijk voor aanhalingstekens, komma's en accolades.
 
 ### <a name="duplicate-configurationarguments"></a>Dubbele ConfigurationArguments
 

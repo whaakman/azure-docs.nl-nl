@@ -2,10 +2,10 @@
 title: Azure Log Analytics pijp implementeren voor het bewaken van de Cloud Foundry | Microsoft Docs
 description: Stapsgewijze instructies over het implementeren van de Cloud Foundry loggregator pijp voor Azure-logboekanalyse. Gebruik de pijp voor het bewaken van de Cloud Foundry system status en prestaties van metrische gegevens.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ningk
 manager: timlt
-editor: 
+editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0d13d39d2921c51c537534a5b000564a9df91880
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Azure Log Analytics pijp implementeren voor het bewaken van de Cloud Foundry-systeem
 
-[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) is een service in Microsoft [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/) (OMS). Dit helpt u bij het verzamelen en analyseren van gegevens die is gegenereerd op basis van uw cloud en on-premises omgevingen.
+[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) is een service in Azure. Dit helpt u bij het verzamelen en analyseren van gegevens die is gegenereerd op basis van uw cloud en on-premises omgevingen.
 
 De Log Analytics pijp (de pijp) is een onderdeel Cloud Foundry (CF), die metrische gegevens van doorstuurt de [Cloud Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose met logboekanalyse. Met de pijp kunt u verzamelen, weergeven en analyseren van uw CF system health en prestatiemaatstaven, met meerdere implementaties.
 
-In dit document, informatie over het implementeren van de pijp aan uw omgeving CF en vervolgens toegang tot de gegevens uit de logboekanalyse OMS-console.
+In dit document, informatie over het implementeren van de pijp aan uw omgeving CF en vervolgens toegang tot de gegevens uit de Log Analytics-console.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -53,9 +53,9 @@ De pijp moet ook de toegangsmachtigingen voor de firehose loggregator en de Clou
 
 Voordat u de client voor de opdrachtregel UAA instelt, zorg ervoor dat de Rubygems is geïnstalleerd.
 
-### <a name="3-create-an-oms-workspace-in-azure"></a>3. Een OMS-werkruimte maken in Azure
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Maken van een werkruimte voor logboekanalyse in Azure
 
-U kunt de OMS-werkruimte maken handmatig of via een sjabloon. De vooraf geconfigureerde OMS-weergaven en waarschuwingen nadat u de implementatie van de pijp worden geladen.
+U kunt de werkruimte voor logboekanalyse handmatig of met behulp van een sjabloon maken. De vooraf geconfigureerde OMS-weergaven en waarschuwingen nadat u de implementatie van de pijp worden geladen.
 
 De werkruimte handmatig maken:
 
@@ -70,7 +70,7 @@ De werkruimte handmatig maken:
 
 Zie voor meer informatie [aan de slag met logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-U kunt ook de OMS-werkruimte via de OMS-sjabloon maken. Met deze methode, de sjabloon de vooraf geconfigureerde OMS-weergaven en waarschuwingen automatisch geladen. Zie voor meer informatie de [Azure OMS Log Analytics-oplossing voor Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+U kunt ook de werkruimte voor logboekanalyse via de OMS-sjabloon maken. Met deze methode, de sjabloon de vooraf geconfigureerde OMS-weergaven en waarschuwingen automatisch geladen. Zie voor meer informatie de [Azure Log Analytics-oplossing voor Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
 
 ## <a name="deploy-the-nozzle"></a>De pijp implementeren
 
@@ -116,16 +116,16 @@ git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
 ```
 
-#### <a name="set-environment-variables"></a>De omgevingsvariabelen instellen
+#### <a name="set-environment-variables"></a>Omgevingsvariabelen instellen
 
-U kunt nu omgevingsvariabelen instellen in het bestand manifest.yml in uw huidige map. Hieronder ziet u het app-manifest voor de pijp. Vervang de waarden door uw specifieke gegevens van de OMS-werkruimte.
+U kunt nu omgevingsvariabelen instellen in het bestand manifest.yml in uw huidige map. Hieronder ziet u het app-manifest voor de pijp. Vervang de waarden door uw specifieke gegevens van de Log Analytics-werkruimte.
 
 ```
-OMS_WORKSPACE             : OMS workspace ID: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to OMS Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to OMS Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to OMS Log Analytics. The default is 1000.
+OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -135,8 +135,8 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to OMS Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to OMS Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
 ```
 
 ### <a name="push-the-application-from-your-development-computer"></a>De toepassing vanaf de ontwikkelcomputer push
@@ -165,7 +165,7 @@ Zorg ervoor dat de pijp OMS-toepassing wordt uitgevoerd.
 
 ### <a name="1-import-the-oms-view"></a>1. Importeer de OMS-weergave
 
-Vanuit de OMS-portal bladert u naar **ontwerper** > **importeren** > **Bladeren**, en selecteer een van de omsview-bestanden. Selecteer bijvoorbeeld *Cloud Foundry.omsview*, en de weergave op te slaan. Nu u een tegel wordt weergegeven op de OMS **overzicht** pagina. Selecteer het gevisualiseerde metrische gegevens te verzamelen.
+Vanuit de OMS-portal bladert u naar **ontwerper** > **importeren** > **Bladeren**, en selecteer een van de omsview-bestanden. Selecteer bijvoorbeeld *Cloud Foundry.omsview*, en de weergave op te slaan. Nu u een tegel wordt weergegeven op de **overzicht** pagina. Selecteer het gevisualiseerde metrische gegevens te verzamelen.
 
 U kunt deze weergaven aanpassen of maken van nieuwe weergaven via **ontwerper**.
 
@@ -175,16 +175,16 @@ De *'Cloud Foundry.omsview'* is een preview-versie van de sjabloon Cloud Foundry
 
 U kunt [maken van de waarschuwingen](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), en pas de query's en drempelwaarden zo nodig. De volgende worden waarschuwingen aanbevolen:
 
-| Zoekopdracht                                                                  | Op basis van de waarschuwing wordt gegenereerd | Beschrijving                                                                       |
+| Zoekquery                                                                  | Waarschuwing genereren is gebaseerd op | Beschrijving                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| Type = CF_ValueMetric_CL Origin_s = bbs Name_s = 'Domain.cf-apps'                   | Aantal resultaten < 1   | **BBS. Domain.cf apps** wordt aangegeven of het domein cf-apps up-to-date. Dit betekent dat CF App aanvragen van Cloud-Controller naar bbs zijn gesynchroniseerd. LRPsDesired (AIs Diego gewenst) voor uitvoering. Er zijn geen gegevens ontvangen betekent dat CF apps domein is niet bijgewerkt in de opgegeven periode. |
-| Type = CF_ValueMetric_CL Origin_s = rep Name_s UnhealthyCell Value_d = > 1            | Aantal resultaten > 0   | Voor Diego cellen 0 betekent in orde en 1 betekent dat niet in orde. Stel de waarschuwing als meerdere slecht Diego cellen worden gedetecteerd in de opgegeven periode. |
-| Type CF_ValueMetric_CL Origin_s = 'bosh hm doorstuurserver' Name_s="system.healthy =" Value_d = 0 | Aantal resultaten > 0 | 1 betekent dat het systeem in orde is en 0 betekent dat het systeem is niet in orde. |
-| Type = CF_ValueMetric_CL Origin_s = route_emitter Name_s ConsulDownMode Value_d = > 0 | Aantal resultaten > 0   | Ge verzendt periodiek de status. 0 betekent dat het systeem is in orde en 1 betekent dat de zender route detecteert dat ge niet actief is. |
-| Type = CF_CounterEvent_CL Origin_s Delta_d DopplerServer (Name_s="TruncatingBuffer.DroppedMessages' of Name_s="doppler.shedEnvelopes') = > 0 | Aantal resultaten > 0 | De delta aantal berichten opzettelijk verwijderd door Doppler vanwege een zware belasting op het vorige. |
-| Type = CF_LogMessage_CL SourceType_s LGR MessageType_s = ERR =                      | Aantal resultaten > 0   | Loggregator verzendt **LGR** om aan te duiden op problemen met het registratieproces. Een voorbeeld van een dergelijk probleem is wanneer de uitvoer van het bericht te hoog is. |
-| Type CF_ValueMetric_CL Name_s = slowConsumerAlert =                               | Aantal resultaten > 0   | Wanneer de pijp wordt een waarschuwing trage consumer van loggregator ontvangt, stuurt de **slowConsumerAlert** ValueMetric met OMS. |
-| Type = CF_CounterEvent_CL Job_s = pijp Name_s eventsLost Delta_d = > 0              | Aantal resultaten > 0   | Als de delta-aantal gebeurtenissen dat verloren een drempel bereikt, betekent dit dat de pijp mogelijk een probleem dat wordt uitgevoerd. |
+| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Aantal resultaten < 1   | **BBS. Domain.cf apps** wordt aangegeven of het domein cf-apps up-to-date. Dit betekent dat CF App aanvragen van Cloud-Controller naar bbs zijn gesynchroniseerd. LRPsDesired (AIs Diego gewenst) voor uitvoering. Er zijn geen gegevens ontvangen betekent dat CF apps domein is niet bijgewerkt in de opgegeven periode. |
+| Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Aantal resultaten > 0   | Voor Diego cellen 0 betekent in orde en 1 betekent dat niet in orde. Stel de waarschuwing als meerdere slecht Diego cellen worden gedetecteerd in de opgegeven periode. |
+| Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Aantal resultaten > 0 | 1 betekent dat het systeem in orde is en 0 betekent dat het systeem is niet in orde. |
+| Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Aantal resultaten > 0   | Ge verzendt periodiek de status. 0 betekent dat het systeem is in orde en 1 betekent dat de zender route detecteert dat ge niet actief is. |
+| Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Aantal resultaten > 0 | De delta aantal berichten opzettelijk verwijderd door Doppler vanwege een zware belasting op het vorige. |
+| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Aantal resultaten > 0   | Loggregator verzendt **LGR** om aan te duiden op problemen met het registratieproces. Een voorbeeld van een dergelijk probleem is wanneer de uitvoer van het bericht te hoog is. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Aantal resultaten > 0   | Wanneer de pijp wordt een waarschuwing trage consumer van loggregator ontvangt, stuurt de **slowConsumerAlert** ValueMetric met logboekanalyse. |
+| Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Aantal resultaten > 0   | Als de delta-aantal gebeurtenissen dat verloren een drempel bereikt, betekent dit dat de pijp mogelijk een probleem dat wordt uitgevoerd. |
 
 ## <a name="scale"></a>Schalen
 
@@ -218,7 +218,7 @@ Typ in het venster CF CLI:
 cf delete <App Name> -r
 ```
 
-Als u de pijp verwijdert, wordt de gegevens in de OMS-portal niet automatisch verwijderd. Het is verlopen op basis van de instelling van de retentie OMS-logboekanalyse.
+Als u de pijp verwijdert, wordt de gegevens in de OMS-portal niet automatisch verwijderd. Het is verlopen op basis van de instelling van de retentie logboekanalyse.
 
 ## <a name="support-and-feedback"></a>Ondersteuning en feedback
 

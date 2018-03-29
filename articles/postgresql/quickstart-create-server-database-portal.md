@@ -1,6 +1,6 @@
 ---
 title: Snelstart - Een Azure Database for PostgreSQL-server maken in Azure Portal
-description: Snelstartgids voor het beheren en maken van een Azure Database for PostgreSQL-server via de Azure Portal-gebruikersinterface.
+description: Quick Start-handleiding voor het beheren en maken van een Azure Database for PostgreSQL-server via de Azure Portal-gebruikersinterface.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 83bdc6eba35f0deaaf541f2042854764ae513fb9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: c1acb568598184974b65d666075032e74aa49eb3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snelstart: een Azure Database for PostgreSQL-server maken in Azure Portal
 
@@ -53,7 +53,7 @@ Volg deze stappen voor het maken van een Azure Database for PostgreSQL-server:
     Prijscategorie | **Algemeen**, **Gen 4**, **2 vCores**, **5 GB**, **7 dagen**, **Geografisch redundant** | De reken-, opslag- en back-upconfiguraties voor de nieuwe server. Selecteer **Prijscategorie**. Selecteer vervolgens het tabblad **Algemeen**. *Gen 4*, *2 vCores*, *5 GB* en *7 dagen* zijn de standaardwaarden voor **Bewerking voor compute**, **vCore**, **Opslag** en **Bewaarperiode voor back-up**. U kunt deze schuifregelaars laten zoals ze zijn. Als u serverback-ups in geografisch redundante opslag wilt inschakelen, selecteert u **Geografisch redundant** in het gedeelte **Redundantieopties voor back-up**. Selecteer **OK** om deze geselecteerde prijscategorie op te slaan. Deze selecties worden afgebeeld in de volgende schermopname.
 
     > [!IMPORTANT]
-    > De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze snelstart. Onthoud of noteer deze informatie voor later gebruik.
+    > De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze Quick Start. Onthoud of noteer deze informatie voor later gebruik.
 
     ![Het deelvenster Prijscategorie](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
@@ -77,7 +77,7 @@ In Azure Database for PostgreSQL wordt een firewall op serverniveau gemaakt. De 
 
 3. Selecteer onder de kop **Firewallregels** het lege tekstvak in de kolom **Regelnaam** om te beginnen met het maken van de firewallregel. 
 
-    Voor deze snelstart gaan we alle IP-adressen tot de server toelaten. Vul in het tekstvak in elke kolom de volgende waarden in:
+    Voor deze quickstart gaan we alle IP-adressen tot de server toelaten. Vul in het tekstvak in elke kolom de volgende waarden in:
 
     Regelnaam | Start-IP | Eind-IP 
     ---|---|---
@@ -194,7 +194,7 @@ pgAdmin is een open-source hulpprogramma voor PostgreSQL. U kunt pgAdmin install
     Poort | 5432 | De poort die moet worden gebruikt wanneer u verbinding maakt met de Azure Database for PostgreSQL-server. 
     Onderhoudsdatabase | *postgres* | De door het systeem gegenereerde standaarddatabasenaam.
     Gebruikersnaam | Aanmeldingsnaam van serverbeheerder | De aanmeldingsnaam van de serverbeheerder die u hebt opgegeven toen u de Azure Database for PostgreSQL-server eerder hebt gemaakt. Als u de gebruikersnaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. De indeling is *username@servername*.
-    Wachtwoord | Uw beheerderswachtwoord | Het wachtwoord dat u hebt gekozen toen u eerder in deze snelstart de server maakte.
+    Wachtwoord | Uw beheerderswachtwoord | Het wachtwoord dat u hebt gekozen toen u eerder in deze Quick Start de server maakte.
     Rol | Leeg laten | U hoeft op dit moment geen rolnaam op te geven. Laat het veld leeg.
     SSL-modus | *Require* | U kunt de SSL-modus instellen op het tabblad SSL van pgAdmin. Bij het maken van een Azure Database for PostgreSQL-server wordt standaard geforceerd SSL ingeschakeld. Raadpleeg [SSL afdwingen](./concepts-ssl-connection-security.md) als u geforceerd SSL wilt uitschakelen.
     
@@ -218,10 +218,10 @@ pgAdmin is een open-source hulpprogramma voor PostgreSQL. U kunt pgAdmin install
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-De resources die u hebt gemaakt in de snelstart kunt u op een van de volgende twee manieren opschonen. U kunt de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) verwijderen, met alle resources uit de resourcegroep. Als u de andere resources intact wilt houden, verwijdert u alleen de serverresource.
+De resources die u hebt gemaakt in de Quick Start kunt u op een van de volgende twee manieren opschonen. U kunt de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) verwijderen, met alle resources uit de resourcegroep. Als u de andere resources intact wilt houden, verwijdert u alleen de serverresource.
 
 > [!TIP]
-> Andere snelstarts in deze verzameling zijn op deze snelstart gebaseerd. Als u van plan bent om ook deze snelstarts te volgen, moet u geen resources opschonen die u in deze snelstart hebt gemaakt. Als u niet wilt doorgaan, gebruikt u de volgende stappen om resources te verwijderen die tijdens deze snelstart in de portal zijn gemaakt.
+> Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om ook deze Quick Starts te volgen, moet u geen resources opschonen die u in deze Quick Start hebt gemaakt. Als u niet wilt doorgaan, gebruikt u de volgende stappen om resources te verwijderen die tijdens deze Quick Start in de portal zijn gemaakt.
 
 De hele resourcegroep verwijderen, met inbegrip van de nieuwe server:
 1. Zoek de resourcegroep in de portal. Selecteer **Resourcegroepen** in het menu aan de linkerkant. Selecteer vervolgens de naam van de resourcegroep, zoals in het voorbeeld **myresourcegroup**.

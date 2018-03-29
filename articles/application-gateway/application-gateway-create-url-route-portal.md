@@ -1,21 +1,20 @@
 ---
-title: Een toepassingsgateway maken met URL-pad gebaseerde routeringsregels - Azure-portal | Microsoft Docs
+title: Een toepassingsgateway maken met URL-pad gebaseerde routeringsregels - Azure-portal
 description: Informatie over het maken van de URL op basis van een pad routeringsregels voor een toepassingsgateway en virtuele-machineschaalset ingesteld met de Azure-portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 3/26/2018
+ms.author: victorh
+ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Een toepassingsgateway maken met routering regels op basis van een pad met de Azure portal
 
@@ -154,11 +153,11 @@ In dit voorbeeld maakt u drie virtuele machines moet worden gebruikt als back-en
 
     ![Record application gateway openbaar IP-adres](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Het openbare IP-adres Kopieer en plak deze in de adresbalk van uw browser. Zoals http://http: / / 40.121.222.19.
+2. Het openbare IP-adres Kopieer en plak deze in de adresbalk van uw browser. Zoals http://http://40.121.222.19.
 
     ![Basis-URL te testen in de toepassingsgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Wijzig de URL naar http://&lt;IP-adres&gt;: 8080/video/test.htm, vervangen door &lt;IP-adres&gt; met uw IP-adres en u ziet ongeveer het volgende voorbeeld:
+3. Wijzig de URL naar http://&lt;IP-adres&gt;: 8080/images/test.htm, vervangen door &lt;IP-adres&gt; met uw IP-adres en u ziet ongeveer het volgende voorbeeld:
 
     ![Test-URL voor afbeeldingen in de toepassingsgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 

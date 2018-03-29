@@ -13,19 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/27/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa95cae5d62ebe23d6822232c4a5ab872e1f2c6a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Gegevens instelbare consistentieniveaus in Azure Cosmos-DB
 Azure Cosmos DB is compleet met globale verdeling in gedachten voor elke gegevensmodel ontworpen. Het is ontworpen om voorspelbare lage latentie garanties en meerdere goed gedefinieerde beperkte consistentie modellen bieden. Op dit moment Azure Cosmos DB bevat vijf consistentieniveaus: sterk, gebonden-verouderd, sessie, consistente voorvoegsel en uiteindelijk. Gebonden-verouderd, sessie, consistente voorvoegsel en uiteindelijke worden aangeduid als 'beperkte consistentie modellen' als ze bieden minder consistentie dan sterk, die de meeste maximaal consistent model beschikbaar is. 
 
 Naast de **sterk** en **uiteindelijke consistentie** modellen vaak die worden aangeboden door gedistribueerde databases Azure Cosmos DB biedt drie meer zorgvuldig gecodeerd en geoperationaliseerd consistentie modellen:  **gebonden veroudering**, **sessie**, en **consistent voorvoegsel**. Het nut van elk van deze consistentieniveaus is gevalideerd tegen werkelijkheid gebruiksvoorbeelden. Gezamenlijk kunnen deze vijf consistentieniveaus u afweging goed gemotiveerd tussen de consistentie, beschikbaarheid en latentie. 
+
+In de volgende video toont Azure Cosmos DB Program Manager Andrew Liu de klare algemene distributie-functies.
+
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## <a name="distributed-databases-and-consistency"></a>Gedistribueerde databases en consistentie
 Commerciële gedistribueerde databases worden onderverdeeld in twee categorieën: databases die niet beschikken over goed gedefinieerde provable consistentie keuzes helemaal en databases die zijn er twee extreme programmeerbaarheid mogelijkheden (sterk versus uiteindelijke consistentie). 
@@ -118,7 +122,7 @@ Voor de gebruiker gedefinieerde resources, is het consistentieniveau van de voor
 | --- | --- | --- |
 | Consistente (standaard) |Selecteer een van de sterk, gebonden veroudering, sessie, consistente voorvoegsel of uiteindelijke |Selecteer een van de sterk, gebonden-verouderd, sessie of uiteindelijke |
 | Vertraagde |Selecteer een van de sterk, gebonden veroudering, sessie, consistente voorvoegsel of uiteindelijke |Mogelijk |
-| None |Selecteer een van de sterk, gebonden veroudering, sessie, consistente voorvoegsel of uiteindelijke |Niet van toepassing |
+| Geen |Selecteer een van de sterk, gebonden veroudering, sessie, consistente voorvoegsel of uiteindelijke |Niet van toepassing |
 
 Als met leesaanvragen, kunt u het consistentieniveau van de aanvraag van een specifieke query in elke API verlagen.
 

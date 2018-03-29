@@ -7,16 +7,16 @@ author: ankryach
 ms.author: ankryach
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-reviewer: v-mamcge, jasonwhowell, kfile, tsidocs
+reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 561ad848e7bddc6bf9d71328db4ddbba9bc5d2b4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.date: 03/23/2018
+ms.openlocfilehash: 2cbdf4a5c7272e88430b1db7b853f8b6d441c893
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Opvragen van gegevens uit de Azure Time Series Insights-omgeving met C#
 
@@ -26,6 +26,11 @@ Er worden enkele eenvoudige voorbeelden voor het gebruik van de API-query gegeve
 2. De lijst met omgevingen waarin de gebruiker toegang tot heeft wordt verkregen. Een van de omgevingen wordt opgehaald als de omgeving van belang en verdere gegevens voor deze omgeving wordt opgevraagd.
 3. Er worden beschikbaarheidsgegevens opgevraagd voor de belangrijkste omgeving als voorbeeld van een HTTPS-aanvraag.
 4. Er worden gebeurtenissamenvoegingsgegevens opgevraagd voor de belangrijkste omgeving als voorbeeld van een web socket-aanvraag. Er worden gegevens opgevraagd voor het volledige tijdsbereik van de beschikbaarheid.
+
+Deze voorbeeldcode is ook beschikbaar op [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
+## <a name="project-references"></a>Projectverwijzingen
+NuGet-pakketten toevoegen `Microsoft.IdentityModel.Clients.ActiveDirectory` en `Newtonsoft.Json` voor dit voorbeeld. 
 
 ## <a name="c-example"></a>C#-voorbeeld
 

@@ -2,7 +2,7 @@
 title: Scriptactieontwikkeling met HDInsight op basis van Linux - Azure | Microsoft Docs
 description: Informatie over het Bash-scripts gebruiken voor het aanpassen van Linux gebaseerde HDInsight-clusters. Het script actie-onderdeel van HDInsight kunt u scripts uitvoeren tijdens of na het maken van het cluster. Scripts kunnen worden gebruikt voor het cluster configuratie-instellingen wijzigen of aanvullende software installeren.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5074345533f0fdb0c72bf319646ad614632d1940
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Scripts actie te ontwikkelen met HDInsight
 
@@ -66,7 +66,7 @@ Wanneer u een aangepast script voor een HDInsight-cluster ontwikkelt, zijn er en
 
 Verschillende versies van HDInsight hebben verschillende versies van Hadoop-services en -onderdelen geïnstalleerd. Als uw script een specifieke versie van een service of het onderdeel verwacht, moet u het script alleen gebruiken met de versie van HDInsight met de vereiste onderdelen. U vindt informatie over het onderdeel-versies die zijn opgenomen in HDInsight met behulp van de [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md) document.
 
-### <a name="bps10"></a>Versie van het besturingssysteem zijn gericht
+### <a name="bps10"></a> Versie van het besturingssysteem zijn gericht
 
 Linux gebaseerde HDInsight is gebaseerd op het distributiepunt Ubuntu Linux. Verschillende versies van HDInsight, is afhankelijk van verschillende versies van Ubuntu, die de werking van uw script kunnen wijzigen. Bijvoorbeeld, HDInsight 3,4 en eerder zijn gebaseerd op Ubuntu-versies die Upstart gebruiken. Versie 3.5 en hoger zijn gebaseerd op Ubuntu 16.04 dat gebruikmaakt van Systemd. Systemd en Upstart zijn afhankelijk van andere opdrachten, zodat uw script werkt met beide worden geschreven.
 
@@ -103,7 +103,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-U vindt de volledige script dat deze fragmenten op https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh bevat.
+U vindt de volledige-script met deze fragmenten op https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
 
 Zie voor de versie van Ubuntu die wordt gebruikt door HDInsight, het [HDInsight componentversie](hdinsight-component-versioning.md) document.
 
@@ -118,7 +118,7 @@ De aanbevolen procedure is om te downloaden en te archiveren alles in een Azure 
 > [!IMPORTANT]
 > Het opslagaccount gebruikt, moet het standaardopslagaccount voor het cluster of een openbare, alleen-lezen container op andere storage-account.
 
-Bijvoorbeeld, de voorbeelden die is geleverd door Microsoft worden opgeslagen in de [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage-account. Deze locatie is een openbaar, alleen-lezen container onderhouden door het HDInsight-team.
+Bijvoorbeeld, de voorbeelden die is geleverd door Microsoft worden opgeslagen in de [ https://hdiconfigactions.blob.core.windows.net/ ](https://hdiconfigactions.blob.core.windows.net/) storage-account. Deze locatie is een openbaar, alleen-lezen container onderhouden door het HDInsight-team.
 
 ### <a name="bPS4"></a>Vooraf gecompileerde resources gebruiken
 
@@ -168,11 +168,11 @@ Standaard `echo` verzendt de tekenreeks naar STDOUT. Voeg deze rechtstreeks in S
 >&2 echo "An error occurred installing Foo"
 ```
 
-U wordt doorgestuurd naar STDOUT in STDERR (2) in plaats daarvan geschreven informatie. Zie voor meer informatie over i/o-omleiding [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+U wordt doorgestuurd naar STDOUT in STDERR (2) in plaats daarvan geschreven informatie. Zie voor meer informatie over i/o-omleiding [ http://www.tldp.org/LDP/abs/html/io-redirection.html ](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Zie voor meer informatie over het weergeven van informatie die wordt geregistreerd door scriptacties [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
-### <a name="bps8"></a>ASCII-bestanden opslaan met regeleinden LF
+### <a name="bps8"></a> ASCII-bestanden opslaan met regeleinden LF
 
 Bash-scripts moeten worden opgeslagen als ASCII-indeling met regels die door LF is beëindigd. Bestanden die worden opgeslagen als UTF-8 of CRLF gebruiken als het beëindigen van de regel kunnen mislukken met de volgende fout:
 
@@ -181,7 +181,7 @@ $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="bps9"></a>Pogingslogica voor gebruik van tijdelijke fouten wilt herstellen
+### <a name="bps9"></a> Pogingslogica voor gebruik van tijdelijke fouten wilt herstellen
 
 Bij het downloaden van bestanden, installatie van pakketten via apt get- of andere acties die gegevens via internet verzenden, wordt de actie mislukken vanwege tijdelijke netwerkfouten. De externe bron die u wilt communiceren kan bijvoorbeeld een herstelbewerking worden niet via een back-knooppunt.
 
@@ -221,7 +221,7 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>Help-methoden voor aangepaste scripts
 
-Script actie Help-methoden zijn hulpprogramma's die u gebruiken kunt bij het schrijven van aangepaste scripts. Deze methoden zijn opgenomen in de[https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) script. Gebruik de volgende te downloaden en gebruiken ze als onderdeel van uw script:
+Script actie Help-methoden zijn hulpprogramma's die u gebruiken kunt bij het schrijven van aangepaste scripts. Deze methoden zijn opgenomen in de[ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) script. Gebruik de volgende te downloaden en gebruiken ze als onderdeel van uw script:
 
 ```bash
 # Import the helper method module.
@@ -251,7 +251,7 @@ Deze sectie bevat richtlijnen over het implementeren van enkele van de algemene 
 
 In sommige gevallen kan het script parameters vereist. Bijvoorbeeld, moet u mogelijk het beheerderswachtwoord voor het cluster wanneer u de Ambari REST-API.
 
-Parameters doorgegeven aan het script worden aangeduid als *positieparameters*, en zijn toegewezen aan `$1` voor de eerste parameter `$2` voor de tweede pagina, en dus eenmalige aanmelding. `$0`bevat de naam van het script zelf.
+Parameters doorgegeven aan het script worden aangeduid als *positieparameters*, en zijn toegewezen aan `$1` voor de eerste parameter `$2` voor de tweede pagina, en dus eenmalige aanmelding. `$0` bevat de naam van het script zelf.
 
 Waarden worden doorgegeven aan het script als parameters moeten tussen enkele aanhalingstekens ('). Hiermee zorgt u ervoor dat de doorgegeven waarde behandeld als een letterlijke waarde.
 
@@ -317,7 +317,7 @@ fi
 Hier volgen de stappen nemen bij het voorbereiden voor het implementeren van een script:
 
 * Plaats de bestanden die de aangepaste scripts op een locatie die toegankelijk is voor de clusterknooppunten tijdens de implementatie bevatten. Bijvoorbeeld, de opslag standaard voor het cluster. Bestanden kunnen ook worden opgeslagen in openbaar leesbaar hosting-services.
-* Controleer of het script impotent. In dat geval kunt het script meerdere keren op hetzelfde knooppunt worden uitgevoerd.
+* Controleer of het script idempotent is. In dat geval kunt het script meerdere keren op hetzelfde knooppunt worden uitgevoerd.
 * Gebruik een tijdelijk bestand directory map te houden van de gedownloade bestanden gebruikt door de scripts en vervolgens opschonen van nadat scripts hebt uitgevoerd.
 * Als de OS-niveau instellingen of configuratiebestanden voor Hadoop-service zijn gewijzigd, kan u HDInsight-services opnieuw starten.
 
@@ -371,7 +371,7 @@ Dit probleem treedt meestal wanneer het script is gemaakt op een Windows-omgevin
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-Vervang `INFILE` met het bestand met de stuklijst. `OUTFILE`moet u een nieuwe bestandsnaam, waarin het script zonder de stuklijst.
+Vervang `INFILE` met het bestand met de stuklijst. `OUTFILE` moet u een nieuwe bestandsnaam, waarin het script zonder de stuklijst.
 
 ## <a name="seeAlso"></a>Volgende stappen
 

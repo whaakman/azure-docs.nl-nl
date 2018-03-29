@@ -1,6 +1,6 @@
 ---
-title: Veelgestelde vragen over Azure Traffic Analytics | Microsoft Docs
-description: Vind antwoorden op enkele veelgestelde vragen over Traffic Analytics.
+title: Veelgestelde vragen over Azure traffic analytics | Microsoft Docs
+description: Vind antwoorden op enkele veelgestelde vragen over traffic analytics.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: b9090f91db11b5bde53f3652028030201f135fa5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="traffic-analytics-frequently-asked-questions"></a>Verkeer Analytics Veelgestelde vragen
+# <a name="traffic-analytics-frequently-asked-questions"></a>Verkeer analytics Veelgestelde vragen
 
-1.  Wat zijn de vereisten voor Traffic Analytics gebruiken?
+1.  Wat zijn de vereisten voor traffic analytics gebruiken?
 
     Traffic Analytics moet de volgende vereisten:
 
@@ -42,9 +42,9 @@ ms.lasthandoff: 03/23/2018
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
 
-2.  Welke Azure-regio's Traffic Analytics beschikbaar zijn in?
+2.  Welke Azure-regio's traffic analytics beschikbaar zijn in?
 
-    In de preview-versie, kunt u verkeer Analytics voor nsg's in een van de volgende **ondersteunde regio's**: West-Centraal VS, VS-Oost, VS-Oost 2, Noordelijk Centraal, VS, Zuid-centraal VS, VS-midden, VS-West, VS-West-2, West-Europa, Noord-Europa , West VK, Zuid VK, Australië-Oost en Australië-Zuidoost. De werkruimte voor logboekanalyse moet bestaan in de West-Centraal VS, VS-Oost, West-Europa, Australië-Zuidoost of de regio Zuid VK.
+    In de preview-versie, kunt u verkeer analytics voor nsg's in een van de volgende **ondersteunde regio's**: West-Centraal VS, VS-Oost, VS-Oost 2, Noordelijk Centraal, VS, Zuid-centraal VS, VS-midden, VS-West, VS-West-2, West-Europa, Noord-Europa , West VK, Zuid VK, Australië-Oost en Australië-Zuidoost. De werkruimte voor logboekanalyse moet bestaan in de West-Centraal VS, VS-Oost, West-Europa, Australië-Zuidoost of de regio Zuid VK.
 
 3.  Kan het nsg's ik stroom inschakelen Logboeken voor zich in verschillende regio's dan mijn OMS-werkruimte?
 
@@ -104,9 +104,9 @@ ms.lasthandoff: 03/23/2018
 
         U ziet de bronneninformatie op het dashboard; Er zijn echter geen stroom-gegevens aanwezig. Vanwege geen overdrachten van communicatie tussen de bronnen kunnen geen gegevens aanwezig zijn. Wacht tot 60 minuten en status controleren. Als u zeker weet dat overdrachten van communicatie tussen bronnen bestaat en vraagtekens in de [voice-gebruikersforum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Hoe wordt verkeer Analytics prijs?
+14.  Hoe wordt verkeer analytics prijs?
 
-        Verkeer Analytics datalimiet geldt voor het verbeteren van verminderde logboeken en de uitgebreide logboeken op te slaan in een werkruimte voor logboekanalyse. In de preview, Traffic Analytics wordt niet in rekening gebracht voor het verbeteren van de verminderde logboeken maar bewaren van gegevens in een werkruimte onderworpen aan facturering volgens de tarieven voor gepubliceerde is. Dit antwoord wordt bijgewerkt zodra de prijzen voor Traffic Analytics is beschikbaar.
+        Verkeer analytics datalimiet geldt voor het verbeteren van verminderde logboeken en de uitgebreide logboeken op te slaan in een werkruimte voor logboekanalyse. In de preview, traffic analytics wordt niet in rekening gebracht voor het verbeteren van de verminderde logboeken maar bewaren van gegevens in een werkruimte onderworpen aan facturering volgens de tarieven voor gepubliceerde is. Dit antwoord wordt bijgewerkt zodra de prijzen voor traffic analytics is beschikbaar.
 
 15.  Hoe kan ik navigeren met behulp van toetsenbord in Geo overzichtsweergave?
 

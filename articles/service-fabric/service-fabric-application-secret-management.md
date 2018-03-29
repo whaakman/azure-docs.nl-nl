@@ -1,47 +1,31 @@
 ---
-title: Het beheren van geheimen in Service Fabric-toepassingen | Microsoft Docs
-description: In dit artikel wordt beschreven hoe secure geheime waarden in een Service Fabric-toepassing.
+title: Beheren van geheimen van Azure Service Fabric-toepassing | Microsoft Docs
+description: Informatie over het beveiligen van geheime waarden in een Service Fabric-toepassing.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: bb40f841c6c2671621624e0599a5f3a36a36ab26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 931667509a9aa5e898cd01ad26ff046e30acd3fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="managing-secrets-in-service-fabric-applications"></a>Het beheren van geheimen in Service Fabric-toepassingen
+# <a name="manage-secrets-in-service-fabric-applications"></a>Geheimen in Service Fabric-toepassingen beheren
 Deze handleiding leert u de stappen voor het beheren van geheimen in een Service Fabric-toepassing. Geheimen mag gevoelige informatie, zoals de storage-verbindingsreeksen, wachtwoorden of andere waarden die niet moeten worden behandeld als tekst zonder opmaak.
 
-Deze handleiding maakt gebruik van Azure Sleutelkluis sleutels en geheimen beheren. Echter, *met* geheimen in een toepassing is cloud platform-networkdirect naar toepassingen kunnen worden geïmplementeerd naar een cluster overal worden gehost. 
+[Azure Sleutelkluis] [ key-vault-get-started] wordt hier gebruikt als een locatie voor de veilige opslag voor certificaten en als een manier om certificaten zijn geïnstalleerd op de Service Fabric-clusters in Azure. Als u niet in Azure implementeert, hoeft u geen Sleutelkluis gebruiken voor het beheren van geheimen in Service Fabric-toepassingen. Echter, *met* geheimen in een toepassing is cloud platform-networkdirect naar toepassingen kunnen worden geïmplementeerd naar een cluster overal worden gehost. 
 
-## <a name="overview"></a>Overzicht
-De aanbevolen manier voor het beheren van configuratie-instellingen is via [service configuratiepakketten][config-package]. Configuratiepakketten zijn samengestelde en bij te werken via beheerde rollende upgrades met health-validatie en voor automatisch terugdraaien. Dit is voorkeur naar globale configuratie vermindert de kans op een globale Services uitvallen. Versleutelde geheimen zijn geen uitzondering. Service Fabric bevat ingebouwde functies voor het versleutelen en ontsleutelen van waarden in een pakket Settings.xml configuratiebestand met behulp van certificaatversleuteling.
-
-Het volgende diagram illustreert de basisprincipes voor beheer van de geheime in een Service Fabric-toepassing:
-
-![overzicht van geheime management][overview]
-
-Er zijn vier hoofdstappen in deze overdracht:
-
-1. Verkrijgen van een certificaat voor het uitwisselen van gegevens.
-2. Installeer het certificaat in het cluster.
-3. Versleutelen geheime waarden bij het implementeren van een toepassing met het certificaat en een service Settings.xml configuratiebestand injecteren.
-4. Versleutelde waarden buiten Settings.xml lezen door te ontsleutelen met hetzelfde certificaat uitwisselen. 
-
-[Azure Sleutelkluis] [ key-vault-get-started] wordt hier gebruikt als een locatie voor de veilige opslag voor certificaten en als een manier om certificaten zijn geïnstalleerd op de Service Fabric-clusters in Azure. Als u niet in Azure implementeert, hoeft u geen Sleutelkluis gebruiken voor het beheren van geheimen in Service Fabric-toepassingen.
-
-## <a name="data-encipherment-certificate"></a>Gegevens uitwisselen certificaat
+## <a name="obtain-a-data-encipherment-certificate"></a>Verkrijgen van een certificaat voor het uitwisselen van gegevens
 Een certificaat voor het uitwisselen van gegevens wordt uitsluitend gebruikt voor versleuteling en ontsleuteling van de configuratie van de waarden in een service Settings.xml en wordt niet gebruikt voor de verificatie of het ondertekenen van de gecodeerde tekst. Het certificaat moet voldoen aan de volgende vereisten:
 
 * Het certificaat moet een persoonlijke sleutel bevatten.
@@ -58,7 +42,7 @@ Een certificaat voor het uitwisselen van gegevens wordt uitsluitend gebruikt voo
 Dit certificaat moet worden geïnstalleerd op elk knooppunt in het cluster. Deze wordt gebruikt tijdens runtime voor het ontsleutelen van waarden in een service Settings.xml zijn opgeslagen. Zie [het maken van een cluster met Azure Resource Manager] [ service-fabric-cluster-creation-via-arm] voor installatie-instructies. 
 
 ## <a name="encrypt-application-secrets"></a>Toepassing geheimen versleutelen
-De Service Fabric SDK bevat ingebouwde geheime versleuteling en ontsleuteling functies. Geheime waarden kunnen worden versleuteld op het moment van gebouwd ontsleuteld en gelezen via een programma in de servicecode. 
+Wanneer u een toepassing implementeert, versleutelen geheime waarden met het certificaat en injecteren van een service Settings.xml-configuratiebestand. De Service Fabric SDK bevat ingebouwde geheime versleuteling en ontsleuteling functies. Geheime waarden kunnen worden versleuteld op het moment van gebouwd ontsleuteld en gelezen via een programma in de servicecode. 
 
 De volgende PowerShell-opdracht wordt gebruikt voor het versleutelen van een geheim. Met deze opdracht versleutelt alleen de waarde; Dit gebeurt **niet** Meld u aan de gecodeerde tekst. U moet hetzelfde certificaat uitwisselen die is geïnstalleerd in uw cluster voor het produceren van gecodeerde tekst voor geheime waarden gebruiken:
 
@@ -66,7 +50,7 @@ De volgende PowerShell-opdracht wordt gebruikt voor het versleutelen van een geh
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-De resulterende base 64-tekenreeks bevat zowel de geheime gecodeerde tekst, evenals informatie over het certificaat dat is gebruikt om ze te versleutelen.  De base-64 gecodeerde tekenreeks kan worden ingevoegd in een parameter in Settings.xml-configuratiebestand voor uw service met de `IsEncrypted` -kenmerk ingesteld op `true`:
+De resulterende Base64-gecodeerde tekenreeks bevat zowel de geheime gecodeerde tekst, evenals informatie over het certificaat dat is gebruikt om ze te versleutelen.  De base-64 gecodeerde tekenreeks kan worden ingevoegd in een parameter in Settings.xml-configuratiebestand voor uw service met de `IsEncrypted` -kenmerk ingesteld op `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -140,7 +124,7 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 ```
 
 ## <a name="decrypt-secrets-from-service-code"></a>Ontsleutelen van geheimen van servicecode
-Services in Service Fabric onder netwerkservice standaard op Windows worden uitgevoerd en geen toegang hebt tot de certificaten zijn geïnstalleerd op het knooppunt zonder extra instellingen opgeven.
+U kunt versleutelde waarden buiten Settings.xml lezen door ze met het uitwisselen certificaat gebruikt voor het versleutelen van het geheim te ontsleutelen. Services in Service Fabric onder netwerkservice standaard op Windows worden uitgevoerd en geen toegang hebt tot de certificaten zijn geïnstalleerd op het knooppunt zonder extra instellingen opgeven.
 
 Wanneer met behulp van een certificaat voor het uitwisselen van gegevens, moet u ervoor dat netwerkservice of de gebruikersaccount van de service wordt uitgevoerd toegang heeft tot de persoonlijke sleutel van het certificaat. Service Fabric verwerkt door de toegang voor uw service automatisch te verlenen als u configureert om dit te doen. Deze configuratie kan worden gedaan in ApplicationManifest.xml door gebruikers- en beveiligingsbeleid voor certificaten te definiëren. In het volgende voorbeeld is de Netwerkservice-account lezen toegang krijgen tot een gedefinieerd door de vingerafdruk van certificaat:
 
@@ -176,7 +160,7 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over [met toepassingen met andere machtigingen](service-fabric-application-runas-security.md)
+Meer informatie over [toepassing en Servicebeveiliging](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md

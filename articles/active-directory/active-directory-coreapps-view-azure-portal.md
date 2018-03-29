@@ -2,10 +2,10 @@
 title: Alle zakelijke apps die ik kunt beheren in Azure Active Directory weergeven | Microsoft Docs
 description: Hoe ziet u een lijst van de enterprise-apps die u hebt de machtigingen om te beheren in Azure Active Directory
 services: active-directory
-documentationcenter: 
-author: curtand
+documentationcenter: ''
+author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c4fb6f94-34f8-4323-8bd7-a3ee44901f7d
 ms.service: active-directory
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: curtand
+ms.author: markvi
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 5bcde742690e57d9195725fba524ee64cc691b30
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 64946b3bbf39cf8153fcc8c7aa548ed6055fb47f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Alle zakelijke apps die ik kunt beheren in Azure Active Directory weergeven
 U kunt uw zakelijke toepassingen in Azure Active Directory (Azure AD) kunt beheren. U kunt de apps beheren, gebruikers of groepen aan een app toewijzen, eigenschappen voor de app, zoals de naam/het logo toepassing onderhouden en zelfs een toepassing uitschakelen zodat er geen gebruikers bij het aanmelden zich weergeven.

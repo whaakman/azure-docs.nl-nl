@@ -6,7 +6,7 @@ documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb7e0df046ecc2ffcd3fa59ac53edf36095933c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-operational-security-best-practices"></a>Aanbevolen procedures voor Azure operationele beveiliging
 Azure bedrijfsbeveiliging verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere elementen in Microsoft Azure. Azure operationele beveiliging is gebaseerd op een framework dat de kennis die is opgedaan met verschillende mogelijkheden die uniek voor Microsoft zijn, waaronder Microsoft Security Development Lifecycle (SDL), de Microsoft Security Response Center-programma en grondige kennis van de threat cybersecurity liggend opgenomen.
@@ -68,7 +68,7 @@ Om te detecteren, voorkomen van en reageren op bedreigingen, [Operations Managem
 ## <a name="manage-identity-and-implement-single-sign-on"></a>Identiteiten beheren en implementeren van eenmalige aanmelding
 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is Microsoft van meerdere tenants in de cloud-map en identity management-service.
 
-[Azure AD](https://azure.microsoft.com/services/active-directory/) bevat ook een volledige reeks [identiteitsbeheer](https://docs.microsoft.com/azure/security/security-identity-management-overview) mogelijkheden, waaronder [multi-factorauthenticatie](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), apparaatregistratie, selfservice voor wachtwoordherstel management, self-service groepsbeheer, bevoegd accountmanagement, op rollen gebaseerde toegangsbeheer, toepassingsgebruik bewaking, uitgebreide controle en beveiligingsbewaking en waarschuwingen.
+[Azure AD](https://azure.microsoft.com/services/active-directory/) bevat ook een volledige reeks [identiteitsbeheer](https://docs.microsoft.com/azure/security/security-identity-management-overview) mogelijkheden, waaronder [multi-factorauthenticatie](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), apparaatregistratie, beheer van de selfservice voor wachtwoordherstel, Self-service groepsbeheer, bevoegd accountmanagement, op rollen gebaseerde toegangsbeheer, toepassingsgebruik bewaking, uitgebreide controle en beveiligingsbewaking en waarschuwingen.
 
 De volgende mogelijkheden kunnen cloud-gebaseerde toepassingen, IT-processen te stroomlijnen, kosten knippen en ervoor te zorgen dat de doelstellingen van de naleving wordt voldaan:
 
@@ -167,10 +167,10 @@ Lees het artikel voor meer informatie over het configureren van netwerk-watcher 
 Dit zijn enkele van de lijst van het Azure DevOps procedures in deze ruimte Microsoft Cloud, waardoor de bedrijven en teams productief en efficiënt.
 
 -   **Infrastructuur als de Code (IaC):** infrastructuur als de Code is een verzameling technieken en procedures waarmee IT-professionals de werkbelasting die is gekoppeld aan de dagelijkse build en het beheer van modulaire infrastructuur verwijderen. Hiermee kunt de IT-professionals bouwen en onderhouden van hun serveromgeving moderne op een manier die lijkt op hoe Softwareontwikkelaars bouwen en onderhouden van toepassingscode. Voor Azure, hebben we [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) kunt u uw toepassingen met behulp van een declaratief sjabloon inrichten. U kunt in één enkele sjabloon meerdere services plus de bijbehorende afhankelijkheden implementeren. U gebruikt dezelfde sjabloon om uw toepassing herhaaldelijk te implementeren in elke fase van de levenscyclus van de toepassing.
--   **Continue integratie en implementatie:** kunt u uw Visual Studio Online teamprojecten naar [automatisch bouwen en implementeren](https://www.visualstudio.com/docs/build/overview) naar Azure-web-apps of cloudservices. De binaire bestanden implementeert VSO automatisch hierna moet u een build naar Azure na elke code incheckt. Het pakket buildproces hier beschreven komt overeen met de opdracht pakket in Visual Studio en de publicatie stappen gelijk zijn aan de opdracht Publish in Visual Studio.
+-   **Continue integratie en implementatie:** kunt u uw teamprojecten Visual Studio Team Services (VSTS) naar [automatisch bouwen en implementeren](https://www.visualstudio.com/docs/build/overview) naar Azure-web-apps of cloudservices. VSTS implementeert automatisch de binaire bestanden hierna moet u een build naar Azure na elke code incheckt. Het pakket buildproces hier beschreven komt overeen met de opdracht pakket in Visual Studio en de publicatie stappen gelijk zijn aan de opdracht Publish in Visual Studio.
 -   **Releasebeheer:** Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) is een ideale oplossing voor de implementatie van meerdere fasen automatiseren en beheren van het proces release. Beheerde continue implementatie pijplijnen snel, eenvoudig en vaak vrij te maken. Met de Release Management we onze release-proces veel kunt automatiseren en we kunnen beschikken over vooraf gedefinieerde werkstromen voor goedkeuring. On-premises implementeren naar de cloud uitbreiden en aanpassen zoals vereist.
 -   **Bewaking van App-prestaties:** problemen detecteren, oplossen van problemen en breng voortdurend verbeteringen aan uw toepassingen. Analyseer snel problemen in uw live-toepassing. Krijg inzicht in wat gebruikers met uw toepassing doen. Configuratie is eenvoudig kwestie van JS code en een webconfig-vermelding toe te voegen en ziet u resultaten binnen enkele minuten in de portal met de details. [App insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) helpt bedrijven voor een snellere detectie van problemen en herstel.
--   **Laden getest & automatisch schalen:** We prestatieproblemen kunt vinden in de app om de kwaliteit implementatie te verbeteren en om ervoor te zorgen dat de app is altijd up-to-date of beschikbaar om te voorzien in de zakelijke behoeften. Zorg ervoor dat uw app voor uw volgende starten of marketing campagne verkeer kan verwerken. Cloud-gebaseerde uitgevoerd [tests laden](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) in bijna geen tijd met Visual Studio Online.
+-   **Laden getest & automatisch schalen:** We prestatieproblemen kunt vinden in de app om de kwaliteit implementatie te verbeteren en om ervoor te zorgen dat de app is altijd up-to-date of beschikbaar om te voorzien in de zakelijke behoeften. Zorg ervoor dat uw app voor uw volgende starten of marketing campagne verkeer kan verwerken. Cloud-gebaseerde uitgevoerd [tests laden](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) in bijna geen tijd met VSTS.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [Azure bedrijfsbeveiliging](https://docs.microsoft.com/azure/security/azure-operational-security).

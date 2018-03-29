@@ -2,23 +2,23 @@
 title: Implementatie-fase van de levenscyclus van de procedure voor het Team gegevens wetenschap - Azure | Microsoft Docs
 description: De doelstellingen, taken en producten voor de implementatie-fase van uw gegevens wetenschap-projecten
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 45d801bf0096879143f91feb230445625559379f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 5cb6361ed674ffaaf776adafd6f3ff87272c73eb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deployment"></a>Implementatie
 
@@ -43,7 +43,7 @@ De belangrijkste taak behandeld in deze fase:
 
 **Het model operationeel**: het model en de pijplijn implementeren in een productie- of productieomgeving lijkende omgeving voor het verbruik van de toepassing.
 
-### <a name="operationalize-a-model"></a>Mogelijk een model maken
+### <a name="operationalize-a-model"></a>Een model operationeel maken
 Nadat u een set van modellen die ook uitvoeren hebt, kunt u ze voor andere toepassingen te verbruiken operationeel. Afhankelijk van de bedrijfsvereisten voorspellingen bestaan in real-time of op basis van de batch. Voor het implementeren van modellen, stelt u deze bloot aan een open API-interface. De interface kunnen het model om te worden eenvoudig verbruikt uit verschillende toepassingen, zoals:
 
    * Online websites

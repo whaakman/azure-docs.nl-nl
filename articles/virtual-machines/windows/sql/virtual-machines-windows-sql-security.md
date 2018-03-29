@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2017
+ms.date: 03/23/2018
 ms.author: jroth
-ms.openlocfilehash: 609e18cf2bdfdd84c71b67e31b66cd0ca7d47577
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b91638b6b76675711150323bee4aa9ad9d9a73d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Veiligheidsoverwegingen voor SQL Server in Azure Virtual Machines
 
@@ -44,7 +44,7 @@ Wanneer u een virtuele machine van SQL Server met een afbeelding maakt, de **SQL
 
 ![SQL Server-verbinding](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
-Kies voor de beste beveiliging, de meest beperkende optie voor uw scenario. Bijvoorbeeld, als u een toepassing die toegang heeft tot SQL Server op dezelfde virtuele machine vervolgens **lokale** is de veiligste optie. Als u werkt met een Azure-toepassing waarvoor toegang tot de SQL Server, klikt u vervolgens **persoonlijke** beveiligt communicatie naar SQL Server binnen de opgegeven [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Als u nodig hebt **openbare** (internest) toegang tot de SQL Server VM, Controleer of andere aanbevelingen in dit onderwerp om te beperken van de aanval surface area volgen.
+Kies voor de beste beveiliging, de meest beperkende optie voor uw scenario. Bijvoorbeeld, als u een toepassing die toegang heeft tot SQL Server op dezelfde virtuele machine vervolgens **lokale** is de veiligste optie. Als u werkt met een Azure-toepassing waarvoor toegang tot de SQL Server, klikt u vervolgens **persoonlijke** beveiligt communicatie naar SQL Server binnen de opgegeven [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Als u nodig hebt **openbare** (internet) toegang tot de SQL Server-VM en zorg ervoor dat u Volg de aanbevolen procedures in dit onderwerp om te beperken van het oppervlak aanval.
 
 De geselecteerde opties in de portal gebruiken inkomende beveiligingsregels voor verbindingen op de virtuele machines [Netwerkbeveiligingsgroep](../../../virtual-network/virtual-networks-nsg.md) (NSG) wilt toestaan of weigeren van netwerkverkeer naar de virtuele machine. U kunt wijzigen of nieuwe regels voor binnenkomende NSG zodat verkeer naar de SQL Server-poort (standaard 1433) te maken. U kunt ook bepaalde IP-adressen die zijn toegestaan om te communiceren via deze poort opgeven.
 
@@ -98,5 +98,5 @@ Naast de procedures in dit onderwerp beschreven, wordt aangeraden dat u bekijken
 
 Als u ook geïnteresseerd in aanbevolen procedures om de prestaties, Zie [Best Practices prestaties for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
-Zie voor andere onderwerpen die betrekking hebben op SQL Server wordt uitgevoerd in Azure VM's [SQL Server op Azure Virtual Machines-overzicht](virtual-machines-windows-sql-server-iaas-overview.md). Als u vragen over virtuele machines van SQL Server hebt, raadpleegt u de [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+Zie voor andere onderwerpen die betrekking hebben op SQL Server wordt uitgevoerd in Azure VM's [SQL Server op Azure Virtual Machines-overzicht](virtual-machines-windows-sql-server-iaas-overview.md). Als u vragen hebt over virtuele machines met SQL Server, raadpleegt u [Veelgestelde vragen](virtual-machines-windows-sql-server-iaas-faq.md).
 

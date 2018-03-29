@@ -5,8 +5,8 @@ services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 7b9c7037271fabd67c1ada80420ad72c340e46bb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7a8807a580f1a7f1fe67e026a8fbd4cc0e96c41c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="advisor-cost-recommendations"></a>Advisor kosten aanbevelingen
 
@@ -30,9 +30,6 @@ Hoewel bepaalde toepassingsscenario's leiden minder gebruik standaard tot kunnen
 Advisor ziet u de geschatte kosten van u wilt doorgaan met het uitvoeren van uw virtuele machine, zodat u kunt deze afsluiten of het formaat.
 
 Als u worden agressievere wilt op onderbenutte virtuele machines te identificeren, kunt u het gemiddelde CPU-gebruik regel op basis van per abonnement kunt aanpassen.
-
-## <a name="use-a-cost-effective-solution-to-manage-performance-goals-of-multiple-sql-databases"></a>Een kostenbesparende oplossing gebruiken voor het beheren van prestatiedoelstellingen van meerdere SQL-databases
-Advisor identificeert SQL server-exemplaren die u profiteren kunnen van het maken van pools voor elastische databases. Pools voor elastische databases bieden een eenvoudige, rendabele oplossing voor het beheren van de prestatiedoelstellingen van meerdere databases die verschillende gebruikspatronen hebben. Zie voor meer informatie over Azure elastische pools [wat is er een Azure elastische pool?](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/).
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Doordat de inrichting van ExpressRoute-circuits kosten te verlagen
 Advisor identificeert ExpressRoute-circuits die zijn aangebracht in de providerstatus van *niet ingericht* voor meer dan één maand en raadt het circuit verwijderen als u van plan zijn niet het circuit inrichten met de verbinding in orde provider.

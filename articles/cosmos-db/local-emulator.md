@@ -2,11 +2,11 @@
 title: Lokaal ontwikkelen met de Azure Cosmos DB Emulator | Microsoft Docs
 description: Met behulp van de Azure-Emulator Cosmos DB, kunt u ontwikkelen en testen van de toepassing lokaal voor gratis, zonder te maken van een Azure-abonnement.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
 author: David-Noble-at-work
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 1991157330f6607efcf42ad42694c6b4d19fe609
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4a393887d8e82e833b0c956666bf36e5adb19e70
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokale ontwikkeling en testen
 
@@ -43,7 +43,7 @@ De Azure-Emulator Cosmos DB biedt een lokale omgeving waarin de service Azure Co
 > [!NOTE]
 > Op dit moment de Data Explorer in de emulator alleen volledige ondersteuning voor SQL-API-verzamelingen en MongoDB-verzamelingen. Tabel, grafiek en Cassandra containers worden niet volledig ondersteund. 
 
-In dit artikel bevat informatie over de volgende taken: 
+Dit artikel behandelt de volgende taken: 
 
 > [!div class="checklist"]
 > * Installeren van de Emulator
@@ -105,7 +105,7 @@ De Azure-Emulator Cosmos DB wordt standaard geïnstalleerd bij naar de `C:\Progr
 
 ## <a name="start-data-explorer"></a>Start de Data Explorer
 
-Wanneer de emulator Azure Cosmos DB Start worden automatisch de Azure Cosmos DB Data Explorer in uw browser geopend. Het adres wordt weergegeven als [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Als u de explorer sluiten en wilt het later opnieuw openen, kunt u de URL in uw browser te openen of starten van de Azure-Emulator Cosmos-database in het pictogram in systeemvak voor Windows, zoals hieronder wordt weergegeven.
+Wanneer de emulator Azure Cosmos DB Start worden automatisch de Azure Cosmos DB Data Explorer in uw browser geopend. Het adres wordt weergegeven als [ https://localhost:8081/_explorer/index.html ](https://localhost:8081/_explorer/index.html). Als u de explorer sluiten en wilt het later opnieuw openen, kunt u de URL in uw browser te openen of starten van de Azure-Emulator Cosmos-database in het pictogram in systeemvak voor Windows, zoals hieronder wordt weergegeven.
 
 ![Azure DB Cosmos lokale emulator data explorer starten](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -312,7 +312,7 @@ Als u probeert een verzameling maken nadat het huidige aantal partities is overs
     Sorry, we are currently experiencing high demand in this region, 
     and cannot fulfill your request at this time. We work continuously 
     to bring more and more capacity online, and encourage you to try again. 
-    Please do not hesitate to email docdbswat@microsoft.com at any time or 
+    Please do not hesitate to email askcosmosdb@microsoft.com at any time or
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
 Als u het aantal beschikbare verzamelingen wilt de Emulator Azure Cosmos DB, het volgende doen:

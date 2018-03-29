@@ -3,10 +3,10 @@ title: Azure Event Hubs-bindingen voor Azure Functions
 description: Het gebruik van Azure Event Hubs bindingen in de Azure Functions begrijpen.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure functions, functies, verwerking van gebeurtenissen, dynamische compute zonder server architectuur
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.service: functions
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: wesmc
-ms.openlocfilehash: 87a7d25e1095fe1511c86dc56375c02f06f51b73
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 44dbe4c3157b1b765004975a6f04e3a96b477846
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -30,7 +30,7 @@ Dit artikel wordt uitgelegd hoe u werkt met [Azure Event Hubs](../event-hubs/eve
 
 ## <a name="packages"></a>Pakketten
 
-De Event Hubs-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) GitHub-opslagplaats.
+Voor Azure Functions versie 1.x, de Event Hubs-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet-pakket. Voor functies 2.x, gebruik de [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -203,6 +203,34 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
+Voor het ontvangen van gebeurtenissen in een batch stelt `cardinality` naar `many` in de *function.json* bestand:
+
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "eventHubMessages",
+  "direction": "in",
+  "path": "MyEventHub",
+  "cardinality": "many",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+Hier volgt de JavaScript-code:
+
+```javascript
+module.exports = function (context, eventHubMessages) {
+    context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
+    
+    eventHubMessages.forEach(message => {
+        context.log(`Processed message ${message}`);
+    });
+
+    context.done();
+};
+```
+
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
 
 In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) kenmerk.
@@ -230,6 +258,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**Naam** | N.v.t. | De naam van de variabele die staat voor de gebeurtenis in de functiecode. | 
 |**Pad** |**EventHubName** | De naam van de event hub. | 
 |**consumerGroup** |**ConsumerGroup** | Een optionele eigenschap die bepaalt de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. | 
+|**Kardinaliteit** | N.v.t. | Als u Javascript. Ingesteld op `many` om in te schakelen batchverwerking.  Als u dit weglaat of ingesteld op `one`, één bericht doorgegeven aan functie. | 
 |**Verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de [naamruimte](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen hebben voor de trigger wordt geactiveerd.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

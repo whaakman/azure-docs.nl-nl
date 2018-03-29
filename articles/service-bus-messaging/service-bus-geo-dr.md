@@ -2,10 +2,10 @@
 title: Azure Service Bus Geo-noodherstel | Microsoft Docs
 description: Het gebruik van de geografische regio's voor failover en herstel na noodgevallen in Azure Service Bus uitvoeren
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: christianwolf42
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-noodherstel
 
@@ -86,12 +86,13 @@ Als u een scenario waarin u de verbindingen van producenten en consumenten niet 
 
 ## <a name="samples"></a>Voorbeelden
 
-De [voorbeelden op GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) laten zien hoe u instelt en start een failover. Deze voorbeelden laten zien dat de volgende concepten:
+De [voorbeelden op GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) laten zien hoe u instelt en start een failover. Deze voorbeelden laten zien dat de volgende concepten:
 
-- Instellingen voor het gebruik van Azure Resource Manager met Service Bus in Azure Active Directory vereist. 
-- Stappen voor het uitvoeren van de voorbeeldcode. 
-- Verzenden en ontvangen van de huidige primaire naamruimte. 
+- Een voorbeeld van een .net en instellingen die vereist zijn in Azure Active Directory om het gebruik van Azure Resource Manager met Service Bus Setup en schakel Geo-noodherstel.
+- Stappen voor het uitvoeren van de voorbeeldcode.
 - Het gebruik van een bestaande naamruimte als alias.
+- Stappen om Geo-noodherstel via PowerShell of CLI ook worden ingeschakeld.
+- [Verzenden en ontvangen](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) uit de huidige primaire of secundaire naamruimte met de alias.
 
 ## <a name="considerations"></a>Overwegingen
 

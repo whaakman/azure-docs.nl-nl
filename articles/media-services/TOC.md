@@ -237,7 +237,7 @@
 ## Specificaties
 ### [Live Ingest - Specificatie gefragmenteerde MP4-liveopname](media-services-fmp4-live-ingest-overview.md)
 ### [Live Ingest - Getimede metagegevens signaleren in Live Streaming](media-services-specifications-live-timed-metadata.md)
-### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
+### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-amendment-hevc.md)
 
 # Resources
 ## [Azure Media Services-community](media-services-community.md)

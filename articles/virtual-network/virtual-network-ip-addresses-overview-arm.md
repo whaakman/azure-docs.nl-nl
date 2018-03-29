@@ -1,11 +1,11 @@
 ---
 title: IP-adrestypen in Azure | Microsoft Docs
-description: "Meer informatie over openbare en privé-IP-adressen in Azure."
+description: Meer informatie over openbare en privé-IP-adressen in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: a5cda1b5ecb686c9b03da27bdbca42ddc1a74f54
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
 
@@ -68,13 +68,10 @@ Openbare IP-adressen van de standaard-SKU:
 
 - Worden uitsluitend toegewezen met de statische toewijzingsmethode.
 - Worden toegewezen aan netwerkinterfaces of standaard internetgerichte load balancers. Zie [Standaard-SKU's van Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over SKU's van Azure Load Balancer.
-- Zijn standaard zone-redundant. Kunnen zonegebonden worden gemaakt en gegarandeerd in een bepaalde beschikbaarheidszone.  Zie [Overzicht van beschikbaarheidszones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
+- Zijn standaard zone-redundant. Kunnen zonegebonden worden gemaakt en gegarandeerd in een bepaalde beschikbaarheidszone. Zie [Overzicht van beschikbaarheidszones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
  
 > [!NOTE]
-> Als u een openbaar IP-adres van een standaard-SKU toewijst aan een netwerkinterface van een virtuele machine, moet u het bedoelde verkeer expliciet toestaan met een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups).  Communicatie met de resource mislukt totdat u een netwerkbeveiligingsgroep maakt en koppelt en het gewenste verkeer expliciet toestaat.
-
-De standaard-SKU zit in de evaluatieversie. Voordat u een openbaar IP-adres van een standaard-SKU maakt, moet u zich eerst registreren voor de evaluatieversie en het adres in een ondersteunde locatie maken. Zie [Registreren voor de evaluatieversie van de standaard-SKU](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview) om u te registreren voor de evaluatieversie. Zie [Beschikbaarheid in regio's](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) voor een lijst met ondersteunde locaties (regio's) en controleer de pagina [Azure Virtual Network-updates](https://azure.microsoft.com/updates/?product=virtual-network) voor aanvullende ondersteuning voor regio's.
-
+> Als u een openbaar IP-adres van een standaard-SKU toewijst aan een netwerkinterface van een virtuele machine, moet u het bedoelde verkeer expliciet toestaan met een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups). Communicatie met de resource mislukt totdat u een netwerkbeveiligingsgroep maakt en koppelt en het gewenste verkeer expliciet toestaat.
 
 ### <a name="allocation-method"></a>Toewijzingsmethode
 

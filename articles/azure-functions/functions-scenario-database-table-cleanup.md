@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 2947fc6da0c4559e81cf97255b8375b020e0b657
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions gebruiken voor verbinding met een Azure SQL Database
-Dit onderwerp leest u het gebruik van Azure Functions voor het maken van een geplande taak opruimen van rijen in een tabel in een Azure SQL Database. De nieuwe C#-functie is gemaakt op basis van een vooraf gedefinieerde timer trigger-sjabloon in de Azure-portal. Ter ondersteuning van dit scenario, moet u ook een databaseverbindingsreeks instellen als een app-instelling in de functie-app. Dit scenario maakt gebruik van een bulksgewijze bewerking op de database. 
+Dit onderwerp leest u het gebruik van Azure Functions voor het maken van een geplande taak opruimen van rijen in een tabel in een Azure SQL Database. De nieuwe C# script-functie is gemaakt op basis van een vooraf gedefinieerde timer trigger-sjabloon in de Azure-portal. Ter ondersteuning van dit scenario, moet u ook een databaseverbindingsreeks instellen als een app-instelling in de functie-app. Dit scenario maakt gebruik van een bulksgewijze bewerking op de database. 
 
 Functie proces afzonderlijke hebben maken, lezen, bijwerken en delete (CRUD)-bewerkingen in een tabel met Mobile Apps, moet u in plaats daarvan gebruiken [Mobile Apps-bindingen](functions-bindings-mobile-apps.md).
 
@@ -40,7 +40,7 @@ U moet de verbindingsreeks ophalen voor de database die u hebt gemaakt toen u vo
  
 3. Selecteer **SQL-Databases** uit in het menu links en selecteert u de database op de **SQL-databases** pagina.
 
-4. Selecteer **databaseverbindingsreeksen tonen** en kopieer de volledige **ADO.NET** verbindingsreeks.
+4. Selecteer **databaseverbindingsreeksen tonen** en kopieer de volledige **ADO.NET** verbindingsreeks. 
 
     ![Kopieer de ADO.NET-verbindingsreeks.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -70,14 +70,16 @@ U kunt nu de C# functiecode die verbinding met uw SQL-Database maakt toevoegen.
 
 ## <a name="update-your-function-code"></a>Werk uw functiecode
 
-1. In de functie-app, selecteert u de functie timer geactiveerd.
+1. Selecteer in de functie-app in de portal voor de functie timer geactiveerd.
  
-3. De volgende assemblyverwijzingen aan de bovenkant van de bestaande functiecode toevoegen:
+3. De volgende assemblyverwijzingen aan de bovenkant van de bestaande C# script functiecode toevoegen:
 
     ```cs
     #r "System.Configuration"
     #r "System.Data"
     ```
+    >[!NOTE]
+    >De code in deze voorbeelden zijn C# script via de portal. Wanneer u een vooraf gecompileerde C# functie lokaal ontwikkelt, moet u in plaats daarvan verwijzingen naar deze ophaalprotocol in uw lokale project toevoegen.  
 
 3. Voeg de volgende `using` instructies voor de functie:
     ```cs

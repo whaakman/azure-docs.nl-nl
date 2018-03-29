@@ -2,18 +2,18 @@
 title: Azure IoT rand C#-module | Microsoft Docs
 description: Een IoT-Edge-module maken met C#-code en deze implementeren in een edge-apparaat
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 95ca66f34548f86e25c1e7af331fa88797847906
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Opstellen en implementeren van een Edge van C#-IoT-module voor uw gesimuleerde apparaat - voorbeeld
 
@@ -53,25 +53,25 @@ Voor deze zelfstudie kunt u een register Docker-compatibel. Twee populaire Docke
 ## <a name="create-an-iot-edge-module-project"></a>Een IoT-rand module-project maken
 De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseerd op .NET core 2.0 met behulp van Visual Studio Code en de extensie Azure IoT rand.
 1. Selecteer in Visual Studio Code **weergave** > **geïntegreerde Terminal** openen van de VS Code geïntegreerde terminal.
-3. Voer de volgende opdracht om te installeren (of werk) in de geïntegreerde terminal de **AzureIoTEdgeModule** sjabloon in dotnet:
+2. Voer de volgende opdracht om te installeren (of werk) in de geïntegreerde terminal de **AzureIoTEdgeModule** sjabloon in dotnet:
 
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
-2. Maak een project voor de nieuwe module. De volgende opdracht maakt u de projectmap **FilterModule**, in de huidige map:
+3. Maak een project voor de nieuwe module. De volgende opdracht maakt u de projectmap **FilterModule**, met de container-opslagplaats. De tweede parameter moet in de vorm van `<your container registry name>.azurecr.io` als u van Azure container register gebruikmaakt. Voer de volgende opdracht in de huidige map:
 
     ```cmd/sh
-    dotnet new aziotedgemodule -n FilterModule
+    dotnet new aziotedgemodule -n FilterModule -r <your container registry address>/filtermodule
     ```
  
-3. Selecteer **bestand** > **Open map**.
-4. Blader naar de **FilterModule** map en klik op **map selecteren** openen van het project in VS-Code.
-5. Klik in Verkenner VS-Code op **Program.cs** om dit te openen.
+4. Selecteer **bestand** > **Open map**.
+5. Blader naar de **FilterModule** map en klik op **map selecteren** openen van het project in VS-Code.
+6. Klik in Verkenner VS-Code op **Program.cs** om dit te openen.
 
    ![Open Program.cs][1]
 
-6. Aan de bovenkant van de **FilterModule** naamruimte toevoegen drie `using` -instructies voor typen die later worden gebruikt:
+7. Aan de bovenkant van de **FilterModule** naamruimte toevoegen drie `using` -instructies voor typen die later worden gebruikt:
 
     ```csharp
     using System.Collections.Generic;     // for KeyValuePair<>
@@ -79,13 +79,13 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
     using Newtonsoft.Json;                // for JsonConvert
     ```
 
-6. Voeg de `temperatureThreshold` variabele de **programma** klasse. Deze variabele bepaalt de waarde die de gemeten temperatuur moet groter zijn dan om de gegevens worden verzonden naar IoT Hub. 
+8. Voeg de `temperatureThreshold` variabele de **programma** klasse. Deze variabele bepaalt de waarde die de gemeten temperatuur moet groter zijn dan om de gegevens worden verzonden naar IoT Hub. 
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-7. Voeg de `MessageBody`, `Machine`, en `Ambient` klassen voor de **programma** klasse. Deze klassen definiëren het verwachte schema voor de hoofdtekst van binnenkomende berichten.
+9. Voeg de `MessageBody`, `Machine`, en `Ambient` klassen voor de **programma** klasse. Deze klassen definiëren het verwachte schema voor de hoofdtekst van binnenkomende berichten.
 
     ```csharp
     class MessageBody
@@ -106,7 +106,7 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
     }
     ```
 
-8. In de **Init** methode, de code maakt en configureert u een **DeviceClient** object. Dit object kunt de module die u wilt verbinding maken met de lokale Azure IoT Edge-runtime voor het verzenden en ontvangen van berichten. De verbindingsreeks die wordt gebruikt in de **Init** methode voor de module wordt verstrekt door de rand van de IoT-runtime. Na het maken van de **DeviceClient**, de code leest de TemperatureThreshold uit de Module-Twin gewenste eigenschappen en registreert een retouraanroep voor het ontvangen van berichten van de rand van de IoT-hub via de **input1**eindpunt. Vervang de `SetInputMessageHandlerAsync` methode met een nieuwe, en voeg een `SetDesiredPropertyUpdateCallbackAsync` methode voor het gewenste eigenschappen updates. Als u deze wijziging, vervangt u de laatste regel van de **Init** methode met de volgende code:
+10. In de **Init** methode, de code maakt en configureert u een **DeviceClient** object. Dit object kunt de module die u wilt verbinding maken met de lokale Azure IoT Edge-runtime voor het verzenden en ontvangen van berichten. De verbindingsreeks die wordt gebruikt in de **Init** methode voor de module wordt verstrekt door de rand van de IoT-runtime. Na het maken van de **DeviceClient**, de code leest de TemperatureThreshold uit de Module-Twin gewenste eigenschappen en registreert een retouraanroep voor het ontvangen van berichten van de rand van de IoT-hub via de **input1**eindpunt. Vervang de `SetInputMessageHandlerAsync` methode met een nieuwe, en voeg een `SetDesiredPropertyUpdateCallbackAsync` methode voor het gewenste eigenschappen updates. Als u deze wijziging, vervangt u de laatste regel van de **Init** methode met de volgende code:
 
     ```csharp
     // Register callback to be called when a message is received by the module
@@ -127,7 +127,7 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-9. Voeg de `onDesiredPropertiesUpdate` methode voor de **programma** klasse. Deze methode ontvangt updates op de gewenste eigenschappen van de module-twin en werkt de **temperatureThreshold** variabele moet worden gezocht. Alle modules hebben hun eigen module twin, kunt u de code die wordt uitgevoerd in een module rechtstreeks vanuit de cloud.
+11. Voeg de `onDesiredPropertiesUpdate` methode voor de **programma** klasse. Deze methode ontvangt updates op de gewenste eigenschappen van de module-twin en werkt de **temperatureThreshold** variabele moet worden gezocht. Alle modules hebben hun eigen module twin, kunt u de code die wordt uitgevoerd in een module rechtstreeks vanuit de cloud.
 
     ```csharp
     static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -158,7 +158,7 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
     }
     ```
 
-10. Vervang de `PipeMessage` methode met de `FilterMessages` methode. Deze methode wordt aangeroepen wanneer de module een bericht van de rand van de IoT-hub ontvangt. Deze berichten waarin wordt aangegeven temperaturen lager dan de drempelwaarde temperatuur is ingesteld via de module-twin gefilterd. Voegt ook de **MessageType** eigenschap aan het bericht met de waarde die is ingesteld op **waarschuwing**. 
+12. Vervang de `PipeMessage` methode met de `FilterMessages` methode. Deze methode wordt aangeroepen wanneer de module een bericht van de rand van de IoT-hub ontvangt. Deze berichten waarin wordt aangegeven temperaturen lager dan de drempelwaarde temperatuur is ingesteld via de module-twin gefilterd. Voegt ook de **MessageType** eigenschap aan het bericht met de waarde die is ingesteld op **waarschuwing**. 
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
@@ -214,27 +214,20 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
     }
     ```
 
-11. Het project bouwen, met de rechtermuisknop op de **FilterModule.csproj** bestand in Verkenner en klik op **bouwen IoT rand module**. Dit proces wordt gecompileerd van de module en exporteert het binaire bestand en de bijbehorende afhankelijkheden in een map die wordt gebruikt om een Docker-installatiekopie te maken.
-
-   ![Rand van de IoT-module maken][2]
+13. Sla dit bestand.
 
 ## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Een Docker-installatiekopie maken en deze publiceren naar het register
 
-1. Vouw in VS-Code explorer de **Docker** map. Vouw vervolgens ofwel de map voor uw platform container **linux x64** of **windows nano**.
-
-   ![Selecteer Docker-container platform][3]
-
-2. Met de rechtermuisknop op de **Dockerfile** -bestand en klik op **bouwen IoT rand module Docker installatiekopie**. 
-3. In de **map selecteren** venster ofwel om te zoeken of invoeren `./bin/Debug/netcoreapp2.0/publish`. Klik op **map selecteren als EXE_DIR**.
-4. Typ in het pop-tekst boven aan het venster tegenover Code, naam van de installatiekopie. Bijvoorbeeld: `<your container registry address>/filtermodule:latest`. De Register-adres van de container is hetzelfde als de aanmeldingsserver die u hebt gekopieerd uit het register. Deze moet de vorm van `<your container registry name>.azurecr.io`.
-5. Aanmelden bij Docker met behulp van de gebruikersnaam, wachtwoord en login-server die u hebt gekopieerd uit uw Azure-container register wanneer u het hebt gemaakt. Voer de volgende opdracht in de geïntegreerde terminal VS-Code in: 
+1. Aanmelden bij Docker hiertoe de volgende opdracht in de geïntegreerde terminal VS-Code in: 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-6. Push de installatiekopie aan het register van de container. Selecteer **weergave** > **opdracht palet** en zoek naar de **rand: Push IoT rand module Docker installatiekopie** menuopdracht. Voer de naam van de afbeelding in het pop-tekst boven aan het venster VS-Code. Gebruik dezelfde naam van de installatiekopie die u in stap 4 wordt gebruikt.
-7. Als u wilt uw installatiekopie in de Azure-portal bekijken, gaat u naar het register van uw Azure-container en selecteer **opslagplaatsen**. U ziet **filtermodule** vermeld.
+2. In VS-Code explorer met de rechtermuisknop op de **module.json** -bestand en klik op **Build en Push IoT rand module Docker installatiekopie**. Selecteer in het pop-vervolgkeuzelijst aan de bovenkant van het venster Code van de VS, uw platform container ofwel **amd64** voor Linux-container of **windows amd64** voor Windows-container. VS Code vervolgens uw code wordt gemaakt, containerize de `FilterModule.dll` en dit doorgeven aan de container-registersleutel die u hebt opgegeven.
+
+
+3. U kunt het adres van de installatiekopie volledige container met het label krijgen in de VS Code geïntegreerd terminal. Voor meer informatie over de definitie van de build en push kunt u verwijzen naar de `module.json` bestand.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Register-referenties aan de rand runtime toevoegen
 De referenties voor uw register toevoegen aan de rand runtime op de computer waarop u het apparaat aan de rand worden uitgevoerd. Deze referenties geven de runtime toegang tot het ophalen van de container. 
@@ -256,15 +249,15 @@ De referenties voor uw register toevoegen aan de rand runtime op de computer waa
 1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw IoT-hub.
 2. Ga naar **IoT Edge (Preview)** en selecteer uw IoT Edge-apparaat.
 3. Selecteer **Modules ingesteld**. 
-2. Controleer of de **tempSensor** module wordt automatisch ingevuld. Als dit niet het geval is, gebruikt u de volgende stappen toe te voegen:
+4. Controleer of de **tempSensor** module wordt automatisch ingevuld. Als dit niet het geval is, gebruikt u de volgende stappen toe te voegen:
     1. Selecteer **IoT rand Module toevoegen**.
     2. In de **naam** veld `tempSensor`.
     3. In de **installatiekopie URI** veld `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
     4. Laat de overige instellingen ongewijzigd en klik op **opslaan**.
-9. Voeg de **filterModule** module die u hebt gemaakt in de vorige secties. 
+5. Voeg de **filterModule** module die u hebt gemaakt in de vorige secties. 
     1. Selecteer **IoT rand Module toevoegen**.
     2. In de **naam** veld `filterModule`.
-    3. In de **installatiekopie URI** en voer het adres klopt; bijvoorbeeld `<your container registry address>/filtermodule:latest`.
+    3. In de **installatiekopie URI** en voer het adres klopt; bijvoorbeeld `<your container registry address>/filtermodule:0.0.1-amd64`. U vindt het adres van de volledige installatiekopie uit de vorige sectie.
     4. Controleer de **inschakelen** vak zodat u de twin module kunt bewerken. 
     5. Vervang de JSON in het tekstvak voor de module met de volgende JSON: 
 
@@ -277,8 +270,8 @@ De referenties voor uw register toevoegen aan de rand runtime op de computer waa
         ```
  
     6. Klik op **Opslaan**.
-12. Klik op **Volgende**.
-13. In de **Routes opgeven** stap, kopieert u de JSON onder in het tekstvak. Alle berichten publiceren modules naar de Edge-runtime. Declaratieve regels in de runtime definiëren waar de berichten stromen. In deze zelfstudie moet u twee routes. De eerste route transporten berichten van de temperatuursensor naar de filtermodule via het eindpunt 'input1', dat het eindpunt dat u hebt geconfigureerd met de **FilterMessages** handler. De tweede route transporten berichten van de module expressiefilter IoT-hub. In deze route `upstream` is een speciale bestemming waarin wordt uitgelegd rand Hub berichten verzenden naar IoT Hub. 
+6. Klik op **Volgende**.
+7. In de **Routes opgeven** stap, kopieert u de JSON onder in het tekstvak. Alle berichten publiceren modules naar de Edge-runtime. Declaratieve regels in de runtime definiëren waar de berichten stromen. In deze zelfstudie moet u twee routes. De eerste route transporten berichten van de temperatuursensor naar de filtermodule via het eindpunt 'input1', dat het eindpunt dat u hebt geconfigureerd met de **FilterMessages** handler. De tweede route transporten berichten van de module expressiefilter IoT-hub. In deze route `upstream` is een speciale bestemming waarin wordt uitgelegd rand Hub berichten verzenden naar IoT Hub. 
 
     ```json
     {
@@ -289,21 +282,21 @@ De referenties voor uw register toevoegen aan de rand runtime op de computer waa
     }
     ```
 
-4. Klik op **Volgende**.
-5. In de **Template bekijken** stap, klikt u op **indienen**. 
-6. Ga terug naar de detailpagina voor rand van de IoT-apparaat en klikt u op **vernieuwen**. U ziet nu de nieuwe **filtermodule** uitgevoerd samen met de **tempSensor** module en de **IoT rand runtime**. 
+8. Klik op **Volgende**.
+9. In de **Template bekijken** stap, klikt u op **indienen**. 
+10. Ga terug naar de detailpagina voor rand van de IoT-apparaat en klikt u op **vernieuwen**. U ziet nu de nieuwe **filtermodule** uitgevoerd samen met de **tempSensor** module en de **IoT rand runtime**. 
 
 ## <a name="view-generated-data"></a>Gegevens weergeven die zijn gegenereerd
 
 Voor het bewaken van het apparaat verzonden van uw IoT-randapparaat naar uw IoT-hub voor cloud-berichten:
 1. De Azure IoT Toolkit-uitbreiding configureren met de verbindingsreeks voor uw IoT-hub: 
     1. De Code van de VS explorer openen door te selecteren **weergave** > **Explorer**. 
-    3. Klik in de Verkenner op **IOT HUB-apparaten** en klik vervolgens op **...** . Klik op **verbindingsreeks van de IoT-Hub ingesteld** en geef de verbindingsreeks voor de IoT-hub die uw IoT-Edge-apparaat met in het pop-upvenster verbindt. 
+    2. Klik in de Verkenner op **IOT HUB-apparaten** en klik vervolgens op **...** . Klik op **verbindingsreeks van de IoT-Hub ingesteld** en geef de verbindingsreeks voor de IoT-hub die uw IoT-Edge-apparaat met in het pop-upvenster verbindt. 
 
         Als u wilt zoeken in de verbindingsreeks, klik op de tegel voor uw IoT-hub in de Azure portal en klik vervolgens op **gedeeld toegangsbeleid**. In **gedeeld toegangsbeleid**, klikt u op de **iothubowner** beleid en kopieert u de verbinding met IoT Hub tekenreeks in de **iothubowner** venster.   
 
-1. Selecteer voor het bewaken van gegevens die binnenkomen in de IoT-hub **weergave** > **opdracht palet** en zoek naar de **IoT: D2C bericht bewaking starten** menuopdracht. 
-2. Als u wilt stoppen met het bewaken van gegevens, gebruikt u de **IoT: D2C bericht bewaking stopt** menuopdracht. 
+2. Selecteer voor het bewaken van gegevens die binnenkomen in de IoT-hub **weergave** > **opdracht palet** en zoek naar de **IoT: D2C bericht bewaking starten** menuopdracht. 
+3. Als u wilt stoppen met het bewaken van gegevens, gebruikt u de **IoT: D2C bericht bewaking stopt** menuopdracht. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

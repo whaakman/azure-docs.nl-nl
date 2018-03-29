@@ -2,10 +2,10 @@
 title: Servicelimieten in Azure Search | Microsoft Docs
 description: Servicelimieten gebruikt voor het plannen van capaciteit en bovengrenzen voor aanvragen en antwoorden voor Azure Search.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: 857a8606-c1bf-48f1-8758-8032bbe220ad
 ms.service: search
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/09/2017
+ms.date: 03/26/2018
 ms.author: heidist
-ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fb2234e79e8deb98a94068f31a40c8f0b415d7ba
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximum beperkt op opslag, workloads en aantallen van indexen, documenten en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op een **vrije**, **Basic**, of **standaard** prijscategorie.
@@ -32,35 +32,40 @@ Maximum beperkt op opslag, workloads en aantallen van indexen, documenten en and
 > Een service is ingericht op een bepaalde laag. Categorieën voor het verkrijgen van capaciteit springen omvat het inrichten van een nieuwe service (Er is geen in-place upgrade). Zie voor meer informatie [Kies een SKU of laag](search-sku-tier.md). Zie voor meer informatie over het aanpassen van de capaciteit binnen een service die u al hebt ingericht, [schalen niveaus van de bron voor query's en workloads indexering](search-capacity-planning.md).
 >
 
-## <a name="per-subscription-limits"></a>Per abonnement limieten
+## <a name="subscription-limits"></a>Abonnementen
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## <a name="per-service-limits"></a>Limieten per service
+## <a name="service-limits"></a>Servicelimieten
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-## <a name="per-index-limits"></a>Per index limieten
-Er is een-op-een overeenkomst tussen beperkingen met betrekking tot indexen en beperkingen met betrekking tot indexeerfuncties. Gezien een limiet van 200 indexen, is indexeerfuncties het maximum aantal ook 200 voor dezelfde service.
+## <a name="index-limits"></a>Limieten voor index
 
 | Resource | Gratis | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Index: maximum aantal velden van per index |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Index: maximum score berekenen voor profielen per index |100 |100 |100 |100 |100 |100 |
-| Index: maximale functies per profiel |8 |8 |8 |8 |8 |8 |
-| Indexeerfuncties: maximale indexering belasting per aanroep |10.000 documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |N.V.T. <sup>2</sup> |
-| Indexeerfuncties: de maximale uitvoeringstijd | 1-3 minuten <sup>3</sup> |24 uur |24 uur |24 uur |24 uur |N.V.T. <sup>2</sup> |
-| BLOB-indexeerfunctie: maximale blobgrootte, MB |16 |16 |128 |256 |256 |N.V.T. <sup>2</sup> |
-| BLOB-indexeerfunctie: maximum aantal tekens inhoud opgehaald uit een blob |32,000 |64,000 |4 miljoen |4 miljoen |4 miljoen |N.V.T. <sup>2</sup> |
+| Maximum aantal velden per index |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
+| Maximale scoreprofiel profielen per index |100 |100 |100 |100 |100 |100 |
+| Maximale functies per profiel |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> basisstaffel is de enige SKU met een lagere limiet van 100 velden per index.
 
-<sup>2</sup> S3 HD ondersteunt momenteel geen indexeerfuncties. Neem contact op met ondersteuning van Azure als u deze mogelijkheid dringend behoefte hebt.
+## <a name="indexer-limits"></a>Indexeerfunctie limieten
 
-<sup>3</sup> indexeerfunctie maximale uitvoeringstijd voor de laag gratis is 3 minuten voor blob-bronnen en 1 minuut voor andere gegevensbronnen.
+| Resource | Gratis | Basic | S1 | S2 | S3 | S3 HD |
+| --- | --- | --- | --- | --- | --- | --- |
+| Maximale indexering belasting per aanroep |10.000 documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |N.V.T. <sup>1</sup> |
+| Maximale uitvoeringstijd | 1-3 minuten <sup>2</sup> |24 uur |24 uur |24 uur |24 uur |N.V.T. <sup>1</sup> |
+| BLOB-indexeerfunctie: maximale blobgrootte, MB |16 |16 |128 |256 |256 |N.V.T. <sup>1</sup> |
+| BLOB-indexeerfunctie: maximum aantal tekens inhoud opgehaald uit een blob |32,000 |64,000 |4 miljoen |4 miljoen |4 miljoen |N.V.T. <sup>1</sup> |
+
+<sup>1</sup> S3 HD ondersteunt momenteel geen indexeerfuncties. Neem contact op met ondersteuning van Azure als u deze mogelijkheid dringend behoefte hebt.
+
+<sup>2</sup> indexeerfunctie maximale uitvoeringstijd voor de laag gratis is 3 minuten voor blob-bronnen en 1 minuut voor andere gegevensbronnen.
+
 
 ## <a name="document-size-limits"></a>De maximale grootte document
 | Resource | Gratis | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Grootte van afzonderlijke document per Index API |< 16 MB |< 16 MB |< 16 MB |< 16 MB |< 16 MB |< 16 MB |
+| Grootte van afzonderlijke document per Index API |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |
 
 Verwijst naar de grootte van de maximale document bij het aanroepen van een API-Index. De documentgrootte van het is daadwerkelijk een limiet van de grootte van de aanvraagtekst Index API. Omdat u een batch met meerdere documenten tegelijk aan de API-Index doorgeven kunt, wordt de maximale grootte daadwerkelijk hangt af van het aantal documenten in de batch zijn. Voor een batch met één document is de grootte van de maximale document 16 MB van JSON.
 
@@ -79,7 +84,7 @@ Er zijn geen schattingen beter voorspelbaar wanneer berekend op services die wor
 * Maximaal 32 velden in de component $orderby
 * Maximale zoeken Termgrootte is 32.766 bytes (32 KB min 2-bytes) van UTF-8-gecodeerde tekst
 
-<sup>1</sup> in Azure Search de hoofdtekst van een aanvraag is onderworpen aan de bovengrens van 16 MB, om een limiet van de inhoud van afzonderlijke velden of verzamelingen die anders niet worden beperkt door theoretische limieten te leggen (Zie [ondersteunde gegevenstypen](https://msdn.microsoft.com/library/azure/dn798938.aspx) voor meer informatie over het veld samenstelling en beperkingen).
+<sup>1</sup> in Azure Search de hoofdtekst van een aanvraag is onderworpen aan de bovengrens van 16 MB, om een limiet van de inhoud van afzonderlijke velden of verzamelingen die anders niet worden beperkt door theoretische limieten te leggen (Zie [gegevens ondersteund typen](https://msdn.microsoft.com/library/azure/dn798938.aspx) voor meer informatie over het veld samenstelling en beperkingen).
 
 ## <a name="api-response-limits"></a>API-reactie limieten
 * Maximaal 1000 documenten die worden geretourneerd per pagina met zoekresultaten

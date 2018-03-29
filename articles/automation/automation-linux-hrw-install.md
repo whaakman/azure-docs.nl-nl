@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6278583c288a9a28bda53748e2f9f6fd83ed6c7f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b4559afa9294111eaa1f20fdf295d1fb26dcc994
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Het implementeren van een Linux hybride Runbook Worker
 
@@ -45,7 +45,7 @@ Voordat u doorgaat, moet u de werkruimte voor logboekanalyse die uw Automation-a
 
 2.  Voer de volgende opdracht, het wijzigen van de waarden voor parameters *-w*, *-k*, *-g*, en *-e*. Voor de *-g* parameter Vervang de waarde met de naam van de Hybrid Runbook Worker-groep die moet worden toegevoegd aan de nieuwe Linux hybride Runbook Worker. Als de naam niet al in uw Automation-account bestaat, wordt een nieuwe hybride Runbook Worker-groep bestaat met die naam.
     
-    ```
+    ```python
     sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. Nadat de opdracht voltooid is, ziet de blade Hybrid Worker-groepen in de Azure portal de nieuwe groep en het aantal leden of als een bestaande groep, het aantal leden wordt verhoogd. U kunt de groep in de lijst selecteren op de **Hybrid Worker-groepen** blade en selecteer de **Hybrid Workers** tegel. Op de **Hybrid Workers** blade ziet u elk lid van de groep die wordt vermeld.  
@@ -54,9 +54,9 @@ Voordat u doorgaat, moet u de werkruimte voor logboekanalyse die uw Automation-a
 ## <a name="turning-off-signature-validation"></a>Het uitschakelen van validatie van handtekening 
 Standaard is Linux Hybrid Runbook Workers handtekeningvalidatie nodig. Als u een niet-ondertekende runbook op basis van een werknemer uitvoeren, ziet u een fout met "Handtekeningvalidatie is mislukt". Als wilt uitschakelen handtekeningvalidatie, voer de volgende opdracht, de tweede parameter vervangen door uw Log Analytics-werkruimte-ID:
 
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
-    ```
+ ```python
+ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
+ ```
 
 ## <a name="supported-runbook-types"></a>Ondersteunde runbooktypen
 

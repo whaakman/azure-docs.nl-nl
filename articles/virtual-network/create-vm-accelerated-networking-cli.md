@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 5c09ffe6867972e772334ae7ae1dd655cdac431f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: aa74596906206ba4460e80af9015955c0b848cd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Een virtuele Linux-machine maken met het versnelde netwerken
 
@@ -57,7 +57,7 @@ Versnelde netwerken wordt ondersteund op de meest algemene doeleinden en geoptim
 Zie voor meer informatie over VM-instanties [Linux VM-grootten](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="regions"></a>Regio's
-Beschikbaar in alle openbare Azure-regio's met uitzondering van Oost-Azië.   Azure Government Cloud is nog niet ondersteund.
+Beschikbaar in alle openbare Azure-regio's, evenals Azure Government Clouds.
 
 ## <a name="limitations"></a>Beperkingen
 De volgende beperkingen bestaan wanneer deze wordt met deze mogelijkheid:
@@ -127,7 +127,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Maken van een netwerkinterface met [az netwerk nic maken](/cli/azure/network/nic#az_network_nic_create) met versnelde netwerken ingeschakeld. Het volgende voorbeeld wordt een netwerkinterface met de naam *myNic* in de *mySubnet* subnet van de *myVnet* virtueel netwerk en gekoppeld de  *myNetworkSecurityGroup* netwerkbeveiligingsgroep voor de netwerkinterface:
+Maken van een netwerkinterface met [az netwerk nic maken](/cli/azure/network/nic#az_network_nic_create) met versnelde netwerken ingeschakeld. Het volgende voorbeeld wordt een netwerkinterface met de naam *myNic* in de *mySubnet* subnet van de *myVnet* virtueel netwerk en gekoppeld de * myNetworkSecurityGroup* netwerkbeveiligingsgroep voor de netwerkinterface:
 
 ```azurecli
 az network nic create \

@@ -2,7 +2,7 @@
 title: 'De procedure van wetenschappelijke gegevens Team in actie: met behulp van SQL Data Warehouse | Microsoft Docs'
 description: Geavanceerde analyses proces en de technologie in actie
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev;weig
-ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 6566db5f186b92179df3125deaf5ad17c6f9e974
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>De procedure van wetenschappelijke gegevens Team in actie: met behulp van SQL Data Warehouse
 In deze zelfstudie wordt beschreven hoe u maken en implementeren van een machine learning-model met behulp van SQL Data Warehouse (SQL DW) voor een openbaar dataset--de [NYC Taxi reizen](http://www.andresmh.com/nyctaxitrips/) gegevensset. Het binaire classificatie model samengesteld voorspelt al dan niet een tip voor een zakenreis is betaald, en modellen voor multiklassen classificatie en regressie worden ook besproken die het distributiepunt voor de tip bedragen betaald voorspellen.
@@ -319,7 +319,7 @@ Laadtijden van invloed op de geografische locatie van uw storage-accounts.
 U moet beslissen welke komen als er dubbele bron en doel-bestanden.
 
 > [!NOTE]
-> Als de CSV-bestanden worden gekopieerd van de openbare blob-opslag naar uw persoonlijke blob storage-account bestaat al in uw persoonlijke blob storage-account, AzCopy u wordt gevraagd of u wilt overschrijven. Als u niet overschrijven wilt, invoer  **n**  wanneer u wordt gevraagd. Als u wilt overschrijven **alle** , invoer **een** wanneer u wordt gevraagd. U kunt ook invoer **y** afzonderlijk .csv-bestanden overschrijven.
+> Als de CSV-bestanden worden gekopieerd van de openbare blob-opslag naar uw persoonlijke blob storage-account bestaat al in uw persoonlijke blob storage-account, AzCopy u wordt gevraagd of u wilt overschrijven. Als u niet overschrijven wilt, invoer **n** wanneer u wordt gevraagd. Als u wilt overschrijven **alle** , invoer **een** wanneer u wordt gevraagd. U kunt ook invoer **y** afzonderlijk .csv-bestanden overschrijven.
 > 
 > 
 
@@ -836,7 +836,7 @@ In deze oefening hebben we al verkend en de gegevens in SQL Data Warehouse engin
    
     ![Gegevens importeren voor Azure ML][17]
 2. Selecteer **Azure SQL Database** als de **gegevensbron** in de **eigenschappen** Configuratiescherm.
-3. Voer de naam van de DNS-database in de **databaseservernaam** veld. Indeling:`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Voer de naam van de DNS-database in de **databaseservernaam** veld. Indeling: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Voer de **databasenaam** in het bijbehorende veld.
 5. Voer de *SQL-gebruikersnaam* in de **Server gebruikersaccountnaam**, en de *wachtwoord* in de **Server het wachtwoord voor gebruikersaccount**.
 7. In de **databasequery** bewerken van tekst, plakt u de query waarmee de benodigde databasevelden (inclusief eventuele berekende velden, zoals de labels) worden opgehaald en omlaag de gegevens naar de gewenste samplegrootte voorbeelden.
@@ -862,7 +862,7 @@ Voor het implementeren van een nieuwe webservice, moet u:
 
 Maken van een experiment score van een **voltooid** training experiment, klikt u op **maken score berekenen EXPERIMENTEREN** in de onderste actiebalk.
 
-![Score berekenen voor Azure][18]
+![Azure Scoring][18]
 
 Azure Machine Learning probeert te maken van een score experiment op basis van de onderdelen van het trainingsexperiment. In het bijzonder wordt:
 

@@ -2,7 +2,7 @@
 title: Vergelijking van Azure Data Lake Store met Azure Storage-Blob | Microsoft Docs
 description: Vergelijking van Azure Data Lake Store met Azure Storage-Blob
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a8831278ef0e83571bf05d48e5d671f8dee92850
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: acdd829785c44f6683c356c135587be183cce392
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Vergelijking van Azure Data Lake Store en Azure Blob-opslag
 De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data Lake Store en Azure Blob Storage langs een aantal belangrijke aspecten van big data-verwerking. Azure Blob Storage is een algemeen, schaalbare object store, die is ontworpen voor een groot aantal scenario's voor opslag. Azure Data Lake Store is een verwerkingsservice voor grote hoeveelheden-opslagplaats die is geoptimaliseerd voor big data-analyses werkbelastingen.
@@ -34,7 +34,7 @@ De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data
 | Hadoop File System-Client |Ja |Ja |
 | Gegevensbewerkingen - verificatie |Op basis van [identiteiten met Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Op basis van gedeelde geheimen - [toegangssleutels van Account](../storage/common/storage-create-storage-account.md#manage-your-storage-account) en [gedeelde handtekening toegangstoetsen](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Gegevensbewerkingen - verificatieprotocol |OAuth 2.0. Aanroepen moeten een geldige JWT (JSON Web Token) uitgegeven door Azure Active Directory bevatten |Hash-based Message Authentication Code (HMAC). Aanroepen moeten een Base64-gecodeerd SHA-256-hash bevatten over een deel van de HTTP-aanvraag. |
-| Gegevensbewerkingen - autorisatie |POSIX-toegangsbeheerlijsten (ACL's).  ACL's op basis van Azure Active Directory-identiteiten kunnen bestanden en mappen niveau worden ingesteld. |Gebruiken voor autorisatie van account-niveau – [toegangssleutels van Account](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Gebruik voor het account, container of blob-autorisatie - [handtekeningsleutels voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Gegevensbewerkingen - autorisatie |POSIX-toegangsbeheerlijsten (ACL's).  ACL's op basis van Azure Active Directory-identiteit kunnen worden ingesteld op het niveau van bestanden en mappen. |Gebruiken voor autorisatie van account-niveau – [toegangssleutels van Account](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Gebruik voor het account, container of blob-autorisatie - [handtekeningsleutels voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Gegevensbewerkingen - controle |Beschikbaar. Zie [hier](data-lake-store-diagnostic-logs.md) voor meer informatie. |Beschikbaar |
 | Van Versleutelingsgegevens in rust |<ul><li>Transparant, serverzijde</li> <ul><li>Met service beheerd sleutels</li><li>Met de klant beheerde sleutels in Azure KeyVault</li></ul></ul> |<ul><li>Transparant, serverzijde</li> <ul><li>Met service beheerd sleutels</li><li>Met de klant beheerde sleutels in Azure KeyVault (preview)</li></ul><li>Clientversleuteling</li></ul> |
 | Beheertaken uit te voeren (bijvoorbeeld-Account maken) |[Toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md) (RBAC) opgegeven door de Azure voor accountbeheer |[Toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md) (RBAC) opgegeven door de Azure voor accountbeheer |
@@ -46,7 +46,4 @@ De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data
 | Regionale beschikbaarheid |Zie [hier](https://azure.microsoft.com/regions/#services) |Beschikbaar in alle Azure-regio 's |
 | Prijs |Zie [prijzen](https://azure.microsoft.com/pricing/details/data-lake-store/) |Zie [prijzen](https://azure.microsoft.com/pricing/details/storage/) |
 
-### <a name="next-steps"></a>Volgende stappen
-* [Overzicht van Azure Data Lake Store](data-lake-store-overview.md)
-* [Aan de slag met Data Lake Store](data-lake-store-get-started-portal.md)
 

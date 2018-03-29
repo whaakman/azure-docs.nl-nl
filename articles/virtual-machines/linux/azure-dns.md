@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a445de3e1bfbeb2cd2e5674418688d6bb610a3c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opties voor Linux virtuele machines in Azure DNS-naamomzetting
 Azure biedt DNS-naamomzetting standaard voor alle virtuele machines die zich in één virtueel netwerk. U kunt uw eigen DNS-naam resolutie oplossing implementeren door uw eigen DNS-services op uw virtuele machines te configureren die Azure als host fungeert. De volgende scenario's kunt u kiezen die geschikt is voor uw situatie.
@@ -30,7 +30,7 @@ Het type van naamomzetting die u gebruikt, is afhankelijk van hoe uw virtuele ma
 
 De volgende tabel ziet u scenario's en bijbehorende name resolution-oplossingen:
 
-| **Scenario** | **Oplossing** | **Achtervoegsel** |
+| **Scenario** | **Oplossing** | **Suffix** |
 | --- | --- | --- |
 | Naamomzetting tussen de rolinstanties of virtuele machines in hetzelfde virtuele netwerk |[Naamomzetting door Azure worden geboden](#azure-provided-name-resolution) |hostnaam of FQDN-naam (fully qualified domain name) |
 | Naamomzetting tussen de rolinstanties of virtuele machines in verschillende virtuele netwerken |Door de klant beheerde DNS-servers doorsturen van query's tussen virtuele netwerken voor de omzetting van Azure (DNS-proxy). Zie [naamomzetting met uw eigen DNS-server](#name-resolution-using-your-own-dns-server). |Alleen FQDN |
@@ -112,7 +112,7 @@ Het bestand resolv.conf automatisch wordt gegenereerd en mag niet worden bewerkt
 2. Netconfig-update uitvoeren om bij te werken.
 
 **CentOS door Rogue Wave-Software (voorheen OpenLogic)** (maakt gebruik van NetworkManager)
-1. 'Echo 'opties timeout:1 pogingen: 5' ' toevoegen aan ' / etc/NetworkManager/dispatcher.d/11-dhclient'.
+1. Voeg ' RES_OPTIONS = 'timeout:1 pogingen: 5' ' naar '/ sysconfig-enzovoort-netwerk'.
 2. Voer 'service netwerk opnieuw is opgestart, bij te werken.
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Naamomzetting met uw eigen DNS-server

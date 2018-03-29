@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: e477ce9a5f9f35d88a6faeb68ee4e0403f64c030
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e32cd1f4267b9ae0825fbb34ed00e25dd1b63b5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-network-security-overview"></a>Overzicht van Azure-netwerk-beveiliging
 Microsoft Azure omvat een robuuste netwerkinfrastructuur ter ondersteuning van uw toepassing en de vereisten voor service-connectiviteit. Verbinding met het netwerk mogelijk is tussen bronnen in Azure, tussen on-premises en Azure gehoste bronnen, en naar en van het Internet en Azure.
@@ -252,11 +252,11 @@ Azure biedt mogelijkheden om u te helpen op dit gebied sleutel vroegtijdig, bewa
 ### <a name="azure-network-watcher"></a>Azure-netwerk-Watcher
 Azure-netwerk-Watcher bevat een groot aantal mogelijkheden die helpen bij het oplossen van problemen, evenals een geheel nieuwe set hulpprogramma's om te helpen voorzien van de identificatie van beveiligingsproblemen.
 
-[Weergave van de beveiligingsgroep ](/network-watcher/network-watcher-security-group-view-overview.md) helpt bij de naleving van controle en beveiliging van virtuele Machines en kan worden gebruikt om uit te voeren programmatische audits vergelijken van de basislijnen beleid gedefinieerd door uw organisatie aan effectieve regels voor elk van uw virtuele machines. Hiermee kunt u afwijking van de configuratie te identificeren.
+[Weergave van de beveiligingsgroep ](../network-watcher/network-watcher-security-group-view-overview.md) helpt bij de naleving van controle en beveiliging van virtuele Machines en kan worden gebruikt om uit te voeren programmatische audits vergelijken van de basislijnen beleid gedefinieerd door uw organisatie aan effectieve regels voor elk van uw virtuele machines. Hiermee kunt u afwijking van de configuratie te identificeren.
 
-[Pakketopname](/network-watcher/network-watcher-packet-capture-overview.md) kunt u netwerkverkeer naar en van de virtuele machine vastleggen. Naast helpen doordat u netwerk statistische gegevens verzamelen en met het oplossen van problemen met toepassing mag pakketopname waardevol zijn bij het onderzoek van netwerk beveiligingsrisico's. U kunt ook deze functionaliteit samen met Azure Functions netwerkopnamen starten in reactie op specifieke waarschuwingen van Azure.
+[Pakketopname](../network-watcher/network-watcher-packet-capture-overview.md) kunt u netwerkverkeer naar en van de virtuele machine vastleggen. Naast helpen doordat u netwerk statistische gegevens verzamelen en met het oplossen van problemen met toepassing mag pakketopname waardevol zijn bij het onderzoek van netwerk beveiligingsrisico's. U kunt ook deze functionaliteit samen met Azure Functions netwerkopnamen starten in reactie op specifieke waarschuwingen van Azure.
 
-Voor meer informatie over Azure-netwerk-Watcher en het testen van sommige functies in uw labs Kijk eens naar de [bewakingsoverzicht Azure-netwerk-watcher](/network-watcher/network-watcher-monitoring-overview.md)
+Voor meer informatie over Azure-netwerk-Watcher en het testen van sommige functies in uw labs Kijk eens naar de [bewakingsoverzicht Azure-netwerk-watcher](../network-watcher/network-watcher-monitoring-overview.md)
 
 >[!NOTE]
 Azure-netwerk-watcher wordt nog steeds openbare preview hoeft deze mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid als de services die in het algemeen beschikbaarheid release. Bepaalde functies mogelijk niet wordt ondersteund, kunnen hebben beperkte mogelijkheden en mogelijk niet beschikbaar in alle Azure-locaties. Voor de meest recente meldingen op beschikbaarheid en de status van deze service controleert de [pagina Azure-updates](https://azure.microsoft.com/updates/?product=network-watcher)

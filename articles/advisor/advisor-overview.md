@@ -5,8 +5,8 @@ services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0aa97a7557706f0b704d4e31a84e9d356d1ad087
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Inleiding tot Azure Advisor
 
@@ -43,9 +43,6 @@ De Advisor-dashboard worden persoonlijke aanbevelingen voor al uw abonnementen w
 
   ![Advisor aanbeveling typen](./media/advisor-overview/advisor-dashboard.png)
 
-> [!NOTE]
-> Gebruik Azure Advisor met een abonnement, een abonnement *eigenaar* moet het dashboard Advisor starten.  Deze actie wordt het abonnement met Advisor geregistreerd.  Vanaf dat moment op een abonnement *eigenaar*, *Inzender*, of *lezer* toegang heeft tot de aanbevelingen van Advisor voor het abonnement. 
-
 U kunt op een categorie om de lijst met aanbevelingen in die categorie weer te geven en een aanbeveling voor meer informatie over het selecteren.  U kunt ook meer informatie over acties die u uitvoeren kunt om te profiteren van een kans of een probleem oplost.
 
 ![Advisor aanbeveling categorie](./media/advisor-overview/advisor-ha-category-example.png) 
@@ -62,12 +59,12 @@ U hebt toegang tot Advisor via de [Azure-portal](https://aka.ms/azureadvisordash
 U kunt ook aanbevelingen van Advisor weergeven via de interface van de resource virtuele machine. Kies een virtuele machine en schuif vervolgens naar de Advisor-aanbevelingen in het menu. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Welke machtigingen heb ik nodig voor toegang tot Advisor?
-
-Als u de aanbevelingen voor een abonnement Advisor te ontvangen, moet u uw abonnement eerst registreren bij Advisor. Een abonnement wordt geregistreerd wanneer een abonnement *eigenaar* start van de Advisor-dashboard. Dit is een eenmalige bewerking. Nadat het abonnement is geregistreerd, kunt u de aanbevelingen van Advisor als openen *eigenaar*, *Inzender*, of *lezer* van een abonnement.
+ 
+U hebt toegang tot de aanbevelingen van Advisor als *eigenaar*, *Inzender*, of *lezer* van een abonnement.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Welke bronnen biedt Advisor aanbevelingen voor?
 
-Advisor bevat aanbevelingen voor virtuele machines, beschikbaarheidssets Toepassingsgateways, App-Services, SQL-servers, SQL-databases en Redis-Cache.
+Advisor bevat aanbevelingen voor virtuele machines, beschikbaarheidssets Toepassingsgateways, App-Services, SQL-servers en Redis-Cache.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Kan ik uitstellen of een aanbeveling negeren?
 

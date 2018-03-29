@@ -3,22 +3,22 @@ title: De Azure CLI 2.0 gebruiken met Azure Storage | Microsoft Docs
 description: Informatie over het gebruik van de Azure-opdrachtregelinterface (Azure CLI) 2.0 met Azure Storage te maken en beheren van storage-accounts en werken met Azure BLOB's en bestanden. De Azure CLI 2.0 is een cross-platform-hulpprogramma dat is geschreven in Python.
 services: storage
 documentationcenter: na
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: tamram
-ms.openlocfilehash: 509c702054961c9d9fa525242ce0542059e32d81
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: rogarana
+ms.openlocfilehash: 99e67b9c8469f08f1cbfc980568eec35694d1ae2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>De Azure CLI 2.0 gebruiken met Azure Storage
 
@@ -95,10 +95,10 @@ Subgroups:
 
 Om te werken met de resources in uw Azure-abonnement, u moet eerst aanmelden bij uw Azure-account met `az login`. Er zijn verschillende manieren die kunt u zich aanmeldt:
 
-* **Interactieve aanmelding**:`az login`
-* **Meld u aan met de gebruikersnaam en wachtwoord**:`az login -u johndoe@contoso.com -p VerySecret`
+* **Interactieve aanmelding**: `az login`
+* **Meld u aan met de gebruikersnaam en wachtwoord**: `az login -u johndoe@contoso.com -p VerySecret`
   * Dit werkt niet met Microsoft-accounts of -mailaccounts die gebruikmaken van multi-factor authentication-server.
-* **Meld u aan met een service-principal**:`az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
+* **Meld u aan met een service-principal**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
 ## <a name="azure-cli-20-sample-script"></a>Azure CLI 2.0-voorbeeldscript
 
@@ -146,11 +146,11 @@ echo "Done"
 
 3. Nadat u de benodigde variabelen hebt bijgewerkt, sla het script op en sluit de editor af. De volgende stappen wordt ervan uitgegaan dat u hebt uw script genoemd **my_storage_sample.sh**.
 
-4. Markeer het script als uitvoerbare, indien nodig:`chmod +x my_storage_sample.sh`
+4. Markeer het script als uitvoerbare, indien nodig: `chmod +x my_storage_sample.sh`
 
-5. Voer het script. Bijvoorbeeld in Bash:`./my_storage_sample.sh`
+5. Voer het script. Bijvoorbeeld in Bash: `./my_storage_sample.sh`
 
-Ziet u uitvoer die vergelijkbaar is met het volgende, en de  **\<destination_file\>**  u hebt opgegeven in het script moet worden weergegeven op de lokale computer.
+Ziet u uitvoer die vergelijkbaar is met het volgende, en de **\<destination_file\>** u hebt opgegeven in het script moet worden weergegeven op de lokale computer.
 
 ```
 Creating the container...
@@ -187,10 +187,10 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location`[Vereist]: locatie. Bijvoorbeeld "VS-West'.
-* `--name`[Vereist]: naam van het opslagaccount. De naam moet 3 tot 24 tekens lang zijn, en gebruik alleen kleine letters alfanumerieke tekens.
-* `--resource-group`[Vereist]: naam van resourcegroep.
-* `--sku`[Vereist]: de SKU-opslagaccount. Toegestane waarden:
+* `--location` [Vereist]: locatie. Bijvoorbeeld "VS-West'.
+* `--name` [Vereist]: naam van het opslagaccount. De naam moet 3 tot 24 tekens lang zijn, en gebruik alleen kleine letters alfanumerieke tekens.
+* `--resource-group` [Vereist]: naam van resourcegroep.
+* `--sku` [Vereist]: de SKU-opslagaccount. Toegestane waarden:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -236,7 +236,7 @@ az storage container create --name <container_name>
 
 U kunt een van drie niveaus van leestoegang voor een nieuwe container instellen door te geven de optionele `--public-access` argument:
 
-* `off`(standaard): gegevens van de Container privé eigenaar van het account is.
+* `off` (standaard): gegevens van de Container privé eigenaar van het account is.
 * `blob`: Openbare leestoegang voor blobs.
 * `container`: Openbare lees- en toegang tot de volledige container.
 
@@ -396,7 +396,7 @@ Voorbeelduitvoer
 
 ### <a name="list-share-snapshots"></a>Lijst share momentopnamen
 
-Je kunt aanbieden share momentopnamen van het gebruik van een bepaalde bestandsshare`az storage share list --include-snapshots`
+Je kunt aanbieden share momentopnamen van het gebruik van een bepaalde bestandsshare `az storage share list --include-snapshots`
 
 ```cli
 az storage share list --include-snapshots
@@ -439,7 +439,7 @@ az storage share list --include-snapshots
 ```
 
 ### <a name="browse-share-snapshots"></a>Momentopnamen van de share bladeren
-U kunt ook bekijken in een bepaalde bestandsshare om weer te geven van de inhoud met behulp van een momentopname `az storage file list`. Een heeft om op te geven van de sharenaam `--share-name <snare name>` en de timestamp`--snapshot '2017-10-04T19:45:18.0000000Z'`
+U kunt ook bekijken in een bepaalde bestandsshare om weer te geven van de inhoud met behulp van een momentopname `az storage file list`. Een heeft om op te geven van de sharenaam `--share-name <snare name>` en de timestamp `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```azurecli-interactive
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable

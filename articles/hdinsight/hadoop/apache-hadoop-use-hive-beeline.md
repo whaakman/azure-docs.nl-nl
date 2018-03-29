@@ -2,7 +2,7 @@
 title: Gebruik Beeline met Apache Hive - Azure HDInsight | Microsoft Docs
 description: Informatie over het gebruik van de client Beeline Hive-query's uitvoeren met Hadoop op HDInsight. Beeline is een hulpprogramma voor het werken met HiveServer2 via JDBC vast.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/02/2018
+ms.date: 03/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2beb42f51bbbf65abe7bb6d95579106cdf1857a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>De client Beeline gebruiken met Apache Hive
 
@@ -110,7 +110,7 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsi
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
-    Deze informatie beschrijft de kolommen in de tabel. Terwijl sommige query's op deze gegevens kan worden uitgevoerd, gaan we in plaats daarvan een nieuwe tabel maken om te laten zien hoe u gegevens laadt in Hive en een schema hebt toegepast.
+    Deze informatie beschrijft de kolommen in de tabel.
 
 4. Voer de volgende instructies voor het maken van een tabel met de naam **log4jLogs** met behulp van voorbeeldgegevens voorzien van het HDInsight-cluster:
 
@@ -143,7 +143,7 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsi
 
     * `SELECT` : Hiermee kunt u een telling van alle rijen waarin kolom **t4** bevat de waarde **[fout]**. Deze query retourneert een waarde van **3** omdat er zijn drie rijen met deze waarde.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` -Hive probeert het schema toepassen op alle bestanden in de map. In dit geval wordt bevat de map bestanden die niet overeenkomen met het schema. Om te voorkomen dat een garbagecollection-gegevens in de resultaten, deze instructie vertelt Hive dat we alleen gegevens uit bestanden eindigt op moet retourneren. log.
+    * `INPUT__FILE__NAME LIKE '%.log'` -Hive probeert het schema toepassen op alle bestanden in de map. In dit geval wordt bevat de map bestanden die niet overeenkomen met het schema. Om te voorkomen dat een garbagecollection-gegevens in de resultaten, deze instructie vertelt Hive dat deze alleen gegevens uit bestanden eindigt op moet retourneren. log.
 
   > [!NOTE]
   > Externe tabellen moeten worden gebruikt wanneer u de onderliggende gegevens wordt bijgewerkt door een externe bron verwacht. Bijvoorbeeld, een uploadproces geautomatiseerde gegevens of een MapReduce-bewerking.

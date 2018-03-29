@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 70b39b854a3b7cb28716d3cb290998690dbeb549
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standaard Load Balancer en beschikbaarheid Zones
 
 Azure Load Balancer standaard SKU ondersteunt [beschikbaarheid Zones](../availability-zones/az-overview.md) scenario's. Verschillende nieuwe concepten zijn beschikbaar met standaard Load Balancer, waarmee u kunt de beschikbaarheid in uw scenario end-to-end optimaliseren door het uitlijnen van resources met zones, evenals deze verdelen over zones.  Bekijk [beschikbaarheid Zones](../availability-zones/az-overview.md) voor hulp bij het wat beschikbaarheid Zones zijn, welke regio's wordt momenteel ondersteund beschikbaarheid Zones en andere verwante concepten en producten. Beschikbaarheid Zones in combinatie met standaard Load Balancer is een uitgebreide en flexibele functieset die veel verschillende scenario's kunt maken.  Lees dit document te begrijpen [concepten](#concepts) en fundamentele scenario [richtlijnen ontwerpen](#design).
 
 >[!NOTE]
-> De Load Balancer standaard SKU is momenteel in preview. Tijdens de preview, de functie hebben mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid zoals functies die in het algemeen beschikbaarheid release. Zie [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews (Microsoft Azure Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie. Gebruik de algemeen beschikbaar [Load Balancer basis-SKU](load-balancer-overview.md) voor uw productie-services. Om te gebruiken [beschikbaarheid Zones Preview](https://aka.ms/availabilityzones) met deze Preview vereist een [afzonderlijke aanmelding](https://aka.ms/availabilityzones), naast het aanmelden voor een Load Balancer [standaard preview](#preview-sign-up).
+>Bekijk [beschikbaarheid Zones Preview](https://aka.ms/availabilityzones) voor andere verwante onderwerpen. 
 
 ## <a name="concepts"></a> Beschikbaarheid Zones concepten die worden toegepast met Load Balancer
 

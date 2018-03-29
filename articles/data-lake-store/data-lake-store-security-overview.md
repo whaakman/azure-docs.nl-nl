@@ -2,7 +2,7 @@
 title: Overzicht van de beveiliging in Data Lake Store | Microsoft Docs
 description: Begrijpen hoe Azure Data Lake Store is een veiligere big data-archief
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: e3df23e8803d8b34cc4178f8047d0fe2172d04be
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 65319df8db339b1c124be47f27a841bbd7141921
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Beveiliging in Azure Data Lake Store
 Veel bedrijven profiteert van big data-analyses voor zakelijke inzichten zodat beslissingen voor de smartcard. Een organisatie kan een complex en gereglementeerde omgeving met een toenemend aantal diverse gebruikers hebben. Is het essentieel is voor een ondernemings-om ervoor te zorgen dat essentiële bedrijfsgegevens veiliger, wordt opgeslagen met het juiste niveau van toegang te krijgen tot afzonderlijke gebruikers. Azure Data Lake Store is ontworpen om te voldoen aan deze beveiligingsvereisten. In dit artikel meer informatie over de beveiligingsmogelijkheden van Data Lake Store, met inbegrip van:
@@ -46,7 +46,7 @@ Nadat u Azure Active Directory wordt een gebruiker geverifieerd, zodat de gebrui
 * POSIX ACL voor toegang tot gegevens in het archief
 
 ### <a name="rbac-for-account-management"></a>RBAC voor accountbeheer
-Vier eenvoudige rollen worden standaard gedefinieerd voor Data Lake Store. De rollen toestaan dat verschillende bewerkingen op een Data Lake Store-account via de Azure-portal, PowerShell-cmdlets en REST-API's. De functies en de eigenaar of bijdrager kunnen tal van functies voor beheer uitvoeren op het account. U kunt de rol Lezer toewijzen aan gebruikers die alleen met gegevens werken.
+Vier eenvoudige rollen worden standaard gedefinieerd voor Data Lake Store. De rollen toestaan dat verschillende bewerkingen op een Data Lake Store-account via de Azure-portal, PowerShell-cmdlets en REST-API's. De functies en de eigenaar of bijdrager kunnen tal van functies voor beheer uitvoeren op het account. U kunt de rol Lezer toewijzen aan gebruikers die alleen account management gegevens weergeven.
 
 ![RBAC-rollen](./media/data-lake-store-security-overview/rbac-roles.png "RBAC-rollen")
 
@@ -65,9 +65,9 @@ Zie voor instructies [gebruikers of beveiligingsgroepen toewijzen aan Data Lake 
 ### <a name="using-acls-for-operations-on-file-systems"></a>Met behulp van ACL's voor bewerkingen voor bestandssystemen
 Data Lake Store is een hiërarchische bestandssysteem zoals Hadoop Distributed File System (HDFS) en het ondersteunt [POSIX-ACL's](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Hiermee kunt u lezen (r), (b) schrijven en uitvoeren van (machtigingen voor de resources voor de rol van eigenaar, voor de groep eigenaren en voor andere gebruikers en groepen x). In Data Lake Store kunnen de ACL's worden ingeschakeld voor de hoofdmap, submappen en afzonderlijke bestanden. Zie voor meer informatie over de werking van ACL's in de context van Data Lake Store [Toegangsbeheer in Data Lake Store](data-lake-store-access-control.md).
 
-Het is raadzaam dat u voor meerdere gebruikers met behulp van ACL's definiëren [beveiligingsgroepen](../active-directory/active-directory-groups-create-azure-portal.md). Gebruikers toevoegen aan een beveiligingsgroep en vervolgens de ACL's voor een bestand of map toewijzen aan die beveiligingsgroep. Dit is handig wanneer u toegang bieden aangepaste, wilt omdat u beperkt tot maximaal negen items voor aangepaste toegang toe te voegen. Zie voor meer informatie over het beter beveiligen van gegevens die zijn opgeslagen in Data Lake Store met Azure Active Directory-beveiligingsgroepen [gebruikers of beveiligingsgroep als ACL's toewijzen aan het bestandssysteem van Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
+Het is raadzaam dat u voor meerdere gebruikers met behulp van ACL's definiëren [beveiligingsgroepen](../active-directory/active-directory-groups-create-azure-portal.md). Gebruikers toevoegen aan een beveiligingsgroep en vervolgens de ACL's voor een bestand of map toewijzen aan die beveiligingsgroep. Dit is handig als u bieden toegewezen machtigingen wilt omdat u beperkt tot maximaal 28 vermeldingen voor toegewezen machtigingen. Zie voor meer informatie over het beter beveiligen van gegevens die zijn opgeslagen in Data Lake Store met Azure Active Directory-beveiligingsgroepen [gebruikers of beveiligingsgroep als ACL's toewijzen aan het bestandssysteem van Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
 
-![Standaard- en aangepaste toegang lijst](./media/data-lake-store-security-overview/adl.acl.2.png "lijst standaard en aangepaste toegang")
+![Lijst van toegangsmachtigingen](./media/data-lake-store-security-overview/adl.acl.2.png "toegangsmachtigingen lijst")
 
 ## <a name="network-isolation"></a>Netwerkisolatie
 Gebruik Data Lake Store voor toegang tot uw data store op het netwerkniveau van het te bepalen. U kunt tot stand brengen van firewalls en een IP-adresbereik opgeven voor uw vertrouwde clients. Met een IP-adresbereik kunnen alleen clients die een IP-adres binnen het gedefinieerde bereik hebt verbonden met Data Lake Store.
@@ -83,30 +83,30 @@ Data Lake Store biedt ook versleuteling voor gegevens die zijn opgeslagen in het
 
 Voor sleutelbeheer biedt Data Lake Store twee modi voor het beheren van uw master versleutelingssleutels (MEKs), die nodig zijn voor het ontsleutelen van gegevens die zijn opgeslagen in de Data Lake Store. U kunt ofwel Data Lake Store beheren van de MEKs voor u of eigendom van de MEKs met uw Azure Key Vault bewaart. U opgeven de modus van Sleutelbeheer terwijl tijdens het maken van een Data Lake Store-account. Zie voor meer informatie over het bieden van versleuteling-gerelateerde configuratie [Aan de slag met Azure Data Lake Store met Azure Portal](data-lake-store-get-started-portal.md).
 
-## <a name="auditing-and-diagnostic-logs"></a>Controle en diagnostische logboeken
-U kunt controleren of diagnostische logboeken, afhankelijk van of u op zoek naar de logboeken voor incidentbeheer activiteiten of gegevens-gerelateerde activiteiten.
+## <a name="activity-and-diagnostic-logs"></a>Diagnostische logboeken en activiteit
+U kunt activiteit of diagnostische logboeken, afhankelijk van of u op zoek naar de logboeken voor account management-gerelateerde activiteiten of gegevens-gerelateerde activiteiten.
 
-* Management-gerelateerde activiteiten gebruik van Azure Resource Manager-API's en in de Azure portal worden opgehaald via de controlelogboeken.
+* Account management-gerelateerde activiteiten gebruik van Azure Resource Manager-API's en in de Azure portal via activiteitenlogboeken worden opgehaald.
 * Data-gerelateerde activiteiten gebruik van WebHDFS REST-API's en in de Azure portal via Logboeken met diagnostische gegevens worden opgehaald.
 
-### <a name="auditing-logs"></a>Controlelogboeken
-Om te voldoen aan de voorschriften, mogelijk een organisatie adequaat audittrails dat deze moeten verdiepen in specifieke incidenten. Data Lake Store is ingebouwde bewaking en controle en registreert alle account beheeractiviteiten.
+### <a name="activity-log"></a>Activiteitenlogboek
+Om te voldoen aan de voorschriften, mogelijk een organisatie adequaat audittrails van beheeractiviteiten account dat deze moeten verdiepen in specifieke incidenten. Data Lake Store is ingebouwde bewaking en registreert alle account beheeractiviteiten.
 
-Voor audittrails account management, weergeven en kies de kolommen die u wilt registreren. U kunt ook controlelogboeken exporteren naar Azure Storage.
+Voor audittrails account management, weergeven en kies de kolommen die u wilt registreren. U kunt ook activiteitenlogboeken exporteren naar Azure Storage.
 
-![Controlelogboeken](./media/data-lake-store-security-overview/audit-logs.png "Controlelogboeken")
+![Activiteitenlogboek](./media/data-lake-store-security-overview/activity-logs.png "activiteitenlogboek")
 
-### <a name="diagnostic-logs"></a>Diagnostische logboeken
-U kunt toegang tot gegevens audittrails in de Azure portal (in de diagnostische instellingen) en maken van een Azure Blob storage-account waarin de logboeken worden opgeslagen.
+Zie voor meer informatie over het werken met activiteitenlogboeken [activiteitenlogboeken wilt controleren acties op resources bekijken](../azure-resource-manager/resource-group-audit.md).
+
+### <a name="diagnostics-logs"></a>Logboeken met diagnostische gegevens
+U kunt gegevens controle en diagnostische gegevens vastleggen in de Azure portal inschakelen en de logboeken verzenden naar een Azure Blob storage-account of een event hub logboekanalyse.
 
 ![Diagnostische logboeken](./media/data-lake-store-security-overview/diagnostic-logs.png "diagnostische logboeken")
-
-Nadat u de diagnostische instellingen configureert, kunt u de logboeken weergeven op de **diagnostische logboeken** tabblad.
 
 Zie voor meer informatie over het werken met Logboeken met diagnostische gegevens met Azure Data Lake Store [toegang tot diagnoselogboeken voor Data Lake Store](data-lake-store-diagnostic-logs.md).
 
 ## <a name="summary"></a>Samenvatting
-Enterprise-klanten vereisen een cloud-platform voor gegevens analytics is veilig en eenvoudig te gebruiken. Azure Data Lake Store is ontworpen om die deze vereisten via identiteitsbeheer en verificatie via Azure Active Directory-integratie, op basis van ACL-autorisatie, netwerkisolatie, gegevensversleuteling onderweg en op de rest-(binnenkort in de toekomst ), en controle.
+Enterprise-klanten vereisen een cloud-platform voor gegevens analytics is veilig en eenvoudig te gebruiken. Azure Data Lake Store is ontworpen om te herstellen van deze vereisten via identiteits- en verificatie via Azure Active Directory-integratie, op basis van ACL-autorisatie, netwerkisolatie, gegevensversleuteling in rust en onderweg en controle.
 
 Als u zien van nieuwe functies in Data Lake Store wilt, stuur ons uw feedback in de [Data Lake Store UserVoice forum](https://feedback.azure.com/forums/327234-data-lake).
 

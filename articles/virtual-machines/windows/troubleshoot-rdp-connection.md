@@ -3,10 +3,10 @@ title: Kan geen verbinding maken met RDP met een Windows-virtuele machine in Azu
 description: Problemen oplossen wanneer u geen verbinding maken met uw Windows virtuele machine in Azure met behulp van extern bureaublad
 keywords: Extern bureaublad-fout, verbinding met extern bureaublad-fout, kan geen verbinding met virtuele machine, probleemoplossing extern bureaublad
 services: virtual-machines-windows
-documentationcenter: 
-author: genlin
+documentationcenter: ''
+author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
-ms.author: genli
-ms.openlocfilehash: 4731a34d143d402372aaff7c03f95dbf0bb508a4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 03/23/2018
+ms.author: danis
+ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Extern bureaublad-verbindingen met een virtuele machine van Azure oplossen
 De Remote Desktop Protocol (RDP)-verbinding met uw op basis van Windows Azure virtuele machine (VM) kan verschillende oorzaken hebben, zodat u geen toegang tot uw virtuele machine mislukken. Het probleem is met de extern bureaublad-service op de virtuele machine, de netwerkverbinding of de extern bureaublad-client op de hostcomputer. In dit artikel begeleidt u bij een aantal veelgebruikte methoden voor RDP-verbindingsproblemen oplossen. 
@@ -77,7 +77,7 @@ Probeer opnieuw verbinding te maken met uw virtuele machine na elke stap voor pr
     Selecteer uw virtuele machine in de Azure-portal. Schuif omlaag in het deelvenster instellingen naar de **ondersteuning + probleemoplossing** sectie aan de onderkant van de lijst. Klik op de **resourcestatus** knop. Een gezonde VM rapporten als **beschikbaar**:
    
     ![Controleer de status van de VM-resource in de Azure portal](./media/troubleshoot-rdp-connection/check-resource-health.png)
-6. **Opnieuw instellen van gebruikersreferenties**. Deze stap wordt het wachtwoord op een lokale administrator-account opnieuw ingesteld wanneer u niet zeker weet of de referenties bent vergeten.
+6. **Opnieuw instellen van gebruikersreferenties**. Deze stap wordt het wachtwoord op een lokale administrator-account opnieuw ingesteld wanneer u niet zeker weet of de referenties bent vergeten.  Zodra u zich bij de virtuele machine hebt aangemeld, moet u het wachtwoord voor die gebruiker opnieuw instellen.
    
     Selecteer uw virtuele machine in de Azure-portal. Schuif omlaag in het deelvenster instellingen naar de **ondersteuning + probleemoplossing** sectie aan de onderkant van de lijst. Klik op de **wachtwoord opnieuw instellen** knop. Zorg ervoor dat de **modus** is ingesteld op **wachtwoord opnieuw instellen** en voer uw gebruikersnaam en een nieuw wachtwoord. Ten slotte op de **Update** knop:
    
@@ -207,7 +207,7 @@ Probeer opnieuw verbinding te maken met de virtuele machine na elke stap.
     Selecteer uw virtuele machine in de Azure-portal. Schuif omlaag in het deelvenster instellingen naar de **ondersteuning + probleemoplossing** sectie aan de onderkant van de lijst. Klik op de **resourcestatus** knop. Een gezonde VM rapporten als **beschikbaar**:
    
     ![Controleer de status van de VM-resource in de Azure portal](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
-5. **Opnieuw instellen van gebruikersreferenties**. Deze stap voor het oplossen van problemen Hiermee stelt u het wachtwoord op het lokale beheerdersaccount dat u opgeeft wanneer u niet zeker weet of de referenties bent vergeten.
+5. **Opnieuw instellen van gebruikersreferenties**. Deze stap voor het oplossen van problemen Hiermee stelt u het wachtwoord op het lokale beheerdersaccount dat u opgeeft wanneer u niet zeker weet of de referenties bent vergeten.  Zodra u zich bij de virtuele machine hebt aangemeld, moet u het wachtwoord voor die gebruiker opnieuw instellen.
    
     Selecteer uw virtuele machine in de Azure-portal. Schuif omlaag in het deelvenster instellingen naar de **ondersteuning + probleemoplossing** sectie aan de onderkant van de lijst. Klik op de **wachtwoord opnieuw instellen** knop. Voer uw gebruikersnaam en een nieuw wachtwoord. Ten slotte op de **opslaan** knop:
    

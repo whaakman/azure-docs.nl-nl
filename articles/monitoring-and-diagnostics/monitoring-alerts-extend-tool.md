@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 9361c2a0a4854f463eb2d679c3884f84f6858997
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76b7481223566f16a5da8c08d9d76f2bdb6b542a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="initiate-extending-alerts-from-oms-into-azure"></a>Waarschuwingen van OMS uit te breiden naar Azure initiëren
 Vanaf **23 April 2018**, alle klanten die gebruikmaken van waarschuwingen die zijn geconfigureerd in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), zal worden uitgebreid in Azure. Waarschuwingen die zijn uitgebreid naar Azure gedragen zich hetzelfde als in OMS. Mogelijkheden voor bewaking, blijven behouden. Waarschuwingen die zijn gemaakt in OMS naar Azure uitbreiden biedt veel voordelen. Zie voor meer informatie over de voordelen en het proces voor het verlengen van waarschuwingen van OMS naar Azure [waarschuwingen van OMS uitbreiden naar Azure](monitoring-alerts-extend.md).
@@ -40,16 +40,14 @@ Een voorbeeldscherm hieronder.
 
     ![Waarschuwingen van OMS uitbreiden naar Azure - stap 2](./media/monitor-alerts-extend/ExtendStep2.png)
 
-    > [!NOTE]
-    > Als de bewerking een waarschuwing optie hierboven weergegeven, wordt gebruikt; de gebruiker is niet mogelijk om terug te keren naar de wizard. En moet opnieuw opstarten van het uitbreiden van waarschuwingen van OMS in Azure, uit stap 1. Ook de voorgestelde wijziging geeft samenvatting, de werkelijke resultaat kan variëren op basis van wijzigingen in de lijst in parallel worden uitgevoerd.
 
-4. In de laatste stap van de wizard vraagt u OMS plannen alle waarschuwingen uit te breiden naar de Azure - door het nieuwe Actiegroepen maken en koppelen met waarschuwingen, zoals wordt weergegeven in het vorige scherm. Om door te gaan kiest ' OMS automatisch alle waarschuwingen toe in uw Azure-werkruimte ', klik op Voltooien en Bevestig op de prompt voor het initiëren van het proces. Klanten kunnen ook een nieuwe Log Analytics-API - gebruiken voor het handmatig activeren van de waarschuwingen uitbreiden door het kiezen van de andere optie. 
+4. In de laatste stap van de wizard vraagt u OMS plannen alle waarschuwingen uit te breiden naar de Azure - door het nieuwe Actiegroepen maken en koppelen met waarschuwingen, zoals wordt weergegeven in het vorige scherm. Om door te gaan kiezen klikt u op Voltooien en Bevestig op de prompt voor het initiëren van het proces. Klanten kunnen eventueel ook bieden voor e-mailadressen waarop ze graag OMS voor het verzenden van een rapport over de verwerking is voltooid.
 
     ![Waarschuwingen van OMS uitbreiden naar Azure - stap 3](./media/monitor-alerts-extend/ExtendStep3.png)
 
-5. Zodra de wizard voltooid is, is weer naar de pagina instellingen voor waarschuwingen en de optie 'Uitbreiden naar Azure' wordt verwijderd. Op de achtergrond wordt gepland in OMS waarschuwingen in OMS worden uitgebreid in Azure. Dit kan enige tijd duren en als de bewerking voor een korte periode waarschuwingen in OMS begint niet meer worden gewijzigd. Wanneer de achtergrond is voltooid, zal een e-mailbericht worden verzonden naar alle gebruikers met de rol van systeembeheerder of Inzender; met details van de actiegroepen die zijn gemaakt en de betreffende waarschuwingen hebben ze zijn gekoppeld aan. 
+5. Zodra de wizard voltooid is, is weer naar de pagina instellingen voor waarschuwingen en de optie 'Uitbreiden naar Azure' wordt verwijderd. Op de achtergrond wordt gepland in OMS waarschuwingen in OMS worden uitgebreid in Azure. Dit kan enige tijd duren en als de bewerking voor een korte periode waarschuwingen in OMS begint niet meer worden gewijzigd. Huidige status via banner wordt weergegeven en als e-waar adressen opgegeven tijdens stap 4, zal ze vervolgens worden geïnformeerd wanneer op de achtergrond met succes loopt door alle waarschuwingen in Azure. 
 
-6. Waarschuwingen blijven worden vermeld in de OMS, zelfs nadat ze ophalen uitgebreid naar Azure.
+6. Waarschuwingen blijven worden vermeld in de OMS, zelfs nadat ze ophalen is uitgebreid in Azure.
 
     ![Na het uitbreiden van waarschuwingen in OMS naar Azure](./media/monitor-alerts-extend/PostExtendList.png)
 
@@ -141,10 +139,11 @@ Als alle waarschuwingen in de werkruimte opgegeven al zijn uitgebreid in Azure -
 }
 ```
 
-Start een POST opgegeven naar de API voor het initiëren van de planning van de waarschuwingen in OMS uitbreiden naar Azure. Tijdens het doorzoeken van deze opdracht call/bevestigt van de gebruiker bedoeling evenals acceptatie te hebben om hun waarschuwingen in OMS uitgebreid naar Azure de wijzigingen uitvoeren, zoals aangegeven in het antwoord van GET-aanroep naar de API.
+Start een POST opgegeven naar de API voor het initiëren van de planning van de waarschuwingen in OMS uitbreiden naar Azure. Tijdens het doorzoeken van deze opdracht call/bevestigt van de gebruiker bedoeling evenals acceptatie te hebben om hun waarschuwingen in OMS uitgebreid naar Azure de wijzigingen uitvoeren, zoals aangegeven in het antwoord van GET-aanroep naar de API. Gebruiker kan desgewenst een lijst met e-mailadressen waarop OMS wordt een rapport te verzenden, wanneer de geplande achtergrondproces voor het uitbreiden van de waarschuwingen in OMS naar Azure met succes wordt voltooid.
 
 ```
-armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+$emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
+armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $emailJSON
 ```
 
 > [!NOTE]

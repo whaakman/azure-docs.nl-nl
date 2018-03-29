@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architectuur van de replicatie van Azure naar Azure
 
@@ -28,7 +28,7 @@ In dit artikel beschrijft de architectuur die wordt gebruikt wanneer u replicati
 ## <a name="architectural-components"></a>Architectuuronderdelen
 
 De volgende afbeelding toont een globaal overzicht van een virtuele machine van Azure-omgeving in een specifieke regio (in dit voorbeeld is de locatie VS-Oost). In een virtuele machine van Azure-omgeving:
-- Apps kunnen worden uitgevoerd op virtuele machines met schijven die zijn verdeeld over de storage-accounts.
+- Apps kunnen worden uitgevoerd op virtuele machines met beheerde schijven of niet-beheerde schijven verdeeld over de storage-accounts.
 - De virtuele machines kunnen worden opgenomen in een of meer subnetten binnen een virtueel netwerk.
 
 
@@ -49,7 +49,8 @@ Wanneer u replicatie voor virtuele machine van Azure inschakelt, worden de volge
 **Doelresourcegroep** | De resourcegroep waartoe gerepliceerde virtuele machines na een failover behoren.
 **Doel virtueel netwerk** | Het virtuele netwerk waarin gerepliceerde virtuele machines zich bevinden na een failover. Een netwerktoewijzing wordt gemaakt tussen bron- en virtuele netwerken, en vice versa.
 **Cache-opslagaccounts** | Voordat u wijzigingen in gegevensbron VM worden gerepliceerd naar een doelopslagaccount, zijn ze bijgehouden en verzonden naar de storage-account van de cache in de bronlocatie. Deze stap zorgt ervoor dat minimale gevolgen voor de productietoepassingen die worden uitgevoerd op de virtuele machine.
-**Doel storage-accounts**  | Storage-accounts in de doellocatie waarnaar de gegevens worden gerepliceerd.
+**Storage-accounts als doel (als de bron-VM maakt geen gebruik van schijven die worden beheerd)**  | Storage-accounts in de doellocatie waarnaar de gegevens worden gerepliceerd.
+** Replica beheerde schijven (als de bron de VM bevindt zich op schijven die worden beheerd) **  | Schijven in de doellocatie waarmee gegevens worden gerepliceerd die worden beheerd.
 **Doel-beschikbaarheidssets**  | Beschikbaarheidssets in die de gerepliceerde virtuele machines zich na een failover.
 
 ### <a name="step-2"></a>Stap 2
@@ -76,7 +77,7 @@ Als u wilt dat Linux VM’s deel uitmaken van een replicatiegroep, zorg er dan v
 
 ### <a name="step-3"></a>Stap 3
 
-Nadat u continue replicatie wordt uitgevoerd, worden schrijfbewerkingen onmiddellijk overgebracht naar het opslagaccount van de cache. Site Recovery de gegevens worden verwerkt en verzonden naar de doel-opslagaccount. Nadat de gegevens zijn verwerkt, worden herstelpunten gegenereerd in de doel-storage-account om de paar minuten.
+Nadat u continue replicatie wordt uitgevoerd, worden schrijfbewerkingen onmiddellijk overgebracht naar het opslagaccount van de cache. Site Recovery de gegevens worden verwerkt en verzonden naar het doel storage-account of replica schijven die worden beheerd. Nadat de gegevens zijn verwerkt, worden herstelpunten gegenereerd in de doel-storage-account om de paar minuten.
 
 ## <a name="failover-process"></a>Failover-proces
 

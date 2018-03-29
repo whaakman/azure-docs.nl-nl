@@ -3,9 +3,9 @@ title: SQL Data Warehouse Capaciteitslimieten | Microsoft Docs
 description: Maximale waarden voor verbindingen, databases, tabellen en query's voor SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 03/15/2018
+ms.date: 03/27/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: b1ff33f80a8dd0a0861a5c39731c9f59689db101
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa7d8a9880ff97f30dc583d792e39aa914ea5435
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse Capaciteitslimieten
 De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de verschillende onderdelen van Azure SQL Data Warehouse.
@@ -39,13 +39,13 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 |:--- |:--- |:--- |
 | Database |Max. grootte |240 TB gecomprimeerd op schijf<br/><br/>Deze ruimte is onafhankelijk van tempdb- of logboekbestand ruimte, en daarom deze ruimte wordt toegewezen aan permanente tabellen.  De geclusterde columnstore-compressie schatting op 5 X.  Deze compressie kan de database uitbreiden tot ongeveer 1 PB wanneer alle tabellen geclusterde columnstore (de standaard tabeltype) zijn. |
 | Tabel |Max. grootte |60 TB gecomprimeerd op schijf |
-| Tabel |Tabellen per database |2 miljard |
+| Tabel |Tabellen per database |10.000 |
 | Tabel |Kolommen per tabel |1024 kolommen |
 | Tabel |Bytes per kolom |Afhankelijk van de kolom [gegevenstype][data type].  De limiet is 8000 voor de gegevenstypen char, 4000 voor nvarchar of 2 GB voor de gegevenstypen MAX. |
 | Tabel |Bytes per rij, gedefinieerde grootte |8060 bytes<br/><br/>Het aantal bytes per rij wordt berekend op dezelfde manier als voor SQL Server bij de pagina compressie. Zoals SQL Server ondersteunt SQL Data Warehouse overloop rij-opslag, waardoor **kolommen met variabele lengte** moet buiten een rij worden gepusht. Wanneer de rijen met variabele lengte zijn buiten de rij gepusht, wordt alleen 24-byte-hoofdmap opgeslagen in de belangrijkste record. Zie voor meer informatie de [overloop rij gegevens van meer dan 8 KB][Row-Overflow Data Exceeding 8 KB]. |
 | Tabel |Partities per tabel |15,000<br/><br/>Voor hoge prestaties raden we het nummer voor het minimaliseren van partities moet u terwijl toch op uw zakelijke vereisten. Wanneer het aantal partities groeit, wordt de overhead voor bewerkingen Data Definition Language (DDL) en gegevens manipulatie taal (DML) groeit en zorgt ervoor dat de tragere prestaties. |
 | Tabel |Tekens per partitie grenswaarde. |4000 |
-| Index |Niet-geclusterde indexen per tabel. |999<br/><br/>Van toepassing op alleen rowstore-tabellen. |
+| Index |Niet-geclusterde indexen per tabel. |50<br/><br/>Van toepassing op alleen rowstore-tabellen. |
 | Index |Geclusterde indexen per tabel. |1<br><br/>Geldt voor zowel rowstore als columnstore-tabellen. |
 | Index |Indexsleutel. |900 bytes.<br/><br/>Van toepassing op slechts een rowstore-indexen.<br/><br/>Indexen voor kolommen met een maximale grootte van meer dan 900 bytes varchar kunnen worden gemaakt als de bestaande gegevens in de kolommen niet groter is dan 900 bytes wanneer de index is gemaakt. Echter, later invoegen updatebewerkingen voor de kolommen die ertoe leiden dat de totale grootte zijn dan 900 bytes, anders mislukt. |
 | Index |De sleutelkolommen per index. |16<br/><br/>Van toepassing op slechts een rowstore-indexen. Geclusterde columnstore-indexen bevatten alle kolommen. |
@@ -72,8 +72,9 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 | SELECTEREN |Geneste subquery 's |32<br/><br/>U kunt nooit meer dan 32 geneste subquery's in een SELECT-instructie hebben. Er is geen garantie dat u kunt altijd 32 hebben. Een JOIN kan bijvoorbeeld een subquery in het queryplan introduceren. Het aantal subquery's kan ook worden beperkt door het beschikbare geheugen. |
 | SELECTEREN |Kolommen per JOIN |1024 kolommen<br/><br/>U kunt nooit meer dan 1024 kolommen hebben in de JOIN. Er is geen garantie dat u kunt altijd 1024 hebben. Als het plan JOIN een tijdelijke tabel met meer kolommen dan de JOIN-resultaat vereist, geldt de 1024-limiet voor de tijdelijke tabel. |
 | SELECTEREN |Aantal bytes per GROEPEREN op kolommen. |8060<br/><br/>De kolommen in de component GROUP BY kunnen maximaal 8060 bytes hebben. |
-| SELECTEREN |Aantal bytes per ORDER BY kolommen |8060 bytes.<br/><br/>De kolommen in de component ORDER BY kunnen maximaal 8060 bytes hebben. |
-| Id's en constanten per instructie |Het aantal waarnaar wordt verwezen id's en constanten. |65,535<br/><br/>SQL Data Warehouse beperkt het aantal id's en constanten die kunnen worden opgenomen in één expressie van een query. Deze limiet is 65.535. Dit nummer resulteert in een SQL Server-fout 8632 overschrijdt. Zie voor meer informatie [interne fout: een expressie services limiet is bereikt][Internal error: An expression services limit has been reached]. |
+| SELECTEREN |Aantal bytes per ORDER BY kolommen |8060 bytes<br/><br/>De kolommen in de component ORDER BY kunnen maximaal van 8060 bytes hebben. |
+| Id's per instructie |Aantal waarnaar wordt verwezen id 's |65,535<br/><br/>SQL Data Warehouse beperkt het aantal id's die kunnen worden opgenomen in één expressie van een query. Dit nummer resulteert in een SQL Server-fout 8632 overschrijdt. Zie voor meer informatie [interne fout: een expressie services limiet is bereikt][Internal error: An expression services limit has been reached]. |
+| Letterlijke tekenreeks | Aantal letterlijke tekenreeks in een instructie | 20,000 <br/><br/>SQL Data Warehouse limites het aantal tekenreeksconstanten die kunnen worden opgenomen in één expressie van een query. Dit nummer resulteert in een SQL Server-fout 8632 overschrijdt. Zie voor meer informatie [interne fout: een expressie services limiet is bereikt][Internal error: An expression services limit has been reached]. |
 
 ## <a name="metadata"></a>Metagegevens
 | Het systeemweergave | Maximumaantal rijen |

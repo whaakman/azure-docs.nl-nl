@@ -2,10 +2,10 @@
 title: MSI configureren op een virtuele machine van Azure schaal ingesteld met de Azure-portal
 description: Stap door stapsgewijze instructies voor het configureren van een beheerde Service identiteit (MSI) op Azure VMSS, met de Azure portal.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4d308d9cdc0405ee0041c877f5678647343631ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d9b493203a78aebdfadef15cf53d9cc023bb66f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-an-azure-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Een Azure virtuele Machine Scale ingesteld beheerde Service identiteit (MSI) met de Azure portal configureren
 
@@ -35,7 +35,7 @@ In dit artikel leert u informatie over het inschakelen en MSI voor een virtuele 
 
 Vanaf het moment van schrijven van dit wordt MSI inschakelen tijdens het maken van een virtuele-machineschaalset ingesteld in de Azure-portal niet ondersteund. In plaats daarvan, Raadpleeg de volgende virtuele machine van Azure scale set maken Quick Start artikel eerst een Azure virtuele-machineschaalset maken:
 
-- [Een virtuele-Machineschaalset maken in de Azure portal](../../virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md)  
+- [Een virtuele-Machineschaalset maken in de Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 Gaat u verder met de volgende sectie voor meer informatie over het inschakelen van MSI op de virtuele-machineschaalset.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure-logboekanalyse gegevens importeren in Power BI | Microsoft Docs
-description: Power BI is een cloudgebaseerde business analytics-service van Microsoft die uitgebreide visualisaties en rapporten voor analyse van verschillende sets van gegevens biedt.  In dit artikel wordt beschreven hoe u Log Analytics-gegevens in Power BI importeren en configureren om automatisch te vernieuwen.
+description: Power BI is een cloudgebaseerde business analytics-service van Microsoft die uitgebreide visualisaties en rapporten voor analyse van verschillende sets van gegevens biedt.  In dit artikel wordt beschreven hoe configureren en Log Analytics-gegevens in Power BI importeren en configureren om automatisch te vernieuwen.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 6d7f8f89f90223dc5dd186a63b3912a13910cb34
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 725828c2acc5ac4bb53c5e6af14d20578a3d3652
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure-logboekanalyse gegevens importeren in Power BI
 
 
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is een service in de cloud business analytics van Microsoft die uitgebreide visualisaties en rapporten voor analyse van verschillende sets van gegevens biedt.  U kunt de resultaten van een zoekopdracht Log Analytics-logboek importeren in een gegevensset met de Power BI zodat u kunt profiteren van de functies zoals combineren van gegevens uit verschillende bronnen en het delen van rapporten op het web en mobiele apparaten.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is een service in de cloud business analytics van Microsoft die uitgebreide visualisaties en rapporten voor analyse van verschillende sets van gegevens biedt.  U kunt de resultaten van een zoekopdracht Log Analytics-logboek importeren in een gegevensset met de Power BI zodat u van de functies profiteren kunt zoals het combineren van gegevens uit verschillende bronnen en het delen van rapporten op het web en mobiele apparaten.
 
 ## <a name="overview"></a>Overzicht
 Om gegevens te importeren uit een werkruimte voor logboekanalyse Power BI, maakt u een gegevensset in Power BI op basis van een zoekquery logboek in logboekanalyse.  De query wordt uitgevoerd telkens wanneer die de dataset wordt vernieuwd.  Vervolgens kunt u Power BI-rapporten die gebruikmaken van gegevens uit de gegevensset.  Voor het maken van de gegevensset in Power BI, exporteren van uw query van logboekanalyse naar [Power Query (M) taal](https://msdn.microsoft.com/library/mt807488.aspx).  U dit vervolgens gebruiken voor het maken van een query in Power BI Desktop en vervolgens publiceren naar Power BI als een gegevensset.  Hieronder vindt u de details voor dit proces.

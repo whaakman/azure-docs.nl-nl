@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8869d8a8eead8bdaeda5dc1d6eeb2f81b16928e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 58d043ac7037567d37321cb874804ad0e6cb5ed8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK voor Cosmos Documentdb Node.js voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -35,8 +35,6 @@ ms.lasthandoff: 03/02/2018
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -73,7 +71,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Voegt ondersteuning toe voor Sessieconsistentie.
-* Deze SDK-versie moet de meest recente versie van Azure Cosmos DB Emulator die beschikbaar is voor downloaden van https://aka.ms/cosmosdb-emulator.
+* Deze SDK-versie vereist dat de nieuwste versie van Azure Cosmos DB Emulator die beschikbaar is voor downloaden van https://aka.ms/cosmosdb-emulator.
 
 ### <a name="1.13.0"/>1.13.0</a>
 * Gesplitste cross-partitie query's worden vergeleken.
@@ -164,7 +162,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="1.2.0"/>1.2.0</a>
 * Ondersteuning toegevoegd voor georuimtelijke index.
-* De eigenschap id voor alle resources valideert. Kunnen geen id's voor bronnen bevatten?, /, #, &#47; &#47; tekens of eindigen met een spatie.
+* De eigenschap id voor alle resources valideert. Kunnen geen id's voor bronnen bevatten?, /, #, &#47; &#47;, tekens of eindigen met een spatie.
 * Voegt nieuwe header 'index transformatie uitgevoerd' aan ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>

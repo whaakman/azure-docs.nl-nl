@@ -2,7 +2,7 @@
 title: Spark is gebouwd machine learning-modellen operationeel maken | Microsoft Docs
 description: Hoe worden geladen en beoordelen van learning-modellen die zijn opgeslagen in Azure Blob Storage (WASB) met behulp van Python.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 9ff633b4543fbc537ffdb721756706e8de5e8e88
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 3a586d40a9d195fe5ec3fa456d450cb3d86f2e9d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark is gebouwd machine learning-modellen operationeel maken
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -85,7 +85,7 @@ Dit is de code in te stellen mappaden:
 
 **UITVOER:**
 
-DateTime.DateTime (2016, 4, 25, 23, 56, 19, 229403)
+datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 ### <a name="import-libraries"></a>Bibliotheken importeren
 Context voor spark instellen en benodigde bibliotheken met de volgende code importeren
@@ -115,7 +115,7 @@ De PySpark-kernels die worden geleverd met Jupyter-notebooks hebben een vooraf i
 De PySpark-kernel biedt een aantal vooraf gedefinieerde 'magics', die zijn speciale opdrachten die u met aanroepen kunt %%. Er zijn twee dergelijke opdrachten die worden gebruikt in deze codevoorbeelden.
 
 * **%% lokale** opgegeven dat de code in de volgende regels lokaal wordt uitgevoerd. De sitecode moet geldige Python-code.
-* **%% sql -o<variable name>** 
+* **%%sql -o <variable name>** 
 * Een Hive-query op de sqlContext worden uitgevoerd. Als de parameter -o is doorgegeven, het resultaat van de query wordt bewaard de %% lokale Python context als een dataframe Pandas.
 
 Voor meer informatie over de kernels voor Jupyter-notebooks en de vooraf gedefinieerde 'magics' die ze bieden, Zie [beschikbare Kernels voor Jupyter-notebooks met HDInsight Spark Linux-clusters in HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -587,7 +587,7 @@ Als u liever een code gratis Clientervaring, gebruikt u de [Azure Logic Apps](ht
 * Online zetten van de **Logic Apps Designer**, voer de naam van de logische App en App Service-Plan.
 * Selecteer een HTTP-actie en voer de parameters die worden weergegeven in de volgende afbeelding:
 
-![Logic Apps Designer](./media/spark-model-consumption/spark-logica-app-client.png)
+![Ontwerper van logische apps](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>Volgende stappen
 **Kruisvalidatie en hyperparameter sweeping**: Zie [geavanceerde gegevensverkenning en modellering met Spark](spark-advanced-data-exploration-modeling.md) over de manier waarop modellen kunnen getraind met sweeping kruisvalidatie en hyper-parameter.

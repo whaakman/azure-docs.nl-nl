@@ -2,25 +2,25 @@
 title: Apparaat-concepten in Azure apparaten inrichten | Microsoft Docs
 description: Beschrijft het inrichten van de concepten die specifiek zijn voor apparaten met inrichtingsservice apparaat en IoT-Hub
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5297bc57729d9e983d63244c71eb21995cf73f0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5482801461e2afea33d65d559723116f37a35d1f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT Hub apparaat-inrichtingsservice apparaat concepten
 
-IoT Hub apparaat-inrichtingsservice is een helper-service voor IoT-Hub die u gebruikt om zonder tussenkomst apparaat inrichten met een opgegeven IoT-hub te configureren. U kunt in een veilige en schaalbare manier miljoenen apparaten inrichten met de Service voor het inrichten van apparaten.
+IoT Hub apparaat-inrichtingsservice is een helper-service voor IoT-Hub die u gebruikt om zonder tussenkomst apparaat inrichten met een opgegeven IoT-hub te configureren. Met de Device Provisioning Service kunt u miljoenen apparaten inrichten op een veilige en schaalbare manier.
 
 In dit artikel biedt een overzicht van de *apparaat* concepten betrokken bij de mobiele apparaten inrichten. Dit artikel is het meest relevant voor Persona's die zijn betrokken bij de [productie stap](about-iot-dps.md#manufacturing-step) van een apparaat voorbereiden voor implementatie.
 
@@ -33,7 +33,7 @@ Het mechanisme voor attestation is de methode die wordt gebruikt voor het bevest
 
 De Service voor het inrichten van apparaten ondersteunt twee soorten attestation:
 * **X.509-certificaten** op basis van de standaard authenticatiestroom voor x.509-certificaat.
-* **SAS-tokens** op basis van een nonce uitdaging met de TPM-standaard voor sleutels. Er is geen fysieke TPM op het apparaat vereist, maar wordt verwacht dat de service met behulp van de goedkeuringssleutel per verklaren de [TPM-specificatie](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Trusted Platform Module (TPM)** op basis van een nonce uitdaging, met de TPM-standaard voor sleutels om weer te geven van een ondertekende Shared Access Signature (SAS)-token. Er is geen fysieke TPM op het apparaat vereist, maar wordt verwacht dat de service met behulp van de goedkeuringssleutel per verklaren de [TPM-specificatie](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Hardware security module
 
@@ -44,7 +44,7 @@ De hardware security module of een HSM, wordt gebruikt voor veilige, op hardware
 
 Apparaat geheimen kunnen ook worden opgeslagen in de software (geheugen), maar het is een minder veilige vorm van opslag dan een HSM.
 
-## <a name="registration-id"></a>Registratie-ID
+## <a name="registration-id"></a>Registratie-id
 
 De registratie-ID wordt gebruikt voor het aanduiden van een apparaat in de Service voor het inrichten van apparaten. De apparaat-ID moet uniek zijn in de inrichting service [ID-bereik](#id-scope). Elk apparaat moet een registratie-id hebben. De registratie-ID is alfanumerieke, kleine letters en kan de afbreekstreepjes bevatten.
 

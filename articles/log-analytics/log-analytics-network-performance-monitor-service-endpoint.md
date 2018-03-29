@@ -1,11 +1,11 @@
 ---
 title: Netwerk-Prestatiemeter-oplossing in Azure Log Analytics | Microsoft Docs
-description: De Service-eindpunt beheer in Prestatiemeter netwerk mogelijkheid voor het bewaken van de netwerkverbinding met een willekeurig eindpunt met een open TCP-poort.
+description: De mogelijkheid servicebeheer eindpunt in Prestatiemeter netwerk gebruiken om te controleren van netwerkverbindingen met een willekeurig eindpunt met een open TCP-poort.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: abshamsft
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: ba19a4fc24668bff27c961b5b415f840d1132a34
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b21d711e59ddc762eaf72f49e501d9f324d75105
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-endpoint-monitor"></a>Monitor voor service-eindpunt
 
-De mogelijkheid van de Monitor voor Service-eindpunt in [netwerk Prestatiemeter](log-analytics-network-performance-monitor.md) kunt u netwerkverbinding met een willekeurig eindpunt met een open TCP-poort te bewaken. Dergelijke eindpunten zijn websites, SaaS-toepassingen, PaaS-toepassingen en SQL-databases. 
+Kunt u de mogelijkheid van de Monitor voor Service-eindpunt in [netwerk Prestatiemeter](log-analytics-network-performance-monitor.md) voor het bewaken van de netwerkverbinding met een willekeurig eindpunt met een open TCP-poort. Dergelijke eindpunten zijn websites, SaaS-toepassingen, PaaS-toepassingen en SQL-databases. 
 
-U kunt de volgende functies met uitvoeren **Monitor voor Service-eindpunt**: 
+U kunt de volgende functies met Monitor voor Service-eindpunt kunt uitvoeren: 
 
-- De netwerkverbinding tot uw toepassingen en services van het netwerk (zoals Office 365, Dynamics CRM, interne line-of-business-toepassingen, SQL-database, enzovoort) bewaken vanaf meerdere kantoren/filialen 
-- Ingebouwde tests voor het bewaken van de netwerkverbinding met Office365 en Dynamics365 eindpunten 
-- De reactietijd, netwerklatentie, pakketverlies is opgetreden bij het verbinden met het eindpunt bepalen 
-- Bepalen of slechte prestaties vanwege het netwerk of vanwege een probleem aan einde van de aanbieder van de toepassing 
-- Identificeer hotspots op het netwerk die kan worden veroorzaakt door slechte prestaties door de latentie die is bijgedragen door elke hop op een topologiekaart weer te geven. 
+- Controleer de netwerkverbinding met uw toepassingen en de netwerkservices van meerdere filialen of locaties. Toepassingen en netwerkservices bevatten Office 365, Dynamics CRM, interne line-of-business-toepassingen en SQL-databases.
+- Gebruik de ingebouwde tests voor het bewaken van de netwerkverbinding met Office 365 en Dynamics 365 eindpunten. 
+- Bepaal de reactietijd, netwerklatentie en pakketverlies ervaren wanneer u verbinding met het eindpunt.
+- Bepalen of slechte prestaties vanwege het netwerk of vanwege een probleem aan de kant van de aanbieder van de toepassing is.
+- Identificeer hotspots op het netwerk die slechte prestaties veroorzaakt mogelijk door de latentie die is bijgedragen door elke hop op een topologiekaart weer te geven.
 
 
 ![Monitor voor service-eindpunt](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuratie 
-Open de configuratie voor netwerk-Prestatiemeter te openen de [netwerk Prestatiemeter oplossing](log-analytics-network-performance-monitor.md) en klik op de **configureren** knop.
+Open de configuratie voor netwerk-Prestatiemeter te openen de [netwerk Prestatiemeter oplossing](log-analytics-network-performance-monitor.md) en selecteer **configureren**.
 
 ![Prestatiemeter netwerk configureren](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
 
-### <a name="configure-oms-agents-for-the-monitoring"></a>OMS-agents configureren voor de bewaking.  
+### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Operations Management Suite-agents voor bewaking configureren
 Schakel de volgende firewallregels op de knooppunten die wordt gebruikt voor het bewaken van zodat de oplossing kan de topologie van uw knooppunten met de service-eindpunt detecteren: 
 
 ```
@@ -56,72 +56,77 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 ### <a name="create-service-endpoint-monitor-tests"></a>Monitor voor Service-eindpunt tests maken 
 
-Beginnen met het maken van uw tests uit om te controleren van de netwerkverbinding met de service-eindpunten 
+Beginnen met het maken van uw tests uit om te controleren van de netwerkverbinding met de service-eindpunten.
 
-1. Klik op de **Monitor voor Service-eindpunt** tabblad.
-2. Klik op **Test toevoegen** en voer de naam van Test en de beschrijving. 
-3. Selecteer het type van test:<br>Selecteer **WebTest** als u verbinding met een service die op HTTP/S-aanvragen, zoals outlook.office365.com, bing.com reageert bewaakt.<br>Selecteer **Netwerktest** als u een verbinding met een service die op TCP-aanvraag wordt gereageerd, maar niet reageert op HTTP/S-aanvraag, zoals een SQL-server, controleert FTP-server, een SSH-poort enzovoort. 
-4. Als u niet wilt uitvoeren netwerk metingen (netwerklatentie, pakketverlies, topologie-detectie), schakelt u het tekstvak. We adviseren u deze gecontroleerd om te profiteren van de mogelijkheid krijgen. 
-5. Geef het doel FQDN-URL/IP-adres waarnaar u wilt bewaken van de verbinding met het netwerk.  
-6. Voer het poortnummer van de doelservice. 
-7. Voer de frequentie die u wilt dat de test uit te voeren. 
+1. Selecteer de **Monitor voor Service-eindpunt** tabblad.
+2. Selecteer **toevoegen testen**, en voer de naam van test en de beschrijving. 
+3. Selecteer het type van test:<br>
+
+    * Selecteer **Web** voor het bewaken van de verbinding met een service die op HTTP/S-aanvragen, zoals outlook.office365.com of bing.com reageert.<br>
+    * Selecteer **netwerk** voor het bewaken van de verbinding met een service die reageert op aanvragen voor TCP, maar niet reageert op HTTP/S-aanvragen, zoals een SQL server, de FTP-server of de SSH-poort. 
+4. Als u niet wilt uitvoeren van metingen voor netwerk, zoals netwerklatentie pakketverlies en topologie-detectie, schakelt u de **netwerk metingen uitvoeren** selectievakje. Houd die er maximaal profiteren ophalen van de mogelijkheid hebt geselecteerd. 
+5. In **doel**, voer de FQDN-URL/IP-adres waarnaar u wilt bewaken van de verbinding met het netwerk.
+6. In **poortnummer**, voer het poortnummer van de doelservice. 
+7. In **testen frequentie**, voer een waarde voor hoe vaak u wilt dat de test uit te voeren. 
 8. Selecteer de knooppunten van waaruit u wilt bewaken van de netwerkverbinding met de service. 
 
     >[!NOTE]
-    > Voor Windows server-knooppunten gebruikt de mogelijkheid TCP-aanvragen uit te voeren van de metingen van het netwerk. Voor Windows client-knooppunten gebruikt de mogelijkheid ICMP-aanvragen uit te voeren van de metingen van het netwerk. In sommige gevallen blokkeert de doeltoepassing binnenkomende op basis van ICMP-aanvraag vanwege die bij de knooppunten Windows client-gebaseerde, zijn de oplossing kan niet is worden uitgevoerd netwerk metingen. Daarom is het aanbevolen gebruik van Windows server gebaseerde knooppunten in dergelijke gevallen. 
+    > Voor Windows server-knooppunten gebruikt de mogelijkheid TCP-aanvragen uit te voeren van de metingen van het netwerk. Voor Windows client-knooppunten gebruikt de mogelijkheid ICMP-aanvragen uit te voeren van de metingen van het netwerk. In sommige gevallen blokkeert de doeltoepassing binnenkomende ICMP-aanvragen wanneer de knooppunten Windows client-gebaseerde zijn. De oplossing is geen metingen netwerk uitvoeren. U wordt aangeraden Windows server gebaseerde knooppunten in dergelijke gevallen. 
 
-9. Als u niet wilt maken van de gezondheid van gebeurtenissen voor de items die u hebt geselecteerd, klikt u vervolgens wissen **inschakelen statuscontrole op de doelen wordt gedekt door deze test**. 
-10. Kies de bewaking van de voorwaarden. U kunt aangepaste drempelwaarden instellen voor het genereren van gebeurtenis health door drempelwaarden in te voeren. Wanneer de waarde van de voorwaarde hoger dan de geselecteerde drempelwaarde voor het geselecteerde netwerk/subnetwerk paar is, wordt een health-gebeurtenis gegenereerd. 
-11. Klik op **opslaan** aan de configuratie op te slaan. 
+9. Als u niet wilt maken van health-gebeurtenissen voor de items die u selecteert, schakel **statuscontrole inschakelen in de doelen wordt gedekt door deze test**. 
+10. Kies de bewaking van de voorwaarden. U kunt aangepaste drempelwaarden voor het genereren van de health-gebeurtenis instellen door te voeren drempelwaarden. Wanneer de waarde van de voorwaarde hoger dan de geselecteerde drempelwaarde voor het geselecteerde netwerk of subnetwerk paar is, wordt een health-gebeurtenis gegenereerd. 
+11. Selecteer **opslaan** aan de configuratie op te slaan. 
 
- ![Service-eindpunt monitorconfiguratie](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Monitor voor service-eindpunt test configuraties](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 
 
 
 ## <a name="walkthrough"></a>Walkthrough 
 
-Verplaatsen naar de weergave dashboard Netwerkbewaking voor prestaties en bekijk de **Monitor voor Service-eindpunt** pagina om een samenvatting van de status van de verschillende tests die u hebt gemaakt.  
+Ga naar de dashboardweergave voor netwerk-Prestatiemeter. Als u een samenvatting van de status van de verschillende tests die u hebt gemaakt, bekijk de **Monitor voor Service-eindpunt** pagina. 
 
-![Monitor pagina van de service-eindpunt](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Monitor voor service-eindpunt pagina](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
-Klik op de tegel voor inzoomen en de details van de tests weergeven op de **Tests** pagina. U kunt de status van de punt in tijd en de waarde van de reactietijd van de service, netwerklatentie en pakketverlies voor alle tests weergeven in de tabel LHS. U kunt het netwerk staat doos besturingselement om weer te geven van de momentopname van het netwerk op een andere tijd in het verleden. Klik op de test in de tabel die u wilt onderzoeken. U kunt de historische trend van het gegevensverlies, latentie en tijdwaarden van de reactie van de grafieken in het deelvenster RHS weergeven. Klik op de Details van de koppeling om de prestaties van elk knooppunt weer te geven. 
+Selecteer de tegel om de details van de tests weergeven op de **Tests** pagina. U kunt de status van de punt in tijd en de waarde van de reactietijd van de service, netwerklatentie en pakketverlies voor alle tests weergeven in de tabel aan de linkerkant. Het besturingselement netwerk staat doos gebruiken om de momentopname van het netwerk op een later tijdstip in het verleden weer te geven. Selecteer de test in de tabel die u wilt onderzoeken. U kunt de historische trend van het gegevensverlies, latentie en antwoord tijdwaarden weergeven in de grafieken in het deelvenster aan de rechterkant. Selecteer de **Test Details** koppeling om de prestaties van elk knooppunt weer te geven.
 
-![Service-eindpunt Monitor Tests](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Monitor voor service-eindpunt tests](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
 
-Op de **Test knooppunten** weergave ziet u de netwerkverbinding van elk knooppunt. Klik op het knooppunt dat verminderde prestaties.  Dit is het knooppunt uit waar de toepassing is waargenomen te langzaam worden uitgevoerd. 
+In de **Test knooppunten** weergave ziet u de netwerkverbinding van elk knooppunt. Selecteer het knooppunt met verminderde prestaties. Dit is het knooppunt waar de toepassing is waargenomen te langzaam worden uitgevoerd.
 
-Bepalen of slechte prestaties vanwege het netwerk of vanwege een probleem aan einde van de aanbieder van de toepassing door de correlatie tussen de reactietijd van de toepassing en de latentie van netwerk - observeren 
+Bepalen of slechte prestaties vanwege een probleem aan de kant van de aanbieder van de toepassing of het netwerk door de correlatie tussen de reactietijd van de toepassing en de netwerklatentie observeren. 
 
-**Toepassingsprobleem:** als er een piek in de reactietijd, maar de netwerklatentie consistent is, wordt dit kan erop wijzen dat het netwerk goed werkt en het probleem veroorzaakt door een probleem aan het einde van de toepassing wordt.  
+* **Toepassingsprobleem:** een piek in de reactietijd maar consistentie in de netwerklatentie stelt voor dat het netwerk goed werkt en het probleem wordt mogelijk veroorzaakt door een probleem aan het einde van de toepassing. 
 
-![Service-eindpunt Monitor Toepassingsprobleem](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Monitor voor service-eindpunt toepassingsprobleem](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
 
-**Probleem met het netwerk:** als een piek in de reactietijd wordt geleverd met een overeenkomstige piek in de netwerklatentie, wordt dit kan erop wijzen dat de toename van de reactietijd vanwege een toename van de netwerklatentie is.  
+* **Probleem met het netwerk:** een piek in de reactietijd gepaard met een overeenkomstige piek in de netwerklatentie wijst erop dat de toename in responstijd veroorzaakt door een toename van de netwerklatentie worden kan. 
 
-![Service-eindpunt Monitor netwerkprobleem](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Monitor voor service-eindpunt netwerkprobleem](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
 
-Nadat u hebt vastgesteld dat het probleem vanwege het netwerk is, kunt u klikken op de **topologie** koppeling voor weergave van de lastige hop op de kaart topologie te identificeren. Bijvoorbeeld, ziet in de afbeelding hieronder u dat buiten de 105 ms totale latentie tussen het knooppunt en het toepassingseindpunt, 96 ms vanwege de hop rood gemarkeerd in. Zodra u de lastige hop hebt geïdentificeerd, kunt u corrigerende maatregelen kunt nemen.  
+Nadat u hebt vastgesteld dat het probleem vanwege het netwerk is, selecteert u de **topologie** koppeling voor weergave van de lastige hop op de topologiekaart te identificeren. Een voorbeeld wordt weergegeven in de volgende afbeelding. Buiten de 105 ms totale latentie tussen het knooppunt en het toepassingseindpunt is 96 ms vanwege de hop rood gemarkeerd in. Nadat u de lastige hop geïdentificeerd, kunt u corrigerende maatregelen kunt nemen. 
 
-![Service-eindpunt Monitor Tests](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Monitor voor service-eindpunt tests](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnostiek 
 
-Als u een afwijking ziet, volgt u deze stappen:
+Als u een afwijking ziet, volg deze stappen:
 
-Als de reactietijd van de service wegvallend netwerk en netwerklatentie worden weergegeven als NA, en vervolgens het vanwege een of meer van de volgende redenen zijn kan:
-- De toepassing is niet beschikbaar.
-- Het knooppunt dat wordt gebruikt voor het controleren van de netwerkverbinding met de service is niet actief.
-- Het doel is ingevoerd in de Testconfiguratie van de is onjuist.
-- Het knooppunt heeft geen een netwerkverbinding.
+* Als de reactietijd van de service, wegvallend netwerk en netwerklatentie worden weergegeven als NA, een of meer van de volgende redenen is mogelijk de oorzaak:
 
-Als een geldige service reactietijd wordt weergegeven, maar wegvallend netwerk, evenals de latentie als NA worden weergegeven, kan zijn vanwege een of meer van de volgende redenen:
-- Als het knooppunt dat wordt gebruikt voor het controleren van de netwerkverbinding met de service Windows client-computer, de doelservice ICMP-aanvragen is geblokkeerd of ICMP-aanvragen die afkomstig zijn van het knooppunt is geblokkeerd door een netwerkfirewall.
-- Het selectievakje voor **netwerk metingen uitvoeren** is uitgeschakeld in de Testconfiguratie. 
+    - De toepassing is niet beschikbaar.
+    - Het knooppunt dat wordt gebruikt voor het controleren van de netwerkverbinding met de service is niet actief.
+    - Het doel is ingevoerd in de Testconfiguratie van de is onjuist.
+    - Het knooppunt hebben niet een netwerkverbinding.
 
-Als de reactietijd van de service is NA maar wegvallend netwerk, evenals latentie geldig zijn, klikt u vervolgens stelt het de doelservice is niet een webtoepassing. De Testconfiguratie bewerken en kies het testtype als Netwerktest in plaats van de Webtest. 
+* Als een geldige service reactietijd wordt weergegeven, maar wegvallend netwerk, evenals de latentie als NA worden weergegeven, zijn een of meer van de volgende redenen de oorzaak:
 
-Als de toepassing wordt traag uitgevoerd, moet u bepalen of slechte prestaties vanwege het netwerk of vanwege een probleem aan einde van de aanbieder van de toepassing is.
+    - Als het knooppunt dat wordt gebruikt voor het controleren van de netwerkverbinding met de service een Windows client-computer is, de doelservice ICMP-aanvragen is geblokkeerd of een netwerkfirewall ICMP-aanvragen die afkomstig uit het knooppunt zijn is geblokkeerd.
+    - De **netwerk metingen uitvoeren** selectievakje is uitgeschakeld in de Testconfiguratie. 
+
+* Als de reactietijd van de service is NA maar wegvallend netwerk, evenals latentie geldig zijn, mogelijk de doelservice een webtoepassing niet. De Testconfiguratie bewerken en kies het testtype als **netwerk** in plaats van **Web**. 
+
+* Als de toepassing wordt traag uitgevoerd, moet u bepalen of slechte prestaties vanwege een probleem aan de kant van de aanbieder van de toepassing of het netwerk.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Zoeken in een logboek](log-analytics-log-searches.md) om gedetailleerde netwerk prestaties gegevensrecords weer te geven.
+[Zoeken in een logboek](log-analytics-log-searches.md) om gedetailleerde netwerk prestaties gegevensrecords weer te geven.

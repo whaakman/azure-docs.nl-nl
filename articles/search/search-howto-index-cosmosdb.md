@@ -1,78 +1,80 @@
 ---
-title: Een SQL-API van Azure Cosmos DB-gegevensbron indexeren voor Azure Search | Microsoft Docs
-description: In dit artikel leest u hoe een Azure Search-indexeerfunctie maken met een gegevensbron Azure Cosmos-DB (SQL-API).
+title: Een Azure Cosmos DB-gegevensbron indexeren voor Azure Search | Microsoft Docs
+description: In dit artikel leest u hoe een Azure Search-indexeerfunctie maken met een Azure Cosmos DB-gegevensbron.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: search
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 01/08/2018
+ms.date: 03/23/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: e449f13adcd1a3651e1cac852b23f21d0227038a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 165402f5147224cd355f0ae14642069a3de58f19
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Cosmos DB verbinding te maken met Azure Search met behulp van indexeerfuncties
-
-[Azure Cosmos DB](../cosmos-db/introduction.md) database is globaal gedistribueerd en modellen van Microsoft. Met de [SQL-API](../cosmos-db/sql-api-introduction.md), Azure Cosmos DB biedt uitgebreide en vertrouwd SQL-query-mogelijkheden met consistente lage latenties ten opzichte van de JSON-gegevens zonder schema. Azure Search integreert naadloos met de SQL-API. U kunt pull-JSON-documenten rechtstreeks in een Azure Search-index met een [Azure Search-indexeerfunctie](search-indexer-overview.md), ontworpen specifiek voor Azure Cosmos DB SQL-API. 
 
 In dit artikel leest u hoe:
 
 > [!div class="checklist"]
-> * Azure Search voor het gebruik van een API van Azure Cosmos DB SQL-database als een gegevensbron configureren. Geef desgewenst een query voor het selecteren van een subset.
+> * Configureer [Azure Search-indexeerfunctie](search-indexer-overview.md) die gebruikmaakt van een verzameling Azure Cosmos DB als een gegevensbron.
 > * Een search-index maken met de gegevenstypen compatibel is met JSON.
 > * Configureer een indexeerfunctie voor op aanvraag en terugkerende indexering.
 > * De index op basis van wijzigingen in de onderliggende gegevens stapsgewijs vernieuwen.
 
 > [!NOTE]
-> Azure Cosmos DB SQL-API is de volgende generatie van DocumentDB. Hoewel de productnaam is gewijzigd, de `documentdb` syntaxis in Azure Search indexeerfuncties nog bestaat voor achterwaartse compatibiliteit in de Azure Search API's en de portal-pagina's. Bij het configureren van indexeerfuncties moet opgeven de `documentdb` syntaxis volgens de instructies in dit artikel.
+> Azure Cosmos-database is de volgende generatie van DocumentDB. Hoewel de productnaam is gewijzigd, de `documentdb` syntaxis in Azure Search indexeerfuncties nog bestaat voor achterwaartse compatibiliteit in de Azure Search API's en de portal-pagina's. Bij het configureren van indexeerfuncties moet opgeven de `documentdb` syntaxis volgens de instructies in dit artikel.
+
+In de volgende video wordt Azure Cosmos DB Program Manager Andrew Liu gedemonstreerd hoe u een Azure Search-index toevoegt aan een Azure DB die Cosmos-container.
+
+>[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 <a name="supportedAPIs"></a>
-
 ## <a name="supported-api-types"></a>Ondersteunde API-typen
 
-Hoewel Azure Cosmos DB een groot aantal gegevensmodellen en API's ondersteunt, breidt de ondersteuning van de indexeerfunctie alleen de SQL-API. 
+Hoewel Azure Cosmos DB een groot aantal gegevensmodellen en API's ondersteunt, breidt de ondersteuning van Azure Search indexeerfunctie productie alleen de SQL-API. Ondersteuning voor MongoDB-API is momenteel in de openbare preview.  
 
-Ondersteuning voor aanvullende API's ontbreekt. Converteer op de website van de gebruiker stem zodat ons prioriteren welke u wilt ondersteunen eerst:
+Ondersteuning voor aanvullende API's ontbreekt. Om te helpen ons prioriteren welke u wilt ondersteunen eerst, converteer uw stem op de User Voice-website:
 
 * [Tabel API data source-ondersteuning](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab)
 * [Ondersteuning voor Graph API gegevensbron](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4)
-* [MongoDB API data source-ondersteuning](https://feedback.azure.com/forums/263029-azure-search/suggestions/18861421-documentdb-indexer-should-be-able-to-index-mongodb)
 * [Apache Cassandra API data source-ondersteuning](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u een indexeerfunctie Azure Cosmos DB instelt, moet er een [Azure Search-service](search-create-service-portal.md), en maak een index, datasource en ten slotte de indexeerfunctie. Kunt u deze objecten met behulp van de [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), of [REST-API](/rest/api/searchservice/) voor alle niet-.NET-talen. 
-
-Als u ervoor voor de portal kiezen de [wizard gegevens importeren](search-import-data-portal.md) begeleidt u bij het maken van al deze bronnen, met inbegrip van de index.
-
-> [!TIP]
-> U kunt de wizard **Gegevens importeren** laden vanuit het dashboard Azure Cosmos DB om indexering voor die gegevensbron te vereenvoudigen. Ga in het linkernavigatiedeelvenster naar **Verzamelingen** > **Azure Search toevoegen** om aan de slag te gaan.
+Naast een Cosmos-DB-account, moet u beschikken over een [Azure Search-service](search-create-service-portal.md). 
 
 <a name="Concepts"></a>
-
 ## <a name="azure-search-indexer-concepts"></a>Azure Search-indexeerfunctie-concepten
-Azure Search ondersteunt het maken en beheren van gegevens gegevensbronnen (inclusief Azure Cosmos DB SQL-API) en indexeerfuncties die op basis van die gegevensbronnen werken.
 
 Een **gegevensbron** Hiermee geeft u de gegevens naar de index, referenties en beleidsregels voor het identificeren van wijzigingen in de gegevens (zoals gewijzigde of verwijderde documenten binnen uw verzameling). De gegevensbron is gedefinieerd als een onafhankelijke resource zodat deze kan worden gebruikt door meerdere indexeerfuncties.
 
 Een **indexeerfunctie** wordt beschreven hoe de gegevens uit uw gegevensbron loopt in een doel search-index. Een indexeerfunctie kan worden gebruikt voor:
 
 * Uitvoeren van een momentopname van de gegevens naar een index te vullen.
-* Een index met wijzigingen in de gegevensbron volgens een schema worden gesynchroniseerd. De planning maakt deel uit van de indexeerfunctie-definitie.
+* Een index met wijzigingen in de gegevensbron volgens een schema worden gesynchroniseerd.
 * Updates op aanvraag naar een index zo nodig worden aangeroepen.
 
-<a name="CreateDataSource"></a>
+Als u een indexeerfunctie Azure Cosmos DB instelt, moet u een index, datasource en ten slotte de indexeerfunctie maken. Kunt u deze objecten met behulp van de [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), of [REST-API](/rest/api/searchservice/). 
 
+In dit artikel laat zien hoe de REST API gebruiken. Als u ervoor voor de portal kiezen de [wizard gegevens importeren](search-import-data-portal.md) begeleidt u bij het maken van al deze bronnen, met inbegrip van de index.
+
+> [!TIP]
+> U kunt de wizard **Gegevens importeren** laden vanuit het dashboard Azure Cosmos DB om indexering voor die gegevensbron te vereenvoudigen. Ga in het linkernavigatiedeelvenster naar **Verzamelingen** > **Azure Search toevoegen** om aan de slag te gaan.
+
+> [!NOTE] 
+> Nu u kunt maken of bewerken **MongoDB** gegevensbronnen via Azure Portal of de .NET SDK. Echter, u **kunt** bewaken uitvoergeschiedenis van MongoDB indexeerfuncties in de portal.  
+
+<a name="CreateDataSource"></a>
 ## <a name="step-1-create-a-data-source"></a>Stap 1: een gegevensbron maken
 U kunt een POST een gegevensbron maken:
 
@@ -84,9 +86,9 @@ U kunt een POST een gegevensbron maken:
         "name": "mydocdbdatasource",
         "type": "documentdb",
         "credentials": {
-            "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
+            "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
-        "container": { "name": "myDocDbCollectionId", "query": null },
+        "container": { "name": "myCollection", "query": null },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
             "highWaterMarkColumnName": "_ts"
@@ -99,16 +101,19 @@ De hoofdtekst van de aanvraag bevat de definitie van de gegevensbron, waaronder 
 * **type**: moet `documentdb`.
 * **referenties**:
   
-  * **connectionString**: vereist. Geef de verbindingsgegevens van de met uw Azure DB die Cosmos-database in de volgende indeling:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
+  * **connectionString**: vereist. Geef de verbindingsgegevens van de met uw Azure DB die Cosmos-database in de volgende indeling: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` voor MongoDB-verzamelingen toevoegen **ApiKind MongoDB =** de verbindingsreeks: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDB` 
 * **container**:
   
   * **naam**: vereist. Geef de id van de verzameling van de database worden geïndexeerd.
-  * **query**: optioneel. U kunt een query om een willekeurige JSON-document in een platte schema die Azure Search kunt indexeren plat opgeven.
+  * **query**: optioneel. U kunt een query om een willekeurige JSON-document in een platte schema die Azure Search kunt indexeren plat opgeven. Query's worden niet ondersteund voor MongoDB-verzamelingen. 
 * **dataChangeDetectionPolicy**: aanbevolen. Zie [gewijzigd documenten te indexeren](#DataChangeDetectionPolicy) sectie.
 * **dataDeletionDetectionPolicy**: optioneel. Zie [verwijderd documenten te indexeren](#DataDeletionDetectionPolicy) sectie.
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Met behulp van query's naar vorm geïndexeerde gegevens
 U kunt een SQL-query voor plat geneste eigenschappen of matrices, project JSON-eigenschappen opgeven en filter de gegevens moeten worden geïndexeerd. 
+
+> [!WARNING]
+> Aangepaste query's worden niet ondersteund voor **MongoDB** verzamelingen: `container.query` parameter moet worden ingesteld op null of wordt weggelaten. Als u gebruiken een aangepaste query wilt, laat ons weten op [User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
 Voorbeelddocument:
 
@@ -170,14 +175,14 @@ Het volgende voorbeeld maakt een index met een veld-id en -beschrijving:
 Zorg ervoor dat het schema van de doelindex compatibel met het schema van de JSON-brondocumenten of de uitvoer van uw aangepaste query-projectie is.
 
 > [!NOTE]
-> Voor gepartitioneerde verzamelingen is de standaardsleutel document Azure Cosmos DB `_rid` eigenschap, die wordt gewijzigd in `rid` in Azure Search. Ook Azure Cosmos DB van `_rid` waarden bevatten tekens die ongeldig in Azure Search-sleutels zijn. Daarom moet de `_rid` waarden Base64-gecodeerd zijn.
+> Voor gepartitioneerde verzamelingen is de standaardsleutel document Azure Cosmos DB `_rid` Azure Search automatisch wordt de naam van eigenschap `rid` omdat veldnamen mag niet met een teken undescore beginnen. Ook Azure Cosmos DB `_rid` waarden bevatten tekens die ongeldig in Azure Search-sleutels zijn. Daarom moet de `_rid` waarden Base64-gecodeerd zijn.
 > 
-> 
+> Voor MongoDB-verzamelingen Azure Search automatisch wijzigt de naam van de `_id` eigenschap `doc_id`.  
 
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Toewijzing tussen JSON-gegevenstypen en Azure Search-gegevenstypen
 | JSON-gegevenstype | Compatibel doel index veldtypen |
 | --- | --- |
-| BOOL |Edm.Boolean, Edm.String |
+| Booleaans |Edm.Boolean, Edm.String |
 | Cijfers die als gehele getallen eruitzien |Edm.Int32, Edm.Int64, Edm.String |
 | Cijfers die zijn opgemaakt als drijvende-punten |Edm.Double, Edm.String |
 | Tekenreeks |Edm.String |
@@ -320,7 +325,7 @@ Het volgende voorbeeld maakt een gegevensbron met een beleid voor voorlopig verw
     }
 
 ## <a name="NextSteps"></a>Volgende stappen
-Gefeliciteerd! U hebt geleerd hoe Azure Cosmos DB integreren met Azure Search met behulp van een indexeerfunctie verkennen en het uploaden van documenten vanuit een SQL-gegevensmodel.
+Gefeliciteerd! U hebt geleerd hoe Azure Cosmos DB integreren met Azure Search met behulp van een indexeerfunctie.
 
 * Zie voor meer informatie over Azure Cosmos DB, de [pagina van de service Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Zie voor meer informatie over Azure Search, de [service zoekpagina](https://azure.microsoft.com/services/search/).

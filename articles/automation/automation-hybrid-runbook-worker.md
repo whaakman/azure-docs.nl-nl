@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/21/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b5dbc4cfd884538c8435371aa353b22cabef7400
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 157db4a9de41c9895d39469d3d42a45c1a929649
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatiseren van bronnen in uw datacenter of de cloud met Hybrid Runbook Worker
 
@@ -73,7 +73,7 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
      > De enige Automation-regio's ondersteund voor de integratie met logboekanalyse zijn momenteel - **Australië-Zuidoost**, **VS-Oost 2**, **Zuidoost-Azië**, en  **West-Europa**. Als uw Automation-account zich niet in een van deze regio's, wordt het script maakt een werkruimte voor logboekanalyse maar wordt er een waarschuwingsbericht weergegeven dat er kan geen koppeling ze samen.
 
 2. Start op uw computer **Windows PowerShell** van de **Start** scherm in de beheerdersmodus.
-3. Ga naar de map waarin het script dat u hebt gedownload en het wijzigen van de waarden voor parameters worden uitgevoerd vanuit de PowerShell opdrachtregel-shell, *- AutomationAccountName*, *- ResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, en *- WorkspaceName*.
+3. Ga naar de map waarin het script dat u hebt gedownload en het wijzigen van de waarden voor parameters worden uitgevoerd vanuit de PowerShell opdrachtregel-shell, *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, en *- WorkspaceName*.
 
      > [!NOTE]
      > U wordt gevraagd om te verifiëren met Azure nadat u het script hebt uitgevoerd. U **moet** aanmelden met een account dat lid is van de rol Abonnementsbeheerders en CO-beheerder van het abonnement.

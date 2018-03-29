@@ -1,23 +1,23 @@
 ---
 title: Platforms en hulpprogramma's voor gegevenswetenschap projecten - Azure in een team | Microsoft Docs
 description: Itemizes en worden de gegevens en analyse bronnen beschikbaar zijn voor ondernemingen van het Team gegevens wetenschap proces standaardiseren besproken.
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 404e3dd106edf82f4f22e4c6a17987bd0bc51f65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Platforms en hulpprogramma's voor gegevenswetenschap projecten in een team
 
@@ -31,7 +31,7 @@ De gegevens en analyse services beschikbaar zijn voor gegevens wetenschappelijke
 - Azure Data Lake
 - HDInsight Hive-Clusters
 - Azure File Storage
-- SQL Server 2016 R-Services
+- SQL Server 2016 R Services
 
 In dit document, we kort wordt beschreven welke resources en bevatten koppelingen naar de zelfstudies en scenario's, de teams TDSP hebt gepubliceerd. Ze kunt u informatie over het gebruik van deze stap voor stap en start u deze voor het bouwen van uw intelligente toepassingen. Meer informatie over deze resources is beschikbaar op de product-pagina's. 
 
@@ -96,7 +96,7 @@ Azure File Storage is een service die bestandsshares in de cloud met behulp van 
 Met name handig voor gegevens wetenschappelijke projecten is de mogelijkheid een archief voor Azure maken als de project-gegevens delen met uw Projectteamleden. Elk van deze vervolgens heeft toegang tot hetzelfde exemplaar van de gegevens in de Azure file storage. Ze kunnen ook de opslag van deze bestanden gebruiken om te delen functiesets gegenereerd tijdens het uitvoeren van het project. Als het project een client engagement is, kan uw clients een Azure-bestandsopslag onder de project-gegevens en -functies met u te delen hun eigen Azure-abonnement kunnen maken. Op deze manier heeft de client volledig beheer van het project gegevensassets. Zie voor meer informatie over Azure File Storage [aan de slag met Azure File storage in Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) en [Azure File Storage gebruiken met Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
-## <a name="sql-server-2016-r-services"></a>SQL Server 2016 R-Services
+## <a name="sql-server-2016-r-services"></a>SQL Server 2016 R Services
 
 R-Services (In database) bieden een platform voor het ontwikkelen en implementeren van intelligent toepassingen die u kunnen nieuwe insights onthullen. De uitgebreide en krachtige R taal, met inbegrip van de vele pakketten geleverd door de community R, kunt u modellen maken en de voorspellingen van uw SQL Server-gegevens worden gegenereerd. Omdat de taal R R-Services (In database) geïntegreerd met SQL Server, worden analytics dicht bij de gegevens, zodat de kosten en beveiligingsrisico's die zijn gekoppeld aan het verplaatsen van gegevens bewaard.
 

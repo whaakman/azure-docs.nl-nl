@@ -2,9 +2,9 @@
 title: Azure Storage-controlelijst voor prestaties en schaalbaarheid | Microsoft Docs
 description: Een controlelijst met bewezen voor gebruik met Azure Storage zodat toepassingen te ontwikkelen.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
-ms.openlocfilehash: 6f5a136d1be7a4bb4093baad820271770305b718
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
@@ -125,7 +125,7 @@ U kunt volgen enkele aanbevolen procedures voor het Verlaag de frequentie van de
 Terwijl de API materie aanroept, hebben de beperkingen van het fysieke netwerk van de toepassing vaak een aanzienlijke invloed op de prestaties. Het volgende worden een aantal beperkingen die gebruikers kunnen ondervinden.  
 
 #### <a name="client-network-capability"></a>Mogelijkheid via het netwerk van de client
-##### <a name="subheading2"></a>Doorvoer
+##### <a name="subheading2"></a>Throughput
 Voor bandbreedte is het probleem vaak de mogelijkheden van de client. Bijvoorbeeld, terwijl een enkele opslagaccount 10 Gbps of meer van de inkomende gegevens kan verwerken (Zie [schaalbaarheidsdoelen van bandbreedte](#sub1bandwidth)), de netwerksnelheid in een exemplaar van 'Kleine' Azure Worker-rol is alleen geschikt voor ongeveer 100 Mbps. Grotere Azure-exemplaren hebben NIC's met grotere capaciteit, dus u overwegen moet een grotere exemplaar of meer van de virtuele machine als u een hogere netwerk limieten vanaf één computer nodig. Als u een service Storage vanuit een on-premises-toepassing opent, wordt dezelfde regel van toepassing is: inzicht in de netwerkmogelijkheden van het clientapparaat en de netwerkverbinding met de Azure-opslaglocatie en u ze als nodig is of ontwerpen van uw toepassing uit te voeren binnen hun mogelijkheden verbeteren.  
 
 ##### <a name="subheading3"></a>Kwaliteit van de verbinding
@@ -261,7 +261,7 @@ Als u wilt uploaden snel blobs, de eerste vraag te beantwoorden is: weet u het u
 Als u wilt uploaden snel één grote blob, uploaden uw clienttoepassing de blokken of pagina's parallel (met name Houd ook rekening met de schaalbaarheidsdoelen voor afzonderlijke blobs en het opslagaccount in zijn geheel).  Houd er rekening mee dat het officiële Microsoft geleverde RTM opslag clientbibliotheken (.NET, Java) de mogelijkheid om dit te doen.  Voor elk van de bibliotheken, gebruikt u de hieronder opgegeven object of de eigenschap in te stellen van het niveau van gelijktijdigheid van taken:  
 
 * .NET: Set ParallelOperationThreadCount op een object BlobRequestOptions moet worden gebruikt.
-* Java/Android: BlobRequestOptions.setConcurrentRequestCount() gebruiken
+* Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
 * Node.js: Gebruik parallelOperationThreadCount op de aanvraag-opties of op de blob-service.
 * C++: Gebruik de methode blob_request_options::set_parallelism_factor.
 
@@ -349,7 +349,7 @@ Een andere belangrijke factor in de efficiëntie van de query is het aantal enti
 ###### <a name="subheading32"></a>Filteren
 Wanneer u een query wordt retourneert entiteiten die u hoeft niet in de clienttoepassing weet, kunt u overwegen een filter op Reduceer de grootte van de resulterende set. Terwijl de entiteiten die niet zijn geretourneerd naar de client wordt nog steeds voor de limieten voor schaalbaarheid meetellen, verbeteren de toepassingsprestaties van uw vanwege de grootte van de nettolading verminderde netwerk en de verminderde aantal entiteiten dat is verwerkt door de clienttoepassing.  Zie boven notitie op [Query dichtheid](#subheading31), echter – de schaalbaarheidsdoelen hebben betrekking op het aantal entiteiten gescand, zodat een query die veel entiteiten gefilterd mogelijk nog steeds in de beperking, zelfs als er enkele entiteiten worden geretourneerd.  
 
-###### <a name="subheading33"></a>Projectie
+###### <a name="subheading33"></a>Projection
 Als u de clienttoepassing een beperkt aantal eigenschappen van de entiteiten in de tabel moet, kunt u projectie beperkt de omvang van de geretourneerde gegevensset. Net als bij filteren, helpt dit minder netwerkbelasting en client verwerken.  
 
 ##### <a name="subheading34"></a>Denormalization

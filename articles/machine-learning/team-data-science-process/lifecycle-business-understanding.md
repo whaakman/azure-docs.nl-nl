@@ -2,23 +2,23 @@
 title: Zakelijke understanding fase van de levenscyclus van de procedure voor het Team gegevens wetenschappelijke - Azure | Microsoft Docs
 description: De doelstellingen, taken en producten voor de bedrijven inzicht fase gegevenswetenschap projecten
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 82784cbfd5f12297c376a395b54a817a2ae915a5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: daaaccaeac196b5f4651183173c8e83085d5184d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="business-understanding"></a>Inzicht in het bedrijf
 
@@ -64,9 +64,9 @@ Er zijn twee belangrijke taken in deze fase verholpen:
 
    * **S**pecifieke 
    * **M**easurable
-   * **Een**chievable 
+   * **A**chievable 
    * **R**elevant 
-   * **T**ime-gebonden 
+   * **T**ime-bound 
 
 ### <a name="identify-data-sources"></a>Gegevensbronnen identificeren
 Identificeer de gegevensbronnen die bekende voorbeelden van antwoorden op uw vragen kruis bevatten. Zoek naar de volgende gegevens:
@@ -80,7 +80,7 @@ Bijvoorbeeld: het kan gebeuren dat de bestaande systemen moeten verzamelen en me
 Hier volgen de producten in deze fase:
 
    * [Freelance document](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): een standaardsjabloon is opgegeven in de definitie van TDSP project structuur. Het document Freelance is een levende-document. U kunt de sjabloon tijdens het project bijwerken als u nieuwe detecties en als zakelijke vereisten veranderen. De sleutel is te herhalen bij dit document nader bekijken, toe te voegen bij het detectieproces. Behouden van de klant en andere belanghebbenden betrokken bij het maken van de wijzigingen en duidelijk is de redenen waarom de wijzigingen aan te brengen.  
-   * [Gegevensbronnen](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): de **onbewerkte gegevensbronnen** sectie van de **gegevensdefinities** rapport dat gevonden in het project TDSP **rapport met inventarisatiegegevens** map bevat de gegevensbronnen. Deze sectie geeft de oorspronkelijke- en doellocaties voor de onbewerkte gegevens. In latere fasen verlopen, moet u extra details, zoals de scripts worden de gegevens verplaatsen naar uw omgeving analytische invullen.  
+   * [Gegevensbronnen](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): de **onbewerkte gegevensbronnen** sectie van de **gegevensdefinities** rapport dat gevonden in het project TDSP **rapport met inventarisatiegegevens** map bevat de gegevens bronnen. Deze sectie geeft de oorspronkelijke- en doellocaties voor de onbewerkte gegevens. In latere fasen verlopen, moet u extra details, zoals de scripts worden de gegevens verplaatsen naar uw omgeving analytische invullen.  
    * [Gegevens woordenlijsten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): dit document vindt u beschrijvingen van de gegevens die door de client wordt geleverd. Deze beschrijvingen bevatten informatie over het schema (de gegevenstypen en informatie over de validatieregels, indien van toepassing) en de diagrammen entiteit relatie, indien beschikbaar.
 
 ## <a name="next-steps"></a>Volgende stappen

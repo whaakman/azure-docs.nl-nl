@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 7567ce516e6d08a458ff96f4554d9e92934408f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Gebruik van Azure HDInsight Tools voor Visual Studio Code
 
@@ -69,9 +69,9 @@ Een werkruimte in VS-Code maken voordat u verbinding met Azure maken kunt.
 
 4. Open **XXXX_hdi_settings.json** van **EXPLORER**, of met de rechtermuisknop op de script-editor om te selecteren **configuratie ingesteld**. U kunt configureren aanmelding vermelding van de standaardcluster en taak verzending parameters zoals weergegeven in het voorbeeld in het bestand. Ook kunt u de resterende parameters leeg laten.
 
-## <a name="connect-to-azure"></a>Verbinding maken met Azure
+## <a name="connect-to-hdinsight-cluster"></a>Verbinding maken met HDInsight-Cluster
 
-Voordat u scripts naar HDInsight-clusters van de Code van de VS indienen kunt, moet u verbinding met uw Azure-account.
+Voordat u scripts naar HDInsight-clusters van de Code van de VS indienen kunt, moet u verbinding maken met uw Azure-account of koppelen van een cluster (met Ambari gebruikersnaam/wachtwoord of domein lid van een account).
 
 **Verbinding maken met Azure**
 

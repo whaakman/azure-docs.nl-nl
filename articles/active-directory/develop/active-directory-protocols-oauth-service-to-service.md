@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: ad2118130ec36aed1561db763946104501eb0f32
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da657fb6072c0655e47623c58e7051e8dd462049
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Service naar serviceaanroepen met clientreferenties (gedeelde geheim of certificaat)
 De OAuth 2.0-Client referenties Grant stromen is toegestaan voor een webservice (*vertrouwelijke client*) zijn eigen referenties gebruiken in plaats van een gebruiker imiteren om te verifiëren bij het aanroepen van een andere webservice. In dit scenario wordt is de client meestal een middelste laag webservice, een daemon-service of de website. Voor een hoger niveau van zekerheid kan Azure AD ook de aanroepende service moet een certificaat (in plaats van een gedeeld geheim) gebruiken als referentie.
@@ -53,12 +53,12 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
 | grant_type |Vereist |Geeft het type voor aangevraagde verlenen. In een stroom Client referenties Grant de waarde moet **client_credentials**. |
-| client_id |Vereist |Hiermee geeft u de Azure AD-client-id van de webservice aanroepen. In client-ID van de aanroepende toepassing, vinden de [Azure-portal](https://portal.azure.com), klikt u op **Active Directory**, directory overschakelen, klikt u op de toepassing. De client_id is de *toepassings-ID* |
-| client_secret |Vereist |Geef een sleutel die is geregistreerd voor de aanroepende web service of -daemon toepassing in Azure AD. Klik op om een sleutel in de Azure portal **Active Directory**, directory overschakelen, klikt u op de toepassing, klikt u op **instellingen**, klikt u op **sleutels**, en een sleutel toevoegen.|
-| Bron |Vereist |Voer de App ID URI van de ontvangende webservice. Klik op de App ID URI, informatie in de Azure portal **Active Directory**, directory overschakelen, klikt u op de servicetoepassing en klik vervolgens op **instellingen** en **eigenschappen** |
+| client_id |Vereist |Hiermee geeft u de Azure AD-client-id van de webservice aanroepen. In client-ID van de aanroepende toepassing, vinden de [Azure-portal](https://portal.azure.com), klikt u op **Azure Active Directory**, klikt u op **App registraties**, klik op de toepassing. De client_id is de *toepassings-ID* |
+| client_secret |Vereist |Geef een sleutel die is geregistreerd voor de aanroepende web service of -daemon toepassing in Azure AD. Klik op om een sleutel in de Azure portal **Azure Active Directory**, klikt u op **App registraties**, klik op de toepassing, **instellingen**, klikt u op **sleutels** , en een sleutel toevoegen.|
+| Bron |Vereist |Voer de App ID URI van de ontvangende webservice. Voor de App ID URI, in de Azure portal, klikt u **Azure Active Directory**, klikt u op **App registraties**, klikt u op de servicetoepassing en klik vervolgens op **instellingen** en  **Eigenschappen**. |
 
 #### <a name="example"></a>Voorbeeld
-De volgende HTTP POST-aanvragen een toegangstoken voor de webservice https://service.contoso.com/. De `client_id` identificeert de webservice die het toegangstoken aanvragen.
+De volgende HTTP POST-aanvragen een toegangstoken voor de https://service.contoso.com/ webservice. De `client_id` identificeert de webservice die het toegangstoken aanvragen.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1
@@ -74,15 +74,15 @@ Een service-naar-service toegang tokenaanvraag met een certificaat bevat de volg
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
 | grant_type |Vereist |Hiermee geeft u het aangevraagde antwoordtype. In een stroom Client referenties Grant de waarde moet **client_credentials**. |
-| client_id |Vereist |Hiermee geeft u de Azure AD-client-id van de webservice aanroepen. In client-ID van de aanroepende toepassing, vinden de [Azure-portal](https://portal.azure.com), klikt u op **Active Directory**, directory overschakelen, klikt u op de toepassing. De client_id is de *toepassings-ID* |
-| client_assertion_type |Vereist |De waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_id |Vereist |Hiermee geeft u de Azure AD-client-id van de webservice aanroepen. In client-ID van de aanroepende toepassing, vinden de [Azure-portal](https://portal.azure.com), klikt u op **Azure Active Directory**, klikt u op **App registraties**, klik op de toepassing. De client_id is de *toepassings-ID* |
+| client_assertion_type |Vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Vereist | Een bewering (een JSON Web Token) die u nodig hebt voor het maken en te ondertekenen met het certificaat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de bevestiging.|
-| Bron | Vereist |Voer de App ID URI van de ontvangende webservice. Klik op de App ID URI, informatie in de Azure portal **Active Directory**, klikt u op de map, klik op de toepassing en klik vervolgens op **configureren**. |
+| Bron | Vereist |Voer de App ID URI van de ontvangende webservice. Voor de App ID URI, in de Azure portal, klikt u **Azure Active Directory**, klikt u op **App registraties**, klikt u op de servicetoepassing en klik vervolgens op **instellingen** en  **Eigenschappen**. |
 
 De parameters zijn bijna hetzelfde is in het geval van de aanvraag door een gedeeld geheim, behalve dat de parameter client_secret wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
 
 #### <a name="example"></a>Voorbeeld
-De volgende HTTP POST-aanvragen een toegangstoken voor de webservice https://service.contoso.com/ met een certificaat. De `client_id` identificeert de webservice die het toegangstoken aanvragen.
+De volgende HTTP POST-aanvragen een toegangstoken voor de https://service.contoso.com/ webservice met een certificaat. De `client_id` identificeert de webservice die het toegangstoken aanvragen.
 
 ```
 POST /<tenant_id>/oauth2/token HTTP/1.1

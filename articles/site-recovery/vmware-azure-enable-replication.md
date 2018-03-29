@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Schakel replicatie naar Azure voor virtuele VMware-machines
 
@@ -112,15 +112,15 @@ Vervolgens moet u controleren of de eigenschappen van de bronmachine. Houd er re
     Als een bronmachine twee netwerkadapters heeft en de grootte van de doelmachine vier ondersteunt, heeft de doelmachine twee adapters. Als de bronmachine twee adapters heeft, maar de ondersteunde doelgrootte slechts één ondersteunt, heeft de doelmachine slechts één adapter.
     - Als de virtuele machine meerdere netwerkadapters heeft, ze alle verbinding maken met hetzelfde netwerk. De eerste die wordt weergegeven in de lijst wordt ook het geval is, de *standaard* netwerkadapter in de virtuele machine van Azure.
 
-### <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
+### <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-Klanten van Microsoft Software Assurance kunnen Azure hybride gebruiken voordeel op te slaan op licentiekosten voor Windows Server-machines die worden gemigreerd naar Azure of Azure gebruiken voor herstel na noodgevallen gebruiken. Als u in aanmerking voor de Azure hybride gebruiken profiteren, kunt u opgeven dat de virtuele machine toegewezen voordeel een die Azure Site Recovery wordt gemaakt is als er een failover. Om dit te doen:
+Klanten van Microsoft Software Assurance kunnen Azure hybride voordeel op te slaan op licentiekosten voor Windows Server-machines die worden gemigreerd naar Azure of Azure gebruiken voor herstel na noodgevallen gebruiken. Als u in aanmerking voor de Azure hybride profiteren, kunt u opgeven dat de virtuele machine toegewezen voordeel een die Azure Site Recovery wordt gemaakt is als er een failover. Om dit te doen:
 - Ga naar het gedeelte berekenings- en eigenschappen van de gerepliceerde virtuele machine.
-- Beantwoord de vraag waarin u wordt gevraagd of u hebt een Windows Server-licentie waarmee u in aanmerking voor Azure hybride gebruik.
-- Schakel het selectievakje in om te bevestigen dat u een in aanmerking komende Windows Server-licentie met Software Assurance, kunt u het voordeel voor het gebruik van hybride toepassen op de machine die wordt gemaakt op failover.
+- Beantwoord de vraag waarin u wordt gevraagd of u hebt een Windows Server-licentie waarmee u in aanmerking voor hybride Azure.
+- Schakel het selectievakje in om te bevestigen dat u een in aanmerking komende Windows Server-licentie met Software Assurance, kunt u het voordeel van de hybride Azure toepassen op de machine die wordt gemaakt op failover.
 - Instellingen voor de gerepliceerde machine opslaan.
 
-Meer informatie over [Azure hybride gebruik voordeel](https://aka.ms/azure-hybrid-use-benefit-pricing).
+Meer informatie over [Azure hybride voordeel](https://aka.ms/azure-hybrid-benefit-pricing).
 
 ## <a name="common-issues"></a>Algemene problemen
 

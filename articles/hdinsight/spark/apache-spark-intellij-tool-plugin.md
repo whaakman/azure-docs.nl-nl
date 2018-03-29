@@ -2,7 +2,7 @@
 title: 'Azure Toolkit voor IntelliJ: Spark toepassingen maken voor een HDInsight-cluster | Microsoft Docs'
 description: De Azure-werkset voor IntelliJ gebruiken voor het ontwikkelen van Spark scala-toepassingen die zijn geschreven in Scala en deze verzenden naar een HDInsight Spark-cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 69f5857f89271b3e4865b93e42e5233ead572715
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2ebf87b0436dbc5ee12a1c41d33ff3d17af1f043
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Gebruik van Azure Toolkit voor IntelliJ Spark-toepassingen voor een HDInsight-cluster maken
 
@@ -44,6 +44,10 @@ Voor het maken van uw project, geven de [Spark scala-toepassingen maken met de A
 
 ## <a name="install-azure-toolkit-for-intellij"></a>Azure Toolkit voor IntelliJ installeren
 Zie voor installatie-instructies [Azure Toolkit installeren voor IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
+
+## <a name="get-started"></a>Aan de slag
+De gebruiker kan ofwel [aanmelden bij Azure-abonnement](#sign-in-to-your-azure-subscription), of [koppelen van een HDInsight-cluster](#link-a-cluster) met Ambari gebruikersnaam/wachtwoord of domein die lid zijn van de referentie te starten.
+
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Meld u aan bij uw Azure-abonnement
 
@@ -75,12 +79,14 @@ U kunt koppelen van een normale cluster door Ambari beheerd gebruikersnaam, een 
 
    ![koppeling cluster contextmenu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Voer **clusternaam**, **Opslagaccount**, **opslagsleutel**, selecteer vervolgens een container van **Opslagcontainer**, ten minste invoer gebruikersnaam en het wachtwoord. U moet de gebruikersnaam en wachtwoord controleren als u de verificatie is mislukt.
+2. Voer **clusternaam**, **gebruikersnaam** en **wachtwoord**. U moet controleren van de gebruikersnaam en het wachtwoord als de verificatie is mislukt. Optioneel Opslagaccount, opslagsleutel toevoegen en selecteer vervolgens een container van Storage-Container. Storage-gegevens is bedoeld voor Opslagverkenner in het linkerdeelvenster
    
    ![koppeling cluster dialoogvenster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
    > [!NOTE]
-   > We gebruiken de gekoppelde opslagsleutel, de gebruikersnaam en het wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster gekoppeld. 
+   > We gebruiken de gekoppelde opslagsleutel, de gebruikersnaam en het wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster gekoppeld.
+   > ![Opslagverkenner in IntelliJ](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
+
    
 3. U ziet een gekoppelde cluster in **HDInsight** knooppunt als de ingevoerde gegevens correct zijn. U kunt nu een toepassing met deze gekoppelde cluster verzenden.
 

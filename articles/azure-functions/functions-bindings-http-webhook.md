@@ -3,10 +3,10 @@ title: Azure Functions HTTP- en webhook bindingen
 description: Het gebruik van HTTP- en webhook triggers en bindingen in de Azure Functions begrijpen.
 services: functions
 documentationcenter: na
-author: mattchenderson
+author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure functions, functies, gebeurtenis verwerking, webhooks, dynamische Reken-, zonder server-architectuur, HTTP-API, REST
 ms.service: functions
 ms.devlang: multiple
@@ -14,12 +14,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: mahender
-ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 94a039ab1973cbd4112ddd0cd7548baa69924d26
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP- en webhook bindingen
 
@@ -536,7 +536,7 @@ Webhook autorisatie wordt verwerkt door het onderdeel van de ontvanger webhook, 
 
 ## <a name="trigger---limits"></a>Trigger - limieten
 
-De lengte van de HTTP-aanvraag is beperkt tot 100 kB (102,400) en de URL-lengte is beperkt tot 4 kB (4.096). Deze limieten worden opgegeven door de `httpRuntime` element van de runtime [Web.config-bestand](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+De lengte van de HTTP-aanvraag is beperkt tot 100MB (104,857,600 bytes) en de URL-lengte is beperkt tot 4KB (4096 bytes). Deze limieten worden opgegeven door de `httpRuntime` element van de runtime [Web.config-bestand](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
 Een functie die wordt gebruikt de HTTP-trigger niet voltooid binnen ongeveer 2,5 minuten, de time-out van gateway wordt als een HTTP 502-fout geretourneerd. De functie blijft doorlopen, maar niet om te retourneren van een HTTP-antwoord. Voor langlopende functies, wordt aangeraden dat u async patronen volgt en retourneert een locatie waar u de status van de aanvraag kunt pingen. Zie voor informatie over hoe lang een functie kunt uitvoeren, [schaal en host - verbruik plannen](functions-scale.md#consumption-plan). 
 

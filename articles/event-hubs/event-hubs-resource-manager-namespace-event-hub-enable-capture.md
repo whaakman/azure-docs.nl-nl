@@ -5,7 +5,7 @@ services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8bdda6a2-5ff1-45e3-b696-c553768f1090
 ms.service: event-hubs
 ms.devlang: tbd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c241b8c38aab355729cd1bea318e70e85cf4ff1f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Een naamruimte maken met Event Hub en Capture inschakelen met behulp van een sjabloon
 
@@ -177,7 +177,7 @@ De grootte waarbij Capture begint met het vastleggen van de gegevens.
 }
 ```
 
-###<a name="capturenameformat"></a>captureNameFormat
+### <a name="capturenameformat"></a>captureNameFormat
 
 De naamindeling die door Event Hubs Capture wordt gebruikt om de Avro-bestanden weg te schrijven. De indeling voor Capture moet de velden `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` en `{Second}` bevatten. Deze velden kunnen in willekeurige volgorde worden gerangschikt, met of zonder scheidingstekens.
  
@@ -236,7 +236,7 @@ De blob-container waarin uw gebeurtenisgegevens worden vastgelegd.
 
 Gebruik de volgende parameters als u Azure Data Lake Store als de bestemming kiest. U moet machtigingen instellen voor het Data Lake Store-pad waarin u de gebeurtenis wilt vastleggen. Zie [dit artikel](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account) voor het instellen van machtigingen.
 
-###<a name="subscriptionid"></a>subscriptionId
+### <a name="subscriptionid"></a>subscriptionId
 
 De abonnements-id voor de Event Hubs-naamruimte en Azure Data Lake Store. Deze twee resources moeten onder dezelfde abonnements-id vallen.
 
@@ -249,7 +249,7 @@ De abonnements-id voor de Event Hubs-naamruimte en Azure Data Lake Store. Deze t
  }
 ```
 
-###<a name="datalakeaccountname"></a>dataLakeAccountName
+### <a name="datalakeaccountname"></a>dataLakeAccountName
 
 De Azure Data Lake Store-naam voor de vastgelegde gebeurtenissen.
 
@@ -262,7 +262,7 @@ De Azure Data Lake Store-naam voor de vastgelegde gebeurtenissen.
 }
 ```
 
-###<a name="datalakefolderpath"></a>dataLakeFolderPath
+### <a name="datalakefolderpath"></a>dataLakeFolderPath
 
 Het pad naar de doelmap voor de vastgelegde gebeurtenissen. Dit is de map in uw Data Lake Store waarnaar de gebeurtenissen tijdens het vastleggen wordt gestuurd. Zie [Azure Data Lake Store gebruiken voor het vastleggen van gegevens uit Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md) voor het instellen van machtigingen voor deze map.
 

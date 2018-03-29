@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0041a58c8da58785ebc3ead6c8128316b153728c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container bewaking oplossing in Log Analytics
 
@@ -547,15 +547,15 @@ De volgende tabel ziet u voorbeelden van records die door de bewaking van de Con
 
 | Gegevenstype | Het gegevenstype in logboek zoeken | Velden |
 | --- | --- | --- |
-| Prestaties voor hosts en -containers | `Type=Perf` | Computer, objectnaam, CounterName &#40;percentage processortijd, de schijf leest MB, schijf schrijft MB geheugen gebruik MB netwerk ontvangen Bytes, netwerk verzenden Bytes Processor gebruik seconde, netwerk&#41;, tegenwaarde, TimeGenerated, itempad, SourceSystem |
-| Inventarisatie van de container | `Type=ContainerInventory` | TimeGenerated, Computer, containernaam ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, opdracht, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Container installatiekopie inventarisatie | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, uitvoering is onderbroken, gestopt, is mislukt, SourceSystem, ImageID, TotalContainer |
-| Container-logboek | `Type=ContainerLog` | TimeGenerated, Computer, afbeeldings-ID, containernaam LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| Container service-logboek | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
-| Container knooppunt inventarisatie | `Type=ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes-inventarisatie | `Type=KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Container-proces | `Type=ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Kubernetes gebeurtenissen | `Type=KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, bericht |
+| Prestaties voor hosts en -containers | `Perf` | Computer, objectnaam, CounterName &#40;percentage processortijd, de schijf leest MB, schijf schrijft MB geheugen gebruik MB netwerk ontvangen Bytes, netwerk verzenden Bytes Processor gebruik seconde, netwerk&#41;, tegenwaarde, TimeGenerated, itempad, SourceSystem |
+| Inventarisatie van de container | `ContainerInventory` | TimeGenerated, Computer, containernaam ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, opdracht, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| Container installatiekopie inventarisatie | `ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, uitvoering is onderbroken, gestopt, is mislukt, SourceSystem, ImageID, TotalContainer |
+| Container-logboek | `ContainerLog` | TimeGenerated, Computer, afbeeldings-ID, containernaam LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| Container service-logboek | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Container knooppunt inventarisatie | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes-inventarisatie | `KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| Container-proces | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Kubernetes gebeurtenissen | `KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, bericht |
 
 Labels toegevoegd aan *PodLabel* gegevenstypen zijn uw eigen aangepaste etiketten. De toegevoegde PodLabel labels weergegeven in de tabel zijn voorbeelden. Dus `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` wordt verschillen in uw omgeving gegevensset en algemeen fungeren als `PodLabel_yourlabel_s`.
 
@@ -610,7 +610,7 @@ Log Analytics markeert een container als **mislukt** als is afgesloten met een a
    ![status van de containers](./media/log-analytics-containers/containers-log-search.png)
 3. Klik vervolgens op de toegevoegde waarde van mislukte containers naar aanvullende informatie weergeven. Vouw **meer** om weer te geven van de installatiekopie-ID.  
    ![mislukte containers](./media/log-analytics-containers/containers-state-failed.png)  
-4. Typ vervolgens het volgende in de zoekopdracht. `Type=ContainerInventory <ImageID>` voor informatie over de installatiekopie zoals afbeeldingsgrootte en aantal gestopt en mislukte afbeeldingen.  
+4. Typ vervolgens het volgende in de zoekopdracht. `ContainerInventory <ImageID>` voor informatie over de installatiekopie zoals afbeeldingsgrootte en aantal gestopt en mislukte afbeeldingen.  
    ![mislukte containers](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>Zoeken in Logboeken voor containergegevens
@@ -628,17 +628,17 @@ Wanneer u een specifieke fout oplossen bent, kunt u zien waar het optreedt in uw
 
 
 ### <a name="to-search-logs-for-container-data"></a>Logboeken voor de containergegevens zoeken
-* Kies een installatiekopie die u kent onlangs is mislukt en de foutenlogboeken voor het vinden. Starten door te zoeken naar een containernaam die wordt uitgevoerd die afbeelding met een **ContainerInventory** zoeken. Bijvoorbeeld zoeken naar `Type=ContainerInventory ubuntu Failed`  
+* Kies een installatiekopie die u kent onlangs is mislukt en de foutenlogboeken voor het vinden. Starten door te zoeken naar een containernaam die wordt uitgevoerd die afbeelding met een **ContainerInventory** zoeken. Bijvoorbeeld zoeken naar `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Zoeken naar Ubuntu-containers](./media/log-analytics-containers/search-ubuntu.png)
 
-  De naam van de container naast **naam**, en zoek naar deze logboeken. In dit voorbeeld is het `Type=ContainerLog cranky_stonebreaker`.
+  De naam van de container naast **naam**, en zoek naar deze logboeken. In dit voorbeeld is het `ContainerLog | where Name == "cranky_stonebreaker"`.
 
 **Informatie over prestaties weergeven**
 
 Wanneer u bent u query's maken, kunt u zien wat er mogelijk eerst. Probeer bijvoorbeeld een brede query om te zien alle prestatiegegevens, door de volgende query in te voeren.
 
 ```
-Type=Perf
+Perf
 ```
 
 ![prestaties van de containers](./media/log-analytics-containers/containers-perf01.png)
@@ -646,7 +646,7 @@ Type=Perf
 U kunt het bereik van de prestatiegegevens die u, naar een specifieke container ziet door de naam van het aan de rechterkant van de query te typen.
 
 ```
-Type=Perf <containerName>
+Perf <containerName>
 ```
 
 Dat geeft de lijst weer van maatstaven voor prestaties die worden verzameld voor een afzonderlijke-container.
@@ -655,8 +655,6 @@ Dat geeft de lijst weer van maatstaven voor prestaties die worden verzameld voor
 
 ## <a name="example-log-search-queries"></a>Voorbeeld logboek zoekquery 's
 Vaak is het nuttig voor het bouwen van query's beginnen met een voorbeeld of twee en deze aanpassen aan uw omgeving vervolgens wijzigen. Als uitgangspunt, kunt u experimenteren met het **voorbeeldquery's** gebied waarmee u kunt meer geavanceerde query's maken.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Containers query 's](./media/log-analytics-containers/containers-queries.png)
 

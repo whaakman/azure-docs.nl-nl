@@ -2,10 +2,10 @@
 title: Azure Traffic Manager eindpuntcontrole | Microsoft Docs
 description: In dit artikel vindt u informatie over hoe Traffic Manager eindpuntcontrole en automatische eindpunt failover gebruikt ter ondersteuning van Azure gebruikers hoge beschikbaarheid toepassingen implementeren
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3b30aa04854b779c25582abafc0f9ebba65b71ba
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
 
@@ -56,7 +56,7 @@ Alle eindpunten in een Traffic Manager-profiel delen controle-instellingen. Als 
 
 U kunt inschakelen en uitschakelen van Traffic Manager-profielen en eindpunten. Echter, een wijziging in de status van endpoint ook optreden als gevolg van Traffic Manager instellingen en processen geautomatiseerde.
 
-### <a name="endpoint-status"></a>Status endpoint
+### <a name="endpoint-status"></a>Eindpuntstatus
 
 U kunt in- of uitschakelen van een specifieke eindpunt. De onderliggende service, die nog steeds mogelijk in orde, wordt niet beïnvloed. Wijzigen van de Eindpuntstatus bepaalt de beschikbaarheid van het eindpunt in Traffic Manager-profiel. Wanneer de Eindpuntstatus van een is uitgeschakeld, Traffic Manager controleert de status niet en het eindpunt is niet opgenomen in een DNS-antwoord.
 
@@ -68,16 +68,19 @@ U gebruikt de Profielinstelling van de status, kunt u in- of uitschakelen van ee
 
 Status van endpoint-monitor is een Traffic Manager gegenereerde waarde geeft de status van het eindpunt. U kunt geen deze instelling handmatig wijzigen. De status van de endpoint-monitor is een combinatie van de resultaten van eindpuntcontrole en de status van de geconfigureerde endpoint. De mogelijke waarden van de status van endpoint-monitor worden weergegeven in de volgende tabel:
 
-| Status van het profiel | Status endpoint | Status van endpoint-monitor | Opmerkingen |
+| Status van het profiel | Eindpuntstatus | Status van endpoint-monitor | Opmerkingen |
 | --- | --- | --- | --- |
-| Uitgeschakeld |Ingeschakeld |Inactieve |Het profiel is uitgeschakeld. Hoewel de Eindpuntstatus is ingeschakeld, wordt de status van het profiel (uitgeschakeld) voorrang. Eindpunten in uitgeschakelde profielen niet worden bewaakt. Een antwoord NXDOMAIN code wordt geretourneerd voor de DNS-query. |
+| Uitgeschakeld |Ingeschakeld |Inactief |Het profiel is uitgeschakeld. Hoewel de Eindpuntstatus is ingeschakeld, wordt de status van het profiel (uitgeschakeld) voorrang. Eindpunten in uitgeschakelde profielen niet worden bewaakt. Een antwoord NXDOMAIN code wordt geretourneerd voor de DNS-query. |
 | &lt;alle&gt; |Uitgeschakeld |Uitgeschakeld |Het eindpunt is uitgeschakeld. Uitgeschakelde eindpunten niet worden bewaakt. Het eindpunt is niet opgenomen in de DNS-antwoorden, daarom wordt er geen verkeer ontvangen. |
 | Ingeschakeld |Ingeschakeld |Online |Het eindpunt wordt bewaakt en is in orde. Het is opgenomen in de DNS-antwoorden en verkeer kan ontvangen. |
-| Ingeschakeld |Ingeschakeld |Gedegradeerd |Bewaking statuscontroles eindpunt mislukken. Het eindpunt is niet opgenomen in de DNS-antwoorden en geen verkeer ontvangt. <br>Een uitzondering hierop is als alle eindpunten zijn gedegradeerd, in welk geval ze allemaal beschouwd als worden geretourneerd in antwoord op de query).</br>|
+| Ingeschakeld |Ingeschakeld |Verminderd |Bewaking statuscontroles eindpunt mislukken. Het eindpunt is niet opgenomen in de DNS-antwoorden en geen verkeer ontvangt. <br>Een uitzondering hierop is als alle eindpunten zijn gedegradeerd, in welk geval ze allemaal beschouwd als worden geretourneerd in antwoord op de query).</br>|
 | Ingeschakeld |Ingeschakeld |CheckingEndpoint |Het eindpunt wordt bewaakt, maar de resultaten van de eerste test hebben nog niet ontvangen. CheckingEndpoint is een tijdelijke status dat meestal onmiddellijk na het toevoegen of een eindpunt in het profiel inschakelen. Een eindpunt in deze status is opgenomen in de DNS-antwoorden en verkeer kan ontvangen. |
-| Ingeschakeld |Ingeschakeld |Stopped |De cloud service of web-app die het eindpunt naar het verwijst wordt niet uitgevoerd. Controleer de instellingen voor cloud service of web-app. Dit kan ook gebeuren als het eindpunt van genest type eindpunt en het onderliggende profiel is uitgeschakeld of niet actief is. <br>Een eindpunt met de status gestopt wordt niet gecontroleerd. Het is niet opgenomen in de DNS-antwoorden en geen verkeer ontvangt. Een uitzondering hierop is als alle eindpunten zijn gedegradeerd, in welk geval ze allemaal beschouwd moeten worden geretourneerd in antwoord op de query.</br>|
+| Ingeschakeld |Ingeschakeld |Gestopt |De cloud service of web-app die het eindpunt naar het verwijst wordt niet uitgevoerd. Controleer de instellingen voor cloud service of web-app. Dit kan ook gebeuren als het eindpunt van genest type eindpunt en het onderliggende profiel is uitgeschakeld of niet actief is. <br>Een eindpunt met de status gestopt wordt niet gecontroleerd. Het is niet opgenomen in de DNS-antwoorden en geen verkeer ontvangt. Een uitzondering hierop is als alle eindpunten zijn gedegradeerd, in welk geval ze allemaal beschouwd moeten worden geretourneerd in antwoord op de query.</br>|
 
 Zie voor meer informatie over hoe de status van endpoint-monitor wordt berekend voor geneste eindpunten [Traffic Manager-profielen genest](traffic-manager-nested-profiles.md).
+
+>[!NOTE]
+> Een status van de monitor is gestopt Endpoint kan gebeuren op App Service als uw webtoepassing niet wordt uitgevoerd in de prijscategorie Standard of hoger. Zie voor meer informatie [Traffic Manager-integratie met App Service](/azure/app-service/web-sites-traffic-manager).
 
 ### <a name="profile-monitor-status"></a>Status van het profiel
 
@@ -86,10 +89,10 @@ De monitor status van het profiel is een combinatie van de status geconfigureerd
 | Status van het profiel (zoals geconfigureerd) | Status van endpoint-monitor | Status van het profiel | Opmerkingen |
 | --- | --- | --- | --- |
 | Uitgeschakeld |&lt;eventuele&gt; of een profiel waarvoor geen eindpunten. |Uitgeschakeld |Het profiel is uitgeschakeld. |
-| Ingeschakeld |De status van ten minste één eindpunt is gedegradeerd. |Gedegradeerd |Bekijk de waarden voor de status van afzonderlijke eindpunt om te bepalen welke eindpunten meer aandacht vereisen. |
+| Ingeschakeld |De status van ten minste één eindpunt is gedegradeerd. |Verminderd |Bekijk de waarden voor de status van afzonderlijke eindpunt om te bepalen welke eindpunten meer aandacht vereisen. |
 | Ingeschakeld |De status van ten minste één eindpunt is Online. Er zijn geen eindpunten hebben gedegradeerd status. |Online |De service accepteert verkeer. Er is geen verdere actie vereist. |
 | Ingeschakeld |De status van ten minste één eindpunt is CheckingEndpoint. Er zijn geen eindpunten status Online of gedegradeerd. |CheckingEndpoints |De status van deze overgang treedt op wanneer een profiel als gemaakt of ingeschakeld. De status van het eindpunt wordt voor het eerst gecontroleerd. |
-| Ingeschakeld |De status van alle eindpunten in het profiel zijn uitgeschakeld of gestopt, of het profiel bevat geen eindpunten zijn gedefinieerd. |Inactieve |Er zijn geen eindpunten actief, maar nog steeds het profiel is ingeschakeld. |
+| Ingeschakeld |De status van alle eindpunten in het profiel zijn uitgeschakeld of gestopt, of het profiel bevat geen eindpunten zijn gedefinieerd. |Inactief |Er zijn geen eindpunten actief, maar nog steeds het profiel is ingeschakeld. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Eindpunt failovers en herstel
 
@@ -111,7 +114,7 @@ De volgende tijdlijn in afbeelding 2 is een gedetailleerde beschrijving van het 
 
 **Afbeelding 2: Traffic manager-eindpunt failovers en herstel reeks**
 
-1. **OPHALEN VAN**. Voor elk eindpunt voert de Traffic Manager bewakingssysteem een GET-aanvraag op het pad dat is opgegeven in de controle-instellingen.
+1. **GET**. Voor elk eindpunt voert de Traffic Manager bewakingssysteem een GET-aanvraag op het pad dat is opgegeven in de controle-instellingen.
 2. **200 OK**. Het bewakingssysteem verwacht een HTTP 200 OK-bericht moet worden geretourneerd binnen 10 seconden. Wanneer deze dit antwoord ontvangt, herkent het dat de service beschikbaar is.
 3. **30 seconden tussen controles**. De statuscontrole van het eindpunt wordt herhaald elke 30 seconden.
 4. **Service is niet beschikbaar**. De service niet beschikbaar. Traffic Manager weet niet tot de volgende statuscontrole.

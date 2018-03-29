@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: 441f352555f40c0467df4c466d58ac35e32f9e61
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ad6e335c562e52d7e2336dd1f29e5c159fe46589
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395783175"></a>Een Node.js-webtoepassing bouwen met Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 02/14/2018
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Voor deze zelfstudie ziet u hoe u Azure Cosmos DB en de SQL-API voor het opslaan van en toegang tot gegevens uit een Node.js Express-toepassing die wordt gehost op Azure Websites. U bouwt een eenvoudige webtoepassing voor taakbeheer, een taken-app, waarmee u taken kunt maken, ophalen en voltooien. De taken worden opgeslagen als JSON-documenten in Azure Cosmos DB. Deze zelfstudie begeleidt u bij het maken en implementeren van de app en legt uit wat er gebeurt in elk fragment.
 
@@ -76,7 +74,7 @@ Laten we eens kijken hoe u het [Express](http://expressjs.com/)-framework gebrui
 5. Voer uw nieuwe toepassing uit.
    
         npm start
-6. U kunt uw nieuwe toepassing weergeven door in uw browser naar [http://localhost:3000](http://localhost:3000) te gaan.
+6. U kunt uw nieuwe toepassing weergeven door uw browser om te navigeren [ http://localhost:3000 ](http://localhost:3000).
    
     ![Node.js leren - Schermopname van de toepassing Hello World in een browservenster](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
@@ -154,7 +152,7 @@ Hiermee is de installatie en eerste configuratie voltooid en kunnen we aan het e
 
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
-    let docdbUtils = require('./docdbUtils');
+    let docdbUtils = require('./cosmosdb-manager.js');
     ```
 7. Vervolgens voegt u code toe om het taakobject te definiëren en te exporteren. Hiermee wordt het taakobject geïnitialiseerd en wordt de database- en documentverzameling ingesteld die we zullen gebruiken.  
 
@@ -411,7 +409,7 @@ Hiermee is de installatie en eerste configuratie voltooid en kunnen we aan het e
 6. Tot slot slaat u het bestand **app.js** op en sluit u het bestand.
 
 ## <a name="_Toc395783181"></a>Stap 5: Een gebruikersinterface maken
-U kunt zich nu concentreren op het bouwen van de gebruikersinterface, zodat gebruikers kunnen communiceren met de toepassing. De Express-toepassing die is gemaakt, gebruikt **Jade** als weergave-engine. Raadpleeg [http://jade-lang.com/](http://jade-lang.com/) voor meer informatie over Jade.
+U kunt zich nu concentreren op het bouwen van de gebruikersinterface, zodat gebruikers kunnen communiceren met de toepassing. De Express-toepassing die is gemaakt, gebruikt **Jade** als weergave-engine. Raadpleeg voor meer informatie over Jade [ http://jade-lang.com/ ](http://jade-lang.com/).
 
 1. Het bestand **layout.jade** in de map **views** wordt gebruikt als een algemeen sjabloon voor andere **.jade**-bestanden. In deze stap wordt het bestand aangepast voor het gebruik van [Twitter Bootstrap](https://github.com/twbs/bootstrap). Dit is een werkset waarmee u eenvoudig een aantrekkelijk ogende website kunt maken. 
 2. Open het bestand **layout.jade** in de map **views** en vervang de inhoud door het volgende:
@@ -489,7 +487,7 @@ Het tweede formulier bevat twee invoervelden en een knop waarmee een nieuw item 
 Dit is alles wat we nodig hebben voor een goed werkende toepassing.
 
 ## <a name="_Toc395783181"></a>Stap 6: De toepassing lokaal uitvoeren
-1. Als u de toepassing wilt testen op uw lokale machine, voert u `npm start` uit in de terminal om uw toepassing te starten. Vernieuw vervolgens de browserpagina [http://localhost:3000](http://localhost:3000). De pagina zou er nu moeten uitzien als in onderstaande afbeelding:
+1. Testen van de toepassing op uw lokale machine, voer `npm start` in de terminal om uw toepassing te starten en vernieuw uw [ http://localhost:3000 ](http://localhost:3000) browserpagina. De pagina zou er nu moeten uitzien als in onderstaande afbeelding:
    
     ![Schermopname van de toepassing MyTodo List in een browservenster](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 

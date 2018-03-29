@@ -2,7 +2,7 @@
 title: 'Azure Active Directory Domain Services: Een Ubuntu VM toevoegen aan een beheerd domein | Microsoft Docs'
 description: Een virtuele Ubuntu Linux-machine toevoegen aan Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: a8a3610707ca7d00694779c4b3631e1483d6bbdd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d968548f9ac369f02f10a10d8f1ecc99c48bca60
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Een virtuele Ubuntu-machine in Azure toevoegen aan een beheerd domein
 In dit artikel leest u hoe een virtuele Ubuntu Linux-machine toevoegen aan een beheerd domein van Azure AD Domain Services.
@@ -36,7 +36,7 @@ Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u h
 ## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Een virtuele Ubuntu Linux-machine inrichten
 Een Ubuntu Linux-machine inrichten in Azure met behulp van een van de volgende methoden:
 * [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
-* [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+* [Azure-CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
@@ -217,7 +217,7 @@ U kunt leden van de groep 'AAD DC-beheerders' beheerdersrechten heeft op de VM U
 
 
 ## <a name="troubleshooting-domain-join"></a>Het oplossen van problemen aan domein toevoegen
-Raadpleeg de [probleemoplossing domein](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) artikel.
+Raadpleeg de [probleemoplossing domein](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) artikel.
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud

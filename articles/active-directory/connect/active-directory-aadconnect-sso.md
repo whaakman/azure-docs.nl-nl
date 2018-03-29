@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Naadloze eenmalige aanmelding | Microsoft Docs'
 description: Dit onderwerp beschrijft de Azure Active Directory (Azure AD) naadloze eenmalige aanmelding en hoe kunt u opgeven waar eenmalige aanmelding voor desktop-zakelijke gebruikers binnen uw bedrijfsnetwerk.
 services: active-directory
 keywords: Wat is Azure AD Connect, installeer Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
-documentationcenter: 
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding
 
@@ -50,7 +50,8 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisat
 
 - Aanmeldnaam mag ofwel de lokale standaardgebruikersnaam (`userPrincipalName`) of een ander kenmerk geconfigureerd in Azure AD Connect (`Alternate ID`). Beide gevallen werken niet gebruiken omdat naadloze eenmalige aanmelding gebruikt de `securityIdentifier` claim in de Kerberos-ticket voor het opzoeken van het bijbehorende gebruikersobject in Azure AD.
 - Naadloze eenmalige aanmelding is een opportunistisch functie. Als het om een bepaalde reden mislukt, teruggaan de gebruikerservaring aanmelden naar het normale gedrag - eenledige, de gebruiker moet hun wachtwoord invoeren op de aanmeldingspagina.
-- Als een toepassing stuurt een `domain_hint` (OpenID Connect) of `whr` (SAML) parameter - identificeren van uw tenant of `login_hint` parameter - identificatie van de gebruiker in de Azure AD-in aanvraag gebruikers worden automatisch aangemeld zonder ze gebruikersnamen of wachtwoorden invoeren.
+- Als een toepassing (bijvoorbeeld https://myapps.microsoft.com/contoso.com) stuurt een `domain_hint` (OpenID Connect) of `whr` (SAML) parameter - identificeren van uw tenant of `login_hint` parameter - identificatie van de gebruiker in de Azure AD-in aanvraag gebruikers zijn zonder deze invoeren gebruikersnamen of wachtwoorden automatisch aangemeld.
+- Gebruikers krijgen ook een ervaring voor stille als een toepassing (bijvoorbeeld https://contoso.sharepoint.com) aanmeldingsaanvragen dat wil zeggen, verzendt naar verpachte eindpunten voor Azure AD - https://login.microsoftonline.com/contoso.com/<..> of https://login.microsoftonline.com/<tenant_ID>/<..> - in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https://login.microsoftonline.com/common/<...>.
 - Meld u af wordt ondersteund. Hiermee kunnen gebruikers kiezen van een andere Azure AD-account voor aanmelden, in plaats van automatisch in het gebruik van automatisch naadloze eenmalige aanmelding wordt ondertekend.
 - Office 365-clients (16.0.8730.xxxx en hoger) worden ondersteund met een niet-interactieve stroom.
 - Het kan worden ingeschakeld via Azure AD Connect.

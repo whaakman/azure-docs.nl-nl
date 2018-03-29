@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: fd59b6b3f51adb538e774bc5bb089880ca22e97e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Enterprise-integratie met XML-transformaties
 ## <a name="overview"></a>Overzicht
@@ -64,6 +64,7 @@ Op dit moment bent u klaar instellen van de kaart. In een toepassing praktijk wi
 
 U kunt nu de transformatie testen door een aanvraag voor het HTTP-eindpunt.  
 
+
 ## <a name="features-and-use-cases"></a>Functies en gebruiksvoorbeelden
 * De transformatie die wordt gemaakt in een map is eenvoudig, zoals het kopiëren van een naam en adres van het ene document naar de andere. Of u complexere transformaties met behulp van de kaart out-of-the-box-bewerkingen kunt maken.  
 * Meerdere bewerkingen van de kaart of functies zijn direct beschikbaar is, met inbegrip van tekenreeksen, Datum tijdfuncties, enzovoort.  
@@ -73,11 +74,49 @@ U kunt nu de transformatie testen door een aanvraag voor het HTTP-eindpunt.
 * Bestaande maps uploaden  
 * Biedt ondersteuning voor de XML-indeling.
 
-## <a name="adanced-features"></a>Adanced functies
-De volgende functies kunnen alleen worden benaderd vanuit de codeweergave.
+## <a name="advanced-features"></a>Geavanceerde functies
+
+### <a name="reference-assembly-or-custom-code-from-maps"></a>Referentie-assembly of aangepaste code van maps 
+De transformatie-actie maps ondersteunt ook of met een verwijzing naar externe assembly transformaties. Deze mogelijkheid kan aanroepen van aangepaste .NET-code rechtstreeks vanuit de XSLT-kaarten. Hier volgen de vereisten voor het gebruik van assembly van maps.
+
+* De kaart en de assembly waarnaar wordt verwezen vanuit de kaart moet worden [geüpload naar het account van de integratie](./logic-apps-enterprise-integration-maps.md). 
+
+  > [!NOTE]
+  > Kaart en assembly zijn vereist om te worden geüpload in een bepaalde volgorde. Voordat u de kaart die verwijst naar de assembly uploadt, moet u de assembly uploaden.
+
+* De kaart moet ook beschikken over deze kenmerken en een CDATA-sectie dat de aanroep van de assembly-code bevat:
+
+    * **naam** is de aangepaste assembly-naam.
+    * **naamruimte** is de naamruimte in de assembly waarin de aangepaste code.
+
+  Dit voorbeeld ziet u een toewijzing die verwijst naar een assembly met de naam 'XslUtilitiesLib' en roept de `circumreference` methode uit de assembly.
+
+  ````xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+     <circles>
+        <xsl:for-each select="circle">
+            <circle>
+                <xsl:copy-of select="node()"/>
+                    <circumference>
+                        <xsl:value-of select="user:circumference(radius)"/>
+                    </circumference>
+            </circle>
+        </xsl:for-each>
+     </circles>
+    </xsl:template>
+    </xsl:stylesheet>
+  ````
+
 
 ### <a name="byte-order-mark"></a>Byte Order Mark
-Standaard wordt het antwoord van de transformatie met Byte Order Mark (BOM) gestart. Geef om deze functionaliteit is uitgeschakeld, `disableByteOrderMark` voor de `transformOptions` eigenschap:
+Het antwoord van de transformatie wordt standaard gestart met de Byte Order Mark (BOM). U kunt toegang tot deze functionaliteit alleen tijdens het werken in de weergave Code-editor. Geef om deze functionaliteit is uitgeschakeld, `disableByteOrderMark` voor de `transformOptions` eigenschap:
 
 ````json
 "Transform_XML": {
@@ -94,6 +133,10 @@ Standaard wordt het antwoord van de transformatie met Byte Order Mark (BOM) gest
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## <a name="learn-more"></a>Meer informatie
 * [Meer informatie over het Enterprise-integratiepakket](../logic-apps/logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack")  

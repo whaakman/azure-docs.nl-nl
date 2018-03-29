@@ -2,7 +2,7 @@
 title: Handleiding voor het publiceren van Cortana Intelligence AppSource | Microsoft Docs
 description: Als een Microsoft-Partner vindt hier u alle stappen die u moet volgen om te publiceren van uw oplossing Cortana Intelligence naar AppSource.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: anupams
+ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource publishing handleiding
 
@@ -109,10 +109,10 @@ Daarom is partners moeten denken aan de inhoud die zij op AppSource als een comp
 ## <a name="publish-your-app-on-the-publishing-portal"></a>Uw app in de publishing portal publiceren
 Wanneer we de bovenstaande stappen hebt geëvalueerd voor uw toepassing, u krijgt toegang tot de portal voor publiceren en ziet [hoe u een aanbieding Cortana Intelligence via de Partnerportal Cloud publiceert](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) voor gedetailleerde instructies voor de volgende stappen.
 
-Als u informatie over een van de velden, e- < appsourcecissupport@microsoft.com >.
+Als u informatie over een van de velden, e- <appsourcecissupport@microsoft.com>.
 ## <a name="my-app-is-published-on-appsource---now-what"></a>Mijn app is gepubliceerd op AppSource - wat nu?
 Gefeliciteerd over het ophalen van uw app gepubliceerd in de eerste plaats.
 Het niveau van retourneert die u krijgen via het publiceren van uw app op AppSource sterk afhankelijk van hoe u de doelgroep beïnvloeden. Zie [groei hacken uw Cortana Intelligence-app op AppSource](http://aka.ms/aagrowthhackguide) voor meer informatie over hoe u de retourneert kunt maximaliseren.
 
-Als u vragen of suggesties hebt, kunt u bereiken ons op < appsourcecissupport@microsoft.com >.
+Als u vragen of suggesties hebt, kunt u bereiken ons op <appsourcecissupport@microsoft.com>.
 

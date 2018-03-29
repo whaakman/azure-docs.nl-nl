@@ -2,22 +2,22 @@
 title: Veelgestelde vragen over Azure-bestanden | Microsoft Docs
 description: Antwoorden op veelgestelde vragen over Azure-bestanden.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb44f1d456ec12b7fd21e397b749117942560f05
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Veelgestelde vragen over Azure-bestanden
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ook wel Common Internet File System of CIFS). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
@@ -232,7 +232,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 ## <a name="backup"></a>Back-up maken
 * <a id="backup-share"></a>
 **Hoe kan ik back-up van mijn Azure-bestand delen?**  
-    U kunt periodieke [momentopnamen (preview) delen](storage-how-to-use-files-snapshots.md) ter bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-hulpprogramma van derden die u kunt back-up van een gekoppelde bestandsshare. 
+    U kunt periodieke [delen momentopnamen](storage-how-to-use-files-snapshots.md) ter bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-hulpprogramma van derden die u kunt back-up van een gekoppelde bestandsshare. 
 
 ## <a name="share-snapshots"></a>Delen van momentopnamen
 ### <a name="share-snapshots-general"></a>Delen van momentopnamen: Algemeen
@@ -255,6 +255,10 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 * <a id="snapshot-limits"></a>
 **Zijn er beperkingen met betrekking tot het aantal momentopnamen van de share die kan worden gebruikt?**  
     Ja. Azure Files kunnen maximaal 200 share momentopnamen behouden. Momentopnamen van de share meetellen niet voor het quotum voor de bestandsshare, zodat er geen limiet per-share op de totale ruimte die wordt gebruikt door alle momentopnamen van de share. Limieten voor opslagaccounts nog steeds toepassen. Na 200 share momentopnamen, moet u de oudere momentopnamen voor het maken van nieuwe momentopnamen die share verwijderen.
+* <a id="snapshot-cost"></a>
+**Hoeveel deelt momentopname kosten?**  
+    Standaard transactie en standaard opslagkosten geldt voor de momentopname. Momentopnamen zijn incrementele aard. De momentopname van het basistype is de share zelf. De volgende momentopnamen zijn incrementele en worden alleen de diff uit de vorige momentopname opgeslagen. Dit betekent dat de deltawijzigingen die zichtbaar in de factuur minimale als uw werkbelastingsverloop minimaal is. Zie [prijzen pagina](https://azure.microsoft.com/en-us/pricing/details/storage/files/) voor standaard Azure bestanden prijsinformatie. Vandaag de manier om te kijken naar grootte verbruikt door share momentopname is door het vergelijken van de gefactureerde capaciteit met gebruikt capaciteit. We werken aan tooling voor het verbeteren van de rapportage.
+
 
 ### <a name="create-share-snapshots"></a>Momentopnamen van de share maken
 * <a id="file-snaphsots"></a>

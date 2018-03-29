@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5b9ffeadf6b1ffc4eaf4f49b85ba752c27da0e46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14375dc7777a4f24db9f7246e6e99f26bd0eb858
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="internet-facing-load-balancer-overview"></a>Internet gerichte load balancer-overzicht
 
@@ -38,7 +38,7 @@ De volgende afbeelding ziet een eindpunt met gelijke taakverdeling voor internet
 
 Afbeelding 1 - eindpunt voor internetverkeer Netwerktaakverdeling
 
-Wanneer Internet-clients webpagina-aanvragen naar het openbare IP-adres van de cloudservice op TCP-poort 80 verzenden, distribueert de Azure Load Balancer de aanvragen tussen de drie virtuele machines in de set met gelijke taakverdeling. Zie voor meer informatie over de algoritmen voor load balancer, het [overzichtspagina van load balancer](load-balancer-overview.md#load-balancer-features).
+Wanneer Internet-clients webpagina-aanvragen naar het openbare IP-adres van de cloudservice op TCP-poort 80 verzenden, distribueert de Azure Load Balancer de aanvragen tussen de drie virtuele machines in de set met gelijke taakverdeling. Zie voor meer informatie over de algoritmen voor load balancer, het [fundamentele load balancer-overzichtspagina](load-balancer-overview.md#fundamental-load-balancer-features).
 
 Azure Load Balancer distribueert standaard netwerkverkeer wordt evenredig verdeeld over meerdere exemplaren van de virtuele machine. U kunt ook de affiniteit van de sessie configureren voor meer informatie Zie [load balancer-distributie modus](load-balancer-distribution-mode.md).
 

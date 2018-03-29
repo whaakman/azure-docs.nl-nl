@@ -1,12 +1,12 @@
 ---
 title: Schakel versleuteling voor storage-account in Azure Security Center | Microsoft Docs
-description: Dit document ziet u hoe de Azure Security Center aanbevelingen implementeren ** versleuteling voor Azure Storage Account ** inschakelen.
+description: Dit document ziet u hoe de Azure Security Center aanbevelingen implementeren **Schakel versleuteling voor Azure Storage-Account**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82bb201c0b518d0b45e06a1eb25d54f60cb3e028
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Schakel versleuteling voor Azure storage-account in Azure Security Center
 Azure Security Center kunt u het beste inschakelen Azure Storage-Service: versleuteling voor gegevens in rust.
@@ -27,7 +27,7 @@ Versleuteling voor opslag-Service (SSE) werkt door de gegevens te coderen wannee
 
 
 > [!Note]
-> Nadat de codering is ingeschakeld, worden alleen nieuwe gegevens worden versleuteld. Alle bestaande blobs in uw opslagaccount blijven onversleuteld. Voor het versleutelen van bestaande blobs, Zie de [opslag Service versleuteling Veelgestelde vragen over](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> Nadat de codering is ingeschakeld, worden alleen nieuwe gegevens worden versleuteld. Alle bestaande blobs in uw opslagaccount blijven onversleuteld. Voor het versleutelen van bestaande blobs, Zie de [opslag Service versleuteling Veelgestelde vragen over](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
 >
 >
 

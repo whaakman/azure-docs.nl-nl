@@ -3,8 +3,8 @@ title: Azure Cosmos DB indexeren beleid | Microsoft Docs
 description: Begrijpen hoe indexeren werkt in Azure Cosmos DB. Informatie over het configureren en wijzigen van het indexeringsbeleid voor automatisch indexeren en betere prestaties.
 keywords: hoe indexeren werkt, automatische indexeren, database indexeren
 services: cosmos-db
-documentationcenter: 
-author: arramac
+documentationcenter: ''
+author: rafats
 manager: jhubbard
 editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
-ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/26/2018
+ms.author: rafats
+ms.openlocfilehash: 5610c5fdc6a04f9ef13d2e4592f0d7e5d8eba30c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hoe biedt Azure Cosmos DB indexgegevens?
 
 Standaard worden alle gegevens van Azure DB die Cosmos wordt geïndexeerd. Hoewel veel klanten graag laten Azure Cosmos DB automatisch verwerkt alle aspecten van het indexeren, kunt u een aangepaste *beleid indexeren* voor verzamelingen tijdens het maken in Azure Cosmos DB. De Indexing-beleid in Azure Cosmos DB zijn flexibelere en krachtigere dan secundaire indexen die worden aangeboden in een andere databaseplatforms. U kunt in Azure Cosmos DB ontwerpen en aanpassen van de vorm van de index zonder verlies van schemaflexibiliteit. 
 
 Als u wilt weten hoe indexering werkt in Azure Cosmos DB, is het belangrijk te begrijpen wanneer u indexeringsbeleid beheert, kunt u fijnmazig verschillen tussen opslagoverhead voor indexering-, schrijf- en doorvoer van de query- en consistentie van de query maken.  
+
+In de volgende video toont Azure Cosmos DB Program Manager Andrew Liu de Cosmos Azure DB automatische mogelijkheden en het afstemmen en het indexeringsbeleid configureren voor uw Azure DB die Cosmos-container te indexeren. 
+
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 In dit artikel Bekijk we sluiten Azure Cosmos DB beleidsregels, bij het aanpassen van indexeringsbeleid en bijbehorende-en nadelen te indexeren. 
 
@@ -37,7 +41,7 @@ Na het lezen van dit artikel, hebt u mogelijk de volgende vragen beantwoorden:
 * Hoe kan ik wijzigingen aanbrengen aan een verzameling indexeringsbeleid?
 * Hoe vergelijk ik opslag en prestaties van verschillende beleidsregels voor indexering
 
-## Het indexeringsbeleid van een verzameling aanpassen<a id="CustomizingIndexingPolicy"></a>  
+## Het indexeringsbeleid van een verzameling aanpassen <a id="CustomizingIndexingPolicy"></a>  
 U kunt de verschillen tussen de opslag, schrijf- en prestaties van query's en consistentie van de query overschrijft de standaard-beleid op een verzameling Azure Cosmos DB te indexeren. U kunt de volgende aspecten configureren:
 
 * **Opnemen of uitsluiten van documenten en paden naar en van de index**. U kunt uitsluiten of opnemen specifieke documenten in de index wanneer u invoegen of vervangen van de documenten in de verzameling. U kunt ook opnemen of uitsluiten van specifieke JSON-eigenschappen, ook wel *paden*, meerdere documenten die zijn opgenomen in een index worden geïndexeerd. Paden bevatten jokertekenpatronen.
@@ -69,7 +73,7 @@ U kunt het indexeringsbeleid van een verzameling in de Azure portal wijzigen:
 2. Selecteer in het navigatiemenu links **instellingen**, en selecteer vervolgens **indexeren beleid**. 
 3. Onder **indexeren beleid**, wijzig de gewenste indexeringsbeleid en selecteer vervolgens **OK**. 
 
-### Database indexing-modi<a id="indexing-modes"></a>  
+### Database indexing-modi <a id="indexing-modes"></a>  
 Azure Cosmos DB ondersteunt drie indexering modi die u via het indexeringsbeleid op een verzameling Azure Cosmos DB configureren kunt: consistente, vertraagde, en er is geen.
 
 **Consistente**: als een Azure DB die Cosmos-verzameling beleid Consistent is, de query's op een specifieke verzameling van Azure DB die Cosmos hetzelfde consistentieniveau als opgegeven voor de punt-leesbewerkingen volgen (sterk, gebonden-verouderd, sessie of uiteindelijke). De index is synchroon als onderdeel van de update van het document (invoegen, vervangen, bijwerken en verwijderen van een document in een verzameling Azure Cosmos DB) bijgewerkt.
@@ -365,7 +369,7 @@ De volgende wijzigingen zijn geïmplementeerd in de JSON-specificatie:
 * Elk pad kan meerdere definities van de index hebben. Dit kan een voor elk gegevenstype hebben.
 * Indexeren van precisie ondersteunt 1 tot en met 8 voor getallen, 1 tot 100 naar tekenreeksen en -1 (maximumprecisie).
 * Padsegmenten geen een dubbele aanhalingstekens als escapeteken voor elk pad is vereist. U kunt bijvoorbeeld een pad voor toevoegen **titel /?** in plaats van **/ 'title' /?**.
-* Het hoofdpad die staat voor 'alle paden' kan worden weergegeven als  **/ \***  (in aanvulling op  **/** ).
+* Het hoofdpad die staat voor 'alle paden' kan worden weergegeven als **/ \*** (in aanvulling op **/**).
 
 Hebt u code die voorziet in verzamelingen met een aangepast indexeringsbeleid geschreven met versie 1.1.0 van de .NET SDK of een eerdere versie, als u wilt verplaatsen naar SDK-versie 1.2.0, moet u uw toepassingscode voor het afhandelen van deze wijzigingen. Als u geen code hebt die indexeringsbeleid configureert of als u van plan bent om door te gaan met een eerdere versie van de SDK niet te worden gewijzigd.
 

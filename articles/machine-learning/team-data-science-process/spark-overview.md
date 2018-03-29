@@ -2,7 +2,7 @@
 title: Overzicht van Gegevenswetenschap met Spark op Azure HDInsight | Microsoft Docs
 description: De toolkit Spark MLlib biedt aanzienlijke machine learning modelleren mogelijkheden voor de gedistribueerde HDInsight-omgeving.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e1c4a507214b9686154fc8311121b56f42f5cd40
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: bradsev
+ms.openlocfilehash: a12e2f1af945c8186067b791c4e96a52eb23f52f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Overzicht van gegevenswetenschap met Spark op Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -28,7 +28,7 @@ Deze reeks onderwerpen wordt beschreven hoe HDInsight Spark gebruiken om algemen
 ## <a name="spark-and-mllib"></a>Spark en MLlib
 [Spark](http://spark.apache.org/) is een parallelle verwerking van open-source framework die ondersteuning biedt voor in-memory verwerking naar het verbeteren de prestaties van analytische big data-toepassingen. De Spark-verwerkingsengine is gebouwd voor snelheid, gebruiksgemak en geavanceerde analyses. De Spark in-memory gedistribueerde rekencapaciteiten kunnen u een goede keuze voor de herhalende algoritmen in machine learning- en grafiekberekeningen. [MLlib](http://spark.apache.org/mllib/) is modelleren van Spark schaalbare machine learning-bibliotheek die ook de algoritmische mogelijkheden aan deze gedistribueerde omgeving. 
 
-## <a name="hdinsight-spark"></a>Spark in HDInsight
+## <a name="hdinsight-spark"></a>HDInsight Spark
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) is de Azure gehoste oplossing van open-source Spark. Biedt ook ondersteuning voor **Jupyter PySpark-notebooks** op het Spark-cluster dat Spark SQL interactieve query's voor het transformeren, te filteren en visualiseren van gegevens die zijn opgeslagen in Azure BLOB's (WASB) kan worden uitgevoerd. PySpark is de Python-API voor Spark. De codefragmenten die voorzien van de oplossingen en weergeven van de relevante waarnemingspunten om de gegevens die hier worden uitgevoerd in Jupyter-notebooks geïnstalleerd op de Spark-clusters te visualiseren. De stappen modelleren in de volgende onderwerpen bevatten code die laat hoe trainen zien, evalueren, opslaan en gebruiken van elk type model. 
 
 ## <a name="setup-spark-clusters-and-jupyter-notebooks"></a>Instellen: De Spark-clusters en Jupyter-notebooks
@@ -149,7 +149,7 @@ U kunt de Jupyter-Notebook vanuit de Azure-portal op te starten. Zoek uw Spark-c
 
 ![Clusterdashboards](./media/spark-overview/spark-jupyter-on-portal.png)
 
-U kunt ook bladeren naar ***https://CLUSTERNAME.azurehdinsight.NET/jupyter*** voor toegang tot de Jupyter-Notebooks. De CLUSTERNAAM deel uitmaakt van deze URL vervangen door de naam van uw eigen cluster. U moet het wachtwoord voor uw beheerdersaccount voor toegang tot de laptops.
+U kunt ook bladeren naar ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** voor toegang tot de Jupyter-Notebooks. De CLUSTERNAAM deel uitmaakt van deze URL vervangen door de naam van uw eigen cluster. U moet het wachtwoord voor uw beheerdersaccount voor toegang tot de laptops.
 
 ![Jupyter-Notebooks bladeren](./media/spark-overview/spark-jupyter-notebook.png)
 

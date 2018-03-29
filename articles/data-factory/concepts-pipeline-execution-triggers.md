@@ -2,10 +2,10 @@
 title: Pijplijnen uitvoeren en triggers in Azure Data Factory | Microsoft Docs
 description: Dit artikel bevat informatie over het uitvoeren van een pijplijn in Azure Data Factory, op aanvraag of door een trigger te maken.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/03/2018
 ms.author: shlo
-ms.openlocfilehash: e754986cb3653eb4b2a17edff4d57974331cdcbb
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 08fcc2eec1914d9f7535ea66d33045240452e2a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pijplijnen uitvoeren en triggers in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -280,7 +280,7 @@ De volgende tabel bevat een overzicht van de belangrijkste schema-elementen die 
 
 | JSON-eigenschap | Type | Vereist | Standaardwaarde | Geldige waarden | Voorbeeld |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | tekenreeks | Ja | None | Datums en tijden volgens ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | tekenreeks | Ja | Geen | Datums en tijden volgens ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | Ja | None | Een recurrence-object | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | getal | Nee | 1 | 1 tot 1000 | `"interval":10` |
 | **endTime** | tekenreeks | Ja | None | Een datum/tijdwaarde die een toekomstig tijdstip aangeeft | `"endTime" : "2013-02-09T09:30:00-08:00"` |

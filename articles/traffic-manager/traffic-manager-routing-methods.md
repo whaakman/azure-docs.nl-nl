@@ -2,10 +2,10 @@
 title: Azure Traffic Manager - verkeersrouteringsmethoden | Microsoft Docs
 description: Hiermee artikelen geeft die u inzicht in de verschillende verkeersrouteringsmethoden die wordt gebruikt door Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9bd9b4913e38ed5c1f7f4ec8ee7e3210fa3be8f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-routing-methods"></a>Methoden voor het doorsturen van Traffic Manager
 
@@ -50,7 +50,7 @@ De 'Gewogen' verkeersroutering methode kunt u verkeer gelijkmatig verdelen of ee
 
 ![Azure Traffic Manager-'Gewogen' methode verkeer routering][2]
 
-In de gewogen verkeersroutering methode kunt u een gewicht toewijzen aan elk eindpunt in de profielconfiguratie van Traffic Manager. Het gewicht is een geheel getal van 1 tot en met 1000. Deze parameter is optioneel. Als u dit weglaat, wordt verkeer Managers een standaardgewicht van '1'.
+In de gewogen verkeersroutering methode kunt u een gewicht toewijzen aan elk eindpunt in de profielconfiguratie van Traffic Manager. Het gewicht is een geheel getal van 1 tot en met 1000. Deze parameter is optioneel. Als u dit weglaat, wordt verkeer Managers een standaardgewicht van '1'. De hogere gewicht, hoe hoger de prioriteit.
 
 Voor elke DNS-query heeft ontvangen, kiest de Traffic Manager willekeurig een beschikbare eindpunt. De kans van de keuze van een eindpunt is gebaseerd op het gewicht is toegewezen aan alle beschikbare eindpunten. Met behulp van hetzelfde gewicht over alle eindpunten resulteert in een zelfs verkeer distributie. Met behulp van hogere of lagere gewichten op specifieke eindpunten zorgt ervoor dat deze eindpunten moet meer of minder vaak worden geretourneerd in de DNS-antwoorden.
 

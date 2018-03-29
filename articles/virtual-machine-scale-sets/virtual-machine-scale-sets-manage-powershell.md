@@ -2,10 +2,10 @@
 title: Virtuele-Machineschaalsets met Azure PowerShell beheren | Microsoft Docs
 description: Algemene Azure PowerShell-cmdlets voor het beheren van virtuele-Machineschaalsets, zoals het starten en stoppen van een exemplaar of de schaal wijzigen instellen capaciteit.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Een virtuele-machineschaalset ingesteld met Azure PowerShell beheren
-Gedurende de levenscyclus van een virtuele-machineschaalset, moet u wellicht een of meer beheertaken uitvoeren. Bovendien wilt u scripts maken die verschillende lifecycle-taken automatiseren. In dit artikel vindt u details van de algemene Azure PowerShell-cmdlets waarmee u kunt deze taken uitvoeren.
+Gedurende de levenscyclus van een virtuele-machineschaalset, moet u wellicht een of meer beheertaken uitvoeren. Bovendien wilt u misschien scripts maken die verschillende levenscyclustaken automatiseren. In dit artikel vindt u details van de algemene Azure PowerShell-cmdlets waarmee u kunt deze taken uitvoeren.
 
-U moet de meest recente Azure PowerShell-module voor het voltooien van deze beheertaken. Zie voor meer informatie over het installeren en gebruiken van de meest recente versie [aan de slag met Azure PowerShell](/powershell/azure/get-started-azureps). Als u maken van een virtuele-machineschaalset wilt, kunt u [een schaal ingesteld in de Azure portal maken](virtual-machine-scale-sets-create-portal.md).
+U moet de meest recente Azure PowerShell-module voor het voltooien van deze beheertaken. Zie voor informatie [aan de slag met Azure PowerShell](/powershell/azure/get-started-azureps). Als u maken van een virtuele-machineschaalset wilt, kunt u [maken van een schaal ingesteld met Azure PowerShell](quick-create-powershell.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Informatie over een schaalset weergeven
@@ -35,7 +35,7 @@ Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet
 ```
 
 
-## <a name="view-vms-in-a-scale-set"></a>Weergave virtuele machines in een schaalset
+## <a name="view-vms-in-a-scale-set"></a>Virtuele machines weergeven in een schaalset
 Een overzicht van VM-instantie in een schaalset gebruiken [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). Het volgende voorbeeld lijst met alle VM-exemplaren in de set met de naam scale *myScaleSet* en in de *myResourceGroup* resourcegroep. Uw eigen waarden opgeven voor deze namen:
 
 ```powershell

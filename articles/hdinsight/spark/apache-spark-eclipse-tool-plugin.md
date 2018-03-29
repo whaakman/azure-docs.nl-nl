@@ -2,7 +2,7 @@
 title: 'Azure Toolkit voor Eclipse: toepassingen voor HDInsight Spark Scala maken | Microsoft Docs'
 description: Het gebruik van HDInsight Tools in Azure Toolkit voor Eclipse Spark scala-toepassingen die zijn geschreven in Scala ontwikkelen en deze rechtstreeks vanuit de Eclipse IDE verzenden naar een HDInsight Spark-cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac118593ecc93a2dd9e53ff7ad9ecf13daef017
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4ff67ebcbac5b1b85345421b16036c96f8e807cc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Gebruik van Azure Toolkit voor Eclipse Spark-toepassingen voor een HDInsight-cluster maken
 
@@ -51,6 +51,8 @@ Wanneer u Eclipse opent, detecteert HDInsight-hulpprogramma automatisch of u de 
 
 ![Automatische installatie van de invoegtoepassing Scala](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
+De gebruiker kan ofwel [aanmelden bij Azure-abonnement](#Sign-in-to-your-Azure-subscription), of [koppelen van een HDInsight-cluster](#Link-a-cluster) met Ambari gebruikersnaam/wachtwoord of domein die lid zijn van de referentie te starten. 
+
 ## <a name="sign-in-to-your-azure-subscription"></a>Meld u aan bij uw Azure-abonnement
 1. Start de Eclipse IDE en Azure Explorer te openen. Op de **venster** selecteert u **weergave tonen**, en selecteer vervolgens **andere**. Vouw in het dialoogvenster **Azure**, selecteer **Azure Explorer**, en selecteer vervolgens **OK**.
 
@@ -75,12 +77,13 @@ U kunt koppelen van een normale cluster door Ambari beheerd gebruikersnaam, een 
 
    ![koppeling cluster contextmenu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Voer **clusternaam**, **Opslagaccount**, **opslagsleutel**, selecteer vervolgens een container van **Opslagcontainer**, ten minste invoer gebruikersnaam en het wachtwoord. Klik op OK om te koppelen van de cluster.
+2. Voer **clusternaam**, **gebruikersnaam** en **wachtwoord**, klik vervolgens op OK om te koppelen van de cluster. Storage-Account, opslagsleutel desgewenst invoeren en selecteer vervolgens Storage-Container voor Opslagverkenner werkt in de structuurweergave links
    
    ![koppeling cluster dialoogvenster](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
    > [!NOTE]
    > We gebruiken de gekoppelde opslagsleutel, de gebruikersnaam en het wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster gekoppeld.
+   > ![Opslagverkenner in Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 3. U ziet een gekoppelde cluster in **HDInsight** knooppunt na het klikken op de knop OK, als de ingevoerde gegevens correct zijn. U kunt nu een toepassing met deze gekoppelde cluster verzenden.
 
@@ -212,7 +215,7 @@ U lost deze fout, moet u [downloaden van het uitvoerbare bestand](http://public-
 ### <a name="run-a-local-spark-scala-application"></a>Een lokale Spark Scala-toepassing uitvoeren
 1. Start Eclipse en maak een project. In de **nieuw Project** in het dialoogvenster de volgende keuzen en selecteer vervolgens **volgende**.
    
-   * Selecteer in het linkerdeelvenster **HDInsight**.
+   * Selecteer **HDInsight** in het linkerdeelvenster.
    * Selecteer in het rechterdeelvenster **Spark in HDInsight lokale uitvoeren voorbeeld (Scala)**.
 
    ![Het dialoogvenster Nieuw project](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)

@@ -2,7 +2,7 @@
 title: Serviceoverzicht configureren in Azure | Microsoft Docs
 description: Serviceoverzicht is een oplossing in Azure die automatisch toepassingsonderdelen op Windows- en Linux-systemen detecteert en de communicatie tussen services toewijst. Dit artikel bevat informatie voor het Serviceoverzicht implementeren in uw omgeving en gebruiken in verschillende scenario's.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: daveirwin1
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2a5e6367cef02b53cb0e24d644b7e3e8025e19ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c01d18b17906a2b243a46241a6ec5c4b1d9ab8d9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers, zoals u ze--beschouwen als onderling verbonden systemen die essentiële services leveren. Service-kaart toont de verbindingen tussen servers, processen en poorten via een TCP-verbinding architectuur waarvoor geen configuratie vereist, behalve de installatie van een agent.
@@ -28,8 +28,8 @@ Dit artikel worden de details van het Serviceoverzicht en voorbereiding agents c
 ## <a name="dependency-agent-downloads"></a>Agent voor afhankelijkheden gedownload
 | File | OS | Versie | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.2 | E0888727125FA4E4ECACFB4B2633284C014933EE0CC2F7A9F93F36AEDBD6C2C4  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.0 | 4125A88E60650FF168D6254AB4FCD14CDD3CC1C7B4CF168F3F5F3C1AF30895DD  |
 
 
 ## <a name="connected-sources"></a>Verbonden bronnen
@@ -168,7 +168,7 @@ ForEach-Object {
 }
 ```
 
-Een zeer eenvoudige wijze om te controleren of de de afhankelijkheid-Agent wordt op elk van uw virtuele machines is om op te nemen van de agent in uw Azure Resource Manager-sjabloon.  Opmerking dat de Agent voor afhankelijkheden nog steeds gebruik van de OMS-Agent, zodat de [OMS-Agent VM-extensie](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) eerst moet worden geïmplementeerd.  Het volgende JSON-fragment kan worden toegevoegd aan de *resources* gedeelte van uw sjabloon.
+Een zeer eenvoudige wijze om te controleren of de Agent voor afhankelijkheden op elk van uw VM is om op te nemen van de agent in uw Azure Resource Manager-sjabloon.  Opmerking dat de Agent voor afhankelijkheden nog steeds gebruik van de OMS-Agent, zodat de [OMS-Agent VM-extensie](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) eerst moet worden geïmplementeerd.  Het volgende JSON-fragment kan worden toegevoegd aan de *resources* gedeelte van uw sjabloon.
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",
 "name": "[concat(parameters('vmName'), '/DependencyAgent')]",
@@ -315,7 +315,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-| Versie van het besturingssysteem | Kernelversie |
+| Besturingssysteemversie | Kernelversie |
 |:--|:--|
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -324,7 +324,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 | 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-| Versie van het besturingssysteem | Kernelversie |
+| Besturingssysteemversie | Kernelversie |
 |:--|:--|
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -338,7 +338,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 | 6.9 | 2.6.32-696 |
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
-| Versie van het besturingssysteem | Kernelversie |
+| Besturingssysteemversie | Kernelversie |
 |:--|:--|
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -348,14 +348,14 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 ### <a name="ubuntu-server"></a>Ubuntu Server
 - Aangepaste kernels, met inbegrip van hercompilaties van standaard kernels worden niet ondersteund.
 
-| Versie van het besturingssysteem | Kernelversie |
+| Besturingssysteemversie | Kernelversie |
 |:--|:--|
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux met Unbreakable Enterprise Kernel
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
-| Versie van het besturingssysteem | Kernelversie
+| Besturingssysteemversie | Kernelversie
 |:--|:--|
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -365,7 +365,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 #### <a name="oracle-linux-5"></a>Oracle Linux 5
 
-| Versie van het besturingssysteem | Kernelversie
+| Besturingssysteemversie | Kernelversie
 |:--|:--|
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
@@ -373,7 +373,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 #### <a name="suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
-| Versie van het besturingssysteem | Kernelversie
+| Besturingssysteemversie | Kernelversie
 |:--|:--|
 | 11 SP2 | 3.0.101-0.7 |
 | 11 SP3 | 3.0.101-0.47 |

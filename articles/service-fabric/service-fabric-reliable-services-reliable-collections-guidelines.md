@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0eb6a5aab5e71c0a8ac8263e177c493a07dafc0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Richtlijnen en aanbevelingen voor betrouwbare verzamelingen in Azure Service Fabric
 Deze sectie bevat richtlijnen voor het gebruik van betrouwbare statusbeheer en betrouwbare verzamelingen. Het doel is om gebruikers niet voor verrassingen.
@@ -52,7 +52,6 @@ Hier volgen een aantal zaken rekening moet houden:
 ### <a name="next-steps"></a>Volgende stappen
 * [Werken met betrouwbare verzamelingen](service-fabric-work-with-reliable-collections.md)
 * [Transacties en vergrendelingen](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Betrouwbare status Manager en interne werking van verzameling](service-fabric-reliable-services-reliable-collections-internals.md)
 * Het beheren van gegevens
   * [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
   * [Meldingen](service-fabric-reliable-services-notifications.md)

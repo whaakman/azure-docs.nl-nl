@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/23/2018
+ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 16ca821f7cae252148e8901c2ccb8539a25d1d59
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c5c3dc20996fbbdee9f9ed61eb3b09e4b274d92
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Visual Studio gebruiken om te schrijven en beheren van uw Service Fabric-toepassingen vereenvoudigen
 U kunt uw Azure Service Fabric-toepassingen en services met Visual Studio kunt beheren. Zodra u hebt [uw ontwikkelomgeving instellen](service-fabric-get-started.md), kunt u Visual Studio Service Fabric-toepassingen maken, het toevoegen van de services of pakket, registreren en het implementeren van toepassingen in uw lokaal ontwikkelcluster.
@@ -32,7 +32,7 @@ Standaard is de volgende stappen uit in één bewerking combineert een toepassin
 4. Als u een actieve toepassingsexemplaren
 5. Maken van een toepassingsexemplaar
 
-In Visual Studio, drukt u op **F5** implementeert van uw toepassing en het foutopsporingsprogramma koppelen aan alle exemplaren van een toepassing. U kunt **Ctrl + F5** voor het implementeren van een toepassing zonder foutopsporing, of u kunnen publiceren naar een lokale of externe cluster met behulp van het publicatieprofiel. 
+In Visual Studio, drukt u op **F5** implementeert van uw toepassing en het foutopsporingsprogramma koppelen aan alle exemplaren van een toepassing. U kunt **Ctrl + F5** voor het implementeren van een toepassing zonder foutopsporing, of u kunnen publiceren naar een lokale of externe cluster met behulp van het publicatieprofiel.
 
 ### <a name="application-debug-mode"></a>De foutopsporingsmodus toepassing
 Visual Studio bieden een eigenschap genaamd **toepassing foutopsporingsmodus**, die bepaalt hoe u wilt dat Visual Studios voor het afhandelen van de implementatie van toepassing als onderdeel van het opsporen van fouten.
@@ -45,7 +45,7 @@ Visual Studio bieden een eigenschap genaamd **toepassing foutopsporingsmodus**, 
 
 #### <a name="application-debug-modes"></a>Toepassing Foutopsporingsmodi
 
-1. **Vernieuwen van de toepassing** deze modus kunt u snel wijzigen en fouten opsporen in uw code en ondersteunt het bewerken van statische webbestanden tijdens het opsporen van fouten. Deze modus werkt alleen als uw lokaal ontwikkelcluster in [modus 1-Node](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Dit is de standaardinstelling foutopsporingsmodus toepassing.
+1. **Vernieuwen van de toepassing** deze modus kunt u snel wijzigen en fouten opsporen in uw code en ondersteunt het bewerken van statische webbestanden tijdens het opsporen van fouten. Deze modus werkt alleen als uw lokaal ontwikkelcluster in [modus knooppunt 1]. Dit is de standaardinstelling foutopsporingsmodus toepassing. (/ service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
 2. **Toepassing verwijderen** zorgt ervoor dat de toepassing moet worden verwijderd wanneer de debug-sessie wordt beëindigd.
 3. **Automatische Upgrade** de toepassing nog wordt uitgevoerd wanneer de debug-sessie wordt beëindigd. De volgende foutopsporingssessie zal de implementatie worden beschouwd als een upgrade. Het upgradeproces behoudt alle gegevens die u hebt ingevoerd in een vorige foutopsporingssessie.
 4. **Toepassing houden** de toepassing blijft in het cluster uitgevoerd wanneer de debug-sessie wordt beëindigd. Aan het begin van de volgende foutopsporingssessie, wordt de toepassing verwijderd.

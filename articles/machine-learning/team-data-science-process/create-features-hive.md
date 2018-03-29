@@ -2,7 +2,7 @@
 title: Functies voor gegevens in een Hadoop-cluster met behulp van Hive-query's maken | Microsoft Docs
 description: Voorbeelden van Hive-query's die functies in de gegevens die zijn opgeslagen in een Azure HDInsight Hadoop-cluster genereren.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: hangzh;bradsev
-ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: bradsev
+ms.openlocfilehash: f49eeee2dd26d54674b4619e6c986952718caa47
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Functies voor gegevens in een Hadoop-cluster met behulp van Hive-query's maken
 Dit document wordt beschreven hoe de functies voor gegevens die zijn opgeslagen in een Azure HDInsight Hadoop-cluster met behulp van Hive-query's maken. Deze Hive-query's gebruiken ingesloten Hive User-Defined-functies (UDF's), de scripts die worden geleverd.
@@ -93,14 +93,14 @@ Hive wordt geleverd met een reeks UDF's voor het verwerken van datetime-velden. 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Deze Hive-query wordt ervan uitgegaan dat de  *<datetime field>*  bevindt zich in de standaardnotatie voor datum/tijd.
+Deze Hive-query wordt ervan uitgegaan dat de *<datetime field>* bevindt zich in de standaardnotatie voor datum/tijd.
 
 Als een datetime-veld niet in de standaardindeling is, moet u eerst het datetime-veld converteren naar Unix tijdstempel, en vervolgens het tijdstempel Unix converteren naar een datum/tijd-tekenreeks die in de standaardindeling. Wanneer de datum/tijd in-indeling wordt, kunnen gebruikers de ingesloten datetime UDF's uitpakken functies toepassen.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-In deze query als de  *<datetime field>*  heeft het patroon zoals *03/26/2015 12:04:39*, wordt de  *<pattern of the datetime field>'* moet `'MM/dd/yyyy HH:mm:ss'`. Als u wilt testen, kunnen gebruikers uitvoeren
+In deze query als de *<datetime field>* heeft het patroon zoals *03/26/2015 12:04:39*, wordt de  *<pattern of the datetime field>'* moet `'MM/dd/yyyy HH:mm:ss'`. Als u wilt testen, kunnen gebruikers uitvoeren
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

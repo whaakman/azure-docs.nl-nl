@@ -2,7 +2,7 @@
 title: Power BI-dashboard van de status van de drager en groot gewoonten - Azure | Microsoft Docs
 description: De mogelijkheden van Cortana Intelligence gebruiken om inzicht in real-time en voorspeld op vehicle status en verkeer te krijgen gewoonten.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 085ce90311d4d89b365f7fe51a95c00c1a734196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Vehicle telemetrie Analytics-oplossing sjabloon Power BI-dashboard installatie-instructies
 Dit menu is gekoppeld aan de hoofdstukken in deze playbook: 
@@ -308,7 +308,7 @@ Het real-time rapport 'Voertuigen vereisen onderhoud' geconfigureerd. U kunt de 
 
     ![Details, legenda, as en de grootte van gebieden](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-25. Wijzigen van de grafiek **titel** naar **gemiddelde van brandstof, het gemiddelde van engineTemperature en aantal vin door het Model en het Model**.
+25. Wijzigen van de grafiek **titel** naar **gemiddelde van brandstof, het gemiddelde van engineTemperature en aantal vin door Model**.
 
     ![Spreiding grafiektitel](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 

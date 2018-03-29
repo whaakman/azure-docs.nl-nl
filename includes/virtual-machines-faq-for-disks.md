@@ -42,7 +42,7 @@ Nee.
 
 **Zijn er beperkingen scale voor klanten die gebruikmaken van beheerde schijven?**
 
-Beheerde schijven elimineert de grenzen die aan opslagaccounts is gekoppeld. Het aantal beheerde schijven per abonnement is echter standaard beperkt tot 2000. U kunt ondersteuning voor dit aantal verhoogt aanroepen.
+Beheerde schijven elimineert de grenzen die aan opslagaccounts is gekoppeld. Het maximum aantal en de standaardlimiet is echter 10.000 beheerde schijven per regio en per type van de schijf voor een abonnement.
 
 **Kan ik een incrementele momentopname van een beheerde schijf volgen?**
 

@@ -2,7 +2,7 @@
 title: Azure Machine Learning geautomatiseerde data pipeline-referentieoverzicht | Microsoft Docs
 description: Een afdrukbaar referentieoverzicht waarin het instellen van een pijplijn geautomatiseerde gegevens naar uw Azure Machine Learning-webservice of uw gegevens zich on-premises streaming in Azure of in een cloudservice van derden.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: mithal;garye
-ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: garye
+ms.openlocfilehash: f07e7cc9c97dcd5ef6ebc2d4c16d31b831869352
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Overzichtskaart voor een geautomatiseerde pijplijn voor voorspellingen van Azure Machine Learning
 De **Microsoft Azure Machine Learning geautomatiseerde data pipeline-referentieoverzicht** helpt u door de technologie die u gebruiken navigeren kunt om uw gegevens op uw Machine Learning-webservice waarbij kan worden verkregen door uw predictive analytics model.

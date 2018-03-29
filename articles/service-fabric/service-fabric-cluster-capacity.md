@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b39c22fb45b0e20a3aa7a6dcf59619a87df32ca1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-cluster overwegingen bij capaciteitsplanning
 Voor productie-implementatie is capaciteitsplanning een belangrijke stap. Hier zijn enkele van de artikelen waarmee u rekening moet houden als onderdeel van dit proces.
@@ -69,7 +69,7 @@ De laag duurzaamheid wordt gebruikt om aan te geven aan het systeem de rechten v
 
 Deze bevoegdheid wordt uitgedrukt in de volgende waarden:
 
-* Goud - infrastructuur taken kan gedurende een periode van twee uur per UD worden onderbroken. Gold duurzaamheid kan alleen op volledige knooppunt VM-SKU's zoals L32s, GS5, G5, DS15_v2, D15_v2 enzovoort (In het algemeen alle VM-grootten die op http://aka.ms/vmspecs die zijn gemarkeerd als 'Exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant' in de opmerking worden ingeschakeld. Volledige knooppunt VM's)
+* Goud - infrastructuur taken kan gedurende een periode van twee uur per UD worden onderbroken. Gold duurzaamheid kan alleen op volledige knooppunt VM-SKU's zoals L32s, GS5, G5, DS15_v2, D15_v2 enzovoort worden ingeschakeld (In het algemeen alle VM-grootten die wordt vermeld op http://aka.ms/vmspecs, die zijn gemarkeerd als 'Exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant' in de opmerking, volledige knooppunt VM's)
 * Zilver - infrastructuur taken gedurende een periode van tien minuten per UD kan worden onderbroken en is beschikbaar op alle standard VM's van één kern en hoger.
 * Brons - geen bevoegdheden. Dit is de standaardinstelling. Dit niveau duurzaamheid alleen gebruiken voor knooppunttypen met _alleen_ staatloze werkbelastingen. 
 
@@ -87,7 +87,7 @@ U krijgt duurzaamheid voor elk van uw knooppunttypen kiezen. U kunt één knoopp
 **Nadelen van het gebruik van zilver of goud duurzaamheid niveaus**
  
 1. Implementaties voor uw virtuele-Machineschaalset en andere gerelateerde Azure-resources) kunnen worden uitgesteld, kunnen een time-out of volledig door problemen in het cluster of op het niveau van de infrastructuur kunnen worden geblokkeerd. 
-2. Verhoogt het aantal [replica lifecycle gebeurtenissen](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (bijvoorbeeld primaire worden verwisseld) automated vanwege knooppunt deactivations tijdens de bewerkingen van de Azure-infrastructuur.
+2. Verhoogt het aantal [replica lifecycle gebeurtenissen](service-fabric-reliable-services-lifecycle.md) (bijvoorbeeld primaire worden verwisseld) automated vanwege knooppunt deactivations tijdens de bewerkingen van de Azure-infrastructuur.
 3. Neemt knooppunten buiten de service voor perioden tijdens het software-updates voor Azure-platform of onderhoud van hardware activiteiten plaatsvinden. Mogelijk ziet u de knooppunten met de status uitschakelen/uitgeschakeld tijdens deze activiteiten. Dit vermindert de capaciteit van uw cluster tijdelijk, maar u moet geen invloed op de beschikbaarheid van uw cluster of toepassingen.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Aanbevelingen voor het gebruik van zilver of goud duurzaamheid niveaus
@@ -101,10 +101,10 @@ Zilver of goud duurzaamheid gebruiken voor alle typen van de knooppunten die als
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Operationele aanbevelingen voor het knooppunt typt u dat u hebt ingesteld op zilver of gold duurzaamheid niveau.
 
-1. Uw cluster en de toepassingen gezond te houden te allen tijde en zorg ervoor dat toepassingen op alle reageren [replica lifecycle gebeurtenissen Service](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (zoals het maken van replica is vastgelopen) op tijdige wijze.
+1. Uw cluster en de toepassingen gezond te houden te allen tijde en zorg ervoor dat toepassingen op alle reageren [replica lifecycle gebeurtenissen Service](service-fabric-reliable-services-lifecycle.md) (zoals het maken van replica is vastgelopen) op tijdige wijze.
 2. Vast veiliger manieren een wijziging VM SKU (schaal omhoog/omlaag): het wijzigen van de VM-SKU van een virtuele-Machineschaalset is inherent een onveilige bewerking en dus moeten worden vermeden indien mogelijk. Dit is het proces dat u kunt volgen om veelvoorkomende problemen voorkomen.
     - **Voor niet-primaire nodetypes:** het is raadzaam dat u nieuwe virtuele-Machineschaalset maken of wijzigen van de service plaatsing beperking zijn van de nieuwe virtuele-Machineschaalset Set/knooppunttype en verlaagt u de oude virtuele-Machineschaalset-exemplaar aantal op 0, één knooppunt tegelijk (dit is om ervoor te zorgen dat de verwijdering van de knooppunten hebben geen invloed op de betrouwbaarheid van het cluster).
-    - **Voor de primaire nodetype:** onze aanbeveling is VM SKU van het primaire knooppunttype niet te wijzigen. Het wijzigen van het primaire knooppunttype dat SKU wordt niet ondersteund. Als de reden voor de nieuwe SKU capaciteit is, raden wij meer exemplaren toe te voegen. Als dat niet mogelijk een nieuw cluster maken en [toepassingsstatus terugzetten](service-fabric-reliable-services-backup-restore.md) (indien van toepassing) van het oude cluster. U hoeft niet om eventuele systeemstatus van de service te herstellen, ze worden opnieuw gemaakt wanneer u uw toepassingen implementeren op het nieuwe cluster. Als u alleen staatloze toepassingen uitgevoerd op uw cluster, en u hoeft alleen uw toepassingen implementeren op het nieuwe cluster, niets om te herstellen. Als u besluit om te gaan van de niet-ondersteunde route en wilt wijzigen van de VM-SKU, brengt u wijzigingen in de virtuele Machine Scale ingesteld modeldefinitie in overeenstemming met de nieuwe SKU. Als uw cluster slechts één nodetype heeft, zorgt u ervoor dat alle stateful toepassingen op alle reageren [replica lifecycle gebeurtenissen Service](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (zoals het maken van replica is vastgelopen) in een tijdige wijze en dat de replica van de service opnieuw samenstellen duur is minder dan vijf minuten (voor zilver duurzaamheid niveau). 
+    - **Voor de primaire nodetype:** onze aanbeveling is VM SKU van het primaire knooppunttype niet te wijzigen. Het wijzigen van het primaire knooppunttype dat SKU wordt niet ondersteund. Als de reden voor de nieuwe SKU capaciteit is, raden wij meer exemplaren toe te voegen. Als dat niet mogelijk een nieuw cluster maken en [toepassingsstatus terugzetten](service-fabric-reliable-services-backup-restore.md) (indien van toepassing) van het oude cluster. U hoeft niet om eventuele systeemstatus van de service te herstellen, ze worden opnieuw gemaakt wanneer u uw toepassingen implementeren op het nieuwe cluster. Als u alleen staatloze toepassingen uitgevoerd op uw cluster, en u hoeft alleen uw toepassingen implementeren op het nieuwe cluster, niets om te herstellen. Als u besluit om te gaan van de niet-ondersteunde route en wilt wijzigen van de VM-SKU, brengt u wijzigingen in de virtuele Machine Scale ingesteld modeldefinitie in overeenstemming met de nieuwe SKU. Als uw cluster slechts één nodetype heeft, zorgt u ervoor dat alle stateful toepassingen op alle reageren [replica lifecycle gebeurtenissen Service](service-fabric-reliable-services-lifecycle.md) (zoals het maken van replica is vastgelopen) in een tijdige wijze en dat de replica van de service opnieuw samenstellen duur is minder dan vijf minuten (voor zilver duurzaamheid niveau). 
 
 
 > [!WARNING]
@@ -143,7 +143,7 @@ Hier volgt de aanbeveling over het kiezen van de betrouwbaarheidslaag.
 | --- | --- |
 | 1 |Geef de parameter Betrouwbaarheidslaag berekend door het systeem |
 | 3 |Brons |
-| 5 of 6|Zilverkleurig |
+| 5 of 6|Zilver |
 | 7 of 8 |Goudkleurig |
 | 9 en hoger |Platina |
 

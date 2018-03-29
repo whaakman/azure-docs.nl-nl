@@ -1,11 +1,11 @@
 ---
 title: Wijzigen van een Azure virtuele-machineschaalset | Microsoft Docs
-description: Een Azure virtuele-machineschaalset wijzigen
+description: Meer informatie over het wijzigen en bijwerken van de schaal van een virtuele machine van Azure instelt met de REST-API's, Azure PowerShell en Azure CLI 2.0
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
@@ -15,45 +15,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: fcca912a8120a51d2f0a454ef0a6341cd5882015
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91eccd2b4587d7cb926ca506ae2f2e5b91ea1f3e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Wijzigen van een virtuele-machineschaalset
-Dit artikel wordt beschreven hoe u een bestaande virtuele-machineschaalset wijzigt. Taken bevatten informatie over het wijzigen van de configuratie van de schaal is ingesteld, het wijzigen van de configuratie van de toepassingen die worden uitgevoerd op de schaal is ingesteld, het beheren van de beschikbaarheid en meer.
+Gedurende de levenscyclus van uw toepassingen, kunt u wellicht wijzigen of bijwerken van uw virtuele-machineschaalset. Deze updates kunnen bevatten informatie over het bijwerken van de configuratie van de schaalaanpassingsset of wijzig de configuratie van de toepassing. Dit artikel wordt beschreven hoe u een bestaande schaal ingesteld met de REST-API's, Azure PowerShell of Azure CLI 2.0 wijzigt.
 
 ## <a name="fundamental-concepts"></a>basisconcepten
 
-### <a name="scale-set-model"></a>Model-schaalset
+### <a name="the-scale-set-model"></a>De model-schaalset
+Een schaalset heeft een 'scale set model' waarmee wordt vastgelegd de *gewenste* status van de schaal is ingesteld als geheel. Om te vragen het model voor een schaalset, kunt u de 
 
-Een schaalset heeft een model waarmee wordt vastgelegd de *gewenste* status van de schaal is ingesteld als geheel. Om te vragen het model voor een schaalset, kunt u het volgende gebruiken:
+- REST-API met [virtualmachinescalesets-compute/get](/rest/api/compute/virtualmachinescalesets/get) als volgt:
 
-* REST-API: 
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
+    ```
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` 
-   
-  Zie voor meer informatie de [REST API-documentatie](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/get).
+- Azure Powershell gebruiken met [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
 
-* PowerShell:
+    ```powershell
+    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+    ```
 
-  `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}`
-   
-  Zie voor meer informatie de [PowerShell documentatie](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss).
+- Azure CLI 2.0 met [az vmss weergeven](/cli/azure/vmss#az_vmss_show):
 
-* Azure CLI: 
+    ```azurecli
+    az vmss show --resource-group myResourceGroup --name myScaleSet
+    ```
 
-  `az vmss show -g {resourceGroupName} -n {vmSaleSetName}` 
-   
-  Zie voor meer informatie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show).
+- U kunt ook [resources.azure.com](https://resources.azure.com) of de taalspecifieke [Azure SDK's](https://azure.microsoft.com/downloads/).
 
-U kunt ook [Azure Resourceverkenner (Preview)](https://resources.azure.com) of de [Azure SDK's](https://azure.microsoft.com/downloads/) query uitvoeren op het model voor een schaalset.
+De exacte presentatie van de uitvoer is afhankelijk van de opties die u met de opdracht opgeven. Het volgende voorbeeld ziet verkorte voorbeeld van uitvoer van de Azure CLI 2.0:
 
-De exacte presentatie van de uitvoer is afhankelijk van de opties die u met de opdracht opgeven. Hier volgt een voorbeeld van uitvoer van de Azure CLI:
-
-```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+```azurecli
+az vmss show --resource-group myResourceGroup --name myScaleSet
 {
   "location": "westus",
   "overprovision": true,
@@ -65,44 +64,39 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
     "name": "Standard_D2_v2",
     "tier": "Standard"
   },
-  .
-  .
-  .
 }
 ```
 
-U kunt zien, deze eigenschappen van toepassing op de schaal instelt als geheel.
+Deze eigenschappen zijn van toepassing op de schaal instelt als geheel.
 
 
+### <a name="the-scale-set-instance-view"></a>De schaal instellen instantieweergave
+Een schaal ook heeft een 'scale set exemplaar weergeven' waarmee de huidige vastgelegd *runtime* status van de schaal is ingesteld als geheel. Om te vragen de instantieweergave voor een schaalset, kunt u het volgende gebruiken:
 
-### <a name="scale-set-instance-view"></a>Instantieweergave van de schaalset
+- REST-API met [virtualmachinescalesets-compute/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview) als volgt:
 
-Een schaal ook heeft een exemplaar weergave is die de huidige vastgelegd *runtime* status van de schaal is ingesteld als geheel. Om te vragen de instantieweergave voor een schaalset, kunt u het volgende gebruiken:
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
+    ```
 
-* REST-API: 
+- Azure Powershell gebruiken met [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version={apiVersion}` 
-   
-  Zie voor meer informatie de [REST API-documentatie](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview).
+    ```powershell
+    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
+    ```
 
-* PowerShell: 
+- Azure CLI 2.0 met [az vmss get--instantieweergave](/cli/azure/vmss#az_vmss_get_instance_view):
 
-  `Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceView` 
-  
-  Zie voor meer informatie de [PowerShell documentatie](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss).
+    ```azurecli
+    az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
+    ```
 
-* Azure CLI: 
+- U kunt ook [resources.azure.com](https://resources.azure.com) of de taalspecifieke [Azure SDK's](https://azure.microsoft.com/downloads/)
 
-  `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName}` 
-   
-  Zie voor meer informatie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view).
+De exacte presentatie van de uitvoer is afhankelijk van de opties die u met de opdracht opgeven. Het volgende voorbeeld ziet verkorte voorbeeld van uitvoer van de Azure CLI 2.0:
 
-U kunt ook [Azure Resourceverkenner (Preview)](https://resources.azure.com) of de [Azure SDK's](https://azure.microsoft.com/downloads/) query uitvoeren op de weergave van het exemplaar voor een schaalset.
-
-De exacte presentatie van de uitvoer is afhankelijk van de opties die u met de opdracht opgeven. Hier volgt een voorbeeld van uitvoer van de Azure CLI:
-
-```
-$ az vmss get-instance-view -g {resourceGroupName} -n {virtualMachineScaleSetName}
+```azurecli
+$ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 {
   "statuses": [
     {
@@ -124,44 +118,39 @@ $ az vmss get-instance-view -g {resourceGroupName} -n {virtualMachineScaleSetNam
       }
     ]
   }
-  .
-  .
-  .
 }
 ```
 
-Zoals u ziet bieden deze eigenschappen een samenvatting van de huidige runtimestatus van de virtuele machines in de schaalset. Het overzicht bevat de status van de uitbreidingen die worden toegepast op de schaal (weggelaten als beknopt alternatief bevat) ingesteld.
+Deze eigenschappen bieden een samenvatting van de huidige runtimestatus van de virtuele machines in de schaal is ingesteld, zoals de status van de uitbreidingen die worden toegepast op de scale-verzameling.
 
 
-
-### <a name="scale-set-vm-model-view"></a>Model-view VM-schaalset
-
+### <a name="the-scale-set-vm-model-view"></a>De schaal ingesteld VM model weergeven
 Net als bij hoe een schaalset een modelweergave heeft, elke virtuele machine in de schaalset heeft een eigen model weergeven. Om te vragen van de modelweergave voor een schaalset, kunt u het volgende gebruiken:
 
-* REST-API: 
+- REST-API met [virtualmachinescalesetvms-compute/get](/rest/api/compute/virtualmachinescalesetvms/get) als volgt:
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}?api-version={apiVersion}` 
-  
-  Zie voor meer informatie de [REST API-documentatie](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/get).
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
+    ```
 
-* PowerShell: 
+- Azure Powershell gebruiken met [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
 
-  `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` 
-  
-  Zie voor meer informatie de [PowerShell documentatie](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm).
+    ```powershell
+    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    ```
 
-* Azure CLI: 
+- Azure CLI 2.0 met [az vmss weergeven](/cli/azure/vmss#az_vmss_show):
 
-  `az vmss show -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` 
-  
-  Zie voor meer informatie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_show).
+    ```azurecli
+    az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
 
-U kunt ook [Azure Resourceverkenner (Preview)](https://resources.azure.com) of de [Azure SDK's](https://azure.microsoft.com/downloads/) query uitvoeren op het model voor een virtuele machine in een schaalset.
+- U kunt ook [resources.azure.com](https://resources.azure.com) of de [Azure SDK's](https://azure.microsoft.com/downloads/).
 
-De exacte presentatie van de uitvoer is afhankelijk van de opties die u met de opdracht opgeven. Hier volgt een voorbeeld van uitvoer van de Azure CLI:
+De exacte presentatie van de uitvoer is afhankelijk van de opties die u met de opdracht opgeven. Het volgende voorbeeld ziet verkorte voorbeeld van uitvoer van de Azure CLI 2.0:
 
-```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+```azurecli
+$ az vmss show --resource-group myResourceGroup --name myScaleSet
 {
   "location": "westus",
   "name": "{name}",
@@ -169,44 +158,39 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
     "name": "Standard_D2_v2",
     "tier": "Standard"
   },
-  .
-  .
-  .
 }
 ```
 
-Zoals u ziet, wordt met deze eigenschappen de configuratie van de virtuele machine zelf, niet de configuratie van de schaal instelt als geheel beschreven. Het model van de set schaal heeft bijvoorbeeld `overprovision` als een eigenschap, dat het model voor een virtuele machine in een schaal niet. De reden voor dit verschil is dat de eigenschap voor de schaal ingesteld als een volledige, geen afzonderlijke virtuele machines in de schaalset overmatige inrichting is. (Zie voor meer informatie over overmatige inrichting [ontwerpoverwegingen voor schaalsets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning).)
+Deze eigenschappen beschrijven de configuratie van de virtuele machine zelf, niet de configuratie van de schaal instelt als geheel. Het model van de set schaal heeft bijvoorbeeld `overprovision` als een eigenschap, maar niet door het model voor een virtuele machine in een schaalset. Dit verschil is omdat overmatige inrichting een eigenschap voor de schaal ingesteld als een volledige, geen afzonderlijke virtuele machines in de schaalset is (Zie voor meer informatie over overmatige inrichting [ontwerpoverwegingen voor schaalsets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
-
-### <a name="scale-set-vm-instance-view"></a>Instantieweergave van de VM-schaalset
-
+### <a name="the-scale-set-vm-instance-view"></a>De instantieweergave van de VM-schaalset
 Net als bij hoe een schaalset weergave met een exemplaar is, elke virtuele machine in de schaalset heeft een eigen instantieweergave. Om te vragen de instantieweergave voor een schaalset, kunt u het volgende gebruiken:
 
-* REST-API: 
+- REST-API met [virtualmachinescalesetvms-compute/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) als volgt:
 
-  `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/instanceView?api-version={apiVersion}` 
- 
-  Zie voor meer informatie de [REST API-documentatie](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/getinstanceview).
+    ```rest
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
+    ```
 
-* PowerShell: 
+- Azure Powershell gebruiken met [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
 
-  `Get-AzureRmVmssVm -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -InstanceView` 
-  
-  Zie voor meer informatie de [PowerShell documentatie](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm).
+    ```powershell
+    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
+    ```
 
-* Azure CLI: 
+- Azure CLI 2.0 met [az vmss get-exemplaar-weergave](/cli/azure/vmss#az_vmss_get_instance_view)
 
-  `az vmss get-instance-view -g {resourceGroupName} -n {vmSaleSetName} --instance-id {instanceId}` 
-  
-  Zie voor meer informatie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_get_instance_view).
+    ```azurecli
+    az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
 
-U kunt ook [Azure Resourceverkenner (Preview)](https://resources.azure.com) of de [Azure SDK's](https://azure.microsoft.com/downloads/) query uitvoeren op de weergave exemplaar voor een virtuele machine in een schaalset.
+- U kunt ook [resources.azure.com](https://resources.azure.com) of de [Azure SDK's](https://azure.microsoft.com/downloads/)
 
-De exacte presentatie van de uitvoer is afhankelijk van de opties die u met de opdracht opgeven. Hier volgt een voorbeeld van uitvoer van de Azure CLI:
+De exacte presentatie van de uitvoer is afhankelijk van de opties die u met de opdracht opgeven. Het volgende voorbeeld ziet verkorte voorbeeld van uitvoer van de Azure CLI 2.0:
 
-```
-$ az vmss get-instance-view -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}
+```azurecli
+$ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
 {
   "additionalProperties": {
     "osName": "ubuntu",
@@ -251,202 +235,203 @@ $ az vmss get-instance-view -g {resourceGroupName} -n {vmScaleSetName} --instanc
     ],
     "vmAgentVersion": "{version}"
   },
-  .
-  .
-  .
 }
 ```
 
-Zoals u ziet, wordt de huidige runtimestatus van de virtuele machine zelf beschreven in deze eigenschappen. De status omvat eventuele uitbreidingen die wordt toegepast op de schaal (weggelaten als beknopt alternatief bevat) ingesteld.
+Deze eigenschappen worden de huidige runtimestatus van de VM, met eventuele uitbreidingen die wordt toegepast op de schaalaanpassingsset beschreven.
 
 
-
-
-## <a name="techniques-for-updating-global-scale-set-properties"></a>Technieken voor het bijwerken van wereldwijde schaal eigenschappen instellen
-
+## <a name="how-to-update-global-scale-set-properties"></a>Het bijwerken van wereldwijde schaal instellen eigenschappen
 Voor het bijwerken van een globale scale set-eigenschap, moet u de eigenschap in het model van de set schaal bijwerken. U kunt deze update via doen:
 
-* REST-API: 
+- REST-API met [virtualmachinescalesets-compute/createorupdate](/rest/api/compute/virtualmachinescalesets/createorupdate) als volgt:
 
-  `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}?api-version={apiVersion}` 
-  
-  Zie voor meer informatie de [REST API-documentatie](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
+    ```rest
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
+    ```
 
-  U kunt ook een Azure Resource Manager-sjabloon implementeren met behulp van de eigenschappen van de REST-API om globale scale seteigenschappen te werken.
+- U kunt een Resource Manager-sjabloon met de eigenschappen van de REST-API om globale scale seteigenschappen te werken implementeren.
 
-* PowerShell: 
+- Azure Powershell gebruiken met [Update AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss):
 
-  `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -VirtualMachineScaleSet {scaleSetConfigPowershellObject}` 
-  
-  Zie voor meer informatie de [PowerShell documentatie](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss).
+    ```powershell
+    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
+    ```
 
-* Azure CLI:
+- Azure CLI 2.0 met [az vmss bijwerken](/cli/azure/vmss#az_vmss_update):
+    - Een eigenschap te wijzigen:
 
-  * Een eigenschap te wijzigen: `az vmss update --set {propertyPath}={value}` 
-  
-  * Een object toevoegen aan een lijsteigenschap in een schaalset: `az vmss update --add {propertyPath} {JSONObjectToAdd}` 
-  
-  * Een object uit een lijsteigenschap in een schaalset verwijderen: `az vmss update --remove {propertyPath} {indexToRemove}` 
-  
-  Zie voor meer informatie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update). 
-  
-  U kunt ook als u de schaal instelt met behulp van de eerder hebt geïmplementeerd de `az vmss create` uitvoert, kunt u uitvoeren en de `az vmss create` opdracht voor het bijwerken van de schaalaanpassingsset. U doet dit door ervoor te zorgen dat alle eigenschappen in de `az vmss create` opdracht zijn hetzelfde als voorheen, met uitzondering van de eigenschappen die u wilt wijzigen.
+        ```azurecli
+        az vmss update --set {propertyPath}={value}
+        ```
+
+    - Een object toevoegen aan een lijsteigenschap in een schaalset: 
+
+        ```azurecli
+        az vmss update --add {propertyPath} {JSONObjectToAdd}
+        ```
+
+    - Een object uit een lijsteigenschap in een schaalset verwijderen: 
+
+        ```azurecli
+        az vmss update --remove {propertyPath} {indexToRemove}
+        ```
+
+    - Als u de schaal in te stellen voor het eerder hebt geïmplementeerd de `az vmss create` uitvoert, kunt u uitvoeren en de `az vmss create` opdracht voor het bijwerken van de scale-set. Zorg ervoor dat alle eigenschappen in de `az vmss create` opdracht zijn hetzelfde als voorheen, met uitzondering van de eigenschappen die u wilt wijzigen.
+
+- U kunt ook [resources.azure.com](https://resources.azure.com) of de [Azure SDK's](https://azure.microsoft.com/downloads/).
+
+Zodra het scale set model wordt bijgewerkt, wordt de nieuwe configuratie is van toepassing op nieuwe VM's in de schaalset gemaakt. Echter moeten de modellen voor de bestaande virtuele machines in de schaalset nog steeds worden bijgewerkt met de meest recente algehele scale set model. In het model voor elke virtuele machine een Boole-eigenschap heet `latestModelApplied` die aangeeft of de virtuele machine bijgewerkt met de meest recente algehele scale set model is (`true` betekent dat de virtuele machine is bijgewerkt door de meest recente model).
 
 
+## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Bij het plaatsen van virtuele machines up-to-date blijven met de meest recente schaal model instellen
+Schaalsets 'upgrade beleid' hebben om te bepalen hoe virtuele machines up-to-date blijven met de meest recente model met een schaal worden gebracht. De drie beschikbare modi voor het Upgradebeleid zijn:
 
-U kunt ook [Azure Resourceverkenner (Preview)](https://resources.azure.com) of de [Azure SDK's](https://azure.microsoft.com/downloads/) model bijwerken van de schaal instelt.
+- **Automatische** -In deze modus kan de schaalaanpassingsset kan niet garanderen over de volgorde van virtuele machines wordt verbroken. De schaalaanpassingsset kan duren voordat u alle virtuele machines op hetzelfde moment. 
+- **Rolling** -In deze modus kan de schaalaanpassingsset implementeert de update in batches met een optionele onderbreken tijd tussen batches.
+- **Handmatige** - In deze modus, wanneer u het model van de set scale bijwerkt gebeurt niets aan bestaande virtuele machines.
+ 
+Voor het bijwerken van bestaande virtuele machines, moet u een 'handmatige upgrade' van elke bestaande VM te doen. U kunt deze handmatige upgrade met doen:
 
-Nadat het scale set-model is bijgewerkt, wordt de nieuwe configuratie is van toepassing op nieuwe VM's in de schaalset gemaakt. Echter, de modellen voor de bestaande virtuele machines in de schaalset moeten nog steeds worden gezet up-to-date met de meest recente algehele scale set model. In het model voor elke virtuele machine, een Boole-eigenschap aangeroepen `latestModelApplied` geeft aan of de virtuele machine bijgewerkt met de meest recente algehele scale set model is. (Een waarde van `true` betekent dat de virtuele machine is bijgewerkt met de meest recente model.)
+- REST-API met [virtualmachinescalesets-compute/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) als volgt:
 
+    ```rest
+    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
+    ```
 
-
-
-## <a name="techniques-for-bringing-vms-up-to-date-with-the-latest-scale-set-model"></a>Technieken voor virtuele machines is up-to-date met de meest recente scale set-model te brengen
-
--Schaalsets hebben een *Upgradebeleid* waarmee wordt bepaald hoe virtuele machines up-to-date met de meest recente model met een schaal worden gebracht. De drie beschikbare modi voor het Upgradebeleid zijn:
-
-- **Automatische**: In deze modus kan de schaalaanpassingsset kan niet garanderen over de volgorde van virtuele machines die worden verbroken. De schaalaanpassingsset kan duren voordat u alle virtuele machines op hetzelfde moment. 
-- **Rolling**: In deze modus kan de schaalaanpassingsset implementeert de update in batches met een optionele onderbreken tijd tussen batches.
-- **Handmatige**: In deze modus tijdens het bijwerken van het model van de set schaal gebeurt er niets aan bestaande virtuele machines. Voor het bijwerken van bestaande virtuele machines, moet u elk criterium handmatig bijwerken. U kunt deze handmatige upgrade via doen:
-
-  - REST-API: 
-  
-    `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/manualupgrade?api-version={apiVersion}` 
+- Azure Powershell gebruiken met [Update AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance):
     
-    Zie voor meer informatie de [REST API-documentatie](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/updateinstances).
+    ```powershell
+    Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    ```
 
-  - PowerShell: 
-  
-    `Update-AzureRmVmssInstance -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId}` 
-    
-    Zie voor meer informatie de [PowerShell documentatie](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+- Azure CLI 2.0 met [az vmss update-exemplaren](/cli/azure/vmss#az_vmss_update_instances)
 
-  - Azure CLI: 
-  
-    `az vmss update-instances -g {resourceGroupName} -n {vmScaleSetName} --instance-ids {instanceIds}` 
-    
-    Zie voor meer informatie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_update_instances).
+    ```azurecli
+    az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
+    ```
 
-  U kunt ook de [Azure SDK's](https://azure.microsoft.com/downloads/) handmatig bijwerken van een virtuele machine in een schaalset.
+- U kunt ook de taalspecifieke [Azure SDK's](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
-> Azure Service Fabric-clusters alleen automatische modus kunnen gebruiken, maar de update wordt anders afgehandeld. Zie voor meer informatie over Service Fabric-updates de [Service Fabric-documentatie](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
+> Service Fabric-clusters kunnen alleen worden gebruikt *automatische* modus, maar de update wordt anders afgehandeld. Zie voor meer informatie [ Service Fabric-toepassingsupgrades](../service-fabric/service-fabric-application-upgrade.md).
 
-Een type wijziging aan de globale scale seteigenschappen niet voldoet aan het Upgradebeleid: wijzigingen in de schaal OS profiel instellen. (Voorbeelden zijn admin-gebruikersnaam en wachtwoord). Deze eigenschappen kunnen worden gewijzigd in API-versie 2017-12-01 alleen of hoger. Deze wijzigingen gelden alleen voor virtuele machines die zijn gemaakt nadat de wijziging in de schaal model instelt. Voor het maken van bestaande virtuele machines up-to-date te houden, moet u elke bestaande VM installatiekopie. U installatiekopie een virtuele machine via:
+Er is een soort wijziging aan de globale scale seteigenschappen die niet aan het Upgradebeleid voldoet. Wijzigingen in de schaalset Besturingssysteemprofiel (zoals admin-gebruikersnaam en wachtwoord) kan alleen worden gewijzigd in API-versie *2017-12-01* of hoger. Deze wijzigingen zijn alleen van toepassing op virtuele machines die zijn gemaakt nadat de wijziging in de schaal model instelt. Voor het maken van bestaande virtuele machines up-to-date, moet u een 'terugzetten van de installatiekopie' van elke bestaande VM te doen. U kunt deze terugzetten van de installatiekopie via doen:
 
-* REST-API: 
+- REST-API met [compute/virtualmachinescalesets/terugzetten van de installatiekopie](/rest/api/compute/virtualmachinescalesets/reimage) als volgt:
 
-  `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` 
-  
-  Zie voor meer informatie de [REST API-documentatie](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage).
+    ```rest
+    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
+    ```
 
-* PowerShell: 
+- Azure Powershell gebruiken met [Set AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm):
 
-  `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` 
-  
-  Zie voor meer informatie de [PowerShell documentatie](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm).
+    ```powershell
+    Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+    ```
 
-* Azure CLI: 
+- Azure CLI 2.0 met [az vmss terugzetten van de installatiekopie](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
 
-  `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` 
-  
-  Zie voor meer informatie de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_reimage).
+    ```azurecli
+    az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
 
-U kunt ook de [Azure SDK's](https://azure.microsoft.com/downloads/) naar de installatiekopie van een virtuele machine in een schaalset.
-
-
+- U kunt ook de taalspecifieke [Azure SDK's](https://azure.microsoft.com/downloads/).
 
 
 ## <a name="properties-with-restrictions-on-modification"></a>Eigenschappen met beperkingen voor wijziging
 
 ### <a name="create-time-properties"></a>Eigenschappen maken tijd
+Sommige eigenschappen kunnen alleen worden ingesteld wanneer u de schaalaanpassingsset maakt. Deze eigenschappen omvatten:
 
-Sommige eigenschappen kunnen alleen worden ingesteld als u eerst de schaalaanpassingsset. Deze eigenschappen omvatten:
-
-- Zones
+- Beschikbaarheidszones
 - referentie-installatiekopie-uitgever
 - afbeelding verwijzing aanbieding
 
-### <a name="properties-that-can-be-changed-based-on-the-current-value-only"></a>Eigenschappen die kunnen worden gewijzigd op basis van de huidige waarde alleen
-
+### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Eigenschappen die kunnen alleen worden gewijzigd op basis van de huidige waarde
 Sommige eigenschappen kunnen worden gewijzigd met uitzonderingen, afhankelijk van de huidige waarde. Deze eigenschappen omvatten:
 
-- `singlePlacementGroup`: Als `singlePlacementGroup` is ingesteld op true, false kan worden gewijzigd. Echter, als `singlePlacementGroup` is ingesteld op false, het *kan niet* worden gewijzigd op true.
-- `subnet`: Het subnet van een scale-set kan worden gewijzigd zolang het oorspronkelijke subnet en het nieuwe subnet bevinden zich in hetzelfde virtuele netwerk.
+- **singlePlacementGroup** - als singlePlacementGroup ingesteld op true is, False worden gewijzigd. Echter, als singlePlacementGroup false is, het **is niet toegestaan** worden gewijzigd op true.
+- **subnet** : het subnet van een schaalset zo lang als de oorspronkelijke subnet kan worden gewijzigd en het nieuwe subnet bevinden zich in hetzelfde virtuele netwerk.
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Eigenschappen waarvoor de toewijzing is opgeheven wijzigen
+Sommige eigenschappen kunnen alleen worden gewijzigd in bepaalde waarden als de toewijzing van de virtuele machines in de schaalset worden opgeheven. Deze eigenschappen omvatten:
 
-Sommige eigenschappen kunnen worden gewijzigd in bepaalde waarden alleen als de toewijzing van de virtuele machines in de schaalset worden opgeheven. Deze eigenschappen omvatten:
-
-- `sku name`: Als de SKU van de nieuwe VM wordt niet ondersteund op de hardware die de schaalaanpassingsset zich momenteel op, moet u de virtuele machines in de schaal instellen voordat u wijzigingen ongedaan `sku name`. Zie voor meer informatie over het vergroten of verkleinen van virtuele machines [dit blogbericht Azure](https://azure.microsoft.com/blog/resize-virtual-machines/).
+- **SKU-naam**- als de SKU van de nieuwe VM wordt niet ondersteund op de hardware die de schaalaanpassingsset is momenteel ingeschakeld, moet u de toewijzing van de virtuele machines in de schaal instellen voordat u de SKU-naam wijzigen. Zie voor meer informatie [hoe het formaat van een Azure VM](../virtual-machines/windows/resize-vm.md).
 
 
 ## <a name="vm-specific-updates"></a>VM-specifieke updates
+Bepaalde wijzigingen kunnen worden toegepast op een specifieke virtuele machines in plaats van de globale scale seteigenschappen. Op dit moment de enige specifieke VM-update die wordt ondersteund is om te koppelen/loskoppelen van gegevensschijven naar/van de virtuele machines in de schaalset. Deze functie is in preview. Zie voor meer informatie de [preview-documentatie](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
 
-Bepaalde wijzigingen kunnen worden toegepast op een specifieke virtuele machines in plaats van de globale scale seteigenschappen. Op dit moment de enige VM-specifieke update die wordt ondersteund is koppelen/loskoppelen gegevensschijven naar/van de virtuele machines in de schaalset. Deze functie is in preview. Zie voor meer informatie de [preview-documentatie](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
 
 ## <a name="scenarios"></a>Scenario's
 
 ### <a name="application-updates"></a>Updates voor toepassingen
-
-Als een toepassing wordt geïmplementeerd op een schaal ingesteld door middel van, het bijwerken van de configuratie voor de uitbreiding zorgt ervoor dat de toepassing om te worden bijgewerkt in overeenstemming met het Upgradebeleid. Bijvoorbeeld, als er een nieuwe versie van een script uit te voeren in een extensie voor aangepaste scripts, u mogelijk bijwerken de `fileUris` eigenschap verwijzen naar het nieuwe script. 
-
-In sommige gevallen is het raadzaam om af te dwingen een update, ondanks dat de configuratie van de extensie niet gewijzigd is. (Bijvoorbeeld, u bijgewerkt het script zonder de URI van het script wijzigen.) In dergelijke gevallen kunt u `forceUpdateTag` om af te dwingen een update. De Azure-platform biedt deze eigenschap niet interpreteren, zodat de waarde ervan wijzigen geen invloed heeft op hoe de uitbreiding wordt uitgevoerd. Wijzigen van het simpelweg zorgt ervoor dat de uitbreiding opnieuw uit te voeren. 
-
-Voor meer informatie over `forceUpdateTag`, Zie de [REST-API-documentatie voor uitbreidingen](https://docs.microsoft.com/rest/api/compute/virtualmachineextensions/createorupdate).
+Als een toepassing wordt geïmplementeerd op een schaal via uitbreidingen ingesteld, wordt een update van configuratie voor de uitbreiding in de toepassing bijwerken in overeenstemming met het Upgradebeleid. Bijvoorbeeld, als u een nieuwe versie van een script uit te voeren in een aangepaste Scriptextensie hebt, kunt u bijwerken de *fileUris* eigenschap verwijzen naar het nieuwe script. In sommige gevallen wilt u wellicht een update afdwingen, zelfs als de configuratie voor de uitbreiding is ongewijzigd ten opzichte (bijvoorbeeld, u bijgewerkt het script zonder een wijziging in de URI van het script). In dergelijke gevallen kunt u de *forceUpdateTag* om af te dwingen een update. Deze eigenschap wordt niet door de Azure-platform worden geïnterpreteerd. Als u de waarde wijzigt, is er geen invloed op hoe de uitbreiding wordt uitgevoerd. Een wijziging is gewoon zorgt ervoor dat de uitbreiding opnieuw uit te voeren. Voor meer informatie over de *forceUpdateTag*, Zie de [REST-API-documentatie voor uitbreidingen](/rest/api/compute/virtualmachineextensions/createorupdate).
 
 Het is ook gebruikelijk dat toepassingen worden geïmplementeerd via een aangepaste installatiekopie. Dit scenario wordt beschreven in de volgende sectie.
 
 ### <a name="os-updates"></a>Updates voor het besturingssysteem
-
-Als u installatiekopieën van het platform, kunt u de installatiekopieën bijwerken door het wijzigen van `imageReference`. Zie voor meer informatie de [REST API-documentatie](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
+Als u installatiekopieën van het Azure-platform gebruikt, kunt u de installatiekopie bijwerken door het wijzigen van de *imageReference* (meer informatie, Zie de [REST API-documentatie](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
-> Installatiekopieën van het platform worden vaak 'nieuwste' opgeven voor de versie van de verwijzing naar afbeelding. Dit betekent dat wanneer schaalsets worden gemaakt, geschaalde uit en hersteld met een installatiekopie, de virtuele machines worden gemaakt met de meest recente versie. Echter, het *heeft geen* betekenen dat de installatiekopie van het besturingssysteem automatisch na verloop van tijd bijgewerkt wordt als nieuwe versies van een installatiekopie zijn vrijgegeven. Dit is een afzonderlijke functie, die momenteel in preview. Zie voor meer informatie [OS automatische upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
+> Installatiekopieën van het platform worden vaak 'nieuwste' opgeven voor de versie van de verwijzing naar afbeelding. Wanneer u maakt, uitbreiden en terugzetten van de installatiekopie, virtuele machines worden gemaakt met de meest recente versie. Echter, het **heeft geen** betekenen dat de installatiekopie van het besturingssysteem automatisch wordt bijgewerkt na verloop van tijd als nieuwe versies van een installatiekopie zijn vrijgegeven. Een afzonderlijke functie is momenteel in preview waarmee automatische upgrades voor het besturingssysteem. Zie voor meer informatie de [automatische Upgrades voor het besturingssysteem documentatie](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Als u aangepaste installatiekopieën gebruikt, kunt u de installatiekopieën bijwerken door het bijwerken van de `imageReference` -id. Zie voor meer informatie de [REST API-documentatie](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate).
+Als u aangepaste installatiekopieën gebruikt, kunt u de installatiekopie bijwerken door het bijwerken van de *imageReference* ID (meer informatie, Zie de [REST API-documentatie](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Voorbeelden
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Bijwerken van de installatiekopie van het besturingssysteem voor uw scale set
+Mogelijk hebt u een scale-set die wordt uitgevoerd een oude versie van Ubuntu TNS 16.04. U wilt bijwerken naar een nieuwere versie van Ubuntu TNS 16.04, zoals versie *16.04.201801090*. De eigenschap image verwijzing naar versie maakt geen deel uit van een lijst, zodat u kunt deze eigenschappen met een van de volgende opdrachten rechtstreeks wijzigen:
 
-Stel dat u hebt een ingesteld met een oude versie van Ubuntu TNS 16.04 schaal. U wilt bijwerken naar een nieuwere versie van Ubuntu TNS 16.04 (bijvoorbeeld versie 16.04.201801090). De eigenschap image verwijzing naar versie maakt geen deel uit van een lijst, zodat u deze eigenschappen rechtstreeks wijzigen kunt met behulp van deze opdrachten:
+- Azure Powershell gebruiken met [Update AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) als volgt:
 
-* PowerShell: 
+    ```powershell
+    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
+    ```
 
-  `Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -ImageReferenceVersion 16.04.201801090`
+- Azure CLI 2.0 met [az vmss bijwerken](/cli/azure/vmss#az_vmss_update_instances):
 
-* Azure CLI: 
-
-  `az vmss update -g {resourceGroupName} -n {vmScaleSetName} --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090`
+    ```azurecli
+    az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+    ```
 
 
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>De load balancer voor uw scale set bijwerken
+Stel dat er een schaalwaarde ingesteld met een Azure Load Balancer en u wilt vervangen van de Azure Load Balancer met een Azure Application Gateway. De load balancer en eigenschappen voor een schaalset Application Gateway uitmaken deel van een lijst, zodat u de opdrachten gebruiken kunt om te verwijderen of de lijst met elementen in plaats van rechtstreeks wijzigen van de eigenschappen toe te voegen:
 
-Stel dat er een schaalwaarde ingesteld met een Azure load balancer en u wilt vervangen van de load balancer met een Azure application gateway. De load balancer en application gateway-eigenschappen voor een set scale uitmaken deel van een lijst. Ja, kunt u de opdrachten voor het verwijderen en de lijst met elementen in plaats van rechtstreeks wijzigen van de eigenschappen toe te voegen.
+- Azure Powershell:
 
-PowerShell:
-```
-# Get the current model of the scale set and store it in a local PowerShell object named $vmss
-> $vmss=Get-AzureRmVmss -ResourceGroupName {resourceGroupName} -Name {vmScaleSetName}
+    ```powershell
+    # Get the current model of the scale set and store it in a local powershell object named $vmss
+    $vmss=Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+    
+    # Create a local powershell object for the new desired IP configuration, which includes the referencerence to the application gateway
+    $ipconf = New-AzureRmVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+    
+    # Replace the existing IP configuration in the local powershell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
+    $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
+    
+    # Update the model of the scale set with the new configuration in the local powershell object
+    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
+    ```
 
-# Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
-> $ipconf = New-AzureRmVmssIPConfig myNic -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+- Azure CLI 2.0:
 
-# Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure load balancer) with the new IP configuration
-> $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
-
-# Update the model of the scale set with the new configuration in the local PowerShell object
-> Update-AzureRmVmss -ResourceGroupName {resourceGroupName} -Name {vmScaleSetName} -virtualMachineScaleSet $vmss
-
-```
-
-Azure CLI:
-```
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0 # Remove the load balancer back-end pool from the scale set model
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0 # Remove the load balancer back-end pool from the scale set model; only necessary if you have NAT pools configured on the scale set
-az vmss update -g {resourceGroupName} -n {vmScaleSetName} --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}' # Add the application gateway back-end pool to the scale set model
-```
+    ```azurecli
+    # Remove the load balancer backend pool from the scale set model
+    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0
+    
+    # Remove the load balancer backend pool from the scale set model; only necessary if you have NAT pools configured on the scale set
+    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0
+    
+    # Add the application gateway backend pool to the scale set model
+    az vmss update --resource-group myResourceGroup --name myScaleSet --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}'
+    ```
 
 >[!NOTE]
-> Deze opdrachten wordt ervan uitgegaan dat er slechts één IP-configuratie en load balancer op de scale-set is. Als er meerdere zijn, moet u mogelijk gebruik van een lijstindex dan 0.
+> Deze opdrachten wordt ervan uitgegaan dat er slechts één IP-configuratie en load balancer op de scale-set is. Als er meerdere zijn, moet u mogelijk andere dan een lijstindex gebruiken *0*.
+
+
+## <a name="next-steps"></a>Volgende stappen
+U kunt ook algemene beheertaken uitvoeren op schaalsets met de [Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md) of [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

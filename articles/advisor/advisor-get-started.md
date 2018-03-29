@@ -5,8 +5,8 @@ services: advisor
 documentationcenter: NA
 author: manbeenkohli
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cd64515beabec43a5209d62dccf2b55b21702c16
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Aan de slag met Azure Advisor
 
@@ -35,10 +35,7 @@ Informatie over het openen van Advisor via de Azure portal, aanbevelingen krijge
 
 4. Het dashboard Advisor wordt een samenvatting weergeven van de aanbevelingen voor alle geselecteerde abonnementen.  U kunt de abonnementen die u wilt dat de aanbevelingen voor het gebruik van het abonnement moet worden weergegeven filteren vervolgkeuzelijst.
 
-5. Als u de aanbevelingen voor een specifieke categorie, klikt u op een van de tabbladen: **hoge beschikbaarheid**, **beveiliging**, **prestaties**, of **kosten**.
- 
-> [!NOTE]
-> Gebruik Azure Advisor met een abonnement, een abonnement *eigenaar* moet het dashboard Advisor starten.  Deze actie wordt het abonnement met Advisor geregistreerd.  Vanaf dat moment op een abonnement *eigenaar*, *Inzender*, of *lezer* toegang heeft tot de aanbevelingen van Advisor voor het abonnement.  
+5. Als u de aanbevelingen voor een specifieke categorie, klikt u op een van de tabbladen: **hoge beschikbaarheid**, **beveiliging**, **prestaties**, of **kosten**. 
 
   ![Azure Advisor-dashboard](./media/advisor-overview/advisor-dashboard.png)
 

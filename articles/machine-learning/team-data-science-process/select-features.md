@@ -2,7 +2,7 @@
 title: Functie selectie in de procedure voor wetenschappelijke gegevens Team | Microsoft Docs
 description: Wordt het doel van functieselectie en vindt u voorbeelden van hun rol in de procedure voor de verbetering van gegevens van machine learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: c69e7a7e86ccea2073209eabe123049e59a2b8e3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 44159516a1785f5d65357935000eccc42a7458aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Functies selecteren in Team Data Science Process (TDSP)
 In dit artikel worden de doeleinden van functieselectie en voorbeelden gegeven van de rol in de procedure voor de verbetering van gegevens van machine learning. Deze voorbeelden zijn afkomstig van Azure Machine Learning Studio. 

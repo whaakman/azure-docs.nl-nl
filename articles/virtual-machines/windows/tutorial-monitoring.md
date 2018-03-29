@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 94151008f0aba6020786e65c60cec66285f310c4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fdb8009e3dbca1037cae61ec8627f73190a8263d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Controleren en bijwerken van een virtuele Windows-Machine met Azure PowerShell
 
@@ -38,15 +38,15 @@ In deze zelfstudie leert u het volgende:
 > * Windows-updates beheren
 > * Geavanceerde bewaking instellen
 
-Voor deze zelfstudie is moduleversie 3,6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Voor deze zelfstudie is moduleversie 3,6 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 Om het voorbeeld in deze zelfstudie uit te voeren, moet u een bestaande virtuele machine hebben. Indien nodig kan dit [voorbeeldscript](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) er een voor u maken. Als u werkt de zelfstudie, vervangt u de resourcegroep, de naam van de virtuele machine en de locatie waar nodig.
 
 ## <a name="view-boot-diagnostics"></a>Diagnostische gegevens over opstarten bekijken
 
-Als Windows virtuele machines opstarten, worden de diagnostische agent opstarten schermuitvoer die kan worden gebruikt voor het oplossen van doel. Deze mogelijkheid is standaard ingeschakeld. De vastgelegde schermopnamen worden opgeslagen in een Azure storage-account wordt ook standaard gemaakt. 
+Als Windows virtuele machines opstarten, worden de diagnostische agent opstarten schermuitvoer die kan worden gebruikt voor het oplossen van doel. Deze mogelijkheid is standaard ingeschakeld. De vastgelegde schermopnamen worden opgeslagen in een Azure storage-account wordt ook standaard gemaakt.
 
-U krijgt de diagnostische gegevens van opstarten met het [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) opdracht. In het volgende voorbeeld wordt de diagnostische gegevens over opstarten worden gedownload naar de hoofdmap van de * c:\* station. 
+U krijgt de diagnostische gegevens van opstarten met het [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) opdracht. In het volgende voorbeeld wordt de diagnostische gegevens over opstarten worden gedownload naar de hoofdmap van de * c:\* station.
 
 ```powershell
 Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
@@ -88,10 +88,10 @@ In het volgende voorbeeld wordt een waarschuwing gemaakt voor het gemiddelde CPU
 
 1. Klik in Azure Portal op **Resourcegroepen**, selecteer **myResourceGroup** en selecteer vervolgens **myVM** in de lijst met resources.
 2. Klik op de VM-blade op **Waarschuwingsregels** en klik vervolgens boven aan de waarschuwingenblade op **Waarschuwing voor metrische gegevens toevoegen**.
-4. Geef een **Naam** op voor de waarschuwing, zoals *myAlertRule*
-5. Als u een waarschuwing wilt activeren wanneer het CPU-percentage gedurende vijf minuten 1.0 overschrijdt, laat u alle overige standaardwaarden geselecteerd.
-6. Schakel desgewenst het selectievakje voor *E-mailadressen van eigenaren, bijdragers en lezers* in om een e-mailmelding te verzenden. Standaard wordt een melding in de portal weergegeven.
-7. Klik op de knop **OK**.
+3. Geef een **Naam** op voor de waarschuwing, zoals *myAlertRule*
+4. Als u een waarschuwing wilt activeren wanneer het CPU-percentage gedurende vijf minuten 1.0 overschrijdt, laat u alle overige standaardwaarden geselecteerd.
+5. Schakel desgewenst het selectievakje voor *E-mailadressen van eigenaren, bijdragers en lezers* in om een e-mailmelding te verzenden. Standaard wordt een melding in de portal weergegeven.
+6. Klik op de knop **OK**.
 
 ## <a name="manage-windows-updates"></a>Windows-updates beheren
 
@@ -103,44 +103,44 @@ Zie [Automation-prijzen voor updatebeheer](https://azure.microsoft.com/pricing/d
 ### <a name="enable-update-management"></a>Updatebeheer inschakelen
 
 Schakel beheer van de Update voor uw virtuele machine:
- 
+
 1. Selecteer aan de linkerkant van het scherm **Virtuele machines**.
 2. Selecteer een VM in de lijst.
 3. Klik op het VM-scherm in de sectie **Bewerkingen** op **Updatebeheer**. Het scherm **Updatebeheer inschakelen** wordt weergegeven.
 
-Er wordt een validatie uitgevoerd om te bepalen of updatebeheer is ingeschakeld voor deze virtuele machine. De validatie bevat controles voor een Log Analytics-werkruimte en het gekoppelde Automation-account en controleert of de oplossing zich in de werkruimte bevindt.
+Er wordt een validatie uitgevoerd om te bepalen of updatebeheer is ingeschakeld voor deze virtuele machine.
+De validatie bevat controles voor een Log Analytics-werkruimte en het gekoppelde Automation-account en controleert of de oplossing zich in de werkruimte bevindt.
 
-Een Log Analytics-werkruimte wordt gebruikt om gegevens te verzamelen die worden gegenereerd door functies en services zoals Updatebeheer. De werkruimte biedt één locatie om gegevens uit meerdere bronnen te bekijken en te analyseren. Als u aanvullende bewerkingen wilt uitvoeren op virtuele machines die updates vereisen, biedt Azure Automation de mogelijkheid scripts uit te voeren voor VM's, zoals updates downloaden en toepassen.
+Een [Log Analytics](../../log-analytics/log-analytics-overview.md)-werkruimte wordt gebruikt om gegevens te verzamelen die worden gegenereerd door functies en services zoals Updatebeheer.
+De werkruimte biedt één locatie om gegevens uit meerdere bronnen te bekijken en te analyseren.
+Als u aanvullende bewerkingen wilt uitvoeren op virtuele machines die updates vereisen, biedt Azure Automation de mogelijkheid runbooks uit te voeren met VM's, zoals updates downloaden en toepassen.
 
-Tijdens het validatieproces wordt ook gecontroleerd of de virtuele machine is ingericht met Microsoft Monitoring Agent (MMA) en Hybrid Worker. Deze agent wordt gebruikt om te communiceren met de VM en om informatie op te vragen over de status van de update. 
+Tijdens het validatieproces wordt ook gecontroleerd of de virtuele machine is ingericht met Microsoft Monitoring Agent (MMA) en Automation Hybrid Runbook Worker.
+Deze agent wordt gebruikt om te communiceren met de VM en om informatie op te vragen over de status van de update.
 
-Als niet aan deze vereisten wordt voldaan, verschijnt er een banner waarin u de optie krijgt de oplossing in te schakelen.
+Kies de Log Analytics-werkruimte en het Automation-account en klik op **Inschakelen** om de oplossing in te schakelen. Het duurt maximaal 15 minuten om de oplossing in te schakelen.
 
-![Banner voor onboardconfiguratie van Updatebeheer](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
-
-Klik op de banner om de oplossing in te schakelen. Als een van de volgende vereiste onderdelen ontbreekt na de validatie, wordt dit automatisch toegevoegd:
+Als een van de volgende vereiste onderdelen ontbreekt na de onboarding, wordt dit automatisch toegevoegd:
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md)-werkruimte
 * [Automatisering](../../automation/automation-offering-get-started.md)
 * Een [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) wordt ingeschakeld op de VM.
 
-Het scherm **Updatebeheer inschakelen** wordt weergegeven. Configureer de instellingen en klik op **Inschakelen**.
+Het scherm **Updatebeheer** wordt geopend. Configureer de locatie, de Log Analytics-werkruimte en het Automation-account dat moet worden gebruikt en klik op **Inschakelen**. Als de velden lichtgrijs zijn, betekent dit dat een andere automatiseringsoplossing is ingeschakeld voor de virtuele machine en dat dezelfde werkruimte en hetzelfde Automation-account moeten worden gebruikt.
 
 ![Oplossing voor updatebeheer inschakelen](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-Het inschakelen van de oplossing kan maximaal 15 minuten duren en gedurende deze tijd moet u het browservenster niet sluiten. Nadat de oplossing is ingeschakeld, wordt informatie over ontbrekende updates op de VM naar Log Analytics verzonden.
-Het duurt tussen 30 minuten en 6 uur voordat de gegevens beschikbaar zijn voor analyse.
+Het inschakelen van de oplossing kan maximaal 15 minuten duren. Gedurende deze tijd mag u het browservenster niet sluiten. Nadat de oplossing is ingeschakeld, wordt informatie over ontbrekende updates op de VM naar Log Analytics verzonden. Het duurt tussen 30 minuten en 6 uur voordat de gegevens beschikbaar zijn voor analyse.
 
 ### <a name="view-update-assessment"></a>Update-evaluatie bekijken
 
-Na **Updatebeheer** is ingeschakeld, wordt het scherm **Updatebeheer** weergegeven. U ziet een lijst met ontbrekende updates op het tabblad **Ontbrekende updates**.
+Na **Updatebeheer** is ingeschakeld, wordt het scherm **Updatebeheer** weergegeven. Nadat de evaluatie van updates voltooid is, ziet u een lijst met ontbrekende updates op de **ontbrekende updates** tabblad.
 
  ![Updatestatus bekijken](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
 ### <a name="schedule-an-update-deployment"></a>Een update-implementatie plannen
 
-Als u updates wilt installeren, plant u een implementatie na uw release-planning en servicevenster.
-U kunt kiezen welke typen updates moeten worden opgenomen in de implementatie. Zo kunt u belangrijke updates of beveiligingsupdates opnemen en updatepakketten uitsluiten.
+Als u updates wilt installeren, plant u een implementatie na uw release-planning en servicevenster. U kunt kiezen welke typen updates moeten worden opgenomen in de implementatie. Zo kunt u belangrijke updates of beveiligingsupdates opnemen en updatepakketten uitsluiten.
 
 Plan een nieuwe update-implementatie voor de VM door te klikken op **Update-implementatie plannen** boven aan het scherm **Updatebeheer**. Geef de volgende gegevens op in het scherm **Nieuwe update-implementatie**:
 
@@ -175,7 +175,7 @@ Als de implementatie momenteel wordt uitgevoerd, wordt de status weergegeven als
 Als er een fout is opgetreden met één of meer updates in de implementatie, wordt de status **Gedeeltelijk mislukt**.
 Klik op de voltooide update-implementatie om het dashboard voor de betreffende update-implementatie te bekijken.
 
-   ![Statusdashboard voor update-implementatie voor specifieke implementatie](./media/tutorial-monitoring/manageupdates-view-results.png)
+![Statusdashboard voor update-implementatie voor specifieke implementatie](./media/tutorial-monitoring/manageupdates-view-results.png)
 
 Op de tegel **Updateresultaten** ziet u een overzicht van het totale aantal updates en van de implementatieresultaten op de virtuele machine.
 In de tabel aan de rechterkant vindt u gedetailleerde informatie over elke update en het resultaat van de installatie. Een van de volgende waarden wordt hier weergegeven:
@@ -190,15 +190,60 @@ Klik op de tegel **Uitvoer** om de taakstroom te bekijken van het runbook dat ve
 
 Klik op **Fouten** voor gedetailleerde informatie over fouten die zijn opgetreden tijdens de implementatie.
 
-## <a name="advanced-monitoring"></a>Geavanceerde controle 
+## <a name="monitor-changes-and-inventory"></a>Wijzigingen van de monitor en inventarisatie
 
-U kunt een meer geavanceerde bewaking toepassen op uw virtuele machine met behulp van [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview). U kunt u zich aanmelden voor een [gratis proefversie](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial) van Operations Management Suite als u dit nog niet hebt gedaan.
+U kunt inventarisgegevens verzamelen en weergeven voor software, bestanden, Linux-daemons, Windows-services en Windows-registersleutels op uw computers. Door de configuraties van uw computer bij te houden, is het voor u gemakkelijker vast te stellen waar in uw omgeving zich operationele problemen voordoen, en kunt u beter beoordelen wat de status van uw computers is.
 
-Wanneer u toegang tot de OMS-portal hebt, kunt u de werkruimtesleutel en werkruimte-id vinden op de blade Instellingen. Gebruik de [Set AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) opdracht de OMS-extensie toevoegen aan de virtuele machine. Bijwerken van de waarden van variabelen in het onderstaande voorbeeld om weer te geven u werkruimtesleutel OMS en werkruimte-id.  
+### <a name="enable-change-and-inventory-management"></a>Schakel wijzigings-en inventarisatie
+
+Schakel wijzigings- en inventaris management voor uw virtuele machine:
+
+1. Selecteer aan de linkerkant van het scherm **Virtuele machines**.
+2. Selecteer een VM in de lijst.
+3. Op het scherm VM in de **Operations** sectie, klikt u op **inventaris** of **bijhouden van wijzigingen**. De **wijzigingen bijhouden inschakelen en voorraad** scherm wordt geopend.
+
+Configureer de locatie, de Log Analytics-werkruimte en het Automation-account dat moet worden gebruikt en klik op **Inschakelen**. Als de velden lichtgrijs zijn, betekent dit dat een andere automatiseringsoplossing is ingeschakeld voor de virtuele machine en dat dezelfde werkruimte en hetzelfde Automation-account moeten worden gebruikt. Eventhough de oplossingen zijn afzonderlijke in het menu, dezelfde oplossing. Als een, ingeschakeld voor uw virtuele machine.
+
+![Wijzigings- en Voorraadbeheer inschakelen](./media/tutorial-monitoring/manage-inventory-enable.png)
+
+Nadat de oplossing is ingeschakeld kan het enige tijd duren terwijl inventaris worden verzameld op de virtuele machine voordat gegevens worden weergegeven.
+
+### <a name="track-changes"></a>Wijzigingen bijhouden
+
+Op uw virtuele machine selecteert **bijhouden** onder **OPERATIONS**. Klik op **instellingen bewerken**, wordt de **bijhouden** pagina wordt weergegeven. Selecteer het type van de instelling die u wilt bijhouden en klik vervolgens op **+ toevoegen** om de instellingen te configureren. De beschikbare opties voor Windows zijn:
+
+* Windows Registry
+* Windows-bestanden
+
+Voor gedetailleerde informatie over wijzigingen bijhouden Zie [wijzigingen op een virtuele machine oplossen](../../automation/automation-tutorial-troubleshoot-changes.md)
+
+### <a name="view-inventory"></a>Inventaris weergeven
+
+Op uw virtuele machine selecteert **inventaris** onder **OPERATIONS**. Op het tabblad **Software** wordt een lijst weergegeven met de software die is gevonden. De algemene details voor elke softwarerecord worden in de tabel weergegeven. Deze gegevens omvatten de naam van de software, versie, uitgever en de tijd van laatste vernieuwd.
+
+![Inventaris weergeven](./media/tutorial-monitoring/inventory-view-results.png)
+
+### <a name="monitor-activity-logs-and-changes"></a>Monitor activiteitenlogboeken en wijzigingen
+
+Selecteer **Verbinding met het activiteitenlogboek beheren** op de pagina **Wijzigingen bijhouden** op de virtuele machine. Hiermee opent u de pagina **Azure-activiteitenlogboek**. Selecteer **Verbinden** om Wijzigingen bijhouden te verbinden met het Azure-activiteitenlogboek voor uw virtuele machine.
+
+Terwijl deze instelling is ingeschakeld, gaat u naar de pagina **Overzicht** voor de virtuele machine en selecteert u **Stoppen** om de virtuele machine te stoppen. Wanneer u daarom wordt gevraagd, selecteert u **Ja** om de virtuele machine te stoppen. Wanneer deze toewijzing ongedaan is gemaakt, selecteert u **Starten** om de virtuele machine opnieuw op te starten.
+
+Wanneer een virtuele machine wordt gestart en gestopt, wordt een gebeurtenis geregistreerd in het activiteitenlogboek. Ga terug naar de pagina **Wijzigingen bijhouden**. Selecteer het tabblad **Gebeurtenissen** onderaan op de pagina. Na een tijdje worden de gebeurtenissen weergegeven in de grafiek en in de tabel. Elke gebeurtenis kan worden geselecteerd om gedetailleerde informatie over de gebeurtenis weer te geven.
+
+![Wijzigingen in het gebeurtenissenlogboek weergeven](./media/tutorial-monitoring/manage-activitylog-view-results.png)
+
+De grafiek toont wijzigingen die in de loop der tijd hebben plaatsgevonden. Nadat u een verbinding met een Azure-activiteitenlogboek hebt toegevoegd, toont de lijngrafiek bovenaan gebeurtenissen uit het Azure-actitviteitenlogboek. Elke rij in het staafdiagram vertegenwoordigt een ander type wijziging dat kan worden gevolgd. Deze typen zijn Linux-daemons, bestanden, Windows-registersleutels, software en Windows-services. Het tabblad met wijzigingen bevat details over de wijzigingen in de visualisatie. Deze worden getoond in aflopende volgorde vanaf het moment waarop de wijziging optrad (meest recente eerst).
+
+## <a name="advanced-monitoring"></a>Geavanceerde controle
+
+U kunt doen meer geavanceerde bewaking van uw virtuele machine met behulp van de oplossingen zoals updatebeheer en wijzigings- en geleverd door Azure Automation-inventarisatie. [Operations Management Suite](../../automation/automation-intro.md).
+
+Wanneer u toegang tot de werkruimte voor logboekanalyse hebt, kunt u de werkruimte-id en werkruimtesleutel op vinden selecteren **geavanceerde instellingen** onder **instellingen**. Gebruik de [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) opdracht naar de Microsoft Monitoring agent-extensie aan de virtuele machine toevoegen. Bijwerken van de waarden van variabelen in het onderstaande voorbeeld om weer te geven u werkruimtesleutel Log Analytics en werkruimte-id.
 
 ```powershell
-$omsId = "<Replace with your OMS Id>"
-$omsKey = "<Replace with your OMS key>"
+$workspaceId = "<Replace with your workspace Id>"
+$key = "<Replace with your primary key>"
 
 Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
@@ -206,21 +251,22 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
   -ExtensionType "MicrosoftMonitoringAgent" `
   -TypeHandlerVersion 1.0 `
-  -Settings @{"workspaceId" = $omsId} `
-  -ProtectedSettings @{"workspaceKey" = $omsKey} `
+  -Settings @{"workspaceId" = $workspaceId} `
+  -ProtectedSettings @{"workspaceKey" = $key} `
   -Location eastus
 ```
 
-Na een paar minuten ziet u de nieuwe virtuele machine in de OMS-werkruimte. 
+Na een paar minuten ziet u de nieuwe virtuele machine in de werkruimte logboek Anaytics.
 
 ![OMS-blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 In deze zelfstudie hebt geconfigureerd en virtuele machines in Azure Security Center gecontroleerd. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * Een virtueel netwerk maken
-> * Een resourcegroep en de virtuele machine maken 
+> * Een resourcegroep en de virtuele machine maken
 > * Diagnostische gegevens over opstarten op de virtuele machine inschakelen
 > * Diagnostische gegevens over opstarten bekijken
 > * Metrische gegevens over de host weergeven

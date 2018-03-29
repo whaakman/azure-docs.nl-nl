@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51b96641c80a6575c64f58fa09e0bf6078e4185
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c39cf464a7e838fecf7ebd4a3cbb08612388a5fa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Verbinding maken met Azure ITSM hulpprogramma IT Service Management-Connector
 
@@ -342,7 +342,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 2.  Als u gegevens van ServiceNow is niet ophalen die zijn gesynchroniseerd met Log Analytics, zorg ervoor dat het ServiceNow exemplaar zich niet in de slaapstand. ServiceNow Dev exemplaren gaat soms slaapstand bij inactiviteit gedurende een lange periode. Anders Meld het probleem.
 3.  Als OMS waarschuwingen geactiveerd, maar werkt items ITSM product niet worden gemaakt of configuratie-items zijn niet gemaakt/gekoppeld aan werkitems of andere algemene informatie, vindt u in de volgende locaties:
  -  ITSMC: De oplossing bevat een overzicht van verbindingen werk items computers enzovoort. Klik op de tegel waarin **Connector-Status**, wat u duurt **logboek zoeken** met de relevante query. Bekijk de records in het logboek met LogType_S als fout voor meer informatie.
- - **Meld u zoekopdracht** pagina: Bekijk de fouten/gerelateerde informatie direct met de query *Type = ServiceDeskLog_CL*.
+ - **Meld u zoekopdracht** pagina: Bekijk de fouten/gerelateerde informatie direct met de query `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Problemen met de Web-App Service Manager-implementatie oplossen
 1.  In geval van problemen met web-app-implementatie, zorg ervoor dat u gemachtigd bent in het abonnement vermeld resources maken/implementeren.

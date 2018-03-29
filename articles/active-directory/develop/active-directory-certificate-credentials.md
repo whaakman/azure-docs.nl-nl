@@ -5,29 +5,29 @@ services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 03/15/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7c58b4ebd840aca555b52a03cf44ace311b64e3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Referenties van het computercertificaat voor de verificatie van de toepassing
 
-Azure Active Directory kan een toepassing een eigen referenties gebruikt voor verificatie, bijvoorbeeld in de stroom OAuth 2.0-Client referenties Grant ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) en de On-namens-stroom ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
+Azure Active Directory kunt een toepassing zijn eigen referenties voor verificatie. Bijvoorbeeld, in de stroom OAuth 2.0-Client referenties Grant ([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) en de On-namens-stroom ([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Een vorm van de referentie die kan worden gebruikt is een JSON Web Token(JWT) assertion ondertekend met een certificaat waartoe de toepassing.
 
 ## <a name="format-of-the-assertion"></a>Indeling van de verklaring
-Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON Web Token](https://jwt.io/) bibliotheken in de taal van uw keuze. De informatie die door het token is:
+Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON Web Token](https://jwt.ms/) bibliotheken in de taal van uw keuze. De informatie die door het token is:
 
 #### <a name="header"></a>Koptekst
 
@@ -43,10 +43,10 @@ Als u wilt de verklaring compute, wilt u waarschijnlijk een van de vele [JSON We
 | --- | --- |
 | `aud` | : Doelgroep  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/token** |
 | `exp` | Vervaldatum: de datum waarop het token verloopt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de geldigheid van het token is verlopen.|
-| `iss` | Uitgever: moet de client_id (toepassings-Id van de client-service) |
+| `iss` | Uitgever: moet de client_id (toepassings-ID van de client-service) |
 | `jti` | GUID: de JWT-ID |
 | `nbf` | Niet vooraf: de datum voor het token kan niet worden gebruikt. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de tijd die het token is uitgegeven. |
-| `sub` | Onderwerp:-als voor `iss`, moet de client_id (toepassings-Id van de client-service) |
+| `sub` | Onderwerp:-als voor `iss`, moet de client_id (toepassings-ID van de client-service) |
 
 #### <a name="signature"></a>Handtekening
 
@@ -85,7 +85,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Uw certificaat registreren met Azure AD
 
-De referentie certificaat koppelt u de clienttoepassing in Azure AD, moet u het toepassingsmanifest te bewerken.
+U kunt de referentie certificaat koppelen aan de clienttoepassing in Azure AD via de Azure portal met behulp van een van de volgende methoden:
+
+**Het certificaatbestand uploaden**
+
+Klik in de Azure-app-registratie voor de clienttoepassing, op **instellingen**, klikt u op **sleutels** en klik vervolgens op **openbare sleutel uploaden**. Selecteer het certificaatbestand dat u wilt uploaden en klik op **opslaan**. Zodra u opslaat, het certificaat is geüpload en de vingerafdruk begindatum en verloopt worden waarden weergegeven. 
+
+**Het toepassingsmanifest bijwerken**
+
 De blokkering van een certificaat hebt, moet u berekenen:
 
 - `$base64Thumbprint`, namelijk het base64-codering van het certificaat-Hash

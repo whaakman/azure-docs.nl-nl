@@ -5,8 +5,8 @@ keywords: Prestaties testen
 services: cosmos-db
 author: arramac
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 36665c0c26dad4e3b667b341b63c5859ece7605b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestaties en schaal testen met Azure Cosmos-DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Prestaties en schaal testen is een belangrijke stap in de ontwikkeling van toepassingen. Voor veel toepassingen heeft de databaselaag een aanzienlijke gevolgen voor de algehele prestaties en schaalbaarheid. Het is daarom een essentieel onderdeel van de prestatietests. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is speciaal hiervoor gemaakte voor elastisch schalen en voorspelbare prestaties. Deze mogelijkheden kunnen u een goede geschikt voor toepassingen die een krachtige databaselaag moeten. 
 

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 6f74dd4d9cb78c1316c87bd5a261e751b9b34923
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 89469af2b1d02ef00fc347e47719956885e7f142
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
@@ -52,6 +52,10 @@ Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md)
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
 {
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
     log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 }
 ```
@@ -144,19 +148,19 @@ module.exports = function (context, myTimer) {
 
 In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-De constructor van het kenmerk heeft een CRON-expressie, zoals weergegeven in het volgende voorbeeld:
+De constructor van het kenmerk werkt met een CRON-expressie of een `TimeSpan`. U kunt `TimeSpan` alleen als de functie-app wordt uitgevoerd op een App Service-abonnement. Het volgende voorbeeld ziet u een CRON-expressie:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
 {
-   ...
+    if (myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 }
  ```
-
-Kunt u een `TimeSpan` in plaats van een expressie CRON als uw app in de functie wordt uitgevoerd op een App Service-abonnement (niet in een plan verbruik).
-
-Zie voor een compleet voorbeeld [C#-voorbeeld](#c-example).
 
 ## <a name="configuration"></a>Configuratie
 
@@ -167,75 +171,11 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**type** | N.v.t. | Moet worden ingesteld op 'timerTrigger'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
 |**Naam** | N.v.t. | De naam van de variabele die staat voor de timer-object in de functiecode. | 
-|**schedule**|**ScheduleExpression**|U kunt schema's met een CRON-expressie definiëren op het plan verbruik. Als u een App Service-abonnement, kunt u ook gebruiken een `TimeSpan` tekenreeks. De volgende secties worden de CRON-expressies. U kunt de expressie van de planning opnemen in een app-instelling en stel deze eigenschap in op een waarde die zijn ingepakt **%** hekjes, zoals in dit voorbeeld: '% NameOfAppSettingWithCRONExpression %'. |
+|**schedule**|**ScheduleExpression**|Een [CRON expressie](#cron-expressions) of een [TimeSpan](#timespan) waarde. Een `TimeSpan` kan alleen worden gebruikt voor een functie-app die wordt uitgevoerd op een App Service-Plan. U kunt de expressie van de planning opnemen in een app-instelling en deze eigenschap instellen op de app verpakt naam van instelling **%** hekjes, zoals in dit voorbeeld: '% NameOfAppSettingWithScheduleExpression %'. |
+|**runOnStartup**|**RunOnStartup**|Als `true`, de functie wordt aangeroepen wanneer de runtime wordt gestart. De runtime wordt bijvoorbeeld gestart wanneer de functie-app ontwaakt na inactiviteit vanwege inactiviteit. Wanneer de functie-app opnieuw wordt gestart als gevolg van wijzigingen van de functie, en wanneer de functie-app uitgeschaald. Dus **runOnStartup** moet zelden of nooit worden ingesteld op `true`, zoals brengt code uitvoeren op maximaal onvoorspelbare tijdstippen. Als u nodig hebt voor het activeren van de functie buiten de timer-planning, kunt u een tweede functie met een andere triggertype maken en delen van de code tussen de twee functies. Kan bijvoorbeeld activeren op implementatie [aanpassen van uw implementatie](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) aanroepen van de tweede functie door het maken van een HTTP-aanvraag bij de implementatie is voltooid.|
+|**useMonitor**|**UseMonitor**|Ingesteld op `true` of `false` om aan te geven of het schema moet worden gecontroleerd. Planning bewaking persistente planning voorvallen als hulpmiddel om ervoor te zorgen dat de planning correct wordt bijgehouden, zelfs wanneer de functie app-exemplaren opnieuw opstart. Als niet expliciet is ingesteld, de standaardinstelling is `true` voor schema's die u een interval dat groter is dan 1 minuut hebt. Voor schema's die meer dan één keer per minuut activeren, de standaardwaarde is `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
-
-### <a name="cron-format"></a>CRON-indeling 
-
-Een [CRON expressie](http://en.wikipedia.org/wiki/Cron#CRON_expression) voor de Azure Functions-timer trigger deze zes velden bevat: 
-
-```
-{second} {minute} {hour} {day} {month} {day-of-week}
-```
-
->[!NOTE]   
->Veel van de CRON-expressies die u online vinden weglaten de `{second}` veld. Als u een van deze kopieert, voeg de ontbrekende `{second}` veld.
-
-### <a name="cron-time-zones"></a>CRON-tijdzones
-
-De standaardtijdzone gebruikt met de CRON-expressies is Coordinated Universal Time (UTC). Als u wilt dat de CRON-expressie op basis van een andere tijdzone, maakt u een nieuwe appinstelling voor de functie-app met de naam `WEBSITE_TIME_ZONE`. De waarde ingesteld op de naam van de gewenste tijdzone, zoals wordt weergegeven in de [Microsoft tijdzone Index](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
-
-Bijvoorbeeld: *Eastern (standaardtijd)* UTC-05:00. Om uw timer fire activeren op 10:00 AM GMT elke dag, gebruikt u de volgende CRON-expressie die voor de UTC-tijdzone-accounts:
-
-```json
-"schedule": "0 0 15 * * *",
-``` 
-
-U kunt ook kunt u een nieuwe appinstelling toevoegen voor de functie-app met de naam `WEBSITE_TIME_ZONE` en stel de waarde op **Eastern (standaardtijd)**.  De volgende CRON-expressie kan vervolgens worden gebruikt voor 10:00 AM GMT: 
-
-```json
-"schedule": "0 0 10 * * *",
-``` 
-### <a name="cron-examples"></a>CRON-voorbeelden
-
-Hier volgen enkele voorbeelden van CRON-expressies die u voor de timertrigger in Azure Functions gebruiken kunt. 
-
-Om de vijf minuten activeren:
-
-```json
-"schedule": "0 */5 * * * *"
-```
-
-Voor het activeren van één keer aan de bovenkant van elk uur:
-
-```json
-"schedule": "0 0 * * * *",
-```
-
-Voor het activeren van elke twee uur:
-
-```json
-"schedule": "0 0 */2 * * *",
-```
-
-Voor het activeren van één keer per uur van 9: 00 uur tot 5 PM:
-
-```json
-"schedule": "0 0 9-17 * * *",
-```
-
-Om te activeren op elke dag 9:30 uur:
-
-```json
-"schedule": "0 30 9 * * *",
-```
-
-Om te activeren om 9:30 AM elke weekdag:
-
-```json
-"schedule": "0 30 9 * * 1-5",
-```
 
 ## <a name="usage"></a>Gebruik
 
@@ -246,20 +186,91 @@ Wanneer een functie van de trigger timer wordt opgeroepen, de [timerobject](http
     "Schedule":{
     },
     "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00.012699+00:00",
+        "Last":"2016-10-04T10:15:00+00:00",
+        "LastUpdated":"2016-10-04T10:16:00+00:00",
         "Next":"2016-10-04T10:20:00+00:00"
     },
     "IsPastDue":false
 }
 ```
 
+De `IsPastDue` eigenschap is `true` wanneer de huidige functie-aanroep is later dan gepland. Een app opnieuw starten van de functie veroorzaken mogelijk een aanroep naar worden overgeslagen.
+
+## <a name="cron-expressions"></a>CRON-expressies 
+
+Een CRON-expressie voor de trigger van Azure Functions timer bevat zes velden: 
+
+`{second} {minute} {hour} {day} {month} {day-of-week}`
+
+Elk veld kan een van de volgende soorten waarden hebben:
+
+|Type  |Voorbeeld  |Wanneer deze worden geactiveerd  |
+|---------|---------|---------|
+|Een bepaalde waarde |<nobr>"0 5 * * * *"</nobr>|op hh:05:00 waarbij UU staat voor elk uur (eens per uur)|
+|Alle waarden (`*`)|<nobr>"0 * 5 * * *"</nobr>|op 5:mm: 00 per dag uit, waarbij mm wordt elke minuut van het uur (60 keer per dag)|
+|Een bereik (`-` operator)|<nobr>"5-7 * * * * *"</nobr>|op hh:mm:05 hh:mm:06 en hh:mm:07 waarbij UU: mm elke minuut van elk uur (3 maal een minuut wordt)|  
+|Een set waarden (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|op hh:mm:05 hh:mm:08 en hh:mm:10 waarbij UU: mm elke minuut van elk uur (3 maal een minuut wordt)|
+|Een intervalwaarde (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|op hh:05:00, hh:10:00, hh:15:00 tot en met hh:55:00 waarbij UU staat voor elk uur (12 keer een uur)|
+
+### <a name="cron-examples"></a>CRON-voorbeelden
+
+Hier volgen enkele voorbeelden van CRON-expressies die u voor de timertrigger in Azure Functions gebruiken kunt.
+
+|Voorbeeld|Wanneer deze worden geactiveerd  |
+|---------|---------|
+|"0 */5 * * * *"|om de vijf minuten|
+|"0 0 * * * *"|eenmaal boven aan elk uur|
+|"0 0 */2 * * *"|elke twee uur|
+|"0 0 9-17 * * *"|één keer per uur van 9: 00 uur op 17: 00 uur|
+|"0 30 9 * * *"|op elke dag 9:30 uur|
+|"0 30 9 * * 1-5"|om 9:30 AM elke weekdag|
+
+>[!NOTE]   
+>U vindt online CRON expressie voorbeelden, maar veel van deze laat de `{second}` veld. Als u een van deze kopieert, voeg de ontbrekende `{second}` veld. Doorgaans wilt u een nul in dat veld niet een sterretje.
+
+### <a name="cron-time-zones"></a>CRON-tijdzones
+
+De getallen in een expressie CRON verwijzen naar een tijd en datum, niet voor een periode. Bijvoorbeeld, een 5 in de `hour` veld verwijst naar 5:00 uur, niet elke vijf uur.
+
+De standaardtijdzone gebruikt met de CRON-expressies is Coordinated Universal Time (UTC). Als u wilt dat de CRON-expressie op basis van een andere tijdzone, maakt u een app-instelling voor de functie-app met de naam `WEBSITE_TIME_ZONE`. De waarde ingesteld op de naam van de gewenste tijdzone, zoals wordt weergegeven in de [Microsoft tijdzone Index](https://technet.microsoft.com/library/cc749073). 
+
+Bijvoorbeeld: *Eastern (standaardtijd)* UTC-05:00. Om uw timer fire activeren op 10:00 AM GMT elke dag, gebruikt u de volgende CRON-expressie die voor de UTC-tijdzone-accounts:
+
+```json
+"schedule": "0 0 15 * * *",
+``` 
+
+Of maak een app-instelling voor de functie-app met de naam `WEBSITE_TIME_ZONE` en stel de waarde op **Eastern (standaardtijd)**.  Vervolgens gebruikt de volgende CRON-expressie: 
+
+```json
+"schedule": "0 0 10 * * *",
+``` 
+
+## <a name="timespan"></a>TimeSpan
+
+ Een `TimeSpan` kan alleen worden gebruikt voor een functie-app die wordt uitgevoerd op een App Service-Plan.
+
+In tegenstelling tot een expressie CRON een `TimeSpan` waarde geeft het interval tussen elke functie-aanroep. Wanneer een functie is voltooid na het uitvoeren van meer dan het opgegeven interval, roept de timer onmiddellijk de functie opnieuw.
+
+Uitgedrukt als een tekenreeks, de `TimeSpan` indeling is `hh:mm:ss` wanneer `hh` is minder dan 24. Wanneer de eerste twee cijfers 24 of hoger zijn, de indeling is `dd:hh:mm`. Hier volgen enkele voorbeelden:
+
+|Voorbeeld |Wanneer deze worden geactiveerd  |
+|---------|---------|
+|"01:00:00" | Elk uur        |
+|"00:01:00"|elke minuut         |
+|"24:00:00" | elke 24 dagen        |
+
 ## <a name="scale-out"></a>Uitschalen
 
-De timertrigger ondersteunt meerdere exemplaren scale-out. Slechts één exemplaar van een bepaalde timerfunctie wordt uitgevoerd in alle exemplaren.
+Als een functie-app uitgeschaald naar meerdere exemplaren, wordt slechts één exemplaar van een functie timer geactiveerd in alle exemplaren uitgevoerd.
 
 ## <a name="function-apps-sharing-storage"></a>Functie apps opslag delen
 
 Als u een opslagaccount voor meerdere apps van de functie deelt, zorg dat elke functie-app een andere heeft `id` in *host.json*. U kunt weglaten de `id` eigenschap of stel handmatig elke functie-app `id` op een andere waarde. De timertrigger maakt gebruik van een vergrendeling opslag om ervoor te zorgen dat er slechts één exemplaar van de timer worden wanneer een functie-app uitgeschaald naar meerdere exemplaren. Als twee functie apps dezelfde delen `id` en elk een timertrigger gebruikt, wordt slechts één timer wordt uitgevoerd.
+
+## <a name="retry-behavior"></a>Opnieuw proberen
+
+In tegenstelling tot de wachtrij worden geactiveerd opnieuw niet de timertrigger nadat een functie is mislukt. Als er een functie uitvalt, het is't tot de volgende keer opnieuw worden aangeroepen voor de planning.
 
 ## <a name="next-steps"></a>Volgende stappen
 

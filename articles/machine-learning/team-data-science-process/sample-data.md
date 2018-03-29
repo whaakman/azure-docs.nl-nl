@@ -2,7 +2,7 @@
 title: Voorbeeldgegevens in Azure blob-containers, SQL Server en Hive-tabellen | Microsoft Docs
 description: Hoe gegevens die zijn opgeslagen in verschillende Azure enviromnents verkennen.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: garye;bradsev
-ms.openlocfilehash: 202a70bf17f9cbf655cb4220c4480a5bcc8563f1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: bradsev
+ms.openlocfilehash: 3dede87191b2122168cc9ad2cdf0a27c5e4908b4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="heading"></a>Voorbeeldgegevens in Azure blob-containers, SQL Server en Hive-tabellen
 Dit bevat documentkoppelingen naar artikelen over hoe u voorbeeldgegevens die zijn opgeslagen in een van drie verschillende Azure locaties:
