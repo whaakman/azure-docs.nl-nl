@@ -19,12 +19,16 @@
       href: tutorial-simulate-device-windows.md
     - name: 'Een C#-module ontwikkelen'
       href: tutorial-csharp-module.md
+    - name: Een Python-module ontwikkelen
+      href: tutorial-python-module.md
     - name: Azure Stream Analytics implementeren
       href: tutorial-deploy-stream-analytics.md
     - name: Azure Machine Learning implementeren
       href: tutorial-deploy-machine-learning.md
     - name: Azure Functions implementeren
       href: tutorial-deploy-function.md
+    - name: Werken met meerdere modules in VS-code
+      href: tutorial-multiple-modules-in-vscode.md
 - name: Handleidingen
   items:
     - name: Gateways maken

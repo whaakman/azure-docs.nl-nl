@@ -26,14 +26,20 @@
       items:
         - name: Opslagaccountopties
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Planning voor de implementatie van Azure Files
-          href: storage-files-planning.md
         - name: Azure Files implementeren
-          href: storage-files-deployment-guide.md
-        - name: Planning voor de implementatie van Azure Files Sync
-          href: storage-sync-files-planning.md
-        - name: Azure Files Sync implementeren
-          href: storage-sync-files-deployment-guide.md
+          items:
+            - name: Planning voor de implementatie van Azure Files
+              href: storage-files-planning.md
+            - name: Azure Files implementeren
+              href: storage-files-deployment-guide.md
+        - name: Azure Files SYNC implementeren
+          items:
+            - name: Planning voor de implementatie van Azure Files Sync
+              href: storage-sync-files-planning.md
+            - name: Azure Files Sync implementeren
+              href: storage-sync-files-deployment-guide.md
+            - name: Proxy- en firewallinstellingen van Azure File Sync
+              href: storage-sync-files-firewall-and-proxy.md
         - name: Over momentopnamen van bestandsshares
           href: storage-snapshots-files.md
         - name: Werken met momentopnamen van bestandsshares

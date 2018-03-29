@@ -1,15 +1,38 @@
-# [Documentatie voor virtuele-machineschaalsets](index.md)
+# [Documentatie voor virtuele-machineschaalsets](index.yml)
 
 # Overzicht
-## [Wat zijn schaalsets voor virtuele machines?](virtual-machine-scale-sets-overview.md)
+## [Wat zijn schaalsets voor virtuele machines?](overview.md)
 
-# Aan de slag
-## [Maken in Azure Portal](virtual-machine-scale-sets-create-portal.md)
-## [Maken met Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
-## [Maken met Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+# Snelstartgidsen
+## [Maken in Azure Portal](quick-create-portal.md)
+## [Maken met Azure CLI 2.0](quick-create-cli.md)
+## [Maken met Azure PowerShell](quick-create-powershell.md)
 ## Maken met een sjabloon
-### [Linux-schaalset](virtual-machine-scale-sets-create-template-linux.md)
-### [Windows-schaalset](virtual-machine-scale-sets-create-template-windows.md)
+### [Linux-schaalset](quick-create-template-linux.md)
+### [Windows-schaalset](quick-create-template-windows.md)
+
+# Zelfstudies
+## 1 - Schaalset maken/beheren
+### [Azure CLI 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
+## 2 - Gegevensschijven gebruiken
+### [Azure CLI 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
+## 3 - Een aangepaste VM-installatiekopie gebruiken
+### [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+## 4 - Apps implementeren in een schaalset
+### [Azure CLI 2.0](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
+### [Sjabloon](tutorial-install-apps-template.md)
+## 5 - Een schaalset automatisch schalen
+### [Azure CLI 2.0](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
+### [Sjabloon](tutorial-autoscale-template.md)
+
+# Voorbeelden
+## [Azure CLI 2.0](cli-samples.md)
+## [PowerShell](powershell-samples.md)
 
 # Procedures
 ## Plannen en ontwerpen
@@ -24,12 +47,9 @@
 
 ## Implementeren
 ### [Maken met Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Schaalset met Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Beschikbaarheidszones gebruiken](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Een schaalset automatisch schalen](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Azure Portal gebruiken](virtual-machine-scale-sets-autoscale-portal.md)
-#### [Azure CLI 2.0 gebruiken](virtual-machine-scale-sets-autoscale-cli.md)
-#### [Azure PowerShell gebruiken](virtual-machine-scale-sets-autoscale-powershell.md)
 #### [Geavanceerd automatisch schalen](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Toepassingen op schaalsets](virtual-machine-scale-sets-deploy-app.md)
 ### [Gegevensschijven met schaalsets gebruiken](virtual-machine-scale-sets-attached-disks.md)

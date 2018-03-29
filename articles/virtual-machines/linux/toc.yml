@@ -419,6 +419,8 @@
           href: extensions-nwa.md
         - name: VMAccess-extensie
           href: using-vmaccess-extension.md
+        - name: Installatie van extensie beperken
+          href: extensions-rmpolicy-howto-cli.md
     - name: Virtuele machines migreren
       items:
         - name: AWS en on-premises VM's migreren
@@ -458,6 +460,8 @@
           href: understand-vm-reboot.md
         - name: Diagnostische gegevens over opstarten
           href: boot-diagnostics.md
+        - name: Seriële console
+          href: serial-console.md
         - name: Toegang tot toepassingen
           href: troubleshoot-app-connection.md
         - name: Toewijzingsfouten

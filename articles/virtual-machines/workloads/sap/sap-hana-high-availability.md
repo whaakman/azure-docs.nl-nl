@@ -2,22 +2,22 @@
 title: Setup-SAP HANA System replicatie op Azure Virtual Machines (VM's) | Microsoft Docs
 description: Hoge beschikbaarheid van SAP HANA op Azure virtuele Machines (VM's) maken.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/12/2017
+ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: 2bf9ed176f37c315aa4496894315f2318370ce7f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8c01c4e3f060c6a5ad52f1ed16103ea42d8cd2b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Hoge beschikbaarheid van SAP HANA op Azure virtuele Machines (VM's)
 
@@ -40,14 +40,14 @@ ms.lasthandoff: 03/08/2018
 
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
-[template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
+[template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
 
 On-premises kunt u kunt gebruiken beide HANA System Replication of gedeelde opslag gebruiken om hoge beschikbaarheid voor SAP HANA stand te brengen.
 Is dat de enige ondersteunde hoge beschikbaarheid functie tot nu toe op Azure VM's HANA System Replication op Azure. SAP HANA replicatie bestaat uit één primair knooppunt en ten minste één secundaire knooppunt. Wijzigingen in de gegevens op het primaire knooppunt worden gerepliceerd naar het secundaire knooppunt synchroon of asynchroon.
 
-Dit artikel wordt beschreven hoe u de virtuele machines te implementeren, configureren van de virtuele machines, installeer het framework cluster installeren en configureren van replicatie voor SAP HANA-systeem.
-Installatie opdrachten enzovoort exemplaarnummer 03 en HANA systeem-ID HDB wordt gebruikt in de voorbeeldconfiguraties.
+In dit artikel wordt beschreven hoe de virtuele machines te implementeren, configureren van de virtuele machines, cluster-framework hebt geïnstalleerd, installeren en configureren van SAP HANA System Replication.
+Installatie opdrachten enzovoort exemplaarnummer 03 en HANA systeem-ID HN1 wordt gebruikt in de voorbeeldconfiguraties.
 
 Lees eerst de volgende opmerkingen bij de SAP en documenten
 
@@ -70,35 +70,77 @@ Lees eerst de volgende opmerkingen bij de SAP en documenten
 * [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide]
 * [SAP HANA SR prestaties geoptimaliseerd Scenario] [ suse-hana-ha-guide] de handleiding bevat alle benodigde informatie voor het instellen van SAP HANA System Replication on-premises. Deze handleiding gebruiken als basislijn.
 
+## <a name="overview"></a>Overzicht
+
+SAP HANA is om te zorgen voor hoge beschikbaarheid, geïnstalleerd op twee virtuele machines. De gegevens worden gerepliceerd met behulp van HANA System replicatie.
+
+![Hoge beschikbaarheid voor SAP HANA-overzicht](./media/sap-hana-high-availability/ha-suse-hana.png)
+
+De SAP HANA SR setup maakt gebruik van een speciale virtuele hostnaam en het virtuele IP-adressen. In Azure, is een load balancer vereist voor het gebruik van een virtueel IP-adres. De volgende lijst ziet u de configuratie van de load balancer.
+
+* Frontend configuratie
+  * IP-adres 10.0.0.13 voor hn1-db
+* Back-endconfiguratie
+  * Verbonden met de primaire netwerkinterfaces van alle virtuele machines die deel van HANA System Replication uitmaken moet
+* De Testpoort
+  * Poort 62503
+* Loadbalancing regels
+  * 30313 TCP
+  * 30315 TCP
+  * 30317 TCP
+
 ## <a name="deploying-linux"></a>Linux implementeren
 
 De resource-agent voor SAP HANA is opgenomen in SUSE Linux Enterprise Server voor SAP-toepassingen.
-Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor SAP-toepassingen 12 met BYOS (uw eigen abonnement Bring) die u gebruiken kunt om nieuwe virtuele machines te implementeren.
+Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor SAP-toepassingen 12 die u gebruiken kunt om nieuwe virtuele machines te implementeren.
+
+### <a name="deploy-with-template"></a>Implementeren met sjabloon
+U kunt een van de Quick Start-sjablonen op github gebruiken voor het implementeren van alle vereiste resources. De sjabloon wordt geïmplementeerd voor de virtuele machines, de load balancer, beschikbaarheidsset enzovoort. Volg deze stappen voor het implementeren van de sjabloon:
+
+1. Open de [databasesjabloon] [ template-multisid-db] of de [geconvergeerde sjabloon] [ template-converged] in de Azure portal. 
+   De databasesjabloon maakt alleen de regels voor taakverdeling voor een database terwijl de geconvergeerde sjabloon ook de regels voor taakverdeling voor een ASC's / SCS en Ebruikers (alleen voor Linux)-exemplaar maakt. Als u van plan bent een SAP NetWeaver gebaseerd systeem installeren en u ook wilt voor het exemplaar ASC's / SCS installeren op de dezelfde machines, gebruikt u de [geconvergeerde sjabloon][template-converged].
+1. Voer de volgende parameters
+    1. SAP-systeem-ID  
+       Voer de SAP-systeem-ID van het SAP-systeem die u wilt installeren. De ID zal worden gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
+    1. Stack-Type (alleen van toepassing als u de sjabloon geconvergeerde gebruikt)   
+       Selecteer het type van de stack SAP NetWeaver
+    1. Type besturingssysteem  
+       Selecteer een van de Linux-distributies. Selecteer voor dit voorbeeld SLES 12
+    1. DB-Type  
+       Selecteer HANA
+    1. Grootte van het SAP  
+       De hoeveelheid SAP's het nieuwe systeem wilt geven. Als u niet zeker weet hoeveel SAP's het systeem vereist is, vraagt u uw SAP-technologie Partner of System Integrator
+    1. Beschikbaarheid van het systeem  
+       Selecteer HA
+    1. Gebruikersnaam van de beheerder en het wachtwoord van beheerder  
+       Een nieuwe gebruiker wordt gemaakt die kunnen worden gebruikt voor aanmelding bij de computer.
+    1. Nieuwe of bestaande Subnet  
+       Bepaalt of een nieuw virtueel netwerk en subnet moeten worden gemaakt of een bestaand subnet moet worden gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u de bestaande.
+    1. Subnet-ID  
+    De ID van het subnet waarmee de virtuele machines moet worden verbonden. Selecteer voor de virtuele machine verbinding met uw on-premises netwerk, het subnet van het virtuele netwerk VPN of Express Route. De ID meestal ziet eruit als /subscriptions/`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
 
 ### <a name="manual-deployment"></a>Handmatige implementatie
 
 1. Een resourcegroep maken
 1. Een virtueel netwerk maken
-1. Twee Storage-Accounts maken
 1. Een Beschikbaarheidsset maken  
    De maximale updatedomein instellen
 1. Maak een Load Balancer (intern)  
-   Selecteer VNET gemaakt in de tweede stap
-1. Virtuele Machine 1 maken   
-   Ten minste SLES4SAP 12 SP1, in dit voorbeeld de installatiekopie SLES4SAP 12 SP1 BYOS https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES voor SAP toepassingen 12 SP1 (BYOS) wordt gebruikt  
-   Selecteer de Storage-Account 1   
-   Beschikbaarheidsset selecteren  
-1. Virtuele Machine 2 maken   
-   Ten minste SLES4SAP 12 SP1, in dit voorbeeld de installatiekopie SLES4SAP 12 SP1 BYOS https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES voor SAP toepassingen 12 SP1 (BYOS) wordt gebruikt  
-   Selecteer Opslagaccount 2    
-   Beschikbaarheidsset selecteren  
+   Selecteer gemaakt in de tweede VNET
+1. Virtuele Machine 1 maken  
+   Ten minste SLES4SAP 12 SP1, in dit voorbeeld gebruiken we de installatiekopie van het SLES4SAP 12 SP2 https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
+   SLES voor SAP-12 SP2 (Premium)  
+   Selecteer Beschikbaarheidsset eerder hebt gemaakt  
+1. Virtuele Machine 2 maken  
+   Ten minste SLES4SAP 12 SP1, in dit voorbeeld gebruiken we de installatiekopie van het SLES4SAP 12 SP1 BYOS https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
+   SLES voor SAP-12 SP2 (Premium)  
+   Selecteer Beschikbaarheidsset eerder hebt gemaakt  
 1. Gegevensschijven toevoegen
 1. De load balancer configureren
     1. Een frontend-IP-adresgroep maken
         1. Open de load balancer, selecteer frontend-IP-adresgroep en klik op toevoegen
         1. Voer de naam van de nieuwe frontend IP-adresgroep (bijvoorbeeld hana-frontend)
+        1. De toewijzing instellen op statisch en voer het IP-adres (bijvoorbeeld **10.0.0.13**)
         1. Klik op OK
         1. Nadat de nieuwe frontend-IP-adresgroep is gemaakt, noteert u het IP-adres
     1. Een back endpool maken
@@ -117,159 +159,119 @@ Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor SA
         1. Open de load balancer en taakverdelingsregels Selecteer klikt u op toevoegen
         1. Voer de naam van de load balancer-regel (bijvoorbeeld hana-lb-3**03**15)
         1. Selecteer de frontend-IP-adres, back-endpool en health test die u gemaakt eerder (voor voorbeeld hana-frontend)
-        1. Protocol TCP houden, voert u poort 3**03**15
+        1. Protocol TCP houden, voert u poort 3**03**13
         1. Verhoog de time-out voor inactiviteit tot 30 minuten
         1. **Zorg ervoor dat u kunt zwevend IP inschakelen**
         1. Klik op OK
-        1. Herhaal de stappen hierboven voor poort 3**03**17
+        1. Herhaal de stappen hierboven voor poort 3**03**15 en 3**03**17
 
-### <a name="deploy-with-template"></a>Implementeren met sjabloon
-U kunt een van de Quick Start-sjablonen op github gebruiken voor het implementeren van alle vereiste resources. De sjabloon wordt geïmplementeerd voor de virtuele machines, de load balancer, beschikbaarheidsset enzovoort. Volg deze stappen voor het implementeren van de sjabloon:
+## <a name="create-pacemaker-cluster"></a>Pacemaker heeft cluster maken
 
-1. Open de [databasesjabloon] [ template-multisid-db] of de [geconvergeerde sjabloon] [ template-converged] in de Azure portal. 
-   De databasesjabloon maakt alleen de regels voor taakverdeling voor een database terwijl de geconvergeerde sjabloon ook de regels voor taakverdeling voor een ASC's / SCS en Ebruikers (alleen voor Linux)-exemplaar maakt. Als u van plan bent een SAP NetWeaver gebaseerd systeem installeren en u ook wilt voor het exemplaar ASC's / SCS installeren op de dezelfde machines, gebruikt u de [geconvergeerde sjabloon][template-converged].
-1. Voer de volgende parameters
-    1. SAP-systeem-ID  
-       Voer de SAP-systeem-ID van het SAP-systeem die u wilt installeren. De ID zal worden gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
-    1. Stack-Type (alleen van toepassing als u de sjabloon geconvergeerde gebruikt)   
-       Selecteer het type van de stack SAP NetWeaver
-    1. Type besturingssysteem  
-       Selecteer een van de Linux-distributies. Selecteer voor dit voorbeeld SLES 12 BYOS
-    1. DB-Type  
-       Selecteer HANA
-    1. Grootte van het SAP  
-       De hoeveelheid SAP's het nieuwe systeem wilt geven. Als u niet zeker weet hoeveel SAP's het systeem vereist is, vraagt u uw SAP-technologie Partner of System Integrator
-    1. Beschikbaarheid van het systeem  
-       Selecteer HA
-    1. Gebruikersnaam van de beheerder en het wachtwoord van beheerder  
-       Een nieuwe gebruiker wordt gemaakt die kunnen worden gebruikt voor aanmelding bij de computer.
-    1. Nieuwe of bestaande Subnet  
-       Bepaalt of een nieuw virtueel netwerk en subnet moeten worden gemaakt of een bestaand subnet moet worden gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u de bestaande.
-    1. Subnet-ID  
-    De ID van het subnet waarmee de virtuele machines moet worden verbonden. Selecteer voor de virtuele machine verbinding met uw on-premises netwerk, het subnet van het virtuele netwerk VPN of Express Route. De ID meestal ziet eruit als /subscriptions/`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
+Volg de stappen in [pacemaker heeft op SUSE Linux Enterprise Server in Azure instellen](high-availability-guide-suse-pacemaker.md) een basic pacemaker heeft cluster voor deze server HANA te maken. U kunt hetzelfde cluster pacemaker heeft ook gebruiken voor SAP HANA en SAP NetWeaver (A) SCS.
 
-## <a name="setting-up-linux-ha"></a>Instellen van Linux HA
+## <a name="installing-sap-hana"></a>SAP HANA installeren
 
-De volgende items worden voorafgegaan door [A] - van toepassing op alle knooppunten [1] - alleen van toepassing op knooppunt 1 of [2] - alleen van toepassing op knooppunt 2.
+De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle knooppunten **[1]** - alleen van toepassing op knooppunt 1 of **[2]** - alleen van toepassing op knooppunt 2 van het cluster pacemaker heeft.
 
-1. [A] SLES voor SAP BYOS alleen - SLES om het gebruik van de opslagplaatsen te kunnen registreren
-1. [A] SLES voor SAP BYOS alleen - toevoegen openbare cloud module
-1. [A] SLES bijwerken
-    ```bash
-    sudo zypper update
-
-    ```
-
-1. [1] ssh toegang inschakelen
-    ```bash
-    sudo ssh-keygen -tdsa
-    
-    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-    # Enter passphrase (empty for no passphrase): -> ENTER
-    # Enter same passphrase again: -> ENTER
-    
-    # copy the public key
-    sudo cat /root/.ssh/id_dsa.pub
-    ```
-
-2. [2] ssh toegang inschakelen
-    ```bash
-    sudo ssh-keygen -tdsa
-
-    # insert the public key you copied in the last step into the authorized keys file on the second server
-    sudo vi /root/.ssh/authorized_keys
-    
-    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-    # Enter passphrase (empty for no passphrase): -> ENTER
-    # Enter same passphrase again: -> ENTER
-    
-    # copy the public key    
-    sudo cat /root/.ssh/id_dsa.pub
-    ```
-
-1. [1] ssh toegang inschakelen
-    ```bash
-    # insert the public key you copied in the last step into the authorized keys file on the first server
-    sudo vi /root/.ssh/authorized_keys
-    
-    ```
-
-1. [A] HA-uitbreiding installeren
-    ```bash
-    sudo zypper install sle-ha-release fence-agents
-    
-    ```
-
-1. [A] indeling van setup-schijf
+1. **[A]**  Indeling van setup-schijf
     1. LVM  
-    In het algemeen wordt aangeraden met LVM voor volumes die bij het opslaan van gegevens en logboekbestanden. Het volgende voorbeeld wordt ervan uitgegaan dat de virtuele machines vier gegevensschijven gekoppeld die moeten worden gebruikt voor het maken van twee volumes hebben.
-        * Maak fysieke volumes voor alle schijven die u wilt gebruiken.
-    <pre><code>
-    sudo pvcreate /dev/sdc
-    sudo pvcreate /dev/sdd
-    sudo pvcreate /dev/sde
-    sudo pvcreate /dev/sdf
-    </code></pre>
-        * Maak een groep volume voor de gegevensbestanden, één volume groep voor de logboekbestanden en één voor de gedeelde map van SAP HANA
-    <pre><code>
-    sudo vgcreate vg_hana_data /dev/sdc /dev/sdd
-    sudo vgcreate vg_hana_log /dev/sde
-    sudo vgcreate vg_hana_shared /dev/sdf
-    </code></pre>
-        * De logische volumes maken
-    <pre><code>
-    sudo lvcreate -l 100%FREE -n hana_data vg_hana_data
-    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log
-    sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared
-    sudo mkfs.xfs /dev/vg_hana_data/hana_data
-    sudo mkfs.xfs /dev/vg_hana_log/hana_log
-    sudo mkfs.xfs /dev/vg_hana_shared/hana_shared
-    </code></pre>
-        * Maak de mappen koppelen en kopieer de UUID van alle logische volumes
-    <pre><code>
-    sudo mkdir -p /hana/data
-    sudo mkdir -p /hana/log
-    sudo mkdir -p /hana/shared
-    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
-    sudo blkid
-    </code></pre>
-        * Fstab-vermeldingen voor de drie logische volumes maken
-    <pre><code>
-    sudo vi /etc/fstab
-    </code></pre>
-    Deze regel moet worden /etc/fstab invoegen
-    <pre><code>
-    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2
-    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2
-    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2
-    </code></pre>
-        * Koppel de nieuwe volumes
-    <pre><code>
-    sudo mount -a
-    </code></pre>
-    1. Gewone schijven  
-       Voor kleine of demo-systemen, kunt u uw bestanden HANA gegevens en logboekbestanden op één schijf plaatsen. De volgende opdrachten een partitie maken op /dev/sdc en formatteert u het met xfs.
-    ```bash
-    sudo fdisk /dev/sdc
-    sudo mkfs.xfs /dev/sdc1
+       
+       In het algemeen wordt aangeraden met LVM voor volumes die bij het opslaan van gegevens en logboekbestanden. Het volgende voorbeeld wordt ervan uitgegaan dat de virtuele machines vier gegevensschijven gekoppeld die moeten worden gebruikt voor het maken van twee volumes hebben.
+
+       Lijst van alle beschikbare schijven
+       
+       <pre><code>
+       ls /dev/disk/azure/scsi1/lun*
+       </code></pre>
+       
+       Voorbeeld van uitvoer
+       
+       ```
+       /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
+       ```
+       
+       Maak fysieke volumes voor alle schijven die u wilt gebruiken.    
+       <pre><code>
+       sudo pvcreate /dev/disk/azure/scsi1/lun0
+       sudo pvcreate /dev/disk/azure/scsi1/lun1
+       sudo pvcreate /dev/disk/azure/scsi1/lun2
+       sudo pvcreate /dev/disk/azure/scsi1/lun3
+       </code></pre>
+
+       Maak een groep volume voor de gegevensbestanden, één volume groep voor de logboekbestanden en één voor de gedeelde map van SAP HANA
+
+       <pre><code>
+       sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
+       sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
+       sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
+       </code></pre>
+       
+       De logische volumes maken
+
+       <pre><code>
+       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
+       sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
+       sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
+       sudo mkfs.xfs /dev/vg_hana_log_<b>HN1</b>/hana_log
+       sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
+       </code></pre>
+       
+       Maak de mappen koppelen en kopieer de UUID van alle logische volumes
+       
+       <pre><code>
+       sudo mkdir -p /hana/data/<b>HN1</b>
+       sudo mkdir -p /hana/log/<b>HN1</b>
+       sudo mkdir -p /hana/shared/<b>HN1</b>
+       # write down the ID of /dev/vg_hana_data_<b>HN1</b>/hana_data, /dev/vg_hana_log_<b>HN1</b>/hana_log and /dev/vg_hana_shared_<b>HN1</b>/hana_shared
+       sudo blkid
+       </code></pre>
+       
+       Fstab-vermeldingen voor de drie logische volumes maken
+       
+       <pre><code>
+       sudo vi /etc/fstab
+       </code></pre>
+       
+       Deze regel moet worden /etc/fstab invoegen
+       
+       <pre><code>
+       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
+       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
+       /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_shared_<b>HN1</b>-hana_shared&gt;</b> /hana/shared/<b>HN1</b> xfs  defaults,nofail  0  2
+       </code></pre>
+       
+       Koppel de nieuwe volumes
+       
+       <pre><code>
+       sudo mount -a
+       </code></pre>
     
-    # <a name="write-down-the-id-of-devsdc1"></a>Noteer de ID van /dev/sdc1
-    sudo/sbin/blkid sudo vi/etc/fstab-fouten
-    ```
+    1. Gewone schijven  
+       Voor demo-systemen, kunt u uw bestanden HANA gegevens en logboekbestanden op één schijf plaatsen. De volgende opdrachten een partitie maken op /dev/disk/azure/scsi1/lun0 en formatteert u het met xfs.
 
-    Insert this line to /etc/fstab
-    <pre><code>
-    /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
-    </code></pre>
+       <pre><code>
+       sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
+       sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
+       
+       # write down the ID of /dev/disk/azure/scsi1/lun0-part1
+       sudo /sbin/blkid
+       sudo vi /etc/fstab
+       </code></pre>
 
-    Create the target directory and mount the disk.
+       Deze regel moet worden /etc/fstab invoegen
+       <pre><code>
+       /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
+       </code></pre>
 
-    ```bash
-    sudo mkdir /hana
-    sudo mount -a
-    ```
+       Maken van de doelmap en de schijf koppelen.
 
-1. [A] setup hostnaamomzetting voor alle hosts  
+       <pre><code>
+       sudo mkdir /hana
+       sudo mount -a
+       </code></pre>
+
+1. **[A]**  Hostnamen instellen voor alle hosts  
     U kunt gebruik van een DNS-server of wijzig de/etc/hosts op alle knooppunten. In dit voorbeeld laat zien hoe het bestand/etc/hosts te gebruiken.
    Het IP-adres en de hostnaam in de volgende opdrachten vervangen
     ```bash
@@ -277,105 +279,40 @@ De volgende items worden voorafgegaan door [A] - van toepassing op alle knooppun
     ```
     Voeg de volgende regels/etc/hosts. Wijzig de IP-adres en hostnaam overeenkomen met uw omgeving    
     
-    <pre><code>
-    <b>&lt;IP address of host 1&gt; &lt;hostname of host 1&gt;</b>
-    <b>&lt;IP address of host 2&gt; &lt;hostname of host 2&gt;</b>
-    </code></pre>
+   <pre><code>
+   <b>10.0.0.5 hn1-db-0</b>
+   <b>10.0.0.6 hn1-db-1</b>
+   </code></pre>
 
-1. [1] Cluster installeren
-    ```bash
-    sudo ha-cluster-init
-    
-    # Do you want to continue anyway? [y/N] -> y
-    # Network address to bind to (e.g.: 192.168.1.0) [10.79.227.0] -> ENTER
-    # Multicast address (e.g.: 239.x.x.x) [239.174.218.125] -> ENTER
-    # Multicast port [5405] -> ENTER
-    # Do you wish to use SBD? [y/N] -> N
-    # Do you wish to configure an administration IP? [y/N] -> N
-    ```
-        
-1. [2] knooppunt toevoegen aan cluster
-    ```bash
-    sudo ha-cluster-join
-        
-    # WARNING: NTP is not configured to start at system boot.
-    # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
-    # Do you want to continue anyway? [y/N] -> y
-    # IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.5
-    # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
-    ```
-
-1. [A] wachtwoord van de wijzigen hacluster naar hetzelfde wachtwoord
-    ```bash
-    sudo passwd hacluster
-    
-    ```
-
-1. [A] corosync voor het gebruik van andere transport en voeg nodelist configureren. Het cluster gaat anders niet werkt. 
-    ```bash
-    sudo vi /etc/corosync/corosync.conf    
-    
-    ```
-
-    De volgende vet inhoud toevoegen aan het bestand.
-    
-    <pre><code> 
-    [...]
-      interface { 
-          [...] 
-      }
-      <b>transport:      udpu</b>
-    } 
-    <b>nodelist {
-      node {
-        ring0_addr:     < ip address of node 1 >
-      }
-      node {
-        ring0_addr:     < ip address of node 2 > 
-      } 
-    }</b>
-    logging {
-      [...]
-    </code></pre>
-
-    Start de service corosync opnieuw
-
-    ```bash
-    sudo service corosync restart
-    
-    ```
-
-1. [A] HANA HA-pakketten installeren  
+1. **[A]**  Installeren HANA HA pakketten  
     ```bash
     sudo zypper install SAPHanaSR
     
     ```
 
-## <a name="installing-sap-hana"></a>SAP HANA installeren
+Volg voor het installeren van SAP HANA System Replication hoofdstuk 4 van de handleiding voor SAP HANA SR prestaties geoptimaliseerd Scenario op https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 
-Volg voor het installeren van SAP HANA System Replication hoofdstuk 4 van de [SAP HANA SR prestaties geoptimaliseerd Scenario handleiding][suse-hana-ha-guide].
-
-1. [A] hdblcm uitvoeren vanaf de DVD HANA
+1. **[A]**  Hdblcm uitvoeren vanaf de DVD HANA
     * Installatie te kiezen,-1 >
     * Selecteer extra onderdelen voor installatie-1 >
     * Voer installatiepad [/ hana/gedeelde]: ENTER ->
     * Voer de naam van de lokale Host [.]: -> ENTER
     * Wilt u extra hosts toevoegen aan het systeem? (j/n) [n]: ENTER ->
-    * Voer SAP HANA systeem-ID: <SID of HANA e.g. HDB>
+    * Voer SAP HANA systeem-ID: <SID of HANA e.g. HN1>
     * Voer exemplaarnummer [00]:   
   HANA exemplaarnummer. 03 gebruiken als u de Azure-sjabloon gebruikt of de handmatige implementatie gevolgd
     * Selecteer Database modus / Index [1] op Enter: -> ENTER
     * Selecteer systeemgebruik / Voer Index [4]:  
   Selecteer de informatie over het gebruik van het systeem
-    * Geef de locatie van gegevensvolumes [/ data/hana/HDB]: ENTER ->
-    * Geef de locatie van Logboekvolumes [/ log/hana/HDB]: ENTER ->
+    * Geef de locatie van gegevensvolumes [/ data/hana/HN1]: ENTER ->
+    * Geef de locatie van Logboekvolumes [/ log/hana/HN1]: ENTER ->
     * Maximale geheugentoewijzing beperken? [n]: ENTER ->
     * Geef '...' Host-naam van het certificaat voor Host [...]: ENTER ->
     * Voer SAP Host Agent gebruiker (sapadm) wachtwoord:
     * SAP Host Agent gebruiker (sapadm) wachtwoord bevestigen:
     * Voer de systeembeheerder (hdbadm) wachtwoord:
     * Systeembeheerder (hdbadm) wachtwoord bevestigen:
-    * Voer systeembeheerder basismap [/ usr/sap/HDB/home]: ENTER ->
+    * Voer systeembeheerder basismap [/ usr/sap/HN1/home]: ENTER ->
     * Voer systeembeheerder aanmeldingsshell [/ bin/servicel]: ENTER ->
     * Voer systeembeheerder gebruikers-ID [1001]: -> ENTER
     * Voer-ID van gebruikersgroep (sapsys) [79]: ENTER ->
@@ -384,181 +321,204 @@ Volg voor het installeren van SAP HANA System Replication hoofdstuk 4 van de [SA
     * Systeem opnieuw opstarten nadat de computer opnieuw is opgestart? [n]: ENTER ->
     * Wilt u doorgaan? (j/n):   
   Valideren van de samenvatting en voer j om door te gaan
-1. [A] SAP Hostagent bijwerken  
+
+1. **[A]**  SAP Hostagent bijwerken  
   Download de meest recente Hostagent SAP-archief van de [SAP Softwarecenter] [ sap-swcenter] en voer de volgende opdracht om de agent bijwerken. Het pad naar het archief verwijzen naar de door u gedownloade bestand vervangen.
     ```bash
     sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
     ```
 
-1. [1] HANA replicatie maken (als root)  
-    Voer de volgende opdracht. Zorg ervoor dat vet tekenreeksen (HANA systeem-ID HDB en exemplaar getal 03) vervangen door de waarden van de SAP HANA-installatie.
+## <a name="configure-sap-hana-20-system-replication"></a>SAP HANA 2.0 System replicatie configureren
+
+De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle knooppunten **[1]** - alleen van toepassing op knooppunt 1 of **[2]** - alleen van toepassing op knooppunt 2 van het cluster pacemaker heeft.
+
+1. **[1]**  Tenant-Database maken
+
+   Als u een SAP HANA 2.0 of MDC gebruikt, moet u een tenant-database voor uw systeem SAP NetWeaver maken. NW1 vervangen door de SID van uw SAP-systeem.
+
+   Meld u aan als `<hanasid`> adm en voer de volgende opdracht uit
+
+   <pre><code>
+   hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
+   </code></pre>
+
+1. **[1]**  System-replicatie configureren op het eerste knooppunt
+   
+   Meld u aan als `<hanasid`> adm en back-up van de databases
+
+   <pre><code>
+   hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
+   hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
+   hdbsql -d <b>NW1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupNW1</b>')"
+   </code></pre>
+
+   Kopieer de bestanden van de PKI systeem naar secundair
+
+   <pre><code>
+   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
+   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
+   </code></pre>
+
+   De primaire site gemaakt.
+
+   <pre><code>
+   hdbnsutil -sr_enable –-name=<b>SITE1</b>
+   </code></pre>
+
+1. **[2]**  System-replicatie configureren op het tweede knooppunt
+    
+    Registreer het tweede knooppunt voor het starten van de replicatie van het systeem. Meld u aan als `<hanasid`> adm en voer de volgende opdracht
+
     <pre><code>
-    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
+    sapcontrol -nr <b>03</b> -function StopWait 600 10
+    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
+    </code></pre>
+
+## <a name="configure-sap-hana-10-system-replication"></a>SAP HANA 1.0 System replicatie configureren
+
+1. **[1]**  De vereiste gebruikers maken
+
+    Meld u aan als hoofdmap en voer de volgende opdracht. Zorg ervoor dat vet tekenreeksen (HANA systeem-ID HN1 en exemplaar getal 03) vervangen door de waarden van de SAP HANA-installatie.
+
+    <pre><code>
+    PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
     hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
     hdbsql -u system -i <b>03</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
     hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
     </code></pre>
 
-1. [A] keystore-vermelding maken (als root)
+1. **[A]**  Keystore-vermelding maken
+   
+    Meld u aan als hoofdmap en voer de volgende opdracht voor het maken van een nieuwe vermelding van de sleutelopslag.
+
     <pre><code>
-    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
+    PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
     hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
     </code></pre>
-1. [1] back-updatabase (als root)
-    <pre><code>
-    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
-    hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
-    </code></pre>
-1. [1] overschakelen naar de gebruiker sapsid (bijvoorbeeld hdbadm) en de primaire site maken.
+
+1. **[1]**  Back-up van database
+
+   Aanmelden als basis- en back-up van de databases
+
+   <pre><code>
+   PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
+   hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
+   </code></pre>
+
+   Als u een multitenant-installatie gebruikt, ook back-up van de tenant-database
+
+   <pre><code>   
+   hdbsql -d <b>HN1</b> -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
+   </code></pre>
+
+1. **[1]**  System-replicatie configureren op het eerste knooppunt
+    
+    Meld u aan als `<hanasid`> adm en de primaire site te maken.
+
     <pre><code>
     su - <b>hdb</b>adm
     hdbnsutil -sr_enable –-name=<b>SITE1</b>
     </code></pre>
-1. [2] overschakelen naar de gebruiker sapsid (bijvoorbeeld hdbadm) en de secundaire site maken.
+
+1. **[2]**  System-replicatie configureren op het secundaire knooppunt.
+
+    Meld u aan als `<hanasid`> adm en de secundaire site te registreren.
+
     <pre><code>
-    su - <b>hdb</b>adm
     sapcontrol -nr <b>03</b> -function StopWait 600 10
-    hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
+    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
     </code></pre>
 
-## <a name="configure-cluster-framework"></a>Cluster-Framework configureren
+## <a name="create-sap-hana-cluster-resources"></a>Resources voor SAP HANA-cluster maken
 
-De standaardinstellingen wijzigen
+   Maak eerst de topologie HANA. Voer de volgende opdrachten op een van de clusterknooppunten pacemaker heeft.
+   
+   <pre><code>
+   sudo crm configure property maintenance-mode=true
 
-<pre>
-sudo vi crm-defaults.txt
-# enter the following to crm-defaults.txt
-<code>
-property $id="cib-bootstrap-options" \
-  no-quorum-policy="ignore" \
-  stonith-enabled="true" \
-  stonith-action="reboot" \
-  stonith-timeout="150s"
-rsc_defaults $id="rsc-options" \
-  resource-stickiness="1000" \
-  migration-threshold="5000"
-op_defaults $id="op-options" \
-  timeout="600"
-</code>
+   # replace the bold string with your instance number and HANA system ID
+   
+   sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
+     operations \$id="rsc_sap2_<b>HN1</b>_HDB<b>03</b>-operations" \
+     op monitor interval="10" timeout="600" \
+     op start interval="0" timeout="600" \
+     op stop interval="0" timeout="300" \
+     params SID="<b>HN1</b>" InstanceNumber="<b>03</b>"
+   
+   sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
+     meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
+   </code></pre>
+   
+   Maak vervolgens de bronnen HANA.
+   
+   <pre><code>
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
+      
+   sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
+     operations \$id="rsc_sap_<b>HN1</b>_HDB<b>03</b>-operations" \
+     op start interval="0" timeout="3600" \
+     op stop interval="0" timeout="3600" \
+     op promote interval="0" timeout="3600" \
+     op monitor interval="60" role="Master" timeout="700" \
+     op monitor interval="61" role="Slave" timeout="700" \
+     params SID="<b>HN1</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
+     DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
+   
+   sudo crm configure ms msl_SAPHana_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> \
+     meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
+     target-role="Started" interleave="true"
+   
+   sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \
+     meta target-role="Started" is-managed="true" \
+     operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
+     op monitor interval="10s" timeout="20s" \
+     params ip="<b>10.0.0.13</b>"
+   
+   sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> anything \
+     params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \
+     op monitor timeout=20s interval=10 depth=0
+   
+   sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
+   
+   sudo crm configure colocation col_saphana_ip_<b>HN1</b>_HDB<b>03</b> 2000: g_ip_<b>HN1</b>_HDB<b>03</b>:Started \
+     msl_SAPHana_<b>HN1</b>_HDB<b>03</b>:Master  
+   
+   sudo crm configure order ord_SAPHana_<b>HN1</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
+     msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+   
+   # Cleanup the HANA resources. The HANA resources might have failed because of a known issue.
+   sudo crm resource cleanup rsc_SAPHana_<b>HN1</b>_HDB<b>03</b>
 
-# <a name="now-we-load-the-file-to-the-cluster"></a>Nu we het bestand aan het cluster niet laden
-sudo crm load update crm-defaults.txt configureren
-</pre>
+   sudo crm configure property maintenance-mode=false
+   </code></pre>
 
-### <a name="create-stonith-device"></a>STONITH apparaat maken
+   Zorg ervoor dat de clusterstatus ok is en dat alle resources worden gestart. Het is niet belangrijk op welk knooppunt de bronnen worden uitgevoerd.
 
-Het apparaat STONITH maakt gebruik van een Service-Principal worden geautoriseerd op basis van Microsoft Azure. Volg deze stappen voor het maken van een Service-Principal.
-
-1. Ga naar <https://portal.azure.com>
-1. Open de blade van Azure Active Directory  
-   Ga naar eigenschappen en noteer de Directory-ID. Deze ID is de **tenant-ID**.
-1. Klik op App-registraties
-1. Klik op Add.
-1. Voer een naam, selecteer toepassingstype 'Web-app /-API, een aanmeldings-URL (bijvoorbeeld http://localhost) en klik op maken
-1. De aanmeldings-URL kan niet wordt gebruikt en geldige URL
-1. Selecteer de nieuwe App en sleutels op in het tabblad instellingen
-1. Voer een beschrijving voor een nieuwe sleutel, selecteer 'Verloopt nooit' en klik op Opslaan
-1. Noteer de waarde in. Deze wordt gebruikt als de **wachtwoord** voor de Service-Principal
-1. Noteer de aanvraag-ID. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-ID** in de volgende stappen) van de Service-Principal
-
-De Service-Principal heeft geen machtigingen voor toegang tot uw Azure-resources standaard. De Service-Principal toestemming geven om te starten en stoppen (ongedaan gemaakt) alle virtuele machines van het cluster.
-
-1. Ga naar https://portal.azure.com
-1. Open de blade met alle bronnen
-1. Selecteer de virtuele machine
-1. Klik op toegangsbeheer (IAM)
-1. Klik op Add.
-1. Selecteer de rol van eigenaar
-1. Voer de naam van de toepassing die u hebt gemaakt in de eerdere stappen
-1. Klik op OK
-
-Nadat u de machtigingen voor de virtuele machines hebt bewerkt, kunt u de apparaten STONITH configureren in het cluster.
-
-<pre>
-sudo vi crm-fencing.txt
-# enter the following to crm-fencing.txt
-# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
-<code>
-primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
-</code>
-
-# <a name="now-we-load-the-file-to-the-cluster"></a>Nu we het bestand aan het cluster niet laden
-sudo crm load update crm-fencing.txt configureren
-</pre>
-
-### <a name="create-sap-hana-resources"></a>SAP HANA-resources maken
-
-<pre>
-sudo vi crm-saphanatop.txt
-# enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system ID
-<code>
-primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
-    operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
-    op monitor interval="10" timeout="600" \
-    op start interval="0" timeout="600" \
-    op stop interval="0" timeout="300" \
-    params SID="<b>HDB</b>" InstanceNumber="<b>03</b>"
-
-clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \
-    meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
-</code>
-
-# <a name="now-we-load-the-file-to-the-cluster"></a>Nu we het bestand aan het cluster niet laden
-sudo crm load update crm-saphanatop.txt configureren
-</pre>
-
-<pre>
-sudo vi crm-saphana.txt
-# enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
-<code>
-primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
-    operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
-    op start interval="0" timeout="3600" \
-    op stop interval="0" timeout="3600" \
-    op promote interval="0" timeout="3600" \
-    op monitor interval="60" role="Master" timeout="700" \
-    op monitor interval="61" role="Slave" timeout="700" \
-    params SID="<b>HDB</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
-    DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
-
-ms msl_SAPHana_<b>HDB</b>_HDB<b>03</b> rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> \
-    meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
-    target-role="Started" interleave="true"
-
-primitive rsc_ip_<b>HDB</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \ 
-    meta target-role="Started" is-managed="true" \ 
-    operations $id="rsc_ip_<b>HDB</b>_HDB<b>03</b>-operations" \ 
-    op monitor interval="10s" timeout="20s" \ 
-    params ip="<b>10.0.0.21</b>" 
-primitive rsc_nc_<b>HDB</b>_HDB<b>03</b> anything \ 
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \ 
-    op monitor timeout=20s interval=10 depth=0 
-group g_ip_<b>HDB</b>_HDB<b>03</b> rsc_ip_<b>HDB</b>_HDB<b>03</b> rsc_nc_<b>HDB</b>_HDB<b>03</b>
- 
-colocation col_saphana_ip_<b>HDB</b>_HDB<b>03</b> 2000: g_ip_<b>HDB</b>_HDB<b>03</b>:Started \ 
-    msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
-order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \ 
-    msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
-</code>
-
-# <a name="now-we-load-the-file-to-the-cluster"></a>Nu we het bestand aan het cluster niet laden
-sudo crm load update crm-saphana.txt configureren
-</pre>
+   <pre><code>
+   sudo crm_mon -r
+   
+   # Online: [ hn1-db-0 hn1-db-1 ]
+   #
+   # Full list of resources:
+   #
+   # stonith-sbd     (stonith:external/sbd): Started hn1-db-0
+   # rsc_st_azure    (stonith:fence_azure_arm):      Started hn1-db-1
+   # Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   #     Started: [ hn1-db-0 hn1-db-1 ]
+   # Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   #     Masters: [ hn1-db-0 ]
+   #     Slaves: [ hn1-db-1 ]
+   # Resource Group: g_ip_HN1_HDB03
+   #     rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+   #     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+   </code></pre>
 
 ### <a name="test-cluster-setup"></a>Test-cluster instellen
-In dit hoofdstuk beschrijft hoe u uw instellingen kunt testen. Elke test wordt ervan uitgegaan dat u hoofdmap en de SAP HANA-master wordt uitgevoerd op de virtuele machine saphanavm1.
+In dit hoofdstuk beschrijft hoe u uw instellingen kunt testen. Elke test wordt ervan uitgegaan dat u hoofdmap en de SAP HANA-master wordt uitgevoerd op de virtuele machine hn1-db-0.
 
 #### <a name="fencing-test"></a>Hekwerk Test
 
-U kunt de installatie van de agent hekwerk testen door de netwerkinterface op knooppunt saphanavm1 uit te schakelen.
+U kunt de installatie van de agent hekwerk testen door het uitschakelen van de netwerkinterface op knooppunt hn1-db-0.
 
 <pre><code>
 sudo ifdown eth0
@@ -570,57 +530,57 @@ Als u de stonith-actie op off instellen, gaat de virtuele machine moet worden ge
 Zodra u de virtuele machine opnieuw start, de SAP HANA-resource niet kan worden gestart als secundaire als u AUTOMATED_REGISTER instelt = "false". In dit geval wordt het exemplaar HANA als secundaire configureren door het uitvoeren van deze opdracht:
 
 <pre><code>
-su - <b>hdb</b>adm
+su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
+hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
 
 # switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 #### <a name="testing-a-manual-failover"></a>Een handmatige failover testen
 
-U kunt een handmatige failover testen door het stoppen van de service pacemaker heeft op het knooppunt saphanavm1.
+U kunt een handmatige failover testen door het stoppen van de service pacemaker heeft op het knooppunt hn1-db-0.
 <pre><code>
 service pacemaker stop
 </code></pre>
 
-U kunt de service opnieuw starten na de failover. Als u AUTOMATED_REGISTER instelt = 'false', de SAP HANA-resource op saphanavm1 niet wordt gestart als secundaire. In dit geval wordt het exemplaar HANA als secundaire configureren door het uitvoeren van deze opdracht:
+U kunt de service opnieuw starten na de failover. Als u AUTOMATED_REGISTER instelt = 'false', de SAP HANA-resource op hn1-db-0 niet wordt gestart als secundaire. In dit geval wordt het exemplaar HANA als secundaire configureren door het uitvoeren van deze opdracht:
 
 <pre><code>
 service pacemaker start
-su - <b>hdb</b>adm
+su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
+hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 
 # Switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 #### <a name="testing-a-migration"></a>Een migratie testen
 
 U kunt het hoofdknooppunt SAP HANA migreren door de volgende opdracht wordt uitgevoerd
 <pre><code>
-crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
-crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
+crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
+crm resource migrate g_ip_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
 </code></pre>
 
-Als u AUTOMATED_REGISTER instelt = "false", deze reeks opdrachten de SAP HANA-hoofdknooppunt en de groep waartoe het virtuele IP-adres saphanavm2 moet migreren.
-De SAP HANA-resource op saphanavm1 niet gestart als secundaire. In dit geval wordt het exemplaar HANA als secundaire configureren door het uitvoeren van deze opdracht:
+Als u AUTOMATED_REGISTER instelt = "false", deze reeks opdrachten moet migreren de SAP HANA-hoofdknooppunt en de groep waartoe het virtuele IP-adres hn1-db-1.
+De SAP HANA-resource op hn1-db-0 niet gestart als secundaire. In dit geval wordt het exemplaar HANA als secundaire configureren door het uitvoeren van deze opdracht:
 
 <pre><code>
-su - <b>hdb</b>adm
+su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
+hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
 De migratie maakt Locatiebeperkingen moeten opnieuw worden verwijderd.
@@ -629,7 +589,7 @@ De migratie maakt Locatiebeperkingen moeten opnieuw worden verwijderd.
 crm configure edited
 
 # Delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
-location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
+location cli-prefer-g_ip_<b>HN1</b>_HDB<b>03</b> g_ip_<b>HN1</b>_HDB<b>03</b> role=Started inf: <b>hn1-db-1</b>
 </code></pre>
 
 U moet ook de status van de bron van het secundaire knooppunt opschonen
@@ -637,7 +597,7 @@ U moet ook de status van de bron van het secundaire knooppunt opschonen
 <pre><code>
 # Switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 ## <a name="next-steps"></a>Volgende stappen

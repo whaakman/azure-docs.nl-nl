@@ -93,7 +93,7 @@
       href: service-fabric-architecture.md
     - name: Terminologie
       href: service-fabric-technical-overview.md
-    - name: Ondersteunde programmeermodellen
+    - name: Toepassingen bouwen
       href: service-fabric-choose-framework.md
       items:
         - name: Containers
@@ -106,10 +106,14 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Service partitioneren
+              href: service-fabric-concepts-partitioning.md
             - name: 'Levenscyclus van Reliable Services - C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Levenscyclus van Reliable Services - Java
               href: service-fabric-reliable-services-lifecycle-java.md
+            - name: Levenscyclus van replica's en instanties
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: Betrouwbare verzamelingen
               href: service-fabric-reliable-services-reliable-collections.md
             - name: Richtlijnen en aanbevelingen voor betrouwbare verzamelingen
@@ -122,10 +126,6 @@
               href: service-fabric-reliable-services-reliable-concurrent-queue.md
             - name: Betrouwbare verzamelingserialisatie
               href: service-fabric-reliable-services-reliable-collections-serialization.md
-            - name: Beheer van betrouwbare status en interne werking van betrouwbare verzameling
-              href: service-fabric-reliable-services-reliable-collections-internals.md
-            - name: Geavanceerd gebruik
-              href: service-fabric-reliable-services-advanced-usage.md
         - name: Reliable Actors
           href: service-fabric-reliable-actors-introduction.md
           items:
@@ -153,18 +153,14 @@
           href: service-fabric-application-and-service-manifests.md
         - name: Hostingmodel
           href: service-fabric-hosting-model.md
+        - name: Toepassingsbeveiliging
+          href: service-fabric-application-and-service-security.md
         - name: Servicestatus
           href: service-fabric-concepts-state.md
-        - name: Service partitioneren
-          href: service-fabric-concepts-partitioning.md
         - name: Schaalbaarheid van toepassingen
           href: service-fabric-concepts-scalability.md
         - name: Beschikbaarheid van services
           href: service-fabric-availability-services.md
-        - name: Levenscyclus van replica's en instanties
-          href: service-fabric-concepts-replica-lifecycle.md
-        - name: Herconfiguratie
-          href: service-fabric-concepts-reconfiguration.md
         - name: Servicecommunicatie
           href: service-fabric-connect-and-communicate-with-services.md
           items:
@@ -242,55 +238,29 @@
               href: service-fabric-cluster-resource-manager-movement-cost.md
     - name: Controle en diagnose
       items:
-        - name: Toepassingen bewaken en er diagnoses op uitvoeren
+        - name: Bewakingsoverzicht
           href: service-fabric-diagnostics-overview.md
-        - name: Gebeurtenissen genereren
+        - name: Clusterlogboeken
+          href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: Gebeurtenissen genereren op platformniveau
-              href: service-fabric-diagnostics-event-generation-infra.md
-              items:
-                - name: Operationele kanaal
-                  href: service-fabric-diagnostics-event-generation-operational.md
-                - name: Reliable Services-gebeurtenissen
-                  href: service-fabric-reliable-services-diagnostics.md
-                - name: Reliable Actors-gebeurtenissen
-                  href: service-fabric-reliable-actors-diagnostics.md
-                - name: Metrische gegevens voor prestaties
-                  href: service-fabric-diagnostics-event-generation-perf.md
-                - name: Externe toegang tot service bewaken
-                  href: service-fabric-reliable-serviceremoting-diagnostics.md
-            - name: Gebeurtenissen op toepassingsniveau genereren
-              href: service-fabric-diagnostics-event-generation-app.md
-        - name: Status van toepassing en cluster inspecteren
-          items:
-            - name: Service Fabric-status controleren
-              href: service-fabric-health-introduction.md
-            - name: Servicestatus rapporteren en controleren
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: Aangepaste statusrapporten toevoegen
-              href: service-fabric-report-health.md
-            - name: Problemen met systeemstatusrapporten oplossen
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: Statusrapporten weergeven
-              href: service-fabric-view-entities-aggregated-health.md
-        - name: Gebeurtenissen samenstellen
-          items:
-            - name: Gebeurtenissen samenstellen met EventFlow
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Gebeurtenissen samenstellen met Azure Diagnostics
-              items:
-                - name: Windows
-                  href: service-fabric-diagnostics-event-aggregation-wad.md
-                - name: Linux
-                  href: service-fabric-diagnostics-event-aggregation-lad.md
-        - name: Gebeurtenissen analyseren
-          items:
-            - name: Gebeurtenissen analyseren met Application Insights
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: Gebeurtenissen analyseren met OMS
-              href: service-fabric-diagnostics-event-analysis-oms.md
-        - name: Problemen met uw lokale cluster oplossen
-          href: service-fabric-troubleshoot-local-cluster-setup.md
+            - name: Operationele kanaal
+              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: Reliable Services-gebeurtenissen
+              href: service-fabric-reliable-services-diagnostics.md
+            - name: Reliable Actors-gebeurtenissen
+              href: service-fabric-reliable-actors-diagnostics.md
+            - name: Metrische gegevens voor prestaties
+              href: service-fabric-diagnostics-event-generation-perf.md
+            - name: Externe toegang tot service bewaken
+              href: service-fabric-reliable-serviceremoting-diagnostics.md
+        - name: Toepassingslogboeken
+          href: service-fabric-diagnostics-event-generation-app.md
+        - name: Overzicht van het statusmodel
+          href: service-fabric-health-introduction.md
+        - name: Statusgebeurtenissen rapporteren
+          href: service-fabric-report-health.md
+        - name: Bewaken met OMS
+          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Integratie met API Management
       href: service-fabric-api-management-overview.md
 - name: Handleidingen
@@ -347,8 +317,10 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: Een containerservice bouwen
           items:
-            - name: Beveiliging van de container
+            - name: Een certificaat in een container gebruiken
               href: service-fabric-securing-containers.md
+            - name: gMSA instellen voor Windows-containers
+              href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Docker Compose (preview)
               href: service-fabric-docker-compose.md
             - name: Resourcebeheer voor containers en services
@@ -383,6 +355,8 @@
                   href: service-fabric-reliable-services-secure-communication.md
                 - name: Beveiligde communicatie - Java
                   href: service-fabric-reliable-services-secure-communication-java.md
+                - name: WCF-communicatie beveiligen
+                  href: service-fabric-reliable-services-secure-communication-wcf.md
             - name: Configureren
               href: service-fabric-reliable-services-configuration.md
             - name: Meldingen verzenden
@@ -419,8 +393,12 @@
           items:
             - name: Toepassingsgeheimen beheren
               href: service-fabric-application-secret-management.md
-            - name: Beveiligingsbeleid configureren voor uw toepassing
+            - name: Het opstartscript van een service uitvoeren als lokale gebruiker of systeemaccount
+              href: service-fabric-run-script-at-service-startup.md
+            - name: Een service uitvoeren als lokale gebruiker of systeemaccount
               href: service-fabric-application-runas-security.md
+            - name: Een beveiligingsbeleid voor toegang toewijzen voor eindpunten
+              href: service-fabric-assign-policy-to-endpoint.md
     - name: Werken in een Windows-/VS-ontwikkelomgeving
       items:
         - name: Toepassingen beheren in Visual Studio
@@ -531,6 +509,8 @@
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: Verwijderen
               href: service-fabric-cluster-delete.md
+            - name: Extern verbinding maken met de VM die het clusterknooppunt vormt
+              href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
         - name: Zelfstandige clusters
           items:
             - name: Maken
@@ -545,8 +525,14 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: Schalen
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: Toegangsbeheer instellen
-              href: service-fabric-cluster-security-roles.md
+            - name: Beveiliging configureren
+              items:
+                - name: Toegangsbeheer instellen
+                  href: service-fabric-cluster-security-roles.md
+                - name: Een service uitvoeren als AD-gebruiker of -groep
+                  href: service-fabric-run-service-as-ad-user-or-group.md
+                - name: Een service uitvoeren als door een groep beheerd serviceaccount
+                  href: service-fabric-run-service-as-gmsa.md
             - name: Configureren
               href: service-fabric-cluster-manifest.md
             - name: Upgraden
@@ -559,7 +545,7 @@
           href: service-fabric-patch-orchestration-application.md
     - name: Bewaken en diagnoses uitvoeren
       items:
-        - name: OMS
+        - name: Analyseren met OMS
           items:
             - name: OMS Log Analytics instellen
               href: service-fabric-diagnostics-oms-setup.md
@@ -567,10 +553,26 @@
               href: service-fabric-diagnostics-oms-agent.md
             - name: Containers bewaken
               href: service-fabric-diagnostics-oms-containers.md
-        - name: Prestatiebewaking
+        - name: Analyseren met Application Insights
+          href: service-fabric-diagnostics-event-analysis-appinsights.md
+        - name: Gebeurtenissen samenstellen - EventFlow
+          href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        - name: Gebeurtenissen samenstellen - Azure Diagnostics
           items:
-            - name: Prestatiebewaking met WAD
-              href: service-fabric-diagnostics-perf-wad.md
+            - name: Windows
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Linux
+              href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Prestatiebewaking met WAD
+          href: service-fabric-diagnostics-perf-wad.md
+        - name: Status rapporteren en controleren
+          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: Problemen met systeemstatusrapporten oplossen
+          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+        - name: Statusrapporten weergeven
+          href: service-fabric-view-entities-aggregated-health.md
+        - name: Problemen met uw lokale cluster oplossen
+          href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Naslaginformatie
   items:
     - name: Azure PowerShell

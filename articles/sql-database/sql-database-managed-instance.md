@@ -8,20 +8,20 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/22/2018
 ms.author: bonova
-ms.openlocfilehash: e13583e0364b01c3a4560d88882eb1dcf82b8c99
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een exemplaar beheerd (preview)?
 
 Azure SQL Database beheerd-instantie (preview) is een nieuwe functie van Azure SQL Database, die in de buurt van 100% compatibel met SQL Server on-premises (Enterprise Edition) bieden een systeemeigen [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) implementatie die zijn gericht op algemene beveiligingskwesties weergegeven, en een [bedrijfsmodel](https://azure.microsoft.com/pricing/details/sql-database/) gunstig voor lokale SQL Server-klanten. Beheerde exemplaar kan bestaande SQL Server-klanten en hun on-premises toepassingen naar de cloud met minimale wijzigingen voor toepassings- en verschuiven. Beheerde exemplaar van bewaart op hetzelfde moment alle PaaS mogelijkheden (automatische patchen en versie-updates, back-up, hoge beschikbaarheid), die aanzienlijk minder beheeroverhead en totale Eigendomskosten.
 
 > [!IMPORTANT]
-> Zie voor een lijst met regio's waarin beheerd exemplaar momenteel beschikbaar is, [uw databases migreren naar een volledig beheerde service met Azure SQL Database-beheerd instantie](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+> Zie [Uw databases migreren naar een volledig beheerde service met Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) voor een lijst met regio's waarin MI momenteel beschikbaar is.
  
 Het volgende diagram geeft een overzicht van de belangrijkste functies van het exemplaar worden beheerd.
 
@@ -34,16 +34,16 @@ Beheerde exemplaar wordt overwogen als voorkeur platform voor de volgende scenar
 
 Door de algemene beschikbaarheid ernaar beheerd exemplaar leveren bijna serveroppervlaktegebied van 100% compatibel is met de meest recente on-premises SQL Server-versie via een gefaseerde release-abonnement. 
 
-De volgende overzichten van de tabel van belangrijke verschillen en ontwikkelaars van gebruiksscenario's tussen SQL IaaS, Azure SQL Database en beheerd exemplaar:
+De volgende overzichten van de tabel van belangrijke verschillen en ontwikkelaars van gebruiksscenario's tussen SQL IaaS, Azure SQL Database en SQL Database beheerd-instantie:
 
 | | Gebruiksscenario | 
 | --- | --- | 
-|Beheerd exemplaar |Voor klanten die willen migreren van een groot aantal apps vanaf on-premises of IaaS, zelf is gebouwd, of ISV hebt opgegeven, met voorstellen als lage migratie inspanning mogelijk exemplaar beheerd. Met behulp van de volledig geautomatiseerde [gegevens migratie Service (DMS)](/sql/dma/dma-overview) in Azure, klanten kunnen lift- en hun lokale SQL Server verplaatsen naar een beheerde-exemplaar dat compatibiliteit met SQL Server on-premises en volledige isolatie van biedt de exemplaren van de klant met systeemeigen ondersteuning voor VNET.  Met Software Assurance, kun je de bestaande licenties voor kortingen op een beheerde exemplaar van SQL Database met de [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Beheerde exemplaar van SQL Database is de beste Migratiebestemming in de cloud voor SQL Server-exemplaren waarvoor hoge beveiliging en een uitgebreide programmeren voor aanvallen. |
-|Azure SQL Database |**Elastische pools**: voor klanten ontwikkelen van nieuwe multitenant SaaS-toepassingen of opzettelijk transformeert hun bestaande on-premises apps in een multitenant SaaS-app, voorstellen elastische pools. Voordelen van dit model zijn: <br><ul><li>Conversie van het bedrijfsmodel te verkopen, licenties te verkopen abonnementen (voor ISV's)</li></ul><ul><li>Isolatie van tenants eenvoudig en opsommingsteken bewijs</li></ul><ul><li>Een vereenvoudigde database gericht programmeermodel</li></ul><ul><li>De mogelijkheid uit te schalen zonder een vaste maximum op</li></ul>**Eén databases**: voor het ontwikkelen van nieuwe apps dan de multitenant SaaS, waarvan de werklast stabiel en voorspelbaar is, klanten voorstellen individuele databases. Voordelen van dit model zijn:<ul><li>Een vereenvoudigde database gericht programmeermodel</li></ul>  <ul><li>Voorspelbare prestaties voor elke database</li></ul>|
-|SQL IaaS |Voor klanten die behoefte hebben aan voor het aanpassen van het besturingssysteem of de database-server, evenals klanten die de specifieke vereisten in termen van apps van derden door kant met SQL Server uitgevoerd (op dezelfde virtuele machine), SQL-VM's voorstellen / IaaS als de optimale oplossing|
+|SQL Database Managed Instance |Voor klanten die willen migreren van een groot aantal apps vanaf on-premises of IaaS, zelf is gebouwd, of ISV hebt opgegeven, met voorstellen als lage migratie inspanning mogelijk exemplaar beheerd. Met behulp van de volledig geautomatiseerde [gegevens migratie Service (DMS)](/sql/dma/dma-overview) in Azure, klanten kunnen lift- en hun lokale SQL Server verplaatsen naar een beheerde-exemplaar dat compatibiliteit met SQL Server on-premises en volledige isolatie van biedt de exemplaren van de klant met systeemeigen ondersteuning voor VNET.  Met Software Assurance, kun je de bestaande licenties voor kortingen op een beheerde exemplaar van SQL Database met de [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Beheerde exemplaar van SQL Database is de beste Migratiebestemming in de cloud voor SQL Server-exemplaren waarvoor hoge beveiliging en een uitgebreide programmeren voor aanvallen. |
+|Azure SQL Database (enkele of groep) |**Elastische pools**: voor klanten ontwikkelen van nieuwe multitenant SaaS-toepassingen of opzettelijk transformeert hun bestaande on-premises apps in een multitenant SaaS-app, voorstellen elastische pools. Voordelen van dit model zijn: <br><ul><li>Conversie van het bedrijfsmodel te verkopen, licenties te verkopen abonnementen (voor ISV's)</li></ul><ul><li>Isolatie van tenants eenvoudig en opsommingsteken bewijs</li></ul><ul><li>Een vereenvoudigde database gericht programmeermodel</li></ul><ul><li>De mogelijkheid uit te schalen zonder een vaste maximum op</li></ul>**Eén databases**: voor het ontwikkelen van nieuwe apps dan de multitenant SaaS, waarvan de werklast stabiel en voorspelbaar is, klanten voorstellen individuele databases. Voordelen van dit model zijn:<ul><li>Een vereenvoudigde database gericht programmeermodel</li></ul>  <ul><li>Voorspelbare prestaties voor elke database</li></ul>|
+|SQL-IaaS virtuele machine|Voor klanten die behoefte hebben aan voor het aanpassen van het besturingssysteem of de database-server, evenals klanten die de specifieke vereisten in termen van apps van derden door kant met SQL Server uitgevoerd (op dezelfde virtuele machine), SQL-VM's voorstellen / IaaS als de optimale oplossing|
 |||
 
-![plaatsing](./media/sql-database-managed-instance/positioning.png)
+<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Een instantie worden beheerd via een programma te identificeren
 

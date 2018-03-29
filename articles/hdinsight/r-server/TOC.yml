@@ -21,6 +21,10 @@
   items:
     - name: R Server gebruiken
       items:
+        - name: R Server-cluster beheren
+          href: r-server-hdinsight-manage.md
+        - name: R Server-cluster operationeel maken
+          href: r-server-operationalize.md
         - name: Opslagopties
           href: r-server-storage.md
         - name: Compute-context

@@ -27,6 +27,8 @@
   items:
     - name: Azure Stack-portal gebruiken
       href: azure-stack-use-portal.md
+    - name: De Azure API-Stack gebruiken
+      href: azure-stack-rest-api-use.md
     - name: Beveiliging en naleving
       items:
         - name: RBAC beheren

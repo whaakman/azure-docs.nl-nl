@@ -351,6 +351,8 @@
           href: extensions-diagnostics-template.md
         - name: Network Watcher-agent
           href: extensions-nwa.md
+        - name: Installatie van extensie beperken
+          href: extensions-rmpolicy-howto-ps.md
     - name: Virtuele machines migreren
       items:
         - name: AWS en on-premises VM's migreren
@@ -396,6 +398,8 @@
           href: reset-network-interface.md
         - name: Diagnostische gegevens over opstarten
           href: boot-diagnostics.md
+        - name: Seriële console
+          href: serial-console.md
         - name: Een virtuele machine maken
           href: troubleshoot-deployment-new-vm.md
         - name: Implementatieproblemen

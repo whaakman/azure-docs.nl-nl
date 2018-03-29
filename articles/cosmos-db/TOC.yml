@@ -445,3 +445,5 @@
       href: faq.md
     - name: Gegevensconsistentie uitgelegd aan de hand van honkbal
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+    - name: Problemen met Azure Cosmos DB oplossen
+      href: troubleshoot-azure-cosmosdb.md

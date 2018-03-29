@@ -77,8 +77,8 @@
 ## [Groepen en leden beheren](active-directory-manage-groups.md)
 ### Groepen beheren
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Azure Resource Manager-model van Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Klassiek implementatiemodel van Azure PowerShell](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell voor Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline (v1)](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Groepsleden beheren](active-directory-groups-members-azure-portal.md)
 ### [Eigenaren van groepen beheren](active-directory-accessmanagement-managing-group-owners.md)
 ### [Groepslidmaatschap beheren](active-directory-groups-membership-azure-portal.md)

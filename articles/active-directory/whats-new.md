@@ -2,10 +2,10 @@
 title: Wat is nieuw? Release-opmerkingen voor Azure Active Directory | Microsoft Docs
 description: Ontdek wat er nieuw bij Azure Active Directory (Azure AD), zoals de meest recente release-opmerkingen, bekende problemen, oplossingen voor problemen, afgeschafte functionaliteit en toekomstige wijzigingen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 featureFlags:
 - clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a30b5d08377594b8ad7e10b63a23e2a9d168af9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: MT
+ms.openlocfilehash: d356535bf1a7daf45108bc790a19578108a50bb7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -39,6 +39,218 @@ Azure AD ontvangt verbeteringen voortdurend. Om te blijven up-to-date met de mee
 -   Plannen voor wijzigingen
 
 Deze pagina maandelijks wordt bijgewerkt, dus regelmatig bezoeken.
+
+## <a name="march-2018"></a>2018 maart
+ 
+
+### <a name="certificate-expire-notification"></a>Certificaat verloopt melding
+
+**Type:** vast  
+**Servicecategorie:** zakelijke Apps  
+**Product mogelijkheid:** eenmalige aanmelding
+ 
+Azure AD verzendt een melding wanneer een certificaat voor een galerie of niet-galerie van toepassing is verlopen. 
+
+Sommige gebruikers heeft geen meldingen voor enterprise-toepassingen die zijn geconfigureerd voor op basis van SAML eenmalige aanmelding ontvangen. Dit probleem is opgelost. Azure AD verzendt melding voor certificaten dat verloopt binnen 7, 30 en 60 dagen. U ere kunnen zien in de controlelogboeken van de gebeurtenis. 
+
+Zie voor meer informatie:
+
+- [Certificaten beheren voor federatieve eenmalige aanmelding bij Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
+- [Controlerapporten van activiteit in de Azure Active Directory-portal](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
+
+ 
+---
+ 
+
+### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Twitter en GitHub-id-providers in Azure AD B2C
+
+**Type:** nieuwe functie  
+**Servicecategorie:** B2C - identiteitsbeheer van consumenten  
+**Product mogelijkheid:** B2B/B2C
+ 
+U kunt nu Twitter of GitHub toevoegen als een id-provider in Azure AD B2C. Twitter wordt verplaatst van de openbare preview naar algemene beschikbaarheid. GitHub wordt vrijgegeven openbare preview.
+
+
+Zie voor meer informatie [wat is Azure AD B2B-samenwerking?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+ 
+---
+ 
+
+### <a name="app-proxy-cmdlets-in-powershell-ga-module"></a>Toepassingsproxy van Cmdlets in GA Powershell-Module
+
+**Type:** nieuwe functie  
+**Servicecategorie:** toepassingsproxy  
+**Product mogelijkheid:** toegangsbeheer
+ 
+Ondersteuning voor toepassingsproxy-cmdlets is nu in de Powershell-Module GA! Houd er rekening mee dat dit u dat vereist op de hoogte te blijven van Powershell-modules: als u niet meer dan een jaar achter, enkele cmdlets werkt niet. 
+
+
+Zie voor meer informatie [AzureAD](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0).
+ 
+---
+ 
+### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Office 365 systeemeigen clients worden ondersteund door naadloze eenmalige aanmelding met een niet-interactieve protocol
+
+**Type:** nieuwe functie  
+**Servicecategorie:** Authenticaties (aanmeldingen)  
+**Product mogelijkheid:** gebruikersverificatie
+ 
+Gebruiker met behulp van Office 365 systeemeigen clients (versie 16.0.8730.xxxx en hoger) een achtergrond-on-ervaring met naadloze eenmalige aanmelding. Deze ondersteuning wordt geboden door toevoeging een niet-interactieve protocol (WS-Trust) naar Azure AD.
+
+Zie voor meer informatie [hoe aanmelden op een native client met naadloze eenmalige aanmelding werk?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work).
+
+ 
+---
+ 
+
+### <a name="users-get-a-silent-sign-on-experience-with-seamless-sso-if-an-application-sends-sign-in-requests-to-azure-ads-tenanted-endpoints"></a>Gebruikers krijgen een achtergrond sign-on-ervaring naadloze aanmelding bij als een toepassing aanmeldingsaanvragen naar Azure AD verpachte eindpunten verzendt
+
+**Type:** nieuwe functie  
+**Servicecategorie:** Authenticaties (aanmeldingen)  
+**Product mogelijkheid:** gebruikersverificatie
+ 
+Gebruikers krijgen een achtergrond sign-on-ervaring naadloze aanmelding bij als een toepassing (bijvoorbeeld `https://contoso.sharepoint.com`) aanmeldingsaanvragen dat wil zeggen, verzendt naar verpachte eindpunten voor Azure AD - `https://login.microsoftonline.com/contoso.com/<..>` of `https://login.microsoftonline.com/<tenant_ID>/<..>` - in plaats van Azure AD gemeenschappelijk eindpunt (`https://login.microsoftonline.com/common/<...>` ).
+
+Zie voor meer informatie [Azure Active Directory naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+
+---
+ 
+
+### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Moet slechts één URL van de Azure AD, in plaats van twee URL's voorheen toevoegen aan gebruikers Intranet-beveiligingszone-instellingen uitrolt naadloze eenmalige aanmelding
+
+**Type:** nieuwe functie  
+**Servicecategorie:** Authenticaties (aanmeldingen)  
+**Product mogelijkheid:** gebruikersverificatie
+ 
+Als u wilt implementeren naadloze eenmalige aanmelding voor uw gebruikers, moet u slechts één Azure AD-URL met de gebruikers Intranet zone-instellingen met behulp van Groepsbeleid in Active Directory toevoegen: `https://autologon.microsoftazuread-sso.com`. Voorheen moest klanten twee URL's toevoegen.
+
+Zie voor meer informatie [Azure Active Directory naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+ 
+---
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nieuwe federatieve Apps beschikbaar in Azure AD-App-galerie
+
+**Type:** nieuwe functie  
+**Servicecategorie:** zakelijke Apps  
+**Product mogelijkheid:** 3e integratie van derden
+ 
+In maart 2018 hebben we de volgende 15 nieuwe apps in onze App-galerie met Federatie ondersteunen toegevoegd:
+
+[Boxcryptor](https://docs.microsoft.com/azure/active-directory/active-directory-saas-boxcryptor-tutorial), [CylancePROTECT](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cylanceprotect-tutorial), Wrike, [SignalFx](https://docs.microsoft.com/azure/active-directory/active-directory-saas-signalfx-tutorial), -assistent door FirstAgenda, [YardiOne](https://docs.microsoft.com/azure/active-directory/active-directory-saas-yardione-tutorial), Vtiger CRM, inwink, [Amplitude](https://docs.microsoft.com/azure/active-directory/active-directory-saas-amplitude-tutorial), [Spacio](https://docs.microsoft.com/azure/active-directory/active-directory-saas-spacio-tutorial), [ContractWorks](https://docs.microsoft.com/azure/active-directory/active-directory-saas-contractworks-tutorial), [Bersin](https://docs.microsoft.com/azure/active-directory/active-directory-saas-bersin-tutorial), [Mercell](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mercell-tutorial), [Trisotech digitale Enterprise Server](https://docs.microsoft.com/azure/active-directory/active-directory-saas-trisotechdigitalenterpriseserver-tutorial), [Qumu Cloud](https://docs.microsoft.com/azure/active-directory/active-directory-saas-qumucloud-tutorial).
+ 
+U kunt de documentatie voor alle toepassingen hier vinden: [https://aka.ms/appstutorial](https://aka.ms/appstutorial)
+
+
+ 
+---
+ 
+
+### <a name="pim-for-azure-resources-is-generally-available"></a>PIM voor Azure-Resources is algemeen beschikbaar
+
+**Type:** nieuwe functie  
+**Servicecategorie:** Privileged Identity Management  
+**Product mogelijkheid:** Privileged Identity Management
+ 
+Als u van Azure AD Privileged Identity Management voor directory-functies gebruikmaakt, kunt u nu gebruiken de tijdsgebonden toegang en de mogelijkheden van de toewijzing van PIM voor Azure Resource-functies, zoals abonnementen, resourcegroepen, virtuele Machines en een andere bron ondersteund door Azure Resource Manager. Multi-factor Authentication afdwingen bij het activeren van rollen Just-In-Time en activeringen in coördinatie met goedgekeurde wijziging windows plannen. Deze versie wordt bovendien niet beschikbaar tijdens de openbare preview, met inbegrip van een bijgewerkte gebruikersinterface, werkstromen voor goedkeuring en de mogelijkheid voor het uitbreiden van de rollen die binnenkort verlopen en vernieuwen van verlopen rollen verbeteringen toegevoegd.
+
+Zie voor meer informatie [PIM voor Azure-resources (Preview)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+ 
+---
+ 
+
+### <a name="adding-optional-claims-to-your-apps-tokens-public-preview"></a>Toevoegen van optionele Claims aan uw apps-tokens (openbare preview)
+
+**Type:** nieuwe functie  
+**Servicecategorie:** Authenticaties (aanmeldingen)  
+**Product mogelijkheid:** gebruikersverificatie
+ 
+Uw Azure AD-app kan nu aangepaste of optionele aanvraagclaims in JWTs of SAML tokens.  Dit zijn de claims over de gebruiker of de tenant die niet zijn opgenomen in het token, als gevolg van grootte of toepasselijkheid beperkingen standaard.  Dit is momenteel in public preview voor Azure AD-apps op de eindpunten v1.0 en v2.0.  Zie de documentatie voor informatie over welke claims kunnen worden toegevoegd en het bewerken van uw toepassingsmanifest om aan te vragen deze.  
+
+Zie voor meer informatie [optioneel claims in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims).
+ 
+---
+ 
+
+### <a name="azure-ad-supports-pkce-for-more-secure-oauth-flows"></a>Azure AD ondersteunt PKCE voor veiliger OAuth-stromen
+
+**Type:** nieuwe functie  
+**Servicecategorie:** Authenticaties (aanmeldingen)  
+**Product mogelijkheid:** gebruikersverificatie
+ 
+Azure AD-documenten zijn bijgewerkt om ondersteuning voor PKCE, waardoor de meer beveiligde communicatie terwijl de autorisatiecode van OAuth 2.0 grant opmerking.  Zowel S256 als tekst zonder opmaak code_challenges worden ondersteund op de eindpunten v1.0 en v2.0. 
+
+Zie voor meer informatie Request een autorisatiecode[](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code). 
+
+ 
+---
+ 
+
+### <a name="support-for-provisioning-all-user-attribute-values-available-in-the-workday-getworkers-api"></a>Ondersteuning voor het inrichten van alle gebruiker kenmerkwaarden beschikbaar in de API van Workday Get_Workers
+
+**Type:** nieuwe functie  
+**Servicecategorie:** Apps inrichten  
+**Product mogelijkheid:** 3e integratie van derden
+ 
+De openbare preview van inkomende inrichten vanuit Workday naar Active Directory en Azure AD nu ondersteunt de mogelijkheid om op te halen en het inrichten van alle beschikbaar in de API van Workday Get_Workers kenmerkwaarden. Hiermee voegt u ondersteuning voor extra standard honderden en aangepaste kenmerken buiten degene die worden geleverd bij de eerste versie van de werkdag inkomende connector inrichten.
+
+Zie voor meer informatie: [aanpassen van de lijst met gebruikerskenmerken Workday](https://docs.microsoft.com/azure/active-directory/active-directory-saas-workday-inbound-tutorial#customizing-the-list-of-workday-user-attributes)
+
+---
+
+
+
+### <a name="changing-group-membership-from-dynamic-to-static-and-vice-versa"></a>Lidmaatschap van dynamische wijzigen naar statisch, en vice versa
+
+**Type:** nieuwe functie  
+**Servicecategorie:** groepsbeheer  
+**Product mogelijkheid:** samenwerking
+ 
+Het is mogelijk om te wijzigen hoe lidmaatschap wordt beheerd in een groep. Dit is handig als u de naam en de ID in het systeem behouden wilt, zodat alle bestaande verwijzingen naar de groep nog steeds geldig zijn zijn. maken van een nieuwe groep zou moeten worden bijgewerkt die verwijzingen.
+We hebben het Azure AD-beheercentrum ondersteuning toevoegen deze functionaliteit bijgewerkt. Klanten kunnen bestaande groepen nu converteren van dynamisch lidmaatschap naar toegewezen lidmaatschap en vice versa. De bestaande PowerShell-cmdlets zijn ook nog steeds beschikbaar.
+
+Zie voor meer informatie [dynamisch lidmaatschap wijzigen in een statisch en vice versa](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal#changing-dynamic-membership-to-static-and-vice-versa)
+
+ 
+
+ 
+---
+ 
+
+### <a name="improved-sign-out-behavior-with-seamless-sso"></a>Verbeterde afmelden gedrag met naadloze eenmalige aanmelding
+
+**Type:** gewijzigde functie  
+**Servicecategorie:** Authenticaties (aanmeldingen)  
+**Product mogelijkheid:** gebruikersverificatie
+ 
+Eerder, zelfs als gebruikers wordt expliciet afgemeld bij een toepassing die wordt beveiligd door Azure AD, ze zou worden automatisch aangemeld terug met behulp van naadloze eenmalige aanmelding als ze toegang probeert te krijgen van een Azure AD-toepassing opnieuw aan binnen hun corpnet vanaf hun apparaten verbonden met het domein. Met deze wijziging wordt afmelden ondersteund.  Hiermee kunnen gebruikers ervoor kiezen de dezelfde of verschillende Azure AD-account voor aanmelden terug, in plaats van wordt automatisch aangemeld met behulp van naadloze eenmalige aanmelding.
+
+Zie voor meer informatie [Azure Active Directory naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)
+
+ 
+---
+ 
+
+### <a name="application-proxy-connector-version-154020-released"></a>Versie van Application Proxy Connector 1.5.402.0 uitgebracht
+
+**Type:** gewijzigde functie  
+**Servicecategorie:** toepassingsproxy  
+**Product mogelijkheid:** identiteit beveiliging en gegevensbescherming
+ 
+De versie van deze connector geleidelijk in tegenstelling tot en met November. Deze nieuwe versie van de connector bevat de volgende wijzigingen:
+
+- De connector nu stelt domein niveau cookies in plaats daarvan subdomein niveau. Dit zorgt ervoor dat een soepeler SSO-ervaring en redundante verificatie prompts voorkomt.
+- Ondersteuning voor gesegmenteerde codering aanvragen
+- Verbeterde connector statuscontrole 
+- Verschillende oplossingen voor problemen en stabiliteitsverbeteringen
+
+Zie voor meer informatie [inzicht in Azure AD-toepassingsproxy connectors](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors).
+
+ 
+---
+ 
+
+ 
 
 
 

@@ -84,9 +84,10 @@
 ## [Problemen oplossen](vpn-gateway-troubleshoot.md)
 ### [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Door de community voorgestelde VPN- of firewallinstellingen voor apparaten](vpn-gateway-third-party-settings.md)
-### [Probleem met het verbindingstype punt-naar-site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-### [Site-naar-Site-verbinding wordt herhaaldelijk verbroken](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
-### [Kan geen Site-naar-Site-verbinding maken](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Problemen met een punt-naar-site-verbinding](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Problemen met een punt-naar-site-verbinding - Mac OS X-VPN-client](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### [Problemen met een site-naar-site-verbinding](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Site-naar-site-verbinding wordt herhaaldelijk verbroken](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [VNet- of VPN-verbindingen configureren en valideren](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Naslaginformatie
