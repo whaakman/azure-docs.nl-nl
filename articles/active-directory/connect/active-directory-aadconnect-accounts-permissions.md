@@ -2,10 +2,10 @@
 title: 'Azure AD Connect: Accounts en machtigingen | Microsoft Docs'
 description: Dit onderwerp beschrijft de accounts gebruikt en gemaakt en de vereiste machtigingen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: De Accounts en machtigingen
 De Azure AD Connect-installatiewizard biedt twee verschillende paden:
@@ -147,7 +147,7 @@ Legenda:
 | --- | --- | --- | --- |
 | **zelfstandige/werkgroep-machine** | Niet ondersteund | **VSA**</br>Lokale account (2008)</br>Lokaal account |  Niet ondersteund |
 | **domein-machine** | **VSA**</br>Lokale account (2008) | **VSA**</br>Lokale account (2008)</br>Lokaal account</br>Domeinaccount</br>sMSA,gMSA | **gMSA**</br>Domeinaccount |
-| **Domeincontroller** | Domeinaccount | *gMSA*</br>Domeinaccount</br>sMSA| *gMSA*</br>Domeinaccount|
+| **Domeincontroller** | **Domeinaccount** | *gMSA*</br>**Domeinaccount**</br>sMSA| *gMSA*</br>**Domeinaccount**|
 
 #### <a name="virtual-service-account"></a>Virtuele-serviceaccount
 Een virtuele-serviceaccount is een speciaal type account dat u hebt geen wachtwoord en wordt beheerd door Windows.

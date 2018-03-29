@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure netwerken bewakingsoplossingen in Log Analytics
 
@@ -28,18 +28,19 @@ Log Analytics biedt de volgende oplossingen voor het bewaken van uw netwerken:
 * Azure Application Gateway analytics om te controleren
  * Azure Application Gateway-Logboeken
  * Azure Application Gateway metrische gegevens
-* Netwerkbeveiligingsgroep Azure analytics om te controleren
- * De Netwerkbeveiligingsgroep voor Azure-Logboeken
+* Oplossingen voor het bewaken en controleren netwerkactiviteit in uw netwerk cloud
+* [Verkeer Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+* Netwerkbeveiligingsgroep Azure Analytics
 
 ## <a name="network-performance-monitor-npm"></a>Netwerk-Prestatiemeter (NPM)
 
-De [netwerk Prestatiemeter](log-analytics-network-performance-monitor.md) management-oplossing is een netwerk bewakingsoplossing die de status, beschikbaarheid en bereikbaarheid van netwerken bewaakt.  Het wordt gebruikt voor het bewaken van de verbinding tussen:
+De [netwerk Prestatiemeter](https://docs.microsoft.com/azure/networking/network-monitoring-overview) management-oplossing is een netwerk bewakingsoplossing die de status, beschikbaarheid en bereikbaarheid van netwerken bewaakt.  Het wordt gebruikt voor het bewaken van de verbinding tussen:
 
 * openbare cloud en on-premises
 * datacenters en gebruikerslocaties (filialen)
 * de subnetten die als host fungeert voor verschillende lagen van een toepassing met meerdere lagen.
 
-Zie voor meer informatie [netwerk Prestatiemeter](log-analytics-network-performance-monitor.md).
+Zie voor meer informatie [netwerk Prestatiemeter](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway en de Netwerkbeveiligingsgroep analyses
 De oplossingen gebruiken:

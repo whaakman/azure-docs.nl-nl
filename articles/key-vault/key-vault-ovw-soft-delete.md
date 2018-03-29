@@ -1,16 +1,16 @@
 ---
-ms.assetid: 
+ms.assetid: ''
 title: Azure Sleutelkluis voorlopig verwijderen | Microsoft Docs
 ms.service: key-vault
 author: lleonard-msft
 ms.author: alleonar
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 01357e4fdb9b6f27e9baf5f5c8e4c7d6b582ad35
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6a3573cf31418309a31126b2a0c6a43ea2e0c745
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Overzicht van Azure Sleutelkluis voorlopig verwijderen
 
@@ -67,6 +67,13 @@ Tenzij een sleutelkluis of sleutelkluis-object is hersteld, aan het einde van de
 Permanent verwijderen, verwijderen, wordt een sleutelkluis is mogelijk via een POST-bewerking op de proxy-resource en speciale bevoegdheden vereist. In het algemeen is de eigenaar van het abonnement mogelijk een sleutelkluis verwijderen. De POST-bewerking activeert de onmiddellijke en onherstelbare verwijdering van deze kluis. 
 
 Een uitzondering hierop is het geval wanneer het Azure-abonnement is gemarkeerd als *niet kan*. In dit geval wordt alleen de service voert de werkelijke verwijdering en als een geplande proces gebeurt. 
+
+### <a name="billing-implications"></a>De implicaties van facturering
+
+In het algemeen als een object (een sleutelkluis of een sleutel of geheim) in verwijderde staat, er zijn slechts twee bewerkingen mogelijk: 'verwijderen' en 'herstellen'. De bewerkingen mislukken. Hoewel het object bestaat, daarom kunnen geen bewerkingen worden uitgevoerd en daarom geen gebruik wordt uitgevoerd, dus geen factuur. Maar er zijn de volgende uitzonderingen:
+
+- acties 'verwijderen' en 'herstellen' meetelt voor normale sleutelkluisbewerkingen en wordt gefactureerd.
+- Als het object een HSM-sleutel is, wordt de 'HSM beschermde sleutel' kosten per sleutel versie per maand kosten van toepassing als een sleutel versie is gebruikt in de afgelopen 30 dagen. Hierna is omdat het object verkeert in verwijderde staat die geen bewerkingen kunnen worden uitgevoerd, dus zonder kosten van toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 

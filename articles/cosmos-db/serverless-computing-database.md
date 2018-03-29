@@ -5,20 +5,20 @@ services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39155a2407efa0cc13236a1bbbbcd292daac86b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Zonder Server database computing met behulp van Azure Functions
 
@@ -113,12 +113,16 @@ In al deze gevallen gebruiken, omdat de functie heeft de app zelf ontkoppeld, u 
 
 ## <a name="tooling"></a>Tooling
 
-Systeemeigen integratie tussen Azure Cosmos DB en Azure Functions is beschikbaar in de Azure-portal.
+Systeemeigen integratie tussen Azure Cosmos DB en Azure Functions is beschikbaar in de Azure-portal en in Visual Studio 2017.
 * U kunt een Azure DB die Cosmos-trigger maken in de Azure Functions-portal. Zie voor instructies Quick Start [een trigger Azure Cosmos DB maken in de Azure-portal](https://aka.ms/cosmosdbtriggerportalfunc) ![een trigger Azure Cosmos DB maken in de Azure Functions-portal](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
 * In de Azure Functions-portal kunt u ook invoer bindingen van Azure DB die Cosmos- en uitvoer bindingen voor andere typen triggers toevoegen. Zie voor instructies Quick Start [opslaan van ongestructureerde gegevens met behulp van Azure Functions en Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
     ![Een Azure DB die Cosmos-trigger maken in de Azure Functions-portal](./media/serverless-computing-database/function-portal-input-binding.png)
 *   U kunt in de Azure DB die Cosmos-portal een Azure DB die Cosmos-trigger toevoegen aan een bestaande Azure-functie-app in dezelfde resourcegroep.
     ![Een Azure DB die Cosmos-trigger maken in de Azure Functions-portal](./media/serverless-computing-database/cosmos-db-portal.png)
+* U kunt een Azure DB die Cosmos-trigger met de geïntegreerde sjabloon maken in Visual Studio-2017:
+
+    >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
+
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Waarom Azure Functions-integratie voor zonder server computing kiezen?
 

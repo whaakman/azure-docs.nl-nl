@@ -5,17 +5,17 @@ services: dms
 author: edmacauley
 ms.author: edmaca
 manager: craigg
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: d74a273061912ea2bdcc39301ce9a727b07ade41
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.date: 03/29/2018
+ms.openlocfilehash: 8abf3bae3a2274ed5514a5c621675b4c9ec27ae2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance"></a>SQL-Server migreren naar beheerde Azure SQL Database-instantie
 De Service Azure Database migratie kunt u de databases van een lokale SQL Server-instantie migreren naar Azure SQL Database. In deze zelfstudie maakt u de migratie de **Adventureworks2012** database van een lokaal exemplaar van SQL Server naar een Azure SQL Database met behulp van de Service Azure Database migratie.
@@ -32,15 +32,16 @@ Voor deze zelfstudie hebt voltooid, moet u:
 
 - Een VNET maken voor de Azure-Service voor het migreren van Database met behulp van het Azure Resource Manager-implementatiemodel, waardoor site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Meer informatie over netwerktopologieën voor Azure SQL DB-beheerde exemplaar migraties met behulp van de migratie van Azure databaseservice](https://aka.ms/dmsnetworkformi).
 - Zorg ervoor dat uw Azure Virtual Network (VNET) Netwerkbeveiligingsgroep regels komen de volgende communicatie niet blokkeren 443, 53, 9354 poort, 445, 12000. Zie het artikel voor meer informatie over het Azure VNET NSG wordt verkeer gefilterd [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
-- Configureer uw [configureert u de Windows Firewall voor toegang tot de gegevensbron database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Open Windows Firewall zodat de Service Azure Database migratie voor toegang tot de bron van SQL Server.
+- Configureer uw [Windows Firewall voor toegang tot de gegevensbron database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+- Open Windows Firewall zodat de Service Azure Database migratie voor toegang tot de bron van SQL Server, die standaard TCP-poort 1433.
+- Als u meerdere benoemde exemplaren van SQL Server met behulp van dynamische poorten worden uitgevoerd, kunt u desgewenst de SQL Browser-Service inschakelen en toegang tot de UDP-poort 1434 via uw firewalls toestaan, zodat de migratie van Azure databaseservice verbinding met een benoemd exemplaar op de bron maken kan -Server.
 - Als u van een firewallapparaat voor uw brondatabases gebruikmaakt, moet u mogelijk firewallregels zodat de Service Azure Database migratie voor toegang tot de bron-databases voor migratie, evenals bestanden via het SMB-poort 445 toevoegen.
 - Geen exemplaar maken van Azure SQL Database-beheerd instantie aan de hand van de details in het artikel [maken van een Azure SQL Database beheerd-exemplaar in de Azure portal](https://aka.ms/sqldbmi).
 - Zorg ervoor dat de aanmeldingen gebruikt voor het verbinding maken met de bron van SQL Server en de doelinstantie van beheerde leden van de serverrol sysadmin.
 - Maak een netwerkshare die de migratie van Azure databaseservice gebruiken kunt voor back-up van de brondatabase.
 - Zorg ervoor dat het serviceaccount met een SQL Server-exemplaar van bron schrijfrechten heeft op de netwerkshare die u hebt gemaakt.
-- Maak een notitie van een Windows-gebruiker (en wachtwoord) die de machtiging Volledig beheer op de netwerkshare die u heeft hierboven hebt gemaakt. De Service Azure Database migratie wordt de gebruikersreferenties voor het uploaden van de back-upbestanden naar Azure storage-container voor terugzetbewerking imiteren.
-- Maken van een blob-container en de SAS URI ophalen met behulp van de stappen in het artikel [beheren Azure Blob Storage-resources met Opslagverkenner (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container), moet u alle machtigingen (lezen, schrijven, verwijderen, lijst) in het venster beleid selecteren tijdens het maken van de SAS-URI. Hiermee wordt de migratie van Azure databaseservice toegang bieden tot uw opslag account-container voor het uploaden van de back-upbestanden die wordt gebruikt voor het migreren van databases naar Azure SQL Database-beheerde exemplaar
+- Maak een notitie van een Windows-gebruiker (en wachtwoord) die de machtiging Volledig beheer op de netwerkshare die u heeft hierboven hebt gemaakt. De migratie van Azure databaseservice imiteert de gebruikersreferenties voor het uploaden van de back-upbestanden naar Azure storage-container voor restore-bewerking.
+- Maken van een blob-container en de SAS URI ophalen met behulp van de stappen in het artikel [beheren Azure Blob Storage-resources met Opslagverkenner (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container), moet u alle machtigingen (lezen, schrijven, verwijderen, lijst) in het venster beleid selecteren tijdens het maken van de SAS-URI. Dit biedt de Service Azure Database migratie met toegang tot uw storage-account-container voor het uploaden van de back-upbestanden gebruikt voor het migreren van databases naar Azure SQL Database beheerd exemplaar
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>De registerbronprovider is Microsoft.DataMigration
 
@@ -124,10 +125,10 @@ Nadat de service is gemaakt, zoeken binnen de Azure-portal en open het.
 
     | | |
     |--------|---------|
-    |**Back-uplocatie-server** | Het lokale netwerk delen dat de Service Azure Database migratie kan duren voordat de bron databaseback-ups op. Het serviceaccount met een exemplaar van SQL Server bron moet schrijfmachtigingen hebben op deze netwerkshare. |
+    |**De back-uplocatie** | Het lokale netwerk delen dat de Service Azure Database migratie kan duren voordat de bron databaseback-ups op. Het serviceaccount met een exemplaar van SQL Server bron moet schrijfmachtigingen hebben op deze netwerkshare. |
     |**Gebruikersnaam** | De windows-gebruikersnaam dat de migratie van Azure databaseservice kan imiteren en de back-upbestanden naar Azure storage-container voor restore-bewerking uploaden. |
     |**Wachtwoord** | Wachtwoord voor de bovenstaande gebruiker. |
-    |**Opslag SAS-URI** | De SAS-URI die de Azure-Service voor het migreren van Database toegang tot uw storage-account-container die de service wordt de back-up van bestanden te uploaden en dat wordt gebruikt biedt voor het migreren van databases naar Azure SQL Database-beheerde exemplaar.  [Meer informatie over het ophalen van de SAS-URI voor blob-container](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
+    |**Opslag SAS-URI** | De SAS-URI waarmee de Service Azure Database migratie met toegang tot uw storage-account-container waarnaar de service de back-up van bestanden en die uploadt wordt gebruikt voor het migreren van databases naar Azure SQL Database-beheerde exemplaar. [Meer informatie over het ophalen van de SAS-URI voor blob-container](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
     
     ![Migratie-instellingen configureren](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings.png)
 

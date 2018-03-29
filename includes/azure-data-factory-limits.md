@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 03/27/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: e68e87bb19b8c64cf06c03831b22cf43d773efde
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/29/2018
+---
 Gegevensfactory is een multitenant-service die beschikt over de volgende standaardlimiet om ervoor te zorgen klantabonnementen zijn beveiligd tegen elkaars werkbelastingen. Veel van de limieten kunnen eenvoudig gegeven voor uw abonnement tot het maximum aantal contact opnemen met de ondersteuning.
 
 ### <a name="version-2"></a>Versie 2
@@ -13,9 +29,9 @@ Gegevensfactory is een multitenant-service die beschikt over de volgende standaa
 | Gelijktijdige pipeline wordt per pijplijn | 20 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Maximum aantal activiteiten per pijplijn | 20 | 30 |
 | Maximum aantal parameters per pijplijn | 20 | 30 |
-| aantal bytes per object voor pipeline-objecten <sup>1</sup> | 200 KB | 200 KB |
-| aantal bytes per object voor de gegevensset en objecten van de gekoppelde service <sup>1</sup> | 100 KB | 2000 KB |
-| Data movement eenheden cloud <sup>3</sup> | 32 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Aantal bytes per object voor pipeline-objecten <sup>1</sup> | 200 KB | 200 KB |
+| Aantal bytes per object voor de gegevensset en objecten van de gekoppelde service <sup>1</sup> | 100 KB | 2000 KB |
+| Data movement eenheden cloud <sup>3</sup> | 256 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Aantal voor pijplijn activiteiten bij uitvoering nieuwe pogingen | 1 day(timeout) | 1 dag (time-out) |
 | API-aanroepen schrijven | 2500/hr<br/><br/> Deze limiet is opgelegd door Azure Resource Manager, niet-Azure Data Factory. | [Neem contact op met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Lees API-aanroepen | 12.500/hr<br/><br/> Deze limiet is opgelegd door Azure Resource Manager, niet-Azure Data Factory. | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
@@ -29,8 +45,8 @@ Gegevensfactory is een multitenant-service die beschikt over de volgende standaa
 | pijplijnen binnen een gegevensfactory |2500 |[Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | gegevenssets binnen een gegevensfactory |5000 |[Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | gelijktijdige segmenten per gegevensset |10 |10 |
-| aantal bytes per object voor pipeline-objecten <sup>1</sup> |200 KB |200 KB |
-| aantal bytes per object voor de gegevensset en objecten van de gekoppelde service <sup>1</sup> |100 KB |2000 KB |
+| Aantal bytes per object voor pipeline-objecten <sup>1</sup> |200 KB |200 KB |
+| Aantal bytes per object voor de gegevensset en objecten van de gekoppelde service <sup>1</sup> |100 KB |2000 KB |
 | HDInsight-cluster op aanvraag kernen binnen een abonnement <sup>2</sup> |60 |[Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Data movement eenheden cloud <sup>3</sup> |32 |[Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Aantal voor pijplijn activiteiten bij uitvoering nieuwe pogingen |1000 |MaxInt (32 bits) |
@@ -39,7 +55,7 @@ Gegevensfactory is een multitenant-service die beschikt over de volgende standaa
 
 <sup>2</sup> on-demand HDInsight-kernen worden toegewezen uit het abonnement dat u de gegevensfactory bevat. Als gevolg hiervan is de bovenstaande limiet voor de Data Factory afgedwongen limiet kernen voor bellen op HDInsight kernen en verschilt van de core limiet die is gekoppeld aan uw Azure-abonnement.
 
-<sup>3</sup> cloud gegevensverplaatsing gegevenseenheid (DMU) wordt gebruikt in een cloud-naar-cloud kopieerbewerking. Is een meting met de kracht (een combinatie van CPU, geheugen en netwerkresourcetoewijzing) van één eenheid in de Data Factory. Met behulp van meer DMUs voor sommige scenario's kunt u hogere kopie doorvoer behalen. Raadpleeg [Cloud data movement eenheden](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) sectie voor meer informatie.
+<sup>3</sup> cloud gegevensverplaatsing gegevenseenheid (DMU) wordt gebruikt in een cloud-naar-cloud kopieerbewerking. Is een meting met de kracht (een combinatie van CPU, geheugen en netwerkresourcetoewijzing) van één eenheid in de Data Factory. Met behulp van meer DMUs voor sommige scenario's kunt u hogere kopie doorvoer behalen. Raadpleeg [Cloud data movement eenheden (V2)](../articles/data-factory/copy-activity-performance.md#cloud-data-movement-units) en [Cloud data movement eenheden (V1)](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) sectie voor meer informatie.
 
 <sup>4</sup> de integratie Runtime (IR) wordt de beheerinfrastructuur gebruikt door Azure Data Factory om te voorzien in de volgende mogelijkheden voor integratie van verschillende netwerkomgevingen: verplaatsing van gegevens tijdens het verzenden van activiteiten voor de compute-services, uitvoeren van SSIS-pakketten. Zie voor meer informatie [integratie Runtime overzicht](../articles/data-factory/concepts-integration-runtime.md).
 

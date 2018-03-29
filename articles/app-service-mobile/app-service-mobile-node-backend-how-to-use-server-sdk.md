@@ -2,10 +2,10 @@
 title: Werken met de Server SDK voor Node.js back-end voor Mobile Apps | Microsoft Docs
 description: Informatie over het werken met de Server SDK voor Node.js back-end voor Azure App Service Mobile Apps.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: elamalani
 manager: elamalani
-editor: 
+editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Het gebruik van de Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -119,7 +119,7 @@ Visual Studio 2015 is een uitbreiding voor het ontwikkelen van Node.js-toepassin
         app.use(mobile);
 
    Sla het bestand op.
-10. Voer de toepassing lokaal (de API wordt geleverd op http://localhost: 3000) of publiceren naar Azure.
+10. Ofwel de toepassing lokaal uitvoeren (de API wordt geleverd op http://localhost:3000) of publiceren naar Azure.
 
 ### <a name="create-node-backend-portal"></a>Een back-end voor Node.js maken met behulp van de Azure-portal
 U kunt een Mobile Apps back-end rechts maken in de [Azure-portal]. U kunt de volgende stappen uit of een client en server samen te maken door de [maken van een mobiele app](app-service-mobile-ios-get-started.md) zelfstudie. De zelfstudie bevat een vereenvoudigde versie van deze instructies en wordt aanbevolen voor bewijs van concept projecten.
@@ -135,7 +135,7 @@ Wanneer u een back-end voor Node.js Mobile Apps maakt met behulp van de portal *
 De volgende procedure maakt gebruik van een Git-opslagplaats voor het downloaden van de Quick Start-projectcode:
 
 1. Installeer Git als u dat nog niet hebt gedaan. De stappen die nodig zijn voor het installeren van Git variëren tussen besturingssystemen. Zie voor specifieke besturingssysteem-distributies en installatierichtlijnen [installeren Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Volg de stappen in [inschakelen van de App Service-app-opslagplaats](../app-service/app-service-deploy-local-git.md#Step3) zodat de Git-opslagplaats voor uw back-end-site. Maak een notitie van implementatie-gebruikersnaam en wachtwoord.
+2. Zie [voorbereiden van uw opslagplaats](../app-service/app-service-deploy-local-git.md#prepare-your-repository) zodat de Git-opslagplaats voor uw back-end-site. Maak een notitie van implementatie-gebruikersnaam en wachtwoord.
 3. In het deelvenster voor mobiele Apps van uw back-end, noteert u de **Git-kloon-URL** instelling.
 4. Uitvoeren van de `git clone` opdracht met behulp van de Git-kloon-URL. Voer uw wachtwoord indien nodig, zoals in het volgende voorbeeld:
 

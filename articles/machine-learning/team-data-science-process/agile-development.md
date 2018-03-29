@@ -1,23 +1,23 @@
 ---
 title: Flexibel ontwikkelen van projecten met gegevens wetenschap - Azure Machine Learning | Microsoft Docs
 description: Hoe kunnen ontwikkelaars een wetenschappelijke gegevensproject in een systematische, versie beheerd en gezamenlijke manier binnen een projectteam uitvoeren met behulp van het Team gegevens wetenschap proces.
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: 686f751b241d49d116948711c683f4b504d5d5f9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: dbaf2df0f5572c9b269000c741f1d736a7521d73
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="agile-development-of-data-science-projects"></a>Flexibel ontwikkelen van gegevens wetenschappelijke projecten
 
@@ -89,7 +89,7 @@ U kunt deze functie ook koppelen aan de project-opslagplaats. Klik op **koppelin
 
 ## 4. <a name='AddStoryunderfeature-4'></a>Verhaal onder functie toevoegen 
 
-Onder de functie kunnen artikelen worden toegevoegd om te beschrijven van belangrijke stappen die nodig zijn om het project (functie) te voltooien. Als u wilt een nieuw artikel toevoegen, klikt u op de  **+**  Meld u aan de linkerkant van de functie in de weergave van achterstand.  
+Onder de functie kunnen artikelen worden toegevoegd om te beschrijven van belangrijke stappen die nodig zijn om het project (functie) te voltooien. Als u wilt een nieuw artikel toevoegen, klikt u op de **+** Meld u aan de linkerkant van de functie in de weergave van achterstand.  
 
 ![4](./media/agile-development/4-sprint-add-story.png)
 
@@ -106,7 +106,7 @@ U kunt dit artikel kunt koppelen aan een bestaande opslagplaats door te klikken 
 
 Taken zijn specifieke gedetailleerde stappen die nodig zijn voor elk artikel. Nadat alle taken van een artikel zijn voltooid, moet het artikel te worden voltooid. 
 
-Een taak wilt toevoegen aan een artikel, klikt u op de  **+**  aanmelding naast het item verhaal, selecteer **taak**, en vul vervolgens de gedetailleerde gegevens van deze taak in het pop-upvenster.
+Een taak wilt toevoegen aan een artikel, klikt u op de **+** aanmelding naast het item verhaal, selecteer **taak**, en vul vervolgens de gedetailleerde gegevens van deze taak in het pop-upvenster.
 
 ![7](./media/agile-development/7-sprint-add-task.png)
 
@@ -117,7 +117,7 @@ Nadat u de functies, artikelen en taken worden gemaakt, kunt u weergeven in de *
 ![9](./media/agile-development/9-link-to-a-new-branch.png)
 
 
-## 6. <a name='set-up-agile-dsp-6'></a>Een sjabloon flexibele TDSP werken in Visual Studio Online instellen
+## 6. <a name='set-up-agile-dsp-6'></a> Een sjabloon flexibele TDSP werken in Visual Studio Online instellen
 
 Dit artikel wordt uitgelegd hoe u een flexibele gegevens wetenschappelijke processjabloon die gebruikmaakt van de fasen van de levenscyclus van het TDSP gegevens wetenschappelijke en houdt werkitems met Visual Studio Online (vso) instelt. De stappen hieronder een voorbeeld van het instellen van de gegevens wetenschap-specifieke flexibele doorloop process Monitoring template *AgileDataScienceProcess* en laten zien hoe gegevens wetenschappelijke work items op basis van de sjabloon te maken.
 
@@ -184,8 +184,8 @@ Nadat de gegevens wetenschap processjabloon is gemaakt, kunt u maken en uw gegev
 
 Hier vindt u aanvullende koppelingen naar bronnen op flexibele processen.
 
-- Flexibele proces [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
-- Werkstroom en flexibele proces werk itemtypen [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+- Flexibele proces   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
+- Werkstroom en flexibele proces werk itemtypen   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
 
 
 Scenario's die de stappen in het proces voor het demonstreren **specifieke scenario's** worden ook gegeven. Ze worden weergegeven en gekoppeld aan de miniatuur beschrijvingen in de [voorbeeld-scenario's](walkthroughs.md) artikel. Ze te laten zien hoe cloud, 's voor on-premises en -services combineren in een werkstroom of pijplijn een intelligente toepassing maken. 

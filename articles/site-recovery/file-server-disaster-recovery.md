@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: f53a8641a50a6c968a6ba7b841e0e8f938b5d9f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 830f9c76d9d1bf11692fa9f2f5c49cbecdb69f25
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Een bestandsserver beveiligen met behulp van Azure Site Recovery 
 
@@ -48,7 +48,7 @@ In het vorige diagram deelnemen meerdere bestandsservers leden actief genoemd aa
 
     * U kunt deze methode als uw virtuele machines hebt configuraties die worden niet ondersteund door Site Recovery. Een voorbeeld is een gedeelde clusterschijf waarop soms meestal wordt gebruikt in serveromgevingen bestand. DFSR werkt ook goed in omgevingen met gemiddeld verloop lage bandbreedte. U moet rekening houden met de extra kosten van een virtuele machine van Azure en voortdurend. 
 
-* **Azure bestand Sync gebruiken voor replicatie van uw bestanden**: als u wilt gebruikmaken van de cloud of al een virtuele machine in Azure, kunt u de synchronisatie-bestand. Bestand Sync biedt synchroniseren van volledig beheerde bestandsshares in de cloud die toegankelijk via de industriestandaard zijn [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protocol (SMB). Azure-bestandsshares kunnen vervolgens worden gemonteerd gelijktijdig door cloud of on-premises implementaties van Windows, Linux en Mac OS. 
+* **Azure bestand Sync gebruiken voor replicatie van uw bestanden**: als u wilt gebruikmaken van de cloud of al een virtuele machine in Azure, kunt u Azure File-synchronisatie. Azure File-synchronisatie biedt synchroniseren van volledig beheerde bestandsshares in de cloud die toegankelijk via de industriestandaard zijn [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protocol (SMB). Azure-bestandsshares kunnen vervolgens gelijktijdig worden geladen in de cloud of on-premises implementaties van Windows, Linux en Mac OS. 
 
 Het volgende diagram kunt u bepalen welke strategie moet worden gebruikt voor uw serveromgeving bestand.
 

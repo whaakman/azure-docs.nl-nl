@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>De activiteit opzoeken in Azure Data Factory
 U kunt lookup-activiteit gebruiken om te lezen of het opzoeken van een record, de tabelnaam of de waarde van een externe bron. Er kan naar deze uitvoer worden verwezen door volgende activiteiten. 
@@ -30,12 +30,23 @@ Lookup-activiteit is handig als u wilt een lijst met bestanden, records of tabel
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
 De volgende gegevensbronnen worden momenteel ondersteund voor het opzoeken van:
-- JSON-bestand in Azure Blob-opslag
-- JSON-bestand in bestandssysteem
-- Azure SQL Database (JSON-gegevens geconverteerd van een query)
-- Azure SQL Data Warehouse (JSON-gegevens geconverteerd van een query)
-- SQL Server (JSON-gegevens geconverteerd van een query)
-- Azure Table storage (JSON-gegevens geconverteerd van een query)
+
+- Amazon Redshift
+- Azure Blob Storage
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Azure File storage
+- Azure SQL Database
+- Azure SQL Data Warehouse
+- Azure Table Storage
+- Dynamics 365
+- Dynamics CRM
+- Bestandssysteem
+- PostgreSQL
+- SalesForce
+- SalesForce Service Cloud
+- SFTP
+- SQL Server
 
 Het maximum aantal rijen dat wordt geretourneerd door de activiteit opzoeken is **5000**, tot aan **10MB** in grootte.
 
@@ -62,9 +73,14 @@ Het maximum aantal rijen dat wordt geretourneerd door de activiteit opzoeken is 
 ## <a name="type-properties"></a>Type-eigenschappen
 Naam | Beschrijving | Type | Vereist?
 ---- | ----------- | ---- | --------
-dataset | Biedt de dataset-verwijzing voor de zoekopdracht. Op dit moment wordt zijn de gegevensset ondersteunde typen:<ul><li>`AzureBlobDataset` voor [Azure Blob storage](connector-azure-blob-storage.md#dataset-properties) als bron</li><li>`FileShareDataset` voor [bestandssysteem](connector-file-system.md#dataset-properties) als bron</li><li>`AzureSqlTableDataset` voor [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) of [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) als bron</li><li>`SqlServerTable` voor [SQL Server](connector-sql-server.md#dataset-properties) als bron</li><li>`AzureTableDataset` voor [Azure Table storage](connector-azure-table-storage.md#dataset-properties) als bron</li> | Sleutel-waardepaar | Ja
+dataset | Biedt de dataset-verwijzing voor de zoekopdracht. Details van de sectie 'Eigenschappen van gegevensset' in elke bijbehorende connector artikel ophalen. | Sleutel-waardepaar | Ja
 bron | Bevat Broneigenschappen van gegevensset-specifieke, hetzelfde zijn als de bron voor kopiëren-activiteit. Details van de sectie 'activiteitseigenschappen kopiëren' in elke bijbehorende connector artikel ophalen. | Sleutel-waardepaar | Ja
 firstRowOnly | Geeft aan of alleen de eerste rij of alle rijen retourneren. | Boole-waarde | Nee. De standaardwaarde is `true`.
+
+Houd rekening met de volgende punten:
+
+1. De bronkolom met ByteArray type wordt niet ondersteund.
+2. Structuur wordt niet ondersteund in de gegevenssetdefinitie van de. Voor tekst format-bestanden in het bijzonder kunt u de rij met kolomkoppen de kolomnaam op te geven.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Gebruik het resultaat van de activiteit opzoeken in een volgende activiteit
 

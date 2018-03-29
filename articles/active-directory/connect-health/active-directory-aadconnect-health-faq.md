@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Veelgestelde vragen over Azure AD Connect Health
 In dit artikel bevat antwoorden op veelgestelde vragen (FAQ's) over Azure Active Directory (Azure AD) Connect Health. Deze Veelgestelde vragen hebben betrekking op vragen over het gebruik van de service, waaronder het facturering model, mogelijkheden, beperkingen en ondersteuning.
@@ -178,6 +178,10 @@ CheckForMS17-010
 **V: Waarom heeft de PowerShell-cmdlet <i>Get-MsolDirSyncProvisioningError</i> minder synchronisatiefouten weergeven in het resultaat?**
 
 <i>Get-MsolDirSyncProvisioningError</i> retourneert alleen fouten bij het inrichten DirSync. Naast die toont Connect Health-portal ook andere sync fouttypen zoals exportfouten. Dit komt overeen met Azure AD Connect delta resultaat. Lees meer over [Azure AD Connect-synchronisatie fouten](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+
+**V: Waarom wordt mijn ADFS audits niet gegenereerd?**
+
+Gebruik PowerShell-cmdlet <i>Get-AdfsProperties - AuditLevel</i> uitgeschakeld om ervoor te zorgen controlelogboeken bevindt zich niet in staat. Lees meer over [AD FS-auditlogboeken](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
 
 
 ## <a name="related-links"></a>Verwante koppelingen

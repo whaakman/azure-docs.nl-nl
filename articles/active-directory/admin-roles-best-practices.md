@@ -2,7 +2,7 @@
 title: Aanbevolen procedures voor het beveiligen van beheerderstoegang in Azure AD | Microsoft Docs
 description: Zorg ervoor dat uw organisatie toegang en beheer beheerdersaccounts beveiligd zijn. Voor systeemarchitecten en IT-professionals die Azure AD configureren Azure en Microsoft Online Services.
 services: active-directory
-keywords: 
+keywords: ''
 author: curtand
 ms.author: curtand
 ms.date: 03/09/2018
@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Bevoegde toegang voor hybride en cloud-implementaties beveiligen in Azure AD
 
@@ -156,7 +156,7 @@ Zorg dat alle gebruikers zijn aangemeld bij hun beheerdersaccounts en hun wachtw
 
 #### <a name="turn-on-password-synchronization"></a>Wachtwoordsynchronisatie inschakelen
 
-Wachtwoordsynchronisatie is een functie die wordt gebruikt om te synchroniseren-hashes van gebruiker wachtwoord-hashes van een lokale Active Directory-exemplaar naar een cloud-gebaseerde Azure AD-exemplaar. Zelfs dat als u besluit Federatie met Active Directory Federation Services (AD FS) of een andere id-providers gebruiken, kunt u eventueel instellen Wachtwoordsynchronisatie als een back-up in geval uw on-premises infrastructuur zoals AD of AD FS-servers mislukt of niet tijdelijk niet beschikbaar. Hierdoor kunnen gebruikers zich aanmelden bij de service met behulp van het wachtwoord dat ze gebruiken om aan te melden bij hun on-premises AD-exemplaar. Bovendien kan de beveiliging van de identiteit voor het detecteren van gestolen referenties door de wachtwoord-hashes te vergelijken met mogelijk onveilig bekend als een gebruiker is gebruikt, hun hetzelfde e-mailadres en wachtwoord van andere services die niet is verbonden met Azure AD-wachtwoorden.  Zie voor meer informatie [Wachtwoordsynchronisatie met Azure AD Connect-synchronisatie implementeren](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).
+Wachtwoordsynchronisatie is een functie die wordt gebruikt om te synchroniseren-hashes van gebruiker wachtwoord-hashes van een lokale Active Directory-exemplaar naar een cloud-gebaseerde Azure AD-exemplaar. Zelfs dat als u besluit Federatie met Active Directory Federation Services (AD FS) of een andere id-providers gebruiken, kunt u eventueel instellen Wachtwoordsynchronisatie als een back-up in geval uw on-premises infrastructuur zoals AD of AD FS-servers mislukt of niet tijdelijk niet beschikbaar. Hierdoor kunnen gebruikers zich aanmelden bij de service met behulp van het wachtwoord dat ze gebruiken om aan te melden bij hun on-premises AD-exemplaar. Bovendien kan de beveiliging van de identiteit voor het detecteren van gestolen referenties door de wachtwoord-hashes te vergelijken met mogelijk onveilig bekend als een gebruiker is gebruikt, hun hetzelfde e-mailadres en wachtwoord van andere services die niet is verbonden met Azure AD-wachtwoorden.  Zie voor meer informatie [hash Wachtwoordsynchronisatie met Azure AD Connect-synchronisatie implementeren](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Multi-factor authentication (MFA) voor gebruikers in alle bevoorrechte rollen, evenals blootgestelde gebruikers vereisen
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 241f872b3069a58a35df7104f3335964298c7a20
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure Active Directory
 Azure Active Directory (Azure AD) maakt gebruik van OAuth 2.0 waarmee u toegang verlenen aan webtoepassingen en web-API's in uw Azure AD-tenant. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze open source-bibliotheken.
@@ -138,9 +138,9 @@ grant_type=authorization_code
 | grant_type |Vereist |Moet `authorization_code` voor de autorisatiecodestroom. |
 | code |Vereist |De `authorization_code` die u in de vorige sectie hebt verkregen |
 | redirect_uri |Vereist |Dezelfde `redirect_uri` waarde die is gebruikt voor het verkrijgen van de `authorization_code`. |
-| client_secret |vereist voor web-apps |De toepassingsgeheim die u in de portal van de registratie van de app voor uw app hebt gemaakt.  Deze mag niet worden gebruikt in een eigen app omdat client_secrets betrouwbaar kunnen niet worden opgeslagen op apparaten.  Het is vereist voor de web-apps en web-API's die u de mogelijkheid hebt voor het opslaan van de `client_secret` veilig op de server. |
+| client_secret |vereist voor de web-apps, niet toegestaan voor openbare-clients |De toepassingsgeheim die u in de portal van de registratie van de app voor uw app hebt gemaakt.  Deze kan niet worden gebruikt in een systeemeigen app (openbare client), omdat client_secrets betrouwbaar kunnen niet worden opgeslagen op apparaten.  Het is vereist voor de web-apps en web-API's (alle vertrouwelijke clients) die u de mogelijkheid hebt voor het opslaan van de `client_secret` veilig op de server. |
 | Bron |vereist als het opgegeven in de autorisatieaanvraag, anders optioneel |De App ID URI van de web-API (beveiligde resource). |
-| code_verifier | optioneel              | De dezelfde code_verifier dat is gebruikt voor het verkrijgen van de authorization_code.  Vereist als PKCE is gebruikt in de autorisatie-aanvraag voor het verlenen van code.  Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+| code_verifier | optioneel              | De dezelfde code_verifier dat is gebruikt voor het verkrijgen van de authorization_code.  Vereist als PKCE is gebruikt in de autorisatie-aanvraag voor het verlenen van code.  Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
 Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassing en klik vervolgens op **configureren**.
 

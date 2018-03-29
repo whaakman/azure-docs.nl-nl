@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 33e0d1d54a533d68ac08f223e1a41e65c7b301a4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b038052776cad63030ca8a48a43b4b579ce6c83a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde bestandsindelingen en compressiecodecs in Azure Data Factory
 
@@ -444,6 +444,30 @@ Houd rekening met de volgende punten:
 * Complexe gegevenstypen worden niet ondersteund (STRUCT, MAP, LIST, UNION)
 * Een ORC-bestand heeft drie [opties voor compressie](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hierbij wordt de compressiecodec in de metagegevens gebruikt om de gegevens te lezen. Bij het schrijven naar een ORC-bestand kiest Data Factory echter ZLIB, de standaardinstelling voor ORC. Er is momenteel geen optie om dit gedrag te overschrijven.
 
+### <a name="data-type-mapping-for-orc-files"></a>Gegevenstype toewijzing voor ORC-bestanden
+
+| Data factory tussentijdse gegevenstype | ORC-typen |
+|:--- |:--- |
+| Boole-waarde | Boole-waarde |
+| SByte | Byte |
+| Byte | Kort |
+| Int16 | Kort |
+| UInt16 | Int |
+| Int32 | Int |
+| UInt32 | Lang |
+| Int64 | Lang |
+| UInt64 | Tekenreeks |
+| Single | Float |
+| Double | Double |
+| Decimale | Decimale |
+| Tekenreeks | Tekenreeks |
+| DateTime | Timestamp |
+| DateTimeOffset | Timestamp |
+| TimeSpan | Timestamp |
+| ByteArray | Binair bestand |
+| GUID | Tekenreeks |
+| CHAR | CHAR(1) |
+
 ## <a name="parquet-format"></a>Parquet-indeling
 
 Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **ParquetFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
@@ -463,6 +487,31 @@ Houd rekening met de volgende punten:
 
 * Complexe gegevenstypen worden niet ondersteund (MAP, LIST)
 * Parquet-bestanden hebben de volgende opties voor compressie: NONE, SNAPPY, GZIP en LZO. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hierbij wordt de compressiecodec in de metagegevens gebruikt om de gegevens te lezen. Bij het schrijven naar een Parquet-bestand kiest Data Factory echter SNAPPY, de standaardinstelling voor Parquet. Er is momenteel geen optie om dit gedrag te overschrijven.
+
+### <a name="data-type-mapping-for-parquet-files"></a>Gegevenstype toewijzing voor parketvloeren bestanden
+
+| Data factory tussentijdse gegevenstype | Parketvloeren primitief Type | Oorspronkelijke Type parketvloeren (deserialiseren) | Oorspronkelijke Type parketvloeren (serialiseren) |
+|:--- |:--- |:--- |:--- |
+| Boole-waarde | Boole-waarde | N/A | N/A |
+| SByte | Int32 | Int8 | Int8 |
+| Byte | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Int64/binair | UInt64 | Decimale |
+| Single | Float | N/A | N/A |
+| Double | Double | N/A | N/A |
+| Decimale | Binair bestand | Decimale | Decimale |
+| Tekenreeks | Binair bestand | Utf8 | Utf8 |
+| DateTime | Int96 | N/A | N/A |
+| TimeSpan | Int96 | N/A | N/A |
+| DateTimeOffset | Int96 | N/A | N/A |
+| ByteArray | Binair bestand | N/A | N/A |
+| GUID | Binair bestand | Utf8 | Utf8 |
+| CHAR | Binair bestand | Utf8 | Utf8 |
+| CharArray | Niet ondersteund | N/A | N/A |
 
 ## <a name="compression-support"></a>Compressieondersteuning
 

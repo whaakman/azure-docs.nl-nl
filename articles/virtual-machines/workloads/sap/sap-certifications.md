@@ -2,13 +2,13 @@
 title: Microsoft Azure certificeringen voor SAP | Microsoft Docs
 description: Bijgewerkte lijst met huidige configuraties en certificeringen van SAP op de Azure-platform.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
-ms.assetid: 
+keywords: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: rclaus
-ms.custom: 
-ms.openlocfilehash: 865fa54c908481b3f4c211f12293538c617b6129
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.custom: ''
+ms.openlocfilehash: 96a3b6f8f8a03019f0446aa7ba42f53298e21009
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>SAP certificeringen en configuraties die worden uitgevoerd op Microsoft Azure
 
@@ -35,12 +35,12 @@ Referenties:
 
 | SAP-product | Ondersteund besturingssysteem | Aanbiedingen voor Azure |
 | --- | --- | --- |
-| SAP HANA-ontwikkelaarsversie (met inbegrip van de clientsoftware HANA bestaan uit SQLODBC, ODBO-alleen Windows, ODBC, JDBC-stuurprogramma's, HANA studio en HANA-database) | Red Hat Enterprise Linux SUSE Linux Enterprise | D-reeks VM-serie |
+| SAP HANA-ontwikkelaarsversie (met inbegrip van de clientsoftware HANA bestaan uit SQLODBC, ODBO-alleen Windows, ODBC, JDBC-stuurprogramma's, HANA studio en HANA-database) | Red Hat Enterprise Linux, SUSE Linux Enterprise | D-reeks VM-serie |
 | Een op HANA Business | SUSE Linux Enterprise | DS14_v2 |
-| S/4-HANA SAP |Red Hat Enterprise Linux SUSE Linux Enterprise | Gecontroleerde beschikbaarheid voor GS5, SAP HANA in Azure (grote exemplaren) |
-| Suite op HANA, OLTP | Red Hat Enterprise Linux SUSE Linux Enterprise | GS5 voor één knooppunt implementaties voor scenario's met niet-productieve SAP HANA in Azure (grote exemplaren) |
-| HANA Enterprise voor BW, OLAP | Red Hat Enterprise Linux SUSE Linux Enterprise | GS5 voor implementaties met één knooppunt, SAP HANA in Azure (grote exemplaren) |
-| SAP BW/4 HANA | Red Hat Enterprise Linux SUSE Linux Enterprise | GS5 voor implementaties met één knooppunt, SAP HANA in Azure (grote exemplaren) |
+| S/4-HANA SAP |Red Hat Enterprise Linux, SUSE Linux Enterprise | Gecontroleerde beschikbaarheid voor GS5, SAP HANA in Azure (grote exemplaren) |
+| Suite op HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 voor één knooppunt implementaties voor scenario's met niet-productieve SAP HANA in Azure (grote exemplaren) |
+| HANA Enterprise voor BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 voor implementaties met één knooppunt, SAP HANA in Azure (grote exemplaren) |
+| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 voor implementaties met één knooppunt, SAP HANA in Azure (grote exemplaren) |
 
 ## <a name="sap-netweaver-certifications"></a>SAP NetWeaver-certificeringen
 Microsoft Azure is gecertificeerd voor de volgende SAP-producten, met volledige ondersteuning van Microsoft en SAP.
@@ -51,17 +51,17 @@ Referenties:
 
 | SAP-product | Gastbesturingssysteem | RDBMS | Typen virtuele machines |
 | --- | --- | --- | --- |
-| SAP Business Suite-software |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP-as-omgeving |A5 naar A11, D11 naar D14, DS11 naar DS14, DS11_v2 naar DS15_v2, GS1 naar GS5, M-serie |
-| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP-as-omgeving |A5 naar A11, D11 naar D14, DS11 naar DS14, DS11_v2 naar DS15_v2, GS1 naar GS5, M-serie |
-| SAP Business Objects BI |Windows |N.v.t. |A5 naar A11, D11 naar D14, DS11 naar DS14, DS11_v2 naar DS15_v2, GS1 naar GS5, M-serie |
-| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP-as-omgeving |A5 naar A11, D11 naar D14, DS11 naar DS14, DS11_v2 naar DS15_v2, GS1 naar GS5, M-serie |
+| SAP Business Suite-software |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP-as-omgeving |A5 naar A11, D11 naar D14, DS11 naar DS14, DS11_v2 naar DS15_v2, GS1 naar GS5, D2s_v3 naar D64s_v3, E2s_v3 naar E64s_v3, M64s naar M128ms |
+| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP-as-omgeving |A5 naar A11, D11 naar D14, DS11 naar DS14, DS11_v2 naar DS15_v2, GS1 naar GS5, D2s_v3 naar D64s_v3, E2s_v3 naar E64s_v3, M64s naar M128ms |
+| SAP Business Objects BI |Windows |N/A |A5 naar A11, D11 naar D14, DS11 naar DS14, DS11_v2 naar DS15_v2, GS1 naar GS5, D2s_v3 naar D64s_v3, E2s_v3 naar E64s_v3, M64s naar M128ms |
+| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows en alleen voor Oracle Linux), DB2, SAP-as-omgeving |A5 naar A11, D11 naar D14, DS11 naar DS14, DS11_v2 naar DS15_v2, GS1 naar GS5, D2s_v3 naar D64s_v3, E2s_v3 naar E64s_v3, M64s naar M128ms |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Andere SAP-werkbelasting ondersteund in Azure
 
 | SAP-product | Gastbesturingssysteem | RDBMS | Typen virtuele machines |
 | --- | --- | --- | --- |
 | SAP Business één op SQL Server | Windows  | SQL Server | Alle NetWeaver gecertificeerd VM-typen |
-| SAP BITS PER KANAAL 10.01 MS SP08 | Windows | | Alle NetWeaver gecertificeerd VM-typen<br /> SAP-notitie #2451795 |
+| SAP BPC 10.01 MS SP08 | Windows | | Alle NetWeaver gecertificeerd VM-typen<br /> SAP-notitie #2451795 |
 | SAP Business objecten BI-platform | Windows | | SAP-notitie #2145537 |
-| SAP-gegevensservices 4.2 | | | SAP-notitie #2288344 |
+| SAP Data Services 4.2 | | | SAP-notitie #2288344 |
 | SAP Hybris Commerce Platform 5.x en 6.x | Windows | SQL Server, Oracle | Alle NetWeaver gecertificeerd VM-typen<br /> [Hybris Wiki](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |

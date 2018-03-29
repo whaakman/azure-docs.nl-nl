@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: c34293796860e0ab72eecedab9cd8b023237050d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: 819d8ce9793f785726f55a89d49d08d818401b33
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen
 
@@ -26,7 +26,7 @@ In dit artikel adres we Veelgestelde vragen over Azure Active Directory naadloze
 
 ## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>Welke methoden aanmelden werk naadloze eenmalige aanmelding met?
 
-Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) aanmeldingsmethoden. Deze functie kan niet echter met Active Directory Federation Services (ADFS) gebruikt.
+Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) aanmeldingsmethoden. Deze functie kan niet echter met Active Directory Federation Services (ADFS) gebruikt.
 
 ## <a name="is-seamless-sso-a-free-feature"></a>Naadloze eenmalige aanmelding een beschikbare functie is?
 

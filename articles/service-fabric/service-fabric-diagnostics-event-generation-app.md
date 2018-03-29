@@ -14,17 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 258aac722aa1c94ecf2cbf0524a3e4b53b8a788c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-and-service-level-logging"></a>Toepassing en service logboekregistratie
 
 De code instrumenteren vormt de basis voor de meeste andere aspecten van de bewaking van uw services. Instrumentatie is de enige manier kunt u weet dat er iets mis is, en op te sporen wat moet worden opgelost. Hoewel het is technisch mogelijk verbinding maken met een foutopsporingsprogramma een productieservice, maar het is niet een gangbare optie. Dus is het belangrijk gedetailleerde gegevens.
 
 Sommige producten softwareontwikkelaars automatisch uw code. Hoewel deze oplossingen goed werken kunnen, is bijna altijd handmatige instrumentation vereist. U moet voldoende informatie voor foutopsporing van de toepassing volledig hebben in het einde. Dit document beschrijft de verschillende methoden voor het instrumenteren van uw code en het kiezen van een methode op een andere.
+
+Zie voor voorbeelden voor het gebruik van deze suggesties [logboekregistratie toevoegen aan uw Service Fabric-toepassing](service-fabric-how-to-diagnostics-log.md).
 
 ## <a name="eventsource"></a>EventSource
 

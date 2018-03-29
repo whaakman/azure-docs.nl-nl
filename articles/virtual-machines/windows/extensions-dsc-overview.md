@@ -2,10 +2,10 @@
 title: Desired State Configuration voor een overzicht van Azure | Microsoft Docs
 description: Informatie over het gebruik van de Microsoft Azure-extensie-handler voor PowerShell Desired State Configuration (DSC). Het artikel bevat vereisten, architectuur en cmdlets.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: 14d29223435e9a133b112a61f2ecdde0aad581a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b16261c9a9f046b7bc55a06dd71aa154a0cec27
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Inleiding tot de handler van de extensie Azure Desired State Configuration
 
@@ -71,7 +71,7 @@ In de meeste gevallen zijn Resource Manager-implementatiesjablonen van de verwac
 
 De PowerShell-cmdlets die worden gebruikt voor het beheren van de DSC-uitbreiding zijn best gebruiken in interactieve probleemoplossing en scenario's de gegevens te verzamelen. De cmdlets kunt u het pakket, publiceren en DSC-extensie-implementaties controleren. Houd er rekening mee dat-cmdlets voor de DSC-uitbreiding nog niet zijn bijgewerkt om te werken met de [configuratiescript standaard](#default-configuration-script).
 
-De **publiceren AzureRMVMDscConfiguration** cmdlet duurt in een configuratiebestand voor afhankelijke DSC-resources wordt gescand en maakt vervolgens een ZIP-bestand. Het ZIP-bestand bevat de configuratie en DSC-resources die nodig zijn voor het nemen van de configuratie. De cmdlet kunt ook het pakket maken lokaal met behulp van de *- ConfigurationArchivePath* parameter. Anders wordt de cmdlet publiceert van het ZIP-bestand naar de blob storage en beveiligt het met een SAS-token.
+De **publiceren AzureRMVMDscConfiguration** cmdlet duurt in een configuratiebestand voor afhankelijke DSC-resources wordt gescand en maakt vervolgens een ZIP-bestand. Het ZIP-bestand bevat de configuratie en DSC-resources die nodig zijn voor het nemen van de configuratie. De cmdlet kunt ook het pakket maken lokaal met behulp van de *- OutputArchivePath* parameter. Anders wordt de cmdlet publiceert van het ZIP-bestand naar de blob storage en beveiligt het met een SAS-token.
 
 Het configuratiescript .ps1 die de cmdlet maakt is in het ZIP-bestand in de hoofdmap van de archiefmap. De modulemap wordt geplaatst in de archiefmap in resources.
 
@@ -133,7 +133,7 @@ DSC instellen in de portal:
 
 De volgende invoer is vereist in de portal:
 
-* **Configuratie-Modules of Script**: dit veld is verplicht (het formulier is niet bijgewerkt voor de [standaard configuratiescript](#default-configuration-script)). Configuratie-modules en -scripts moeten een .ps1-bestand met een configuratiescript of een ZIP-bestand met een .ps1-configuratiescript in de hoofdmap. Als u een ZIP-bestand gebruikt, moeten alle afhankelijke resources worden opgenomen in de mappen in het ZIP-module. U kunt het ZIP-bestand maken met behulp van de **publiceren AzureVMDscConfiguration - ConfigurationArchivePath** opgenomen in de SDK van Azure PowerShell-cmdlet. Het ZIP-bestand is geüpload naar de gebruiker blob-opslag en beveiligd door een SAS-token.
+* **Configuratie-Modules of Script**: dit veld is verplicht (het formulier is niet bijgewerkt voor de [standaard configuratiescript](#default-configuration-script)). Configuratie-modules en -scripts moeten een .ps1-bestand met een configuratiescript of een ZIP-bestand met een .ps1-configuratiescript in de hoofdmap. Als u een ZIP-bestand gebruikt, moeten alle afhankelijke resources worden opgenomen in de mappen in het ZIP-module. U kunt het ZIP-bestand maken met behulp van de **publiceren AzureVMDscConfiguration - OutputArchivePath** opgenomen in de SDK van Azure PowerShell-cmdlet. Het ZIP-bestand is geüpload naar de gebruiker blob-opslag en beveiligd door een SAS-token.
 
 * **Bestand met configuratiegegevens PSD1**: dit veld is optioneel. Als uw configuratie een configuratiebestand voor de gegevens in .psd1 vereist, moet u dit veld gebruiken om te selecteren van het gegevensveld en uploaden naar de gebruiker blob-opslag. Het configuratiebestand van de gegevens wordt beveiligd door een SAS-token in de blob-opslag.
 

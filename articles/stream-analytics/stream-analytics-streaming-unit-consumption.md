@@ -3,11 +3,11 @@ title: 'Azure Stream Analytics: Begrijpen en Streaming-eenheden aanpassen | Micr
 description: Begrijpen welke factoren invloed hebben op prestaties in Azure Stream Analytics.
 keywords: Streaming-eenheid, de prestaties van query 's
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5c60b1808959c73759a78141566c5c49f0350e2f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Begrijpen en aanpassen van Streaming-eenheden
 
@@ -88,18 +88,18 @@ De grootte van de status van een tijdelijke join is evenredig met het aantal geb
 
 Het aantal niet-overeenkomende gebeurtenissen in de join invloed hebben op het geheugengebruik voor de query. Met de volgende query wordt gezocht naar advertentieweergaven waarmee klikken worden gegenereerd:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 In dit voorbeeld is het mogelijk dat veel advertenties worden weergegeven en klikt u op de enkele personen en dit vereist is dat alle gebeurtenissen in het tijdvenster. Het verbruikte geheugen is gerelateerd aan de venstergrootte en de snelheid waarmee gebeurtenissen elkaar opvolgen. 
 
 Dit verhelpen, kunt u gebeurtenissen verzenden naar Event Hub gepartitioneerd door de join-sleutels (id in dit geval) en de scale-out van de query doordat het systeem voor het verwerken van elke invoer partitie afzonderlijk met **PARTITION BY** zoals wordt weergegeven:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
 
 Wanneer de query is gepartitioneerd, wordt deze verspreid over verschillende knooppunten. Hierdoor is het aantal gebeurtenissen die afkomstig zijn in elk knooppunt beperkt, waardoor de grootte van de status wordt bijgehouden in het venster join. 

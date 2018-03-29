@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5abe3e5a56dfca263f109b86f473ac490da3eac7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e0b8a999cf38cbef37498d4ee0fb2bceae8f292
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met SQL synchroniseren van gegevens (Preview)
 
@@ -92,6 +92,8 @@ Gegevens synchroniseren gebruikt invoegen, bijwerken en verwijderen van triggers
 
 -   Een tabel kan niet een identiteitskolom die niet de primaire sleutel hebben.
 
+-   Een primaire sleutel kan niet het gegevenstype datum/tijd hebben.
+
 -   De namen van objecten (databases, tabellen en kolommen) kunnen bevatten de afdrukbare tekens punt (.), vierkante linkerhaak ([) of rechts vierkante haak (]).
 
 -   Azure Active Directory-verificatie wordt niet ondersteund.
@@ -160,20 +162,20 @@ Hoofddatabase voor Federatie kan worden gebruikt in de Service SQL synchronisere
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
+Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
 
--   [Synchroniseren van Azure SQL-gegevens instellen](sql-database-get-started-sql-data-sync.md)
--   [Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens](sql-database-best-practices-data-sync.md)
--   [Monitor Azure SQL-gegevens synchroniseren met OMS Log Analytics](sql-database-sync-monitor-oms.md)
--   [Problemen oplossen met het synchroniseren van Azure SQL-gegevens](sql-database-troubleshoot-data-sync.md)
+-   [Azure SQL Data Sync instellen](sql-database-get-started-sql-data-sync.md)
+-   [Aanbevolen procedures voor Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Azure SQL Data Sync controleren met OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Problemen oplossen met Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
--   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:
+-   Voer PowerShell-voorbeelden uit die laten zien hoe u SQL Data Sync configureert:
     -   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL Database en een lokale SQL Server-database.](scripts/sql-database-sync-data-between-azure-onprem.md)
+    -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 
--   [De SQL-gegevens synchroniseren REST-API-documentatie downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [De documentatie over de REST-API van SQL Data Sync downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-Zie voor meer informatie over SQL-Database:
+Zie de volgende onderwerpen voor meer informatie over SQL Database:
 
--   [Overzicht van de SQL-Database](sql-database-technical-overview.md)
--   [Database-levenscyclusbeheer](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Wat is de Azure SQL Database-service?](sql-database-technical-overview.md)
+-   [Database Lifecycle Management (DLM)](https://msdn.microsoft.com/library/jj907294.aspx)

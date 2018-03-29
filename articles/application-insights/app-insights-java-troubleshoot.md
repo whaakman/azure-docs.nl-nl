@@ -13,38 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 894b2234074dcfb262de9033a7728cad3bef2248
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Probleemoplossing voor en antwoorden op vragen over Application Insights voor Java
 Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen enkele tips.
 
 ## <a name="build-errors"></a>Fouten bouwen
-**In Eclipse bij het toevoegen van de Application Insights-SDK via Maven of Gradle, krijg ik validatiefouten in build of controlesom.**
+**In Eclipse of Intellij Idea bij het toevoegen van de Application Insights-SDK via Maven of Gradle krijg ik validatiefouten in build of controlesom.**
 
-* Als de afhankelijkheid <version> element gebruikt een patroon met jokertekens (bijvoorbeeld (Maven) `<version>[1.0,)</version>` of (Gradle) `version:'1.0.+'`), kunt u een specifieke versie te gebruiken in plaats daarvan opgeven zoals `1.0.2`. Zie de [release-opmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) voor de nieuwste versie.
+* Als de afhankelijkheid <version> element gebruikt een patroon met jokertekens (bijvoorbeeld (Maven) `<version>[2.0,)</version>` of (Gradle) `version:'2.0.+'`), kunt u een specifieke versie te gebruiken in plaats daarvan opgeven zoals `2.0.1`. Zie de [release-opmerkingen](https://github.com/Microsoft/ApplicationInsights-Java/releases) voor de nieuwste versie.
 
-## <a name="no-data"></a>Er zijn geen gegevens
+## <a name="no-data"></a>Geen gegevens
 **Ik heb Application Insights is toegevoegd en Mijn app uitgevoerd, maar ik nooit gegevens in de portal hebt gezien.**
 
 * Wacht even en klik op vernieuwen. De grafieken worden regelmatig vernieuwd, maar u kunt ook handmatig vernieuwen. Het interval voor vernieuwen is afhankelijk van het tijdsbereik van de grafiek.
-* Controleer of u een instrumentatiesleutel die is gedefinieerd in het ApplicationInsights.xml-bestand (in de map bronnen in uw project hebt)
+* Controleer of u een instrumentatiesleutel gedefinieerd in het ApplicationInsights.xml-bestand (in de map bronnen in uw project) of geconfigureerd als omgevingsvariabele.
 * Controleer of er geen `<DisableTelemetry>true</DisableTelemetry>` knooppunt in het xml-bestand.
 * In de firewall, moet u wellicht open TCP-poorten 80 en 443 voor uitgaand verkeer naar dc.services.visualstudio.com. Zie de [volledige lijst met uitzonderingen voor firewall](app-insights-ip-addresses.md)
 * In de Microsoft Azure start board, kijkt u naar het Serviceoverzicht status. Als er een waarschuwing aanwijzingen zijn, wacht u totdat ze zijn geretourneerd op OK en klik vervolgens sluiten en opnieuw de blade van het Application Insights-toepassing openen.
-* Registratie in het consolevenster IDE inschakelen door toe te voegen een `<SDKLogger />` element onder het hoofdknooppunt in het ApplicationInsights.xml-bestand (in de map bronnen in uw project) en Controleer vooraf worden gegaan door [fout] vermeldingen.
+* Registratie in het consolevenster IDE inschakelen door toe te voegen een `<SDKLogger />` element onder het hoofdknooppunt in het ApplicationInsights.xml-bestand (in de map bronnen in uw project) en controleer vermeldingen vooraf worden gegaan door AI: INFO/waarschuwing/fout voor alle verdachte Logboeken.
 * Zorg ervoor dat het juiste ApplicationInsights.xml-bestand is geladen door de Java SDK en door te kijken naar berichten van de console-uitvoer voor een 'configuratiebestand is gevonden'-instructie.
-* Als het configuratiebestand niet wordt gevonden, Controleer de Uitvoerberichten zien waar het configuratiebestand wordt gezocht en zorg ervoor dat de ApplicationInsights.xml in een van deze locaties bevinden zich. Als vuistregel, kunt u het configuratiebestand plaatsen in de buurt van de Application Insights SDK JARs. Bijvoorbeeld: in Tomcat, zou dit betekenen dat de WEB-INF/lib-map.
+* Als het configuratiebestand niet wordt gevonden, Controleer de Uitvoerberichten zien waar het configuratiebestand wordt gezocht en zorg ervoor dat de ApplicationInsights.xml in een van deze locaties bevinden zich. Als vuistregel, kunt u het configuratiebestand plaatsen in de buurt van de Application Insights SDK JARs. Bijvoorbeeld: in Tomcat, zou dit betekenen dat de map van WEB-INF/klassen. U kunt tijdens de ontwikkeling ApplicationInsights.xml plaatsen in de map bronnen van uw webproject.
+* Neem ook zoeken op [GitHub problemen pagina](https://github.com/Microsoft/ApplicationInsights-Java/issues) voor bekende problemen met de SDK.
+* Zorg ervoor dat voor het gebruik van dezelfde versie van Application Insights core, web, -agent en logboekregistratie appenders enige versie conflict problemen te vermijden.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Ik gebruikt om gegevens te bekijken, maar deze is gestopt
 * Controleer de [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
 * Hebt u uw maandelijkse quotum van gegevenspunten bereikt? Open instellingen/quotum en prijzen om erachter te komen. Als dit het geval is, kunt u uw abonnement upgraden of betalen voor extra capaciteit. Zie de [prijzen schema](https://azure.microsoft.com/pricing/details/application-insights/).
+* De SDK onlangs bijgewerkt? Zorg ervoor dat alleen unieke SDK potten aanwezig in de projectmap. Er mag geen twee verschillende versies van de SDK aanwezig.
+* Bekijkt u de juiste AI-resource? Neem overeen met de sleutel van uw toepassing op de resource waarbij u telemetrie verwacht. Ze moeten hetzelfde zijn.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Ik zie niet alle gegevens die ik ben verwacht
 * Open de quota en prijzen blade en controleer of [steekproeven](app-insights-sampling.md) wordt uitgevoerd. (de verzending van 100% betekent dat steekproeven in bewerking niet.) De Application Insights-service kan worden ingesteld op accepteert alleen een fractie van de telemetrie van uw app binnenkomt. Hiermee houdt u binnen uw maandelijkse quotum telemetrie. 
+* Hebt u SDK steekproeven ingeschakeld? Zo ja, zou u gegevens met de frequentie die is opgegeven voor de toepasselijke typen actieve.
+* Voert u een oudere versie van Java SDK? Vanaf versie 2.0.1, hebben we fouttolerantie mechanisme voor het afhandelen van onregelmatige netwerk en back-end-fouten, evenals gegevenspersistentie op lokale stations geïntroduceerd.
+* Zijn ophalen u beperkt vanwege een uitzonderlijk groot telemetrie? Als u informatie logboekregistratie inschakelt, ziet u een logboek bericht 'App worden beperkt door'. De huidige limiet is 32 kB telemetrie items/seconde.
+
+### <a name="java-agent-cannot-capture-dependency-data"></a>Java-Agent kan geen afhankelijkheidsgegevens vastleggen
+* Hebt u Java-agent geconfigureerd door [Java-Agent configureren](app-insights-java-agent.md) ?
+* Zorg ervoor dat zowel de jar java-agent en de AI-Agent.xml-bestand in dezelfde map worden geplaatst.
+* Zorg ervoor dat de afhankelijkheid die u probeert te automatisch verzamelen voor automatische verzameling wordt ondersteund. Momenteel wordt alleen ondersteund MySQL, MsSQL, Oracle DB en verzameling van Redis-Cache-afhankelijkheid.
+* Gebruikt u JDK 1.7 of 1.8? We bieden afhankelijkheid verzameling momenteel geen ondersteuning in JDK 9.
 
 ## <a name="no-usage-data"></a>Geen gebruiksgegevens
 **Gegevens over aanvragen en reactietijden, maar er is geen paginaweergave, browser of gebruikersgegevens weergegeven.**
@@ -67,7 +80,7 @@ In de code:
     config.setTrackingIsDisabled(true);
 ```
 
-**Of** 
+**Or** 
 
 Werk ApplicationInsights.xml (in de map bronnen in uw project). Voeg de volgende onder het hoofdknooppunt:
 
@@ -83,6 +96,7 @@ Met de XML-methode die u moet de toepassing opnieuw te starten wanneer u de waar
 
 * [De instrumentatiesleutel van de nieuwe resource ophalen.][java]
 * Als u Application Insights hebt toegevoegd aan uw project met de Azure-Toolkit voor Eclipse, klik met de rechtermuisknop op uw webproject, selecteer **Azure**, **Configure Application Insights**, en de sleutel te wijzigen.
+* Werk de waarde van de omgevingsvariabele met nieuwe iKey als u de Instrumentatiesleutel had geconfigureerd als omgevingsvariabele.
 * Anders wordt de sleutel in ApplicationInsights.xml in de map bronnen in uw project wordt bijgewerkt.
 
 ## <a name="debug-data-from-the-sdk"></a>Gegevens uit de SDK voor foutopsporing
@@ -143,6 +157,7 @@ Maakt gebruik van Application Insights `org.apache.http`. Dit is verplaatst in A
 
 ## <a name="get-help"></a>Help opvragen
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Bestand een probleem op GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 

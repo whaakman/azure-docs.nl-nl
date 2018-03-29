@@ -9,18 +9,72 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: ac08baa6f478926a2c8dadd366049e9506272366
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9d16606665bf043e094bebdfbbce973910135f1a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Wat is nieuw in Azure Machine Learning?
 
-In dit artikel meer informatie over de nieuwe mogelijkheden en bekende problemen voor [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
+In dit artikel meer informatie over de nieuwe versies voor [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
+
+## <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
+**Versienummer**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+
+
+Welkom bij de vijfde update van Azure Machine Learning-Workbench. Veel van de volgende updates worden gedaan als directe resultaten van uw feedback. Zorg ervoor dat ze afkomstig zijn.
+
+**Belangrijke nieuwe functies en wijzigingen**
+
+- Ondersteuning voor het uitvoeren van scripts op externe Ubuntu VM's op uw eigen omgeving naast extern docker systeemeigen gebaseerd worden uitgevoerd.
+- Nieuwe omgeving ervaring in de Workbench-App kunt u compute-doelen maken en uitvoeren van de configuraties naast onze ervaring op basis van CLI.
+![Tabblad omgevingen](media/azure-machine-learning-release-notes/environment-page.png)
+- Geschiedenis van aanpasbare uitvoeren rapporten ![afbeelding van nieuwe uitvoeren Geschiedenisrapporten](media/azure-machine-learning-release-notes/new-run-history-reports.png)
+
+**Gedetailleerde Updates**
+
+Hier volgt een lijst met gedetailleerde updates voor elk onderdeel gebied in Azure Machine Learning in deze sprint.
+
+### <a name="workbench-ui"></a>Workbench gebruikersinterface
+- Aanpasbare rapporten van de geschiedenis uitvoeren
+  - Configuratie van de verbeterde grafiek voor rapporten van de geschiedenis uitvoeren
+    - De gebruikte toegangspunten kan worden gewijzigd.
+    - Op het hoogste niveau filters kunnen worden toegevoegd en gewijzigd ![Filters toevoegen](media/azure-machine-learning-release-notes/add-filters.jpg)
+    - Grafieken en statistieken kunnen worden toegevoegd of gewijzigd (en slepen en neerzetten gerangschikt).
+    ![Nieuwe grafieken](media/azure-machine-learning-release-notes/configure-charts.png)
+
+  - CRUD voor rapporten van de geschiedenis uitvoeren
+  - Alle bestaande uitvoeringsgeschiedenis lijstweergave configuraties aan serverzijde rapporten, die fungeert als pijplijnen op wordt uitgevoerd vanuit de geselecteerde toegangspunten verplaatst.
+
+- Tabblad omgevingen
+  - Nieuwe compute-doel toevoegen en voer configuratiebestanden aan uw project eenvoudig ![nieuw Compute-doel](media/azure-machine-learning-release-notes/add-new-environments.png)
+  - Beheren en de configuratiebestanden die met behulp van een eenvoudige, op basis van formulieren UX bijwerken
+  - Nieuwe knop voor het voorbereiden van uw omgeving voor uitvoering
+
+- Verbeterde prestaties aan de lijst van bestanden in de zijbalk
+
+### <a name="data-preparation"></a>Gegevensvoorbereiding 
+- Azure Machine Learning Workbench kunt u nu om te zoeken naar een kolom met behulp van een bekende kolomnaam.
+
+
+### <a name="experimentation"></a>Experiment
+- Azure Machine Learning Workbench ondersteunt nu uw scripts systeemeigen uitgevoerd op uw eigen omgeving python of pyspark. Voor deze mogelijkheid gebruiker maakt en beheert hun eigen omgeving op de externe virtuele machine en gebruiken van Azure Machine Learning Workbench hun scripts uitvoeren op die zijn gericht. Zie [configureren van Azure Machine Learning experimenteren Service](experimentation-service-configuration.md) 
+
+### <a name="model-management"></a>Modelbeheer
+- Ondersteuning voor het aanpassen van de Containers geïmplementeerd: kan de container-afbeelding aanpassen zodat de installatie van externe bibliotheken met apt get, enzovoort. Het is niet meer beperkt tot pip installeerbare bibliotheken. Zie de [documentatie](model-management-custom-container.md) voor meer informatie.
+  - Gebruik de `--docker-file myDockerStepsFilename` vlag en de bestandsnaam de naam met het manifest, image of opdrachten voor het maken van service.
+  - Houd er rekening mee dat de basisinstallatiekopie Ubuntu is en kan niet worden gewijzigd.
+  - Voorbeeld: 
+  
+      ```shell
+      $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
+      ```
+
+
 
 ## <a name="2018-01-sprint-3"></a>2018-01 (sprint 3) 
-**Versienummer**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](known-issues-and-troubleshooting-guide.md))
+**Versienummer**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Hier volgen de updates en verbeteringen in deze sprint. Veel van deze updates worden gedaan als direct resultaat van feedback van gebruikers. 
 
@@ -55,7 +109,7 @@ Hier volgt een lijst met gedetailleerde updates voor elk onderdeel gebied in Azu
   - Ingeschakelde lokale omgeving gratis abonnementen instellen 
 
 ## <a name="2017-12-sprint-2-qfe"></a>2017-12 (sprint 2 QFE) 
-**Versienummer**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](known-issues-and-troubleshooting-guide.md))
+**Versienummer**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Dit is de release QFE (Quick Fix Engineering) van een secundaire versie. Deze worden verschillende telemetrie problemen en helpt het productteam om beter te begrijpen hoe het product wordt gebruikt. De kennis kunt in toekomstige inspanningen voor het verbeteren van de productervaring gaan. 
 
@@ -65,8 +119,7 @@ Bovendien zijn er twee belangrijke updates:
 - In het opdrachtregelprogramma hoeft niet langer te worden van een Azure-abonnement eigenaar voor het inrichten van Machine Learning Compute ACS-clusters. 
 
 ## <a name="2017-12-sprint-2"></a>2017-12 (sprint 2)
-**Versienummer**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](known-issues-and-troubleshooting-guide.md))
-
+**Versienummer**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Welkom bij de derde Azure Machine Learning-update. Deze update bevat verbeteringen in de workbench-app, de opdrachtregelinterface (CLI) en de back-end-services. Hartelijk dank voor het verzenden van Messenger en frowns. Veel van de volgende updates worden gedaan als directe resultaten van uw feedback. 
 
@@ -165,7 +218,7 @@ Zie voor meer informatie over het maken van de compute-doelen [configureren van 
     - `az ml computetarget attach --type cluster` is nu `az ml computetarget attach cluster`
 
 ## <a name="2017-11-sprint-1"></a>2017-11 (sprint 1) 
-**Versienummer**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](known-issues-and-troubleshooting-guide.md))
+**Versienummer**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 We hebben verbeteringen rond de beveiliging, stabiliteit en onderhoud in de workbench-app, de CLI en de back-end-services-laag aangebracht in deze release. Hartelijk dank voor het verzenden van Messenger en frowns. Veel van de onderstaande updates zijn aangebracht tijdens het direct resultaten van uw feedback. Houden afkomstig!
 
@@ -287,7 +340,7 @@ Hieronder ziet u een lijst met gedetailleerde updates voor elk onderdeel gebied 
 
 
 ## <a name="2017-10-sprint-0"></a>2017 10 (sprint 0) 
-**Versienummer**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](known-issues-and-troubleshooting-guide.md))
+**Versienummer**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Welkom bij de eerste update van Azure Machine Learning Workbench na de initiële openbare preview op de Conferentie Microsoft Ignite 2017. De belangrijkste updates in deze release zijn de betrouwbaarheid en stabilization worden opgelost.  Enkele van de kritieke problemen die we behandeld:
 

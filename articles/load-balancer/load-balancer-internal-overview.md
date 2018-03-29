@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 54e390dbdb07cb4c45c801b638099aa0dcc6db1a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 0511165225f5a336291e86e0c504e60989933f3c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-azure-internal-load-balancer"></a>Overzicht van Azure interne Load Balancer
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure interne Load Balancer (ILB) stuurt alleen verkeer naar bronnen die zich in een cloudservice of die een VPN gebruiken voor toegang tot Azure-infrastructuur. In dit opzicht verschilt ILB van een internet gerichte load balancer. Azure-infrastructuur beperkt de toegang aan de adressen virtuele IP-adres (VIP) taakverdeling van een cloudservice of aan een virtueel netwerk. VIP-adressen en virtuele netwerken worden nooit rechtstreeks blootgesteld aan een internet-eindpunt. Interne line-of-business-toepassingen worden uitgevoerd in Azure en zijn toegankelijk vanuit Azure of via lokale bronnen.
 

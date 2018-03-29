@@ -2,10 +2,10 @@
 title: 'Azure AD Connect-synchronisatie: filtering configureren | Microsoft Docs'
 description: Legt uit hoe u configureert filtering in Azure AD Connect-synchronisatie.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synchronisatie: filtering configureren
 U gebruikt voor het filteren, kunt u bepalen welke objecten worden weergegeven in Azure Active Directory (Azure AD) van uw on-premises directory. De standaardconfiguratie wordt van alle objecten in alle domeinen in de geconfigureerde forests. Dit is in het algemeen zijn de aanbevolen configuratie. Gebruikers met behulp van Office 365-werkbelastingen, zoals Exchange Online en Skype voor bedrijven profiteren van een volledige lijst met globale adressen zodat ze kunnen e-mail verzenden en iedereen. Met de standaardconfiguratie hebben ze dezelfde ervaring die ze met een lokale implementatie van Exchange- of Lync hebben zou.
@@ -44,7 +44,7 @@ Omdat filteren, veel objecten op hetzelfde moment verwijderen kan, die u wilt zo
 
 Om u te beschermen veel objecten verwijderen per ongeluk, de functie '[onopzettelijk verwijderen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)' is standaard ingeschakeld. Als u veel objecten vanwege filteren (500 standaard) verwijdert, moet u de stappen in dit artikel om toe te staan de verwijderingen te doorlopen naar Azure AD.
 
-Als u een build vóór November 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), een wijziging aanbrengt in een filterconfiguratie en Wachtwoordsynchronisatie, gebruiken, moet u een volledige synchronisatie van alle wachtwoorden activeren nadat u de configuratie hebt voltooid. Zie voor stappen voor het activeren van een volledige Wachtwoordsynchronisatie [activeren van een volledige synchronisatie van wachtwoorden voor alle](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Als u van build 1.0.9125 gebruikmaakt of hoger, klikt u vervolgens de normale **volledige synchronisatie** actie berekent ook Hiermee wordt aangegeven of wachtwoorden moeten worden gesynchroniseerd en als deze extra stap niet langer vereist is.
+Als u een build vóór November 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), een wijziging aanbrengt in een filterconfiguratie en synchronisatie van wachtwoordhash, gebruiken, moet u een volledige synchronisatie van alle wachtwoorden activeren nadat u de configuratie hebt voltooid. Zie voor stappen voor het activeren van een volledige Wachtwoordsynchronisatie [activeren van een volledige synchronisatie van wachtwoorden voor alle](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Als u van build 1.0.9125 gebruikmaakt of hoger, klikt u vervolgens de normale **volledige synchronisatie** actie berekent ook Hiermee wordt aangegeven of wachtwoorden moeten worden gesynchroniseerd en als deze extra stap niet langer vereist is.
 
 Als **gebruiker** objecten onbedoeld in Azure AD zijn verwijderd vanwege een fout filteren, kunt u opnieuw maken de gebruikersobjecten in Azure AD door het verwijderen van uw filteren configuraties. Vervolgens kunt u uw adreslijsten opnieuw synchroniseren. Deze actie worden de gebruikers hersteld uit de Prullenbak in Azure AD. U kunt andere objecttypen echter kan niet ongedaan. Bijvoorbeeld, als u per ongeluk een beveiligingsgroep verwijdert en deze is gebruikt voor de Toegangsbeheerlijst van kunnen niet een resource, de groep en de ACL's worden hersteld.
 
@@ -255,7 +255,7 @@ In dit voorbeeld wijzigt u de filteren zodat alleen gebruikers die hun e-mail en
 4. Afhankelijk van de versie van Connect dat u gebruikt, ofwel de regel voor licentiecontrole vinden **buiten het AAD-gebruiker toevoegen** of **uit naar de AAD - gebruiker toevoegen SOAInAD**, en klik op **bewerken**.
 5. In het pop-upvenster beantwoorden **Ja** om een kopie van de regel te maken.
 6. Op de **beschrijving** pagina, wijzigt u **voorrang** op een niet-gebruikte waarde, zoals 50.
-7. Klik op **Scoping filter** op de linkernavigatiebalk en klik vervolgens op **toevoegen component**. In **kenmerk**, selecteer **mail**. In **Operator**, selecteer **ENDSWITH**. In **waarde**, type  **@contoso.com** , en klik vervolgens op **toevoegen component**. In **kenmerk**, selecteer **userPrincipalName**. In **Operator**, selecteer **ENDSWITH**. In **waarde**, type  **@contoso.com** .
+7. Klik op **Scoping filter** op de linkernavigatiebalk en klik vervolgens op **toevoegen component**. In **kenmerk**, selecteer **mail**. In **Operator**, selecteer **ENDSWITH**. In **waarde**, type **@contoso.com**, en klik vervolgens op **toevoegen component**. In **kenmerk**, selecteer **userPrincipalName**. In **Operator**, selecteer **ENDSWITH**. In **waarde**, type **@contoso.com**.
 8. Klik op **Opslaan**.
 9. Voor het voltooien van de configuratie, moet u uitvoeren een **volledige synchronisatie**. Doorgaan met het lezen van de sectie [toepassen en controleer of de wijzigingen](#apply-and-verify-changes).
 

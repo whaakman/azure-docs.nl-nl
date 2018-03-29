@@ -3,24 +3,24 @@ title: Azure AD SSPR met wachtwoord terugschrijven | Microsoft Docs
 description: Gebruik Azure AD en Azure AD Connect voor write-back van wachtwoorden met een on-premises adreslijst
 services: active-directory
 keywords: Wachtwoordbeheer Active directory, wachtwoordbeheer, Azure AD self service voor wachtwoordherstel
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7a81f51e0873da38f25deb687e4d03ccf67e11a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="password-writeback-overview"></a>Overzicht van de Write-back van wachtwoord
 
@@ -30,7 +30,7 @@ Wachtwoord terugschrijven biedt de volgende functies:
 
 * **Biedt nul vertraging feedback**: wachtwoord terugschrijven is een synchrone bewerking. Uw gebruikers zijn onmiddellijk een melding als hun wachtwoord voldoet niet aan het beleid kan niet worden opnieuw ingesteld of gewijzigd voor een of andere reden.
 * **Ondersteunt het instellen van wachtwoorden voor gebruikers die gebruikmaken van Active Directory Federation Services (AD FS) of andere technologieën federation**: met terugschrijven van wachtwoorden, zolang de federatieve gebruikersaccounts worden gesynchroniseerd naar uw Azure AD-tenant, ze kunnen geen hun on-premises Active Directory-wachtwoorden beheren vanuit de cloud.
-* **Ondersteunt het instellen van wachtwoorden voor gebruikers die gebruikmaken van** [wachtwoordhashsynchronisatie](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): als het wachtwoord opnieuw instellen van service detecteert dat een gesynchroniseerde gebruikersaccount is ingeschakeld voor wachtwoordhashsynchronisatie, we beide dit account lokale opnieuw instellen en wachtwoord tegelijkertijd cloud.
+* **Ondersteunt het instellen van wachtwoorden voor gebruikers die gebruikmaken van** [wachtwoordhashsynchronisatie](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md): als het wachtwoord opnieuw instellen van service detecteert dat een gesynchroniseerde gebruikersaccount is ingeschakeld voor wachtwoordhashsynchronisatie, we beide dit account lokale opnieuw instellen en wachtwoord tegelijkertijd cloud.
 * **Ondersteunt het instellen van wachtwoorden voor gebruikers die gebruikmaken van Pass-through-verificatie**: waaraan wachtwoord terugschrijven, zolang de accounts Pass through-verificatie zijn gesynchroniseerd met uw Azure AD-tenant zijn kunnen hun lokale actieve beheren Directory-wachtwoorden vanuit de cloud.
 * **Ondersteunt het wachtwoord wordt gewijzigd van het toegangsvenster en Office 365**: wanneer gefedereerd of wachtwoord is gesynchroniseerd gebruikers hun wachtwoorden verlopen of niet-verlopen wijzigen we deze wachtwoorden terugschrijven naar uw lokale Active Directory-omgeving worden geleverd.
 * **Biedt ondersteuning voor write-back van wachtwoorden wanneer een beheerder deze opnieuw via de Azure portal instelt**: wanneer een beheerder stelt het wachtwoord van een gebruiker in de [Azure-portal](https://portal.azure.com), als die gebruiker is gefedereerd of het wachtwoord is gesynchroniseerd, moet we het wachtwoord instellen de beheerder in de lokale Active Directory en geselecteerd. Deze functionaliteit is momenteel niet ondersteund in de Office-beheerportal.

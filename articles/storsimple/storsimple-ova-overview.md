@@ -1,24 +1,24 @@
 ---
 title: Overzicht van Microsoft Azure StorSimple virtuele matrix | Microsoft Docs
-description: "Beschrijft de StorSimple virtuele matrix, een geïntegreerde opslagoplossing die opslagtaken tussen een lokale virtuele-matrix en Microsoft Azure cloud-opslag beheert."
+description: Beschrijft de StorSimple virtuele matrix, een geïntegreerde opslagoplossing die opslagtaken tussen een lokale virtuele-matrix en Microsoft Azure cloud-opslag beheert.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/16/2017
+ms.date: 03/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b9a5797751fa970c569c93e5efe300d4d74319ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Inleiding tot het virtuele StorSimple-matrix
 
@@ -75,7 +75,7 @@ Hieronder wordt een overzicht van ondersteunde StorSimple werkbelastingen in een
 
 |Scenario     |Workload     |Ondersteund      |Beperkingen               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |Delen van bestanden     |Ja      |Zie [maximaal limieten voor bestandsserver](storsimple-ova-limits.md).<br></br>Zie [systeemvereisten voor ondersteunde versies van SMB-](storsimple-ova-system-requirements.md).| Alle versies     |
+|ROBO  |Bestandsdeling     |Ja      |Zie [maximaal limieten voor bestandsserver](storsimple-ova-limits.md).<br></br>Zie [systeemvereisten voor ondersteunde versies van SMB-](storsimple-ova-system-requirements.md).| Alle versies     |
 |Cloud archiveren  |Archivering bestanden delen     |Ja      |Zie [maximaal limieten voor bestandsserver](storsimple-ova-limits.md).<br></br>Zie [systeemvereisten voor ondersteunde versies van SMB-](storsimple-ova-system-requirements.md).| Alle versies     |
 
 De virtuele StorSimple-matrix is het meest geschikt voor minder vaak gebruikte gegevens. Terwijl de virtuele matrix een lokale cache heeft voor de prestaties verbeteren, gebruikers ervan uitgaan dat het apparaat services-bestanden op de laagste categorie van opslag (de cloud). Elke virtuele matrix kunt geschreven en gelezen naar Azure-opslag met ongeveer 100 Mbps. Deze koppeling wordt gedeeld voor alle aanvragen die afkomstig zijn in het apparaat en kan een knelpunt geworden zoals weergegeven in het onderstaande diagram.
@@ -90,7 +90,7 @@ Virtuele StorSimple-matrix is niet geschikt voor werkbelastingen waarvoor hoge b
 
 De virtuele StorSimple-matrix is met name geschikt is voor de volgende werkstromen:
 
-* [Cloud-gebaseerd opslagbeheer](#cloud-based-storage-management)
+* [cloud-gebaseerd opslagbeheer](#cloud-based-storage-management)
 * [Locatie-onafhankelijke back-up](#location-independent-backup)
 * [Data protection en herstel na noodgevallen](#data-protection-and-disaster-recovery)
 
@@ -136,7 +136,7 @@ De virtuele matrix heeft de volgende functies:
 > [!NOTE]
 > Een virtuele-matrix kan niet worden uitgebreid. Daarom is het belangrijk dat u voldoende opslagruimte inrichten bij het maken van de virtuele-matrix.
 
-### <a name="storsimple-device-manager-service"></a>StorSimple-apparaat Manager-service
+### <a name="storsimple-device-manager-service"></a>StorSimple-apparaatbeheerservice
 
 Microsoft Azure StorSimple biedt een webgebaseerde gebruikersinterface de Apparaatbeheer StorSimple-service, waarmee u centraal StorSimple om opslag te beheren. De service Manager voor StorSimple-apparaat kunt u de volgende taken uitvoeren:
 
@@ -205,6 +205,15 @@ Compressie van gegevens voor Ontdubbeling en het StorSimple gebruikt voor het ve
 ### <a name="scheduled-and-on-demand-backups"></a>Geplande en on-demand back-ups
 
 Functies voor gegevensbeveiliging StorSimple kunnen u back-ups op aanvraag maken. Een back-upschema standaard Bovendien zorgt ervoor dat de back-up dagelijks. Back-ups zijn gemaakt in de vorm van incrementele momentopnamen die zijn opgeslagen in de cloud. Momentopnamen die alleen de wijzigingen sinds de laatste back-up vastlegt, worden gemaakt en snel worden hersteld. Deze momentopnamen is zeer belangrijk in herstel na noodgevallen, omdat ze secundaire opslagsystemen (zoals tapeback-up vervangen) en kunnen u gegevens op uw datacenter of op alternatieve locaties herstellen indien nodig.
+
+## <a name="gdpr-compliance"></a>GDPR naleving
+[Algemene gegevens beveiliging regelgeving (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is van een Europese Unie beveiliging en privacy-wet. De GDPR bevat veel vereisten over hoe u verzamelen, opslaan en persoonlijke gegevens gebruikt. De regels GDPR worden opgelegd voor bedrijven, overheidsinstanties en andere organisaties die in EU werken en te verzamelen, analyseren van gegevens die zijn gekoppeld aan de EU inwoners.
+
+Apparaatbeheer voor virtuele-serie StorSimple is GDPR compatibel. Er zijn twee belangrijke instanties waar persoonlijke gegevens worden verzameld en weergegeven in de service:
+ - Waarschuwing gebruikersinstellingen waar e-mailadressen van gebruikers zijn geconfigureerd. Deze informatie kan worden gewist door de beheerder. 
+ - Gebruikers die toegang tot de gegevens die zich op de shares. Een lijst met gebruikers die toegang de sharegegevens tot wordt weergegeven en kan worden geëxporteerd. Deze lijst wordt ook verwijderd wanneer de shares is verwijderd.
+
+Raadpleeg voor meer informatie de [Microsoft Privacy-policy op Vertrouwenscentrum](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Volgende stappen
 

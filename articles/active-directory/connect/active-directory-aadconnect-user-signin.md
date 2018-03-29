@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: Gebruiker aanmelden | Microsoft Docs'
 description: Azure AD Connect gebruiker aanmelden voor aangepaste instellingen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect gebruiker aanmeldingsopties
 Verbinden met Azure Active Directory (Azure AD) kan uw gebruikers zich aanmelden bij zowel cloud als on-premises resources met dezelfde wachtwoorden. In dit artikel beschrijft de belangrijkste concepten voor elk identiteitsmodel bij het kiezen van de identiteit die u gebruiken wilt voor aanmelding bij Azure AD.
 
 Als u al bekend met het Azure AD identity-model bent en voor meer informatie over een specifieke methode, raadpleegt u de desbetreffende koppeling:
 
-* [Synchronisatie van wachtwoordhash](#password-synchronization) met [naadloze eenmalige aanmelding (SSO)](active-directory-aadconnect-sso.md)
+* [Synchronisatie van wachtwoordhash](#password-hash-synchronization) met [naadloze eenmalige aanmelding (SSO)](active-directory-aadconnect-sso.md)
 * [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) met [naadloze eenmalige aanmelding (SSO)](active-directory-aadconnect-sso.md)
 * [Federatieve eenmalige aanmelding (met Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
@@ -42,19 +42,19 @@ Nieuwe gebruikers, contactpersonen en groepsaccounts in Active Directory naar de
 Instellen van mijn tenants voor Office 365 hybride scenario's.|x|x|x|
 Mijn gebruikers aanmelden en toegang tot cloudservices met hun on-premises wachtwoord inschakelen.|x|x|x|
 Eenmalige aanmelding implementeren met behulp van zakelijke referenties.|x|x|x|
-Zorg ervoor dat er geen wachtwoorden worden opgeslagen in de cloud.||x *|x|
+Zorg ervoor dat er geen wachtwoorden worden opgeslagen in de cloud.||x*|x|
 Oplossingen voor on-premises meervoudige verificatie inschakelen.|||x|
 
 * Via een lichtgewicht agent.
 
-### <a name="password-hash-synchronization"></a>Synchronisatie van wachtwoordhash
+### <a name="password-hash-synchronization"></a>Wachtwoord-hashsynchronisatie
 Met synchronisatie van wachtwoordhash, zijn-hashes van gebruikerswachtwoorden gesynchroniseerd van lokale Active Directory naar Azure AD. Wanneer wachtwoorden worden gewijzigd of opnieuw instellen van lokale, het nieuwe wachtwoord-hashes zijn gesynchroniseerd naar Azure AD onmiddellijk zodat uw gebruikers altijd hetzelfde wachtwoord voor cloud-bronnen en lokale bronnen gebruiken kunnen. De wachtwoorden worden nooit verzonden naar Azure AD of opgeslagen in Azure AD in ongecodeerde tekst. U kunt synchronisatie van wachtwoordhash samen met terugschrijven van wachtwoord gebruiken om in te schakelen selfservice wachtwoordherstel in Azure AD.
 
 Bovendien kunt u inschakelen [naadloze eenmalige aanmelding](active-directory-aadconnect-sso.md) voor gebruikers op domein-machines op het bedrijfsnetwerk. Met eenmalige aanmelding moeten ingeschakelde gebruikers alleen een gebruikersnaam zodat ze veilig toegang tot cloud-bronnen invoeren.
 
-![Synchronisatie van wachtwoordhash](./media/active-directory-aadconnect-user-signin/passwordhash.png)
+![Wachtwoord-hashsynchronisatie](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-Zie voor meer informatie de [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-synchronization.md) artikel.
+Zie voor meer informatie de [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) artikel.
 
 ### <a name="pass-through-authentication"></a>Pass Through-verificatie
 Met Pass through-verificatie, is het wachtwoord van de gebruiker gevalideerd met de lokale Active Directory-domeincontroller. Het wachtwoord hoeft niet aanwezig zijn in Azure AD in een formulier. Hierdoor lokale beleidsregels, zoals de beperkingen van het uur aanmelden, moet worden geëvalueerd tijdens de verificatie naar de cloud-services.

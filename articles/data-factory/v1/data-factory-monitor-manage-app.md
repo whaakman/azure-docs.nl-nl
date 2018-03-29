@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5aae5057cccdf8dfbe2a42a39da5b9e70b9166f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5ca5544a217d66d334ff468d2308af1836c7de8
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Bewaken en beheren van Azure Data Factory-pijplijnen met behulp van de app voor bewaking en beheer
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 > [!NOTE]
 > Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [bewaken en beheren van de Data Factory-pijplijnen in versie 2](../monitor-visually.md).
 
-Dit artikel wordt beschreven hoe u met de app voor bewaking en beheer bewaken, beheren en fouten opsporen in uw Data Factory-pijplijnen. Het bevat ook informatie over het maken van waarschuwingen om u te waarschuwen op fouten. U kunt aan de slag met behulp van de toepassing door de volgende video bekijken:
+Dit artikel wordt beschreven hoe u met de app voor bewaking en beheer bewaken, beheren en fouten opsporen in uw Data Factory-pijplijnen. U kunt aan de slag met behulp van de toepassing door de volgende video bekijken:
 
 > [!NOTE]
 > De gebruikersinterface wordt weergegeven in de video kan niet exact overeen met wat u ziet in de portal. Het is enigszins oudere maar concepten hetzelfde blijven. 
@@ -211,7 +211,7 @@ Activiteit windows kunnen worden gebruikt in een van de volgende statussen:
 <td>Overgeslagen</td><td>-</td><td>Het activiteitvenster is niet verwerkt.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Het venster van een activiteit aan een andere status gebruikt, maar is opnieuw ingesteld.</td>
+<td>Geen</td><td>-</td><td>Het venster van een activiteit aan een andere status gebruikt, maar is opnieuw ingesteld.</td>
 </tr>
 </table>
 
@@ -296,42 +296,3 @@ U kunt ook meerdere activiteitsvensters in de lijst selecteren en ze opnieuw uit
 Meervoudige selectie twee of meer pijplijnen kunt u met behulp van de Ctrl-toets. U kunt de knoppen op de opdrachtbalk (die zijn gemarkeerd in de rode rechthoek in de volgende afbeelding) te onderbreken/hervatten.
 
 ![Onderbreken/hervatten op de opdrachtbalk](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
-
-## <a name="create-alerts"></a>Waarschuwingen maken
-De **waarschuwingen** pagina kunt u bij het maken van een waarschuwing en de bestaande waarschuwingen weergeven/bewerken/verwijderen. U kunt ook inschakelen/uitschakelen een waarschuwing. Klik op de pagina waarschuwingen overzicht van de **waarschuwingen** tabblad.
-
-![Tabblad waarschuwingen](./media/data-factory-monitor-manage-app/AlertsTab.png)
-
-### <a name="to-create-an-alert"></a>Een waarschuwing wilt maken
-1. Klik op **waarschuwing toevoegen** een melding wilt toevoegen. U ziet de **Details** pagina.
-
-    ![Waarschuwingen - pagina met Details maken](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. Geef de **naam** en **beschrijving** voor de waarschuwing en klik op **volgende**. U ziet de **Filters** pagina.
-
-    ![Waarschuwingen - pagina Filters maken](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Selecteer de **gebeurtenis**, **status**, en **substatus** (optioneel) dat u wilt maken van een Data Factory-service-waarschuwing voor, en klik op **volgende**. U ziet de **ontvangers** pagina.
-
-    ![Waarschuwingen - ontvangers pagina maken](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Selecteer de **e-abonnementsbeheerders** optie en/of geef een **extra beheerders-e**, en klik op **voltooien**. Hier ziet u de waarschuwing in de lijst.
-
-    ![Lijst met waarschuwingen](./media/data-factory-monitor-manage-app/AlertsList.png)
-
-Gebruik de knoppen die gekoppeld aan de waarschuwing te bewerken/verwijderen/inschakelen/uitschakelen een waarschuwing zijn in de lijst met waarschuwingen.
-
-### <a name="eventstatussubstatus"></a>Status-gebeurtenis/substatus
-De volgende tabel bevat de lijst met beschikbare gebeurtenissen en status (en substatus).
-
-| De naam van gebeurtenis | Status | Substatus |
-| --- | --- | --- |
-| Activiteit die wordt uitgevoerd gestart |Gestart |Starten |
-| Activiteit die wordt uitgevoerd is voltooid |Geslaagd |Geslaagd |
-| Activiteit die wordt uitgevoerd is voltooid |Mislukt |Fout in de Resource-toewijzing<br/><br/>Mislukte uitvoering<br/><br/>Time-out opgetreden<br/><br/>De validatie is mislukt<br/><br/>Afgebroken |
-| On-Demand HDI-Cluster maken gestart |Gestart |-|
-| On-Demand HDI-Cluster is gemaakt |Geslaagd |-|
-| On-Demand-HDI-Cluster is verwijderd |Geslaagd |-|
-
-### <a name="to-edit-delete-or-disable-an-alert"></a>Als u wilt bewerken, verwijderen of uitschakelen van een waarschuwing
-
-Gebruik de volgende knoppen (rood gemarkeerd) om te bewerken, verwijderen of uitschakelen van een waarschuwing.
-
-![Waarschuwingen knoppen](./media/data-factory-monitor-manage-app/AlertButtons.png)

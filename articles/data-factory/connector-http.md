@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0092564dce9424b445240ebd2c3247e763a237e9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Gegevens kopiëren van de HTTP-eindpunt met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,6 +40,9 @@ In het bijzonder ondersteunt deze HTTP-connector:
 - Kopiëren van het HTTP-antwoord als-is of bij het parseren van deze met de [ondersteunde bestandsindelingen en compressiecodecs](supported-file-formats-and-compression-codecs.md).
 
 Het verschil tussen deze connector en de [Web tabel connector](connector-web-table.md) de laatste wordt gebruikt om te tabelinhoud van de webpagina HTML uitpakken.
+
+>[!TIP]
+>Als u wilt testen HTTP-aanvraag voor ophalen voor het configureren van HTTP-connector in ADF-gegevens, kunt u leren van de API-specificatie header en hoofdtekst vereisten en hulpmiddelen zoals Postman of web browser gebruiken om te valideren.
 
 ## <a name="getting-started"></a>Aan de slag
 

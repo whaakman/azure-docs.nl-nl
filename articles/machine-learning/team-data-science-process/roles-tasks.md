@@ -1,23 +1,23 @@
 ---
 title: Gegevens wetenschap proces rollen en taken - Azure in een team | Microsoft Docs
 description: Een overzicht van de belangrijke onderdelen, personeel rollen en bijbehorende taken voor een teamproject voor wetenschap van gegevens.
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: bradsev
+ms.openlocfilehash: b92bb8e633aa859324f2ff46f5d76a5934007ccf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team gegevens wetenschap proces rollen en taken
 
@@ -45,7 +45,7 @@ Met de bovenstaande veronderstelling hebben we vier verschillende rollen voor on
 
 3. ***Project Lead***. Een project lead beheert de dagelijkse activiteiten van afzonderlijke gegevenswetenschappers op een specifieke gegevens wetenschappelijke project.
 
-4. ***Afzonderlijke Inzender project***. Gegevens wetenschappelijk, bedrijfsanalist, gegevens engineering, Architect, enzovoort. Een project afzonderlijke inzender voert een wetenschappelijke gegevensproject. 
+4. ***Afzonderlijke Inzender project***. Data Scientist, Business Analyst, Data Engineer, Architect, etc. Een project afzonderlijke inzender voert een wetenschappelijke gegevensproject. 
 
 
 **[AZURE.NOTE]**: Één persoon kan meer dan één rol spelen afhankelijk van de structuur in een onderneming, of kan er meer dan één persoon werkt aan een rol. Dit komt vaak het geval in kleine bedrijven of ondernemingen met een klein aantal medewerkers in hun organisatie van de wetenschappelijke gegevens mogelijk.
@@ -82,7 +82,7 @@ De volgende taken zijn voltooid door het Team leiden (of een beheerder van het p
 - Als VSTS moet de code host-platform voor versiebeheer en samenwerking is ingeschakeld, maakt u een **teamproject** op van de groep VSTS server. Anders wordt kan deze taak worden overgeslagen.
 - Maak de **team project sjabloon opslagplaats** onder het teamproject en seed in de groep project sjabloon opslagplaats ingesteld door uw groepmanager of de gemachtigde van de manager. 
 - Maak de **team hulpprogramma opslagplaats**, en de team-specifieke hulpprogramma's toevoegen aan de opslagplaats. 
-- (Optioneel) Maak  **[Azure file storage](https://azure.microsoft.com/services/storage/files/)**  moet worden gebruikt voor het opslaan van gegevensassets die nuttig is voor het hele team kunnen zijn. Andere teamleden kunnen dit archief voor gedeelde cloud koppelen op hun eigen bureaublad analytics.
+- (Optioneel) Maak **[Azure file storage](https://azure.microsoft.com/services/storage/files/)** moet worden gebruikt voor het opslaan van gegevensassets die nuttig is voor het hele team kunnen zijn. Andere teamleden kunnen dit archief voor gedeelde cloud koppelen op hun eigen bureaublad analytics.
 - (Optioneel) Koppel de bestandsopslag van de Azure-naar de **gegevens wetenschappelijke virtuele Machine** (DSVM) van het team te leiden en gegevensassets toevoegen op het.
 - Instellen van de **beveiligingscontrole** door teamleden toe te voegen en hun bevoegdheden configureren. 
 

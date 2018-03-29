@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: 
+editor: ''
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Compute in Azure SQL Data Warehouse beheren
 Meer informatie over het beheren van rekenresources in Azure SQL Data Warehouse. Lagere kosten door het datawarehouse onderbreken of schalen van het datawarehouse om te voldoen aan de prestatie-eisen. 
@@ -110,7 +110,7 @@ Zie voor het automatiseren van de compute-beheerbewerkingen [compute beheren met
 
 Elk van de scale-out, onderbreken en hervattingsbewerkingen kan enkele minuten duren. Als u schalen, onderbreken, of automatisch hervat, wordt aangeraden implementeren logica om ervoor te zorgen dat voltooid bepaalde bewerkingen voordat u doorgaat met een andere actie. Controleren of de status van datawarehouse via verschillende eindpunten, kunt u de automatisering van dergelijke bewerkingen correct te implementeren. 
 
-U kunt de status van datawarehouse controleren de [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) of [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) Quick Start. U kunt ook controleren met de status van datawarehouse met een [REST-API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Controleer de status van datawarehouse, se de [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) of [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) Quick Start. U kunt ook controleren met de status van datawarehouse met een [REST-API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>Machtigingen

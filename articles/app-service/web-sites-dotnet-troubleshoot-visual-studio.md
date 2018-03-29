@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: .net
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Een web-app in Azure App Service met behulp van Visual Studio oplossen
 ## <a name="overview"></a>Overzicht
@@ -125,12 +125,14 @@ Deze sectie wordt beschreven hoe u foutopsporing op afstand met behulp van het p
 
 3. Verwijder de `About()` methode en plaats de volgende in plaats daarvan code.
 
-        public ActionResult About()
-        {
-            string currentTime = DateTime.Now.ToLongTimeString();
-            ViewBag.Message = "The current time is " + currentTime;
-            return View();
-        }
+``` c#
+public ActionResult About()
+{
+    string currentTime = DateTime.Now.ToLongTimeString();
+    ViewBag.Message = "The current time is " + currentTime;
+    return View();
+}
+```
 4. [Stel een onderbrekingspunt in](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) op de `ViewBag.Message` regel.
 
 5. In **Solution Explorer**, met de rechtermuisknop op het project en klik op **publiceren**.
@@ -171,7 +173,7 @@ Deze sectie wordt beschreven hoe u foutopsporing op afstand met behulp van het p
 
      ![Over de pagina met de nieuwe waarde](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remotedebugwj"></a>Externe foutopsporing WebJobs
+## <a name="remotedebugwj"></a> Externe foutopsporing WebJobs
 Deze sectie wordt beschreven hoe u foutopsporing op afstand via de project en de web-app die u maakt in [aan de slag met de Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 De functies in deze sectie wordt weergegeven, zijn alleen beschikbaar in Visual Studio 2013 met Update 4 of hoger.
@@ -241,10 +243,12 @@ Als de functie [Logboeken geschreven](https://github.com/Azure/azure-webjobs-sdk
 * Terwijl u fouten opspoort, is de server verzenden van gegevens naar Visual Studio bandbreedte kosten kan beïnvloeden. Zie voor meer informatie over bandbreedte tarieven [prijzen van Azure](https://azure.microsoft.com/pricing/calculator/).
 * Zorg ervoor dat de `debug` kenmerk van de `compilation` -element in de *Web.config* bestand is ingesteld op true. Deze waarde is ingesteld op standaard, wanneer u een configuratie van de build foutopsporing publiceert ingesteld op true.
 
-        <system.web>
-          <compilation debug="true" targetFramework="4.5" />
-          <httpRuntime targetFramework="4.5" />
-        </system.web>
+``` xml
+<system.web>
+  <compilation debug="true" targetFramework="4.5" />
+  <httpRuntime targetFramework="4.5" />
+</system.web>
+```
 * Als u merkt dat het foutopsporingsprogramma niet stap in de code die u wilt opsporen, moet u wellicht de instelling voor alleen mijn Code wijzigen.  Zie voor meer informatie [beperken, selecteert u alleen mijn Code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 * Wanneer u de functie voor externe foutopsporing inschakelen en de functie is na 48 uur automatisch uitgeschakeld, wordt er op de server een timer gestart. Deze limiet 48 uur wordt gedaan voor beveiliging en prestaties. U kunt eenvoudig de functie weer inschakelen als vaak is als u wilt. U wordt aangeraden deze uitgeschakeld wanneer u niet actief foutopsporing.
 * U kunt het foutopsporingsprogramma handmatig koppelen aan een proces, niet alleen de web-app proces (w3wp.exe). Zie voor meer informatie over het gebruik van de foutopsporingsmodus in Visual Studio, [foutopsporing in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
@@ -277,32 +281,35 @@ Zie voor informatie over het maken van de toepassing zich WebJobs aanmeldt, [het
 ### <a name="add-tracing-statements-to-the-application"></a>Tracering instructies toevoegen aan de toepassing
 1. Open *Controllers\HomeController.cs*, en vervang de `Index`, `About`, en `Contact` methoden met de volgende code om toe te voegen `Trace` instructies en een `using` -instructie voor `System.Diagnostics`:
 
-        public ActionResult Index()
-        {
-            Trace.WriteLine("Entering Index method");
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Index method");
-            return View();
-        }
+```c#
+public ActionResult Index()
+{
+    Trace.WriteLine("Entering Index method");
+    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Index method");
+    return View();
+}
 
-        public ActionResult About()
-        {
-            Trace.WriteLine("Entering About method");
-            ViewBag.Message = "Your app description page.";
-            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-            Trace.WriteLine("Leaving About method");
-            return View();
-        }
+public ActionResult About()
+{
+    Trace.WriteLine("Entering About method");
+    ViewBag.Message = "Your app description page.";
+    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+    Trace.WriteLine("Leaving About method");
+    return View();
+}
 
-        public ActionResult Contact()
-        {
-            Trace.WriteLine("Entering Contact method");
-            ViewBag.Message = "Your contact page.";
-            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Contact method");
-            return View();
-        }        
+public ActionResult Contact()
+{
+    Trace.WriteLine("Entering Contact method");
+    ViewBag.Message = "Your contact page.";
+    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Contact method");
+    return View();
+}        
+```
+
 2. Voeg een `using System.Diagnostics;` instructie naar de bovenkant van het bestand.
 
 ### <a name="view-the-tracing-output-locally"></a>De traceringsuitvoer lokaal weergeven
@@ -315,23 +322,28 @@ Zie voor informatie over het maken van de toepassing zich WebJobs aanmeldt, [het
     De volgende stappen laten zien hoe trace-uitvoer in een webpagina te bekijken zonder het compileren van in de foutopsporingsmodus.
 2. Open het bestand Web.config (die zich in de projectmap) en voeg toe een `<system.diagnostics>` element aan het einde van het bestand net voordat de afsluiting `</configuration>` element:
 
-          <system.diagnostics>
-            <trace>
-              <listeners>
-                <add name="WebPageTraceListener"
-                    type="System.Web.WebPageTraceListener,
-                    System.Web,
-                    Version=4.0.0.0,
-                    Culture=neutral,
-                    PublicKeyToken=b03f5f7f11d50a3a" />
-              </listeners>
-            </trace>
-          </system.diagnostics>
+``` xml
+<system.diagnostics>
+<trace>
+  <listeners>
+    <add name="WebPageTraceListener"
+        type="System.Web.WebPageTraceListener,
+        System.Web,
+        Version=4.0.0.0,
+        Culture=neutral,
+        PublicKeyToken=b03f5f7f11d50a3a" />
+  </listeners>
+</trace>
+</system.diagnostics>
+```
 
-    De `WebPageTraceListener` Hiermee kunt u weergeven door te bladeren naar uitvoer van traceringen `/trace.axd`.
+De `WebPageTraceListener` Hiermee kunt u weergeven door te bladeren naar uitvoer van traceringen `/trace.axd`.
 3. Voeg een <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace-element</a> onder `<system.web>` in het Web.config-bestand, zoals in het volgende voorbeeld:
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+``` xml
+<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+```       
+
 4. Druk op CTRL + F5 om de toepassing uit te voeren.
 5. Voeg in de adresbalk van het browservenster *trace.axd* in de URL en druk op Enter (de URL is vergelijkbaar met http://localhost:53370/trace.axd).
 6. Op de **toepassing Trace** pagina, klikt u op **Details weergeven** op de eerste regel (niet de BrowserLink).
@@ -646,15 +658,18 @@ Er zijn geen grondige en up-to-date introductie van ASP.NET-tracering beschikbaa
 * [Traceren in ASP.NET MVC Razor weergaven](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Naast de tracering in Razor weergaven, het bericht ook wordt uitgelegd hoe u een fout-filter maken om u te melden alle niet-verwerkte uitzonderingen in een MVC-toepassing. Voor informatie over het registreren van alle niet-verwerkte uitzonderingen in een toepassing webformulieren, Zie het voorbeeld Global.asax in [compleet voorbeeld voor fout-Handlers](http://msdn.microsoft.com/library/bb397417.aspx) op MSDN. In MVC of webformulieren, als u wilt melden bepaalde uitzonderingen maar laat het standaard-framework afhandeling van kracht, kunt u onderschept en rethrow zoals in het volgende voorbeeld:
 
-        try
-        {
-           // Your code that might cause an exception to be thrown.
-        }
-        catch (Exception ex)
-        {
-            Trace.TraceError("Exception: " + ex.ToString());
-            throw;
-        }
+``` c#
+try
+{
+   // Your code that might cause an exception to be thrown.
+}
+catch (Exception ex)
+{
+    Trace.TraceError("Exception: " + ex.ToString());
+    throw;
+}
+```
+
 * [Streaming diagnostische traceerlogboeken van de Azure vanaf de opdrachtregel (plus blik!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Het gebruik van de opdrachtregel doen wat in deze zelfstudie wordt beschreven hoe u in Visual Studio. [Blik](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) is een hulpprogramma voor het opsporen van ASP.NET-toepassingen.
 * [Met behulp van WebApps-logboekregistratie en diagnose - met David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) en [Streaminglogboeken van Web-Apps - met David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
@@ -669,7 +684,7 @@ Zie de volgende bronnen voor meer informatie over het analyseren van weblogboeke
 
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Een hulpprogramma voor het weergeven van gegevens in de web server-Logboeken (*.log* bestanden).
-* [Het oplossen van problemen met prestaties van IIS of toepassingsfouten LogParser met](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Het oplossen van problemen met prestaties van IIS of toepassingsfouten LogParser met ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Een inleiding tot het hulpprogramma Log Parser die u gebruiken kunt voor het analyseren van weblogboeken server.
 * [Blogberichten door Robert McMurray over het gebruik van LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [De HTTP-statuscode in IIS 7.0, IIS 7.5 en IIS 8.0](http://support.microsoft.com/kb/943891)

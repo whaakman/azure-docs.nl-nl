@@ -3,10 +3,10 @@ title: Azure Active Directory bewijs van concept playbook bouwstenen | Microsoft
 description: Verkennen en snel implementeren scenario's voor Identity and Access Management
 services: active-directory
 keywords: Azure active directory, playbook, Proof-of-Concept, implementatiemodel
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -41,7 +41,7 @@ Hier volgen enkele vereisten die nodig zijn voor een Implementatiemodel met Azur
 | Vereiste | Resources |
 | --- | --- |
 | Azure AD-tenant is gedefinieerd met een geldige Azure-abonnement | [Een Azure Active Directory-tenant verkrijgen](active-directory-howto-tenant.md)<br/>**Opmerking:** als u al een omgeving met Azure AD Premium-licenties hebt, kunt u een nul cap-abonnement downloaden door te navigeren naar https://aka.ms/accessaad <br/>Meer informatie op: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ en https://technet.microsoft.com/library/dn832618.aspx |
-| Domeinen gedefinieerd en geverifieerd | [Een aangepaste domeinnaam toevoegen aan Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Opmerking:** sommige werkbelastingen, zoals Power BI kunnen een azure AD-tenant onder de dekt hebt ingericht. Om te zien als een bepaald domein gekoppeld aan een tenant is, gaat u naar https://login.microsoftonline.com/ {domain}/v2.0/.well-known/openid-configuration. Als u een geslaagd antwoord, ophalen en vervolgens het domein al aan een tenant toegewezen is en neemt mogelijk nodig. Als dit het geval is, moet u contact op met Microsoft voor verdere informatie. Meer informatie over de overname-opties op: [wat is Selfserviceregistratie voor Azure?](active-directory-self-service-signup.md) |
+| Domeinen gedefinieerd en geverifieerd | [Een aangepaste domeinnaam toevoegen aan Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Opmerking:** sommige werkbelastingen, zoals Power BI kunnen een azure AD-tenant onder de dekt hebt ingericht. Om te zien als een bepaald domein gekoppeld aan een tenant is, gaat u naar https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Als u een geslaagd antwoord, ophalen en vervolgens het domein al aan een tenant toegewezen is en neemt mogelijk nodig. Als dit het geval is, moet u contact op met Microsoft voor verdere informatie. Meer informatie over de overname-opties op: [wat is Selfserviceregistratie voor Azure?](active-directory-self-service-signup.md) |
 | Azure AD Premium of EMS-proefabonnement Enabled | [Azure Active Directory Premium voor één maand gratis](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | U hebt Azure AD Premium of EMS-licenties toegewezen aan gebruikers van de POC-fase | [Licentie uzelf en uw gebruikers in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
 | Azure globale beheerder van AD-referenties | [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
@@ -71,7 +71,7 @@ Geschatte tijd om te voltooien: één uur voor minder dan 1000 gebruikers van de
 
 ### <a name="considerations"></a>Overwegingen
 
-1. Bekijk de beveiligingsoverwegingen voor wachtwoordhashsynchronisatie [hier](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  Als wachtwoordhashsynchronisatie voor productie-gebruikers zich niet definitief een optie, kunt u de volgende alternatieven:
+1. Bekijk de beveiligingsoverwegingen voor wachtwoordhashsynchronisatie [hier](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  Als wachtwoordhashsynchronisatie voor productie-gebruikers zich niet definitief een optie, kunt u de volgende alternatieven:
    * Testgebruikers maken in het productiedomein. Zorg ervoor dat u een andere account niet synchroniseren
    * Verplaatsen naar een UAT-omgeving
 2.  Als u voortzetten federation wilt, is het nuttig om te begrijpen de kosten die een federatieve oplossing is gekoppeld aan de lokale id-Provider afgezien van de POC-fase en meting die tegen de voordelen die u zoekt:
@@ -101,7 +101,7 @@ Geschatte tijd om te voltooien: 15 minuten
 | Ga naar Azure AD-beheerportal | [Azure AD-beheerportal - huisstijl van uw bedrijf](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
 | Upload de activa voor de aanmeldingspagina (hero logo, kleine logo, labels, enzovoort). Als u AD FS hebt, uitlijnen eventueel de dezelfde activa met AD FS-aanmeldingspagina 's | [Huisstijl aan uw aanmeldingspagina en pagina's toevoegen: aanpasbare elementen](customize-branding.md) |
 | Wacht een paar minuten voordat de wijziging doorgevoerd |  |
-| Meld u aan met de gebruikersreferenties Implementatiemodel met https://myapps.microsoft.com |  |
+| Meld u aan met het Implementatiemodel gebruikersreferenties aan https://myapps.microsoft.com |  |
 | Bevestig het uiterlijk in browser | [Huisstijl aan uw aanmeldingspagina en pagina's toevoegen](customize-branding.md) |
 | Eventueel, bevestig het uiterlijk in andere apparaten |  |
 
@@ -209,7 +209,7 @@ Geschatte tijd om te voltooien: 30 minuten
 | Vereiste | Resources |
 | --- | --- |
 | De lijst met doeltoepassingen en de exacte aanmelden URL's tevoren. U kunt bijvoorbeeld Twitter. | [Twitter op Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Aanmelden voor Twitter](https://twitter.com/signup?lang=en) |
-| Gedeelde referenties voor deze SaaS-toepassing. | [Delen van accounts met behulp van Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD geautomatiseerde wachtwoord roll gedurende Facebook, Twitter en LinkedIn nu in preview! -Enterprise Mobility and Security-Blog] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Gedeelde referenties voor deze SaaS-toepassing. | [Delen van accounts met behulp van Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD geautomatiseerde wachtwoord roll gedurende Facebook, Twitter en LinkedIn nu in preview! -Enterprise Mobility and Security-Blog] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | De referenties voor ten minste twee teamleden die toegang hebben tot hetzelfde account zijn. Ze moet deel uitmaken van een beveiligingsgroep. | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Lokale beheerderstoegang tot een computer voor het implementeren van de uitbreiding van het Configuratiescherm toegang voor Internet Explorer, Chrome of Firefox | [Configuratiescherm-extensie voor IE toegang](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Uitbreiding van het Configuratiescherm toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Uitbreiding van het Configuratiescherm toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -476,10 +476,10 @@ Geschatte tijd om te voltooien: 15 minuten
 
 | Stap | Resources |
 | --- | --- |
-| Aanmelden bij https://portal.azure.com als een globale beheerder (GA) en de PIM-blade bootstrap. De globale beheerder die in deze stap uitvoert is als de beveiligingsbeheerder gemaakt.  Laten we deze acteur GA1 aanroepen | [Gebruik de beveiligingswizard in Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
+| Meld u aan bij https://portal.azure.com als een globale beheerder (GA) en de PIM-blade bootstrap. De globale beheerder die in deze stap uitvoert is als de beveiligingsbeheerder gemaakt.  Laten we deze acteur GA1 aanroepen | [Gebruik de beveiligingswizard in Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
 | Identificeer de globale beheerder en verplaatsen van permanente naar in aanmerking komt. Dit moet een beheerder van het abonnement dat in stap 1 wordt gebruikt voor de duidelijkheid zijn afzonderlijke. Laten we deze acteur GA2 aanroepen | [Azure AD Privileged Identity Management: Het toevoegen of verwijderen van een gebruikersrol](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Wat is Azure AD Privileged Identity Management?: Configureer de instellingen van de activering](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
-| Nu aanmelden als GA2 bij https://portal.azure.com en wijzig 'Gebruikersinstellingen'. U ziet enkele opties zijn niet beschikbaar. | |
-| In een nieuw tabblad in dezelfde sessie als stap 3, navigeer nu naar https://portal.azure.com en de PIM-blade toevoegen aan het dashboard. | [Activeren of deactiveren van rollen in Azure AD Privileged Identity Management: de Privileged Identity Management-toepassing toevoegen](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Nu aanmelden als GA2 naar https://portal.azure.com en wijzig 'Gebruikersinstellingen'. U ziet enkele opties zijn niet beschikbaar. | |
+| In een nieuw tabblad en in dezelfde sessie als stap 3, navigeer nu naar https://portal.azure.com en de PIM-blade toevoegen aan het dashboard. | [Activeren of deactiveren van rollen in Azure AD Privileged Identity Management: de Privileged Identity Management-toepassing toevoegen](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
 | Activering van de aanvraag aan de rol globale beheerder | [Activeren of deactiveren van rollen in Azure AD Privileged Identity Management: een rol activeren](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
 | Houd er rekening mee dat als GA2 nooit aangemeld voor MFA, registratie voor Azure MFA moet worden |  |
 | Ga terug naar het oorspronkelijke tabblad in stap 3 en klik op de knop Vernieuwen in de browser. Houd er rekening mee dat u nu toegang hebt tot het wijzigen van 'Gebruikersinstellingen' | |
@@ -506,7 +506,7 @@ Geschatte tijd om te voltooien: 20 minuten
 | Stap | Resources |
 | --- | --- |
 | Open tor-browser | [Tor Browser downloaden](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Aanmelden bij https://myapps.microsoft.com met het Implementatiemodel gebruikersaccount | [Azure Active Directory: Identity Protection playbook: Risicogebeurtenissen simuleren](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Meld u aan bij https://myapps.microsoft.com met het Implementatiemodel gebruikersaccount | [Azure Active Directory: Identity Protection playbook: Risicogebeurtenissen simuleren](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | Wacht 5-7 minuten |  |
 | Meld u aan als een globale beheerder zijn om https://portal.azure.com en open de blade Identity Protection | https://aka.ms/aadipgetstarted |
 | Open de blade van de gebeurtenissen risico. Er is een item onder 'Aanmeldingen vanaf anonieme IP-adressen'  | [Azure Active Directory: Identity Protection playbook: Risicogebeurtenissen simuleren](active-directory-identityprotection-playbook.md#simulating-risk-events) |
@@ -532,10 +532,10 @@ Geschatte tijd om te voltooien: 10 minuten
 
 | Stap | Resources |
 | --- | --- |
-| Meld u aan als een globale beheerder zijn om https://portal.azure.com de blade en open Identity Protection | https://aka.ms/aadipgetstarted |
+| Meld u aan als een globale beheerder zijn om https://portal.azure.com en open de blade Identity Protection | https://aka.ms/aadipgetstarted |
 | Een beleid voor aanmelden risico als volgt inschakelen:<br/>-Toegewezen aan: Implementatiemodel gebruiker<br/>-Voorwaarden: Aanmelden risico gemiddeld of hoger (aanmelden vanaf anonieme locatie wordt beschouwd als een gemiddeld risiconiveau)<br/>-Besturingselementen: MFA vereisen | [Azure Active Directory: Identity Protection playbook: aanmelden risico](active-directory-identityprotection-playbook.md) |
 | Open tor-browser | [Tor Browser downloaden](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Aanmelden bij https://myapps.microsoft.com met het implementatiemodel gebruikersaccount |  |
+| Meld u aan bij https://myapps.microsoft.com met het implementatiemodel gebruikersaccount |  |
 | U ziet de MFA-controle | [Aanmelden-ervaringen met Azure AD Identity Protection: riskant aanmelden herstel](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Overwegingen

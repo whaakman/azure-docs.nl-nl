@@ -2,10 +2,10 @@
 title: 'Azure AD Connect-synchronisatie: inzicht en synchronisatie aanpassen | Microsoft Docs'
 description: Legt uit hoe Azure AD Connect synchroniseren werkt en hoe u kunt aanpassen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a808f929dcd27b53821f59ed8fd3ab67af81a273
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect-synchronisatie: inzicht en synchronisatie aanpassen
 De Azure Active Directory Connect-Synchronisatieservices (Azure AD Connect sync) is een belangrijkste onderdeel van Azure AD Connect. Dit zorgt voor alle bewerkingen die betrekking hebben op het synchroniseren van identiteitsgegevens tussen uw on-premises omgeving en Azure AD. Azure AD Connect-synchronisatie is de opvolger van DirSync, Azure AD Sync en Forefront Identity Manager met de Azure Active Directory-Connector geconfigureerd.
@@ -46,7 +46,7 @@ De synchronisatieservice bestaat uit twee onderdelen: de on-premises **Azure AD 
 | **Scenario's en onderdelen** | |
 | [Onopzettelijke verwijderingen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |Beschrijft de *onopzettelijk verwijderen voorkomen* functie en over hoe dit moet worden geconfigureerd. |
 | [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) |Beschrijving van de ingebouwde scheduler die importeren, synchroniseren en exporteren van gegevens. |
-| [Wachtwoordsynchronisatie implementeren](active-directory-aadconnectsync-implement-password-synchronization.md) |Hierin wordt beschreven hoe werkt Wachtwoordsynchronisatie, implementeren en hoe werkt en problemen oplossen. |
+| [Synchronisatie van wachtwoordhash implementeren](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |Hierin wordt beschreven hoe werkt Wachtwoordsynchronisatie, implementeren en hoe werkt en problemen oplossen. |
 | [Write-back van apparaat](active-directory-aadconnect-feature-device-writeback.md) |Hierin wordt beschreven hoe Write-back van apparaat werkt in Azure AD Connect. |
 | [Uitbreidingen van de directory](active-directory-aadconnectsync-feature-directory-extensions.md) |Beschrijft hoe de Azure AD-schema met uw eigen aangepaste kenmerken uit te breiden. |
 | [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Beschrijft hoe u Office 365-bronnen van de gebruiker in dezelfde regio bevinden als de gebruiker geplaatst. |

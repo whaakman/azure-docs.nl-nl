@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f62f6c4b2679457e8aaddb81e8a37622ca878ffc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Inleiding tot Azure Data wetenschappelijke virtuele Machine voor Linux en Windows
 
@@ -29,7 +29,7 @@ In dit onderwerp wordt beschreven wat u kunt doen met de VM van de wetenschappel
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Wat kan ik doen met de gegevens wetenschappelijke virtuele Machine?
-Het doel van de gegevens wetenschappelijke virtuele Machine is om te voorzien van een wetenschappelijke gegevens wrijving zonder omgeving professionals gegevens op alle lager niveau en functies. Deze virtuele machine wordt opgeslagen aanzienlijke tijd zou als u een vergelijkbare omgeving had uitgerold zelf. In plaats daarvan uw wetenschappelijke gegevensproject onmiddellijk starten in een nieuwe VM-instantie. 
+Het doel van de gegevens wetenschappelijke virtuele Machine (DSVM) is om te voorzien van een omgeving met wrijving gratis, vooraf geconfigureerde en volledig geïntegreerd gegevens wetenschappelijke gegevens professionals op alle kwalificatieniveaus en in alle rollen. In plaats van een vergelijkbare werkruimte rolt zelf, kunt u een DSVM - zodat u dagen of zelfs inrichten _weken_ op de installatie, configuratie en beheerprocessen pakket. Nadat uw DSVM is toegewezen, kunt u meteen beginnen op uw project van de wetenschappelijke gegevens.
 
 De wetenschappelijke gegevens VM is ontworpen en geconfigureerd voor het werken met een breed scala aan gebruiksscenario's. U kunt uw omgeving omhoog of omlaag schalen naar gelang de behoeften van uw project wijzigen. U zijn kunt gebruiken de voorkeurstaal aan programma gegevens wetenschappelijke taken. U kunt andere hulpprogramma's installeren en aanpassen van het systeem voor uw exacte behoeften.
 

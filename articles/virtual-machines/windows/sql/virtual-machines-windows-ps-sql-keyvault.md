@@ -2,10 +2,10 @@
 title: Sleutelkluis integreert met SQL Server op Windows-machines in Azure (Resource Manager) | Microsoft Docs
 description: Informatie over het automatiseren van de configuratie van SQL Server-versleuteling voor gebruik met Azure Sleutelkluis. Dit onderwerp wordt uitgelegd hoe u Azure Sleutelkluis-integratie met SQL Server virtuele machines die zijn gemaakt met Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/23/2017
 ms.author: jroth
-ms.openlocfilehash: 2d24bb839368b4f7fff61f0696c79a00c03af917
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7df0bc4b74694baa6b1c8a30d0c126b248e51168
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configureren van Azure Sleutelkluis-integratie voor SQL Server op Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
@@ -55,6 +55,11 @@ In de **SQL Server-configuratiebestand** blade, klikt u op de **bewerken** knop 
 ![SQL Azure Sleutelkluis-integratie voor bestaande virtuele machines configureren](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-configuration.png)
 
 Wanneer u klaar bent, klikt u op de **OK** knop aan de onderkant van de **SQL Server-configuratiebestand** blade uw wijzigingen op te slaan.
+
+> [!NOTE]
+> De referentienaam die we hier gemaakte worden toegewezen aan een SQL-aanmelding later. Hierdoor kan de SQL-aanmelding voor toegang tot de sleutelkluis. 
+>
+>
 
 > [!NOTE]
 > U kunt ook Azure Sleutelkluis-integratie met een sjabloon configureren. Zie voor meer informatie [Azure quickstart-sjabloon voor Azure Sleutelkluis-integratie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).

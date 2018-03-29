@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Pass through-verificatie | Microsoft Docs'
 description: In dit artikel beschrijft Pass-through-verificatie voor Azure Active Directory (Azure AD) en hoe kunt u Azure AD aanmeldingen door te valideren op basis van de lokale Active Directory-wachtwoorden van gebruikers.
 services: active-directory
 keywords: Wat is Azure AD Connect Pass through-verificatie, installeert u Active Directory, de vereiste onderdelen voor Azure AD, SSO, Single Sign-on
-documentationcenter: 
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Gebruiker aanmelden met Azure Active Directory Pass-through-verificatie
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD)-Pass through-verificatie kunnen uw gebruikers 
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Deze functie is een alternatief voor [Azure AD synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-synchronization.md), waarmee u de dezelfde voordeel van cloud-verificatie voor organisaties. Beleid voor beveiliging en naleving in bepaalde organisaties niet evenwel toestaan dat deze organisaties wachtwoorden van gebruikers, zelfs in een formulier hash buiten de grenzen van de interne verzenden. Pass through-verificatie is de juiste oplossing voor deze organisaties.
+Deze functie is een alternatief voor [Azure AD synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-hash-synchronization.md), waarmee u de dezelfde voordeel van cloud-verificatie voor organisaties. Beleid voor beveiliging en naleving in bepaalde organisaties niet evenwel toestaan dat deze organisaties wachtwoorden van gebruikers, zelfs in een formulier hash buiten de grenzen van de interne verzenden. Pass through-verificatie is de juiste oplossing voor deze organisaties.
 
 ![Azure AD Pass-through-verificatie](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 

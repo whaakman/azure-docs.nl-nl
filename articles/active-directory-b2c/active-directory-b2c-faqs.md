@@ -10,11 +10,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 338520f273a88866834e43e17da1f8b131ca38f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d213a3f8bed5af526efba39868855b6f6727a7c0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -28,7 +28,9 @@ Azure AD B2C kan niet worden gebruikt om gebruikers te verifiëren voor Microsof
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Wat zijn lokale accounts in Azure AD B2C? Hoe zijn ze verschilt van het werk-of schoolaccounts in Azure AD?
 In een Azure AD-tenant gebruikers die deel uitmaken van de tenant die aanmelden met een e-mailadres van het formulier `<xyz>@<tenant domain>`.  De `<tenant domain>` is een van de geverifieerde domeinen in de tenant of de eerste `<...>.onmicrosoft.com` domein. Dit type account is een werk- of schoolaccount-account.
 
-In een Azure AD B2C-tenant wilt dat de meeste apps door de gebruiker zich aanmeldt met een willekeurige e-mailadres (bijvoorbeeld joe@comcast.net, bob@gmail.com, sarah@contoso.com, of jim@live.com). Dit type account is een lokale account.  We bieden ook ondersteuning voor willekeurige gebruikersnamen als lokale accounts (bijvoorbeeld Jan, bob, sarah of jim). U kunt een van deze twee lokale accounttypen door Azure AD B2C configureren in de Azure-portal.
+In een Azure AD B2C-tenant wilt dat de meeste apps door de gebruiker zich aanmeldt met een willekeurige e-mailadres (bijvoorbeeld joe@comcast.net, bob@gmail.com, sarah@contoso.com, of jim@live.com). Dit type account is een lokale account.  We bieden ook ondersteuning voor willekeurige gebruikersnamen als lokale accounts (bijvoorbeeld Jan, bob, sarah of jim). U kunt een van deze twee typen van de lokale account wanneer id-providers voor Azure AD B2C wordt geconfigureerd in de Azure-portal. In uw Azure AD B2C-tenant, klikt u op **identiteitsproviders** en selecteer vervolgens **gebruikersnaam** onder lokale accounts. 
+
+Gebruikersaccounts voor toepassingen moeten altijd worden gemaakt via een registratiebeleid, aanmelding of sign-in het beleid of met behulp van de Azure AD Graph API. Gebruikersaccounts die zijn gemaakt in de Azure portal worden alleen gebruikt voor het beheren van de tenant.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Welke sociale identiteitsproviders ondersteund nu? Welke u wilt u in de toekomst ondersteunen?
 Wordt ondersteund Facebook, Google + LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview) en q (Preview). Er wordt ondersteuning toevoegen voor andere populaire social identiteitsproviders op basis van vraag van klanten.

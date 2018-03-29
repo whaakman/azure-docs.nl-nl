@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: ecfcf7a3b3698435f98b74474d0ca7223ab2b46c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b327e7f062cdf3e6b1b34a9540461dcb18caf21c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Afhankelijkheden, uitzonderingen en uitvoeringstijden in Java-web-apps bewaken
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Afhankelijkheden, bijgewerkt uitzonderingen en uitvoeringstijden methode in Java-web-apps bewaken
 
 
 Als u hebt [uw Java-web-app met Application Insights geïnstrumenteerd][java], kunt u de Java-Agent voor dieper inzicht, zonder codewijzigingen:
 
 * **Afhankelijkheden:** gegevens over aanroepen waarmee uw toepassing op andere onderdelen, met inbegrip van:
-  * **REST-aanroepen** gedaan via HttpClient OkHttp en RestTemplate (bron).
-  * **Redis** aanroepen via de client-Jedis. Als de oproep langer dan per 10 duurt, haalt de agent ook de van aanroepargumenten.
-  * **[JDBC aanroepen](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB of Apache Derby DB. aanroepen van 'executeBatch' worden ondersteund. Als de oproep langer dan per 10 duurt, rapporteert de agent voor MySQL en PostgreSQL het queryplan.
-* **Uitzonderingen wordt onderschept:** gegevens over uitzonderingen die worden verwerkt door uw code.
-* **Uitvoeringstijd voor methode:** gegevens over de tijd die nodig zijn bepaalde methoden uit te voeren.
+  * **REST-aanroepen** gedaan via HttpClient, OkHttp en RestTemplate (Spring) worden vastgelegd.
+  * **Redis** aanroepen via de client-Jedis worden vastgelegd.
+  * **[JDBC aanroepen](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server en Oracle DB opdrachten die automatisch worden geregistreerd. Als de oproep langer dan per 10 duurt, rapporteert de agent voor MySQL, het queryplan.
+* **Uitzonderingen wordt onderschept:** informatie over uitzonderingen die worden verwerkt door uw code.
+* **Uitvoeringstijd voor methode:** informatie over de tijd die nodig is voor specifieke methoden uitvoeren.
 
 Voor het gebruik van de Java-agent moet installeren u deze op uw server. Uw web-apps moeten zijn uitgerust met de [Application Insights-SDK voor Java][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Installeer de Application Insights-agent voor Java
-1. Op de computer waarop u uw server Java [de agent downloaden](https://aka.ms/aijavasdk).
+1. Op de computer waarop u uw server Java [de agent downloaden](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Zorg ervoor dat voor het downloaden van de dezelfde verson van Java-Agent als de pakketten core en web Application Insights-SDK voor Java.
 2. Het opstartscript van application server bewerken en de volgende JVM toevoegen:
    
     `javaagent:`*volledig pad naar het JAR-bestand van agent*

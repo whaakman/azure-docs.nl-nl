@@ -1,8 +1,8 @@
 ---
 title: Kaart van de toepassing in Azure Application Insights | Microsoft Docs
-description: "Bewaken van complexe toepassingen topologieën met de toepassing-kaart"
+description: Bewaken van complexe toepassingen topologieën met de toepassing-kaart
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 4b95cd947cd977208dee32d18fbc6a1fb099ff3b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-map-triage-distributed-applications"></a>De toepassingstoewijzing: Sorteren gedistribueerde toepassingen
 De toepassingstoewijzing helpt u ter plaatse prestatieknelpunten of fout hotspots voor alle onderdelen van de gedistribueerde toepassing. Elk knooppunt op de kaart vertegenwoordigt een toepassingsonderdeel van de of de afhankelijkheden ervan; health KPI en heeft de status van waarschuwingen. U kunt via van elk onderdeel klikken om meer gedetailleerde diagnostische gegevens, zoals Application Insights-gebeurtenissen te. Als uw app gebruikmaakt van Azure-services, kunt u ook doorklikken naar Azure diagnostics, zoals SQL Database Advisor aanbevelingen.
@@ -37,7 +37,7 @@ Onderdelen zijn onafhankelijk implementeerbare onderdelen van uw toepassing gedi
 ![Inschakelen van de preview-kaart](media/app-insights-app-map/preview-from-classic.png)
 
 >[!Note]
-Deze preview vervangt de voorafgaande "Mult-toepassing rollenoverzicht" preview. Op dit moment gebruiken deze om de volledige topologie op meerdere niveaus van de toepassing onderdeel afhankelijkheden weer te geven. Geef ons uw feedback, we meer mogelijkheden vergelijkbaar met wat de klassieke kaart ondersteunt gaat toevoegen.
+Deze preview vervangt de voorafgaande "Meerdere toepassing rollenoverzicht" preview. Op dit moment gebruiken deze om de volledige topologie op meerdere niveaus van de toepassing onderdeel afhankelijkheden weer te geven. Geef ons uw feedback, we meer mogelijkheden vergelijkbaar met wat de klassieke kaart ondersteunt gaat toevoegen.
 
 U ziet de topologie van de volledige toepassing op meerdere niveaus van gerelateerde toepassingsonderdelen. Onderdelen worden verschillende Application Insights-bronnen of verschillende rollen in één resource. De kaart app zoekt onderdelen met de volgende HTTP-afhankelijkheidsaanroepen tussen servers met de Application Insights-SDK geïnstalleerd. 
 

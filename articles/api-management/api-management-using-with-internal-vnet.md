@@ -2,10 +2,10 @@
 title: Het gebruik van Azure API Management met interne virtuele netwerken | Microsoft Docs
 description: Meer informatie over het instellen en configureren van Azure API Management op een intern virtueel netwerk
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: kjoshi
-editor: 
+editor: ''
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Gebruik van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk op het internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
@@ -44,7 +44,7 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 
 + **Exemplaar van Azure API Management**. Zie voor meer informatie [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 
-## <a name="enable-vpn"></a>Maken van een API Management in een intern virtueel netwerk
+## <a name="enable-vpn"> </a>Een API Management maken in een intern virtueel netwerk
 De API Management-service in een intern virtueel netwerk wordt achter een interne load balancer (ILB) gehost.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Een virtueel netwerkverbinding met de Azure portal inschakelen
@@ -72,7 +72,7 @@ U kunt ook virtuele netwerkverbindingen inschakelen met behulp van PowerShell-cm
 Wanneer u API Management in de modus voor extern virtueel netwerk, worden de DNS-server wordt beheerd door Azure. U hebt voor de modus van een intern virtueel netwerk voor het beheren van uw eigen routering.
 
 > [!NOTE]
-> API Management-service luistert niet op aanvragen die afkomstig zijn van IP-adressen. Alleen reageert op aanvragen voor de hostnaam die is geconfigureerd op de service-eindpunten. Deze eindpunten zijn gateway, de portal voor ontwikkelaars, de Azurethe portal, direct beheer eindpunt en Git.
+> API Management-service luistert niet op aanvragen die afkomstig zijn van IP-adressen. Alleen reageert op aanvragen voor de hostnaam die is geconfigureerd op de service-eindpunten. Deze eindpunten zijn gateway, de Azure-portal en de portal voor ontwikkelaars, direct beheer eindpunt en Git.
 
 ### <a name="access-on-default-host-names"></a>Toegang op standaard hostnamen
 Wanneer u een API Management-service, bijvoorbeeld de naam 'contoso' maakt worden standaard de volgende service-eindpunten geconfigureerd:
@@ -105,13 +105,13 @@ U kunt vervolgens toegang tot alle service-eindpunten van de virtuele machine di
 
    2. Vervolgens kunt u records maken in uw DNS-server voor toegang tot de eindpunten die alleen toegankelijk vanuit het virtuele netwerk.
 
-## <a name="routing"></a> Routering
+## <a name="routing"> </a> Routering
 + Een taakverdeling persoonlijke virtuele IP-adres uit het subnetbereik wordt gereserveerd en wordt gebruikt voor toegang tot de API Management service-eindpunten van binnen het vnet.
 + Een taakverdeling openbare IP-adres (VIP) ook gereserveerd om toegang te bieden met de management service-eindpunt alleen via poort 3443.
 + Een IP-adres van een subnet IP-adresbereik (DIP) wordt gebruikt voor toegang tot resources binnen het vnet en een openbare IP-adres (VIP) wordt gebruikt voor toegang tot bronnen buiten het vnet.
 + Met gelijke taakverdeling openbare en particuliere IP-adressen kunnen worden gevonden op de blade overzicht/Essentials in de Azure portal.
 
-## <a name="related-content"></a>Verwante inhoud
+## <a name="related-content"> </a>Gerelateerde inhoud
 Zie voor meer informatie de volgende artikelen:
 * [Algemene problemen met het netwerk configuratie tijdens het instellen van Azure API Management in een virtueel netwerk][Common network configuration problems]
 * [Virtueel netwerk Veelgestelde vragen](../virtual-network/virtual-networks-faq.md)

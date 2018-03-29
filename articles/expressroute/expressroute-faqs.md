@@ -5,20 +5,20 @@ documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 3f33703ec86f131d18c89cf4b29514c5002349d1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -340,7 +340,10 @@ Zie [ExpressRoute-partners en locaties](expressroute-locations.md) voor meer inf
 
 ### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>Heb ik toegang tot Office 365 via Internet, zelfs als ExpressRoute is geconfigureerd voor mijn organisatie?
 
-Ja. Office 365-service-eindpunten zijn bereikbaar is via het Internet, hoewel ExpressRoute is geconfigureerd voor uw netwerk. Als u zich in een locatie die is geconfigureerd voor verbinding met Office 365-services via ExpressRoute, maakt u verbinding via ExpressRoute.
+Ja. Office 365-service-eindpunten zijn bereikbaar is via het Internet, hoewel ExpressRoute is geconfigureerd voor uw netwerk. Neem contact op met uw organisatie networking-team als het netwerk op uw locatie is geconfigureerd voor het verbinding maken met Office 365-services via ExpressRoute.
+
+### <a name="how-can-i-plan-for-high-availability-for-office-365-network-traffic-on-azure-expressroute"></a>Hoe kan ik plannen voor hoge beschikbaarheid voor Office 365-netwerkverkeer op Azure ExpressRoute?
+Zie de aanbeveling voor [hoge beschikbaarheid en failover met Azure ExpressRoute](https://aka.ms/erhighavailability)
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Kan ik Office 365 US Government Community (GCC) services openen via een Azure US Government ExpressRoute-circuit?
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: Kumud
-ms.openlocfilehash: 1d39cdc13e69740dc99e67f935b60db218536044
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d60925381abe617f6e2fac51176b8e30517c3ba
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Metrische gegevens en de gezondheid van diagnostische gegevens voor de standaard Load Balancer
 
@@ -88,7 +88,7 @@ Beschikbaarheid van de VIP is mislukt vanwege de volgende redenen:
 - Uw implementatie heeft geen goede VM's resterend in de back-endpool. 
 - Een infrastructuur storing is opgetreden dat ervoor zorgt dat de beschikbaarheid van de VIP mislukken.
 
-U kunt de [VIP beschikbaarheidsmetriek vereist samen met de status van de test voor diagnostische doeleinden](https://aka.ms/lbdiagnostics#vipavailabilityandhealthprobes).
+U kunt de [VIP beschikbaarheidsmetriek vereist samen met de status van de test voor diagnostische doeleinden](#vipavailabilityandhealthprobes).
 
 Gebruik **gemiddelde** als de aggregatie voor de meeste scenario's.
 

@@ -5,21 +5,21 @@ keywords: ODBC, odbc-stuurprogramma
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 03/22/2018
 ms.author: mimig
-ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 445acafeef67027712826f644afaa1784569b30d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Verbinding maken met Azure Cosmos DB met BI analytics hulpprogramma van het ODBC-stuurprogramma
 
@@ -30,7 +30,7 @@ Het Azure Cosmos DB ODBC-stuurprogramma ODBC 3.8 compatibel is en de syntaxis va
 ## <a name="why-do-i-need-to-normalize-my-data"></a>Waarom moet ik mijn gegevens normaliseren?
 Azure Cosmos-database is een database zonder schema zodat snelle ontwikkeling van apps kunnen door het inschakelen van toepassingen op hun gegevensmodel op elk gewenst moment herhalen en ze niet aan een strikte schema te beperken. Eén Azure DB die Cosmos-database kan de JSON-documenten van verschillende structuren bevatten. Dit is ideaal voor snelle ontwikkeling van toepassingen, maar als u wilt analyseren en rapporten van uw gegevens met behulp van gegevensanalyse en BI-hulpprogramma's maken, moet de gegevens vaak worden "afgevlakt" en voldoen aan een specifiek schema.
 
-Dit is waar het ODBC-stuurprogramma wordt geleverd. U kunt nu renormalized gegevens in Azure Cosmos DB in tabellen en weergaven aanpassen aan uw data-analyse- en behoeften met behulp van het ODBC-stuurprogramma. De renormalized schema's hebben geen invloed op de onderliggende gegevens en ontwikkelaars om te voldoen aan deze niet wilt beperken, ze gewoon Hiermee kunt u gebruikmaken van ODBC-hulpprogramma's voor toegang tot de gegevens. Nu wordt uw Azure DB die Cosmos-database niet alleen een favoriet voor uw ontwikkelteam, maar uw gegevensanalisten wordt de evaluatieversie te.
+Dit is waar het ODBC-stuurprogramma wordt geleverd. U kunt nu gegevens in Azure Cosmos DB in tabellen en weergaven aanpassen aan uw data-analyse- en behoeften renormalize voordat u met behulp van het ODBC-stuurprogramma. De renormalized schema's hebben geen invloed op de onderliggende gegevens en ontwikkelaars om te voldoen aan deze niet wilt beperken, Hiermee kunt u gebruikmaken van ODBC-hulpprogramma's voor toegang tot de gegevens. Nu wordt uw Azure DB die Cosmos-database niet alleen een favoriet voor uw ontwikkelteam, maar uw gegevensanalisten wordt de evaluatieversie te.
 
 Nu kunt aan de slag met het ODBC-stuurprogramma.
 
@@ -71,7 +71,7 @@ Nu kunt aan de slag met het ODBC-stuurprogramma.
     - **Schemabestand**: U hebt een aantal opties hier.
         - Het stuurprogramma scant standaard als u deze vermelding (leeg) is de eerste paginagegevens voor alle verzamelingen om te bepalen van het schema van elke verzameling. Dit staat bekend als de toewijzing van de verzameling. Zonder een schemabestand dat is gedefinieerd, wordt het stuurprogramma heeft de scan uitvoeren voor elke sessie stuurprogramma en kan leiden tot een hogere opstarten van een toepassing met behulp van de DSN-naam. Het is raadzaam dat u altijd een schemabestand voor een DSN koppelen.
         - Als u al een schemabestand (mogelijk één die u hebt gemaakt met de [Schema-Editor](#schema-editor)), klikt u op **Bladeren**, gaat u naar het bestand, klik op **opslaan**, en klik vervolgens op **OK**.
-        - Als u een nieuw schema maken wilt, klikt u op **OK**, en klik vervolgens op **Schema-Editor** in het hoofdvenster. Gaat u verder met de [Schema-Editor](#schema-editor) informatie. Bij het maken van het nieuwe schemabestand, houd er rekening mee wilt teruggaan naar de **geavanceerde opties** venster de zojuist gemaakte schemabestand opnemen.
+        - Als u een nieuw schema maken wilt, klikt u op **OK**, en klik vervolgens op **Schema-Editor** in het hoofdvenster. Gaat u verder met de [Schema-Editor](#schema-editor) informatie. Nadat het nieuwe schemabestand is gemaakt, moet u terug te keren naar de **geavanceerde opties** venster de zojuist gemaakte schemabestand opnemen.
 
 6. Zodra u voltooien en sluit de **Azure Cosmos DB ODBC-stuurprogramma DSN Setup** venster de nieuwe gebruiker DSN-naam is toegevoegd aan de gebruikers-DSN-tabblad.
 
@@ -114,10 +114,60 @@ De volgende stappen maakt u een schema voor de gegevens in een of meer verzameli
 4. Klik op **OK**. 
 5. Na het voltooien van de definities van de toewijzing voor de verzamelingen die u wilt kopiëren, in de **Schema-Editor** venster, klikt u op **voorbeeld**.
      Voor elke kolom, kunt u de naam van de kolom SQL, de SQL-type, de lengte van de SQL (indien van toepassing), schalen (indien van toepassing), Precision (indien van toepassing) en null-waarden bevatten.
-    - U kunt instellen **kolom verbergen** naar **true** als u wilt uitsluiten van die kolom van de queryresultaten. Kolommen kolom verbergen gemarkeerd = true niet worden geretourneerd voor de selectie en projectie, hoewel ze nog steeds deel van het schema uitmaken. U kunt bijvoorbeeld alle Azure Cosmos DB vereist Systeemeigenschappen beginnen met '_' verbergen.
+    - U kunt instellen **kolom verbergen** naar **true** als u wilt uitsluiten van die kolom van de queryresultaten. Kolommen kolom verbergen gemarkeerd = true niet worden geretourneerd voor de selectie en projectie, hoewel ze nog steeds deel van het schema uitmaken. U kunt bijvoorbeeld alle Azure Cosmos DB vereist Systeemeigenschappen vanaf verbergen `_`.
     - De **id** kolom is het enige veld dat als deze wordt gebruikt als de primaire sleutel in het genormaliseerde schema kan niet worden verborgen. 
 6. Wanneer u klaar bent met het definiëren van het schema, klikt u op **bestand** | **opslaan**, navigeer naar de map op te slaan van het schema en klik vervolgens op **opslaan**.
-7. Terug in de **Azure Cosmos DB ODBC-stuurprogramma DSN Setup** venster, klikt u op ** Geavanceerde opties **. Klik in de **schemabestand** vak, gaat u naar het schemabestand opgeslagen en klikt u op **OK**. Klik op **OK** om opnieuw op te slaan de DSN-naam. Dit bespaart het schema dat u hebt gemaakt naar de DSN. 
+7. Terug in de **Azure Cosmos DB ODBC-stuurprogramma DSN Setup** venster, klikt u op **geavanceerde opties**. Klik in de **schemabestand** vak, gaat u naar het schemabestand opgeslagen en klikt u op **OK**. Klik op **OK** om opnieuw op te slaan de DSN-naam. Dit bespaart het schema dat u hebt gemaakt naar de DSN. 
+
+## <a name="optional-set-up-linked-server-connection"></a>(Optioneel) Verbinding met gekoppelde server instellen
+
+U kunt Azure Cosmos DB uit SQL Server Management Studio (SSMS) query door het instellen van een verbinding met gekoppelde server.
+
+1. Maak een systeemgegevensbron zoals beschreven in [stap 2](#connect)met de naam bijvoorbeeld `SDS Name`.
+2. [Installeer SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+3. Maak een gekoppelde server-object in de query-editor van SSMS `DEMOCOSMOS` voor de gegevensbron met de volgende opdrachten. Vervang `DEMOCOSMOS` met de naam voor de gekoppelde server en `SDS Name` met de naam van de gegevensbron van het systeem.
+
+    ```sql
+    USE [master]
+    GO
+    
+    EXEC master.dbo.sp_addlinkedserver @server = N'DEMOCOSMOS', @srvproduct=N'', @provider=N'MSDASQL', @datasrc=N'SDS Name'
+    
+    EXEC master.dbo.sp_addlinkedsrvlogin @rmtsrvname=N'DEMOCOSMOS', @useself=N'False', @locallogin=NULL, @rmtuser=NULL, @rmtpassword=NULL
+    
+    GO
+    ```
+    
+Overzicht van de nieuwe naam van de gekoppelde server door de lijst gekoppelde Servers te vernieuwen.
+
+![Gekoppelde Server in SSMS](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
+
+### <a name="query-linked-database"></a>Gekoppelde query uitvoeren op database
+
+Als u wilt zoeken in de gekoppelde database, moet u een SSMS-query invoeren. In dit voorbeeld wordt de query wordt geselecteerd uit de tabel in de verzameling met de naam `customers`:
+
+```sql
+SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
+```
+
+De query worden uitgevoerd. Het resultaat moet ongeveer als volgt:
+
+```
+attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df
+attachments/  1507476156    167 Nassau Street, Tuskahoma, Illinois, 5998   "2602bd56-0000-0000-0000-59da42bc0000"   2015-06-16T08:54:17 +04:00 f75f949ea8de466a9ef2bdb7ce065ac8
+attachments/  1507476156    885 Strong Place, Cassel, Montana, 2069       "2602be56-0000-0000-0000-59da42bc0000"   2015-03-20T07:21:47 +04:00 ef0365fb40c04bb6a3ffc4bc77c905fd
+attachments/  1507476156    515 Barwell Terrace, Defiance, Tennessee, 6439     "2602c056-0000-0000-0000-59da42bc0000"   2014-10-16T06:49:04 +04:00      e913fe543490432f871bc42019663518
+attachments/  1507476156    570 Ruby Street, Spokane, Idaho, 9025       "2602c156-0000-0000-0000-59da42bc0000"   2014-10-30T05:49:33 +04:00 e53072057d314bc9b36c89a8350048f3
+```
+
+> [!NOTE]
+> De gekoppelde Cosmos-DB-server biedt geen ondersteuning voor vierdelige naam geven. Een fout geretourneerd vergelijkbaar met het volgende bericht:
+
+```
+Msg 7312, Level 16, State 1, Line 44
+
+Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server "DEMOCOSMOS". A four-part name was supplied, but the provider does not expose the necessary interfaces to use a catalog or schema.
+``` 
 
 ## <a name="optional-creating-views"></a>(Optioneel) Maken van weergaven
 U kunt definiëren en weergaven maken als onderdeel van het proces steekproeven. Deze weergaven zijn equivalent aan SQL-weergaven. Ze zijn alleen-lezen en bereik zijn de selecties en projecties van de SQL Azure Cosmos DB gedefinieerd. 

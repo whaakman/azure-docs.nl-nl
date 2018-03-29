@@ -4,20 +4,20 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: b0d8fa13c13ad8d4a85cb482bcd7e440006f0437
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Zelfstudie: Azure Active Directory-integratie met OpsGenie
 
@@ -110,19 +110,35 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_url.png)
 
-    In de **aanmeldings-URL** textbox, typ de URL:`https://app.opsgenie.com/auth/login`
+    In de **aanmeldings-URL** textbox, typ de URL: `https://app.opsgenie.com/auth/login`
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
-
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png) 
-
-5. Klik op **opslaan** knop.
+4. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-6. Op de **OpsGenie configuratie** sectie, klikt u op **configureren OpsGenie** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+5. Op de **OpsGenie configuratie** sectie, klikt u op **configureren OpsGenie** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** uit de sectie Naslaggids.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png) 
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
+
+6. Voor het genereren van de **metagegevens-URL**, voer de volgende stappen uit:
+
+    a. Klik op **App registraties**.
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
+   
+    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
+
+    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
+     
+    d. Nu gaat u naar de eigenschappenpagina van **OpsGenie** en kopieer de **toepassings-Id** met **kopie** knop en plak deze in Kladblok.
+ 
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
+
+    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. Open een ander browserexemplaar, en vervolgens aanmelden op OpsGenie als beheerder.
 
@@ -142,9 +158,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
    
     ![OpsGenie instellingen](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-    a. Plakken **aanmelding op Service-URL met eenmalige**, die u hebt gekopieerd vanuit de Azure-portal in de **SAML 2.0 eindpunt** textbox.
+    a. In de **SAML 2.0 eindpunt** textbox plakken **aanmelding op Service-URL met eenmalige**waarde die u hebt gekopieerd uit de Azure portal.
     
-    b. Open uw gedownloade base-64 gecodeerde certificaat in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze in de **X.500 certificaat** textbox.
+    b. In de **metagegevens-Url:** textbox plakken **metagegevens-URL**waarde die u hebt gekopieerd uit de Azure portal.
     
     c. Klik op **wijzigingen opslaan**.
 
@@ -244,7 +260,7 @@ Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behu
 
 Als u op de tegel OpsGenie in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing OpsGenie.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

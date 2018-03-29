@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f786d99718b82dba052909e566f1b0571701127e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Met behulp van de bevoegde eindpunt in Azure-Stack
 
@@ -76,6 +76,8 @@ Het is raadzaam dat u verbinding met de PEP alleen vanaf de host van de levenscy
 
       - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling  **&lt; *Azure Stack domein*&gt;\accountname**. (Voor ASDK, de gebruikersnaam is **azurestack\accountname**.) 
       - **Wachtwoord**: Voer het wachtwoord dat is opgegeven tijdens de installatie voor de administrator-account van het AzureStackAdmin.
+    > [!NOTE]
+    > Als u geen verbinding maken met het eindpunt ERCS, probeert u stap 1 en 2 opnieuw met het IP-adres van een ERCS VM waarop u dit nog niet hebt al geprobeerd om verbinding te.
     
 3.  Nadat u verbinding maakt, verandert de prompt voor **[*IP-adres of ERCS VM naam*]: PS >** of **[azs ercs01]: PS >**, afhankelijk van de omgeving. Hier kunt uitvoeren `Get-Command` om de lijst met beschikbare cmdlets weer te geven.
 

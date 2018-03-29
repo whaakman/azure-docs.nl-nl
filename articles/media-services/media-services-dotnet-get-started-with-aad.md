@@ -2,22 +2,22 @@
 title: Gebruik Azure AD-verificatie voor toegang tot API voor Azure Media Services met .NET | Microsoft Docs
 description: Dit onderwerp leest hoe u verificatie van Azure Active Directory (Azure AD) gebruikt voor toegang tot API voor Azure Media Services (AMS) met .NET.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8817bb0da526769470e96b63b9c80620309757bf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Azure AD-verificatie gebruiken voor toegang tot API voor Azure Media Services met .NET
 
@@ -36,7 +36,7 @@ Wanneer u Azure AD-verificatie met Azure Media Services gebruikt, kunt u verifiÃ
 - **Verificatie van de service-principal** verifieert u een service. Toepassingen die veel deze verificatiemethode gebruiken zijn apps die worden uitgevoerd daemon-services, middelste laag services of geplande taken, zoals web-apps, apps van de functie, logische apps, API's of microservices.
 
 >[!IMPORTANT]
->Azure Media Service ondersteunt momenteel een model van Azure Access Control Service-verificatie. Access Control-autorisatie gaat echter op 1 juni 2018 afgeschaft. Het is raadzaam om te migreren naar een model van Azure Active Directory-verificatie zo snel mogelijk.
+>Azure Media Service ondersteunt momenteel een model van Azure Access Control Service-verificatie. Access Control-autorisatie gaat echter op 22 juni 2018 afgeschaft. Het is raadzaam om te migreren naar een model van Azure Active Directory-verificatie zo snel mogelijk.
 
 ## <a name="get-an-azure-ad-access-token"></a>De toegang van een Azure AD-token ophalen
 

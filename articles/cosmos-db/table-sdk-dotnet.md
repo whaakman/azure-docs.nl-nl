@@ -6,19 +6,19 @@ documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: af14e9dbd5f65d5cefa3d9424b8628f10d8160da
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2afd7df65e7b223845752fc6bea5bc0ab4d3efd8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabel .NET API: Downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -40,6 +40,11 @@ ms.lasthandoff: 02/23/2018
 >
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Validatie van de toegevoegde voor een verkeerd ingedeelde ETAGs in de directe modus.
+* Vaste bug door LINQ-query in de modus van de Gateway.
+* Synchrone API's wordt nu uitgevoerd op de thread-groep met SynchronizationContext.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism en TableQueryContinuationTokenLimitInKb toevoegen aan TableRequestOptions
@@ -63,6 +68,8 @@ De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.1.1](#1.1.1) |26 maart 2018|--- |
+| [1.1.0](#1.1.0) |21 februari 2018|--- |
 | [1.0.0](#1.0.0) |15 november 2017|--- |
 | [0.9.0-preview](#0.9.0-preview) |11 november 2017 |--- |
 

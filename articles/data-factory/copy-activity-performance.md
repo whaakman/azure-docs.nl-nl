@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 733a396117a58d8dc51e55614e503853f13141c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Prestaties van de activiteit en prestatieafstemming handleiding kopiëren
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ Een **cloud gegevensverplaatsing gegevenseenheid (DMU)** is een meting met de kr
 | Gegevens kopiëren tussen winkels op basis van bestanden | Tussen 4 en 32 liggen, afhankelijk van het aantal en de grootte van de bestanden. |
 | Alle andere kopie-scenario 's | 4 |
 
-Om deze standaardinstelling negeren, Geef een waarde op voor de **cloudDataMovementUnits** eigenschap als volgt. De **toegestane waarden** voor de **cloudDataMovementUnits** eigenschap 2, 4, 8, 16 of 32 zijn. De **werkelijke aantal cloud DMUs** dat de kopieerbewerking wordt gebruikt tijdens de uitvoering is gelijk aan of kleiner zijn dan de geconfigureerde waarde, afhankelijk van het patroon van uw gegevens. Zie voor informatie over het niveau van prestatieverbetering krijgt u mogelijk wanneer u meer eenheden voor een specifieke kopieerbron en sink configureert, de [prestaties verwijzing](#performance-reference).
+Om deze standaardinstelling negeren, Geef een waarde op voor de **cloudDataMovementUnits** eigenschap als volgt. De **toegestane waarden** voor de **cloudDataMovementUnits** eigenschap is **maximaal 256**. De **werkelijke aantal cloud DMUs** dat de kopieerbewerking wordt gebruikt tijdens de uitvoering is gelijk aan of kleiner zijn dan de geconfigureerde waarde, afhankelijk van het patroon van uw gegevens. Zie voor informatie over het niveau van prestatieverbetering krijgt u mogelijk wanneer u meer eenheden voor een specifieke kopieerbron en sink configureert, de [prestaties verwijzing](#performance-reference).
 
 Hier ziet u de eenheden daadwerkelijk gebruikte cloud data movement voor elke kopie die wordt uitgevoerd in de kopieerbewerking uitvoer bij de bewaking van een activiteit die wordt uitgevoerd. Meer informatie over de details van [kopiëren activiteitenbewaking](copy-activity-overview.md#monitoring).
 
@@ -133,11 +133,14 @@ Data Factory bepaalt voor elke kopie-activiteit is uitgevoerd, het aantal parall
 
 | Scenario voor kopiëren | Standaard parallelle kopie aantal bepaald door de service |
 | --- | --- |
-| Gegevens kopiëren tussen winkels op basis van bestanden |Tussen 1 en 64. Afhankelijk van de grootte van de bestanden en het aantal cloud data movement eenheden (DMUs) gebruikt om te kopiëren van gegevens tussen twee cloud gegevensarchieven of de fysieke configuratie van de machine Self-hosted integratie Runtime. |
+| Gegevens kopiëren tussen winkels op basis van bestanden |Afhankelijk van de grootte van de bestanden en het aantal cloud data movement eenheden (DMUs) gebruikt om te kopiëren van gegevens tussen twee cloud gegevensarchieven of de fysieke configuratie van de machine Self-hosted integratie Runtime. |
 | Gegevens kopiëren van een brongegevensarchief naar Azure Table storage |4 |
 | Alle andere kopie-scenario 's |1 |
 
-Normaal gesproken geeft het standaardgedrag de beste doorvoer. Evenwel waarmee de belasting op computers die als host fungeren van uw gegevens opslaat of als u wilt kopiëren prestaties afstemmen, u kunt de standaardwaarde onderdrukken en een waarde opgeven voor de **parallelCopies** eigenschap. De waarde moet een geheel getal groter dan of gelijk zijn aan 1 zijn. Tijdens de runtime voor de beste prestaties Kopieeractiviteit maakt gebruik van een waarde die kleiner is dan of gelijk aan de waarde die u instelt.
+[!TIP]
+> Bij het kopiëren van gegevens tussen winkels op basis van bestanden het standaardgedrag (automatisch bepaald) meestal geeft de beste doorvoer. 
+
+Om te bepalen van de belasting op computers die als host fungeren van uw gegevens opslaat of als u wilt kopiëren prestaties afstemmen, u kunt de standaardwaarde onderdrukken en een waarde opgeven voor de **parallelCopies** eigenschap. De waarde moet een geheel getal groter dan of gelijk zijn aan 1 zijn. Tijdens de runtime voor de beste prestaties Kopieeractiviteit maakt gebruik van een waarde die kleiner is dan of gelijk aan de waarde die u instelt.
 
 ```json
 "activities":[

@@ -15,20 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3abd47460999f7b059469a58a59a3e297e88effb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Maken van een openbare load balancer met IPv6 in Azure Resource Manager met behulp van Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
-> * [Azure CLI](load-balancer-ipv6-internet-cli.md)
+> * [Azure-CLI](load-balancer-ipv6-internet-cli.md)
 > * [Sjabloon](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer is een Layer-4 (TCP, UDP) load balancer. Netwerktaakverdelers bieden hoge beschikbaarheid door het distribueren van inkomend verkeer tussen orde service-exemplaren in cloudservices of virtuele machines in een load balancer-set. Load balancers kunnen ook opleveren voor deze services op meerdere poorten of meerdere IP-adressen of beide.
 
@@ -187,7 +186,7 @@ In dit voorbeeld worden de volgende items gemaakt:
 * Een NAT-regel om te vertalen alle binnenkomend verkeer op poort 3391 tot poort 3389 voor remote desktop protocol (RDP).\*
 * een load balancer-regel voor een evenwicht tussen alle binnenkomend verkeer op poort 80 op poort 80 van de adressen in de back-end-pool.
 
-\*NAT-regels zijn gekoppeld aan een specifiek exemplaar van de virtuele machine achter de load balancer. Het netwerkverkeer dat op poort 3389 binnenkomt is verzonden naar de specifieke virtuele machine en de poort die is gekoppeld aan de NAT-regel. U moet een protocol (UDP of TCP) voor een NAT-regel opgeven. U kunt beide protocollen toewijzen aan dezelfde poort.
+\* NAT-regels zijn gekoppeld aan een specifiek exemplaar van de virtuele machine achter de load balancer. Het netwerkverkeer dat op poort 3389 binnenkomt is verzonden naar de specifieke virtuele machine en de poort die is gekoppeld aan de NAT-regel. U moet een protocol (UDP of TCP) voor een NAT-regel opgeven. U kunt beide protocollen toewijzen aan dezelfde poort.
 
 1. De PowerShell-variabelen instellen:
 

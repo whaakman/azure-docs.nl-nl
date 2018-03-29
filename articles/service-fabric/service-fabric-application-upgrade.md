@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60bbd75496b6e835a76edb4251aac6ea249187b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Upgrade van Service Fabric-toepassing uitvoeren
 Een Azure Service Fabric-toepassing is een verzameling van services. Tijdens een upgrade Service Fabric vergelijkt de nieuwe [toepassingsmanifest](service-fabric-application-and-service-manifests.md) met de vorige versie en bepaalt welke services in de toepassing-updates vereisen. Service Fabric vergelijkt de getallen in de service zich voordoet wanneer het versienummer in de vorige versie versie. Als een service niet is gewijzigd, wordt deze service is niet bijgewerkt.
@@ -57,6 +57,13 @@ Wanneer een upgrade van de toepassing wordt teruggedraaid, worden de standaardpa
 
 > [!TIP]
 > De [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) cluster configuratie-instelling moet *true* regels 2 inschakelen) en 3) hierboven (standaard service-update en verwijderen). Deze functie wordt ondersteund in Service Fabric versie 5.5 wordt gestart.
+
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Bijwerken van meerdere toepassingen met HTTPS-eindpunten
+Moet u ervoor dat u geen gebruik van de **dezelfde poort** voor verschillende exemplaren van dezelfde toepassing als u HTTP gebruikt**S**. De reden is dat het certificaat voor een van de exemplaren van een toepassing bijwerken Service Fabric niet mogelijk. Als bijvoorbeeld toepassing 1 of een toepassing 2 beide hun certificaat 1 naar 2 cert upgrade wilt uitvoeren. Wanneer de upgrade gebeurt, Service Fabric mogelijk hebben opgeschoond de registratie van het certificaat 1 bij http.sys Hoewel nog steeds door de andere toepassing wordt gebruikt. Om dit te voorkomen, detecteert Service Fabric dat er al een ander exemplaar van de geregistreerd op de poort met het certificaat (als gevolg van http.sys), en de bewerking is mislukt.
+
+Daarom Service Fabric biedt geen ondersteuning voor twee verschillende services met behulp van een upgrade **dezelfde poort** in exemplaren van een andere toepassing. U niet met andere woorden, hetzelfde certificaat gebruiken op verschillende services op dezelfde poort. Als u een gedeelde-certificaat hebben op dezelfde poort moet, moet u ervoor te zorgen dat de services op andere computers met plaatsingsbeperkingen zijn geplaatst. Of Overweeg het gebruik van dynamische poorten Service Fabric indien mogelijk voor elke service in elk toepassingsexemplaar. 
+
+Als u een upgrade is mislukt met https, een foutbericht verschijnt spreken "Windows HTTP-Server API ondersteunt geen meerdere certificaten voor toepassingen die een poort delen."
 
 ## <a name="application-upgrade-flowchart"></a>Toepassing bijwerken stroomdiagram
 Het stroomdiagram hieronder vindt u informatie over het upgradeproces van een Service Fabric-toepassing. In het bijzonder de stroom wordt beschreven hoe de time-outs, met inbegrip van *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, en *UpgradeHealthCheckInterval*, help bepalen wanneer de upgrade in één updatedomein wordt beschouwd als een geslaagd of mislukt.

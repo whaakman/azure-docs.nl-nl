@@ -2,7 +2,7 @@
 title: Met de Linux gegevens wetenschappelijke virtuele Machine in Azure voor gegevenswetenschap | Microsoft Docs
 description: Het uitvoeren van verschillende algemene gegevens wetenschappelijke taken met de Linux-VM wetenschappelijke van gegevens.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: bradsev;paulsh
-ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: bradsev
+ms.openlocfilehash: aff0dd17baa72b3f58ed5effbedb3a4c630f22c6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Met een Linux gegevens wetenschappelijke virtuele Machine in Azure voor gegevenswetenschap
 In dit scenario laat zien hoe u verschillende algemene gegevens wetenschappelijke taken met de virtuele Linux-gegevens van wetenschappelijke machine uitvoeren. Linux gegevens wetenschappelijke virtuele Machine (DSVM) is beschikbaar in Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning op de installatiekopie van een virtuele machine. De belangrijke softwareonderdelen worden gespecificeerd in de [Linux gegevens wetenschap-Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie kunt eenvoudig aan de slag gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk doen. U kunt eenvoudig opschalen van de virtuele machine, indien nodig en stop de toepassing als deze niet in gebruik. Deze resource wordt dus elastische en betaalbare.
@@ -473,7 +473,7 @@ Start SQL Squirrel in het menu toepassingen om te beginnen. Het stuurprogramma i
 De verbinding met de lokale server instellen:
 
 * Selecteer **Windows**, klikt u vervolgens **aliassen weergeven.**
-* Kies de  **+**  knop om te maken van een nieuwe alias.
+* Kies de **+** knop om te maken van een nieuwe alias.
 * Naam *Spam database*, kies **PostgreSQL** in de **stuurprogramma** vervolgkeuzelijst.
 * De URL ingesteld op *jdbc:postgresql://localhost/spam*.
 * Voer uw *gebruikersnaam* en *wachtwoord*.

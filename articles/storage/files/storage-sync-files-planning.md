@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -96,6 +96,19 @@ Toekomstige versies van Windows Server worden toegevoegd zodra ze worden vrijgeg
 
 > [!Note]  
 > NTFS-volumes worden ondersteund. ReFS, FAT, FAT32 en andere bestandssystemen worden niet ondersteund.
+
+### <a name="files-skipped"></a>Bestanden die zijn overgeslagen
+| Bestanden en mappen | Opmerking |
+|-|-|
+| Desktop.ini | Bestand die specifiek zijn voor het systeem |
+| ethumbs.DB$ | Tijdelijk bestand voor miniatuurweergaven |
+| ~$\*.\* | Tijdelijke Office-bestand |
+| \*.tmp | Tijdelijk bestand |
+| \*.laccdb | Het vergrendelingsbestand toegang DB|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\System Volume Information | Map specifieke naar volume |
+| $RECYCLE. OPSLAGLOCATIE| Map |
+| \\SyncShareState | Map voor synchronisatie |
 
 ### <a name="failover-clustering"></a>Failoverclustering
 Windows Server Failover Clustering wordt ondersteund door Azure bestand Sync voor de optie 'Bestandsserver voor algemeen gebruik'-implementatie. Failover Clustering wordt niet ondersteund op 'Scale-Out File Server for application data' (SOFS) of op geclusterde gedeelde Volumes (CSV's).

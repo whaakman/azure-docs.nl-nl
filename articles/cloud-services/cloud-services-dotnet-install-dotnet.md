@@ -5,7 +5,7 @@ services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
 ms.service: cloud-services
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2017
 ms.author: adegeo
-ms.openlocfilehash: cc4b62bc554757e6e394b78334f52f45aa08efe8
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: fa41a18b31a255fa7cda90e33a948f5c6c65434f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>.NET installeren op Azure Cloud Services-functies
 In dit artikel beschrijft het installeren van versies van .NET Framework die niet bij de Azure-Gastbesturingssysteemreleases worden geleverd. U kunt op het Gastbesturingssysteem .NET web- en werkrollen rollen van uw cloudservice te configureren.
@@ -98,7 +98,7 @@ Starten van de taken kunt u bewerkingen uitvoeren voordat een rol wordt gestart.
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
     REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
-    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP47" *****
+    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" *****
     set netfx="NDP471"
     
     REM ***** Set script start timestamp *****
@@ -213,7 +213,7 @@ Deze XML configureert u diagnostische gegevens om over te dragen van de bestande
 ## <a name="deploy-your-cloud-service"></a>Uw cloudservice implementeren
 Wanneer u uw cloudservice implementeert, installeer de taken starten van de .NET Framework als deze nog niet is geïnstalleerd. Uw cloud service-rollen zich in de *bezet* status terwijl het framework wordt geïnstalleerd. Als de framework-installatie opnieuw opstarten vereist, de functies van de service mogelijk ook opnieuw wordt opgestart. 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * [Installatie van .NET Framework][Installing the .NET Framework]
 * [Bepalen welke versies van .NET Framework zijn geïnstalleerd][How to: Determine Which .NET Framework Versions Are Installed]
 * [Het oplossen van de installatie van .NET Framework][Troubleshooting .NET Framework Installations]

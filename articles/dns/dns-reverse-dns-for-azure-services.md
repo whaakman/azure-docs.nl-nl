@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: kumud
-ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: bba2d75ed760a6e4eef2caacb0bb5924680b1f4b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Omgekeerde DNS voor services die worden gehost in Azure configureren
 
@@ -245,7 +245,7 @@ Nee. Azure momenteel ondersteunt reverse DNS alleen voor IPv4 PublicIpAddress re
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Kan ik e-mailberichten verzenden naar externe domeinen uit mijn Azure Compute-services?
 
-Nee. [Azure Compute-services bieden geen ondersteuning voor externe domeinen verzenden e-mailberichten](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
+De technische mogelijkheid om e-mail te verzenden rechtstreeks vanuit een Azure-implementatie, is afhankelijk van het abonnementstype. Microsoft raadt ongeacht abonnementstype, vertrouwde mail relay services uitgaande e-mail verzenden. Zie voor meer details, [Azure uitgebreide beveiliging voor het verzenden van e-mailberichten – November 2017 Update](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

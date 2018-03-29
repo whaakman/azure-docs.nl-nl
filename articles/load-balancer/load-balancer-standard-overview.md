@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 15bbd32d982bdefc5665421b828ce0c8234b7257
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer standaard
 
@@ -30,7 +30,7 @@ In dit artikel is gericht op een standaard Load Balancer.  Raadpleeg voor een me
 
 Standaard Load Balancer is een nieuwe Load Balancer-product voor alle TCP en UDP-toepassingen met een uitgebreide en gedetailleerde functieset via Basic Load Balancer.  Hoewel er veel overeenkomsten, is het belangrijk om vertrouwd te raken met de verschillen zoals wordt beschreven in dit artikel.
 
-U kunt het standaard Load Balancer standaard gebruiken als een openbare of interne Load Balancer. En een virtuele machine kunnen worden verbonden met één openbare en één interne Load Balancer-resource.
+U kunt standaard Load Balancer gebruiken als een openbare of interne Load Balancer. En een virtuele machine kunnen worden verbonden met één openbare en één interne Load Balancer-resource.
 
 Functies van de bron van de Load Balancer worden altijd uitgedrukt als een frontend, een regel, een health test en de definitie van een back-end-adresgroep.  Een resource kan meerdere regels bevatten. U kunt virtuele machines in de back-endpool plaatsen door op te geven van de back-endpool van de virtuele machine NIC-resource.  Deze parameter is doorgegeven aan het netwerkprofiel en uitgevouwen in het geval van een virtuele-machineschaalset.
 
@@ -175,6 +175,9 @@ U kunt standaard Load Balancer resources wijzigen en een standaard openbare IP-a
 ## <a name="migration-between-skus"></a>Migratie tussen SKU 's
 
 Er zijn geen veranderlijke SKU's. Volg de stappen in deze sectie voor het verplaatsen van één resource SKU naar een andere.
+
+>[!IMPORTANT]
+>Bekijk dit document in zijn geheel te begrijpen van de verschillen tussen SKU's en uw scenario hebt zorgvuldig worden onderzocht.  Wellicht moet u extra wijzigingen aanbrengen in uw scenario uitlijnen.
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migreren van Basic naar standaard SKU
 

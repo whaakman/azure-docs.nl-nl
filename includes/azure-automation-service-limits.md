@@ -7,4 +7,4 @@
 | Taak Run-Time - gratis laag |500 minuten per abonnement per kalendermaand |
 | Maximum aantal en de hoeveelheid geheugen aan een taak gegeven |400 MB |
 | Maximumaantal netwerk sockets toegestaan per taak |1000 |
-
+| Maximumaantal Automation-Accounts in een abonnement |Geen limiet |

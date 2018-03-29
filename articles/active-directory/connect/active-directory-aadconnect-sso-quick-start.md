@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Naadloze eenmalige aanmelding - snel aan de slag | Mic
 description: Dit artikel wordt beschreven hoe u aan de slag met Azure Active Directory naadloze eenmalige aanmelding
 services: active-directory
 keywords: Wat is Azure AD Connect, installeer Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
-documentationcenter: 
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 67f6ca36c334a60b634094f07e5d9696a6961eb8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d026009151f85a01f14ce4dd8a510f60ff407da1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
 
@@ -32,7 +32,7 @@ Volg deze stappen voor het implementeren van naadloze eenmalige aanmelding.
 
 Zorg ervoor dat de volgende vereisten voldaan is:
 
-* **Instellen van uw Azure AD Connect-server**: als u [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) als uw contactmethode aanmelden geen aanvullende controle op vereisten is vereist. Als u [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-synchronization.md) als uw contactmethode aanmelden en als er een firewall tussen Azure AD Connect en Azure AD, zorg ervoor dat:
+* **Instellen van uw Azure AD Connect-server**: als u [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) als uw contactmethode aanmelden geen aanvullende controle op vereisten is vereist. Als u [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) als uw contactmethode aanmelden en als er een firewall tussen Azure AD Connect en Azure AD, zorg ervoor dat:
    - U versie 1.1.644.0 gebruiken of hoger van Azure AD Connect. 
    - Als uw firewall of proxyserver kunt DNS-whitelisting, geaccepteerde de verbindingen met de  **\*. msappproxy.net** URL's via poort 443. Als dit niet het geval is, zodat u toegang hebben tot de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653), die wekelijks worden bijgewerkt. Deze vereiste geldt alleen wanneer u de functie inschakelt. Het is niet vereist voor de werkelijke gebruikersaanmeldingen.
 
@@ -87,7 +87,7 @@ Bovendien moet u een Intranet zone beleidsinstelling opgeroepen inschakelen **to
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Waarom moet u gebruikers Intranet-beveiligingszone-instellingen wijzigen?
 
-De browser berekent standaard automatisch de juiste zone Internet- of intranethosts van een specifieke URL. Bijvoorbeeld 'http://contoso/' toegewezen aan de zone Internet, terwijl 'http://intranet.contoso.com/' toegewezen aan de zone Internet (omdat de URL een periode bevat). Browsers wordt Kerberos-tickets niet verzonden naar een cloudeindpunt, zoals de URL van de Azure AD, tenzij u expliciet de URL aan de zone Lokaal Intranet van de browser toevoegen.
+De browser berekent standaard automatisch de juiste zone Internet- of intranethosts van een specifieke URL. Bijvoorbeeld 'http://contoso/'wordt toegewezen aan de zone Internet, terwijl'http://intranet.contoso.com/' toegewezen aan de zone Internet (omdat de URL een periode bevat). Browsers wordt Kerberos-tickets niet verzonden naar een cloudeindpunt, zoals de URL van de Azure AD, tenzij u expliciet de URL aan de zone Lokaal Intranet van de browser toevoegen.
 
 ### <a name="detailed-steps"></a>Gedetailleerde stappen
 

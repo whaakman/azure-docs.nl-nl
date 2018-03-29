@@ -2,11 +2,11 @@
 title: 'Azure AD Connect: Uw installatietype selecteren | Microsoft Docs'
 description: In dit onderwerp leert u hoe u selecteert het installatietype om te gebruiken voor Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecteer welk installatietype moet worden gebruikt voor Azure AD Connect
 Azure AD Connect heeft twee installatietypen voor nieuwe installatie: Express en aangepast. Dit onderwerp helpt u om te bepalen welke optie u moet gebruiken tijdens de installatie.
@@ -34,7 +34,7 @@ Er wordt vanuit gegaan:
 
 U krijgt:
 
-- [Wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) on-premises naar Azure AD voor eenmalige aanmelding.
+- [Synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) on-premises naar Azure AD voor eenmalige aanmelding.
 - Een configuratie die wordt gesynchroniseerd [gebruikers, groepen, contactpersonen en Windows 10-computers](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Synchronisatie van alle in aanmerking komende objecten in alle domeinen en alle OE's.
 - [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) is ingeschakeld om ervoor te zorgen dat u altijd de meest recente versie gebruiken.

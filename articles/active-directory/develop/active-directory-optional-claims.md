@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 03/15/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0cfa79b9c44953c613eaec8d701f351c6f2ce212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76e7be62caae7e33caefc3f90a5e57c5f71a31d3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Optionele claims in Azure AD (preview)
 
@@ -69,9 +69,7 @@ De set optioneel claims die standaard beschikbaar zijn voor toepassingen om te g
 | `is_device_managed`        | Hiermee wordt aangegeven of het apparaat MDM geïnstalleerd heeft. Met betrekking tot beleid voor voorwaardelijke toegang.                                                                                                                  | SAML       |           | Voor JWTs, geconvergeerd in signin_state                                                                                                                                                                                                                                                   |
 | `is_device_compliant`      | Geeft aan dat MDM heeft vastgesteld het apparaat compatibel is met het beveiligingsbeleid van het apparaat van de organisatie.                                                                                  | SAML       |           | Voor JWTs, geconvergeerd in signin_state                                                                                                                                                                                                                                                   |
 | `kmsi`                     | Hiermee wordt aangegeven als de gebruiker heeft ervoor gekozen de optie houden mij ondertekend In.                                                                                                                                    | SAML       |           | Voor JWTs, geconvergeerd in signin_state                                                                                                                                                                                                                                                   |
-| `upn`                      | UserPrincipalName claim.  Hoewel deze claim automatisch geïnstalleerd wordt, kunt u dit opgeven als een optionele claim extra eigenschappen voor het wijzigen van het gedrag in het geval van de gebruiker gastbesturingssysteem koppelen. | JWT, SAML  |           | Aanvullende eigenschappen: <br> include_externally_authenticated_upn <br> include_externally_authenticated_upn_without_hash                                                                                                                                                                 |
-| `groups`                   | De groepen die een gebruiker een lid van is.                                                                                                                                                               | JWT, SAML  |           | Aanvullende eigenschappen: <br> Sam_account_name<br> Dns_domain_and_sam_account_name<br> Netbios_domain_and_sam_account<br> Max_size_limit<br> Emit_as_roles<br>                                                                                                                            |
-
+| `upn`                      | UserPrincipalName claim.  Hoewel deze claim automatisch geïnstalleerd wordt, kunt u dit opgeven als een optionele claim extra eigenschappen voor het wijzigen van het gedrag in het geval van de gebruiker gastbesturingssysteem koppelen. | JWT, SAML  |           | Aanvullende eigenschappen: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
 ### <a name="v20-optional-claims"></a>Optionele claims v2.0
 Deze claims worden altijd opgenomen in v1.0 tokens, maar worden verwijderd uit het v2.0-tokens tenzij aangevraagd.  Deze claims zijn alleen van toepassing op JWTs (ID-tokens en toegangstokens).  
 
@@ -90,26 +88,19 @@ Deze claims worden altijd opgenomen in v1.0 tokens, maar worden verwijderd uit h
 
 ### <a name="additional-properties-of-optional-claims"></a>Aanvullende eigenschappen van optionele claims
 
-Sommige optionele claims kunnen worden geconfigureerd om te wijzigen van de manier waarop die de claim wordt geretourneerd.  Deze aanvullende eigenschappen bereiken van wijzigingen in de opmaak (bijvoorbeeld `include_externally_authenticated_upn_without_hash`) voor het wijzigen van de set gegevens geretourneerd (`Dns_domain_and_sam_account_name`).
+Sommige optionele claims kunnen worden geconfigureerd om te wijzigen van de manier waarop die de claim wordt geretourneerd.  Deze extra eigenschappen worden meestal gebruikt om u te helpen bij de migratie van on-premises toepassingen met verschillende gegevens verwachtingen (bijvoorbeeld `include_externally_authenticated_upn_without_hash` helpt met clients die niet kunnen hashmarks verwerken (`#`) in de UPN)
 
 **Tabel 4: Waarden voor het configureren van standaard optionele claims**
 
 | De naam van eigenschap                                     | Aanvullende eigenschapsnaam                                                                                                             | Beschrijving |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `Upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |             |
 | | `include_externally_authenticated_upn`              | Bevat de Gast UPN die is opgeslagen in de resource-tenant.  Bijvoorbeeld: `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Dezelfde als hierboven, behalve dat de hashmarks (`#`) zijn vervangen door een onderstrepingsteken (`_`), bijvoorbeeld `foo_hometenant.com_EXT_@resourcetenant.com` |             
-| `groups`                                              |                                                                                                                                      |             |
-| | `sam_account_name`                                  |                                                                                                                                      |             
-| | `dns_domain_and_sam_account_name`                   |                                                                                                                                      |             
-| | `netbios_domain_and_sam_account_name`               |                                                                                                                                      |             
-| | `max_size_limit`                                    | Geeft het aantal groepen die aan de max groep maximale grootte (1000) worden geretourneerd.                                                            |             
-| | `emit_as_roles`                                     | Verzendt een claim 'functies' in plaats van de claim 'groepen' met dezelfde waarden.  Bedoeld voor apps migreren van een on-premises omgeving waar RBAC via het lidmaatschap van oudsher is gecontroleerd.   |             
 
 > [!Note]
 >Geven dat de UPN-optioneel claim zonder een extra eigenschap verandert niet alle gedrag – om te zien van een nieuwe claim uitgegeven in het token, moet ten minste één van de aanvullende eigenschappen worden toegevoegd. 
->
->De `account_name` extra eigenschappen voor groepen zijn niet interoperabel en ordening van de aanvullende eigenschappen zaken – alleen het eerste account naameigenschap aanvullende vermeld wordt gebruikt. 
+
 
 #### <a name="additional-properties-example"></a>Voorbeeld van extra eigenschappen:
 
@@ -118,15 +109,15 @@ Sommige optionele claims kunnen worden geconfigureerd om te wijzigen van de mani
    {
        "idToken": [ 
              { 
-                "name": "groups", 
+                "name": "upn", 
             "essential": false,
-                "additionalProperties": [ "netbios_domain_and_sam_account_name", "sam_account_name" , "emit_as_roles"]  
+                "additionalProperties": [ "include_externally_authenticated_upn"]  
               }
         ]
 }
 ```
 
-Dit object OptionalClaims retourneert dezelfde `groups` claim alsof `sam_account_name` zijn niet opgenomen in – omdat deze zich na `netbios_domain_and_sam_account_name`, wordt dit genegeerd. 
+Dit object OptionalClaims zorgt ervoor dat het ID-token geretourneerd naar de client naar een andere upn met de extra thuis tenant en de tenant resourcegegevens bevatten.  
 
 ## <a name="configuring-optional-claims"></a>Optionele claims configureren
 

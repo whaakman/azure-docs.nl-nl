@@ -2,7 +2,7 @@
 title: Index voor Toepassingsbeheer in Azure Active Directory artikel | Microsoft Azure
 description: Informatie over het aanpassen van de vervaldatum voor uw federatiecertificaten en het vernieuwen van certificaten die binnenkort verlopen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ffb8e822644ba8f0bccc3e81edc4da6085ff3ec7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst met elk document dat is geschreven over de verschillende functies van de toepassing-gerelateerde in Azure Active Directory (Azure AD).
@@ -43,7 +43,7 @@ Deze sectie biedt snel toegang tot de relevante gidsen voor het oplossen van pro
 | Federatieve eenmalige aanmelding |[Het oplossen van problemen op basis van SAML eenmalige aanmelding](active-directory-saml-debugging.md) |
 | Op basis van wachtwoorden eenmalige aanmelding |[De uitbreiding van het deelvenster toegang tot het oplossen van problemen voor Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Toepassingsproxy |[Toepassingsproxy-handleiding voor probleemoplossing](active-directory-application-proxy-troubleshoot.md) |
-| Eenmalige aanmelding tussen on-premises AD en Azure AD |[Wachtwoordsynchronisatie oplossen](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[Wachtwoord terugschrijven probleemoplossing](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Eenmalige aanmelding tussen on-premises AD en Azure AD |[Synchronisatie van wachtwoordhash probleemoplossing](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Wachtwoord terugschrijven probleemoplossing](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Lidmaatschap van dynamische groepen |[Het lidmaatschap van dynamische groepen oplossen](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Eenmalige aanmelding (SSO)
@@ -95,7 +95,7 @@ Als uw organisatie een Windows Server Active Directory on-premises samen met uw 
 |:---:| --- |
 | Een overzicht van de opties voor eenmalige aanmelding die worden aangeboden in Azure AD Connect, evenals informatie over het beheren van hybride omgevingen |[Aanmelding van de gebruiker op opties in Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Algemene richtlijnen voor het beheren van omgevingen met zowel on-premises Active Directory en Azure Active Directory |[Ontwerpoverwegingen voor Azure AD-hybride identiteit](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Uw On-Premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md) |
-| Hulp bij het gebruik van Wachtwoordsynchronisatie voor het inschakelen van eenmalige aanmelding |[Wachtwoordsynchronisatie implementeren met Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Probleem met Wachtwoordsynchronisatie oplossen](https://support.microsoft.com/en-us/kb/2855271) |
+| Hulp bij het gebruik van Wachtwoordsynchronisatie voor het inschakelen van eenmalige aanmelding |[Wachtwoordsynchronisatie implementeren met Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Probleem met Wachtwoordsynchronisatie oplossen](https://support.microsoft.com/en-us/kb/2855271) |
 | Hulp bij het gebruik van terugschrijven van wachtwoord voor het inschakelen van eenmalige aanmelding |[Aan de slag met wachtwoordbeheer in Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Problemen met Wachtwoord terugschrijven oplossen](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Hulp bij het gebruik van derden id-providers voor het inschakelen van eenmalige aanmelding |[Lijst met compatibele onafhankelijke ID-Providers die kunnen worden gebruikt voor eenmalige aanmelding inschakelen](https://aka.ms/ssoproviders) |
 | Hoe Windows 10-gebruikers kunnen profiteren van de voordelen van eenmalige aanmelding via de Azure AD Join |[Cloudfunctionaliteit uitbreiden naar Windows Join 10-apparaten via Azure Active Directory](active-directory-azureadjoin-overview.md) |

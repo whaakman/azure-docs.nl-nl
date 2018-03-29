@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: cb44f1d456ec12b7fd21e397b749117942560f05
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Veelgestelde vragen over Azure-bestanden
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ook wel Common Internet File System of CIFS). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
@@ -232,7 +232,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 ## <a name="backup"></a>Back-up maken
 * <a id="backup-share"></a>
 **Hoe kan ik back-up van mijn Azure-bestand delen?**  
-    U kunt periodieke [delen momentopnamen](storage-how-to-use-files-snapshots.md) ter bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-hulpprogramma van derden die u kunt back-up van een gekoppelde bestandsshare. 
+    U kunt periodieke [delen momentopnamen](storage-snapshots-files.md) ter bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-hulpprogramma van derden die u kunt back-up van een gekoppelde bestandsshare. 
 
 ## <a name="share-snapshots"></a>Delen van momentopnamen
 ### <a name="share-snapshots-general"></a>Delen van momentopnamen: Algemeen

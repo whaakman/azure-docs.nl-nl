@@ -6,7 +6,7 @@ documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure logboekregistratie en controle
 ## <a name="introduction"></a>Inleiding
 ### <a name="overview"></a>Overzicht
 Er is een reeks whitepapers, overzichten van de beveiliging, aanbevolen procedures en controlelijsten ontwikkeld om te helpen de huidige en toekomstige Azure-klanten meer informatie over en de verschillende betrekking hebben op beveiliging mogelijkheden beschikbaar zijn in gebruik en rondom de Azure-Platform. De onderwerpen in termen van breedte en diepte liggen en regelmatig worden bijgewerkt. Dit document is onderdeel van de reeks zoals samengevat in de volgende sectie Abstract.
-### <a name="azure-platform"></a>Azure-Platform
+### <a name="azure-platform"></a>Azure Platform
 Azure is een open en flexibele cloud service-platform die ondersteuning biedt voor de breedste selectie van besturingssystemen, programmeertalen, frameworks, hulpprogramma's, databases, en apparaten.
 
 U kunt bijvoorbeeld:
@@ -68,11 +68,11 @@ De volgende tabel lijsttype belangrijkste logboeken beschikbaar in Azure.
 | Logboek categorie | Logboektype | Sleutelgebruik | Integratie |
 | ------------ | -------- | ------ | ----------- |
 |[Activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Besturingselement vlak gebeurtenissen op Azure Resource Manager-resources|   Bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.| Rest-API & [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
-|[Azure diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|regelmatig gegevens over de werking van Azure Resource Manager-resources in abonnement| Inzicht bieden in bewerkingen dat de bron zelf uitgevoerd| Azure Monitor [stroom](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
+|[Azure diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|regelmatig gegevens over de werking van Azure Resource Manager-resources in abonnement| Inzicht bieden in bewerkingen dat de bron zelf uitgevoerd| Azure Monitor, [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[AAD-rapportage](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Logboeken en rapporten|Gebruiker aanmelden activiteiten & systeem activiteit informatie over gebruikers- en groepsbeheer|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
 |[Virtuele Machine & Cloudservices](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows-gebeurtenislogboek & Linux Syslog|    Systeemgegevens van het en logboekregistratie op de virtuele machines vastgelegd en die gegevens overgebracht naar een opslagaccount van uw keuze.|   Met behulp van Windows [af](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics opslag)- en Linux in Azure monitor|
 |[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Logboekregistratie voor opslag en metrische gegevens voor een opslagaccount biedt|Biedt inzicht in de trace-aanvragen trends in gebruik analyseren en onderzoeken van problemen met uw opslagaccount.|    REST-API of de [clientbibliotheek](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
-|[NSG (Netwerkbeveiligingsgroep) stroom-Logboeken](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-indeling en ziet u per regel op basis van een binnenkomende en uitgaande stromen|Informatie weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep|[Netwerk-Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
+|[NSG (Netwerkbeveiligingsgroep) stroom-Logboeken](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-indeling en ziet u per regel op basis van een binnenkomende en uitgaande stromen|Informatie weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Toepassing inzicht](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logboeken, uitzonderingen en aangepaste diagnostische gegevens|    Application Performance (APM)-service voor webontwikkelaars op meerdere platforms.| REST-API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
 |Gegevens verwerken / beveiligingswaarschuwing| Azure Security Center-waarschuwing, OMS-waarschuwing| Informatie over beveiliging en waarschuwingen.|   REST-API's, JSON|
 
@@ -313,7 +313,7 @@ Application Insights is bedoeld voor het ontwikkelingsteam en helpt u om te begr
 |[Continue export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Het exporteren van de onbewerkte gegevens naar opslag bulksgewijs wanneer het wordt geleverd.||
 
 ### <a name="azure-security-center-alerts"></a>Azure Security Center-waarschuwingen
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) automatisch verzamelt, analyseert en integreert logboekgegevens van uw Azure-resources, het netwerk- en verbonden partneroplossingen, zoals een firewall en endpoint protection-oplossingen, om werkelijke dreigingen te detecteren en fout-positieven te verminderen. In Security Center wordt een lijst met beveiligingswaarschuwingen met prioriteiten weergegeven samen met de informatie die u nodig hebt om snel onderzoek te doen naar het probleem en aanbevelingen voor het herstellen van een aanval.
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) automatisch verzamelt, analyseert en integreert logboekgegevens van uw Azure-resources, het netwerk- en verbonden partneroplossingen, zoals een firewall en endpoint protection-oplossingen, om werkelijke dreigingen te detecteren en ONWAAR te verminderen positieven. In Security Center wordt een lijst met beveiligingswaarschuwingen met prioriteiten weergegeven samen met de informatie die u nodig hebt om snel onderzoek te doen naar het probleem en aanbevelingen voor het herstellen van een aanval.
 
 Het detecteren van bedreigingen van Security Center werkt volgens het automatisch verzamelen van beveiligingsgegevens van uw Azure-resources, het netwerk en verbonden partneroplossingen. Deze informatie wordt door Security Center geanalyseerd, waarbij vaak informatie uit meerdere bronnen wordt samengebracht om bedreigingen te analyseren. Beveiligingswaarschuwingen krijgen in Security Center een prioriteit, evenals aanbevelingen voor het oplossen van de bedreiging.
 
@@ -355,11 +355,11 @@ Er zijn vier verschillende manieren van [verzamelen van Logboeken en metrische g
 | Service | Resourcetype | Logboeken | Metrische gegevens | Oplossing |
 | :------ | :------------ | :--- | :------ | :------- |
 |Toepassingsgateways|  Microsoft.Network/<br>applicationGateways|  Diagnostiek|Diagnostiek|    [Azure-toepassing](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Analytics Gateway](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
-|Application insights||     Connector|  Connector|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (evaluatie)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
+|Application Insights||     Connector|  Connector|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (evaluatie)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Automation-accounts|   Microsoft.Automation/<br>AutomationAccounts|    Diagnostiek||       [Meer informatie](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Batch-accounts|    Microsoft.Batch/<br>batchAccounts|  Diagnostiek|    Diagnostiek||
 |Klassieke cloudservices||       Storage||       [Meer informatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
-|Cognitive Services|    Microsoft.CognitiveServices/<br>accounts|       Diagnostiek|||
+|Cognitieve services|    Microsoft.CognitiveServices/<br>accounts|       Diagnostiek|||
 |Data Lake analytics|   Microsoft.DataLakeAnalytics/<br>accounts|   Diagnostiek|||
 |Data Lake store|   Microsoft.DataLakeStore/<br>accounts|   Diagnostiek|||
 |Event Hub-naamruimte|   Microsoft.EventHub/<br>Naamruimten|  Diagnostiek|    Diagnostiek||
@@ -368,7 +368,7 @@ Er zijn vier verschillende manieren van [verzamelen van Logboeken en metrische g
 |Load Balancers|    Microsoft.Network/<br>loadBalancers|    Diagnostiek|||
 |Logic Apps|    Microsoft.Logic/<br>Werkstromen|  Diagnostiek|    Diagnostiek||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Netwerkbeveiligingsgroepen|   Microsoft.Network/<br>networksecuritygroups|Diagnostiek||   [Netwerkbeveiligingsgroep Azure Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Netwerkbeveiligingsgroepen|   Microsoft.Network/<br>networksecuritygroups|Diagnostiek||   [Azure Network Security Group Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Recovery kluizen|   Microsoft.RecoveryServices/<br>Kluizen|||[Azure Recovery Services-Analytics (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Services zoeken|   Microsoft.Search/<br>searchServices|    Diagnostiek|    Diagnostiek||
 |Service Bus-naamruimte| Microsoft.ServiceBus/<br>Naamruimten|    Diagnostiek|Diagnostiek|    [Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
@@ -379,10 +379,10 @@ Er zijn vier verschillende manieren van [verzamelen van Logboeken en metrische g
 |Virtuele machines|  Microsoft.Compute/<br>Virtuele machines|  Toestelnummer|  Toestelnummer||
 ||||Diagnostiek||
 |Virtuele Machines-schaalsets|   Microsoft.Compute/<br>Virtuele machines    ||Diagnostiek||
-||Microsoft.Compute/<br>virtualMachineScaleSets /<br>Virtuele machines||||
+||Microsoft.Compute/<br>virtualMachineScaleSets/<br>Virtuele machines||||
 |Webserver-farms|Microsoft.Web/<br>serverfarms||   Diagnostiek
 |Web Sites| Microsoft.Web/<br>sites ||      Diagnostiek|    [Meer informatie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-||Microsoft.Web/<br>sites /<br>sleuven|||||
+||Microsoft.Web/<br>sites/<br>sleuven|||||
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Logboek-integratie met on-premises SIEM-systemen
@@ -415,7 +415,7 @@ Integratiescenario 's
 
 -   [Azure-logboekanalyse integratie Veelgestelde vragen (FAQ)](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq) -deze Veelgestelde vragen over de antwoorden op vragen over Azure-logboekanalyse-integratie.
 
--   [Waarschuwingen met Azure Security Center integreren Meld integratie](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) : dit document ziet u hoe Security Center-waarschuwingen, samen met de virtuele machine beveiligingsgebeurtenissen die zijn verzameld door Azure Diagnostics- en Azure controlelogboeken met uw SIEM-oplossingen of logboekanalyse synchroniseren.
+-   [Waarschuwingen met Azure Security Center integreren Meld integratie](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) : dit document ziet u hoe Security Center-waarschuwingen, samen met de virtuele machine beveiligingsgebeurtenissen die zijn verzameld door Azure Diagnostics- en Azure controlelogboeken met uw logboekanalyse synchroniseren of SIEM-oplossing.
 
 ## <a name="next-steps"></a>Volgende stappen
 

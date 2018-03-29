@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configureren AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -374,22 +374,14 @@ Voor het configureren van de load balancer, moet u een back-endpool een test mak
 
    ![Load Balancer niet vinden in de resourcegroep](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Klik op de load balancer, **back-endpools**, en klik op **+ toevoegen**. De back-endpool als volgt instellen:
+1. Klik op de load balancer, **back-endpools**, en klik op **+ toevoegen**. 
 
-   | Instelling | Beschrijving | Voorbeeld
-   | --- | --- |---
-   | **Naam** | Typ een naam | SQLLBBE
-   | **Gekoppeld aan** | Kies uit de lijst | Beschikbaarheidsset
-   | **Beschikbaarheidsset** | Gebruik een naam van de beschikbaarheidsset die uw SQL Server-VM's in | sqlAvailabilitySet |
-   | **Virtuele machines** |De twee namen van de virtuele machine in Azure SQL-Server | SQL Server-0, SQL Server-1
+1. De back-endpool koppelen aan de beschikbaarheidsset waarin de virtuele machines.
 
-1. Typ de naam voor de back-end-adresgroep.
+1. Onder **doel-IP-netwerkconfiguraties**, Controleer **virtuele MACHINE** en kiest u beide van de virtuele machines die als host voor replica's van beschikbaarheidsgroepen fungeert. De bestandsserver van de bestandsshare-witness niet opnemen.
 
-1. Klik op **+ toevoegen van een virtuele machine**.
-
-1. Kies dat de beschikbaarheidsset dat de SQL-Servers zijn voor de beschikbaarheidsset.
-
-1. Voor virtuele machines zijn beide van de SQL-Servers. De bestandsserver van de bestandsshare-witness niet opnemen.
+   >[!NOTE]
+   >Als beide virtuele machines niet opgegeven zijn, wordt alleen verbindingen met de primaire replica mislukt.
 
 1. Klik op **OK** om de back endpool te maken.
 

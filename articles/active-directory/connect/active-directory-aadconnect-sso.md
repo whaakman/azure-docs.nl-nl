@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6a106ba59f09ffc20f8461c5267ae06695df4cd0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding
 
@@ -28,7 +28,7 @@ Azure Active Directory naadloze eenmalige aanmelding (Azure AD naadloze SSO) wor
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) aanmeldingsmethoden.
+Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) aanmeldingsmethoden.
 
 ![Naadloze eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -42,7 +42,7 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisat
   - Gebruikers hebben geen hun wachtwoorden herhaaldelijk invoeren.
 - *Eenvoudig te implementeren en beheren*
   - Er zijn geen extra onderdelen nodig lokale om deze taak te maken.
-  - Werkt met een cloud-verificatie --methode [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md).
+  - Werkt met een cloud-verificatie --methode [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md).
   - Kan worden geïmplementeerd voor sommige of alle gebruikers met behulp van Groepsbeleid.
   - Windows 10-apparaten registreren met Azure AD zonder de noodzaak van een AD FS-infrastructuur. Deze mogelijkheid, moet u met versie 2.1 of hoger van de [client voor werkplek koppelen](https://www.microsoft.com/download/details.aspx?id=53554).
 

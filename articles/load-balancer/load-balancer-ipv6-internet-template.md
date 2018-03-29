@@ -5,7 +5,7 @@ services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: IPv6-, azure load balancer, dual-stack, openbare IP-adres, systeemeigen ipv6, mobiele, iot
 ms.assetid: 2998e943-13fc-4ea9-a68c-875e53a08db3
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 431b43979ac364d943c58c40b4199b7f30f9acf6
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Een internetgerichte load balancer-oplossing met IPv6 met een sjabloon implementeren
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 > * [Azure-CLI](load-balancer-ipv6-internet-cli.md)
 > * [Sjabloon](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure Load Balancer is een Layer-4 (TCP, UDP) load balancer. De load balancer biedt hoge beschikbaarheid bij het verdelen van inkomend verkeer over gezonde service-exemplaren in cloudservices of virtuele machines in een load balancer-set. Azure Load Balancer kan deze services ook toepassen op meerdere poorten, meerdere IP-adressen of allebei.
 
@@ -54,11 +54,11 @@ In dit artikel wordt verwezen naar een sjabloon die is gepubliceerd in de [Azure
 1. Open het Azure-portal en meld u aan met een account met machtigingen voor het maken van virtuele machines en netwerkresources binnen een Azure-abonnement. Tenzij u bestaande resources gebruikt, moet het account ook machtiging voor het maken van een resourcegroep en een opslagaccount.
 2. Klik op '+ Nieuw' van de menu vervolgens naar het type 'sjabloon' in het zoekvak. Selecteer 'Sjabloonimplementatie' in de zoekresultaten.
 
-    ![lb-ipv6-portal-stap 2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. In de alles blade, klik op 'Sjabloonimplementatie'.
 
-    ![lb-ipv6-portal-stap 3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. Klik op 'Maken'.
 

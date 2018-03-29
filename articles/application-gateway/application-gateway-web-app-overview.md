@@ -5,7 +5,7 @@ documentationcenter: na
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
-ms.openlocfilehash: d093af064bca46aa1f454b61b1099f47f61ccd33
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f5ec916fcf45734ab85751e749bd6bb312f05b1a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Application Gateway-ondersteuning voor back-ends met meerdere tenants
 
@@ -32,7 +32,7 @@ De mogelijkheid om hosts te overschrijven kan worden gebruikt in de HTTP-instell
 2. De mogelijkheid om de hostnaam af te leiden van het IP-adres of de FQDN van de leden van de back-endpool. HTTP-instellingen bieden ook de mogelijkheid om de hostnaam van de FQDN van een lid van een back-endpool te kiezen, indien dit is geconfigureerd bij de optie om hostnamen van afzonderlijke back-endpoolleden af te leiden. Als u end-to-end SSL gebruikt, wordt de hostnaam afgeleid van de FQDN en gebruikt in de SNI-extensie. Met deze mogelijkheid zijn er scenario's mogelijk waarin een back-endpool twee of meer PaaS-services met meerdere tenants heeft, zoals Azure-web-apps. De host-header van elk lid bevat de hostnaam die is afgeleid van de FQDN.
 
 > [!NOTE]
-> In beide bovenstaande gevallen hebben de instellingen alleen invloed op het liveverkeersgedrag en niet op het gedrag van de statustest. Aangepaste tests bieden de mogelijkheid al om een host-header op te geven in de testconfiguratie. Bij aangepaste tests kunt u nu ook het host-headergedrag afleiden van de op dat moment geconfigureerde HTTP-instellingen. Deze configuratie kan worden opgegeven met behulp van de parameter `PickHostNameFromback endAddress` in de testconfiguratie. Als u wilt dat de end-to-end configuratie werkt, moeten zowel de test als de HTTP-instellingen worden bewerkt op basis van de juiste configuratie.
+> In beide bovenstaande gevallen hebben de instellingen alleen invloed op het liveverkeersgedrag en niet op het gedrag van de statustest. Aangepaste tests bieden de mogelijkheid al om een host-header op te geven in de testconfiguratie. Bij aangepaste tests kunt u nu ook het host-headergedrag afleiden van de op dat moment geconfigureerde HTTP-instellingen. Deze configuratie kan worden opgegeven met behulp van de parameter `PickHostNameFromBackendHttpSettings` in de testconfiguratie. Als u wilt dat de end-to-end configuratie werkt, moeten zowel de test als de HTTP-instellingen worden bewerkt op basis van de juiste configuratie.
 
 Met deze functie kunnen klanten opties opgeven in de HTTP-instellingen en kunnen ze aangepaste tests uitvoeren voor de gewenste configuratie. De instellingen worden vervolgens middels een regel gekoppeld aan een listener en een back-endpool.
 
