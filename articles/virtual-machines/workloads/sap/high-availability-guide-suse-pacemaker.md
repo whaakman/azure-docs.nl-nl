@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: 75615de523f1fba808f44fb1a1015138fb190edc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2982c8ba534b9a93a021a9d3a3819b904f09abc7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Instellen van pacemaker heeft op SUSE Linux Enterprise Server in Azure
 
@@ -280,7 +280,7 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
 1. **[A]**  Hostnamen instellen   
 
    U kunt gebruik van een DNS-server of wijzig de/etc/hosts op alle knooppunten. In dit voorbeeld laat zien hoe het bestand/etc/hosts te gebruiken.
-   Het IP-adres en de hostnaam in de volgende opdrachten vervangen
+   Vervang het IP-adres en de hostnaam in de volgende opdrachten. Het voordeel van/etc/hosts is dat uw cluster onafhankelijk van DNS die één toegangspunt fouten te worden.
 
    <pre><code>
    sudo vi /etc/hosts
@@ -329,10 +329,16 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   De volgende vet inhoud toevoegen aan het bestand.
+   De volgende vet inhoud toevoegen aan het bestand als de waarden niet er of andere.
    
    <pre><code> 
    [...]
+     <b>token:          5000
+     token_retransmits_before_loss_const: 10
+     join:           60
+     consensus:      6000
+     max_messages:   20</b>
+     
      interface { 
         [...] 
      }

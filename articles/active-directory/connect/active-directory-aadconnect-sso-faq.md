@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Naadloze eenmalige aanmelding - Veelgestelde vragen | 
 description: Antwoorden op veelgestelde vragen over Azure Active Directory naadloze eenmalige aanmelding.
 services: active-directory
 keywords: Wat is Azure AD Connect, installeer Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
-documentationcenter: 
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: c34293796860e0ab72eecedab9cd8b023237050d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen
 
@@ -38,16 +38,23 @@ Nee. Naadloze eenmalige aanmelding is alleen beschikbaar in het wereldwijde exem
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Welke toepassingen profiteren van `domain_hint` of `login_hint` parameter mogelijkheid van naadloze eenmalige aanmelding?
 
-Hieronder vindt u een niet-uitputtende lijst met toepassingen die deze parameters verzenden naar Azure AD en daarom biedt gebruikers een ervaring voor stille aanmelding met naadloze eenmalige aanmelding:
+Hieronder vindt u een niet-uitputtende lijst met toepassingen die deze parameters verzenden naar Azure AD en daarom biedt gebruikers een ervaring voor stille aanmelding met naadloze eenmalige aanmelding (dat wil zeggen, u hoeft voor uw gebruikers voor het invoeren van hun gebruikersnamen):
 
 | De naam van de toepassing | URL van de toepassing moet worden gebruikt |
 | -- | -- |
 | Toegangsvenster | myapps.microsoft.com/contoso.com |
 | Outlook op Web | outlook.office365.com/contoso.com |
 
-De domeinnaam van uw om te gaan naar de juiste URL's voor uw tenant vervangen 'contoso.com' in de bovenstaande tabel.
+Bovendien krijgen gebruikers een ervaring voor stille als een toepassing aanmelden aanvragen naar Azure AD-eindpunten verpachte - dat wil zeggen verzendt, https://login.microsoftonline.com/contoso.com/<..> of https://login.microsoftonline.com/<tenant_ID>/<..> - in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https://login.microsoftonline.com/common/<...>. Hieronder vindt u een niet-uitputtende lijst met toepassingen die deze typen aanmeldingsaanvragen.
 
-Als u andere toepassingen die u geïnteresseerd bent in hebt, laat ons weten in het gedeelte met opmerkingen.
+| De naam van de toepassing | URL van de toepassing moet worden gebruikt |
+| -- | -- |
+| SharePoint Online | contoso.sharepoint.com |
+| Azure Portal | portal.azure.com/contoso.com |
+
+Vervang 'contoso.com' met de naam van uw domein om te gaan naar de juiste URL's voor uw tenant in de bovenstaande tabellen.
+
+Als u andere toepassingen die gebruikmaken van onze ervaring voor achtergrond wilt, laat ons weten in de feedbacksectie.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Biedt ondersteuning voor naadloze eenmalige aanmelding `Alternate ID` als de gebruikersnaam in plaats van `userPrincipalName`?
 

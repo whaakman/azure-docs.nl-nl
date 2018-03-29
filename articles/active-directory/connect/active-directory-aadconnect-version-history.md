@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 8bae1140d4a3ac4762bdcbabb16851d29415a8fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen zijn van toepassing op alle doelgroepen.
@@ -49,6 +49,7 @@ Status 22-3/2018: beschikbaar voor automatische clientupdate en downloaden.
 #### <a name="fixed-issues"></a>Opgeloste problemen
 
 * De cmdlet Set-ADSyncAutoUpgrade zou Autoupgrade eerder geblokkeerd als status voor automatische clientupdate is ingesteld op uitgesteld. Dit is nu gewijzigd zodat AutoUpgrade van toekomstige builds worden niet geblokkeerd.
+* Gewijzigd de **gebruikersaanmelding** pagina de optie 'Wachtwoordsynchronisatie' naar 'Synchronisatie van wachtwoordhash'.  Azure AD Connect synchroniseert de wachtwoord-hashes, wachtwoorden, zodat deze wordt uitgelijnd met wat daadwerkelijk optreedt.  Zie voor meer informatie [hash Wachtwoordsynchronisatie met Azure AD Connect-synchronisatie implementeren](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 
 ## <a name="117490"></a>1.1.749.0
 Status: Beschikbaar voor klanten selecteren
@@ -558,7 +559,7 @@ Azure AD Connect-synchronisatie
   * Toegevoegd **userType** naar de Metaverse-schema en het schema van de AAD-Connector. Klanten die willen werken beide kenmerken in Azure AD kunnen implementeren, aangepaste synchronisatie regels om dit te doen.
 
 * Azure AD Connect automatisch kunt nu het gebruik van kenmerk ConsistencyGuid als het kenmerk Bronanker voor on-premises AD-objecten. Bovendien kunnen de Azure AD Connect vult het ConsistencyGuid-kenmerk met de waarde van het kenmerk objectGuid als deze leeg is. Deze functie is van toepassing op nieuwe implementatie alleen. Meer informatie over deze functie, Raadpleeg het artikel gedeelte [Azure AD Connect: concepten - msDS-ConsistencyGuid met als sourceAnchor ontwerpen](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
-* Nieuwe probleemoplossing cmdlet is Invoke-ADSyncDiagnostics toegevoegd om u te helpen bij het analyseren van synchronisatie van wachtwoordhash problemen met betrekking tot. Raadpleeg voor informatie over het gebruik van de cmdlet, artikel [Wachtwoordsynchronisatie met Azure AD Connect-synchronisatie oplossen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
+* Nieuwe probleemoplossing cmdlet is Invoke-ADSyncDiagnostics toegevoegd om u te helpen bij het analyseren van synchronisatie van wachtwoordhash problemen met betrekking tot. Raadpleeg voor informatie over het gebruik van de cmdlet, artikel [problemen met synchronisatie van wachtwoordhash met Azure AD Connect-synchronisatie](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * Azure AD Connect nu ondersteunt synchroniseren Mail-Enabled openbare map objecten uit een on-premises AD naar Azure AD. U kunt de functie met behulp van Azure AD Connect-wizard onder optionele functies inschakelen. Raadpleeg voor meer informatie over deze functie, artikel [Office 365 Directory op basis van rand blokkeren ondersteuning voor lokale Mail ingeschakeld openbare mappen](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect is vereist voor een AD DS-account om te synchroniseren van lokale AD. Voorheen als u Azure AD Connect met de snelle modus hebt geïnstalleerd, kunt u opgeven dat de referenties van een Enterprise-beheerdersaccount en Azure AD Connect maakt de AD DS-account vereist. Voor een aangepaste installatie en het forests toevoegen aan een bestaande implementatie, moest u echter om de AD DS-account in plaats daarvan. Nu hebt u ook de optie te bieden de referenties van een Enterprise-beheerdersaccount tijdens een aangepaste installatie kunt Azure AD Connect maken van de AD DS-account vereist.
 * Azure AD Connect ondersteunt nu SQL AOA. Voordat u Azure AD Connect installeert, moet u SQL AOA inschakelen. Tijdens de installatie van detecteert Azure AD Connect of de opgegeven SQL-exemplaar is ingeschakeld voor SQL AOA. Als SQL AOA is ingeschakeld, wordt Azure AD Connect meer cijfers uit als SQL AOA is geconfigureerd voor gebruik van replicatie van synchrone of asynchrone replicatie. Bij het instellen van de beschikbaarheidsgroep-Listener, is het raadzaam dat u de eigenschap RegisterAllProvidersIP ingesteld op 0. Dit is omdat Azure AD Connect momenteel SQL Native Client verbinding maakt met SQL en SQL Native Client biedt geen ondersteuning voor het gebruik van de MultiSubNetFailover-eigenschap.
@@ -748,7 +749,7 @@ Uitgebracht: Juni 2016
 **Opgeloste problemen en verbeteringen:**
 
 * Azure AD Connect kan nu worden geïnstalleerd op een server FIPS-compatibel.
-  * Zie voor Wachtwoordsynchronisatie [Wachtwoordsynchronisatie en FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips).
+  * Zie voor Wachtwoordsynchronisatie [wachtwoordhashsynchronisatie en FIPS](active-directory-aadconnectsync-implement-password-hash-synchronization.md#password-hash-synchronization-and-fips).
 * Een probleem opgelost waarbij een NetBIOS-naam kan niet worden omgezet naar de FQDN-naam in de Active Directory-Connector.
 
 ## <a name="111800"></a>1.1.180.0

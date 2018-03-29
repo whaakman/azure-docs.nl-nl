@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: c739d98f81bafb6474995b141cab3400bcb4dc33
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: dfa451a06fbadbb63c83f800ac164db399efd583
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Back-end-status, diagnostische logboeken en metrische gegevens voor Application Gateway
 
@@ -176,7 +176,7 @@ Het toegangslogboek wordt alleen gegenereerd als u deze op elk exemplaar van de 
 |clientPort     | Poort voor de aanvraag afkomstig is.       |
 |HttpMethod     | HTTP-methode die wordt gebruikt door de aanvraag.       |
 |requestUri     | De URI van de aanvraag ontvangen.        |
-|RequestQuery     | **Server-gerouteerd**: exemplaar van de Back-end-adresgroep die de aanvraag is verzonden. </br> **X-AzureApplicationGateway-logboek-ID**: correlatie-ID van de aanvraag gebruikt. Het kan worden gebruikt om op te lossen problemen met de verkeer voor de back-endservers. </br>**STATUS van de SERVER**: HTTP-antwoordcode Application Gateway van de back-end ontvangen.       |
+|RequestQuery     | **Server-gerouteerd**: exemplaar van de Back-end-adresgroep die de aanvraag is verzonden.</br>**X-AzureApplicationGateway-logboek-ID**: correlatie-ID van de aanvraag gebruikt. Het kan worden gebruikt om op te lossen problemen met de verkeer voor de back-endservers. </br>**STATUS van de SERVER**: HTTP-antwoordcode Application Gateway van de back-end ontvangen.       |
 |UserAgent     | De gebruikersagent van de HTTP-aanvraag-header.        |
 |httpStatus     | HTTP-statuscode geretourneerd naar de client van de toepassingsgateway.       |
 |Httpversie     | HTTP-versie van de aanvraag.        |
@@ -316,9 +316,21 @@ U kunt ook verbinding maken met uw opslagaccount en ophalen van de JSON-logboekv
 
 ## <a name="metrics"></a>Metrische gegevens
 
-Metrische gegevens zijn een functie voor bepaalde waar u prestatiemeteritems kunt bekijken in de portal voor Azure-resources. Voor Application Gateway is een waarde nu beschikbaar. Met deze metriek wordt de doorvoer en kunt u deze bekijken in de portal. Blader naar een application gateway en klikt u op **metrische gegevens**. Als u wilt weergeven van de waarden, selecteer doorvoer in de **beschikbare metrische gegevens** sectie. In de volgende afbeelding ziet u een voorbeeld met de filters die u kunt de gegevens worden weergegeven in andere bereiken.
+Metrische gegevens zijn een functie voor bepaalde waar u prestatiemeteritems kunt bekijken in de portal voor Azure-resources. Voor Application Gateway, zijn de volgende metrische gegevens zijn beschikbaar:
 
-![Metrische weergave met filters][5]
+- Actieve verbindingen
+- Mislukte aanvragen
+- In orde Host tellen
+- Response-Status
+- Doorvoer
+- Totaal aantal aanvragen
+- Onjuiste telling van de Host
+
+Blader naar een toepassingsgateway onder **bewaking** klikt u op **metrische gegevens**. Als u wilt de beschikbare waarden weergeven, selecteert u de **METRIEK** vervolgkeuzelijst.
+
+In de volgende afbeelding ziet u een voorbeeld met drie metrische gegevens voor de laatste 30 minuten weergegeven:
+
+[![](media/application-gateway-diagnostics/figure5.png "Metrische gegevens weergeven")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Zie voor een actuele lijst met metrische gegevens [ondersteund met een Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
@@ -336,7 +348,7 @@ Het volgende voorbeeld wordt u begeleid bij het maken van een waarschuwingsregel
 
    * In de **voorwaarde** selector, selecteert u een van de vier waarden: **groter is dan**, **groter dan of gelijk**, **minder dan**, of **kleiner dan of gelijk zijn aan**.
 
-   * In de **periode** selector, selecteert u een periode van 5 minuten en 6 uur.
+   * In de **periode** selector, selecteert u een periode van vijf minuten zes uur.
 
    * Als u selecteert **e-eigenaren, bijdragers en lezers**, het e-mailbericht worden dynamisch op basis van de gebruikers die toegang tot deze resource hebben. Anders kunt u opgeven van een door komma's gescheiden lijst met gebruikers in de **aanvullende beheerder email(s)** vak.
 
