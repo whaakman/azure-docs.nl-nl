@@ -1,0 +1,106 @@
+- name: Documentatie voor Azure Monitoring
+  href: management-overview-monitoring.md
+- name: Overzicht
+  items:
+    - name: Bewaking in Azure
+      href: monitoring-overview.md
+- name: Gedeelde services
+  items:
+    - name: Waarschuwingen
+      items:
+        - name: Azure-waarschuwingen
+          href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Actiegroepen
+          href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Operations Manager-waarschuwingen importeren
+          href: ../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Automatisch schalen
+      items:
+        - name: Automatisch schalen
+          href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Metrische gegevens
+      items:
+        - name: Metrische gegevens
+          href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Logboeken
+      items:
+        - name: Activiteitenlogboeken
+          href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Diagnostische logboeken
+          href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Logboeken verzamelen van meerdere Azure-abonnementen
+          href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=%2fazure%2fmonitoring%2ftoc.json
+- name: Resources controleren
+  items:
+    - name: Toepassingen
+      items:
+        - name: Application Insights
+          href: ../application-insights/app-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Application Insights-connector
+          href: ../log-analytics/log-analytics-app-insights-connector.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Key Vault-analyse
+          href: ../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Service Fabric-analyse
+          href: ../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Azure Web Apps-analyse
+          href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Containers
+      items:
+        - name: Containers-oplossing
+          href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Docker-toepassingen bewaken
+          href: ../application-insights/app-insights-docker.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Profieltoepassing
+          href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Databases
+      items:
+        - name: Azure SQL
+          href: ../log-analytics/log-analytics-azure-sql.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Virtuele machines
+      items:
+        - name: Status van agent
+          href: ../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: VMWare-analyse
+          href: ../log-analytics/log-analytics-vmware.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Serviceoverzicht
+          items:
+            - name: Walkthrough
+              href: ../operations-management-suite/operations-management-suite-walkthrough-servicemap.md?toc=%2fazure%2fmonitoring%2ftoc.json
+            - name: Gebruiken
+              href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2fmonitoring%2ftoc.json
+            - name: Configureren
+              href: ../operations-management-suite/operations-management-suite-service-map-configure.md?toc=%2fazure%2fmonitoring%2ftoc.json
+            - name: Integratie met Operations Manager
+              href: ../operations-management-suite/operations-management-suite-service-map-scom.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Meer informatie
+      items:
+        - name: AD-statusevaluatie
+          href: ../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: AD-replicatiestatus
+          href: ../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Office 365
+          href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Surface Hub
+          href: ../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Beheeroplossingen
+      items:
+        - name: Gebruiken
+          items:
+            - name: Een oplossing toevoegen
+              href: ..//log-analytics/log-analytics-add-solutions.md?toc=%2fazure%2fmonitoring%2ftoc.json
+            - name: Doeloplossingen
+              href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Maken
+          items:
+            - name: Ontwerpen en bouwen
+              href: ../operations-management-suite/operations-management-suite-solutions-creating.md?toc=%2fazure%2fmonitoring%2ftoc.json
+            - name: Oplossingsbestand
+              href: ../operations-management-suite/operations-management-suite-solutions-solution-file.md?toc=%2fazure%2fmonitoring%2ftoc.json
+            - name: Automation-resources
+              href: ../operations-management-suite/operations-management-suite-solutions-resources-automation.md?toc=%2fazure%2fmonitoring%2ftoc.json
+            - name: Zoekopdrachten en waarschuwingen vastleggen
+              href: ../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md?toc=%2fazure%2fmonitoring%2ftoc.json
+            - name: Weergaven
+              href: ../operations-management-suite/operations-management-suite-solutions-resources-views.md?toc=%2fazure%2fmonitoring%2ftoc.json
+            - name: Aanbevolen procedures
+              href: ../operations-management-suite/operations-management-suite-solutions-best-practices.md?toc=%2fazure%2fmonitoring%2ftoc.json

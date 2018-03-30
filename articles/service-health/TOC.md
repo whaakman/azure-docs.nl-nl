@@ -6,6 +6,7 @@
 ## [Wat is Resource Health?](resource-health-overview.md)
 # Procedures
 ## [Waarschuwingen voor servicestatusgebeurtenissen configureren](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
+### [Servicestatusmeldingen bekijken met Azure Portal](../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [Meldingen configureren met behulp van een webhook](service-health-alert-webhook-guide.md)
 ### [Configureren met ServiceNow](service-health-alert-webhook-servicenow.md)
 ### [Configureren met PagerDuty](service-health-alert-webhook-pagerduty.md)

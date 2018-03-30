@@ -39,6 +39,8 @@
       href: connect-google-account.md
     - name: Verbinding maken met een AWS-account
       href: connect-aws-account.md
+    - name: Opslagaccounts configureren
+      href: storage-accounts.md
     - name: Kostenbeheerrapporten gebruiken
       href: use-reports.md
 - name: Resources

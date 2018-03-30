@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
-ms.openlocfilehash: f786d99718b82dba052909e566f1b0571701127e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.reviewer: fiseraci
+ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Met behulp van de bevoegde eindpunt in Azure-Stack
 
@@ -43,18 +44,20 @@ U opent de PEP met een externe PowerShell-sessie op de virtuele machine die als 
 
 Voordat u deze procedure voor een geïntegreerde, zorg er dan voor dat u toegang hebt tot de PEP door IP-adres of via DNS is vastgesteld. Na de eerste implementatie van Azure-Stack, kunt u de PEP alleen op IP-adres openen omdat de DNS-integratie is nog niet ingesteld. Uw hardwareleverancier OEM krijgt u een JSON-bestand met de naam **AzureStackStampDeploymentInfo** die de PEP IP-adressen bevat.
 
-Het is raadzaam dat u verbinding met de PEP alleen vanaf de host van de levenscyclus van hardware of vanaf een speciale, beveiligde computer, zoals maakt een [bevoorrechte toegang werkstation](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
-1. Toegang tot uw werkstation bevoorrechte toegang.
+> [!NOTE]
+> Om veiligheidsredenen vereist dat u verbinding met de PEP alleen vanuit een beperkte virtuele machine wordt uitgevoerd boven op de host van de levenscyclus van hardware of vanaf een speciale, beveiligde computer, zoals maken een [bevoorrechte toegang werkstation](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). De oorspronkelijke configuratie van de host van de levenscyclus van hardware moet niet worden gewijzigd van de oorspronkelijke configuratie, met inbegrip van nieuwe software installeren en verbinding maken met de PEP mag worden gebruikt.
 
-    - Voer de volgende opdracht om de PEP toevoegen als een vertrouwde host in de hardware lifecycle host of het bevoorrechte toegang werkstation op een geïntegreerd systeem.
+1. De vertrouwensrelatie.
+
+    - Voer de volgende opdracht vanaf een Windows PowerShell-sessie met verhoogde bevoegdheid de PEP toevoegen als een vertrouwde host in de geharde virtuele machine op de host van de levenscyclus van hardware of het werkstation met Privileged Access op een geïntegreerd systeem.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - Als u de ADSK uitvoert, moet u zich aanmelden bij de host van development kit.
 
-2. Open een Windows PowerShell-sessie met verhoogde bevoegdheden op uw hardware lifecycle host of bevoorrechte toegang werkstation. Voer de volgende opdrachten tot stand brengen van een externe sessie op de virtuele machine die als host fungeert voor de PEP:
+2. Open een Windows PowerShell-sessie op de beperkte virtuele machine uitgevoerd op de host van de levenscyclus van hardware of het bevoorrechte toegang werkstation. Voer de volgende opdrachten tot stand brengen van een externe sessie op de virtuele machine die als host fungeert voor de PEP:
  
     - Op een geïntegreerde systeem:
       ````PowerShell
@@ -74,11 +77,12 @@ Het is raadzaam dat u verbinding met de PEP alleen vanaf de host van de levenscy
       ```` 
    Wanneer u wordt gevraagd, gebruikt u de volgende referenties:
 
-      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling  **&lt; *Azure Stack domein*&gt;\accountname**. (Voor ASDK, de gebruikersnaam is **azurestack\accountname**.) 
+      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling ** &lt; *Azure Stack domein*&gt;\cloudadmin**. (Voor ASDK, de gebruikersnaam is **azurestack\cloudadmin**.)
       - **Wachtwoord**: Voer het wachtwoord dat is opgegeven tijdens de installatie voor de administrator-account van het AzureStackAdmin.
+
     > [!NOTE]
     > Als u geen verbinding maken met het eindpunt ERCS, probeert u stap 1 en 2 opnieuw met het IP-adres van een ERCS VM waarop u dit nog niet hebt al geprobeerd om verbinding te.
-    
+
 3.  Nadat u verbinding maakt, verandert de prompt voor **[*IP-adres of ERCS VM naam*]: PS >** of **[azs ercs01]: PS >**, afhankelijk van de omgeving. Hier kunt uitvoeren `Get-Command` om de lijst met beschikbare cmdlets weer te geven.
 
     Veel van deze cmdlets zijn alleen bedoeld voor geïntegreerde systeemomgevingen (zoals de cmdlets die betrekking hebben op datacenter-integratie). In de ASDK zijn de volgende cmdlets gevalideerd:
@@ -116,16 +120,16 @@ U kunt ook de [Import-PSSession](https://docs.microsoft.com/en-us/powershell/mod
 
 Voer de volgende stappen uit voor het importeren van de sessie PEP op uw lokale machine:
 
-1. Toegang tot uw werkstation bevoorrechte toegang.
+1. De vertrouwensrelatie.
 
-    - Voer de volgende opdracht om de PEP toevoegen als een vertrouwde host in de hardware lifecycle host of het bevoorrechte toegang werkstation op een geïntegreerd systeem.
+    -Voer de volgende opdracht vanaf een Windows PowerShell-sessie met verhoogde bevoegdheid de PEP toevoegen als een vertrouwde host in de geharde virtuele machine op de host van de levenscyclus van hardware of het werkstation met Privileged Access op-een geïntegreerd systeem.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - Als u de ADSK uitvoert, moet u zich aanmelden bij de host van development kit.
 
-2. Open een Windows PowerShell-sessie met verhoogde bevoegdheden op uw hardware lifecycle host of bevoorrechte toegang werkstation. Voer de volgende opdrachten tot stand brengen van een externe sessie op de virtuele machine die als host fungeert voor de PEP:
+2. Open een Windows PowerShell-sessie op de beperkte virtuele machine uitgevoerd op de host van de levenscyclus van hardware of het bevoorrechte toegang werkstation. Voer de volgende opdrachten tot stand brengen van een externe sessie op de virtuele machine die als host fungeert voor de PEP:
  
     - Op een geïntegreerde systeem:
       ````PowerShell
@@ -145,7 +149,7 @@ Voer de volgende stappen uit voor het importeren van de sessie PEP op uw lokale 
       ```` 
    Wanneer u wordt gevraagd, gebruikt u de volgende referenties:
 
-      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling  **&lt; *Azure Stack domein*&gt;\accountname**. (Voor ASDK, de gebruikersnaam is **azurestack\accountname**.) 
+      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling ** &lt; *Azure Stack domein*&gt;\cloudadmin**. (Voor ASDK, de gebruikersnaam is **azurestack\cloudadmin**.)
       - **Wachtwoord**: Voer het wachtwoord dat is opgegeven tijdens de installatie voor de administrator-account van het AzureStackAdmin.
 
 3. De sessie PEP in uw lokale machine importeren
@@ -167,7 +171,11 @@ De eindpunt-sessie te sluiten:
 
     ![Uitvoer van de cmdlet sluiten PrivilegedEndpoint waarin wordt weergegeven waarin u het doelpad van de tekst opgeven](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
-Nadat de logboekbestanden van de tekst worden overgebracht naar de bestandsshare, zijn ze automatisch verwijderd uit de PEP. Als u de sessie PEP sluiten met behulp van de cmdlets `Exit-PSSession` of `Exit`, of u alleen de PowerShell-console sluit, wordt de logboeken van de tekst niet overbrengen naar een bestandsshare. Ze blijven in de PEP. De volgende keer dat u uitvoert `Close-PrivilegedEndpoint` en een bestandsshare omvatten, maar de logboeken van de tekst van de vorige sessie (s) ook draagt.
+Nadat de logboekbestanden van de tekst worden overgebracht naar de bestandsshare, zijn ze automatisch verwijderd uit de PEP. 
+
+> [!NOTE]
+> Als u de sessie PEP sluiten met behulp van de cmdlets `Exit-PSSession` of `Exit`, of u alleen de PowerShell-console sluit, wordt de logboeken van de tekst niet overbrengen naar een bestandsshare. Ze blijven in de PEP. De volgende keer dat u uitvoert `Close-PrivilegedEndpoint` en een bestandsshare omvatten, maar de logboeken van de tekst van de vorige sessie (s) ook draagt. Gebruik geen `Exit-PSSession` of `Exit` te sluiten van de sessie PEP; gebruik `Close-PrivilegedEndpoint` in plaats daarvan.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 [Azure Stack diagnostische hulpprogramma 's](azure-stack-diagnostics.md)

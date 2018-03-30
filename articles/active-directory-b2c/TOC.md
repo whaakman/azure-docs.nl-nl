@@ -33,7 +33,7 @@
 ### [Een ASP.NET-API beveiligen](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.js](active-directory-b2c-devquickstarts-api-node.md)
 ### [Een .NET-web-API aanroepen](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Handleidingen
@@ -67,6 +67,7 @@
 ## [Aangepast beleid](active-directory-b2c-overview-custom.md)
 ## Handleidingen
 ### [Aan de slag](active-directory-b2c-get-started-custom.md)
+### [Beginnerspakket](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### OIDC-/OAUTH-providers configureren
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft-account](active-directory-b2c-custom-setup-msa-idp.md)

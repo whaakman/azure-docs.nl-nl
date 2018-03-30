@@ -6,6 +6,10 @@
 ## [Abonnements- en servicebeperkingen](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Aan de slag
+## [Een op een route gebaseerde VPN-gateway maken - Azure Portal](create-routebased-vpn-gateway-portal.md)
+## [Een op een route gebaseerde VPN-gateway maken - PowerShell](create-routebased-vpn-gateway-powershell.md)
+
+# Concepten
 ## [Planning en ontwerp voor VPN Gateway](vpn-gateway-plan-design.md)
 ## [Over instellingen voor VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md)
 ## [Over VPN-apparaten](vpn-gateway-about-vpn-devices.md)
@@ -87,7 +91,7 @@
 ### [Problemen met een punt-naar-site-verbinding](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 #### [Problemen met een punt-naar-site-verbinding - Mac OS X-VPN-client](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
 ### [Problemen met een site-naar-site-verbinding](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
-#### [Site-naar-site-verbinding wordt herhaaldelijk verbroken](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+#### [Site-naar-Site-verbinding wordt herhaaldelijk verbroken](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [VNet- of VPN-verbindingen configureren en valideren](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Naslaginformatie
