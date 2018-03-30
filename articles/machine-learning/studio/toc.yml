@@ -3,8 +3,6 @@
 - name: Overzicht
   expanded: true
   items:
-    - name: Wat is Machine Learning?
-      href: what-is-machine-learning.md
     - name: Machine Learning Studio
       href: what-is-ml-studio.md
     - name: Mogelijkheden ML Studio

@@ -56,7 +56,7 @@
 ## Azure AD Connect Sync beheren
 ### [GDPR-naleving en Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Onopzettelijke verwijderingen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-### [Wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Synchronisatie van wachtwoord-hashes](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD-serviceaccount](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installatiewizard](active-directory-aadconnectsync-installation-wizard.md)
 ### [Hoe UserPrincipalName wordt ingevuld](active-directory-aadconnect-userprincipalname.md)
@@ -86,7 +86,7 @@
 ### [Fouten tijdens synchronisatie](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Object is niet gesynchroniseerd](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Synchronisatie van object met behulp van de taak voor het oplossen van problemen](active-directory-aadconnect-troubleshoot-objectsync.md)
-### [Wachtwoordsynchronisatie](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Synchronisatie van wachtwoord-hashes](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)
 ### [LargeObject-fout veroorzaakt door userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Probleem met LocalDB met limiet van 10 GB oplossen](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
