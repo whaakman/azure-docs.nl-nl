@@ -45,7 +45,7 @@
 ### [Fouten opsporen van op SAML gebaseerde SSO](active-directory-saml-debugging.md)
 ### [SAML-protocol voor eenmalige aanmelding](active-directory-single-sign-on-protocol-reference.md)
 ### [SAML-protocol voor eenmalige afmelding](active-directory-single-sign-out-protocol-reference.md)
-### [Een tenant maken](active-directory-howto-tenant.md)
+## [Een tenant maken](active-directory-howto-tenant.md)
 ## [Huisstijlrichtlijnen](active-directory-branding-guidelines.md)
 ## Mobiele en desktop-SSO
 ### [SSO inschakelen op Android](active-directory-sso-android.md)

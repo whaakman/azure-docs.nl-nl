@@ -1,5 +1,5 @@
 - name: Documentatie voor Azure Monitoring
-  href: management-overview-monitoring.md
+  href: index.md
 - name: Overzicht
   items:
     - name: Bewaking in Azure

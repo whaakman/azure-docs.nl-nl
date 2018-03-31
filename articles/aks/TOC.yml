@@ -59,6 +59,8 @@
       items:
         - name: Statisch IP-adres
           href: static-ip.md
+        - name: Interne load balancer
+          href: internal-lb.md
         - name: Inkomend verkeer en TLS
           href: ingress.md
     - name: Verificatie en beveiliging
