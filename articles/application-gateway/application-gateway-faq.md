@@ -1,24 +1,19 @@
 ---
-title: Veelgestelde vragen over Azure Application Gateway | Microsoft Docs
+title: Veelgestelde vragen over Azure Application Gateway
 description: Deze pagina vindt u antwoorden op veelgestelde vragen over Azure Application Gateway
-documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 3/29/2018
+ms.author: victorh
+ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen voor Application Gateway
 
@@ -38,7 +33,19 @@ Application Gateway is een load balancer van laag 7, wat betekent dat dit proces
 
 **Q. Welke protocollen biedt ondersteuning voor Application Gateway?**
 
-Application Gateway biedt ondersteuning voor HTTP, HTTPS en WebSocket.
+Application Gateway biedt ondersteuning voor HTTP, HTTPS, HTTP-/ 2 en WebSocket.
+
+**Q. Hoe ondersteunt Application Gateway HTTP/2?**
+
+Ondersteuning voor HTTP/2-protocol is beschikbaar voor clients die verbinding maken met alleen een Application Gateway-listeners. De communicatie met server-back-endpools is via HTTP/1.1. 
+
+HTTP-/ 2-ondersteuning is standaard uitgeschakeld. De volgende Azure PowerShell-codefragment voorbeeldcode laat zien hoe u het kunt inschakelen:
+
+```
+$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw.EnableHttp2 = $true
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
+```
 
 **Q. Welke bronnen worden nu ondersteund als onderdeel van de back-endpool?**
 
@@ -314,7 +321,7 @@ Controlelogboeken zijn beschikbaar voor Application Gateway. Klik in de portal o
 
 **Q. Kan ik waarschuwingen met Application Gateway instellen?**
 
-Ja, Application Gateway biedt ondersteuning voor waarschuwingen, waarschuwingen uitschakelen metrische gegevens zijn geconfigureerd.  Toepassingsgateway heeft momenteel metric 'doorvoer', die kan worden geconfigureerd op waarschuwing. Voor meer informatie over waarschuwingen, gaat u naar [meldingen van waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Ja, Application Gateway biedt ondersteuning voor waarschuwingen, waarschuwingen uitschakelen metrische gegevens zijn geconfigureerd. Toepassingsgateway heeft momenteel metric 'doorvoer', die kan worden geconfigureerd op waarschuwing. Voor meer informatie over waarschuwingen, gaat u naar [meldingen van waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 **Q. Back-end health status onbekend, wat kan worden veroorzaakt door deze status retourneert?**
 

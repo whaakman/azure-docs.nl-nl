@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6da0bf009fa71885d7d8e3bd5376c5a7c9d4a344
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 574b11f9ba38bda775610f2f9e90fbb2d2b05868
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>.NET-traceerlogboeken in Application Insights verkennen
 Als u NLog, log4Net of System.Diagnostics.Trace voor diagnostische tracering in uw ASP.NET-toepassing kunt u uw verzonden naar Logboeken hebben [Azure Application Insights][start], waar u kunt verkennen en ze te zoeken. Uw logboeken worden samengevoegd met de andere telemetrie die afkomstig zijn van uw toepassing, zodat de traceringen die zijn gekoppeld aan het onderhoud van de aanvraag van elke gebruiker te identificeren en ze met andere gebeurtenissen en de uitzonderingenrapporten correleren.
@@ -91,15 +91,15 @@ U kunt configureren [System.Diagnostics.Tracing.EventSource](https://msdn.micros
 ```
 
 Voor elke bron, kunt u de volgende parameters instellen:
- * `Name`Hiermee geeft u de naam van de EventSource te verzamelen.
- * `Level`Hiermee geeft u het logboekregistratieniveau te verzamelen. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(Optioneel) Hiermee geeft u de gehele waarde van combinaties van trefwoorden te gebruiken.
+ * `Name` Hiermee geeft u de naam van de EventSource te verzamelen.
+ * `Level` Hiermee geeft u het logboekregistratieniveau te verzamelen. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (Optioneel) Hiermee geeft u de gehele waarde van combinaties van trefwoorden te gebruiken.
 
 ## <a name="using-diagnosticsource-events"></a>Het gebruik van DiagnosticSource gebeurtenissen
 U kunt configureren [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) gebeurtenissen naar Application Insights als traceringen worden verzonden. Installeer eerst de [ `Microsoft.ApplicationInsights.DiagnosticSourceListener` ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet-pakket. Bewerk vervolgens de `TelemetryModules` sectie van de [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
 
 ```xml
-    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+    <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
       <Sources>
         <Add Name="MyDiagnosticSourceName" />
       </Sources>
@@ -123,10 +123,10 @@ U kunt configureren ETW-gebeurtenissen naar Application Insights als traceringen
 ```
 
 Voor elke bron, kunt u de volgende parameters instellen:
- * `ProviderName`is de naam van de ETW-provider te verzamelen.
- * `ProviderGuid`Geeft de GUID van de ETW-provider moet worden verzameld, kunnen worden gebruikt in plaats van `ProviderName`.
- * `Level`Hiermee stelt u het logboekregistratieniveau te verzamelen. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(Optioneel) stelt de integerwaarde van combinaties van trefwoorden te gebruiken.
+ * `ProviderName` is de naam van de ETW-provider te verzamelen.
+ * `ProviderGuid` Geeft de GUID van de ETW-provider moet worden verzameld, kunnen worden gebruikt in plaats van `ProviderName`.
+ * `Level` Hiermee stelt u het logboekregistratieniveau te verzamelen. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (Optioneel) stelt de integerwaarde van combinaties van trefwoorden te gebruiken.
 
 ## <a name="using-the-trace-api-directly"></a>De tracering API direct gebruik te maken
 U kunt rechtstreeks de Application Insights trace API aanroepen. De adapters logboekregistratie gebruiken deze API.

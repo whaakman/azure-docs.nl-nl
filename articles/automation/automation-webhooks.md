@@ -8,14 +8,14 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b3e8e489ef4b79a89facb2395543743c427b0310
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4ea7366a02dd95fac5c1a7307e6156a0481fa16d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Een Azure Automation-runbook beginnen met een webhook
-Een *webhook* kunt u een bepaald runbook te starten in Azure Automation via één HTTP-aanvraag. Hierdoor kan externe services, zoals Visual Studio Team Services, GitHub, logboekanalyse van Microsoft Operations Management Suite of aangepaste toepassingen runbooks starten zonder het implementeren van een volledige oplossing met de Azure Automation-API.  
+Een *webhook* kunt u een bepaald runbook te starten in Azure Automation via één HTTP-aanvraag. Hierdoor kan externe services, zoals Visual Studio Team Services, GitHub, Azure-logboekanalyse of aangepaste toepassingen runbooks starten zonder het implementeren van een volledige oplossing met de Azure Automation-API.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 U kunt vergelijken met webhooks aan andere methoden van een runbook starten [een runbook starten in Azure Automation](automation-starting-a-runbook.md)

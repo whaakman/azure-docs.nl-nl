@@ -1,24 +1,25 @@
 ---
 title: Configureren van Azure functie App-instellingen | Microsoft Docs
 description: Informatie over het configureren van Azure functie app-instellingen.
-services: 
+services: ''
 documentationcenter: .net
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Het beheren van een functie-app in de Azure portal 
 
@@ -27,6 +28,24 @@ In de Azure Functions biedt een functie-app de uitvoeringscontext voor uw afzond
 Om te beginnen, gaat u naar de [Azure-portal](http://portal.azure.com) en meld u aan bij uw Azure-account. Typ de naam van uw functie-app in de zoekbalk boven in de portal en selecteer deze in de lijst. Na het selecteren van de functie-app, ziet u de volgende pagina:
 
 ![Overzicht van de functie-app in de Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+
+## <a name="favorite"></a>Favoriete functies in de portal 
+
+Kan worden soms moeilijk te vinden van uw resources in de [Azure-portal]. Gemakkelijker te vinden van de functie-apps die u hebt gemaakt, toevoegen functie Apps aan uw Favorieten in de portal. 
+
+1. Meld u aan bij [Azure-portal].
+
+2. Klik op de pijl linksonder om alle services uit te vouwen, typ `Functions` in het veld **Filter** en klik vervolgens op de ster naast **Functie-apps**.  
+ 
+    ![Functie-app maken in Azure Portal](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+
+    Hiermee wordt het pictogram Functies toegevoegd aan het menu aan de linkerkant van de portal.
+
+3. Sluit het menu en scrol omlaag naar het pictogram Functies. Klik op dit pictogram om een lijst met al uw functie-apps weer te geven. Klik op uw functie-app om met functies in deze app te werken. 
+ 
+    ![Functie-Apps in Favorieten](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
+ 
+[Azure-portal]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Tabblad voor de functie app-instellingen
 
@@ -66,7 +85,7 @@ Zie voor meer informatie over het werken met App Service-instellingen, [Azure Ap
 
 ![De App Service-editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings">Toepassingsinstellingen</a>
+### <a name="settings"></a>Toepassingsinstellingen
 
 | | |
 |-|-|
@@ -82,7 +101,7 @@ Zie voor meer informatie over het werken met App Service-instellingen, [Azure Ap
 
 ![De functie app-console](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### <a name="kudu">Geavanceerde tools (Kudu)</a>
+### <a name="kudu"></a>Geavanceerde tools (Kudu)
 
 | | |
 |-|-|
@@ -115,7 +134,7 @@ Zie voor meer informatie over het werken met App Service-instellingen, [Azure Ap
 ![Verificatie voor een functie-app configureren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
-### <a name="swagger">API-definitie</a>
+### <a name="swagger"></a>API-definitie
 
 | | |
 |-|-|

@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: bb501fca-9cfe-4495-81df-b5efd6e0137b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 75fc134a5535e6113331470cf61df9c06eb8e2ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f8f211764646bc53319f435d74a16a026329039
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-universal"></a>Het gebruik van de Engagement API op Universal Windows
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Dit document is een invoegtoepassing voor het document [hoe integreren Engagement voor universele Windows-](mobile-engagement-windows-store-integrate-engagement.md): biedt diepte meer informatie over het gebruik van de Engagement-API voor het rapporteren van de toepassingsstatistieken van uw.
 
 Houd er rekening mee dat als u alleen Engagement voor het rapporteren van uw toepassing sessies, activiteiten, crashes en technische informatie wilt, klikt u vervolgens de eenvoudigste manier is om alle uw `Page` onderliggende klassen overnemen van de `EngagementPage` klasse.
@@ -41,7 +45,7 @@ Maar *activiteiten* kunnen ook handmatig met behulp van de Engagement-API worden
 
 ## <a name="reporting-activities"></a>Rapportage
 ### <a name="user-starts-a-new-activity"></a>Gebruiker start een nieuwe activiteit
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void StartActivity(string name, Dictionary<object, object> extras = null)
 
 U moet aan te roepen `StartActivity()` elke keer dat de wijzigingen van de gebruiker-activiteit. De eerste aanroep van deze functie wordt een nieuwe gebruikerssessie gestart.
@@ -55,7 +59,7 @@ U moet aan te roepen `StartActivity()` elke keer dat de wijzigingen van de gebru
             EngagementAgent.Instance.StartActivity("main", new Dictionary<object, object>() {{"example", "data"}});
 
 ### <a name="user-ends-his-current-activity"></a>Gebruiker eindigt zijn huidige activiteit
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void EndActivity()
 
 Hiermee wordt de activiteit en de sessie beëindigd. U moet deze methode niet aanroepen, tenzij u zeker weet wat u doet.
@@ -65,7 +69,7 @@ Hiermee wordt de activiteit en de sessie beëindigd. U moet deze methode niet aa
 
 ## <a name="reporting-jobs"></a>Rapportage van taken
 ### <a name="start-a-job"></a>Een taak starten
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void StartJob(string name, Dictionary<object, object> extras = null)
 
 De taak kunt u sommige taken gedurende een periode bijhouden.
@@ -81,7 +85,7 @@ De taak kunt u sommige taken gedurende een periode bijhouden.
             EngagementAgent.Instance.StartJob("uploadData", extras);
 
 ### <a name="end-a-job"></a>Een taak beëindigen
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void EndJob(string name)
 
 Zodra een taak die wordt gevolgd door een taak is beëindigd, moet u de methode EndJob aanroepen voor deze taak door de taaknaam opgeven.
@@ -100,7 +104,7 @@ Er is drie soorten gebeurtenissen:
 * Gebeurtenissen van de taak
 
 ### <a name="standalone-events"></a>Zelfstandige gebeurtenissen
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void SendEvent(string name, Dictionary<object, object> extras = null)
 
 Er kunnen zelfstandige gebeurtenissen plaatsvinden buiten de context van een sessie.
@@ -109,7 +113,7 @@ Er kunnen zelfstandige gebeurtenissen plaatsvinden buiten de context van een ses
             EngagementAgent.Instance.SendEvent("event", extra);
 
 ### <a name="session-events"></a>Sessiegebeurtenissen
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void SendSessionEvent(string name, Dictionary<object, object> extras = null)
 
 Sessiegebeurtenissen worden meestal gebruikt voor het rapporteren van de acties die worden uitgevoerd door een gebruiker tijdens de sessie.
@@ -130,7 +134,7 @@ Sessiegebeurtenissen worden meestal gebruikt voor het rapporteren van de acties 
             EngagementAgent.Instance.SendSessionEvent("sessionEvent", extras);
 
 ### <a name="job-events"></a>Taakgebeurtenissen
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void SendJobEvent(string eventName, string jobName, Dictionary<object, object> extras = null)
 
 Taakgebeurtenissen worden meestal gebruikt voor het rapporteren van de acties die door een gebruiker tijdens een taak wordt uitgevoerd.
@@ -146,7 +150,7 @@ Er zijn drie soorten fouten:
 * Taakfouten
 
 ### <a name="standalone-errors"></a>Zelfstandige fouten
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void SendError(string name, Dictionary<object, object> extras = null)
 
 Zelfstandige fouten kunnen strijd sessie-fouten optreden buiten de context van een sessie.
@@ -155,7 +159,7 @@ Zelfstandige fouten kunnen strijd sessie-fouten optreden buiten de context van e
             EngagementAgent.Instance.SendError("errorName", extras);
 
 ### <a name="session-errors"></a>Sessie-fouten
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void SendSessionError(string name, Dictionary<object, object> extras = null)
 
 Sessie-fouten worden gewoonlijk gebruikt voor het rapporteren van de fouten die invloed hebben op de gebruiker tijdens de sessie.
@@ -164,7 +168,7 @@ Sessie-fouten worden gewoonlijk gebruikt voor het rapporteren van de fouten die 
             EngagementAgent.Instance.SendSessionError("errorName", extra);
 
 ### <a name="job-errors"></a>Taakfouten
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
 Fouten kunnen zijn gerelateerd aan een actieve taak in plaats van te wijten aan de huidige gebruikerssessie.
@@ -176,7 +180,7 @@ Fouten kunnen zijn gerelateerd aan een actieve taak in plaats van te wijten aan 
 De agent biedt twee methoden om te gaan met crashes.
 
 ### <a name="send-an-exception"></a>Een uitzondering verzenden
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void SendCrash(Exception e, bool terminateSession = false)
 
 #### <a name="example"></a>Voorbeeld
@@ -191,7 +195,7 @@ U kunt ook een optionele parameter gebruiken om de sessie engagement op hetzelfd
 Als u dat doet, wordt de sessie en taken worden gesloten na het verzenden van de crash.
 
 ### <a name="send-an-unhandled-exception"></a>Verzenden van een onverwerkte uitzondering
-#### <a name="reference"></a>Naslaginformatie
+#### <a name="reference"></a>Referentie
             void SendCrash(Exception e)
 
 Engagement biedt ook een methode voor het verzenden van niet-verwerkte uitzonderingen hebt u **UITGESCHAKELDE** Engagement automatisch **crash** reporting. Dit is vooral nuttig wanneer gebruikt in de toepassing UnhandledException gebeurtenis-handler.
@@ -213,7 +217,7 @@ Voeg in App.xaml.cs in "Openbare App() {}" toe:
 
             Application.Current.UnhandledException += Current_UnhandledException;
 
-## <a name="device-id"></a>Apparaat-Id
+## <a name="device-id"></a>Apparaat-id
             String EngagementAgent.Instance.GetDeviceId()
 
 U kunt de engagement apparaat-id ophalen door deze methode aanroept.
@@ -282,7 +286,7 @@ Dit betekent dat sleutels met ten minste één letter beginnen moeten, gevolgd d
 Extra's zijn beperkt tot **1024** tekens per aanroep.
 
 ## <a name="reporting-application-information"></a>Rapportage-toepassingsinformatie
-### <a name="reference"></a>Naslaginformatie
+### <a name="reference"></a>Referentie
             void SendAppInfo(Dictionary<object, object> appInfos)
 
 U kunt handmatig bijhouden informatie (of andere toepassing specifieke gegevens) met behulp van de SendAppInfo() functie rapporteren.

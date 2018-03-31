@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f4410932f00f8505ae5a894caa002e1223196d95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Overzicht van Azure Load Balancer
 
@@ -142,7 +142,7 @@ De volgende afbeelding ziet een eindpunt met gelijke taakverdeling voor internet
 
 ![openbare load balancer-voorbeeld](./media/load-balancer-overview/IC727496.png)
 
-**Afbeelding 1: Voor de Load Balancer-webverkeer met behulp van een openbare Load Balancer**
+*Afbeelding: Met behulp van een openbare Load Balancer webverkeer van taakverdeling*
 
 Wanneer Internet-clients webpagina-aanvragen naar het openbare IP-adres van een web-app op TCP-poort 80 verzenden, distribueert de Azure Load Balancer de aanvragen tussen de drie virtuele machines in de set met gelijke taakverdeling. Zie voor meer informatie over de algoritmen voor load balancer, het [overzichtspagina van load balancer](load-balancer-overview.md#load-balancer-features).
 
@@ -161,7 +161,7 @@ Interne Load Balancer biedt de volgende soorten taakverdeling:
 
 ![interne load balancer-voorbeeld](./media/load-balancer-overview/IC744147.png)
 
-**Afbeelding 2 - toepassingen met meerdere lagen met zowel openbare als interne load balancers voor taakverdeling**
+*Afbeelding - toepassingen met meerdere lagen met zowel openbare als interne load balancers voor taakverdeling*
 
 ## <a name="pricing"></a>Prijzen
 Standaard Load Balancer is een bedrag product op basis van het aantal load balancer regels die zijn geconfigureerd en van alle binnenkomende en uitgaande gegevens verwerkt. Standaard Load Balancer prijsgegevens, gaat u naar de [Load Balancer prijzen](https://azure.microsoft.com/pricing/details/load-balancer/) pagina.

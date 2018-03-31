@@ -3,9 +3,9 @@ title: Een Azure Active Directory toe te voegen met behulp van verbonden Service
 description: Een Azure Active Directory toevoegen met behulp van de Visual Studio verbonden dialoogvenster Services toevoegen
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.service: active-directory
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2018
-ms.author: kraigb
-ms.openlocfilehash: b21761b6fc166ecbb2fec9c13e5e207481fa9a39
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: ghogen
+ms.openlocfilehash: 882ba1c7ea8ef6889bc9ad20031070cd54100026
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Een Azure Active Directory toe te voegen met behulp van verbonden Services in Visual Studio
 

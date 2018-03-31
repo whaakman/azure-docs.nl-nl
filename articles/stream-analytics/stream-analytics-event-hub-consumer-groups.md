@@ -3,23 +3,22 @@ title: Fouten opsporen in Azure Stream Analytics met event hub-ontvangers | Micr
 description: Aanbevolen procedures voor het overwegen van Event Hubs consumer-groepen in de Stream Analytics-taken opvragen.
 keywords: limiet van Event hub, klantengroep
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+documentationcenter: ''
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: ede3137de92e251f4ad020bc1ce3f041918242b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: ba54e4c0146e797e300579415db170fd6d290034
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Fouten opsporen in Azure Stream Analytics met event hub-ontvangers
 

@@ -1,12 +1,12 @@
 ---
-title: Azure Content Delivery Network cachegedrag met caching regels beheren | Microsoft Docs
+title: Azure CDN cachegedrag met caching regels beheren | Microsoft Docs
 description: CDN caching regels kunt u instellen of wijzigen van standaardgedrag cache verloopt zowel globaal en met voorwaarden, zoals een URL-pad en de bestandsnaam extensies.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Besturingselement Azure Content Delivery Network cachegedrag met caching van regels
+# <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Besturingselement Azure CDN cachegedrag met caching van regels
 
 > [!NOTE] 
 > In het cachegeheugen regels zijn alleen beschikbaar voor **Azure CDN van Verizon standaard** en **Azure CDN van Akamai standaard**. Voor **Azure CDN van Verizon Premium**, kunt u de [Azure CDN regelengine](cdn-rules-engine.md) in de **beheren** portal voor vergelijkbare functionaliteit.
  
-Azure Content Delivery Network biedt twee manieren om te bepalen hoe uw bestanden in de cache opgeslagen: 
+Azure Content Delivery Network (CDN) biedt twee manieren om te bepalen hoe uw bestanden in de cache opgeslagen: 
 
 - Regels opslaan in cache: dit artikel wordt beschreven hoe u content delivery network (CDN) opslaan in cache regels instellen of wijzigen van standaardgedrag cache verloopt zowel globaal en met aangepaste voorwaarden, zoals een URL-pad en de bestandsnaam uitbreiding kunt gebruiken. Azure CDN biedt twee typen regels opslaan in cache:
    - Global regels opslaan in cache: U kunt een globale cacheregel voor elk eindpunt instellen in uw profiel dat gevolgen heeft voor alle aanvragen voor het eindpunt. De globale cacheregel overschrijft instructie cache HTTP-headers als ingesteld.
@@ -40,11 +40,11 @@ Zie voor meer informatie over standaard cachegedrag en caching richtlijn headers
 Het instellen van CDN regels opslaan in cache:
 
 1. De Azure portal openen, selecteer een CDN-profiel en selecteer vervolgens een eindpunt.
-2. Klik in het linkerdeelvenster onder instellingen op **regels opslaan in cache**.
+2. Selecteer in het linkerdeelvenster onder instellingen **regels opslaan in cache**.
 
    ![Knop regels CDN opslaan in cache](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-1. Hiermee maakt u een globale cacheregel als volgt:
+3. Hiermee maakt u een globale cacheregel als volgt:
    1. Onder **Global caching regels**stelt **queryreeks cachegedrag** naar **querytekenreeksen negeren**.
    2. Stel **cachegedrag** naar **ingesteld indien deze ontbreken**.
        
@@ -62,10 +62,11 @@ Het instellen van CDN regels opslaan in cache:
 
     ![Aangepaste regels voor opslaan in cache](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
+    
 > [!NOTE] 
 > Bestanden die in de cache voordat de wijziging van een regel opgeslagen behouden hun duur van de oorsprong cache-instelling. Als u de duur van de cache herstellen, moet u [opschonen van het bestand](cdn-purge-endpoint.md). Voor **Azure CDN van Verizon** eindpunten, het kan tot 90 minuten duren voordat voor het opslaan van regels te laten treden.
 
-## <a name="reference"></a>Naslaginformatie
+## <a name="reference"></a>Referentie
 
 ### <a name="caching-behavior-settings"></a>Van caching-gedraginstellingen
 Voor globale en aangepaste regels in het cachegeheugen, kunt u de volgende **cachegedrag** instellingen:
@@ -102,13 +103,13 @@ Globale en aangepaste cachebewerkingen regels worden verwerkt in de volgende vol
 
 - Aangepaste regel #1 opslaan in cache:
    - Overeenkomen met de voorwaarde: **pad**
-   - Overeenkomende waarde:`/home/*`
+   - Overeenkomende waarde: `/home/*`
    - Cachegedrag: **overschrijven**
    - Duur voor het verlopen in de cache: 2 dagen
 
 - Aangepaste regel #2 opslaan in cache:
    - Overeenkomen met de voorwaarde: **extensie**
-   - Overeenkomende waarde:`.html`
+   - Overeenkomende waarde: `.html`
    - Cachegedrag: **indien deze ontbreken instellen**
    - Duur voor het verlopen in de cache: 3 dagen
 

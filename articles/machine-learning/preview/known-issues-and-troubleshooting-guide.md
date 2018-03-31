@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3699e2a59061d8a2870a263588917268ca504866
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -238,6 +238,14 @@ In het algemeen is het hoeft te doen. Maar als u schone installatie van een wiss
     - [Windows PowerShell-script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (U wilt uitvoeren `Set-ExecutionPolicy Unrestricted` in een opdrachtprompt met verhoogde bevoegdheid bevoegdheid PowerShell-venster voordat u het script kunt uitvoeren.)
 - Op Mac OS:
   - Alleen downloaden en uitvoeren van de [Mac OS bash-shell-script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
+## <a name="azure-ml-using-a-different-python-location-than-the-azure-ml-installed-python-environment"></a>Azure ML gebruikmaakt van een andere python locatie dan de Azure ML geïnstalleerde python-omgeving
+Als gevolg van een recente wijziging in Azure Machine Learning Workbench merken gebruikers dat lokaal wordt uitgevoerd niet naar de python-omgeving niet meer is geïnstalleerd door de Azure ML-Workbench verwijzen mogen. Dit kan gebeuren als de gebruiker een andere python-omgeving op hun computer is geïnstalleerd en het pad 'Python' is ingesteld om te verwijzen naar deze omgeving. Als u wilt gebruiken van Azure ML-Workbench Python-omgeving is geïnstalleerd, als volgt te werk:
+- Ga naar local.compute bestand onder de map aml_config onder de hoofdmap van het project.
+- Wijzig de variabele 'pythonLocation' om te verwijzen naar het fysieke pad van Azure ML-workbench geïnstalleerd python-omgeving. U kunt dit pad krijgen op twee manieren:
+    - Azure ML python-locatie kan worden gevonden op %localappdata%\AmlWorkbench\python\python.exe
+    - u kunt openen cmd vanuit Azure ML Workbench, python op de opdrachtprompt typt, sys.exe importeren, sys.executable uitvoeren en ophalen van het pad van daaruit. 
+
 
 
 ## <a name="some-useful-docker-commands"></a>Een aantal handige Docker-opdrachten

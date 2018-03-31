@@ -2,11 +2,11 @@
 title: Profileren van een Cloudservice lokaal in de Rekenemulator | Microsoft Docs
 services: cloud-services
 description: Het onderzoeken van prestatieproblemen in cloudservices met de profiler Visual Studio
-documentationcenter: 
+documentationcenter: ''
 author: mikejo
-manager: ghogen
-editor: 
-tags: 
+manager: douge
+editor: ''
+tags: ''
 ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
 ms.service: cloud-services
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ff7b88a3086488ab669288687c274237ca30b47
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>De prestaties van een Cloudservice lokaal te testen in de Azure-Rekenemulator met behulp van de Profiler Visual Studio
 Tal van hulpprogramma's en technieken zijn beschikbaar voor het testen van de prestaties van cloudservices.
@@ -30,7 +30,7 @@ U kunt ook het profiel van uw toepassing lokaal in de rekenemulator voordat u de
 Dit artikel behandelt de profileringsmethode voor CPU-sampling, die lokaal kan worden uitgevoerd in de emulator. CPU-steekproeven is een methode voor het samenstellen van profiel die niet zeer hoog. De profiler maakt op een aangewezen steekproefinterval een momentopname van de aanroepstack. De gegevens worden verzameld over een tijdsperiode, en in een rapport weergegeven. Deze methode van profilering doorgaans om aan te geven waar in een toepassing rekenkracht meeste CPU werk wordt uitgevoerd.  Hierdoor kunt u zich kunt richten op het 'hot 'pad waar de toepassing de meeste tijd besteedt.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Visual Studio voor profilering configureren
-Er zijn eerst enkele Visual Studio-configuratieopties die nuttig zijn kunnen bij het samenstellen van profiel. Om het zinvol zijn van de profilering rapporten, moet u symbolen (.pdb-bestanden) voor uw toepassing en ook symbolen voor systeembibliotheken. Moet u ervoor zorgen dat u verwijst naar de beschikbare symbool-servers. Om dit te doen, op de **extra** in het menu in Visual Studio **opties**, en kies vervolgens **foutopsporing**, klikt u vervolgens **symbolen**. Zorg ervoor dat Microsoft symbool Servers wordt vermeld onder **symbool bestandslocaties (.pdb)**.  U kunt ook verwijzen naar http://referencesource.microsoft.com/symbols deze heeft mogelijk extra symboolbestanden.
+Er zijn eerst enkele Visual Studio-configuratieopties die nuttig zijn kunnen bij het samenstellen van profiel. Om het zinvol zijn van de profilering rapporten, moet u symbolen (.pdb-bestanden) voor uw toepassing en ook symbolen voor systeembibliotheken. Moet u ervoor zorgen dat u verwijst naar de beschikbare symbool-servers. Om dit te doen, op de **extra** in het menu in Visual Studio **opties**, en kies vervolgens **foutopsporing**, klikt u vervolgens **symbolen**. Zorg ervoor dat Microsoft symbool Servers wordt vermeld onder **symbool bestandslocaties (.pdb)**.  U kunt ook verwijzen naar http://referencesource.microsoft.com/symbols, die mogelijk aanvullende symboolbestanden hebben.
 
 ![Symboolopties][4]
 

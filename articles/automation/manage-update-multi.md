@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c227af1afa95243390152918a6b81015dbaceaeb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -61,7 +61,7 @@ Windows-agents moeten worden geconfigureerd om te communiceren met een WSUS-serv
 
 Linux-agents moeten toegang hebben tot een opslagplaats voor updates.
 
-Deze oplossing biedt geen ondersteuning voor een OMS-Agent voor Linux die is geconfigureerd voor rapportage aan meerdere Operations Management Suite-werkruimten.
+Deze oplossing biedt geen ondersteuning voor een OMS-Agent voor Linux geconfigureerd voor rapportage aan meerdere Log Analytics-werkruimten.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Updatebeheer voor virtuele Azure-machines inschakelen
 
@@ -176,5 +176,5 @@ Selecteer **Fouten** voor gedetailleerde informatie over fouten die zijn opgetre
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie [Oplossing Updatebeheer in OMS](../operations-management-suite/oms-solution-update-management.md) voor meer informatie over Updatebeheer, waaronder logboeken, uitvoer en fouten.
+* Voor meer informatie over updatebeheer--inclusief Logboeken, uitvoer en fouten--Zie [beheeroplossing bijwerken in Azure](../operations-management-suite/oms-solution-update-management.md).
 

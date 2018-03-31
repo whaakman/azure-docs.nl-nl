@@ -5,9 +5,9 @@ keywords: metrics
 services: cosmos-db
 author: gnot
 manager: jhubbard
-editor: 
-documentationcenter: 
-ms.assetid: 
+editor: ''
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 37ef1bc01bd3679e664e71e6a6e3bede84615305
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Bewaking en foutopsporing met metrische gegevens in Azure Cosmos-DB
 
@@ -34,7 +34,7 @@ Dit artikel begeleidt bij algemene gebruiksvoorbeelden en hoe Azure Cosmos DB me
 
 ## <a name="understanding-how-many-requests-are-succeeding-or-causing-errors"></a>Informatie over hoeveel aanvragen zijn slaagt of fouten veroorzaken
 
-Om te beginnen, Ga naar de [Azure-portal](https://portal.azure.com) en navigeer naar de **metrische gegevens** blade. In de blade ziet u de **aantal aanvragen overschreden capaciteit per 1 minuut** grafiek. Dit diagram toont een minuut door minuut totaal aantal aanvragen dat gesegmenteerd op de statuscode. Zie voor meer informatie over HTTP-statuscodes [HTTP-statuscodes voor Azure Cosmos DB](https://docs.microsoft.com/rest/api/documentdb/http-status-codes-for-documentdb).
+Om te beginnen, Ga naar de [Azure-portal](https://portal.azure.com) en navigeer naar de **metrische gegevens** blade. In de blade ziet u de **aantal aanvragen overschreden capaciteit per 1 minuut** grafiek. Dit diagram toont een minuut door minuut totaal aantal aanvragen dat gesegmenteerd op de statuscode. Zie voor meer informatie over HTTP-statuscodes [HTTP-statuscodes voor Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 De meest voorkomende foutstatuscode is 429 (beperking), wat betekent dat aanvragen bij Azure Cosmos DB de ingerichte doorvoer overschrijdt. De meest voorkomende oplossing voor dit is [de RUs opschalen](./set-throughput.md) voor de opgegeven verzameling.
 

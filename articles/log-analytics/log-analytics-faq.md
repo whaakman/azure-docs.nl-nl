@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over logboekanalyse in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en stel uw vragen. Wanneer een vraag vaak wordt gevraagd, wordt deze toegevoegd aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -51,7 +51,7 @@ A: Nee. Log Analytics is een schaalbare cloudservice die worden verwerkt en opge
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Hoe kan ik als logboekanalyse is niet meer gegevens verzamelt oplossen?
 
-A: als u zijn op de gratis prijscategorie en meer dan 500 MB aan gegevens in een dag hebt verzonden, stopt het verzamelen van gegevens voor de rest van de dag. De dagelijkse limiet bereikt, is een veelvoorkomende reden die logboekanalyse stopt het verzamelen van gegevens of gegevens lijkt te ontbreken.  
+A: voor een abonnement en de werkruimte gemaakt vóór 2 April 2018 dat zich op de *vrije* prijscategorie, als er meer dan 500 MB aan gegevens wordt verzonden in een dag, verzamelen van gegevens wordt voor de rest van de dag is gestopt. De dagelijkse limiet bereikt, is een veelvoorkomende reden die logboekanalyse stopt het verzamelen van gegevens of gegevens lijkt te ontbreken.  
 
 Log Analytics maakt een gebeurtenis van het type *Heartbeat* en kan worden gebruikt om te bepalen als gegevensverzameling is gestopt. 
 
@@ -68,7 +68,7 @@ De volgende tabel beschrijft oorzaken waardoor het verzamelen van gegevens stopt
 | Limiet voor gratis gegevens bereikt<sup>1</sup>       | Wacht tot de volgende maand voor verzameling automatisch opnieuw wordt gestart, of<br> Wijzig in een betaald prijscategorie |
 | Azure-abonnement is een onderbroken vanwege: <br> Gratis proefversie is beëindigd <br> Verlopen van Azure op te geven <br> Maandelijks uitgavenlimiet bereikt (bijvoorbeeld op een abonnement met MSDN of Visual Studio)                          | Converteren naar een betaald abonnement <br> Converteren naar een betaald abonnement <br> Limiet verwijderen of wacht u totdat de limiet wordt opnieuw ingesteld |
 
-<sup>1</sup> als uw werkruimte op de gratis prijscategorie is, bent u beperkt tot 500 MB aan gegevens per dag verzenden naar de service. Wanneer u de dagelijkse limiet bereikt, stopt het verzamelen van gegevens tot de volgende dag. Gegevens die worden verzonden tijdens het verzamelen van gegevens is gestopt, is niet geïndexeerd en is niet beschikbaar voor het zoeken. Als gegevensverzameling wordt hervat, vindt de verwerking alleen voor nieuwe gegevens die worden verzonden. 
+<sup>1</sup> als uw werkruimte is op de *vrije* prijscategorie, u kunt maximaal 500 MB aan gegevens per dag verzenden naar de service. Wanneer u de dagelijkse limiet bereikt, stopt het verzamelen van gegevens tot de volgende dag. Gegevens die worden verzonden tijdens het verzamelen van gegevens is gestopt, is niet geïndexeerd en is niet beschikbaar voor het zoeken. Als gegevensverzameling wordt hervat, vindt de verwerking alleen voor nieuwe gegevens die worden verzonden. 
 
 Log Analytics gebruikt UTC-tijd en elke dag om middernacht UTC begint. Als de werkruimte de dagelijkse limiet bereikt, hervat verwerking tijdens het eerste uur van de volgende dag (UTC).
 
@@ -96,7 +96,7 @@ A. Nee, is het niet mogelijk om te lezen uit willekeurige tabellen of containers
 
 A. De Log Analytics-service is ingebouwd in Azure. Log Analytics IP-adressen zijn de [Microsoft Azure Datacenter IP-adresbereiken](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Als de service-implementaties worden aangebracht, worden de werkelijke IP-adressen van de Log Analytics-service wijzigen. De DNS-namen om toe te staan via de firewall zijn gedocumenteerd op [proxy- en firewall-instellingen configureren in logboekanalyse](log-analytics-proxy-firewall.md).
+Als de service-implementaties worden aangebracht, worden de werkelijke IP-adressen van de Log Analytics-service wijzigen. De DNS-namen om toe te staan via de firewall zijn gedocumenteerd in [systeemvereisten](log-analytics-concept-hybrid.md#prerequisites).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. Ik ExpressRoute gebruiken voor het verbinden met Azure. Mijn verkeer Log Analytics maakt gebruik van mijn ExpressRoute-verbinding?
 
@@ -144,7 +144,7 @@ A. Het gratis-plan Hiermee stelt u een dagelijkse limiet van 500 MB per werkruim
 
 De agent Log Analytics is ontworpen om te controleren of er een kleine footprint. Het gegevensvolume varieert op basis van de oplossingen die u inschakelt. U vindt gedetailleerde informatie over het gegevensvolume en de uitsplitsing zien door oplossing in de [gebruik](log-analytics-usage.md) pagina.
 
-Voor meer informatie vindt u een [klant blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) over de kleine footprint van de OMS-agent.
+Voor meer informatie vindt u een [klant blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) met hun resultaten na het evalueren van het Resourcegebruik (footprint) van de OMS-agent.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. Hoeveel netwerkbandbreedte wordt door de Microsoft Management Agent (MMA) gebruikt bij het verzenden van gegevens met Log Analytics?
 

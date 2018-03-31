@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Veelgestelde vragen over Azure AD Connect Health
 In dit artikel bevat antwoorden op veelgestelde vragen (FAQ's) over Azure Active Directory (Azure AD) Connect Health. Deze Veelgestelde vragen hebben betrekking op vragen over het gebruik van de service, waaronder het facturering model, mogelijkheden, beperkingen en ondersteuning.
@@ -181,7 +181,7 @@ CheckForMS17-010
 
 **V: Waarom wordt mijn ADFS audits niet gegenereerd?**
 
-Gebruik PowerShell-cmdlet <i>Get-AdfsProperties - AuditLevel</i> uitgeschakeld om ervoor te zorgen controlelogboeken bevindt zich niet in staat. Lees meer over [AD FS-auditlogboeken](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
+Gebruik PowerShell-cmdlet <i>Get-AdfsProperties - AuditLevel</i> uitgeschakeld om ervoor te zorgen controlelogboeken bevindt zich niet in staat. Lees meer over [AD FS-auditlogboeken](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). U ziet het dat als er worden geavanceerde controle-instellingen op de ADFS-server geplaatst, worden alle wijzigingen met auditpol.exe overschreven (gebeurtenis als toepassing gegenereerd niet is geconfigureerd). Stel in dat geval het lokale beveiligingsbeleid aan te melden mislukte toepassing gegenereerd en het slagen. 
 
 
 ## <a name="related-links"></a>Verwante koppelingen

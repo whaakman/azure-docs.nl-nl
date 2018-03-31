@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 045a7f97d9c4d380e83325c04c209a6afcc761a7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: abab73a047fb923fa2cd57a1c7194e440697bf64
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="extend-alerts-from-oms-into-azure"></a>Waarschuwingen van OMS uitbreiden naar Azure
 De nieuwe waarschuwingen is nu geïntegreerd ervaring voor de waarschuwingen over verschillende services en onderdelen in Microsoft Azure. De nieuwe ervaring beschikbaar als **waarschuwingen** onder Azure Monitor in de Portal, heeft samengebracht in een algemene plaats - activiteit logboek waarschuwingen, metrische waarschuwingen en logboek waarschuwingen op Log Analytics, evenals een Application Insights. 
@@ -28,8 +28,8 @@ Maar voor sommige gebruikers, het gebruik van logboekanalyse en allied functiona
 Naast het voordeel dat is samengevoegd in dat u niet hoeft te navigeren buiten het Azure-portal, zijn er andere voordelen van de meest kenmerkende in waarschuwingen van OMS uit te breiden naar Azure
 
 - In tegenstelling tot in OMS, waarbij alleen 250 waarschuwingen kunnen worden gemaakt en weergegeven; in Azure waarschuwingen is deze beperking niet aanwezig
-- Van waarschuwingen van Azure, alle u waarschuwingen typen kunnen worden beheerd, geïnventariseerd en bekeken; niet alleen logboekanalyse waarschuwingen als het geval is bij OMS
-- Waarschuwingen van Azure gebruikmaken [actiegroepen](monitoring-action-groups.md), waarmee u hebt voor elke waarschuwing meer dan één actie met inbegrip van SMS, telefoongesprek, Automation-Runbook, Webhook, ITSM Connector en meer. Waarbij waarschuwingen in OMS zijn beperkt in zowel het nummer als type acties mogelijk
+- Van waarschuwingen van Azure, worden uw Waarschuwingstypen beheerd, opgesomd en weergegeven; niet alleen logboekanalyse waarschuwingen, zoals het geval met OMS
+- Waarschuwingen van Azure gebruikmaken [actiegroepen](monitoring-action-groups.md), waarmee u kunt het hebben van meer dan één actie op voor elke waarschuwing inclusief SMS, telefoongesprek, Automation-Runbook, Webhook, ITSM Connector en meer. Terwijl de OMS-waarschuwingen zijn beperkt in zowel het nummer ook als acties mogelijk type
 
 ## <a name="process-of-extending-your-alerts"></a>Proces voor het verlengen van uw waarschuwingen
 Het proces voor het uitbreiden van waarschuwingen van OMS in Azure, **niet** waarbij de meldingsdefinitie, een query of een configuratie op een manier wordt gewijzigd. De enige wijziging vereist is in Azure worden alle acties zoals het e-mailmeldingen worden webhook-aanroep automation-runbook wordt uitgevoerd of verbinding te maken met het hulpprogramma ITSM gedaan via de actie-groep. Daarom als groep passende maatregelen gekoppeld aan uw waarschuwing zijn - zal ze worden uitgebreid in Azure.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7cd16d64d18b4cdcb710f68c55a8251904acda86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Ongeldige configuratie voor Service-Principal voor uw beheerde domein oplossen
 
@@ -93,7 +93,7 @@ Volg deze stappen als een service-principal met de ID ```d87dcbc6-a371-462e-88e3
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Waarschuwing AADDS105: Wachtwoord synchronisatie van toepassing is verouderd
 
-**Waarschuwing:** de service-principal met de toepassings-ID 'd87dcbc6-a371-462e-88e3-28ad15ec4e64' is verwijderd en vervolgens opnieuw gemaakt. Deze service-principal beheert een andere service-principal en een toepassing die worden gebruikt voor synchronisatie van wachtwoorden. De beheerde service-principal en/of de toepassing is niet geautoriseerd onder de nieuwe service-principal zodat deze kunnen niet worden beheerd door onze service. Dit betekent dat de zojuist gemaakte service-principal kan niet worden bijgewerkt van de oude beheerde toepassingen en synchronisatie van wachtwoorden worden beïnvloed.
+**Waarschuwing:** de service-principal met de toepassings-ID 'd87dcbc6-a371-462e-88e3-28ad15ec4e64' is verwijderd en vervolgens opnieuw gemaakt. De opnieuw laat achter inconsistente machtigingen op Azure AD Domain Services-bronnen die nodig zijn voor het onderhouden van uw beheerde domein. Synchronisatie van wachtwoorden in uw beheerde domein kan worden beïnvloed.
 
 
 **Oplossing:** moet u Azure AD PowerShell om deze stappen te voltooien. Zie voor meer informatie over het installeren van Azure AD PowerShell [in dit artikel](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).

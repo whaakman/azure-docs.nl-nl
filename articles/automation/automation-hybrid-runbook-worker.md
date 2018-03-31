@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/21/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 157db4a9de41c9895d39469d3d42a45c1a929649
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b317a2d9241016b66651af4659c7daf2e8d8f2cc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatiseren van bronnen in uw datacenter of de cloud met Hybrid Runbook Worker
 
@@ -38,7 +38,7 @@ Als u een bestaande SMA-gebruiker bent, kunt u uw runbooks in Azure Automation w
 
 U kunt de volgende criteria om te bepalen of Azure Automation met Hybrid Runbook Worker- of Service Management Automation meer geschikt is voor uw vereisten.
 
-* SMA vereist een lokale installatie van de onderliggende onderdelen die zijn verbonden met Windows Azure Pack als een grafische beheerinterface vereist is. Meer lokale bronnen nodig zijn met hogere onderhoudskosten dan Azure Automation, die alleen een agent geïnstalleerd op de lokale runbook workers moet. De agents worden beheerd door Operations Management Suite en verdere verlagen de onderhoudskosten.
+* SMA vereist een lokale installatie van de onderliggende onderdelen die zijn verbonden met Windows Azure Pack als een grafische beheerinterface vereist is. Meer lokale bronnen nodig zijn met hogere onderhoudskosten dan Azure Automation, die alleen een agent geïnstalleerd op de lokale runbook workers moet. De agents worden beheerd door Azure, verder verlagen de onderhoudskosten.
 * Azure Automation slaat de runbooks in de cloud en zorgt ervoor dat deze lokale hybride Runbook workers. Als uw beveiligingsbeleid dit gedrag niet toelaat, moet u SMA gebruiken.
 * SMA is opgenomen in System Center; en is daarom een System Center 2012 R2-licentie vereist. Azure Automation is gebaseerd op een abonnementsmodel gelaagde.
 * Azure Automation heeft geavanceerde functies zoals grafische runbooks die niet beschikbaar in SMA.
@@ -92,27 +92,25 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
 
 De eerste twee stappen eenmaal uitvoeren voor uw Automation-omgeving en vervolgens de resterende stappen herhalen voor elke worker-computer.
 
-#### <a name="1-create-operations-management-suite-workspace"></a>1. Operations Management Suite-werkruimte maken
+#### <a name="1-create-log-analytics-workspace"></a>1. Een Log Analytics-werkruimte maken
+Als u nog geen een werkruimte voor logboekanalyse, maakt u een met instructies voor [beheren van uw werkruimte](../log-analytics/log-analytics-manage-access.md). Als u al hebt, kunt u een bestaande werkruimte gebruiken.
 
-Als u nog geen een Operations Management Suite-werkruimte, maakt u een met instructies voor [beheren van uw werkruimte](../log-analytics/log-analytics-manage-access.md). Als u al hebt, kunt u een bestaande werkruimte gebruiken.
+#### <a name="2-add-automation-solution-to-log-analytics-workspace"></a>2. Automation-oplossing naar de werkruimte voor logboekanalyse toevoegen
 
-#### <a name="2-add-automation-solution-to-operations-management-suite-workspace"></a>2. Automation-oplossing toevoegen aan Operations Management Suite-werkruimte
+Oplossingen voegen functionaliteit toe aan Log Analytics. De Automation-oplossing voegt u functionaliteit voor Azure Automation biedt ook ondersteuning voor hybride Runbook Worker. Wanneer u de oplossing voor uw werkruimte toevoegt, duwt wordt automatisch omlaag worker-onderdelen voor de agentcomputer die u in de volgende stap installeren wilt.
 
-Functionaliteit toevoegen oplossingen aan Operations Management Suite. De Automation-oplossing voegt u functionaliteit voor Azure Automation biedt ook ondersteuning voor hybride Runbook Worker. Wanneer u de oplossing voor uw werkruimte toevoegt, duwt wordt automatisch omlaag worker-onderdelen voor de agentcomputer die u in de volgende stap installeren wilt.
-
-Volg de instructies voor [toevoegen van een oplossing met behulp van de galerie met oplossingen](../log-analytics/log-analytics-add-solutions.md) toevoegen de **Automation** oplossing voor uw Operations Management Suite-werkruimte.
+Volg de instructies voor [toevoegen van een oplossing met behulp van de galerie met oplossingen](../log-analytics/log-analytics-add-solutions.md) toevoegen de **Automation** oplossing voor uw werkruimte voor logboekanalyse.
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Microsoft Monitoring Agent installeren
-
-Microsoft Monitoring Agent verbonden computers met Operations Management Suite. Wanneer u de agent op uw on-premises computer installeren en met uw werkruimte verbinden, downloadt u de onderdelen die vereist zijn voor hybride Runbook Worker.
+Microsoft Monitoring Agent verbonden computers met logboekanalyse. Wanneer u de agent op uw on-premises computer installeren en met uw werkruimte verbinden, worden de onderdelen die vereist zijn voor hybride Runbook Worker automatisch gedownload.
 
 Volg de instructies voor [verbinding maken met Windows-computers met logboekanalyse](../log-analytics/log-analytics-windows-agent.md) voor het installeren van de agent op de lokale computer. U kunt dit proces voor meerdere computers meerdere werknemers toevoegen aan uw omgeving herhalen.
 
-De agent verbonden is met Operations Management Suite, wordt weergegeven op de **verbonden bronnen** tabblad van de Operations Management Suite **instellingen** deelvenster. U kunt controleren of de agent correct de Automation-oplossing heeft gedownload wanneer er een map met de naam **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. Als u wilt controleren welke versie van de hybride Runbook Worker, u kunt navigeren naar C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ en noteer de \\ *versie* submap.
+U kunt controleren of de agent correct de Automation-oplossing heeft gedownload wanneer er een map met de naam **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. Als u wilt controleren welke versie van de hybride Runbook Worker, u kunt navigeren naar C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ en noteer de \\ *versie* submap.  
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. De runbook-omgeving installeren en verbinding maken met Azure Automation
 
-Wanneer u een agent met Operations Management Suite toevoegt, wordt de Automation-oplossing pushes omlaag de **HybridRegistration** PowerShell-module bevat de **Add-HybridRunbookWorker** cmdlet. Met deze cmdlet kunt u de runbook-omgeving op de computer installeren en registreren met Azure Automation.
+Wanneer u een agent met logboekanalyse toevoegt, wordt de Automation-oplossing pushes omlaag de **HybridRegistration** PowerShell-module bevat de **Add-HybridRunbookWorker** cmdlet. Met deze cmdlet kunt u de runbook-omgeving op de computer installeren en registreren met Azure Automation.
 
 Importeer de module, open een PowerShell-sessie in de beheerdersmodus en voer de volgende opdrachten:
 

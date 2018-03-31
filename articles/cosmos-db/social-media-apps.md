@@ -5,8 +5,8 @@ keywords: Sociale media-apps
 services: cosmos-db
 author: ealsur
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d223187ab1f8338c57e6aa32903ea9b762393ab5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Met Azure Cosmos DB sociale gaan
 Die in een samenleving massively onderling verbonden betekent dat op een bepaald moment in leven u deel van uitmaken een **sociale netwerken**. We gebruiken sociale netwerken om te communiceren vrienden, collega's, familie of soms onze passie delen met mensen met een gemeenschappelijke interesses.
@@ -229,7 +229,7 @@ Biedt ondersteuning voor cosmos DB [dynamische partitionering](https://azure.mic
 
 Een interessant punt opgemerkt Cosmos-database wordt uitgevoerd is met uw query's (inclusief [statistische functies](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) voor alle partities in uw transparant, u hoeft niet alle logica toevoegen wanneer uw gegevens groeit.
 
-Met de tijd, wordt uiteindelijk groeien in verkeer en het verbruik van uw (gemeten in [RUs](request-units.md), of Aanvraageenheden) wordt verhoogd. U leest en schrijft vaker als uw userbase groeit en ze gaat maken en lezen meer inhoud; de mogelijkheid van **schalen van uw doorvoer** is het essentieel. Onze RUs verhoging is heel eenvoudig, we kunt dit doen met een paar muisklikken in de Azure Portal of door [uitgeven van opdrachten via de API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+Met de tijd, wordt uiteindelijk groeien in verkeer en het verbruik van uw (gemeten in [RUs](request-units.md), of Aanvraageenheden) wordt verhoogd. U leest en schrijft vaker als uw userbase groeit en ze gaat maken en lezen meer inhoud; de mogelijkheid van **schalen van uw doorvoer** is het essentieel. Onze RUs verhoging is heel eenvoudig, we kunt dit doen met een paar muisklikken in de Azure Portal of door [uitgeven van opdrachten via de API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Omhoog schalen en het definiëren van een partitiesleutel](./media/social-media-apps/social-media-apps-scaling.png)
 

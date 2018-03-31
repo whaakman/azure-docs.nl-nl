@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: jeedes
-ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6a4c64fb8400eaf2e09be049b032535e09969fb8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Zelfstudie: Azure Active Directory-integratie met Slack
 
@@ -44,7 +44,7 @@ Voor het configureren van Azure AD-integratie met Slack, moet u de volgende item
 Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -115,14 +115,14 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     b. In de **id** textbox, typ de URL: `https://slack.com`
 
     > [!NOTE] 
-    > De waarde is geen echte. U moet de waarde wordt bijgewerkt met de werkelijke aanmelding op de URL. Neem contact op met [toegestane ondersteuningsteam](https://slack.com/help/contact) de waarde op te halen
+    > De waarde is geen echte. U moet de waarde wordt bijgewerkt met de werkelijke aanmelding op de URL. Neem contact op met [toegestane ondersteuningsteam](https://slack.com/help/contact) de waarde op te halen.
      
 4. De SAML-asserties verwacht toegestane toepassing in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt beheren de waarden van deze kenmerken van de '**gebruikerskenmerken**' sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
     
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
     > [!NOTE] 
-    > Als de gebruiker heeft **e-mailadres** toegewezen met de Office365 wordt alleen het worden ingevuld, anders de **e-mailadres** claim worden niet weergegeven in het SAML-Token.
+    > Als u gebruikers hebt die is toegewezen **e-mailadres** is niet op een licentie Office365 de **User.Email** claim worden niet weergegeven in het SAML-Token. In dergelijke gevallen we raden aan met behulp van **user.userprincipalname** als de **User.Email** kenmerk waarde om toe te wijzen als **unieke id** in plaats daarvan.
 
 5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster Selecteer **user.mail** als **gebruikers-id** en voor elke rij in de onderstaande tabel wordt weergegeven, voert u de volgende stappen uit:
     
@@ -180,12 +180,6 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     d. Configureer de bovenstaande drie instellingen voor uw team toegestane. Voor meer informatie over de instellingen, gaat u naar de **vertraging van SSO configuratiehandleiding** hier. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     e.  Klik op **configuratie op te slaan**.
-     
-    <!-- Deselect **Allow users to change their email address**.
-
-    e.  Select **Allow users to choose their own username**.
-
-    f.  As **Authentication for your team must be used by**, select **It’s optional**. -->
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -271,8 +265,6 @@ Wanneer u klikt op de toegestane tegel in het deelvenster toegang u moet ophalen
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

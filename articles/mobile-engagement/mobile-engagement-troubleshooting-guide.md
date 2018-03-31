@@ -2,10 +2,10 @@
 title: Azure Mobile Engagement-handleidingen voor het oplossen van problemen
 description: Gids voor probleemoplossing voor Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 31134a29-a513-4e5e-b626-f6cf6fe04769
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 93b5e3f4892f974bf9df28955956136528470e03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1242b2b796821856561a82d4a585b26693aadadd
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---troubleshooting-guide"></a>Azure Mobile Engagement - Gids problemen oplossen
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 ## <a name="introduction"></a>Inleiding
 De volgende handleiding voor probleemoplossing krijgt u inzicht hoofdoorzaken van enkele regelmatig terugkomt en wordt u om op te lossen op uw eigen inschakelen. 
 
@@ -109,7 +113,7 @@ Als u niet het probleem op te lossen kunt u vervolgens een zelf:
 3. Als u geopend voor ondersteuning van Microsoft een ondersteuningsincident hebt door te geven van de volgende details: 
    * Azure-abonnement-ID
    * Platform (bijvoorbeeld iOS, Android, enzovoort)
-   * App-ID
+   * App-id
    * Campagne-ID (voor problemen met push-melding)
    * Apparaat-id
    * Mobile Engagement SDK-versie (bijvoorbeeld Android SDK v2.1.0)

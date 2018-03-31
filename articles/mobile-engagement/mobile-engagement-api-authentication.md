@@ -1,11 +1,11 @@
 ---
-title: "Verifiëren met Mobile Engagement REST-API 's"
+title: Verifiëren met Mobile Engagement REST-API 's
 description: Hierin wordt beschreven hoe u verificatie met Azure Mobile Engagement REST API 's
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: da82cb36-957a-4e19-a805-b44733cf6597
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 574e699a1cfca2caef0cf20872570bbb8650117b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5979ded9afaa31054f835b5f16fe525809f5730d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Verifiëren met Mobile Engagement REST-API 's
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
 
 ## <a name="overview"></a>Overzicht
 
@@ -83,7 +86,7 @@ Eventueel, u kunt ook de instructies in de [handmatige installatie](mobile-engag
 7. Nadat het script is voltooid, wordt de volgende vier waarden weergegeven. Vergeet te kopiëren, omdat u deze voor verificatie via een programma met de Active Directory nodig: 
 
    - **TenantId**
-   - **Abonnements-id**
+   - **abonnements-id**
    - **ApplicationId**
    - **Geheim**
 
@@ -102,11 +105,11 @@ Eventueel, u kunt ook de instructies in de [handmatige installatie](mobile-engag
 
 1. Roept de API met de volgende parameters. Zorg ervoor dat u **TENANT\_ID**, **CLIENT\_ID**, en **CLIENT\_GEHEIM**:
    
-   * **Aanvraag-URL** als`https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
+   * **Aanvraag-URL** als `https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
 
-   * **HTTP Content-Type-header** als`application/x-www-form-urlencoded`
+   * **HTTP Content-Type-header** als `application/x-www-form-urlencoded`
    
-   * **HTTP-aanvraag hoofdtekst** als`grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
+   * **HTTP-aanvraag hoofdtekst** als `grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
      
     Hier volgt een voorbeeld van aanvraag:
     ```

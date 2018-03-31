@@ -2,35 +2,33 @@
 title: Hyperlapse Media-bestanden met Azure Media Hyperlapse | Microsoft Docs
 description: Azure Media Hyperlapse maakt smooth verstreken tijd video's van de eerste persoon of actie camera inhoud. Dit onderwerp leest het gebruik van Media indexeerfunctie.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: asolanki
 manager: johndeu
-editor: 
+editor: ''
 ms.assetid: 37d54db6-9cf3-4ae9-b3c6-0d29c744e965
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 86a9d44a93d7717d2ed949db2b1d1e94963781d0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse Media-bestanden met Azure Media Hyperlapse
 Azure Media Hyperlapse is een Media Processor (MP) die u smooth video's verstreken tijd van eerste persoon of actie camera inhoud maakt.  De cloud-gebaseerd op hetzelfde niveau naar [van Microsoft Research bureaublad Hyperlapse Pro en Hyperlapse mobiele telefoon](http://aka.ms/hyperlapse), Microsoft Hyperlapse voor Azure Media Services maakt gebruik van de grote schaal van de verwerking van Azure Media Services Media platform horizontaal schalen en parallelize bulksgewijs Hyperlapse verwerken.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse is ontworpen om te werken het beste op de eerste persoon inhoud met een zwevend camera.  Hoewel u nog steeds camerabeelden kunt nog steeds werken, kunnen niet de prestaties en kwaliteit van de Azure Media Hyperlapse Media-Processor worden gegarandeerd voor andere typen inhoud.  Bekijk voor meer informatie over Microsoft Hyperlapse voor Azure Media Services en enkele voorbeeld-video's ziet, de [inleidende blogbericht](http://aka.ms/azurehyperlapseblog) van de openbare preview.
+> Microsoft Hyperlapse is ontworpen om te werken het beste op de eerste persoon inhoud met een zwevend camera. Hoewel u nog steeds camerabeelden kunt nog steeds werken, kunnen niet de prestaties en kwaliteit van de Azure Media Hyperlapse Media-Processor worden gegarandeerd voor andere typen inhoud.
 > 
 > 
 
 Een Azure Media Hyperlapse taak als neemt invoer een MP4, MOV of WMV assetbestand samen met een configuratiebestand waarmee wordt aangegeven welke frames van video moeten zijn verstreken tijd en op welke snelheid (bijvoorbeeld de eerste 10.000 frames 2 x).  De uitvoer is een weergave gestabiliseerd en verstreken tijd van de video invoer.
-
-Zie voor de meest recente updates voor het Azure Media Hyperlapse [Media Services-blogs](https://azure.microsoft.com/blog/topics/media-services/).
 
 ## <a name="hyperlapse-an-asset"></a>Hyperlapse een asset
 U moet eerst uw gewenste invoerbestand uploaden naar Azure Media Services.  Lees voor meer informatie over de concepten die betrokken zijn bij het uploaden en beheren van inhoud, de [inhoudsbeheer artikel](media-services-portal-vod-get-started.md).

@@ -2,7 +2,7 @@
 title: 'Azure AD Domain Services: Netwerken richtlijnen | Microsoft Docs'
 description: Overwegingen voor Azure Active Directory Domain Services netwerken
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Overwegingen voor Azure AD Domain Services netwerken
 ## <a name="how-to-select-an-azure-virtual-network"></a>Het selecteren van een virtuele Azure-netwerk
@@ -73,7 +73,7 @@ De volgende poorten zijn vereist voor de service Azure AD Domain Services en ond
 **Poort 443 (synchronisatie met Azure AD)**
 * Deze wordt gebruikt om uw Azure AD-directory worden gesynchroniseerd met uw beheerde domein.
 * Het is verplicht voor toegang tot deze poort in uw NSG. Uw beheerde domein is niet gesynchroniseerd met uw Azure AD-directory zonder toegang tot deze poort. Gebruikers mogelijk niet kunnen aanmelden als wijzigingen hun wachtwoorden niet gesynchroniseerd met uw beheerde domein.
-* U kunt binnenkomende toegang beperken tot deze poort voor IP-adressen die horen bij de Azure-IP-adresbereik.
+* U kunt binnenkomende toegang beperken tot deze poort voor IP-adressen die horen bij de Azure-IP-adresbereik. Houd er rekening mee dat het Azure-IP-adresbereik een ander bereik dan het PowerShell-bereik weergegeven in de onderstaande regel is.
 
 **Poort 5986 (PowerShell voor externe toegang)**
 * Deze wordt gebruikt voor het uitvoeren van beheertaken met behulp van PowerShell voor externe toegang op uw beheerde domein.

@@ -5,7 +5,7 @@ services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.openlocfilehash: 383e04f91eec2f465b381ce30f2d6d24c488b731
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771c4a539d240a6bfdc9770adc7cfada01571939
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Toegang tot Azure DB die Cosmos-gegevens beveiligen
 In dit artikel biedt een overzicht van de beveiliging van toegang tot gegevens die zijn opgeslagen in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Azure Cosmos DB gebruikt twee typen sleutels voor het verifiëren van gebruikers en toegang bieden tot de gegevens en bronnen. 
 
-|sleuteltype|Resources|
+|Sleuteltype|Resources|
 |---|---|
 |[Hoofdsleutels](#master-keys) |Gebruikt voor administratieve resources: database-accounts, databases, gebruikers en machtigingen|
 |[Resource-tokens](#resource-tokens)|Voor toepassingsresources gebruikt: verzamelingen, documenten, bijlagen, opgeslagen procedures, triggers en UDF's|
@@ -104,7 +104,7 @@ Hier volgt een typisch ontwerppatroon waarbij resource tokens kunnen worden aang
 
     ![Azure DB Cosmos resource tokens werkstroom](./media/secure-access-to-data/resourcekeyworkflow.png)
 
-Resource token genereren en beheren wordt verwerkt door de systeemeigen Cosmos DB clientbibliotheken; Als u gebruikmaakt van REST moet u de aanvraag-/ verificatieheaders opgeven. Zie voor meer informatie over het maken van verificatieheaders voor REST [toegangsbeheer voor bronnen voor Cosmos DB](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) of de [broncode voor onze SDK's](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+Resource token genereren en beheren wordt verwerkt door de systeemeigen Cosmos DB clientbibliotheken; Als u gebruikmaakt van REST moet u de aanvraag-/ verificatieheaders opgeven. Zie voor meer informatie over het maken van verificatieheaders voor REST [toegangsbeheer voor bronnen voor Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) of de [broncode voor onze SDK's](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
 
 Zie voor een voorbeeld van een van de middelste laag-service gebruikt voor het genereren of resource tokens broker de [ResourceTokenBroker app](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
@@ -182,4 +182,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over de beveiliging van de Cosmos-DB-database, [Cosmos DB: beveiliging van de Database](database-security.md).
 * Zie voor meer informatie over het beheer van hoofd- en alleen-lezen-sleutels, [het beheren van een account voor Azure Cosmos DB](manage-account.md#keys).
-* Zie voor meer informatie over het maken van Azure DB die Cosmos autorisatie tokens, [toegangsbeheer op Azure Cosmos DB bronnen](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources).
+* Zie voor meer informatie over het maken van Azure DB die Cosmos autorisatie tokens, [toegangsbeheer op Azure Cosmos DB bronnen](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

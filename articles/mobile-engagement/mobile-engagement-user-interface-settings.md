@@ -2,10 +2,10 @@
 title: Azure Mobile Engagement-gebruikersinterface - instellingen
 description: Informatie over het beheren van de algemene instellingen van uw toepassing met behulp van Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 858f4cb4-14de-4bb5-826f-28cadbfc928b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31df9f151febcb7e5f0f2cd4a83053b3aac416a3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>Het beheren van de algemene instellingen van uw toepassing
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 De **instellingen** menuopties beschikbaar voor een toepassing zijn verschillend, afhankelijk van het platform van de toepassing en de machtigingen die u hebt gekregen voor de toepassing. De volgende instellingen zijn: Details, projecten, Native Pushbericht, Push snelheid, Tag (app-info) en commerciële druk is. De Tag (app-info) menuoptie van de sectie instellingen kan worden beheerd door uw toepassing (met behulp van de SDK) of door uw back-end (met de apparaat-API). 
 
 > [!NOTE]
@@ -44,7 +48,7 @@ Zie voor meer informatie: [UI documentatie – Start][Link 13]
 
   ![settings3][48]
 
-## <a name="native-push"></a>Native Pushberichten
+## <a name="native-push"></a>Native push
 Hiermee kunt u een nieuw certificaat of verwijderen en een bestaand certificaat voor gebruik met native pushberichten registreren. Native Pushberichten Azure Mobile Engagement te pushen naar uw toepassing op elk gewenst moment kunt zelfs wanneer deze niet wordt uitgevoerd. 
 
 Na het opgeven van referenties of certificaten voor ten minste één Native Pushbericht service, kunt u 'Elke keer' bij het maken van Reach-campagnes en gebruik de parameter 'melder' in de PUSH-API.

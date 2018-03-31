@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning-experimenten Service configuratiebestanden
 
@@ -149,6 +149,8 @@ _\<COMPUTE doelnaam > .compute_ bestand geeft verbinding en configuratie-informa
 **nativeSharedDirectory**: deze eigenschap geeft u het basisobject in Active directory (bijvoorbeeld: _~/.azureml/share/_) waar de bestanden kunnen worden opgeslagen om te worden gedeeld tussen wordt uitgevoerd op hetzelfde doel compute. Als deze instelling wordt gebruikt wanneer u gebruikmaakt van een Docker-container _sharedVolumes_ moet worden ingesteld op true. Anders mislukt de uitvoering.
 
 **userManagedEnvironment**: deze eigenschap geeft aan of dit doel compute beheerd door de gebruiker rechtstreeks of via experimenteren-service worden beheerd.  
+
+**pythonLocation**: deze eigenschap geeft u de locatie van de python-runtime moet worden gebruikt bij het doel van de berekening van de gebruiker programma uit te voeren. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<configuratienaam uitvoeren > .runconfig
 _\<configuratienaam uitvoeren > .runconfig_ Hiermee geeft u de Azure ML uitvoeringsgedrag experimenteren. U kunt uitvoeringsgedrag zoals bijhouden uitvoeringsgeschiedenis configureren of wat het doel moet worden gebruikt samen met vele andere compute. De namen van de configuratiebestanden uitvoeren die worden gebruikt voor het vullen van de vervolgkeuzelijst van de context kan worden uitgevoerd in de Azure ML-Workbench bureaubladtoepassing.

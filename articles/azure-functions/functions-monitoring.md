@@ -4,8 +4,8 @@ description: Informatie over het gebruik van Azure Application Insights met Azur
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure-functies, functies, gebeurtenisverwerking, webhooks, dynamisch berekenen, architectuur zonder server
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
@@ -161,7 +161,7 @@ Het logboek van Azure functions bevat ook een *Meld niveau* met elke logboek. [L
 |Waarschuwing     | 3 |
 |Fout       | 4 |
 |Kritiek    | 5 |
-|None        | 6 |
+|Geen        | 6 |
 
 Meld u niveau `None` in de volgende sectie wordt uitgelegd. 
 
@@ -493,7 +493,7 @@ Beter Application Insights voor controlefuncties omdat het biedt meer gegevens e
 
 ### <a name="logging-to-storage"></a>Logboekregistratie naar de opslag
 
-Ingebouwde logboekregistratie maakt gebruik van het opslagaccount dat is opgegeven door de verbindingsreeks in de `AzureWebJobsDashboard` app-instelling. Als die appinstelling is geconfigureerd, kunt u de logboekgegevens in de Azure portal kunt zien. Selecteer een functie in een functie-app-pagina, en selecteer vervolgens de **Monitor** tabblad, en u een lijst van de functies die ophalen. Selecteer een functie wordt uitgevoerd om te controleren van de duur van de invoergegevens, fouten en bijbehorende logboekbestanden.
+Ingebouwde logboekregistratie maakt gebruik van het opslagaccount dat is opgegeven door de verbindingsreeks in de `AzureWebJobsDashboard` app-instelling. Als die appinstelling is geconfigureerd, kunt u de logboekgegevens in de Azure portal kunt zien. Ga in de opslagbronnen naar bestanden, selecteer de file-service voor de functie en gaat u naar `LogFiles > Application > Functions > Function > your_function` om te zien van het logboekbestand. Selecteer een functie in een functie-app-pagina, en selecteer vervolgens de **Monitor** tabblad, en u een lijst van de functies die ophalen. Selecteer een functie wordt uitgevoerd om te controleren van de duur van de invoergegevens, fouten en bijbehorende logboekbestanden.
 
 Als u Application Insights en hebt [ingebouwde logboekregistratie uitgeschakeld](#disable-built-in-logging), wordt de **Monitor** tabblad gaat u naar Application Insights.
 

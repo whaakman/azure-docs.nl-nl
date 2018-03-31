@@ -1,11 +1,11 @@
 ---
 title: Cloud Cruiser en Microsoft Azure Billing API-integratie | Microsoft Docs
-description: "Biedt een unieke perspectief van Microsoft Azure Billing partner Cruiser Cloud, op hun ervaringen van de Azure Billing API's integreren in hun product.  Dit is vooral nuttig voor Azure en Cloud Cruiser klanten die zijn geïnteresseerd zijn in gebruik/probeert Cloud Cruiser voor Microsoft Azure-pakket."
-services: 
-documentationcenter: 
-author: BryanLa
+description: Biedt een unieke perspectief van Microsoft Azure Billing partner Cruiser Cloud, op hun ervaringen van de Azure Billing API's integreren in hun product.  Dit is vooral nuttig voor Azure en Cloud Cruiser klanten die zijn geïnteresseerd zijn in gebruik/probeert Cloud Cruiser voor Microsoft Azure-pakket.
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: mobandyo;sirishap;bryanla
-ms.openlocfilehash: 7d66cac98afa72c807f597403b1e2bd278e45cec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ddb81078e8019284c0481d4ea8d72253d3f0a5a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cloud Cruiser en Microsoft Azure Billing API-integratie
 Dit artikel wordt beschreven hoe de gegevens van de nieuwe Microsoft Azure Billing-API's kan worden gebruikt in de Cloud Cruiser voor werkstroom kosten simulatie en analyse.

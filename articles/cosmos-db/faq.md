@@ -6,7 +6,7 @@ services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 946d0f6456ce27931c91066d63c028388ecec84c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -76,7 +76,7 @@ U kunt ook de [Azure Cosmos DB Emulator](local-emulator.md) te ontwikkelen en te
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Hoe kan ik aanvullende ondersteuning voor Azure Cosmos DB krijgen?
 
 Als u een technische vraag vragen, kunt u posten naar een van deze twee vraag en antwoord forums:
-* [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack-overloop](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack-overloop wordt aanbevolen voor het programmeren van vragen. Controleer of uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [vindt u informatie van zo veel mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask). 
 
 Om aan te vragen van nieuwe functies, kunt u een nieuwe aanvraag maken op [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -244,7 +244,7 @@ Als een van deze verschillen een probleem voor uw project contact op met [ askco
 U kunt uw feedback delen in een van de volgende manieren:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
-* [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack-overloop](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack-overloop wordt aanbevolen voor het programmeren van vragen. Controleer of uw vraag is [op onderwerp](https://stackoverflow.com/help/on-topic) en [vindt u informatie van zo veel mogelijk, waardoor de vraag duidelijke en kan worden beantwoord](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Wat is de verbindingsreeks die ik moet verbinding maken met de tabel-API gebruiken?

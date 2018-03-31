@@ -2,7 +2,7 @@
 title: Inrichten van een Linux CentOS gegevens wetenschappelijke virtuele Machine in Azure | Microsoft Docs
 description: Configureer en een Linux gegevens wetenschappelijke virtuele Machine in Azure doen analytics en machine learning maken.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 550d49e3d6007c6b494deec95b785ea9bc214f3a
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7f683fff142a3654249560ed5299ed3cd7cb9cce
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Inrichten van een Linux CentOS gegevens wetenschappelijke virtuele Machine in Azure
 
@@ -153,14 +153,16 @@ Als u wilt een interactieve sessie Python aanroepen, typt u gewoon **python** in
 
 Voor het installeren van extra Python-bibliotheken, moet u uitvoeren ```conda``` of ````pip```` opdracht onder sudo en volledig pad van de Python package manager (conda of pip) te installeren op de juiste Python-omgeving te bieden. Bijvoorbeeld:
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install <package> #pip for Python 2.7
+    sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
+    sudo /anaconda/bin/conda install [-n py27] <package> #conda for Python 2.7, default behavior
+    sudo /anaconda/bin/conda install -n py35 <package> #conda for Python 3.5
 
 
 ### <a name="jupyter-notebook"></a>Jupyter-notebook
 De Anaconda-verdeling wordt ook geleverd met een Jupyter-notebook een omgeving voor het delen van code en -analyse. De Jupyter-notebook toegankelijk is via JupyterHub. U kunt aanmelden met uw lokale Linux-gebruikersnaam en wachtwoord.
 
-De Jupyter-notebook-server is vooraf is geconfigureerd met Python 2, 3 Python en R kernels. Er is een pictogram op het bureaublad met de naam 'Jupyter-Notebook' starten van de browser voor toegang tot de notebook-server. Als u van de virtuele machine via SSH of X2Go-client gebruikmaakt, kunt u ook bezoeken [https://localhost:8000 /](https://localhost:8000/) voor toegang tot de Jupyter-notebook-server.
+De Jupyter-notebook-server is vooraf is geconfigureerd met Python 2, 3 Python en R kernels. Er is een pictogram op het bureaublad met de naam 'Jupyter-Notebook' starten van de browser voor toegang tot de notebook-server. Als u van de virtuele machine via SSH of X2Go-client gebruikmaakt, kunt u ook bezoeken [ https://localhost:8000/ ](https://localhost:8000/) voor toegang tot de Jupyter-notebook-server.
 
 > [!NOTE]
 > Doorgaan als u certificaatwaarschuwingen.
@@ -361,7 +363,7 @@ Nu een grafische interface wordt geopend met een reeks tabbladen. Hier volgen de
 7. Klik op de **Evaluate** tabblad.
 8. Klik op de **risico** keuzerondje en klikt u op **Execute** om twee risico (cumulatief) prestaties waarnemingspunten weer te geven.
 9. Klik op de **logboek** tabblad om de code genereren R voor voorgaande bewerkingen weer te geven.
-   (Vanwege een fout in de huidige release van Rammelaar, moet u invoegen een  *#*  teken vóór *... dit logboek exporteren*  in de tekst van het logboek.)
+   (Vanwege een fout in de huidige release van Rammelaar, moet u invoegen een *#* teken vóór *... dit logboek exporteren*  in de tekst van het logboek.)
 10. Klik op de **exporteren** om op te slaan van het R-script-bestand met de naam *weather_script. R* naar de basismap.
 
 U kunt afsluiten Rammelaar en R. U kunt nu het gegenereerde R-script wijzigen of ongewijzigd uit te voeren op elk gewenst moment om te worden herhaald alles die werd uitgevoerd in de gebruikersinterface Rattle gebruiken. Dit is een eenvoudige manier om snel analyses en machine learning in een eenvoudige grafische interface tijdens het automatisch genereren van code in R om te wijzigen en/of meer met name voor beginnende gebruikers in R.

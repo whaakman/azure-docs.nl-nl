@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a83ed5f7dba3e4d68204a2c9dffb4459cadfef9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installeer de duurzame functies extensie en voorbeelden (Azure-functies)
 
 De [duurzame functies](durable-functions-overview.md) -extensie voor Azure Functions is opgegeven in het NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Dit artikel laat zien hoe u het pakket en een reeks voorbeelden voor het volgende ontwikkelomgevingen installeert:
 
 * Visual Studio 2017 (aanbevolen) 
-
+* Visual Studio Code
 * Azure Portal
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -48,11 +48,7 @@ Visual Studio biedt momenteel de beste ervaring voor het ontwikkelen van apps di
 Volg de aanwijzingen dezelfde als voor het beginnen met het voorbeeld, maar de volgende stappen uit te voeren in plaats van gedownload de *.zip* bestand:
 
 1. Een functie-App-project maken.
-2. De volgende NuGet-pakket verwijzing toevoegen aan uw *.csproj* bestand:
-
-   ```xml
-   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
-   ```
+2. Zoeken naar de volgende NuGet pakket verwijzing met behulp van *Nuget-pakketten beheren* en voeg deze toe aan het project: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0 beta2 (controleren *Include prerelease* om te zoeken naar dit pakket)
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -129,6 +125,8 @@ Als u liever, kunt u de Azure-portal voor het ontwikkelen van duurzame functies.
 1. Maak een nieuwe functie-app op [functions.azure.com](https://functions.azure.com/signin).
 
 2. Configureren van de functie app [versie 2.0 runtime](set-runtime-version.md).
+
+   De extensie duurzame functies werkt in zowel de 1.X-runtime en de 2.0 runtime, maar de Azure Portal-sjablonen zijn alleen beschikbaar wanneer de doelcomputer de 2.0-runtime.
 
 3. Maak een nieuwe functie door te selecteren **'uw eigen aangepaste functie maken'.** .
 

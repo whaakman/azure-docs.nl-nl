@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: douglasl
-ms.openlocfilehash: e2ebb3db4d51bf4ec1dea4f2f5cc4cc9dcb2ad70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db757c5a8a1b51278ada24a5ff50a2da1b357397
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Het maken en configureren van Azure integratie Runtime
 De integratie Runtime (IR) is de beheerinfrastructuur gebruikt door Azure Data Factory om te bieden mogelijkheden voor de integratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [integratie runtime](concepts-integration-runtime.md).
@@ -29,7 +29,7 @@ Azure IR biedt een volledig beheerde compute om uit te voeren systeemeigen verke
 Dit document wordt geïntroduceerd, kunt u maken en configureren van Azure integratie Runtime. 
 
 ## <a name="default-azure-ir"></a>Standaard Azure IR
-Elke gegevensfactory heeft standaard een Azure-IR in de back-end die ondersteuning biedt voor bewerkingen op cloud gegevens worden opgeslagen en compute services in openbaar netwerk. De locatie van die Azure-IR is automatisch oplossen. Als **connectVia** eigenschap is niet opgegeven in de definitie van de gekoppelde service, de opgegeven Azure-IR wordt gebruikt. U moet alleen een Azure-IR expliciet maken wanneer u wilt de locatie van de IR expliciet te definiëren, of als u wilt groep vrijwel uitvoeringen van de activiteit op verschillende belastingdienst voor management doel. 
+Elke gegevensfactory heeft standaard een Azure-IR in de back-end die ondersteuning biedt voor bewerkingen op cloud gegevens worden opgeslagen en compute services in openbaar netwerk. De locatie van die Azure-IR is automatisch oplossen. Als **connectVia** eigenschap is niet opgegeven in de definitie van de gekoppelde service, de standaard Azure IR wordt gebruikt. U moet alleen een Azure-IR expliciet maken wanneer u wilt de locatie van de IR expliciet te definiëren, of als u wilt groep vrijwel uitvoeringen van de activiteit op verschillende belastingdienst voor management doel. 
 
 ## <a name="create-azure-ir"></a>Azure IR maken
 Integratie Runtime kan worden gemaakt met de **Set AzureRmDataFactoryV2IntegrationRuntime** PowerShell-cmdlet. Voor het maken van een Azure-IR u de naam, locatie en geef de opdracht. Hier volgt een voorbeeld van een opdracht voor het maken van een Azure-IR met de locatie ingesteld op 'West-Europa':

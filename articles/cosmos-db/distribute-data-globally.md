@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 567f035bdb293353090ee107f8d24da845e15154
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Het distribueren van gegevens met Azure Cosmos DB globaal
 Azure is alomtegenwoordige - heeft een algemene footprint tussen 30 + geografische regio's en continu groter wordt. Met de wereldwijde aanwezigheid is een van de gedifferentieerde mogelijkheden die Azure voor de ontwikkelaars biedt de mogelijkheid om te maken, implementeren en globaal gedistribueerde toepassingen eenvoudig te beheren. 
@@ -36,7 +36,7 @@ Met Azure Cosmos DB klare globale verdeling ontwikkelaars hoeft niet te bouwen v
 In dit artikel bieden we een overzicht van Azure Cosmos DB algemene distributie-mogelijkheden. We beschrijven ook Azure Cosmos DB unieke aanpak voor het leveren van uitgebreide Sla's. 
 
 ## <a id="EnableGlobalDistribution"></a>Klare globale distributiepunt inschakelen
-Azure Cosmos DB biedt de volgende mogelijkheden waarmee u eenvoudig wereld schaal om toepassingen te schrijven. Deze mogelijkheden zijn beschikbaar via de Azure Cosmos-DB resource provider gebaseerde [REST-API's](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) en de Azure-portal.
+Azure Cosmos DB biedt de volgende mogelijkheden waarmee u eenvoudig wereld schaal om toepassingen te schrijven. Deze mogelijkheden zijn beschikbaar via de Azure Cosmos-DB resource provider gebaseerde [REST-API's](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) en de Azure-portal.
 
 In de volgende video toont Azure Cosmos DB Program Manager Andrew Liu de klare algemene distributie-functies.
 

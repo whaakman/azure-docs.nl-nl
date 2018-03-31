@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5a4bdc49c5ab36a5026095b5d7b6f9856b020e1b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Automatische regionale failover voor bedrijfscontinuïteit in Azure Cosmos-DB
 Azure Cosmos DB vereenvoudigt de algemene distributie van gegevens door het aanbieden van volledig worden beheerd, [meerdere landen/regio database accounts](distribute-data-globally.md) die wissen balans vinden tussen de consistentie, beschikbaarheid en prestaties, met bijbehorende garanties bieden. Cosmos DB accounts bieden hoge beschikbaarheid, één cijfer ms latenties, [goed gedefinieerde consistentieniveaus](consistency-levels.md), transparante regionale failover met multihoming-API's en de mogelijkheid om te schalen doorvoer en opslag overal ter wereld. 
@@ -86,7 +86,7 @@ Wanneer de desbetreffende regio vanuit de onderbreking herstelt, worden alle bet
 
 **Wat gebeurt er als een regio schrijven een storing heeft?**
 
-Als de betrokken regio de huidige schrijven regio is en automatische failover voor de Azure DB die Cosmos-account is ingeschakeld, kan de regio is automatisch gemarkeerd als offline. Vervolgens wordt een andere regio gepromoveerd als schrijven regio voor de betrokken Azure DB die Cosmos-account. U kunt automatische failover en volledig beheren de volgorde van de selectie regio voor uw Azure Cosmos DB accounts via Azure portal of [programmatisch](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Als de betrokken regio de huidige schrijven regio is en automatische failover voor de Azure DB die Cosmos-account is ingeschakeld, kan de regio is automatisch gemarkeerd als offline. Vervolgens wordt een andere regio gepromoveerd als schrijven regio voor de betrokken Azure DB die Cosmos-account. U kunt automatische failover en volledig beheren de volgorde van de selectie regio voor uw Azure Cosmos DB accounts via Azure portal of [programmatisch](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Failover prioriteiten voor het Azure Cosmos-DB](./media/regional-failover/failover-priorities.png)
 
@@ -98,7 +98,7 @@ Wanneer de desbetreffende regio vanuit de onderbreking herstelt, worden alle bet
 
 * Gegevens aanwezig zijn in de vorige schrijven regio die niet is gerepliceerd om te lezen regio's tijdens de onderbreking is gepubliceerd als een conflict feed. Toepassingen kunnen lezen van de feed conflict, Verhelp de conflicten op basis van specifieke toepassingslogica en schrijft de bijgewerkte gegevens naar de Azure DB die Cosmos-account naar gelang van toepassing. 
 * De vorige schrijven regio is opnieuw gemaakt als een lezen regio en weer online automatisch. 
-* Kunt u lezen regio die is weer online automatisch als de regio schrijven door het uitvoeren van een handmatige failover via de Azure-portal opnieuw configureren of [programmatisch](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Kunt u lezen regio die is weer online automatisch als de regio schrijven door het uitvoeren van een handmatige failover via de Azure-portal opnieuw configureren of [programmatisch](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
 Het volgende codefragment ziet u hoe conflicten verwerken nadat de betrokken regio vanuit de onderbreking herstelt.
 
@@ -123,7 +123,7 @@ do
 
 ## <a id="ManualFailovers"></a>Handmatige failover
 
-Naast automatische failovers, kan de huidige regio schrijven van een opgegeven Cosmos-DB-account handmatig dynamisch worden gewijzigd op een van de bestaande lezen gebieden. Handmatige failover kan worden gestart via de Azure-portal of [programmatisch](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
+Naast automatische failovers, kan de huidige regio schrijven van een opgegeven Cosmos-DB-account handmatig dynamisch worden gewijzigd op een van de bestaande lezen gebieden. Handmatige failover kan worden gestart via de Azure-portal of [programmatisch](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
 Handmatige failover zorg **nul gegevensverlies** en **nul beschikbaarheid** verlies en probleemloos overdracht schrijven status van de oude regio schrijven naar het nieuwe bericht voor de opgegeven Cosmos-DB-account. Net als in automatische failover de Cosmos-SDK voor Documentdb automatisch schrijven regio wijzigingen verwerkt tijdens handmatige failovers en zorgt ervoor dat oproepen automatisch omgeleid naar de nieuwe schrijven regio. Er zijn geen wijzigingen code of configuratie vereist zijn in uw toepassing voor het beheren van failovers. 
 

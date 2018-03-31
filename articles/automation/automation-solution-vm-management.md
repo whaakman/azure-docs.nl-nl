@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: da2d95bc100a6160282c93682ad76f7ee881e105
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Virtuele machines starten/stoppen tijdens rustige uren oplossing (preview) in Azure Automation
 
@@ -55,7 +55,7 @@ Voer de volgende stappen uit om toe te voegen van de starten/stoppen virtuele ma
 
 1. De **oplossing toevoegen** pagina wordt weergegeven. U wordt gevraagd de oplossing configureren voordat u deze in uw Automation-abonnement importeren kunt.
    ![Pagina oplossing VM toevoegen](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
-1. Op de **oplossing toevoegen** pagina **werkruimte**. Selecteer een OMS-werkruimte die gekoppeld aan de dezelfde Azure-abonnement dat u het Automation-account in. Als u een werkruimte geen hebt, selecteert u **nieuwe werkruimte maken**. Op de **OMS-werkruimte** pagina, voert u het volgende:
+1. Op de **oplossing toevoegen** pagina **werkruimte**. Selecteer een werkruimte voor logboekanalyse die gekoppeld aan de dezelfde Azure-abonnement dat u het Automation-account in. Als u een werkruimte geen hebt, selecteert u **nieuwe werkruimte maken**. Op de **OMS-werkruimte** pagina, voert u het volgende:
    * Geef een naam op voor de nieuwe **OMS-werkruimte**.
    * Selecteer een **abonnement** om te koppelen aan door te selecteren in de vervolgkeuzelijst als de standaard geselecteerd niet geschikt is.
    * Voor **resourcegroep**, kunt u een nieuwe resourcegroep maken of een bestaande set selecteren.
@@ -63,13 +63,13 @@ Voer de volgende stappen uit om toe te voegen van de starten/stoppen virtuele ma
    * Selecteer een **prijscategorie**. De oplossing biedt twee lagen: **vrije** en **Per knooppunt (OMS)**. Gratis laag heeft een limiet van de hoeveelheid gegevens die worden verzameld per dag, de bewaartermijn en de runbook-taak runtime minuten. De laag Per knooppunt heeft geen een limiet van de hoeveelheid gegevens die worden verzameld per dag.
 
         > [!NOTE]
-        > Hoewel de laag Per GB (zelfstandig) betaald wordt weergegeven als een optie, is het niet van toepassing. Als u selecteert en doorgaan met het maken van deze oplossing in uw abonnement, mislukt dit. Dit wordt opgelost bij de officiële release van deze oplossing. Deze oplossing alleen gebruikt taak minuten voor automation en het logboek opnamesnelheid. Dit biedt extra OMS-knooppunten niet toevoegen aan uw omgeving.
+        > Hoewel de laag Per GB (zelfstandig) betaald wordt weergegeven als een optie, is het niet van toepassing. Als u selecteert en doorgaan met het maken van deze oplossing in uw abonnement, mislukt dit. Dit wordt opgelost bij de officiële release van deze oplossing. Deze oplossing alleen gebruikt taak minuten voor automation en het logboek opnamesnelheid. Dit biedt extra knooppunten niet toevoegen aan uw omgeving.
 
 1. Na het opgeven van de vereiste informatie op de **OMS-werkruimte** pagina, klikt u op **maken**. U kunt de voortgang onder volgen **meldingen** in het menu dat keert u terug naar de **oplossing toevoegen** pagina wanneer u klaar bent.
-1. Op de **oplossing toevoegen** pagina **Automation-account**. Als u een nieuwe OMS-werkruimte maakt, moet u ook een nieuw Automation-account worden gekoppeld aan deze maken. Selecteer **een Automation-account maken**, en klik op de **toevoegen Automation-account** pagina, biedt het volgende:
+1. Op de **oplossing toevoegen** pagina **Automation-account**. Als u een nieuwe werkruimte voor logboekanalyse maakt, moet u ook een nieuw Automation-account worden gekoppeld aan deze te maken. Selecteer **een Automation-account maken**, en klik op de **toevoegen Automation-account** pagina, biedt het volgende:
    * Voer in het veld **Naam** de naam van het Automation-account in.
 
-    Alle andere opties worden automatisch ingevuld op basis van de OMS-werkruimte geselecteerd. Deze opties kunnen niet worden gewijzigd. Een Uitvoeren als-account voor Azure is de standaardmethode voor verificatie voor de runbooks die zijn opgenomen in deze oplossing. Nadat u op **OK**, de configuratieopties die worden gevalideerd en het Automation-account is gemaakt. U kunt de voortgang bijhouden onder **Meldingen** in het menu.
+    Alle andere opties worden automatisch ingevuld op basis van de werkruimte voor logboekanalyse geselecteerd. Deze opties kunnen niet worden gewijzigd. Een Uitvoeren als-account voor Azure is de standaardmethode voor verificatie voor de runbooks die zijn opgenomen in deze oplossing. Nadat u op **OK**, de configuratieopties die worden gevalideerd en het Automation-account is gemaakt. U kunt de voortgang bijhouden onder **Meldingen** in het menu.
 
 1. Ten slotte op de **oplossing toevoegen** pagina **configuratie**. De **Parameters** pagina wordt weergegeven.
 
@@ -230,7 +230,7 @@ U moet alle schema's, niet inschakelen omdat dit overlappende planning acties mo
 
 ## <a name="log-analytics-records"></a>Log Analytics-records
 
-Automation maakt twee soorten records in de opslagplaats OMS: Logboeken taak en taak stromen.
+Automation maakt twee soorten records in de werkruimte voor logboekanalyse: Logboeken taak en taak stromen.
 
 ### <a name="job-logs"></a>Taaklogboeken
 

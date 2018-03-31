@@ -1,6 +1,6 @@
 ---
 title: Een Azure Automation-runbook aanroepen vanuit een Log Analytics-waarschuwing
-description: Dit artikel bevat een overzicht van hoe u een Automation-runbook aanroept vanuit een Log Analytics-waarschuwing in Operations Management Suite.
+description: Dit artikel bevat een overzicht van het aanroepen van een Automation-runbook vanuit een waarschuwing logboekanalyse in Azure.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3f95d6b9385b252bce05f19b38ae38f11e88a88c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2a0e497535f783cbffc21004331ccd2a50ab8eef
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Een Azure Automation-runbook aanroepen vanuit een Log Analytics-waarschuwing
 
@@ -23,11 +23,11 @@ Zo kan een waarschuwing bijvoorbeeld een langdurige piek in het processorgebruik
 Er zijn twee opties voor het aanroepen van een runbook in de waarschuwingsconfiguratie:
 
 * Een webhook gebruiken.
-   * Dit is de enige beschikbare optie als uw Operations Management Suite-werkruimte niet is gekoppeld aan een Automation-account.
-   * Ook als u wel al een Automation-account hebt gekoppeld aan een Operations Management Suite-werkruimte, blijft deze optie beschikbaar.  
+   * Dit is de enige beschikbare optie als uw werkruimte voor logboekanalyse niet is gekoppeld aan een Automation-account.
+   * Als u al een Automation-account dat is gekoppeld aan een werkruimte voor logboekanalyse, wordt deze optie nog steeds beschikbaar is.  
 
 * Een runbook direct selecteren.
-   * Deze optie is alleen beschikbaar wanneer de Operations Management Suite-werkruimte is gekoppeld aan een Automation-account.
+   * Deze optie is alleen beschikbaar als de werkruimte voor logboekanalyse is gekoppeld aan een Automation-account.
 
 ## <a name="calling-a-runbook-by-using-a-webhook"></a>Een runbook aanroepen met behulp van een webhook
 
@@ -35,7 +35,7 @@ Met een webhook kunt u een bepaald runbook in Azure Automation starten via een a
 
 ## <a name="calling-a-runbook-directly"></a>Een runbook direct aanroepen
 
-U kunt het OMS Automation and Control-pakket installeren en configureren in uw Operations Management Suite-werkruimte. Tijdens de configuratie van de optie voor runbookacties voor de waarschuwing kunt u alle runbooks in de vervolgkeuzelijst **Een runbook selecteren** bekijken en het runbook selecteren dat u wilt uitvoeren als reactie op de waarschuwing. Het geselecteerde runbook kan worden uitgevoerd in een Azure-werkruimte of op een Hybrid Runbook Worker. 
+U kunt installeren en configureren van de automatisering en beheer bieden in uw werkruimte voor logboekanalyse. Tijdens de configuratie van de optie voor runbookacties voor de waarschuwing kunt u alle runbooks in de vervolgkeuzelijst **Een runbook selecteren** bekijken en het runbook selecteren dat u wilt uitvoeren als reactie op de waarschuwing. Het geselecteerde runbook kan worden uitgevoerd in een Azure-werkruimte of op een Hybrid Runbook Worker. 
 
 Nadat u de waarschuwing hebt gemaakt met de runbookoptie, wordt er een webhook voor het runbook gemaakt. U kunt de webhook zien als u naar het Automation-account gaat en het deelvenster Webhook van het geselecteerde runbook opent. 
 
@@ -90,7 +90,7 @@ $SearchResult.SvcDisplayName_CF
 
 Wanneer de service stopt, wordt er met de waarschuwingsregel in Log Analytics een overeenkomst gedetecteerd en wordt het runbook geactiveerd. Daarbij wordt de context van de waarschuwing naar het runbook verzonden. Het runbook probeert te verifiëren of de service is gestopt. Als dit het geval is, probeert het runbook de service opnieuw te starten en te controleren of deze correct is gestart. Vervolgens geeft het de resultaten weer.     
 
-Als u uw Automation-account niet hebt gekoppeld aan uw Operations Management Suite-werkruimte, kunt u de waarschuwingsregel configureren met een webhookactie. Door de webhookactie wordt het runbook geactiveerd. Ook wordt het runbook geconfigureerd voor het converteren van de tekenreeks in JSON-indeling en gefilterd op **SearchResult** om de eerder vermelde instructies te volgen.    
+Als u uw Automation-account dat is gekoppeld aan uw werkruimte voor logboekanalyse niet hebt, kunt u ook de waarschuwingsregel configureren met een webhook-actie. Door de webhookactie wordt het runbook geactiveerd. Ook wordt het runbook geconfigureerd voor het converteren van de tekenreeks in JSON-indeling en gefilterd op **SearchResult** om de eerder vermelde instructies te volgen.    
 
 >[!NOTE]
 > Als uw werkruimte is bijgewerkt naar de [nieuwe querytaal van Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), is de webhookpayload gewijzigd. Details van de indeling zijn te vinden in de [Azure Log Analytics REST-API](https://aka.ms/loganalyticsapiresponse).

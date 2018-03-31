@@ -1,12 +1,12 @@
 ---
 title: Dynamische site-versnelling via Azure CDN
-description: Dynamische site-versnelling diepgaand
+description: Azure CDN biedt ondersteuning voor dynamische siteregistratie acceleration (DSA) optimalisatie voor bestanden met dynamische inhoud.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli
-ms.openlocfilehash: 713f00f432095b7a8a19996fb7bdb7e5f8d79b63
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamische site-versnelling via Azure CDN
 
@@ -29,9 +29,9 @@ Standaard content delivery network (CDN) mogelijkheid omvat de mogelijkheid om c
 **Azure CDN van Akamai** en **Azure CDN van Verizon** bieden een DSA optimalisatie via de **geoptimaliseerd voor** menu tijdens het maken van het eindpunt.
 
 > [!Important]
-> Voor **Azure CDN van Akamai** profielen, u kunt de optimalisatie van een CDN-eindpunt niet wijzigen nadat ze werd gecreëerd zijn toegestaan.
+> Voor **Azure CDN van Akamai** profielen, zijn toegestaan voor de optimalisatie van een CDN-eindpunt niet wijzigen nadat deze is gemaakt.
 >   
-> **Azure CDN van Verizon** profielen, het is niet mogelijk de optimalisatie van een CDN-eindpunt wijzigen nadat deze is gemaakt.
+> Voor **Azure CDN van Verizon** profielen, u niet wijzigen de optimalisatie van een CDN-eindpunt nadat deze is gemaakt.
 
 ## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>CDN-eindpunt om te versnellen levering van dynamische bestanden configureren
 
@@ -104,7 +104,7 @@ Transmission Control Protocol (TCP) is de standaard van de Internet-protocolsuit
 
 TCP *start trage* is een algoritme van de TCP-protocol waarmee wordt voorkomen opstoppingen in het netwerk dat door het beperken van de hoeveelheid gegevens die via het netwerk worden verzonden. Deze begint uitschakelen met kleine congestie venstergrootte tussen zender en ontvanger totdat het maximum is bereikt of pakketverlies wordt gedetecteerd.
 
- Beide **Azure CDN van Akamai** en **Azure CDN van Verizon** elimineren TCP trage beginnen met de volgende drie stappen:
+ Beide **Azure CDN van Akamai** en **Azure CDN van Verizon** profielen elimineren TCP trage beginnen met de volgende drie stappen:
 
 1. Status en de bewaking van de bandbreedte wordt gebruikt voor het meten van de bandbreedte van de verbindingen tussen randservers pop-server.
     
@@ -152,19 +152,32 @@ Met DSA, opslaan in cache is standaard uitgeschakeld op de CDN, zelfs wanneer de
 
 Als u een website met een combinatie van statische en dynamische activa hebt, is het beste een hybride-benadering voor de beste prestaties. 
 
-Voor **Azure CDN van Verizon Premium** profielen, kunt u inschakelen in cache opslaan voor specifieke gevallen met behulp van de [regelengine](cdn-rules-engine.md) voor DSA-eindpunten. Alleen de eindpunten van uw profiel die zijn geoptimaliseerd voor DSA van invloed op alle regels die zijn gemaakt. 
+Voor **Azure CDN van Verizon standaard** en **Azure CDN van Akamai standaard** profielen, kunt u inschakelen in cache opslaan voor specifieke DSA-eindpunten met behulp van [regels opslaan in cache](cdn-caching-rules.md).
 
-Toegang krijgen tot de regelengine voor DSA eindpunten:
+Toegang krijgen tot cachebewerkingen regels:
+
+1. Van de **CDN-profiel** pagina onder instellingen, selecteert **regels opslaan in cache**.  
+    
+    ![Knop regels CDN opslaan in cache](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+
+    De **regels opslaan in cache** pagina wordt geopend.
+
+2. Een globale of aangepaste cacheregel om in te schakelen voor uw eindpunt DSA caching maken. 
+
+Voor **Azure CDN van Verizon Premium** profielen, inschakelen in cache opslaan voor specifieke DSA-eindpunten met behulp van de [regelengine](cdn-rules-engine.md). Alleen de eindpunten van uw profiel die zijn geoptimaliseerd voor DSA van invloed op alle regels die zijn gemaakt. 
+
+Toegang krijgen tot de regelengine:
     
 1. Van de **CDN-profiel** pagina **beheren**.  
     
-    ![Knop CDN-profiel beheren](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Knop CDN-profiel beheren](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     Hiermee opent u de CDN-beheerportal.
 
 2. Selecteer in de beheerportal CDN **ADN**, selecteer daarna **regelengine**. 
 
-    ![Regels voor DSA-engine](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![Regels voor DSA-engine](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
+
 
 
 U kunt ook twee CDN-eindpunten gebruiken: één eindpunt geoptimaliseerd met DSA leveren dynamische activa en een ander eindpunt geoptimaliseerd met een statische optimalisatie-type, zoals algemene web-levering aan levering caching geschikte activa. Wijzig de URL van uw webpagina directe koppeling naar de asset op het CDN-eindpunt dat u wilt gebruiken. 

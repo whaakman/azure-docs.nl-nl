@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1f114775-3a9a-4dd4-8d59-b10d1da9a68b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57be3b235c5f439741155a70df7ddbe8a80906f2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>Azure Mobile Engagement vergelijken met andere vergelijkbare Azure-services
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 De lijst met services die worden aangeboden door Microsoft Azure is ooit uitbreidbare en op tijdstippen u vraagt zich misschien af hoe verschilt van Azure Mobile Engagement deze service die u zojuist hebt gelezen of gehoord. In dit artikel, probeert de verwarring wissen en stuurt u Azure Mobile Engagement kiezen wanneer is het meest geschikt voor gebruik van uw. 
 
 Azure Mobile Engagement is een service die specifiek gericht **voor digitale marketeers/CMOs** , maar kan worden gebruikt door een **eigenaar van de mobiele app of publisher** die wil de retentie-gebruik verhogen en monetization van hun mobiele apps. 

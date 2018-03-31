@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 1d4151d6c00da618cc008257bcdad4607f8fec49
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1fc4b64a879f090955a5611672acb6b58eb19d73
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Licentieverlening basisbeginselen op basis van een groep in Azure Active Directory
 
@@ -30,6 +30,9 @@ Met Microsoft cloud-services, zoals Office 365, Enterprise Mobility + Security D
 Tot op heden worden licenties kunnen alleen op het niveau van afzonderlijke gebruiker, waardoor grootschalige management moeilijk toegewezen. Bijvoorbeeld, als u wilt toevoegen of verwijderen op basis van veranderingen in de organisatie, zoals gebruikers toevoegen of verlaat de organisatie of een afdeling gebruikerslicenties moet een beheerder vaak schrijven een complexe PowerShell-script. Dit script worden afzonderlijke aanroepen naar de cloudservice.
 
 Als u wilt deze uitdagingen bevat nu Azure AD op basis van een groep licenties. U kunt een of meer productlicenties toewijzen aan een groep. Azure AD zorgt ervoor dat de licenties zijn toegewezen aan alle leden van de groep. Nieuwe leden die deelnemen aan de groep zijn toegewezen de juiste licenties. Wanneer ze de groep verlaten, worden die licenties verwijderd. Hierdoor is de noodzaak voor het automatiseren van Licentiebeheer via PowerShell te spelen op wijzigingen in de organisatie en de afdelingen structuur op per-gebruiker.
+
+>[!NOTE]
+>Deze functie is momenteel in de openbare preview. Wees voorbereid om te herstellen of verwijderen van eventuele wijzigingen. De functie is beschikbaar in een abonnement voor Azure Active Directory (Azure AD) tijdens de openbare preview. Wanneer de functie algemeen beschikbaar wordt, kunnen sommige aspecten van de functie echter een of meer Azure Active Directory Premium-licenties nodig.
 
 ## <a name="features"></a>Functies
 

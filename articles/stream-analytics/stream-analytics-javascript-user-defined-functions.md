@@ -3,22 +3,21 @@ title: Azure Stream Analytics JavaScript gebruiker gedefinieerde functies | Micr
 description: Geavanceerde query mechanisme met de gebruiker gedefinieerde functies van JavaScript uitvoeren
 keywords: JavaScript, de gebruiker gedefinieerde functies, udf
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: e8c1c784a598416b478d1430258201053185fdee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Azure Stream Analytics JavaScript gebruiker gedefinieerde functies
 Azure Stream Analytics ondersteunt de gebruiker gedefinieerde functies die zijn geschreven in JavaScript. Met de uitgebreide set **tekenreeks**, **RegExp**, **Math**, **matrix**, en **datum** methoden die JavaScript biedt, complexe gegevenstransformaties met Stream Analytics-taken eenvoudiger worden te maken.
@@ -87,10 +86,10 @@ Er zijn verschillen in de typen dat de Stream Analytics query language- en JavaS
 Stream Analytics | Javascript
 --- | ---
 bigint | Nummer (JavaScript kan alleen bestaan uit gehele getallen maximaal nauwkeurig 2 ^ 53)
-Datum/tijd | Datum (JavaScript alleen ondersteund in milliseconden)
+DateTime | Datum (JavaScript alleen ondersteund in milliseconden)
 dubbele | Aantal
 nvarchar(max) | Tekenreeks
-Record | Object
+Gegevens vastleggen | Object
 Matrix | Matrix
 NULL | Null
 
@@ -101,9 +100,9 @@ Hier volgen JavaScript aan Stream Analytics-conversies:
 Javascript | Stream Analytics
 --- | ---
 Aantal | Bigint (als het getal ronde en tussen lang is. MinValue en een lange. MaxValue; anders is de dubbele)
-Date | Datum/tijd
+Date | DateTime
 Tekenreeks | nvarchar(max)
-Object | Record
+Object | Gegevens vastleggen
 Matrix | Matrix
 Null is en niet-gedefinieerd | NULL
 Een ander type (bijvoorbeeld, een functie of fout) | Niet ondersteund (resulteert in een runtime-fout)

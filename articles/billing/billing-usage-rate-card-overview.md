@@ -1,11 +1,11 @@
 ---
 title: Azure API's voor facturering | Microsoft Docs
 description: Meer informatie over het gebruik van Azure facturering en RateCard APIs's die worden gebruikt voor het bieden van inzicht in Azure brongebruik en trends.
-services: 
-documentationcenter: 
-author: BryanLa
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/9/2017
 ms.author: mobandyo;bryanla
-ms.openlocfilehash: 26217d6f4e14166a89fbb561cb12d0af78ae6f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0e546095ca1079ccc59c51b9b5230be04415eb5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure Billing-API's gebruiken om u te programmatisch inzicht verkrijgen in uw Azure-gebruik
 Azure Billing-API's gebruikt om pull gebruiks- en gegevens bij uw voorkeur hulpprogramma's voor gegevensanalyse. Het gebruik van Azure-bronnen en RateCard APIs kunt u nauwkeurige voorspellen en beheren van uw kosten. De API's worden geïmplementeerd als een Resource Provider en een deel van de reeks API's beschikbaar gesteld door de Azure Resource Manager.  
@@ -45,7 +45,7 @@ Gebruik de Azure [Resource gebruik API](https://msdn.microsoft.com/library/azure
 ## <a name="azure-resource-ratecard-api-preview"></a>Azure-Resource RateCard API (Preview)
 Gebruik de [API van Azure Resource RateCard](https://msdn.microsoft.com/library/azure/mt219005) ophalen van de lijst met beschikbare Azure-resources en informatie over de geschatte prijzen voor elk. De API bevat:
 
-* **Azure op rollen gebaseerd toegangsbeheer** -uw beleidsregels configureren op de [Azure-portal](https://portal.azure.com) of via [Azure PowerShell-cmdlets](/powershell/azure/overview) om op te geven welke gebruikers of toepassingen toegang tot krijgen kunnen de gegevens RateCard. Aanroepfuncties moeten standaard tokens van Azure Active Directory voor verificatie gebruiken. De aanroeper toevoegen aan de lezer, de eigenaar of bijdrager rol voor toegang tot de gebruiksgegevens voor een bepaald Azure-abonnement.
+* **Azure op rollen gebaseerd toegangsbeheer** -uw beleidsregels configureren op de [Azure-portal](https://portal.azure.com) of via [Azure PowerShell-cmdlets](/powershell/azure/overview) om op te geven welke gebruikers of toepassingen toegang tot krijgen kunnen de RateCard gegevens. Aanroepfuncties moeten standaard tokens van Azure Active Directory voor verificatie gebruiken. De aanroeper toevoegen aan de lezer, de eigenaar of bijdrager rol voor toegang tot de gebruiksgegevens voor een bepaald Azure-abonnement.
 * **Ondersteuning voor betalen per gebruik, MSDN, bedrag en financieel tegoed aanbiedingen (EA en [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) niet ondersteund)** -voor deze API biedt Azure-aanbieding niveau snelheid informatie.  De aanroeper van deze API moet in de aanbieding informatie ophalen van de resourcedetails van de en tarieven doorgeven. We zijn momenteel niet mogelijk om de EA omdat EA aanbiedingen tarieven per inschrijving hebt aangepast. 
 
 ## <a name="scenarios"></a>Scenario's

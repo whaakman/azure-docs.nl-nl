@@ -1,42 +1,43 @@
 ---
-title: Azure Content Delivery Network cachegedrag met queryreeksen beheren | Microsoft Docs
-description: Azure CDN-queryreeks opslaan in cache bepaalt hoe bestanden worden opgeslagen wanneer ze queryreeksen bevatten.
+title: Beheren van Azure CDN cachegedrag met queryreeksen - standaardcategorie | Microsoft Docs
+description: Azure CDN-queryreeks opslaan in cache bepaalt hoe bestanden worden opgeslagen wanneer een webaanvraag een queryreeks bevat. Dit artikel wordt beschreven queryreeks opslaan in cache in Azure CDN standard producten.
 services: cdn
-documentationcenter: 
-author: zhangmanling
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dksimpson
+manager: akucer
+editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 87f00575e0c2c4cd7a8525df96b2f5b13d470643
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Besturingselement Azure Content Delivery Network cachegedrag met queryreeksen
+# <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Besturingselement Azure CDN cachegedrag met queryreeksen - standard-laag
 > [!div class="op_single_selector"]
-> * [Standard](cdn-query-string.md)
-> * [Azure CDN Premium van Verizon](cdn-query-string-premium.md)
+> * [Standaardlaag](cdn-query-string.md)
+> * [Premiumlaag](cdn-query-string-premium.md)
 > 
 
 ## <a name="overview"></a>Overzicht
-Met Azure Content Delivery Network (CDN), kunt u bepalen hoe bestanden in cache zijn opgeslagen voor een webaanvraag die een queryreeks bevat. In een webaanvraag met een queryreeks bevat is de query-tekenreeks het gedeelte van de aanvraag die wordt uitgevoerd na een vraagteken (?). Een queryreeks bevat, kan een of meer sleutel-waardeparen, waarbij de veldnaam en de waarde ervan worden gescheiden door een gelijkteken (=) bevatten. Elke sleutel / waarde-paar wordt gescheiden door een en-teken (&). Bijvoorbeeld `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Als er meer dan één sleutel / waarde-paar in een queryreeks van een aanvraag, is de volgorde niet van belang. 
+Met deze query opslaan in cache, bepaalt Azure Content Delivery Network (CDN) hoe bestanden in cache zijn opgeslagen voor een webaanvraag die een queryreeks bevat. In een webaanvraag met een queryreeks bevat is de query-tekenreeks het gedeelte van de aanvraag die wordt uitgevoerd na een vraagteken (?). Een queryreeks bevat, kan een of meer sleutel-waardeparen, waarbij de veldnaam en de waarde ervan worden gescheiden door een gelijkteken (=) bevatten. Elke sleutel / waarde-paar wordt gescheiden door een en-teken (&). Bijvoorbeeld: http:\//www.contoso.com/content.mov?field1=value1 & field2 = value2. Als er meer dan één sleutel / waarde-paar in een queryreeks van een aanvraag, is de volgorde niet van belang. 
 
-> [!IMPORTANT]
-> De standard en premium-CDN-producten dezelfde querytekenreeks cache-functionaliteit bieden, maar de gebruikersinterface is.  In dit artikel beschrijft de interface voor **Azure CDN Standard van Akamai** en **Azure CDN Standard van Verizon**. Voor deze query opslaan in cache met **Azure CDN Premium van Verizon**, Zie [beheren cachegedrag van CDN aanvragen met querytekenreeksen - Premium](cdn-query-string-premium.md).
+> [!NOTE]
+> De Azure CDN standard en premium producten dezelfde querytekenreeks cache-functionaliteit bieden, maar de gebruikersinterface is.  In dit artikel beschrijft de interface voor **Azure CDN Standard van Akamai** en **Azure CDN Standard van Verizon**. Voor deze query opslaan in cache met **Azure CDN Premium van Verizon**, Zie [besturingselement Azure CDN cachegedrag met queryreeksen - premium-laag](cdn-query-string-premium.md).
+>
 
 Drie beschikbare modi voor query-tekenreeks zijn beschikbaar:
 
-- **Querytekenreeksen negeren**: standaardmodus. In deze modus wordt het CDN edge-knooppunt geeft de queryreeksen van de aanvrager naar de oorsprong van de eerste aanvraag en plaatst de asset. Alle volgende aanvragen voor de asset die worden aangeboden via het edge-knooppunt negeert de queryreeksen totdat de activa in de cache verloopt.
-- **Overslaan voor querytekenreeksen**: In deze modus kan aanvragen met queryreeksen zijn niet in cache opgeslagen op de edge-knooppunt van het CDN. Het edge-knooppunt ophalen van de asset rechtstreeks vanuit de oorsprong en wordt doorgegeven aan de aanvrager aan elke aanvraag.
-- **Elke unieke URL in de cache**: In deze modus kan elke aanvraag met een unieke URL, met inbegrip van de queryreeks wordt behandeld als een unieke activum met een eigen cache. Bijvoorbeeld: de reactie van de oorsprong van een aanvraag voor `example.ashx?q=test1` is opgeslagen in de cache op de edge-knooppunt en voor daaropvolgende caches met dezelfde querytekenreeks geretourneerd. Een aanvraag voor `example.ashx?q=test2` in cache wordt opgeslagen als een afzonderlijk actief door een eigen time-to-live-instelling.
+- **Querytekenreeksen negeren**: standaardmodus. In deze modus wordt het knooppunt CDN point-of-presence (POP) geeft de queryreeksen van de aanvrager met de oorspronkelijke server op de eerste aanvraag en plaatst de asset. Alle volgende aanvragen voor de asset die worden aangeboden via de pop-server negeert de queryreeksen totdat de activa in de cache verloopt.
+- **Overslaan voor querytekenreeksen**: In deze modus kan aanvragen met queryreeksen zijn niet in cache opgeslagen op het knooppunt CDN pop-locatie. Het POP-knooppunt de asset rechtstreeks vanaf de oorspronkelijke server opgehaald en doorgegeven aan de aanvrager aan elke aanvraag.
+- **Elke unieke URL in de cache**: In deze modus kan elke aanvraag met een unieke URL, met inbegrip van de queryreeks wordt behandeld als een unieke activum met een eigen cache. Bijvoorbeeld: het antwoord op de bronserver voor een aanvraag voor `example.ashx?q=test1` is opgeslagen in de cache op de POP-knooppunt en voor daaropvolgende caches met dezelfde querytekenreeks geretourneerd. Een aanvraag voor `example.ashx?q=test2` in cache wordt opgeslagen als een afzonderlijk actief door een eigen time-to-live-instelling.
 
 ## <a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Het wijzigen van de queryreeks opslaan in cache-instellingen voor standaard CDN-profielen
 1. Een CDN-profiel te openen en selecteer vervolgens het CDN-eindpunt dat u wilt beheren.
@@ -52,6 +53,9 @@ Drie beschikbare modi voor query-tekenreeks zijn beschikbaar:
    ![CDN-queryreeks cacheopties](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
-> Omdat het duurt om de registratie te geven in CDN, wijzigingen in de cache tekenreeks mogelijk niet meteen zichtbaar. Profielen van **Azure CDN van Akamai** worden doorgaans binnen één minuut doorgegeven. Profielen van **Azure CDN van Verizon** worden doorgaans binnen 90 minuten doorgegeven, maar in sommige gevallen kan dit langer duren.
+> Omdat het duurt om de registratie te geven in CDN, wijzigingen in de cache tekenreeks mogelijk niet direct zichtbaar zijn: 
+> - Voor **Azure CDN Standard van Akamai** profielen, doorgeven voltooit meestal binnen één minuut. 
+> - Voor **Azure CDN Standard van Verizon** profielen, doorgeven voltooit meestal binnen 90 minuten.
+>
 
 
