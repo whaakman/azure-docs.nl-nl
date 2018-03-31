@@ -2,10 +2,10 @@
 title: Gebruikersinterface van Azure Mobile Engagement - Monitor
 description: Informatie over het bewaken van realtime gegevens over uw toepassing met behulp van Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 5f8a02e35db93585e0fe46d77b3ad18b94c99597
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b370a5db1acee37ce234f5ec3f004be20719cfea
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-monitor-real-time-data-about-your-application"></a>Realtime-gegevens over uw toepassing bewaken
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 In dit artikel beschrijft de **MONITOR** tabblad van de **Mobile Engagement** portal. U gebruikt de **Mobile Engagement** portal om te controleren en beheren van uw mobiele apps. Opmerking dat aan de slag met de portal moet u eerst maken een **Azure Mobile Engagement** account. 
 
 De Monitor-sectie van de gebruikersinterface biedt realtime-analyses informatie en kunt u waarschuwingen instellen wanneer drempelwaarden worden bereikt voor het merendeel van de dezelfde informatie die beschikbaar is in het verleden in de [ANALYTICS](mobile-engagement-user-interface-analytics.md) sectie van de gebruikersinterface. Zie de **verklarende woordenlijst** sectie het [concepten](http://go.microsoft.com/fwlink/?LinkId=525555) onderwerp voor definities van termen en afkortingen in Analytics en -bewaking (zoals het volgende: actieve gebruiker, de nieuwe gebruiker, bewaard gebruiker, sessie, pad van de gebruiker Grafiek, gebruikers-kaart, tracerings-URL's, Trends, activiteit, gebeurtenis, taak, fout, Extra gegevens, crashes en App-info).

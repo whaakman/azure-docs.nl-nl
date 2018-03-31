@@ -2,19 +2,19 @@
 title: Over zonder begeleiding (pagina-BLOB's) en beheerde schijven opslag voor Microsoft Azure VM's van Windows | Microsoft Docs
 description: Meer informatie over de basisprincipes van zonder begeleiding (pagina-BLOB's) en opslag van de schijven voor Windows virtuele machines in Azure worden beheerd.
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
-ms.openlocfilehash: bf5c5cc0637b9a515bf567ff8933170d7fc1a8ba
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.author: rogarana
+ms.openlocfilehash: 3d82416b7382b8e09706fd7fb8af9e1d3fe79f01
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Over schijven storage voor VM's van Windows Azure
 Net als elke andere computer gebruiken virtuele machines in Azure schijven als een plaats voor het opslaan van een besturingssysteem, toepassingen en gegevens. Alle virtuele machines in Azure hebt ten minste twee schijven: de schijf van een Windows-besturingssysteem en een tijdelijke schijf. De besturingssysteemschijf wordt gemaakt van een installatiekopie en zowel de besturingssysteemschijf en de installatiekopie zijn virtuele harde schijven (VHD's) opgeslagen in Azure storage-account. Virtuele machines hebben ook een of meer gegevensschijven die ook als virtuele harde schijven zijn opgeslagen. 

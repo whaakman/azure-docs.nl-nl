@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0afd0eca-f74a-43aa-bba8-436a0265c312
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52d5962645b1408fdba61ec1bf4e4f682b80905b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a id="unity-roll-a-ball"></a>Maak Unity draaien een spel bDe volledige
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 In deze zelfstudie wordt de belangrijkste stappen voor een enigszins gewijzigd [Unity draaien een zelfstudie bDe volledige](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial). In dit voorbeeld van een game bestaat uit een bolvormige player-object dat wordt beheerd door de gebruiker van de app en het doel van het spel is voor het 'verzamelen' Verzamel objecten van het object player met deze Verzamel objecten tegenaan. Hierbij wordt verondersteld enigszins bekend bent met Unity editor-omgeving. Als u problemen ondervindt uitvoert en u naar de volledige zelfstudie verwijzen moet. 
 
 ### <a name="setting-up-the-game"></a>Instellen van de game

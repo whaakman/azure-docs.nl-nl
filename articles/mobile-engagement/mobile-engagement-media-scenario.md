@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 48201cc8-4e04-485c-a8dc-d6406d23f3ed
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e5d4585b47a4ca26b81b7168aa499f25722415a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>Mobile Engagement met Media-App implementeren
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 ## <a name="overview"></a>Overzicht
 Johan is een mobiele projectmanager voor een bedrijf big media. Hij onlangs een nieuwe app die een zeer hoge downloaden heeft gestart. Hij zijn doelstellingen voor het downloaden is bereikt, maar nog steeds zijn retourneren op Investment(ROI) per gebruiker niet voldoet aan de vereisten. 
 
@@ -56,7 +60,7 @@ Op basis van de aanbevelingen van het IT-team, zijn de volgende technische KPI's
 Hij classificeert de gegevens die nodig zijn voor elke KPI en hij deze op de juiste locatie van diens playbook registreert.
 
 ## <a name="engagement-program-and-integration"></a>Betrokkenheidsprogramma en integratie
-Nu dat Jeroen klaar is met het definiëren van de KPI's, begint zijn Engagement-strategie fase hij door 4 betrokkenheidsprogramma's en hun doelstellingen te definiëren:![][1]
+Nu dat Jeroen klaar is met het definiëren van de KPI's, begint zijn Engagement-strategie fase hij door 4 betrokkenheidsprogramma's en hun doelstellingen te definiëren: ![][1]
 
 Vervolgens gaat John diepere door met gedetailleerde informatie over pushmeldingen voor elk programma. Push-bericht zijn gedefinieerd door vijf elementen:
 

@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 09b62659-82ae-4a55-8784-fca0b6b22eaf
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79d0652be227dd6703a35d31409cf8e0d9c59519
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Het gebruik van de Engagement-API voor Android
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Dit document is een invoegtoepassing voor het document [Reporting geavanceerde opties voor Android Mobile Engagement SDK](mobile-engagement-android-advanced-reporting.md). Het biedt diepte meer informatie over het gebruik van de Engagement-API voor het rapporteren van de toepassingsstatistieken van uw.
 
 Houd er rekening mee dat als u alleen Engagement voor het rapporteren van uw toepassing sessies, activiteiten, crashes en technische informatie wilt, klikt u vervolgens de eenvoudigste manier is om alle uw `Activity` onderliggende klassen overnemen van de bijbehorende `EngagementActivity` klasse.
@@ -224,7 +228,7 @@ Willekeurige gegevens kunnen worden gekoppeld aan gebeurtenissen, fouten, activi
 Deze gegevens kan worden onderverdeeld, wordt de Android-bundel klasse (daadwerkelijk, werkt als extra parameters in Android Intents). Houd er rekening mee dat een bundel-matrices of een andere bundel exemplaren kan bevatten.
 
 > [!IMPORTANT]
-> Als u in de parcelable of serializable parameters plaatst, controleert u of hun `toString()` methode om te retourneren van een leesbare tekenreeks is geïmplementeerd. Serialiseerbaar klassen die niet tijdelijke velden bevatten die niet geserialiseerd zijn brengt Android vastlopen wanneer u wordt gebeld`bundle.putSerializable("key",value);`
+> Als u in de parcelable of serializable parameters plaatst, controleert u of hun `toString()` methode om te retourneren van een leesbare tekenreeks is geïmplementeerd. Serialiseerbaar klassen die niet tijdelijke velden bevatten die niet geserialiseerd zijn brengt Android vastlopen wanneer u wordt gebeld `bundle.putSerializable("key",value);`
 > 
 > [!WARNING]
 > Sparse matrices in extra parameters worden niet ondersteund, dat wil zeggen won't worden geserialiseerd als een matrix. U moet deze converteren naar standard matrices voordat u deze in extra parameters.

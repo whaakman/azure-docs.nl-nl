@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 71236b68-5ebd-44aa-8c82-c7ca8098ea05
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: dc075ffe6565b4ef60e77f74ba4f065629c99952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Windows universele Apps Engagement SDK-integratie
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 > [!div class="op_single_selector"]
 > * [Universeel Windows](mobile-engagement-windows-store-integrate-engagement.md) 
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
@@ -57,7 +61,7 @@ NuGet implementeert automatisch de SDK-resources in de `Resources` map in de hoo
 NuGet, distribueert de SDK-resources in uw UWP-toepassing nog niet automatisch. U hebben moet dit handmatig doen totdat de implementatie van resources wordt teruggeplaatst in NuGet:
 
 1. Open de Verkenner.
-2. Navigeer naar de volgende locatie (**x.x.x** is de versie van Engagement u installeert): *% USERPROFILE %\\.nuget\packages\MicrosoftAzure.MobileEngagement\\**x.x.x**\\content\win81*
+2. Navigeer naar de volgende locatie (**x.x.x** is de versie van Engagement u installeert): *% USERPROFILE %\\.nuget\packages\MicrosoftAzure.MobileEngagement\\  **x.x.x**\\content\win81*
 3. Slepen en neerzetten de **Resources** map vanuit de Verkenner naar de hoofdmap van uw project in Visual Studio.
 4. Selecteer uw project in Visual Studio en activeren de **weergeven van alle bestanden** pictogram boven de **Solution Explorer**.
 5. Sommige bestanden zijn niet opgenomen in het project. Voor het importeren van deze in één keer Klik met de rechtermuisknop op de **Resources** map **uitsluiten van project** en vervolgens een andere Klik met de rechtermuisknop op de **Resources** map **opnemen in het project** opnieuw ook de hele map. Alle bestanden uit de **Resources** map nu zijn opgenomen in uw project.

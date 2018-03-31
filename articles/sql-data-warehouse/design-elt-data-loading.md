@@ -1,29 +1,24 @@
 ---
-title: ELT ontwerpen voor Azure SQL datawarehouse | Microsoft Docs
-description: "Technologieën voor het verplaatsen van gegevens naar Azure en laden van gegevens in SQL Data Warehouse voor het ontwerpen van een proces extraheren, laden en transformeren (ELT) voor Azure SQL Data Warehouse worden gecombineerd."
+title: In plaats van ETL, ELT voor Azure SQL Data Warehouse ontwerpen | Microsoft Docs
+description: Ontwerpen in plaats van ETL, een proces extraheren, laden en transformeren (ELT) voor het laden van gegevens of Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 12/12/2017
-ms.author: cakarst;barbkess
-ms.openlocfilehash: e94dca69c77c46034e318205279be5188e1371f5
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Ontwerpen extraheren, laden en transformeren (ELT) voor Azure SQL datawarehouse
 
-Combineer de technologieën voor landingspagina gegevens in Azure storage en de gegevens in SQL Data Warehouse voor het ontwerpen van een proces extraheren, laden en transformeren (ELT) voor Azure SQL Data Warehouse te laden. Dit artikel bevat de technologieën die ondersteuning voor laden met Polybase en vervolgens is gericht op het ontwerpen van een proces ELT die gebruikmaakt van PolyBase gegevens laadt in SQL Data Warehouse uit Azure Storage met T-SQL.
+Ontwerpen in plaats van uitpakken, transformeren en Load (ETL), een proces extraheren, laden en transformeren (ELT) voor het laden van gegevens in Azure SQL Data Warehouse. Dit artikel bevat manieren voor het ontwerpen van een proces ELT die gegevens naar een Azure datawarehouse verplaatst.
 
 ## <a name="what-is-elt"></a>Wat is ELT?
 
@@ -63,7 +58,7 @@ PolyBase gegevens laadt van UTF-8 en UTF-16 gecodeerde tekstbestanden met scheid
 Als uw gegevens niet compatibel met PolyBase is, kunt u [bcp](sql-data-warehouse-load-with-bcp.md) of de [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP wordt zonder tussenkomst van Azure Blob-opslag rechtstreeks naar SQL Data Warehouse zijn geladen en is alleen bedoeld voor kleine hoeveelheden. Let op de prestaties van de belasting van deze opties is aanzienlijk langzamer dan PolyBase. 
 
 
-## <a name="extract-source-data"></a>Brongegevens ophalen
+## <a name="extract-source-data"></a>Brongegevens extraheren
 
 Ophalen van gegevens uit het bronsysteem, is afhankelijk van de bron.  Het doel is de gegevens worden verplaatst naar tekstbestanden met scheidingstekens. Als u SQL Server gebruikt, kunt u [opdrachtregelprogramma bcp](/sql/tools/bcp-utility) om de gegevens te exporteren.  
 
@@ -104,7 +99,7 @@ De tekst bestanden:
 - Gegevens in het tekstbestand uitgelijnd met de kolommen en gegevenstypen in de doeltabel SQL Data Warehouse-indeling. Uitlijning van gegevenstypen tussen gegevenstypen in de externe tekstbestanden en de datawarehouse gegevenstabel zorgt ervoor dat de rijen kunnen worden geweigerd tijdens het laden.
 - Afzonderlijke velden in het tekstbestand met een terminator.  Zorg ervoor dat een teken of een tekenreeks die niet is gevonden in de brongegevens gebruiken. Gebruik de terminator die u opgaf met [EXTERNAL FILE FORMAT maken](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
-## <a name="load-to-a-staging-table"></a>Laden naar een tijdelijke tabel
+## <a name="load-to-a-staging-table"></a>Laden naar een faseringstabel
 Als u gegevens in het datawarehouse, werkt het uitstekend naar eerst zijn geladen de gegevens in een tijdelijke tabel. Met behulp van een tijdelijke tabel voor het afhandelen van fouten zonder interactie aangaan met de productie-tabellen en u te voorkomen dat de rollback-bewerkingen op de productietabel. Een tijdelijke tabel kunt u bovendien de transformaties uitvoeren voordat de gegevens worden ingevoegd in productie-tabellen met SQL Data Warehouse.
 
 Als u wilt laden met T-SQL, voer de [maken tabel AS selecteren (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL-instructie. Deze opdracht voegt de resultaten van een select-instructie in een nieuwe tabel. Als de instructie uit een externe tabel selecteert, worden de externe gegevens geïmporteerd. 

@@ -5,14 +5,14 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/05/2018
+ms.date: 03/28/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 96826b2f8acd579cbfe30f2e524d94ce4867df30
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 54ab118ca9a8dcc591b275f87be2894d2bfad54d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 GPU geoptimaliseerd VM grootten gespecialiseerde virtuele machines met één of meerdere NVIDIA GPU's beschikbaar zijn. Deze grootten zijn ontworpen voor rekenintensieve en grafisch-intensieve visualisatie werkbelastingen. In dit artikel bevat informatie over het aantal en type GPU's, Vcpu, gegevensschijven, en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering van. 
 
@@ -87,7 +87,7 @@ De ND-serie virtuele machines zijn een nieuwe aanvulling op de GPU-familie die z
 | Standard_ND6s |6 |112 | 336 | 1 | 12 | 4 |
 | Standard_ND12s |12 |224 | 672 | 2 | 24 | 8 | 
 | Standard_ND24s |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_ND24rs* |24 |1448 | 1344 | 4 | 32 | 8 |
+| Standard_ND24rs* |24 |448 | 1344 | 4 | 32 | 8 |
 
 1 GPU = één p 40-kaart.
 

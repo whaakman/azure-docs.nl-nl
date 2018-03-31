@@ -3,10 +3,9 @@ title: 'Gegevensverbinding: gegevensstroom invoer van een stroom gebeurtenissen 
 description: Meer informatie over het instellen van een gegevensverbinding met Stream Analytics 'invoer' genoemd. Invoer bevatten een gegevensstroom van gebeurtenissen en ook verwijzen naar gegevens.
 keywords: gegevensstroom, gegevensverbinding, stroom gebeurtenissen
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Gegevensverbinding: meer informatie over gegevens invoer van de stroom van gebeurtenissen voor Stream Analytics
 De gegevensverbinding met een Stream Analytics-taak is een stream van gebeurtenissen van een gegevensbron waarnaar wordt verwezen als de taak *invoer*. Stream Analytics is een uitstekende integratie met Azure stream gegevensbronnen, waaronder [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), en [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Deze invoerbronnen kunnen zijn in dezelfde Azure-abonnement als analytics-taak, of vanuit een ander abonnement.
@@ -70,7 +69,7 @@ Als de gegevens afkomstig van een event hub, hebt u toegang naar de volgende met
 | --- | --- |
 | **EventProcessedUtcTime** |De datum en tijd waarop de gebeurtenis is verwerkt door de Stream Analytics. |
 | **EventEnqueuedUtcTime** |De datum en tijd waarop de gebeurtenis is ontvangen door de Event Hubs. |
-| **PartitionId** |De op nul gebaseerde partitie-ID voor de invoer-adapter. |
+| **partitionId** |De op nul gebaseerde partitie-ID voor de invoer-adapter. |
 
 Bijvoorbeeld, kunt met behulp van deze velden, u een query op het volgende voorbeeld:
 
@@ -106,7 +105,7 @@ De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** blad
 | --- | --- |
 | **Invoeralias** |Een beschrijvende naam die u in de taak query gebruiken om te verwijzen naar deze gegevens.|
 | **IoT-hub** |De naam van de IoT-hub te gebruiken als invoer. |
-| **Eindpunt** |Het eindpunt voor de IoT-hub.|
+| **Endpoint** |Het eindpunt voor de IoT-hub.|
 | **Naam van beleid voor gedeelde toegang** |Het beleid voor gedeelde toegang dat toegang tot de IoT-hub biedt. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. |
 | **Beleid voor gedeelde toegangssleutel** |De gedeelde toegangssleutel toegang verlenen aan de IoT-hub. |
 | **Consumergroep** (optioneel) |De consumentengroep te gebruiken voor het opnemen van gegevens van de IoT-hub. Als geen consumentengroepen is opgegeven, een Stream Analytics-taak maakt gebruik van de standaardgroep voor consumenten. Het is raadzaam om gebruik te maken van een andere klantengroep voor elke Stream Analytics-taak. |
@@ -120,7 +119,7 @@ Als de gegevens afkomstig van een iothub, hebt u toegang naar de volgende metage
 | --- | --- |
 | **EventProcessedUtcTime** |De datum en tijd waarop de gebeurtenis is verwerkt. |
 | **EventEnqueuedUtcTime** |De datum en tijd waarop de gebeurtenis is ontvangen door de IoT-hub. |
-| **PartitionId** |De op nul gebaseerde partitie-ID voor de invoer-adapter. |
+| **partitionId** |De op nul gebaseerde partitie-ID voor de invoer-adapter. |
 | **IoTHub.MessageId** | Een ID die wordt gebruikt voor communicatie in twee richtingen in IoT-hub correleren. |
 | **IoTHub.CorrelationId** |Een ID die wordt gebruikt voor antwoorden op berichten en feedback van IoT-hub. |
 | **IoTHub.ConnectionDeviceId** |De verificatie-ID gebruikt om dit bericht te verzenden. Deze waarde wordt vermeld op servicebound berichten door de IoT-hub. |
@@ -150,8 +149,8 @@ De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** blad
 | **Opslagaccount** | De naam van het opslagaccount waarin de blob-bestanden bevinden. |
 | **De sleutel van opslagaccount** | De geheime sleutel die is gekoppeld aan het opslagaccount. |
 | **Container** | De container voor de blob invoer. Containers bieden een logische groepering van blobs die zijn opgeslagen in de Microsoft Azure Blob-service. Wanneer u een blob naar de Azure Blob storage-service uploaden, moet u een container voor blob opgeven. |
-| **Het pad** (optioneel) | Het pad dat wordt gebruikt om de blobs in de opgegeven container te vinden. Binnen het pad kunt u een of meer exemplaren van de volgende drie variabelen opgeven: `{date}`, `{time}`, of`{partition}`<br/><br/>Voorbeeld 1:`cluster1/logs/{date}/{time}/{partition}`<br/><br/>Voorbeeld 2:`cluster1/logs/{date}`<br/><br/>De `*` teken is niet-toegestane waarde voor het voorvoegsel op dat pad. Alleen geldige <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob-tekens</a> zijn toegestaan. |
-| **De datumnotatie** (optioneel) | Als u de datum-variabele in het pad voor de datumnotatie waarin de bestanden zijn ingedeeld gebruiken. Voorbeeld:`YYYY/MM/DD` |
+| **Het pad** (optioneel) | Het pad dat wordt gebruikt om de blobs in de opgegeven container te vinden. Binnen het pad kunt u een of meer exemplaren van de volgende drie variabelen opgeven: `{date}`, `{time}`, of `{partition}`<br/><br/>Voorbeeld 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Voorbeeld 2: `cluster1/logs/{date}`<br/><br/>De `*` teken is niet-toegestane waarde voor het voorvoegsel op dat pad. Alleen geldige <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob-tekens</a> zijn toegestaan. |
+| **De datumnotatie** (optioneel) | Als u de datum-variabele in het pad voor de datumnotatie waarin de bestanden zijn ingedeeld gebruiken. Voorbeeld: `YYYY/MM/DD` |
 | **Tijdnotatie** (optioneel) |  Als u de time-variabele in het pad voor de indeling waarin de bestanden zijn ingedeeld gebruiken. De enige ondersteunde waarde is momenteel `HH`. |
 | **Gebeurtenis serialisatie-indeling** | De serialisatie-indeling (JSON, CSV of Avro) voor inkomende gegevensstromen. |
 | **Codering** | Voor de CSV en JSON is UTF-8 momenteel de enige ondersteunde coderingsindeling. |
@@ -164,7 +163,7 @@ Als de gegevens afkomstig van een Blob storage-bron, hebt u toegang naar de volg
 | **BlobName** |De naam van de blob-invoerbron die afkomstig zijn van de gebeurtenis. |
 | **EventProcessedUtcTime** |De datum en tijd waarop de gebeurtenis is verwerkt door de Stream Analytics. |
 | **BlobLastModifiedUtcTime** |De datum en tijd waarop de blob voor het laatst is gewijzigd. |
-| **PartitionId** |De op nul gebaseerde partitie-ID voor de invoer-adapter. |
+| **partitionId** |De op nul gebaseerde partitie-ID voor de invoer-adapter. |
 
 Bijvoorbeeld, kunt met behulp van deze velden, u een query op het volgende voorbeeld:
 

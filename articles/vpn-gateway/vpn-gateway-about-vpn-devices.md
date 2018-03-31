@@ -5,21 +5,21 @@ services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager, azure-service-management
 ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: f75732761cefd7706fe1555484148efe6cdc0e56
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 7f69b5268adc857c6e45f8fa11fbcca42f64b71f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>VPN-apparaten en IPSec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen
 
@@ -57,7 +57,7 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Configuratiehandleiding*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Voorbeelden van configuraties\*\*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
-| Cisco |Meraki |N.v.t. |Niet compatibel |Niet compatibel |
+| Cisco |Meraki |N/A |Niet compatibel |Niet compatibel |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 en hoger |[Configuratiehandleiding](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Niet compatibel |
 | F5 |BIG-IP-serie |12.0 |[Configuratiehandleiding](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Configuratiehandleiding](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[Configuratiehandleiding](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -67,11 +67,12 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 | Juniper |ISG |ScreenOS 6.3 |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
 | Juniper |SSG |ScreenOS 6.2 |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Voorbeelden van configuraties](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |Routering en Remote Access-Service |Windows Server 2012 |Niet compatibel |[Voorbeelden van configuraties](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
-| Open Systems AG |Mission Control Security Gateway |N.v.t. |[Configuratiehandleiding](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Niet compatibel |
+| Open Systems AG |Mission Control Security Gateway |N/A |[Configuratiehandleiding](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Niet compatibel |
 | Palo Alto Networks |Alle apparaten waarop PAN-OS wordt uitgevoerd |PAN-OS<br>PolicyBased: 6.1.5 of hoger<br>RouteBased: 7.1.4 |[Configuratiehandleiding](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Configuratiehandleiding](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
 | ShareTech | Next Generation UTM (NU-serie) | 9.0.1.3 | Niet compatibel | [Configuratiehandleiding](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ-serie, NSA-serie<br>SuperMassive-serie<br>E-Class NSA-serie |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Niet compatibel |[Configuratiehandleiding](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG Firewall van de volgende generatie | XG v17 | | [Configuratiehandleiding](https://community.sophos.com/kb/127546) |
+| Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [BGP via IKEv2/IPsec](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012374708&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=2EF5KFljZwtAGQDSm8%2FF2f6DqI2bkmA2qKG4u0rPgbQ%3D&reserved=0)<br><br>[VTI via IKEv2/IPsec](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012305347&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=ycgiDJCOQYTPN7sAEBSigphzC6mBaADz%2FgdCOm7TsXA%3D&reserved=0)
 | WatchGuard |Alle |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Configuratiehandleiding](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Configuratiehandleiding](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 > [!NOTE]
@@ -79,6 +80,10 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 > (*) Met Cisco ASA versie 8.4 en hoger wordt IKEv2-ondersteuning toegevoegd en kan verbinding worden gemaakt met Azure VPN-gateways met behulp van een aangepast IPsec/IKE-beleid met de optie UsePolicyBasedTrafficSelectors. Raadpleeg dit [artikel met instructies](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 >
 > (\*\*) Routers uit de ISR 7200-serie bieden alleen ondersteuning voor PolicyBased VPN's.
+
+## <a name="Download VPN device configuration scripts from Azure"></a>VPN-apparaat configuratiescripts downloaden van Azure
+
+Voor bepaalde apparaten, kunt u downloaden configuratiescripts rechtstreeks uit Azure. Zie voor meer informatie en instructies [downloaden VPN-apparaat configuratiescripts](vpn-gateway-download-vpndevicescript.md).
 
 ## <a name="additionaldevices"></a>Niet-gevalideerde VPN-apparaten
 
@@ -151,24 +156,24 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 
 |-  |**Versleuteling**|**Verificatie**|**PFS-groep**|
 |---| ---          |---               |---          |
-| 1 |GCM AES256    |GCM (AES256)      |None         |
+| 1 |GCM AES256    |GCM (AES256)      |Geen         |
 | 2 |AES256        |SHA1              |Geen         |
 | 3 |3DES          |SHA1              |None         |
-| 4 |AES256        |SHA256            |None         |
-| 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |Geen         |
+| 4 |AES256        |SHA256            |Geen         |
+| 5 |AES128        |SHA1              |Geen         |
+| 6 |3DES          |SHA256            |None         |
 
 #### <a name="azure-gateway-as-responder"></a>Azure-Gateway als antwoorder
 
 |-  |**Versleuteling**|**Verificatie**|**PFS-groep**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |None         |
+| 1 |GCM AES256    |GCM (AES256)      |Geen         |
 | 2 |AES256        |SHA1              |Geen         |
 | 3 |3DES          |SHA1              |Geen         |
-| 4 |AES256        |SHA256            |None         |
+| 4 |AES256        |SHA256            |Geen         |
 | 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |Geen         |
-| 7 |DES           |SHA1              |None         |
+| 6 |3DES          |SHA256            |None         |
+| 7 |DES           |SHA1              |Geen         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
@@ -183,7 +188,7 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 | 19|AES256        |SHA256            |14           |
 | 20|AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
-| 22|AES128        |SHA256            |None         |
+| 22|AES128        |SHA256            |Geen         |
 | 23|AES128        |SHA256            |1            |
 | 24|AES128        |SHA256            |2            |
 | 25|AES128        |SHA256            |14           |

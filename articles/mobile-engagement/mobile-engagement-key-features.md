@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d98bafb6-4fd0-4cc3-8c2f-962af70c416c
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 8270a223ca31c623c1b760a64c0e4d64fb85e080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce160fbc78c7069b0114599455403e5e20771c6c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---key-features"></a>Azure Mobile Engagement - sleutel-functies
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 In dit artikel biedt een overzicht op hoog niveau over de belangrijkste functies van de Mobile Engagement-platform. 
 
 ## <a name="general"></a>**Algemeen**

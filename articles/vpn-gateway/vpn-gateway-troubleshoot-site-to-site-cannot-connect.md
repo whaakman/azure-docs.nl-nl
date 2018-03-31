@@ -5,20 +5,20 @@ services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 03/29/2018
 ms.author: genli
-ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3e590df66f84cd88ba7ba251373c14a44a94ca77
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Voor probleemoplossing: Een Azure site-naar-site VPN-verbinding kan geen verbinding maken en werkt niet
 
@@ -26,7 +26,7 @@ Nadat u een site-naar-site VPN-verbinding tussen een on-premises netwerk en een 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="troubleshooting-steps"></a>Stappen voor het oplossen van problemen
+## <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
 
 U lost het probleem door eerst [opnieuw instellen van de Azure VPN-gateway](vpn-gateway-resetgw-classic.md) en de tunnel van de on-premises VPN-apparaat opnieuw instellen. Als het probleem zich blijft voordoen, volg deze stappen om de oorzaak van het probleem te identificeren.
 
@@ -92,7 +92,9 @@ Controleren op en verwijderen van de gebruiker gedefinieerde Routering of Netwer
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Stap 7. Controleer of de statuscontrole van de Azure-gateway
 
-1. Ga naar de health-test.
+1. Open health test door te bladeren naar de volgende URL:
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. Klik in de certificaatwaarschuwing.
 3. Als u een antwoord ontvangt, wordt de VPN-gateway als in orde beschouwd. Als u niet een antwoord ontvangt, de gateway mogelijk niet in orde of het probleem wordt veroorzaakt door een NSG op het gatewaysubnet. De volgende tekst is een voorbeeldantwoord:

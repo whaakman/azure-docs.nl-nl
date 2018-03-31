@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1f5f5857-867c-40c5-9d76-675a343a0296
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d531f5850e8f7f352774f5894285402bd4cc53e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>Het integreren van Engagement bereiken op iOS
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 U moet volgen de procedure integratie in de [hoe integreren Engagement voor iOS-document](mobile-engagement-ios-integrate-engagement.md) voordat u deze handleiding.
 
 Deze documentatie vereist XCode 8. Als u echt afhankelijk van XCode 7 zijn en u kunt de [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). Er is een bekend probleem in de vorige versie bij het uitvoeren op iOS-10-apparaten: Er zijn geen kennisgevingen systeem waarop actie is ondernomen. Om op te lossen dit er voor het implementeren van de afgeschafte API `application:didReceiveRemoteNotification:` in uw app delegeren als volgt:
@@ -253,7 +257,7 @@ Systeemmeldingen worden afgehandeld door iOS en kunnen niet worden aangepast.
 
 In-app-meldingen zijn gemaakt van een weergave die dynamisch wordt toegevoegd aan het huidige toepassingsvenster. Dit is een melding overlay genoemd. Melding overlays zijn ideaal voor een snelle integratie omdat ze hoeft u niet om een weergave in uw toepassing te wijzigen.
 
-#### <a name="layout"></a>Lay-out
+#### <a name="layout"></a>Indeling
 Voor het wijzigen van het uiterlijk van uw in-app-meldingen u gewoon het bestand kan wijzigen `AENotificationView.xib` aan uw behoeften, zolang u de labelwaarden en typen van de bestaande subweergaven behouden.
 
 Standaard worden in-app-meldingen weergegeven aan de onderkant van het scherm. Als u liever bovenaan in het scherm worden weergegeven, bewerkt u de opgegeven `AENotificationView.xib` en wijzig de `AutoSizing` eigenschap van de belangrijkste weergave zodat deze aan de bovenkant van de superview kan worden bewaard.
@@ -267,7 +271,7 @@ Voor het registreren van een categorie-handler voor uw meldingen die u wilt toev
     [reach registerNotifier:myNotifier forCategory:@"my_category"];
     ...
 
-`myNotifier`moet een exemplaar van een object dat aan het protocol voldoet `AENotifier`.
+`myNotifier` moet een exemplaar van een object dat aan het protocol voldoet `AENotifier`.
 
 U kunt de protocolmethoden implementeren door uzelf of u kunt de bestaande klasse reimplement `AEDefaultNotifier` die al meeste werk wordt uitgevoerd.
 
@@ -292,8 +296,8 @@ Dit eenvoudige voorbeeld van de categorie wordt ervan uitgegaan dat u hebt een b
 Het opgegeven kroontjespen-bestand moet de volgende regels voldoen:
 
 * Het moet slechts één weergave bevatten.
-* Subweergaven moeten van hetzelfde type als die binnen het opgegeven kroontjespen-bestand de naam`AENotificationView.xib`
-* Subweergaven moet dezelfde tags hebben als de waarden in de opgegeven kroontjespen-bestand met de naam`AENotificationView.xib`
+* Subweergaven moeten van hetzelfde type als die binnen het opgegeven kroontjespen-bestand de naam `AENotificationView.xib`
+* Subweergaven moet dezelfde tags hebben als de waarden in de opgegeven kroontjespen-bestand met de naam `AENotificationView.xib`
 
 > [!TIP]
 > Alleen de opgegeven kroontjespen bestand kopiëren, met de naam `AENotificationView.xib`, en beginnen met werken vanaf daar. Maar wees voorzichtig en de weergave in dit bestand kroontjespen is gekoppeld aan de klasse `AENotificationView`. Deze klasse opnieuw gedefinieerd voor de methode `layoutSubViews` te verplaatsen en het formaat ervan subweergaven volgens context. U kunt vervangen door een `UIView` of u aangepaste weergave-klasse.
@@ -344,7 +348,7 @@ U kunt besluiten te nemen van onze lay-out voor de melding in uw bestaande weerg
        notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
        [self.view addSubview:notificationView];
 
-`NOTIFICATION_AREA_VIEW_TAG`macro vindt u in `AEDefaultNotifier.h`.
+`NOTIFICATION_AREA_VIEW_TAG` macro vindt u in `AEDefaultNotifier.h`.
 
 > [!NOTE]
 > De standaard-melder detecteert automatisch dat de indeling van de melding is opgenomen in deze weergave en wordt een overlay niet toevoegen voor.

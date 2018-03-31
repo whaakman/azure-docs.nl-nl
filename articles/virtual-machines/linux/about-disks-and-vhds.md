@@ -2,19 +2,19 @@
 title: Over zonder begeleiding (pagina-BLOB's) en beheerde schijven opslag voor Microsoft Azure Linux VM's | Microsoft Docs
 description: Meer informatie over de basisprincipes van zonder begeleiding (pagina-BLOB's) en opslag van de schijven voor virtuele Linux-machines in Azure worden beheerd.
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
-ms.openlocfilehash: 107e332a0f8c9d5a84a74de685ca458fb29caa8b
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.author: rogarana
+ms.openlocfilehash: 3742b05bceea7aed556d06ab4460abaa08aca7d1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Over schijven opslag voor Azure Linux VM 's
 Net als elke andere computer gebruiken virtuele machines in Azure schijven als een plaats voor het opslaan van een besturingssysteem, toepassingen en gegevens. Alle virtuele machines in Azure hebt ten minste twee schijven: een Linux-besturingssysteem en een tijdelijke schijf. De besturingssysteemschijf is gemaakt van een installatiekopie en zowel de besturingssysteemschijf en de installatiekopie zijn daadwerkelijk opgeslagen virtuele harde schijven (VHD's) in Azure storage-account. Virtuele machines hebben ook een of meer gegevensschijven die ook als virtuele harde schijven zijn opgeslagen. 

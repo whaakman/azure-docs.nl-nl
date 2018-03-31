@@ -5,8 +5,7 @@ keywords: JavaScript, door de gebruiker gedefinieerde aggregaties, uda
 services: stream-analytics
 author: minhe-msft
 manager: santoshb
-editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/28/2017
 ms.author: minhe
-ms.openlocfilehash: b3863a34ed146e54c6d60e035957b942a1976ff9
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9f9a2e33f97fc90265933ee9941f2d02a92cbc4c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript gebruiker gedefinieerde aggregaties (Preview)
 
@@ -82,7 +81,7 @@ function main() {
 
 Elke UDA JavaScript wordt gedefinieerd door de declaratie van een functie-object. Hier volgen de belangrijkste elementen in de definitie van een UDA.
 
-### <a name="function-alias"></a>Functie alias
+### <a name="function-alias"></a>Functiealias
 
 Functie-alias is de UDA-id. Als deze wordt aangeroepen in de Stream Analytics query, altijd gebruik van UDA alias samen met een 'uda." voorvoegsel.
 
@@ -90,7 +89,7 @@ Functie-alias is de UDA-id. Als deze wordt aangeroepen in de Stream Analytics qu
 
 Voor UDA, het functietype moet **Javascript UDA**.
 
-### <a name="output-type"></a>Het uitvoertype
+### <a name="output-type"></a>Uitvoertype
 
 Een specifiek type die Stream Analytics-taak ondersteund of '' als u wilt verwerken van het type in uw query.
 

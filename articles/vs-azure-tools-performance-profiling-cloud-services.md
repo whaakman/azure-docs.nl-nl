@@ -4,8 +4,8 @@ description: Test de prestaties van een cloudservice met behulp van de profiler 
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: 7a5501aa-f92c-457c-af9b-92ea50914e24
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: 483b8b1c7c75c407cb55a1b3b027ae043c506ebb
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 74ffd70bdb204cee75b86a1e922ac67873a88758
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>De prestaties van een cloudservice testen
 ## <a name="overview"></a>Overzicht
@@ -106,7 +106,7 @@ Een profilering sessie wordt gemaakt voor elk exemplaar van een rol in uw clouds
 2. Kies het Azure Compute-knooppunt en kies vervolgens het knooppunt van de Azure-implementatie voor de cloudservice die u hebt geselecteerd voor het profiel wanneer u gepubliceerd vanuit Visual Studio.
 3. Profileringsoptimalisaties om rapporten te bekijken voor een exemplaar, selecteer de rol in de service, open het snelmenu voor een specifiek exemplaar en kies vervolgens **profilering rapport weergeven**.
    
-    Het rapport, een bestand .vsp wordt nu gedownload van Azure en de status van de download wordt weergegeven in de Azure Activity Log. Wanneer het downloaden is voltooid, het profilering rapport wordt weergegeven op een tabblad in de editor voor Visual Studio met de naam <Role name>  *<Instance Number>*  <identifier>.vsp. Gegevens van de samenvatting voor het rapport wordt weergegeven.
+    Het rapport, een bestand .vsp wordt nu gedownload van Azure en de status van de download wordt weergegeven in de Azure Activity Log. Wanneer het downloaden is voltooid, het profilering rapport wordt weergegeven op een tabblad in de editor voor Visual Studio met de naam <Role name> *<Instance Number>* <identifier>.vsp. Gegevens van de samenvatting voor het rapport wordt weergegeven.
 4. Om verschillende weergaven van het rapport in de lijst met huidige weergave, selecteer het type van de gewenste weergave. Zie voor meer informatie [extra rapportweergaven profilering](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen

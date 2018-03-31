@@ -2,11 +2,11 @@
 title: Een data invoer toevoegen aan Stream Analytics-taken | Microsoft Docs
 description: Informatie over het aansluiten van een gegevensbron om uw Stream Analytics-taak als streaming gegevensinvoer uit Event Hubs of verwijzing gegevens uit Blog van storage.
 keywords: gegevens invoeren, streamen van gegevens
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: 
+author: jseb225
+manager: ryanw
+editor: ''
 ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: jeanb
+ms.openlocfilehash: 441cc2d1c6d2cdc6ce4bbd14306ec8ae71c38c55
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Een streaming gegevens invoer- of gegevens toevoegen aan Stream Analytics-taak
 Informatie over het aansluiten van een gegevensbron om uw Stream Analytics-taak als streaming gegevensinvoer uit Event Hubs of verwijzing gegevens uit Blob storage.
@@ -61,7 +61,7 @@ Een invoer toevoegen aan Stream Analytics-taak:
 5. Geef de serialisatie-instellingen voor de ingevoerde gegevens:
    
    * Om er zeker van te zijn uw query's werken zoals verwacht, geef de **gebeurtenis serialisatie-indeling** van binnenkomende gegevens.  Ondersteunde serialisatie-indelingen zijn JSON, CSV en Avro.
-   * Controleer of de **codering** voor de gegevens.  De enige ondersteunde coderingsindeling is UTF-8 op dit moment.
+   * Controleer of de **codering** voor de gegevens.  Alleen de coderingsindeling UTF-8 wordt momenteel ondersteund.
      
      ![Instellingen voor serialisatie van gegevens voor de gegevens invoeren](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
      

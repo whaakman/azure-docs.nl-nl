@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -119,7 +119,7 @@ Heartbeat
 
 Op een Windows-computer, kunt u het volgende om te controleren of de verbinding van de agent met logboekanalyse bekijken:
 
-1.  Open Microsoft Monitoring Agent in het Configuratiescherm en ga naar het tabblad **Azure-logboekanalyse (OMS)**. Het volgende bericht wordt weergegeven voor de agent: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
+1.  Open Microsoft Monitoring Agent in het Configuratiescherm en op de **Azure Log Analytics** tabblad, de agent geeft een bericht weergegeven: **de Microsoft Monitoring Agent is verbonden met logboekanalyse** .   
 2.  Open het Windows-gebeurtenislogboek, ga naar **Toepassings- en servicelogboeken\Operations Manager**, en zoek naar gebeurtenis-id 3000 en 5002 van de bronserviceconnector. Deze gebeurtenissen geven aan de computer met de werkruimte voor logboekanalyse is geregistreerd en configuratie ontvangt.  
 
 Als de agent kan niet communiceren met logboekanalyse en deze is geconfigureerd om te communiceren met internet via een firewall of proxyserver, controleert u de firewall of proxy-server correct is geconfigureerd aan de hand van [netwerkconfiguratie voor Windows-agent](../log-analytics/log-analytics-agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
@@ -131,7 +131,7 @@ Als de agent kan niet communiceren met logboekanalyse en deze is geconfigureerd 
 
 Bij pas toegevoegde Linux-agents staat de status **Bijgewerkt** na het uitvoeren van een beoordeling. Dit proces kan maximaal zes uur duren.
 
-Om te controleren op een Operations Manager-beheergroep communiceert met Log Analytics, Zie [Operations Manager-integratie valideren met OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+Om te controleren op een Operations Manager-beheergroep communiceert met Log Analytics, Zie [Operations Manager-integratie valideren met logboekanalyse](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Gegevensverzameling
 
@@ -173,7 +173,7 @@ Klik op **ontbrekende updates** om de lijst met updates die in uw machines ontbr
 
 ## <a name="viewing-update-deployments"></a>Update-implementaties weergeven
 
-Klik op **Update-implementaties** om de lijst met bestaande Update-implementaties weer te geven. Wordt op een van de update-implementaties in de lijst te klikken geopend de **bijwerken implementatie uitgevoerd** pagina voor de implementatie van deze update.
+Klik op de **Update-implementaties** tabblad om de lijst met bestaande Update-implementaties. Te klikken op een van de update-implementaties in de tabel wordt de **bijwerken implementatie uitgevoerd** pagina voor de implementatie van deze update.
 
 ![Overzicht van de resultaten van de update-implementatie](./media/automation-update-management/update-deployment-run.png)
 
@@ -186,7 +186,7 @@ Maak een nieuwe Update-implementatie door te klikken op de **schema-update-imple
 | Naam |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Linux- of Windows|
 | Machines bijwerken |Selecteer een opgeslagen zoekopdracht of Machine kiest uit de vervolgkeuzelijst en selecteert u afzonderlijke machines |
-|Updateclassificatie|Selecteer de updateclassificaties die u nodig hebt|
+|Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
 |Updates om uit te sluiten|Voer alle KB om uit te sluiten zonder het voorvoegsel 'KB'|
 |Schema-instellingen|Selecteer de tijd om te starten en selecteer hetzij eenmaal of terugkerende voor het terugkeerpatroon|
 | Onderhoudsvenster |Aantal minuten instellen voor updates. De waarde kan niet worden worden minder dan 30 minuten en niet meer dan 6 uur |
@@ -213,7 +213,7 @@ De volgende tabel bevat een voorbeeld-logboek zoekt bijwerkrecords die door deze
 
 Klanten die hebben geïnvesteerd in System Center Configuration Manager voor het beheren van pc's, servers en mobiele apparaten, rekenen ook op zijn kracht en volwassenheid bij het beheren van software-updates als onderdeel van hun software-updatebeheercyclus.
 
-Zie voor meer informatie over de OMS-updatebeheer-oplossing integreren met System Center Configuration Manager, [integreren van System Center Configuration Manager met OMS updatebeheer](oms-solution-updatemgmt-sccmintegration.md).
+Zie voor meer informatie over de management-oplossing integreren met System Center Configuration Manager, [System Center Configuration Manager integreren met updatebeheer](oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="patching-linux-machines"></a>Linux-machines herstellen
 

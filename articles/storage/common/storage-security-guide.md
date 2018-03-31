@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -357,7 +357,7 @@ Deze functie zorgt ervoor dat alle gegevens voor de virtuele machine-schijven is
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>IaaS VM's en hun VHD-bestanden
 
-Voor gegevensschijven die wordt gebruikt door IaaS VM's, wordt Azure Disk Encryption aanbevolen. Als u een VM die gebruikmaakt van een afbeelding uit Azure Marketplace maakt, Azure voert een [recente kopie](https://en.wikipedia.org/wiki/Object_copying) van de installatiekopie naar uw storage-account in Azure Storage en is niet versleuteld zelfs als er SSE ingeschakeld. Nadat de virtuele machine wordt gemaakt en begint met het bijwerken van de installatiekopie, start SSE de gegevens te coderen. Daarom is het beste Azure Disk Encryption op virtuele machines die zijn gemaakt op basis van installatiekopieën in Azure Marketplace als u deze volledig versleuteld wilt gebruiken.
+Voor gegevensschijven die wordt gebruikt door IaaS VM's, wordt Azure Disk Encryption aanbevolen. Als u een virtuele machine met niet-beheerde schijven met behulp van een afbeelding uit Azure Marketplace maakt, Azure voert een [recente kopie](https://en.wikipedia.org/wiki/Object_copying) van de installatiekopie naar uw storage-account in Azure Storage en is niet versleuteld zelfs als er SSE ingeschakeld. Nadat de virtuele machine wordt gemaakt en begint met het bijwerken van de installatiekopie, start SSE de gegevens te coderen. Daarom is het beste Azure Disk Encryption op virtuele machines met niet-beheerde schijven die zijn gemaakt op basis van installatiekopieën in Azure Marketplace als u deze volledig versleuteld wilt gebruiken. Als u een virtuele machine met schijven beheerd maakt, versleutelt SSE alle gegevens standaard met sleutels die worden beheerd platform. 
 
 Als u een vooraf zijn versleuteld virtuele machine in Azure van on-premises brengt, kunt u zich de versleutelingssleutels uploaden naar Azure Sleutelkluis en doorgaan met de codering voor die VM dat u waren met on-premises. Azure Disk Encryption is ingeschakeld voor het afhandelen van dit scenario.
 

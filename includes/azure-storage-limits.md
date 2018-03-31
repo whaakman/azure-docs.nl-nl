@@ -1,12 +1,12 @@
 | Resource | Standaardlimiet |
 | --- | --- |
-| Aantal opslagaccounts per abonnement | 200<sup>1</sup> |
+| Aantal storage-accounts per regio | 200<sup>1</sup> |
 | Maximum aantal opslagaccountcapaciteit | 500 TiB<sup>2</sup> |
 | Maximumaantal blob-containers, blobs, bestandsshares, tabellen, wachtrijen, entiteiten of berichten per storage-account | Geen limiet |
 | Percentage maximum aantal aanvragen per storage-account | aanvragen per seconde voor 20.000<sup>2</sup> |
-| Maximale inkomende<sup>3</sup> per storage-account (ons regio's) | 10 Gbps als RA-GRS/ZRS<sup>4</sup> ingeschakeld, 20 Gbps voor LRS<sup>2</sup> |
+| Maximale inkomende<sup>3</sup> per storage-account (ons regio's) | 10 Gbps als RA-GRS/GRS/ZRS<sup>4</sup> ingeschakeld, 20 Gbps voor LRS<sup>2</sup> |
 | Maximum aantal uitgaande<sup>3</sup> per storage-account (ons regio's) | 20 Gbps als RA-GRS/GRS/ZRS<sup>4</sup> ingeschakeld, 30 Gbps voor LRS<sup>2</sup> |
-| Maximale inkomende<sup>3</sup> per storage-account (buiten de Verenigde Staten regio's) | 5 Gbps als RA-GRS/ZRS<sup>4</sup> ingeschakeld, 10 Gbps voor LRS<sup>2</sup> |
+| Maximale inkomende<sup>3</sup> per storage-account (buiten de Verenigde Staten regio's) | 5 Gbps als RA-GRS/GRS/ZRS<sup>4</sup> ingeschakeld, 10 Gbps voor LRS<sup>2</sup> |
 | Maximum aantal uitgaande<sup>3</sup> per storage-account (buiten de Verenigde Staten regio's) | 10 Gbps als RA-GRS/GRS/ZRS<sup>4</sup> ingeschakeld, 15 Gbps voor LRS<sup>2</sup> |
 
 <sup>1</sup>bevat standaard- en Premium storage-accounts. Als u meer dan 200 opslagaccounts nodig hebt, dient u een aanvraag in te dienen via de [ondersteuning van Azure](https://azure.microsoft.com/support/faq/). Het Azure Storage-team bekijkt dan uw bedrijfsscenario en kan tot 250 opslagaccounts goedkeuren. 
@@ -18,5 +18,5 @@
 <sup>4</sup>azure Storage redundantieopties zijn onder andere:
 * **RA-GRS**: geografisch redundante opslag met leestoegang. Als RA-GRS is ingeschakeld, zijn uitgaande doelen voor de secundaire locatie identiek aan die voor de primaire locatie.
 * **GRS**: geografisch redundante opslag. 
-* **ZRS**: Zone-redundante opslag. Alleen beschikbaar voor blok-blobs. 
+* **ZRS**: Zone-redundante opslag.
 * **LRS**: lokaal redundante opslag. 

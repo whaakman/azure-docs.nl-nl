@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 11618586-c709-49ca-bcd8-745323ff1af6
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 1f047f93fa8bc852b28c86e91d0c007a94fb4299
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77047cb1dc39fa3c05f58550ceea74e78396157f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="upgrade-procedures"></a>Upgradeprocedures
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Als u hebt al een oudere versie van onze SDK geïntegreerd in uw toepassing, hebt u de volgende punten overwegen bij het upgraden van de SDK.
 
 U moet verschillende procedures volgen als u verschillende versies van de SDK hebt gemist. Bijvoorbeeld als u migreert van 1.4.0 naar u moet eerst Volg de procedure 'van 1.4.0 naar 1.5.0' 1.6.0 vervolgens de procedure 'van 1.5.0 naar 1.6.0'.

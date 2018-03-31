@@ -3,10 +3,10 @@ title: Azure Stream Analytics op IoT rand (preview)
 description: Edge-taken maken in Azure Stream Analytics en deze implementeren naar apparaten gestart Azure IoT rand.
 keywords: gegevensstroom, iot, rand
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: jseb225
-manager: jhubbard
-ms.assetid: 
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1ff8d6f64a04ab03c8170fd2b6a7c881227da2e
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 475ca357c8445e8a7c672406f919af1d99a0933b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics op IoT rand (preview)
 
@@ -108,7 +108,7 @@ Deze stappen worden beschreven in de rand van de IoT-documentatie voor [Windows]
 ##### <a name="add-asa-to-your-deployment"></a>ASA toevoegen aan uw implementatie
 - In de Azure portal openen IoT Hub, navigeer naar IoT rand Explorer en open de blade van het apparaat.
 - Selecteer **modules ingesteld**, selecteer daarna **importeren Azure IoT rand servicemodule**.
-- Selecteer het abonnement en de rand van de ASA-taak die u hebt gemaakt. Selecteer vervolgens uw storage-account. Klik op opslaan.
+- Selecteer het abonnement en de rand van de ASA-taak die u hebt gemaakt. Selecteer vervolgens uw opslagaccount. Klik op opslaan.
 ![ASA-module in uw implementatie toevoegen](media/stream-analytics-edge/set_module.png)
 
 

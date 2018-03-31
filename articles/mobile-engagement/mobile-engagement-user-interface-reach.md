@@ -2,10 +2,10 @@
 title: Azure Mobile Engagement-gebruikersinterface - bereik
 description: Meer informatie over het bereiken voor de gebruikers van uw toepassing met behulp van Azure Mobile Engagement pushmeldingen
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d96e2590-08dd-4481-a352-2c18f26a1643
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d999b83df7d9d467f08ce8ec72468c738e8acfa5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>Hoe bereiken voor de gebruikers van uw toepassing met pushmeldingen
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 In dit artikel beschrijft de **bereiken** tabblad van de **Mobile Engagement** portal. U gebruikt de **Mobile Engagement** portal om te controleren en beheren van uw mobiele apps. Opmerking dat aan de slag met de portal moet u eerst maken een **Azure Mobile Engagement** account. Zie voor meer informatie [een Azure Mobile Engagement-account maken](mobile-engagement-create.md).
 
 De Reach-sectie van de gebruikersinterface is de campagne Push hulpprogramma u maken/bewerken/activeren/voltooien/monitor kunt en ophalen van statistieken over campagnes met pushmeldingen en functies die ook toegankelijk via de Reach API (en bepaalde elementen van de laag niveau voor Push-API). Houd er rekening mee dat of u van de API's of de gebruikersinterface gebruikmaakt, moet u integreren zowel Azure Mobile Engagement en het bereik in uw toepassing voor elk platform met de SDK voordat u kunt bereiken campagnes.

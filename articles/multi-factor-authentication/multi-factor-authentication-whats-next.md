@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4259715fbb062bfb170509c928b5a1ad898ea394
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -228,11 +228,7 @@ Ongeacht of de functie goedgekeurde IP-adressen is ingeschakeld, is verificatie 
 
 Sommige toepassingen, zoals Office 2010 of ouder en Apple Mail ondersteuning geen voor verificatie in twee stappen. De apps zijn niet geconfigureerd voor het accepteren van een tweede verificatie. Voor het gebruik van deze toepassingen profiteren van de _app-wachtwoorden_ functie. U kunt een app-wachtwoord gebruiken in plaats van uw traditionele wachtwoord toe zodat een app verificatie in twee stappen overslaan en doorgaan met werken.
 
->[!NOTE]
->Moderne verificatie voor de clients Microsoft Office 2013 en hoger
-> 
->De clients met Office 2013 en hoger (inclusief Outlook) ondersteuning voor moderne verificatieprotocollen en kan worden ingeschakeld voor gebruik met verificatie in twee stappen. Nadat de client is ingeschakeld, app-wachtwoorden niet nodig zijn voor de client. Zie voor meer informatie de [Office 2013 modern authentication public preview aankondiging](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
->
+Moderne verificatie wordt ondersteund voor de clients Microsoft Office 2013 en hoger. Office 2013-clients, Outlook, waaronder ondersteuning voor moderne verificatieprotocollen en kan worden ingeschakeld voor gebruik met verificatie in twee stappen. Nadat de client is ingeschakeld, app-wachtwoorden niet nodig zijn voor de client.
 
 ### <a name="considerations-about-app-passwords"></a>Overwegingen over app-wachtwoorden
 

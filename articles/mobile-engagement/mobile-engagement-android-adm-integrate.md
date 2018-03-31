@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3b8f60333e6096411aad8499bb4bfc36e53f3c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>Het integreren van ADM met Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 > [!IMPORTANT]
 > U moet de integratie procedure beschreven in de manier waarop integreren engagement voor Android-document voordat u deze handleiding volgen.
 > 
@@ -41,7 +45,7 @@ ADM-nettoladingen altijd naar de SDK gepusht bevatten de `azme` sleutel in het g
 ## <a name="sign-up-to-adm"></a>Meld u aan ADM
 Als u niet hebt gedaan, moet u de ADM inschakelen op de Amazon-account.
 
-De procedure wordt beschreven op: [ <https://developer.amazon.com/sdk/adm/credentials.html>].
+De procedure wordt beschreven op: [ <https://developer.amazon.com/sdk/adm/credentials.html> ].
 
 U krijgt bij voltooiing van de procedure:
 
@@ -104,7 +108,7 @@ Zorg ervoor dat u hebt de volgende machtigingen uw `AndroidManifest.xml` (voorda
 ## <a name="grant-engagement-oauth-credentials"></a>Verleen Engagement OAuth-referenties
 Dien uw OAuth-referenties (Client-ID en Clientgeheim) in de Engagement-Portal.
 
-[< https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
+[<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
 [ADM-clientbibliotheek]:https://developer.amazon.com/sdk/adm/setup.html
 [ADM geïntegreerd]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [deze procedure]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset

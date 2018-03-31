@@ -1,12 +1,11 @@
 ---
 title: Uitvoer van de stream Analytics Data Lake Store | Microsoft Docs
 description: Configuratie van verificatie en autorisatie van een Azure Data Lake Store in een Stream Analytics-taak
-keywords: 
+keywords: ''
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: jeanb
+ms.openlocfilehash: 802193b9f15cbc35bec32191ccc63df3329b96f9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Stream Analytics Data Lake Store-uitvoer
 Stream Analytics-taken ondersteunen verschillende uitvoermethoden, een wordt een [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is een ondernemingsbrede opslagplaats op hyperschaal voor analytische workloads van big data. Data Lake Store kunt u voor het opslaan van gegevens van elke grootte, type en opnamesnelheid snelheid voor operationele en experimentele analyses.
@@ -52,7 +51,7 @@ Zodra u het Data Lake Store-account dat is geverifieerd hebt, kunt u de eigensch
 </tr>
 <tr>
 <td>Pad voorvoegsel patroon [<I>optionele</I>]</td>
-<td>Het pad dat wordt gebruikt om uw bestanden binnen de opgegeven Data Lake Store-Account te schrijven. <BR>{date} {time}<BR>Voorbeeld 1: Map1/logs / {date} / {time}<BR>Voorbeeld 2: Map1/logs / {date}</td>
+<td>Het pad dat wordt gebruikt om uw bestanden binnen de opgegeven Data Lake Store-Account te schrijven. <BR>{date}, {time}<BR>Voorbeeld 1: Map1/logs / {date} / {time}<BR>Voorbeeld 2: Map1/logs / {date}</td>
 </tr>
 <tr>
 <td>Datum notatie [<I>optionele</I>]</td>
@@ -68,7 +67,7 @@ Zodra u het Data Lake Store-account dat is geverifieerd hebt, kunt u de eigensch
 </tr>
 <tr>
 <td>Encoding</td>
-<td>Als CSV- of JSON-indeling, moet een codering worden opgegeven. De enige ondersteunde coderingsindeling is UTF-8 op dit moment.</td>
+<td>Als CSV- of JSON-indeling, moet een codering worden opgegeven. Alleen de coderingsindeling UTF-8 wordt momenteel ondersteund.</td>
 </tr>
 <tr>
 <td>Scheidingsteken</td>

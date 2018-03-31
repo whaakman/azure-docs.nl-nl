@@ -3,9 +3,9 @@ title: Migratie en publiceren van webtoepassingen met een Azure-Cloud-Service va
 description: Informatie over het migreren en publiceren van uw webtoepassing in een Azure-cloud-service met behulp van Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 9394adfd-a645-4664-9354-dd5df08e8c91
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
-ms.author: kraigb
-ms.openlocfilehash: 1ced364bed821a9391f8ffd049f61ac236d98309
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: ghogen
+ms.openlocfilehash: 682be267bbb1cf495d85af5786309a98f885fc23
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>How to: migreren en publiceren van webtoepassingen met een Azure-Cloud-Service vanuit Visual Studio
 
@@ -82,9 +82,9 @@ De volgende tabel bevat informatie over het starten van de toepassing in Azure:
    | Webtoepassingstype | in Azure wordt uitgevoerd |
    | --- | --- | --- |
    | ASP.NET-webtoepassing<br/>(met inbegrip van MVC-2, 3 MVC of MVC-4) | Selecteer de URL in de **implementatie** tabblad voor de **Azure Activity log**. |
-   | Lege ASP.NET-webtoepassing | Als u een standaard hebt `.aspx` pagina in uw toepassing, selecteert u de URL in de **implementatie** tabblad voor de **Azure Activity log**. Voer een URL van de volgende vorm in een browser om te navigeren naar een andere pagina:`<deployment_url>/<page_name>.aspx` |
-   | Silverlight-toepassing<br/>Silverlight-Business-toepassing<br/>Silverlight-toepassing voor navigatie | Navigeer naar de pagina voor uw toepassing met behulp van de volgende URL-notatie:`<deployment_url>/<page_name>.aspx` |
-    WCF-Service-toepassing<br/>WCF-werkstroom-servicetoepassing | Stel de `.svc` bestand als de startpagina voor uw project WCF-Service. Ga naar`<deployment_url>/<service_file>.svc` |
+   | Lege ASP.NET-webtoepassing | Als u een standaard hebt `.aspx` pagina in uw toepassing, selecteert u de URL in de **implementatie** tabblad voor de **Azure Activity log**. Voer een URL van de volgende vorm in een browser om te navigeren naar een andere pagina: `<deployment_url>/<page_name>.aspx` |
+   | Silverlight-toepassing<br/>Silverlight-Business-toepassing<br/>Silverlight-toepassing voor navigatie | Navigeer naar de pagina voor uw toepassing met behulp van de volgende URL-notatie: `<deployment_url>/<page_name>.aspx` |
+    WCF-Service-toepassing<br/>WCF-werkstroom-servicetoepassing | Stel de `.svc` bestand als de startpagina voor uw project WCF-Service. Ga naar `<deployment_url>/<service_file>.svc` |
    | ASP.NET dynamische entiteiten<br/>ASP.NET dynamische gegevens Linq to SQL | De verbindingsreeks bijwerken zoals beschreven in de volgende sectie. Navigeer naar `<deployment_url>/<page_name>.aspx`. Voor Linq naar SQL, moet u een Azure SQL database. |
 
 ## <a name="update-a-connection-string-for-aspnet-dynamic-entities"></a>Bijwerken van een verbindingsreeks voor ASP.NET dynamische entiteiten

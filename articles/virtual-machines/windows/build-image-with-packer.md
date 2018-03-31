@@ -4,7 +4,7 @@ description: Informatie over het gebruik van verpakker installatiekopieën maken
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 03/29/2018
 ms.author: iainfou
-ms.openlocfilehash: b53b301a45fb7482aa05f24b386b79fcedc148e2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f174837b8d370ffabdf4148b18d3425d9f3d9f10
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Het gebruik van verpakker Windows-installatiekopieën voor virtuele machine maken in Azure
 Elke virtuele machine (VM) in Azure wordt gemaakt van een afbeelding met de Windows-distributie en de versie van het besturingssysteem gedefinieerd. Voorbeelden van afbeeldingen zijn vooraf geïnstalleerde toepassingen en configuraties. Azure Marketplace biedt veel installatiekopieën van het eerste en derde partij voor de meest voorkomende OS en omgevingen met toepassingen, of u uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften kunt maken. Dit artikel wordt uitgelegd hoe u de open-source hulpprogramma [verpakker](https://www.packer.io/) om te definiëren en te maken van aangepaste installatiekopieën in Azure.
@@ -51,8 +51,8 @@ Om te verifiëren naar Azure, moet u ook verkrijgen van uw Azure-tenant en de ab
 
 ```powershell
 $sub = Get-AzureRmSubscription
-$sub.TenantId
-$sub.SubscriptionId
+$sub.TenantId[0]
+$sub.SubscriptionId[0]
 ```
 
 U gebruikt deze twee id's in de volgende stap.
@@ -117,7 +117,7 @@ Maak een bestand met de naam *windows.json* en plak de volgende inhoud. Geef uw 
 }
 ```
 
-Deze sjabloon maakt een virtuele machine van Windows Server 2016, installeert IIS en generaliseert van de virtuele machine met Sysprep.
+Deze sjabloon maakt een virtuele machine van Windows Server 2016, installeert IIS en generaliseert van de virtuele machine met Sysprep. De IIS-installatie ziet u hoe u kunt de PowerShell-provisioner aanvullende opdrachten uit te voeren. De installatiekopie van het laatste verpakker bevat de vereiste software-installatie en configuratie.
 
 
 ## <a name="build-packer-image"></a>Verpakker installatiekopie maken
@@ -206,90 +206,35 @@ ManagedImageLocation: eastus
 Het duurt enkele minuten duren voordat verpakker bouwen van de virtuele machine, het uitvoeren van de provisioners en het opschonen van de implementatie.
 
 
-## <a name="create-vm-from-azure-image"></a>Virtuele machine van de afbeelding voor Azure maken
-U kunt nu een virtuele machine maken van de installatiekopie met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Stel eerst een beheerder gebruikersnaam en wachtwoord voor de virtuele machine met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+## <a name="create-a-vm-from-the-packer-image"></a>Een virtuele machine van de installatiekopie van het verpakker maken
+U kunt nu een virtuele machine maken van de installatiekopie met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). De ondersteunende netwerkbronnen worden gemaakt als deze niet al bestaan. Voer desgevraagd een administratieve gebruikersnaam en het wachtwoord moet worden gemaakt op de virtuele machine. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage*:
 
 ```powershell
-$cred = Get-Credential
-```
-
-Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* van *myPackerImage*.
-
-```powershell
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+New-AzureRmVm `
     -ResourceGroupName $rgName `
+    -Name "myVM" `
     -Location $location `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -AllocationMethod "Static" `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleWWW  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 80 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name myNic `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Define the image created by Packer
-$image = Get-AzureRMImage -ImageName myPackerImage -ResourceGroupName $rgName
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -Id $image.Id | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 80 `
+    -Image "myPackerImage"
 ```
 
 Het duurt enkele minuten aan de virtuele machine maken van uw installatiekopie verpakker.
 
 
-## <a name="test-vm-and-iis"></a>Virtuele machine en IIS testen
+## <a name="test-vm-and-webserver"></a>Testen van de virtuele machine en de webserver
 Haal het openbare IP-adres van uw virtuele machine op met [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). In het volgende voorbeeld wordt het IP-adres opgehaald voor het eerder gemaakte *myPublicIP*:
 
 ```powershell
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName $rgName `
-    -Name "myPublicIP" | select "IpAddress"
+    -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-Vervolgens kunt u het openbare IP-adres invoeren in een webbrowser.
+Als u wilt zien van uw virtuele machine met de IIS installeren vanaf de provisioner verpakker in actie, Geef op het openbare IP-adres in naar een webbrowser.
 
 ![Standaardsite van IIS](./media/build-image-with-packer/iis.png) 
 

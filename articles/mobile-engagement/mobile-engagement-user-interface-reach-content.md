@@ -2,10 +2,10 @@
 title: Azure Mobile Engagement-gebruikersinterface - Reach-inhoud
 description: Informatie over het beheren van de unieke inhoud van de verschillende soorten campagnes met pushmeldingen in Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 982cc66ffe98aa6dff8fe290cc1c2d4bad03c9ac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Het beheren van de unieke inhoud van de verschillende soorten campagnes met pushmeldingen
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Wijzigen van de inhoud van uw aankondigingen, Polls, gegevens-Pushes en tegels (alleen Windows Phone) kunt u de sectie inhoud van een nieuwe reach-campagne. De instelling van de inhoud van pushcampagnes is specifiek voor het type campagne. 
 
 ### <a name="content-types"></a>Typen inhoud:
@@ -49,54 +53,54 @@ Als u een webweergave in een volledig scherm wilt maken (zonder de door ons vers
 
 ### <a name="choose-your-action"></a>Kies uw actie:
 ### <a name="about-action-urls"></a>Over het actie-URL's:
-Elke URL die kan worden geïnterpreteerd door het besturingssysteem kan worden gebruikt als een actie-URL.
-Elke toegewezen URL die uw toepassing mogelijk ondersteunt (bijv. om ervoor te zorgen dat gebruikers naar een bepaald scherm springen) kan ook worden gebruikt als een actie-URL.
+Elke URL die kan worden geïnterpreteerd door het besturingssysteem een doelapparaat kan worden gebruikt als een actie-URL.
+Elke toegewezen URL die uw toepassing mogelijk ondersteunt (bijvoorbeeld zodat gebruikers naar een bepaald scherm springen) kan ook worden gebruikt als actie-URL.
 Elk exemplaar van het patroon {deviceid} automatisch wordt vervangen door de id van het apparaat dat u de actie uitvoert. Dit kan worden gebruikt voor het ophalen van eenvoudig Azure Mobile Engagement apparaat-id's via een externe webservice die op uw back-office wordt gehost.
 
 * **Android en iOS-acties**
-  * Een webpagina openen
-  * http://\[web-site-domein\] 
-  * Voorbeeld: http://www.azure.com
+  * Open een webpagina
+  * http://\[web-site-domain\] 
+  * Voorbeeld:http://www.azure.com
   * E-mail verzenden
-  * mailto:\[e-mail-ontvanger\]? onderwerp =\[onderwerp\]& body =\[bericht\] 
-  * Example:mailto:foo@example.com? onderwerp begroetingen % 20from % 20Azure % 20Mobile % 20Engagement =! & body = goede % 20stuff!
-  * Sms-bericht verzenden
+  * mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+  * Een SMS-bericht verzenden
   * SMS:\[-telefoonnummer\] 
   * Voorbeeld: sms:2125551212
-  * Kies een telefoonnummer
+  * Een telefoonnummer kiezen
   * Tel:\[-telefoonnummer\] 
   * Voorbeeld: tel:2125551212
 * **Android alleen acties**
   * Een toepassing op de Play Store downloaden
   * market://details?id=\[app-pakket\] 
-  * Voorbeeld: market://details?id=com.microsoft.office.word
-  * Een geografisch gelokaliseerde zoekopdracht uitvoeren
+  * Example:market://details?id=com.microsoft.office.word
+  * Een geografisch gelokaliseerde zoekopdracht
   * geo:0, 0? q =\[zoekopdracht\] 
   * Voorbeeld: geo:0, 0? q = starbucks, Parijs
 * **iOS alleen acties**
   * Een toepassing op de App Store downloaden
-  * http://iTunes.Apple.com/ [Land] /app/ [app-naam] /id [app-id]? mt = 8 
-  * Voorbeeld: http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+  * http://itunes.apple.com/[country] /app/ [app-naam] /id [app-id]? mt = 8 
+  * Voorbeeld:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Windows-acties
-  * Een webpagina openen
-  * http://\[web-site-domein\] 
-  * Voorbeeld: http://www.azure.com
+  * Open een webpagina
+  * http://\[web-site-domain\] 
+  * Voorbeeld:http://www.azure.com
   * E-mail verzenden
-  * mailto:\[e-mail-ontvanger\]? onderwerp =\[onderwerp\]& body =\[bericht\] 
-  * Example:mailto:foo@example.com? onderwerp begroetingen % 20from % 20Azure % 20Mobile % 20Engagement =! & body = goede % 20stuff!
-  * Een sms-bericht verzenden (Skype Store App vereist)
+  * mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+  * Verzenden van een SMS-bericht (Skype Store App vereist)
   * SMS:\[-telefoonnummer\] 
   * Voorbeeld: sms:2125551212
-  * Een telefoonnummer kiezen (Skype Store App vereist)
+  * Een telefoonnummer (Skype Store App vereist)
   * Tel:\[-telefoonnummer\] 
   * Voorbeeld: tel:2125551212
   * Een toepassing op de Play Store downloaden
   * MS-windows-store: PDP? PFN =\[app-pakket-ID\] 
-  * Voorbeeld: ms-windows-store: PDP? PFN 4d91298a-07cb-40fb-aecc-4cb5615d53c1 =
-  * Een bingmaps zoekopdracht starten
+  * Example:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
+  * Een zoekopdracht bingmaps starten
   * bingmaps:? q =\[zoekopdracht\] 
   * Voorbeeld: bingmaps:? q = starbucks, Parijs
-  * Een aangepast schema gebruiken
+  * Gebruik een aangepast schema
   * \[aangepaste schema\]://\[params aangepast schema\] 
   * Voorbeeld: myCustomProtocol://myCustomParams
   * Gebruik de pakketgegevens van een (Store App voor uitbreiding lezen vereist)

@@ -45,11 +45,11 @@ Hier volgen enkele van de functies van Premium-opslag:
 
 * **Premium-opslagaccount**
 
-    Maak een premium storage-account voor niet-beheerde schijven eerst u Premium-opslag. In de [Azure-portal](https://portal.azure.com), zodat een premium-opslagaccount maakt, kiest u de **Premium** prestatielaag. Selecteer de **lokaal redundante opslag (LRS)** replicatie-optie. U kunt een premium storage-account ook maken door het type in te stellen op **Premium_LRS** in een van de volgende locaties:
-    * [REST API voor Storage](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (versie 2014-02-14 of een latere versie)
-    * [REST API van Opslagservicebeheer](http://msdn.microsoft.com/library/azure/ee460799.aspx) (versie 2014-10-01 of een latere versie voor Azure klassieke implementaties)
-    * [Azure Storage Resource Provider REST-API](https://docs.microsoft.com/rest/api/storagerp) (voor implementaties van Azure Resource Manager)
-    * [Azure PowerShell](/powershell/azureps-cmdlets-docs.md) (versie 0.8.10 of een latere versie)
+    Maak een premium storage-account voor niet-beheerde schijven eerst u Premium-opslag. In de [Azure-portal](https://portal.azure.com), zodat een premium-opslagaccount maakt, kiest u de **Premium** prestatielaag. Selecteer de **lokaal redundante opslag (LRS)** replicatie-optie. U kunt een premium storage-account ook maken door de prestatielaag in te stellen op **Premium_LRS**. Als u wilt de prestatielaag wijzigen, moet u een van de volgende methoden gebruiken:
+     
+    - [PowerShell voor Azure-opslag](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+    - [Azure CLI voor Azure-opslag](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+    - [Azure Storage Resource Provider REST-API](https://docs.microsoft.com/rest/api/storagerp) (voor Azure Resource Manager-implementaties) of een van de clientbibliotheken van Azure Storage resource provider
 
     Zie voor meer informatie over limieten voor opslagaccounts premium, [Premium-opslag schaalbaarheids- en prestatiedoelen](#premium-storage-scalability-and-performance-targets).
 

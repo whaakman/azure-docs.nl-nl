@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a20529b4-ec8d-4503-8ae9-09b5f0846d5b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42f78b5e6bfa028f3a798f6cb6c0dee3f17b3ebe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Azure Mobile Engagement Web SDK upgradeprocedures
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Als u hebt al een eerdere versie van Azure Mobile Engagement Web SDK geïntegreerd in uw webtoepassing, moet u rekening houden met de volgende punten wanneer u een upgrade uitvoert van de SDK.
 
 Als u meerdere versies van de Mobile Engagement Web SDK overgeslagen, moet u mogelijk verschillende procedures tijdens de upgrade te voltooien. Bijvoorbeeld, als u van 1.4.0 naar 1.6.0 migreert, eerst de procedures volgen upgrade vanaf 1.4.0 naar 1.5.0. Volg de procedures voor het upgraden van 1.5.0 naar 1.6.0.

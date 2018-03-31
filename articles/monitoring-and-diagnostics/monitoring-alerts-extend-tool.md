@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 76b7481223566f16a5da8c08d9d76f2bdb6b542a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5e8a66214efc27e8e59da354e54d68bb48d274cc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="initiate-extending-alerts-from-oms-into-azure"></a>Waarschuwingen van OMS uit te breiden naar Azure initiëren
 Vanaf **23 April 2018**, alle klanten die gebruikmaken van waarschuwingen die zijn geconfigureerd in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), zal worden uitgebreid in Azure. Waarschuwingen die zijn uitgebreid naar Azure gedragen zich hetzelfde als in OMS. Mogelijkheden voor bewaking, blijven behouden. Waarschuwingen die zijn gemaakt in OMS naar Azure uitbreiden biedt veel voordelen. Zie voor meer informatie over de voordelen en het proces voor het verlengen van waarschuwingen van OMS naar Azure [waarschuwingen van OMS uitbreiden naar Azure](monitoring-alerts-extend.md).
@@ -155,7 +155,7 @@ Als het bericht geslaagd is, wordt er een 200 OK antwoord samen met geretourneer
     "version": 2
 }
 ```
-Die aangeeft dat de waarschuwingen zijn uitgebreid in Azure, zoals aangegeven door versie 2. Deze versie wordt alleen gebruikt voor controle of waarschuwingen zijn uitgebreid in Azure en geen invloed in gebruik met hebben [Log Analytics-API van zoekservice](../log-analytics/log-analytics-api-alerts.md). Zodra de waarschuwingen worden uitgebreid naar Azure is, is alle gebruikers die zijn gekoppeld met de beheerder en Inzender rollen in de werkruimte krijgt een e-mail met details van de wijzigingen die zijn gedaan.
+Die aangeeft dat de waarschuwingen zijn uitgebreid in Azure, zoals aangegeven door versie 2. Deze versie wordt alleen gebruikt voor controle of waarschuwingen zijn uitgebreid in Azure en geen invloed in gebruik met hebben [Log Analytics-API van zoekservice](../log-analytics/log-analytics-api-alerts.md). Zodra de waarschuwingen worden uitgebreid naar Azure is, alle e-mailadressen die zijn opgegeven tijdens GET een rapport met details van de wijzigingen gedaan worden verzonden.
 
 
 En ten slotte, als de waarschuwingen in de werkruimte opgegeven al zijn gepland om te worden uitgebreid naar Azure - het antwoord op POST 403-verboden.

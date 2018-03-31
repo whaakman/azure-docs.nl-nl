@@ -1,8 +1,8 @@
 ---
-title: Opgeslagen zoekopdrachten en waarschuwingen in OMS-oplossingen | Microsoft Docs
-description: "Opgeslagen zoekopdrachten omvatten oplossingen in OMS in Log Analytics om gegevens verzameld door de oplossing te analyseren.  Ze kunnen ook waarschuwingen om de gebruiker te waarschuwen definiëren of automatisch actie ondernemen als reactie op een kritiek probleem.  In dit artikel wordt beschreven hoe logboekanalyse opgeslagen zoekopdrachten en waarschuwingen in Resource Manager-sjabloon, zodat ze kunnen worden opgenomen in beheeroplossingen definiëren."
+title: Opgeslagen zoekopdrachten en waarschuwingen in oplossingen | Microsoft Docs
+description: Opgeslagen zoekopdrachten omvatten beheeroplossingen in Log Analytics om gegevens verzameld door de oplossing te analyseren.  Ze kunnen ook waarschuwingen om de gebruiker te waarschuwen definiëren of automatisch actie ondernemen als reactie op een kritiek probleem.  In dit artikel wordt beschreven hoe logboekanalyse opgeslagen zoekopdrachten en waarschuwingen in Resource Manager-sjabloon, zodat ze kunnen worden opgenomen in beheeroplossingen definiëren.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,29 +14,29 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Log Analytics toe te voegen opgeslagen zoekopdrachten en waarschuwingen in OMS-beheeroplossing (Preview)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics toe te voegen opgeslagen zoekopdrachten en waarschuwingen met beheersysteem (Preview)
 
 > [!NOTE]
-> Dit is voorlopige documentatie voor het maken van oplossingen voor het beheer in OMS die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.   
+> Dit is voorlopige documentatie voor het maken van oplossingen die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.   
 
 
-[Oplossingen voor het beheer in OMS](operations-management-suite-solutions.md) omvatten meestal [opgeslagen zoekopdrachten](../log-analytics/log-analytics-log-searches.md) in Log Analytics om gegevens verzameld door de oplossing te analyseren.  Ze kunnen ook definiëren [waarschuwingen](../log-analytics/log-analytics-alerts.md) aan de gebruiker waarschuwen of automatisch actie ondernemen als reactie op een kritiek probleem.  In dit artikel wordt beschreven hoe u voor het definiëren van logboekanalyse opgeslagen zoekopdrachten en waarschuwingen in een [Resource Management-sjabloon](../resource-manager-template-walkthrough.md) zodat ze kunnen worden opgenomen [beheeroplossingen](operations-management-suite-solutions-creating.md).
+[Oplossingen voor](operations-management-suite-solutions.md) omvatten meestal [opgeslagen zoekopdrachten](../log-analytics/log-analytics-log-searches.md) in Log Analytics om gegevens verzameld door de oplossing te analyseren.  Ze kunnen ook definiëren [waarschuwingen](../log-analytics/log-analytics-alerts.md) aan de gebruiker waarschuwen of automatisch actie ondernemen als reactie op een kritiek probleem.  In dit artikel wordt beschreven hoe u voor het definiëren van logboekanalyse opgeslagen zoekopdrachten en waarschuwingen in een [Resource Management-sjabloon](../resource-manager-template-walkthrough.md) zodat ze kunnen worden opgenomen [beheeroplossingen](operations-management-suite-solutions-creating.md).
 
 > [!NOTE]
-> De voorbeelden in dit artikel gebruiken parameters en variabelen die zijn vereist of gemeenschappelijke voor beheeroplossingen en wordt beschreven in [beheeroplossingen maken in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
+> De voorbeelden in dit artikel gebruiken parameters en variabelen die zijn vereist of gemeenschappelijke voor beheeroplossingen en wordt beschreven in [ontwerp en build een beheeroplossing in Azure](operations-management-suite-solutions-creating.md)  
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u al bekend met het bent [maken van een beheeroplossing](operations-management-suite-solutions-creating.md) en de structuur van een [Resource Manager-sjabloon](../resource-group-authoring-templates.md) en oplossingsbestand.
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics-werkruimte
-Alle resources in logboekanalyse zijn opgenomen in een [werkruimte](../log-analytics/log-analytics-manage-access.md).  Zoals beschreven in [OMS werkruimte en de Automation-account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), de werkruimte niet is opgenomen in de oplossing voor beheer, maar moet bestaan voordat de oplossing is geïnstalleerd.  Als deze niet beschikbaar is, mislukt de installatie van de oplossing.
+Alle resources in logboekanalyse zijn opgenomen in een [werkruimte](../log-analytics/log-analytics-manage-access.md).  Zoals beschreven in [werkruimte voor logboekanalyse en Automation-account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), de werkruimte niet is opgenomen in de oplossing voor beheer, maar moet bestaan voordat de oplossing is geïnstalleerd.  Als deze niet beschikbaar is, mislukt de installatie van de oplossing.
 
 De naam van de werkruimte wordt op de naam van elke resource logboekanalyse.  Dit doet u in de oplossing met de **werkruimte** parameter zoals in het volgende voorbeeld van een resource savedsearch.
 
@@ -51,7 +51,7 @@ Alle logboekanalyse resources die zijn gedefinieerd in het Resource Manager-sjab
 |:---|:---|:---|
 | V1 (verouderd)   | 2015-11-01-preview | Verouderde indeling.<br> Bijvoorbeeld: Typ = gebeurtenis EventLevelName fout =  |
 | v2 (upgrade) | 2015-11-01-preview | Verouderde indeling.  Geconverteerd naar bijgewerkte indeling op installeren.<br> Bijvoorbeeld: Typ = gebeurtenis EventLevelName fout =<br>Geconverteerd naar: gebeurtenis &#124; waar EventLevelName == "Error"  |
-| v2 (upgrade) | 2017-03-03-preview | De indeling van de upgrade. <br>Voorbeeld: De gebeurtenis &#124; waar EventLevelName == "Error"  |
+| v2 (upgrade) | 2017-03-03-preview | De indeling van de upgrade. <br>Voorbeeld: Gebeurtenis &#124; waar EventLevelName == "Error"  |
 
 
 

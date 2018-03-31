@@ -2,12 +2,10 @@
 title: Een Web-App publiceren naar een Azure virtuele machine vanuit Visual Studio | Microsoft Docs
 description: Een ASP.NET-webtoepassing toepassing publiceren in Azure een virtuele Machine vanuit Visual Studio
 services: virtual-machines-windows
-documentationcenter: 
-author:
-- kraigb
-- justcla
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.service: virtual-machines-windows
@@ -16,14 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2017
-ms.author:
-- kraigb
-- justcla
-ms.openlocfilehash: 74ac1f27620e4871c3c6972baa949c64d850fe4c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: ghogen
+ms.openlocfilehash: f236a00ef86f58d4d266a19d74485984d9ddb691
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Een ASP.NET-Web-App publiceren naar een Azure virtuele machine vanuit Visual Studio
 
@@ -59,7 +55,7 @@ De volgende sectie wordt beschreven hoe voor het publiceren van een bestaande AS
    > [!Note]
    > Vullen van deze lijst kan enige tijd duren.
 
-   ![Azure VM-Selector]
+   ![Azure VM Selector]
 
 7. Klik op OK om te beginnen met de publicatie.
 
@@ -127,7 +123,7 @@ Als u een pijplijn continue levering met Visual Studio Team Service instelt, Zie
 [Publiceren van pagina - pijl-rechts]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png
 [Publiceren van pagina - pictogram van de virtuele Machine in Microsoft Azure]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
 [Azure-Account Selector]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectAccount.png
-[Azure VM-Selector]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
+[Azure VM Selector]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
 [Web Deploy-aanmelding]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
 [Certificaatfout]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
 [Venster Output]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png

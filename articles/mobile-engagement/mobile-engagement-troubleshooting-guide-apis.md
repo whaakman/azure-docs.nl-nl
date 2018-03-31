@@ -2,10 +2,10 @@
 title: Azure Mobile Engagement Troubleshooting Guide - API 's
 description: Troubleshooting Guide voor Azure Mobile Engagement - API 's
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3efc8a52-2b74-4917-b887-815ae8277474
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
-ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cda11c8d2f1d147a807083c5479d2b2cda65462c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-api-issues"></a>Gids voor probleemoplossing voor problemen die API
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Hieronder vindt u mogelijke problemen die optreden bij de wisselwerking tussen beheerders met Azure Mobile Engagement via de API's.
 
 ## <a name="syntax-issues"></a>Syntaxis problemen

@@ -1,25 +1,24 @@
 ---
 title: Azure Stream Analytics oplossen met diagnostische logboeken | Microsoft Docs
 description: Informatie over het analyseren van diagnostische logboeken van de Stream Analytics-taken in Microsoft Azure.
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: c9772df2c216d465ca6e90e69bce011969dd4f02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 164d522d7beaea222dbc408765877fa67a34c203
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics oplossen met behulp van logboeken met diagnostische gegevens
 
@@ -117,7 +116,7 @@ Naam | Beschrijving
 Fout | (optioneel) Informatie over de fout. Meestal is dit uitzonderingsgegevens, als deze beschikbaar is.
 Bericht| Logboekbericht.
 Type | Type van het bericht. Is toegewezen aan interne categorisatie van fouten. Bijvoorbeeld: **JobValidationError** of **BlobOutputAdapterInitializationFailure**.
-Correlatie-ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) die wordt aangeduid de taak wordt uitgevoerd. Alle logboekvermeldingen voor uitvoering vanaf het moment dat de taak wordt gestart totdat de taak stopt dezelfde hebben **correlatie-ID** waarde.
+Correlatie-id | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) die wordt aangeduid de taak wordt uitgevoerd. Alle logboekvermeldingen voor uitvoering vanaf het moment dat de taak wordt gestart totdat de taak stopt dezelfde hebben **correlatie-ID** waarde.
 
 ## <a name="next-steps"></a>Volgende stappen
 

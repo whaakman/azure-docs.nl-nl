@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2cafc044-4902-4058-8037-49399bf6bf7f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e827b57e804cc91798859bc906e49046decede
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>Mobile Engagement met Gaming-App implementeren
 ## <a name="overview"></a>Overzicht
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Een gaming-opstarten heeft een nieuwe visserij gebaseerd role play/strategie gameapps gestart. Het spel is actief en werkend gedurende 6 maanden. Dit spel is een grote voltooid en heeft miljoenen downloads en de bewaarperiode is zeer hoog in vergelijking met andere opstarten game apps. Tijdens de vergadering elk kwartaal revisie akkoord belanghebbenden dat ze nodig hebben om te verhogen gemiddelde omzet per gebruiker (ARPU). Premium in de game-pakketten zijn beschikbaar als speciale aanbiedingen. Deze game packs kunnen gebruikers de vormgeving en prestaties van hun visserij regels en stelen of tackles in het spel bijwerken. Er zijn echter pakket verkoop zeer lage. Zodat zij eerst bepalen voor het analyseren van de gebruikerservaring met een hulpprogramma voor analyse en voor het ontwikkelen van een advies vervolgens geavanceerde programma om te verhogen met behulp van verkoop segmentering.
 
 Op basis van de [Azure Mobile Engagement - instructiehandleiding met aanbevolen procedures](mobile-engagement-getting-started-best-practices.md) ze bouwen engagement-strategie.
@@ -61,7 +65,7 @@ Na drie maanden, de mobiele Project directeur voldoende gegevens om te verbetere
 * Gebruikers die zijn geslaagd voor het niveau van 20, start te besteden aan meer dan $10/ week.
 * Gebruikers vaak pakketten op niveau 16, 24 en 32 premium aanschaffen.
 
-Dankzij deze analyse besluit de Mobile Project directeur specifieke push notification-reeksen te verhogen in app verkoop maken. Hij maakt drie push reeksen die hij aanroept: Welkom programma, verkoop-programma en niet-actieve programma. Raadpleeg voor meer informatie de [hulpmiddelen marketing en verkoop](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)![][1]
+Dankzij deze analyse besluit de Mobile Project directeur specifieke push notification-reeksen te verhogen in app verkoop maken. Hij maakt drie push reeksen die hij aanroept: Welkom programma, verkoop-programma en niet-actieve programma. Raadpleeg voor meer informatie de [hulpmiddelen marketing en verkoop](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1]
 
 <!--Image references-->
 

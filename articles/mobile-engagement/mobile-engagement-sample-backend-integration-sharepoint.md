@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 06297b43-579f-46e6-8a58-961a68f9aa09
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf530ca6dce32050487f367aa80b10bf7f20b7e7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement - API-integratie
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 In een geautomatiseerde marketing-systeem, maken en activeren van de marketingcampagnes ook automatisch uitgevoerd. Voor dit doel - Azure Mobile Engagement kunt maken van dergelijke geautomatiseerde marketingcampagnes ook met behulp van API's. 
 
 Klanten gebruiken doorgaans de Mobile Engagement-front-end interface aankondigingen/polls enzovoort als onderdeel van hun marketingcampagnes maken. Maar zodra de marketingcampagnes volwassen, hoeft een gebruikmaken van de gegevens in de back endsystemen (zoals een CRM-systeem of CMS-systeem zoals SharePoint) moet worden vergrendeld zodat een volledig geautomatiseerde pijplijn kan worden gemaakt die campagnes maakt in Mobile Engagement dynamisch op basis van de gegevens die van de back endsystemen. 
@@ -155,7 +159,7 @@ Deze zelfstudie doorloopt van een scenario waarbij een SharePoint-bedrijven gebr
 4. Nadat u de aankondiging gemaakt hebt, ziet u ongeveer als volgt op de Mobile Engagement-portal (Houd er rekening mee dat de status concept en geactiveerd = = N.V.T.)
    
     ![][3]
-5. `CreateAzMECampaign`maakt een campagne aankondiging en retourneert de Id naar de aanroeper. `ActivateAzMECampaign`deze Id is vereist als de parameter om de campagne te activeren. 
+5. `CreateAzMECampaign` maakt een campagne aankondiging en retourneert de Id naar de aanroeper. `ActivateAzMECampaign` deze Id is vereist als de parameter om de campagne te activeren. 
    
         static async Task<bool> ActivateAzMECampaign(int campaignId)
         {

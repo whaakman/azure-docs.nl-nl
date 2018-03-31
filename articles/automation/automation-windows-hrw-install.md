@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: fa74f2e2d8fb9fc9f11810a4af4978fb4b443bcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e0d9d164a85a73dd05456e005cf35ce3f33c408f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Het implementeren van een Windows hybride Runbook Worker
 
@@ -36,7 +36,7 @@ Als u wilt installeren en configureren van een hybride Runbook Worker van Window
 
 > [!NOTE]
 > Voor het beheren van de configuratie van uw servers die ondersteuning bieden de hybride Runbook Worker-rol met Desired State Configuration (DSC), moet u hen toevoegen als DSC-knooppunten.  Voor meer informatie over het voorbereiden voor beheer met DSC, Zie [machines voorbereiden voor beheer door Azure Automation DSC](automation-dsc-onboarding.md).        
-Als u inschakelt de [Update beheeroplossing](../operations-management-suite/oms-solution-update-management.md), elke Windows-computer die is verbonden met de OMS-werkruimte wordt automatisch geconfigureerd als een hybride Runbook Worker ter ondersteuning van runbooks die zijn opgenomen in deze oplossing.  Het is echter niet geregistreerd bij de Hybrid Worker-groepen in uw Automation-account al gedefinieerd.  De computer kan worden toegevoegd aan een hybride Runbook Worker-groep in uw Automation-account voor de ondersteuning van Automation-runbooks, zolang u hetzelfde account voor de oplossing en de hybride Runbook Worker-groepslidmaatschap gebruikt.  Deze functionaliteit is toegevoegd aan versie 7.2.12024.0 van de Hybrid Runbook Worker.  
+Als u inschakelt de [Update beheeroplossing](../operations-management-suite/oms-solution-update-management.md), elke Windows-computer die is verbonden met uw werkruimte voor logboekanalyse is automatisch geconfigureerd als een hybride Runbook Worker ter ondersteuning van runbooks die zijn opgenomen in deze oplossing.  Het is echter niet geregistreerd bij de Hybrid Worker-groepen in uw Automation-account al gedefinieerd.  De computer kan worden toegevoegd aan een hybride Runbook Worker-groep in uw Automation-account voor de ondersteuning van Automation-runbooks, zolang u hetzelfde account voor de oplossing en de hybride Runbook Worker-groepslidmaatschap gebruikt.  Deze functionaliteit is toegevoegd aan versie 7.2.12024.0 van de Hybrid Runbook Worker.  
 
 Controleer de volgende informatie met betrekking tot de [hardware- en softwarevereisten](automation-offering-get-started.md#hybrid-runbook-worker) en [informatie voor het voorbereiden van uw netwerk](automation-offering-get-started.md#network-planning) voordat u begint met het implementeren van een hybride Runbook Worker.  Nadat u hebt een runbook worker is geïmplementeerd, controleren [runbooks worden uitgevoerd op een hybride Runbook Worker](automation-hrw-run-runbooks.md) voor informatie over het configureren van uw runbooks voor het automatiseren van processen in uw on-premises datacentrum of andere cloudomgeving.  
  
@@ -52,10 +52,10 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
   * *ResourceGroupName* (verplicht) - de naam van de resourcegroep die zijn gekoppeld aan uw Automation-account.  
   * *HybridGroupName* (verplicht) - de naam van een hybride Runbook Worker-groep die u opgeeft als doel voor de runbooks die dit scenario te ondersteunen. 
   *  *SubscriptionID* (verplicht) - de Azure-abonnements-ID die uw Automation-account in.
-  *  *WorkspaceName* (optioneel): de naam van de OMS-werkruimte.  Als u een OMS-werkruimte niet hebt, wordt het script maakt en configureert u een.  
+  *  *WorkspaceName* (optioneel) - naam van de werkruimte voor logboekanalyse.  Als u een werkruimte voor logboekanalyse niet hebt, wordt het script maakt en configureert u een.  
 
      > [!NOTE]
-     > De enige Automation-regio's ondersteund voor de integratie met OMS zijn momenteel - **Australië-Zuidoost**, **VS-Oost 2**, **Zuidoost-Azië**, en **West-Europa** .  Als uw Automation-account zich niet in een van deze regio's, het script maakt een OMS-werkruimte, maar er een waarschuwingsbericht weergegeven dat er kan geen koppeling ze samen.
+     > De enige Automation-regio's ondersteund voor de integratie met logboekanalyse zijn momenteel - **Australië-Zuidoost**, **VS-Oost 2**, **Zuidoost-Azië**, en  **West-Europa**.  Als uw Automation-account zich niet in een van deze regio's, wordt het script maakt een werkruimte voor logboekanalyse maar wordt er een waarschuwingsbericht weergegeven dat er kan geen koppeling ze samen.
      >
 2. Start op uw computer **Windows PowerShell** van de **Start** scherm in de beheerdersmodus.  
 3. Ga naar de map waarin het script dat u hebt gedownload en het wijzigen van de waarden voor parameters worden uitgevoerd vanuit de PowerShell opdrachtregel-shell, *- AutomationAccountName*, *- ResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, en *- WorkspaceName*.
@@ -66,7 +66,7 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
     
         .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> `
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
-        -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
+        -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
 
 4. U wordt gevraagd om akkoord te installeren te **NuGet** en wordt u gevraagd om te verifiëren met uw Azure-referenties.<br><br>![Uitvoering van script New-OnPremiseHybridWorker](/media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
@@ -76,27 +76,27 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
 
 De eerste twee stappen eenmaal uitvoeren voor uw Automation-omgeving en vervolgens de resterende stappen herhalen voor elke worker-computer.
 
-#### <a name="1-create-operations-management-suite-workspace"></a>1. Operations Management Suite-werkruimte maken
+#### <a name="1-create-log-analytics-workspace"></a>1. Een Log Analytics-werkruimte maken
 
-Als u nog geen een Operations Management Suite-werkruimte, maakt u een met instructies voor [beheren van uw werkruimte](../log-analytics/log-analytics-manage-access.md). Als u al hebt, kunt u een bestaande werkruimte gebruiken.
+Als u nog geen werkruimte voor logboekanalyse, maakt u een met instructies voor [beheren van uw werkruimte](../log-analytics/log-analytics-manage-access.md). Als u al hebt, kunt u een bestaande werkruimte gebruiken.
 
-#### <a name="2-add-automation-solution-to-operations-management-suite-workspace"></a>2. Automation-oplossing toevoegen aan Operations Management Suite-werkruimte
+#### <a name="2-add-automation-solution-to-log-analytics-workspace"></a>2. Automation-oplossing naar de werkruimte voor logboekanalyse toevoegen
 
-Functionaliteit toevoegen oplossingen aan Operations Management Suite.  De Automation-oplossing voegt u functionaliteit voor Azure Automation biedt ook ondersteuning voor hybride Runbook Worker.  Wanneer u de oplossing voor uw werkruimte toevoegt, duwt wordt automatisch omlaag worker-onderdelen voor de agentcomputer die u in de volgende stap installeren wilt.
+Oplossingen voegen functionaliteit toe aan Log Analytics.  De Automation-oplossing voegt u functionaliteit voor Azure Automation biedt ook ondersteuning voor hybride Runbook Worker.  Wanneer u de oplossing voor uw werkruimte toevoegt, duwt wordt automatisch omlaag worker-onderdelen voor de agentcomputer die u in de volgende stap installeren wilt.
 
-Volg de instructies voor [toevoegen van een oplossing met behulp van de galerie met oplossingen](../log-analytics/log-analytics-add-solutions.md) toevoegen de **Automation** oplossing voor uw Operations Management Suite-werkruimte.
+Volg de instructies voor [toevoegen van een oplossing met behulp van de galerie met oplossingen](../log-analytics/log-analytics-add-solutions.md) toevoegen de **Automation** oplossing voor uw werkruimte voor logboekanalyse.
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Microsoft Monitoring Agent installeren
 
-Microsoft Monitoring Agent verbonden computers met Operations Management Suite.  Wanneer u de agent op uw on-premises computer installeren en met uw werkruimte verbinden, worden de onderdelen die vereist zijn voor hybride Runbook Worker automatisch gedownload.
+Microsoft Monitoring Agent verbonden computers met logboekanalyse.  Wanneer u de agent op uw on-premises computer installeren en met uw werkruimte verbinden, worden de onderdelen die vereist zijn voor hybride Runbook Worker automatisch gedownload.
 
 Volg de instructies voor [verbinding maken met Windows-computers met logboekanalyse](../log-analytics/log-analytics-windows-agent.md) voor het installeren van de agent op de lokale computer.  U kunt dit proces voor meerdere computers meerdere werknemers toevoegen aan uw omgeving herhalen.
 
-Wanneer de agent is met Operations Management Suite verbonden, wordt het weergegeven op de **verbonden bronnen** tabblad van de Operations Management Suite **instellingen** deelvenster.  U kunt controleren of de agent correct de Automation-oplossing heeft gedownload wanneer er een map met de naam **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent.  Als u wilt controleren welke versie van de hybride Runbook Worker, u kunt navigeren naar C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ en noteer de \\ *versie* submap.   
+Wanneer de agent is met Log Analytics verbonden, wordt het weergegeven op de **verbonden bronnen** tabblad van de logboekanalyse **instellingen** deelvenster.  U kunt controleren of de agent correct de Automation-oplossing heeft gedownload wanneer er een map met de naam **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent.  Als u wilt controleren welke versie van de hybride Runbook Worker, u kunt navigeren naar C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ en noteer de \\ *versie* submap.   
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. De runbook-omgeving installeren en verbinding maken met Azure Automation
 
-Wanneer u een agent met Operations Management Suite toevoegt, wordt de Automation-oplossing pushes omlaag de **HybridRegistration** PowerShell-module bevat de **Add-HybridRunbookWorker** cmdlet.  Met deze cmdlet kunt u de runbook-omgeving op de computer installeren en registreren met Azure Automation.
+Wanneer u een agent met logboekanalyse toevoegt, wordt de Automation-oplossing pushes omlaag de **HybridRegistration** PowerShell-module bevat de **Add-HybridRunbookWorker** cmdlet.  Met deze cmdlet kunt u de runbook-omgeving op de computer installeren en registreren met Azure Automation.
 
 Open een PowerShell-sessie in de beheerdersmodus en voer de volgende opdrachten in de module te importeren.
 

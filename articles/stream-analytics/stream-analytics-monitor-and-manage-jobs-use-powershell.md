@@ -3,10 +3,9 @@ title: Bewaken en beheren van de Stream Analytics-taken met PowerShell | Microso
 description: Informatie over het gebruik van Azure PowerShell-cmdlets en om te controleren en beheren van de Stream Analytics-taken.
 keywords: Azure powershell, azure powershell-cmdlets, powershell-opdracht powershell-scripts
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: b8d362a2789c4e1f5594baa2b86a16e523757037
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 1dcb6f8fe9f2f26ea0bd6970134b0bec67a50aa5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Bewaken en beheren van de Stream Analytics-taken met Azure PowerShell-cmdlets
 Informatie over het controleren en beheren van resources in de Stream Analytics met Azure PowerShell-cmdlets en powershell-scripts die basic Stream Analytics-taken uitvoeren.
@@ -189,7 +188,7 @@ Azure PowerShell 1.0:
 
 Deze PowerShell-opdracht retourneert informatie over de transformatie StreamingJob aangeroepen in de taak StreamingJob.
 
-### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>Nieuwe AzureStreamAnalyticsInput | Nieuwe AzureRMStreamAnalyticsInput
+### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
 Maakt u een nieuwe invoer binnen een Stream Analytics-taak of updates van een bestaande opgegeven invoer.
 
 De naam van de invoer kan worden opgegeven in het bestand .json of op de opdrachtregel. Als beide zijn opgegeven, moet de naam op de opdrachtregel hetzelfde zijn als het certificaat in het bestand.
@@ -236,7 +235,7 @@ Azure PowerShell 1.0:
 
 Deze PowerShell-opdracht wordt vervangen door de definitie van de bestaande invoerbron EntryStream aangeroepen met de definitie uit het bestand.
 
-### <a name="new-azurestreamanalyticsjob--new-azurermstreamanalyticsjob"></a>Nieuwe AzureStreamAnalyticsJob | Nieuwe AzureRMStreamAnalyticsJob
+### <a name="new-azurestreamanalyticsjob--new-azurermstreamanalyticsjob"></a>New-AzureStreamAnalyticsJob | New-AzureRMStreamAnalyticsJob
 Maakt een nieuwe Stream Analytics-taak in Microsoft Azure of updates van de definitie van een bestaande opgegeven taak.
 
 De naam van de taak kan worden opgegeven in het bestand .json of op de opdrachtregel. Als beide zijn opgegeven, moet de naam op de opdrachtregel hetzelfde zijn als het certificaat in het bestand.
@@ -271,7 +270,7 @@ Azure PowerShell 1.0:
 
 Deze PowerShell-opdracht vervangt de taakdefinitie voor StreamingJob.
 
-### <a name="new-azurestreamanalyticsoutput--new-azurermstreamanalyticsoutput"></a>Nieuwe AzureStreamAnalyticsOutput | Nieuwe AzureRMStreamAnalyticsOutput
+### <a name="new-azurestreamanalyticsoutput--new-azurermstreamanalyticsoutput"></a>New-AzureStreamAnalyticsOutput | New-AzureRMStreamAnalyticsOutput
 Maakt een nieuwe uitvoer binnen een Stream Analytics-taak of een bestaande uitvoer-updates.  
 
 De naam van de uitvoer kan worden opgegeven in het bestand .json of op de opdrachtregel. Als beide zijn opgegeven, moet de naam op de opdrachtregel hetzelfde zijn als het certificaat in het bestand.
@@ -306,7 +305,7 @@ Azure PowerShell 1.0:
 
 Deze PowerShell-opdracht wordt de definitie voor 'uitvoer' in de taak StreamingJob vervangen.
 
-### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>Nieuwe AzureStreamAnalyticsTransformation | Nieuwe AzureRMStreamAnalyticsTransformation
+### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzureRMStreamAnalyticsTransformation
 Maakt u een nieuwe transformatie binnen een Stream Analytics-taak of updates van de bestaande transformatie.
 
 De naam van de transformatie kan worden opgegeven in het bestand .json of op de opdrachtregel. Als beide zijn opgegeven, moet de naam op de opdrachtregel hetzelfde zijn als het certificaat in het bestand.
@@ -341,7 +340,7 @@ Azure PowerShell 1.0:
 
  Deze PowerShell-opdracht wordt de definitie van StreamingJobTransform in de taak StreamingJob vervangen.
 
-### <a name="remove-azurestreamanalyticsinput--remove-azurermstreamanalyticsinput"></a>Verwijder AzureStreamAnalyticsInput | Verwijder AzureRMStreamAnalyticsInput
+### <a name="remove-azurestreamanalyticsinput--remove-azurermstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzureRMStreamAnalyticsInput
 Een specifieke invoer wordt asynchroon worden verwijderd uit een Stream Analytics-taak in Microsoft Azure.  
 Als u de parameter – Force, de invoer worden verwijderd zonder bevestiging.
 
@@ -357,7 +356,7 @@ Azure PowerShell 1.0:
 
 Deze PowerShell-opdracht verwijdert de invoer EventStream in de taak StreamingJob.  
 
-### <a name="remove-azurestreamanalyticsjob--remove-azurermstreamanalyticsjob"></a>Verwijder AzureStreamAnalyticsJob | Verwijder AzureRMStreamAnalyticsJob
+### <a name="remove-azurestreamanalyticsjob--remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
 Asynchroon Hiermee verwijdert u een specifieke Stream Analytics-taak in Microsoft Azure.  
 Als u de parameter – Force, de taak worden verwijderd zonder bevestiging.
 
@@ -373,7 +372,7 @@ Azure PowerShell 1.0:
 
 Deze PowerShell-opdracht verwijdert u de taak StreamingJob.  
 
-### <a name="remove-azurestreamanalyticsoutput--remove-azurermstreamanalyticsoutput"></a>Verwijder AzureStreamAnalyticsOutput | Verwijder AzureRMStreamAnalyticsOutput
+### <a name="remove-azurestreamanalyticsoutput--remove-azurermstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzureRMStreamAnalyticsOutput
 Een specifieke uitvoer wordt asynchroon worden verwijderd uit een Stream Analytics-taak in Microsoft Azure.  
 Als u de parameter – Force, wordt de uitvoer verwijderd zonder bevestiging.
 
@@ -389,7 +388,7 @@ Azure PowerShell 1.0:
 
 Hiermee PowerShell-opdracht verwijdert u de uitvoer van de uitvoer in de taak StreamingJob.  
 
-### <a name="start-azurestreamanalyticsjob--start-azurermstreamanalyticsjob"></a>Start AzureStreamAnalyticsJob | Start AzureRMStreamAnalyticsJob
+### <a name="start-azurestreamanalyticsjob--start-azurermstreamanalyticsjob"></a>Start-AzureStreamAnalyticsJob | Start-AzureRMStreamAnalyticsJob
 Asynchroon implementeert en een Stream Analytics-taak start in Microsoft Azure.
 
 **Voorbeeld 1**
@@ -404,7 +403,7 @@ Azure PowerShell 1.0:
 
 Deze PowerShell-opdracht start de taak StreamingJob met een begintijd aangepaste uitvoer ingesteld op 12 December 2012 12:12:12 UTC.
 
-### <a name="stop-azurestreamanalyticsjob--stop-azurermstreamanalyticsjob"></a>Stop AzureStreamAnalyticsJob | Stop AzureRMStreamAnalyticsJob
+### <a name="stop-azurestreamanalyticsjob--stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
 Asynchroon stopt een Stream Analytics-taak wordt uitgevoerd in Microsoft Azure en ongedaan wijst bronnen toe die zijn die zijn gebruikt. De taakdefinitie en metagegevens blijven beschikbaar in uw abonnement via de Azure-portal en de API's zodanig dat de taak kan worden bewerkt en opnieuw opgestart. U wordt niet in rekening gebracht voor een taak gestopt.
 
 **Voorbeeld 1**
@@ -419,7 +418,7 @@ Azure PowerShell 1.0:
 
 Deze PowerShell-opdracht wordt de taak StreamingJob gestopt.  
 
-### <a name="test-azurestreamanalyticsinput--test-azurermstreamanalyticsinput"></a>Test AzureStreamAnalyticsInput | Test AzureRMStreamAnalyticsInput
+### <a name="test-azurestreamanalyticsinput--test-azurermstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzureRMStreamAnalyticsInput
 Test de mogelijkheid van Stream Analytics verbinding maken met een opgegeven invoer.
 
 **Voorbeeld 1**
@@ -434,7 +433,7 @@ Azure PowerShell 1.0:
 
 Deze PowerShell-opdracht wordt de verbindingsstatus van de invoer EntryStream in StreamingJob gecontroleerd.  
 
-### <a name="test-azurestreamanalyticsoutput--test-azurermstreamanalyticsoutput"></a>Test AzureStreamAnalyticsOutput | Test AzureRMStreamAnalyticsOutput
+### <a name="test-azurestreamanalyticsoutput--test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
 Test de mogelijkheid van Stream Analytics verbinding maken met een opgegeven uitvoer.
 
 **Voorbeeld 1**

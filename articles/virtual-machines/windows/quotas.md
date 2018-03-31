@@ -1,12 +1,12 @@
 ---
 title: quota voor Azure vCPU | Microsoft Docs
 description: Meer informatie over vCPU quota's voor Azure.
-keywords: 
+keywords: ''
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: drewm
-ms.openlocfilehash: b481299b62d452bc306c1f9c1fa2cdccd49b818e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 05d84e4b8c0ac84db5d0784e64071931408ec1d6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Virtuele machine vCPU quota
 
@@ -81,7 +81,7 @@ Premium Storage Managed Disks                1 10000 Count
 ## <a name="reserved-vm-instances"></a>Gereserveerde VM-instanties
 Gereserveerde VM-instanties, die zijn gericht op één abonnement, wordt een nieuwe aspect toevoegen aan de vCPU-quota. Deze waarden worden beschreven van het aantal exemplaren van de opgegeven grootte aan die geïmplementeerd in het abonnement worden moet. Ze werken als tijdelijke aanduiding in het quotumsysteem om ervoor te zorgen dat quotum om ervoor te zorgen gereserveerde exemplaren zijn geïmplementeerd in het abonnement is gereserveerd. Bijvoorbeeld, als een specifiek abonnement 10 Standard_D1 gereserveerde heeft exemplaren te beperken tot het gebruik van Standard_D1 gereserveerde exemplaren worden 10. Hierdoor wordt Azure om ervoor te zorgen dat er altijd ten minste 10 vcpu's beschikbaar in het totaal aantal regionale Vcpu quotum zijn moet worden gebruikt voor Standard_D1 exemplaren en er ten minste 10 vcpu's beschikbaar in het standaard D-reeks vCPU quotum zijn moet worden gebruikt voor Standard_D1 exemplaren.
 
-Als u een verhoging van het quotum is vereist voor een k met één abonnement aanschaffen, kunt u [aanvragen van een verhoging van het quotum](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) op uw abonnement.
+Als u een verhoging van het quotum is vereist om aan te schaffen een k met één abonnement, kunt u [aanvragen van een verhoging van het quotum](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) op uw abonnement.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a5487793-1a12-4f6c-a1cf-587c5a671e6b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fffff6de996b8295639b3d595c5f778de8a0f74f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-on-android"></a>Het integreren van Engagement voor Android
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -44,7 +48,7 @@ Download de Android SDK uit [hier](https://aka.ms/vq9mfn) ophalen `mobile-engage
 > [!IMPORTANT]
 > Als u uw toepassingspakket met ProGuard bouwt, moet u bepaalde klassen houden. U kunt de volgende configuratie-fragment:
 > 
-> -openbare klasse houden * breidt android.os.IInterface-klasse com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {houden
+> -keep public class * extends android.os.IInterface -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
 > 
 > <methods>; }
 > 
@@ -267,7 +271,7 @@ In de context van Mobile Engagement zijn de machtigingen die moeten worden goedg
 
 * `ACCESS_COARSE_LOCATION`
 * `ACCESS_FINE_LOCATION`
-* `WRITE_EXTERNAL_STORAGE`(alleen bij Android-API-niveau 23 voor deze doelen)
+* `WRITE_EXTERNAL_STORAGE` (alleen bij Android-API-niveau 23 voor deze doelen)
 
 De externe opslag wordt alleen gebruikt voor Reach grote afbeelding functie. Als u vindt deze machtiging aan leiden tot uitvaltijd voor gebruikers vragen, kunt u deze verwijderen als u deze gebruikt voor Mobile Engagement alleen maar koste u grote afbeelding functie uitschakelt.
 
@@ -352,7 +356,7 @@ Als Engagement actief is wanneer u deze functie aanroept, duurt 1 minuut voor de
 
 U kunt reporting opnieuw door het aanroepen van dezelfde functie met logboek inschakelen `true`.
 
-### <a name="integration-in-your-own-preferenceactivity"></a>Integratie in uw eigen`PreferenceActivity`
+### <a name="integration-in-your-own-preferenceactivity"></a>Integratie in uw eigen `PreferenceActivity`
 In plaats van deze functie aanroept, kunt u deze instelling ook integreren rechtstreeks in uw bestaande `PreferenceActivity`.
 
 U kunt Engagement om uw voorkeurenbestand (met de gewenste modus) te gebruiken kunt configureren in de `AndroidManifest.xml` het bestand met `application meta-data`:

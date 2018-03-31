@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 98784b2d1ede5354c965e483b34b5fcb323394aa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7dc584c8fa9f4452b2bd9288df86492399c036c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-architectuur 
 
@@ -91,7 +91,7 @@ De volgende tabel bevat de primaire en secundaire IP-adressen van de Azure SQL D
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL Database verbindingsbeleid wijzigen
 
-Om te wijzigen van het beleid van de Azure SQL Database-verbinding voor een Azure SQL Database-server, gebruiken de [REST-API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+Om te wijzigen van het beleid van de Azure SQL Database-verbinding voor een Azure SQL Database-server, gebruiken de [conn beleid](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) opdracht.
 
 - Als uw verbindingsbeleid voor de is ingesteld op **Proxy**, alle netwerkapparaten stroom van pakketten via de Azure SQL Database-gateway. Voor deze instelling moet u uitgaand verkeer op alleen de Azure SQL Database gateway IP toestaan. Met behulp van een instelling van **Proxy** heeft latentie van meer dan een instelling van **omleiden**.
 - Als uw verbindingsbeleid voor de tot stand **omleiden**, alle pakketten stroom rechtstreeks naar de proxy middleware netwerkapparaten. Voor deze instelling moet u uitgaand verkeer naar meerdere IP-adressen toestaan.
@@ -181,6 +181,6 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over het wijzigen van het beleid van de Azure SQL Database-verbinding voor een Azure SQL Database-server [maken of bijwerken Server verbindingsbeleid met de REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+- Zie voor meer informatie over het wijzigen van het beleid van de Azure SQL Database-verbinding voor een Azure SQL Database-server [conn beleid](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Zie voor informatie over de werking van Azure SQL Database-verbinding voor clients die gebruikmaken van ADO.NET 4.5 of hoger, [poorten buiten 1433 ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Zie voor informatie over algemene toepassing ontwikkeling overzicht, [SQL Database ontwikkelen-overzicht](sql-database-develop-overview.md).

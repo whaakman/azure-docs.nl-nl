@@ -3,9 +3,9 @@ title: Tekenreeksen voor de ontwerpfunctie voor tabellen maken | Microsoft Docs
 description: Tekenreeksen voor de ontwerpfunctie voor tabellen maken
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
 ms.service: storage
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: kraigb
-ms.openlocfilehash: 069224d84462b4955912ce1462a65298a5acc04a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 722052e351062efba85eb143b2ea7bd0136002a0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>Tekenreeksen voor de ontwerpfunctie voor tabellen maken
 ## <a name="overview"></a>Overzicht
@@ -31,7 +31,7 @@ De volgende logische operators worden ondersteund voor alle eigenschaptypen:
 
 | Logische operator | Beschrijving | Voorbeeld filtertekenreeks |
 | --- | --- | --- |
-| EQ |Gelijk zijn aan |Plaats-eq "Redmond" |
+| eq |Gelijk zijn aan |Plaats-eq "Redmond" |
 | gt |Groter dan |Prijs gt 20 |
 | ge |Groter dan of gelijk aan |Prijs ge 10 |
 | lt |Kleiner dan |Prijs lt 20 |
@@ -45,7 +45,7 @@ De volgende regels zijn van belang bij het maken van een filtertekenreeks in:
 
 * De logische operators gebruiken een eigenschap een waarde te vergelijken. Houd er rekening mee dat het is niet mogelijk om te vergelijken van een eigenschap aan een dynamische waarde; een-zijde van de expressie moet een constante zijn.
 * Alle onderdelen van de filtertekenreeks zijn hoofdlettergevoelig.
-* De constante waarde moet van hetzelfde gegevenstype als de eigenschap om het filter geldige resultaten retourneren. Zie voor meer informatie over ondersteunde eigenschaptypen [inzicht in de tabel Service Data Model](http://go.microsoft.com/fwlink/p/?LinkId=400448).
+* Het filter retourneert alleen geldige resultaten als de constante waarde van hetzelfde gegevenstype is als de eigenschap. Zie [Understanding the Table Service Data Model](http://go.microsoft.com/fwlink/p/?LinkId=400448) (Het gegevensmodel van de tabelservice) voor meer informatie over ondersteunde eigenschapstypen.
 
 ## <a name="filtering-on-string-properties"></a>Filteren op Eigenschappen
 Wanneer u op Eigenschappen van een verbindingsreeks filtert, moet u de tekenreeksconstante tussen enkele aanhalingstekens.

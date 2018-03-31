@@ -3,9 +3,9 @@ title: Publiceren WebApplicationVM | Microsoft Docs
 description: Informatie over het implementeren van een webtoepassing met een virtuele machine. Dit script maakt de vereiste resources in uw Azure-abonnement als deze nog niet bestaan.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: de4cec95-f73f-44d9-babd-9f47f2633cdb
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 49778b00dc9b1f6a8a11de5e3575599957b753fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publiceren WebApplicationVM (Windows PowerShell-script)
 Een webtoepassing met een virtuele machine implementeert. Het script maakt de vereiste resources in uw Azure-abonnement als deze nog niet bestaan.
@@ -37,79 +37,79 @@ Publish-WebApplicationVM
 ### <a name="configuration"></a>Configuratie
 Het pad naar het JSON-configuratiebestand dat u de details van de implementatie worden beschreven.
 
-| Aliassen | Geen |
+| Aliassen | geen |
 | --- | --- |
-| Vereist? |De waarde True |
+| Vereist? |true |
 | Positie |Met de naam |
-| Standaardwaarde |Geen |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Standaardwaarde |geen |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
-### <a name="subscriptionname"></a>SubscriptionName
+### <a name="subscriptionname"></a>Abonnementsnaam
 De naam van het Azure-abonnement waarin u wilt maken van de virtuele machine.
 
-| Aliassen | Geen |
+| Aliassen | geen |
 | --- | --- |
-| Vereist? |ONWAAR |
+| Vereist? |false |
 | Positie |Met de naam |
 | Standaardwaarde |Maakt gebruik van het eerste abonnement in het abonnementsbestand |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
 ### <a name="webdeploypackage"></a>WebDeployPackage
 Het pad naar het implementatiepakket web publiceren naar de virtuele machine. U kunt dit pakket kunt maken met behulp van de wizard webpublicatie in Visual Studio. Zie [procedure: een Web-implementatiepakket maken in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
-| Aliassen | Geen |
+| Aliassen | geen |
 | --- | --- |
-| Vereist? |ONWAAR |
+| Vereist? |false |
 | Positie |Met de naam |
-| Standaardwaarde |Geen |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Standaardwaarde |geen |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
 ### <a name="allowuntrusted"></a>AllowUntrusted
 Indien waar, wordt het gebruik van certificaten die niet zijn ondertekend door een vertrouwde basiscertificeringsinstantie toestaan.
 
-| Aliassen | Geen |
+| Aliassen | geen |
 | --- | --- |
-| Vereist? |ONWAAR |
+| Vereist? |false |
 | Positie |Met de naam |
-| Standaardwaarde |ONWAAR |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Standaardwaarde |false |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
 ### <a name="vmpassword"></a>VMPassword
 De referenties voor de account van de virtuele machine. Voorbeeld: - VMPassword @{naam = 'admin'; Wachtwoord = 'password'}
 
-| Aliassen | Geen |
+| Aliassen | geen |
 | --- | --- |
-| Vereist? |ONWAAR |
+| Vereist? |false |
 | Positie |Met de naam |
-| Standaardwaarde |Geen |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Standaardwaarde |geen |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
 De referenties voor de SQL-database in Azure. Voorbeeld: - DatabaseServerPassword @{naam = 'admin'; Wachtwoord = 'password'}
 
-| Aliassen | Geen |
+| Aliassen | geen |
 | --- | --- |
-| Vereist? |ONWAAR |
+| Vereist? |false |
 | Positie |Met de naam |
-| Standaardwaarde |Geen |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Standaardwaarde |geen |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
 ### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 Indien waar, wordt de status van afdrukken berichten van het script naar de uitvoerstroom.
 
-| Aliassen | Geen |
+| Aliassen | geen |
 | --- | --- |
-| Vereist? |ONWAAR |
+| Vereist? |false |
 | Positie |Met de naam |
-| Standaardwaarde |ONWAAR |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Standaardwaarde |false |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
 ## <a name="remarks"></a>Opmerkingen
 Zie voor een volledige uitleg over het gebruik van het script maken Dev- en testomgevingen, [Windows PowerShell-Scripts gebruiken om te publiceren op de ontwikkeling en testomgevingen](vs-azure-tools-publishing-using-powershell-scripts.md).

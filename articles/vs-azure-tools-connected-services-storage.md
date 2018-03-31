@@ -3,9 +3,9 @@ title: Azure Storage toevoegen met behulp van verbonden Services in Visual Studi
 description: Azure Storage toevoegen aan uw app met behulp van de Visual Studio verbonden dialoogvenster Services toevoegen
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 521ec044-ad4b-4828-8864-01decde2e758
 ms.service: storage
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
-ms.author: kraigb
-ms.openlocfilehash: 35638083cd75e1b751d00a9c8163a3bc7480f0cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 3252d022222e1c31491a6b111e5e96f8c62ca915
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Azure-opslag toe te voegen met behulp van Visual Studio verbonden Services
 Met Visual Studio, kunt u een van de volgende naar Azure Storage met behulp van de **verbonden Services toevoegen** dialoogvenster:
@@ -27,7 +27,7 @@ Met Visual Studio, kunt u een van de volgende naar Azure Storage met behulp van 
 - .NET-back-end voor mobiele service
 - ASP.NET-website of service
 - ASP.NET Core-service
-- Azure webtaak-service 
+- Azure WebJob service 
 
 De functionaliteit van de gekoppelde service worden alle benodigde verwijzingen en verbinding code toegevoegd aan uw project en de configuratiebestanden op de juiste wijze wordt gewijzigd. 
 

@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a9d6cbcdf353f7eea991c344c3efe65378abe336
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Upgradeprocedures van Windows universele Apps SDK
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Als u hebt al een oudere versie van Engagement geïntegreerd in uw toepassing, hebt u de volgende punten overwegen bij het upgraden van de SDK.
 
 U moet verschillende procedures volgen als u verschillende versies van de SDK hebt gemist. Bijvoorbeeld als u migreert van 0.10.1 naar u moet eerst Volg de procedure 'van 0.9.0 naar 0.10.1' 0.11.0 vervolgens de procedure 'van 0.10.1 naar 0.11.0'.

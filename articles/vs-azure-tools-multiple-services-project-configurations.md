@@ -3,9 +3,9 @@ title: Configureren van uw Azure-project met behulp van serviceconfiguraties met
 description: Informatie over het configureren van een Azure-cloud service-project door de bestanden ServiceDefinition.csdef ServiceConfiguration.Local.cscfg en ServiceConfiguration.Cloud.cscfg wijzigen.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
 ms.devlang: multiple
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
-ms.author: kraigb
-ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: ghogen
+ms.openlocfilehash: 919568922ada2d842233ade029a54d474b4a1a0e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Configureren van uw Azure-project in Visual Studio te gebruiken serviceconfiguraties met meerdere
 
 Een Azure-cloud service-project in Visual Studio omvat drie configuratiebestanden: `ServiceDefinition.csdef`, `ServiceConfiguration.Local.cscfg`, en `ServiceConfiguration.Cloud.cscfg`:
 
-- `ServiceDefinition.csdef`wordt geïmplementeerd naar Azure te beschrijven de vereisten van de cloudservice en de bijbehorende rollen en instellingen opgeven die van toepassing op alle exemplaren. Instellingen kunnen worden gelezen tijdens runtime met de Azure-Service die als host fungeert Runtime-API. Dit bestand kan alleen worden bijgewerkt in Azure wanneer de cloudservice is gestopt.
-- `ServiceConfiguration.Local.cscfg`en `ServiceConfiguration.Cloud.cscfg` waarden opgeven voor de instellingen in de definitie van het bestand en geef het aantal exemplaren worden uitgevoerd voor elke rol. Het "Local" bestand bevat waarden die worden gebruikt bij de lokale foutopsporing; het bestand 'Cloud' wordt geïmplementeerd op Azure als `ServiceConfiguration.cscfg` en vindt u instellingen voor de server-omgeving. Dit bestand kan worden bijgewerkt terwijl uw cloudservice wordt uitgevoerd in Azure.
+- `ServiceDefinition.csdef` wordt geïmplementeerd naar Azure te beschrijven de vereisten van de cloudservice en de bijbehorende rollen en instellingen opgeven die van toepassing op alle exemplaren. Instellingen kunnen worden gelezen tijdens runtime met de Azure-Service die als host fungeert Runtime-API. Dit bestand kan alleen worden bijgewerkt in Azure wanneer de cloudservice is gestopt.
+- `ServiceConfiguration.Local.cscfg` en `ServiceConfiguration.Cloud.cscfg` waarden opgeven voor de instellingen in de definitie van het bestand en geef het aantal exemplaren worden uitgevoerd voor elke rol. Het "Local" bestand bevat waarden die worden gebruikt bij de lokale foutopsporing; het bestand 'Cloud' wordt geïmplementeerd op Azure als `ServiceConfiguration.cscfg` en vindt u instellingen voor de server-omgeving. Dit bestand kan worden bijgewerkt terwijl uw cloudservice wordt uitgevoerd in Azure.
 
 Configuratie-instellingen worden beheerd en gewijzigd in Visual Studio met eigenschappenpagina's voor de rol van toepassing (met de rechtermuisknop op de rol en selecteer **eigenschappen**, dubbelklikt u op de rol). Wijzigingen kunnen worden binnen het bereik van de configuratie wordt gekozen de **serviceconfiguratie** vervolgkeuzelijst. De eigenschappen voor web-en werkrollen zijn vergelijkbaar, behalve wanneer in de volgende secties beschreven.
 
@@ -58,7 +58,7 @@ Als u al een HTTPS-eindpunt hebt toegevoegd, de HTTPS-eindpunt-optie is standaar
 
 Diagnostische gegevens zijn standaard ingeschakeld voor de Webrol. Het account Azure-cloud service-project en opslag worden ingesteld op de emulator van de lokale opslag gebruiken. Wanneer u klaar om te implementeren naar Azure bent, kunt u de knop builder (**...** ) in plaats daarvan Azure storage gebruiken. U kunt de diagnostics-gegevens overbrengen naar het storage-account op verzoek of regelmatig automatisch. Zie voor meer informatie over Azure diagnostics [diagnostische gegevens inschakelen in Azure Cloud Services en virtuele Machines](cloud-services/cloud-services-dotnet-diagnostics.md).
 
-## <a name="settings-page"></a>Pagina met instellingen
+## <a name="settings-page"></a>De pagina Instellingen
 
 Op de **instellingen** pagina kunt u instellingen toevoegen aan een configuratie als naam / waarde-paren. Code die wordt uitgevoerd in de rol vindt de waarden van uw configuratie-instellingen bij uitvoering met klassen die worden geleverd door de [Azure beheerde bibliotheek](http://go.microsoft.com/fwlink?LinkID=171026), met name de [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) methode.
 

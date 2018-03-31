@@ -3,10 +3,9 @@ title: Programmatisch bewaken taken in de Stream Analytics | Microsoft Docs
 description: Informatie over het bewaken van programmatisch Stream Analytics-taken die zijn gemaakt via de REST-API's, Azure SDK of PowerShell.
 keywords: .NET-monitor, taak monitor, bewaking van app
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 2ec02cc9-4ca5-4a25-ae60-c44be9ad4835
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: 7e9d2f6f03fd539c59b105108fb46697bcd60f1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: a619120b2d30284633ba5248edd0b82bb1bf656b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Een monitor Stream Analytics-taak maken
 
@@ -144,7 +143,7 @@ De volgende code wordt de benodigde variabelen en van beheerclients instellen.
 De volgende code kunt bewaking voor een **bestaande** Stream Analytics-taak. Het eerste deel van de code wordt een GET-aanvraag tegen de Stream Analytics-service voor het ophalen van informatie over de specifieke Stream Analytics-taak uitgevoerd. Dit maakt gebruik van de *Id* eigenschap (opgehaald uit de GET-aanvraag) als een parameter voor de Put-methode in de tweede helft van de code die u een PUT verzendt-controle voor de Stream Analytics-taak inschakelen verzoek aan de Insights-service.
 
 >[!WARNING]
->Als u eerder hebt ingeschakeld bewaking voor een andere Stream Analytics-taak, via de Azure portal of programmatisch via de onderstaande code, **wordt aangeraden dat u dezelfde naam van het opslagaccount dat u hebt gebruikt toen u eerder hebt ingeschakeld bewaking bieden.**
+>Als u eerder hebt ingeschakeld bewaking voor een andere Stream Analytics-taak, via de Azure portal of programmatisch via de onderstaande code, **wordt aangeraden dat u dezelfde naam van het opslagaccount dat u hebt gebruikt toen bieden u eerder hebt bewaking is ingeschakeld.**
 > 
 > Het opslagaccount is gekoppeld aan de regio die u hebt uw Stream Analytics-taak in, niet expliciet aan de taak zelf gemaakt.
 > 

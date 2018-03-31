@@ -2,11 +2,10 @@
 title: Het maken van een taak analytics verwerking voor Stream Analytics | Microsoft Docs
 description: Maken van een taak analytics verwerking voor Stream Analytics | leren padsegment.
 keywords: gegevensverwerking analytics
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: jeanb
+ms.openlocfilehash: 03f21c076624ee758d313c4f58e29c616226de57
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Het maken van een taak analytics verwerking voor Stream Analytics
 De resource op het hoogste niveau in Azure Stream Analytics is een Stream Analytics-taak.  Bestaat uit een of meer invoer gegevensbronnen, een query uitdrukken van de gegevenstransformatie en een of meer uitvoer-doelen die resultaten naar worden geschreven. Samen kunnen deze gebruikers verwerken voor streaming gegevensscenario data-analyses uitvoeren.

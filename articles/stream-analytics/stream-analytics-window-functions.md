@@ -2,11 +2,10 @@
 title: Inleiding tot Stream Analytics-vensterfuncties | Microsoft Docs
 description: Meer informatie over de drie functies venster in Stream Analytics (tumbling, hopping, Verschuivend).
 keywords: venster Verschuivend venster venster hopping tumbling
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 2a6559551f608cf435e89997392a6a0ba995c583
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Inleiding tot Stream Analytics-vensterfuncties
 In veel realtime streaming-scenario's, is het nodig zijn voor het uitvoeren van bewerkingen alleen op de gegevens in de tijdelijke windows. Systeemeigen ondersteuning voor windowing functies is een belangrijke functie van Azure Stream Analytics die de wijzer op de productiviteit van ontwikkelaars verplaatst in taken voor de verwerking van complexe stroom ontwerpen. Stream Analytics biedt ontwikkelaars kunnen gebruiken [ **Tumbling**](https://msdn.microsoft.com/library/dn835055.aspx), [ **Hopping** ](https://msdn.microsoft.com/library/dn835041.aspx) en [ **schuifregelaar** ](https://msdn.microsoft.com/library/dn835051.aspx) windows tijdelijke bewerkingen op het streamen van gegevens uit te voeren. Hierbij moet worden opgemerkt dat alle [venster](https://msdn.microsoft.com/library/dn835019.aspx) uitvoerresultaten voor bewerkingen op de **end** van het venster. De uitvoer van het venster worden één keer de gebeurtenis op basis van de statistische functie gebruikt. De gebeurtenis heeft de tijdstempel van het einde van het venster en alle functies van het venster met een vaste lengte zijn gedefinieerd. Ten slotte is het belangrijk te weten dat alle functies van het venster moeten worden gebruikt een [ **GROUP BY** ](https://msdn.microsoft.com/library/dn835023.aspx) component.

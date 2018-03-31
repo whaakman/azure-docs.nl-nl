@@ -2,31 +2,31 @@
 title: De naam van groepsbeleidsinstellingen voor Office 365-groepen in Azure Active Directory (preview) | Microsoft Docs
 description: Het instellen van de vervaldatum voor Office 365-groepen in Azure Active Directory (preview)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: michael.tillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Afdwingen van een naamgevingscontainer beleid voor Office 365-groepen in Azure Active Directory (preview)
 
 Als u wilt afdwingen consistent naamgevingsregels voor Office 365-groepen gemaakt of bewerkt door uw gebruikers, een groep die beleid naamgeving voor uw tenants in Azure Active Directory (Azure AD) instellen. Bijvoorbeeld, u kunt de naamgevingsconventie beleidsregel gebruiken om te communiceren, de functie van een groep, lidmaatschap, geografische regio of die de groep hebt gemaakt. U kunt ook het naming beleid om te categoriseren groepen in het adresboek. Het beleid kunt u specifieke woorden worden gebruikt in namen en aliassen blokkeren.
 
 > [!IMPORTANT]
-> De evaluatieversie van Office 365-groepen Naming beleid, moet Azure Active Directory Premium P1-licenties voor elke unieke gebruiker die lid is van een of meer Office 365-groepen.
+> Met behulp van de evaluatieversie van Office 365-groepen Naming beleid vereist Azure Active Directory Premium P1 licenties of Azure AD Basic EDU-licenties voor elke unieke gebruiker die lid is van een of meer Office 365-groepen.
 
 De naamgevingscontainer beleid wordt toegepast op het maken of bewerken van groepen die zijn gemaakt via werkbelastingen (bijvoorbeeld, Outlook, Microsoft-Teams, SharePoint, Exchange of Planner). Deze wordt toegepast op de groepsnaam en de groepsalias. Als u uw naming beleid In Azure AD instellen en u een bestaande Exchange-groep die beleid naming hebt, wordt de Azure AD naming beleid toegepast.
 

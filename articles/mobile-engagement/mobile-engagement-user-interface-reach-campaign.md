@@ -2,10 +2,10 @@
 title: Azure Mobile Engagement-gebruikersinterface - Reach-campagne
 description: Laern hoe campagnes maken en beheren van push-bericht met behulp van Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d457a8d5f68f70f6bf7a5f086b5e1d65bd1ea95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Het maken en beheren van campagnes met pushmeldingen
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Een nieuwe pushcampagne maken met een complexe formule door te geven van alle informatie die u nodig hebt voor het verzenden van een push-melding kunt u de Reach-sectie van de gebruikersinterface. De opties van een pushcampagne enigszins afwijken, afhankelijk van de soorten vier campagne: aankondigingen, Polls, gegevens-Pushes en tegels (alleen Windows Phone).
 
 ### <a name="option-applies-to"></a>Is van toepassing op:
@@ -165,7 +169,7 @@ U kunt de sectie tijdsbestek ingesteld wanneer de pushmelding wordt verzonden of
 ### <a name="settings-apply-to"></a>Instellingen van toepassing op:
 * Tijdsbestek: aankondigingen, Polls, tegels
 
-## <a name="test"></a>Test
+## <a name="test"></a>Testen
 De sectie Test kunt u deze pushmelding wordt verzonden naar uw eigen testapparaat voordat u de campagne opslaat. Als u de aangepaste talen voor deze campagne hebt geconfigureerd, kunt u de push-bewerking testen in elke taal. U kunt een testapparaat van 'Mijn Account' instellen.
 
 > [!NOTE]

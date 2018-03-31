@@ -3,10 +3,9 @@ title: Gebruik van gegevens en lookup verwijzingsdimensies in Stream Analytics |
 description: Referentiegegevens gebruiken in een Stream Analytics-query
 keywords: referentiegegevens opzoektabel
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 77a4a9a28060206a30c658216156d7339bddc398
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Met behulp van verwijzingsdimensies of opzoeken van gegevens in een Stream Analytics-invoerstroom
 Referentiegegevens (ook wel bekend als een opzoektabel) is een beperkte verzameling die is statisch of vertraging wijzigen van aard gebruikt om een zoekopdracht uitvoert of correleren met de gegevensstroom. Om ervoor te gebruiken van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u doorgaans een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw Query. Stream Analytics maakt gebruik van Azure Blob storage als de storage-laag voor referentiegegevens en met Azure Data Factory-verwijzing gegevens kunnen worden omgezet en/of gekopieerd naar Azure Blob-opslag voor gebruik als referentie-gegevens van [alle cloud-gebaseerde aantal en de on-premises gegevensopslagexemplaren](../data-factory/copy-activity-overview.md). Referentiegegevens is gemodelleerd als een reeks blobs (gedefinieerd in de configuratie van de invoer) in oplopende volgorde van de datum/tijd opgegeven in de blob-naam. Deze **alleen** ondersteunt toe te voegen aan het einde van de reeks met behulp van een datum/tijd **groter** dan die is opgegeven door de laatste blob in de reeks.

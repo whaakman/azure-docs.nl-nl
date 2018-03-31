@@ -3,10 +3,9 @@ title: Power BI-dashboard op Azure Stream Analytics | Microsoft Docs
 description: Gebruik een realtime streaming Power BI-dashboard business intelligence verzamelen en analyseren van grote hoeveelheden gegevens uit een Stream Analytics-taak.
 keywords: dashboard met analytische, realtime dashboard
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: b446e2296f2747012849936b994c4a4a2044869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics en Power BI: een realtime analytics-dashboard voor het streamen van gegevens
 Azure Stream Analytics kunt u profiteren van een van de toonaangevende hulpprogramma's voor bedrijfsinformatie, [Microsoft Power BI](https://powerbi.com/). In dit artikel leert u hoe hulpprogramma's voor bedrijfsinformatie te maken met behulp van Power BI als uitvoer voor uw Azure Stream Analytics-taken. U leert ook hoe maken en gebruiken van een realtime dashboard.
@@ -134,7 +133,7 @@ Deze sectie is optioneel maar aanbevolen.
 4. Klik op **Test** en zorg ervoor dat u resultaten krijgt.
 
 
-## <a name="run-the-job"></a>De taak uitvoeren
+## <a name="run-the-job"></a>Voer de taak
 
 1. Zorg ervoor dat de app TelcoStreaming wordt uitgevoerd.
 
@@ -242,7 +241,7 @@ In deze configuratie kunt u de oorspronkelijke query wijzigen met het volgende:
         dspl
 
 
-### <a name="renew-authorization"></a>Verificatie vernieuwen
+### <a name="renew-authorization"></a>Autorisatie vernieuwen
 Als het wachtwoord is gewijzigd sinds de taak is gemaakt of laatst geverifieerd, moet u uw Power BI-account te verifiëren. Als u Azure multi-factor Authentication is geconfigureerd op de tenant van uw Azure Active Directory (Azure AD), moet u ook voor het vernieuwen van Power BI-autorisatie elke twee weken. Als u niet verlengt, kan er problemen zoals een gebrek aan taakuitvoer of een `Authenticate user error` in de bewerkingslogboeken.
 
 Als een taak wordt gestart nadat het token is verlopen, een fout optreedt en de taak is mislukt. U lost dit probleem, stop de taak die wordt uitgevoerd en gaat u naar uw Power BI-uitvoer. Om gegevensverlies te voorkomen, selecteert u de **vernieuwen autorisatie** koppeling en start de taak in de **laatste tijd geëindigd**.

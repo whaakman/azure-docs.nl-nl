@@ -2,10 +2,10 @@
 title: Azure Mobile Engagement gebruikersinterface - Start
 description: Informatie over het beheren van uw bestaande toepassing en met behulp van Azure Mobile Engagement-projecten
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: aff578d2-40f6-43e4-b0ea-7d2674cb28a1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0379e51a30927af88367fc687d8f8ce66eb827f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-existing-application-and-projects"></a>Het beheren van uw bestaande toepassing en -projecten
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 In dit artikel beschrijft de **Start** pagina van de **Mobile Engagement** portal. U gebruikt de **Mobile Engagement** portal om te controleren en beheren van uw mobiele apps. Opmerking dat aan de slag met de portal moet u eerst maken een **Azure Mobile Engagement** account. 
 
 Als u naar de startpagina, klikt u op **thuis** op linksboven op de pagina. Bevat de lijst van alle toepassingen die deel van de geselecteerde verzameling uitmaken. Op deze pagina overzicht u net een snel van uw toepassingen.

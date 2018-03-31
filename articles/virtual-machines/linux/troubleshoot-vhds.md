@@ -3,19 +3,19 @@ title: Problemen met gekoppelde VHD's op Azure Linux virtuele machines | Microso
 description: Het oplossen van problemen zoals onverwacht opnieuw wordt opgestart virtuele Linux-machines of problemen bij het verwijderen van een storage-account met VHD's gekoppeld.
 keywords: SSH verbinding geweigerd, ssh fout, azure ssh, SSH-verbinding is mislukt
 services: virtual-machines-linux
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: iainfou
-ms.openlocfilehash: 10f5e2f4a48d335c6b7d05b5eb5b577765675c0e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: rogarana
+ms.openlocfilehash: 3e1bac226a75ace3efdbc9886d152da055075920
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-linux-virtual-machines"></a>Problemen met gekoppelde VHD's op Azure Linux virtuele machines
 
@@ -24,7 +24,7 @@ Virtuele Machines in Azure, is afhankelijk van virtuele harde schijven (VHD's) v
   * [Virtuele machines met gekoppelde VHD's onverwacht opnieuw wordt opgestart]
   * [Fouten bij het verwijderen van opslag in de implementatie van Resource Manager]
 
-## <a name="you-are-experiencing-unexpected-reboots">Virtuele machines met gekoppelde VHD's onverwacht opnieuw wordt opgestart</a>
+## <a name="you-are-experiencing-unexpected-reboots"></a>Virtuele machines met gekoppelde VHD's onverwacht opnieuw wordt opgestart
 
 Als een Azure-virtuele Machine (VM) een groot aantal gekoppelde VHD's die zich in hetzelfde opslagaccount heeft, mag u de schaalbaarheidsdoelen voor een afzonderlijke opslagaccount, waardoor de virtuele machine niet overschrijden. Controleer de minuut metrische gegevens voor het opslagaccount (**TotalRequests**/**TotalIngress**/**TotalEgress**) pieken die groter is dan de schaalbaarheidsdoelen voor een opslagaccount. Zie de sectie '[metrische gegevens tonen een toename van PercentThrottlingError]' voor hulp bij het bepalen of beperking is opgetreden op uw opslagaccount.
 
@@ -32,7 +32,7 @@ In het algemeen elke afzonderlijke invoer of uitvoerbewerking op een VHD van een
 
 Als u de van schaalbaarheidsdoelen voor uw opslagaccount overschreden, plaatst u uw VHD's in meerdere opslagaccounts te verminderen van de activiteit in elke rekening.
 
-## <a name="storage-delete-errors-in-rm">Fouten bij het verwijderen van opslag in de implementatie van Resource Manager</a>
+## <a name="storage-delete-errors-in-rm"></a>Fouten bij het verwijderen van opslag in de implementatie van Resource Manager
 
 Deze sectie bevat richtlijnen voor probleemoplossing bij een van de volgende fouten optreden terwijl u probeert te verwijderen van een Azure storage-account, container of blob in een Azure Resource Manager-implementatie.
 

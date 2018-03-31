@@ -1,11 +1,11 @@
 ---
-title: 'Verificatie met de Mobile Engagement REST-API''s: handmatige installatie'
+title: "Verificatie met de Mobile Engagement REST-API's: handmatige installatie"
 description: Hierin wordt beschreven hoe u verificatie voor Mobile Engagement REST-API's handmatig instellen
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2e79f9c9-41e4-45ac-b427-3b8338675163
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0d71908b34ddf8313aa45014420c9e63a00078c9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Verificatie met de Mobile Engagement REST-API's: handmatige installatie
+# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Verificatie met de Mobile Engagement REST-API's - handmatige installatie
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Deze documentatie is een bijlage bij [verifiëren met Mobile Engagement REST-API's](mobile-engagement-api-authentication.md). Zorg ervoor dat u dat artikel eerst voor inzicht in de context lezen. Hierin wordt ook een andere methode voor de eenmalige verificatie-instellingen voor de REST API's van Mobile Engagement doen met behulp van de Azure-portal.
 
 > [!NOTE]
@@ -67,7 +71,7 @@ Deze documentatie is een bijlage bij [verifiëren met Mobile Engagement REST-API
 
     ![Kopieer het eindpunt][14]
 
-16. Dit eindpunt is in de volgende vorm, waarbij de GUID in de URL is uw **TENANT_ID**:`https://login.microsoftonline.com/<GUID>/oauth2/token`
+16. Dit eindpunt is in de volgende vorm, waarbij de GUID in de URL is uw **TENANT_ID**: `https://login.microsoftonline.com/<GUID>/oauth2/token`
 
 17. Vervolgens configureert u de machtigingen op deze app. Om het te starten, gaat u naar de [Azure-portal](https://portal.azure.com).
 

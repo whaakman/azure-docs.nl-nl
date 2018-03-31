@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3a03bbd6-bcf8-436c-9775-5a8188629252
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c9d2ddeacd1d05142019f22eedf4eb3bb4f06cd
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>iOS-SDK voor Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Begin hier voor alle informatie over het integreren van Azure Mobile Engagement in een iOS-App. Als u u het eerst proberen wilt, controleert u of u doen onze [15 minuten zelfstudie](mobile-engagement-ios-get-started.md).
 
 Klik om te zien de [SDK-inhoud](mobile-engagement-ios-sdk-content.md)
@@ -69,7 +73,7 @@ XCode 8 is verplicht vanaf versie 4.0.0 van de SDK.
 #### <a name="usernotifications-framework"></a>UserNotifications framework
 U wilt toevoegen de `UserNotifications` framework in uw fasen bouwen.
 
-uw project openen in de Projectverkenner en selecteert u het juiste doel. Open vervolgens de **'Buildfasen'** tabblad en in de **'Link Binary With Libraries'** menu framework toevoegen `UserNotifications.framework` -de koppeling als instellen`Optional`
+uw project openen in de Projectverkenner en selecteert u het juiste doel. Open vervolgens de **'Buildfasen'** tabblad en in de **'Link Binary With Libraries'** menu framework toevoegen `UserNotifications.framework` -de koppeling als instellen `Optional`
 
 #### <a name="application-push-capability"></a>Toepassing push mogelijkheid
 XCode 8 opnieuw kunnen instellen voor uw app push mogelijkheid, Controleer of deze klopt de `capability` tabblad van het geselecteerde doel.

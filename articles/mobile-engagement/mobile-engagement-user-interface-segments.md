@@ -2,10 +2,10 @@
 title: Azure Mobile Engagement-gebruikersinterface - segmenten
 description: Meer informatie over het maken en beheren van de segmenten van gebruikers om te identificeren van gebruikspatronen met behulp van Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6a4f2205-4a3c-406e-a04f-5e6f2a36653f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53c5b1b672a0d7212a3d298c3e411a9cc6ac0807
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>Het maken en beheren van de segmenten van gebruikers om te identificeren van gebruikspatronen
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 In dit artikel beschrijft de **segmenten** tabblad van de **Mobile Engagement** portal. U gebruikt de **Mobile Engagement** portal om te controleren en beheren van uw mobiele apps.
 
 De sectie segmenten van de gebruikersinterface, kunt u werken op het segmenteren van uw gebruikers op basis van de verschillende gedrag en analyses die u kunt ophalen uit de toepassing en is ook toegankelijk via de API-segmenten. Segmenten worden eerst berekend 24 uur nadat ze zijn gemaakt en ze worden elke 24 uur op basis van de meest recente analytics-informatie worden herberekend. Zodra een segment wordt berekend, het 'Day aan de geschiedenis van de dag' geeft een grafiek weer per dag.

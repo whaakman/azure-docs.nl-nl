@@ -2,11 +2,10 @@
 title: JSON-uitvoer voor Stream Analytics | Microsoft Docs
 description: Meer informatie over hoe Stream Analytics doel Azure Cosmos DB voor de JSON-uitvoer, voor het archiveren van gegevens en lage latentie query's op niet-gestructureerde JSON-gegevens.
 keywords: JSON-uitvoer
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics,documentdb
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8bda2abda6f2b7207a5a7195c24b07da9089fb06
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Azure Cosmos Doeldatabase voor JSON-uitvoer van de Stream Analytics
 Stream Analytics kunt richten [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) inschakelen voor JSON-uitvoer, lage latentie en archiveren gegevensquery op niet-gestructureerde JSON-gegevens. Dit document bevat informatie over enkele aanbevolen procedures voor het implementeren van deze configuratie.
@@ -69,5 +68,5 @@ Gepartitioneerde verzameling | Verzamelingen met meerdere 'Één partitie'
 * **Verzameling naampatroon** – naam van de verzameling of het patroon voor de verzamelingen moet worden gebruikt. Indeling van de Collectienaam kan worden samengesteld met behulp van de optionele {partition}-token, waarbij partities beginnen bij 0. Hieronder vindt u voorbeeld geldige invoer:  
   1\) MyCollection: een verzameling met de naam 'MyCollection' moet aanwezig zijn.  
   2\) MyCollection {partition} – deze verzamelingen moeten bestaan – 'MyCollection0', 'MyCollection1', 'MyCollection2', enzovoort.  
-* **Partitie-sleutel** : optioneel. Dit is alleen nodig als u een token {partition} in het patroon van de naam van verzameling. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor het opgeven van de sleutel voor het partitioneren van uitvoer in collecties. Voor één verzameling uitvoer, elke willekeurige uitvoerkolom kan worden gebruikt, bijvoorbeeld PartitionId.  
+* **Partitie-sleutel** : optioneel. Dit is alleen nodig als u een token {partition} in het patroon van de naam van verzameling. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt om de sleutel op te geven voor het partitioneren van uitvoer in collecties. Voor één verzameling uitvoer, elke willekeurige uitvoerkolom kan worden gebruikt, bijvoorbeeld PartitionId.  
 * **ID-document** : optioneel. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor de primaire sleutel opgeven in welke invoegen of updatebewerkingen zijn gebaseerd.  

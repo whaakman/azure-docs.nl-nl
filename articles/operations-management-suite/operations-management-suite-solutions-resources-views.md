@@ -1,8 +1,8 @@
 ---
-title: Weergaven beheersystemen Operations Management Suite (OMS) | Microsoft Docs
-description: 'Oplossingen in de Operations Management Suite (OMS) wordt gewoonlijk een of meer weergaven om gegevens bevatten.  In dit artikel wordt beschreven hoe een weergave die is gemaakt door de ontwerper exporteren en deze opnemen in een oplossing. '
+title: Weergaven beheersystemen | Microsoft Docs
+description: 'Beheeroplossingen bevatten meestal een of meer weergaven om gegevens te visualiseren.  In dit artikel wordt beschreven hoe een weergave die is gemaakt door de ontwerper exporteren en deze opnemen in een oplossing. '
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b44763fe67b1c70c0b6ecdff73c32d8bb4fab3a4
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Weergaven in de Operations Management Suite (OMS) oplossingen (Preview)
+# <a name="views-in-management-solutions-preview"></a>Weergaven beheersystemen (Preview)
 > [!NOTE]
-> Dit is voorlopige documentatie voor het maken van oplossingen voor het beheer in OMS die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.    
->
->
+> Dit is voorlopige documentatie voor het maken van oplossingen die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.    
 
-[Oplossingen voor het beheer in de Operations Management Suite (OMS)](operations-management-suite-solutions.md) omvatten een of meer weergaven om gegevens te visualiseren.  Dit artikel wordt beschreven hoe u een weergave die is gemaakt door exporteert de [ontwerper](../log-analytics/log-analytics-view-designer.md) en deze opnemen in een oplossing.  
+
+[Oplossingen voor](operations-management-suite-solutions.md) omvatten een of meer weergaven om gegevens te visualiseren.  Dit artikel wordt beschreven hoe u een weergave die is gemaakt door exporteert de [ontwerper](../log-analytics/log-analytics-view-designer.md) en deze opnemen in een oplossing.  
 
 > [!NOTE]
-> De voorbeelden in dit artikel gebruiken parameters en variabelen die zijn vereist of gemeenschappelijke voor beheeroplossingen en wordt beschreven in [beheeroplossingen maken in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)
+> De voorbeelden in dit artikel gebruiken parameters en variabelen die zijn vereist of gemeenschappelijke voor beheeroplossingen en wordt beschreven in [ontwerp en build een beheeroplossing in Azure](operations-management-suite-solutions-creating.md)
 >
 >
 
@@ -48,7 +47,7 @@ De eenvoudige stappen een weergave toevoegen aan een oplossing zijn als volgt.  
 ## <a name="export-the-view-to-a-file"></a>De weergave exporteren naar een bestand
 Volg de instructies voor [Log Analytics-ontwerper](../log-analytics/log-analytics-view-designer.md) een weergave exporteren naar een bestand.  Het geëxporteerde bestand worden weergegeven in de JSON-indeling met dezelfde [elementen als het oplossingsbestand](operations-management-suite-solutions-solution-file.md).  
 
-De **resources** element van het weergavebestand heeft een resource met een type **Microsoft.OperationalInsights/workspaces** die staat voor de OMS-werkruimte.  Dit element heeft een subelement van het type **weergaven** die staat voor de weergave en de gedetailleerde configuratie bevat.  U de details van dit element kopiëren en kopieert u deze naar uw oplossing.
+De **resources** element van het weergavebestand heeft een resource met een type **Microsoft.OperationalInsights/workspaces** die staat voor de werkruimte voor logboekanalyse.  Dit element heeft een subelement van het type **weergaven** die staat voor de weergave en de gedetailleerde configuratie bevat.  U de details van dit element kopiëren en kopieert u deze naar uw oplossing.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>De weergave-resource maken in de oplossing
 Voeg de volgende weergave resource toe aan de **resources** element van het oplossingsbestand van uw.  Dit maakt gebruik van variabelen die hieronder worden beschreven die u ook moet toevoegen.  Houd er rekening mee dat de **Dashboard** en **OverviewTile** eigenschappen zijn tijdelijke aanduidingen die door de corresponderende eigenschappen van het geëxporteerde weergave-bestand wordt overschreven.
@@ -98,7 +97,7 @@ Alle logboekanalyse resources die zijn gedefinieerd in het Resource Manager-sjab
 |:---|:---|:---|
 | V1 (verouderd)   | 2015-11-01-preview | Verouderde indeling.<br> Bijvoorbeeld: Typ = gebeurtenis EventLevelName fout =  |
 | v2 (upgrade) | 2015-11-01-preview | Verouderde indeling.  Geconverteerd naar bijgewerkte indeling op installeren.<br> Bijvoorbeeld: Typ = gebeurtenis EventLevelName fout =<br>Geconverteerd naar: gebeurtenis &#124; waar EventLevelName == "Error"  |
-| v2 (upgrade) | 2017-03-03-preview | De indeling van de upgrade. <br>Voorbeeld: De gebeurtenis &#124; waar EventLevelName == "Error"  |
+| v2 (upgrade) | 2017-03-03-preview | De indeling van de upgrade. <br>Voorbeeld: Gebeurtenis &#124; waar EventLevelName == "Error"  |
 
 
 ## <a name="add-the-view-details"></a>De weergavedetails toevoegen

@@ -2,10 +2,10 @@
 title: Azure Mobile Engagement-gebruikersinterface - analyses
 description: Informatie over het analyseren van historische gegevens over uw toepassing met behulp van Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fceae1ffff40fc525170121181e21726fe2bd3f7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>Historische gegevens over uw toepassing analyseren
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 In dit artikel beschrijft de **ANALYTICS** tabblad van de **Mobile Engagement** portal. U gebruikt de **Mobile Engagement** portal om te controleren en beheren van uw mobiele apps. Opmerking dat aan de slag met de portal moet u eerst maken een **Azure Mobile Engagement** account.
 
 De sectie Analytics van de gebruikersinterface bevat samengevoegde informatie over de toepassing die is gebaseerd op historische gegevens die wordt elke 24 uur bijgewerkt. De informatie wordt weergegeven op de verschillende dashboards bestaat uit staaf-lijn-cirkel grafieken, rasters en maps. De gegevens kunnen ook worden gedownload als CSV-bestanden. De meeste van deze informatie is beschikbaar in realtime in de sectie van de Monitor van de gebruikersinterface en kan ook worden geopend vanuit de Analytics-API.

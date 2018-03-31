@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a31ca1d6-856f-4aec-898a-07969ae5f7ec
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,17 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8472af2ac72a1976871970963851be775b19859b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Universele Windows-Apps bereiken SDK-integratie
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 U moet volgen de procedure integratie in de [Windows universele Engagement SDK-integratie](mobile-engagement-windows-store-integrate-engagement.md) voordat u deze handleiding.
 
 ## <a name="embed-the-engagement-reach-sdk-into-your-windows-universal-project"></a>De SDK voor het bereiken van Engagement insluiten in uw universele Windows-project
-U beschikt niet over iets om toe te voegen. `EngagementReach`verwijzingen en bronnen bevinden zich al in uw project.
+U beschikt niet over iets om toe te voegen. `EngagementReach` verwijzingen en bronnen bevinden zich al in uw project.
 
 > [!TIP]
 > U kunt afbeeldingen die zich in de `Resources` map van uw project, met name het merk-pictogram (die standaard ingesteld op het pictogram Engagement). Op de universele Apps u kunt ook verplaatsen de `Resources` map op uw gedeelde project voor het delen van de inhoud ervan tussen apps, maar u moet houden de `Resources\EngagementConfiguration.xml` bestand op de standaardlocatie, omdat deze afhankelijk platform.
@@ -67,7 +71,7 @@ De keuze tussen de twee integratie kan op deze manier worden samengevat:
 ### <a name="overlay-integration"></a>Overlay-integratie
 De Engagement-overlay worden dynamisch toegevoegd voor de UI-elementen waarmee Reach-campagnes in uw pagina weergegeven. Als de overlay niet aan de behoeften van uw lay-out moet u de webweergaven handmatige integratie in plaats daarvan.
 
-In het .xaml-bestandswijziging `EngagementPage` verwijzing naar`EngagementPageOverlay`
+In het .xaml-bestandswijziging `EngagementPage` verwijzing naar `EngagementPageOverlay`
 
 * Toevoegen aan de naamruimtedeclaraties:
   
@@ -82,7 +86,7 @@ In het .xaml-bestandswijziging `EngagementPage` verwijzing naar`EngagementPageOv
             <!-- Your layout -->
         </engagement:EngagementPage>
 
-**Met EngagementPageOverlay:**
+**With EngagementPageOverlay:**
 
         <engagement:EngagementPageOverlay 
             xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
@@ -108,7 +112,7 @@ Klik in het bestand .cs tag uw pagina in `EngagementPageOverlay` in plaats van `
               }
             }
 
-**Met EngagementPageOverlay:**
+**With EngagementPageOverlay:**
 
             using Microsoft.Azure.Engagement.Overlay;
 
@@ -279,7 +283,7 @@ U kunt de callback instellen in de methode 'Openbare App() {}' van uw `App.xaml.
 > 
 > 
 
-## <a id="push-channel-sharing"></a>Push-kanaal voor delen
+## <a id="push-channel-sharing"></a> Push-kanaal voor delen
 Als u pushmeldingen voor een ander doel in uw toepassing hebt u de functie van de Engagement SDK voor het delen push-kanaal te gebruiken. Dit is om te voorkomen dat gemiste push.
 
 * U kunt uw eigen push-kanaal naar de initialisatie van de Engagement bereiken opgeven. De SDK wordt gebruikt in plaats van een nieuwe aanvragen.

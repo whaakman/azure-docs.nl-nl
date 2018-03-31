@@ -3,10 +3,9 @@ title: Stream Analytics-taken te verhogen doorvoer schalen | Microsoft Docs
 description: Informatie over het configureren van invoer partities, definitie van de query te verfijnen en het instellen van taak streaming-eenheden schalen Stream Analytics-taken.
 keywords: gegevens streaming afstemmen analytics streaming gegevensverwerking,
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 781a3b71c35cb48e40202e3b1acc8edbbaf865c4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Azure Stream Analytics-taken voor een betere doorvoer schalen
 In dit artikel leest u hoe af te stemmen een Stream Analytics query voor een betere doorvoer voor Streaming Analytics-taken. U kunt de volgende handleiding voor het schalen van uw taak voor het verwerken van de hogere belasting en te profiteren van meer systeembronnen (zoals meer bandbreedte, meer CPU-bronnen, meer geheugen).
@@ -148,7 +147,7 @@ De volgende tabel toont de resultaten die we zagen we het aantal streaming-eenhe
 
 En de volgende grafiek ziet een visualisatie van de relatie tussen SUs en doorvoer.
 
-![IMG.Stream.Analytics.perfgraph][img.stream.analytics.perfgraph]
+![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Help opvragen
 Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

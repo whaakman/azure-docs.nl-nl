@@ -2,10 +2,10 @@
 title: Azure Mobile Engagement-gebruikersinterface - Dashboard
 description: Meer informatie over het weergeven en beheren van grafieken van gegevens over uw toepassing met behulp van Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d941b9858b964e11308061bae9e6dbc5e2fda767
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Het weergeven en beheren van grafieken van gegevens over uw toepassing
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 Het gedeelte Dashboard van de gebruikersinterface kan klanten aangepaste grafieken om te maximaliseren van hun tijd door op te geven van de exacte gegevens die ze willen in plaats van zoekt in de sectie analytics maken. Een dashboard toont de trends in uw toepassing en de actieve gebruiker statistieken voor de verschillende versies van uw toepassing gedurende een bepaalde periode (uur/dag/week/maand/aangepast). De trends weergegeven zijn gebaseerd op de laatste 7 dagen.
 
 ### <a name="see-also"></a>Zie ook

@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b5daa2a2-942b-489d-aa1d-568c3b25e56f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bccfbdfe9d99900f58d5dbfa44183146c79b9c88
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Azure Mobile Engagement integreren in een webtoepassing
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -45,12 +49,12 @@ De Mobile Engagement Web SDK wordt geleverd als een JavaScript-bestand van één
 ## <a name="browser-compatibility"></a>Browsercompatibiliteit
 De Mobile Engagement Web SDK maakt gebruik van systeemeigen JSON coderen en decoderen, naast de AJAX-aanvragen tussen domeinen (afhankelijk van de specificatie W3C CORS). Is compatibel met de volgende browsers:
 
-* Microsoft Edge 12 +
-* Internet Explorer 10 +
+* Microsoft Edge 12+
+* Internet Explorer 10+
 * Firefox 3.5 +
 * Chrome 4 +
-* Safari 6 +
-* Opera 12 +
+* Safari 6+
+* Opera 12+
 
 ## <a name="configure-mobile-engagement"></a>Configureren van Mobile Engagement
 Een script schrijven dat wordt gemaakt van een globale `azureEngagement` JavaScript-object, zoals in het volgende voorbeeld. Omdat de site meerdere pagina's hebben mogelijk, in dit voorbeeld wordt ervan uitgegaan dat dit script wordt opgenomen in elke pagina. In dit voorbeeld wordt de JavaScript-object met de naam `azure-engagement-conf.js`.
@@ -64,7 +68,7 @@ Een script schrijven dat wordt gemaakt van een globale `azureEngagement` JavaScr
 De `connectionString` waarde voor uw toepassing wordt weergegeven in de Azure-portal.
 
 > [!NOTE]
-> `appVersionName`en `appVersionCode` zijn optioneel. We raden echter aan dat u ze configureren zodat analytics versie-informatie kan verwerken.
+> `appVersionName` en `appVersionCode` zijn optioneel. We raden echter aan dat u ze configureren zodat analytics versie-informatie kan verwerken.
 > 
 > 
 

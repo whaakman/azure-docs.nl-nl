@@ -3,10 +3,9 @@ title: Realtime-gebeurtenissen verwerken met de verwerking van de Stream Analyti
 description: Meer informatie over hoe een set van Azure-services kan samenwerken voor het inschakelen van de verwerking van realtime-gebeurtenissen en analyses.
 keywords: realtime verwerking, verwerking van gebeurtenissen, referentiearchitectuur
 services: stream-analytics,event-hubs,storage,sql-database
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 11af48bc-313c-4527-8c80-91088dc9f3c6
 ms.service: stream-analytics
 ms.workload: big-data
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.author: samacha
-ms.openlocfilehash: a5206f74e61c3cfd210ff80654e31f466ce08977
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: cf11a80a93a923f038b7d6a0f02a35938794c242
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Verwijzen naar architectuur: realtime-gebeurtenissen verwerken met Microsoft Azure Stream Analytics
 De referentiearchitectuur voor realtime-gebeurtenissen verwerken met Azure Stream Analytics is bedoeld voor een algemene blauwdruk voor het implementeren van een realtime platform als een oplossing voor de stroom-de verwerking van service (PaaS) met Microsoft Azure.
@@ -38,7 +37,7 @@ Microsoft Azure biedt een uitgebreide catalogus analytics-technologieën die u k
   * Gegevensbronnen
   * Gegevensintegratie laag
   * Realtime-analyses laag
-  * Data Storage-laag
+  * Data Storage Layer
   * Presentatie / laag-verbruik
 * Conclusie
 
@@ -46,7 +45,7 @@ Microsoft Azure biedt een uitgebreide catalogus analytics-technologieën die u k
 
 **Gepubliceerd:** januari 2015
 
-**Revisie:** 1.0
+**Revision:** 1.0
 
 **Download:** [realtime-gebeurtenissen verwerken met Microsoft Azure Stream Analytics](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 

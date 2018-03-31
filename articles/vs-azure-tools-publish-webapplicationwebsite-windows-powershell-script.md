@@ -3,9 +3,9 @@ title: Publiceren WebApplicationWebSite (Windows PowerShell-script) | Microsoft 
 description: Informatie over het publiceren van een webproject naar een Azure-website. Dit script maakt de vereiste resources in uw Azure-abonnement als deze nog niet bestaan.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 63cfaa2d-f04d-40dc-8677-345385c278d5
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 07d21b7ce6cd8aee1cff704d316e7a2ca8c00437
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: aaa1f679b0368b0ca93305fe867a63f3971a788c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Publiceren WebApplicationWebSite (Windows PowerShell-script)
 ## <a name="syntax"></a>Syntaxis
@@ -38,60 +38,60 @@ Het pad naar het JSON-configuratiebestand dat u de details van de implementatie 
 
 | Parameter | Standaardwaarde |
 | --- | --- |
-| Aliassen |Geen |
-| Vereist? |De waarde True |
+| Aliassen |geen |
+| Vereist? |true |
 | Positie |Met de naam |
-| Standaardwaarde |Geen |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Standaardwaarde |geen |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
-## <a name="subscriptionname"></a>SubscriptionName
+## <a name="subscriptionname"></a>Abonnementsnaam
 De naam van de Azure-abonnement dat u wilt maken van de website in.
 
 | Parameter | Standaardwaarde |
 | --- | --- |
-| Aliassen |Geen |
-| Vereist? |ONWAAR |
+| Aliassen |geen |
+| Vereist? |false |
 | Positie |Met de naam |
-| Standaardwaarde |Geen |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Standaardwaarde |geen |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
 ## <a name="webdeploypackage"></a>WebDeployPackage
 Het pad naar het implementatiepakket web publiceren naar de website. U kunt dit pakket kunt maken met behulp van de wizard webpublicatie in Visual Studio. Zie voor meer informatie [aan de slag met Azure Cloud Services en ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
 | Parameter | Standaardwaarde |
 | --- | --- |
-| Aliassen |Geen |
-| Vereist? |ONWAAR |
+| Aliassen |geen |
+| Vereist? |false |
 | Positie |Met de naam |
-| Standaardwaarde |Geen |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Standaardwaarde |geen |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
 ## <a name="databaseserverpassword"></a>DatabaseServerPassword
 De gebruikersnaam en het wachtwoord voor de SQL-database in Azure.
 
 | Parameter | Standaardwaarde |
 | --- | --- |
-| Aliassen |Geen |
-| Vereist? |ONWAAR |
+| Aliassen |geen |
+| Vereist? |false |
 | Positie |Met de naam |
-| Standaardwaarde |Geen |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Standaardwaarde |geen |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
 ## <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 Indien waar, wordt de status van afdrukken berichten van het script naar de uitvoerstroom.
 
 | Parameter | Standaardwaarde |
 | --- | --- |
-| Aliassen |Geen |
-| Vereist? |ONWAAR |
+| Aliassen |geen |
+| Vereist? |false |
 | Positie |Met de naam |
-| Standaardwaarde |ONWAAR |
-| Pijpleidinginvoer accepteren? |ONWAAR |
-| Jokertekens accepteren? |ONWAAR |
+| Standaardwaarde |false |
+| Pijpleidinginvoer accepteren? |false |
+| Jokertekens accepteren? |false |
 
 ## <a name="remarks"></a>Opmerkingen
 Zie voor een volledige uitleg over het gebruik van het script maken Dev- en testomgevingen, [Windows PowerShell-Scripts gebruiken om te publiceren op de ontwikkeling en testomgevingen](vs-azure-tools-publishing-using-powershell-scripts.md).

@@ -4,8 +4,8 @@ description: Informatie over het instellen van diagnostische gegevens voor het o
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: f00771d89749e7507d7f303f366fe63f537900ff
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Instellen van diagnostische gegevens voor Azure Cloud Services en virtuele machines
 Wanneer u problemen met een Azure-cloudservice of virtuele machine, kunt u Visual Studio kunt gebruiken voor het eenvoudig instellen van Azure Diagnostics. Diagnostische gegevens worden vastgelegd system en logboekregistratie-gegevens op de virtuele machines en de virtuele machine-exemplaren die worden uitgevoerd van de cloudservice. Diagnostische gegevens worden overgedragen naar een opslagaccount die u kiest. Zie voor meer informatie over diagnostische gegevens van logboekregistratie in Azure, [logboekregistratie van diagnostische gegevens van Web-Apps in Azure App Service](app-service/web-sites-enable-diagnostic-log.md).
@@ -145,7 +145,7 @@ Voor het vastleggen van Windows-gebeurtenislogboeken, selecteer de **overdracht 
 
 ![Gebeurtenislogboeken](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796664.png)
 
-Als u Azure SDK 2.6 of hoger en u wilt een aangepaste gegevensbron opgeven, typt u dit in de  **\<gegevensbronnaam\>**  tekstvak in en selecteer vervolgens **toevoegen**. De gegevensbron is toegevoegd aan het bestand diagnostics.cfcfg.
+Als u Azure SDK 2.6 of hoger en u wilt een aangepaste gegevensbron opgeven, typt u dit in de **\<gegevensbronnaam\>** tekstvak in en selecteer vervolgens **toevoegen**. De gegevensbron is toegevoegd aan het bestand diagnostics.cfcfg.
 
 Als u Azure SDK 2.5 en geef een aangepaste gegevensbron wilt, kunt u het toevoegen aan de `WindowsEventLog` sectie van de diagnostics.wadcfgx-bestand, zoals in het volgende voorbeeld:
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 6b8ff8d2efd2039e7b71f4e8f25b2756d324940f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 374d333517301db6cf44f6c00da52202ef5150e1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -136,7 +136,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     Bij het uitvoeren van een bulksgewijs documenten met behulp van de feed functionaliteit (bijvoorbeeld ReadDocumentFeedAsync) lezen of lezen bij de uitgifte van een SQL-query, worden de resultaten in een gesegmenteerde manier geretourneerd als de resultatenset is te groot is. Standaard resultaten worden geretourneerd in segmenten van 100 items of 1 MB, eerst de limiet is bereikt.
 
-    Verminder het aantal retouren van netwerk vereist voor het ophalen van alle toepasselijke resultaten, verhoogt u de pagina grootte met behulp [x-ms-max-item-aantal](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) aanvraagheader en maximaal 1000. In gevallen waarin u wilt alleen enkele resultaten weer te geven bijvoorbeeld, als uw gebruikers-interface of toepassing API retourneert alleen 10 een tijd resulteert, u kunt ook de paginagrootte van de op 10 tot en met de doorvoer verbruikt voor leesbewerkingen en query's verminderen verlagen.
+    Verminder het aantal retouren van netwerk vereist voor het ophalen van alle toepasselijke resultaten, verhoogt u de pagina grootte met behulp [x-ms-max-item-aantal](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) aanvraagheader en maximaal 1000. In gevallen waarin u wilt alleen enkele resultaten weer te geven bijvoorbeeld, als uw gebruikers-interface of toepassing API retourneert alleen 10 een tijd resulteert, u kunt ook de paginagrootte van de op 10 tot en met de doorvoer verbruikt voor leesbewerkingen en query's verminderen verlagen.
 
     U kunt ook de paginagrootte met behulp van de beschikbare Azure DB SDK's voor Cosmos instellen.  Bijvoorbeeld:
 
@@ -183,7 +183,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
     De complexiteit van een query heeft gevolgen voor het aantal eenheden van de aanvraag voor een bewerking worden verbruikt. Het aantal predicaten, aard van de predicaten, aantal UDF's en de grootte van de bron-gegevensset alle invloed hebben op de kosten van querybewerkingen.
 
-    Voor het meten van de overhead van bewerkingen (maken, bijwerken of verwijderen) Inspecteer de [x-ms-aanvraag-kosten](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) header (of de equivalente RequestCharge-eigenschap in ResourceResponse<T> of FeedResponse<T> in de. NET SDK) voor het meten van het aantal aanvraageenheden verbruikt door deze bewerkingen.
+    Voor het meten van de overhead van bewerkingen (maken, bijwerken of verwijderen) Inspecteer de [x-ms-aanvraag-kosten](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (of de equivalente RequestCharge-eigenschap in ResourceResponse<T> of FeedResponse<T> in de. NET SDK) voor het meten van het aantal aanvraageenheden verbruikt door deze bewerkingen.
 
     ```csharp
     // Measure the performance (request units) of writes
@@ -202,7 +202,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 <a id="429"></a>
 2. **Verwerken frequentie beperken/aanvraagsnelheid te groot**
 
-    Wanneer een client probeert overschrijdt de gereserveerde doorvoer voor een account, is er geen verslechtering van prestaties optreedt op de server en geen gebruik van doorvoercapaciteit afgezien van het niveau van de gereserveerde. De server wordt optie preventief beëindigen van de aanvraag met RequestRateTooLarge (HTTP-statuscode 429) en retourneert de [x-ms-opnieuw-na-ms](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) header die aangeeft van de hoeveelheid tijd in milliseconden, dat de gebruiker alvorens nogmaals te proberen wachten moet de aanvraag.
+    Wanneer een client probeert overschrijdt de gereserveerde doorvoer voor een account, is er geen verslechtering van prestaties optreedt op de server en geen gebruik van doorvoercapaciteit afgezien van het niveau van de gereserveerde. De server wordt optie preventief beëindigen van de aanvraag met RequestRateTooLarge (HTTP-statuscode 429) en retourneert de [x-ms-opnieuw-na-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header die aangeeft van de hoeveelheid tijd in milliseconden, dat de gebruiker alvorens nogmaals te proberen wachten moet de aanvraag.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge

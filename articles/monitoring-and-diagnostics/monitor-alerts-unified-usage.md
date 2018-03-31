@@ -1,9 +1,9 @@
 ---
 title: Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor - waarschuwingen (Preview) | Microsoft Docs
-description: "Gebruik de nieuwe waarschuwingen van geïntegreerde Azure-ervaring aan auteur, weergeven en beheren van metrische gegevens en meld u waarschuwingsregels op één plek."
+description: Gebruik de nieuwe waarschuwingen van geïntegreerde Azure-ervaring aan auteur, weergeven en beheren van metrische gegevens en meld u waarschuwingsregels op één plek.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6bd2c452059950f714de304cc30c7b4bd023fd86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Maken, weergeven en waarschuwingen beheren met behulp van Azure Monitor - waarschuwingen (Preview)
 
@@ -136,7 +136,7 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 
 1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen (Preview)**.  
 
-2. De **waarschuwingen (Preview) Dashboard** wordt weergegeven - waarin alle Azure-waarschuwingen zijn unified en weergegeven in een enkelvoud board ![waarschuwing Dashboard](./media/monitoring-overview-unified/alerts-preview-overview.png)
+2. De **waarschuwingen (Preview) Dashboard** wordt weergegeven - waarin alle Azure-waarschuwingen zijn unified en weergegeven in een enkelvoud board ![waarschuwing Dashboard](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. Van links naar rechts boven ziet het Dashboard u in één oogopslag de volgende - protocollen voor een gedetailleerd overzicht kan worden geklikt:
     - *Deze gebeurtenis wordt gestart waarschuwingen*: het aantal waarschuwingen op dit moment hebt voldaan aan de logica en in staat wordt gestart
     - *Totaal aantal waarschuwingsregels*: het aantal waarschuwingsregels gemaakt en in subtekst, het getal dat zijn momenteel ingeschakeld
@@ -147,7 +147,7 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen (Preview)**.  
 2. Selecteer de **regels beheren** knop op de bovenste balk, om te navigeren naar de sectie regel beheer - waarin alle waarschuwingsregels gemaakt worden weergegeven, met inbegrip van waarschuwingen die zijn uitgeschakeld.
 3. Als u wilt zoeken voor specifieke regels voor waarschuwingen, een kan gebruikmaken van de vervolgkeuzelijst filters op de voorgrond die lijst echtheidskenmerken waarschuwingsregels voor specifieke *abonnement, resourcegroepen en/of Resource*. U kunt ook op met de zoekfunctie deelvenster boven de waarschuwingsregel lijst gemarkeerd *waarschuwingen filteren*, een sleutelwoord waarmee wordt vergeleken met kan bieden *de naam van de waarschuwing, voorwaarde en doelbron*; alleen weergeven overeenkomende regels.
-   ![Waarschuwing regels beheren](./media/monitoring-overview-unified/alerts-preview-rules.png)
+   ![Waarschuwing regels beheren](./media/monitoring-alerts-unified-usage/alerts-preview-rules.png)
 4. Als u wilt bekijken of wijzigen van specifieke waarschuwingsregel, klik op de naam die wordt weergegeven als een link.
 5. In de fasestructuur van de drie van gedefinieerd waarschuwing wordt weergegeven -: 1) waarschuwing voorwaarde 2) waarschuwing Detail 3) de actie groep. **Doel Criteria** kan worden geklikt om te wijzigen van de waarschuwing logica of een nieuwe criteria kunnen worden toegevoegd als u het pictogram met de eerdere logica te verwijderen. Op deze manier in Waarschuwingsdetails sectie - **beschrijving** en **ernst** kan worden gewijzigd. En de groep acties kunnen worden gewijzigd of een nieuwe kan worden ontworpen om te koppelen met de waarschuwing via de **nieuwe actiegroep** knop.
 

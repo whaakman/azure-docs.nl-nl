@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 947ea44b-00c1-450f-9a3b-74437954dc56
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f0d650205ca86205ad857003f892c1a60b3831bf
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-on-ios"></a>Hoe integreren Engagement voor iOS
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -45,8 +49,8 @@ De volgende stappen zijn voldoende is voor het activeren van het rapport van log
 * De Engagement-SDK toevoegen aan uw iOS-project: in Xcode, klik met de rechtermuisknop op uw project en selecteer **'Add files to...'** en kies de `EngagementSDK` map.
 * Engagement vereist aanvullende frameworks werkt: in de Projectverkenner, opent u het deelvenster van uw project en selecteer het juiste doel. Open vervolgens de **'Buildfasen'** tabblad en in de **'Link Binary With Libraries'** menu deze frameworks toevoegen:
 
-  * `UserNotifications.framework`-de koppeling als instellen`Optional`
-  * `AdSupport.framework`-de koppeling als instellen`Optional`
+  * `UserNotifications.framework` -de koppeling als instellen `Optional`
+  * `AdSupport.framework` -de koppeling als instellen `Optional`
   * `SystemConfiguration.framework`
   * `CoreTelephony.framework`
   * `CFNetwork.framework`

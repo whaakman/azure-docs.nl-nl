@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9ec3fab3-35ec-458e-bf41-6cdd69e3fa44
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e71d8aeb8c8060161ade4262e0be0a093b5650
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>Het integreren van Engagement bereiken op Android
+> [!IMPORTANT]
+> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> 
+
 > [!IMPORTANT]
 > U moet de integratie procedure beschreven in de manier waarop integreren engagement voor Android-document voordat u deze handleiding volgen.
 > 
@@ -102,7 +106,7 @@ Bewerk uw `AndroidManifest.xml` bestand:
   
   Zonder deze machtiging Android voorkomt u dat systeemmeldingen worden weergegeven als u de ring of de optie vibrate in de Reach-campagnes gecontroleerd.
 
-## <a name="native-push"></a>Native Pushberichten
+## <a name="native-push"></a>Native push
 Nu u de Reach-module hebt geconfigureerd, moet u native pushberichten om het ontvangen van de campagnes op het apparaat te kunnen configureren.
 
 We ondersteunen twee services op Android:
@@ -160,8 +164,8 @@ Hier volgen enkele richtlijnen voor het afhandelen van de retourparameter van go
 
 Het retourtype wordt alleen gebruikt voor de Reach-statistieken:
 
-* `Replied`Als een van de broadcast ontvangers ofwel geretourneerd wordt verhoogd `true` of `false`.
-* `Actioned`alleen als een van de broadcast ontvangers geretourneerd wordt verhoogd `true`.
+* `Replied` Als een van de broadcast ontvangers ofwel geretourneerd wordt verhoogd `true` of `false`.
+* `Actioned` alleen als een van de broadcast ontvangers geretourneerd wordt verhoogd `true`.
 
 ## <a name="how-to-customize-campaigns"></a>Het aanpassen van de campagnes
 U kunt de indelingen die beschikbaar zijn in de SDK bereiken wijzigen voor het aanpassen van campagnes.
@@ -233,7 +237,7 @@ Als u niet wilt dat de overlay worden toegevoegd aan de activiteit en als u de i
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="categories"></a>Categorieën
+#### <a name="categories"></a> Categorieën
 Als u de opgegeven indelingen wijzigt, wijzigt u het uiterlijk van al uw meldingen. Categorieën kunnen u verschillende gerichte lijkt (mogelijk gedrag) definiëren voor meldingen. Een categorie kan worden opgegeven wanneer u een Reach-campagne maken. Houd er rekening mee dat categorieën ook kunnen u aanpassen aankondigingen en polls, die verderop in dit document wordt beschreven.
 
 Voor het registreren van een categorie-handler voor uw meldingen, moet u een aanroep van toevoegen wanneer de toepassing wordt geïnitialiseerd.

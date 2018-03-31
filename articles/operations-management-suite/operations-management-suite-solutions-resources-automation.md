@@ -1,8 +1,8 @@
 ---
-title: Azure Automation-resources in OMS-oplossingen | Microsoft Docs
-description: Oplossingen in OMS omvatten meestal runbooks in Azure Automation voor het automatiseren van processen, zoals het verzamelen en bewakingsgegevens verwerken.  Dit artikel wordt beschreven hoe u runbooks en hun bijbehorende resources opnemen in een oplossing.
+title: Azure Automation-resources beheersystemen | Microsoft Docs
+description: Oplossingen voor het beheer wordt doorgaans runbooks in Azure Automation voor het automatiseren van processen, zoals het verzamelen en verwerken van bewakingsgegevens opnemen.  Dit artikel wordt beschreven hoe u runbooks en hun bijbehorende resources opnemen in een oplossing.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5750cd1147ec861ea38ff2ebc9ce481d256c1959
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Azure Automation-resources toe te voegen aan een OMS-beheeroplossing (Preview)
+# <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Azure Automation-resources toe te voegen aan een beheersysteem (Preview)
 > [!NOTE]
-> Dit is voorlopige documentatie voor het maken van oplossingen voor het beheer in OMS die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.   
+> Dit is voorlopige documentatie voor het maken van oplossingen die zich momenteel in preview. De hieronder beschreven schema kan worden gewijzigd.   
 
 
-[Oplossingen voor het beheer in OMS](operations-management-suite-solutions.md) omvatten meestal runbooks in Azure Automation voor het automatiseren van processen, zoals het verzamelen en bewakingsgegevens verwerken.  Automation-accounts bevat naast runbooks, assets, zoals variabelen en schema's die ondersteuning bieden voor de runbooks gebruikt in de oplossing.  Dit artikel wordt beschreven hoe u runbooks en hun bijbehorende resources opnemen in een oplossing.
+[Oplossingen voor](operations-management-suite-solutions.md) omvatten meestal runbooks in Azure Automation voor het automatiseren van processen, zoals het verzamelen en bewakingsgegevens verwerken.  Automation-accounts bevat naast runbooks, assets, zoals variabelen en schema's die ondersteuning bieden voor de runbooks gebruikt in de oplossing.  Dit artikel wordt beschreven hoe u runbooks en hun bijbehorende resources opnemen in een oplossing.
 
 > [!NOTE]
-> De voorbeelden in dit artikel gebruiken parameters en variabelen die zijn vereist of gemeenschappelijke voor beheeroplossingen en wordt beschreven in [beheeroplossingen maken in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
+> De voorbeelden in dit artikel gebruiken parameters en variabelen die zijn vereist of gemeenschappelijke voor beheeroplossingen en wordt beschreven in [ontwerp en build een beheeroplossing in Azure ](operations-management-suite-solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -40,7 +40,7 @@ In dit artikel wordt ervan uitgegaan dat u al bekend met de volgende informatie 
 - Hoe [Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Automation-account
-Alle resources in Azure Automation zijn opgenomen in een [Automation-account](../automation/automation-security-overview.md#automation-account-overview).  Zoals beschreven in [OMS werkruimte en de Automation-account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) het Automation-account niet is opgenomen in de oplossing voor beheer, maar moet bestaan voordat de oplossing is geïnstalleerd.  De installatie van de oplossing zal mislukken als het is niet beschikbaar.
+Alle resources in Azure Automation zijn opgenomen in een [Automation-account](../automation/automation-security-overview.md#automation-account-overview).  Zoals beschreven in [oeren werkruimte en de Automation-account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) het Automation-account niet is opgenomen in de oplossing voor beheer, maar moet bestaan voordat de oplossing is geïnstalleerd.  De installatie van de oplossing zal mislukken als het is niet beschikbaar.
 
 De naam van elke resource Automation bevat de naam van de Automation-account.  Dit doet u in de oplossing met de **accountName** parameter zoals in het volgende voorbeeld van een runbook-resource.
 
@@ -118,7 +118,7 @@ De eigenschappen voor automatisering taken worden beschreven in de volgende tabe
 
 De taak bevat de runbooknaam en parameterwaarden worden verzonden naar het runbook.  De taak moet [afhankelijk](operations-management-suite-solutions-solution-file.md#resources) het runbook dat deze wordt gestart nadat het runbook moet worden gemaakt voordat de taak.  Als er meerdere runbooks die moet worden gestart, kunt u de volgorde definiëren wanneer er een taak die afhankelijk zijn van andere taken die eerst moeten worden uitgevoerd.
 
-De naam van de resource van een taak moet een GUID die doorgaans wordt toegewezen door een parameter bevatten.  Meer informatie over parameters in GUID [om oplossingen te maken in Operations Management Suite (OMS)](operations-management-suite-solutions-solution-file.md#parameters).  
+De naam van de resource van een taak moet een GUID die doorgaans wordt toegewezen door een parameter bevatten.  Meer informatie over parameters in GUID [maken van een oplossingsbestand management in Azure](operations-management-suite-solutions-solution-file.md#parameters).  
 
 
 ## <a name="certificates"></a>Certificaten
@@ -283,7 +283,7 @@ Als u de beginwaarde voor de variabele instelt, moet deze worden geconfigureerd 
 |:--|:--|:--|:--|
 | tekenreeks   | Waarde moet tussen dubbele aanhalingstekens.  | '\"Hallo wereld\"' | "Hallo wereld" |
 | numerieke  | Numerieke waarde met enkele aanhalingstekens.| "64" | 64 |
-| booleaans  | **de waarde True** of **false** tussen aanhalingstekens.  Houd er rekening mee dat deze waarde een kleine letter moet. | "true" | waar |
+| booleaans  | **de waarde True** of **false** tussen aanhalingstekens.  Houd er rekening mee dat deze waarde een kleine letter moet. | "true" | true |
 | datum/tijd | Geserialiseerde date-waarde.<br>U kunt de ConvertTo-Json-cmdlet in PowerShell gebruiken voor het genereren van deze waarde voor een bepaalde datum.<br>Voorbeeld: get-date ' 24/5/2017 13:14:57 " \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modules

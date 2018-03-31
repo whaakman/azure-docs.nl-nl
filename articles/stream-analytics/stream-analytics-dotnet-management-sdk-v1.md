@@ -3,10 +3,9 @@ title: Management .NET SDK v1.x voor Azure Stream Analytics | Microsoft Docs
 description: Aan de slag met Stream Analytics Management .NET SDK. Informatie over het instellen en analytics-taken uitvoeren. Maak een project, invoer, uitvoer en transformaties.
 keywords: .NET SDK, analytics API
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 5e93de87-0c6f-4f4b-be98-08d63f832897
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
-ms.author: samacha
-ms.openlocfilehash: 7f434f1fe600877d1a12174ae84aaa47e878a055
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: jeanb
+ms.openlocfilehash: acda06ae2d0eea4b3352870bd6e1f4410ad05b17
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK v1.x: Stel omhoog analytics-taken en uitvoeren met de Azure Stream Analytics-API voor .NET
 Informatie over het instellen en uitvoeren met behulp van de Stream Analytics-API voor .NET met de Management .NET SDK analytics-taken. Instellen van een project, invoer en uitvoer bronnen, transformaties en start maken en taken stoppen. U kunt gegevens uit Blob-opslag of van een event hub streamen voor uw analytics-taken.

@@ -2,23 +2,17 @@
 title: Bepalen wanneer u wilt gebruiken Azure Blobs, Azure-bestanden of Azure-schijven
 description: Meer informatie over de verschillende manieren opslaan en gebruiken van gegevens in Azure om te bepalen van welke technologie die u wilt gebruiken.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Bepalen wanneer u wilt gebruiken Azure Blobs, Azure-bestanden of Azure-schijven
 
@@ -47,9 +41,9 @@ De volgende tabel vergelijkt de Azure-bestanden met Azure Blobs.
 |Eindpunten|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Mappen|Platte naamruimte|De waarde True directory-objecten|  
 |Hoofdlettergevoeligheid van namen|Hoofdlettergevoelig|Niet hoofdlettergevoelig, maar case behouden|  
-|Capaciteit|Maximaal 500 TB containers|Bestandsshares 5 TB|  
-|Doorvoer|Maximaal 60 MB/s per blok-blob|Maximaal 60 MB/s per share|  
-|Grootte van object|Maximaal 200 GB/blok-blob|Maximaal 1 TB per bestand|  
+|Capaciteit|Maximaal 500 TiB-containers|5 TiB bestandsshares|  
+|Doorvoer|Maximaal 60 MiB/s per blok-blob|Maximaal 60 MiB/s per share|  
+|Grootte van object|Maximaal ongeveer 4.75 TiB per blok-blob|Maximaal 1 TiB per bestand|  
 |Gefactureerd capaciteit|Op basis van geschreven bytes|Op basis van de bestandsgrootte|  
 |Clientbibliotheken|Meerdere talen|Meerdere talen|  
   
@@ -66,11 +60,11 @@ De volgende tabel vergelijkt de Azure-bestanden met Azure-schijven.
 |Momentopnamen en kopiëren|Ja|Nee|  
 |Configuratie|Bij het opstarten van de virtuele machine verbonden|Verbonden nadat de virtuele machine is gestart|  
 |Verificatie|Ingebouwd|Met net use instellen|  
-|Opruimen|Automatisch|Handmatig|  
+|Opschonen|Automatisch|Handmatig|  
 |Toegang met behulp van REST|Bestanden in de VHD kunnen niet worden geopend.|Bestanden die zijn opgeslagen op een share kunnen worden geopend|  
-|Maximale grootte|4 TB-schijf|5 TB-bestandsshare en 1 TB bestand binnen share|  
+|Maximale grootte|4 TiB-schijf|5 TiB-bestandsshare en 1 TiB bestand binnen share|  
 |Max. 8KB IOP 's|500 IOP 's|1000 IOP 's|  
-|Doorvoer|Maximaal 60 MB/s per schijf|Maximaal 60 MB/s per bestandsshare|  
+|Doorvoer|Maximaal 60 MiB/s per schijf|Maximaal 60 MiB/s per bestandsshare|  
 
 ## <a name="next-steps"></a>Volgende stappen
 
