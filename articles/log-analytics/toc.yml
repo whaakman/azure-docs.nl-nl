@@ -37,8 +37,6 @@
           href: log-analytics-log-search-faq.md
     - name: Veelgestelde vragen over Log Analytics
       href: log-analytics-faq.md
-    - name: Gegevensverbruik
-      href: log-analytics-usage.md
     - name: Gegevensbeveiliging
       href: log-analytics-data-security.md
     - name: Toegang beheren
@@ -156,7 +154,11 @@
         - name: Agents beheren
           href: log-analytics-agent-manage.md
         - name: De kosten voor werkruimtes beheren
-          href: log-analytics-manage-cost-storage.md
+          items:
+            - name: Gegevensvolume en -retentie
+              href: log-analytics-manage-cost-storage.md
+            - name: Gebruik bewaken
+              href: log-analytics-usage.md
         - name: Een werkruimte verwijderen
           href: log-analytics-manage-del-workspace.md
     - name: Problemen oplossen

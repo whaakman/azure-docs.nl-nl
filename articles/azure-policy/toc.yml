@@ -25,6 +25,10 @@
   items:
     - name: Structuur van Azure-beleidsdefinities
       href: policy-definition.md
+- name: Handleidingen
+  items:
+    - name: Programmatisch beleid maken
+      href: policy-insights.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

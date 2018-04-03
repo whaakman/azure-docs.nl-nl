@@ -8,6 +8,7 @@
 # Aan de slag
 ## [Een op een route gebaseerde VPN-gateway maken - Azure Portal](create-routebased-vpn-gateway-portal.md)
 ## [Een op een route gebaseerde VPN-gateway maken - PowerShell](create-routebased-vpn-gateway-powershell.md)
+## [Een op een route gebaseerde VPN-gateway maken - CLI](create-routebased-vpn-gateway-cli.md)
 
 # Concepten
 ## [Planning en ontwerp voor VPN Gateway](vpn-gateway-plan-design.md)
