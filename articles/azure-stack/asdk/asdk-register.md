@@ -2,24 +2,24 @@
 title: De ASDK registreren bij Azure | Microsoft Docs
 description: Beschrijft hoe Azure-Stack registreren bij Azure marketplace syndication- en gebruiksrapportage inschakelen.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 9e2dbc71f6424b87945e346a42c86d4cde7f740e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a157879fb70a874ed99b39ffcdbfa49a65f6ab7c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 U kunt de installatie van Azure Stack Development Kit (ASDK) registreren met Azure marketplace-items van Azure downloaden en voor het instellen van rapportage terug naar Microsoft commerce-gegevens. De registratie wordt aanbevolen omdat Hiermee kunt u belangrijke Azure Stack-functionaliteit, zoals marketplace syndication- en gebruiksrapportage testen. Nadat u Azure-Stack geregistreerd, wordt informatie over het gebruik gerapporteerd aan Azure commerce. U kunt dit zien onder het abonnement dat u voor registratie gebruikt. Echter, ASDK gebruikers worden niet in rekening gebracht voor enig gebruik die ze rapporteren.
@@ -49,9 +49,9 @@ Voordat u deze stappen de ASDK registreren bij Azure gebruikt, zorg ervoor dat u
 
     #Register Azure Stack
     $AzureContext = Get-AzureRmContext
-    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     Set-AzsRegistration `
-        -CloudAdminCredential $CloudAdminCred `
+        -PrivilegedEndpointCredential $CloudAdminCred `
         -PrivilegedEndpoint AzS-ERCS01 `
         -BillingModel Development
 

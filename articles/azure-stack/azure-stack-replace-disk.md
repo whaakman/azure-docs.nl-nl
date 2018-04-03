@@ -2,23 +2,23 @@
 title: Vervangen van een fysieke schijf in Azure-Stack | Microsoft Docs
 description: Geeft een overzicht van het proces voor het vervangen van een fysieke schijf in Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: a95617a8dd2a8f296164c672e2b4b2628574ce5a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Een fysieke schijf in de Azure-Stack vervangen
 
@@ -40,6 +40,9 @@ Als u de waarschuwing opent, wordt de beschrijving van de waarschuwing bevat het
  ## <a name="replace-the-disk"></a>Vervang de schijf
 
 Volg de OEM-hardwareleverancier FRU instructies voor de werkelijke schijf is vervangen.
+
+> [!note]
+> Schijven voor één scale unit knooppunt tegelijk vervangen. Wacht totdat de taken voor het herstellen van virtuele schijf voltooien voordat u doorgaat naar de volgende scale unit knooppunt
 
 Om te voorkomen dat het gebruik van een niet-ondersteunde schijf in een geïntegreerd systeem, blokkeert het systeem worden niet ondersteund door de leverancier van uw schijven. Als u probeert een niet-ondersteunde schijf gebruiken, een nieuwe waarschuwing geeft aan dat een schijf heeft in quarantaine vanwege een niet-ondersteunde model of de firmware.
 

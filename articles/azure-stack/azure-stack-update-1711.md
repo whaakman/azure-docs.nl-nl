@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f067656f510c14c4a2ac02d3629ae71432c342d2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure-Stack 1711 update
 
@@ -111,6 +111,7 @@ Deze sectie bevat na de installatie bekende problemen met build **20171201.3**.
 
 - Gebruiker abonnementen resulteert in een zwevende resources te verwijderen. Als tijdelijke oplossing Gebruikersbronnen of de hele resourcegroep eerst te verwijderen en verwijder vervolgens de gebruikersabonnementen.
 - U bent geen kunnen machtigingen aan uw abonnement met behulp van de Azure-Stack-portals weergeven. Als tijdelijke oplossing kunt u machtigingen controleren met behulp van PowerShell.
+- De **servicestatus** blade niet kan worden geladen. Wanneer u de status van de Service-blade opent in de beheerder of de gebruiker-portal, Azure-Stack een fout wordt weergegeven en wordt de informatie niet geladen. Dit is verwacht gedrag. Hoewel u kunt selecteren en servicestatus opent, wordt deze functie is nog niet beschikbaar maar zullen worden uitgevoerd in een toekomstige versie van Azure-Stack.
 
 #### <a name="health-and-monitoring"></a>Status en bewaking
 

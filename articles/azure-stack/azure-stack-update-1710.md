@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mabrigg
-ms.openlocfilehash: 1a482f1d2f3eef8775bb7b64d4f6749f69fa5471
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8c7c39ecdc332c994e5c00f8415462f208e7d20b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure Stack 1710 Update (Build 20171020.1)
 
@@ -85,7 +85,9 @@ Deze sectie bevat na de installatie bekende problemen met 20171020.1 bouwen.
    Om de problemen met de laatste twee omzeilen, kunt u de naam van het abonnement of resourcegroep (als u deze kent) typen of u kunt in plaats daarvan PowerShell gebruiken.
 - Gebruiker abonnementen resulteert in een zwevende resources te verwijderen. Als tijdelijke oplossing Gebruikersbronnen of de hele resourcegroep eerst te verwijderen en verwijder vervolgens de gebruikersabonnementen.
 - U bent geen kunnen machtigingen aan uw abonnement met behulp van de Azure-Stack-portals weergeven. Als tijdelijke oplossing kunt u machtigingen controleren met behulp van PowerShell.
-  
+- De **servicestatus** blade niet kan worden geladen. Wanneer u de status van de Service-blade opent in de beheerder of de gebruiker-portal, Azure-Stack een fout wordt weergegeven en wordt de informatie niet geladen. Dit is verwacht gedrag. Hoewel u kunt selecteren en servicestatus opent, wordt deze functie is nog niet beschikbaar maar zullen worden uitgevoerd in een toekomstige versie van Azure-Stack.
+ 
+
 ### <a name="backup"></a>Back-up maken
 
 - Schakel geen infrastructuur back-up op de **infrastructuur back-up** blade.

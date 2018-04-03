@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/02/2018
 ms.author: mabrigg
-ms.openlocfilehash: f495ca12e7cdb1bf61f09bd2d4a8a21654745d8a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack onderhoud van beleid
 Dit artikel wordt beschreven voor het beleid voor Azure-Stack geïntegreerd systemen, en wat u moet doen om uw systeem bewaren in een ondersteunde status voor onderhoud. 
@@ -41,10 +41,11 @@ Een Microsoft update-pakket heeft de volgende naamconventie kunt u gemakkelijk h
 Een Microsoft-software-update uitgebracht op 15 juni 2017 zou bijvoorbeeld, de versie '1.0.170615.1' hebben.
 
 ## <a name="keep-your-system-under-support"></a>Houd uw systeem ondersteuning
+Om door te gaan ondersteuning krijgen, moet u de implementatie van uw Azure-Stack huidige bewaren. Het beleid voor uitstel van updates is voor Azure-Stack blijven worden ondersteund, moet het uitvoeren van de meest recent uitgebrachte versie van de update of voer een van de twee vorige versies van belangrijke update.  Hotfixes worden niet beschouwd als primaire updateversies.  Als uw Azure-Stack-cloud op achter is *meer dan twee updates*, dit wordt beschouwd als niet-compatibel en moeten bijwerken naar ten minste de minimaal ondersteunde versie om ondersteuning te ontvangen. 
 
-Om ondersteuning te ontvangen voor uw systeem, moet u uw Azure-Stack bijgewerkt binnen een bepaald tijdsinterval. Onze beleid voor uitstel van Microsoft software-updates bestaat uit drie maanden. Als uw systeem meer dan drie maanden verouderd is, bent u niet-compatibel beschouwd. U moet het systeem bijwerken naar ten minste de minimaal ondersteunde versie voor het ontvangen van ondersteuning. 
+Bijvoorbeeld, als de meest recente beschikbare updateversie 1805 is en de vorige twee updatepakketten versies 1804 en 1803 zijn, zowel 1803 1804 blijven en ondersteuning. 1802 is echter niet worden ondersteund. Het beleid geldt wanneer er geen release voor een maand of twee. Als de huidige release 1805 is en er geen 1804 release is, wordt door de vorige twee updatepakketten van 1803 en 1802 blijven in de ondersteuning.
 
-Microsoft-software-updatepakketten zijn niet cumulatief en moeten het vorige updatepakket als een vereiste. Als u besluit om een of meer updates te stellen, moet u overwegen de algehele runtime als u wilt ophalen naar de nieuwste versie.
+Microsoft-software-updatepakketten zijn niet cumulatief en moeten het vorige updatepakket als een vereiste. Als u besluit om een of meer updates te stellen, moet u overwegen de algehele runtime als u wilt ophalen naar de nieuwste versie. 
 
 De volgende tabel bevat een voorbeeld van de update-pakket releases, hun vereisten en de minimaal ondersteunde versie die het systeem moet op voor verdere ondersteuning. De tabel is gebaseerd op de eerste versie van Azure-Stack geïntegreerd systemen (build 1708), met de eerste update pakket release (1709) in September 2017. 
 
@@ -53,11 +54,12 @@ De volgende tabel bevat een voorbeeld van de update-pakket releases, hun vereist
 | 1710 | 1709 | N/A |
 | 1711 | 1710 | 1709 |
 | 1712 | 1711 | 1710 |
-| 1802 | 1801 | 1712 |
-| 1803 | 1802 | 1801 |
+| 1802 | 1712 | 1711 |
+| 1803 | 1802 | 1712 |
 | 1804 | 1803 | 1802 |
 | 1805 | 1804 | 1803 |
 | | | 
+Er is geen releaseversie 1801 in de voorgaande tabel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

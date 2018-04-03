@@ -1,25 +1,25 @@
 ---
 title: Basisbeginselen van Azure Stack Development Kit | Microsoft Docs
-description: Beschrijft hoe basic beheer uitvoeren met de Azure-Stack Development Kit.
+description: Beschrijft hoe algemene beheertaken uitvoeren voor Azure Stack Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/30/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: cb169c2d2a5aa918fb6d330ebc4677d6c16d308d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="asdk-administration-basics"></a>Basisprincipes van beheer ASDK 
 Er zijn verschillende dingen die u weten moet als u geen ervaring met beheer van Azure Stack Development Kit (ASDK). In deze richtlijnen biedt een overzicht van uw rol als een Azure-Stack-operator in de evaluatieomgeving en het waarborgen van uw testgebruikers snel productief kunt worden.
@@ -27,6 +27,17 @@ Er zijn verschillende dingen die u weten moet als u geen ervaring met beheer van
 Eerst moet u nagaan de [wat is Azure Stack Development Kit?](asdk-what-is.md) artikel om ervoor te zorgen dat u het doel van de ASDK en de beperkingen begrijpt. U moet de development kit gebruiken als een 'sandbox', waarin u Azure-Stack te ontwikkelen en testen van uw apps in een niet-productieomgeving kunt evalueren. 
 
 Zoals Azure innovates Azure Stack snel zodat we je regelmatig nieuwe versies van de ASDK release. U kunt de ASDK echter niet upgraden zoals u Azure-Stack geïntegreerd systemen implementaties kunt. Dus als u verplaatsen naar de laatste build wilt, moet u volledig [opnieuw implementeren van de ASDK](asdk-redeploy.md). U kunt geen updatepakketten toepassen. Dit proces duurt, maar het voordeel is kunt u de nieuwste functies uitproberen zodra deze beschikbaar komen. 
+
+## <a name="what-account-should-i-use"></a>Welk account moet ik gebruiken?
+Er zijn enkele aandachtspunten voor gebruikersaccounts die u houden moet rekening bij het beheren van Azure-Stack. Met name in implementaties met behulp van Windows Server Active Directory Federation Services (AD FS) als de id-provider in plaats van Azure Active Directory (Azure AD). De volgende aandachtspunten voor gebruikersaccounts van toepassing op Azure-Stack geïntegreerd systemen en ASDK implementaties:
+
+|Account|Azure AD|AD FS|
+|-----|-----|-----|
+|Lokale beheerder (. \Administrator)|ASDK host beheerder|ASDK host beheerder|
+|AzureStack\AzureStackAdmin|ASDK host beheerder<br><br>Kan worden gebruikt voor aanmelding bij de Azure-Stack-beheerportal<br><br>Toegang tot bekijken en beheren van Service Fabric-ringen|ASDK host beheerder<br><br>Geen toegang tot de Stack van Azure-beheerportal<br><br>Toegang tot bekijken en beheren van Service Fabric-ringen<br><br>Niet langer eigenaar van de standaard Provider abonnement (DP's)|
+|AzureStack\CloudAdmin|Toegang tot en toegestane opdrachten binnen het bevoegde eindpunt uitvoeren|Toegang tot en toegestane opdrachten binnen het bevoegde eindpunt uitvoeren<br><br>Kan niet aanmelden bij de host ASDK<br><br>Eigenaar van de Provider standaardabonnement (DP's)|
+|Globale beheerder van Azure AD|Tijdens de installatie gebruikt<br><br>Eigenaar van de Provider standaardabonnement (DP's)|Niet van toepassing|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Welke hulpprogramma's kan ik gebruiken om te beheren?
 U kunt de [Azure Stack-Beheerdersportal](https://adminportal.local.azurestack.external) of PowerShell voor het beheren van Azure-Stack. De eenvoudigste manier om meer informatie over de basisconcepten is via de portal. Als u PowerShell gebruiken wilt, moet u voor het installeren van [PowerShell voor Azure-Stack](asdk-post-deploy.md#install-azure-stack-powershell) en [downloaden van de Azure-Stack-hulpprogramma's van GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).

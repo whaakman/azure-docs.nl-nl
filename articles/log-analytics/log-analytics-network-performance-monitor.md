@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 847213a5b8aab908d412ecc9aecec984aec1a9ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9b3c4efc712ebe9c0fe209d2ca0478367872d3b7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -48,6 +48,7 @@ NPM kunt connectiviteit tussen de netwerken en toepassingen in een deel van de h
 * VS - oost
 * Zuidoost-Azië
 * Zuid-Oost-Australië
+* VK Zuid
 * Amerikaanse overheid Virginia
 
 De lijst met ondersteunde regio's voor ExpressRoute-Monitor is beschikbaar in de [documentatie](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).

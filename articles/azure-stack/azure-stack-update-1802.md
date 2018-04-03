@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure-Stack 1802 update
 
@@ -129,6 +129,8 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180302.1
 - In de beheerportal en gebruikersportal, de overzichtsblade niet kan worden geladen bij het selecteren van de blade overzicht van de storage-accounts die zijn gemaakt met een oudere versie van de API (voorbeeld: 2015-06-15). Dit omvat system storage-accounts zoals **updateadminaccount** die wordt gebruikt tijdens de patch en bij te werken. 
 
   Als tijdelijke oplossing kunt u PowerShell gebruiken om uit te voeren de **Start ResourceSynchronization.ps1** script toegang om de accountdetails van de opslag te herstellen. [Het script is beschikbaar via GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), en moet worden uitgevoerd met servicebeheerdersreferenties op de bevoorrechte eindpunt. 
+
+- De **servicestatus** blade niet kan worden geladen. Wanneer u de status van de Service-blade opent in de beheerder of de gebruiker-portal, Azure-Stack een fout wordt weergegeven en wordt de informatie niet geladen. Dit is verwacht gedrag. Hoewel u kunt selecteren en servicestatus opent, wordt deze functie is nog niet beschikbaar maar zullen worden uitgevoerd in een toekomstige versie van Azure-Stack.
 
 
 #### <a name="health-and-monitoring"></a>Status en bewaking

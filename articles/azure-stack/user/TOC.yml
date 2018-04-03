@@ -99,12 +99,19 @@
               href: azure-stack-powershell-download.md
             - name: PowerShell instellen voor gebruiker
               href: azure-stack-powershell-configure-user.md
-            - name: Azure Stack CLI installeren en configureren
-              href: azure-stack-connect-cli.md
             - name: Visual Studio installeren
               href: azure-stack-install-visual-studio.md
-            - name: API-versieprofielen beheren
+            - name: Met behulp van profielen voor API-versie
               href: azure-stack-version-profiles.md
+              items:
+                - name: PowerShell
+                  href: azure-stack-version-profiles-powershell.md
+                - name: Azure CLI 2.0
+                  href: azure-stack-version-profiles-azurecli2.md
+                - name: GA
+                  href: azure-stack-version-profiles-go.md
+                - name: Resourceprovider API's die worden ondersteund door profielen
+                  href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: Beleidsmodule gebruiken
           href: azure-stack-policy-module.md
         - name: Sjablonen gebruiken

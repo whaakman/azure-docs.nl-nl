@@ -2,10 +2,10 @@
 title: Installeer PowerShell voor Azure Stack | Microsoft Docs
 description: Informatie over het installeren van PowerShell voor Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 7bf2d9b999db738007f75d72a8818ca0eb6f34ba
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installeer PowerShell voor Azure Stack  
 
@@ -53,10 +53,10 @@ De volgende secties beschrijven de stappen voor het installeren van PowerShell v
 
 ## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Installeer PowerShell in een scenario met verbonden (met de verbinding met internet)
 
-Azure Stack compatibel AzureRM-modules zijn geïnstalleerd via de API-versie profielen. Azure Stack vereist de **2017-03-09-profiel** profiel API-versie die beschikbaar is door de module AzureRM.Bootstrapper installeren. Raadpleeg voor meer informatie over profielen voor API-versie en de cmdlets die is geleverd door ze naar de [API-versie Profielbeheer](azure-stack-version-profiles.md). Naast de modules AzureRM, moet u ook de Azure-Stack-specifieke PowerShell-modules installeren. Voer het volgende PowerShell-script voor deze modules installeren op uw ontwikkelwerkstation:
+Azure Stack compatibel AzureRM-modules zijn geïnstalleerd via de API-versie profielen. Azure Stack vereist de **2017-03-09-profiel** profiel API-versie die beschikbaar is door de module AzureRM.Bootstrapper installeren. Raadpleeg voor meer informatie over profielen voor API-versie en de cmdlets die is geleverd door ze naar de [API-versie Profielbeheer](azure-stack-version-profiles-powershell.md). Naast de modules AzureRM, moet u ook de Azure-Stack-specifieke PowerShell-modules installeren. Voer het volgende PowerShell-script voor deze modules installeren op uw ontwikkelwerkstation:
 
-> [!IMPORTANT]
-> De versie van de PowerShell-module AzureRM 1.2.11 wordt geleverd met een lijst met wijzigingen op te splitsen. Upgrade van de 1.2.10 versie, Zie de Migratiehandleiding voor op [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
+> [!IMPORTANT]  
+> De versie van de PowerShell-module AzureRM 1.2.11 wordt geleverd met een lijst met wijzigingen op te splitsen. Upgrade van de 1.2.10 versie, Zie de Migratiehandleiding voor op [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -85,7 +85,7 @@ Bevestig de installatie door de volgende opdracht uitvoeren:
 In een scenario met en zonder gedeeltelijk verbinding moet u eerst de PowerShell-modules voor een machine die verbinding heeft met internet te downloaden en deze vervolgens overbrengen naar de Azure-Stack Development Kit voor installatie.
 
 > [!IMPORTANT]
-> De versie van de PowerShell-module AzureRM 1.2.11 wordt geleverd met een lijst met wijzigingen op te splitsen. Upgrade van de 1.2.10 versie, Zie de Migratiehandleiding voor op [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
+> De versie van de PowerShell-module AzureRM 1.2.11 wordt geleverd met een lijst met wijzigingen op te splitsen. Upgrade van de 1.2.10 versie, Zie de Migratiehandleiding voor op [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
 
 1. Meld u bij een computer waarop u beschikt over een internetverbinding en gebruik het volgende script downloaden de AzureRM en AzureStack pakketten naar de lokale computer:
 
@@ -134,6 +134,6 @@ In een scenario met en zonder gedeeltelijk verbinding moet u eerst de PowerShell
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Azure-Stack-hulpprogramma's vanuit GitHub downloaden](azure-stack-powershell-download.md)
+* [Azure-Stack-hulpprogramma's vanuit GitHub downloaden](azure-stack-powershell-download.md)  
 * [Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving](azure-stack-powershell-configure-user.md)  
-* [Profielen voor API-versie in Azure-Stack beheren](azure-stack-version-profiles.md)  
+* [Profielen voor API-versie in Azure-Stack beheren](azure-stack-version-profiles-powershell.md)  

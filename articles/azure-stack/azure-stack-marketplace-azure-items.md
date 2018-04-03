@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdce5ad971e345971aa5de9a9bb79379fb1ead48
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b91cfdfe89f1f15354595400ed9547496fdcd796
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure-Stack
 
@@ -220,4 +220,5 @@ Microsoft Azure-Stack ondersteunt de volgende Azure Marketplace virtuele machine
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall detecteert bekende & onbekende beveiligingsproblemen en worden aanvallen voorkomen op web-apps. <b>Download beide PT Marketplace-items.</b> | Positieve technologieën |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kunt u de hele levenscyclus van uw Azure-Stack-infrastructuur te automatiseren. <b>Download beide Puppet Marketplace-items.</b> | Puppet |
 | ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Beheer van de beste in klasse open source-infrastructuur. | SUSE |
+| ![Veeam back-up- en replicatie](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam back-up- en replicatie ](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication) | Back-up Veeam & replicatie 9.5. | Veeam |
 | ![Hulpprogramma voor ZeroDown Software](media/azure-stack-marketplace-azure-items/zerodown.png) | [Hulpprogramma voor ZeroDown Software ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown Software hulpprogramma v7.1 - migreren + HA. | ZeroDown Software |

@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Basisbeginselen van Azure Stack-beheer
 Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure-Stack-beheer. In deze richtlijnen biedt een overzicht van uw rol als een Azure-Stack-operator en wat u moet uw gebruikers ze snel productief worden uitgelegd.
@@ -31,9 +31,9 @@ Als u een Azure-Stack geïntegreerd systeem, worden de bijgewerkte versies van A
  
 ### <a name="development-kit"></a>Development kit
 
-Als u de Azure-Stack Development Kit, raadpleegt u de [wat is Azure Stack?](azure-stack-poc.md) artikel om ervoor te zorgen dat u het doel van de development kit en de beperkingen begrijpt. Als een 'sandbox,' kunt u Azure-Stack, evalueren en ontwikkelen en testen van uw apps in een niet-productieomgeving moet u de development kit. (Zie voor informatie over de implementatie de [Azure Stack Development Kit implementatie](azure-stack-deploy-overview.md) Quick Start.)
+Als u de Azure-Stack Development Kit, raadpleegt u de [wat is Azure Stack?](.\asdk\asdk-what-is.md) artikel om ervoor te zorgen dat u het doel van de development kit en de beperkingen begrijpt. Als een 'sandbox,' kunt u Azure-Stack, evalueren en ontwikkelen en testen van uw apps in een niet-productieomgeving moet u de development kit. (Zie voor informatie over de implementatie de [Azure Stack Development Kit implementatie](.\asdk\asdk-deploy.md) zelfstudie.)
 
-Zoals Azure innoveren we snel. We je regelmatig nieuwe builds vrijgeven. Als u de development kit uitvoert en u verplaatsen naar de laatste build wilt, moet u [implementeren Azure Stack](azure-stack-redeploy.md). U kunt geen updatepakketten toepassen. Dit proces duurt, maar het voordeel is dat u de nieuwste functies kunt uitproberen. De documentatie development kit op onze website weerspiegelt de meest recente release-build.
+Zoals Azure innoveren we snel. We je regelmatig nieuwe builds vrijgeven. Als u de development kit uitvoert en u verplaatsen naar de laatste build wilt, moet u [implementeren Azure Stack](.\asdk\asdk-redeploy.md). U kunt geen updatepakketten toepassen. Dit proces duurt, maar het voordeel is dat u de nieuwste functies kunt uitproberen. De documentatie development kit op onze website weerspiegelt de meest recente release-build.
 
 ## <a name="learn-about-available-services"></a>Meer informatie over de beschikbare services
 
@@ -63,6 +63,18 @@ Deze services vereisen aanvullende configuratie voordat u ze beschikbaar stelt a
 **Roadmap voor service**
 
 Azure-Stack blijven voegt ondersteuning voor Azure-services. Zie voor de verwachte roadmap de [Azure Stack: een uitbreiding van Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) technisch document. U kunt ook bewaken de [Azure Stack blogberichten](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) voor nieuwe meldingen.
+
+## <a name="what-account-should-i-use"></a>Welk account moet ik gebruiken?
+Er zijn enkele aandachtspunten voor gebruikersaccounts die u houden moet rekening bij het beheren van Azure-Stack. Met name in implementaties met behulp van Windows Server Active Directory Federation Services (AD FS) als de id-provider in plaats van Azure Active Directory (Azure AD). De volgende aandachtspunten voor gebruikersaccounts van toepassing op Azure-Stack geïntegreerd systemen en ASDK implementaties:
+
+
+|Account|Azure AD|AD FS|
+|-----|-----|-----|
+|Lokale beheerder (. \Administrator)|ASDK host beheerder|ASDK host beheerder|
+|AzureStack\AzureStackAdmin|ASDK host beheerder<br><br>Kan worden gebruikt voor aanmelding bij de Azure-Stack-beheerportal<br><br>Toegang tot bekijken en beheren van Service Fabric-ringen|ASDK host beheerder<br><br>Geen toegang tot de Stack van Azure-beheerportal<br><br>Toegang tot bekijken en beheren van Service Fabric-ringen<br><br>Niet langer eigenaar van de standaard Provider abonnement (DP's)|
+|AzureStack\CloudAdmin|Toegang tot en toegestane opdrachten binnen het bevoegde eindpunt uitvoeren|Toegang tot en toegestane opdrachten binnen het bevoegde eindpunt uitvoeren<br><br>Kan niet aanmelden bij de host ASDK<br><br>Eigenaar van de Provider standaardabonnement (DP's)|
+|Globale beheerder van Azure AD|Tijdens de installatie gebruikt<br><br>Eigenaar van de Provider standaardabonnement (DP's)|Niet van toepassing|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Welke hulpprogramma's kan ik gebruiken om te beheren?
  

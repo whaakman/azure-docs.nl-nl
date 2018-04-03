@@ -2,24 +2,24 @@
 title: Sjablonen met de opdrachtregel in Azure-Stack implementeren | Microsoft Docs
 description: Informatie over het gebruik van de platformoverschrijdende opdrachtregelinterface (CLI) om sjablonen te implementeren naar Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9584177f-4af3-4834-864d-930b09ae0995
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 88e10d98a709ff967e19bfe5bfb35bbce9d2df9f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.reviewer: ''
+ms.openlocfilehash: 761e09889a230642c42697b6bc4f96dc32fe03a0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Sjablonen in Azure-Stack via de opdrachtregel implementeren
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/22/2018
 Gebruik de opdracht voor het implementeren van Azure Resource Manager-sjablonen op de Azure-Stack Development Kit. Azure Resource Manager-sjablonen implementeren en inrichten van alle resources voor uw toepassing in een enkele, gecoördineerde bewerking.
 
 ## <a name="before-you-begin"></a>Voordat u begint
- - [Installeren en verbinding maken met](azure-stack-connect-cli.md) naar de Stack van Azure met Azure CLI
+ - [Installeren en verbinding maken met](azure-stack-version-profiles-azurecli2.md) naar de Stack van Azure met Azure CLI
  - Download de bestanden *azuredeploy.json* en *azuredeploy.parameters.json* van de [voorbeeldsjabloon storage-account maken](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
  
 ## <a name="deploy-template"></a>Sjabloon implementeren

@@ -2,23 +2,23 @@
 title: MySQL-databases als PaaS op Azure-Stack gebruiken | Microsoft Docs
 description: Ontdek hoe u implementeert de Bronprovider van MySQL en MySQL-databases opgeven als een service op Azure-Stack.
 services: azure-stack
-documentationCenter: 
+documentationCenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 15a1648193555ecc5847170ab65f48dfa4f6417b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 66e1d5691b431be0c3d040570b13e8d16b1669ef
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack
 
@@ -80,7 +80,7 @@ Het systeem-account moet hebben de volgende bevoegdheden:
     | 1711: 1.0.171122.1 | [MySQL RP versie 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1710: 1.0.171028.1 | [MySQL RP versie 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
-4.  Het Azure-Stack-basiscertificaat wordt opgehaald uit het bevoegde eindpunt. Voor de Azure-SDK een zelfondertekend certificaat gemaakt als onderdeel van dit proces. Voor meerdere knooppunten, moet u een geschikt certificaat opgeven.
+4.  Voor de Azure-SDK een zelfondertekend certificaat gemaakt als onderdeel van dit proces. Voor meerdere knooppunten, moet u een geschikt certificaat opgeven.
 
     Als u moet uw eigen certificaat op te geven, plaatst u een .pfx-bestand in de **DependencyFilesLocalPath** die voldoet aan de volgende criteria:
 
@@ -399,7 +399,7 @@ Volg deze stappen voor de Defender-definities bijwerken:
 
     Klik op deze pagina onder 'Handmatig downloaden en installeren van de definities' downloaden ' Windows Defender Antivirus voor Windows 10 en Windows 8.1 "64-bits bestand. 
     
-    Direct link: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
+    Directe koppeling: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
 
 2. Een PowerShell-sessie met MySQL RP-adapter van de virtuele machine onderhoud eindpunt maken
 3. Kopieer het bestand van de update definities de DB-adapter-machine met de onderhoudsmodus endpoint-sessie

@@ -3,7 +3,7 @@ title: Azure-Stack Public Key Infrastructure-certificaatvereisten voor Azure-Sta
 description: Beschrijft de implementatievereisten van Azure Stack PKI-certificaat voor Azure-Stack geïntegreerd systemen.
 services: azure-stack
 documentationcenter: ''
-author: mabriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
-ms.author: mabrigg
+ms.date: 03/29/2018
+ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure-Stack Public Key Infrastructure-certificaatvereisten
+
 Azure-Stack is een infrastructuur voor openbare-netwerk met behulp van extern toegankelijke openbare IP-adressen die zijn toegewezen aan een klein aantal Stack Azure-services en mogelijk tenant-VM's. PKI-certificaten met de juiste DNS-namen voor deze eindpunten van de infrastructuur voor openbare Azure-Stack zijn vereist tijdens de implementatie van Azure-Stack. In dit artikel bevat informatie over:
 
 - Welke certificaten zijn vereist voor het implementeren van Azure-Stack
@@ -37,7 +38,7 @@ De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor 
 - De infrastructuur van uw Azure-Stack moet netwerktoegang hebben tot de certificeringsinstantie die wordt gebruikt om uw certificaten te ondertekenen
 - Wanneer u certificaten, moeten certificaten dat een uitgegeven door de dezelfde interne certificeringsinstantie gebruikt voor het ondertekenen van certificaten die zijn opgegeven bij de implementatie of een openbare certificeringsinstantie van boven
 - Het gebruik van zelfondertekende certificaten worden niet ondersteund.
-- Het certificaat kan een certificaat voor één jokerteken die betrekking hebben op alle naamruimten in het veld onderwerp alternatieve naam (SAN) zijn. U kunt ook afzonderlijke certificaten met jokertekens voor eindpunten zoals acs en Sleutelkluis waar ze vereist zijn. 
+- Het certificaat kan een certificaat voor één jokerteken die betrekking hebben op alle naamruimten in het veld onderwerp alternatieve naam (SAN) zijn. U kunt ook kunt u afzonderlijke certificaten met jokertekens voor eindpunten, zoals **acs** en Sleutelkluis waar ze vereist zijn. 
 - Het certificaat handtekeningalgoritme niet SHA1, als sterkere moet. 
 - Indeling van het certificaat moet PFX, als de openbare en persoonlijke sleutels vereist voor installatie van de Azure-Stack zijn. 
 - Het pfx-certificaatbestand moeten een waarde 'Digitale handtekening' en 'KeyEncipherment' in het veld 'Sleutelgebruik' hebben.
@@ -58,6 +59,23 @@ De tabel in deze sectie beschrijft de Azure-Stack openbaar eindpunt PKI-certific
 Certificaten met de juiste DNS-namen voor elk eindpunt van de infrastructuur voor openbare Azure-Stack zijn vereist. DNS-naam van elk eindpunt wordt uitgedrukt in de indeling:  *&lt;voorvoegsel >.&lt; regio >. &lt;FQDN-naam >*. 
 
 Voor uw implementatie, het [regio] en [externalfqdn] waarden moeten overeenkomen met de regio en externe domeinnamen die u hebt gekozen voor uw Azure-Stack-systeem. Een voorbeeld: als de regionaam van de is *Redmond* en was de naam van het externe domein *contoso.com*, de DNS-namen moeten de indeling *&lt;voorvoegsel >. redmond.contoso.com*. De  *&lt;voorvoegsel >* waarden zijn vooraf bepaalde door Microsoft te beschrijven van het eindpunt dat wordt beveiligd door het certificaat. Bovendien de  *&lt;voorvoegsel >* waarden van de externe infrastructuur eindpunten is afhankelijk van de Azure-Stack-service die gebruikmaakt van de specifieke eindpunt. 
+
+> [!note]  
+> Certificaten kunnen worden opgegeven als een certificaat voor één jokerteken die betrekking hebben op alle naamruimten in de velden van het onderwerp en SAN Subject Alternative Name () gekopieerd naar alle mappen, of als afzonderlijke certificaten voor elk eindpunt gekopieerd naar de bijbehorende map. Vergeet niet dat beide opties moeten u jokertekens-certificaten gebruiken voor eindpunten zoals **acs** en Sleutelkluis waar ze vereist zijn. 
+
+| Implementatiemap | Vereiste certificaatonderwerp en de alternatieve namen voor onderwerp (SAN) | Bereik (per regio) | Subdomein naamruimte |
+|-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
+| Openbare-Portal | portal.&lt;region>.&lt;fqdn> | Portals | &lt;region>.&lt;fqdn> |
+| Beheerportal | adminportal.&lt;region>.&lt;fqdn> | Portals | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager Public | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager-beheerder | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Table Storage | de tabel. &lt;regio >. &lt;fqdn > |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Key Vault | kluis. &lt;regio >. &lt;fqdn > |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) |  Internal Keyvault |  adminvault. &lt;regio >. &lt;fqdn > |
+
+### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Voor Azure-Stack-omgeving op Pre-1803 versies
 
 |Implementatiemap|Vereiste certificaatonderwerp en de alternatieve namen voor onderwerp (SAN)|Bereik (per regio)|Subdomein naamruimte|
 |-----|-----|-----|-----|
@@ -93,7 +111,7 @@ De volgende tabel beschrijft de eindpunten en certificaten zijn vereist voor de 
 |Bereik (per regio)|Certificaat|Vereiste certificaatonderwerp en de alternatieve onderwerpnamen (SAN's)|Subdomein naamruimte|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL- en MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Wildcard-SSL-certificaat)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|App Service|Web-verkeer standaard SSL-certificaat|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>(Multi domein Wildcard-SSL-certificaat<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|Web-verkeer standaard SSL-certificaat|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Multi domein Wildcard-SSL-certificaat<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|

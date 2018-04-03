@@ -2,23 +2,23 @@
 title: Hulpprogramma's voor de opslag van Azure-Stack
 description: Meer informatie over Azure-Stack opslaggegevens hulpmiddelen voor bestandsoverdracht
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 9318b7af3c3dd545207f1896c9008207f562b735
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e26a38b8fd7d008a46eba2c41075c5af09a6616a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Hulpprogramma's voor de opslag van Azure Stack
 
@@ -181,7 +181,7 @@ De Azure CLI is vanaf de opdrachtregel van Azure-ervaring voor het beheren van A
 
 Azure CLI is geoptimaliseerd voor het beheren en Azure-resources beheren vanaf de opdrachtregel en voor het bouwen van automatiseringsscripts die met Azure Resource Manager werken. Het biedt veel van dezelfde functies gevonden in de Stack Azure-portal, waaronder rich gegevenstoegang.
 
-Azure Stack vereist Azure CLI versie 2.0. Zie voor meer informatie over het installeren en configureren van Azure CLI met Azure-Stack [installeren en configureren van Azure Stack CLI](azure-stack-connect-cli.md). Zie voor meer informatie over het gebruik van de Azure CLI 2.0 voor het uitvoeren van verschillende taken die werken met resources in uw Azure-Stack opslagaccount [met behulp van de CLI2.0 Azure met Azure Storage](../../storage/storage-azure-cli.md)
+Azure Stack vereist Azure CLI versie 2.0. Zie voor meer informatie over het installeren en configureren van Azure CLI met Azure-Stack [installeren en configureren van Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). Zie voor meer informatie over het gebruik van de Azure CLI 2.0 voor het uitvoeren van verschillende taken die werken met resources in uw Azure-Stack opslagaccount [met behulp van de CLI2.0 Azure met Azure Storage](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure CLI-voorbeeldscript voor Azure-Stack 
 Nadat u de CLI-installatie en configuratie hebt voltooid, kunt u de volgende stappen uit om te werken met een kleine shell-voorbeeldscript om te communiceren met de Azure-Stack opslagbronnen kunt proberen. Het script maakt eerst een nieuwe container in uw opslagaccount en vervolgens een bestaand bestand uploadt (als een blob) op die container, een lijst met alle blobs in de container en ten slotte wordt het bestand wordt gedownload naar een bestemming op uw lokale computer die u opgeeft. Voordat u dit script uitvoert, controleert u of u verbinding maken en meld u aan met de doel-Azure-Stack. 

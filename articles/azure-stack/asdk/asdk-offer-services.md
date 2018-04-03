@@ -2,25 +2,25 @@
 title: In deze zelfstudie maakt u een Azure-Stack aanbieding | Microsoft Docs
 description: Informatie over het maken van een Azure-Stack-aanbieding inclusief plannen en quota's.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 083b5e20b89f22cb8e523926858fe9ffb1441319
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8bcc2f3077e79ff83ac2e90db0bb0fa53ae83adc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-offer-azure-stack-iaas-services"></a>Zelfstudie: Azure Stack IaaS-services bieden
 U kunt aanbiedingen die uw gebruikers (ook wel aangeduid als tenants) kunnen zich abonneren op maken als de beheerder van een Azure-Stack-cloud. Met behulp van hun abonnement, kunnen gebruikers vervolgens gebruiken Stack Azure-services.
@@ -112,14 +112,24 @@ Aanbiedingen kunnen zijn:
 > Wijzigingen in de aanbieding zijn niet onmiddellijk zichtbaar voor gebruikers. Wilt zien welke wijzigingen, gebruikers wellicht Meld u af en meld u opnieuw aan bij de [gebruikersportal](https://portal.local.azurestack.external) om te zien van de nieuwe aanbieding.
 
 De nieuwe aanbieding instellen op openbaar: 
+   - Versie 1803 en hoger: 
+     1. Klik op het dashboard in het menu **biedt** en klik vervolgens op de aanbieding die u hebt gemaakt.
 
-1. Klik op het dashboard in het menu **biedt** en klik vervolgens op de aanbieding die u hebt gemaakt.
+     2. Klik op **toegankelijkheid status**, en klik vervolgens op **openbare**.
 
-2. Klik op **Status wijzigen** en vervolgens op **Openbaar**.
+        ![Status wijzigen](media/asdk-offer-services/change-state.png)
 
-   ![Openbare status](media/asdk-offer-services/set-public.png)
+     3. De aanbieding is nu beschikbaar in de gebruikersportal van Azure-Stack.
 
-3. De aanbieding is nu beschikbaar in de gebruikersportal van Azure-Stack.
+
+   - Voorafgaand aan versie 1803:  
+     1. Klik op het dashboard in het menu **biedt** en klik vervolgens op de aanbieding die u hebt gemaakt.
+
+     2. Klik op **Status wijzigen** en vervolgens op **Openbaar**.
+
+        ![Openbare status](media/asdk-offer-services/set-public.png)
+
+     3. De aanbieding is nu beschikbaar in de gebruikersportal van Azure-Stack.
 
 ## <a name="next-steps"></a>Volgende stappen
 

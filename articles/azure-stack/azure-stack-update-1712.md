@@ -1,11 +1,11 @@
 ---
 title: Azure Stack 1712 Update | Microsoft Docs
-description: "Meer informatie over wat er in de update 1712 voor Azure-Stack geïntegreerd systemen, de bekende problemen en waar u de update te downloaden."
+description: Meer informatie over wat er in de update 1712 voor Azure-Stack geïntegreerd systemen, de bekende problemen en waar u de update te downloaden.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: brenduns
-ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure-Stack 1712 update
 
@@ -109,6 +109,7 @@ Deze sectie bevat na de installatie bekende problemen met build **180106.1**.
 
 - Gebruiker abonnementen resulteert in een zwevende resources te verwijderen. Als tijdelijke oplossing Gebruikersbronnen of de hele resourcegroep eerst te verwijderen en verwijder vervolgens de gebruikersabonnementen.
 - U bent geen kunnen machtigingen aan uw abonnement met behulp van de Azure-Stack-portals weergeven. Als tijdelijke oplossing kunt u machtigingen controleren met behulp van PowerShell.
+- De **servicestatus** blade niet kan worden geladen. Wanneer u de status van de Service-blade opent in de beheerder of de gebruiker-portal, Azure-Stack een fout wordt weergegeven en wordt de informatie niet geladen. Dit is verwacht gedrag. Hoewel u kunt selecteren en servicestatus opent, wordt deze functie is nog niet beschikbaar maar zullen worden uitgevoerd in een toekomstige versie van Azure-Stack.
 
 #### <a name="health-and-monitoring"></a>Status en bewaking
 
