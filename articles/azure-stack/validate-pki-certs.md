@@ -16,10 +16,10 @@ ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: b38e3cc45d14645611c0cd804f2bfa66047810f0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/02/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Valideren van Azure Stack PKI-certificaten
 Azure-Stack certificaat Registercontrole beschreven in dit artikel wordt geleverd door de OEM opgenomen in het bestand deploymentdata.json om te valideren dat de [gegenereerd PKI-certificaten](azure-stack-get-pki-certs.md) geschikt zijn voor de voorafgaand aan de implementatie. Certificaten worden gevalideerd met voldoende tijd om te testen en ophalen van de certificaten opnieuw uitgegeven indien nodig. 
