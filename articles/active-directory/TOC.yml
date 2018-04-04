@@ -5,12 +5,18 @@
 - name: RBAC (op rollen gebaseerd toegangsbeheer)
   href: role-based-access-control-what-is.md
   items:
-    - name: Toegangstoewijzingen beheren
+    - name: Roltoewijzingen beheren
       items:
         - name: Per gebruiker
           href: role-based-access-control-manage-assignments.md
         - name: Per resource
           href: role-based-access-control-configure.md
+        - name: Met Azure CLI
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: Met PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: Met REST
+          href: role-based-access-control-manage-access-rest.md
     - name: Ingebouwde rollen
       href: role-based-access-built-in-roles.md
     - name: Aangepaste rollen
@@ -19,14 +25,6 @@
       href: role-based-access-control-create-custom-roles-for-internal-external-users.md
     - name: Rapportage
       href: role-based-access-control-access-change-history-report.md
-    - name: Meer manieren om rollen te beheren
-      items:
-        - name: Met Azure CLI
-          href: role-based-access-control-manage-access-azure-cli.md
-        - name: Met PowerShell
-          href: role-based-access-control-manage-access-powershell.md
-        - name: Met REST
-          href: role-based-access-control-manage-access-rest.md
     - name: Verhoogde bevoegdheden voor tenantbeheerders
       href: role-based-access-control-tenant-admin-access.md
     - name: Problemen oplossen
