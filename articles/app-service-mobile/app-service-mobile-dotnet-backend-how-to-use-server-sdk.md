@@ -3,10 +3,10 @@ title: Werken met de .NET-back-endserver SDK voor Mobile Apps | Microsoft Docs
 description: Informatie over het werken met de .NET-back-endserver SDK voor Azure App Service Mobile Apps.
 keywords: App service, azure app service, mobiele app, mobiele service, schaal, schaalbaar, app-implementatie, azure app-implementatie
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Werken met de .NET-back-endserver-SDK voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -62,7 +62,7 @@ De SDK is beschikbaar op [NuGet.org]. Dit pakket bevat de basisfunctionaliteit v
 ### <a name="install-the-sdk"></a>De SDK installeren
 De SDK wilt installeren, met de rechtermuisknop op de serverproject in Visual Studio, selecteer **NuGet-pakketten beheren**, zoekt de [Microsoft.Azure.Mobile.Server] van het pakket en klik vervolgens op **installeren**.
 
-### <a name="server-project-setup"></a>Het serverproject initialiseren
+### <a name="server-project-setup"></a> Het serverproject initialiseren
 Een .NET-back-end-serverproject is net als bij andere projecten ASP.NET door een OWIN-Opstartklasse geïnitialiseerd. Zorg ervoor dat u verwijst naar het NuGet-pakket `Microsoft.Owin.Host.SystemWeb`. Deze klasse toevoegen in Visual Studio, met de rechtermuisknop op uw serverproject en selecteer **toevoegen** >
 **Nieuw Item**, klikt u vervolgens **Web** > **algemene** > **OWIN-Opstartklasse**.  Een klasse wordt gegenereerd met het volgende kenmerk:
 
@@ -105,12 +105,12 @@ De Quick Start de server van de Azure portal aanroepen **UseDefaultConfiguration
 
 De extensiemethoden zijn:
 
-* `AddMobileAppHomeController()`biedt de standaardstartpagina voor Azure Mobile Apps.
-* `MapApiControllers()`aangepaste API mogelijkheden biedt voor WebAPI-controllers gedecoreerd worden met de `[MobileAppController]` kenmerk.
-* `AddTables()`bevat een toewijzing van de `/tables` eindpunten aan tabel-controllers.
-* `AddTablesWithEntityFramework()`is een korte voorhanden voor het toewijzen van de `/tables` eindpunten met behulp van Entity Framework op basis van domeincontrollers.
-* `AddPushNotifications()`biedt een eenvoudige methode voor het registreren van apparaten voor Notification Hubs.
-* `MapLegacyCrossDomainController()`biedt standaard CORS-headers voor lokale ontwikkeling.
+* `AddMobileAppHomeController()` biedt de standaardstartpagina voor Azure Mobile Apps.
+* `MapApiControllers()` aangepaste API mogelijkheden biedt voor WebAPI-controllers gedecoreerd worden met de `[MobileAppController]` kenmerk.
+* `AddTables()` bevat een toewijzing van de `/tables` eindpunten aan tabel-controllers.
+* `AddTablesWithEntityFramework()` is een korte voorhanden voor het toewijzen van de `/tables` eindpunten met behulp van Entity Framework op basis van domeincontrollers.
+* `AddPushNotifications()` biedt een eenvoudige methode voor het registreren van apparaten voor Notification Hubs.
+* `MapLegacyCrossDomainController()` biedt standaard CORS-headers voor lokale ontwikkeling.
 
 ### <a name="sdk-extensions"></a>SDK-extensies
 De volgende op basis van het NuGet-extensiepakketten bieden verschillende mobiele functies die kunnen worden gebruikt door uw toepassing. U uitbreidingen inschakelen tijdens de initialisatie met behulp van de **MobileAppConfiguration** object.
@@ -144,7 +144,7 @@ Deze sectie wordt beschreven hoe u uw .NET-back-endproject vanuit Visual Studio 
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## <a name="define-table-controller"></a>Procedure: een tabel controller definiëren
+## <a name="define-table-controller"></a> Procedure: een tabel controller definiëren
 Definieer een Controller tabel om een SQL-tabel aan mobiele clients weer te geven.  Een tabel Controller configureren, moet drie stappen:
 
 1. Maak een klasse gegevens overbrengen Object (DTO).

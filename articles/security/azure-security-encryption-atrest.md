@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
 ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption in rust
 Er zijn meerdere hulpprogramma's in Microsoft Azure ter bescherming van gegevens op basis van de beveiliging en naleving behoeften van uw bedrijf. Dit artikel is gericht op:
@@ -137,7 +137,7 @@ Wanneer serverzijde codering met sleutels Service beheerd wordt gebruikt, de sle
 - Microsoft beheert de belangrijkste rotatie, back-up en redundantie
 - De klant beschikt niet over de kosten die zijn gekoppeld aan de implementatie of het risico van een aangepaste Sleutelbeheer schema.
 
-**Nadelen**
+**Disadvantages**
 
 - Geen controle van de klant over de versleutelingssleutels (sleutelspecificatie, levenscyclus, intrekken, enz.)
 - Er is geen mogelijkheid scheiden sleutelbeheer van algemene model voor het beheer voor de service
@@ -165,7 +165,7 @@ Als u wilt ophalen van de service-identiteit in het Resource Manager-service-exe
 - Sleutelbeheer van algemene model voor het beheer voor de service kunt scheiden
 - Service en de locatie van de sleutel kunt over regio's definiëren
 
-**Nadelen**
+**Disadvantages**
 
 - De klant heeft volledige verantwoordelijkheid voor het beheer van toegang tot de sleutel
 - De klant heeft volledige verantwoordelijkheid voor het beheer van levenscyclus
@@ -186,7 +186,7 @@ Wanneer sleutels van de service die wordt beheerd in de hardware van de klant be
 - Sleutelbeheer van algemene model voor het beheer voor de service kunt scheiden
 - Service en de locatie van de sleutel kunt over regio's definiëren
 
-**Nadelen**
+**Disadvantages**
 
 - Volledige verantwoordelijkheid voor opslag van sleutels, beveiliging, prestaties en beschikbaarheid
 - Volledige verantwoordelijkheid voor het beheer van toegang tot de sleutel
@@ -234,7 +234,7 @@ Microsoft Azure-Services elke ondersteuning voor een of meer van de versleutelin
 
 De klant met behulp van Azure-infrastructuur als een Service (IaaS)-onderdelen versleuteling in rust voor hun IaaS VM's en schijven via Azure Disk Encryption kunnen bereiken. Zie voor meer informatie over Azure-schijf versleuteling de [documentatie voor Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
 
-#### <a name="azure-storage"></a>Azure-opslag
+#### <a name="azure-storage"></a>Azure Storage
 
 Azure Blob- en -bestanden ondersteunt versleuteling in rust voor serverzijde versleutelde scenario's, evenals versleuteld klantgegevens (client-side '-versleuteling).
 
@@ -253,7 +253,7 @@ Client-side '-versleuteling van gegevens van de SQL Azure wordt ondersteund door
 |                                  |                |                     | **Versleuteling Model**             |                              |        |
 |----------------------------------|----------------|---------------------|------------------------------|------------------------------|--------|
 |                                  |                |                     |                              |                              | **Client** |
-|                                  | **Sleutelbeheer** | **Service beheerd sleutel** | **De klant beheerd in de Sleutelkluis** | **Beheer van de klant On-premises** |        |
+|                                  | **Key Management** | **Service Managed Key** | **De klant beheerd in de Sleutelkluis** | **Beheer van de klant On-premises** |        |
 | **Opslag- en -Databases**            |                |                     |                              |                              |        |
 | Schijf (IaaS)                      |                | -                   | Ja                          | Ja*                         | -      |
 | SQL Server (IaaS)                |                | Ja                 | Ja                          | Ja                          | Ja    |
@@ -261,9 +261,9 @@ Client-side '-versleuteling van gegevens van de SQL Azure wordt ondersteund door
 | Azure-opslag (blokkeren/pagina-BLOB's) |                | Ja                 | Preview                      | -                            | Ja    |
 | Azure-opslag (bestanden)            |                | Ja                 | -                            | -                            | -      |
 | Azure-opslag (tabellen, wachtrijen)   |                | -                   | -                            | -                            | Ja    |
-| Cosmos-DB (Document DB)          |                | Ja                 | -                            | -                            | -      |
+| Cosmos DB (Document DB)          |                | Ja                 | -                            | -                            | -      |
 | StorSimple                       |                | Ja                 | -                            | -                            | Ja    |
-| Back-up                           |                | -                   | -                            | -                            | Ja    |
+| Back-up maken                           |                | -                   | -                            | -                            | Ja    |
 | **Intelligence en analyses**       |                |                     |                              |                              |        |
 | Azure Data Factory               |                | Ja                 | -                            | -                            | -      |
 | Azure Machine Learning           |                | -                   | Preview                      | -                            | -      |
@@ -273,7 +273,7 @@ Client-side '-versleuteling van gegevens van de SQL Azure wordt ondersteund door
 | Azure Data Lake Store            |                | Ja                 | Ja                          | -                            | -      |
 | Azure Data Catalog               |                | Ja                 | -                            | -                            | -      |
 | Power BI                         |                | Ja                 | -                            | -                            | -      |
-| **IoT-Services**                     |                |                     |                              |                              |        |
+| **IoT Services**                     |                |                     |                              |                              |        |
 | IoT Hub                          |                | -                   | -                            | -                            | Ja    |
 | Service Bus                      |                | Ja (laag Premium)              | -                            | -                            | Ja    |
 | Event Hubs                       |                | Ja             | -                            | -                            | -      |

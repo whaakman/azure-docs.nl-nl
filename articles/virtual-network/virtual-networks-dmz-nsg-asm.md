@@ -1,11 +1,11 @@
 ---
-title: "Voorbeeld van Azure DMZ – een eenvoudige DMZ met nsg's bouwen | Microsoft Docs"
+title: Voorbeeld van Azure DMZ – een eenvoudige DMZ met nsg's bouwen | Microsoft Docs
 description: Maken van een DMZ met Netwerkbeveiligingsgroepen (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: f8622b1d-c07d-4ea6-b41c-4ae98d998fff
 ms.service: virtual-network
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Voorbeeld 1: een eenvoudige DMZ met nsg's met klassieke PowerShell bouwen
 [Ga terug naar de grens van Best Practices beveiligingspagina][HOME]
@@ -267,7 +267,7 @@ De gebruiker gedefinieerde variabelen naar wens wijzigen en voer het script.
 Dit script wordt, op basis van de gebruiker gedefinieerde variabelen;
 
 1. Verbinding maken met een Azure-abonnement
-2. Een opslagaccount maken
+2. Create a storage account
 3. Maak een VNet en twee subnets zoals gedefinieerd in het netwerk configuratiebestand.
 4. Vier windows server-VM's maken
 5. Configureer het NSG inclusief:

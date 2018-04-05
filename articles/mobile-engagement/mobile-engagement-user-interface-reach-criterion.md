@@ -15,14 +15,14 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 2adf473c6acea0f128eb14e2616748ff29d5d762
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Het gebruik van criteria gerichte pushcampagnes verzenden naar een specifieke subset van uw gebruikers
 > [!IMPORTANT]
-> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> Azure Mobile Engagement wordt op 31-03-2018 buiten gebruik gesteld. Deze pagina wordt kort daarna verwijderd.
 > 
 
 Uw doelgroep gericht op specifieke criteria met de knop "Nieuw criterium" is een van de meest krachtige concepten in Azure Mobile Engagement helpt u relevante verzenden pushmeldingen dat klanten reageren zullen op in plaats van spam iedereen. U kunt uw doelgroep op basis van criteria standaard beperken en simuleren pushes om te bepalen hoeveel mensen de melding wilt ontvangen.

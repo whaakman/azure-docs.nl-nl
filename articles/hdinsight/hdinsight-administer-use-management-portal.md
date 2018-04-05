@@ -2,7 +2,7 @@
 title: Hadoop op basis van Windows-clusters in HDInsight met behulp van de Azure-portal beheren | Microsoft Docs
 description: Informatie over het beheren van HDInsight-Service. Maken van een HDInsight-cluster, opent u de interactieve JavaScript-console en open de console van de opdracht Hadoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop op basis van Windows-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -40,7 +40,7 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 * **Azure Storage-account** -An HDInsight cluster gebruikmaakt van een Azure Blob storage-container als het standaardbestandssysteem. Zie voor meer informatie over hoe Azure Blob-opslag een naadloze ervaring met HDInsight-clusters biedt [Azure Blob Storage gebruiken met HDInsight](hdinsight-hadoop-use-blob-storage.md). Zie voor meer informatie over het maken van een Azure Storage-account [het maken van een Opslagaccount](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>De Portal openen
-1. Aanmelden bij [https://portal.azure.com](https://portal.azure.com).
+1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com).
 2. Nadat u de portal geopend, kunt u:
 
    * Klik op **maken van een resource** in het menu links om een nieuw cluster te maken:
@@ -73,7 +73,7 @@ HDInsight werkt met een breed bereik van Hadoop-onderdelen. Zie voor een overzic
 Installatie van de aangepaste software op het cluster met behulp van de verbinding met extern bureaublad wordt niet ondersteund. Vermijd het opslaan van de bestanden op de schijven van het hoofdknooppunt als ze niet verloren als u wilt opnieuw clusters te maken. Het is raadzaam bestanden opslaan op Azure Blob-opslag. BLOB-opslag is permanent.
 
 ## <a name="list-and-show-clusters"></a>Lijst en clusters weer te geven
-1. Aanmelden bij [https://portal.azure.com](https://portal.azure.com).
+1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com).
 2. Klik op **HDInsight-Clusters** in het menu links.
 3. Klik op de naam van het cluster. Als de clusterlijst te lang is, kunt u het filter boven aan de pagina.
 4. Dubbelklik op een cluster in de lijst om de details weer te geven.
@@ -283,7 +283,7 @@ De console HDInsight Query bevat de volgende functies:
 
     ![Portal bladeren browser HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
 
-    Op de schermafbeelding de  **<Account>**  type geeft aan het item is een Azure storage-account.  Klik op de accountnaam te bladeren in de bestanden.
+    Op de schermafbeelding de **<Account>** type geeft aan het item is een Azure storage-account.  Klik op de accountnaam te bladeren in de bestanden.
 * **Hadoop-gebruikersinterface**.
 
     ![Portal HDInsight Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)

@@ -2,7 +2,7 @@
 title: Verzamelen van de toepassingsprestaties Linux in OMS Log Analytics | Microsoft Docs
 description: Dit artikel bevat informatie voor het configureren van de OMS-Agent voor Linux voor het verzamelen van prestatiemeteritems voor MySQL en Apache HTTP-Server.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics 
 Dit artikel bevat informatie voor het configureren van de [OMS-Agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) voor het verzamelen van prestatiemeteritems voor specifieke toepassingen.  De toepassingen die zijn opgenomen in dit artikel zijn:  
 
 - [MySQL](#MySQL)
-- [Apache HTTP-Server](#apache-http-server)
+- [Apache HTTP Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
 Als MySQL-Server of MariaDB Server wordt gedetecteerd op de computer wanneer de OMS-agent is geïnstalleerd, wordt een provider voor de MySQL-Server voor prestatiebewaking automatisch geïnstalleerd. Deze provider verbinding maakt met de lokale MySQL/MariaDB-server om prestatiestatistieken weer te geven. MySQL-gebruikersreferenties moeten worden geconfigureerd zodat de provider toegang heeft tot de MySQL-Server.
@@ -53,7 +53,7 @@ De vermeldingen in het verificatiebestand worden in de volgende tabel beschreven
 | BIND-adres| Huidige MySQL bind-adres. |
 | gebruikersnaam| MySQL-gebruiker gebruikt om te gebruiken voor het bewaken van de MySQL-server-exemplaar. |
 | Base64-gecodeerd wachtwoord| Wachtwoord van de MySQL bewaking gebruiker gecodeerd in Base64. |
-| Automatisch bijwerken| Geeft aan of opnieuw scannen op wijzigingen in het bestand my.cnf en het bestand MySQL OMI verificatie overschrijven wanneer de MySQL OMI-Provider is bijgewerkt. |
+| AutoUpdate| Geeft aan of opnieuw scannen op wijzigingen in het bestand my.cnf en het bestand MySQL OMI verificatie overschrijven wanneer de MySQL OMI-Provider is bijgewerkt. |
 
 ### <a name="default-instance"></a>Standaard-instantie
 Het bestand MySQL OMI-verificatie kunt definiëren een standaard exemplaar en het poortnummer nummer zodat meerdere exemplaren van MySQL op een Linux-host eenvoudiger beheren.  Het standaardexemplaar wordt aangeduid door een instantie met poort 0. Alle extra exemplaren worden overgenomen eigenschappen instellen van het standaardexemplaar, tenzij ze verschillende waarden opgeven. Bijvoorbeeld, als MySQL exemplaar luisteren op poort '3308' wordt toegevoegd, wordt het standaardexemplaar bind-adres, gebruikersnaam en wachtwoord Base64-gecodeerd worden gebruikt om te controleren van het exemplaar op 3308 luistert. Als het exemplaar op 3308 is gebonden aan een ander adres en dezelfde MySQL gebruikersnaam en wachtwoord twee gebruikt alleen de binding-adres nodig is en de overige eigenschappen worden overgenomen.
@@ -78,10 +78,10 @@ De volgende tabel biedt details over de syntaxis voor het gebruik van mycimprova
 
 | Bewerking | Voorbeeld | Beschrijving
 |:--|:--|:--|
-| AutoUpdate * false\|waar * | mycimprovauth autoupdate false | Stelt de verificatiebestand al dan niet automatisch bijgewerkt op opnieuw opstarten of bijwerken. |
+| AutoUpdate *false\|true* | mycimprovauth autoupdate false | Stelt de verificatiebestand al dan niet automatisch bijgewerkt op opnieuw opstarten of bijwerken. |
 | standaard *gebruikersnaamwachtwoord bind-adres* | mycimprovauth standaard 127.0.0.1 hoofdmap pwd | Hiermee stelt u het standaardexemplaar in de MySQL OMI verificatiebestand.<br>Het wachtwoordveld moet worden ingevoerd als tekst zonder opmaak: het wachtwoord in het bestand MySQL OMI-verificatie wordt Base 64 gecodeerde. |
-| Verwijder * default\|port_num * | mycimprovauth 3308 | Verwijdert het opgegeven exemplaar van een standaard of door poortnummer. |
-| Help | mycimprov help | Afdrukken een lijst met opdrachten te gebruiken. |
+| Verwijder *standaard\|port_num* | mycimprovauth 3308 | Verwijdert het opgegeven exemplaar van een standaard of door poortnummer. |
+| help | mycimprov help | Afdrukken een lijst met opdrachten te gebruiken. |
 | afdrukken | mycimprov afdrukken | Afdrukken een gemakkelijk te lezen MySQL OMI verificatiebestand. |
 | bijwerken van port_num *gebruikersnaamwachtwoord bind-adres* | mycimprov update 3307 127.0.0.1 hoofdmap pwd | Het opgegeven exemplaar van updates of het exemplaar wordt toegevoegd als deze niet bestaat. |
 
@@ -99,7 +99,7 @@ De gebruiker MySQL vereist toegang tot de volgende query's voor het verzamelen v
 
 De gebruiker MySQL vereist ook Selecteer toegang tot de volgende standaardtabellen.
 
-- INFORMATION_SCHEMA
+- information_schema
 - MySQL. 
 
 Deze rechten kunnen worden verleend met de volgende grant-opdrachten.
@@ -119,22 +119,22 @@ Zodra u de OMS-Agent voor Linux gegevens verzenden naar logboekanalyse configure
 |:--|:--|
 | MySQL-database | Schijfruimte in Bytes |
 | MySQL-database | Tabellen |
-| MySQL-Server | Pct afgebroken verbinding |
-| MySQL-Server | Verbinding gebruik Pct |
-| MySQL-Server | Schijfruimtegebruik in Bytes |
-| MySQL-Server | Volledige tabel Scan Pct |
-| MySQL-Server | InnoDB buffergroep bereikt Pct |
-| MySQL-Server | InnoDB groep gebruik bufferpercentage |
-| MySQL-Server | InnoDB groep gebruik bufferpercentage |
-| MySQL-Server | Sleutel Trefferfrequentie Pct |
-| MySQL-Server | Cache voor gebruik Pct |
-| MySQL-Server | Cache voor Write-Pct |
-| MySQL-Server | Query-Cache treffers Pct |
-| MySQL-Server | Query-Cache Prunes Pct |
-| MySQL-Server | Query-Cache gebruiken Pct |
-| MySQL-Server | Trefferfrequentie in tabel Pct |
-| MySQL-Server | Tabel Cache gebruik Pct |
-| MySQL-Server | Tabel vergrendelen conflicten Pct |
+| MySQL-server | Pct afgebroken verbinding |
+| MySQL-server | Verbinding gebruik Pct |
+| MySQL-server | Schijfruimtegebruik in Bytes |
+| MySQL-server | Volledige tabel Scan Pct |
+| MySQL-server | InnoDB buffergroep bereikt Pct |
+| MySQL-server | InnoDB groep gebruik bufferpercentage |
+| MySQL-server | InnoDB groep gebruik bufferpercentage |
+| MySQL-server | Sleutel Trefferfrequentie Pct |
+| MySQL-server | Cache voor gebruik Pct |
+| MySQL-server | Cache voor Write-Pct |
+| MySQL-server | Query-Cache treffers Pct |
+| MySQL-server | Query-Cache Prunes Pct |
+| MySQL-server | Query-Cache gebruiken Pct |
+| MySQL-server | Trefferfrequentie in tabel Pct |
+| MySQL-server | Tabel Cache gebruik Pct |
+| MySQL-server | Tabel vergrendelen conflicten Pct |
 
 ## <a name="apache-http-server"></a>Apache HTTP-Server 
 Als de Apache HTTP-Server op de computer wordt gedetecteerd wanneer de bundel omsagent is geïnstalleerd, wordt een provider voor de Apache HTTP-Server voor prestatiebewaking automatisch geïnstalleerd. Deze provider is afhankelijk van een Apache-module om prestatiegegevens toegang te krijgen in de Apache HTTP-Server moet worden geladen. De module kan worden geladen met de volgende opdracht:

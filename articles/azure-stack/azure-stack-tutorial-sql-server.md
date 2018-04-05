@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>SQL-databases beschikbaar maken voor uw Azure-Stack-gebruikers
 Als de beheerder van een Azure-Stack cloud kunt u aanbiedingen die uw gebruikers laten maken (tenants) maken van SQL-databases die ze met hun cloud-systeemeigen apps, websites en werkbelastingen gebruiken kunnen. Dankzij deze aangepaste, op verzoek, cloud-gebaseerde databases aan uw gebruikers, kunt u ze bespaart tijd en bronnen. Dit als u wilt instellen, kun je het:

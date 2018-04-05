@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Virtuele machines beschikbaar maken voor uw Azure-Stack-gebruikers
 U kunt aanbiedingen die uw gebruikers (ook wel aangeduid als tenants) kunnen zich abonneren op maken als de beheerder van een Azure-Stack-cloud. Met behulp van hun abonnement, kunnen gebruikers vervolgens gebruiken Stack Azure-services.
@@ -113,7 +113,7 @@ Nu dat u een aanbieding hebt gemaakt, kunt u het kunt testen. Meld u aan als een
    Nu kunt u aanmelden bij de portal als een gebruiker zich abonneren op een aanbieding.
 
    a. Meld u aan bij de gebruikersportal aanmeldt als een gebruiker en klik op **Neem een abonnement op**.
-   - De URL varieert op basis van de operator regio en externe domeinnaam en bevindt zich in de indeling https://portal voor een geïntegreerd systeem. &lt; *regio*&gt;.&lt; *FQDN*&gt;.
+   - Voor een geïntegreerde, de URL varieert op basis van de operator regio en externe domeinnaam en bevindt zich in de indeling https://portal.&lt; *regio*&gt;.&lt; *FQDN*&gt;.
    - Als u de Azure-Stack Development Kit, het adres van de portal is https://portal.local.azurestack.external.
 
    ![Een abonnement nemen](media/azure-stack-subscribe-plan-provision-vm/image01.png)
@@ -131,7 +131,7 @@ Nu dat u een aanbieding hebt gemaakt, kunt u het kunt testen. Meld u aan als een
    Nu kunt u aanmelden bij de portal als een gebruiker voor het inrichten van een virtuele machine met behulp van het abonnement. 
 
    a. Meld u aan bij de gebruikersportal aanmeldt als een gebruiker.
-      - De URL varieert op basis van de operator regio en externe domeinnaam en bevindt zich in de indeling https://portal voor een geïntegreerd systeem. &lt; *regio*&gt;.&lt; *FQDN*&gt;.
+      - Voor een geïntegreerde, de URL varieert op basis van de operator regio en externe domeinnaam en bevindt zich in de indeling https://portal.&lt; *regio*&gt;.&lt; *FQDN*&gt;.
    - Als u de Azure-Stack Development Kit, het adres van de portal is https://portal.local.azurestack.external.
 
    b.  Klik op het dashboard **nieuw** > **Compute** > **Windows Server 2016 Datacenter Eval**, en klik vervolgens op **maken**.

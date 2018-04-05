@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 3a6c7c51810375574895643cea2e0e24508fa382
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 7aeb76f59b9489f7c930ef754ccbe6d3712e52a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 > [!div class="op_single_selector"]
+> * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
@@ -80,7 +81,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
    <a id="max-connection"></a>
 3. **MaxPoolSize per host verhogen als u de Gateway-modus**
 
-    Azure DB van de Cosmos-aanvragen worden gedaan via HTTPS/REST bij gebruik van Gateway-modus en zijn onderworpen aan de standaardlimiet verbinding per hostnaam of IP-adres. Mogelijk moet u de MaxPoolSize ingesteld op een hogere waarde (200-1000), zodat meerdere gelijktijdige verbindingen met Azure Cosmos DB van de clientbibliotheek gebruikmaken kan. In de SDK voor Java, de standaardwaarde voor [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) is 100. Gebruik [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) de waarde te wijzigen.
+    Azure DB van de Cosmos-aanvragen worden gedaan via HTTPS/REST bij gebruik van Gateway-modus en zijn onderworpen aan de standaardlimiet verbinding per hostnaam of IP-adres. Mogelijk moet u de MaxPoolSize ingesteld op een hogere waarde (200-1000), zodat meerdere gelijktijdige verbindingen met Azure Cosmos DB van de clientbibliotheek gebruikmaken kan. In de SDK voor Java, de standaardwaarde voor [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.getmaxpoolsize) is 100. Gebruik [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) de waarde te wijzigen.
 
 4. **Parallelle query's voor gepartitioneerde verzamelingen afstemmen**
 
@@ -103,7 +104,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
 7. **Gebruik gebaseerd adressering**
 
-    Gebruik op basis van naam adressering, waarbij koppelingen hebben de indeling `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, in plaats van SelfLinks (_self), die de indeling hebben `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` om te voorkomen dat bij het ophalen van ResourceIds van alle resources die worden gebruikt voor het opstellen van de koppeling. Ook als deze bronnen ophalen opnieuw gemaakt (mogelijk met dezelfde naam), kunt opslaan in cache deze niet.
+    Gebruik op basis van naam adressering, waarbij koppelingen hebben de indeling `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, in plaats van SelfLinks (\_self), die de indeling hebben `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` om te voorkomen dat bij het ophalen van ResourceIds van alle resources die worden gebruikt voor het opstellen van de koppeling. Ook als deze bronnen ophalen opnieuw gemaakt (mogelijk met dezelfde naam), kunt opslaan in cache deze niet.
 
    <a id="tune-page-size"></a>
 8. **De paginagrootte van de voor query's leestijd feeds voor betere prestaties afstemmen**

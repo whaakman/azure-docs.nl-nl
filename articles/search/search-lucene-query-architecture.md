@@ -4,7 +4,7 @@ description: Uitleg van de Lucene query verwerking en document ophalen concepten
 services: search
 manager: jhubbard
 author: yahnoosh
-documentationcenter: 
+documentationcenter: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hoe vol tekst zoeken werkt in Azure Search
 
@@ -261,7 +261,7 @@ Terugkeren naar het voorbeeld voor het **titel** veld omgekeerde index ziet er a
 | hotel | 1, 3 |
 | Oceaan | 4  |
 | playa | 3 |
-| toevlucht | 3 |
+| resort | 3 |
 | Terugtrekken | 4 |
 
 In het titelveld alleen *hotel* wordt weergegeven in twee documenten: 1, 3.
@@ -276,13 +276,13 @@ Voor de **beschrijving** veld de index is als volgt:
 | voorwaarde | 3
 | vertrouwd | 3
 | afstand | 1
-| eiland | 2
+| island | 2
 | kauaʻi | 2
 | zich bevindt | 2
 | Noord | 2
 | Oceaan | 1, 2, 3
 | van | 2
-| op |2
+| aan |2
 | Stille | 4
 | ruimten  | 1, 3
 | secluded | 4
@@ -363,7 +363,7 @@ Een voorbeeld illustreert waarom dit is van belang. Zoekopdrachten met jokerteke
 Er zijn twee manieren om af te stemmen relevantie scores in Azure Search:
 
 1. **Score berekenen voor profielen** promoveren van documenten in de gerangschikte lijst met resultaten op basis van een set regels. In ons voorbeeld kan we kunt u documenten die overeenkomen met in het titelveld meer relevante dan documenten die overeenkomen met in het omschrijvingsveld. Bovendien kan er als onze index had een prijsveld voor elke hotel, documenten met lagere prijs promoveren. Meer informatie over het meer [score berekenen voor profielen toevoegen aan een search-index.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Versterking** (alleen beschikbaar in de volledige Lucene-querysyntaxis) biedt een prestatieverbetering operator `^` die kunnen worden toegepast op een deel van de querystructuur van de. In ons voorbeeld, in plaats van het zoeken op het voorvoegsel *air-condition*\*, een kan zoekterm voor de exacte *air-condition* of het voorvoegsel, maar de documenten die overeenkomen met de exacte term hoger door toe te passen versterking aan de query term zijn gerangschikt: *lucht voorwaarde ^ 2 || AIR-condition**. Meer informatie over [versterking](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+2. **Versterking** (alleen beschikbaar in de volledige Lucene-querysyntaxis) biedt een prestatieverbetering operator `^` die kunnen worden toegepast op een deel van de querystructuur van de. In ons voorbeeld, in plaats van het zoeken op het voorvoegsel *air-condition*\*, een kan zoekterm voor de exacte *air-condition* of het voorvoegsel, maar de documenten die overeenkomen met de exacte term zijn sterker door toe te passen versterking aan de query term: * lucht voorwaarde ^ 2 || AIR-condition **. Meer informatie over [versterking](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Score berekenen voor in een gedistribueerde index

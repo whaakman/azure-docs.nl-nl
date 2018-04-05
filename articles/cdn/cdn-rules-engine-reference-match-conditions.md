@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Voldoen aan de engine van Azure CDN-regels 
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare overeenkomst voorwaarden voor het Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
@@ -726,7 +726,7 @@ Belangrijke informatie:
 - Een CNAME-URL-rand wordt herschreven naar de URL van een CDN voordat URL vergelijking.
 
     Bijvoorbeeld, beide van de volgende URL's verwijzen naar dezelfde asset en daarom hebben de dezelfde URL-pad:
-     - CDN-URL: http://wpc.0001. &lt;domein&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN-URL: http://wpc.0001.&lt; domein&gt;/800001/CustomerOrigin/path/asset.htm
      - Rand CNAME-URL: http:\//&lt;eindpunt&gt;.azureedge.net/path/asset.htm
     
     Extra informatie:
@@ -783,7 +783,7 @@ Belangrijke informatie:
 
    Teken | URL-codering
    ----------|---------
-   Spatiebalk     | %20
+   Ruimte     | %20
    &         | %25
 
 - Vanwege de manier die in cache van welke instellingen worden bijgehouden, moet aan deze voorwaarde overeenkomst is niet compatibel met de volgende functies:
@@ -819,7 +819,7 @@ Belangrijke informatie:
 
        Teken | URL-codering
        ----------|---------
-       Spatiebalk     | %20
+       Ruimte     | %20
        &         | %25
 
 - Geef meer parameterwaarden voor query-tekenreeks door die begrenst elkaar met een spatie. Deze overeenkomst voorwaarde wordt voldaan aan wanneer een aanvraag een van de opgegeven naam/waarde-combinaties bevat.
@@ -871,7 +871,7 @@ Naam  | Waarde |  Resultaat
 ------|-------|--------
 Gebruiker  | Jan   | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL is '? gebruiker Jan =. "
 Gebruiker  | *     | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL een parameter van de gebruiker bevat.
-E-mail | Joe\* | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL bevat een e-parameter die begint met "Jan".
+Email | Joe\* | Dit patroon komt overeen wanneer de query-tekenreeks voor een aangevraagde URL bevat een e-parameter die begint met "Jan".
 
 [Terug naar boven](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -896,7 +896,7 @@ Belangrijke informatie:
 
    Teken | URL-codering | Waarde
    ----------|--------------|------
-   Spatiebalk     | %20          | \%20
+   Ruimte     | %20          | \%20
    &         | %25          | \%25
 
    Houd er rekening mee dat percentage symbolen moeten worden voorafgegaan.
@@ -938,7 +938,7 @@ Belangrijke informatie:
 
      Teken | URL-codering
      ----------|---------
-     Spatiebalk     | %20
+     Ruimte     | %20
      &         | %25
 
 - Meerdere waarden opgeven door die begrenst elkaar met een spatie.

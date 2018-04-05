@@ -1,4 +1,4 @@
-| Resource | doel |
+| Resource | Doel |
 |----------|---------------|
 | Maximale grootte van één tabel | 500 TiB |
 | Maximale grootte van de Tabelentiteit van een | 1 MiB |

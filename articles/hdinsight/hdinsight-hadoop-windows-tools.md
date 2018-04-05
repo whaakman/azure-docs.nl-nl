@@ -11,10 +11,10 @@ ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.openlocfilehash: c9e4476334db95c66650f663dc3d8d13df2c5b52
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Werken in het Hadoop-ecosysteem in HDInsight via een Windows-PC
 
@@ -35,8 +35,8 @@ Volg de stappen voor het [Azure Powershell installeren en configureren](https://
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Hulpprogramma's die u kunt uitvoeren in een browser
 De volgende hulpprogramma's hebben een webgebruikersinterface die in een browser wordt uitgevoerd:
-* **[Azure Cloud-Shell (preview)](https://docs.microsoft.com/azure/cloud-shell/quickstart) ** is een interactieve, opdrachtregel-shell die wordt uitgevoerd in uw browser en vanuit de Azure-portal.
-* **[Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md) ** is een beheer en controle hulpprogramma beschikbaar in de Azure portal die kan worden gebruikt voor het beheren van verschillende soorten taken, zoals:
+* **[Azure Cloud-Shell (preview)](https://docs.microsoft.com/azure/cloud-shell/quickstart)**  is een interactieve, opdrachtregel-shell die wordt uitgevoerd in uw browser en vanuit de Azure-portal.
+* **[Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md)**  is een beheer en controle hulpprogramma beschikbaar in de Azure portal die kan worden gebruikt voor het beheren van verschillende soorten taken, zoals:
     * [Ambari gebruiken met de REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Weergave in de Ambari hive](hadoop/apache-hadoop-use-hive-ambari-view.md)
     * [Tez-weergave in de Ambari](hdinsight-debug-ambari-tez-view.md)
@@ -85,7 +85,7 @@ Als u een situatie waarin moet u een hulpprogramma of de technologie die alleen 
 
 * **Bash (bèta) op Windows 10** biedt een Linux-subsysteem in Windows. Bash, kunt u rechtstreeks Linux-hulpprogramma's uitvoeren zonder dat de installatie van een speciale Linux onderhouden. [Installeren en uitvoeren van de bètaversie Bash op Windows 10](https://msdn.microsoft.com/commandline/wsl/install_guide)
 * **Docker voor Windows** biedt toegang tot veel Linux-gebaseerde hulpprogramma's en rechtstreeks vanuit Windows kan worden uitgevoerd. U kunt bijvoorbeeld Docker gebruiken om uit te voeren van de client Beeline voor Hive rechtstreeks vanuit Windows. U kunt Docker ook gebruiken om uit te voeren van een lokale Jupyter-notebook en extern verbinding maken met Spark in HDInsight. [Aan de slag met Docker voor Windows](https://docs.docker.com/docker-for-windows/)
-* **[MobaXTerm](http://mobaxterm.mobatek.net/) ** kunt u grafisch bladeren naar het bestandssysteem van het cluster via een SSH-verbinding.
+* **[MobaXTerm](http://mobaxterm.mobatek.net/)**  kunt u grafisch bladeren naar het bestandssysteem van het cluster via een SSH-verbinding.
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u geen ervaring met op Linux gebaseerde clusters werkt, raadpleegt u de volgende artikelen:

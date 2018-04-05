@@ -98,7 +98,7 @@ De volgende configuraties zijn momenteel niet ondersteund.
 | Netwerk | Klassieke Express Route-circuits |Dit wordt momenteel niet ondersteund. Deze circuits moeten in Azure Resource Manager worden gemigreerd vóór de migratie van IaaS. Voor meer informatie over deze Zie [verplaatsen van ExpressRoute-circuits van het klassieke naar het Resource Manager-implementatiemodel](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Virtuele netwerken met App Service-omgevingen |Dit wordt momenteel niet ondersteund. |
 | Azure HDInsight |Virtuele netwerken die HDInsight services bevatten |Dit wordt momenteel niet ondersteund. |
-| Microsoft Dynamics levenscyclus van Services |Virtuele netwerken met virtuele machines die worden beheerd door Dynamics levenscyclus van Services |Dit wordt momenteel niet ondersteund. |
+| Microsoft Dynamics Lifecycle Services |Virtuele netwerken met virtuele machines die worden beheerd door Dynamics levenscyclus van Services |Dit wordt momenteel niet ondersteund. |
 | Azure AD Domain Services |Virtuele netwerken die Azure AD Domain services bevatten |Dit wordt momenteel niet ondersteund. |
 | Azure RemoteApp |Virtuele netwerken met Azure RemoteApp-implementaties |Dit wordt momenteel niet ondersteund. |
 | Azure API Management |Virtuele netwerken met Azure API Management-implementaties |Dit wordt momenteel niet ondersteund. Wijzig het VNET van de API Management-implementatie die een geen uitvaltijd-bewerking is voor het migreren van het VNET IaaS. |

@@ -2,11 +2,11 @@
 title: StorSimple 8000-serie als back-updoel met Backup Exec | Microsoft Docs
 description: Beschrijft de configuratie van de back-updoel StorSimple met Veritas Backup Exec.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 ms.openlocfilehash: a28b46e10bbdd5331cc665fad3f80523b3aa8a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple als een back-updoel met Backup Exec
 
@@ -91,16 +91,16 @@ De volgende tabellen geven de initiële richtlijnen voor apparaat-model voor arc
 
 | Opslagcapaciteit       | 8100          | 8600            |
 |------------------------|---------------|-----------------|
-| Capaciteit van de lokale opslag | &lt;10 TiB\*  | &lt;20 TiB\*  |
-| Cloudopslagcapaciteit | &gt;200 TiB\* | &gt;500 TiB\* |
-\*Grootte van de opslagruimte wordt ervan uitgegaan dat er geen gegevensontdubbeling of compressie.
+| Capaciteit van de lokale opslag | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Cloudopslagcapaciteit | &gt; 200 TiB\* | &gt; 500 TiB\* |
+\* Grootte van de opslagruimte wordt ervan uitgegaan dat er geen gegevensontdubbeling of compressie.
 
 **StorSimple capaciteitswaarden voor de primaire en secundaire back-ups**
 
 | Back-scenario  | Capaciteit van de lokale opslag  | Cloudopslagcapaciteit  |
 |---|---|---|
 | Primaire back-up  | Recente back-ups opgeslagen op lokale opslag op snel herstel om te voldoen aan de beoogde herstelpunt (RPO) | Back-upgeschiedenis (RPO) past in cloudcapaciteit |
-| Secundaire back-up | Secundaire kopie van de back-upgegevens kan worden opgeslagen in de cloudcapaciteit  | N.v.t.  |
+| Secundaire back-up | Secundaire kopie van de back-upgegevens kan worden opgeslagen in de cloudcapaciteit  | N/A  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple als primaire back-doel
 
@@ -258,7 +258,7 @@ Op basis van de voorgaande veronderstellingen kunt maken van een 26-TiB StorSimp
 | Jaarlijks volledige | 1  | 10 | 10 |
 | Algemene vereisten |   | 38 |   |
 | Extra quota  | 4  |   | 42 totale algemene vereisten  |
-\*De vermenigvuldigingsfactor algemene is het aantal exemplaren dat u wilt beveiligen en om te voldoen aan de vereisten van uw back-upbeleid behouden.
+\* De vermenigvuldigingsfactor algemene is het aantal exemplaren dat u wilt beveiligen en om te voldoen aan de vereisten van uw back-upbeleid behouden.
 
 ## <a name="set-up-backup-exec-storage"></a>Back-up Exec opslag instellen
 
@@ -272,7 +272,7 @@ Op basis van de voorgaande veronderstellingen kunt maken van een 26-TiB StorSimp
 
     ![Back-up Exec-beheerconsole, selecteer opslagpagina](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
 
-3.  Voer een representatieve naam, bijvoorbeeld: **zaterdag volledige**, en een beschrijving. Selecteer **volgende**.
+3.  Voer een representatieve naam, bijvoorbeeld: **zaterdag volledige**, en een beschrijving. Selecteer **Volgende**.
 
     ![Pagina back-up Exec management console, naam en beschrijving](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 
@@ -309,9 +309,9 @@ Hier volgt een voorbeeld van een algemene rotatieschema vier weken, maandelijkse
 
 | Type frequentie/back-up | Volledig | Incrementele (dagen 1-5)  |   
 |---|---|---|
-| Wekelijks (weken 1-4) | Zaterdag | Maandag tot vrijdag |
-| Maandelijks  | Zaterdag  |   |
-| Jaarlijks | Zaterdag  |   |   |
+| Wekelijks (weken 1-4) | zaterdag | Maandag tot vrijdag |
+| Maandelijks  | zaterdag  |   |
+| Per jaar | zaterdag  |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>StorSimple-volumes toewijzen aan een back-uptaak Backup Exec
@@ -372,19 +372,19 @@ De volgende tabel ziet het instellen van back-ups worden uitgevoerd op de lokale
 | Maandelijks volledige |StorSimple schijf (op lange termijn) | 1 | 12 | 12 |
 | Jaarlijks volledige |StorSimple schijf (op lange termijn) | 1 | 1 | 1 |
 |Vereiste grootte van algemene volumes |  |  |  | 18*|
-\*Totale capaciteit omvat 17 TiB van StorSimple-schijven en 1 TiB van lokale RAID-volume.
+\* Totale capaciteit omvat 17 TiB van StorSimple-schijven en 1 TiB van lokale RAID-volume.
 
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Algemene voorbeeld planning: algemene rotatie wekelijkse, maandelijkse en jaarlijkse planning
 
-| Week | Volledig | Incrementele dag 1 | Incrementele dag 2 | Incrementele dag 3 | Incrementele dag 4 | Incrementele dag 5 |
+| Wekelijks | Volledig | Incrementele dag 1 | Incrementele dag 2 | Incrementele dag 3 | Incrementele dag 4 | Incrementele dag 5 |
 |---|---|---|---|---|---|---|
 | 1 week | Lokale RAID-volume  | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume | Lokale RAID-volume |
 | Week 2 | StorSimple weken 2-4 |   |   |   |   |   |
 | Week 3 | StorSimple weken 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weken 2-4 |   |   |   |   |   |
 | Maandelijks | Maandelijks StorSimple |   |   |   |   |   |
-| Jaarlijks | Jaarlijks StorSimple  |   |   |   |   |   |   |
+| Per jaar | Jaarlijks StorSimple  |   |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>StorSimple-volumes toewijzen aan een archief Exec back-up en Ontdubbeling van taak

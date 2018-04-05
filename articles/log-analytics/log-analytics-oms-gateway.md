@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 66e5444f5346a44cfc8a43cf2b43dbaeacffedc9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-oms-gateway"></a>Verbinding maken met computers zonder toegang tot internet via de OMS-Gateway
 Dit document beschrijft hoe u communicatie met Azure Automation configureert en Log Analytics met behulp van de OMS-Gateway als rechtstreeks verbonden computers of Operations Manager bewaakte computers geen toegang tot internet. De OMS-Gateway is een HTTP-en voorwaarts-proxy die ondersteuning biedt voor HTTP tunneling via de opdracht HTTP-verbinding. Het kan verzamelen van gegevens en verzenden naar Azure Automation en Log Analytics namens de computers zonder toegang tot internet.  

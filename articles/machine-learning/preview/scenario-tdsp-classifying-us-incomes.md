@@ -2,11 +2,11 @@
 title: Inkomsten classificatie - Team gegevens wetenschappelijke Process - Azure Machine Learning | Microsoft Docs
 description: Het gebruik van de sjabloon Team gegevens wetenschap proces een project maken in Azure Machine Learning waarmee VS inkomsten wordt geclassificeerd.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
 ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Inkomsten classificatie met project Team gegevens wetenschap proces (TDSP)
 
@@ -74,7 +74,7 @@ Als u wilt opslaan en versie van uw project en de inhoud ervan, moet u beschikke
 
 Maak een nieuw project in dit voorbeeld als sjabloon gebruiken:
 1.  Open Azure Machine Learning Workbench
-2.  Op de **projecten** pagina, klikt u op de  **+**  en selecteer **nieuw Project**
+2.  Op de **projecten** pagina, klikt u op de **+** en selecteer **nieuw Project**
 3.  In de **nieuw Project maken** deelvenster Vul de informatie voor het nieuwe project
 4.  In de **zoeken projectsjablonen** het zoekvak, typ 'Inkomsten classificeren VS - project TDSP' en selecteer de sjabloon
 5.  Klik op **Maken**.
@@ -178,7 +178,7 @@ Zie verwijzingen hieronder om te beginnen:
 
 [Het gebruik van Team gegevens wetenschap proces (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 
-[Team gegevens wetenschappelijke processen (TDSP)](https://github.com/Azure/Microsoft-TDSP)
+[Team Data Science Process (TDSP)](https://github.com/Azure/Microsoft-TDSP)
 
 [De projectsjabloon TDSP voor Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
 

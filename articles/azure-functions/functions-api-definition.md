@@ -2,11 +2,11 @@
 title: OpenAPI metagegevens in Azure Functions | Microsoft Docs
 description: Overzicht van ondersteuning voor Azure Functions OpenAPI
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Ondersteuning voor OpenAPI 2.0-metagegevens in de Azure-functies (preview)
 OpenAPI 2.0 (voorheen Swagger) ondersteuning voor metagegevens in Azure Functions is een preview-functie die u gebruiken kunt om te schrijven van de definitie van een OpenAPI 2.0 binnen een functie-app. Vervolgens kunt u dat bestand met de functie-app hosten.
@@ -50,12 +50,12 @@ Zie voor stapsgewijze instructies de [zelfstudie aan de slag](./functions-api-de
 
 De volgende tabel voor de Azure portal-instellingen en de bijbehorende gegevens die in function.json staat zoals is toegewezen aan de gegenereerde Swagger-basis.
 
-|Swagger.JSON|Portal-gebruikersinterface|Function.JSON|
+|Swagger.json|Portal-gebruikersinterface|Function.json|
 |:----|:-----|:-----|
 |[Host](http://swagger.io/specification/#fixed-fields-15)|**App-instellingen werken** > **App Service-instellingen** > **overzicht** > **URL**|*Niet aanwezig*
 |[Paden](http://swagger.io/specification/#paths-object-29)|**Integreren** > **geselecteerd HTTP-methoden**|Bindingen: Route
 |[Pad-Item](http://swagger.io/specification/#path-item-object-32)|**Integreren** > **Routesjabloon**|Bindingen: methoden
-|[Beveiliging](http://swagger.io/specification/#security-scheme-object-112)|**Sleutels**|*Niet aanwezig*|
+|[Beveiliging](http://swagger.io/specification/#security-scheme-object-112)|**Keys**|*Niet aanwezig*|
 |operationID *|**Route + toegestane termen**|Route + toegestane termen|
 
 \*De bewerkings-ID is alleen vereist voor integratie met PowerApps en stroom.

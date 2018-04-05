@@ -2,10 +2,10 @@
 title: Azure AD-toepassingsproxy connectors begrijpen | Microsoft Docs
 description: Bevat informatie over de basisbeginselen van Azure AD-toepassingsproxy connectors.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD-toepassingsproxy connectors begrijpen
 
@@ -72,13 +72,13 @@ Zie voor meer informatie over groepen connector, [publiceren van toepassingen op
 
 Terwijl connectors wordt automatisch taakverdeling binnen een connector-groep, is het ook belangrijk om ervoor te zorgen dat u hebt gepland voldoende capaciteit tussen connectors voor het afhandelen van de omvang van het verwachte verkeer. In het algemeen de meer gebruikers die u hebt een machine die u moet de grootste. Hieronder vindt u een tabel geeft een overzicht van het volume andere machines kan verwerken. Houd er rekening mee is alle gebaseerd op verwachte transacties Per tweede (TPS) in plaats van door gebruiker sinds gebruik patronen variëren en kunnen niet worden gebruikt om te voorspellen laden.  Rekening mee dat er enkele verschillen op basis van de grootte van de antwoorden en de reactietijd van de back-end-toepassing zijn-grotere antwoord en tragere responstijden in een lagere maximale TPS resulteert.
 
-|Cores|RAM|Latentie (MS) verwacht-P99|Maximale TPS|
+|Kerngeheugens|RAM|Latentie (MS) verwacht-P99|Max TPS|
 | ----- | ----- | ----- | ----- |
 |2|8|325|586|
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\*Deze computer heeft een verbindingslimiet van 800. We gebruiken de standaard 200 verbindingslimiet voor alle andere machines.
+\* Deze computer heeft een verbindingslimiet van 800. We gebruiken de standaard 200 verbindingslimiet voor alle andere machines.
  
 >[!NOTE]
 >Er is veel verschil in de maximale TPS tussen 4, 8 en 16 core-machines. Het belangrijkste verschil tussen die zich in de verwachte latentie.  
@@ -113,7 +113,7 @@ Een andere factor die van invloed op prestaties wordt de kwaliteit van het netwe
 
 Zie voor meer informatie over het optimaliseren van uw netwerk [aandachtspunten voor topologie netwerk bij gebruik van Azure Active Directory-toepassingsproxy](application-proxy-network-topology-considerations.md).
 
-## <a name="domain-joining"></a>Lid worden van domein
+## <a name="domain-joining"></a>Domeinen koppelen
 
 Connectors kunnen uitvoeren op een computer die is geen lid van een domein. Als u eenmalige aanmelding (SSO) voor toepassingen die gebruikmaken van geïntegreerde Windows-verificatie (IWA) wilt, moet u een domein-machine. In dit geval de machines connector moeten worden toegevoegd aan een domein kan uitvoeren [Kerberos](https://web.mit.edu/kerberos) beperkte overdracht namens de gebruikers voor de gepubliceerde toepassingen.
 
@@ -157,7 +157,7 @@ De logboeken, Ga naar de Event Viewer, open de **weergave** menu en schakel **lo
 
 U kunt de status van de service in het venster Services controleren. De connector bestaat uit twee Windows-Services: de werkelijke connector en de updater. Beide parameters moeten de tijd worden uitgevoerd.
 
- ![AzureAD Services lokale](./media/application-proxy-understand-connectors/aad-connector-services.png)
+ ![AzureAD Services Local](./media/application-proxy-understand-connectors/aad-connector-services.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

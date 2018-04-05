@@ -2,17 +2,17 @@
 title: Reageren op gebeurtenissen van Azure Blob Storage | Microsoft Docs
 description: Gebruik Azure gebeurtenis raster om u te abonneren op gebeurtenissen van de Blob-opslag.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen van de Blob-opslag
 
@@ -30,7 +30,7 @@ BLOB storage gebeurtenissen zijn beschikbaar in [Blob storage-accounts](../commo
 ## <a name="available-blob-storage-events"></a>Beschikbare Blob storage-gebeurtenissen
 Gebruikt voor gebeurtenis raster [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren naar abonnees.  BLOB storage gebeurtenisabonnementen kunnen bevatten twee soorten gebeurtenissen:  
 
-> |Naam van de gebeurtenis|Beschrijving|
+> |De naam van gebeurtenis|Beschrijving|
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Deze gebeurtenis wordt gestart wanneer een blob wordt gemaakt of vervangen door de `PutBlob`, `PutBlockList`, of `CopyBlob` bewerkingen|
 > |`Microsoft.Storage.BlobDeleted`|Deze gebeurtenis wordt gestart wanneer een blob is verwijderd via een `DeleteBlob` bewerking|
@@ -50,7 +50,7 @@ Meer informatie over het gebruik van eigenschappen van gebeurtenis raster gebeur
 > |metadataVersion|tekenreeks|De schemaversie van de eigenschappen van het hoogste niveau.|
 > |gegevens|object|Verzameling van blob storage-specifieke gebeurtenisgegevens|
 > |data.contentType|tekenreeks|Het inhoudstype van de blob, zoals in de header Content-Type van de blob wordt geretourneerd|
-> |data.contentLength|nummer|De grootte van de blob als geheel getal dat een aantal bytes in de header Content-Length zou worden geretourneerd van de blob in.  Met BlobCreated gebeurtenis, maar niet met BlobDeleted verzonden.|
+> |data.contentLength|getal|De grootte van de blob als geheel getal dat een aantal bytes in de header Content-Length zou worden geretourneerd van de blob in.  Met BlobCreated gebeurtenis, maar niet met BlobDeleted verzonden.|
 > |data.url|tekenreeks|De url van het object dat het onderwerp van de gebeurtenis is|
 > |data.eTag|tekenreeks|De etag van het object wanneer deze gebeurtenis wordt gestart.  Niet beschikbaar voor de gebeurtenis BlobDeleted.|
 > |data.api|tekenreeks|De naam van de api-bewerking die deze gebeurtenis wordt geactiveerd.  Gebeurtenissen die BlobCreated, wordt deze waarde is 'PutBlob', 'PutBlockList' of 'CopyBlob'.  Deze waarde is BlobDeleted gebeurtenissen, 'DeleteBlob'.  Deze waarden zijn dezelfde api-namen die aanwezig in de Azure Storage diagnostische logboeken zijn.  Zie [geregistreerde bewerkingen en statusberichten](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
 ms.openlocfilehash: 8382fadc02a7e80b6f28bd777f423013aed9add3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Installatie van de Mobility-Service met System Center Configuration Manager automatiseren
 
@@ -192,7 +192,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 ### <a name="deploy-the-package"></a>Het pakket implementeren
 1. Met de rechtermuisknop op het pakket in de Configuration Manager-console en selecteer **inhoud distribueren**.
   ![Schermopname van Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. Selecteer de  **[distributiepunten](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  u aan bij de pakketten moeten worden gekopieerd.
+2. Selecteer de **[distributiepunten](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** u aan bij de pakketten moeten worden gekopieerd.
 3. Voltooi de wizard. Het pakket vervolgens wordt gestart repliceren naar de opgegeven distributiepunten.
 4. Nadat de pakketdistributie is voltooid, met de rechtermuisknop op het pakket en selecteert u **implementeren**.
   ![Schermopname van Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
@@ -415,7 +415,7 @@ cd /tmp
 ### <a name="deploy-the-package"></a>Het pakket implementeren
 1. Met de rechtermuisknop op het pakket in de Configuration Manager-console en selecteer **inhoud distribueren**.
   ![Schermopname van Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. Selecteer de  **[distributiepunten](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  u aan bij de pakketten moeten worden gekopieerd.
+2. Selecteer de **[distributiepunten](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** u aan bij de pakketten moeten worden gekopieerd.
 3. Voltooi de wizard. Het pakket vervolgens wordt gestart repliceren naar de opgegeven distributiepunten.
 4. Nadat de pakketdistributie is voltooid, met de rechtermuisknop op het pakket en selecteert u **implementeren**.
   ![Schermopname van Configuration Manager-console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)

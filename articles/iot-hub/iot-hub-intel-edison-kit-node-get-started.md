@@ -2,10 +2,10 @@
 title: Intel Edison naar cloud (Node.js) - Intel Edison verbinding maken met Azure IoT Hub | Microsoft Docs
 description: Informatie over het instellen en Intel Edison verbinden met Azure IoT Hub voor Intel Edison gegevens verzenden naar het Azure-cloud-platform in deze zelfstudie.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
+tags: ''
 keywords: Azure iot intel edison, intel edison iothub, intel edison verzenden van gegevens naar de cloud, intel edison naar cloud
 ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
 ms.service: iot-hub
@@ -17,10 +17,10 @@ ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5a31efba704045196b5563f7bc467c773bea7805
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>Intel Edison verbinden met Azure IoT Hub (Node.js)
 
@@ -57,7 +57,7 @@ Verbinding maken met Intel Edison naar een IoT-hub die u maakt. Vervolgens voert
 * Een internetverbinding.
 * Een B Micro van Type A USB-kabel
 * Een voeding direct huidige (DC). Het prioriteitsniveau van uw voeding moet als volgt:
-  - 7 15V DC
+  - 7-15V DC
   - Ten minste 1500mA
   - De pincode center/interne moet de positieve pool van de voeding
 
@@ -105,7 +105,7 @@ Nu is het mededelingenbord samengesteld.
 
 1. Plaats het Groove Base schild doorsturen naar het mededelingenbord. Zorg ervoor dat alle pincodes goed zijn aangesloten op het mededelingenbord.
    
-   ![Groove Base schild](media/iot-hub-intel-edison-kit-node-get-started/6_grove_base_sheild.jpg)
+   ![Grove Base Shield](media/iot-hub-intel-edison-kit-node-get-started/6_grove_base_sheild.jpg)
 
 2. Verbinding maken Groove-temperatuursensor naar het Groove Base schild via Groove kabel **A0** poort.
 
@@ -172,7 +172,7 @@ Ophalen van de nieuwste hulpprogramma voor serverconfiguratie van [deze koppelin
 
    ![Verbinding maken met-temperatuursensor](media/iot-hub-intel-edison-kit-node-get-started/12_configuration_tool.png)
 
-Gefeliciteerd. U hebt Edison geconfigureerd.
+Gefeliciteerd! U hebt Edison geconfigureerd.
 
 ## <a name="run-a-sample-application-on-intel-edison"></a>Een voorbeeld van een toepassing uitvoeren op Intel Edison
 

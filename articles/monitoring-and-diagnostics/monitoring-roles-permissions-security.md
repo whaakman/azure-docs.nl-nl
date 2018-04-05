@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en -beveiliging met Azure-Monitor
 Veel teams moeten strikt reguleren toegang tot gegevens en instellingen controleren. Als er teamleden die werken alleen op de bewaking (ondersteuningsmedewerkers, devops engineers) of als u een provider van beheerde services gebruikt, u kunt ze om toegang te verlenen tot alleen bewakingsgegevens terwijl de beperkingen voor de mogelijkheid om te maken, wijzigen of verwijderen van resources. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol toepassen op een gebruiker in Azure of uw eigen aangepaste rol voor een gebruiker aan wie beperkte machtigingen voor controle moet bouwen. Vervolgens wordt de beveiligingsoverwegingen voor uw Azure-Monitor-gerelateerde resources en hoe u toegang tot de gegevens die ze bevatten alleen besproken.

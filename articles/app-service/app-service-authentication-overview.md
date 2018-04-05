@@ -2,10 +2,10 @@
 title: Verificatie en autorisatie in Azure App Service | Microsoft Docs
 description: Voor conceptuele verwijzing en overzicht van de verificatie / autorisatie-functie voor Azure App Service
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: mattchenderson
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
 ms.workload: mobile
@@ -14,146 +14,140 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: f0d2644903181cd2e20166feae4f90ddd4037fa8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 0563f071083080de7f99b3a77c680f791d80bcdb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
-## <a name="what-is-app-service-authentication--authorization"></a>Wat is er App Service-verificatie / autorisatie?
-App Service-verificatie / autorisatie is een functie die een manier om uw toepassing aan te melden gebruikers biedt zodat u hoeft de code op de back-end voor de app wijzigen. Het biedt een eenvoudige manier voor het beveiligen van uw toepassing en werken met gegevens per gebruiker.
 
-App Service maakt gebruik van federatieve identiteiten, waarbij een derde partij identiteitsprovider accounts worden opgeslagen en verificatie van gebruikers. De toepassing is afhankelijk van de gegevens van de identiteit van de provider zodat de app niet hebben om op te slaan die informatie zelf. App Service ondersteunt vijf identiteitsproviders gebruiksklaar: Azure Active Directory, Facebook, Google, Microsoft-Account en Twitter. Uw app kunt een willekeurig aantal deze id-providers gebruiken voor uw gebruikers met opties voor hoe ze zich aanmelden. Als de ingebouwde ondersteuning wilt uitbreiden, kunt u een andere identiteitsprovider integreren of [uw eigen aangepaste identiteitsoplossing][custom-auth].
+Azure App Service biedt ingebouwde verificatie en autorisatie ondersteunen, zodat u kunt gebruikers aanmelden en toegang gegevens door schrijven minimale of er geen code in uw web-app, API en mobiele back-end tot, en ook [Azure Functions](../azure-functions/functions-overview.md). Dit artikel wordt beschreven hoe App Service helpt bij het vereenvoudigen van verificatie en autorisatie voor uw app. 
 
-Als u meteen aan de slag wilt, ziet u een van de volgende zelfstudies [verificatie toevoegen aan uw iOS-app] [ iOS] (of [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], of [Cordova]).
+Veilige authenticatie en autorisatie vereist grondige kennis van beveiliging, waaronder de Federatie, versleuteling, [JSON webtokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [verlenen typen](https://oauth.net/2/grant-types/), enzovoort. App Service biedt deze hulpprogramma's, zodat u meer tijd en energie besteden kunt aan de zakelijke voordelen bieden aan uw klant.
 
-## <a name="how-authentication-works-in-app-service"></a>De werking van verificatie in App Service
-Om te verifiëren met behulp van een van de id-providers, moet u eerst de id-provider te weten over uw toepassing configureren. De id-provider vervolgens biedt-id's en geheimen die u in App Service opgeeft. Dit is de vertrouwensrelatie voltooid zodat de App Service kunt controleren of de gebruiker asserties, zoals verificatietokens door de identiteitsprovider.
+> [!NOTE]
+> Bent u niet vereist voor het gebruik van App Service voor verificatie en autorisatie. Veel web frameworks worden gebundeld met beveiligingsfuncties en u indien gewenst kunt gebruiken. Als u meer flexibiliteit dan door App Service biedt, kunt u ook uw eigen's schrijven.  
+>
 
-Als u wilt een gebruiker met behulp van een van deze providers aanmelden, moet de gebruiker worden omgeleid naar een eindpunt dat gebruikers zich voor die provider. Als klanten een webbrowser gebruikt, kunt u automatisch alle niet-geverifieerde gebruikers verwijzen naar het eindpunt dat gebruikers worden aangemeld-App Service kunt hebben. Anders moet u uw klanten directe `{your App Service base URL}/.auth/login/<provider>`, waarbij `<provider>` is een van de volgende waarden: aad, facebook, google en microsoft- of twitter. Mobiele en API-scenario's worden in de secties verderop in dit artikel beschreven.
+Zie voor informatie die specifiek zijn voor mobiele apps systeemeigen [verificatie en autorisatie voor mobiele apps met Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
-Een cookie instellen, zodat ze geverifieerde blijven kunnen als ze door uw toepassing bladeren hebben gebruikers die met uw toepassing via een webbrowser werken. Voor andere clienttypen, zoals mobile, een JSON web token (JWT), die moet worden gepresenteerd de `X-ZUMO-AUTH` header, worden uitgegeven aan de client. De client-SDK's van de Mobile Apps verwerken dit voor u. U kunt ook een token van Azure Active Directory-identiteit of het toegangstoken mogelijk rechtstreeks opgenomen in de `Authorization` header als een [bearer-token](https://tools.ietf.org/html/rfc6750).
+## <a name="how-it-works"></a>Hoe werkt het?
 
-App Service valideert een cookie of het token dat uw toepassing problemen om gebruikers te verifiëren. Als u wilt beperken wie toegang heeft tot uw toepassing, Zie de [autorisatie](#authorization) verderop in dit artikel.
+De module voor verificatie en autorisatie wordt uitgevoerd in de sandbox van uw toepassingscode. Wanneer deze ingeschakeld, geeft elke inkomende HTTP-aanvraag via het voordat het wordt verwerkt door de toepassingscode.
 
-### <a name="mobile-authentication-with-a-provider-sdk"></a>Mobiele verificatie met een provider SDK
-Nadat u alles is geconfigureerd op de back-end, kunt u mobiele clients zich aanmelden met een App Service wijzigen. Er zijn twee benaderingen hier:
+![](media/app-service-authentication-overview/architecture.png)
 
-* Gebruik een SDK die een opgegeven id-provider voor het vaststellen van identiteit en vervolgens toegang krijgen tot de App Service publiceert.
-* Gebruik één regel code zodat de client-Mobile Apps SDK gebruikers kunt aanmelden.
+Deze module worden verwerkt op verschillende manieren voor uw app:
 
-> [!TIP]
-> De meeste toepassingen moeten een provider SDK gebruiken om een consistente gebruikerservaring wanneer gebruikers zich aanmelden, vernieuwen-ondersteuning en om op te halen van andere voordelen van de provider geeft.
-> 
-> 
+- Verificatie van gebruikers met de opgegeven provider
+- Valideert en vernieuwen van tokens worden opgeslagen
+- Beheert de geverifieerde sessie
+- Gegevens van identiteit in de aanvraagheaders injects
 
-Wanneer u een provider SDK gebruikt, kunnen gebruikers zich kunnen aanmelden bij een werkwijze die meer nauw geïntegreerd met het besturingssysteem dat de app wordt uitgevoerd op. Dit biedt u eveneens de token van een provider en bepaalde gebruikersgegevens op de client, die veel gemakkelijker graph API's gebruiken en aanpassen van de gebruikerservaring. Tijd tot tijd op de blogs en forums ziet u dit aangeduid als de stroom' client' of 'client omgeleid stroom' omdat de code op de client zich in gebruikers en de clientcode toegang heeft tot een token van de provider.
+De module wordt afzonderlijk van uw toepassingscode wordt uitgevoerd en is geconfigureerd met app-instellingen. Er is geen SDK's, specifieke talen of wijzigingen in uw toepassingscode zijn vereist. 
 
-Wanneer een provider-token wordt ontvangen, moet deze worden verzonden naar App Service voor validatie. Nadat de App Service valideert het token, maakt de App Service een nieuwe App Service-token dat wordt geretourneerd naar de client. De client-Mobile Apps SDK heeft Help-methoden voor het beheren van deze exchange- en automatisch aan alle aanvragen naar de back-end voor de toepassing koppelen het token. Ontwikkelaars kunnen ook een verwijzing naar het token provider behouden desgewenst.
+### <a name="user-claims"></a>Gebruikersclaims
 
-### <a name="mobile-authentication-without-a-provider-sdk"></a>Mobiele verificatie zonder een SDK-provider
-Als u niet instellen van een provider SDK wilt, kunt u de functie Mobile Apps van Azure App Service aan te melden voor u. De client-Mobile Apps SDK wordt een webpagina weergave opent om de provider van uw keuze en meld u aan de gebruiker. Tijd tot tijd op de blogs en forums ziet u dit wel de 'server stroom' of 'server gerichte stroom' omdat de server beheert het proces dat gebruikers worden aangemeld en de client SDK nooit ontvangt het provider-token.
+Voor alle taalframeworks, App Service kunt u claims van de gebruiker beschikbaar is voor uw code door het injecteren ze in de aanvraagheaders. Voor ASP.NET 4.6-apps-App Service wordt gevuld [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) met claims van de geverifieerde gebruiker, zodat u de standaard .NET-code patroon volgen kunt, waaronder de `[Authorize]` kenmerk. Op deze manier voor PHP-apps-App Service vult de `_SERVER['REMOTE_USER']` variabele.
 
-Code voor het starten van deze stroom is opgenomen in de zelfstudie verificatie voor elk platform. De SDK-client heeft een App Service-token aan het einde van stroom en het token is automatisch gekoppeld aan alle aanvragen naar de back-end voor de toepassing.
+Voor [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is niet gehydrateerd voor .NET-code, maar u kunt nog steeds de gebruikersclaims vinden in de aanvraagheaders.
 
-### <a name="service-to-service-authentication"></a>Verificatie van service-tot-service
-Hoewel u gebruikers toegang tot uw toepassing geven kunt, kunt u ook een andere toepassing uw eigen API aan te roepen vertrouwen. Bijvoorbeeld, kunnen u een web-app een API-aanroep in een andere web-app hebben. In dit scenario kunt u referenties voor een serviceaccount in plaats van de referenties van gebruiker geen token ophalen. Een service-account wordt ook wel een *service-principal* in Azure Active Directory-jargon en authenticatie die gebruikmaakt van zo'n account wordt ook wel bekend als een service-naar-service-scenario.
+Zie voor meer informatie [toegang tot gebruikersclaims](app-service-authentication-how-to.md#access-user-claims).
 
-> [!IMPORTANT]
-> Omdat mobiele apps worden uitgevoerd op apparaten van de klant, mobiele toepassingen doen *niet* tellen als vertrouwde toepassingen en moet een service-principal stroom niet gebruiken. In plaats daarvan moeten ze gebruiken in de gebruikersstroom van een die eerder is beschreven.
-> 
-> 
+### <a name="token-store"></a>Tokenopslag
 
-App Service kunt uw toepassing beveiligen met behulp van Azure Active Directory voor scenario's met service-naar-service. De aanroepende toepassing moet alleen een Azure Active Directory service principal verificatietoken die wordt verkregen door de client-ID en geheime van Azure Active Directory-client bieden. Een voorbeeld van dit scenario die gebruikmaakt van ASP.NET-API-apps wordt uitgelegd in de zelfstudie [principal verificatie voor de Service voor API-Apps] [apia-service].
+App Service biedt een ingebouwde tokenopslag, dit is een opslagplaats van tokens die gekoppeld aan de gebruikers van uw web-apps, API's of systeemeigen mobiele apps zijn. Als u verificatie met elke provider inschakelt, wordt dit token archief onmiddellijk beschikbaar in uw app. Als uw toepassingscode moet toegang tot gegevens van deze providers namens de gebruiker, zoals: 
 
-Als u wilt een App Service-verificatie gebruiken om te verwerken van een scenario voor service-naar-service, kunt u clientcertificaten of basisverificatie. Zie voor informatie over clientcertificaten in Azure, [hoe te configureren TLS wederzijdse verificatie voor Web-Apps](app-service-web-configure-tls-mutual-auth.md). Zie voor meer informatie over basisverificatie in ASP.NET [verificatie-Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
+- post een bericht naar de geverifieerde gebruiker Facebook tijdlijn
+- zakelijke gegevens van de gebruiker lezen van de Azure Active Directory Graph API of zelfs Microsoft Graph
 
-Verificatie van een logische app van App Service-account in een API-app service is een speciaal geval die wordt beschreven in [uw aangepaste API gebruiken die worden gehost op App Service met Logic apps](../logic-apps/logic-apps-custom-hosted-api.md).
+De id-tokens, toegangstokens en vernieuwen van tokens in de cache opgeslagen voor de geverifieerde sessie en ze zijn alleen toegankelijk is voor de gebruiker gekoppeld.  
 
-## <a name="authorization"></a>De werking van autorisatie in App Service
-Hebt u volledige controle over de aanvragen die toegang uw toepassing tot. App Service-verificatie / autorisatie kan worden geconfigureerd met een van de volgende problemen:
+Normaal gesproken moet u code voor het verzamelen, opslaan en vernieuw deze tokens in uw toepassing schrijven. Met de tokenopslag die u zojuist hebt [ophalen van de tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) wanneer u ze nodig hebt en [App Service vernieuwen ze instrueren](app-service-authentication-how-to.md#refresh-access-tokens) wanneer ze ongeldig geworden. 
 
-* Alleen geverifieerde aanvragen toestaan om uw toepassing bereiken.
-  
-    Als een browser een anonieme aanvraag verzendt, omleidt App-Service naar een pagina voor de id-provider die u kiest, zodat gebruikers zich kunnen aanmelden. Als de aanvraag afkomstig van een mobiel apparaat is, het geretourneerde antwoord is een HTTP *401 niet geautoriseerd* antwoord.
-  
-    Met deze optie moet u niet helemaal een verificatiecode te schrijven in uw app. Als u moet de mate autorisatie, is informatie over de gebruiker beschikbaar voor uw code.
-* Toestaan dat alle aanvragen voor uw toepassing bereiken maar geverifieerde aanvragen valideren en de verificatiegegevens in de HTTP-headers doorgegeven.
-  
-    Deze optie past omleiding autorisatiebeslissingen de toepassingscode. Biedt dit meer flexibiliteit bij het anonieme aanvragen voor de verwerking, maar u hebt om code te schrijven.
-* Toestaan dat alle aanvragen voor het bereiken van uw toepassing en geen actie onderneemt op verificatiegegevens in de aanvragen.
-  
-    In dit geval, de verificatie / autorisatie-functie is uitgeschakeld. De taken voor verificatie en autorisatie zijn geheel afhankelijk van uw toepassingscode.
+Als u niet hoeft te werken met tokens in uw app, kunt u de tokenopslag uitschakelen.
 
-Het vorige gedrag worden beheerd door de **te ondernemen actie wanneer de aanvraag is niet geverifieerd** optie in de Azure-portal. Als u ervoor kiest ** Meld u aan met *providernaam* **, alle aanvragen moeten worden geverifieerd. **Laat de aanvraag (geen actie)** past de autorisatiebeslissing aan uw code omleiding maar nog steeds biedt verificatie-informatie. Als u dat uw code alles verwerken wilt, kunt u de verificatie uitschakelen / functie voor autorisatie.
+### <a name="logging-and-tracing"></a>Logboekregistratie en tracering
 
-## <a name="working-with-user-identities-in-your-application"></a>Werken met gebruikers-id's in uw toepassing
-App Service geeft bepaalde gebruikersgegevens aan uw toepassing met behulp van speciale headers. Externe aanvragen verbieden deze koppen en wordt alleen aanwezig als ingesteld door App Service-verificatie / autorisatie. Er zijn enkele koppen voorbeeld:
+Als u [Schakel toepassingslogboeken](web-sites-enable-diagnostic-log.md), ziet u verificatie en autorisatie traceringen rechtstreeks in de logboekbestanden. Als u een verificatiefout die u hebt niet verwacht ziet, kunt u gemakkelijk alle details vinden door te kijken in uw bestaande toepassingslogboeken. Als u inschakelt [tracering van mislukte aanvragen](web-sites-enable-diagnostic-log.md), ziet u precies welke rol de verificatie en autorisatiemodule in een mislukte aanvraag kan hebben gespeeld. Zoek in de traceerlogboeken voor verwijzingen naar een module met de naam `EasyAuthModule_32/64`. 
 
-* X-MS-CLIENT-PRINCIPAL-NAAM
-* X-MS-CLIENT-PRINCIPAL-ID
-* X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN
-* X-MS-TOKEN-FACEBOOK-EXPIRES-ON
+## <a name="identity-providers"></a>Id-providers
 
-Code die is geschreven in elke taal of elk framework, krijgen de informatie die nodig is van de headers. Voor ASP.NET 4.6-apps, de **claimsprincipal is** automatisch ingesteld met de juiste waarden.
+App Service gebruikt [federatieve identiteit](https://en.wikipedia.org/wiki/Federated_identity), waarin een derde partij id-provider de gebruikers-id's en authenticatiestroom voor u beheert. Vijf identiteitsproviders zijn standaard beschikbaar: 
 
-Uw toepassing ook aanvullende gegevens via een HTTP GET te vinden op de `/.auth/me` eindpunt van uw toepassing. Een geldig token dat is opgenomen in de aanvraag wordt een JSON-nettolading met gegevens over de provider die wordt gebruikt, de onderliggende provider-token en andere gebruikersinformatie geretourneerd. De server Mobile Apps SDK's bieden Help-methoden wilt werken met deze gegevens. Zie voor meer informatie [het gebruik van de Azure Mobile Apps Node.js SDK](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity), en [werken met de .NET-back-endserver SDK voor Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+| Provider | Aanmelden-eindpunt |
+| - | - |
+| [Azure Active Directory](../active-directory/active-directory-whatis.md) | `/.auth/login/aad` |
+| [Microsoft-account](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoft` |
+| [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
+| [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
+| [Twitter](https://developer.twitter.com/docs/basics/authentication) | `/.auth/login/twitter` |
 
-## <a name="documentation-and-additional-resources"></a>Documentatie en aanvullende bronnen
-### <a name="identity-providers"></a>Id-providers
-De volgende zelfstudies laten zien hoe u App Service voor het gebruik van verschillende verificatieproviders configureren:
+Als u verificatie en autorisatie met een van deze providers inschakelt, is het eindpunt aanmelden beschikbaar voor verificatie van gebruiker en voor de validatie van verificatietokens van de provider. U kunt uw gebruikers met een willekeurig aantal deze opties aanmelden met gemak opgeven. U kunt ook integreren met een andere id-provider of [uw eigen aangepaste identiteitsoplossing][custom-auth].
+
+## <a name="authentication-flow"></a>Verificatiestroom
+
+De authenticatiestroom is hetzelfde voor alle providers, maar is afhankelijk van of u zich wilt aanmelden met de provider SDK:
+
+- Zonder provider SDK: de toepassing delegeert federatieve aanmelding bij App Service. Dit is meestal het geval is bij de browserapps, die de aanmeldingspagina van de provider voor de gebruiker kan opleveren. De servercode beheert het aanmelden, dus ook wel _server gerichte stroom_ of _server stroom_. Dit geldt voor web-apps. Dit geldt ook voor systeemeigen apps die gebruikers in de client-Mobile Apps SDK gebruiken omdat de SDK een webpagina openen om de gebruikers zich aanmelden met App Service-verificatie te ondertekenen. 
+- Met SDK-provider: gebruiker handmatig aanmeldt en verzendt het vervolgens het verificatietoken in App Service voor validatie van de toepassing. Dit is meestal het geval is bij de browser minder apps, die de aanmeldingspagina van de provider kan niet worden gepresenteerd aan de gebruiker. De toepassingscode beheert het proces voor aanmelden, dus ook wel _client omgeleid stroom_ of _stroom_. Dit geldt voor de REST-API's [Azure Functions](../azure-functions/functions-overview.md), en JavaScript-browser-clients, evenals web-apps die meer flexibiliteit in het proces aanmelden. Dit geldt ook voor systeemeigen mobiele apps die gebruikers in met behulp van de provider SDK ondertekent.
+
+> [!NOTE]
+> Een andere REST-API-aanroepen vanuit een vertrouwde browserapp in App Service aanroepen in App Service of [Azure Functions](../azure-functions/functions-overview.md) kan worden geverifieerd met behulp van de stroom server omgeleid. Zie voor meer informatie [verificatie van gebruikers met Azure App Service]().
+>
+
+De onderstaande tabel bevat de stappen van de verificatiestroom.
+
+| Stap | Zonder provider SDK | Met SDK-provider |
+| - | - | - |
+| 1. Aanmelding van gebruiker in | Client naar doorstuurt `/.auth/login/<provider>`. | Clientcode gebruiker zich aanmeldt rechtstreeks met de SDK van de provider en ontvangt geen verificatietoken. Zie de documentatie van de provider voor informatie. |
+| 2. Post-authenticatie | Provider van client naar doorstuurt `/.auth/login/<provider>/callback`. | Clientcode boekt token van de leverancier van `/.auth/login/<provider>` voor validatie. |
+| 3. Geverifieerde sessie tot stand brengen | App Service geverifieerde cookie aan antwoord toegevoegd. | App Service retourneert een eigen verificatietoken en clientcode. |
+| 4. Geverifieerde inhoud leveren | Client neemt verificatiecookie in de volgende aanvragen (automatisch verwerkt door de browser). | Clientcode is verificatietoken in `X-ZUMO-AUTH` header (automatisch verwerkt door de client-Mobile Apps SDK's). |
+
+Voor clientbrowsers App Service automatisch alle niet-geverifieerde gebruikers kan direct `/.auth/login/<provider>`. U kunt gebruikers ook aanwezig zijn met een of meer `/.auth/login/<provider>` koppelingen aan te melden bij uw app met behulp van de provider van keuze.
+
+<a name="authorization"></a>
+
+## <a name="authorization-behavior"></a>Autorisatie-gedrag
+
+In de [Azure-portal](https://portal.azure.com), kunt u App Service-autorisatie configureren met een aantal gedrag.
+
+![](media/app-service-authentication-overview/authorization-flow.png)
+
+De volgende rubrieken beschrijven de opties.
+
+### <a name="allow-all-requests-default"></a>Toestaan dat alle aanvragen (standaard)
+
+Verificatie en autorisatie wordt niet beheerd door App Service (uitgeschakeld). 
+
+Selecteer deze optie als u geen verificatie en autorisatie, of als u wilt uw eigen code voor verificatie en autorisatie schrijven.
+
+### <a name="allow-only-authenticated-requests"></a>Alleen geverifieerde aanvragen toestaan
+
+De optie is **Meld u aan met \<provider >**. App Service leidt alle anonieme aanvragen voor `/.auth/login/<provider>` voor de provider die u kiest. Als de anonieme aanvraag afkomstig van een systeemeigen mobiele app is, het geretourneerde antwoord is een `HTTP 401 Unauthorized`.
+
+Met deze optie moet u niet een verificatiecode te schrijven in uw app. Hoe fijner autorisatie, zoals autorisatie, rolspecifieke, kan worden verwerkt door te inspecteren van de gebruiker claims (Zie [toegang tot gebruikersclaims](app-service-authentication-how-to.md#access-user-claims)).
+
+### <a name="allow-all-requests-but-validate-authenticated-requests"></a>Alle aanvragen toestaan, maar geverifieerde aanvragen valideren
+
+De optie is **toestaan anonieme aanvragen**. Deze optie Hiermee schakelt u verificatie en autorisatie in App Service, maar past omleiding autorisatiebeslissingen de toepassingscode. Voor geverifieerde aanvragen geeft App Service ook langs de verificatiegegevens in de HTTP-headers. 
+
+Deze optie biedt meer flexibiliteit bij het verwerken van anonieme aanvragen. Bijvoorbeeld, u kunt [meerdere aanmeldingsopties aanwezig](app-service-authentication-how-to.md#configure-multiple-sign-in-options) aan uw gebruikers. U hebt echter om code te schrijven. 
+
+## <a name="more-resources"></a>Meer bronnen
+
+[Verificatie en autorisatie in App Service aanpassen](app-service-authentication-how-to.md)
+
+Providerspecifiek handleidingen:
 
 * [Het configureren van uw app voor het gebruik van Azure Active Directory-aanmelding][AAD]
 * [Het configureren van uw app om het gebruik Facebook-aanmelding][Facebook]
 * [Het configureren van uw app voor het gebruik van Google-aanmelding][Google]
 * [Het configureren van uw app om de aanmelding van de Microsoft-Account gebruiken][MSA]
 * [Het configureren van uw app om het gebruik Twitter-aanmelding][Twitter]
-
-Als u gebruiken op een identiteitssysteem dan degene die wilt voorwaarde hier ook u kunt de [preview-ondersteuning voor aangepaste verificatie op de server Mobile Apps .NET SDK][custom-auth], die kan worden gebruikt in de web-apps, mobiele apps of API-apps.
-
-### <a name="mobile-applications"></a>Mobiele toepassingen
-De volgende zelfstudies laten zien hoe u verificatie toevoegen aan uw mobiele clients met behulp van de stroom server gerichte:
-
-* [Verificatie toevoegen aan uw iOS-app][iOS]
-* [Verificatie toevoegen aan uw Android-app][Android]
-* [Verificatie toevoegen aan uw Windows-app][Windows]
-* [Verificatie toevoegen aan uw app voor Xamarin.iOS][Xamarin.iOS]
-* [Verificatie toevoegen aan uw Xamarin.Android-app][Xamarin.Android]
-* [Verificatie toevoegen aan uw app Xamarin.Forms][Xamarin.Forms]
-* [Verificatie toevoegen aan uw Cordova-app][Cordova]
-
-Gebruik de volgende bronnen als u wilt gebruiken van de client omgeleid stroom voor Azure Active Directory:
-
-* [Gebruik de Active Directory Authentication Library voor iOS][ADAL-iOS]
-* [Gebruik de Active Directory Authentication Library voor Android][ADAL-Android]
-* [De Active Directory Authentication Library voor Windows en Xamarin gebruiken][ADAL-dotnet]
-
-Gebruik de volgende bronnen als u wilt gebruiken van de client omgeleid stroom voor Facebook:
-
-* [Gebruik de Facebook-SDK voor iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
-
-Gebruik de volgende bronnen als u wilt gebruiken van de client omgeleid stroom voor Twitter:
-
-* [Gebruik Twitter Fabric voor iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
-
-Gebruik de volgende bronnen als u wilt gebruiken van de client omgeleid stroom voor Google:
-
-* [Gebruik de Google-In SDK voor iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
-
-<!-- ### API applications
-The following tutorials show how to protect your API apps:
-
-* [User authentication for API Apps in Azure App Service][apia-user]
-* [Service principal authentication for API Apps in Azure App Service][apia-service] -->
-
-[iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
-[Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
-[Xamarin.iOS]: ../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md
-[Xamarin.Android]: ../app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md
-[Xamarin.Forms]: ../app-service-mobile/app-service-mobile-xamarin-forms-get-started-users.md
-[Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
-[Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
+* [Procedure: aangepaste verificatie voor uw toepassing gebruiken][custom-auth]
 
 [AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md

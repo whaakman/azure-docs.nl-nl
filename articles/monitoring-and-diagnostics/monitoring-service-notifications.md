@@ -3,10 +3,10 @@ title: Wat zijn Azure servicestatusmeldingen? | Microsoft Docs
 description: Servicestatusmeldingen zodat u kunt bekijken van berichten van health-service gepubliceerd door Microsoft Azure.
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
 ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Servicestatusmeldingen weergeven met behulp van de Azure-portal
 
@@ -35,12 +35,12 @@ Er zijn verschillende soorten servicestatusmeldingen:
 
 Elke melding van de health service bevat de details van het bereik en de gevolgen voor uw resources. Details opnemen:
 
-Naam van eigenschap | Beschrijving
+De naam van eigenschap | Beschrijving
 -------- | -----------
 kanalen | Een van de volgende waarden: **Admin** of **bewerking**.
 correlationId | Meestal een GUID in de indeling van de tekenreeks. Gebeurtenissen die deel uitmaken van dezelfde actie meestal delen de dezelfde correlationId.
 eventDataId | De unieke id van een gebeurtenis.
-EventName | De titel van een gebeurtenis.
+eventName | De titel van een gebeurtenis.
 niveau | Het niveau van een gebeurtenis. Een van de volgende waarden: **Kritiek**, **fout**, **waarschuwing** of **informatief**.
 resourceProviderName | De naam van de resourceprovider voor de betrokken resource.
 resourceType| Het type resource van de betrokken resource.

@@ -2,11 +2,11 @@
 title: Schaal U-SQL lokaal uitvoeren en testen met Azure Data Lake U-SQL-SDK | Microsoft Docs
 description: Ontdek hoe u met Azure Data Lake U-SQL-SDK scale U-SQL-taken lokaal uitvoeren en testen met de opdrachtregel en API's op uw lokale werkstation.
 services: data-lake-analytics
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Schaal U-SQL lokaal uitvoeren en testen met Azure Data Lake U-SQL-SDK
 
@@ -60,9 +60,9 @@ U kunt een relatief pad en een lokaal absoluut pad in U-SQL-scripts gebruiken. H
 
 |Relatief pad|Het absolute pad|
 |-------------|-------------|
-|/ABC/DEF/Input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
-|ABC/DEF/Input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
-|D:/ABC/DEF/Input.csv |D:\abc\def\input.csv|
+|/abc/def/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
+|abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
+|D:/abc/def/input.csv |D:\abc\def\input.csv|
 
 ### <a name="working-directory"></a>Werkmap
 
@@ -73,11 +73,11 @@ Wanneer het U-SQL-script lokaal wordt uitgevoerd, wordt een werkmap tijdens de c
 |C6A101DDCB470506| | |Hash-tekenreeks van de runtime-versie|Schaduwkopie van de runtimebestanden die nodig zijn voor lokale uitvoering|
 | |Script_66AE4909AA0ED06C| |De naam van een script + hash-tekenreeks van scriptpad|Compilatie-uitvoer en uitvoering van stap logboekregistratie|
 | | |\_script\_.abr|Compiler-uitvoer|Wiskundige bestand|
-| | |\_ScopeCodeGen\_. *|Compiler-uitvoer|Beheerde code gegenereerd|
-| | |\_ScopeCodeGenEngine\_. *|Compiler-uitvoer|Gegenereerde systeemeigen code|
+| | |\_ScopeCodeGen\_.*|Compiler-uitvoer|Beheerde code gegenereerd|
+| | |\_ScopeCodeGenEngine\_.*|Compiler-uitvoer|Gegenereerde systeemeigen code|
 | | |assemblies waarnaar wordt verwezen|Assembly-verwijzing|Bestanden van de assembly waarnaar wordt verwezen|
 | | |deployed_resources|Resources implementeren|Bronbestanden van de implementatie|
-| | |XXXXXXXX.xxx[1..n]\_\*. *|Uitvoeringslogboek|Logboek van de stappen worden uitgevoerd|
+| | |xxxxxxxx.xxx[1..n]\_\*.*|Uitvoeringslogboek|Logboek van de stappen worden uitgevoerd|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Gebruik de SDK vanaf de opdrachtregel
@@ -345,31 +345,31 @@ openbare LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 
 |Eigenschap|Type|Beschrijving|
 |--------|----|-----------|
-|AlgebraPath|Tekenreeks|Het pad naar bestand wiskundige (wiskundige-bestand is een van de compilatieresultaten)|
-|CodeBehindReferences|Tekenreeks|Als het script aanvullende code achter verwijzingen heeft, geeft u de paden van elkaar gescheiden door ';'|
-|CppSdkDir|Tekenreeks|CppSDK directory|
-|CurrentDir|Tekenreeks|Huidige map|
-|DataRoot|Tekenreeks|Pad naar de hoofdmap van gegevens|
-|DebuggerMailPath|Tekenreeks|Het pad naar het foutopsporingsprogramma mailslot|
+|AlgebraPath|tekenreeks|Het pad naar bestand wiskundige (wiskundige-bestand is een van de compilatieresultaten)|
+|CodeBehindReferences|tekenreeks|Als het script aanvullende code achter verwijzingen heeft, geeft u de paden van elkaar gescheiden door ';'|
+|CppSdkDir|tekenreeks|CppSDK directory|
+|CurrentDir|tekenreeks|Huidige map|
+|DataRoot|tekenreeks|Pad naar de hoofdmap van gegevens|
+|DebuggerMailPath|tekenreeks|Het pad naar het foutopsporingsprogramma mailslot|
 |GenerateUdoRedirect|BOOL|Als we wilt genereren bij het laden van assembly omleiding config overschrijven|
 |HasCodeBehind|BOOL|Als het script heeft code achter|
-|InputDir|Tekenreeks|Map voor invoergegevens|
-|MessagePath|Tekenreeks|Bericht dump bestandspad|
-|OutputDir|Tekenreeks|Map voor de uitvoergegevens|
+|InputDir|tekenreeks|Map voor invoergegevens|
+|MessagePath|tekenreeks|Bericht dump bestandspad|
+|OutputDir|tekenreeks|Map voor de uitvoergegevens|
 |Parallelle uitvoering|int|Parallelle uitvoering de wiskundige uitvoeren|
 |ParentPid|int|De Pincode van de bovenliggende waarop de service bewaakt om af te sluiten, ingesteld op 0 of een negatieve te negeren|
-|ResultPath|Tekenreeks|Resultaat dump bestandspad|
-|RuntimeDir|Tekenreeks|Runtime-map|
-|scriptPath|Tekenreeks|Waar vind ik het script|
+|ResultPath|tekenreeks|Resultaat dump bestandspad|
+|RuntimeDir|tekenreeks|Runtime-map|
+|ScriptPath|tekenreeks|Waar vind ik het script|
 |Recente|BOOL|Recente compileren of niet|
-|TempDir|Tekenreeks|Tijdelijke map|
-|UseDataBase|Tekenreeks|Geef de database moet worden gebruikt voor de code achter tijdelijke assembly-registratie, master standaard|
-|WorkDir|Tekenreeks|Voorkeur werkmap|
+|TempDir|tekenreeks|Tijdelijke map|
+|UseDataBase|tekenreeks|Geef de database moet worden gebruikt voor de code achter tijdelijke assembly-registratie, master standaard|
+|WorkDir|tekenreeks|Voorkeur werkmap|
 
 
 **Methode**
 
-|Methode|Beschrijving|retourneren|Parameter|
+|Methode|Beschrijving|Terug|Parameter|
 |------|-----------|------|---------|
 |openbare bool DoCompile()|Compileren van de U-SQL-script|True indien geslaagd| |
 |openbare bool DoExec()|Het gecompileerde resultaat uitvoeren|True indien geslaagd| |

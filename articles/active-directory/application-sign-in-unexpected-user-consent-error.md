@@ -2,10 +2,10 @@
 title: Onverwachte fout bij het uitvoeren van toestemming voor een toepassing | Microsoft Docs
 description: Fouten die tijdens het proces optreden kunnen van een toepassing en wat u kunt doen over ze ermee akkoord dat wordt beschreven
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Onverwachte fout bij het uitvoeren van toestemming voor een toepassing
 
@@ -50,7 +50,7 @@ Deze fout geeft aan dat er een probleem onregelmatige service aan de clientzijde
 Neem contact op met de ontwikkelaar van toepassingen.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>De resource is niet beschikbaar in de tenant-fout
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; toegang tot een bron aanvraagt &lt;resourceAppDisplayName&gt; die is niet beschikbaar in uw organisatie &lt; tenantDisplayName&gt;. 
+* **AADSTS65005:** &lt;clientAppDisplayName&gt; toegang tot een bron aanvraagt &lt;resourceAppDisplayName&gt; die is niet beschikbaar in uw organisatie &lt;tenantDisplayName &gt;. 
 
 Zorg ervoor dat deze resource beschikbaar is of neem contact op met de beheerder van &lt;tenantDisplayName&gt;.
 

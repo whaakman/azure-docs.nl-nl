@@ -2,10 +2,10 @@
 title: Configureer de Telestream Wirecast-coderingsprogramma voor het verzenden van een single-bitrate live stream | Microsoft Docs
 description: 'Dit onderwerp leest hoe u configureert het live coderingsprogramma Wirecast voor het verzenden van een single-bitrate stream AMS-kanalen die zijn ingeschakeld voor live codering. '
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: 0e4fb0b7c915969da1760eaccc77aa399030752e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>De Wirecast-coderingsprogramma gebruiken voor het verzenden van een single-bitrate live stream
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van 
 
 ### <a name="configuration-steps"></a>Configuratiestappen
 1. Open de Telestream Wirecast-toepassing op de computer die wordt gebruikt en instellen voor het RTMP-streaming.
-2. De uitvoer configureren door te navigeren naar de **uitvoer** tabblad en het selecteren van **uitvoerinstellingen... **.
+2. De uitvoer configureren door te navigeren naar de **uitvoer** tabblad en het selecteren van **uitvoerinstellingen...** .
 
     Zorg ervoor dat de **bestemming voor de uitvoer** is ingesteld op **RTMP Server**.
 3. Klik op **OK**.

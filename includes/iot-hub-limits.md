@@ -16,6 +16,7 @@ De volgende tabel bevat de limieten die van toepassing zijn op IoT Hub-resources
 | --- | --- |
 | Maximum aantal betaalde IoT-hubs per Azure-abonnement |10 |
 | Maximum aantal gratis IoT-hubs per Azure-abonnement |1 |
+| Maximum aantal tekens in een apparaat-Id | 128 |
 | Maximumaantal apparaat-id's<br/> dat in één aanroep wordt geretourneerd |1000 |
 | Maximale bewaartermijn van IoT Hub-berichten voor apparaat-naar-cloud berichten |7 dagen |
 | Maximale grootte van apparaat-naar-cloud berichten |256 kB |

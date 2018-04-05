@@ -26,7 +26,7 @@ Gebruiken om aan te roepen methoden op uw apparaten, de **apparaten** pagina in 
 
 1. Voor een lijst van de methoden die u op uw apparaat aanroepen kunt, kies **planning**. Als u een methode uit te voeren op meerdere apparaten plannen, kunt u meerdere apparaten in de lijst. De **planning** deelvenster toont de typen van de methode algemene op alle apparaten die u hebt geselecteerd.
 
-1. Kies **FirmwareUpdate**, de taaknaam van de ingesteld op **UpdatePhysicalChiller**. Ingesteld **firmwareversie** naar **2.0.0**stelt **Firmware URI** naar **http://contoso.com/updates/firmware.bin**, en kies vervolgens  **Van toepassing**:
+1. Kies **FirmwareUpdate**, de taaknaam van de ingesteld op **UpdatePhysicalChiller**. Ingesteld **firmwareversie** naar **2.0.0**stelt **Firmware URI** naar **http://contoso.com/updates/firmware.bin**, en kies vervolgens **toepassen**:
 
     ![De firmware-update plannen](media/iot-suite-visualize-connecting/deviceschedule.png)
 

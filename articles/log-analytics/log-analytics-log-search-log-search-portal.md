@@ -2,10 +2,10 @@
 title: Met behulp van de portal logboek zoeken in Azure Log Analytics | Microsoft Docs
 description: Dit artikel bevat een zelfstudie waarin wordt beschreven hoe maken zoekopdrachten logboek en analyseren van gegevens die zijn opgeslagen in de werkruimte voor logboekanalyse via de portal logboek zoeken.  In deze zelfstudie worden enkele eenvoudige query's uitgevoerd voor het retourneren van verschillende soorten gegevens en worden resultaten geanalyseerd.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 37213012e817f0fae21a47a4334a519bbbca206b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Logboek zoekopdrachten maken in Azure-logboekanalyse via de portal logboek zoeken
 
@@ -63,7 +63,7 @@ Gegevens worden geretourneerd in de standaardlijstweergave en u kunt zien hoevee
 
 Alleen de eerste paar eigenschappen van elk record worden weergegeven.  Klik op **Meer weergeven** om alle eigenschappen van een bepaald record weer te geven.
 
-![Details van de records](media/log-analytics-log-search-log-search-portal/log-search-portal-02.png)
+![Details van record](media/log-analytics-log-search-log-search-portal/log-search-portal-02.png)
 
 ## <a name="set-the-time-scope"></a>Het bereik van de tijd instellen
 Elke record die is verzameld door Log Analytics is een **TimeGenerated** eigenschap met de datum en tijd waarop de record is gemaakt.  Een query in de portal logboek Search retourneert alleen records met een **TimeGenerated** binnen het bereik voor tijd die aan de linkerkant van het scherm wordt weergegeven.  

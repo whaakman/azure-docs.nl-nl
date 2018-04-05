@@ -1,11 +1,11 @@
 ---
 title: Met Q & een overeenkomend met behulp van Azure Machine Learning Workbench | Microsoft Docs
-description: "Hoe verschillende effectieve machine learning-methoden gebruiken om u te overeen met open beëindigd query's naar een reeds bestaande Veelgestelde vragen over/antwoorden paren."
+description: Hoe verschillende effectieve machine learning-methoden gebruiken om u te overeen met open beëindigd query's naar een reeds bestaande Veelgestelde vragen over/antwoorden paren.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: mezmicrosoft
 editor: mezmicrosoft
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
 ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Met Q & een overeenkomend met behulp van Azure Machine Learning-workbench
 Open beëindigd vragen te beantwoorden, is moeilijk en vaak vereist handmatige inspanning van deskundigen (bestemd). Om te beperken van de vereisten op interne bestemd, maken bedrijven vaak een lijst met veelgestelde vragen (FAQ's) als een manier om gebruikers te helpen. In dit voorbeeld gepresenteerd verschillende effectieve machine learning-methoden zodat deze overeenkomen met open beëindigd query's naar het reeds bestaande Veelgestelde vragen over antwoorden/waardeparen. Dit voorbeeld wordt een eenvoudige manier kunt ontwikkelen-proces voor het bouwen van een dergelijke oplossing met behulp van de Azure Machine Learning-Workbench. 
@@ -51,7 +51,7 @@ De vereisten voor het uitvoeren van dit voorbeeld zijn als volgt:
 
 Maak een nieuw project in dit voorbeeld als sjabloon gebruiken:
 1.  Open Azure Machine Learning Workbench
-2.  Op de **projecten** pagina, klikt u op de  **+**  en selecteer **nieuw Project**
+2.  Op de **projecten** pagina, klikt u op de **+** en selecteer **nieuw Project**
 3.  In de **nieuw Project maken** deelvenster Vul de informatie voor het nieuwe project
 4.  In de **zoeken projectsjablonen** het zoekvak, typ 'Q & A Matching' en selecteer de sjabloon
 5.  Klik op **Maken**.
@@ -82,7 +82,7 @@ Het gegevensschema en de directe downloadkoppelingen van de drie gegevenssets vi
 
 | Gegevensset | Veld | Type | Beschrijving
 | ----------|------------|------------|--------
-| [vragen](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | Tekenreeks | De unieke vraag-ID (primaire sleutel)
+| [Vragen](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | Tekenreeks | De unieke vraag-ID (primaire sleutel)
 |  | AnswerId | Tekenreeks | De ID uniek antwoord per vraag
 |  | text0 | Tekenreeks | De onbewerkte gegevens zoals de titel en de hoofdtekst van de vraag
 |  | CreationDate | Timestamp | De tijdstempel van wanneer de vraag is gevraagd

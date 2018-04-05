@@ -1,11 +1,11 @@
 ---
-title: "Open source-technologieën Veelgestelde vragen over Azure web-apps | Microsoft Docs"
-description: "Vind antwoorden op veelgestelde vragen over open source-technologieën in de functie Web Apps van Azure App Service."
+title: Open source-technologieën Veelgestelde vragen over Azure web-apps | Microsoft Docs
+description: Vind antwoorden op veelgestelde vragen over open source-technologieën in de functie Web Apps van Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Open source-technologieën Veelgestelde vragen voor Web-Apps in Azure
 
@@ -49,10 +49,10 @@ PHP-logboekregistratie inschakelen:
 2. Selecteer in het bovenste menu **Console voor foutopsporing** > **CMD**.
 3. Selecteer de **Site** map.
 4. Selecteer de **wwwroot** map.
-5. Selecteer de  **+**  pictogram en selecteer vervolgens **nieuw bestand**.
+5. Selecteer de **+** pictogram en selecteer vervolgens **nieuw bestand**.
 6. De bestandsnaam ingesteld op **. user.ini**.
 7. Schakel het potloodpictogram naast **. user.ini**.
-8. Voeg deze code in het bestand:`log_errors=on`
+8. Voeg deze code in het bestand: `log_errors=on`
 9. Selecteer **Opslaan**.
 10. Schakel het potloodpictogram naast **wp-config.php**.
 11. Wijzig de tekst in de volgende code:
@@ -100,7 +100,7 @@ Als u wilt de versie van de Node.js-toepassing wijzigen, kunt u een van de volge
     Het implementatieproces voor beheer van Azure bron omvat de volgende stappen:
     1. Hiermee verplaatst u inhoud naar de Azure-web-app.
     2. Als er niet (deploy.cmd, .deployment-bestanden) in de hoofdmap van de web-app is, maakt een standaard implementatiescript.
-    3. Wordt uitgevoerd een implementatiescript waarin deze een iisnode.yml bestand maakt als u de Node.js-versie in het bestand package.json vermeld > engine`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+    3. Wordt uitgevoerd een implementatiescript waarin deze een iisnode.yml bestand maakt als u de Node.js-versie in het bestand package.json vermeld > engine `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     4. Het bestand iisnode.yml heeft de volgende regel code:
         ```
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -137,22 +137,22 @@ Voor Azure Marketplace en aangepaste implementaties:
 
 * Locatie van de map: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * Bestanden die van belang:
-    * catalina. *jjjj-mm-dd*.log
-    * host-manager. *jjjj-mm-dd*.log
+    * catalina.*yyyy-mm-dd*.log
+    * host-manager.*yyyy-mm-dd*.log
     * localhost. *jjjj-mm-dd*.log
-    * Manager. *jjjj-mm-dd*.log
-    * site_access_log. *jjjj-mm-dd*.log
+    * manager.*yyyy-mm-dd*.log
+    * site_access_log.*yyyy-mm-dd*.log
 
 
 Voor portal **appinstellingen** implementaties:
 
 * Locatie van de map: D:\home\LogFiles
 * Bestanden die van belang:
-    * catalina. *jjjj-mm-dd*.log
-    * host-manager. *jjjj-mm-dd*.log
+    * catalina.*yyyy-mm-dd*.log
+    * host-manager.*yyyy-mm-dd*.log
     * localhost. *jjjj-mm-dd*.log
-    * Manager. *jjjj-mm-dd*.log
-    * site_access_log. *jjjj-mm-dd*.log
+    * manager.*yyyy-mm-dd*.log
+    * site_access_log.*yyyy-mm-dd*.log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Hoe kan ik JDBC-stuurprogramma verbindingsfouten oplossen?
 

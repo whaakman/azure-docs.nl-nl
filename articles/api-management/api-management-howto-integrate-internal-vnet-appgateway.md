@@ -2,7 +2,7 @@
 title: Het gebruik van Azure API Management in virtueel netwerk met Application Gateway | Microsoft Docs
 description: Meer informatie over het installeren en configureren van Azure API Management in een intern virtueel netwerk met Application Gateway (WAF) als FrontEnd
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: solankisamir
 manager: kjoshi
 editor: antonba
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
 ms.openlocfilehash: f9bc3ffda9f943a37fd5aadf440abf7d33a6d1de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API Management in een interne VNET integreren met Application Gateway 
 
-##<a name="overview"></a> Overzicht
+##<a name="overview"> </a> Overzicht
  
 De API Management-service kan worden geconfigureerd in een virtueel netwerk in de interne modus waardoor alleen toegankelijk vanuit het virtuele netwerk. Azure Application Gateway is een PAAS-Service die voorziet in een load balancer van laag 7. Het fungeert als een reverse proxy-service en biedt tussen het aanbieden van een Web Application Firewall (WAF).
 
@@ -42,14 +42,14 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 
 + Een exemplaar APIM. Zie voor meer informatie [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 
-##<a name="scenario"></a> Scenario
+##<a name="scenario"> </a> Scenario
 In dit artikel bevat informatie over het gebruik van één API Management-service voor zowel interne als externe consumenten en maken het fungeren als een enkel frontend voor zowel on-premises en in de cloud-API's. U ziet ook hoe om alleen een subset van uw API's (in het voorbeeld dat ze zijn gemarkeerd in het groen) voor extern verbruik PathBasedRouting functionaliteit die beschikbaar is in Application Gateway met weer te geven.
 
 Uw API's worden in het eerste voorbeeld voor setup alleen via beheerd binnen het virtuele netwerk. Interne consumenten (gemarkeerd in oranje) hebben toegang tot alle uw interne en externe API's. Verkeer wordt nooit gedeeld met Internet wordt geleverd met een hoge prestaties via Express Route-circuits.
 
 ![URL-route](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"></a> Voordat u begint
+## <a name="before-you-begin"> </a> Voordat u begint
 
 1. Installeer de nieuwste versie van de Azure PowerShell-cmdlets via het webplatforminstallatieprogramma. U kunt de nieuwste versie downloaden en installeren via het gedeelte **Windows PowerShell** op de pagina [Downloads](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 2. Maak een virtueel netwerk en maak afzonderlijke subnetten voor API Management en Application Gateway. 
@@ -65,7 +65,7 @@ Uw API's worden in het eerste voorbeeld voor setup alleen via beheerd binnen het
 * **Aangepaste Health test:** Application Gateway gebruikt standaard IP-adres op basis van tests om te achterhalen welke servers in de BackendAddressPool actief zijn. De API Management service alleen reageert op aanvragen met de juiste host-header, daarom de testpakketten standaard mislukken. Een aangepaste health test moet worden gedefinieerd om te bepalen dat de service actief is en moet deze aanvragen worden doorgestuurd toepassingsgateway.
 * **Aangepaste Domeincertificaat:** voor toegang tot API Management vanaf het internet moet u een CNAME-toewijzing van de hostnaam van de toepassingsgateway front-DNS-naam te maken. Dit zorgt ervoor dat de hostnaam header en het certificaat verzonden naar Application Gateway die wordt doorgestuurd naar de API Management is een APIM als geldige kan herkennen.
 
-## <a name="overview-steps"></a> Stappen die nodig zijn voor het integreren van API Management en Application Gateway 
+## <a name="overview-steps"> </a> Stappen die nodig zijn voor het integreren van API Management en Application Gateway 
 
 1. Maak een resourcegroep voor Resource Manager.
 2. Maak een virtueel netwerk, subnet en openbaar IP-adres voor de toepassingsgateway. Maak een ander subnet voor API Management.
@@ -298,7 +298,7 @@ Het volgende voorbeeld wordt een eenvoudige regel voor het '/ echo /' pad router
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-Als het pad komt niet overeen met de padregels wilt inschakelen via de API Management, de regelconfiguratie pad-kaart, configureert u een standaard-back-end-adresgroep met de naam **dummyBackendPool**. Bijvoorbeeld: http://api.contoso.net/calc/ * overschakelt naar de **dummyBackendPool** zoals deze is gedefinieerd als de standaardgroep voor niet-overeenkomende verkeer.
+Als het pad komt niet overeen met de padregels wilt inschakelen via de API Management, de regelconfiguratie pad-kaart, configureert u een standaard-back-end-adresgroep met de naam **dummyBackendPool**. Bijvoorbeeld: http://api.contoso.net/calc/* overschakelt naar de **dummyBackendPool** zoals deze is gedefinieerd als de standaardgroep voor niet-overeenkomende verkeer.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
@@ -347,10 +347,10 @@ De toepassingsgateway DNS-naam moet worden gebruikt voor het maken van een CNAME
 Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 ```
 
-##<a name="summary"></a> Samenvatting
+##<a name="summary"> </a> Samenvatting
 Azure API Management geconfigureerd in een VNET biedt een interface één gateway voor alle geconfigureerde API's, ongeacht of deze gehoste on-premises of in de cloud. Integratie van Application Gateway met API Management biedt de flexibiliteit van selectief inschakelen van bepaalde API's voor het toegankelijk is op het Internet, evenals biedt u een Web Application Firewall als een frontend naar uw API Management-exemplaar.
 
-##<a name="next-steps"></a> Volgende stappen
+##<a name="next-steps"> </a> De volgende stappen
 * Meer informatie over Azure Application Gateway
   * [Overzicht van Application Gateway](../application-gateway/application-gateway-introduction.md)
   * [Application Gateway Web Application Firewall](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 3/19/2018
 ms.author: raiye
 ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Gast OS releases en SDK compatibiliteit matrix
 Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor Cloud-Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Gastbesturingssysteem updates zoals beschreven in [Update-instellingen van Azure Gast OS][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.

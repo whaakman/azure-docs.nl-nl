@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 8c8a2f6076c14dabe70f90538ca8c8b97fb93de0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3ea7d09338d4d89030138b8c4dc4085a6cd8ccc5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Prijscategorieën PostgreSQL-Database
 
@@ -24,7 +24,7 @@ U kunt een Azure-Database voor PostgreSQL-server maken in een van drie verschill
 | COMPUTE generatie | Gen 4, 5 Gen | Gen 4, 5 Gen | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Geheugen per vCore | Baseline | 2x Basic | 2 x voor algemene doeleinden |
-| Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 1 TB | 5 GB tot 1 TB |
+| Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 2 TB | 5 GB tot 2 TB |
 | Opslagtype | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | De back-up bewaarperiode database | 7 tot 35 dagen | 7 tot 35 dagen | 7 tot 35 dagen |
 
@@ -46,9 +46,9 @@ COMPUTE resources worden geleverd als vCores die de logische CPU van de onderlig
 |:---|:----------:|:--------------------:|
 | VS - midden |  | X |
 | VS - oost | X | X |
-| VS - oost 2 | X |  |
+| VS - oost 2 | X | X |
 | Noord-centraal VS | X |  |
-| Zuid-centraal VS | X |  |
+| Zuid-centraal VS | X | X |
 | VS - west | X | X |
 | VS - west 2 |  | X |
 | Canada - midden | X | X |
@@ -63,8 +63,8 @@ COMPUTE resources worden geleverd als vCores die de logische CPU van de onderlig
 | Australië - oost |  | X |
 | Centraal-India | X |  |
 | West-India | X |  |
-| Japan - oost | X |  |
-| Japan - west | X |  |
+| Japan - oost | X | X |
+| Japan - west | X | X |
 | Korea - zuid |  | X |
 
 Elke vCore is afhankelijk van de prijscategorie ingericht met een specifieke hoeveelheid geheugen. Wanneer u vergroten of het aantal vCores voor uw server verkleinen, wordt het geheugen verhoogt of verlaagt proportioneel. De laag voor algemene doeleinden biedt tweemaal de hoeveelheid geheugen per vCore vergeleken met de basisstaffel. De laag geoptimaliseerd voor geheugen bevat dubbele de hoeveelheid geheugen ten opzichte van de laag voor algemene doeleinden.
@@ -76,7 +76,7 @@ De opslag die u inricht is de hoeveelheid opslagcapaciteit beschikbaar is voor u
 |    | **Basic** | **Voor algemene doeleinden** | **Geoptimaliseerd voor geheugen** |
 |:---|:----------|:--------------------|:---------------------|
 | Opslagtype | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 1 TB | 5 GB tot 1 TB |
+| Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 2 TB | 5 GB tot 2 TB |
 | Maximale grootte van de verhoging | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabele |3 IOPS/GB<br/>Min 100 IOP's | 3 IOPS/GB<br/>Min 100 IOP's |
 

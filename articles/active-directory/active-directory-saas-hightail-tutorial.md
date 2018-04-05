@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
 ms.openlocfilehash: 2333a56cd9369cb66c4944304472462d2f2f7511
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Zelfstudie: Azure Active Directory-integratie met Hightail
 
@@ -110,7 +110,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_url.png)
 
-     In de **antwoord-URL** textbox, typ de URL als:`https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+     In de **antwoord-URL** textbox, typ de URL als: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
     > [!NOTE] 
     > De voorgaande waarde is geen echte waarde. U kunt de waarde wordt bijgewerkt met de werkelijke antwoord-URL, die verderop in de zelfstudie wordt beschreven.
@@ -121,7 +121,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     a. Klik op de **weergeven geavanceerde instellingen voor URL**.
 
-    b. In de **aanmelding op URL** textbox, typ de URL als:`https://www.hightail.com/loginSSO`
+    b. In de **aanmelding op URL** textbox, typ de URL als: `https://www.hightail.com/loginSSO`
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
 
@@ -133,11 +133,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren:
     
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | ------------------- | -------------------- |
-    | Voornaam | User.givenName |
-    | Achternaam | User.surname |
-    | E-mail | User.mail |    
+    | FirstName | user.givenname |
+    | LastName | User.surname |
+    | Email | User.mail |    
     | UserIdentity | User.mail |
     
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
@@ -231,7 +231,7 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 Het doel van deze sectie is het maken van een gebruiker Britta Simon in Hightail genoemd. 
 
-Er is geen actie-item voor u in deze sectie. Hightail ondersteunt just in time gebruikers inrichten op basis van de aangepaste claims. Als u de aangepaste claims hebt geconfigureerd, zoals wordt weergegeven in de sectie  **[eenmalige aanmelding configureren Azure AD](#configuring-azure-ad-single-sign-on)**  , een gebruiker is gemaakt in de toepassing nog niet bestaat. 
+Er is geen actie-item voor u in deze sectie. Hightail ondersteunt just in time gebruikers inrichten op basis van de aangepaste claims. Als u de aangepaste claims hebt geconfigureerd, zoals wordt weergegeven in de sectie **[eenmalige aanmelding configureren Azure AD](#configuring-azure-ad-single-sign-on)** , een gebruiker is gemaakt in de toepassing nog niet bestaat. 
 
 >[!NOTE]
 >Als u een gebruiker handmatig maken wilt, moet u contact op met de [Hightail ondersteuningsteam](mailto:support@hightail.com). 
@@ -273,7 +273,7 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 Als u op de tegel Hightail in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Hightail.
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

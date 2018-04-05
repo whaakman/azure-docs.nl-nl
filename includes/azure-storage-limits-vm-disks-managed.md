@@ -12,7 +12,7 @@
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | Schijfgrootte           | 32 GB | 64 GB | 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOP's per schijf       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Doorvoer per schijf | 25 MB per seconde | 50 MB per seconde  | 100 MB per seconde | 150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde |
+| Doorvoer per schijf | 25 MB/sec | 50 MB/sec  | 100 MB/sec | 150 MB/sec | 200 MB/sec | 250 MB/sec | 250 MB/sec |
 
 **Premium beheerde schijven van virtuele machines: limieten per VM**
 

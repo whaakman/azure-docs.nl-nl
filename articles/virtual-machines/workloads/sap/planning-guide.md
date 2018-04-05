@@ -2,12 +2,12 @@
 title: Azure virtuele Machines, planning en implementatie voor SAP NetWeaver | Microsoft Docs
 description: Azure virtuele Machines, planning en implementatie voor SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -799,7 +799,7 @@ De Azure portal is een van drie interfaces voor het beheren van Azure VM-impleme
 ![Microsoft Azure portal - overzicht van virtuele machines][planning-guide-figure-800]
 
 [comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
-[comment]: <> (MSSedusch * < https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Beheer- en configuratietaken voor het exemplaar van de virtuele Machine zijn mogelijke uit binnen de Azure-portal.
 
@@ -1420,7 +1420,7 @@ $pip = New-AzureRmPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName
 $nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
-* Maak een virtuele machine. Elke virtuele machine wordt dezelfde naam hebben voor het scenario alleen in de Cloud. De SAP-SID van de SAP NetWeaver-exemplaren in deze VMs wordt hetzelfde zijn ook. De naam van de virtuele machine moet uniek zijn binnen de Azure-resourcegroep, maar in verschillende Azure-resourcegroepen kunt u virtuele machines uitvoeren met dezelfde naam. De 'Administrator'-account van Windows of Linux uit hoofdmap zijn niet geldig. Daarom moet een nieuwe gebruikersnaam voor de beheerder samen met een wachtwoord worden gedefinieerd. De grootte van de virtuele machine moet ook worden gedefinieerd.
+* Hiermee maakt u een virtuele machine. Elke virtuele machine wordt dezelfde naam hebben voor het scenario alleen in de Cloud. De SAP-SID van de SAP NetWeaver-exemplaren in deze VMs wordt hetzelfde zijn ook. De naam van de virtuele machine moet uniek zijn binnen de Azure-resourcegroep, maar in verschillende Azure-resourcegroepen kunt u virtuele machines uitvoeren met dezelfde naam. De 'Administrator'-account van Windows of Linux uit hoofdmap zijn niet geldig. Daarom moet een nieuwe gebruikersnaam voor de beheerder samen met een wachtwoord worden gedefinieerd. De grootte van de virtuele machine moet ook worden gedefinieerd.
 
 ```powershell
 #####
@@ -1534,7 +1534,7 @@ az network public-ip create --resource-group $rgName --name SAPERPDemoPIP --loca
 az network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-address SAPERPDemoPIP --subnet Subnet1 --vnet-name SAPERPDemoVNet
 ```
 
-* Maak een virtuele machine. Elke virtuele machine wordt dezelfde naam hebben voor het scenario alleen in de Cloud. De SAP-SID van de SAP NetWeaver-exemplaren in deze VMs wordt hetzelfde zijn ook. De naam van de virtuele machine moet uniek zijn binnen de Azure-resourcegroep, maar in verschillende Azure-resourcegroepen kunt u virtuele machines uitvoeren met dezelfde naam. De 'Administrator'-account van Windows of Linux uit hoofdmap zijn niet geldig. Daarom moet een nieuwe gebruikersnaam voor de beheerder samen met een wachtwoord worden gedefinieerd. De grootte van de virtuele machine moet ook worden gedefinieerd.
+* Hiermee maakt u een virtuele machine. Elke virtuele machine wordt dezelfde naam hebben voor het scenario alleen in de Cloud. De SAP-SID van de SAP NetWeaver-exemplaren in deze VMs wordt hetzelfde zijn ook. De naam van de virtuele machine moet uniek zijn binnen de Azure-resourcegroep, maar in verschillende Azure-resourcegroepen kunt u virtuele machines uitvoeren met dezelfde naam. De 'Administrator'-account van Windows of Linux uit hoofdmap zijn niet geldig. Daarom moet een nieuwe gebruikersnaam voor de beheerder samen met een wachtwoord worden gedefinieerd. De grootte van de virtuele machine moet ook worden gedefinieerd.
 
 ```
 #####

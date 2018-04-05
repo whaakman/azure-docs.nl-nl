@@ -5,8 +5,8 @@ services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 en hoger configuratieschema
 > [!NOTE]
@@ -396,7 +396,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**WadCfg**|Vereist. Zie de beschrijving ergens anders op deze pagina.|  
 |**StorageAccount**|De naam van de Azure Storage-account voor het opslaan van de gegevens in. Kan ook worden opgegeven als parameter bij het uitvoeren van de cmdlet Set-AzureServiceDiagnosticsExtension.|  
 |**StorageType**|Kan *tabel*, *Blob*, of *TableAndBlob*. De tabel is standaard. Wanneer TableAndBlob is gekozen, diagnostische gegevens worden geschreven tweemaal--eenmaal voor elk type.|  
-|**LocalResourceDirectory**|De map op de virtuele machine waar de gebeurtenisgegevens worden opgeslagen in de Monitoring Agent. Als dat niet wordt is ingesteld, de standaardmap gebruikt:<br /><br /> Voor een functie Worker/webservice:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Voor een virtuele Machine:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Vereiste kenmerken zijn:<br /><br /> - **pad** -de map op het systeem moet worden gebruikt door Azure Diagnostics.<br /><br /> - **expandEnvironment** -Hiermee wordt bepaald of omgevingsvariabelen in de padnaam worden uitgevouwen.|  
+|**LocalResourceDirectory**|De map op de virtuele machine waar de gebeurtenisgegevens worden opgeslagen in de Monitoring Agent. Als dat niet wordt is ingesteld, de standaardmap gebruikt:<br /><br /> Voor een functie Worker/webservice: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Voor een virtuele Machine: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Vereiste kenmerken zijn:<br /><br /> - **pad** -de map op het systeem moet worden gebruikt door Azure Diagnostics.<br /><br /> - **expandEnvironment** -Hiermee wordt bepaald of omgevingsvariabelen in de padnaam worden uitgevouwen.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
@@ -423,7 +423,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Directories**|Zie de beschrijving ergens anders op deze pagina.|  
 |**EtwProviders**|Zie de beschrijving ergens anders op deze pagina.|  
 |**Metrische gegevens**|Zie de beschrijving ergens anders op deze pagina.|  
-|**PerformanceCounters**|Zie de beschrijving ergens anders op deze pagina.|  
+|**performanceCounters**|Zie de beschrijving ergens anders op deze pagina.|  
 |**WindowsEventLog**|Zie de beschrijving ergens anders op deze pagina.| 
 |**DockerSources**|Zie de beschrijving ergens anders op deze pagina. | 
 
@@ -572,9 +572,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Optioneel. Hiermee geeft u de maximale hoeveelheid opslagruimte op het bestand systeem die beschikbaar is voor de opgegeven gegevens.<br /><br /> De standaardwaarde is 0.|  
-|**scheduledTransferLogLevelFilterr**|**tekenreeks**|Optioneel. Hiermee geeft u het minimale ernstniveau van logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, die alle logboeken overdraagt. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritiek**.|  
-|**scheduledTransferPeriod**|**duur**|Optioneel. Hiermee geeft u het interval tussen geplande de overdracht van gegevens, afgerond naar het dichtstbijzijnde aantal minuten.<br /><br /> De standaardwaarde is PT0S.|  
-|**sinks** toegevoegd in 1.5|**tekenreeks**|Optioneel. Verwijst naar een locatie sink ook diagnostische gegevens verzenden. Bijvoorbeeld, Application Insights.|  
+|**scheduledTransferLogLevelFilterr**|**Tekenreeks**|Optioneel. Hiermee geeft u het minimale ernstniveau van logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, die alle logboeken overdraagt. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritiek**.|  
+|**scheduledTransferPeriod**|**Duur**|Optioneel. Hiermee geeft u het interval tussen geplande de overdracht van gegevens, afgerond naar het dichtstbijzijnde aantal minuten.<br /><br /> De standaardwaarde is PT0S.|  
+|**sinks** toegevoegd in 1.5|**Tekenreeks**|Optioneel. Verwijst naar een locatie sink ook diagnostische gegevens verzenden. Bijvoorbeeld, Application Insights.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Structuur: De hoofd - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources-*
@@ -603,7 +603,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Kenmerk|Type|Beschrijving|  
 |---------------|----------|-----------------|  
-|**naam**|tekenreeks|Een tekenreeks die de sinkname te identificeren.|  
+|**Naam**|tekenreeks|Een tekenreeks die de sinkname te identificeren.|  
 
 |Element|Type|Beschrijving|  
 |-------------|----------|-----------------|  
@@ -630,8 +630,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Kenmerken|Type|Beschrijving|  
 |----------------|----------|-----------------|  
-|**logLevel**|**tekenreeks**|Hiermee geeft u het minimale ernstniveau van logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, die alle logboeken overdraagt. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritiek**.|  
-|**naam**|**tekenreeks**|Een unieke naam van het kanaal om te verwijzen naar|  
+|**logLevel**|**Tekenreeks**|Hiermee geeft u het minimale ernstniveau van logboekvermeldingen die worden overgedragen. De standaardwaarde is **Undefined**, die alle logboeken overdraagt. Andere mogelijke waarden (in volgorde van meest naar minst informatie) zijn **uitgebreid**, **informatie**, **waarschuwing**, **fout**, en **Kritiek**.|  
+|**Naam**|**Tekenreeks**|Een unieke naam van het kanaal om te verwijzen naar|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig Element 

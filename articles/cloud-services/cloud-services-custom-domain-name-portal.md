@@ -5,7 +5,7 @@ services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
 ms.service: cloud-services
 ms.workload: tbd
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
 ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Een aangepaste domeinnaam voor een Azure-cloud-service configureren
-Wanneer u een Cloudservice maakt, Azure toegewezen aan een subdomein van **cloudapp.net**. Bijvoorbeeld, als uw Cloudservice met de naam 'contoso', zich uw gebruikers toegang tot uw toepassing op een URL als http://contoso.cloudapp.net. Azure wordt ook een virtueel IP-adres toegewezen.
+Wanneer u een Cloudservice maakt, Azure toegewezen aan een subdomein van **cloudapp.net**. Bijvoorbeeld, als uw Cloudservice met de naam 'contoso', uw gebruikers zich toegang tot uw toepassing op een URL als http://contoso.cloudapp.net. Azure wordt ook een virtueel IP-adres toegewezen.
 
 Echter, kan ook worden blootgesteld uw toepassing op uw eigen domeinnaam, zoals **contoso.com**. In dit artikel wordt uitgelegd hoe reserve of een aangepaste domeinnaam configureren voor Cloud Service-web-rollen.
 
@@ -86,7 +86,7 @@ Bijvoorbeeld de volgende CNAME-record al het verkeer van stuurt **www.contoso.co
 
 | Alias/Host-naam/subdomein | Canonieke domein |
 | --- | --- |
-| www |Contoso.cloudapp.NET |
+| www |contoso.cloudapp.net |
 
 > [!NOTE]
 > Een bezoeker van **www.contoso.com** Zie nooit de waar host (contoso.cloudapp.net), zodat het proces doorsturen onzichtbaar voor de eindgebruiker.

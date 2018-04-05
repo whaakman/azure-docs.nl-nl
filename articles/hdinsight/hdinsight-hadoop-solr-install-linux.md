@@ -2,7 +2,7 @@
 title: Gebruik scriptactie Solr installeren op Linux gebaseerde HDInsight - Azure | Microsoft Docs
 description: Informatie over het installeren van Solr op Linux gebaseerde HDInsight Hadoop-clusters met behulp van scriptacties.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installeren en gebruiken van Solr op HDInsight Hadoop-clusters
 
@@ -39,7 +39,7 @@ Informatie over het installeren van Solr in Azure HDInsight met behulp van de sc
 > [!WARNING]
 > Onderdelen van het HDInsight-cluster worden volledig ondersteund door Microsoft.
 >
-> Aangepaste onderdelen, zoals Solr, ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Ondersteuning van Microsoft zijn mogelijk niet kunnen oplossen van problemen met aangepaste onderdelen. U moet mogelijk de community's van de open-source benaderen voor hulp. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [http://apache.org](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
+> Aangepaste onderdelen, zoals Solr, ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Ondersteuning van Microsoft zijn mogelijk niet kunnen oplossen van problemen met aangepaste onderdelen. U moet mogelijk de community's van de open-source benaderen voor hulp. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>Wat het script doet
 
@@ -61,7 +61,7 @@ Voor het maken van een cluster met Solr geïnstalleerd gebruikt u de stappen in 
 1. Van de __Cluster samenvatting__ sectie, select__Advanced settings__, klikt u vervolgens __acties Script__. Gebruik de volgende informatie voor het vullen van het formulier:
 
    * **NAAM**: een beschrijvende naam voor de scriptactie.
-   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **SCRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: Schakel deze optie
    * **WERKNEMER**: Schakel deze optie
    * **ZOOKEEPER**: Schakel deze optie om te installeren op het knooppunt Zookeeper
@@ -116,7 +116,7 @@ Gebruik de volgende stappen bijvoorbeeld gegevens toevoegen aan Solr en deze ver
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    Met deze opdracht wordt gezocht **collection1** voor documenten die overeenkomen met  **\*:\***  (gecodeerd als \*% 3A\* in de query-tekenreeks). Het volgende JSON-document is een voorbeeld van het antwoord:
+    Met deze opdracht wordt gezocht **collection1** voor documenten die overeenkomen met **\*:\*** (gecodeerd als \*% 3A\* in de query-tekenreeks). Het volgende JSON-document is een voorbeeld van het antwoord:
 
             "response": {
                 "numFound": 2,
@@ -194,7 +194,7 @@ Wanneer u een SSH-tunnel hebt gemaakt, gebruik de volgende stappen uit om het da
 
         De waarde die is geretourneerd, niet opslaan omdat het wordt later gebruikt.
 
-2. Verbinding maken met in uw browser **solr-http://HOSTNAME:8983 / #/**, waarbij **hostnaam** is de naam die u in de vorige stappen hebt bepaald.
+2. Verbinding maken met in uw browser **http://HOSTNAME:8983/solr/#/**, waarbij **hostnaam** is de naam die u in de vorige stappen hebt bepaald.
 
     De aanvraag wordt doorgestuurd via de SSH-tunnel naar de Solr webgebruikersinterface op uw cluster. De pagina lijkt op de volgende afbeelding:
 
@@ -319,7 +319,7 @@ Gebruik de volgende stappen uit voor de back-ups Solr naar de standaard-opslag v
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Zie voor meer informatie over het werken met Solr back-up en herstelbewerkingen [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Zie voor meer informatie over het werken met Solr back-up en herstelbewerkingen [ https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups ](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Volgende stappen
 

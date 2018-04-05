@@ -2,7 +2,7 @@
 title: Momenteel met Azure - Cortana Intelligence technische handleiding voor voorspeld onderhoud | Microsoft Docs
 description: Een technische handleiding voor de sjabloon oplossing met Microsoft Cortana Intelligence voor voorspeld onderhoud in ruimtevaart, hulpprogramma's en transport.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
 ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Technische handleiding voor de sjabloon Cortana Intelligence-oplossing voor voorspeld onderhoud in ruimtevaart en andere bedrijven
 
@@ -134,7 +134,7 @@ Dit [pijplijn](../../data-factory/v1/data-factory-create-pipelines.md) bevat mee
 
 Activiteiten die zijn:
 
-* [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die wordt uitgevoerd een [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor het uitvoeren van de aggregaties en functie-engineering nodig zijn voor de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimenteren.
+* [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die wordt uitgevoerd een [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor het uitvoeren van de aggregaties en functie-engineering nodig zijn voor de [Azure-Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimenteren.
   De [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor deze taak partitionering is ***PrepareMLInput.hql***.
 * [Kopiëren](https://msdn.microsoft.com/library/azure/dn835035.aspx) activiteit die wordt verplaatst van de resultaten van de [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) activiteit aan een enkele [Azure Storage](https://azure.microsoft.com/services/storage/) blob toegankelijk is voor de [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) de activiteit.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) activiteit aanroepen de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experiment met resultaten in een enkel plaatsen [Azure Storage](https://azure.microsoft.com/services/storage/) blob.
@@ -191,7 +191,7 @@ De volgende stappen helpen u op verbinding maken tussen de pbix-bestand en de SQ
 3. (Optioneel) Publiceren van het dashboard koude pad om [Power BI online](http://www.powerbi.com/). Houd er rekening mee dat deze stap moet een Power BI-account (of Office 365-account).
    
    * Klik op **'Publiceren'** en later enkele seconden verschijnt er een venster weergeven 'Publiceren naar Power BI geslaagd'! met een groen vinkje. Klik op de koppeling hieronder 'Open PredictiveMaintenanceAerospace.pbix in Power BI'. Gedetailleerde instructies vindt [publiceren vanuit Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Een nieuw dashboard maken: klik op de  **+**  Meld u aan bij de **Dashboards** sectie in het linkerdeelvenster. Voer de naam 'Voorspeld onderhoud Demo' voor dit nieuwe dashboard.
+   * Een nieuw dashboard maken: klik op de **+** Meld u aan bij de **Dashboards** sectie in het linkerdeelvenster. Voer de naam 'Voorspeld onderhoud Demo' voor dit nieuwe dashboard.
    * Nadat u het rapport openen, klikt u op ![Punaisepictogram](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png) alle visualisaties aan uw dashboard vastmaken. Gedetailleerde instructies vindt [een tegel vastmaken aan Power BI-dashboard uit een rapport](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Ga naar de dashboardpagina en de grootte en locatie van uw visualisaties aanpassen en hun titels bewerken. Gedetailleerde instructies voor het bewerken van uw tegels Zie [bewerken een tegel--formaat, verplaatsen, wijzig de naam, pincode, verwijderen, voegt u hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Hier volgt een voorbeeld van dashboard met sommige visualisaties koude pad is vastgemaakt aan het.  Afhankelijk van hoe lang het uitvoeren van de gegevensgenerator van uw, kan de nummers op de visualisaties afwijken.
      <br/>

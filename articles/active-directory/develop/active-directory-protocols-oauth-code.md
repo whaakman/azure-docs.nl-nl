@@ -15,10 +15,10 @@ ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 2ad995c4b48c2c298edd7c6b4da92ea8f3c4a060
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure Active Directory
 Azure Active Directory (Azure AD) maakt gebruik van OAuth 2.0 waarmee u toegang verlenen aan webtoepassingen en web-API's in uw Azure AD-tenant. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze open source-bibliotheken.

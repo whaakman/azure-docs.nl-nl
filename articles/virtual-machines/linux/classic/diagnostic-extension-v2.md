@@ -3,8 +3,8 @@ title: Bewaking van een Linux-VM met een VM-extensie | Microsoft Docs
 description: Informatie over het gebruik van de diagnostische Linux-extensie voor het bewaken van de prestaties en diagnostische gegevens van een Linux-VM in Azure.
 services: virtual-machines-linux
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>De diagnostische Linux-extensie gebruiken voor het controleren van de prestaties en diagnostische gegevens van een Linux VM
 
@@ -88,7 +88,7 @@ Step 1. Maak een bestand met de naam PrivateConfig.json met de volgende inhoud:
         "storageAccountKey" : "the key of the account"
     }
 
-Stap 2. Voer  **azure vm-extensie ingesteld vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --persoonlijke configuratiepad PrivateConfig.json**.
+Stap 2. Voer **azure vm-extensie vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 ingesteld.* --private-config-path PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Scenario 2. Aanpassen van de monitor maatstaven voor prestaties
 
@@ -111,7 +111,7 @@ Standaard wordt altijd de Rsyslog gegevens verzameld.
     }
 
 
-Stap 2. Voer  **azure vm-extensie ingesteld vm_name LinuxDiagnostic Microsoft.OSTCExtensions ' 2.*'--persoonlijke configuratiepad PrivateConfig.json--openbare configuratiepad PublicConfig.json**.
+Stap 2. Voer **azure vm-extensie ingesteld vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'--persoonlijke configuratiepad PrivateConfig.json--openbare configuratiepad PublicConfig.json**.
 
 ### <a name="scenario-3-upload-your-own-log-files"></a>Scenario 3. Uploaden van uw eigen logboekbestanden
 
@@ -147,7 +147,7 @@ Step 1. Maak een bestand met de naam PrivateConfig.json met de inhoud die is bes
     }
 
 
-Stap 2. Voer  **azure vm-extensie ingesteld vm_name LinuxDiagnostic Microsoft.OSTCExtensions ' 2.*'--persoonlijke configuratiepad PrivateConfig.json--openbare configuratiepad PublicConfig.json**.
+Stap 2. Voer **azure vm-extensie ingesteld vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'--persoonlijke configuratiepad PrivateConfig.json--openbare configuratiepad PublicConfig.json**.
 
 ## <a name="review-your-data"></a>Controleer uw gegevens
 

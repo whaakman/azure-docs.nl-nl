@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 De volgende limieten gelden voor Log Analytics-resources per abonnement:
 
@@ -29,7 +29,7 @@ De volgende limieten zijn van toepassing op elke Log Analytics-werkruimte:
 
 |  | Gratis | Standard | Premium | Zelfstandig | OMS | Per GB |
 | --- | --- | --- | --- | --- | --- |--- |
-| Gegevensvolume verzameld per dag |500 MB<sup>1</sup> |Geen |None | Geen | Geen | Geen
+| Gegevensvolume verzameld per dag |500 MB<sup>1</sup> |Geen |Geen | None | Geen | Geen
 | Bewaarperiode van gegevens |7 dagen |1 maand |12 maanden | 1 maand<sup>2</sup> | 1 maand <sup>2</sup>| 1 maand <sup>2</sup>|
 
 <sup>1</sup> Als een klant de dagelijkse limiet van 500 MB voor gegevensoverdracht heeft bereikt, stopt het analyseren van gegevens. Dit wordt aan het begin van de volgende dag hervat. Een dag is gebaseerd op UTC.

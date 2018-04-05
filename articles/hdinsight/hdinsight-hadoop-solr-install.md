@@ -2,7 +2,7 @@
 title: Installeert met een scriptactie Solr op Hadoop-cluster - Azure | Microsoft Docs
 description: Informatie over het aanpassen van HDInsight-cluster met Solr met behulp van de scriptactie.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.openlocfilehash: 6efb7ea26c3cdf7748fff4b02b5810c85cc41e1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Installeren en gebruiken van Solr op Windows gebaseerde HDInsight-clusters
 
@@ -30,7 +30,7 @@ Informatie over het aanpassen van HDInsight op basis van Windows-cluster met Sol
 > De stappen in dit document wordt alleen werken met HDInsight op basis van Windows-clusters. HDInsight is alleen beschikbaar in Windows voor versies lager is dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over het gebruik van Solr met een cluster op basis van Linux [installeert en gebruikt Solr op HDinsight Hadoop-clusters (Linux)](hdinsight-hadoop-solr-install-linux.md).
 
 
-U kunt Solr installeren op elk type (Hadoop, Storm, HBase, Spark)-cluster in Azure HDInsight met behulp van *scriptactie*. Een voorbeeld van een script Solr installeren op een HDInsight-cluster is beschikbaar via een alleen-lezen Azure storage-blob op [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+U kunt Solr installeren op elk type (Hadoop, Storm, HBase, Spark)-cluster in Azure HDInsight met behulp van *scriptactie*. Een voorbeeld van een script Solr installeren op een HDInsight-cluster is beschikbaar via een alleen-lezen Azure storage-blob op [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 Het voorbeeldscript werkt alleen met HDInsight-cluster versie 3.1. Zie voor meer informatie over de versies van HDInsight-cluster, [versies van HDInsight-cluster](hdinsight-component-versioning.md).
 
@@ -83,7 +83,7 @@ U moet beginnen met het indexeren Solr met enkele gegevensbestanden. U kunt verv
         Time spent: 0:00:01.624
 
     Het hulpprogramma post.jar Solr met twee voorbeelddocumenten indexeert **solr.xml** en **monitor.xml**. Het hulpprogramma post.jar en de voorbeelddocumenten zijn beschikbaar met Solr-installatie.
-3. **Het dashboard Solr gebruiken om te zoeken binnen de geïndexeerde documenten**. In de RDP-sessie met de HDInsight-cluster, opent u Internet Explorer en start het dashboard Solr op **solr-http://headnodehost:8983 / #/**. In het linkerdeelvenster van de **Core Selector** vervolgkeuzelijst, selecteer **collection1**, en binnen die, op **Query**. Als u bijvoorbeeld om te selecteren en retourneren van alle documenten in Solr, bieden de volgende waarden:
+3. **Het dashboard Solr gebruiken om te zoeken binnen de geïndexeerde documenten**. In de RDP-sessie met de HDInsight-cluster, opent u Internet Explorer en start het dashboard Solr op **http://headnodehost:8983/solr/#/**. In het linkerdeelvenster van de **Core Selector** vervolgkeuzelijst, selecteer **collection1**, en binnen die, op **Query**. Als u bijvoorbeeld om te selecteren en retourneren van alle documenten in Solr, bieden de volgende waarden:
 
    * In de **q** tekst Voer  **\*:**\*. Hiermee wordt de documenten die zijn geïndexeerd in Solr retourneren. Als u zoeken naar een specifieke tekenreeks binnen de documenten wilt, kunt u deze tekenreeks hier invoeren.
    * In de **wt** tekst Selecteer indeling van de uitvoer. Standaard is **json**. Klik op **-Query uitvoeren**.
@@ -159,7 +159,7 @@ U moet beginnen met het indexeren Solr met enkele gegevensbestanden. U kunt verv
              </lst>
              <str name="status">OK</str>
            </response>
-   2. Navigeer in de externe sessie naar {SOLR_HOME}\{verzameling} \data. Voor het cluster is gemaakt via het voorbeeldscript, moet dit **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. Op deze locatie ziet u een momentopnamemap is gemaakt met een naam die lijkt op  **momentopname.* tijdstempel***.
+   2. Navigeer in de externe sessie naar {SOLR_HOME}\{verzameling} \data. Voor het cluster is gemaakt via het voorbeeldscript, moet dit **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. Op deze locatie ziet u een momentopnamemap is gemaakt met een naam die lijkt op **momentopname.* tijdstempel ***.
    3. De snapshotmap ZIP en dit uploaden naar Azure Blob-opslag. Navigeer naar de locatie van de momentopnamemap met de volgende opdracht vanaf de opdrachtregel Hadoop:
 
              hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
@@ -167,10 +167,10 @@ U moet beginnen met het indexeren Solr met enkele gegevensbestanden. U kunt verv
        Met deze opdracht wordt de momentopname gekopieerd naar /example/data/onder de container binnen het standaard opslagaccount die is gekoppeld aan het cluster.
 
 ## <a name="install-solr-using-aure-powershell"></a>Solr met Aure PowerShell installeren
-Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Het voorbeeld laat zien hoe Spark met Azure PowerShell installeren. U moet aanpassen van het script te gebruiken [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Het voorbeeld laat zien hoe Spark met Azure PowerShell installeren. U moet aanpassen van het script te gebruiken [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="install-solr-using-net-sdk"></a>Solr met .NET SDK installeren
-Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Het voorbeeld laat zien hoe Spark met de .NET SDK installeren. U moet aanpassen van het script te gebruiken [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Het voorbeeld laat zien hoe Spark met de .NET SDK installeren. U moet aanpassen van het script te gebruiken [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="see-also"></a>Zie ook
 * [Installeren en gebruiken van Solr op HDinsight Hadoop-clusters (Linux)](hdinsight-hadoop-solr-install-linux.md)

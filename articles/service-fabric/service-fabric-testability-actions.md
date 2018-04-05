@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv;heeldin
 ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="testability-actions"></a>Testbaarheid acties
 Om te simuleren een onbetrouwbare infrastructuur, biedt u de ontwikkelaar, manieren om te simuleren verschillende echte fouten en statusovergangen van Azure Service Fabric. Deze zijn beschikbaar als testbaarheid acties. De acties zijn de op laag niveau API's die ertoe leiden een specifieke fout injectie, statusovergang of validatie dat. U kunt uitgebreide Testscenario's voor uw services schrijven door een combinatie van deze acties.

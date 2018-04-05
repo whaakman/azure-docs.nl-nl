@@ -1,27 +1,47 @@
-**Een nieuw CDN-profiel maken**
+---
+title: bestand opnemen
+description: bestand opnemen
+services: cdn
+author: dksimpson
+ms.service: cdn
+ms.topic: include
+ms.date: 04/04/2018
+ms.author: rli; v-deasim
+ms.custom: include file
+ms.openlocfilehash: 692364e9b2e78b3bd1f63137148dfbc680364737
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/05/2018
+---
+## <a name="create-a-new-cdn-profile"></a>Nieuwe CDN-profielen maken
 
-1. In de [Azure-portal](https://portal.azure.com), selecteert u in de linkerbovenhoek **maken van een resource**.
-    
-2. Selecteer op de blade **Nieuw** de optie **Web en mobiel** en vervolgens **CDN**.
-   
-    De **CDN-profiel** blade wordt weergegeven.
-   
-    ![Nieuw CDN-profiel](./media/cdn-create-profile/new-cdn-profile-include.png)
-3. Voor **naam**, voer een unieke naam voor uw CDN-profiel.
-    
-4. Voor **abonnement**, selecteer het abonnement moet worden gebruikt voor dit CDN-profiel.
-   
-5. Voor **resourcegroep**selecteert of maakt u een resourcegroep. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-    
-6. Voor **locatie voor resourcegroep**, selecteert u de Azure-locatie voor het opslaan van de gegevens van uw CDN-profiel. Deze locatie heeft geen invloed op de locaties van CDN-eindpunt.
-    
-7. Voor **prijscategorie**, selecteer een tier. Zie voor een vergelijking van de beschikbare functies bij elke prijscategorie [Azure CDN functies](../articles/cdn/cdn-overview.md#azure-cdn-features).
-   
-    ![Het selecteren van een CDN-prijscategorie](./media/cdn-create-profile/cdn-choose-sku-include.png)
+Een CDN-profiel is een container voor CDN-eindpunten en Hiermee geeft u een prijscategorie.
 
-8. Selecteer desgewenst **nu een nieuw CDN-eindpunt maken** om weer te geven van de opties voor het maken van een eindpunt op hetzelfde moment als u het profiel maakt. Zie voor meer informatie [een nieuw CDN-eindpunt maken](../articles/cdn/cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
-   
-9. Als u opslaan van het profiel aan uw dashboard wilt nadat deze is gemaakt voor het makkelijker te vinden, schakelt **vastmaken aan dashboard**.
+1. Selecteer in de Azure-portal in de linkerbovenhoek **maken van een resource**.
     
-10. Selecteer **maken** om het profiel te maken. 
+    De **nieuw** deelvenster wordt weergegeven.
+   
+2. Selecteer **Web en mobiel**, klikt u vervolgens **CDN**.
+   
+    ![Selecteer CDN resource](./media/cdn-create-profile/cdn-new-resource.png)
+
+    De **CDN-profiel** deelvenster wordt weergegeven.
+
+    Gebruik de instellingen die zijn opgegeven in de tabel de installatiekopie.
+   
+    ![Nieuw CDN-profiel](./media/cdn-create-profile/cdn-new-profile.png)
+
+    | Instelling  | Waarde |
+    | -------- | ----- |
+    | **Naam** | Voer *mijn-cdn-profiel-123* voor de profielnaam van uw. Deze naam moet globaal uniek zijn. Als deze al in gebruik is, kunt u een ander invoeren. |
+    | **Abonnement** | Selecteer een Azure-abonnement in de vervolgkeuzelijst.|
+    | **Resourcegroep** | Selecteer **nieuw** en voer *mijn-resource-group-123* voor de naam van de resourcegroep. Deze naam moet globaal uniek zijn. Als deze al in gebruik is, kunt u een ander invoeren. | 
+    | **Locatie voor resourcegroep** | Selecteer **VS-midden** uit de vervolgkeuzelijst. |
+    | **Prijscategorie** | Selecteer **Standard van Verizon** uit de vervolgkeuzelijst. |
+    | **Nu een nieuw CDN-eindpunt maken** | Schakel deze optie niet. |  
+   
+3. Selecteer **vastmaken aan dashboard** om op te slaan van het profiel aan uw dashboard nadat deze is gemaakt.
+    
+4. Selecteer **maken** om het profiel te maken. 
 

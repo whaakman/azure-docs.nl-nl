@@ -2,10 +2,10 @@
 title: Client en server SDK-versies in Mobile Apps- en Mobile Services | Microsoft Docs
 description: Lijst met client-SDK's en compatibiliteit met versies van de server-SDK voor Mobile Services en Azure Mobile Apps
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Client- en versiebeheer in Mobile Apps- en Mobile Services
 De meest recente versie van Azure Mobile Services is de **Mobile Apps** functie van Azure App Service.
@@ -35,9 +35,9 @@ De sleutel `ZUMO-API-VERSION` mag worden opgegeven in de HTTP-header of de query
 
 Bijvoorbeeld:
 
-Https://service.azurewebsites.net/tables/TodoItem ophalen
+TOEVOEGEN https://service.azurewebsites.net/tables/TodoItem
 
-HEADERS: ZUMO-API-VERSIE: 2.0.0
+HEADERS: ZUMO-API-VERSION: 2.0.0
 
 POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
@@ -68,7 +68,7 @@ De client-SDK's in de onderstaande tabel compatibel zijn met **Mobile Services**
 
 Opmerking: de Mobile Services-client SDK's *niet* een headerwaarde verzenden voor `ZUMO-API-VERSION`. Als de service deze kop- of queryreekswaarde ontvangt, een fout geretourneerd, tenzij u expliciet uit zoals hierboven beschreven hebt gekozen.
 
-### <a name="MobileServicesClients"></a>Mobiele *Services* client-SDK's
+### <a name="MobileServicesClients"></a> Mobiele *Services* client-SDK's
 | Clientplatform | Versie | De versieheaderwaarde |
 | --- | --- | --- |
 | Beheerde client (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |N.v.t. |
@@ -79,20 +79,20 @@ Opmerking: de Mobile Services-client SDK's *niet* een headerwaarde verzenden voo
 ### <a name="mobile-services-server-sdks"></a>Mobiele *Services* server SDK's
 | Server-platform | Versie | Geaccepteerde versie-header |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* versie 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |** Geen versiekop ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |** Geen versiekop ** |
 | Node.js |(binnenkort) |**Er is geen versie-header** |
 
 <!-- TODO: add Node npm version -->
 
 ### <a name="behavior-of-mobile-services-backends"></a>Gedrag van de back-ends voor Mobile Services
-| ZUMO-API-VERSIE | Waarde van MS_SkipVersionCheck | Antwoord |
+| ZUMO-API-VERSION | Waarde van MS_SkipVersionCheck | Antwoord |
 | --- | --- | --- |
 | Niet opgegeven |Alle |200 - OK |
 | Een willekeurige waarde |True |200 - OK |
 | Een willekeurige waarde |ONWAAR/niet opgegeven |400 - onjuiste aanvraag |
 
 ## <a name="2.0.0"></a>Azure Mobile Apps-client en server
-### <a name="MobileAppsClients"></a>Mobiele *Apps* client-SDK's
+### <a name="MobileAppsClients"></a> Mobiele *Apps* client-SDK's
 Beginnen met de volgende versies van de client-SDK versiecontrole is geïntroduceerd voor **Azure Mobile Apps**:
 
 | Clientplatform | Versie | De versieheaderwaarde |
@@ -109,10 +109,10 @@ Versiecontrole is opgenomen in de volgende server SDK-versies:
 | Server-platform | SDK | Geaccepteerde versie-header |
 | --- | --- | --- |
 | .NET |[Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) |2.0.0 |
-| Node.js |[Azure mobile apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
+| Node.js |[azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
 
 ### <a name="behavior-of-mobile-apps-backends"></a>Gedrag van de back-ends voor mobiele Apps
-| ZUMO-API-VERSIE | Waarde van MS_SkipVersionCheck | Antwoord |
+| ZUMO-API-VERSION | Waarde van MS_SkipVersionCheck | Antwoord |
 | --- | --- | --- |
 | x.y.z of Null zijn |True |200 - OK |
 | Null |ONWAAR/niet opgegeven |400 - onjuiste aanvraag |

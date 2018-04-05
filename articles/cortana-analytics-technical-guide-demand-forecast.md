@@ -2,7 +2,7 @@
 title: Vraag prognose in technische handleiding energie | Microsoft Docs
 description: Een technische handleiding voor de sjabloon oplossing met Microsoft Cortana Intelligence voor vraag prognose in energie.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yijichen
 manager: ilanr9
 editor: yijichen
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
 ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Technische handleiding voor de sjabloon Cortana Intelligence-oplossing voor vraag prognose in energie
 ## <a name="overview"></a>**Overzicht**
@@ -56,7 +56,7 @@ De Azure HDInsight-service wordt gebruikt om uit te voeren [Hive](http://blogs.m
 De [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) -service wordt gebruikt (gedirigeerd door Azure Data Factory) aanbrengen prognose van toekomstige energieverbruik van een bepaald gebied gegeven van de invoer ontvangen.
 
 ## <a name="data-publishing"></a>**Gegevens publiceren**
-### <a name="azure-sql-database-service"></a>Azure SQL Database-Service
+### <a name="azure-sql-database-service"></a>Azure SQL Database Service
 De [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) service wordt gebruikt om op te slaan (beheerd door Azure Data Factory) de voorspellingen ontvangen door de Azure Machine Learning-service die wordt gebruikt in de [Power BI](https://powerbi.microsoft.com) dashboard.
 
 ## <a name="data-consumption"></a>**Gegevens verbruik**
@@ -117,7 +117,7 @@ De [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 Dit [pijplijn](data-factory/concepts-pipelines-activities.md) bevat twee activiteiten:
 
-* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die een Hive-script voor de per uur geschiedenis vraaggegevens in onderstation instellen op elk uur regioniveau totaliseren en plaatsen in Azure Storage tijdens de Azure Stream Analytics-taak wordt uitgevoerd
+* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activiteit met behulp van een [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) die een Hive-script voor de per uur geschiedenis vraaggegevens in onderstation instellen op elk uur regioniveau totaliseren en plaatsen in Azure Storage tijdens de Azure Stream wordt uitgevoerd Analytics-taak
 * [Kopiëren](https://msdn.microsoft.com/library/azure/dn835035.aspx) activiteit die de geaggregeerde gegevens van Azure Storage-blob verplaatst naar de Azure SQL Database die als onderdeel van de installatie van de sjabloon oplossing is ingericht.
 
 De [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script voor deze taak is ***AggregateDemandHistoryRegion.hql***.
@@ -157,7 +157,7 @@ Zodra de Generator van gegevens wordt gestart, de pijplijn begint met het ophale
 
     U kunt Power BI-dashboard van hot pad instellen voor het bewaken van de onbewerkte binnenkomende gegevens. Volg de aanwijzingen in de sectie 'Power BI-Dashboard'.
 
-## <a name="power-bi-dashboard"></a>**Power BI-Dashboard**
+## <a name="power-bi-dashboard"></a>**Power BI Dashboard**
 ### <a name="overview"></a>Overzicht
 Deze sectie beschrijft het instellen van Power BI-dashboard om uw realtime gegevens vanuit Azure stream analytics (hot pad) visualiseren, evenals forecast resultaten van Azure machine learning-(koude pad).
 
@@ -182,7 +182,7 @@ De volgende stappen helpen u het visualiseren van real-time gegevensuitvoer van 
    * Klik op **opslaan** op de bovenkant en de naam van het rapport als 'EnergyStreamDataReport'. Het rapport met de naam 'EnergyStreamDataReport' wordt weergegeven in de sectie rapporten in het deelvenster Navigator aan de linkerkant.
    * Klik op **'Pincode Visual'** ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) pictogram in de rechterbovenhoek van dit lijndiagram een venster 'Vastmaken aan Dashboard' mogelijk weergegeven waarmee u kunt ervoor kiezen een dashboard. Selecteer 'EnergyStreamDataReport' en klik op 'Pincode'.
    * Beweeg de muisaanwijzer via deze tegel op het dashboard, klikt u op '' pictogram bewerken in de rechterbovenhoek te wijzigen van de titel als 'Vraag door tijdstempel'
-4. Andere dashboard tegels op basis van de juiste gegevenssets maken. De laatste dashboardweergave:![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
+4. Andere dashboard tegels op basis van de juiste gegevenssets maken. De laatste dashboardweergave: ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
 
 ### <a name="setup-cold-path-dashboard"></a>Setup koude pad Dashboard
 In de pijplijn voor koude pad gegevens, is het essentieel doel is om op te halen van de vraagprognose van elke regio. Power BI maakt verbinding met een Azure SQL database als de gegevensbron, waar de voorspelling resultaten worden opgeslagen.
@@ -213,7 +213,7 @@ In de pijplijn voor koude pad gegevens, is het essentieel doel is om op te halen
 3. (Optioneel) Publiceren van het dashboard koude pad om [Power BI online](http://www.powerbi.com/). Houd er rekening mee dat deze stap moet een Power BI-account (of Office 365-account).
 
    * Klik op **'Publiceren'** en later enkele seconden verschijnt er een venster weergeven 'Publiceren naar Power BI geslaagd'! met een groen vinkje. Klik op de volgende koppeling 'Open demoprediction.pbix in Power BI'. Gedetailleerde instructies vindt [publiceren vanuit Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Een nieuw dashboard maken: klik op de  **+**  Meld u aan bij de **Dashboards** sectie in het linkerdeelvenster. Voer de naam 'Vraag prognose Demo' voor dit nieuwe dashboard.
+   * Een nieuw dashboard maken: klik op de **+** Meld u aan bij de **Dashboards** sectie in het linkerdeelvenster. Voer de naam 'Vraag prognose Demo' voor dit nieuwe dashboard.
    * Nadat u het rapport openen, klikt u op ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) alle visualisaties aan uw dashboard vastmaken. Gedetailleerde instructies vindt [een tegel vastmaken aan Power BI-dashboard uit een rapport](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Ga naar de dashboardpagina en de grootte en locatie van uw visualisaties aanpassen en hun titels bewerken. Gedetailleerde instructies voor het bewerken van uw tegels Zie [bewerken een tegel--formaat, verplaatsen, wijzig de naam, pincode, verwijderen, voegt u hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Hier volgt een voorbeeld van dashboard met sommige visualisaties koude pad is vastgemaakt aan het.
 

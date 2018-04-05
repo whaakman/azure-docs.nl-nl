@@ -1,6 +1,6 @@
 ---
 title: Een Azure cloudservice integreren met Azure CDN | Microsoft Docs
-description: "Informatie over het implementeren van een cloudservice die inhoud van een geïntegreerde Azure CDN-eindpunt"
+description: Informatie over het implementeren van een cloudservice die inhoud van een geïntegreerde Azure CDN-eindpunt
 services: cdn, cloud-services
 documentationcenter: .net
 author: zhangmanling
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="intro"></a>Een cloudservice integreren met Azure CDN
+# <a name="intro"></a> Een cloudservice integreren met Azure CDN
 Een cloudservice kan worden geïntegreerd met Azure CDN, voor de inhoud van de locatie van de cloudservice. Deze aanpak kunt u de volgende voordelen:
 
 * Eenvoudig implementeren en bijwerken van installatiekopieën, scripts en stylesheets in mappen van uw cloudservice-project
@@ -30,7 +30,7 @@ Een cloudservice kan worden geïntegreerd met Azure CDN, voor de inhoud van de l
 * ASP.NET bundeling en minification integreren met Azure CDN
 
 ## <a name="what-you-will-learn"></a>Wat u leert
-In deze zelfstudie leert u hoe:
+In deze zelfstudie leert u het volgende:
 
 * [Een Azure CDN-eindpunt integreren met de cloudservice en bedienen van statische inhoud in uw webpagina's van Azure CDN](#deploy)
 * [Cache-instellingen voor statische inhoud configureren in uw cloudservice](#caching)
@@ -63,7 +63,7 @@ In deze sectie maakt u de standaard ASP.NET MVC-toepassingssjabloon in Visual St
 1. Maak in Visual Studio 2015 een nieuwe Azure-cloud-service in de menubalk door te gaan naar **bestand > Nieuw > Project > Cloud > Azure Cloud Service**. Een naam geven en klik op **OK**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG)
-2. Selecteer **ASP.NET-Webrol** en klik op de  **>**  knop. Klik op OK.
+2. Selecteer **ASP.NET-Webrol** en klik op de **>** knop. Klik op OK.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG)
 3. Selecteer **MVC** en klik op **OK**.
@@ -138,7 +138,7 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
    > 
 
 ## <a name="test-the-cdn-endpoint"></a>Het CDN-eindpunt testen
-Wanneer de publicatiestatus is **voltooid**, open een browservenster en navigeer naar  **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. In mijn setup is deze URL:
+Wanneer de publicatiestatus is **voltooid**, open een browservenster en navigeer naar **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. In mijn setup is deze URL:
 
     http://camservice.azureedge.net/Content/bootstrap.css
 
@@ -146,18 +146,18 @@ Dit komt overeen met de volgende bron-URL op het CDN-eindpunt:
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-Wanneer u naar navigeert  **http://*&lt;cdnName >*.azureedge.net/Content/bootstrap.css**, afhankelijk van uw browser, wordt u gevraagd om te downloaden of open de bootstrap.css die afkomstig zijn van uw gepubliceerde Web-app.
+Wanneer u naar navigeert **http://*&lt;cdnName >*.azureedge.net/Content/bootstrap.css**, afhankelijk van uw browser, wordt u gevraagd om te downloaden of open de bootstrap.css die is geleverd van uw gepubliceerde Web-app.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-U hebt ook toegang tot een openbaar toegankelijke URL zijn op  **http://*&lt;serviceName >*.cloudapp.net/** rechtstreeks vanuit uw CDN-eindpunt. Bijvoorbeeld:
+U hebt ook toegang tot een openbaar toegankelijke URL zijn op **http://*&lt;serviceName >*.cloudapp.net/**rechte van uw CDN-eindpunt. Bijvoorbeeld:
 
 * Een JS-bestand van het pad/script
 * Alle bestanden uit de/Content pad
 * Elke domeincontroller/actie
 * Als de queryreeks is ingeschakeld op uw CDN-eindpunt elke URL's met querytekenreeksen
 
-In feite met de bovenstaande configuratie, kunt u de volledige in de cloud-service hosten  **http://*&lt;cdnName >*.azureedge.net/**. Als ik ga naar **http://camservice.azureedge.net/**, verschijnt het resultaat van de actie van de startpagina/Index.
+In feite met de bovenstaande configuratie, kunt u de volledige in de cloud-service hosten **http://*&lt;cdnName >*.azureedge.net/**. Als ik ga naar **http://camservice.azureedge.net/**, verschijnt het resultaat van de actie van de startpagina/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -325,7 +325,7 @@ Volg de stappen hierboven om deze actie controller instellen:
             <br />
             <input class="btn" type="submit" value="Generate meme" />
         </form>
-5. De cloudservice opnieuw publiceren en navigeer naar  **http://*&lt;serviceName >*.cloudapp.net/MemeGenerator/Index** in uw browser.
+5. De cloudservice opnieuw publiceren en navigeer naar **http://*&lt;serviceName >*.cloudapp.net/MemeGenerator/Index** in uw browser.
 
 Wanneer u de formulierwaarden te verzenden `/MemeGenerator/Index`, wordt de `Index_Post` actiemethode retourneert een koppeling naar de `Show` actiemethode met de bijbehorende invoer-ID. Wanneer u de koppeling klikt, kunt u de volgende code bereiken:  
 
@@ -527,10 +527,10 @@ De [bundel](http://msdn.microsoft.com/library/system.web.optimization.bundle.asp
    
     Wanneer `CdnFallbackExpression` is niet null script is opgenomen in de HTML-code om te testen of de bundel is geladen en als dat niet het geval is, toegang tot de bundel rechtstreeks vanuit de oorsprong-webserver. Deze eigenschap moet worden ingesteld op een JavaScript-expressie die wordt gecontroleerd of de respectieve CDN-bundel correct wordt geladen. De expressie die nodig is voor het testen van elke bundel is afhankelijk van de inhoud. Voor de standaard bundels bovenstaande:
    
-   * `window.jquery`is gedefinieerd in jquery-{version} .js
-   * `$.validator`is gedefinieerd in jquery.validate.js
-   * `window.Modernizr`is gedefinieerd in modernizer-{version} .js
-   * `$.fn.modal`is gedefinieerd in bootstrap.js
+   * `window.jquery` is gedefinieerd in jquery-{version} .js
+   * `$.validator` is gedefinieerd in jquery.validate.js
+   * `window.Modernizr` is gedefinieerd in modernizer-{version} .js
+   * `$.fn.modal` is gedefinieerd in bootstrap.js
      
      U mogelijk opgevallen dat ik niet ingesteld CdnFallbackExpression voor de `~/Cointent/css` bundel. Dit is omdat er momenteel een [fout in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) die injects een `<script>` tag voor de alternatieve CSS in plaats van de verwachte `<link>` label.
      

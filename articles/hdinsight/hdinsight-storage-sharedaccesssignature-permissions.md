@@ -2,7 +2,7 @@
 title: Beperken van toegang met Shared Access Signatures - Azure HDInsight | Microsoft Docs
 description: Informatie over het gebruik van handtekeningen voor gedeelde toegang HDInsight toegang tot gegevens die zijn opgeslagen in Azure storage-blobs te beperken.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
 ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Gebruik Azure Storage handtekeningen voor gedeelde toegang om toegang te beperken tot gegevens in HDInsight
 
@@ -44,7 +44,7 @@ HDInsight heeft volledige toegang tot gegevens in de Azure Storage-accounts die 
     > [!IMPORTANT]
     > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-* In het voorbeeld bestanden van [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Deze bibliotheek bevat de volgende items:
+* In het voorbeeld bestanden van [ https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature ](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Deze bibliotheek bevat de volgende items:
 
   * Een Visual Studio-project dat een storage-container, opgeslagen beleid en SAS voor gebruik met HDInsight maken kunt
   * Een pythonscript die een storage-container, opgeslagen beleid en SAS voor gebruik met HDInsight maken kunt

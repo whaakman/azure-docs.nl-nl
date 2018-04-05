@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin-Resource delen (CORS) ondersteuning voor de Azure Storage-Services
 Vanaf versie 2013-08-15, ondersteuning de Azure storage-services Cross-Origin-Resource delen (CORS) voor de services Blob, Table, wachtrijen en -bestand. CORS is een HTTP-functie waarmee een webtoepassing in een domein met toegang tot bronnen in een ander domein. Webbrowsers implementeren een beveiligingsbeperkingen bekend als [dezelfde oorsprong beleid](http://www.w3.org/Security/wiki/Same_Origin_Policy) dat voorkomt dat een webpagina van aanroepen API's in een ander domein; CORS biedt een veilige manier om toe te staan van een domein (het domein van de oorsprong) om aan te roepen API's in een ander domein. Zie de [CORS-specificatie](http://www.w3.org/TR/cors/) voor meer informatie over CORS.
@@ -71,7 +71,7 @@ Hier volgt een voorbeeld van een enkele CORS-regel worden opgegeven via de bewer
 
 Elk element opgenomen in de CORS-regel wordt hieronder beschreven:
 
-* **AllowedOrigins**: de domeinen die zijn toegestaan voor het maken van een aanvraag in voor de storage-service via CORS. Het brondomein is het domein waaruit de aanvraag afkomstig is. Houd er rekening mee dat de oorsprong moet exact hoofdlettergevoelig overeenkomt met de oorsprong waarmee de leeftijd van de gebruiker naar de service worden verzonden. U kunt ook het jokerteken ' *' om toe te staan alle domeinen aanvragen via CORS. In het bovenstaande voorbeeld wordt de domeinen [http://www.contoso.com](http://www.contoso.com) en [http://www.fabrikam.com](http://www.fabrikam.com) aanvragen op basis van de service met behulp van CORS kunt maken.
+* **AllowedOrigins**: de domeinen die zijn toegestaan voor het maken van een aanvraag in voor de storage-service via CORS. Het brondomein is het domein waaruit de aanvraag afkomstig is. Houd er rekening mee dat de oorsprong moet exact hoofdlettergevoelig overeenkomt met de oorsprong waarmee de leeftijd van de gebruiker naar de service worden verzonden. U kunt ook het jokerteken ' *' om toe te staan alle domeinen aanvragen via CORS. In het bovenstaande voorbeeld wordt de domeinen [ http://www.contoso.com ](http://www.contoso.com) en [ http://www.fabrikam.com ](http://www.fabrikam.com) aanvragen op basis van de service met behulp van CORS kunt maken.
 * **AllowedMethods**: de methoden die van het brondomein voor een CORS-aanvraag gebruikmaken mogelijk (HTTP-aanvraag woorden). In het bovenstaande voorbeeld worden alleen PUT en GET-aanvragen toegestaan.
 * **AllowedHeaders**: de aanvraagheaders die het brondomein, voor de CORS-aanvraag opgeven kan. In het bovenstaande voorbeeld worden alle metagegevens headers beginnen met x-ms-metagegevens, x-ms-meta-doel en de x-ms-meta-abc toegestaan. Houd er rekening mee dat het jokerteken ' *' geeft aan dat een koptekst die begint met het opgegeven voorvoegsel is toegestaan.
 * **ExposedHeaders**: de antwoordheaders die mogelijk in het antwoord op de CORS-aanvraag verzonden en die worden weergegeven door de browser van de uitgever van de aanvraag. In het bovenstaande voorbeeld wordt de browser geïnstrueerd om een koptekst die begint met x-ms-meta weer te geven.
@@ -86,7 +86,7 @@ De volgende beperkingen zijn van toepassing op CORS-regels:
 * De lengte van een toegestane koptekst, blootgestelde koptekst of toegestane oorsprong mag niet langer zijn dan 256 tekens.
 * Toegestane headers en blootgestelde headers kunnen zijn:
   * Letterlijke kopteksten, waarbij de exacte header-naam is opgegeven, zoals **x-ms-meta-verwerkte**. Een maximum van 64 letterlijke headers worden opgegeven voor de aanvraag.
-  * Headers, waarbij een voorvoegsel van de header is opgegeven, zoals het voorvoegsel **x-ms-meta-data***. Een voorvoegsel geven op deze manier kunt of een header die met het opgegeven voorvoegsel begint beschrijft. Maximaal twee voorvoegsels headers kan worden opgegeven voor de aanvraag.
+  * Headers, waarbij een voorvoegsel van de header is opgegeven, zoals het voorvoegsel ** x-ms-meta-data ***. Een voorvoegsel geven op deze manier kunt of een header die met het opgegeven voorvoegsel begint beschrijft. Maximaal twee voorvoegsels headers kan worden opgegeven voor de aanvraag.
 * De methoden (of HTTP-woorden) opgegeven in de **AllowedMethods** element moet voldoen aan de methoden die wordt ondersteund door Azure storage-service API's. Ondersteunde methoden zijn verwijderd, GET, HEAD, samenvoegen, POST, opties en PUT.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>Understanding CORS regellogica evaluatie
@@ -133,10 +133,10 @@ Vervolgens kunt u overwegen de volgende CORS-aanvragen:
 
 | Aanvraag |  |  | Antwoord |  |
 | --- | --- | --- | --- | --- |
-| **Methode** |**Oorsprong** |**Aanvraagheaders** |**Regel overeen** |**Resultaat** |
-| **PLAATSEN** |http://www.contoso.com |x-ms-blob-content-type |Eerste regel |Geslaagd |
-| **TOEVOEGEN** |http://www.contoso.com |x-ms-blob-content-type |Tweede regel |Geslaagd |
-| **TOEVOEGEN** |http://www.contoso.com |x-ms-client-request-id |Tweede regel |Fout |
+| **Methode** |**Origin** |**Aanvraagheaders** |**Regel overeen** |**Resultaat** |
+| **PUT** |http://www.contoso.com |x-ms-blob-content-type |Eerste regel |Geslaagd |
+| **GET** |http://www.contoso.com |x-ms-blob-content-type |Tweede regel |Geslaagd |
+| **GET** |http://www.contoso.com |x-ms-client-request-id |Tweede regel |Fout |
 
 De eerste aanvraag komt overeen met de eerste regel – het brondomein overeenkomt met de toegestane oorsprongen, de methode komt overeen met de toegestane methoden en de header komt overeen met de toegestane headers – en dus slaagt.
 
@@ -167,7 +167,7 @@ De volgende tabel geeft aan hoe Azure-opslag reageert op GET/HEAD-aanvragen op b
 
 | Aanvraag | Instellingen van een account en het resultaat van evaluatie van de regels |  |  | Antwoord |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Oorsprong header aanwezig is op verzoek** |**CORS (s) is opgegeven voor deze service** |**Overeenkomende regel bestaat waarmee alle oorsprongen (*)** |**Overeenkomende regel bestaat voor de oorsprong van de exacte overeenkomst** |**Antwoord bevat Vary-kop is ingesteld op de oorsprong** |**Antwoord bevat de Access Control-toegestaan-oorsprong: '*'** |**Antwoord bevat Access-Control-blootgesteld-kopteksten** |
+| **Oorsprong header aanwezig is op verzoek** |**CORS (s) is opgegeven voor deze service** |**Overeenkomende regel bestaat waarmee alle origins(*)** |**Overeenkomende regel bestaat voor de oorsprong van de exacte overeenkomst** |**Antwoord bevat Vary-kop is ingesteld op de oorsprong** |**Antwoord bevat de Access Control-toegestaan-oorsprong: ' * '** |**Antwoord bevat Access-Control-blootgesteld-kopteksten** |
 | Nee |Nee |Nee |Nee |Nee |Nee |Nee |
 | Nee |Ja |Nee |Nee |Ja |Nee |Nee |
 | Nee |Ja |Ja |Nee |Nee |Ja |Ja |

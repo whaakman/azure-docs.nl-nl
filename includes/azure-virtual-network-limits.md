@@ -54,9 +54,9 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Regels per IP-configuratie | 299 |299 |
 | Frontend-IP-adresconfiguraties, Basic | 10 | 200 |
 | Frontend-IP-adresconfiguraties, standaard | 10 | 600 |
-| Back-endpool Basic | 100, één Beschikbaarheidsset | - |
-| Back-endpool Standard | 1000, enkel VNet | - |
-| HA poorten, Standard | 1 per interne frontend | - |
+| Back-endpool Basic | 100, één Beschikbaarheidsset | 100, één Beschikbaarheidsset |
+| Back-endpool Standard | 1000, enkel VNet | 1000, enkel VNet |
+| HA poorten, Standard | 1 per interne frontend | 1 per interne frontend |
 
 [Neem contact op met de ondersteuning](../articles/azure-supportability/resource-manager-core-quotas-request.md ) als u de standaardlimieten wilt verhogen.
 

@@ -1,11 +1,11 @@
 ---
 title: Nieuwe ondersteuning van Microsoft Azure-bestand uploaden hulpprogramma richtlijnen aanvragen | Microsoft Docs
 description: Beschrijft de richtlijnen bij het gebruik van Microsoft Azure nieuw ondersteuningsverzoek hulpprogramma-bestand uploaden
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: genlin
 manager: mbaldwin
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: eb13bc8012e2d58e1a9b68bb1cf2da11d65e8159
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Nieuwe ondersteuning van Microsoft Azure-bestand uploaden hulpprogramma richtlijnen aanvragen
 Wanneer u [Maak een ondersteuningsaanvraag](https://portal.azure.com/#create/Microsoft.Support), het bestand geüpload hulpprogramma kunt u eenvoudig diagnostische uploadbestanden of andere bestanden die u denkt dat relevant zijn voor het incident.  
@@ -39,31 +39,31 @@ Volg deze richtlijnen wanneer u het hulpprogramma voor het bestand laden:
 ## <a name="table-of-the-allowed-file-name-extensions"></a>Tabel met de toegestane bestandsnaamextensies
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
-| .7z         | dat  | .hwl        | .odx  | smokkelen     | .tdb       | .xlam   |
-| een          | DB   | ICS        | .oft  | .RDL     | .tdf       | .xlr    |
-| .ABC        | . DMP  | .ini        | .oud  | .RDLC    | .Text      | .xls    |
-| .adm        | .do_  | .Java       | One  | .re_     | .thmx      | .xlsb   |
-| aspx       | .doc  | .jpg        | OSD  | REG     | .TIF       | xlsm   |
-| . ATF        | DOCM | . LDF        | . OUT  | .Verwijder  | .trc       | .xlsx   |
-| .b          | DOCX | .Letterhead | .P1   | .ren     | . TTD       | .xlt    |
-| .Ba_        | dotm | lnk        | .pcap | .Rename  | .tx_       | werkmap   |
-| .bak        | dotx | .lo_        | .pdb  | .RFT     | .txt       | .XML    |
-| .bat        | .dtsx | .log        | PDF  | .rpt     | .uccapilog | .XMLA   |
-| .blg        | .EDS  | LPK        | .piz  | .RTE     | .uccplog   | XPS    |
-| .CA_        | .emf  | manifest   | .pmls | RTF     | gegevensverbindingsbestand      | .xsd    |
-| . CAB-BESTAND        | EML  | .master     | PNG  | .Run     | .vb_       | XSN    |
-| Cap        | Deze methode  | .mdmp       | potx | .saz     | .vbs_      | .xxx    |
-| .catx       | .Err  | MOF        | ppt  | .SQL     | VCF       | .z_     |
-| . CONFIGURATIE        | etl  | .mp3        | pptm | .sqlplan | .vsd       | .z01    |
-| .Compressed | .evt  | mpg        | PPTX | STP     | .wdb       | .z02    |
-| . Configuratie     | .evtx | .ms_        | prn  | .svclog  | .wks       | .Zi     |
-| .cpk        | . EX   | .msg        | .psf  |   -       | .wma       | .zi_    |
-| .cpp        | .ex_  | .msi        | PST  |  -        | WMV       | .zip    |
+| .7z         | .dat  | .hwl        | .odx  | smokkelen     | .tdb       | .xlam   |
+| een          | .db   | ICS        | .oft  | .rdl     | .tdf       | .xlr    |
+| .abc        | .DMP  | .ini        | .oud  | .rdlc    | .text      | .xls    |
+| .adm        | .do_  | .java       | One  | .re_     | .thmx      | .xlsb   |
+| .aspx       | .doc  | .jpg        | .osd  | .reg     | .tif       | xlsm   |
+| .ATF        | DOCM | .LDF        | .OUT  | .remove  | .trc       | .xlsx   |
+| .b          | .docx | .Letterhead | .p1   | .ren     | .TTD       | .xlt    |
+| .ba_        | .dotm | .lnk        | .pcap | .rename  | .tx_       | .xltx   |
+| .bak        | .dotx | .lo_        | .pdb  | .RFT     | .txt       | .xml    |
+| .bat        | .dtsx | .log        | .pdf  | .rpt     | .uccapilog | .xmla   |
+| .blg        | .EDS  | .lpk        | .piz  | .RTE     | .uccplog   | XPS    |
+| .CA_        | .emf  | .manifest   | .pmls | .rtf     | .udcx      | .xsd    |
+| .CAB        | .eml  | .master     | .png  | .run     | .vb_       | .xsn    |
+| .cap        | .emz  | .mdmp       | .potx | .saz     | .vbs_      | .xxx    |
+| .catx       | .err  | .mof        | .ppt  | .sql     | .vcf       | .z_     |
+| .CFG        | .etl  | .mp3        | pptm | .sqlplan | .vsd       | .z01    |
+| .compressed | .evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
+| .Config     | .evtx | .ms_        | .prn  | .svclog  | .wks       | .zi     |
+| .cpk        | .EX   | .msg        | .psf  |   -       | .wma       | .zi_    |
+| .cpp        | .ex_  | .msi        | .pst  |  -        | .wmv       | .zip    |
 | .cs         | .ex0  | .mso        | .pub  | -         | .wmz       | .zip_   |
-| . CSV        | . FRD  | MSU        | -      |-          | WPS       | .zipp   |
-| .CVR        | .gif  | .nfo        | -      |-          | sjabloonbestand       | .Zipped |
-| -            | .GUID | -            | -      | -         | .WSDL      | .zippy  |
-| -            | .GZ   | -            | -      | -         | WSP       | .zipx   |
+| .CSV        | .FRD  | .msu        | -      |-          | .wps       | .zipp   |
+| .cvr        | .gif  | .nfo        | -      |-          | .wpt       | .Zipped |
+| -            | .guid | -            | -      | -         | .wsdl      | .zippy  |
+| -            | .gz   | -            | -      | -         | .wsp       | .zipx   |
 | -            | -      | -            | -      | -         | .wtl       | .zit    |
-| -            | -      | -            | -      | -         |     -       | .Zix    |
+| -            | -      | -            | -      | -         |     -       | .zix    |
 | -            | -      | -            | -      | -         |  -          | .zzz    |

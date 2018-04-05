@@ -1,11 +1,11 @@
 ---
 title: Het gebruik van de SendGrid-e-mailservice (Node.js) | Microsoft Docs
 description: Meer informatie over hoe verzenden van e-mailbericht met de SendGrid-e-mailservice op Azure. Codevoorbeelden geschreven met behulp van de Node.js-API.
-services: 
+services: ''
 documentationcenter: nodejs
 author: erikre
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: cac444b4-26b0-45ea-9c3d-eca28d57dacb
 ms.service: multiple
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Het verzenden van E-mail via SendGrid met Node.js
 Deze handleiding wordt uitgelegd hoe u algemene programmeertaken met de SendGrid-e-mailservice uitvoert op Azure. De voorbeelden zijn geschreven met behulp van de Node.js-API. De scenario's worden behandeld: **construeren e**, **verzenden van e-mail**, **bijlagen toevoegen**, **met filters**, en **eigenschappen bijwerken**. Zie voor meer informatie over SendGrid en verzenden van e-mail, de [Vervolgstappen](#next-steps) sectie.
@@ -33,7 +33,7 @@ SendGrid is een [cloud-gebaseerde e-mailservice] die biedt betrouwbare [levering
 * Doorsturen van vragen van klanten
 * E-mailmeldingen van uw toepassing
 
-Zie voor meer informatie [https://sendgrid.com](https://sendgrid.com).
+Zie voor meer informatie [ https://sendgrid.com ](https://sendgrid.com).
 
 ## <a name="create-a-sendgrid-account"></a>Een SendGrid-Account maken
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -161,7 +161,7 @@ De volgende voorbeelden tonen de voettekst en klik op filters bijhouden:
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>How to: de eigenschappen van het e-mailadres bijwerken
-Sommige eigenschappen van de e-mail kunnen worden overschreven met  **ingesteld*eigenschap*** of toegevoegd met behulp van  **toevoegen*eigenschap***. U kunt extra ontvangers bijvoorbeeld toevoegen met behulp van
+Sommige eigenschappen van de e-mail kunnen worden overschreven met **ingesteld * eigenschap*** of toegevoegd met behulp van **toevoegen*eigenschap ***. U kunt extra ontvangers bijvoorbeeld toevoegen met behulp van
 
     email.addTo('jeff@contoso.com');
 
