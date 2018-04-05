@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc2ec96113310f54d32a67ea5fa31725600046c9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>PKI-certificaten voor de implementatie van Azure-Stack genereren
 Als u weet [PKI-certificaatvereisten](azure-stack-pki-certs.md) voor Azure-Stack-implementaties, moet u deze certificaten verkrijgen van de certificeringsinstantie (CA) van uw keuze. 
@@ -75,4 +75,4 @@ De volgende werkstroom wordt beschreven hoe u kunt aanpassen en het INF-bestand 
 5. **Exporteren en kopiëren. PFX naar implementatiemappen**. Het certificaat (met inbegrip van de persoonlijke sleutel) exporteren als een. PFX-bestand en kopieer de. PFX-bestand voor de implementatiemappen die worden beschreven [Azure Stack PKI implementatievereisten](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Bereid Azure Stack PKI-certificaten](prepare-pki-certs.md)
+[Bereid Azure Stack PKI-certificaten](azure-stack-prepare-pki-certs.md)

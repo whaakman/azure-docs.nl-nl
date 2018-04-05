@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/04/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 560261b5d353c7e9510124985c644d895612e2bb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: cff6d780826164de6ef0122849e40d453192f81c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure-Stack 1803 update
 
@@ -36,7 +36,7 @@ Het buildnummer van Azure Stack 1803 update **20180329.1**.
 
 ## <a name="before-you-begin"></a>Voordat u begint    
 > [!IMPORTANT]    
-> Probeer niet voor het maken van virtuele machines tijdens de installatie van deze update. Zie voor meer informatie over het beheren van updates, [beheren van updates in de Azure-Stack overzicht](/azure-stack-updates#plan-for-updates).
+> Probeer niet voor het maken van virtuele machines tijdens de installatie van deze update. Zie voor meer informatie over het beheren van updates, [beheren van updates in de Azure-Stack overzicht](azure-stack-updates.md#plan-for-updates).
 
 
 ### <a name="prerequisites"></a>Vereisten
@@ -64,28 +64,25 @@ Deze update bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
  
    Sparse bestanden zijn een efficiënte bestandsindeling gebruikt voor het gebruik van opslag ruimte beperken en verbeteren van i/o.  Zie voor meer informatie [Fsutil sparse](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) voor Windows Server. 
 
-
 ### <a name="fixed-issues"></a>Opgeloste problemen
 
-- <!-- 1739988 -->  **Fixed** - Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
+- <!-- 1739988 --> Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
 
-- <!-- 1805496 --> **Fixed** - An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure.  The values now match the values in Azure. 
+- <!-- 1805496 --> An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure.  The values now match the values in Azure. 
 
-- <!-- 2209262 --> **Fixed** - The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
+- <!-- 2209262 --> The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
 
-- <!-- 1766332 --> **Fixed** - Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
+- <!-- 1766332 --> Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
 
-- <!-- 2096388 --> **Fixed** - Unable to update Network Security Group Rules from the Portal is now fixed. 
+- <!-- 1868283 --> Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
 
-- <!-- 1868283 --> **Fixed** - Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
+- <!-- 1756324 --> Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
 
-- <!-- 1756324--> **Fixed** - Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
+- <!--  2253274 --> The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
 
-- <!--  2253274 --> **Fixed** - The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
+- Wanneer u een virtuele machine, het bericht maakt *kan niet worden weergegeven prijzen* niet langer weergegeven bij het kiezen van een grootte voor de VM-grootte.
 
-- **Vaste** : wanneer u een virtuele machine, het bericht maakt *kan niet worden weergegeven prijzen* niet langer weergegeven bij het kiezen van een grootte voor de VM-grootte.
-
-- **Verschillende oplossingen** voor prestaties, stabiliteit, beveiliging en het besturingssysteem dat wordt gebruikt door de Azure-Stack.
+- Verschillende oplossingen voor prestaties, stabiliteit, beveiliging en het besturingssysteem dat wordt gebruikt door de Azure-Stack.
 
 
 ### <a name="changes"></a>Wijzigingen
@@ -93,7 +90,7 @@ Deze update bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
 
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces kan controleren    
-*Er zijn geen bekende problemen voor de installatie van update 1803.*
+Tijdens de installatie van de update 1803, kunnen er uitvaltijd van de blob-service en interne services die gebruikmaken van blob-service. Het gaat hierbij om bepaalde bewerkingen van de virtuele machine.  Uitvaltijd kan hierdoor mislukken van de tenant bewerkingen of waarschuwingen van de services die geen toegang gegevens tot. Dit probleem lost zichzelf zodra de update voor de installatie is voltooid. 
 
 
 ### <a name="known-issues-post-installation"></a>Bekende problemen (na de installatie)
@@ -133,7 +130,9 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180323.2
 #### <a name="compute"></a>Compute
 - Instellingen voor virtuele-machineschaalsets schalen zijn niet beschikbaar in de portal. Als tijdelijke oplossing kunt u [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Vanwege verschillen tussen versies van PowerShell, moet u de `-Name` parameter in plaats van `-VMScaleSetName`.
 
-- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1803. This is due to the change in support for using availability sets with virtual machine scale sets. This support is added with version 1803.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message Provisioning state failed. We are investigating a fix for this issue to enable an older VMSS to scale, and will update this content if and when that is available. 
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  U lost dit probleem door contact op met ondersteuning om aan te vragen van de Hotfix **1.0.180302.4** voor Azure-Stack. 
 
 - Bij het maken van een beschikbaarheidsset in de portal door te gaan naar **nieuw** > **Compute** > **beschikbaarheidsset**, kunt u alleen maken een beschikbaarheidsset met een domein met fouten en het updatedomein van 1. Als tijdelijke oplossing bij het maken van een nieuwe virtuele machine, maakt u de beschikbaarheidsset met behulp van PowerShell, CLI of vanuit de portal.
 
@@ -164,6 +163,69 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180323.2
 - Op een virtueel netwerk dat is gemaakt met een DNS-Server-instelling van *automatische*, wijzigen voor een aangepaste DNS-Server mislukt. De bijgewerkte instellingen zijn niet doorgevoerd in de virtuele machines in dit Vnet.
 
 - Azure-Stack biedt geen ondersteuning voor extra netwerkinterfaces toevoegen aan een VM-instantie nadat de virtuele machine is geïmplementeerd. Als de virtuele machine meer dan één netwerkinterface vereist, moeten ze tijdens de implementatie worden gedefinieerd.
+
+- <!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+
+    Tijdelijke oplossing voor App Service: als u extern bureaublad op de exemplaren van de domeincontroller moet, u wijzigt de beveiligingsregels voor verbindingen binnen de netwerkbeveiligingsgroepen met PowerShell.  Hieronder vindt u voorbeelden van hoe *toestaan*, en zet u de configuratie van *weigeren*:  
+    
+    - *Toestaan:*
+ 
+      ```powershell    
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      
+      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+      
+      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+      
+      ##This doesn’t work. Need to set properties again even in case of edit
+      
+      #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
+      
+      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+        -Name $RuleConfig_Inbound_Rdp_3389.Name `
+        -Description "Inbound_Rdp_3389" `
+        -Access Allow `
+        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+      
+      # Commit the changes back to NSG
+      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+      ```
+
+    - *Weigeren:*
+
+        ```powershell
+        
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        
+        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+        
+        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+        
+        ##This doesn’t work. Need to set properties again even in case of edit
+    
+        #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
+    
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+          -Name $RuleConfig_Inbound_Rdp_3389.Name `
+          -Description "Inbound_Rdp_3389" `
+          -Access Deny `
+          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+          
+        # Commit the changes back to NSG
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg 
+        ```
 
 
 #### <a name="sql-and-mysql"></a>SQL- en MySQL

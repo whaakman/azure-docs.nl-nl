@@ -2,24 +2,24 @@
 title: Een aangepaste marketplace-item publiceren in Azure-Stack (cloud-operator) | Microsoft Docs
 description: Als een Azure-Stack-operator, informatie over het publiceren van een aangepaste marketplace-item in de Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 04/03/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c791708e11b7e9e8bbe046f06233d948d4632c90
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 37587cf5f99ce105413382cbd5a0de9cacc76b7d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Het overzicht van Azure Stack Marketplace
 
@@ -43,6 +43,8 @@ Elk Marketplace-item heeft:
 * Opmaak van gegevens naar het item wordt weergegeven in de portal
 
 Elk item dat is gepubliceerd naar de Marketplace maakt gebruik van een indeling, genaamd Azure Gallery-pakket (azpkg). Toevoegen-implementatie of runtime bronnen (zoals code, zip-bestanden met software of installatiekopieën van virtuele machines) naar Azure Stack afzonderlijk, niet als onderdeel van de Marketplace-Item. 
+
+Beginnend met 1803, worden afbeeldingen geconverteerd naar sparse bestanden tijdens het downloaden van Azure of tijdens het uploaden van aangepaste installatiekopieën. Dit proces wordt toegevoegd tijd bij het toevoegen van een installatiekopie, maar databaseruimte en de implementatie van deze installatiekopieën sneller. Conversie is alleen van toepassing op nieuwe afbeeldingen. Bestaande installatiekopieën worden niet gewijzigd. 
 
 ## <a name="next-steps"></a>Volgende stappen
 [Maken en publiceren van een marketplace-item](azure-stack-create-and-publish-marketplace-item.md)

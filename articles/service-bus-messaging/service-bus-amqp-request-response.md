@@ -24,7 +24,7 @@ ms.lasthandoff: 03/23/2018
 
 In dit artikel definieert de lijst met Microsoft Azure Service Bus-aanvraag/antwoord-bewerkingen. Deze informatie is gebaseerd op het concept van de werkende AMQP Management versie 1.0.  
   
-Zie voor een gedetailleerde wire-niveau AMQP 1.0-protocol handleiding, waarin wordt uitgelegd hoe Service Bus implementeert en bouwt voort op de technische OASIS AMQP-specificatie, de [AMQP 1.0 in Azure Service Bus en Event Hubs protocol handleiding] [ AMQP 1.0-protocol handleiding].  
+Zie voor een gedetailleerde wire-niveau AMQP 1.0-protocol handleiding, waarin wordt uitgelegd hoe Service Bus implementeert en bouwt voort op de technische OASIS AMQP-specificatie, de [AMQP 1.0 in Azure Service Bus en Event Hubs protocol handleiding][AMQP 1.0-protocolhandleiding].  
   
 ## <a name="concepts"></a>Concepten  
   
