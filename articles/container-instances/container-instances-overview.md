@@ -6,36 +6,36 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 01/02/2018
+ms.date: 03/23/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d6e0637974d8076fc610d7154ad507f4e7af0cfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
-Containers worden in snel tempo de voorkeursmethode voor het verpakken, implementeren en beheren van cloudtoepassingen. Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen.
+Containers worden de voorkeursmethode voor het verpakken, implementeren en beheren van cloudtoepassingen. Azure Container Instances is de snelste en meest eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines te beheren of het serviceniveau te verhogen.
 
 Azure Container Instances is een ideale oplossing voor elk scenario dat kan werken in geïsoleerde containers, met inbegrip van eenvoudige toepassingen, taakautomatisering en het bouwen van taken. Voor scenario's waarin u een volledige indeling met containers nodig hebt, waaronder servicedetectie in meerdere containers, automatisch schalen en gecoördineerde toepassingsupgrades, raden wij [Azure Container Service (AKS)](../aks/index.yml) aan.
 
 ## <a name="fast-startup-times"></a>Snel opstarten
 
-Containers bieden aanzienlijke opstartvoordelen ten opzichte van virtuele machines. Met Azure Container Instances kunt u een container in Azure in enkele seconden starten, zonder de noodzaak tot het inrichten en beheren van virtuele machines.
+Containers bieden aanzienlijke opstartvoordelen ten opzichte van virtuele machines. Met Azure Container Instances kunnen containers in Azure in enkele seconden worden gestart, zonder dat u VM’s hoeft in te richten en te beheren.
 
 ## <a name="hypervisor-level-security"></a>Beveiliging op hypervisorniveau
 
-In het verleden boden containers toepassingsafhankelijke isolatie en resourcebesturing, maar werden ze geschikt geacht voor onveilig multitenant gebruik. Met Azure Container Instances is uw toepassing even geïsoleerd in een container als deze op een virtuele machine zou zijn.
+In het verleden boden containers toepassingsafhankelijke isolatie en resourcebesturing, maar werden ze niet voldoende veilig beschouwd voor onveilig multitenant gebruik. Met Azure Container Instances is uw toepassing gegarandeerd even geïsoleerd in een container als deze op een VM zou zijn.
 
 ## <a name="custom-sizes"></a>Aangepaste grootten
 
-Containers zijn meestal geoptimaliseerd voor het uitvoeren van één toepassing, maar de exacte behoeften van deze toepassingen kunnen aanzienlijk verschillen. Met Azure Container Instances kunt u vragen om precies wat u zoekt in termen van CPU-kernen en het geheugen. U betaalt op basis van wat u aanvraagt, wordt onmiddellijk gefactureerd, zodat u uw uitgaven op basis van de behoeften van kunt optimaliseren.
+Containers zijn meestal geoptimaliseerd voor het uitvoeren van één toepassing, maar de exacte behoeften van deze toepassingen kunnen aanzienlijk verschillen. Azure Container Instances biedt een optimaal gebruik door exacte specificaties van CPU-kernen en -geheugen toe te staan. U betaalt op basis van wat u nodig hebt en wordt per seconde gefactureerd, zodat u uw uitgaven kunt verfijnen op basis van werkelijke behoefte.
 
 ## <a name="public-ip-connectivity"></a>Openbare IP-verbinding
 
-Met Azure Container Instances kunt u uw containers direct weergeven op internet met een openbaar IP-adres. In de toekomst gaan we onze netwerkmogelijkheden uitbreiden met integratie met virtuele netwerken, load balancers en andere basisonderdelen van de Azure-netwerkinfrastructuur.
+Met Azure Container Instances kunt u uw containers direct weergeven op internet met een openbaar IP-adres en een DNS-naamlabel. In de toekomst gaan we onze netwerkmogelijkheden uitbreiden met integratie met virtuele netwerken, load balancers en andere basisonderdelen van de Azure-netwerkinfrastructuur.
 
 ## <a name="persistent-storage"></a>Permanente opslag
 
@@ -49,7 +49,7 @@ Sommige functies zijn momenteel beperkt tot Linux-containers. Hoewel we ons best
 
 ## <a name="co-scheduled-groups"></a>Samen geplande groepen
 
-Azure Container Instances biedt ondersteuning voor planning van [meerdere containergroepen](container-instances-container-groups.md) die een hostmachine, lokaal netwerk, opslag en levenscyclus delen. Hiermee kunt u uw hoofdtoepassing combineren met andere die een ondersteunende rol uitvoeren, zoals logboekregistratie.
+Azure Container Instances biedt ondersteuning voor planning van [meerdere containergroepen](container-instances-container-groups.md) die een hostmachine, lokaal netwerk, opslag en levenscyclus delen. Hierdoor kunt u uw hoofdtoepassingscontainer combineren met andere ondersteunende rolcontainers, zoals het in een logboek vastleggen van sidecars.
 
 ## <a name="next-steps"></a>Volgende stappen
 

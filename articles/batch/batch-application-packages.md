@@ -3,23 +3,23 @@ title: Toepassingspakketten op rekenknooppunten - Azure Batch installeren | Micr
 description: Gebruik de functie voor de toepassing-pakketten van Azure Batch eenvoudig beheren meerdere toepassingen en versies voor de installatie van Batch-rekenknooppunten.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 07/20/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b5f10cbd79227ccc6acb2004e449f426a6cbd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 440f7eba99e5fa02a597ae62d5d14329f5e50af7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Toepassingen implementeren op rekenknooppunten met Batch-toepassingspakketten
 
@@ -121,7 +121,7 @@ De **toepassingen** blade geeft de ID van elke toepassing in uw account en de vo
 
 * **Pakketten**: het aantal versies die zijn gekoppeld aan deze toepassing.
 * **Standaardversie**: de versie van de toepassing wordt geïnstalleerd als u niet een versie aangeven wanneer u de toepassing voor een groep opgeeft. Deze instelling is optioneel.
-* **Toestaan dat updates**: de waarde die aangeeft of het pakket updates, verwijderingen en toevoegingen zijn toegestaan. Als deze is ingesteld op **Nee**, pakket bijwerken en verwijderen zijn uitgeschakeld voor de toepassing. Alleen nieuwe toepassingspakketversies kunnen worden toegevoegd. De standaardwaarde is **Ja**.
+* **Toestaan dat updates**: de waarde die aangeeft of het pakket updates, verwijderingen en toevoegingen zijn toegestaan. Als deze is ingesteld op **Nee**, pakket bijwerken en verwijderen zijn uitgeschakeld voor de toepassing. Alleen nieuwe toepassingspakketversies kunnen worden toegevoegd. De standaardinstelling is **Ja**.
 
 ### <a name="view-application-details"></a>Toepassingdetails weergeven
 Als de blade met de details voor een toepassing, schakelt u de toepassing in de **toepassingen** blade.
@@ -194,7 +194,7 @@ Wanneer u klikt op **Update**, wordt de *updatepakket* blade wordt weergegeven. 
 
 Wanneer u klikt op **verwijderen**u wordt gevraagd om te bevestigen dat de verwijdering van de Pakketversie en Batch wordt het pakket verwijderd uit Azure Storage. Als u de standaardversie van een toepassing, verwijdert de **standaardversie** instelling voor de toepassing is verwijderd.
 
-![Toepassing verwijderen][12]
+![Toepassing verwijderen ][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>Toepassingen installeren op rekenknooppunten
 Nu dat u met de Azure portal-toepassingspakketten beheren hebt geleerd, kunt implementeren om de rekenknooppunten en ze worden uitgevoerd met Batch-taken besproken.
@@ -269,7 +269,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
-`APPLICATIONID`en `version` zijn waarden die overeenkomen met de toepassingen en pakketten versie die u hebt opgegeven voor de implementatie. Bijvoorbeeld, als u die versie 2.7 van toepassing opgegeven *blender* moet worden geïnstalleerd op Windows-knooppunten zou uw taak opdrachtregels deze omgevingsvariabele gebruiken voor toegang tot de bestanden:
+`APPLICATIONID` en `version` zijn waarden die overeenkomen met de toepassingen en pakketten versie die u hebt opgegeven voor de implementatie. Bijvoorbeeld, als u die versie 2.7 van toepassing opgegeven *blender* moet worden geïnstalleerd op Windows-knooppunten zou uw taak opdrachtregels deze omgevingsvariabele gebruiken voor toegang tot de bestanden:
 
 ```
 Windows:

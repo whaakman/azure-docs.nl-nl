@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3378c13934a5a0743aa40ebb19940f1afa71fc71
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: eb4ebe0b1c0e4799aea6401b068d881e5aa47026
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Resources implementeren met Resource Manager-sjablonen en Azure PowerShell
 
@@ -34,7 +34,7 @@ Installeer zo nodig de Azure PowerShell-module met behulp van de instructies in 
 
 Bij het implementeren van resources in Azure, u:
 
-1. Aanmelden bij uw Azure-account
+1. Meld u aan bij uw Azure-account
 2. Maak een resourcegroep die als de container voor de geïmplementeerde resources fungeert. De naam van de resourcegroep kan alleen alfanumerieke tekens, punten, onderstrepingstekens, afbreekstreepjes en haakjes bevatten. Het kan maximaal 90 tekens zijn. Het mag niet eindigen op een punt.
 3. De sjabloon waarin de bronnen te maken aan de resourcegroep implementeren
 
@@ -78,7 +78,9 @@ Gebruik de volgende opdrachten in de Cloud-Shell:
 
 ```powershell
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile "C:\users\ContainerAdministrator\CloudDrive\templates\azuredeploy.json" -storageAccountType Standard_GRS
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateUri <copied URL> `
+  -storageAccountType Standard_GRS
 ```
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implementeren naar meer dan één resourcegroep of abonnement
@@ -134,7 +136,7 @@ Als de sjabloon een parameter met dezelfde naam als een van de parameters in de 
 U kunt uw sjabloon en de parameterbestanden waarden testen zonder het distribueren van alle resources met [Test-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 

@@ -2,24 +2,24 @@
 title: Automatisch schalen rekenknooppunten in een Azure Batch-pool | Microsoft Docs
 description: Schakel automatisch schalen op een cloud-pool dynamisch aanpassen zodat het aantal rekenknooppunten in de pool.
 services: batch
-documentationcenter: 
-author: tamram
-manager: timlt
-editor: tysonn
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0e49cd8a64a48c53f5b6104703164a597c797f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1114ea90ae6976a3bc3580ebae5fd853de0274a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Een automatische schaling formule voor het schalen van rekenknooppunten in een Batch-pool maken
 
@@ -125,7 +125,7 @@ Deze typen worden ondersteund in een formule:
 * dubbele
 * doubleVec
 * doubleVecList
-* Tekenreeks
+* tekenreeks
 * tijdstempel--tijdstempel is een samengestelde structuur met de volgende leden:
 
   * jaar
@@ -134,7 +134,7 @@ Deze typen worden ondersteund in een formule:
   * werkdag (in de indeling van het nummer; bijvoorbeeld: 1 voor maandag)
   * uur (in 24-uurs notatie, bijvoorbeeld: 13 betekent 1 uur)
   * minuten (00-59)
-  * tweede (00-59)
+  * second (00-59)
 * TimeInterval
 
   * TimeInterval_Zero
@@ -162,7 +162,7 @@ Deze bewerkingen zijn toegestaan voor de typen die worden vermeld in de vorige s
 | TimeInterval *operator* tijdstempel |+ |tijdstempel |
 | tijdstempel *operator* timeinterval |+ |tijdstempel |
 | tijdstempel *operator* tijdstempel |- |TimeInterval |
-| *operator*dubbele |-, ! |dubbele |
+| *operator*double |-, ! |dubbele |
 | *operator*timeinterval |- |TimeInterval |
 | dubbele *operator* dubbele |<, <=, ==, >=, >, != |dubbele |
 | tekenreeks *operator* tekenreeks |<, <=, ==, >=, >, != |dubbele |
@@ -177,23 +177,23 @@ Deze vooraf gedefinieerde **functies** zijn beschikbaar voor gebruik bij het def
 
 | Functie | Retourtype | Beschrijving |
 | --- | --- | --- |
-| Avg(doubleVecList) |dubbele |Retourneert de gemiddelde waarde voor alle waarden in de doubleVecList. |
-| Len(doubleVecList) |dubbele |Retourneert de lengte van de vector die wordt gemaakt van de doubleVecList. |
+| avg(doubleVecList) |dubbele |Retourneert de gemiddelde waarde voor alle waarden in de doubleVecList. |
+| len(doubleVecList) |dubbele |Retourneert de lengte van de vector die wordt gemaakt van de doubleVecList. |
 | LG(Double) |dubbele |Retourneert het logboek grondtal 2 van de dubbele waarde. |
-| LG(doubleVecList) |doubleVec |Retourneert het component-wise logboek grondtal 2 van de doubleVecList. Een vec(double) moet expliciet voor de parameter worden doorgegeven. Anders wordt wordt de versie van de dubbele lg(double) verondersteld. |
+| lg(doubleVecList) |doubleVec |Retourneert het component-wise logboek grondtal 2 van de doubleVecList. Een vec(double) moet expliciet voor de parameter worden doorgegeven. Anders wordt wordt de versie van de dubbele lg(double) verondersteld. |
 | ln(Double) |dubbele |Retourneert het natuurlijke logboek van de dubbele waarde. |
 | ln(doubleVecList) |doubleVec |Retourneert het component-wise logboek grondtal 2 van de doubleVecList. Een vec(double) moet expliciet voor de parameter worden doorgegeven. Anders wordt wordt de versie van de dubbele lg(double) verondersteld. |
 | log(Double) |dubbele |Retourneert het logboek grondtal 10 van de dubbele waarde. |
 | log(doubleVecList) |doubleVec |Retourneert het component-wise logboek grondtal 10 van de doubleVecList. Een vec(double) moet expliciet voor de één dubbele parameter worden doorgegeven. Anders wordt wordt de versie van de dubbele log(double) verondersteld. |
-| Max(doubleVecList) |dubbele |Retourneert de maximumwaarde in de doubleVecList. |
+| max(doubleVecList) |dubbele |Retourneert de maximumwaarde in de doubleVecList. |
 | min(doubleVecList) |dubbele |Retourneert de minimumwaarde in het doubleVecList. |
 | norm(doubleVecList) |dubbele |Retourneert de twee-norm van de vector die wordt gemaakt van de doubleVecList. |
 | percentiel (v doubleVec, dubbele p) |dubbele |Retourneert het percentiel-element van de vector v. |
 | ASELECT() |dubbele |Retourneert een willekeurige waarde tussen 0,0 en 1,0 liggen. |
-| Range(doubleVecList) |dubbele |Retourneert het verschil tussen de min en max-waarden in de doubleVecList. |
-| Std(doubleVecList) |dubbele |Retourneert de standaardafwijking van voorbeeld van de waarden in de doubleVecList. |
+| range(doubleVecList) |dubbele |Retourneert het verschil tussen de min en max-waarden in de doubleVecList. |
+| std(doubleVecList) |dubbele |Retourneert de standaardafwijking van voorbeeld van de waarden in de doubleVecList. |
 | Stop() | |Evaluatie van de expressie voor automatisch schalen stopt. |
-| SUM(doubleVecList) |dubbele |Retourneert de som van alle onderdelen van de doubleVecList. |
+| sum(doubleVecList) |dubbele |Retourneert de som van alle onderdelen van de doubleVecList. |
 | tijd (string, dateTime = "") |tijdstempel |Retourneert de tijdstempel van de huidige tijd als er geen parameters worden doorgegeven of het tijdstempel van de datum/tijd-tekenreeks als deze wordt doorgegeven. Ondersteunde datum-/ tijdindelingen zijn W3C-DTF- en RFC 1123. |
 | waarde opnemen (v doubleVec, dubbele i) |dubbele |Retourneert de waarde van het element dat is op locatie i in vector v, met een startIndex gelijk is aan nul. |
 
@@ -212,7 +212,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Methode | Beschrijving |
 | --- | --- |
-| GetSample() |De `GetSample()` methode retourneert een vector van voorbeelden van gegevens.<br/><br/>Een voorbeeld is 30 seconden metrische gegevens. Voorbeelden zijn met andere woorden, elke 30 seconden opgehaald. Maar zoals hieronder aangegeven, er is een vertraging tussen wanneer een voorbeeld van een worden verzameld en wanneer deze beschikbaar is om een formule. Als zodanig kunnen niet alle voorbeelden voor een bepaalde periode niet beschikbaar voor evaluatie van een formule.<ul><li>`doubleVec GetSample(double count)`<br/>Hiermee geeft u het aantal steekproeven te halen van de meest recente voorbeelden die zijn verzameld.<br/><br/>`GetSample(1)`retourneert het laatste voorbeeld beschikbaar. Metrische gegevens zoals `$CPUPercent`, maar dit mag niet worden gebruikt omdat het niet mogelijk om te weten *wanneer* het voorbeeld is verzameld. Kan het zijn recente of vanwege problemen met het systeem, kan het veel ouder zijn. Het is beter in dergelijke gevallen te gebruiken een tijdsinterval zoals hieronder wordt weergegeven.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van voorbeeldgegevens. Eventueel specificeert het ook het percentage van de voorbeelden die beschikbaar zijn in het aangevraagde tijdsbestek.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`Voorbeelden van 20 zou worden geretourneerd als alle voorbeelden voor de afgelopen 10 minuten in de geschiedenis CPUPercent aanwezig zijn. Als de laatste minuut van de geschiedenis niet beschikbaar was, echter zou alleen 18 voorbeelden worden geretourneerd. In dit geval:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`mislukken omdat slechts 90 procent van de voorbeelden beschikbaar zijn.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`zou slagen.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van gegevens met een begintijd en eindtijd.<br/><br/>Zoals eerder vermeld, is er een vertraging tussen wanneer een voorbeeld van een worden verzameld en wanneer deze beschikbaar is om een formule. Houd rekening met deze vertraging wanneer u de `GetSample` methode. Zie `GetSamplePercent` hieronder. |
+| GetSample() |De `GetSample()` methode retourneert een vector van voorbeelden van gegevens.<br/><br/>Een voorbeeld is 30 seconden metrische gegevens. Voorbeelden zijn met andere woorden, elke 30 seconden opgehaald. Maar zoals hieronder aangegeven, er is een vertraging tussen wanneer een voorbeeld van een worden verzameld en wanneer deze beschikbaar is om een formule. Als zodanig kunnen niet alle voorbeelden voor een bepaalde periode niet beschikbaar voor evaluatie van een formule.<ul><li>`doubleVec GetSample(double count)`<br/>Hiermee geeft u het aantal steekproeven te halen van de meest recente voorbeelden die zijn verzameld.<br/><br/>`GetSample(1)` retourneert het laatste voorbeeld beschikbaar. Metrische gegevens zoals `$CPUPercent`, maar dit mag niet worden gebruikt omdat het niet mogelijk om te weten *wanneer* het voorbeeld is verzameld. Kan het zijn recente of vanwege problemen met het systeem, kan het veel ouder zijn. Het is beter in dergelijke gevallen te gebruiken een tijdsinterval zoals hieronder wordt weergegeven.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van voorbeeldgegevens. Eventueel specificeert het ook het percentage van de voorbeelden die beschikbaar zijn in het aangevraagde tijdsbestek.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` Voorbeelden van 20 zou worden geretourneerd als alle voorbeelden voor de afgelopen 10 minuten in de geschiedenis CPUPercent aanwezig zijn. Als de laatste minuut van de geschiedenis niet beschikbaar was, echter zou alleen 18 voorbeelden worden geretourneerd. In dit geval:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` mislukken omdat slechts 90 procent van de voorbeelden beschikbaar zijn.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` zou slagen.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van gegevens met een begintijd en eindtijd.<br/><br/>Zoals eerder vermeld, is er een vertraging tussen wanneer een voorbeeld van een worden verzameld en wanneer deze beschikbaar is om een formule. Houd rekening met deze vertraging wanneer u de `GetSample` methode. Zie `GetSamplePercent` hieronder. |
 | GetSamplePeriod() |Retourneert de periode van voorbeelden die zijn uitgevoerd in een historische voorbeeldgegevensset. |
 | Count() |Retourneert het totale aantal steekproeven in de geschiedenis van de metrische gegevens. |
 | HistoryBeginTime() |Retourneert de tijdstempel van de oudste voorbeeld van de beschikbare gegevens voor de metriek. |
@@ -385,7 +385,7 @@ Naast Batch .NET, kunt u een van de andere [Batch-SDK's](batch-apis-tools.md#azu
 ### <a name="automatic-scaling-interval"></a>Interval voor automatisch schalen
 Standaard aangepast de Batch-service een groepsgrootte volgens de formule voor automatisch schalen om de 15 minuten. Dit interval kan worden geconfigureerd met behulp van de eigenschappen van de volgende toepassingen:
 
-* [CloudPool.AutoScaleEvaluationInterval] [ net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
 * [autoScaleEvaluationInterval] [ rest_autoscaleinterval] (REST-API)
 
 Het minimale interval is vijf minuten en de maximumwaarde is 168 uur. Als een interval buiten dit bereik is opgegeven, geeft de Batch-service een fout Ongeldige aanvraag (400).
@@ -399,7 +399,7 @@ Het minimale interval is vijf minuten en de maximumwaarde is 168 uur. Als een in
 
 Elke Batch-SDK biedt een manier om in te schakelen automatisch schalen. Bijvoorbeeld:
 
-* [BatchClient.PoolOperations.EnableAutoScaleAsync] [ net_enableautoscaleasync] (Batch .NET)
+* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [Inschakelen van automatisch schalen op een pool] [ rest_enableautoscale] (REST-API)
 
 Wanneer u automatisch schalen op een bestaande pool inschakelt, houd er rekening mee houden de volgende punten:

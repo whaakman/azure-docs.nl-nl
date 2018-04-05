@@ -1,25 +1,25 @@
 ---
-title: "Lijst met efficiënt query's, Azure Batch ontwerpen | Microsoft Docs"
+title: Lijst met efficiënt query's, Azure Batch ontwerpen | Microsoft Docs
 description: De prestaties verbeteren door het filteren van uw query's bij het aanvragen van informatie over Batch-resources zoals pools, jobs, taken en rekenknooppunten.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/02/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a80b207f591bd888d4749287527013c5e554fb6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 330350d6ac6838ea5b09763fe1f73fab1934710c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Query's op de lijst met Batch-resources efficiënt maken
 
@@ -100,8 +100,8 @@ De tekenreeks uit te breiden vermindert het aantal API-aanroepen die nodig zijn 
 * Alle namen van eigenschappen zijn hoofdlettergevoelig, maar eigenschapswaarden zijn niet hoofdlettergevoelig.
 * Datum/tijd tekenreeksen kunnen twee verschillende indelingen, en moet worden voorafgegaan door `DateTime`.
   
-  * Voorbeeld van W3C-DTF-indeling:`creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  * Voorbeeld van RFC 1123 indeling:`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+  * Voorbeeld van W3C-DTF-indeling: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  * Voorbeeld van RFC 1123 indeling: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 * Booleaanse tekenreeksen zijn `true` of `false`.
 * Als een eigenschap is ongeldig of de operator is opgegeven, een `400 (Bad Request)` fout resulteert.
 
@@ -171,7 +171,7 @@ Namen van eigenschappen in het filter, selecteert en breidt tekenreeksen *moet* 
 
 | Batch .NET-typen | REST-API-entiteiten |
 | --- | --- |
-| [Certificaat][net_cert] |[Informatie ophalen over een certificaat][rest_get_cert] |
+| [Certificate][net_cert] |[Informatie ophalen over een certificaat][rest_get_cert] |
 | [CloudJob][net_job] |[Informatie over een taak ophalen][rest_get_job] |
 | [CloudJobSchedule][net_schedule] |[Informatie over het schema van een taak ophalen][rest_get_schedule] |
 | [ComputeNode][net_node] |[Informatie ophalen over een knooppunt][rest_get_node] |

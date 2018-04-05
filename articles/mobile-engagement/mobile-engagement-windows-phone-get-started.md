@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: aa34692f-87f7-47c6-a20c-a1972750bc25
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d2334a59d83c90bdd02c4fa29261d36aad292892
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fb1426e66df6cd8085342743b7d045c297743e5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Aan de slag met Azure Mobile Engagement voor Windows Phone Silverlight-apps
+> [!IMPORTANT]
+> Azure Mobile Engagement wordt op 31-03-2018 buiten gebruik gesteld. Deze pagina wordt kort daarna verwijderd.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps, en om pushmeldingen te verzenden aan gesegmenteerde gebruikers van een Windows Phone Silverlight-toepassing.
@@ -43,7 +47,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 * NuGet-pakket van [MicrosoftAzure.MobileEngagement]
 
 > [!NOTE]
-> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-phone-get-started) voor meer informatie.
+> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-phone-get-started) voor meer informatie.
 > 
 > 
 

@@ -2,10 +2,10 @@
 title: Azure Backup - Gebruik PowerShell back-up DPM workloads | Microsoft Docs
 description: Meer informatie over het implementeren en beheren van Azure Backup voor Data Protection Manager (DPM) met behulp van PowerShell
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: NKolli1
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 9322037427c84f0b8a91cc76f5c0fed52167bc3c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 89dd965208cd473e47de9e0c9bdbfa3ab986c3d5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Met behulp van PowerShell back-ups implementeren en beheren in Azure voor Data Protection Manager (DPM)-servers
 In dit artikel leest u hoe u PowerShell gebruikt Azure Backup-installatie op een DPM-server en het beheren van back-up en herstel.
@@ -77,7 +77,7 @@ De volgende stappen leiden u bij het maken van een Recovery Services-kluis. Een 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Geef het type van de redundantie van gegevensopslag worden gebruikt. u kunt [lokaal redundante opslag (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) of [geografisch redundante opslag (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Het volgende voorbeeld ziet dat de optie - BackupStorageRedundancy voor testVault is ingesteld op GeoRedundant.
+4. Geef het type van de redundantie van gegevensopslag worden gebruikt. u kunt [lokaal redundante opslag (LRS)](../storage/common/storage-redundancy-lrs.md) of [geografisch redundante opslag (GRS)](../storage/common/storage-redundancy-grs.md). Het volgende voorbeeld ziet dat de optie - BackupStorageRedundancy voor testVault is ingesteld op GeoRedundant.
 
    > [!TIP]
    > Veel Azure Backup-cmdlets moet de Recovery Services-kluis-object als invoer. Daarom is het handig zijn voor het opslaan van het back-up Recovery Services-kluis-object in een variabele.
@@ -139,8 +139,8 @@ De beschikbare opties zijn onder andere:
 | /nu |Niet controleren op updates nadat de installatie is voltooid |- |
 | /d |Hiermee verwijdert u Microsoft Azure Recovery Services-Agent |- |
 | /pH |Host-proxyadres |- |
-| /PO |Proxy-Host-poortnummer |- |
-| /Pu |De Proxygebruikersnaam voor de Host |- |
+| /po |Proxy-Host-poortnummer |- |
+| /pu |De Proxygebruikersnaam voor de Host |- |
 | /PW |Proxy-wachtwoord |- |
 
 ## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registreren DPM een Recovery Services-kluis
@@ -309,10 +309,10 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 In het bovenstaande voorbeeld ```$onlineSch``` is een matrix met vier elementen met de bestaande planning voor online beveiliging voor de beveiligingsgroep in het algemene schema:
 
-1. ```$onlineSch[0]```bevat de dagelijkse planning
-2. ```$onlineSch[1]```bevat de wekelijkse planning
-3. ```$onlineSch[2]```bevat het maandelijks schema
-4. ```$onlineSch[3]```bevat de jaarlijkse planning
+1. ```$onlineSch[0]``` bevat de dagelijkse planning
+2. ```$onlineSch[1]``` bevat de wekelijkse planning
+3. ```$onlineSch[2]``` bevat het maandelijks schema
+4. ```$onlineSch[3]``` bevat de jaarlijkse planning
 
 Dus als u de wekelijkse planning wijzigen wilt, u moet om te verwijzen naar de ```$onlineSch[1]```.
 
@@ -334,8 +334,8 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ## <a name="view-the-backup-points"></a>De back-uppunten weergeven
 U kunt de [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) cmdlet voor een lijst van alle herstelpunten voor een datasource. In dit voorbeeld wordt:
 
-* alle PGs ophalen op de DPM-server en opgeslagen in een matrix```$PG```
-* ophalen van de gegevensbronnen die overeenkomt met de```$PG[0]```
+* alle PGs ophalen op de DPM-server en opgeslagen in een matrix ```$PG```
+* ophalen van de gegevensbronnen die overeenkomt met de ```$PG[0]```
 * alle herstelpunten voor een gegevensbron niet ophalen.
 
 ```

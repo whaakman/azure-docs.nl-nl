@@ -2,11 +2,11 @@
 title: IoT DevKit vertaler met Azure-functie en cognitieve Services | Microsoft Docs
 description: Gebruik microfoon op IoT DevKit spraakbericht en cognitieve Azure-Services voor het verwerken van het in vertaalde tekst in het Engels ontvangen.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: liydu
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.service: iot-hube
 ms.devlang: arduino
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: 5f74e43d20b5954ae4808f82a34372d1e2190481
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d17f117d71eb0616201df18aea6dc48749ae24a8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>IoT DevKit AZ3166 met Azure-functie en cognitieve Services gebruiken om te maken van een vertaler taal
 
@@ -35,7 +35,7 @@ Voltooid de [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot
 
 Een actief Azure-abonnement. Als u geen abonnement hebt, kunt u via een van deze twee manieren registreren:
 
-* Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azureinfo.microsoft.com/us-freetrial.html)
+* Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azure.microsoft.com/en-us/free/)
 * Claim uw [Azure-tegoeden](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) als u MSDN of Visual Studio-abonnee bent
 
 ## <a name="step-1-open-the-project-folder"></a>Step 1. Open de projectmap

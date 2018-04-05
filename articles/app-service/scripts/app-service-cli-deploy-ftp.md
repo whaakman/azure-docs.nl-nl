@@ -15,11 +15,11 @@ ms.topic: sample
 ms.date: 12/12/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d8b4cc9c80f1e9e3743e615c205972d027eb726f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8be2bc575649febe7870129b5b4c9996d7de0728
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-web-app-and-deploy-files-with-ftp"></a>Een web-app maken en bestanden implementeren met FTP
 
@@ -43,10 +43,10 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Hiermee maakt u een App Service-plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Hiermee maakt u een Azure-web-app. |
-| [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment?view=azure-cli-latest#az_webapp_deployment_list_publishing_profiles) | Hiermee vraagt u de details op van beschikbare implementatieprofielen voor web-apps. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Hiermee maakt u een App Service-plan. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Hiermee maakt u een Azure-web-app. |
+| [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment?view=azure-cli-latest#az-webapp-deployment-list-publishing-profiles) | Hiermee vraagt u de details op van beschikbare implementatieprofielen voor web-apps. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

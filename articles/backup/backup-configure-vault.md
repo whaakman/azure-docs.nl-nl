@@ -1,11 +1,11 @@
 ---
 title: Gebruik Azure backup-agent naar de back-up van bestanden en mappen | Microsoft Docs
-description: "Gebruik de Microsoft Azure Backup agent naar de back-up van Windows-bestanden en mappen in Azure. Een Recovery Services-kluis maken, de backup-agent installeren en de back-upbeleid definiëren de eerste back-up uitvoeren op de bestanden en mappen."
+description: Gebruik de Microsoft Azure Backup agent naar de back-up van Windows-bestanden en mappen in Azure. Een Recovery Services-kluis maken, de backup-agent installeren en de back-upbeleid definiëren de eerste back-up uitvoeren op de bestanden en mappen.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: back-upkluis; back-up van een WindowsServer. back-upvensters;
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 88a588322d88f817937cf06e25b5b25a147f03d0
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 38f98a29edc2a0bfb0141a0a6fabad2727175f29
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Een back-up van een Windows-server of -client maken op Azure met behulp van het Resource Manager-implementatiemodel
 Dit artikel wordt uitgelegd hoe u back-up van uw Windows Server (of Windows-client) bestanden en mappen in Azure met Azure Backup met het implementatiemodel van Resource Manager.
@@ -94,7 +94,7 @@ Als u voor het eerst een Recovery Services-kluis maakt, bepaalt u hoe uw opslag 
 
   ![keuzes bij opslagconfiguratie](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante ](../storage/common/storage-redundancy.md#locally-redundant-storage) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
+  Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy-grs.md) en [lokaal redundante ](../storage/common/storage-redundancy-lrs.md) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
 
 Nu dat u kunt een kluis hebt gemaakt, bereid uw infrastructuur voor back-up van bestanden en mappen door te downloaden en installeren van de Microsoft Azure Recovery Services-agent, kluisreferenties downloaden en vervolgens via deze referenties te registreren van de agent met de kluis.
 

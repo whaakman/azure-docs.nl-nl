@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 524319deea957809440436b3cac2b0256516923a
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: a1f4243eafc6a2d5c632220ec80b28b29f8ae985
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Zelfstudie: Azure Active Directory-integratie met werkplek door Facebook
 
@@ -45,6 +45,9 @@ Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+
+> [!NOTE]
+> Facebook heeft twee producten, (gratis) werkplek Standard en Premium van werkplek (betaald). Een werkplek Premium-tenant kunt SCIM en SSO-integratie configureren met geen andere gevolgen kosten of licenties die vereist zijn. Eenmalige aanmelding en SCIM zijn niet beschikbaar in Standard werkplek exemplaren.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -111,9 +114,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<instancename>.facebook.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<instancename>.facebook.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://www.facebook.com/company/<instanceID>`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
     > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Zie de pagina verificatie van het Dashboard van het bedrijf werkplek voor de juiste waarden voor uw werkplek-community. 
@@ -159,10 +162,6 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 15. **SAML afmelding omleiden (optioneel)** - 
 
     U kunt desgewenst een SAML afmelding-Url, die kan worden gebruikt om te verwijzen op de pagina voor Azure AD-Meld u af te configureren. Als deze instelling is ingeschakeld en geconfigureerd, wordt de gebruiker niet langer worden omgeleid naar de pagina Werkplek afmelden. In plaats daarvan wordt de gebruiker wordt omgeleid naar de url die is toegevoegd in de instelling voor het omleiden van SAML-afmelden.
-
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="configuring-reauthentication-frequency"></a>Herauthenticatie frequentie configureren
 
@@ -271,4 +270,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_203.png
-

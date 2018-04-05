@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cd446c64b8e7627db1c76d652ea1ab6f496eee65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Een door een GitHub-webhook geactiveerde functie maken
 
@@ -49,7 +49,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
 1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
 
-    ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
+    ![De snelstart-pagina van Functions in Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
 2. Typ `github` in het zoekveld en kies vervolgens de gewenste taal voor de trigger-sjabloon voor de GitHub-webhook. 
 
@@ -69,11 +69,15 @@ Vervolgens maakt u een webhook in uw GitHub-opslagplaats.
 
 1. Navigeer naar een van uw opslagplaatsen in GitHub. U kunt ook een opslagplaats gebruiken die u hebt gesplitst. Gebruik <https://github.com/Azure-Samples/functions-quickstart> als u een fork van een opslagplaats wilt maken.
 
-1. Klik achtereenvolgens op **Instellingen**, **Webhooks** en **Webhook toevoegen**.
+2. Kies **Instellingen** > **Opties** en zorg ervoor dat **Problemen** onder **Functies** is ingeschakeld.
+
+   ![Problemen inschakelen](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook.png)
+
+1. Kies in **Instellingen** voor **Webhooks** > **Webhook toevoegen**.
 
     ![Een GitHub-webhook toevoegen](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. Gebruik de instellingen zoals die in de tabel zijn opgegeven en klik vervolgens op **Webhook toevoegen**.
+1. Gebruik de instellingen zoals die in de volgende tabel zijn opgegeven en klik vervolgens op **Webhook toevoegen**:
 
     ![Webhook-URL en geheim instellen](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 

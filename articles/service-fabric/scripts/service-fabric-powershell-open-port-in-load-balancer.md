@@ -1,51 +1,51 @@
 ---
-title: Azure PowerShell-Script voorbeeld - toepassing Open poort in de load balancer | Microsoft Docs
-description: Azure PowerShell-Script voorbeeld - Open een poort in de Azure load balancer voor een Service Fabric-toepassing.
+title: Azure PowerShell-voorbeeldscript - Toepassingspoort openen in Azure-load balancer | Microsoft Docs
+description: Azure PowerShell-voorbeeldscript - Een poort in de Azure-load balancer openen voor een Service Fabric-toepassing.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/08/2017
+ms.date: 03/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: c643fc9e575a8e836a361893d78348bbd627a425
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.openlocfilehash: 1edaca9c354a7b65b47213c7970e823aee3cbe87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="open-an-application-port-in-the-azure-load-balancer"></a>De poort van een toepassing in de Azure load balancer openen
+# <a name="open-an-application-port-in-the-azure-load-balancer"></a>Een toepassingspoort openen in de Azure-load balancer
 
-Een Service Fabric-toepassing in Azure wordt uitgevoerd, bevindt zich achter de Azure load balancer. Dit voorbeeldscript wordt een poort geopend in een Azure load balancer, zodat een Service Fabric-toepassing met externe clients communiceren kan. Pas de parameters zo nodig aan. Als uw cluster in gebruik is een netwerkbeveiligingsgroep ook [toevoegen van een binnenkomende groep van de netwerkbeveiligingsregel](service-fabric-powershell-add-nsg-rule.md) voor binnenkomend verkeer toestaan.
+Een Service Fabric-toepassing die in Azure wordt uitgevoerd, bevindt zich achter de Azure-load balancer. Met dit voorbeeldscript wordt een poort geopend in een Azure-load balancer, zodat een Service Fabric-toepassing kan communiceren met externe clients. Pas de parameters zo nodig aan. Als uw cluster deel uitmaakt van een netwerkbeveiligingsgroep, voegt u ook [een regel voor inkomende netwerkbeveiligingsgroepen toe](service-fabric-powershell-add-nsg-rule.md) om ingaand verkeer toe te staan.
 
-Installeer zo nodig de Service Fabric PowerShell-module met de [Service Fabric SDK](../service-fabric-get-started.md). 
+Installeer indien nodig de Service Fabric PowerShell-module met de [Service Fabric-SDK](../service-fabric-get-started.md). 
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 [!code-powershell[main](../../../powershell_scripts/service-fabric/open-port-in-load-balancer/open-port-in-load-balancer.ps1 "Open a port in the load balancer")]
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de opdracht specifieke documentatie bij.
+In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel is een koppeling naar opdracht-specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Hiermee haalt u een Azure-resource.  |
-| [Get-AzureRmLoadBalancer](/powershell/module/azurerm.network/get-azurermloadbalancer) | Hiermee haalt u de Azure load balancer. |
-| [Voeg AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig) | Een test-configuratie toevoegen aan een load balancer.|
-| [Get-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/get-azurermloadbalancerprobeconfig) | Hiermee haalt u een test-configuratie voor een load balancer. |
-| [Voeg AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig) | De regelconfiguratie van een toevoegen aan een load balancer. |
-| [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer) | Hiermee stelt de status van het doel voor een load balancer. |
+| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Haalt een Azure-resource op.  |
+| [Get-AzureRmLoadBalancer](/powershell/module/azurerm.network/get-azurermloadbalancer) | Haalt de Azure-load balancer op. |
+| [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig) | Voegt een testconfiguratie toe aan een load balancer.|
+| [Get-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/get-azurermloadbalancerprobeconfig) | Haalt een testconfiguratie op voor een load balancer. |
+| [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig) | Voegt een regelconfiguratie toe aan een load balancer. |
+| [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer) | Stelt de doelstatus voor een load balancer in. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over de Azure PowerShell-module de [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Aanvullende voorbeelden van Powershell voor Azure Service Fabric vindt u in de [voorbeelden van Azure PowerShell](../service-fabric-powershell-samples.md).
+Meer PowerShell-voorbeelden voor Azure Service Fabric vindt u in de [voorbeelden van Azure PowerShell](../service-fabric-powershell-samples.md).

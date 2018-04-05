@@ -1,24 +1,24 @@
 ---
 title: De Azure portal gebruiken voor het maken van een IoT Hub | Microsoft Docs
-description: "Informatie over het maken, beheren en verwijderen van Azure IoT hubs via de Azure-portal. Bevat informatie over Prijscategorieën, schaalbaarheid, beveiliging en configuratie-berichten."
+description: Informatie over het maken, beheren en verwijderen van Azure IoT hubs via de Azure-portal. Bevat informatie over Prijscategorieën, schaalbaarheid, beveiliging en configuratie-berichten.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ac1a52355ffa5354bebe3b98fdb75783bcd57697
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6ffde076caff6217bf6255c9294eca63d3e39b85
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Een iothub met de Azure portal maken
 
@@ -53,18 +53,9 @@ U moet de IoT-hub naam voor het maken van een IoT-hub. Deze naam moet uniek zijn
 
 ### <a name="choose-the-pricing-tier"></a>Kies de prijscategorie
 
-U kunt kiezen uit vier lagen: **vrije**, **Standard 1** en **standaard 2**, en **Standard-S3**. De gratis categorie kan alleen 500 apparaten zijn verbonden met de iothub en maximaal 8000 berichten per dag.
+U kunt kiezen uit meerdere lagen, afhankelijk van hoeveel functies die u wilt en hoeveel berichten verzenden via uw oplossing per dag. De laag gratis is bedoeld voor testen en evalueren. Kunt u 500 apparaten zijn verbonden met de iothub en maximaal 8000 berichten per dag. Elk Azure-abonnement kunt maken van een IoT-Hub in de laag gratis. 
 
-**Standard-S1**: Gebruik de editie S1 voor IoT-oplossingen met een groot aantal apparaten dat elke kleine hoeveelheden gegevens genereren. Met elke eenheid van de S1-versie kunt u in totaal maximaal 400.000 berichten per dag verzenden voor alle verbonden apparaten.
-
-**Standard S2**: S2 versie gebruiken voor de IoT-oplossingen waarin apparaten grote hoeveelheden gegevens worden gegenereerd. Elke eenheid van de editie S2 kunt 6 miljoen berichten per dag tussen alle verbonden apparaten.
-
-**Standard-S3**: S3 versie gebruiken voor de IoT-oplossingen die grote hoeveelheden gegevens genereren. Elke eenheid van de editie S3 kunt 300 miljoen berichten per dag tussen alle verbonden apparaten.
-
-![][4]
-
-> [!NOTE]
-> IoT Hub staat slechts één gratis hub per Azure-abonnement.
+Zie voor meer informatie over de andere opties voor de laag [kiezen van de juiste laag van de IoT Hub](iot-hub-scaling.md).
 
 ### <a name="iot-hub-units"></a>IoT hub-eenheden
 
@@ -154,17 +145,6 @@ U kunt routes toevoegen aan uw IoT-hub door te klikken op **toevoegen** boven aa
 
 ![][15]
 
-## <a name="pricing-and-scale"></a>Prijs- en schaalniveau
-
-De prijs van een iothub kan worden gewijzigd via de **prijzen** instellingen met de volgende uitzonderingen:
-
-* In de huidige implementatie een iothub met een gratis SKU lagen niet wijzigen in een van de betaalde SKU's, of vice versa.
-* Er kan alleen worden één laag gratis IoT-hub in de Azure-abonnement.
-
-![][12]
-
-U kunt verplaatsen van een hogere naar lagere lagen alleen wanneer het aantal berichten die dag het quotum voor de onderste laag overschrijdt. Bijvoorbeeld, als het aantal berichten per dag 400.000 overschrijdt, kan klikt u vervolgens de laag voor de iothub worden gewijzigd. Echter, als u naar de laag S1 wijzigt vervolgens de IoT-hub is beperkt voor die dag.
-
 ## <a name="delete-the-iot-hub"></a>Verwijderen van de IoT-hub
 
 U kunt bladeren naar de IoT-hub die u verwijderen wilt door te klikken op **Bladeren**, en vervolgens de juiste hub verwijderen te kiezen. Als u wilt verwijderen van de IoT-hub, klikt u op de **verwijderen** knop onder de naam van de IoT-hub.
@@ -180,7 +160,7 @@ Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 * [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
-* [AI implementeren op de edge-apparaten met Azure IoT rand][lnk-iotedge]
+* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
 * [Beveiligen van uw IoT-oplossing bouwen up][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png

@@ -15,17 +15,17 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: mimig
-ms.openlocfilehash: 9aa603c438b267064c2238192669126847f953ef
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cbc6b084620e716496716cef51461f714c9988b2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: een SQL API-app bouwen met Node.js en Azure Portal
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdatabase en een verzameling kunt maken met behulp van Azure Portal. Vervolgens ontwikkelt u een console-app die is gebouwd op de [SQL Node.js-API](sql-api-sdk-node.md) en voert u deze uit.
+Deze snelstartgids laat zien hoe u een [SQL-API](sql-api-introduction.md)-account van Azure Cosmos DB, een documentdatabase en een verzameling kunt maken met behulp van Azure Portal. Vervolgens ontwikkelt u een console-app die is gebouwd op de [SQL Node.js-API](sql-api-sdk-node.md) en voert u deze uit.
 
 ## <a name="prerequisites"></a>Vereisten
 

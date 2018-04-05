@@ -1,25 +1,25 @@
 ---
-title: Begin met het ontwikkelen met Visual Studio-projectsjablonen - Azure Batch-oplossingen | Microsoft Docs
+title: Met sjablonen in Visual Studio - Azure Batch-oplossingen bouwen | Microsoft Docs
 description: Meer informatie over hoe sjablonen voor Visual Studio-project kunt implementeren en uitvoeren van uw rekenintensieve workloads op Azure Batch.
 services: batch
 documentationcenter: .net
-author: fayora
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Gebruik Visual Studio-projectsjablonen Batch-oplossingen snel op
 
@@ -89,7 +89,7 @@ Als u wilt een taak toevoegen aan de oplossing die u eerder hebt gemaakt, de vol
 1. Open uw bestaande oplossing in Visual Studio.
 2. Klik in Solution Explorer met de rechtermuisknop op de oplossing, klikt u op **toevoegen** > **nieuw Project**.
 3. Onder **Visual C#**, klikt u op **Cloud**, en klik vervolgens op **Azure Batch-Job Manager met taak splitser**.
-4. Typ een naam waarmee u een beschrijving van uw toepassing en dit project (bijvoorbeeld als de beheerder van de taak identificeert 'LitwareJobManager').
+4. Typ een naam waarmee u een beschrijving van uw toepassing en dit project (bijvoorbeeld als de beheerder van de taak identificeert "LitwareJobManager").
 5. Klik op om het project **OK**.
 6. Bouw ten slotte het project om af te dwingen van Visual Studio laden alle waarnaar wordt verwezen NuGet-pakketten en om te controleren of het project geldig is voordat u begint met het wijzigen van deze.
 
@@ -258,7 +258,7 @@ Als de processor van een taak toevoegen aan de oplossing die u eerder hebt gemaa
 1. Open uw bestaande oplossing in Visual Studio.
 2. Klik in Solution Explorer met de rechtermuisknop op de oplossing, klikt u op **toevoegen**, en klik vervolgens op **nieuw Project**.
 3. Onder **Visual C#**, klikt u op **Cloud**, en klik vervolgens op **Azure Batch-taak Processor**.
-4. Typ een naam waarmee u een beschrijving van uw toepassing en geeft aan dit project (bijvoorbeeld als de taak-processor 'LitwareTaskProcessor').
+4. Typ een naam waarmee u een beschrijving van uw toepassing en geeft aan dit project (bijvoorbeeld als de taak-processor "LitwareTaskProcessor").
 5. Klik op om het project **OK**.
 6. Bouw ten slotte het project om af te dwingen van Visual Studio laden alle waarnaar wordt verwezen NuGet-pakketten en om te controleren of het project geldig is voordat u begint met het wijzigen van deze.
 

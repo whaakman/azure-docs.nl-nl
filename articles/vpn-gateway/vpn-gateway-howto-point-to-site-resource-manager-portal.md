@@ -5,7 +5,7 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2018
+ms.date: 03/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0a45430491e1e06080ae2eca2124088402c17f54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4603131c31ab3792efc1df504eb95dfde2eccb17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Een point-to-site-verbinding naar een VNet configureren met behulp van systeemeigen Azure-certificaatverificatie: Azure Portal
 
@@ -78,6 +78,10 @@ Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server
 
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
+>[!NOTE]
+>De basis-SKU biedt geen ondersteuning voor IKEv2- of RADIUS-verificatie.
+>
+
 ## <a name="generatecert"></a>5. Certificaten genereren
 
 Certificaten worden in Azure gebruikt om clients te verifiëren die verbinding willen maken met een VNet met behulp van een punt-naar-site-VPN-verbinding. Als u beschikt over het basiscertificaat, [uploadt](#uploadfile) u de gegevens van de openbare sleutel naar Azure. Het basiscertificaat wordt vervolgens als 'vertrouwd' beschouwd door Azure voor verbinding met het virtuele netwerk via P2S. U kunt ook clientcertificaten genereren op basis van het vertrouwde basiscertificaat en deze vervolgens op elke clientcomputer installeren. Het clientcertificaat wordt gebruikt om de client te verifiëren bij het maken van verbinding met het VNet. 
@@ -103,6 +107,10 @@ De clientadrespool bestaat uit een privé-IP-adresbereik dat u opgeeft. De clien
 3. Op de pagina **Punt-naar-site-configuratie** kunt u in het vak **Adresgroep** het bereik met privé-IP-adressen toevoegen dat u wilt gebruiken. VPN-clients ontvangen dynamisch een IP-adres uit het bereik dat u opgeeft. Klik op **Opslaan** om de instelling te valideren en op te slaan.
 
   ![Clientadresgroep](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+
+  >[!NOTE]
+  >Als u Tunneltype of Verificatietype niet ziet in de portal op deze pagina, gebruikt uw gateway de basis-SKU. De basis-SKU biedt geen ondersteuning voor IKEv2- of RADIUS-verificatie.
+  >
 
 ## <a name="tunneltype"></a>7. Tunneltype configureren
 

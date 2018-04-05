@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 32d1330b60de139a1ac16c4d8d70f76873dbd4c2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 4eeff0d89fa8a73b8f7f4b73fb5bfb85cda26184
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 VM-grootten voor algemeen gebruik bieden taakverdeling verhouding van de CPU voor geheugen. Ideaal voor testen en ontwikkelen, kleine tot middelgrote databases en webservers met weinig of gemiddeld verkeer. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
 
@@ -96,7 +96,7 @@ ACU: 210-250
 ACU: 210-250
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1_v2 |1 |3,5 |4 |50 |3000 / 46 / 23 |4 / 4 x 500 |2 / 750 |
 | Standard_D2_v2 |2 |7 |8 |100 |6000 / 93 / 46 |8 / 8 x 500 |2 / 1500 |
 | Standard_D3_v2 |4 |14 |16 |200 |12.000 / 187 / 93 |16 / 16 x 500 |4 / 3000 |

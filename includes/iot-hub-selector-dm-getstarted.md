@@ -7,6 +7,8 @@
 
 Back-end apps kunnen gebruiken Azure IoT Hub primitieven, zoals [apparaat twin] [ lnk-devtwin] en [methoden directe][lnk-c2dmethod], op afstand starten en bewaken van apparaat acties op apparaten. Deze zelfstudie laat zien hoe een back-end-app en een apparaat-app samenwerken kunnen om te starten en te bewaken van externe apparaten opnieuw worden opgestart met IoT Hub.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Een directe methode gebruiken om acties voor apparaat (zoals het opnieuw opstarten, Fabrieksinstellingen terugzetten en firmware-update) vanuit een back-end-app in de cloud. Het apparaat is verantwoordelijk voor:
 
 * Verwerking van de methode-aanvraag die uit IoT Hub zijn verzonden.

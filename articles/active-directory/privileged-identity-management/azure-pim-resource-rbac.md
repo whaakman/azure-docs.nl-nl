@@ -2,29 +2,29 @@
 title: Overzicht van Azure PIM Resource RBAC | Microsoft Docs
 description: Krijgt u een overzicht van de functie RBAC in PIM inclusief terminologie en meldingen
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
-ms.author: barclayn
-ms.openlocfilehash: 19715f800e7d8d40336d8e9fa3bf8073795dce5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 03/30/2018
+ms.author: billmath
+ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="pim-for-azure-resources-preview"></a>PIM voor Azure-resources (Preview)
+# <a name="pim-for-azure-resources"></a>PIM voor Azure-resources
 
-Met Azure Active Directory Privileged Identity Management (PIM), kunt u nu beheren, beheren en te controleren, toegang tot Azure-Resources (Preview) binnen uw organisatie. Dit omvat abonnementen en resourcegroepen zelfs virtuele Machines. Een bron binnen de Azure-portal die gebruikmaakt van de functionaliteit van Azure rollen gebaseerd toegangsbeheer (RBAC) kan profiteren van alle betrouwbaarheid en beheermogelijkheden van de levenscyclus van die Azure AD PIM te bieden heeft en een aantal geweldige nieuwe functies die we willen meenemen naar Azure AD-rollen snel. 
+Met Azure Active Directory Privileged Identity Management (PIM), kunt u nu beheren, beheren en te controleren, toegang tot Azure-Resources binnen uw organisatie. Dit omvat abonnementen en resourcegroepen zelfs virtuele Machines. Een bron binnen de Azure-portal die gebruikmaakt van de functionaliteit van Azure rollen gebaseerd toegangsbeheer (RBAC) kan profiteren van alle betrouwbaarheid en beheermogelijkheden van de levenscyclus van die Azure AD PIM te bieden heeft en een aantal geweldige nieuwe functies die we willen meenemen naar Azure AD-rollen snel. 
 
-## <a name="pim-for-azure-resources-preview-helps-resource-administrators"></a>PIM voor Azure-Resources (Preview) kan beheerders een resource
+## <a name="pim-for-azure-resources-helps-resource-administrators"></a>PIM voor Azure-Resources kan beheerders een resource
 
 - Zien welke gebruikers en groepen zijn toegewezen rollen voor de Azure-resources beheren
 - Inschakelen van on-demand 'just in time' toegang tot resources zoals abonnementen en resourcegroepen beheren
@@ -39,7 +39,7 @@ Azure AD PIM kunt beheren de ingebouwde Azure Resource rollen, evenals aangepast
 - Eigenaar
 - Beheerder van gebruikerstoegang
 - Inzender
-- De beheerder beveiliging
+- Beveiligingsbeheerder
 - Beveiligingsbeheer en meer
 
 >[!NOTE]
@@ -49,15 +49,15 @@ Gebruikers of leden van een groep die is toegewezen aan de eigenaar of beheerder
 
 PIM biedt snel toegang tot rollen activeren, bekijken in behandeling zijnde activeringen/aanvragen in behandeling genomen goedkeuringen (voor [functies van Azure AD-directory](azure-ad-pim-approval-workflow.md)), en in afwachting van uw antwoord in het gedeelte van de taken van het navigatiemenu links beoordeelt.
 
-Bij het openen van een van de taken menu-items van het toegangspunt overzicht, bevat het resulterende weergave resultaten voor Azure AD-directory-functies en functies van Azure Resource (Preview). 
+Bij het openen van een van de taken menu-items van het toegangspunt overzicht, bevat het resulterende weergave resultaten voor Azure AD-directory-rollen en functies van Azure Resource. 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
 
-Mijn rollen bevatten een lijst met uw actieve en in aanmerking komende functietoewijzingen voor Azure AD-directory-functies en Azure Resource-rollen (Preview).
+Mijn rollen bevatten een lijst met uw actieve en in aanmerking komende roltoewijzingen voor Azure Resource rollen en functies van Azure AD-directory.
 
 ## <a name="activate-roles"></a>Rollen activeren
 
-Rollen activeren voor Azure-Resources (Preview) introduceert een nieuwe ervaring waarmee de leden van een in aanmerking komende rol activeren voor een toekomstige datum/tijd plannen en selecteert u een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders). Meer informatie over [hier Azure AD-rollen activeren](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Rollen activeren voor Azure-Resources introduceert een nieuwe ervaring waarmee de leden van een in aanmerking komende rol activeren voor een toekomstige datum/tijd plannen en selecteert u een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders). Meer informatie over [hier Azure AD-rollen activeren](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -73,7 +73,7 @@ Als de activering is gepland voor een tijdstip in de toekomst, wordt de aanvraag
 
 ## <a name="discover-and-manage-azure-resources"></a>Detecteren en beheren van Azure-resources
 
-Selecteer de Azure-Resources (Preview) onder het tabblad beheren in het navigatiemenu links om te zoeken en beheren van rollen voor een Azure-Resource. Met de filters of zoekbalk boven aan de pagina zoeken naar een resource.
+Selecteer de Azure-Resources onder het tabblad beheren in het navigatiemenu links om te zoeken en beheren van rollen voor een Azure-Resource. Met de filters of zoekbalk boven aan de pagina zoeken naar een resource.
 
 ![](media/azure-pim-resource-rbac/azure-resources.png)
 
@@ -173,10 +173,10 @@ Wijzigingen in de instellingen worden geregistreerd op de instellingenpagina van
 
 ![](media/azure-pim-resource-rbac/role-settings-02.png)
 
-## <a name="resource-audit"></a>Resource-audit
+## <a name="resource-audit"></a>Resourcecontrole
 
 Controle van de resource hebt u een overzicht van de rol van activiteiten voor de resource. U kunt de gegevens door middel van een vooraf gedefinieerde datum of aangepaste datumbereik filteren.
-![](media/azure-pim-resource-rbac/last-day.png)Controle van de resource biedt ook snel toegang om gegevens van de activiteit van een gebruiker weer te geven. In de weergave worden alle acties voor 'Rol activeren' koppelingen naar de specifieke aanvrager resourceactiviteit.
+![](media/azure-pim-resource-rbac/last-day.png) Controle van de resource biedt ook snel toegang om gegevens van de activiteit van een gebruiker weer te geven. In de weergave worden alle acties voor 'Rol activeren' koppelingen naar de specifieke aanvrager resourceactiviteit.
 ![](media/azure-pim-resource-rbac/resource-audit.png)
 
 ## <a name="just-enough-administration"></a>Net voldoende beheer

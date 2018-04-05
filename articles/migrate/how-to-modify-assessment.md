@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: raynew
-ms.openlocfilehash: efb4ad59d25a0c1209e4f0f6cd406c2f0d48159c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 459a29012ec879d4d4989e51b5688b9042adc1a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="customize-an-assessment"></a>Een beoordeling aanpassen
 
@@ -24,8 +24,8 @@ ms.lasthandoff: 02/27/2018
 
     **Instelling** | **Details** | **Standaard**
     --- | --- | ---
-    **Doellocatie** | De Azure-locatie waarnaar u wilt migreren.<br/><br/> Azure migreren ondersteunt momenteel 30 regio's, inclusief Australië-Oost, Australië-Zuidoost, Brazilië-Zuid, Canada centraal, Canada Oost, India centraal, VS-midden, China Oost, China Noord, Oost-Azië, VS-Oost, Duitsland centraal, Duitsland noordoosten, VS-Oost 2, Japan Oost, Japan-West, Zuid-Korea-midden, Korea, Noord-centraal VS, Noord-Europa, Zuid-centraal VS, Zuidoost-Azië, India Zuid, VK Zuid, VK West, West-Centraal VS, West-Europa, India West, VS-West en West US2. |  VS West 2 is de standaardlocatie.
-    **Opslagredundantie** | Het type van de redundantie van gegevensopslag die door de Azure VM's na de migratie wordt gebruikt. | [Lokaal redundante opslag (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) is de standaardwaarde. Azure migreren ondersteunt alleen het beheerd beoordelingen op basis van schijven en schijven beheerde ondersteunen alleen LRS, daarom de eigenschap momenteel heeft alleen de optie LRS. 
+    **Doellocatie** | De Azure-locatie waarnaar u wilt migreren.<br/><br/> Azure Migrate ondersteunt momenteel 30 regio's, waaronder Australië - oost, Australië - zuidoost, Brazilië - zuid, Canada - centraal, Canada - oost, Centraal-India, VS - midden, China - oost, China - noord, Oost-Azië, VS - oost, Duitsland - centraal, Duitsland - noordoost, VS - oost 2, Japan - oost, Japan - west, Korea - midden, Korea - zuid, Noord-centraal VS, Noord-Europa, Zuid-centraal VS , Zuidoost-Azië, Zuid-India, UK - zuid, UK - west, West-centraal VS, West-Europa, India - west, VS - west en VS - west 2. |  VS West 2 is de standaardlocatie.
+    **Opslagredundantie** | Het type van de redundantie van gegevensopslag die door de Azure VM's na de migratie wordt gebruikt. | [Lokaal redundante opslag (LRS)](../storage/common/storage-redundancy-lrs.md) is de standaardwaarde. Azure migreren ondersteunt alleen het beheerd beoordelingen op basis van schijven en schijven beheerde ondersteunen alleen LRS, daarom de eigenschap momenteel heeft alleen de optie LRS. 
     **Sizing criterium** | Het door Azure Migrate te gebruiken criterium om VM's op de juiste grootte te maken voor Azure. U kunt beide wilt doen *op basis van prestaties* formaat of het formaat van de virtuele machines *als lokale*, zonder rekening te houden de prestatiegeschiedenis van de. | Op basis van prestaties sizing is de standaardoptie.
     **Prestatiegeschiedenis** | De duur in overweging moet nemen voor het evalueren van de prestaties van de virtuele machines. Deze eigenschap is alleen van toepassing wanneer sizing criterium *formaat op basis van prestaties*. | Standaard is één dag.
     **Gebruik percentiel** | De percentielwaarde van de voorbeeld-prestaties ingesteld voor het juiste formaat worden overwogen. Deze eigenschap is alleen van toepassing wanneer sizing criterium *formaat op basis van prestaties*.  | De standaardwaarde is 95e percentiel.

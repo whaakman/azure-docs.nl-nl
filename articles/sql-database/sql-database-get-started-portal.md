@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 2c1e8d8f59e42e75a5895b58e4e7500a2fa2c9a2
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b02c69f34c72fc89a4ae81fc1feb3641a7c8b06d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Een Azure SQL-database maken in Azure Portal
 
@@ -163,13 +163,7 @@ Sla deze resources op als u verder wilt gaan met [Volgende stappen](#next-steps)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u een database hebt, kunt u verbinding maken met een hulpprogramma naar keuze en hiermee query's uitvoeren. Klik op de onderstaande hulpprogramma's voor meer informatie:
-
-- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [.NET](sql-database-connect-query-dotnet.md)
-- [PHP](sql-database-connect-query-php.md)
-- [Node.js](sql-database-connect-query-nodejs.md)
-- [Java](sql-database-connect-query-java.md)
-- [Python](sql-database-connect-query-python.md)
-- [Ruby](sql-database-connect-query-ruby.md)
+- Nu u een database hebt, kunt u [verbinding maken met een hulpprogramma of taal naar keuze en daarmee query's uitvoeren](sql-database-connect-query.md). 
+- Voor informatie over het ontwerpen van uw eerste database, het maken van tabellen en het invoegen van gegevens kunt u een van deze zelfstudies gebruiken:
+ - [Uw eerste Azure SQL-database ontwerpen met SSMS](sql-database-design-first-database.md)
+  - [Een Azure SQL-database ontwerpen en verbinding maken met C# en ADO.NET](sql-database-design-first-database-csharp.md)

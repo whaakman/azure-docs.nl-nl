@@ -2,10 +2,10 @@
 title: Een Azure Mobile Engagement-app maken | Microsoft Docs
 description: Hierin wordt beschreven hoe u een nieuwe Mobile Engagement-app-verzameling in Azure maakt en begint met het beheren van uw apps met de Mobile Engagement-portal.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b8aa1798-28c6-424c-a5b5-8a264d5a0ff0
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f47133a466f00de43ebfb2652eaf9058899f140
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Een Azure Mobile Engagement-app maken
+> [!IMPORTANT]
+> Azure Mobile Engagement wordt op 31-03-2018 buiten gebruik gesteld. Deze pagina wordt kort daarna verwijderd.
+> 
+
 In dit artikel wordt gedemonstreerd hoe u de methode **Snelle invoer** gebruikt voor het maken van een nieuwe **Azure Mobile Engagement**-app. Ook wordt uitgelegd hoe u naar uw **Mobile Engagement**-portal navigeert om uw apps te bewaken en beheren. 
 
 U moet een minimale set 'basisintegratie' toevoegen om gegevens te kunnen verzamelen voor uw app en pushmeldingen te verzenden. De volledige integratiedocumentatie is te vinden in de [Mobile Engagement-integratie](mobile-engagement-windows-store-integrate-engagement.md).

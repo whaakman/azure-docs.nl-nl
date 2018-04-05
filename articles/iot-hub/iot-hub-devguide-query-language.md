@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor apparaat horende, taken en het routeren van berichten
 
@@ -26,6 +26,8 @@ IoT Hub biedt een krachtige SQL-achtige taal voor het ophalen van informatie met
 
 * Een inleiding tot de belangrijkste functies van de querytaal IoT Hub en
 * De gedetailleerde beschrijving van de taal.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-twin-queries"></a>Apparaat twin query 's
 [Apparaat horende] [ lnk-twins] kan willekeurige JSON-objecten bevatten als zowel labels en eigenschappen. IoT-Hub kunt u query apparaat horende als een enkele JSON-document met alle apparaten twin informatie.

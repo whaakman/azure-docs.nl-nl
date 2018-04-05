@@ -1,9 +1,9 @@
 ---
-title: Zelfstudie voor Azure DB Cosmos globale distributiepunt voor de SQL-API | Microsoft Docs
-description: Informatie over het instellen van Azure DB die Cosmos globale distributie op basis van de SQL-API.
+title: Zelfstudie over wereldwijde distributie van Azure DB Cosmos voor de SQL-API | Microsoft Docs
+description: Informatie over het instellen van wereldwijde distributie van Azure Cosmos DB met behulp van de SQL-API.
 services: cosmos-db
-keywords: Globale distributie
-documentationcenter: 
+keywords: wereldwijde distributie
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -15,23 +15,21 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 0cee55673c8abca29b7e389fa4fd62a48566904b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 58cfa4f8898febf6d0bbe4c5a7a1dad4fcc6c854
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Het instellen van Azure DB die Cosmos globale distributie op basis van de SQL-API
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Wereldwijde distributie van Azure Cosmos DB instellen met behulp van de SQL-API
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+In dit artikel laten we zien hoe Azure Portal kan worden gebruikt voor het instellen van wereldwijde distributie van Azure DB Cosmos en hoe u daarmee verbinding kunt maken met behulp van de SQL-API.
 
-In dit artikel, laten we zien hoe de Azure portal instellen van Azure DB die Cosmos globale distributie en vervolgens verbinding met de SQL-API gebruiken.
-
-In dit artikel bevat informatie over de volgende taken: 
+Dit artikel behandelt de volgende taken: 
 
 > [!div class="checklist"]
-> * Globale distributie op basis van de Azure-portal configureren
-> * Configureren globale distributie met behulp van de [SQL-API's](sql-api-introduction.md)
+> * Wereldwijde distributie configureren met behulp van Azure Portal
+> * Wereldwijde distributie configureren met behulp van de [SQL-API's](sql-api-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
@@ -39,29 +37,29 @@ In dit artikel bevat informatie over de volgende taken:
 
 ## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Verbinding maken met een voorkeursregio met behulp van de SQL-API
 
-Om te profiteren van [globale distributie](distribute-data-globally.md), clienttoepassingen de voorkeur geordende lijst met regio's moeten worden gebruikt voor het document bewerkingen uitvoeren kunnen opgeven. Dit kan worden gedaan door het instellen van het verbindingsbeleid voor de. Op basis van de Azure DB die Cosmos-accountconfiguratie, huidige regionale beschikbaarheid en de voorkeur lijst is opgegeven, wordt het meest optimale eindpunt door de SQL-SDK schrijven uitvoeren en leesbewerkingen gekozen.
+Om te profiteren van [wereldwijde distributie](distribute-data-globally.md), kunnen clienttoepassingen de geordende voorkeurslijst met regio's opgeven die moet worden gebruikt voor het uitvoeren van documentbewerkingen. Dat kan worden gedaan door het verbindingsbeleid in te stellen. Op basis van de Azure Cosmos DB-accountconfiguratie, de huidige regionale beschikbaarheid en de opgegeven voorkeurslijst wordt het optimale eindpunt door de SQL-SDK gekozen voor het uitvoeren van schrijf- en leesbewerkingen.
 
-Deze lijst voorkeur is opgegeven bij het initialiseren van een verbinding met de SQL-SDK's. De SDK's accepteren een optionele parameter 'PreferredLocations' is een geordende lijst met Azure-regio's.
+Deze voorkeurslijst wordt opgegeven bij het initialiseren van een verbinding met de SQL-SDK's. De SDK's accepteren de optionele parameter 'PreferredLocations', die een geordende lijst met Azure-regio's bevat.
 
-Alle schrijfbewerkingen naar de huidige schrijven regio worden automatisch verzonden door de SDK.
+De SDK verzendt alle schrijfbewerkingen automatisch naar de huidige schrijfregio.
 
-Alle leesbewerkingen wordt verzonden naar de eerste beschikbare regio in de lijst PreferredLocations. Als de aanvraag is mislukt, zal de client mislukken omlaag in de lijst voor de volgende regio, enzovoort.
+Alle leesbewerkingen worden verzonden naar de eerst beschikbare regio in de lijst PreferredLocations. Als de aanvraag mislukt, gaat de client naar de volgende regio in de lijst, enzovoort.
 
-De SDK's wordt alleen poging tot lezen van de gebieden die zijn opgegeven in PreferredLocations. Dus bijvoorbeeld kunnen als het databaseaccount beschikbaar in vier verschillende regio's is, maar de client alleen de twee read(non-write) regio's voor PreferredLocations opgeeft, klikt u vervolgens geen leesbewerkingen worden geleverd buiten de lezen regio die niet is opgegeven in PreferredLocations. Als de lezen gebieden die zijn opgegeven in de PreferredLocations niet beschikbaar zijn, wordt gelezen buiten schrijven regio worden geleverd.
+De SDK's proberen alleen de regio's te lezen die zijn opgegeven in PreferredLocations. Dus als bijvoorbeeld het databaseaccount in vier verschillende regio's beschikbaar is, maar de client alleen twee leesregio's (waarnaar niet kan worden geschreven) voor PreferredLocations opgeeft, worden er geen leesbewerkingen geleverd vanuit de leesregio die niet is opgegeven in PreferredLocations. Als de leesregio's die zijn opgegeven in PreferredLocations niet beschikbaar zijn, worden leesbewerkingen geleverd vanuit de schrijfregio.
 
-De toepassing kunt controleren of de huidige schrijven endpoint en lezen eindpunt gekozen door de SDK door het controleren van de twee eigenschappen, WriteEndpoint en ReadEndpoint beschikbaar in de SDK-versie 1.8 en hoger.
+De toepassing kan het huidige, door de SDK gekozen eindpunt voor lezen en eindpunt voor schrijven verifiëren door het controleren van de twee eigenschappen, WriteEndpoint en ReadEndpoint, die beschikbaar zijn in SDK-versie 1.8 en hoger.
 
-Als de eigenschap PreferredLocations niet is ingesteld, worden alle aanvragen van de huidige schrijven regio worden geleverd.
+Als de eigenschap PreferredLocations niet is ingesteld, worden alle aanvragen verwerkt vanuit de huidige schrijfregio.
 
 ## <a name="net-sdk"></a>.NET SDK
-De SDK kan worden gebruikt zonder codewijzigingen. In dit geval de SDK automatisch wordt verwezen beide leest en schrijft naar het huidige schrijven gebied.
+De SDK kan worden gebruikt zonder codewijzigingen. In dit geval stuurt de SDK alle lees- en schrijfbewerkingen automatisch door naar de huidige schrijfregio.
 
-In versie 1.8 en hoger van de .NET SDK heeft de ConnectionPolicy-parameter voor de DocumentClient-constructor de eigenschap Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations aangeroepen. Deze eigenschap is van het type verzameling `<string>` en een lijst met regionamen moeten bevatten. De string-waarden zijn geformatteerd per regio-naamkolom op de [Azure-gebieden] [ regions] pagina, zonder spaties vóór of na de eerste en laatste teken respectievelijk.
+In versie 1.8 en hoger van de .NET SDK heeft de ConnectionPolicy-parameter voor de DocumentClient-constructor de eigenschap Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Deze eigenschap is van het type Verzameling `<string>`, die een lijst met regionamen moet bevatten. De tekenreekswaarden zijn opgemaakt volgens de kolom Regionaam op de pagina [Azure-regio's][ regions], zonder spaties vóór, respectievelijk na het eerste en laatste teken.
 
-De huidige geschreven en gelezen eindpunten zijn respectievelijk beschikbaar in DocumentClient.WriteEndpoint en DocumentClient.ReadEndpoint.
+De huidige eindpunten voor schrijven en lezen zijn beschikbaar in respectievelijk DocumentClient.WriteEndpoint en DocumentClient.ReadEndpoint.
 
 > [!NOTE]
-> De URL's voor de eindpunten niet beschouwd als lange levensduur constanten. De service kan deze op elk gewenst moment bijwerken. De SDK verwerkt deze wijziging automatisch.
+> De URL's voor de eindpunten moeten niet worden beschouwd als constanten met een lange levensduur. De service kan deze op elk gewenst moment bijwerken. De SDK verwerkt deze wijziging automatisch.
 >
 >
 
@@ -87,19 +85,19 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS, JavaScript en Python SDK 's
-De SDK kan worden gebruikt zonder codewijzigingen. De SDK wordt in dit geval automatisch doorverwezen zowel lees- en schrijfbewerkingen naar de huidige regio schrijven.
+## <a name="nodejs-javascript-and-python-sdks"></a>SDK's van NodeJS, JavaScript en Python
+De SDK kan worden gebruikt zonder codewijzigingen. In dit geval stuurt de SDK alle lees- en schrijfbewerkingen automatisch door naar de huidige schrijfregio.
 
-In versie 1.8 en hoger van elke SDK, de ConnectionPolicy-parameter voor de constructor DocumentClient een nieuwe eigenschap aangeroepen DocumentClient.ConnectionPolicy.PreferredLocations. Dit is de parameter is een matrix met tekenreeksen die een lijst met regionamen neemt. De namen zijn geformatteerd per de regionaam kolom in de [Azure-gebieden] [ regions] pagina. U kunt ook de vooraf gedefinieerde constanten gebruiken in het gemak object AzureDocuments.Regions
+In versie 1.8 en hoger van elke SDK heeft de ConnectionPolicy-parameter voor de DocumentClient-constructor een nieuwe eigenschap, DocumentClient.ConnectionPolicy.PreferredLocations genaamd. Deze parameter is een matrix van tekenreeksen die een lijst met regionamen verwerkt. De namen zijn opgemaakt volgens de kolom Regionaam op de pagina [Azure-regio's] [ regions]. U kunt ook gebruikmaken van de vooraf gedefinieerde constanten in het object AzureDocuments.Regions
 
-De huidige geschreven en gelezen eindpunten zijn respectievelijk beschikbaar in DocumentClient.getWriteEndpoint en DocumentClient.getReadEndpoint.
+De huidige eindpunten voor schrijven en lezen zijn beschikbaar in respectievelijk DocumentClient.getWriteEndpoint en DocumentClient.getReadEndpoint.
 
 > [!NOTE]
-> De URL's voor de eindpunten niet beschouwd als lange levensduur constanten. De service kan deze op elk gewenst moment bijwerken. De SDK is, wordt deze wijziging automatisch verwerkt.
+> De URL's voor de eindpunten moeten niet worden beschouwd als constanten met een lange levensduur. De service kan deze op elk gewenst moment bijwerken. De SDK verwerkt deze wijziging automatisch.
 >
 >
 
-Hieronder volgt een voorbeeld van code voor NodeJS/Javascript. Python en Java volgen hetzelfde patroon.
+Hieronder ziet u een codevoorbeeld voor NodeJS/Javascript. Python en Java volgen hetzelfde patroon.
 
 ```java
 // Creating a ConnectionPolicy object
@@ -116,11 +114,11 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 ```
 
 ## <a name="rest"></a>REST
-Zodra een databaseaccount beschikbaar is gesteld in meerdere regio's, kunnen clients de beschikbaarheid opvragen door het uitvoeren van een aanvraag voor ophalen naar de volgende URI.
+Zodra een databaseaccount in meerdere regio's beschikbaar komt, kunnen clients de beschikbaarheid ervan opvragen door een GET-aanvraag voor de volgende URI uit te voeren.
 
     https://{databaseaccount}.documents.azure.com/
 
-De service retourneert een lijst met regio's en hun bijbehorende Azure DB die Cosmos-eindpunt URI's voor de replica's. De huidige schrijven regio wordt aangegeven in het antwoord. De client kan vervolgens als volgt selecteren het juiste eindpunt voor alle verdere REST-API-aanvragen.
+De service retourneert een lijst met regio's en hun bijbehorende Azure Cosmos DB-eindpunt-URI's voor de replica's. De huidige schrijfregio wordt aangegeven in het antwoord. Vervolgens kan de client op de volgende wijze het juiste eindpunt voor alle verdere REST-API-aanvragen selecteren.
 
 Voorbeeld van een antwoord
 
@@ -155,24 +153,24 @@ Voorbeeld van een antwoord
     }
 
 
-* PUT, POST en DELETE-aanvragen, moeten verwijzen naar de opgegeven URI voor schrijven
-* Alle opgehaald en andere aanvragen (bijvoorbeeld query's) met het kenmerk alleen-lezen mag verwijzen naar een willekeurig eindpunt van de keuze van de client
+* Alle PUT-, POST- en DELETE-aanvragen moeten verwijzen naar de opgegeven URI voor schrijven
+* Alle GET-aanvragen en andere alleen-lezen aanvragen (zoals query's) kunnen verwijzen naar elk eindpunt dat de client aangeeft
 
-Schrijven naar aanvragen voor alleen-lezen gebieden mislukt met foutcode HTTP 403 ('verboden').
+Schrijfaanvragen naar alleen-lezen regio's mislukken met HTTP-foutcode 403 ('Verboden').
 
-Als de regio schrijven gewijzigd na de initiële detectie-fase van de client, mislukt schrijft naar de vorige schrijven regio met foutcode HTTP 403 ('verboden'). De client moet vervolgens de lijst met regio's om opnieuw op te halen van de bijgewerkte schrijven regio ophalen.
+Als de schrijfregio verandert na de initiële detectiefase van de client, mislukken daaropvolgende schrijfbewerkingen naar de vorige schrijfregio met HTTP-foutcode 403 ('Verboden'). De client moet dan de lijst met regio's opnieuw ophalen om de bijgewerkte schrijfregio te krijgen.
 
-Dat is, die in deze zelfstudie is voltooid. U kunt informatie over het beheren van de consistentie van uw account globaal gerepliceerde door te lezen [consistentieniveaus in Azure Cosmos DB](consistency-levels.md). En Zie voor meer informatie over hoe globale databasereplicatie in Azure Cosmos DB werkt, [gegevens globaal met Azure Cosmos DB distribueren](distribute-data-globally.md).
+En daarmee is deze zelfstudie voltooid. Informatie over het beheren van de consistentie van uw wereldwijd gerepliceerde account kunt u vinden in [Consistentieniveaus in Azure Cosmos DB](consistency-levels.md). En voor meer informatie over hoe wereldwijde databasereplicatie werkt in Azure Cosmos DB, gaat u naar [Gegevens wereldwijd distribueren met Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Globale distributie op basis van de Azure-portal configureren
-> * Globale distributie op basis van de SQL-API's configureren
+> * Wereldwijde distributie configureren met behulp van Azure Portal
+> * Wereldwijde distributie configureren met behulp van de SQL-API's
 
-U kunt nu doorgaan met de volgende zelfstudie voor meer informatie over het ontwikkelen van lokaal via de lokale Azure DB die Cosmos-emulator.
+U kunt nu doorgaan met de volgende zelfstudie voor informatie over lokaal ontwikkelen met behulp van de lokale Azure Cosmos DB-emulator.
 
 > [!div class="nextstepaction"]
 > [Lokaal ontwikkelen met de emulator](local-emulator.md)

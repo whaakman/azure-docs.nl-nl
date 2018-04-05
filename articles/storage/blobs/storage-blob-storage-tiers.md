@@ -2,10 +2,10 @@
 title: Azure Hot, Cool en Archive Storage voor blobs | Microsoft Docs
 description: Dynamische, statische en archiefopslag voor Azure Storage-accounts.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kuhussai
 manager: jwillis
-editor: 
+editor: ''
 ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: 2adb301f1d047c7762a35880da6e6094a5afbd75
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: dynamische-, statische- en archiefopslaglaag
 
@@ -79,7 +79,7 @@ Blobs in alle drie de opslaglagen kunnen naast elkaar bestaan binnen hetzelfde a
 
 ### <a name="blob-level-tiering-billing"></a>Facturering van laaginstelling op blobniveau
 
-Als een blob wordt verplaatst naar een minder dynamische laag (dynamisch->statisch, dynamisch->archief of statisch->archief), wordt de bewerking gefactureerd als een schrijfbewerking in de bestemmingslaag. De kosten voor de schrijfbewerking (per 10.000) en het schrijven van gegevens (per GB) voor de bestemmingslaag zijn van toepassing. Als een blob wordt verplaatst naar een meer dynamische laag (archief->statisch, archive->dynamisch of statisch->dynamisch), wordt de bewerking gefactureerd als een leesbewerking vanuit de bronlaag. De kosten voor de leesbewerking (per 10.000) en het ophalen van gegevens (per GB) voor de bronlaag zijn van toepassing.
+Als een blob wordt verplaatst naar een minder dynamische laag (dynamisch->statisch, dynamisch->archief of statisch->archief), wordt de bewerking gefactureerd als een schrijfbewerking van de bestemmingslaag, waar de kosten voor de schrijfbewerking (per 10.000) en het schrijven van gegevens (per GB) voor de bestemmingslaag van toepassing zijn. Als een blob wordt verplaatst naar een meer dynamische laag (archief->statisch, archief->dynamisch of statisch->dynamisch), wordt de bewerking gefactureerd als een leesbewerking vanuit de bronlaag, waar de kosten voor de leesbewerking (per 10.000) en het ophalen van gegevens (per GB) voor de bronlaag van toepassing zijn.
 
 Als u het accountniveau omschakelt van dynamisch naar statisch, worden alleen schrijfacties in rekening gebracht (per 10.000) voor alle blobs zonder een ingestelde opslaglaag in GPv2-accounts. Er zijn geen kosten hiervoor in Blob Storage-accounts. Er worden kosten in rekening gebracht voor zowel leesbewerkingen (per 10.000) als voor het ophalen van gegevens (per GB) als u uw Blob Storage- of GPv2-account omschakelt van statisch naar dynamisch. Kosten voor vroegtijdige verwijdering van een blob die is verplaatst uit de opslaglaag Cool of Archive kunnen ook van toepassing zijn.
 

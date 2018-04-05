@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: aan de slag met expresinstellingen | Microsoft Docs'
 description: In dit artikel kunt u lezen hoe u de installatiewizard downloadt, installeert en uitvoert voor Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2018
+ms.date: 03/21/2018
 ms.author: billmath
-ms.openlocfilehash: 15101e1edb483f49c7570a5d4eab66865bbceb87
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 46fc01bfd7fada529ff1416e8ad46d2ea34792bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Aan de slag met Azure AD Connect met expresinstellingen
 **Expresinstellingen** van Azure AD Connect worden gebruikt wanneer u een singleforesttopologie hebt en [wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) voor verificatie. **Expresinstellingen** is de standaardoptie en wordt gebruikt voor het meest geïmplementeerde scenario. U bent slechts enkele snelle klikken verwijderd van uitbreiding van uw on-premises directory naar de cloud.
@@ -45,6 +45,7 @@ In de sectie met [video's](#videos) kunt u zien hoe deze stappen in de praktijk 
    Als deze pagina wordt weergegeven, controleert u elk domein dat is gemarkeerd met **Niet toegevoegd** en **Niet geverifieerd**. Zorg ervoor dat de domeinen die u gebruikt in Azure AD zijn geverifieerd. Klik op het symbool Vernieuwen wanneer u uw domeinen hebt geverifieerd.
 8. Klik in het venster Gereed om te configureren op **Installeren**.
    * Optioneel kunt u op de pagina Gereed voor configuratie het vakje **Start het synchronisatieproces zodra de configuratie is voltooid** uitschakelen. Schakel dit selectievakje uit als u een aanvullende configuratie wilt uitvoeren, zoals [filteren](active-directory-aadconnectsync-configure-filtering.md). Als u deze optie uitschakelt, wordt de synchronisatie geconfigureerd met de wizard, maar blijft de planner uitgeschakeld. Deze wordt niet uitgevoerd tenzij u deze handmatig inschakelt door de [installatiewizard opnieuw uit te voeren](active-directory-aadconnectsync-installation-wizard.md).
+   * Als u het selectievakje **Start het synchronisatieproces zodra de configuratie is voltooid** ingeschakeld laat, wordt er onmiddellijk een volledige synchronisatie van alle gebruikers, groepen en contactpersonen in Azure AD geactiveerd. 
    * Als u Exchange hebt ingeschakeld in uw on-premises Active Directory, hebt u ook een optie voor het inschakelen van [**Hybride implementatie voor Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Schakel deze optie in als u van plan bent Exchange-postvakken tegelijkertijd in de cloud en on-premises te gebruiken.
      ![Klaar voor het configureren van Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. Wanneer de installatie is voltooid, klikt u op **Afsluiten**.

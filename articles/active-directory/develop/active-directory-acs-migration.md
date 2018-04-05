@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: dev-center-name
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6c22f85d3e76a005c45a4679ddfd8948a46acffc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migreren van de Azure Access Control-service
 
-Azure Access Control, een service van Azure Active Directory (Azure AD), wordt in November 2018 buiten gebruik worden gesteld. Toepassingen en services die momenteel gebruikmaken van toegangsbeheer moeten volledig zijn gemigreerd naar een ander verificatiemechanisme dan. Dit artikel bevat aanbevelingen voor het huidige klanten, als u van plan bent uw gebruik van toegangsbeheer als vervangen markeren. Als u toegangsbeheer momenteel niet gebruikt, moet u geen geen actie te ondernemen.
+Azure Access Control, een service van Azure Active Directory (Azure AD), wordt op 7 November 2018 buiten gebruik worden gesteld. Toepassingen en services die momenteel gebruikmaken van toegangsbeheer moeten volledig zijn gemigreerd naar een ander verificatiemechanisme dan. Dit artikel bevat aanbevelingen voor het huidige klanten, als u van plan bent uw gebruik van toegangsbeheer als vervangen markeren. Als u toegangsbeheer momenteel niet gebruikt, moet u geen geen actie te ondernemen.
 
 
 ## <a name="overview"></a>Overzicht
@@ -54,11 +54,9 @@ Voor het gebruik van deze onderdelen moet u een of meer Access Control-naamruimt
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-Alle communicatie met de STS- en beheerbewerkingen zijn gedaan bij deze URL. U kunt verschillende paden gebruiken voor verschillende doeleinden. Monitor om te bepalen of uw toepassingen of services toegangsbeheer gebruiken, al het verkeer naar https://\<naamruimte\>. accesscontrol.windows.net. Al het verkeer naar deze URL wordt verwerkt door de Access Control en moet worden stopgezet. 
+Alle communicatie met de STS- en beheerbewerkingen zijn gedaan bij deze URL. U kunt verschillende paden gebruiken voor verschillende doeleinden. Monitor om te bepalen of uw toepassingen of services toegangsbeheer gebruiken, al het verkeer naar https://<namespace>. accesscontrol.windows.net. Al het verkeer naar deze URL wordt verwerkt door de Access Control en moet worden stopgezet. 
 
-De uitzondering hierop is al het verkeer naar https://accounts.accesscontrol.windows.net. Het verkeer naar deze URL al wordt verwerkt door een andere service en wordt niet beïnvloed door de afschaffing van toegangsbeheer. 
-
-U moet ook aanmelden bij de klassieke Azure-portal en Controleer voor elke Access Control-naamruimten in de abonnementen waarvan u eigenaar. Access Control-naamruimten worden vermeld op de **Access Control-naamruimten** tabblad onder de **Active Directory** service.
+De uitzondering hierop is al het verkeer naar `https://accounts.accesscontrol.windows.net`. Verkeer naar deze URL al wordt verwerkt door een andere service en **is niet** beïnvloed door de afschaffing van toegangsbeheer. 
 
 Zie voor meer informatie over toegangsbeheer [Access Control Service 2.0 (gearchiveerd)](https://msdn.microsoft.com/library/hh147631.aspx).
 
@@ -68,9 +66,9 @@ Vanaf November 2017 zijn alle Access Control-onderdelen volledig ondersteunde en
 
 Hier wordt het schema voor bestandstypen Access Control-onderdelen:
 
-- **November 2017**: de Azure AD-beheerder optreden in de klassieke Azure portal [is buiten gebruik gesteld](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Op dit moment naamruimte management voor toegangsbeheer is beschikbaar op een nieuwe, toegewezen URL: http://manage.windowsazure.com?restoreClassic=true. Gebruik deze URl weergeven van uw bestaande naamruimten, inschakelen en uitschakelen van naamruimten en verwijderen van naamruimten, als u wilt.
-- **2018 april**: beheer van de Access Control-naamruimte is niet meer beschikbaar op de URL http://manage.windowsazure.com?restoreClassic=true toegewezen. U kan niet op dit moment uitschakelen of inschakelen, verwijderen of uw naamruimten toegangsbeheer inventariseren. De Access Control-beheerportal zijn echter volledig functionele en zich op https://\<naamruimte\>. accesscontrol.windows.net. Alle andere onderdelen van toegangsbeheer blijven werken normaal.
-- **November 2018**: alle Access Control-onderdelen, permanent worden afgesloten. Dit omvat de Access Control-beheerportal, de beheerservice, STS en de token transformatie-engine voor regel. Op dit moment geen verzoeken verzonden naar de Access Control (te vinden op \<naamruimte\>. accesscontrol.windows.net) mislukken. U moet hebt gemigreerd alle bestaande apps en services voor andere technologieën voor deze tijd ook.
+- **November 2017**: de Azure AD-beheerder optreden in de klassieke Azure portal [is buiten gebruik gesteld](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Op dit moment naamruimte management voor toegangsbeheer is beschikbaar op een nieuwe, toegewezen URL: `http://manage.windowsazure.com?restoreClassic=true`. Gebruik deze URl weergeven van uw bestaande naamruimten, inschakelen en uitschakelen van naamruimten en verwijderen van naamruimten, als u wilt.
+- **2 april 2018**: klassieke de Azure-portal is volledig buiten gebruik gesteld, wat betekent dat beheer van de Access Control-naamruimte is niet langer beschikbaar via een URL zijn. U kan niet op dit moment uitschakelen of inschakelen, verwijderen of uw naamruimten toegangsbeheer inventariseren. De Access Control-beheerportal zijn echter volledig functioneel is en zich op `https://\<namespace\>.accesscontrol.windows.net`. Alle andere onderdelen van toegangsbeheer blijven werken normaal.
+- **7 november 2018**: alle Access Control-onderdelen, permanent worden afgesloten. Dit omvat de Access Control-beheerportal, de beheerservice, STS en de token transformatie-engine voor regel. Op dit moment geen verzoeken verzonden naar de Access Control (te vinden op \<naamruimte\>. accesscontrol.windows.net) mislukken. U moet hebt gemigreerd alle bestaande apps en services voor andere technologieën voor deze tijd ook.
 
 
 ## <a name="migration-strategies"></a>Strategieën voor migratie
@@ -98,6 +96,17 @@ Ten minste één andere vorm van verificatie biedt ondersteuning voor elke cloud
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
 
+
+### <a name="sharepoint-customers"></a>SharePoint-klanten
+
+SharePoint 2013, 2016 en SharePoint Online klanten lang ACS gebruikt voor verificatie in de cloud, on-premises en hybride scenario's. Sommige functies van SharePoint en gebruiksvoorbeelden worden beïnvloed door de ACS buiten gebruik stellen, terwijl andere gebruikers. De onderstaande tabel bevat een overzicht van migratie richtlijnen voor enkele van de meest populaire SharePoint die ACS gebruiken voor de functie:
+
+| Functie | Richtlijnen |
+| ------- | -------- |
+| Verifiëren van gebruikers van Azure AD | Voorheen 1.1 SAML-tokens vereist door SharePoint voor verificatie heeft geen ondersteuning voor Azure AD en ACS gebruikt als intermediaire die compatibile van SharePoint met Azure AD-token wordt opgemaakt. Nu kunt u [SharePoint rechtstreeks verbinden met Azure AD dat gebruikmaakt van token uitgiftebeleid](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| [Verificatie van de App- & server-naar-server-verificatie in SharePoint on-premises](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Niet van invloed op een ACS buiten gebruik stellen; Er zijn geen wijzigingen nodig zijn. | 
+| [Lage vertrouwensrelatie autorisatie voor SharePoint-invoegtoepassingen (provider gehoste en SharePoint gehost)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Niet van invloed op een ACS buiten gebruik stellen; Er zijn geen wijzigingen nodig zijn. |
+| [SharePoint cloud hybride zoeken](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Niet van invloed op een ACS buiten gebruik stellen; Er zijn geen wijzigingen nodig zijn. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>Webtoepassingen die passieve verificatie gebruiken
 
@@ -243,7 +252,7 @@ In dergelijke gevallen wilt u mogelijk moet u uw webtoepassing op een andere clo
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) is een flexibele cloud identity-service die is gemaakt [op hoog niveau migratie richtlijnen voor klanten van toegangsbeheer](https://auth0.com/acs), en ondersteunt bijna elke functie heeft van ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identiteit](https://www.pingidentity.com) biedt twee oplossingen die vergelijkbaar is met ACS. PingOne wordt een identiteit met een cloudservice die ondersteuning biedt voor veel van dezelfde functies als ACS en PingFederate is een vergelijkbaar on-premises identity product die meer flexibiliteit biedt. Raadpleeg [Ping de ACS buiten gebruik stellen richtlijnen](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) voor meer informatie over het gebruik van deze producten.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identiteit](https://www.pingidentity.com) biedt twee oplossingen die vergelijkbaar is met ACS. PingOne wordt een identiteit met een cloudservice die ondersteuning biedt voor veel van dezelfde functies als ACS en PingFederate is een vergelijkbaar on-premises identity product die meer flexibiliteit biedt. Raadpleeg [Ping de ACS buiten gebruik stellen richtlijnen](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) voor meer informatie over het gebruik van deze producten.  |
 
 Ons doel voor het werken met Ping identiteits- en Auth0 is om ervoor te zorgen dat alle klanten van toegangsbeheer een migratiepad voor hun apps en services die minimaliseert de hoeveelheid werk dat nodig is voor het verplaatsen van toegangsbeheer.
 
@@ -305,7 +314,7 @@ In dergelijke gevallen kunt u uw webtoepassing op een andere cloud authenticatio
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) is een flexibele cloud identity-service die is gemaakt [op hoog niveau migratie richtlijnen voor klanten van toegangsbeheer](https://auth0.com/acs), en ondersteunt bijna elke functie heeft van ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identiteit](https://www.pingidentity.com) biedt twee oplossingen die vergelijkbaar is met ACS. PingOne wordt een identiteit met een cloudservice die ondersteuning biedt voor veel van dezelfde functies als ACS en PingFederate is een vergelijkbaar on-premises identity product die meer flexibiliteit biedt. Raadpleeg [Ping de ACS buiten gebruik stellen richtlijnen](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) voor meer informatie over het gebruik van deze producten.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identiteit](https://www.pingidentity.com) biedt twee oplossingen die vergelijkbaar is met ACS. PingOne wordt een identiteit met een cloudservice die ondersteuning biedt voor veel van dezelfde functies als ACS en PingFederate is een vergelijkbaar on-premises identity product die meer flexibiliteit biedt. Raadpleeg [Ping de ACS buiten gebruik stellen richtlijnen](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) voor meer informatie over het gebruik van deze producten.  |
 
 Ons doel voor het werken met Ping identiteits- en Auth0 is om ervoor te zorgen dat alle klanten van toegangsbeheer een migratiepad voor hun apps en services die minimaliseert de hoeveelheid werk dat nodig is voor het verplaatsen van toegangsbeheer.
 

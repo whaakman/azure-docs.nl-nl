@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 94bf1a8fd9ac37087862823317bde5f3d130a3d6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Handleiding voor Azure Marketplace en AppSource uitgever
 
@@ -335,7 +335,7 @@ Voordat u het publicatieproces, is het handig om te begrijpen van de vereiste on
 |U moet deze publishing artefact  |Voor dit aanbiedingtype  |
 |---------|---------|
 |**Bieden (200 tekens) de naam en beschrijving (2.000 tekens)**    |  Alle        |
-|**MPN-ID en bevoegdheden**   |  Advies       |
+|**ID van Microsoft-Partner-netwerk (MPN)**   |  Alle       |
 |**Land/regio-beschikbaarheid**   | Alle        |
 |**Duur van engagement**     |   Advies      |
 |**Van toepassing branches, categorieën en zoekwoorden**     |  Alle       |
@@ -412,6 +412,7 @@ In deze sectie beschrijven we de stappen voor het:
 
 |Registratiestap Marketplace  |Time  |Beschrijving  |
 |---------|---------|---------|
+| Registreren in Microoft partnernetwerk | 15 min | Uitgevers moeten worden geregistreerd in Microsoft Partner Network (MPN) om het eerste niveau van account valideren en extra voordelen en ondersteuning bieden voor een Azure Marketplace-uitgever |
 |Een Microsoft-ID maken     |   15 minuten      |   Partners moet beschikken over een Microsoft-ID. Dit Microsoft-ID wordt gebruikt voor toegang tot de Cloud Partner-Portal.       |
 |De benoeming marketplace formulier verzenden     |  1-3 dagen       |  Partners moeten de benoeming formulier voor het starten van het goedkeuringsproces voor de marketplace in te dienen. Nadat het formulier wordt verzonden, wordt het voorbereidingsteam marketplace de toepassing bekijken en valideren van de aanvraag.       |
 |Registreren in het Developer Center     |    5-10 dagen     | Registratie bij het Microsoft Developer Center is vereist voor Microsoft om te controleren of de partner een geldige rechtspersoon met een geldig BTW-nummer voor het land waar het is geregistreerd. Ontwikkelaars kunnen de partner een geregistreerde Microsoft developer en toegang tot de Azure Ontwikkelaarsprogramma voorzien. <br><br>Houd er rekening mee dat als u het formulier van de benoeming marketplace nog niet hebt voltooid, wordt u gevraagd om te betalen registratie $99. Als u deze kosten afgezien, vult u het formulier van de benoeming marketplace en ontvangt u een promotiecode via e-mail.  |
@@ -425,6 +426,9 @@ U hebt slechts één ID voor Microsoft-account voor uw Azure Marketplace en AppS
 
 Het geselecteerde e-mailadres moet bij voorkeur in uw bedrijfsdomein en beheerd door uw IT-team. Voor richtlijnen voor het maken van een ID, Zie de secties in [richtlijnen en uitleg](#guidelines-and-how-tos). 
 
+#### <a name="register-in-microsoft-partner-network"></a>Registreren in het Microsoft Partner Network 
+Een Azure Marketplace of AppSource uitgever van uw bedrijf worden samenwerken met Microsoft. In het Microsoft Partner Network (MPN) deelneemt u toegang tot het instellen van de belangrijkste voordelen voor uw bedrijf helpen technische oplossingen te ontwikkelen en groei van uw bedrijf krijgt (ex: bevat de technische ondersteuning). Door die deel uitmaken van de Marketplace als publisher zullen bijdragen tot uw voordelen als in het Microsoft Partner Network. Als u wilt registreren in MPN, gaat u naar [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/). U moet valideren als uw bedrijf al is geregistreerd in MPN. Na de registratie vragen we om uw MPN-id aan uw account te valideren voor het valideren van het profiel van de uitgever in [Cloud Partner-Portal](https://cloudpartner.azure.com/). 
+
 #### <a name="submit-the-marketplace-nomination-form"></a>De benoeming marketplace formulier verzenden
 Als onderdeel van het voorbereidingsproces marketplace moet u een formulier benoeming indienen. Het formulier bevat informatie over uw toepassing of service-aanbieding, gegevens van uw bedrijf en het niveau van ondersteuning die u biedt. 
 
@@ -435,7 +439,7 @@ Nadat u het formulier hebt verzonden, wordt de Marketplace-team de toepassing be
 
 #### <a name="register-in-the-developer-center"></a>Registreren in het Developer Center
 
-De [Microsoft Developer Center](https://developer.microsoft.com/) wordt gebruikt voor het registreren van uw bedrijf informatie. De registrant moet een geldige vertegenwoordiger van het bedrijf en hun persoonlijke gegevens om hun identiteit te valideren moet opgeven. Een Microsoft-ID die voor het bedrijf wordt gedeeld door de registrant moet gebruiken en dezelfde account moet worden gebruikt in de [Cloud Partner-Portal](https://cloudpartner.azure.com/). 
+De [Microsoft Developer Center](https://developer.microsoft.com/) is vereist voor de publicatie van toepassingen die transact mogelijkheden, zoals virtuele Machines, sjablonen van de oplossing en beheerde Apps van Azure. Deze vereiste kan Microsoft voor het valideren van uw bedrijf informatiebedrijf juridische, btw en entiteiten van banken. De registrant moet een geldige vertegenwoordiger van het bedrijf en hun persoonlijke gegevens om hun identiteit te valideren moet opgeven. De persoon die u registreert een Microsoft-ID die wordt gedeeld voor het bedrijf moet gebruiken en dezelfde account moet worden gebruikt in de [Cloud Partner-Portal](https://cloudpartner.azure.com/). 
 
 >[!IMPORTANT]
 >Voordat u probeert te maken van een Microsoft Developer Center-account, Controleer of uw bedrijf nog geen.
@@ -453,9 +457,9 @@ Zie voor een stapsgewijze uitleg van dit proces [instructies over het registrere
 
 #### <a name="sign-in-to-the-cloud-partner-portal"></a>Aanmelden bij de Partnerportal Cloud
 
-Nadat u de goedkeuring van de Marketplace-team dat de benoeming is goedgekeurd en u hebt geregistreerd in ontvangt de [Microsoft Developer Center](https://dev.windows.com), een account is gemaakt voor toegang tot de [Cloud Partner-Portal ](https://cloudpartner.azure.com). Eerste keer aanmelden referenties zijn opgenomen in het e-mailbericht benoeming goedkeuring. 
+Zodra u de goedkeuring hebt ontvangen van de Marketplace-Team dat de benoeming is goedgekeurd en u hebt geregistreerd in de [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/) en in [Microsoft Developer Center](https://dev.windows.com) (if vereist), een account wordt gemaakt voor toegang tot de [Cloud Partner-Portal](https://cloudpartner.azure.com). Eerst aanmeldingsreferenties worden opgenomen in het e-mailbericht benoeming goedkeuring. 
 
-Gebruik uw Marketplace-account (Microsoft-ID) voor toegang tot uw profiel uitgever. Wanneer u zich in de Cloud Partner-Portal, wordt de laatste stap is het Developer Center-account koppelen aan de respectieve profiel van de uitgever Marketplace te publiceren. In de Cloud Partner-Portal kunt u deze koppeling aanbrengen in uw profiel publisher via de knop aan de onderkant van het scherm.
+Gebruik uw Marketplace-account (Microsoft-ID) voor toegang tot uw profiel uitgever. Eenmaal in de Cloud Partner-Portal, de laatste stap is het Microsoft Partner Network en Developer Center-account (indien nodig) aan de respectieve Marketplace Publisher profiel voor het publiceren van koppelen. Dit kan worden gedaan in de Cloud Partner-Portal in uw profiel Publisher via de knop aan de onderkant van het scherm.
 
 Voor gedetailleerde informatie over het gebruik van de Cloud Partner-Portal, gaat u naar de [meer](https://cloudpartner.azure.com/#Learn) menu in de portal en bekijk de **documentatie** sectie. 
 
@@ -621,6 +625,5 @@ Als u problemen met Developer Center-registratie hebt, meldt u zich een onderste
    ![Knop 'Verzenden van een incident'](./media/marketplace-publishers-guide/devcentersubmitincident.png)
 
 3. Selecteer **helpen met Dev Center** als **probleemtype**, en selecteer **publiceren en beheren van apps** als **categorie**. Selecteer de **e Start** knop.   
-
 4. Gebruik Microsoft-account aan te melden op de aanmeldingspagina. Als u geen Microsoft-account hebt, maken via de koppeling. 
 5. Vul de details van het probleem en het verzenden van het ticket door het selecteren van de **indienen** knop.

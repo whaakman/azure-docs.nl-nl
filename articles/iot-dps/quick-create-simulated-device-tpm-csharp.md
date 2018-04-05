@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7dd8d90ca3201fce0680b88b5530712126997efe
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8c292f998a719f8bc6d64655c1f2cdd75054653b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd TPM-apparaat met de SDK voor C# maken en inrichten voor IoT Hub Device Provisioning Service
 
@@ -25,6 +25,8 @@ ms.lasthandoff: 03/16/2018
 In deze stappen ziet u hoe u met de SDK voor C# voor Azure IoT Hub een gesimuleerd TPM-apparaat maakt op een ontwikkelcomputer met Windows OS en het codevoorbeeld gebruikt om dit gesimuleerde apparaat te verbinden met de Device Provisioning Service en uw IoT-hub. De voorbeeldcode gebruikt de Windows TPM-simulator als de [HSM (Hardware Security Module)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) van het apparaat. 
 
 Voltooi de stappen in [IoT Hub Device Provisioning Service instellen](./quick-setup-auto-provision.md) voordat u verdergaat.
+
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>De ontwikkelomgeving voorbereiden 

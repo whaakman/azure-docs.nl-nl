@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 57296d828156184aa36532cd649fbec0c81b5e27
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Een fout simuleren bij het openen van redundante opslag met leestoegang
 
-Deze zelfstudie is deel twee van een serie.  In deze zelfstudie kunt u [Fiddler](#simulate-a-failure-with-fiddler) of [statische routering](#simulate-a-failure-with-an-invalid-static-route) gebruiken om een fout te simuleren voor aanvragen voor het primaire eindpunt van uw [geografisch redundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) opslagaccount met leestoegang en de toepassing te laten lezen vanuit het secundaire eindpunt.
+Deze zelfstudie is deel twee van een serie.  In deze zelfstudie kunt u [Fiddler](#simulate-a-failure-with-fiddler) of [statische routering](#simulate-a-failure-with-an-invalid-static-route) gebruiken om een fout te simuleren voor aanvragen voor het primaire eindpunt van uw [geografisch redundante](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) opslagaccount met leestoegang en de toepassing te laten lezen vanuit het secundaire eindpunt.
 
 ![Scenario-app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -117,7 +117,7 @@ Druk als u klaar bent op **een willekeurige toets** om de toepassing te hervatte
 
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Een fout simuleren met een ongeldige statische route 
-U kunt een ongeldige statische route maken voor alle aanvragen naar het primaire eindpunt van uw [geografisch redundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) opslagaccount met leestoegang. In deze zelfstudie wordt de lokale host gebruikt als de gateway voor routeringsaanvragen voor de opslagaccount. Het gebruik van de lokale host als de gateway zorgt ervoor dat alle aanvragen naar het primaire eindpunt van uw opslagaccount in een lusvorm terugkeren naar de host, wat vervolgens tot een fout leidt. Voer de volgende stappen uit om een fout en herstel van het primaire eindpunt met een ongeldige statische route te simuleren. 
+U kunt een ongeldige statische route maken voor alle aanvragen naar het primaire eindpunt van uw [geografisch redundante](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) opslagaccount met leestoegang. In deze zelfstudie wordt de lokale host gebruikt als de gateway voor routeringsaanvragen voor de opslagaccount. Het gebruik van de lokale host als de gateway zorgt ervoor dat alle aanvragen naar het primaire eindpunt van uw opslagaccount in een lusvorm terugkeren naar de host, wat vervolgens tot een fout leidt. Voer de volgende stappen uit om een fout en herstel van het primaire eindpunt met een ongeldige statische route te simuleren. 
 
 ### <a name="start-and-pause-the-application"></a>De toepassing starten en onderbreken
 

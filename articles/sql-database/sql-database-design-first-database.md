@@ -1,21 +1,21 @@
 ---
-title: Uw eerste Azure SQL-database ontwerpen | Microsoft Docs
-description: Lees hier alles over het ontwerpen van uw eerste Azure SQL database in Azure Portal en met SQL Server Management Studio.
+title: Uw eerste Azure SQL database ontwerpen met SSMS | Microsoft Docs
+description: Lees hier alles over het ontwerpen van uw eerste Azure SQL database met SQL Server Management Studio.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 12301d46b497b49032b1b8bdefe2056a7df143d1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 40da83c0214e3c493fdb72504753b5b59ea20b3e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="design-your-first-azure-sql-database"></a>Uw eerste Azure SQL-database ontwerpen
+# <a name="design-your-first-azure-sql-database-using-ssms"></a>Uw eerste Azure SQL-database ontwerpen met SSMS
 
 Azure SQL Database is een relationele DBaaS (database-as-a-service) in de Microsoft Cloud (Azure). In deze zelfstudie leert u hoe u met Azure Portal en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) de volgende taken uitvoert: 
 

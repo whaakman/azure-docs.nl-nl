@@ -3,22 +3,22 @@ title: Maken van een iothub met Azure CLI (azure.js) | Microsoft Docs
 description: Het maken van een Azure-IoT-hub met behulp van de platformoverschrijdende Azure CLI (azure.js).
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Een iothub met de Azure CLI maken
 
@@ -90,8 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resource-group**. De naam van de resourcegroep. De indeling is niet hoofdlettergevoelig alfanumerieke, onderstrepingstekens en liggende streepjes, 1-64-lengte.
 * **Naam**. De naam van de iothub worden gemaakt. De indeling is niet hoofdlettergevoelig alfanumerieke en afbreekstreepjes, de lengte 3 50.
 * **Locatie**. De locatie (azure-regio/datacenter) voor het inrichten van de IoT-hub.
-* **SKU-naam**. De naam van de sku, een van: [F1, S1, S2, S3]. Raadpleeg de pagina met prijzen voor IoT Hub voor de laatste volledige lijst.
-* **eenheden**. Het aantal ingerichte eenheden. -Bereik: F1 [1-1]: S1, S2 [1-200]: [1-10] S3. IoT Hub-eenheden zijn gebaseerd op het totale aantal berichten en het aantal apparaten dat u verbinding wilt maken.
+* **SKU-naam**. De naam van de sku, een van: [F1, S1, S2, S3]. Zie voor meer informatie over elke sku [prijzen van Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/). Basic-lagen zijn momenteel alleen beschikbaar via de portal. 
+* **eenheden**. Het aantal ingerichte eenheden. Zie voor meer informatie over de limieten van de eenheid [prijzen van Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

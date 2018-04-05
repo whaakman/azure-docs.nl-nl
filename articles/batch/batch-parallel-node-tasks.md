@@ -1,25 +1,25 @@
 ---
-title: "Taken uitvoeren ter aanvulling van rekenresources efficiënt - gebruik Azure Batch | Microsoft Docs"
-description: "Hogere efficiëntie en lagere kosten via minder rekenknooppunten en actief gelijktijdige taken op elk knooppunt in een Azure Batch-pool"
+title: Taken uitvoeren ter aanvulling van rekenresources efficiënt - gebruik Azure Batch | Microsoft Docs
+description: Hogere efficiëntie en lagere kosten via minder rekenknooppunten en actief gelijktijdige taken op elk knooppunt in een Azure Batch-pool
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eae6359b5fb36bd0317391ce2330afb7dd7bfe3b
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 5106bbbb073908af7e7e8f045fa6fb60e8a306f4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Taken uitvoeren gelijktijdig maximaal gebruik van de Batch-rekenknooppunten 
 
@@ -32,7 +32,7 @@ Hoewel sommige scenario's profiteren van alle resources van een knooppunt dat aa
 * **Aantal grenzen knooppunt beperkende** wanneer de communicatie tussen knooppunten is vereist in een pool. Toepassingen die zijn geconfigureerd voor communicatie tussen knooppunten zijn momenteel beperkt tot 50 rekenknooppunten. Als elk knooppunt in deze groep kunnen taken parallel uitvoeren, kan een groter aantal taken tegelijkertijd worden uitgevoerd.
 * **Bezig met het repliceren van een lokale compute cluster**, zoals wanneer u eerst een compute-omgeving naar Azure verplaatsen. Als uw huidige on-premises-oplossing wordt meerdere taken per rekenknooppunt uitgevoerd, kunt u het maximum aantal taken voor het spiegelen van nauwkeuriger die configuratie knooppunt verhogen.
 
-## <a name="example-scenario"></a>Voorbeeldscenario 's
+## <a name="example-scenario"></a>Voorbeeldscenario
 Als voorbeeld ter illustratie van de voordelen van de uitvoering van parallelle taken, Stel dat uw taaktoepassing CPU en geheugen heeft dat [standaard\_D1](../cloud-services/cloud-services-sizes-specs.md) knooppunten zijn voldoende. Maar als u klaar bent met de taak in de tijd die nodig, 1.000 van deze knooppunten zijn vereist.
 
 In plaats van met behulp van standaard\_D1 knooppunten die 1 CPU-kern hebt, kunt u [standaard\_D14](../cloud-services/cloud-services-sizes-specs.md) knooppunten met 16 kernen en uitvoering van de parallelle taak inschakelen. Daarom *16 keer minder knooppunten* kan alleen worden gebruikt--in plaats van 1000 knooppunten 63 zijn vereist. Bovendien als grote toepassingsbestanden of referentiegegevens vereist voor elk knooppunt zijn, zijn de duur van de taak en efficiëntie opnieuw verbeterd omdat de gegevens gekopieerd naar maximaal 63 knooppunten.
@@ -124,7 +124,7 @@ De tweede uitvoering van het voorbeeld bevat een aanzienlijke daling van de duur
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-### <a name="batchlabs-heat-map"></a>BatchLabs Heatmap
+### <a name="batchlabs-heat-map"></a>BatchLabs Heat Map
 [BatchLabs][batch_labs] is een gratis, uitgebreid, zelfstandig clienthulpprogramma voor het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. BatchLabs bevat een *Heatmap* functie waarmee visualisatie van de uitvoering van de taak. Wanneer u bent uitvoeren van de [ParallelTasks] [ parallel_tasks_sample] voorbeeldtoepassing, kunt u de functie Heatmap eenvoudig visualiseren parallelle taken op elk knooppunt worden uitgevoerd.
 
 

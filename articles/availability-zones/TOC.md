@@ -25,9 +25,15 @@
 ### Load Balancer
 #### [Wat is Load Balancer?](../load-balancer/load-balancer-standard-overview.md)
 #### [Load Balancer Standard en beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md)
-#### [Een zoneredundante, openbare Load Balancer Standard maken met Azure Portal](../load-balancer/load-balancer-get-started-internet-az-portal.md)
-#### [Een zoneredundante Load Balancer Standard maken met PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
-#### [Een zoneredundante, openbare Load Balancer Standard maken met CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+
+#### [Een zoneredundante openbare load balancer van het type Standard maken](../load-balancer/load-balancer-get-started-internet-az-portal.md)
+##### [Een zoneredundante openbare load balancer van het type Standard maken (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
+##### [Een zoneredundante openbare load balancer van het type Standard maken (CLI)](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+#### [Een zonegebonden openbare load balancer van het type Standard maken](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+##### [Een zonegebonden openbare load balancer van het type Standard maken (PowerShell)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+##### [Een zonegebonden openbare load balancer van het type Standard maken (CLI)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+#### [Taken over VM's in meerdere beschikbaarheidszones verdelen](../load-balancer/load-balancer-standard-public-availability-zones-portal.md)
+##### [Taken over VM's in meerdere beschikbaarheidszones verdelen met Azure (CLI)](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 
 ### [Openbaar IP-adres](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
@@ -35,7 +41,7 @@
 #### [Beschikbaarheidszones met SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Storage
-#### [Zone-redundante opslag](../storage/common/storage-redundancy.md#zone-redundant-storage)
+#### [Zone-redundante opslag](../storage/common/storage-redundancy-zrs.md)
 
 # Herstel na noodgevallen
 ## [Azure Site Recovery gebruiken](https://docs.microsoft.com/azure/site-recovery/)

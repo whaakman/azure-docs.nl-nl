@@ -2,10 +2,10 @@
 title: Wat te doen in het geval van een Azure-service wordt onderbroken die van invloed is op Azure Cloud Services | Microsoft Docs
 description: Meer informatie over wat te doen in het geval van een onderbreking van de Azure-service die van invloed is op Azure Cloud Services.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
 ms.service: cloud-services
 ms.workload: cloud-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: mmccrory
-ms.openlocfilehash: db6a980b85ea5ef8cbbba4ba5a36f9d033739df1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7028417c95aa6969793c00d0bb270c96e56164fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Wat te doen in het geval van een Azure-service wordt onderbroken die van invloed is op Azure Cloud Services
 Bij Microsoft werken we hard om ervoor te zorgen dat onze services altijd voor u beschikbaar zijn wanneer u deze nodig. Dwingt buiten ons wil soms invloed hebben op ons op een manier die niet-geplande serviceonderbrekingen veroorzaken.
@@ -30,7 +30,7 @@ Azure heeft al veel ingebouwde platformfuncties die ondersteuning bieden voor ma
 In dit artikel bevat informatie over waar noodherstelscenario wanneer een hele regio optreedt in een storing veroorzaakt door grote natuurramp of wijdverbreid service wordt onderbroken. Dit zeldzame instanties zijn, maar u moet voorbereiden voor de mogelijkheid dat er een storing van een hele regio is. Als een hele regio optreedt in een onderbreking van de service, de lokaal redundante exemplaren van uw gegevens tijdelijk niet beschikbaar. Als u geo-replicatie hebt ingeschakeld, worden de drie extra kopieën van uw Azure Storage-blobs en tabellen opgeslagen in een andere regio. In het geval van een volledige regionale uitval of een ramp optreedt waarbij de primaire regio kan niet worden hersteld, remaps Azure alle van de DNS-vermeldingen voor de regio geo-replicatie.
 
 > [!NOTE]
-> Let erop dat u geen controle over dit proces hebt en alleen voor het hele datacenter serviceonderbrekingen kunnen ontstaan geldt. Daarom moet u ook zijn afhankelijk van andere toepassingsspecifieke back-strategieën voor het hoogste niveau van beschikbaarheid. Zie voor meer informatie [herstel na noodgevallen en hoge beschikbaarheid voor Microsoft Azure-toepassingen](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Als u wilt kunnen invloed hebben op uw eigen failover mogelijk wilt u het gebruik van [geografisch redundante opslag met leestoegang (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage), waarbij automatisch een alleen-lezen kopie van uw gegevens in een andere regio.
+> Let erop dat u geen controle over dit proces hebt en alleen voor het hele datacenter serviceonderbrekingen kunnen ontstaan geldt. Daarom moet u ook zijn afhankelijk van andere toepassingsspecifieke back-strategieën voor het hoogste niveau van beschikbaarheid. Zie voor meer informatie [herstel na noodgevallen en hoge beschikbaarheid voor Microsoft Azure-toepassingen](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Als u wilt kunnen invloed hebben op uw eigen failover mogelijk wilt u het gebruik van [geografisch redundante opslag met leestoegang (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), waarbij automatisch een alleen-lezen kopie van uw gegevens in een andere regio.
 >
 >
 
@@ -49,7 +49,7 @@ Zie voor meer informatie over het maken en implementeren van een servicetoepassi
 
 Afhankelijk van uw toepassing gegevensbronnen, moet u wellicht de herstelprocedures voor uw toepassingsgegevensbron controleren.
 
-* Zie voor gegevensbronnen voor Azure Storage, [Azure Storage-replicatie](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) bij het controleren van de opties die beschikbaar zijn op basis van het model van de replicatie hebt geselecteerd voor uw toepassing.
+* Zie voor gegevensbronnen voor Azure Storage, [Azure Storage-replicatie](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) bij het controleren van de opties die beschikbaar zijn op basis van het model van de replicatie hebt geselecteerd voor uw toepassing.
 * Lees voor de bronnen van de SQL-Database, [overzicht: Cloud zakelijke continuïteit en database noodherstel met SQL Database](../sql-database/sql-database-business-continuity.md) bij het controleren van de opties die beschikbaar zijn op basis van het gekozen replicatiemodel voor uw toepassing.
 
 

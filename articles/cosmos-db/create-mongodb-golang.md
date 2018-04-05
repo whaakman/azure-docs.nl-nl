@@ -10,17 +10,17 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 29a47646074819492e2c5179276a0c4de7f0d2d9
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 49bf6aed5a8daa482be9d22ecd97b6ab43cae5fe
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: een MongoDB-API-console-app ontwikkelen met Golang en Azure Portal
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.
 
-In deze Quick Start ziet u hoe u een bestaande, in [Golang](https://golang.org/) geschreven [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)-app kunt gebruiken en verbinden met uw Azure Cosmos DB-database, die MongoDB-clientverbindingen ondersteunt.
+In deze snelstartgids ziet u hoe u een bestaande, in [Golang](https://golang.org/) geschreven MongoDB-app kunt gebruiken en verbinden met uw Azure Cosmos DB-database, die MongoDB-clientverbindingen ondersteunt met behulp van de [MongoDB-API](mongodb-introduction.md).
 
 Met andere woorden, uw Golang-toepassing weet alleen dat deze wordt verbonden met een database met behulp van MongoDB-API's. Het is duidelijk voor de toepassing dat de gegevens worden opgeslagen in Azure Cosmos DB.
 

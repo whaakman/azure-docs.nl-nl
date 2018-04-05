@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Klassieke metrische waarschuwingen in de Azure-Monitor maken voor Azure-services - PowerShell
 > [!div class="op_single_selector"]
@@ -31,18 +31,18 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Overzicht
 
 > [!NOTE]
-> In dit artikel wordt beschreven hoe oudere metrische waarschuwingen maken. Azure ondersteunt van de Monitor nu [nieuwere, metrische waarschuwingen voor een betere](monitoring-near-real-time-metric-alerts.md). Deze waarschuwingen kunnen meerdere metrische gegevens controleren en waarschuwen voor dimensionale metrische gegevens mogelijk maken. PowerShell-ondersteuning voor nieuwere metrische waarschuwingen is binnenkort beschikbaar.
+> In dit artikel wordt beschreven hoe oudere klassieke metrische waarschuwingen maken. Azure ondersteunt van de Monitor nu [nieuwere, metrische waarschuwingen voor een betere](monitoring-near-real-time-metric-alerts.md). Deze waarschuwingen kunnen meerdere metrische gegevens controleren en waarschuwen voor dimensionale metrische gegevens mogelijk maken. PowerShell-ondersteuning voor nieuwere metrische waarschuwingen is binnenkort beschikbaar.
 >
 >
 
-In dit artikel leest u hoe Azure metrische waarschuwingen met behulp van PowerShell instellen.  
+In dit artikel leest u hoe Azure classic metrische waarschuwingen met behulp van PowerShell instellen.  
 
 U kunt een waarschuwing op basis van bewaking metrische gegevens voor of gebeurtenissen op uw Azure-services kunt ontvangen.
 
 * **Metrische waarden** -de waarschuwing wordt geactiveerd wanneer de waarde van een opgegeven waarde overschrijdt de drempelwaarde die u in beide richtingen toewijst. Dat wil zeggen, deze beide wordt geactiveerd wanneer de voorwaarde voor het eerst wordt voldaan en vervolgens later wanneer die voorwaarde wordt niet langer wordt voldaan.    
 * **Activiteit logboekgebeurtenissen** -een waarschuwing kunt activeren voor *elke* gebeurtenis of alleen wanneer een bepaalde gebeurtenis zich voordoet. Voor meer informatie over waarschuwingen voor activiteit logboek [Klik hier](monitoring-activity-log-alerts.md)
 
-U kunt het volgende te doen als er wordt een waarschuwing voor metrische configureren:
+U kunt het volgende te doen als er wordt een klassieke metrische-waarschuwing configureren:
 
 * e-mailmeldingen verzenden naar de servicebeheerder en medebeheerders
 * e-mail verzenden naar andere e-mailberichten die u opgeeft.
@@ -135,8 +135,8 @@ Voor meer informatie, kunt u altijd typen ```Get-Help``` en vervolgens de PowerS
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een overzicht van Azure monitoring](monitoring-overview.md) met inbegrip van de typen gegevens u kunt verzamelen en controleren.
-* Meer informatie over [configureren van webhooks in waarschuwingen](insights-webhooks-alerts.md).
-* Meer informatie over [waarschuwingen configureren op activiteit logboekgebeurtenissen](monitoring-activity-log-alerts.md).
+* Informatie over het [webhooks configureren in waarschuwingen](insights-webhooks-alerts.md).
+* Informatie over het [meldingen configureren voor de activiteit logboekgebeurtenissen](monitoring-activity-log-alerts.md).
 * Meer informatie over [Azure Automation-Runbooks](../automation/automation-starting-a-runbook.md).
 * Ophalen van een [overzicht van het verzamelen van diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md) voor het verzamelen van gedetailleerde hoge frequentie metrische gegevens op uw service.
 * Ophalen van een [overzicht van metrische gegevens verzameling](insights-how-to-customize-monitoring.md) om ervoor te zorgen dat uw service beschikbaar is en reageert.

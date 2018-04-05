@@ -6,18 +6,18 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Concept gebruiken met Azure Containerservice (AKS)
 
-Concept is een open source-hulpprogramma dat pakket helpt code en voer deze in een cluster Kubernetes. Concept is gericht op de ontwikkelingscyclus herhaling; Als de code wordt ontwikkeld, maar alvorens toe te wijzen aan versiebeheer. Met het concept, u kunt snel opnieuw implementeren een toepassing op Kubernetes als codewijzigingen optreden. Zie voor meer informatie over ontwerp, de [concept documentatie op Github][draft-documentation].
+Concept is een open-source hulpprogramma waarmee bevatten en implementeren van deze containers in een cluster Kubernetes, zodat u zich kunt concentreren op basis van de dev-cyclus--de 'interne loop' van geconcentreerd ontwikkeling. Concept werkt als de code wordt ontwikkeld, maar alvorens toe te wijzen aan versiebeheer. Met het concept, u kunt snel opnieuw implementeren een toepassing op Kubernetes als codewijzigingen optreden. Zie voor meer informatie over ontwerp, de [concept documentatie op Github][draft-documentation].
 
 Dit Documentdetails concept gebruiken met een cluster Kubernetes op AKS.
 
@@ -29,64 +29,51 @@ U moet ook een persoonlijke Docker-register in Azure Container register (ACR). Z
 
 Helm moet ook worden geïnstalleerd in uw cluster AKS. Zie voor meer informatie over het installeren van helm [Helm voor gebruik met Azure Container Service (AKS)][aks-helm].
 
+Tot slot moet u [Docker](https://www.docker.com).
+
 ## <a name="install-draft"></a>Concept installeren
 
-De CLI concept is een client die wordt uitgevoerd op uw ontwikkelsysteem, en kunt dat u snel code implementeren in een cluster met Kubernetes.
+De CLI concept is een client die wordt uitgevoerd op uw ontwikkelsysteem, en kunt dat u snel code implementeren in een cluster met Kubernetes. 
+
+> [!NOTE] 
+> Als concept voorafgaand aan versie 0,12 is geïnstalleerd, moet u eerst concept verwijderen uit uw cluster met `helm delete --purge draft` en verwijder vervolgens de lokale configuratie door te voeren `rm -rf ~/.draft`. U kunt uitvoeren als u van Mac OS gebruikmaakt, `brew upgrade draft`.
 
 Het concept CLI installeren op een Mac-gebruik `brew`. Zie voor aanvullende installatie-opties, wordt de [concept installeren handleiding][install-draft].
 
 ```console
+brew tap azure/draft
 brew install draft
 ```
 
-Uitvoer:
-
-```
-==> Installing draft from azure/draft
-==> Downloading https://azuredraft.blob.core.windows.net/draft/draft-v0.7.0-darwin-amd64.tar.gz
-Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.7.0.tar.gz
-==> /usr/local/Cellar/draft/0.7.0/bin/draft init --client-only
-🍺  /usr/local/Cellar/draft/0.7.0: 6 files, 61.2MB, built in 1 second
-```
-
-## <a name="configure-draft"></a>Concept configureren
-
-Wanneer u concept configureert, moet een container-register worden opgegeven. In dit voorbeeld wordt Azure Container register gebruikt.
-
-Voer de volgende opdracht om op te halen van de naam en de aanmeldingsnaam van server van uw ACR-exemplaar. De opdracht bijwerken met de naam van de resourcegroep met uw ACR-exemplaar.
-
-```console
-az acr list --resource-group <resource group> --query "[].{Name:name,LoginServer:loginServer}" --output table
-```
-
-Het wachtwoord ACR-exemplaar is ook nodig.
-
-Voer de volgende opdracht om het wachtwoord ACR retourneren. De opdracht bijwerken met de naam van het ACR-exemplaar.
-
-```console
-az acr credential show --name <acr name> --query "passwords[0].value" --output table
-```
-
-Initialiseren van concept met de `draft init` opdracht.
+Nu initialiseren concept met de `draft init` opdracht.
 
 ```console
 draft init
 ```
 
-Tijdens dit proces wordt u gevraagd referenties voor de container register. Wanneer u een Azure Container register, de Register-URL is de naam van de ACR aanmelding-server, de gebruikersnaam is de naam van het ACR-exemplaar en het wachtwoord is het wachtwoord ACR.
+## <a name="configure-draft"></a>Concept configureren
+
+Concept maakt de installatiekopieën van de container lokaal en vervolgens ofwel implementeert uit het lokale register (bij Minikube), of moet u het register van de afbeelding moet worden gebruikt. In dit voorbeeld wordt de Azure Container register (ACR), dus moet u een vertrouwensrelatie tot stand tussen uw cluster AKS en het register ACR brengen en concept voor het pushen van de container naar ACR configureren.
+
+### <a name="create-trust-between-aks-cluster-and-acr"></a>Een vertrouwensrelatie tussen AKS cluster en ACR maken
+
+Als u wilt een vertrouwensrelatie tussen een AKS-cluster en een ACR-register, moet u de Azure Active Directory Service Principal gebruikt met AKS door de rol van Inzender toe te voegen met het bereik van de opslagplaats ACR wijzigen. Om dit te doen, voer de volgende opdrachten, vervangen _&lt;aks-rg-name&gt;_ en _&lt;aks clusternaam&gt;_ met de resourcegroep en de naam van uw AKS cluster, en _&lt;acr-rg-naam&gt;_ en _&lt;acr-repo-name&gt;_ met de resourcenaam voor groep en de opslagplaats van uw ACR de opslagplaats die u wilt een vertrouwensrelatie maken.
 
 ```console
-1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): <ACR Login Server>
-2. Enter your username: <ACR Name>
-3. Enter your password: <ACR Password>
+export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 
-Hierna kunt concept is geconfigureerd in het cluster Kubernetes en klaar voor gebruik.
+(Deze stappen en andere verificatiemethoden voor toegang tot ACR lopen [verificatie met ACR](../container-registry/container-registry-auth-aks.md).)
 
-```
-Draft has been installed into your Kubernetes Cluster.
-Happy Sailing!
-```
+### <a name="configure-draft-to-push-to-and-deploy-from-acr"></a>Concept voor het pushen naar en implementeren van ACR configureren
+
+Nu dat er een vertrouwensrelatie tussen AKS en ACR is, wordt in de volgende stappen uit het gebruik van ACR van het cluster AKS inschakelen.
+1. Stel de configuratie van het concept `registry` waarde door het uitvoeren van `draft config set registry <registry name>.azurecr.io`, waarbij _&lt;naam van routeringsregister&lt;_ is de naam van uw ACR-register.
+2. Meld u aan bij het register ACR door het uitvoeren van `az acr login -n <registry name>`. 
+
+Omdat u bent nu aangemeld op lokaal ACR en u een vertrouwensrelatie met AKS en ACR hebt gemaakt, zijn geen wachtwoorden of geheimen naar push of pull van ACR in AKS vereist. De verificatie vindt op het niveau van Azure Resource Manager met Azure Active Directory. 
 
 ## <a name="run-an-application"></a>Een toepassing uitvoeren
 
@@ -99,7 +86,7 @@ git clone https://github.com/Azure/draft
 Wijzig in de map met voorbeelden van Java.
 
 ```console
-cd draft/examples/java/
+cd draft/examples/example-java/
 ```
 
 Gebruik de `draft create` opdracht om het proces te starten. Deze opdracht wordt de artefacten die worden gebruikt voor de toepassing uitvoert in een cluster Kubernetes. Deze items zijn een Dockerfile, een grafiek Helm en een `draft.toml` bestand, dat het configuratiebestand concept.
@@ -110,12 +97,14 @@ draft create
 
 Uitvoer:
 
-```
+```console
 --> Draft detected the primary language as Java with 92.205567% certainty.
 --> Ready to sail
 ```
 
-Om de toepassing uitvoert op een cluster Kubernetes, gebruiken de `draft up` opdracht. Met deze opdracht de code en configuratie toepassingsbestanden naar het cluster Kubernetes geüpload. Vervolgens wordt uitgevoerd de Dockerfile voor het maken van een installatiekopie van een container, stuurt de afbeelding in het register van de container, en ten slotte wordt uitgevoerd van de grafiek Helm om de toepassing te starten.
+Om de toepassing uitvoert op een cluster Kubernetes, gebruiken de `draft up` opdracht. Met deze opdracht maakt de Dockerfile voor het maken van een installatiekopie van een container, de installatiekopie van het verstuurd naar ACR en tot slot installeert de grafiek Helm voor het starten van de toepassing in AKS.
+
+De eerste keer die wordt uitgevoerd, kunnen worden gepusht en binnenhalen van de installatiekopie van de container enige tijd duren; Zodra de base lagen in cache zijn opgeslagen, is de tijd is aanzienlijk worden verminderd.
 
 ```console
 draft up
@@ -123,12 +112,13 @@ draft up
 
 Uitvoer:
 
-```
-Draft Up Started: 'open-jaguar'
-open-jaguar: Building Docker Image: SUCCESS ⚓  (28.0342s)
-open-jaguar: Pushing Docker Image: SUCCESS ⚓  (7.0647s)
-open-jaguar: Releasing Application: SUCCESS ⚓  (4.5056s)
-open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
+```console
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (3.0007s)
+example-java: Releasing Application: SUCCESS ⚓  (0.9322s)
+example-java: Build ID: 01C9NPDYQQH2CZENDMZW7ESJAM
+Inspect the logs with `draft logs 01C9NPDYQQH2CZENDMZW7ESJAM`
 ```
 
 ## <a name="test-the-application"></a>De toepassing testen
@@ -143,7 +133,7 @@ draft connect
 
 Uitvoer:
 
-```
+```console
 Connecting to your app...SUCCESS...Connect to your app on localhost:46143
 Starting log streaming...
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
@@ -153,7 +143,10 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-Wanneer u klaar bent met het gebruik van de toepassing testen `Control+C` stoppen van de proxyverbinding.
+U kunt nu uw toepassing testen door te bladeren naar http://localhost:46143 (voor het voorgaande voorbeeld; de poort mogelijk andere). Wanneer u klaar bent met het gebruik van de toepassing testen `Control+C` stoppen van de proxyverbinding.
+
+> [!NOTE]
+> U kunt ook de `draft up --auto-connect` opdracht voor het bouwen en implementeren van uw toepassing en direct verbinding maken met de eerste actieve container te maken van de herhaling sneller bladeren.
 
 ## <a name="expose-application"></a>Toepassing weergeven
 
@@ -163,7 +156,7 @@ Wanneer u een toepassing test in Kubernetes, is het raadzaam om de toepassing be
 Eerst het concept pack moet worden bijgewerkt om aan te geven dat een service met een type `LoadBalancer` moet worden gemaakt. Om dit te doen bijwerken van het type van de service in de `values.yaml` bestand.
 
 ```console
-vi chart/java/values.yaml
+vi charts/java/values.yaml
 ```
 
 Zoek de `service.type` eigenschap en werk de waarde van `ClusterIP` naar `LoadBalancer`.
@@ -203,13 +196,13 @@ kubectl get service -w
 In eerste instantie de *extern IP-* voor de service wordt weergegeven als `pending`.
 
 ```
-deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
+example-java-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
 Zodra het EXTERNE IP-adres is gewijzigd van `pending` in een `IP address`, gebruikt u `Control+C` om het controleproces van kubectl te stoppen.
 
 ```
-deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
+example-java-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 ```
 
 Als u de toepassing wilt zien, bladert u naar het externe IP-adres.
@@ -243,25 +236,35 @@ import static spark.Spark.*;
 
 public class Hello {
     public static void main(String[] args) {
-        get("/", (req, res) -> "Hello World, I'm Java - Draft Rocks!");
+        get("/", (req, res) -> "Hello World, I'm Java in AKS!");
     }
 }
 ```
 
-Voer de `draft up` opdracht voor het implementeren van de toepassing.
+Voer de `draft up --auto-connect` opdracht voor het implementeren van de toepassing zodra een schil is gereed om te reageren.
 
 ```console
-draft up
+draft up --auto-connect
 ```
 
 Uitvoer
 
 ```
-Draft Up Started: 'deadly-squid'
-deadly-squid: Building Docker Image: SUCCESS ⚓  (18.0813s)
-deadly-squid: Pushing Docker Image: SUCCESS ⚓  (7.9394s)
-deadly-squid: Releasing Application: SUCCESS ⚓  (6.5005s)
-deadly-squid: Build ID: 01BWK8C8X922F5C0HCQ8FT12RR
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (4.0010s)
+example-java: Releasing Application: SUCCESS ⚓  (1.1336s)
+example-java: Build ID: 01C9NPMJP6YM985GHKDR2J64KC
+Inspect the logs with `draft logs 01C9NPMJP6YM985GHKDR2J64KC`
+Connect to java:4567 on localhost:39249
+Your connection is still active.
+Connect to java:4567 on localhost:39249
+[java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
+[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: == Spark has ignited ...
+[java]: >> Listening on 0.0.0.0:4567
+
 ```
 
 Ten slotte de toepassing om te zien van de updates weergeven.
@@ -273,7 +276,7 @@ curl 52.175.224.118
 Uitvoer:
 
 ```
-Hello World, I'm Java - Draft Rocks!
+Hello World, I'm Java in AKS!
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

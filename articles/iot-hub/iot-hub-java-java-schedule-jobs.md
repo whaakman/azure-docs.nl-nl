@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: af853a378a36c97edd74ea99fc5dcce92a073fea
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Planning en broadcast-taken (Java)
 
@@ -35,6 +35,8 @@ Zie voor meer informatie over elk van deze mogelijkheden:
 
 * Apparaat-twin en eigenschappen: [aan de slag met horende apparaten](iot-hub-java-java-twin-getstarted.md)
 * Directe methoden: [IoT Hub developer guide - rechtstreekse methoden](iot-hub-devguide-direct-methods.md) en [zelfstudie: directe methoden gebruiken](iot-hub-java-java-direct-methods.md)
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 In deze handleiding ontdekt u hoe u:
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
@@ -30,7 +30,7 @@ Steekproeven verlaagt de kosten van verkeer en gegevens en kunt u voorkomen bepe
 ## <a name="in-brief"></a>Kort gezegd:
 * Steekproeven behoudt 1 in *n* registreert en de rest wordt genegeerd. Het kan bijvoorbeeld een samplefrequentie van 20% 1: 5 gebeurtenissen behouden. 
 * Steekproeven gebeurt automatisch als uw toepassing veel telemetrie, in ASP.NET web server-apps verzendt.
-* U kunt ook instellen steekproef nemen handmatig, hetzij in de portal op de pagina met prijzen; of in de SDK voor ASP.NET in het .config-bestand. of in de Java SDK in het ApplicationInsights.xml-bestand, het netwerkverkeer ook beperken.
+* U kunt ook instellen steekproef nemen handmatig, hetzij in de portal op het gebruik en de geschatte kosten pagina. of in de SDK voor ASP.NET in het .config-bestand. of in de Java SDK in het ApplicationInsights.xml-bestand, het netwerkverkeer ook beperken.
 * Als u aangepaste gebeurtenissen en u ervoor zorgen wilt dat een verzameling van gebeurtenissen wordt behouden of verwijderd samen, zorg dat zij dezelfde OperationId waarde hebben.
 * De deler steekproeven *n* in elke record in de eigenschap wordt gerapporteerd `itemCount`, die in de zoekopdracht wordt weergegeven onder de beschrijvende naam van de aanvraag 'aantal' of 'gebeurtenis aantal'. Wanneer steekproeven niet uitgevoerd is, `itemCount==1`.
 * Als u analysequery's schrijft, moet u [rekening houden met steekproeven](app-insights-analytics-tour.md#counting-sampled-data). In het bijzonder in plaats van gewoon telling registreert, moet u `summarize sum(itemCount)`.
@@ -49,7 +49,7 @@ Deze vorm van steekproeven werkt op het punt waar de telemetrie van uw webserver
 
 Gebruik dit type steekproeven als uw app vaak via het maandelijkse quotum wordt en u de optie hoeft van het gebruik van een van de typen SDK op basis van steekproeven. 
 
-De samplingfrequentie in de quota en prijzen van blade ingesteld:
+De samplingfrequentie ingesteld in het gebruik en de geschatte kosten van pagina:
 
 ![Vanuit de blade overzicht van toepassing, klik op instellingen, Quota, voorbeelden, en vervolgens een samplefrequentie selecteren en klik op bijwerken.](./media/app-insights-sampling/04.png)
 

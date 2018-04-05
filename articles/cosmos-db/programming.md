@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 2b55307c3122513b414c3f90a6a36d230f3459c2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 328cf016c98575ecd0fa7be023b48e670211babf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure DB Cosmos programmeren-server: opgeslagen procedures, databasetriggers en UDF's
 
@@ -54,7 +54,7 @@ Deze benadering van *'JavaScript als een moderne dag T-SQL'* toepassingsontwikke
   * Een abstractielaag boven op de onbewerkte gegevens, zodat gegevens architecten ontwikkelen hun toepassingen onafhankelijk van de gegevens worden toegevoegd. Deze laag van abstractie is nuttig wanneer de gegevens zonder schema, vanwege de brosse veronderstellingen die worden standaard uitbreidbaar in de toepassing moeten mogelijk als ze hebben om te gaan met de gegevens rechtstreeks.  
   * Deze abstractie kan bedrijven hun gegevens beveiligen door af te stroomlijnen de toegang van de scripts.  
 
-Het maken en de uitvoering van de databasetriggers, opgeslagen procedures en aangepaste query's wordt ondersteund door de [Azure-portal](https://portal.azure.com), wordt de [REST-API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), en [client-SDK's](sql-api-sdk-dotnet.md) op verschillende platforms, waaronder .NET, Node.js en JavaScript.
+Het maken en de uitvoering van de databasetriggers, opgeslagen procedures en aangepaste query's wordt ondersteund door de [Azure-portal](https://portal.azure.com), wordt de [REST-API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), en [client-SDK's](sql-api-sdk-dotnet.md) op verschillende platforms, waaronder .NET, Node.js en JavaScript.
 
 Deze zelfstudie wordt gebruikgemaakt van de [Node.js-SDK met Q](http://azure.github.io/azure-documentdb-node-q/) ter illustratie van de syntaxis en het gebruik van opgeslagen procedures, triggers en UDF's.   
 

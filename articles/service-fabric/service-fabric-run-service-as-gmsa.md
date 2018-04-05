@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: cd36d52df24610af1d2cb2d9e6e41f33bb7ea5fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e22c656218abcd0564faec6fae6d6979f09b386a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="run-a-service-as-a-group-managed-service-account"></a>Een service uitvoeren als een groep beheerd serviceaccount
-U kunt toepassingen die worden uitgevoerd in het cluster onder verschillende gebruikersaccounts beveiligen met behulp van Azure Service Fabric. Uitvoeren van toepassingen onder verschillende accounts, zelfs in een gedeelde gehoste omgeving zorgt ervoor dat ze van elkaar veiliger. Service Fabric-toepassingen worden standaard uitgevoerd onder het account waaronder het Fabric.exe-proces wordt uitgevoerd onder. Voor een zelfstandige cluster van Windows Server, kunt u een service uitvoeren als een groep beheerde serviceaccounts (gMSA) of een [Active Directory-gebruiker of groep](service-fabric-run-service-as-ad-user-or-group.md) met behulp van een RunAs-beleid. Houd er rekening mee dat dit maakt gebruik van Active Directory on-premises binnen uw domein en niet Azure Active Directory (Azure AD). Met behulp van een gMSA is geen wachtwoord of versleutelde wachtwoord opgeslagen in de `Application Manifest`.
+# <a name="run-a-service-as-a-group-managed-service-account"></a>Een service uitvoeren als door een groep beheerd serviceaccount
+Op een zelfstandige cluster van Windows Server, kunt u een service uitvoeren als een groep beheerde serviceaccount (gMSA) voor met behulp van een RunAs-beleid.  Service Fabric-toepassingen worden standaard uitgevoerd onder het account waaronder het Fabric.exe-proces wordt uitgevoerd onder. Uitvoeren van toepassingen onder verschillende accounts, zelfs in een gedeelde gehoste omgeving zorgt ervoor dat ze van elkaar veiliger. Houd er rekening mee dat dit maakt gebruik van Active Directory on-premises binnen uw domein en niet Azure Active Directory (Azure AD). Met behulp van een gMSA, is er geen wachtwoord of versleutelde wachtwoord opgeslagen in het toepassingsmanifest.  U kunt ook uitvoeren met een service als een [Active Directory-gebruiker of groep](service-fabric-run-service-as-ad-user-or-group.md).
 
 Het volgende voorbeeld ziet u het maken van een beheerd serviceaccount voor aangeroepen *svc-Test$*; beheerde serviceaccount implementeren op de clusterknooppunten; en het configureren van de user principal.
 

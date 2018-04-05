@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/22/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7e3fd12b2157d28c5d61bfa8d5fb69a00557a1f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Een data factory en pijplijn maken met behulp van .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,12 +102,12 @@ De procedures in dit artikel zijn gebaseerd op Visual Studio 2017. U kunt ook Vi
 Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/) op uw computer.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
-Volg de instructies in [dit artikel](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) om het volgende te doen: 
+Volg de instructies in de secties van [dit artikel](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) om het volgende te doen: 
 
 1. **Een Azure Active Directory-toepassing maken**. Maak een toepassing in Azure Active Directory die staat voor de .NET-toepassing die u in deze zelfstudie maakt. Voor de aanmeldings-URL kunt u een dummy-URL opgeven, zoals wordt getoond in het artikel (`https://contoso.org/exampleapp`).
-2. Haal de **toepassings-id** en **verificatiesleutel*** op met behulp van de instructies in de sectie **De toepassings-id en verificatiesleutel ophalen** in het artikel. Noteer deze waarden, zodat u ze later in deze zelfstudie kunt gebruiken. 
-3. Haal de **tenant-id** op met behulp van de instructies in de sectie **Tenant-id ophalen** in het artikel. Noteer deze waarde. 
-4. Wijs de toepassing toe aan de rol **Inzender** op het niveau van het abonnement, zodat met de toepassing gegevensfactory's in het abonnement kunnen worden gemaakt. Volg de instructies in de sectie **Toepassing toewijzen aan rol** in het artikel. 
+2. Opvragen van de **toepassings-id** en de **verificatiesleutel** (deze waarden hebt u later in de zelfstudie nodig). 
+3. Opvragen van de **tenant-id** (deze hebt u later in de zelfstudie nodig).
+4. Wijs de toepassing toe aan de rol **Inzender** op het niveau van het abonnement, zodat met de toepassing gegevensfactory's in het abonnement kunnen worden gemaakt.
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 

@@ -2,7 +2,7 @@
 title: Azure Application Insights-ondersteuning voor meerdere onderdelen, microservices en containers | Microsoft Docs
 description: Bewaken van apps die bestaan uit meerdere onderdelen of rollen voor prestaties en het gebruik.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>De bewaking van meerdere onderdeel toepassingen met Application Insights (preview)
 
@@ -42,7 +42,7 @@ Als u een toepassing met meerdere onderdeel-kaart, moet u deze doelstellingen te
 
 * **Installeer de meest recente voorlopige versie** Application Insights-pakket in elk onderdeel van de toepassing. 
 * **Een enkele Application Insights-resource delen** voor alle onderdelen van uw toepassing.
-* **Inschakelen van de toepassing van meerdere rollenoverzicht** in de blade Previews.
+* **Inschakelen van samengestelde toepassingstoewijzing** in de blade Previews.
 
 Configureer elk onderdeel van uw toepassing met de juiste methode voor het betreffende type. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
 
@@ -68,14 +68,14 @@ Bijwerken of installeer de Application Insights-pakketten in het project voor el
 
    1. In [Azure-portal](https://portal,azure.com), opent u de Application Insights-resource die u al hebt gemaakt voor een ander onderdeel.
    2. In de blade overzicht, open de vervolgkeuzelijst Essentials tabblad en kopieer de **Instrumentatiesleutel.**
-   3. Open ApplicationInsights.config en invoegen in uw project:`<InstrumentationKey>your copied key</InstrumentationKey>`
+   3. Open ApplicationInsights.config en invoegen in uw project: `<InstrumentationKey>your copied key</InstrumentationKey>`
 
 ![De instrumentatiesleutel kopiëren naar het .config-bestand](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### <a name="3-enable-multi-role-application-map"></a>3. Toepassing van meerdere rollenoverzicht inschakelen
+### <a name="3-enable-composite-application-map"></a>3. Toewijzing van samengestelde toepassing inschakelen
 
-Open de resource voor uw toepassing in de Azure-portal. In de blade Previews inschakelen *toepassing van meerdere rollenoverzicht*.
+Open de resource voor uw toepassing in de Azure-portal. Klik onder de kop configureren onderliggende voorbeelden om de blade Previews te openen. In de blade Previews inschakelen *samengestelde toepassingstoewijzing*.
 
 ### <a name="4-enable-docker-metrics-optional"></a>4. Docker metrische gegevens (optioneel) inschakelen 
 

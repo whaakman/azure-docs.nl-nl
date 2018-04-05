@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ef789bc017e670566d25dd9d167698515e88349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb7bdbaf095cefa72d1de302d90afeebbdb9d027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Een Kubernetes-cluster implementeren in Azure Container Service
 
@@ -26,7 +26,7 @@ Kubernetes biedt een gedistribueerd platform voor toepassingen in containers. Me
 > * Installatie van de Kubernetes-CLI (kubectl)
 > * Configuratie van kubectl
 
-In de volgende zelfstudies wordt de Azure Vote-toepassing geïmplementeerd in het cluster, geschaald en bijgewerkt en wordt Operations Management Suite geconfigureerd om het Kubernetes-cluster te controleren.
+In de volgende zelfstudies wordt de Azure Vote-toepassing geïmplementeerd in het cluster, geschaald en bijgewerkt. Ook wordt Log Analytics geconfigureerd om het Kubernetes-cluster te controleren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

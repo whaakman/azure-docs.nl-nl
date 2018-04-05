@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Inleiding tot Apache Kafka in HDInsight
 
@@ -31,7 +31,7 @@ Kafka op HDInsight biedt de volgende functies:
 
 * __Service Level Agreement (SLA) voor 99,9% uptime op Kafka__: zie voor meer informatie het document [SLA-gegevens voor HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* __Fouttolerantie en herkenning van racks__: Kafka is ontworpen met een eendimensionale weergave van een rack wat voor bepaalde omgevingen goed werkt. In omgevingen zoals Azure wordt een rack echter onderverdeeld in twee dimensies: updatedomeinen (UD's) en foutdomeinen (FD's). Microsoft biedt hulpprogramma's die zorgen voor een herverdeling van Kafka-partities en -replica's op UD’s en FD’s. 
+* __Fouttolerantie__: Kafka is ontworpen met een eendimensionale weergave van een rack, wat voor bepaalde omgevingen goed werkt. In omgevingen zoals Azure wordt een rack echter onderverdeeld in twee dimensies: updatedomeinen (UD's) en foutdomeinen (FD's). Microsoft biedt hulpprogramma's voor het herverdelen van Kafka-partities en -replica's op UD’s en FD’s. 
 
     Zie [Hoge beschikbaarheid met Kafka op HDInsight](apache-kafka-high-availability.md) voor meer informatie.
 

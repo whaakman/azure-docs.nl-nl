@@ -5,7 +5,7 @@ services: dns
 documentationcenter: na
 author: KumuD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: 76782ac1e78cd0f7da4bc1aad8eff00d79865ed7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d24eaa4974f8bff09b337384e4fd139edb6ebd70
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Aan de slag met Azure DNS met behulp van Azure-CLI 2.0
 
@@ -33,6 +33,8 @@ Dit artikel begeleidt u stapsgewijs door de procedure voor het maken van uw eers
 Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Als u uw domein wilt hosten in Azure DNS, moet u een DNS-zone maken voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. Tot slot moet u de naamservers voor het domein configureren om de DNS-zone te publiceren naar internet. Deze stappen worden hieronder allemaal beschreven.
 
 Bij deze instructies wordt ervan uitgegaan dat u Azure CLI 2.0 al hebt geïnstalleerd en bent aangemeld. Zie [How to manage DNS zones using Azure CLI 2.0](dns-operations-dnszones-cli.md) (DNS-zones beheren met behulp van Azure CLI 2.0) voor hulp.
+
+Azure DNS ondersteunt nu ook privé-DNS-zones (momenteel in openbare preview). Voor meer informatie over privé-DNS-zones raadpleegt u [Using Azure DNS for private domains](private-dns-overview.md) (Azure DNS gebruiken voor privédomeinen). Zie voor een voorbeeld van het maken van een privé-DNS-zone [Aan de slag met privé Azure DNS-zones met CLI](./private-dns-getstarted-cli.md).
 
 ## <a name="create-the-resource-group"></a>De resourcegroep maken
 
@@ -52,7 +54,6 @@ In het volgende voorbeeld maakt u een DNS-zone met de naam *contoso.com* in de r
 az network dns zone create -g MyResourceGroup -n contoso.com
 ```
 
-
 ## <a name="create-a-dns-record"></a>Een DNS-record maken
 
 Gebruik de opdracht `az network dns record-set [record type] add-record` om een DNS-record te maken. Voor hulp, bijvoorbeeld voor A-records, raadpleegt u `azure network dns record-set A add-record -h`.
@@ -65,7 +66,6 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 Voor andere recordtypen, voor recordsets met meerdere records, voor andere TTL-waarden, en als u bestaande records wilt wijzigen, raadpleegt u [Manage DNS records and record sets using Azure CLI 2.0](dns-operations-recordsets-cli.md) (DNS-records en -recordsets beheren met behulp van Azure CLI 2.0).
 
-
 ## <a name="view-records"></a>Records weergeven
 
 Als u de DNS-records wilt weergeven in uw zone, gebruikt u:
@@ -73,7 +73,6 @@ Als u de DNS-records wilt weergeven in uw zone, gebruikt u:
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
 ```
-
 
 ## <a name="update-name-servers"></a>Naamservers bijwerken
 

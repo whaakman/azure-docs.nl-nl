@@ -8,14 +8,14 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 5bef3f11d0b546fbd6b1161b20d7dfb81e975f99
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 04/01/2018
+ms.openlocfilehash: 5d6118a47e10763373c9376ca08d328cf22ab3c8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure-Database voor MySQL met de Azure portal
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure-Database voor MySQL met de Azure portal
 
 ## <a name="backup-happens-automatically"></a>Back-up automatisch wordt uitgevoerd
 Azure-Database voor de MySQL-servers zijn back-up periodiek Restore-functies inschakelen. Gebruik van deze functie kunt u de server en alle bijbehorende databases herstellen naar een eerdere point-in-time, op een nieuwe server.
@@ -49,7 +49,7 @@ In de onderstaande schermafbeelding is het verhoogd tot 34 dagen.
 
 De back-up bewaarperiode bepaalt hoe ver terug in tijd die een punt in tijd terugzetbewerking kan worden opgehaald, omdat deze gebaseerd op de back-ups beschikbaar. Punt in tijd restore wordt verder beschreven in de volgende sectie. 
 
-## <a name="point-in-time-restore-in-the-azure-portal"></a>Punt in tijd terugzetten in de Azure portal
+## <a name="point-in-time-restore"></a>Terugzetten naar eerder tijdstip
 Azure MySQL-Database kunt u de server terugzetten naar punt in tijd en in op een nieuwe kopie van de server. U kunt deze nieuwe server gebruiken om uw gegevens te herstellen of uw clienttoepassingen die verwijzen naar deze nieuwe server hebt.
 
 Bijvoorbeeld, als een tabel per ongeluk is kan verwijderd op twaalf uur 's middags vandaag de dag u herstellen en de tijd net vóór twaalf uur 's middags en ophalen van de ontbrekende tabel en de gegevens van die nieuwe kopie van de server. Punt in tijd terugzetten is op de server niveau, niet op het databaseniveau van de.
@@ -75,6 +75,22 @@ De volgende stappen uit herstellen de voorbeeldserver naar een punt in tijd:
 
 >[!Note]
 >De nieuwe server gemaakt door herstel punt in tijd heeft als het dezelfde server admin-aanmeldingsnaam en wachtwoord dat geldig voor de bestaande server op het punt in tijd is hebt gekozen. U kunt het wachtwoord wijzigen van de nieuwe server **overzicht** pagina.
+
+## <a name="geo-restore"></a>Geo-herstel
+Als u uw server voor geografisch redundante back-ups geconfigureerd, kan een nieuwe server worden gemaakt vanuit de back-up van een bestaande server. Deze nieuwe server kan worden gemaakt in elke regio dat Azure voor MySQL-Database beschikbaar is.  
+
+1. Selecteer de knop **Een resource maken** (+) in de linkerbovenhoek van de portal. Selecteer **Databases** > **Azure Database voor MySQL**.
+
+   ![De optie 'Azure-Database voor MySQL'](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
+
+2. In het formulier **bron selecteren** vervolgkeuzelijst kiezen **back-up**. Met deze actie wordt een lijst met servers die geografisch redundante back-ups ingeschakeld hebben. Selecteer een van deze back-ups als de bron van de nieuwe server.
+   ![Bron selecteren: Lijst van geografisch redundante back-ups en back-up](./media/howto-restore-server-portal/2-georestore.png)
+
+3. Vul de rest van het formulier met uw voorkeuren. U kunt kiezen **locatie**. Na het selecteren van de locatie, kunt u **prijscategorie**. Standaard worden de parameters voor de bestaande server die vanwaar u herstelt weergegeven. U kunt klikken op **OK** zonder wijzigingen over te nemen die instellingen. Of u kunt wijzigen **Compute generatie** (indien beschikbaar in de regio u hebt gekozen), aantal **vCores**, **back-up bewaarperiode**, en **back-up Redundantie optie**. Het wijzigen van **prijscategorie** (Basic, algemeen of geoptimaliseerd voor geheugen) of **opslag** tijdens het terugzetten van de grootte wordt niet ondersteund.
+
+>[!Note]
+>De nieuwe server gemaakt door geografisch herstel heeft de dezelfde aanmeldingsnaam van server-beheerder en het wachtwoord dat is geldig voor de bestaande server op het moment dat de herstelbewerking werd gestart. Het wachtwoord kan worden gewijzigd in de nieuwe server **overzicht** pagina.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over de service [back-ups](concepts-backup.md).

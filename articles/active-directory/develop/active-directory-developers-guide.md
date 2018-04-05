@@ -4,7 +4,7 @@ description: Dit artikel geeft een overzicht van het aanmelden bij werk- en scho
 services: active-directory
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
@@ -14,14 +14,17 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: e1f9fbf6cb80065ea796e2d53d09f48fe57b207b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8d70f36c5e434a26fce4d6b4bd1ddefc22234ab5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory voor ontwikkelaars
-Azure Active Directory (Azure AD) is een identiteitsservice in de cloud waarmee ontwikkelaars ervoor kunnen zorgen dat elke gebruiker met een Microsoft-werkaccount of -schoolaccount zich veilig kan aanmelden. In deze documentatie wordt beschreven hoe u Azure AD-ondersteuning aan uw toepassing kunt toevoegen met de standaardprotocollen OAuth 2.0 en OpenID Connect.
+Azure Active Directory (Azure AD) is een identiteitsservice in de cloud waarmee ontwikkelaars apps kunnen maken die ervoor zorgen dat elke gebruiker met een Microsoft-werkaccount of -schoolaccount zich veilig kan aanmelden. Azure AD biedt ondersteuning voor ontwikkelaars die Line-Of-Business-apps met één tenant maken en voor ontwikkelaars die apps met meerdere tenants willen ontwikkelen. Naast eenvoudige aanmelding maakt Azure AD ook mogelijk dat apps Microsoft-API's zoals [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) en aangepaste API's die zijn gemaakt op het Azure AD-platform aanroepen.  In deze documentatie wordt beschreven hoe u Azure AD-ondersteuning aan uw app kunt toevoegen met standaardprotocollen zoals OAuth 2.0 en OpenID Connect. 
+
+> [!NOTE]
+> De meeste inhoud op deze pagina is gericht op het Azure AD v1-eindpunt, dat alleen ondersteuning biedt voor Microsoft-werkaccounts en -schoolaccounts. Als u persoonlijke Microsoft-accounts of Microsoft-accounts van klanten wilt aanmelden, kunt u meer informatie over het [Azure AD v2.0-eindpunt](active-directory-appmodel-v2-overview.md) bekijken. Het Azure AD v2.0-eindpunt biedt een uniforme ontwikkeling voor apps met aanmelding voor zowel gebruikers met Azure AD-accounts (werk en school) als gebruikers met persoonlijke Microsoft-accounts. 
 
 | | |
 | --- | --- |
@@ -29,7 +32,7 @@ Azure Active Directory (Azure AD) is een identiteitsservice in de cloud waarmee 
 |[Soorten toepassingen](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Een overzicht van de verificatiescenario's die worden ondersteund door Azure AD. |                                
                                                                               
 ## <a name="get-started"></a>Aan de slag
-In de volgende stapsgewijze installaties leert u hoe u de verificatiebibliotheken van Microsoft kunt gebruiken om Azure AD-gebruikers aan te melden.
+De onderstaande handleidingen begeleiden u bij het maken van een app op het platform van uw voorkeur met behulp van de Azure Active Directory Library (ADAL) SDK. Raadpleeg onze documentatie over het [Azure AD v2.0-eindpunt](active-directory-appmodel-v2-overview.md) als u informatie zoekt over het gebruik van de Microsoft Authentication Library (MSAL).
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -40,7 +43,7 @@ In de volgende stapsgewijze installaties leert u hoe u de verificatiebibliotheke
 | <center>![Service naar service](./media/active-directory-developers-guide/Service_App.png)<br />Service naar service</center> | [Overzicht](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |
 
 ## <a name="how-to-guides"></a>Handleidingen
-In de volgende handleidingen wordt beschreven hoe u veelvoorkomende taken kunt uitvoeren met Azure AD.
+De onderstaande handleidingen behandelen een paar van de meest voorkomende taken in Azure AD.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
@@ -58,10 +61,6 @@ De volgende artikelen bieden gedetailleerde informatie over de API's, protocolbe
 | [Codevoorbeelden](active-directory-code-samples.md)                                  | Een lijst met alle Azure AD-codevoorbeelden. |
 | [Woordenlijst](active-directory-dev-glossary.md)                                      | Termen en definities van woorden die in deze documenten worden gebruikt. |
 | [Aanvullende onderwerpen met naslaginformatie](active-directory-developers-guide-index.md#reference)| Een lijst met onderwerpen met naslaginformatie die beschikbaar zijn voor Azure AD.   |
-
-
-> [!NOTE]
-> Als u persoonlijke Microsoft-accounts wilt aanmelden, kunt u overwegen het [Azure AD v2.0-eindpunt](active-directory-appmodel-v2-overview.md) te gebruiken. Het Azure AD v2.0-eindpunt combineert persoonlijke Microsoft-accounts en Microsoft-werkaccounts (vanuit Azure AD) in één verificatiesysteem.
 
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

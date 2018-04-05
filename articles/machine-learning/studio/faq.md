@@ -3,9 +3,10 @@ title: Veelgestelde vragen over Azure Machine Learning | Microsoft Docs
 description: 'Inleiding Azure Machine Learning: veelgestelde vragen over facturering en de mogelijkheden en beperkingen van een cloudservice voor gestroomlijnde voorspellende modellen.'
 keywords: inleiding machine learning,voorspellende modellen,wat is machine learning
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: paulettm
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.author: garye
-ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Veelgestelde vragen over Azure Machine Learning: facturering, mogelijkheden, beperkingen en ondersteuning
 U vindt hier een aantal veelgestelde vragen en de bijbehorende antwoorden die betrekking hebben op Azure Machine Learning, een cloudservice voor het ontwikkelen van voorspellende modellen en operationele oplossingen via webservices. Deze veelgestelde vragen gaan over het gebruik van de service, zoals het factureringsmodel, de mogelijkheden, beperkingen en ondersteuning.

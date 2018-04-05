@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Uw ontwikkelomgeving voorbereiden in Linux
 > [!div class="op_single_selector"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 02/24/2018
 >  
 
 Als u [Azure Service Fabric-toepassingen](service-fabric-application-model.md) op uw Linux-ontwikkelmachine wilt implementeren en uitvoeren, moet u de runtime en algemene SDK installeren. U kunt ook optionele SDK's voor Java en .NET Core-ontwikkeling installeren.
+
+> [!NOTE]
+> Het installeren van de Service Fabric-runtime en -SDK op Windows Subsystem voor Linux wordt niet ondersteund. De Azure Service Fabric-opdrachtregelinterface (CLI), waarmee u Service Fabric-entiteiten kunt beheren die elders in de cloud of on-premises worden gehost, wordt echter wel ondersteund. Zie [De Service Fabric-CLI instellen](./service-fabric-cli.md) voor meer informatie over het installeren van de CLI.
+>
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,6 +112,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+De Service Fabric-runtime die wordt geleverd met de bovenstaande installatie omvat de pakketten in de onderstaande tabel. 
+
+ | | DotNetCore | Java | Python | Node.js | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit van npm | meest recente |
+
 ## <a name="set-up-a-local-cluster"></a>Een lokaal cluster instellen
   Zodra de installatie is voltooid, kunt u een lokaal cluster starten.
 
@@ -184,7 +194,7 @@ U kunt de Eclipse-invoegtoepassing voor Service Fabric installeren vanuit de Ecl
 
 2. Als u de Service Fabric-invoegtoepassing wilt installeren, selecteert u **Help** > **Install New Software**.
 
-3. Geef in het vak **Work with** **http://dl.microsoft.com/eclipse** op.
+3. In het vak **Work with** typt u **http://dl.microsoft.com/eclipse**.
 
 4. Klik op **Add**.
 

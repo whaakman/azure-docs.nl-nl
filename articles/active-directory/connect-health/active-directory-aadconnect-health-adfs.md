@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e82b1364593ff70ed87efcaa24c135277002904
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS bewaken met Azure AD Connect Health
 De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -126,9 +126,9 @@ Daarnaast is het mogelijk dat vanaf één IP-adres meerdere aanmeldpogingen voor
 - Downloadbare rapporten voor offline analyse en integratie met andere systemen via automatisering
 
 > [!NOTE]
-> Om dit rapport te gebruiken, moet u controles voor AD FS hebben ingeschakeld. Ga voor meer informatie naar [Controles voor AD FS inschakelen](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
->
->
+> Om dit rapport te gebruiken, moet u controles voor AD FS hebben ingeschakeld. Ga voor meer informatie naar [Controles voor AD FS inschakelen](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
+> Voor toegang tot de preview-versie is een machtiging als Globale beheerder of [Beveiligingslezer](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader) vereist.  
+> 
 
 ### <a name="what-is-in-the-report"></a>Inhoud van het rapport
 Elk item in het rapport Riskant IP-adres toont verzamelde informatie over mislukte AD FS-aanmeldactiviteiten die de aangewezen drempelwaarde overschrijden. Het biedt de volgende informatie: ![Azure AD Connect Health-portal](./media/active-directory-aadconnect-health-adfs/report4a.png)

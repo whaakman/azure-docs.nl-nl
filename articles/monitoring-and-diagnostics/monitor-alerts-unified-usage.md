@@ -1,5 +1,5 @@
 ---
-title: Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor - waarschuwingen (Preview) | Microsoft Docs
+title: Maken, weergeven en beheren met behulp van Azure Monitor waarschuwingen | Microsoft Docs
 description: Gebruik de nieuwe waarschuwingen van geïntegreerde Azure-ervaring aan auteur, weergeven en beheren van metrische gegevens en meld u waarschuwingsregels op één plek.
 author: msvijayn
 manager: kmadnani1
@@ -14,31 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 6bd2c452059950f714de304cc30c7b4bd023fd86
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fdb3ebe3820191a642c4503851b04dd5fc5e6048
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Maken, weergeven en waarschuwingen beheren met behulp van Azure Monitor - waarschuwingen (Preview)
+# <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen aan met een Azure-Monitor  
 
 ## <a name="overview"></a>Overzicht
-In dit artikel leest u hoe waarschuwingen met de nieuwe waarschuwingen (Preview)-interface in Azure-portal instellen. Er is een definitie van een waarschuwingsregel in drie delen:
+In dit artikel leest u hoe waarschuwingen met behulp van de nieuwe gebruikersinterface van de waarschuwingen in de Azure-portal instellen. Er is een definitie van een waarschuwingsregel in drie delen:
 - Doel: Specifieke Azure-resource, die moeten worden bewaakt
 - De criteria: Bepaalde voorwaarde of logica die wanneer gezien in signaal, moeten worden geactiveerd door actie
 - Actie: Specifieke aanroep naar een ontvanger van een melding verzonden - e-mail, SMS, webhook enzovoort.
 
-Waarschuwing (Preview) wordt de term **logboek waarschuwingen** te beschrijven waar signaal aangepaste query op basis is van waarschuwingen [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) of [Azure Application Insights](../application-insights/app-insights-analytics.md). De metrische waarschuwing mogelijkheid aangeroepen [bijna Real-Time metriek waarschuwingen](monitoring-near-real-time-metric-alerts.md) in de bestaande waarschuwingen ervaring wordt verwezen als **metriek waarschuwingen** in de waarschuwingen (Preview). In *metriek waarschuwingen*, bieden sommige brontypen [multidimensionale metrische gegevens](monitoring-metric-charts.md) voor specifieke Azure-resource en daarom waarschuwingen voor deze resource specifiekere met extra filters op kan worden gemaakt dimensies; Deze waarschuwingen worden aangeduid als **multidimensionale metrische gegevens waarschuwingen**.
-Waarschuwingen van Azure (Preview) biedt ook een uniform overzicht op al uw regels voor waarschuwingen en de mogelijkheid voor het beheren van één plaats; inclusief eventuele niet-opgeloste waarschuwingen weergeven. Meer informatie over de functionaliteit van [Azure Alerts(Preview) - overzicht](monitoring-overview-unified-alerts.md).
+Waarschuwingen van Azure biedt ook een uniform overzicht op al uw regels voor waarschuwingen en de mogelijkheid voor het beheren van één plaats; inclusief eventuele niet-opgeloste waarschuwingen weergeven. Meer informatie over de functionaliteit van [waarschuwingen van Azure - overzicht](monitoring-overview-unified-alerts.md).
+
+Waarschuwing wordt de term **logboek waarschuwingen** te beschrijven waar signaal aangepaste query op basis is van waarschuwingen [logboekanalyse](../log-analytics/log-analytics-tutorial-viewdata.md) of [Application Insights](../application-insights/app-insights-analytics.md). De [nieuwe metrische waarschuwing mogelijkheid](monitoring-near-real-time-metric-alerts.md) biedt de mogelijkheid op waarschuwing op [multidimensionale metrische gegevens](monitoring-metric-charts.md) voor specifieke Azure-resources. De waarschuwingen voor deze bron kunt meer filters op dimensies maken **multidimensionale metrische gegevens waarschuwingen**.
+
 
 > [!NOTE]
-> Terwijl Azure waarschuwingen (Preview) een nieuwe en verbeterde ervaring biedt voor het maken van waarschuwingen in Azure. De bestaande [Azure waarschuwingen](monitoring-overview-alerts.md) ervaring bruikbaar blijft
+> Tijdens het waarschuwingen van Azure biedt een nieuwe en verbeterde ervaring voor het maken van waarschuwingen in Azure. De bestaande [waarschuwingen (klassiek)](monitoring-overview-alerts.md) ervaring bruikbaar blijft.
 >
 
-Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van Azure-waarschuwingen (Preview).
+Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van waarschuwingen van Azure.
 
 ## <a name="create-an-alert-rule-with-the-azure-portal"></a>Een waarschuwingsregel maken met de Azure portal
-1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen (Preview)**.  
+1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen**.  
     ![Monitoring](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
 
 2. Selecteer de **nieuwe waarschuwingsregel** knop een nieuwe waarschuwing maken in Azure.
@@ -48,7 +50,7 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van Azure-w
 
     ![Regel maken](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  De meldingsvoorwaarde definiëren met behulp van de **Resource selecteren** koppeling en het doel op te geven door het selecteren van een resource. Filter op de juiste wijze door te kiezen die nodig zijn *abonnement*, *brontype*, en ten slotte selecteren vereist *Resource*.
+4.  De meldingsvoorwaarde definiëren met behulp van de **Resource selecteren** koppeling en het doel op te geven door het selecteren van een resource. Filteren op het kiezen van de *abonnement* , *brontype* , en ten slotte selecteren vereist *Resource*.
 
     >[!NOTE]
 
@@ -56,16 +58,16 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van Azure-w
 
     ![Resource selecteren](./media/monitor-alerts-unified/Alert-SelectResource.png)
 
- Als Azure-waarschuwingen (Preview) kunt u verschillende soorten waarschuwingen maken via een enkelvoud interface; op basis van het type waarschuwing gewenst kiest u de volgende stap:
+ De gebruikersinterface, kunt u verschillende soorten waarschuwingen maken vanaf één locatie. Op basis van het type waarschuwing gewenst kiest u de volgende stap:
 
     - Voor **metriek waarschuwingen**: Volg de stappen 5 tot en met 7; gaat u verder met stap 11
     - Voor **logboek waarschuwingen**, Ga naar stap 8.
 
     > [!NOTE]
 
-    > Unified waarschuwingen (Preview) biedt ook ondersteuning voor activiteitenlogboek van waarschuwingen. [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
+    > Activiteit logboek waarschuwingen worden ook ondersteund, maar zijn Preview-versie. [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Metrische waarschuwingen*: Zorg ervoor dat **brontype** is geselecteerd als signaaltype als **metriek**, klikt u vervolgens één keer juiste **resource** gekozen Klik  *Gedaan* terug te keren naar waarschuwing maken. Vervolgens gebruikt de **criteria toevoegen** knop kiezen die het signaal specifieke lijst met opties signaal, hun monitoring-service en het type vermeld - die beschikbaar zijn voor de resource die eerder hebt geselecteerd.
+5. *Metrische waarschuwingen* : Zorg ervoor dat **brontype** is geselecteerd als signaaltype als **metriek**, klikt u vervolgens één keer juiste **resource** gekozen Klik  *Gedaan* terug te keren naar waarschuwing maken. Vervolgens gebruikt de **criteria toevoegen** knop kiezen die het signaal specifieke lijst met opties signaal, hun monitoring-service en het type vermeld - die beschikbaar zijn voor de resource die eerder hebt geselecteerd.
 
     ![Een resource selecteren](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -77,7 +79,13 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van Azure-w
 
     ![Signaal logica voor metriek configureren](./media/monitor-alerts-unified/AlertsPreviewCriteria.png)
 
-7. *Metrische waarschuwingen*: signaal als een metriek, wordt de waarschuwing venster kan worden gefilterd met meerdere gegevenspunten of dimensies voor de genoemde Azure-resource. Net als bij metrische waarschuwingen, visualisatie van de geschiedenis signaal kan worden gekozen door de duur van mededeling **geschiedenis weergeven** vervolgkeuzelijst. Bovendien kunnen dimensies voor de gekozen metriek worden geselecteerd om te filteren voor vereiste tijdreeks; dimensies kiezen is optioneel en maximaal vijf dimensies kunnen worden gebruikt. **Waarschuwing logica** kan worden geselecteerd uit de weergegeven opties van de voorwaarde, aggregatie en ten slotte drempelwaarde. Als voorbeeld van de logica die is opgegeven, wordt de voorwaarde weergegeven in de visualisatie samen met de geschiedenis van een signaal om aan te geven wanneer de waarschuwing zou worden geactiveerd in het verleden. Ten slotte opgeven voor welke tijd, waarschuwing moet worden gezocht naar de opgegeven voorwaarde door te kiezen uit de **periode** optie samen met hoe vaak waarschuwing moet worden uitgevoerd door het selecteren van **frequentie**.
+7. *Metrische waarschuwingen*: signaal als een metriek, wordt de waarschuwing venster kan worden gefilterd met meerdere gegevenspunten of dimensies voor de genoemde Azure-resource. 
+
+    a. Kies een duur van de **geschiedenis weergeven** vervolgkeuzelijst voor het visualiseren van een andere periode. U kunt ervoor kiezen de afmetingen van de ondersteunde metrische gegevens te filteren op een tijdreeks; dimensies kiezen is optioneel en maximaal vijf dimensies kunnen worden gebruikt. 
+
+    b. **Waarschuwing logica** kan worden geselecteerd uit de weergegeven opties van *voorwaarde*, *aggregatie* en *drempelwaarde*. Als voorbeeld van de logica die is opgegeven, wordt de voorwaarde weergegeven in de visualisatie samen met de geschiedenis van een signaal om aan te geven wanneer de waarschuwing zou worden geactiveerd in het verleden. 
+
+    c. Opgeven hoe lang tijd hebt gekozen **periode** hoe vaak samen met waarschuwing moet worden uitgevoerd door het selecteren van **frequentie**.
 
     ![Signaal logica voor multidimensionale metrische gegevens configureren](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
@@ -87,7 +95,7 @@ Gedetailleerde volgende is stapsgewijze handleiding voor het gebruik van Azure-w
 
    > [!NOTE]
 
-   > Waarschuwingen (Preview) lijsten kunnen importeren analytics query als signaaltype - **logboek (opgeslagen Query)**, zoals in bovenstaande afbeelding. Zodat gebruikers kunnen de query in Analytics perfect en deze vervolgens opslaan voor toekomstig gebruik in waarschuwingen - meer informatie over het gebruik van opgeslagen query die beschikbaar zijn op [met logboek zoeken in logboekanalyse](../log-analytics/log-analytics-log-searches.md) of [gedeelde query's in application insights Analytics](../log-analytics/log-analytics-overview.md). 
+   > Waarschuwingen lijsten kunnen importeren analytics query als signaaltype - **logboek (opgeslagen Query)**, zoals in bovenstaande afbeelding. Zodat gebruikers kunnen de query in Analytics perfect en deze vervolgens opslaan voor toekomstig gebruik in waarschuwingen - meer informatie over het gebruik van opgeslagen query die beschikbaar zijn op [met logboek zoeken in logboekanalyse](../log-analytics/log-analytics-log-searches.md) of [gedeelde query's in application insights Analytics](../log-analytics/log-analytics-overview.md). 
 
 9.  *Meld u waarschuwingen*: eenmaal hebt geselecteerd, query voor waarschuwingen kan worden vermeld in de **zoekquery** veld; als de querysyntaxis is onjuist het veld fout in rood weergegeven. Als de querysyntaxis juist - ter referentie wordt historische gegevens van de opgegeven query weergegeven als een grafiek met de optie voor het aanpassen van het tijdvenster van afgelopen zes uur voor vorige week.
 
@@ -107,7 +115,7 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
    - *Metrische meting*: een waarschuwing wordt gemaakt als elke *cumulatieve waarde* overschrijdt de drempelwaarde die is opgegeven in de resultaten en is *gegroepeerd op* gekozen waarde. Het aantal schendingen van een waarschuwing is het aantal keren dat de drempelwaarde is overschreden in de opgegeven tijdsperiode. Totaal aantal schendingen voor elke combinatie van schendingen kunt u opgeven via de resultatenset of opeenvolgende schendingen om te vereisen dat de schendingen in opeenvolgende steekproeven plaatsvinden moeten. Meer informatie over [logboek waarschuwingen en de typen](monitor-alerts-unified-log.md).
 
     > [!TIP]
-    > Op dit moment in waarschuwingen (Preview) - logboek zoekwaarschuwingen kunnen nemen aangepaste *periode* en *frequentie* waarde in minuten. Waarden kunnen variëren van 5 minuten en 1440 minuten (dat wil) 24 uur. Dus als u zeggen drie uur-waarschuwing outperiode wilt, converteert u deze in minuten - 180 minuten vóór gebruik
+    > Op dit moment in waarschuwingen - logboek zoekwaarschuwingen kunnen nemen aangepaste *periode* en *frequentie* waarde in minuten. Waarden kunnen variëren van 5 minuten en 1440 minuten (dat wil) 24 uur. Dus als u zeggen drie uur-waarschuwing outperiode wilt, converteert u deze in minuten - 180 minuten vóór gebruik
 
 11. Als de tweede stap definieert u een naam voor de waarschuwing in de **waarschuwingsregel naam** veld samen met een **beschrijving** met gedetailleerde informatie over specificaties voor de waarschuwing en **ernst** waarde uit de Opties voor het opgegeven. Deze gegevens worden in alle e-mails met waarschuwingen, meldingen of push gedaan door Azure Monitor hergebruikt. Bovendien kan de gebruiker kiezen onmiddellijk de waarschuwingsregel maken door met de knop op de juiste wijze geactiveerd **regel inschakelen tijdens het maken van** optie.
 
@@ -126,7 +134,7 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 
         ![Actie overschrijvingen voor logboek-waarschuwingen](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
-13. Als alle velden geldig zijn en met groen maatstreepjes de **waarschuwingsregel maken** knop kan worden geklikt en de waarschuwing is gemaakt in Azure Monitor - waarschuwingen (Preview). Alle waarschuwingen kunnen worden weergegeven in het Dashboard waarschuwingen (Preview).
+13. Als alle velden geldig zijn en met groen maatstreepjes de **waarschuwingsregel maken** knop kan worden geklikt en wordt een waarschuwing gemaakt in Azure Monitor - waarschuwingen. Alle waarschuwingen kunnen worden weergegeven van het Dashboard-waarschuwingen.
 
     ![Maken van regels](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
 
@@ -134,9 +142,9 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 
 ## <a name="view-your-alerts-in-azure-portal"></a>Waarschuwingen weergeven in Azure-portal
 
-1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen (Preview)**.  
+1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen**.  
 
-2. De **waarschuwingen (Preview) Dashboard** wordt weergegeven - waarin alle Azure-waarschuwingen zijn unified en weergegeven in een enkelvoud board ![waarschuwing Dashboard](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
+2. De **waarschuwingen Dashboard** wordt weergegeven - waarin alle Azure-waarschuwingen zijn unified en weergegeven in een enkelvoud board ![waarschuwing Dashboard](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. Van links naar rechts boven ziet het Dashboard u in één oogopslag de volgende - protocollen voor een gedetailleerd overzicht kan worden geklikt:
     - *Deze gebeurtenis wordt gestart waarschuwingen*: het aantal waarschuwingen op dit moment hebt voldaan aan de logica en in staat wordt gestart
     - *Totaal aantal waarschuwingsregels*: het aantal waarschuwingsregels gemaakt en in subtekst, het getal dat zijn momenteel ingeschakeld
@@ -144,7 +152,7 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 5. Tot in zoeken naar specifieke waarschuwingen; een de dropdown-opties op de voorgrond kunt gebruiken voor het filteren van specifieke *abonnement, resourcegroep en/of Resource*. Verdere voor een niet-omgezette waarschuwing, gebruikt de *Filter waarschuwing* optie vinden voor het opgegeven trefwoord - specifieke overeenkomende waarschuwingen met *, waarschuwing Criteria, Resource-groep en doelbron*
 
 ## <a name="managing-your-alerts-in-azure-portal"></a>Het beheren van uw waarschuwingen in Azure-portal
-1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen (Preview)**.  
+1. In de [portal](https://portal.azure.com/), selecteer **Monitor** en kies onder de sectie MONITOR - **waarschuwingen**.  
 2. Selecteer de **regels beheren** knop op de bovenste balk, om te navigeren naar de sectie regel beheer - waarin alle waarschuwingsregels gemaakt worden weergegeven, met inbegrip van waarschuwingen die zijn uitgeschakeld.
 3. Als u wilt zoeken voor specifieke regels voor waarschuwingen, een kan gebruikmaken van de vervolgkeuzelijst filters op de voorgrond die lijst echtheidskenmerken waarschuwingsregels voor specifieke *abonnement, resourcegroepen en/of Resource*. U kunt ook op met de zoekfunctie deelvenster boven de waarschuwingsregel lijst gemarkeerd *waarschuwingen filteren*, een sleutelwoord waarmee wordt vergeleken met kan bieden *de naam van de waarschuwing, voorwaarde en doelbron*; alleen weergeven overeenkomende regels.
    ![Waarschuwing regels beheren](./media/monitoring-alerts-unified-usage/alerts-preview-rules.png)
@@ -157,7 +165,7 @@ Voor **logboek waarschuwingen** waarschuwingen kunnen worden gebaseerd op:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over de nieuwe [near-realtime metrische waarschuwingen (preview)](monitoring-near-real-time-metric-alerts.md)
+- Meer informatie over de nieuwe [near-realtime metrische waarschuwingen](monitoring-near-real-time-metric-alerts.md)
 - Ophalen van een [overzicht van metrische gegevens verzameling](insights-how-to-customize-monitoring.md) om ervoor te zorgen dat uw service beschikbaar is en reageert.
-- Meer informatie over [logboek waarschuwingen in de Azure-waarschuwingen (preview)](monitor-alerts-unified-log.md)
+- Meer informatie over [waarschuwingen melden waarschuwingen van Azure](monitor-alerts-unified-log.md)
 - [Meer informatie over activiteit logboek waarschuwingen in de gebruikerservaring van waarschuwingen (Preview)](monitoring-activity-log-alerts-new-experience.md)

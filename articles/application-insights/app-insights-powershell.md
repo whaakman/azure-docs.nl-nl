@@ -2,7 +2,7 @@
 title: Azure Application Insights met PowerShell automatiseren | Microsoft Docs
 description: Automatiseren maken resource, waarschuwing en beschikbaarheid tests in PowerShell met een Azure Resource Manager-sjabloon.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: f4f9d1558d2ef9dc5e1b7b248ad5bc8753f59cf9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Application Insights-resources maken met PowerShell
 Dit artikel laat zien hoe te automatiseren voor het maken en bijwerken van de [Application Insights](app-insights-overview.md) resources automatisch met behulp van Azure Resource Management. U kunt bijvoorbeeld doen als onderdeel van een buildproces. Samen met de basic Application Insights-resource, kunt u [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)Stel [waarschuwingen](app-insights-alerts.md)stelt de [prijzen schema](app-insights-pricing.md), en andere Azure-resources te maken .
@@ -166,9 +166,9 @@ Maak een nieuw .json-bestand - gaan we deze aanroepen `template1.json` in dit vo
 
     ``` 
    
-   * `-ResourceGroupName`is de groep waar u wilt maken van de nieuwe resources.
-   * `-TemplateFile`Er moeten plaatsvinden voordat de aangepaste parameters.
-   * `-appName`De naam van de resource te maken.
+   * `-ResourceGroupName` is de groep waar u wilt maken van de nieuwe resources.
+   * `-TemplateFile` Er moeten plaatsvinden voordat de aangepaste parameters.
+   * `-appName` De naam van de resource te maken.
 
 U kunt andere parameters toevoegen - bijbehorende beschrijvingen vindt in het gedeelte parameters van de sjabloon.
 
@@ -196,7 +196,7 @@ Een resource-app maken met het Enterprise prijs plan, met de bovenstaande sjablo
                -appName myNewApp
 ```
 
-|priceCode|Plannen|
+|priceCode|plan|
 |---|---|
 |1|Basic|
 |2|Enterprise|
@@ -204,7 +204,7 @@ Een resource-app maken met het Enterprise prijs plan, met de bovenstaande sjablo
 * Als u alleen het standaardabonnement basisprijs gebruiken wilt, kunt u de resource CurrentBillingFeatures van de sjabloon weglaten.
 * Als u het plan prijs wijzigen wilt nadat de onderdeel-resource is gemaakt, kunt u een sjabloon die de resource 'microsoft.insights/components' wordt weggelaten. Laat ook de `dependsOn` knooppunt uit de facturering resource. 
 
-Kijken om te controleren of het plan bijgewerkte prijs, de 'Functies + prijzen' blade in de browser. **Vernieuw de browserweergave** om ervoor te zorgen dat u de meest recente toestand zien.
+Kijken om te controleren of het plan bijgewerkte prijs, de **gebruiks- en de geschatte kosten van pagina** blade in de browser. **Vernieuw de browserweergave** om ervoor te zorgen dat u de meest recente toestand zien.
 
 
 
@@ -426,7 +426,7 @@ Hier volgen enkele voorbeelden van de die u wilt maken. Er zijn meerdere exempla
 | `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
-| `"myappname"`(kleine letters) |`"[toLower(parameters('appName'))]"` |
+| `"myappname"` (kleine letters) |`"[toLower(parameters('appName'))]"` |
 | `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Verwijderen van de Guid en -id. |
 
 ### <a name="set-dependencies-between-the-resources"></a>Set afhankelijkheden tussen resources

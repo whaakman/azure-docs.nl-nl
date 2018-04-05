@@ -7,20 +7,20 @@ author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/15/2017
+ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9250e40c491257b554333f4606cbf0b476d8db21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Een infrastructuur voor ontwikkeling maken op een Linux-VM in Azure met Jenkins, GitHub en Docker
 U kunt een CI/CD-pijplijn (continue integratie en implementatie) gebruiken voor het automatiseren van de compilatie- en testfase van de app-ontwikkeling. In deze zelfstudie maakt u een CI/CD-pijplijn op een virtuele machine in Azure. U leert onder andere:
@@ -64,7 +64,6 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
-  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
@@ -118,10 +117,13 @@ Als het bestand nog niet beschikbaar is, wacht u een paar minuten op de cloud-in
 
 Open nu een webbrowser en ga naar `http://<publicIps>:8080`. Voltooi de eerste Jenkins-installatie als volgt:
 
-- Voer de gebruikersnaam **admin** in, geef dan het *initialAdminPassword* op dat in de vorige stap is verkregen van de virtuele machine.
-- Selecteer **Jenkins beheren**, en vervolgens **Invoegtoepassingen beheren**.
-- Kies **Beschikbaar**, zoek naar *GitHub* in het tekstvak aan de bovenkant. Vink het selectievakje aan voor *GitHub-invoegtoepassing*, selecteer daarna **Nu downloaden en installeren na opnieuw opstarten**.
-- Vink het selectievakje aan voor **Jenkins opnieuw starten wanneer de installatie is voltooid en er geen taken worden uitgevoerd**, en wacht totdat het installatieproces voor de invoegtoepassing is voltooid.
+- Kies **Select plugins to install**
+- Zoek naar *GitHub* in het tekstvak aan de bovenkant. Schakel het selectievakje voor *GitHub* in en selecteer **Install**
+- Maak de eerste gebruiker met beheerdersrechten. Voer een gebruikersnaam in, zoals **admin**, en geef een veilig wachtwoord op. Als laatste typt u een volledige naam en e-mailadres.
+- Selecteer **Save and Finish**
+- Zodra Jenkins gereed is, selecteert u **Start using Jenkins**
+  - Als uw webbrowser een lege pagina weergeeft wanneer u Jenkins gaat gebruiken, moet u de Jenkins-service opnieuw starten. Typ vanuit uw SSH-sessie `sudo service jenkins restart`, en vernieuw vervolgens uw webbrowser.
+- Meld u aan bij Jenkins met de gebruikersnaam die en het wachtwoord dat u hebt gemaakt.
 
 
 ## <a name="create-github-webhook"></a>Een GitHub-webhook maken
@@ -139,12 +141,12 @@ Maak een webhook binnen de fork die u hebt gemaakt:
 
 
 ## <a name="create-jenkins-job"></a>Jenkins-taak maken
-Om Jenkins te laten reageren op een gebeurtenis in GitHub zoals het vastleggen van code, kunt u een Jenkins-taak maken. 
+Om Jenkins te laten reageren op een gebeurtenis in GitHub zoals het vastleggen van code, kunt u een Jenkins-taak maken. Gebruik de URL's voor uw eigen GitHub-fork.
 
 Selecteer in uw Jenkins-website **Nieuwe taken maken** vanaf de startpagina:
 
 - Voer *HelloWorld* in als de taaknaam. Kies **Freestyle-project**, selecteer daarna **OK**.
-- Selecteer onder de sectie **Algemeen** de optie **GitHub**-project en voer de URL van uw gevorkte opslagplaats in, zoals *https://github.com/iainfoulds/nodejs-docs-hello-world*
+- Selecteer onder de sectie **Algemeen** de optie **GitHub-project** en voer de URL van uw gevorkte opslagplaats in, zoals *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - Selecteer onder de sectie **Broncodebeheer** de optie **Git** en voer de *.git*-URL van uw gevorkte opslagplaats in, zoals *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Onder de sectie **Triggers compileren** selecteert u **GitHub hook-trigger voor GITscm-polling**.
 - Onder de sectie **Build** selecteert u **Build-stap toevoegen**. Selecteer **Shell uitvoeren**, voer dan `echo "Testing"` in het opdrachtvenster in.

@@ -5,14 +5,14 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 1f4bd0d81d16997a9d627f918d77cb8e770a5b53
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8173a5abbbeea38bc831b7cc76898714cd4dd4d4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informatie over het opnieuw opstarten van VM's - onderhoud versus downtime
 Er zijn drie scenario's die kunnen leiden tot een virtuele machine in Azure worden beïnvloed: niet-geplande hardwareonderhoud, onverwachte downtime en gepland onderhoud.
@@ -81,11 +81,9 @@ Als de load balancer niet is geconfigureerd om het verkeer te verdelen over meer
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Beschikbaarheid zones gebruiken om te beschermen tegen datacenter niveau fouten
 
-[Beschikbaarheid zones](../articles/availability-zones/az-overview.md) (preview), een alternatief voor beschikbaarheid ingesteld uit, vouw de mate van controle die u hebt om de beschikbaarheid van de toepassingen en gegevens op uw virtuele machines te houden. Een beschikbaarheidszone is een fysiek afgescheiden zone binnen een Azure-regio. Er zijn drie beschikbaarheid Zones per ondersteunde Azure-regio. Elke Zone beschikbaarheid heeft een afzonderlijke energie-bron-, netwerk- en koeling en logisch losstaat van de andere beschikbaarheid Zones in de Azure-regio. Door uw oplossingen voor het gebruik van de gerepliceerde virtuele machines in zones worden veranderd, kunt u uw apps en gegevens beschermen tegen het verlies van een datacenter. Als één zone is geknoeid, waarna zijn gerepliceerde apps en gegevens onmiddellijk beschikbaar in een andere zone. 
+[Beschikbaarheid zones](../articles/availability-zones/az-overview.md)Hiermee stelt u een alternatief voor beschikbaarheid, vouw de mate van controle die u hebt om de beschikbaarheid van de toepassingen en gegevens op uw virtuele machines te houden. Een beschikbaarheidszone is een fysiek afgescheiden zone binnen een Azure-regio. Er zijn drie beschikbaarheid Zones per ondersteunde Azure-regio. Elke Zone beschikbaarheid heeft een afzonderlijke energie-bron-, netwerk- en koeling en logisch losstaat van de andere beschikbaarheid Zones in de Azure-regio. Door uw oplossingen voor het gebruik van de gerepliceerde virtuele machines in zones worden veranderd, kunt u uw apps en gegevens beschermen tegen het verlies van een datacenter. Als één zone is geknoeid, waarna zijn gerepliceerde apps en gegevens onmiddellijk beschikbaar in een andere zone. 
 
 ![Beschikbaarheid zones](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
-
-[!INCLUDE [availability-zones-preview-statement.md](availability-zones-preview-statement.md)]
 
 Meer informatie over het implementeren van een [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) of [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) virtuele machine in een Zone beschikbaarheid.
 

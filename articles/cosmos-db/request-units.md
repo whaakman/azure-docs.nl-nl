@@ -5,32 +5,30 @@ services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/30/2018
 ms.author: mimig
-ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5f733e9cbd90829eded80b1401093e2331a1eb16
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
-Nu beschikbaar: Azure Cosmos DB [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner). Meer informatie [schatting van de doorvoer moet](request-units.md#estimating-throughput-needs).
 
-![Doorvoer Rekenmachine][5]
-
-## <a name="introduction"></a>Inleiding
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) van Microsoft wereldwijd gedistribueerde database voor meerdere model is. Met Azure Cosmos DB er geen virtuele machines te verhuren, software implementeren of databases bewaken. Azure Cosmos DB wordt beheerd en continu bewaakt door Microsoft bovenste engineers leveren world klasse beschikbaarheid, prestaties en beveiliging. U toegang hebt tot uw gegevens met behulp van de API's van uw keuze, zoals de [SQL-API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [tabel API](table-introduction.md), en Gremlin via de [Graph API](graph-introduction.md) - alle systeemeigen worden ondersteund. De valuta van Azure DB die Cosmos is de aanvraag Unit (ru/s). Met RUs hoeft u niet reserveren lezen/schrijven capaciteiten of inrichten CPU, geheugen en IOPS.
 
 Azure Cosmos DB ondersteunt een aantal API's met verschillende bewerkingen, variërend van eenvoudige leest en schrijft naar grafiek complexe query's. Omdat niet alle aanvragen gelijk zijn, zijn ze een genormaliseerde hoeveelheid toegewezen **aanvraageenheden** op basis van de hoeveelheid berekeningen voor het uitvoeren van de aanvraag. Het aantal aanvraageenheden voor een bewerking is deterministisch en kunt u het aantal aanvraageenheden verbruikt door elke bewerking in Azure Cosmos DB via een antwoordheader bijhouden. 
 
-Om te bieden voorspelbare prestaties, die u wilt reserveren doorvoer in eenheden van 100 RU/seconde. 
+Om te bieden voorspelbare prestaties, die u wilt reserveren doorvoer in eenheden van 100 RU/seconde. U kunt [schat uw doorvoer moet](request-units.md#estimating-throughput-needs) met behulp van de Cosmos Azure DB [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner).
+
+![Doorvoer Rekenmachine][5]
 
 Na het lezen van dit artikel, hebt u mogelijk de volgende vragen beantwoorden:  
 
@@ -46,9 +44,9 @@ Azure Cosmos DB biedt snelle en voorspelbare prestaties door *reserveren* bronne
 
 Met Azure Cosmos DB is gereserveerde doorvoer opgegeven in termen van aanvraageenheden per seconde verwerkt. U kunt zien aanvraageenheden als valuta doorvoer, waarbij u *reserveren* een hoeveelheid gegarandeerde aanvraageenheden die beschikbaar zijn voor uw toepassing op basis van per seconde.  Elke bewerking in Azure Cosmos DB - schrijven, uitvoeren van een query, het bijwerken van een document - verbruikt CPU, geheugen en IOPS.  Dat wil zeggen, elke bewerking leidt ertoe dat een *aanvragen kosten*, die wordt uitgedrukt in *aanvraageenheden*.  Informatie over de factoren die van invloed zijn op aanvraag eenheid kosten, samen met de vereisten van de doorvoer van uw toepassing, kunt u uw toepassing uitvoeren als de kosten-effectief mogelijk. De Data Explorer in de Azure portal is ook een fantastische hulpprogramma voor het testen van de kern van een query.
 
-Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij Aravind Ramachandran wordt uitgelegd aanvraageenheden en voorspelbare prestaties met Azure Cosmos DB.
+Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij Azure Cosmos DB Program Manager Andrew Liu aanvraageenheden besproken.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
 

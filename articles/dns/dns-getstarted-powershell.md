@@ -5,7 +5,7 @@ services: dns
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: 3f67d4f537a832d1d3e13ff2a67645ae17ed8669
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 050111f4a5e8459e89d049ccb879b5079ff68527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>Aan de slag met Azure DNS met behulp van PowerShell
 
@@ -50,6 +50,7 @@ Een DNS-zone wordt gemaakt met de cmdlet `New-AzureRmDnsZone`. In het volgende v
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 ```
+Azure DNS ondersteunt nu ook privé-DNS-zones (momenteel in openbare preview).  Voor meer informatie over privé-DNS-zones raadpleegt u [Using Azure DNS for private domains](private-dns-overview.md) (Azure DNS gebruiken voor privédomeinen). Zie voor een voorbeeld van het maken van een privé-DNS-zone [Aan de slag met privézones in Azure DNS met behulp van PowerShell](./private-dns-getstarted-powershell.md).
 
 ## <a name="create-a-dns-record"></a>Een DNS-record maken
 

@@ -43,11 +43,12 @@
 ## MXChip IoT DevKit gebruiken
 ### [Spraakberichten vertalen met Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [Een Twitter-bericht ophalen met Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [De magnetische sensor bewaken en e-mailmeldingen verzenden met Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
 # Handleidingen
 ## Plannen
 ### [IoT Hub en Event Hubs vergelijken](iot-hub-compare-event-hubs.md)
-### [Uw oplossing schalen](iot-hub-scaling.md)
+### [De juiste laag kiezen](iot-hub-scaling.md)
 ### [Hoge beschikbaarheid en herstel na noodgevallen](iot-hub-ha-dr.md)
 ### [Aanvullende protocollen ondersteunen](iot-hub-protocol-gateway.md)
 ### [Berichtroutering en gebeurtenisroutering vergelijken](iot-hub-event-grid-routing-comparison.md)
@@ -147,6 +148,7 @@
 ### [Bewaken met diagnostische gegevens](iot-hub-monitor-resource-health.md)
 #### [Migreren naar diagnostische instellingen](iot-hub-migrate-to-diagnostics-settings.md)
 #### [Controle van bewerkingen](iot-hub-operations-monitoring.md)
+### [Een IoT-hub upgraden](iot-hub-upgrade.md)
 ### [Metrische gebruiksgegevens](iot-hub-metrics.md)
 ### [IoT-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
 ### [IP-filtering configureren](iot-hub-ip-filtering.md)

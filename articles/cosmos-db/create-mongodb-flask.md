@@ -1,31 +1,31 @@
 ---
 title: 'Azure Cosmos DB: een Flask web-app ontwikkelen met Python en de MongoDB-API van Azure Cosmos DB | Microsoft Docs'
-description: "Biedt een voorbeeld van Python Flask-code dat u kunt gebruiken om verbinding te maken met de MongoDB-API van Azure Cosmos DB en er query’s op uit te voeren"
+description: Biedt een voorbeeld van Python Flask-code dat u kunt gebruiken om verbinding te maken met de MongoDB-API van Azure Cosmos DB en er query’s op uit te voeren
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: hshapiro
 manager: scicoria
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: f86c6cce82812e02f373d7307c76ace26ea3e99b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ea6920c179bfee22c0aa545ccc3d0386940205e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: een Flask-app maken met de MongoDB-API
 
-Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.
+Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.
 
-In deze quickstart wordt gebruik gemaakt van het volgende [Flask voorbeeld](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) en wordt gedemonstreerd hoe u eenvoudig een Flask-app kunt maken met de [Azure Cosmos DB-emulator](/local-emulator.md) in plaats van met MongoDB.
+In deze snelstartgids wordt gebruikgemaakt van het volgende [Flask voorbeeld](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) en wordt gedemonstreerd hoe u een eenvoudige Flask-app kunt maken met de [Azure Cosmos DB-emulator](/local-emulator.md) en de [MongoDB-API](mongodb-introduction.md) van Azure Cosmos DB in plaats van met MongoDB.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,7 +43,7 @@ In deze quickstart wordt gebruik gemaakt van het volgende [Flask voorbeeld](http
 
 We gaan nu een Flask MongoDB API-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken.
 
-1. Open een git-terminalvenster zoals git bash en `cd` naar een werkmap.
+1. Open een venster in een git-terminal zoals git bash en `cd` naar een werkmap.
 2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen.
 
     ```bash

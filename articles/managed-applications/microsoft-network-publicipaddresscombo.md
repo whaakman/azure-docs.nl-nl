@@ -1,6 +1,6 @@
 ---
-title: Azure beheerde toepassing PublicIpAddressCombo UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Network.PublicIpAddressCombo UI-element voor beheerde Azure-toepassingen
+title: Azure PublicIpAddressCombo UI-element | Microsoft Docs
+description: Beschrijft het Microsoft.Network.PublicIpAddressCombo UI-element voor Azure-portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 990b84cf0df74b7b08a5fa105c2c2213aa251f9d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: bced85abaf24beb0997ec906a68e5947f0e67cca
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI-element
-Een groep besturingselementen voor het selecteren van een nieuw of bestaand openbaar IP-adres. Gebruik van dit element wanneer [maken van een Azure-toepassing beheerd](publish-service-catalog-app.md).
+Een groep besturingselementen voor het selecteren van een nieuw of bestaand openbaar IP-adres.
 
 ## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
@@ -44,7 +44,7 @@ Een groep besturingselementen voor het selecteren van een nieuw of bestaand open
   },
   "defaultValue": {
     "publicIpAddressName": "ip01",
-    "domainNameLabel": "foobar"
+    "domainNameLabel": "mydomain"
   },
   "constraints": {
     "required": {
@@ -79,7 +79,7 @@ Als de gebruiker een nieuwe of bestaande IP-adres selecteert, wordt de volgende 
 {
   "name": "ip01",
   "resourceGroup": "rg01",
-  "domainNameLabel": "foobar",
+  "domainNameLabel": "mydomain",
   "publicIPAllocationMethod": "Dynamic",
   "newOrExistingOrNone": "new"
 }
@@ -88,6 +88,5 @@ Als de gebruiker een nieuwe of bestaande IP-adres selecteert, wordt de volgende 
 - Wanneer `options.hideDomainNameLabel` is opgegeven als **true**, `domainNameLabel` is niet gedeclareerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot beheerde toepassingen, [overzicht van Azure Managed toepassing](overview.md).
 * Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](create-uidefinition-elements.md).

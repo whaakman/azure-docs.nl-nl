@@ -2,10 +2,10 @@
 title: Een installatiekopie van een Linux VM in Azure met CLI 2.0 | Microsoft Docs
 description: Een installatiekopie van een Azure-virtuele machine moet worden gebruikt voor grootschalige implementaties met de Azure CLI 2.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e83319b8b4ace495a4301dd850cea27633115426
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Het maken van een installatiekopie van een virtuele machine of de VHD
 
@@ -89,6 +89,8 @@ De Azure CLI 2.0 gebruiken voor de virtuele machine niet markeren als gegenerali
    
    > [!NOTE]
    > De installatiekopie wordt gemaakt in dezelfde resourcegroep bevinden als de bron-VM. U kunt virtuele machines in elke willekeurige resourcegroep maken in uw abonnement vanuit deze installatiekopie. U kunt desgewenst een specifieke resourcegroep voor uw VM netwerkbronnen en installatiekopieën maken vanuit het oogpunt van beheer van.
+   >
+   > Als u wilt uw installatiekopie wordt opgeslagen in de zone robuuste opslag, moet u deze maken in een regio die ondersteuning biedt voor [beschikbaarheid zones](../../availability-zones/az-overview.md) en bevatten de `--zone-resilient true` parameter.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Stap 3: Een virtuele machine van de vastgelegde installatiekopie maken
 Een virtuele machine maken met de installatiekopie die u hebt gemaakt met [az vm maken](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMDeployed* van de installatiekopie met de naam *myImage*:

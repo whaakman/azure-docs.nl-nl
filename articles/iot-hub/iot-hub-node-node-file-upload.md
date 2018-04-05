@@ -1,11 +1,11 @@
 ---
 title: Uploaden van bestanden van apparaten naar Azure IoT Hub met knooppunt | Microsoft Docs
-description: "Het uploaden van bestanden van een apparaat naar de cloud met Azure IoT-device SDK voor Node.js. Geüploade bestanden worden opgeslagen in een Azure storage-blob-container."
+description: Het uploaden van bestanden van een apparaat naar de cloud met Azure IoT-device SDK voor Node.js. Geüploade bestanden worden opgeslagen in een Azure storage-blob-container.
 services: iot-hub
 documentationcenter: nodejs
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
 ms.devlang: node
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo
-ms.openlocfilehash: cff0f2fc664e0c09bfa1f8f0e0d488a049a6f448
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: dd6f25173806d6e420bfeebaae3f81e39f8fd97f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Uploaden van bestanden op uw apparaat naar de cloud met IoT Hub
 
@@ -29,7 +29,7 @@ Deze zelfstudie bouwt voort op de code in de [Cloud naar apparaat verzenden met 
 - Veilig een apparaat voorzien van een Azure blob-URI voor het uploaden van een bestand.
 - Gebruik de IoT Hub-bestand uploaden meldingen voor het activeren van het bestand in de back-end van uw app wordt verwerkt.
 
-De [aan de slag met IoT Hub](iot-hub-node-node-getstarted.md) en [Cloud naar apparaat verzenden met IoT Hub](iot-hub-node-node-c2d.md) zelfstudies ziet de apparaat-naar-cloud- en cloud-naar-apparaat messaging basisfunctionaliteit van IoT-Hub. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens verzenden van uw apparaten in de relatief klein apparaat-naar-cloud-berichten die IoT Hub accepteert. Bijvoorbeeld:
+De [aan de slag met IoT Hub](iot-hub-node-node-getstarted.md) zelfstudie laat zien dat de basisfunctionaliteit apparaat-naar-cloud messaging zijn van IoT-Hub. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens verzenden van uw apparaten in de relatief klein apparaat-naar-cloud-berichten die IoT Hub accepteert. Bijvoorbeeld:
 
 * Grote bestanden met afbeeldingen
 * Video's
@@ -219,7 +219,7 @@ In deze zelfstudie hebt u geleerd hoe de mogelijkheden voor het uploaden van bes
 
 * [Een iothub via een programma maken][lnk-create-hub]
 * [Inleiding tot C-SDK][lnk-c-sdk]
-* [Azure IoT SDK 's][lnk-sdks]
+* [Azure IoT SDKs][lnk-sdks]
 
 <!-- Links -->
 [Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot

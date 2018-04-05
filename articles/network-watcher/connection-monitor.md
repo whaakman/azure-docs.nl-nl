@@ -13,24 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: c7d98350dc8f66ebd4097f22b44dcbbe2653b25d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 0d550d3bda119cfcb9ecc6f852006d5e325fdfa3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Netwerkverbindingen met de netwerk-Watcher van Azure met Azure portal controleren
 
-Informatie over het bewaken van de verbinding gebruiken voor het bewaken van netwerkverbinding tussen Azure een virtuele machine en een IP-adres. Monitor voor de verbinding biedt bewaking op het verbindingsniveau van een. Een verbinding wordt gedefinieerd als een combinatie van de bron en doel-IP-adres en poort. Monitor verbinding maakt scenario's, zoals de bewaking van de verbinding tussen een virtuele machine in een virtueel netwerk en een virtuele machine met SQL server in het hetzelfde of een ander virtueel netwerk, via poort 1433. Monitor verbinding biedt u de latentie van de verbinding als een Azure-Monitor-meting vastgelegd elke 60 seconden. Ook vindt u een topologie hop door hop en problemen met de configuratie die invloed hebben op uw verbinding identificeert.
-
+Informatie over het bewaken van de verbinding gebruiken voor het bewaken van netwerkverbinding tussen een Azure-virtuele Machine (VM) en een IP-adres. Monitor voor de verbinding biedt bewaking tussen de bron en doel-IP-adres en poort. Monitor verbinding maakt scenario's, zoals de bewaking van de verbinding van een virtuele machine in een virtueel netwerk met een virtuele machine waarop SQL server in het hetzelfde of een ander virtueel netwerk, via poort 1433. Monitor verbinding biedt u de latentie van de verbinding als een Azure-Monitor-meting vastgelegd elke 60 seconden. Ook vindt u een topologie hop door hop en problemen met de configuratie die invloed hebben op uw verbinding identificeert.
 
 ## <a name="prerequisites"></a>Vereisten
 
 U moet voldoen aan de volgende vereisten voordat u de stappen in dit artikel uitvoert:
 
 * Een exemplaar van netwerk-Watcher in de regio die u wilt bewaken van een verbinding voor. Als u dit niet al hebt, kunt u een door de stappen in [maken van een exemplaar van Azure-netwerk-Watcher](network-watcher-create.md).
-* Een virtuele machine voor het bewaken van.
-* Hebben de `AzureNetworkWatcherExtension` geïnstalleerd in de virtuele machine die u wilt bewaken van een verbinding van. Zie voor informatie over het installeren van de uitbreiding in virtuele Windows-machine [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) en installeren van de extensie in een virtuele machine Linux Zie [Azure-netwerk-Watcher-Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+* Een virtuele machine voor het bewaken van. Zie voor meer informatie over het maken van een virtuele machine, maak een [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) of [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) VM.
+* Hebben de `AzureNetworkWatcherExtension` geïnstalleerd in de virtuele machine die u wilt bewaken van een verbinding van. Zie voor informatie over het installeren van de extensie in een Windows-VM [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) en installeren van de extensie in een Linux-VM-Zie [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
 
@@ -38,30 +37,36 @@ Meld u aan bij [Azure Portal](http://portal.azure.com).
 
 ## <a name="create-a-connection-monitor"></a>Een monitor verbinding maken
 
-De volgende stappen schakelt verbinding controleren met een doel-virtuele machine via de poorten 80 en 1433:
+De volgende stappen schakelt verbinding naar een bestemming VM poorten 80 en 1433 bewaking:
 
-1. Selecteer aan de linkerkant van de portal **meer services**.
-2. Typ *netwerk-watcher*. Wanneer **netwerk-Watcher** wordt weergegeven in de zoekresultaten, selecteer deze.
-3. Onder **bewaking**, selecteer **verbinding monitor (Preview)**. Functies in de preview-versie hoeft niet dezelfde mate van betrouwbaarheid of beschikbaarheid in regio's als functies in het algemeen release.
+1. Selecteer aan de linkerkant van de portal **alle services**.
+2. Typ *netwerk-watcher* in de **Filter** vak. Wanneer **netwerk-Watcher** wordt weergegeven in de zoekresultaten, selecteer deze.
+3. Onder **bewaking**, selecteer **verbinding monitor**.
 4. Selecteer **+ toevoegen**.
-5. Typ of Selecteer de gegevens voor de verbinding die u wilt bewaken, en selecteer vervolgens **toevoegen**. In het voorbeeld in de volgende afbeelding, de bewaakt verbinding is tussen de *MultiTierApp0* en *Database0* virtuele machines:
+5. Typ of Selecteer de gegevens voor de verbinding die u wilt bewaken, en selecteer vervolgens **toevoegen**. In het voorbeeld weergegeven in de volgende afbeelding wordt de verbinding bewaakt is afkomstig uit de *MultiTierApp0* VM naar de *Database0* VM via poort 80:
 
     ![Beeldscherm verbinding toevoegen](./media/connection-monitor/add-connection-monitor.png)
 
     Controle begint. Monitor voor verbinding tests elke 60 seconden.
+6. Voer stap 5 opnieuw opgeven dezelfde bron- en virtuele machines en de volgende waarden:
+    
+    |Instelling  |Waarde          |
+    |---------|---------      |
+    |Naam     | AppToDB(1433) |
+    |Poort     | 1433          |
 
 ## <a name="view-connection-monitoring"></a>Weergave-verbinding controleren
 
 1. Voltooi de stappen 1-3 in [maken van een monitor verbinding](#create-a-connection-monitor) om bewaking van de verbinding weer te geven.
-2. De volgende afbeelding ziet details voor de verbinding AppToDB(80). De **Status** bereikbaar is. De **grafiek weergeven** toont de **gemiddelde Round Trip Time** en **-tests is mislukt %**. De grafiek bevat hop door hop informatie, en wordt aangegeven dat geen problemen invloed zijn op de bestemming bereikbaarheid.
+2. De volgende afbeelding ziet u details voor de *AppToDB(80)* verbinding. De **Status** bereikbaar is. De **grafiek weergeven** toont de **gemiddelde Round Trip Time** en **-tests is mislukt %**. De grafiek bevat hop door hop informatie, en wordt aangegeven dat geen problemen invloed zijn op de bestemming bereikbaarheid.
 
-    ![Monitor voor verbinding weergeven](./media/connection-monitor/view-connection-monitor.png)
+    ![Grafiekweergave](./media/connection-monitor/view-graph.png)
 
-3. Weergeven van de *AppToDB(1433)* monitor, weergegeven in de volgende afbeelding ziet u dat voor de dezelfde bron en doel-virtuele machines, de status is niet bereikbaar via poort 1433. De **rasterweergave** in dit scenario biedt de informatie hop door hop en het probleem van invloed op de bereikbaarheid. In dit geval blokkeert een NSG-regel al het verkeer op poort 1433 op de tweede hop.
+3. Weergeven van de *AppToDB(1433)* verbinding wordt weergegeven in de volgende afbeelding ziet u dat voor dezelfde bron en doel-virtuele machines, de status is niet bereikbaar via poort 1433. De **rasterweergave** in dit scenario biedt de informatie hop door hop en het probleem van invloed op de bereikbaarheid. In dit geval blokkeert een NSG-regel al het verkeer op poort 1433 op de tweede hop.
 
-    ![Monitor voor verbinding weergeven](./media/connection-monitor/view-connection-monitor-2.png)
+    ![Rasterweergave](./media/connection-monitor/view-grid.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het automatiseren van pakket opnamen met waarschuwingen van de virtuele machine door [maken van een waarschuwing gegeven pakketopname](network-watcher-alert-triggered-packet-capture.md).
+- Meer informatie over het automatiseren van pakket opnamen met VM-waarschuwingen per [maken van een waarschuwing gegeven pakketopname](network-watcher-alert-triggered-packet-capture.md).
 - Bepalen of bepaalde verkeer is toegestaan in of buiten uw virtuele machine met behulp van [IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md).

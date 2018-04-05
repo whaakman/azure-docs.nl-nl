@@ -3,23 +3,23 @@ title: Maak taken om voor te bereiden, taken en volledige taken op rekenknooppun
 description: Gebruik op jobniveau systeemvoorbereidingstaken om te beperken van overdracht van gegevens naar Azure Batch-rekenknooppunten en release van taken voor het opruimen van knooppunt bij Taakvoltooiing.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aecce83b4d4444f2651f48475b596fa76cb5f44a
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 543c03c22b31389c3d6e048cc9f13c24add5aae7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Taak uitvoeren voorbereidings- en jobvrijgevingstaken voor Batch-rekenknooppunten
 
@@ -57,7 +57,7 @@ Mogelijk wilt een kopie van de logboekbestanden die uw taken wordt gegenereerd o
 > 
 > 
 
-## <a name="job-preparation-task"></a>Jobvoorbereidingstaak
+## <a name="job-preparation-task"></a>Taakvoorbereidingstaak
 Batch: de jobvoorbereidingstaak voordat de uitvoering van een job taken uitvoeren op elk rekenknooppunt die is gepland voor een taak uitvoeren. Standaard wacht de Batch-service voor de jobvoorbereidingstaak om te worden voltooid voordat de taken die moeten worden uitgevoerd op het knooppunt wordt uitgevoerd. U kunt echter de service niet te wachten. Als het knooppunt opnieuw wordt opgestart, wordt de jobvoorbereidingstaak wordt opnieuw uitgevoerd, maar u kunt dit gedrag ook uitschakelen.
 
 De jobvoorbereidingstaak wordt alleen uitgevoerd op knooppunten die zijn gepland voor een taak uitvoeren. Dit voorkomt dat de onnodige uitvoering van een jobvoorbereidingstaak als een knooppunt niet aan een taak toegewezen is. Dit kan gebeuren als het aantal taken voor een job kleiner dan het aantal knooppunten in een pool is. Dit geldt ook wanneer [uitvoering van gelijktijdige taken](batch-parallel-node-tasks.md) is ingeschakeld, waardoor sommige knooppunten inactief als het aantal taken lager is dan de totale mogelijke gelijktijdige taken. Door de jobvoorbereidingstaak niet wordt uitgevoerd op niet-actieve knooppunten, kunt u minder geld besteden aan gegevensoverdracht kosten.
@@ -67,7 +67,7 @@ De jobvoorbereidingstaak wordt alleen uitgevoerd op knooppunten die zijn gepland
 > 
 > 
 
-## <a name="job-release-task"></a>Jobvrijgevingstaak
+## <a name="job-release-task"></a>Taakvrijgevingstaak
 Zodra een taak is gemarkeerd als voltooid, wordt de jobvrijgevingstaak uitgevoerd op elk knooppunt in de pool dat ten minste één taak uitgevoerd. U kunt een taak markeren als voltooid door uitgifte van een aanvraag beëindigen. De Batch-service wordt de taakstatus van de vervolgens ingesteld op *beëindigd*, alle actieve of actieve taken die zijn gekoppeld aan de taak wordt beëindigd en wordt de jobvrijgevingstaak uitgevoerd. De taak wordt verplaatst naar de *voltooid* status.
 
 > [!NOTE]

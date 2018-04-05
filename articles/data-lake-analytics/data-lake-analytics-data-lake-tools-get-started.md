@@ -2,7 +2,7 @@
 title: U-SQL-scripts ontwikkelen met Data Lake-tools voor Visual Studio | Microsoft Docs
 description: Informatie over het installeren van Data Lake-tools voor Visual Studio en het ontwikkelen en testen van U-SQL-scripts.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/28/2017
 ms.author: saveenr, yanacai
-ms.openlocfilehash: a48ce209bf3d5b7e5060acf2850144df5418828d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94c035083a00867139b6c58bc8b2ded08e970b0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>U-SQL-scripts ontwikkelen met Data Lake-tools voor Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -36,7 +36,17 @@ Informatie over het gebruik van de Visual Studio voor het maken van Azure Data L
 * **Microsoft Azure SDK voor .NET** versie 2.7.1 of hoger.  U kunt dit installeren met het [webplatforminstallatieprogramma](http://www.microsoft.com/web/downloads/platform.aspx).
 * Een **Data Lake Analytics**-account. Zie [Aan de slag met Azure Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md) om een account te maken.
 
-## <a name="install-azure-data-lake-tools-for-visual-studio"></a>Azure Data Lake-tools voor Visual Studio installeren 
+## <a name="install-azure-data-lake-tools-for-visual-studio"></a>Azure Data Lake-tools voor Visual Studio installeren
+
+### <a name="install-azure-data-lake-tools-for-visual-studio-2017"></a>Azure Data Lake-tools voor Visual Studio 2017 installeren
+
+Azure Data Lake Tools voor Visual Studio wordt ondersteund in Visual Studio 2017 15.3 en hoger. Het hulpprogramma maakt deel uit van de workloads **Gegevensopslag en -verwerking** en **Azure Development** in het installatieprogramma van Visual Studio. Schakel een van deze twee workloads in als onderdeel van uw installatie van Visual Studio.  
+
+Schakel de workload **Gegevensopslag en -verwerking** in zoals weergegeven: ![Workload Gegevensopslag en -verwerking inschakelen](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-01.png)
+
+Schakel de workload **Azure Development** in zoals weergegeven: ![Workload Azure Development inschakelen](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-02.png)
+
+### <a name="install-azure-data-lake-tools-for-visual-studio-2013-and-2015"></a>Azure Data Lake Tools voor Visual Studio 2013 en 2015 installeren
 
 Download en installeer Azure Data Lake-tools voor Visual Studio [via het Downloadcentrum](http://aka.ms/adltoolsvs). Na installatie moet u zich het volgende realiseren:
 * Het knooppunt **Server Explorer** > **Azure** bevat een **Data Lake Analytics**-knooppunt. 

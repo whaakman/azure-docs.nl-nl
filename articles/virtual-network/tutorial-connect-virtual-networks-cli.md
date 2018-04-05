@@ -1,42 +1,42 @@
 ---
 title: Virtuele netwerken te verbinden met het virtuele netwerk peering - Azure CLI | Microsoft Docs
-description: Ontdek hoe u virtuele netwerken te verbinden met het virtuele netwerk peering.
+description: In dit artikel leert u hoe u virtuele netwerken te verbinden met het virtuele netwerk peering, met behulp van de Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: bbf2e757e2d9ad76c59394ba0138a61fd4029d15
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 29ab957e97c6aa57be6192e6ee4d86fe642ae95d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Virtuele netwerken te verbinden met het virtuele netwerk peering met de Azure CLI
 
 U kunt virtuele netwerken met elkaar verbinden met het virtuele netwerk peering. Als u virtuele netwerken brengen, zijn resources in beide virtuele netwerken met elkaar communiceren met de dezelfde latentie en bandbreedte, alsof de bronnen zich in hetzelfde virtuele netwerk. In dit artikel leert u hoe:
 
-> [!div class="checklist"]
-> * Twee virtuele netwerken maken
-> * Twee virtuele netwerken te verbinden met een virtueel netwerk peering
-> * Een virtuele machine (VM) in elk virtueel netwerk implementeren
-> * Communicatie tussen virtuele machines
+* Twee virtuele netwerken maken
+* Twee virtuele netwerken te verbinden met een virtueel netwerk peering
+* Een virtuele machine (VM) in elk virtueel netwerk implementeren
+* Communicatie tussen virtuele machines
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, is deze snelstartgids vereist dat u de Azure CLI versie 2.0.28 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
+Als u wilt installeren en gebruiken van de CLI lokaal, in dit artikel is vereist dat u de Azure CLI versie 2.0.28 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Virtuele netwerken maken
 
@@ -169,7 +169,7 @@ De virtuele machine duurt een paar minuten maken. Nadat de virtuele machine is g
 }
 ```
 
-Noteer de **publicIpAddress**. Dit adres wordt gebruikt voor toegang tot de virtuele machine vanaf het Internet in een later stadium.
+Noteer de **publicIpAddress**. Dit adres wordt gebruikt voor toegang tot de virtuele machine vanaf het internet in een later stadium.
 
 ## <a name="communicate-between-vms"></a>Communicatie tussen virtuele machines
 
@@ -197,30 +197,8 @@ Wanneer deze niet langer nodig is, gebruik [az groep verwijderen](/cli/azure/gro
 az group delete --name myResourceGroup --yes
 ```
 
-**<a name="register"></a>Registreren voor de peering preview globale virtueel netwerk**
-
-Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Virtuele netwerken in verschillende regio's is momenteel in preview-peering. Zie [virtuele netwerk updates](https://azure.microsoft.com/updates/?product=virtual-network) voor beschikbare regio's. Virtuele netwerken to-peer tussen regio's, moet u eerst registreren voor de preview, door de volgende stappen (binnen het abonnement elk virtueel netwerk dat u wilt peer wordt):
-
-1. Registreren voor de preview hiertoe de volgende opdrachten:
-
-  ```azurecli-interactive
-  az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
-  az provider register --name Microsoft.Network
-  ```
-
-2. Bevestig dat u voor de preview zijn geregistreerd met de volgende opdracht:
-
-  ```azurecli-interactive
-  az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
-  ```
-
-  Als u probeert te peer virtuele netwerken in verschillende regio's voordat de **RegistrationState** uitvoer wordt weergegeven nadat het invoeren van de vorige opdracht is **geregistreerde** voor beide abonnementen peering mislukt .
-
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u twee netwerken te verbinden met het virtuele netwerk peering. In dit artikel hebt u geleerd hoe u twee netwerken, in dezelfde Azure-locatie, verbinden met het virtuele netwerk peering. U kunt ook virtuele netwerken in peer [verschillende regio's](#register)in [verschillende Azure-abonnementen](create-peering-different-subscriptions.md#portal) en kunt u [hub en spoke-netwerk ontwerpen](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) met peering. Voordat de peering productie virtuele netwerken, het raadzaam dat u zorgvuldig vertrouwd raken met de [peering overzicht](virtual-network-peering-overview.md), [beheren peering](virtual-network-manage-peering.md), en [virtueel netwerk limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+In dit artikel hebt u geleerd hoe u twee netwerken in dezelfde Azure-regio, verbinden met het virtuele netwerk peering. U kunt ook virtuele netwerken in verschillende peer [ondersteunde regio's](virtual-network-manage-peering.md#cross-region) en in [verschillende Azure-abonnementen](create-peering-different-subscriptions.md#cli), evenals maken [hub en spoke-netwerk ontwerpen](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) met peering. Zie voor meer informatie over het virtuele netwerk peering, [peering Virtual network-overzicht](virtual-network-peering-overview.md) en [beheren van virtueel netwerk peerings](virtual-network-manage-peering.md).
 
-U kunt [uw eigen computer verbinden met een virtueel netwerk](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via een VPN, en communiceren met resources in een virtueel netwerk of in virtuele netwerken peer is ingesteld. Scriptvoorbeelden van het voor herbruikbare scripts om uit te voeren veel van de taken besproken in het virtuele netwerk artikelen blijven.
-
-> [!div class="nextstepaction"]
-> [Voorbeelden van virtueel netwerk script](../networking/cli-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+U kunt [uw eigen computer verbinden met een virtueel netwerk](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via een VPN, en communiceren met resources in een virtueel netwerk of in virtuele netwerken peer is ingesteld. Zie voor herbruikbare scripts om uit te voeren veel van de taken besproken in het virtuele netwerk artikelen [voorbeelden script](cli-samples.md).

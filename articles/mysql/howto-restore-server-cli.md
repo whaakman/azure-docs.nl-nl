@@ -2,42 +2,88 @@
 title: Het back-up en herstellen van een server in Azure-Database voor MySQL
 description: Informatie over het back-up en herstellen van een server in Azure-Database voor MySQL met behulp van de Azure CLI.
 services: mysql
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: b954e26c9ecb1767b971117fc9102e8573beaaac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 04/01/2018
+ms.openlocfilehash: 322de1fb19461455a063d939ace3d5553ed1fc79
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure-Database voor MySQL met behulp van de Azure CLI
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure-Database voor MySQL met de Azure CLI
 
-Gebruik Azure voor MySQL-Database naar een server-database herstellen naar een eerdere datum die uit 7 tot 35 dagen omvat.
+## <a name="backup-happens-automatically"></a>Back-up automatisch wordt uitgevoerd
+Azure-Database voor de MySQL-servers zijn back-up periodiek Restore-functies inschakelen. Gebruik van deze functie kunt u de server en alle bijbehorende databases herstellen naar een eerdere point-in-time, op een nieuwe server.
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze handleiding instructies, hebt u het volgende nodig:
-- Een [Azure-Database voor MySQL-server en database](quickstart-create-mysql-server-database-using-azure-portal.md)
+- Een [Azure-Database voor MySQL-server en database](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+ 
+
 > [!IMPORTANT]
-> Als u installeert en de Azure CLI lokaal gebruiken, is deze handleiding instructies vereist dat u Azure CLI versie 2.0 of hoger. Controleer de versie, bij de opdrachtprompt Azure CLI Voer `az --version`. Als u wilt installeren of upgraden, Zie [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).
+> Deze handleiding instructies vereist het gebruik van Azure CLI versie 2.0 of hoger. Controleer de versie, bij de opdrachtprompt Azure CLI Voer `az --version`. Als u wilt installeren of upgraden, Zie [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).
 
-## <a name="backup-happens-automatically"></a>Back-up automatisch wordt uitgevoerd
-Wanneer u Azure-Database voor MySQL, wordt de database-service automatisch een back-up van de service om de 5 minuten. 
+## <a name="add-the-extension"></a>De extensie toevoegen
+Voeg de bijgewerkte Azure Database for MySQL-beheerextensie toe met de volgende opdracht:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
 
-Basic-laag zijn de back-ups beschikbaar voor 7 dagen. Standard-laag zijn de back-ups beschikbaar voor 35 dagen. Zie voor meer informatie [Azure Database voor MySQL Prijscategorieën](concepts-pricing-tiers.md).
+Controleer of de juiste versie van de extensie is geïnstalleerd. 
+```azurecli-interactive
+az extension list
+```
 
-Met deze functie voor automatische back-up kunt u de server en de databases herstellen naar een eerdere datum of tijdstip voor herstel.
+Het geretourneerde JSON-script moet het volgende bevatten: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.5"
+}
+```
 
-## <a name="restore-a-database-to-a-previous-point-in-time-by-using-the-azure-cli"></a>Een database naar een eerder tijdstip herstellen met behulp van de Azure CLI
-Gebruik Azure voor MySQL-Database naar de server naar een eerder tijdstip herstellen. De herstelde gegevens gekopieerd naar een nieuwe server en de bestaande server is ongewijzigd worden gelaten. Bijvoorbeeld, als een tabel wordt per ongeluk verwijderd op twaalf uur 's middags vandaag de dag, kunt u herstellen op de tijd net vóór twaalf uur 's middags. Vervolgens kunt u de ontbrekende tabel en gegevens ophalen uit de herstelde kopie van de server. 
+Als versie 0.0.5 wordt geretourneerd, voert u het volgende voor het bijwerken van de extensie: 
+```azurecli-interactive
+az extension update --name rdbms
+```
+
+
+## <a name="set-backup-configuration"></a>Back-upconfiguratie instellen
+
+U de keuze tussen uw server configureren voor lokaal redundante back-ups of geografisch redundante back-ups op de server is gemaakt. 
+
+> [!NOTE]
+> Nadat een server is gemaakt, wordt het soort redundantie dat zo is, kan geografisch redundante tegenover lokaal redundant kan niet worden overgeschakeld.
+>
+
+Tijdens het maken van een server via de `az mysql server create` opdracht, de `--geo-redundant-backup` parameter besluit uw back-up redundantie-optie. Als `Enabled`, geografisch redundante back-ups worden gemaakt. Of als `Disabled` lokaal redundante back-ups worden gemaakt. 
+
+De back-up bewaarperiode is ingesteld door de parameter `--backup-retention-days`. 
+
+Zie voor meer informatie over het instellen van deze waarden tijdens het maken, de [Azure-Database voor MySQL server CLI Quick Start](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+De bewaarperiode voor back-up van een server kan als volgt worden gewijzigd:
+
+```azurecli-interactive
+az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+```
+
+Het vorige voorbeeld verandert de back-up bewaarperiode van mydemoserver in 10 dagen.
+
+De back-up bewaarperiode bepaalt hoe ver terug in tijd die een punt in tijd terugzetbewerking kan worden opgehaald, omdat deze gebaseerd op de back-ups beschikbaar. Punt in tijd restore wordt verder beschreven in de volgende sectie.
+
+## <a name="server-point-in-time-restore"></a>Punt in tijd herstellen van de server
+U kunt de server naar een eerder tijdstip herstellen. De herstelde gegevens gekopieerd naar een nieuwe server en de bestaande server is ongewijzigd worden gelaten. Bijvoorbeeld, als een tabel wordt per ongeluk verwijderd op twaalf uur 's middags vandaag de dag, kunt u herstellen op de tijd net vóór twaalf uur 's middags. Vervolgens kunt u de ontbrekende tabel en gegevens ophalen uit de herstelde kopie van de server. 
 
 De Azure CLI gebruiken voor het herstellen van de server [az mysql server terugzetten](/cli/azure/mysql/server#az_mysql_server_restore) opdracht.
 
@@ -46,24 +92,57 @@ De Azure CLI gebruiken voor het herstellen van de server [az mysql server terugz
 Voer de volgende opdracht voor het herstellen van de server bij de Azure CLI-opdrachtprompt:
 
 ```azurecli-interactive
-az mysql server restore --resource-group myresourcegroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
+az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2018-03-13T13:59:00Z --source-server mydemoserver
 ```
 
 De `az mysql server restore` opdracht worden de volgende parameters:
 | Instelling | Voorgestelde waarde | Beschrijving  |
 | --- | --- | --- |
-| resource-group | myResourceGroup |  De resourcegroep waar de bronserver bestaat.  |
-| naam | myserver-restored | De naam van de nieuwe server die door de opdracht restore wordt gemaakt. |
-| herstel punt in tijd | 2017-04-13T13:59:00Z | Selecteer een punt in tijd om naar te herstellen. Deze datum en tijd moet binnen de back-up bewaarperiode van de bronserver. Gebruik de ISO8601-indeling voor datum en tijd. Bijvoorbeeld, kunt u uw eigen lokale tijdzone, zoals `2017-04-13T05:59:00-08:00`. U kunt ook de Zulu UTC-notatie, bijvoorbeeld gebruiken `2017-04-13T13:59:00Z`. |
-| bron-server | mydemoserver | De naam of ID van de bronserver in om te herstellen. |
+| resource-group |  myResourceGroup |  De resourcegroep waar de bronserver bestaat.  |
+| naam | mydemoserver-restored | De naam van de nieuwe server die door de opdracht restore is gemaakt. |
+| restore-point-in-time | 2018-03-13T13:59:00Z | Selecteer een punt in tijd om naar te herstellen. Deze datum en tijd moet binnen de back-upretentieperiode van de bronserver vallen. Gebruik de ISO8601-indeling voor datum en tijd. Bijvoorbeeld, kunt u uw eigen lokale tijdzone, zoals `2018-03-13T05:59:00-08:00`. U kunt ook de Zulu UTC-notatie, bijvoorbeeld gebruiken `2018-03-13T13:59:00Z`. |
+| source-server | mydemoserver | De naam of ID van de bronserver voor het herstellen. |
 
 Wanneer u een server naar een eerder tijdstip herstellen, wordt een nieuwe server gemaakt. De oorspronkelijke server en de databases van het opgegeven punt in tijd worden gekopieerd naar de nieuwe server.
 
 De locatie en de prijscategorie laag waarden voor de herstelde server blijven hetzelfde als de oorspronkelijke server. 
 
-De `az mysql server restore` opdracht synchroon is. Nadat de server is hersteld, kunt u deze opnieuw aan het proces herhaalt voor een ander punt in tijd. 
+Nadat het herstelproces is voltooid, zoek de nieuwe server en controleer of dat de gegevens is hersteld, zoals verwacht.
+
+## <a name="geo-restore"></a>Geo-herstel
+Als u uw server voor geografisch redundante back-ups geconfigureerd, kan een nieuwe server worden gemaakt vanuit de back-up van een bestaande server. Deze nieuwe server kan worden gemaakt in elke regio dat Azure voor MySQL-Database beschikbaar is.  
+
+Gebruik voor het maken van een server die geografisch redundante back-up met de Azure CLI `az mysql server georestore` opdracht.
+
+Voer de volgende opdracht op geo terugzetten van de server bij de Azure CLI-opdrachtprompt:
+
+```azurecli-interactive
+az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+```
+Deze opdracht maakt u een nieuwe server met de naam *mydemoserver georestored* in VS-Oost die tot behoren *myresourcegroup*. Het is een voor algemene doeleinden, Gen 4-server met 8 vCores. De server wordt gemaakt van de geografisch redundante back-up van *mydemoserver*, dit is ook in de resourcegroep *myresourcegroup*
+
+Als u maken van de nieuwe server in een andere resourcegroep van de bestaande server vervolgens wilt in de `--source-server` parameter spitst u de naam van de server zoals in het volgende voorbeeld:
+
+```azurecli-interactive
+az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+
+```
+
+De `az mysql server georestore` opdracht requies de volgende parameters:
+| Instelling | Voorgestelde waarde | Beschrijving  |
+| --- | --- | --- |
+|resource-group| myResourceGroup | De naam van de resourcegroep de nieuwe server deel van uitmaakt.|
+|naam | mydemoserver-georestored | De naam van de nieuwe server. |
+|source-server | mydemoserver | De naam van de bestaande server waarvan back-ups redundante geo worden gebruikt. |
+|location | eastus | De locatie van de nieuwe server. |
+|sku-name| GP_Gen4_8 | Deze parameter stelt de prijscategorie laag, compute genereren en aantal vCores van de nieuwe server. GP_Gen4_8 toegewezen aan een voor algemene doeleinden, Gen 4-server met 8 vCores.|
+
+
+>[!Important]
+>Wanneer u een nieuwe server geo herstellen, neemt de dezelfde opslaggrootte en prijscategorie als de bronserver. Deze waarden kunnen niet worden gewijzigd tijdens het maken van. Nadat de nieuwe server is gemaakt, kan de opslagruimte worden uitgebreid.
 
 Nadat het herstelproces is voltooid, zoek de nieuwe server en controleer of dat de gegevens is hersteld, zoals verwacht.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Verbindingsbibliotheken voor Azure-Database voor MySQL](concepts-connection-libraries.md)
+- Meer informatie over de service [back-ups](concepts-backup.md).
+- Meer informatie over [bedrijfscontinuïteit](concepts-business-continuity.md) opties.

@@ -1,6 +1,6 @@
 ---
-title: Azure beheerde toepassing PasswordBox UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Common.PasswordBox UI-element voor beheerde Azure-toepassingen
+title: Azure PasswordBox UI-element | Microsoft Docs
+description: Beschrijft het Microsoft.Common.PasswordBox UI-element voor Azure-portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d9f2b7cf56375d3a609cff20e928307c13bf2b8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 19c027819b83f10a7a3de714d690964507311da0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox UI-element
-Een besturingselement dat kan worden gebruikt om te bieden en bevestig een wachtwoord. Gebruik van dit element wanneer [maken van een Azure-toepassing beheerd](publish-service-catalog-app.md).
+Een besturingselement dat kan worden gebruikt om te bieden en bevestig een wachtwoord.
 
 ## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
 ![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
@@ -58,6 +58,5 @@ Een besturingselement dat kan worden gebruikt om te bieden en bevestig een wacht
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot beheerde toepassingen, [overzicht van Azure Managed toepassing](overview.md).
 * Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](create-uidefinition-elements.md).

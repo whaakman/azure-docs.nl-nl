@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: lmolkova
-ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: lmolkova; mbullwin
+ms.openlocfilehash: f9d734abeb644fc865d5dc86afc8ad0e586bfc0a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights voor .NET-console toepassingen
 [Application Insights](app-insights-overview.md) kunt u uw webtoepassing voor beschikbaarheid, prestaties en gebruik te bewaken.
@@ -26,8 +26,8 @@ U moet een abonnement met [Microsoft Azure](http://azure.com). Aanmelden met een
 
 ## <a name="getting-started"></a>Aan de slag
 
-* Maak in de [Azure Portal](https://portal.azure.com) [een Application Insights-resource](app-insights-create-new-resource.md). Kies ASP.NET-app als het toepassingstype.
-* Kopieer de instrumentatiesleutel. De sleutel vinden in de Essentials vervolgkeuzelijst van de nieuwe resource die u hebt gemaakt. 
+* Maak in de [Azure Portal](https://portal.azure.com) [een Application Insights-resource](app-insights-create-new-resource.md). Kies voor toepassingstype, **algemene**.
+* Kopieer de instrumentatiesleutel. Zoek naar de sleutel in de **Essentials** vervolgkeuzelijst van de nieuwe resource die u hebt gemaakt. 
 * Installeer de meest recente [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) pakket.
 * Stel de instrumentatiesleutel hiertoe in uw code voordat alle telemetrie bijhouden (of set APPINSIGHTS_INSTRUMENTATIONKEY omgevingsvariabele). Daarna moet u kunnen handmatig telemetrie volgen en deze wordt weergegeven op de Azure-portal
 
@@ -39,7 +39,10 @@ telemetryClient.TrackTrace("Hello World!");
 
 * Installeer de nieuwste versie van [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - deze automatisch worden bijgehouden HTTP, SQL of sommige andere externe afhankelijkheidsaanroepen.
 
-U kunt initialiseren en Application Insights configureren vanuit de code of met behulp van `ApplicationInsights.config` bestand. Zorg ervoor dat de initialisatie gebeurt zo spoedig mogelijk.
+U kunt initialiseren en Application Insights configureren vanuit de code of met behulp van `ApplicationInsights.config` bestand. Zorg ervoor dat de initialisatie gebeurt zo spoedig mogelijk. 
+
+> [!NOTE]
+> Verwijst naar instructies **ApplicationInsights.config** zijn alleen van toepassing op apps die standaard .NET ontwikkelt en niet van toepassing op .NET Core toepassingen. 
 
 ### <a name="using-config-file"></a>Met behulp van configuratiebestand
 

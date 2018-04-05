@@ -1,6 +1,6 @@
 ## <a name="deploy-template-from-cloud-shell"></a>Sjabloon implementeren vanuit Cloud Shell
 
-U kunt [Cloud Shell](../articles/cloud-shell/overview.md) gebruiken om uw sjabloon te implementeren. U moet de sjabloon echter eerst in de bestandsshare voor Cloud Shell laden. Als u Cloud Shell niet hebt gebruikt, raadpleegt u [Overzicht van Azure Cloud Shell](../articles/cloud-shell/overview.md) voor informatie over het instellen.
+U kunt [Cloud Shell](../articles/cloud-shell/overview.md) gebruiken om uw sjabloon te implementeren. U moet echter eerst uw sjabloon laden in het opslagaccount voor uw Cloud-Shell. Als u Cloud Shell niet hebt gebruikt, raadpleegt u [Overzicht van Azure Cloud Shell](../articles/cloud-shell/overview.md) voor informatie over het instellen.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
@@ -12,33 +12,37 @@ U kunt [Cloud Shell](../articles/cloud-shell/overview.md) gebruiken om uw sjablo
 
    ![Opslagaccount selecteren](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
-1. Selecteer **Bestanden**.
+1. Selecteer **Blobs**.
 
-   ![Bestanden selecteren](./media/resource-manager-cloud-shell-deploy/select-files.png)
+   ![Selecteer de blobs](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
 
-1. Selecteer de bestandsshare voor Cloud Shell. Het naampatroon is `cs-<user>-<domain>-com-<uniqueGuid>`.
+1. Selecteer **+ Container**.
 
-   ![Bestandsshare selecteren](./media/resource-manager-cloud-shell-deploy/select-file-share.png)
+   ![Container toevoegen](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. Selecteer **Map toevoegen**.
+1. Geef uw container een naam en een toegangsniveau. De voorbeeldsjabloon in dit artikel bevat geen gevoelige informatie, dus toestaan anonieme leestoegang. Selecteer **OK**.
 
-   ![Map toevoegen](./media/resource-manager-cloud-shell-deploy/select-add-directory.png)
+   ![Container waarden opgeven](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
-1. Geef deze de naam **Sjablonen** en selecteer **OK**.
+1. Selecteer de container die u hebt gemaakt.
 
-   ![Map een naam geven](./media/resource-manager-cloud-shell-deploy/name-templates.png)
-
-1. Selecteer een nieuwe map.
-
-   ![Map selecteren](./media/resource-manager-cloud-shell-deploy/select-templates.png)
+   ![Selecteer de nieuwe container](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
 1. Selecteer **Uploaden**.
 
-   ![Uploaden selecteren](./media/resource-manager-cloud-shell-deploy/select-upload.png)
+   ![Blob uploaden](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
 1. Zoek de sjabloon en upload deze.
 
-   ![Bestand uploaden](./media/resource-manager-cloud-shell-deploy/upload-files.png)
+   ![Bestand uploaden](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+
+1. Nadat deze is geüpload, selecteer de sjabloon.
+
+   ![Nieuwe sjabloon selecteren](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
+
+1. Kopieer de URL.
+
+   ![URL kopiëren](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. Open de prompt.
 

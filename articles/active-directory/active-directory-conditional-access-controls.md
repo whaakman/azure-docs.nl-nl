@@ -3,24 +3,24 @@ title: Toegang tot besturingselementen in voorwaardelijke toegang van Azure Acti
 description: Meer informatie over hoe de toegang beheert in Azure Active Directory voorwaardelijke toegang voor werk.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Toegangsbeheer in Azure Active Directory voorwaardelijke toegang 
 
@@ -75,11 +75,15 @@ Met multi-factor authentication voorkomt bronnen worden geopend door onbevoegde 
 
 ### <a name="compliant-device"></a>Compatibel apparaat
 
-U kunt beleid voor voorwaardelijke toegang op basis van het apparaat configureren. Het doel van een beleid voor voorwaardelijke toegang op basis van apparaten is om toegang te verlenen tot de geconfigureerde resources alleen vanaf vertrouwde apparaten. Vereisen van een compatibel apparaat is een optie die u hebt om te definiëren welke een vertrouwd apparaat is. Zie voor meer informatie [Azure Active Directory-beleid voor voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md).
+U kunt beleid voor voorwaardelijke toegang op basis van het apparaat configureren. Het doel van een beleid voor voorwaardelijke toegang op basis van apparaten is om toegang te verlenen tot de geconfigureerde resources alleen vanaf vertrouwde apparaten. Vereisen van een compatibel apparaat is een optie die u hebt om te definiëren welke een vertrouwd apparaat is. Als deze optie is geselecteerd, geeft uw beleid voor voorwaardelijke toegang pogingen tot toegang-toegang met apparaten die zijn gekoppeld aan uw Azure Active Directory en zijn gemarkeerd als compatibel met uw MDM-oplossing.
+
+Zie voor meer informatie [Azure Active Directory-beleid voor voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md).
 
 ### <a name="domain-joined-device"></a>Domein-apparaat
 
-U hebt vereisen van dat een domein-apparaat is een andere optie voor het configureren van beleidsregels voor voorwaardelijke toegang op basis van apparaten. Deze vereiste verwijst naar de Windows-desktops, laptops en tablets enterprise die zijn gekoppeld aan een lokale Active Directory. Zie voor meer informatie [Azure Active Directory-beleid voor voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md).
+U hebt vereisen van dat een domein-apparaat is een andere optie voor het configureren van beleidsregels voor voorwaardelijke toegang op basis van apparaten. Deze vereiste verwijst naar de Windows-desktops, laptops en tablets enterprise die zijn gekoppeld aan een lokale Active Directory. Als deze optie is geselecteerd, geeft uw beleid voor voorwaardelijke toegang pogingen tot toegang-toegang met apparaten die lid zijn van uw lokale Active Directory en uw Azure Active Directory.  
+
+Zie voor meer informatie [Azure Active Directory-beleid voor voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md).
 
 
 

@@ -1,11 +1,11 @@
 ---
-title: Importeren en publiceren van uw eerste API in Azure API Management | Microsoft Docs
+title: Uw eerste API importeren en publiceren in Azure API Management | Microsoft Docs
 description: Informatie over het importeren en publiceren van uw eerste API met API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,85 +14,83 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: ffe5ee95c66eee7dccd25a1afd2fe639cbc273f5
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: MT
+ms.openlocfilehash: 26a5ab93c82b523063632c4899daadbde70dd7d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="import-and-publish-your-first-api"></a>Importeren en publiceren van uw eerste API 
+# <a name="import-and-publish-your-first-api"></a>Uw eerste API importeren en publiceren 
 
-Deze zelfstudie laat zien hoe een 'OpenAPI specificatie' back-end-API die zich op http://conferenceapi.azurewebsites.net?format=json importeren. Deze back-end-API is geleverd door Microsoft en wordt gehost op Azure. 
+In deze zelfstudie ziet u hoe u een back-end-API met de naam OpenAPI-specificatie kunt importeren die zich bevindt in http://conferenceapi.azurewebsites.net?format=json. Deze back-end-API wordt geleverd met Microsoft en gehost in Azure. 
 
-Nadat de back-end API is geïmporteerd in API Management (APIM), wordt de API APIM een façade voor de end-API. Op het moment dat u de back-end API importeren, zijn zowel de bron-API en de API APIM identiek. APIM kunt u de façade aan uw wensen zonder de end-API aan te passen. Zie voor meer informatie [transformeren en uw API beveiligen](transform-api.md). 
+Zodra de back-end-API is geïmporteerd in APIM (API Management), wordt de APIM API een façade voor de back-end-API. Op het moment dat u de back-end-API importeert, zijn de bron-API en de APIM API identiek. Met APIM kunt u de façade aanpassen aan uw behoeften zonder dat de back-end-API wordt gewijzigd. Zie [Transform and protect your API](transform-api.md) (Uw API transformeren en beveiligen) voor meer informatie. 
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Uw eerste API importeren
-> * De API testen in de Azure-portal
-> * De API testen in de portal voor ontwikkelaars
+> * De API testen in Azure Portal
+> * De API testen in de ontwikkelaarsportal
 
 ![Nieuwe API](./media/api-management-get-started/created-api.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voltooi de volgende Snelstartgids: [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
+Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"></a>Importeren en publiceren van een back-end API
+## <a name="create-api"> </a>Een API importeren en publiceren
 
-Deze sectie wordt beschreven hoe importeren en publiceren van een OpenAPI specificatie van het back-end API.
+In deze sectie ziet u hoe u een back-end-API met de naam OpenAPI-specificatie kunt importeren en publiceren.
  
-1. Selecteer **API's** uit onder **API MANAGEMENT**.
-2. Selecteer **OpenAPI specificatie** uit de lijst.
+1. Selecteer **API's** bij **API MANAGEMENT**.
+2. Selecteer **OpenAPI-specificatie** in de lijst.
 
     ![Een API maken](./media/api-management-get-started/create-api.png)
 
-    U kunt de API-waarden instellen tijdens het maken of later door te gaan naar de **instellingen** tabblad.  
+    U kunt de API-waarden instellen tijdens het maken of later door naar het tabblad **Instellingen** te gaan. De rode ster naast een veld geeft aan dat het veld verplicht is.
 
     |Instelling|Waarde|Beschrijving|
     |---|---|---|
-    |**OpenAPI specificatie**|http://conferenceapi.azurewebsites.net?format=json|Verwijst naar de implementatie van de API-service. API management verzendt aanvragen naar dit adres.|
-    |**Weergavenaam**|*Demo conferentie API*|Als u na het invoeren van de service-URL op tab drukt, APIM dit veld ingevuld op basis van wat is er in de json. <br/>Deze naam wordt weergegeven in de portal voor ontwikkelaars.|
-    |**Naam**|*demo-conference-api*|Biedt een unieke naam voor de API. <br/>Als u na het invoeren van de service-URL op tab drukt, APIM dit veld ingevuld op basis van wat is er in de json.|
-    |**Beschrijving**|Geef een optionele beschrijving van de API.|Als u na het invoeren van de service-URL op tab drukt, APIM dit veld ingevuld op basis van wat is er in de json.|
-    |**Achtervoegsel URL-API**|*telefonische vergaderingen*|Het achtervoegsel wordt toegevoegd aan de basis-URL voor de API management-service. API Management API's onderscheidt door hun achtervoegsel en daarom het achtervoegsel moet uniek zijn voor elke API voor een opgegeven uitgever.|
-    |**URL-schema**|*HTTPS*|Hiermee wordt bepaald welke protocollen kunnen worden gebruikt voor toegang tot de API. |
-    |**Producten**|*Onbeperkt*| De API door de API koppelen aan een product publiceren. Typ om eventueel deze nieuwe API toevoegen aan een product, de productnaam. Deze stap kan meerdere keren toevoegen van de API aan meerdere producten worden herhaald.<br/>Producten zijn de koppelingen van een of meer API's. U kunt een aantal API's en ze bieden voor ontwikkelaars via de portal voor ontwikkelaars. Ontwikkelaars zich eerst abonneren op een product ze toegang krijgen tot de API. Wanneer ze zich abonneert, krijgen ze een abonnementssleutel die geschikt is voor API in dat product. Als u de APIM exemplaar gemaakt, bent u een beheerder al, zodat u bent geabonneerd op elk product standaard.<br/> Elk exemplaar van API Management wordt standaard geleverd met twee voorbeeldproducten: **Starter** en **onbeperkt**. |
+    |**OpenAPI-specificatie**|http://conferenceapi.azurewebsites.net?format=json|Verwijst naar de service waarmee de API wordt geïmplementeerd. API Management stuurt aanvragen door naar dit adres.|
+    |**Weergavenaam**|*Demo Conference API*|Als u op Tab drukt nadat u de service-URL hebt ingevoerd, wordt dit veld ingevuld met APIM op basis van de inhoud van het JSON-bestand. <br/>Deze naam wordt weergegeven in de ontwikkelaarsportal.|
+    |**Naam**|*demo-conference-api*|Biedt een unieke naam voor de API. <br/>Als u op Tab drukt nadat u de service-URL hebt ingevoerd, wordt dit veld ingevuld met APIM op basis van de inhoud van het JSON-bestand.|
+    |**Beschrijving**|Geef een optionele beschrijving van de API.|Als u op Tab drukt nadat u de service-URL hebt ingevoerd, wordt dit veld ingevuld met APIM op basis van de inhoud van het JSON-bestand.|
+    |**URL-schema**|*HTTPS*|Bepaalt welke protocollen kunnen worden gebruikt om toegang te krijgen tot de API. |
+    |**API-URL-achtervoegsel**|*conference*|Het achtervoegsel wordt toegevoegd aan de basis-URL voor de API Management-service. In API Management worden API's herkend aan hun achtervoegsel en daarom moet het achtervoegsel uniek zijn voor elke API voor een bepaalde uitgever.|
+    |**Producten**|*Onbeperkt*|Producten zijn koppelingen van een of meer API's. U kunt een aantal API's opnemen in een product en deze beschikbaar stellen voor ontwikkelaars via de ontwikkelaarsportal. <br/>U publiceert de API door deze te koppelen aan een product (in dit voorbeeld *Onbeperkt*). Als u deze nieuwe API wilt toevoegen aan een product, typt u de productnaam (u kunt dit ook later doen op de pagina **Instellingen**). Deze stap kan meerdere keren worden herhaald om de API toe te voegen aan meerdere producten.<br/>Ontwikkelaars moeten zich eerst abonneren op een product om toegang tot de API te krijgen. Wanneer ontwikkelaars zich abonneren, ontvangen ze een abonnementssleutel die toegang biedt tot elke API in het betreffende product. <br/> Als u de APIM-instantie hebt gemaakt, bent u al een beheerder en bent u geabonneerd op elk product.<br/> Standaard wordt elke API Management-instantie geleverd met twee voorbeeldproducten: **Starter** en **Onbeperkt**. |
+    |Versie van deze API?||Zie [Publish multiple versions of your API](api-management-get-started-publish-versions.md) (Meerdere versies van uw API publiceren) voor meer informatie over versiebeheer|
+    
+    >[!NOTE]
+    > Als u de API wilt publiceren, moet u deze koppelen aan een product. U kunt dit doen op de pagina **Instellingen**.
+    
 3. Selecteer **Maken**.
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>De nieuwe APIM API testen in de Azure-portal
+## <a name="test-the-new-apim-api-in-the-azure-portal"></a>De nieuwe APIM API testen in Azure Portal
 
-Bewerkingen kunnen rechtstreeks vanuit de Azure portal, die een handige manier om te bekijken en te testen van de bewerkingen van een API worden aangeroepen.  
-1. Selecteer de API die u in de vorige stap hebt gemaakt.
-2. Druk op de **Test** tabblad.  ![API testen](./media/api-management-get-started/test-api.png)
+Bewerkingen kunnen rechtstreeks vanuit Azure Portal worden aangeroepen. Dit is een handige manier om de bewerkingen van een API te bekijken en te testen.  
+1. Selecteer de API die u in de vorige stap hebt gemaakt (op het tabblad **API's**).
+2. Druk op het tabblad **Testen**.  ![API testen](./media/api-management-get-started/test-api.png)
 3. Klik op **GetSpeakers**.
-    Velden voor queryparameters op de pagina weergegeven, maar in dit geval zijn er een. Velden voor de headers van de pagina worden ook weergegeven. Een van de headers is 'Ocp-Apim-Subscription-Key' voor de abonnementssleutel van het product dat is gekoppeld aan deze API. De sleutel wordt automatisch ingevuld.
+    Op de pagina worden velden weergegeven voor queryparameters, maar in dit geval zijn er geen queryparameters. Op de pagina worden ook velden weergegeven voor de headers. Een van de headers is Ocp-Apim-Subscription-Key voor de abonnementssleutel van het product dat is gekoppeld aan deze API. De sleutel wordt automatisch ingevuld.
 4. Druk op **Verzenden**.
 
-    Back-end reageert met **200 OK** en bepaalde gegevens.
+    Back-end reageert met **200 OK** en enkele gegevens.
 
 ## <a name="call-operation"> </a>Een bewerking aanroepen vanuit de ontwikkelaarsportal
 
-Bewerkingen kunnen ook worden aangeroepen **ontwikkelaarsportal** voor het testen van API's. 
+Bewerkingen kunnen ook worden aangeroepen vanuit de **ontwikkelaarsportal** om de API's te testen. 
 
-1. Selecteer de API die u hebt gemaakt in de ' importeren en publiceren van een back-end-API ' stap.
-2. Druk op **ontwikkelaarsportal**.
-
-    ![Testen in de portal voor ontwikkelaars](./media/api-management-get-started/developer-portal.png)
-
-    De site 'Ontwikkelaarsportal' wordt geopend.
-3. Selecteer **API**.
-4. Selecteer **Demo conferentie API**.
-5. Klik op **GetSpeakers**.
+1. Selecteer **Demo Conference API**.
+2. Klik op **GetSpeakers**.
     
-    Velden voor queryparameters op de pagina weergegeven, maar in dit geval zijn er een. Velden voor de headers van de pagina worden ook weergegeven. Een van de headers is 'Ocp-Apim-Subscription-Key' voor de abonnementssleutel van het product dat is gekoppeld aan deze API. Als u het exemplaar APIM hebt gemaakt, bent u beheerder al, zodat de sleutel wordt automatisch ingevuld.
-6. Druk op **Try it**.
-7. Druk op **Verzenden**.
+    Op de pagina worden velden weergegeven voor queryparameters, maar in dit geval zijn er geen queryparameters. Op de pagina worden ook velden weergegeven voor de headers. Een van de headers is Ocp-Apim-Subscription-Key voor de abonnementssleutel van het product dat is gekoppeld aan deze API. Als u de APIM-instantie hebt gemaakt, bent u al een beheerder en wordt de sleutel automatisch ingevoerd.
+3. Druk op **Proberen**.
+4. Druk op **Verzenden**.
     
-    Nadat een bewerking is aangeroepen, worden in de ontwikkelaarsportal de **antwoordstatus**, de **antwoordheaders** en eventuele **antwoordinhoud** weergegeven.
+    Nadat een bewerking is aangeroepen, worden de antwoorden weergegeven in de ontwikkelaarsportal.  
 
 ## <a name="next-steps"> </a>Volgende stappen
 
@@ -100,10 +98,10 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Uw eerste API importeren
-> * De API testen in de Azure-portal
-> * De API testen in de portal voor ontwikkelaars
+> * De API testen in Azure Portal
+> * De API testen in de ontwikkelaarsportal
 
-Ga naar de volgende zelfstudie:
+Ga door naar de volgende zelfstudie:
 
 > [!div class="nextstepaction"]
 > [Een product maken en publiceren](api-management-howto-add-products.md)

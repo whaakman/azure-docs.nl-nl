@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5572eaafa49200be0b2a8156dbc96bffd48be925
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Quickstart: blobs downloaden, uploaden en vermelden met behulp van Go
 
@@ -211,6 +211,13 @@ containerURL.Delete(ctx, azblob.ContainerAccessConditions{})
 file.Close()
 os.Remove(fileName)
 ```
+
+## <a name="resources-for-developing-go-applications-with-blobs"></a>Resources voor het ontwikkelen van Go-toepassingen met blobs
+
+Zie de volgende aanvullende bronnen voor Go-ontwikkeling met Blob-opslag:
+
+- Bekijk en installeer de [broncode voor de Go-clientbibliotheek](https://github.com/Azure/azure-storage-blob-go) voor Azure Storage op GitHub.
+- Verken [Blob-opslagvoorbeelden](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob#pkg-examples) die zijn geschreven met de Go-clientbibliotheek.
 
 ## <a name="next-steps"></a>Volgende stappen
  

@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Aangepaste installatie | Microsoft Docs'
 description: In dit document worden de opties voor een aangepaste installatie van Azure AD Connect beschreven. Volg deze instructies om Active Directory met Azure AD Connect te installeren.
 services: active-directory
 keywords: wat is Azure AD Connect, Active Directory installeren, vereiste onderdelen voor Azure AD
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ee16fe9e15e52fea482e0db34857780449c2ccb4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 680e70ce572e182aa35c736f61036415d8714ea0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](active-directory-aadconnect-get-started-express.md) niet aan uw implementatie of topologie voldoet.
@@ -49,7 +49,7 @@ Nadat de vereiste onderdelen zijn geïnstalleerd, wordt u gevraagd een eenmalige
 
 | Optie voor eenmalige aanmelding | Beschrijving |
 | --- | --- |
-| Wachtwoordhashsynchronisatie |Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken. De wachtwoorden van gebruikers worden gesynchroniseerd naar Azure AD als een wachtwoord-hash en verificatie vindt plaats in de cloud. Zie [Wachtwoordhashsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) voor meer informatie. |
+| Wachtwoordhashsynchronisatie |Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken. De wachtwoorden van gebruikers worden gesynchroniseerd naar Azure AD als een wachtwoord-hash en verificatie vindt plaats in de cloud. Zie [Wachtwoordhashsynchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md) voor meer informatie. |
 |Pass-through-verificatie|Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  Het wachtwoord van de gebruiker wordt doorgegeven aan de on-premises Active Directory-domeincontroller voor validatie.
 | Federatie met AD FS |Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  De gebruikers worden omgeleid naar hun on-premises AD FS-exemplaar om zich aan te melden en de verificatie vindt plaats on-premises. |
 | Niet configureren |Er is geen functie voor gebruikersaanmelding geïnstalleerd en geconfigureerd. Kies deze optie als u al een federatieserver van derden of een andere bestaande oplossing heeft. |
@@ -165,7 +165,7 @@ In dit scherm kunt u de optionele functies voor uw specifieke scenario's selecte
 | Hybride implementatie voor Exchange |Met de functie Hybride implementatie voor Exchange kunnen on-premises en in Office 365 meerdere Exchange-postbussen naast elkaar bestaan. Azure AD Connect synchroniseert een specifieke set [kenmerken](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) vanuit Azure AD naar uw on-premises directory. |
 | Openbare e-mailmappen van Exchange | Met de functie Openbare e-mailmappen van Exchange kunt u de voor e-mail ingeschakelde openbare mapobjecten van Active Directory synchroniseren naar Azure AD. |
 | Azure AD-app- en -kenmerkfilters |Door de Azure AD-app- en -kenmerkfilters in te schakelen kan de set gesynchroniseerde kenmerken worden aangepast. Door deze optie worden twee extra configuratiepagina’s aan de wizard toegevoegd. Zie voor meer informatie [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering). |
-| Wachtwoordsynchronisatie |Als u federatie als de oplossing voor aanmelden hebt geselecteerd, dan kunt u deze optie inschakelen. Wachtwoordsynchronisatie kan vervolgens als een backupoptie worden gebruikt. Zie [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) voor meer informatie. </br></br>Als u Pass-through-verificatie hebt geselecteerd, kan deze optie ook worden ingeschakeld als ondersteuning voor verouderde clients en als back-upoptie. Zie [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) voor meer informatie.|
+| Synchronisatie van wachtwoord-hashes |Als u federatie als de oplossing voor aanmelden hebt geselecteerd, dan kunt u deze optie inschakelen. Synchronisatie van wachtwoord-hashes kan vervolgens als een back-upoptie worden gebruikt. Zie [Wachtwoord-hashsynchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md) voor meer informatie. </br></br>Als u Pass-through-verificatie hebt geselecteerd, kan deze optie ook worden ingeschakeld als ondersteuning voor verouderde clients en als back-upoptie. Zie [Wachtwoord-hashsynchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md) voor meer informatie.|
 | Wachtwoord terugschrijven |Door wachtwoord terugschrijven in te schakelen worden wachtwoordwijzigingen in Azure AD teruggeschreven naar uw on-premises directory. Zie voor meer informatie [Getting started with password management](../active-directory-passwords-getting-started.md). |
 | Groep terugschrijven |Als u de functie **Office 365-groepen** gebruikt, dan kunnen deze groepen in uw on-premises Active Directory worden weergegeven. Deze optie is alleen beschikbaar als Exchange in uw on-premises Active Directory aanwezig is. Zie voor meer informatie [Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Apparaat terugschrijven |Hiermee kunt u apparaatobjecten in Azure AD terugschrijven naar uw on-premises Active Directory voor scenario's voor voorwaardelijke toegang. Zie voor meer informatie [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
@@ -340,7 +340,7 @@ Voer daarnaast de volgende verificatiestappen uit:
 
 * Controleer of u zich kunt aanmelden met een browser op een computer op het intranet die aan het domein is gekoppeld: Maak verbinding met https://myapps.microsoft.com en controleer de aanmelding met uw aangemelde account. Het ingebouwde beheerdersaccount van AD DS wordt niet gesynchroniseerd en kan niet worden gebruikt voor verificatie.
 * Controleer of u zich kunt aanmelden met een apparaat vanaf het extranet. Maak op een computer thuis of op een mobiel apparaat verbinding met https://myapps.microsoft.com en voer uw referenties in.
-* Aanmelding uitgebreide client controleren. Maak verbinding met https://testconnectivity.microsoft.com, kies het tabblad **Office 365** en vervolgens de **Office 365 Test Eenmalige aanmelding**.
+* Aanmelding uitgebreide client controleren. Maak verbinding met https://testconnectivity.microsoft.com, kies het tabblad **Office 365** en vervolgens **Office 365 Test Eenmalige aanmelding**.
 
 ## <a name="next-steps"></a>Volgende stappen
 Nadat de installatie is voltooid, dient u zich af te melden en weer aan te melden bij Windows voordat u de Synchronization Service Manager of Synchronization Rule Editor gaat gebruiken.

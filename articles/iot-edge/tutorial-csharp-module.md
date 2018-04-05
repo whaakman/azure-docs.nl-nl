@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 95ca66f34548f86e25c1e7af331fa88797847906
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 11c737adb6578437a3708bb97397a24114e39585
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Opstellen en implementeren van een Edge van C#-IoT-module voor uw gesimuleerde apparaat - voorbeeld
 
@@ -223,6 +223,7 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
+   Als u de gebruikersnaam, wachtwoord en meld u aan server moet worden gebruikt in deze opdracht zoekt, gaat u naar de [Azure portal] (https://portal.azure.com). Van **alle resources**, klikt u op de tegel voor uw Azure-container register open de eigenschappen en klik vervolgens op **toegangssleutels**. Kopieer de waarden in de **gebruikersnaam**, **wachtwoord**, en **Login-server** velden. 
 
 2. In VS-Code explorer met de rechtermuisknop op de **module.json** -bestand en klik op **Build en Push IoT rand module Docker installatiekopie**. Selecteer in het pop-vervolgkeuzelijst aan de bovenkant van het venster Code van de VS, uw platform container ofwel **amd64** voor Linux-container of **windows amd64** voor Windows-container. VS Code vervolgens uw code wordt gemaakt, containerize de `FilterModule.dll` en dit doorgeven aan de container-registersleutel die u hebt opgegeven.
 

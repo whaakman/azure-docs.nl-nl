@@ -1,11 +1,11 @@
 ---
 title: Apparaatbeheer met Azure IoT Hub | Microsoft Docs
-description: 'Overzicht van apparaatbeheer in Azure IoT Hub: levenscyclus van bedrijfsapparaten en apparaatbeheerpatronen, zoals opnieuw opstarten, de fabrieksinstellingen herstellen, firmware bijwerken, configuratie, apparaatdubbels, query''s en taken.'
+description: "Overzicht van apparaatbeheer in Azure IoT Hub: levenscyclus van bedrijfsapparaten en apparaatbeheerpatronen, zoals opnieuw opstarten, de fabrieksinstellingen herstellen, firmware bijwerken, configuratie, apparaatdubbels, query's en taken."
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: bzurcher
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a367e715-55f6-4593-bd68-7863cbf0eb81
 ms.service: iot-hub
 ms.devlang: na
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 4fe4328314e23bbd1ace13e935f82336e1e602a9
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Overzicht van apparaatbeheer met IoT Hub
-## <a name="introduction"></a>Inleiding
+
 Azure IoT Hub biedt de functies en het uitbreidingsmodel waarmee apparaat- en back-end-ontwikkelaars krachtige beheeroplossingen voor apparaten kunnen bouwen. Apparaten variëren van beperkte sensoren en microcontrollers met één doel tot krachtige gateways die communicatie routeren voor groepen apparaten.  Bovendien verschillen de gebruiksvoorbeelden en de vereisten voor IoT-operators aanzienlijk in de verschillende sectoren.  Ondanks deze variatie biedt apparaatbeheer met IoT Hub mogelijkheden, patronen en codebibliotheken die geschikt zijn voor een groot aantal apparaten en eindgebruikers.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Een essentieel onderdeel van het maken van een geslaagde enterprise-IoT-oplossing is het bieden van een strategie voor hoe operators omgaan met het continue beheer van de apparaten in hun bedrijf. IoT-operators hebben eenvoudige en betrouwbare hulpprogramma's en toepassingen nodig waarmee ze zich kunnen concentreren op de strategische aspecten van hun werk. Dit artikel bevat:
 

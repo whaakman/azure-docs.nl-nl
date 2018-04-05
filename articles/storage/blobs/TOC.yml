@@ -80,8 +80,16 @@
       items:
         - name: Opslagaccountopties
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Replicatie
-          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: De gegevensredundantie
+          items:
+            - name: Redundantieoverzicht
+              href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Lokaal redundante opslag
+              href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Zoneredundante opslag
+              href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Geografisch redundante opslag
+              href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Warme, koude en archieflagen'
           href: storage-blob-storage-tiers.md
         - name: Reageren op gebeurtenissen
@@ -301,6 +309,8 @@
               href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Diagnoses en het herstel van fouten voor Import/Export-taken
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Contact opnemen met ondersteuning voor importeren/exporteren
+          href: ../common/storage-import-export-contact-microsoft-support.md
         - name: Veelgestelde vragen over opslagmigratie
           href: ../common/storage-migration-faq.md
 - name: Naslaginformatie

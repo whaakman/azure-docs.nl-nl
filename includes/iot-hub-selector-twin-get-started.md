@@ -7,6 +7,8 @@
 
 Apparaatdubbels zijn JSON-documenten waarin statusinformatie van een apparaat (metagegevens, configuraties en voorwaarden) zijn opgeslagen. IoT Hub persistente een apparaat twin voor elk apparaat dat verbinding met het maakt.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Apparaat horende te gebruiken:
 
 * Opslaan van metagegevens van apparaten uit de back-end van uw oplossing.
@@ -14,8 +16,7 @@ Apparaat horende te gebruiken:
 * De status van langlopende werkstromen (zoals updates, firmware en configuratie) tussen een apparaat-app en een back-endserver voor apps worden gesynchroniseerd.
 * De metagegevens van apparaten, de configuratie of de status opvragen.
 
-> [!NOTE]
-> Apparaat horende zijn ontworpen voor synchronisatie en voor het uitvoeren van query's apparaatconfiguraties en voorwaarden. Meer informatie over het gebruik van apparaat horende vindt u in [apparaat horende begrijpen][lnk-twins].
+Apparaat horende zijn ontworpen voor synchronisatie en voor het uitvoeren van query's apparaatconfiguraties en voorwaarden. Meer informatie over het gebruik van apparaat horende vindt u in [apparaat horende begrijpen][lnk-twins].
 
 Apparaat horende worden opgeslagen in een IoT-hub en bevatten:
 

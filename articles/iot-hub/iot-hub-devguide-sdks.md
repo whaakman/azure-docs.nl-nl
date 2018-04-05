@@ -2,10 +2,10 @@
 title: De Azure IoT SDK's begrijpen | Microsoft Docs
 description: Handleiding voor ontwikkelaars - informatie over en koppelingen naar de verschillende Azure IoT-apparaat en de service SDK's die u gebruiken kunt om apps op apparaten en back-end-apps te ontwikkelen.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c5c9a497-bb03-4301-be2d-00edfb7d308f
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/12/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c77812db85c3b6730fce9af3f634821b44508687
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: aec2126369f45a89050dbd8b2d3cae7e00ccb8ed
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>Begrijpen en gebruiken van Azure IoT SDK 's
 
@@ -32,6 +32,8 @@ Er zijn drie categorieën van SDK's (SDK's) voor het werken met IoT Hub:
 * **Azure IoT-rand** kunt u bouwen gateways voor apparaten die geen van een van de ondersteunde protocollen gebruikmaken. Gateways kunnen ook verwerkt berichten op de rand.
 
 SDK's zijn beschikbaar voor de ondersteuning van meerdere programmeertalen.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="azure-iot-device-sdks"></a>Apparaat met Azure IoT SDK 's
 

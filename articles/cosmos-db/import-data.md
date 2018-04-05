@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1276fb119199b9dbb9b50bed8ac12cff0a55d2dd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 317e5f2696635d28b5dbab302e45960af9c8aee2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Hulpprogramma voor gegevensmigratie
 
@@ -59,7 +59,7 @@ Het hulpprogramma voor migratie van gegevens is een open-source-oplossing waarme
 Terwijl het hulpprogramma voor importeren, bevat een grafische gebruikersinterface (dtui.exe), kan het ook aangestuurd vanaf de opdrachtregel (dt.exe). Er is in feite een optie voor uitvoer van de bijbehorende opdracht na het instellen van een import via de gebruikersinterface. In tabelvorm brongegevens (bijvoorbeeld SQL Server- of CSV-bestanden) kan worden getransformeerd zodat hiërarchische relaties (subdocumenten) kunnen worden gemaakt tijdens het importeren. Houd lezen voor meer informatie over opties voor gegevensbron steekproef van opdrachtregels voor het importeren uit elke bron, doel-opties en importeren van de weer te geven resultaten.
 
 ## <a id="Install"></a>Installatie
-De broncode van de migratie-hulpprogramma is beschikbaar op GitHub in [deze opslagplaats](https://github.com/azure/azure-documentdb-datamigrationtool). U kunt downloaden en de oplossing lokaal compileren vervolgens uitvoert:
+De broncode van de migratie-hulpprogramma is beschikbaar op GitHub in [deze opslagplaats](https://github.com/azure/azure-documentdb-datamigrationtool). U kunt downloaden en lokaal, de oplossing worden gecompileerd of [downloaden van een vooraf gecompileerde binair](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip), een uitvoeren:
 
 * **Dtui.exe**: versie van de grafische interface van het hulpprogramma
 * **DT.exe**: opdrachtregelprogramma versie van het hulpprogramma

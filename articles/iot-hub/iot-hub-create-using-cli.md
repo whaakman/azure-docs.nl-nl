@@ -5,8 +5,8 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: azurecli
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c89ecc31754d355d6469d54dcd45e1cc2ef106f0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Een iothub met behulp van de Azure CLI 2.0 maken
 
@@ -40,9 +40,9 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Aanmelden en uw Azure-account instellen
 
-Aanmelden bij uw Azure-account en uw abonnement te selecteren.
+Meld u aan bij uw Azure-account en selecteer uw abonnement.
 
-1. Voer bij de opdrachtprompt de [aanmelding opdracht][lnk-login-command]:
+1. Voer bij de opdrachtprompt deze [aanmeldingsopdracht][lnk-login-command] uit:
     
     ```azurecli
     az login
@@ -50,13 +50,13 @@ Aanmelden bij uw Azure-account en uw abonnement te selecteren.
 
     Volg de instructies om te verifiëren met de code en meld u aan bij uw Azure-account via een webbrowser.
 
-2. Als u meerdere Azure-abonnementen hebt, aanmelden bij Azure u toegang verleent tot de Azure accounts die zijn gekoppeld aan uw referenties. Gebruik de volgende [opdracht om een lijst van de Azure-accounts] [ lnk-az-account-command] beschikbaar moet worden gebruikt:
+2. Als u meerdere Azure-abonnementen hebt en u zich aanmeldt bij Azure, hebt u toegang tot alle Azure accounts die zijn gekoppeld aan uw referenties. Gebruik de volgende [opdracht om de Azure-accounts weer te geven][lnk-az-account-command] die u kunt gebruiken:
     
     ```azurecli
     az account list 
     ```
 
-    Gebruik de volgende opdracht om abonnement die u gebruiken wilt voor het uitvoeren van de opdrachten voor het maken van uw IoT-hub te selecteren. U kunt de naam van abonnement of de ID van de uitvoer van de vorige opdracht gebruiken:
+    Gebruik de volgende opdracht om het abonnement te selecteren dat u wilt gebruiken voor het uitvoeren van de opdrachten voor het maken van uw IoT-hub. U kunt de naam van het abonnement of de id van de uitvoer van de vorige opdracht gebruiken:
 
     ```azurecli
     az account set --subscription {your subscription name or id}
@@ -66,14 +66,14 @@ Aanmelden bij uw Azure-account en uw abonnement te selecteren.
 
 De Azure CLI gebruiken voor het maken van een resourcegroep en voegt u een IoT-hub.
 
-1. Wanneer u een IoT-hub maakt, moet u deze in een resourcegroep maken. Gebruik een bestaande resourcegroep of Voer de volgende [opdracht voor het maken van een resourcegroep][lnk-az-resource-command]:
+1. Wanneer u een IoT-hub maakt, moet u deze in een resourcegroep maken. Gebruik een bestaande resourcegroep of voer de volgende [opdracht voor het maken van een resourcegroep][lnk-az-resource-command] uit:
     
     ```azurecli
      az group create --name {your resource group name} --location westus
     ```
 
     > [!TIP]
-    > Het vorige voorbeeld maakt de resourcegroep in de locatie VS-West. U kunt een lijst met beschikbare locaties weergeven met de opdracht `az account list-locations -o table`.
+    > In het voorbeeld wordt de resourcegroep gemaakt in de locatie VS-West. U kunt een lijst met beschikbare locaties weergeven met de opdracht `az account list-locations -o table`.
     >
     >
 
@@ -89,19 +89,18 @@ De Azure CLI gebruiken voor het maken van een resourcegroep en voegt u een IoT-h
 > [!NOTE]
 > De vorige opdracht maakt u een IoT-hub in de S1 prijscategorie waarvoor u wordt gefactureerd. Zie voor meer informatie [prijzen van Azure IoT Hub][lnk-iot-pricing].
 >
->
 
 ## <a name="remove-an-iot-hub"></a>Verwijderen van een IoT-Hub
 
 U kunt de Azure CLI voor [verwijderen van een afzonderlijke resource][lnk-az-resource-command], zoals een IoT-hub of verwijder een resourcegroep en alle bijbehorende bronnen, met inbegrip van een IoT-hubs.
 
-Voer de volgende opdracht voor het verwijderen van een IoT-hub:
+Voer de volgende opdracht uit voor het verwijderen van een IoT-hub:
 
 ```azurecli
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-Voer de volgende opdracht voor het verwijderen van een resourcegroep en alle bijbehorende resources:
+Voer de volgende opdracht uit voor het verwijderen van een resourcegroep en alle bijbehorende resources:
 
 ```azurecli
 az group delete --name {your resource group name}

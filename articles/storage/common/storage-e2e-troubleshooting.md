@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 324370ae18627a1985e6a40aec11ee2fa871e93b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>End-to-end problemen oplossen met behulp van Azure Storage metrische gegevens en logboekregistratie, AzCopy en Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -35,9 +35,6 @@ Voor het oplossen van clienttoepassingen op Microsoft Azure Storage, kunt u een 
   
   * **Metrische gegevens Storage** houdt transactie metrische gegevens en capaciteitsmetrieken voor uw opslagaccount. Met metrische gegevens, kunt u bepalen hoe uw toepassing wordt uitgevoerd volgens een verscheidenheid aan andere maatregelen. Zie [Storage Analytics metrische gegevens tabelschema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) voor meer informatie over de typen van metrische gegevens die worden bijgehouden door Storage Analytics.
   * **Opslag logboekregistratie** elke aanvraag naar de Azure Storage-services in een logboek serverzijde wordt geregistreerd. Het logboek houdt gedetailleerde gegevens voor elke aanvraag, waaronder de bewerking die wordt uitgevoerd, de status van de bewerking, en de latentie-informatie. Zie [Storage Analytics logboekindeling](/rest/api/storageservices/Storage-Analytics-Log-Format) voor meer informatie over de aanvraag- en gegevens die worden geschreven naar de logboeken door Storage Analytics.
-
-> [!NOTE]
-> Storage-accounts met een replicatietype van de Zone-redundante opslag (ZRS) ondersteuning voor metrische gegevens en logboekregistratie. ZRS klassieke accounts bieden geen ondersteuning voor metrische gegevens of de registratie. Zie voor meer informatie over ZRS [Zone-redundante opslag](storage-redundancy.md#zone-redundant-storage). 
 
 * **Azure-portal**. U kunt metrische gegevens en logboekregistratie configureren voor uw opslagaccount in de [Azure-portal](https://portal.azure.com). U kunt ook grafieken en diagrammen die laten zien hoe uw toepassing wordt uitgevoerd na verloop van tijd weergeven en configureren van waarschuwingen om u te waarschuwen als uw toepassing wordt uitgevoerd anders dan verwacht voor een opgegeven waarde.
   
@@ -366,7 +363,7 @@ Nu dat u bekend bent met Message Analyzer gebruiken om uw logboekgegevens te ana
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende bronnen voor meer informatie over het oplossen van problemen end-to-end-scenario's in Azure Storage:
 
-* [Controleren, vaststellen en oplossen van Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
+* [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md) (Bewaken, diagnosticeren en problemen oplossen in Microsoft Azure Storage)
 * [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Een opslagaccount in de Azure portal controleren](storage-monitor-storage-account.md)
 * [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)

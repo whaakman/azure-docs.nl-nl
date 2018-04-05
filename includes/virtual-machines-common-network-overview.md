@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 6729c4281f4aa10b653d1c4f29104fd10a08a96e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 14aa0002ff88678bb54a3abed8bf7eeed3b717f4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 Wanneer u een virtuele Azure-machine maakt, moet u een [virtueel netwerk](../articles/virtual-network/virtual-networks-overview.md) (VNet) maken of een bestaand VNet gebruiken. U moet ook bepalen hoe uw virtuele machines kunnen worden geopend via de VNet. Het is belangrijk om [een planning te maken voordat u resources maakt](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) en ervoor te zorgen dat u op de hoogte bent van de [limieten van netwerkresources](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -110,8 +110,8 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een netwerk
 | Methode | Beschrijving |
 | ------ | ----------- |
 | [Azure Portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Wanneer u een virtuele machine in Azure Portal maakt, wordt een NSG automatisch gemaakt en gekoppeld aan de NIC die door de Portal wordt gemaakt. De naam van de NSG is een combinatie van de naam van de virtuele machine en **-nsg**. Deze NSG bevat een regel voor inkomende verbindingen met een prioriteit van 1000, de service ingesteld op RDP, het protocol ingesteld op TCP, de poort ingesteld op 3389 en de actie ingesteld op Toestaan. Als u ander inkomend verkeer op de virtuele machine wilt toestaan, moet u extra regels toevoegen aan de NSG. |
-| [Azure PowerShell](../articles/virtual-network/virtual-networks-create-nsg-arm-ps.md) | Gebruik [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) en geef de vereiste regelinformatie op. Gebruik [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) om de NSG te maken. Gebruik [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) voor het configureren van de NSG voor het subnet. Gebruik [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) om de NSG toe te voegen aan de VNet. |
-| [Azure-CLI](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md) | Gebruik [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) om de NSG te maken. Gebruik [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) om regels toe te voegen aan de NSG. Gebruik [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) om de NSG toe te voegen aan het subnet. |
+| [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Gebruik [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) en geef de vereiste regelinformatie op. Gebruik [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) om de NSG te maken. Gebruik [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) voor het configureren van de NSG voor het subnet. Gebruik [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) om de NSG toe te voegen aan de VNet. |
+| [Azure-CLI](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Gebruik [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) om de NSG te maken. Gebruik [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) om regels toe te voegen aan de NSG. Gebruik [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) om de NSG toe te voegen aan het subnet. |
 | [Sjabloon](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md) | Gebruik [Een netwerkbeveiligingsgroep maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) als richtlijn voor het implementeren van een netwerkbeveiligingsgroep met behulp van een sjabloon. |
 
 ## <a name="load-balancers"></a>Load balancers

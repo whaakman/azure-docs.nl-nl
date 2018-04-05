@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: fc7a4062af9e73383af46f0c36eb22710ce9b6e1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 68f5784f1724441ff6f18e2581c8e01d66c60c5e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure-Monitor
 Azure biedt verschillende manieren om te communiceren met metrische gegevens, inclusief grafieken ze in de portal of opvragen ze toegang hebben tot deze via de REST-API met PowerShell of CLI. Hieronder volgt een volledige lijst met alle metrische gegevens op dit moment met metrische gegevens van de Monitor van het Azure-pipeline.
@@ -129,19 +129,19 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |---|---|---|---|---|---|
 |connectedclients|Gekoppelde clients|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed|Totaal aantal bewerkingen|Count|Totaal||Er zijn geen dimensies|
-|cachehits|Cachetreffers|Count|Totaal||Er zijn geen dimensies|
+|cachehits|Treffers in cache|Count|Totaal||Er zijn geen dimensies|
 |cachemisses|Cachemissers|Count|Totaal||Er zijn geen dimensies|
-|getcommands|Opgehaalde items|Count|Totaal||Er zijn geen dimensies|
+|getcommands|Opgehaald|Count|Totaal||Er zijn geen dimensies|
 |setcommands|Sets|Count|Totaal||Er zijn geen dimensies|
 |operationsPerSecond|Bewerkingen Per seconde|Count|Totaal||Er zijn geen dimensies|
 |evictedkeys|Verwijderde sleutels|Count|Totaal||Er zijn geen dimensies|
-|totalkeys|Totaal aantal sleutels|Count|Maximum||Er zijn geen dimensies|
+|totalkeys|Totale aantal sleutels|Count|Maximum||Er zijn geen dimensies|
 |expiredkeys|Verlopen sleutels|Count|Totaal||Er zijn geen dimensies|
 |usedmemory|Gebruikt geheugen|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss|Gebruikt geheugen RSS|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad|Serverbelasting|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad|Belasting van de server|Procent|Maximum||Er zijn geen dimensies|
 |cacheWrite|Cache schrijven|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|cacheRead|Gelezen uit cache|BytesPerSecond|Maximum||Er zijn geen dimensies|
+|cacheRead|Cache lezen|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |percentProcessorTime|CPU|Procent|Maximum||Er zijn geen dimensies|
 |connectedclients0|Verbonden Clients (Shard 0)|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed0|Totaal aantal bewerkingen (Shard 0)|Count|Totaal||Er zijn geen dimensies|
@@ -334,15 +334,15 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |---|---|---|---|---|---|
 |TotalCalls|Totaal aantal aanroepen|Count|Totaal|Totaal aantal aanroepen.|Er zijn geen dimensies|
 |SuccessfulCalls|Geslaagde aanroepen|Count|Totaal|Aantal geslaagde aanroepen.|Er zijn geen dimensies|
-|TotalErrors|Totaal aantal fouten|Count|Totaal|Het totaal aantal aanroepen met een foutbericht (HTTP-antwoordcode 4xx of 5xx).|Er zijn geen dimensies|
-|BlockedCalls|Geblokkeerde aanroepen|Count|Totaal|Het aantal aanroepen die de tarief- of quotumlimiet hebben overschreden.|Er zijn geen dimensies|
-|ServerErrors|Serverfouten|Count|Totaal|Het aantal aanroepen met een interne servicefout (HTTP-responscode 5xx).|Er zijn geen dimensies|
-|ClientErrors|Clientfouten|Count|Totaal|Het aantal aanroepen met een fout aan de clientzijde (HTTP-responscode 4xx).|Er zijn geen dimensies|
-|DataIn|Inkomende gegevens|Bytes|Totaal|Grootte van inkomende gegevens in bytes.|Er zijn geen dimensies|
+|TotalErrors|Totale aantal fouten|Count|Totaal|Totaal aantal aanroepen met foutmelding (HTTP-antwoord code 4xx of 5xx).|Er zijn geen dimensies|
+|BlockedCalls|Geblokkeerde aanroepen|Count|Totaal|Het aantal aanroepen dat overschreden snelheid of quotumlimiet.|Er zijn geen dimensies|
+|ServerErrors|Serverfouten|Count|Totaal|Het aantal aanroepen met interne servicefout (HTTP-antwoord code 5xx).|Er zijn geen dimensies|
+|ClientErrors|Clientfouten|Count|Totaal|Het aantal aanroepen met de fout op de client (HTTP-antwoord code 4xx).|Er zijn geen dimensies|
+|DataIn|Inkomende gegevens|Bytes|Totaal|Grootte van binnenkomende gegevens in bytes.|Er zijn geen dimensies|
 |DataOut|Uitgaande gegevens|Bytes|Totaal|Grootte van uitgaande gegevens in bytes.|Er zijn geen dimensies|
-|Latentie|Latentie|MilliSeconds|Gemiddeld|Latentie in milliseconden|Er zijn geen dimensies|
-|CharactersTranslated|Tekens vertaald|Count|Totaal|Totaal aantal tekens in inkomende tekstaanvraag.|Er zijn geen dimensies|
-|SpeechSessionDuration|Duur van de spraaksessie|Seconden|Totaal|Totale duur van de spraaksessie in seconden.|Er zijn geen dimensies|
+|Latentie|Latentie|MilliSeconds|Gemiddeld|Latentie in milliseconden.|Er zijn geen dimensies|
+|CharactersTranslated|Vertaald tekens|Count|Totaal|Totaal aantal tekens in inkomende aanvraag opgegeven tekst.|Er zijn geen dimensies|
+|SpeechSessionDuration|Spraak sessieduur|Seconden|Totaal|Totale duur van de sessie spraak in seconden.|Er zijn geen dimensies|
 |TotalTransactions|Totaal aantal transacties|Count|Totaal|Totaal aantal transacties|Er zijn geen dimensies|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
@@ -811,11 +811,11 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
 |Doorvoer|Doorvoer|BytesPerSecond|Totaal|Het aantal bytes per seconde is die de toepassingsgateway is geleverd|Er zijn geen dimensies|
-|UnhealthyHostCount|Onjuiste telling van de Host|Count|Gemiddeld|Aantal beschadigde back-end-hosts|BackendSettingsPool|
-|HealthyHostCount|In orde Host tellen|Count|Gemiddeld|Aantal goede back-end-hosts|BackendSettingsPool|
+|UnhealthyHostCount|Onjuiste telling van de Host|Count|Gemiddeld|Het aantal beschadigde back-end-hosts. U kunt filteren op een per per back-end van toepassingen in orde/slecht hosts in een specifieke back-endpool weergeven.|BackendSettingsPool|
+|HealthyHostCount|In orde Host tellen|Count|Gemiddeld|Het aantal goede back-end-hosts. U kunt filteren op een per per back-end van toepassingen in orde/slecht hosts in een specifieke back-endpool weergeven.|BackendSettingsPool. |
 |TotalRequests|Totaal aantal aanvragen|Count|Totaal|Aantal geslaagde aanvragen voor de toepassingsgateway is geleverd|BackendSettingsPool|
 |FailedRequests|Mislukte aanvragen|Count|Totaal|Aantal mislukte aanvragen die Application Gateway is geleverd|BackendSettingsPool|
-|ResponseStatus|Response-Status|Count|Totaal|Status van HTTP-antwoord geretourneerd door Application Gateway|HttpStatusGroup|
+|ResponseStatus|Response-Status|Count|Totaal|Status van HTTP-antwoord geretourneerd door de toepassingsgateway. De verdeling van antwoord status code kan verder worden categoized om weer te geven van antwoorden in 2xx, 3xx 4xx en 5xx-categorieën.|HttpStatusGroup|
 |CurrentConnections|Actieve verbindingen|Count|Totaal|Telling van actieve verbindingen tot stand brengen met Application Gateway|Er zijn geen dimensies|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways

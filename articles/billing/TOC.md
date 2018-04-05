@@ -1,3 +1,4 @@
+
 # [Documentatie voor Azure Billing](index.md)
 
 # Aan de slag
@@ -41,6 +42,7 @@
 ### [Profiel bewerken](billing-how-to-change-azure-account-profile.md)
 ### [Betalingsgegevens bijwerken](billing-how-to-change-credit-card.md)
 ### [Voor abonnementen betalen per factuur](billing-how-to-pay-by-invoice.md)
+### [Partner-ID koppelen](billing-partner-admin-link-started.md)
 ## [Gereserveerde VM-instanties beheren](billing-manage-reserved-vm-instance.md)
 ## Problemen oplossen
 ### [Registratieproblemen](https://support.microsoft.com/en-us/help/4042959)

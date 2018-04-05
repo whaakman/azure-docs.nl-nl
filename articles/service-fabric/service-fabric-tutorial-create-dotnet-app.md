@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 01/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f8d9733b7dad4c6beeed9bcc950910ed6b426585
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cbaca20c5226cd38b11288738b40cf7bf280e849
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: een toepassing met een ASP.NET Core web-API front-end service en een stateful back-endservice maken en implementeren
-Deze zelfstudie is deel één van een serie.  U leert hoe u een Azure Service Fabric-toepassing met een front-end van ASP.NET Core web-API en een stateful back-endservice maakt voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster. Als u de stemtoepassing niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en verdergaan met [Het voorbeeld van een stemtoepassing doorlopen](#walkthrough_anchor).
+Deze zelfstudie is deel één van een serie.  U leert hoe u een Azure Service Fabric-toepassing met een front-end van ASP.NET Core web-API en een stateful back-endservice maakt voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster. Als u de stemtoepassing niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en verdergaan met [Het voorbeeld van een stemtoepassing doorlopen](#walkthrough_anchor).  Als u dat liever doet, kunt u ook een [video](https://channel9.msdn.com/Events/Connect/2017/E100) van deze zelfstudie bekijken.
 
 ![Diagram van de toepassing](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 

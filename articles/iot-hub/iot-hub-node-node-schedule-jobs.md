@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: e607f5db8b4f2a974cb172d4581dadefe7851275
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e7e724de68e7078782e90a3f2eda9f7261638ea5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Planning en broadcast-taken (knooppunt)
 
@@ -35,7 +35,9 @@ Conceptueel gezien een taak een van deze acties worden verpakt en de voortgang v
 Meer informatie over elk van deze mogelijkheden in deze artikelen:
 
 * Apparaat-twin en eigenschappen: [aan de slag met apparaat horende] [ lnk-get-started-twin] en [zelfstudie: het gebruik van twin apparaateigenschappen][lnk-twin-props]
-* directe methoden: [IoT Hub developer guide - rechtstreekse methoden] [ lnk-dev-methods] en [zelfstudie: directe methoden][lnk-c2d-methods]
+* Directe methoden: [IoT Hub developer guide - rechtstreekse methoden] [ lnk-dev-methods] en [zelfstudie: directe methoden][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 In deze handleiding ontdekt u hoe u:
 

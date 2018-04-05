@@ -2,11 +2,11 @@
 title: Azure Site Recovery-implementatieplanner voor VMware naar Azure | Microsoft Docs
 description: Dit is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 63963804b81aa57e914e18fa474963a3830d04d5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapport met kostenramingen van de Azure Site Recovery-implementatieplanner  
 
@@ -110,7 +110,7 @@ Handmatig VM's toevoegen:
 * De duur van elke DR-oefening (dagen) 
 * Het type besturingssysteem
 * De gegevensredundantie 
-* Azure Hybrid Use Benefit
+* Azure Hybrid Benefit
 
 3.  U kunt dezelfde waarde toepassen op alle virtuele machines in de tabel door op de knop Op alles toepassen te klikken voor Aantal DR-oefeningen in een jaar, Duur van elke DR-oefening (dagen), Gegevensredundantie en Azure Hybrid Use Benefit.
 
@@ -136,7 +136,7 @@ Handmatig VM's toevoegen:
 
 **Gegevensredundantie**: dit kan een van de volgende zijn: lokaal redundante opslag (LRS), geografisch redundante opslag (GRS) of geografisch redundante opslag met leestoegang (RA-GRS). Standaard is LRS. U kunt het type wijzigen op basis van uw opslagaccount voor specifieke virtuele machines of u kunt het nieuwe type toepassen op alle virtuele machines door het type in de eerste rij te wijzigen en op de knop Op alles toepassen te klikken.  De opslagkosten voor replicatie worden berekend op basis van de prijs van de gegevensredundantie die u hebt geselecteerd. 
 
-**Azure Hybrid Use Benefit**: u kunt Azure Hybrid Use Benefit toepassen op Windows-VM's, indien van toepassing.  Standaard is Ja. U kunt de instelling voor specifieke virtuele machines wijzigen of alle virtuele machines bijwerken door op de knop Op alles toepassen te klikken.
+**Azure Hybrid Benefit**: u kunt Azure Hybrid Benefit toepassen op Windows-VM's, indien van toepassing.  Standaard is Ja. U kunt de instelling voor specifieke virtuele machines wijzigen of alle virtuele machines bijwerken door op de knop Op alles toepassen te klikken.
 
 **Totaal Azure-verbruik**: dit omvat de kosten voor het rekenen, de opslag en de Azure Site Recovery-licentie voor uw DR. Afhankelijk van wat u hebt geselecteerd, worden hier de maandelijkse of jaarlijkse kosten weergegeven.
 

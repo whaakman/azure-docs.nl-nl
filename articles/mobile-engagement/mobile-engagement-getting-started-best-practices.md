@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf9dc5febeae27473d2adb8a024536b945bb9d13
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Instructiehandleiding met aanbevolen procedures
+> [!IMPORTANT]
+> Azure Mobile Engagement wordt op 31-03-2018 buiten gebruik gesteld. Deze pagina wordt kort daarna verwijderd.
+> 
+
 ## <a name="overview"></a>Overzicht
 **Het mobiele scherm staat vol:** uit een in 2013 uitgevoerde studie bleek dat op het gemiddelde mobiele apparaat 27 toepassingen zijn geïnstalleerd. Gebruikers brachten doorgaans 30 uur per maand door in hun apps. De meeste tijd werd doorgebracht op sociale netwerken en met gamen (ongeveer 20 uur). Begin 2014 waren er op de Android-markt circa 1,5 miljoen toepassingen beschikbaar waar gebruikers uit konden kiezen. De Apple Store bevatte ongeveer 1,2 miljoen apps. Het gebruik van mobiele apps neemt nog steeds toe en ontwikkelaars blijven concurreren op deze groeiende markt. 
 

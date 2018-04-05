@@ -2,10 +2,10 @@
 title: Wat is Azure Backup? | Microsoft Docs
 description: Met Azure Backup kunt u back-ups van gegevens en workloads maken en deze herstellen vanaf Windows-servers en -werkstations, System Center DPM-servers en virtuele Azure-machines.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: back-up en herstel; Recovery Services; back-upoplossingen
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 600c4a29d7d7daabbbf6d1825671d109ea499c4b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
 Azure Backup is de Azure-service die u kunt gebruiken voor het maken van back-ups en het herstellen van uw gegevens in de Microsoft-cloud (of deze te beschermen). Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u gegevens on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Recovery Services-kluis in Azure. Zie de [Azure Backup onderdelentabel](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (verderop in dit artikel) voor informatie over welk onderdeel moet worden gebruikt om specifieke gegevens, toepassingen of workloads te beschermen.
@@ -34,7 +34,7 @@ Traditionele back-upoplossingen gebruiken de cloud als een eindpunt, of statisch
 
 **Onbeperkt schalen**: Azure Backup gebruikt de onderliggende kracht en onbeperkte schaal van de Azure-cloud voor hoge beschikbaarheid, zonder overhead voor onderhoud of bewaking. U kunt waarschuwingen instellen voor het weergeven van informatie over gebeurtenissen, maar u hoeft zich geen zorgen te maken over hoge beschikbaarheid van uw gegevens in de cloud.
 
-**Meerdere opslagopties**: een aspect van hoge beschikbaarheid is opslagreplicatie. Azure Backup biedt twee typen replicatie: [lokaal redundante opslag](../storage/common/storage-redundancy.md#locally-redundant-storage) en [geografisch redundante opslag](../storage/common/storage-redundancy.md#geo-redundant-storage). Kies de optie back-upopslag op basis van uw behoeften:
+**Meerdere opslagopties**: een aspect van hoge beschikbaarheid is opslagreplicatie. Azure Backup biedt twee typen replicatie: [lokaal redundante opslag](../storage/common/storage-redundancy-lrs.md) en [geografisch redundante opslag](../storage/common/storage-redundancy-grs.md). Kies de optie back-upopslag op basis van uw behoeften:
 
 * Met lokaal redundante opslag (Locally Redundant Storage, LRS) worden uw gegevens drie keer gerepliceerd (er worden drie kopieën gemaakt van uw gegevens) in een opslagschaaleenheid in een datacenter. Alle kopieën van de gegevens komen binnen dezelfde regio voor. LRS is een goedkope optie voor het beschermen van uw gegevens tegen lokale hardwarefouten.
 
@@ -219,7 +219,7 @@ Enkele voorbeelden van veelgebruikte beveiligde exemplaren zijn virtuele machine
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>Wat is een Recovery Services-kluis?
-Een Recovery Services-kluis is een online-opslagentiteit in Azure die wordt gebruikt om gegevens zoals back-ups, herstelpunten en back-upbeleid op te slaan. U kunt Recovery Services-kluizen gebruiken voor het opslaan van back-upgegevens voor Azure-services en on-premises servers en werkstations. Recovery Services-kluizen maken het eenvoudig om uw back-upgegevens te ordenen, terwijl de beheertaken minimaal zijn. U kunt binnen elk Azure-abonnement maximaal 25 Recovery Services-kluizen per Azure-regio maken. Wanneer u nadenkt over waar u uw gegevens gaat opslaan, bedenk dan wel dat niet alle regio's aan elkaar gelijk zijn. Zie [Geografisch redundante opslag](../storage/common/storage-redundancy.md#geo-redundant-storage) voor informatie over regiokoppelingen en aanvullende overwegingen over opslag.
+Een Recovery Services-kluis is een online-opslagentiteit in Azure die wordt gebruikt om gegevens zoals back-ups, herstelpunten en back-upbeleid op te slaan. U kunt Recovery Services-kluizen gebruiken voor het opslaan van back-upgegevens voor Azure-services en on-premises servers en werkstations. Recovery Services-kluizen maken het eenvoudig om uw back-upgegevens te ordenen, terwijl de beheertaken minimaal zijn. U kunt binnen elk Azure-abonnement maximaal 25 Recovery Services-kluizen per Azure-regio maken. Wanneer u nadenkt over waar u uw gegevens gaat opslaan, bedenk dan wel dat niet alle regio's aan elkaar gelijk zijn. Zie [Geografisch redundante opslag](../storage/common/storage-redundancy-grs.md) voor informatie over regiokoppelingen en aanvullende overwegingen over opslag.
 
 Back-upkluizen, die gebaseerd zijn op Azure Service Manager, waren de eerste versie van de kluis. Recovery Services-kluizen, waaraan de functies van het Azure Resource Manager-model zijn toegevoegd, zijn de tweede versie van de kluis. Zie het artikel [Recovery Services vault overview](backup-azure-recovery-services-vault-overview.md) (Overzicht van Recovery Services-kluizen) voor een volledige beschrijving van de functieverschillen. U kunt geen Backup-kluizen meer maken en alle bestaande Backup-kluizen zijn bijgewerkt naar Recovery Services-kluizen. U kunt Azure Portal gebruiken om de kluizen te beheren die zijn bijgewerkt naar Recovery Services-kluizen.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Snelstart: een Azure Database for PostgreSQL maken via Azure CLI'
-description: Snelstart voor het maken en beheren van Azure Database voor PostgreSQL-server met behulp van Azure CLI (opdrachtregelinterface).
+description: Quick Start voor het maken en beheren van Azure Database voor PostgreSQL-server met behulp van Azure CLI (opdrachtregelinterface).
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,16 +9,16 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: feb99ae5bae16125d65a6c6e5776e6f3f286f0e3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 14007bff572f5ecf71b4595dcab8f24d9cf2d17e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Snelstart: een Azure Database for PostgreSQL maken via Azure CLI
-Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze snelstart laat zien hoe u een Azure-database voor PostgreSQL-server kunt maken in een [Azure resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) met de Azure CLI.
+Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze Quick Start laat zien hoe u een Azure-database voor PostgreSQL-server kunt maken in een [Azure resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) met de Azure CLI.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -58,11 +58,11 @@ Het geretourneerde JSON-script moet het volgende bevatten:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.4"
 }
 ```
 
-Als versie 0.0.3 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
+Als versie 0.0.4 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -77,7 +77,7 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver  
 ```
 
 > [!IMPORTANT]
-> De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze snelstart. Onthoud of noteer deze informatie voor later gebruik.
+> De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze quickstart. Onthoud of noteer deze informatie voor later gebruik.
 
 De database **postgres** wordt standaard gemaakt op uw server. De database [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) is een standaarddatabase die kan worden gebruikt door gebruikers, hulpprogramma's en toepassingen van derden. 
 
@@ -92,7 +92,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 ```
 
 > [!NOTE]
-> De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding maakt vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. Vraag aan de IT-afdeling of ze poort 5432 willen openen, zodat u verbinding kunt maken met uw Azure SQL Database-server.
+> De Azure PostgreSQL-server communiceert via poort 5432. Als u verbinding maakt vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 5432 mogelijk niet toegestaan door de firewall van uw netwerk. Vraag aan de IT-afdeling of ze poort 5432 willen openen, zodat u verbinding kunt maken met uw Azure PostgreSQL-server.
 
 ## <a name="get-the-connection-information"></a>De verbindingsgegevens ophalen
 
@@ -178,7 +178,7 @@ pgAdmin is een open-source hulpprogramma voor PostgreSQL. U kunt pgAdmin install
     Poort | 5432 | De poort die moet worden gebruikt wanneer u verbinding maakt met de Azure Database for PostgreSQL-server. 
     Onderhoudsdatabase | *postgres* | De door het systeem gegenereerde standaarddatabasenaam.
     Gebruikersnaam | Aanmeldingsnaam van serverbeheerder | De aanmeldingsnaam van de serverbeheerder die u hebt opgegeven toen u de Azure Database for PostgreSQL-server eerder hebt gemaakt. Als u de gebruikersnaam niet meer weet, volgt u de stappen in de vorige sectie om de verbindingsgegevens op te halen. De indeling is *username@servername*.
-    Wachtwoord | Uw beheerderswachtwoord | Het wachtwoord dat u hebt gekozen toen u eerder in deze snelstart de server maakte.
+    Wachtwoord | Uw beheerderswachtwoord | Het wachtwoord dat u hebt gekozen toen u eerder in deze Quick Start de server maakte.
     Rol | Leeg laten | U hoeft op dit moment geen rolnaam op te geven. Laat het veld leeg.
     SSL-modus | *Require* | U kunt de SSL-modus instellen op het tabblad SSL van pgAdmin. Bij het maken van een Azure Database for PostgreSQL-server wordt standaard geforceerd SSL ingeschakeld. Raadpleeg [SSL afdwingen](./concepts-ssl-connection-security.md) als u geforceerd SSL wilt uitschakelen.
     
@@ -205,10 +205,10 @@ pgAdmin is een open-source hulpprogramma voor PostgreSQL. U kunt pgAdmin install
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Verwijder alle resources die u in deze snelstart hebt gemaakt door de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) te verwijderen.
+Verwijder alle resources die u in deze Quick Start hebt gemaakt door de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) te verwijderen.
 
 > [!TIP]
-> Andere snelstarts in deze verzameling zijn op deze snelstart gebaseerd. Als u door wilt gaan met andere snelstarts, verwijdert u de resources die u in deze snelstart hebt gemaakt, niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze snelstart in de Azure CLI zijn gemaakt.
+> Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u door wilt gaan met andere Quick Starts, verwijdert u de resources die u in deze Quick Start hebt gemaakt, niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze Quick Start in de Azure CLI zijn gemaakt.
 
 ```azurecli-interactive
 az group delete --name myresourcegroup

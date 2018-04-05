@@ -1,25 +1,23 @@
 ---
-title: Overzicht van statusbewaking voor Azure Application Gateway | Microsoft Docs
+title: Overzicht van statusbewaking voor Azure Application Gateway
 description: Meer informatie over de bewakingsmogelijkheden in Azure Application Gateway
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
-ms.assetid: 7eeba328-bb2d-4d3e-bdac-7552e7900b7f
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-ms.author: davidmu
-ms.openlocfilehash: 83a0b1be1aba48146aa1aaedb36ad9d9d23f17d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/30/2018
+ms.author: victorh
+ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Overzicht van Application Gateway health monitoring
 
@@ -40,11 +38,30 @@ Bijvoorbeeld: U configureert uw toepassingsgateway voor het gebruik van back-end
 
 Als de standaard WebTest controle voor server A mislukt, de toepassingsgateway wordt deze verwijderd uit de back-end-pool en netwerkverkeer wordt gestopt tot deze server. De standaard-test blijft nog steeds controleren voor de server een elke 30 seconden. Als server A is op een aanvraag van een standaard health test reageert, deze weer als goed is toegevoegd aan de groep back-end en weer verkeer naar de server opnieuw.
 
+### <a name="probe-matching"></a>Test die overeenkomt met
+
+Standaard een HTTP (S) antwoord met statuscode 200 wordt beschouwd als in orde. Aangepaste statuscontroles ondersteunen bijkomend twee overeenkomende criteria. Die overeenkomen met criteria kan worden gebruikt om de standaardinterpretatie van welke consititutes eventueel een gezonde antwoord worden gewijzigd.
+
+De volgende zijn die overeenkomen met criteria: 
+
+- **HTTP-antwoord status code overeen** - test die overeenkomt met het criterium voor het accepteren van gebruiker opgegeven HTTP-antwoord code of antwoord code bereiken. Afzonderlijke door komma's gescheiden statuscodes antwoord of een bereik van statuscode wordt ondersteund.
+- **HTTP-antwoord instantie overeen** - test op HTTP-antwoordtekst en overeenkomsten aan een gebruiker ziet eruit tekenreeks opgegeven vergelijkingscriterium. Merk op dat overeenkomst met de zoekt alleen voor de aanwezigheid van de gebruiker opgegeven tekenreeks in de hoofdtekst van het antwoord en is niet de overeen met een volledige reguliere expressie.
+
+Vergelijkingscriteria kunnen worden opgegeven met de `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet.
+
+Bijvoorbeeld:
+
+```
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```
+Zodra de vergelijkingscriteria is opgegeven, deze kan worden gekoppeld als u wilt met behulp van configuratie-test een `-Match` parameter in PowerShell.
+
 ### <a name="default-health-probe-settings"></a>Standaardinstellingen health test
 
 | Test-eigenschap | Waarde | Beschrijving |
 | --- | --- | --- |
-| WebTest-URL |http://127.0.0.1:\<poort\>/ |URL-pad |
+| Test-URL |http://127.0.0.1:\<Poort\>/ |URL-pad |
 | Interval |30 |Testinterval in seconden |
 | Time-out |30 |Test time-out in seconden |
 | Drempelwaarde voor onjuiste status |3 |Aantal nieuwe pogingen-test. De back-endserver is gemarkeerd als niet actief nadat de foutentelling opeenvolgende test heeft de drempelwaarde voor onjuiste status bereikt. |
@@ -52,7 +69,7 @@ Als de standaard WebTest controle voor server A mislukt, de toepassingsgateway w
 > [!NOTE]
 > De poort is dezelfde poort als de back-end-HTTP-instellingen.
 
-De standaard-test wordt bekeken alleen http://127.0.0.1:\<poort\> health-status vast te stellen. Als u nodig hebt voor het configureren van de health test om te gaan naar een aangepaste URL of andere instellingen te wijzigen, moet u aangepaste tests gebruiken, zoals beschreven in de volgende stappen uit:
+De standaard-test wordt bekeken alleen http://127.0.0.1: \<poort\> health-status vast te stellen. Als u nodig hebt voor het configureren van de health test om te gaan naar een aangepaste URL of andere instellingen te wijzigen, moet u aangepaste tests gebruiken, zoals beschreven in de volgende stappen uit:
 
 ## <a name="custom-health-probe"></a>Aangepaste health test
 

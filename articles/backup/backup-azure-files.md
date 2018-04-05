@@ -5,19 +5,19 @@ services: backup
 keywords: Voeg geen sleutelwoorden toe en bewerk ze niet zonder overleg met uw SEO-expert.
 author: markgalioto
 ms.author: markgal
-ms.date: 2/21/2018
+ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: b9bf1582aa1c1b8878b8426f60a18282598eb2b9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ba457daca030d3219fe32177b0b5f8b5565ff544
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="back-up-azure-file-shares"></a>Een backup maken van Azure-bestandsshares
+# <a name="back-up-azure-file-shares-preview"></a>Een back-up maken van Azure-bestandsshares (preview)
 
-In dit artikel wordt uitgelegd hoe u een back-up van uw [Azure-bestandsshares](../storage/files/storage-files-introduction.md) kunt maken.
+In dit artikel wordt uitgelegd hoe u met Azure Portal back-ups kunt maken van [Azure-bestandsshares](../storage/files/storage-files-introduction.md) en ze kunt herstellen in Azure.
 
 In deze handleiding leert u het volgende:
 > [!div class="checklist"]
@@ -30,6 +30,16 @@ In deze handleiding leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 Ga voordat u een back-up van een Azure-bestandsshare probeert te maken na dat deze aanwezig is in een van de [ondersteunde typen opslagaccounts](troubleshoot-azure-files.md#preview-boundaries). Zodra u dit hebt bevestigd, kunt u uw bestandsshares beveiligen.
+
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Beperkingen voor back-ups maken van Azure-bestandsshares in de preview-versie
+Back-ups maken van Azure-bestanden is een preview-versie. In de preview-versie gelden de volgende beperkingen:
+- U kunt niet bestandsshares beveiligen in opslagaccounts met replicatie via [zone-redundante opslag (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) of [geografisch redundante opslag met leestoegang (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
+- U kunt niet bestandshares beveiligen in opslagaccounts waarvoor virtuele netwerken zijn ingeschakeld.
+- Er is geen PowerShell of CLI beschikbaar voor het beveiligen van Azure Files.
+- Het maximumaantal geplande back-ups per dag is één.
+- Het maximumaantal on-demand back-ups per dag is vier.
+- Gebruik [resourcevergrendelingen](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) voor het opslagaccount om per ongeluk verwijderen van back-ups uit de Recovery Services-kluis te voorkomen.
+- Verwijder geen momentopnamen die met Azure Backup zijn gemaakt. Het verwijderen van momentopnamen kan leiden tot het verlies van herstelpunten en/of herstelfouten. 
 
 ## <a name="configuring-azure-file-shares-backup"></a>Back-up maken van Azure-bestandsshares configureren
 

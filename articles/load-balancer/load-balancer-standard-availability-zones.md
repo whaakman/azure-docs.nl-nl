@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 03/29/2018
 ms.author: kumud
-ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f5d46fda6bdb32c1a5000883c6aedb2da15e796a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standaard Load Balancer en beschikbaarheid Zones
 
 Azure Load Balancer standaard SKU ondersteunt [beschikbaarheid Zones](../availability-zones/az-overview.md) scenario's. Verschillende nieuwe concepten zijn beschikbaar met standaard Load Balancer, waarmee u kunt de beschikbaarheid in uw scenario end-to-end optimaliseren door het uitlijnen van resources met zones, evenals deze verdelen over zones.  Bekijk [beschikbaarheid Zones](../availability-zones/az-overview.md) voor hulp bij het wat beschikbaarheid Zones zijn, welke regio's wordt momenteel ondersteund beschikbaarheid Zones en andere verwante concepten en producten. Beschikbaarheid Zones in combinatie met standaard Load Balancer is een uitgebreide en flexibele functieset die veel verschillende scenario's kunt maken.  Lees dit document te begrijpen [concepten](#concepts) en fundamentele scenario [richtlijnen ontwerpen](#design).
 
 >[!NOTE]
->Bekijk [beschikbaarheid Zones Preview](https://aka.ms/availabilityzones) voor andere verwante onderwerpen. 
+>Bekijk [beschikbaarheid Zones](https://aka.ms/availabilityzones) voor andere verwante onderwerpen. 
 
 ## <a name="concepts"></a> Beschikbaarheid Zones concepten die worden toegepast met Load Balancer
 
@@ -43,7 +43,7 @@ Een Load Balancer-resource zelf is regionale en nooit zonal.  En een VNet en het
 
 Een Load Balancer-frontend is een Frontend-IP-adresconfiguratie verwijst naar een openbare IP-adres resource of een particulier IP-adres binnen het subnet van een resource van het virtuele netwerk.  Vormt het eindpunt taakverdeling waar uw service wordt weergegeven.
 
-Een Load Balancer-resource kan tegelijk zonal en zone-redundante frontends bevatten.
+Een Load Balancer-resource kan tegelijk zonal en zone-redundante frontends bevatten. 
 
 Wanneer een openbare IP-resource heeft is gegarandeerd aan een zone, is de zonality (of ontbreken daarvan) geen veranderlijke.  Als u wilt wijzigen of laat de zonality van een openbare IP-frontend, moet u het openbare IP-adres in de juiste zone opnieuw.  
 
@@ -219,3 +219,5 @@ Er is geen algemene richtlijnen dat een een betere keuze dan de andere is zonder
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [beschikbaarheid Zones](../availability-zones/az-overview.md)
 - Meer informatie over [standaard Load Balancer](load-balancer-standard-overview.md)
+- Meer informatie over hoe [taakverdeling maken voor virtuele machines in een zone met een standaard Load Balancer met een zonal frontend.](load-balancer-standard-public-zonal-cli.md)
+- Meer informatie over hoe [taakverdeling maken voor virtuele machines in zones met een standaard Load Balancer met een zone-redundante frontend](load-balancer-standard-public-zone-redundant-cli.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 73212a231d11136854115922df423a7cb5b08f05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption for Windows and Linux IaaS VM 's
 Microsoft Azure is sterk doorgevoerd om ervoor te zorgen voor uw privacy van gegevens, onafhankelijkheid van gegevens en schakelt u de controle uw Azure gegevens via een bereik van gehoste technologieën geavanceerde voor het versleutelen, beheren en beheren van versleutelingssleutels besturingselement & audit toegang van gegevens. Dit biedt Azure-klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van hun bedrijf. In dit artikel vindt we u een nieuwe technologieoplossing 'Azure Disk Encryption for Windows and Linux IaaS VM van' om te helpen beveiligen en bescherming van uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verplichtingen. Het artikel biedt gedetailleerde richtlijnen over het gebruik van de Azure disk encryption functies met inbegrip van de ondersteunde scenario's en de gebruiker optreedt.
@@ -780,14 +780,10 @@ Gebruik de [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx)
 > De virtuele machine met een afzonderlijke gegevens/resource VHD voorbereiden voor het ophalen van de externe sleutel met BitLocker.
 
 #### <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Versleutelen van een OS-station op een actieve Linux VM
-Versleuteling van een OS-station op een actieve Linux VM wordt ondersteund door de volgende distributies:
-
-* RHEL 7.2
-* CentOS 7.2
-* Ubuntu 16.04
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Vereisten voor de OS-schijfversleuteling
 
+* De virtuele machine moet gebruikmaken van een distributiepunt dat compatibel is met schijfversleuteling OS zoals vermeld in de [Veelgestelde vragen over Azure schijf versleuteling](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * De virtuele machine moet worden gemaakt vanuit de Marketplace-installatiekopie in Azure Resource Manager.
 * Azure virtuele machine met ten minste 4 GB aan RAM-geheugen (aanbevolen grootte is 7 GB).
 * (Voor RHEL en CentOS) SELinux uitschakelen. Zie '4.4.2 SELinux uitschakelen. Uitschakelen van SELinux' in de [SELinux van de gebruiker en de Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) op de virtuele machine.

@@ -14,18 +14,18 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Uw eerste functie maken met Java en Maven (Preview)
 
 > [!NOTE] 
 > Java voor Azure Functions is momenteel in preview.
 
-In deze snelstartgids vindt u instructies voor het maken van een [serverloos](https://azure.microsoft.com/overview/serverless-computing/) Functions-project met Maven. Daarnaast wordt uitgelegd hoe u het project lokaal kunt testen en vervolgens kunt implementeren naar Azure Functions. Wanneer u bent klaar, hebt u een door HTTP getriggerde functie-app die in Azure wordt uitgevoerd.
+In deze snelstart vindt u instructies voor het maken van een [serverloos](https://azure.microsoft.com/overview/serverless-computing/) Functions-project met Maven. Daarnaast wordt uitgelegd hoe u het project lokaal kunt testen en vervolgens kunt implementeren naar Azure Functions. Wanneer u bent klaar, hebt u een door HTTP getriggerde functie-app die in Azure wordt uitgevoerd.
 
 ![Hello World-functie aanroepen vanaf de opdrachtregel met cURL](media/functions-create-java-maven/hello-azure.png)
 
@@ -34,18 +34,25 @@ In deze snelstartgids vindt u instructies voor het maken van een [serverloos](ht
 ## <a name="prerequisites"></a>Vereisten
 Als u functie-apps wilt ontwikkelen met behulp van Java, moet het volgende zijn geïnstalleerd:
 
--  [.NET Core](https://www.microsoft.com/net/core), nieuwste versie.
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), versie 8.
--  [Azure-CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), versie 3.0 of hoger.
--  [Node.js](https://nodejs.org/download/), versie 8.6 of hoger.
+-  [Azure-CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
-> De omgevingsvariabele JAVA_HOME moet zijn ingesteld op de installatielocatie van de JDK om deze snelstartgids te kunnen voltooien.
+> De omgevingsvariabele JAVA_HOME moet zijn ingesteld op de installatielocatie van de JDK om deze quickstart te kunnen voltooien.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools installeren
 
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) is een lokale ontwikkelingsomgeving voor het schrijven, uitvoeren en debuggen van Azure Functions. Installeer de met [npm](https://www.npmjs.com/), dat is opgenomen in [Node.js](https://nodejs.org/).
+[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) is een lokale ontwikkelingsomgeving voor het schrijven, uitvoeren en debuggen van Azure Functions. 
+
+Als u deze wilt installeren, gaat u naar het gedeelte [Installeren](https://github.com/azure/azure-functions-core-tools#installing) en zoekt u naar de specifieke instructies voor uw besturingssysteem (Windows, Linux, Mac).
+
+U kunt deze ook handmatig installeren met [npm](https://www.npmjs.com/), opgenomen in [Node.js](https://nodejs.org/), na de volgende vereiste installaties:
+
+-  [.NET Core](https://www.microsoft.com/net/core), nieuwste versie.
+-  [Node.js](https://nodejs.org/download/), versie 8.6 of hoger.
+
+Voer het volgende uit om door te gaan met installeren op basis van npm:
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -185,6 +192,4 @@ U hebt een Java-functie-app gemaakt met een eenvoudige HTTP-trigger en deze geï
 - Neem de [Azure Functions Java-handleiding voor ontwikkelaars](functions-reference-java.md) door voor meer informatie over het ontwikkelen van Java-functies. Deze handleiding is vooralsnog door een vertaalmachine vertaald.
 - U kunt extra functies met verschillende triggers toevoegen aan uw project met behulp van de Maven-target `azure-functions:add`.
 - Gebruik Visual Studio Code om functies lokaal te debuggen. Als u het [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) hebt geïnstalleerd en het Functions-project hebt geopend in Visual Studio Code, [kunt u de debugger via attach koppelen](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) aan poort 5005. Vervolgens stelt u een onderbrekingspunt in de editor in en activeert u de functie terwijl deze lokaal wordt uitgevoerd: ![Functies debuggen in Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-
-
-
+- Gebruik Visual Studio Code om op afstand fouten in functies op te sporen. Raadpleeg de documentatie [Writing serverless Java Applications](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) (Serverloze Java-apps schrijven) voor meer informatie.

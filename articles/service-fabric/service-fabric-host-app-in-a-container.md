@@ -1,24 +1,24 @@
 ---
 title: Een .NET-toepassing in een container implementeren in Azure Service Fabric | Microsoft Docs
-description: "Leert u hoe u een .NET-app in Visual Studio in een Docker-container moet inpakken. Deze nieuwe 'container'-app wordt vervolgens geïmplementeerd op een Service Fabric-cluster."
+description: Leert u hoe u een .NET-app in Visual Studio in een Docker-container moet inpakken. Deze nieuwe 'container'-app wordt vervolgens geïmplementeerd op een Service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Een .NET-toepassing in een Windows-container implementeren in Azure Service Fabric
 
@@ -49,13 +49,6 @@ Service Fabric-toepassingen worden uitgevoerd op een cluster, een set virtuele o
 Nu u een Service Fabric-cluster in Azure uitvoert, bent u klaar om een beperkte toepassing te maken en implementeren. Om onze toepassing in een container te starten, moeten we **Docker Support** toevoegen aan het project in Visual Studio. Bij het toevoegen van **Docker Support** aan de toepassing gebeuren er twee dingen. Eerst wordt een _Dockerfile_ toegevoegd aan het project. Dit nieuwe bestand beschrijft hoe de containerinstallatiekopie moet worden opgebouwd. Als tweede wordt een nieuw _docker-compose_-project toegevoegd aan de oplossing. Het nieuwe project bevat enkele docker-compose-bestanden. Docker-compose-bestanden kunnen worden gebruikt om te beschrijven hoe de container wordt uitgevoerd.
 
 Meer informatie over het werken met [Visual Studio Container Tools][link-visualstudio-container-tools].
-
->[!NOTE]
->Als dit de eerste keer is dat u Windows-containerinstallatiekopieën op uw computer uitvoert, moet Docker CE eerst de basisinstallatiekopieën voor uw containers ophalen. De afbeeldingen die in deze zelfstudie worden gebruikt zijn 14 GB. Ga aan de slag en voer de volgende terminalopdracht in voor het ophalen van de basisinstallatiekopieën:
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
 
 ### <a name="add-docker-support"></a>Docker-ondersteuning toevoegen
 
@@ -205,7 +198,7 @@ Druk op **OK**.
    >Het bouwen van de containerinstallatiekopieën duurt ongeveer 15 minuten.
    >De eerste implementatie in het Service Fabric-cluster zorgt ervoor dat de basis Windows Server Core-container afbeeldingen worden gedownload. Het downloaden duurt 5-10 minuten extra.
 
-Blader naar de Fabrikam Call Center-toepassing met de URL van uw cluster: bijvoorbeeld *http://mycluster.westeurope.cloudapp.azure.com*
+Ga via de URL van uw cluster naar de toepassing Fabrikam Call Center: bijvoorbeeld *http://mycluster.westeurope.cloudapp.azure.com*
 
 Nu u de Fabrikam Call Center-app in een container hebt geïmplementeerd, kunt u de [Azure-portal][link-azure-portal] openen en de toepassing zien die wordt uitgevoerd in Service Fabric. Open om de toepassing uit te proberen een webbrowser en ga naar de URL van uw Service Fabric-cluster.
 

@@ -2,10 +2,10 @@
 title: Azure IoT-Apparaatbeheer met iothub explorer | Microsoft Docs
 description: De iothub-explorer CLI-hulpprogramma gebruiken voor Azure IoT Hub Apparaatbeheer, met daarin de rechtstreekse methoden en de Twin eigenschappen van de gewenste opties.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
+tags: ''
 keywords: Azure iot-Apparaatbeheer, Apparaatbeheer via azure iot hub, apparaat management iot, Apparaatbeheer via iot hub
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e22c321e896abe8d5eb659866256942099cac2d9
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Iothub-explorer gebruiken voor het beheer van Azure IoT Hub-apparaten
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 01/18/2018
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub explorer](https://github.com/azure/iothub-explorer) is een CLI-hulpprogramma dat u op een host uitvoert computer voor het beheren van apparaat-id's in het register van IoT hub. Het wordt geleverd met opties die u kunt verschillende taken uit te voeren.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 | Beheeroptie          | Taak                                                                                                                            |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -40,8 +42,7 @@ ms.lasthandoff: 01/18/2018
 
 Zie voor meer gedetailleerde uitleg over de verschillen en richtlijnen over het gebruik van deze opties, [apparaat-naar-cloud communicatie richtlijnen](iot-hub-devguide-d2c-guidance.md) en [Cloud-naar-apparaat communicatie richtlijnen](iot-hub-devguide-c2d-guidance.md).
 
-> [!NOTE]
-> Apparaatdubbels zijn JSON-documenten waarin statusinformatie van een apparaat (metagegevens, configuraties en voorwaarden) zijn opgeslagen. IoT Hub persistente een apparaat twin voor elk apparaat dat verbinding met het maakt. Zie voor meer informatie over apparaat horende [aan de slag met apparaat horende](iot-hub-node-node-twin-getstarted.md).
+Apparaatdubbels zijn JSON-documenten waarin statusinformatie van een apparaat (metagegevens, configuraties en voorwaarden) zijn opgeslagen. IoT Hub persistente een apparaat twin voor elk apparaat dat verbinding met het maakt. Zie voor meer informatie over apparaat horende [aan de slag met apparaat horende](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Wat u leert
 

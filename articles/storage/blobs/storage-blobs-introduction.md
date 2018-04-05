@@ -1,22 +1,22 @@
 ---
-title: Inleiding tot Azure Blob-opslag | Microsoft Docs
-description: Inleiding tot Azure Blob-opslag
+title: Inleiding tot Blob-opslag - objectopslag in Azure | Microsoft Docs
+description: Azure Blob-opslag is ontworpen voor het opslaan van grote hoeveelheden ongestructureerde objectgegevens, zoals tekst of binaire gegevens. Uw toepassingen hebben toegang tot objecten in Blob-opslag vanuit PowerShell of via Azure CLI, vanuit code via Azure Storage-clientbibliotheken of via REST.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: overview
-ms.date: 09/28/2017
+ms.date: 03/27/2018
 ms.author: tamram
-ms.openlocfilehash: aabc10b1c1c501e4fa0eb31835c2818cfb8942c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0fff0032ec2452413bcd1df3175634b14a64208f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Inleiding tot Blob-opslag
 
-Azure Blob Storage is een service voor het opslaan van grote hoeveelheden ongestructureerde objectgegevens, zoals tekst of binaire gegevens, die via HTTP of HTTPS overal vandaan kunnen worden opgevraagd. U kunt Blob Storage gebruiken om gegevens openbaar te maken of om toepassingsgegevens privé op te slaan.
+Azure Blob-opslag is Microsoft's cloudoplossing voor de opslag van gegevensobjecten. Blob-opslag is bedoeld voor het opslaan van grote hoeveelheden ongestructureerde objectgegevens, zoals tekst of binaire gegevens. Gegevens in Blob-opslag zijn overal ter wereld toegankelijk via HTTP of HTTPS. U kunt Blob Storage gebruiken om gegevens openbaar te maken of om toepassingsgegevens privé op te slaan.
 
 Veelvoorkomende toepassingen van Blob Storage zijn onder andere:
 
@@ -25,6 +25,7 @@ Veelvoorkomende toepassingen van Blob Storage zijn onder andere:
 * Streaming van video en audio
 * De opslag van gegevens voor back-up en herstel, herstel na noodgevallen en archivering
 * De opslag van gegevens voor analyse door een on-premises in Azure gehoste service
+* De opslag van VHD's voor gebruik met Azure Virtual Machines
 
 ## <a name="blob-service-concepts"></a>Concepten van Blob service
 

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: ff4b587790872511c7b545233685f5b3ae068291
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 072ce2952e3cdea47b02ef7656ca67d4bc0ae8f1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -1113,7 +1113,7 @@ In webpagina's, is het raadzaam om deze te stellen van de webserver status, in p
     }({instrumentationKey:  
       // Generate from server property:
       @Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey"
+         TelemetryConfiguration.Active.InstrumentationKey;
     }) // ...
 
 

@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a870852d937732bb38f08420a07bfe696860e08b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Richtlijnen voor apparaat-naar-cloud-communicatie
 Bij het verzenden van informatie van de app voor het apparaat naar de oplossing voor back beschrijft-end, IoT-Hub de drie opties:
@@ -26,6 +26,8 @@ Bij het verzenden van informatie van de app voor het apparaat naar de oplossing 
 * [Apparaat-naar-cloudberichten] [ lnk-d2c] voor tijd reeks Telemetrie en waarschuwingen.
 * [Apparaat-twin eigenschappen de gerapporteerd] [ lnk-twins] voor het melden van apparaat staat informatie zoals de beschikbare mogelijkheden voorwaarden of de status van langlopende werkstromen. Bijvoorbeeld, configuratie en software-updates.
 * [Bestand uploaden] [ lnk-fileupload] voor media-bestanden en grote telemetrie batches geüpload door afwisselend verbonden apparaten of gecomprimeerd om bandbreedte besparen.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Hier volgt een gedetailleerde vergelijking van de verschillende communicatieopties voor apparaat-naar-cloud.
 

@@ -35,11 +35,11 @@ Hier volgen enkele van de functies van Premium-opslag:
 
 * **Premium-opslag-schijven**
 
-    Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden bijgevoegd aan een specifieke virtuele machines voor grootte-serie. Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie, Ls-serie Fs-serie en Esv3-serie virtuele machines. U hebt de mogelijkheid van zeven schijfgrootten: P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), p 40 (2048GB), P50 (4095GB). P4 en P6 schijfgrootten worden alleen nog ondersteund voor schijven die worden beheerd. De grootte van elke schijf heeft zijn eigen prestatiespecificaties. Afhankelijk van uw toepassing, kunt u een of meer schijven aan uw virtuele machine te koppelen. De specificaties in nader worden beschreven [Premium-opslag schaalbaarheids- en prestatiedoelen](#scalability-and-performance-targets).
+    Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden bijgevoegd aan een specifieke virtuele machines voor grootte-serie. Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie, Ls-serie Fs-serie en virtuele machines Esv3-serie. U hebt de mogelijkheid van zeven schijfgrootten: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), p 40 (2048 GB), P50 (4095 GB). P4 en P6 schijfgrootten worden alleen nog ondersteund voor schijven die worden beheerd. De grootte van elke schijf heeft zijn eigen prestatiespecificaties. Afhankelijk van uw toepassing, kunt u een of meer schijven aan uw virtuele machine te koppelen. De specificaties in nader worden beschreven [Premium-opslag schaalbaarheids- en prestatiedoelen](#scalability-and-performance-targets).
 
 * **Premium-pagina-blobs**
 
-    Premium-opslag biedt ondersteuning voor pagina-blobs. Pagina-blobs gebruikt voor het opslaan van permanente, niet-beheerde schijven voor virtuele machines in Premium-opslag. Premium-opslag komt niet in tegenstelling tot standaard Azure Storage ondersteunt blok-blobs, toevoeg-blobs, bestanden, tabellen of wachtrijen. Premium-pagina-blobs ondersteunt zes groottes van P10 P50 en P60 (8191GiB). P60 Premium-pagina-blob wordt niet ondersteund als VM-schijven worden gekoppeld. 
+    Premium-opslag biedt ondersteuning voor pagina-blobs. Pagina-blobs gebruikt voor het opslaan van permanente, niet-beheerde schijven voor virtuele machines in Premium-opslag. Premium-opslag komt niet in tegenstelling tot standaard Azure Storage ondersteunt blok-blobs, toevoeg-blobs, bestanden, tabellen of wachtrijen. Premium-pagina-blobs zes groottes van P10 P50 en P60 ondersteunen (8191GiB). P60 Premium-pagina-blob wordt niet ondersteund als VM-schijven worden gekoppeld. 
 
     Een object dat wordt geplaatst in een premium storage-account is een pagina-blob. De paginablob uitgelijnd op een van de ondersteunde ingerichte formaten. Daarom een premium storage-account is niet bedoeld voor gebruikt voor het opslaan van kleine blobs.
 
@@ -61,7 +61,7 @@ Hier volgen enkele van de functies van Premium-opslag:
 
 ## <a name="supported-vms"></a>Ondersteunde virtuele machines
 
-Premium-opslag biedt ondersteuning voor B-serie, DS-serie DSv2-serie, DSv3-serie GS-serie, Ls-serie, M-serie en Fs-serie virtuele machines. Met deze VM-typen kunt u schijven standard en premium storage. U niet premium-opslag-schijven gebruiken met VM-reeks die geen Premium-opslag-compatibel.
+Premium-opslag biedt ondersteuning voor B-serie, DS-serie DSv2-serie, DSv3-serie GS-serie, Ls-serie, M-serie en virtuele machines Fs-serie. Met deze VM-typen kunt u schijven standard en premium storage. U niet premium-opslag-schijven gebruiken met VM-reeks die geen Premium-opslag-compatibel.
 
 
 Zie [Grootten voor virtuele Windows-machines](../articles/virtual-machines/windows/sizes.md) voor informatie over de VM-typen en -grootten in Azure voor Windows. Zie [Grootten voor virtuele Linux-machines](../articles/virtual-machines/linux/sizes.md) voor informatie over de VM-typen en -grootten in Azure voor Linux.
@@ -103,7 +103,7 @@ Dit zijn enkele van de functies van de DS-serie, DSv2-serie GS-serie, Ls-serie e
 
     De grootste virtuele machine in de DS-serie is momenteel de Standard_DS15_v2. De Standard_DS15_v2 kan maximaal 960 MB/s over alle schijven bieden. De grootste virtuele machine in de GS-serie is de Standard_GS5. De Standard_GS5 kan maximaal 2.000 MB/s over alle schijven bieden.
 
-    Houd er rekening mee dat deze limieten alleen beschikbaar voor schijf verkeer zijn. Deze limieten bevatten geen treffers in cache en netwerkverkeer. Een afzonderlijke bandbreedte is beschikbaar voor VM-netwerkverkeer. Bandbreedte voor netwerkverkeer wijkt af van de toegewezen bandbreedte die wordt gebruikt door de premium-opslag-schijven.
+    Deze limieten zijn alleen beschikbaar voor schijf verkeer. Deze limieten bevatten geen treffers in cache en netwerkverkeer. Een afzonderlijke bandbreedte is beschikbaar voor VM-netwerkverkeer. Bandbreedte voor netwerkverkeer wijkt af van de toegewezen bandbreedte die wordt gebruikt door de premium-opslag-schijven.
 
     Zie voor de meest actuele informatie over maximale IOPS en doorvoerlimieten (bandbreedte) voor virtuele machines Premium-opslag ondersteund [Windows VM-grootten](../articles/virtual-machines/windows/sizes.md) of [Linux VM-grootten](../articles/virtual-machines/linux/sizes.md).
 
@@ -129,11 +129,11 @@ Als u premium storage-accounts voor niet-beheerde schijven gebruikt en uw toepas
 ### <a name="premium-storage-disk-limits"></a>Premium-opslaglimieten schijf
 Wanneer u de schijf voor een premium-opslag inricht, bepaalt de grootte van de schijf de maximale IOPS en doorvoerlimieten (bandbreedte). Azure biedt zeven schijftypen premium storage: P4 (beheerd schijven alleen), P6 (beheerd schijven alleen), P10, P20 P30, p 40 en P50. Elk type opslagschijf premium heeft bepaalde limieten voor IOPS en doorvoerlimieten. Limieten voor de schijftypen worden in de volgende tabel beschreven:
 
-| Premium-schijven Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Schijfgrootte           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOP's per schijf       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Doorvoer per schijf | 25 MB per seconde  | 50 MB per seconde  | 100 MB per seconde | 150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde | 
+| Premium-schijven Type  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Schijfgrootte           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOP's per schijf       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 
+| Doorvoer per schijf | 25 MB per seconde  | 50 MB per seconde  | 100 MB per seconde | 125 MB per seconde | 150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde | 
 
 > [!NOTE]
 > Zorg ervoor dat voldoende bandbreedte beschikbaar is op de virtuele machine op station schijf verkeer, zoals beschreven in [VMs Premium-opslag ondersteund](#premium-storage-supported-vms). Anders wordt is uw schijfdoorvoer en IOP's beperkt tot het verlagen van waarden. Maximale doorvoer en IOP's zijn gebaseerd op de VM-limieten, niet op de schijf limieten beschreven in de voorgaande tabel.  
@@ -148,7 +148,7 @@ Hier volgen een aantal belangrijke zaken weten over de schaalbaarheids- en prest
 
 * **Grootte van de schijf**
 
-    De schijfgrootte (naar boven afronden) Azure toegewezen aan de dichtstbijzijnde premium storage schijf wordt gebruikt, zoals opgegeven in de tabel in de vorige sectie. Bijvoorbeeld, is een schijfgrootte van 100 GB geclassificeerd als een optie P10. Maximaal 500 IOP's, met maximaal 100 MB/s doorvoer kan uitvoeren. Op deze manier een schijf met een grootte van die 400 GB is geclassificeerd als een P20. Maximaal 2300 IOP's, met 150 MB/s doorvoer kan uitvoeren.
+    De schijfgrootte (naar boven afronden) Azure toegewezen aan de dichtstbijzijnde premium storage schijf wordt gebruikt, zoals opgegeven in de tabel in de vorige sectie. Bijvoorbeeld, is een schijfgrootte van 100 GB geclassificeerd als een optie P10. Het kunt maximaal 500 IOPS uitvoeren met maximaal 100 MB/s doorvoer. Op deze manier een schijf met een grootte van die 400 GB is geclassificeerd als een P20. Maximaal 2300 IOP's, met 150 MB/s doorvoer kan uitvoeren.
     
     > [!NOTE]
     > U kunt gemakkelijk de grootte van bestaande schijven verhogen. U wilt bijvoorbeeld Verhoog de grootte van een schijf 30 GB op 128 GB of zelfs op 1 TB. Of u kunt uw schijf P20 niet converteren naar een schijf P30 omdat u meer capaciteit of meer IOPS en doorvoerlimieten moet. 
@@ -170,7 +170,7 @@ Hier volgen een aantal belangrijke zaken weten over de schaalbaarheids- en prest
 
 * **Treffers in cache**
 
-    Treffers in cache zijn niet beperkt door de toegewezen IOPS of doorvoer van de schijf. Bijvoorbeeld, wanneer u een gegevensschijf met gebruikt een **ReadOnly** cache-instelling op een virtuele machine die wordt ondersteund door de Premium-opslag, leest die uit de cache worden behandeld vallen niet onder de IOPS en doorvoerlimieten caps van de schijf. Als de werkbelasting van een schijf hoofdzakelijk is leest, kunt u zeer hoge doorvoersnelheid krijgen. De cache is onderworpen aan afzonderlijke IOPS en doorvoerlimieten op de virtuele machine niveau, op basis van de VM-grootte. DS-serie VMs hebben ongeveer 4000 IOPS en 33 MB/s doorvoer per core voor cache en lokale SSD-i/o's. GS-serie VM's hebben een limiet van 5000 IOP's en 50 MB/s doorvoer per core voor cache en lokale SSD-i/o's. 
+    Treffers in cache zijn niet beperkt door de toegewezen IOPS of doorvoer van de schijf. Bijvoorbeeld, wanneer u een gegevensschijf met gebruikt een **ReadOnly** cache-instelling op een virtuele machine die wordt ondersteund door de Premium-opslag, leest die uit de cache worden behandeld vallen niet onder de IOPS en doorvoerlimieten caps van de schijf. Als de werkbelasting van een schijf hoofdzakelijk is leest, kunt u zeer hoge doorvoersnelheid krijgen. De cache is onderworpen aan afzonderlijke IOPS en doorvoerlimieten op de virtuele machine niveau, op basis van de VM-grootte. DS-serie virtuele machines hebben ongeveer 4000 IOPS en doorvoerlimieten 33 MB/s per core voor cache en lokale SSD-i/o's. GS-serie VM's hebben een limiet van 5000 IOP's en 50 MB/s doorvoer per core voor cache en lokale SSD-i/o's. 
 
 ## <a name="throttling"></a>Beperking
 Beperking optreden, als uw toepassing IOPS of doorvoer groter is dan de toegewezen limieten voor de schijf voor een premium-opslag. Beperking ook optreden als het verkeer van de totale schijfruimte op alle schijven op de virtuele machine groter is dan de schijf Bandbreedtelimiet beschikbaar voor de virtuele machine. Om te voorkomen beperking, is het raadzaam dat u het aantal openstaande i/o-aanvragen voor de schijf beperken. Gebruik een beperken op basis van schaalbaarheids- en prestatiedoelen voor de schijf die u hebt ingericht, en de schijf bandbreedte die beschikbaar zijn voor de virtuele machine.  
@@ -186,7 +186,7 @@ Uw toepassing is 495 i/o-eenheden met een grootte van 16 KB in één seconde op 
 Uw toepassing is 400 i/o-eenheden met een grootte van 256 KB op een schijf P10 verwerkt. De totale bandbreedte is (400 &#215; 256) * 1024 KB = 100 MB/s. Een schijf P10 heeft een doorvoer limiet van 100 MB/s. Als uw toepassing probeert te meer i/o-bewerkingen uitvoeren in die tweede, is deze beperkt omdat deze groter is dan de limiet is toegewezen.
 
 ### <a name="example-3"></a>Voorbeeld 3
-U hebt een VM DS4 met twee P30 schijven die zijn gekoppeld. Elke schijf P30 is geschikt 200 MB/s-doorvoer. Een VM DS4 heeft echter een capaciteit van de totale schijfruimte netwerkbandbreedte van 256 MB/s. U kan niet beide gekoppelde schijven aan de maximale doorvoer station op deze VM DS4 op hetzelfde moment. U lost dit op, kunt u verkeer van 200 MB/s op één schijf en 56 MB/s op de andere schijf tolereren. Als de som van uw verkeer schijf via 256 MB/s gaat, wordt de schijf verkeer beperkt.
+U hebt een VM DS4 met twee P30 schijven die zijn gekoppeld. Elke schijf P30 is geschikt 200 MB/s doorvoer. Een VM DS4 heeft echter een capaciteit van de totale schijfruimte netwerkbandbreedte van 256 MB/s. U kan niet beide gekoppelde schijven aan de maximale doorvoer station op deze VM DS4 op hetzelfde moment. U lost dit op, kunt u verkeer van 200 MB/s op één schijf en 56 MB/s op de andere schijf tolereren. Als de som van uw verkeer schijf via 256 MB/s gaat, wordt de schijf verkeer beperkt.
 
 > [!NOTE]
 > Als uw schijf verkeer voornamelijk uit kleine i/o-grootten bestaat, zal uw toepassing waarschijnlijk de limiet IOPS bereikt voordat de limiet voor de doorvoer. Echter, als het verkeer van de schijf voornamelijk uit grote i/o-grootten bestaat, uw toepassing waarschijnlijk wordt bereikt die is de doorvoer eerst in plaats van de maximale IOPS. U kunt uw toepassing IOPS en doorvoercapaciteit met behulp van de optimale grootte voor i/o-maximaliseren. U kunt ook het aantal openstaande i/o-aanvragen voor een schijf beperken.
@@ -297,14 +297,3 @@ Maakt een back-uptaak met back-ups op basis van tijd, eenvoudig herstel van de v
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen voor meer informatie over Premium-opslag.
-
-### <a name="design-and-implement-with-premium-storage"></a>Ontwerpen en implementeren met Premium-opslag
-* [Ontwerpen voor prestaties voor Premium-opslag](../articles/virtual-machines/windows/premium-storage-performance.md)
-* [BLOB storage-bewerkingen met Premium-opslag](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-### <a name="operational-guidance"></a>Gebruiksaanwijzing
-* [Migreren naar Azure Premium-opslag](../articles/storage/common/storage-migration-to-premium-storage.md)
-
-### <a name="blog-posts"></a>Blogberichten
-* [Algemeen beschikbaar Azure Premium-opslag](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [Aankondiging van de GS-serie: ondersteuning voor Premium-opslag toe te voegen aan de grootste virtuele machines in de openbare cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

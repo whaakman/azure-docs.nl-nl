@@ -5,29 +5,29 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 425e1b08-8789-4377-85f7-c13131fae4ce
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 7aa963e7f7463dbc06ba98e4876ea5d98f6921c8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ef86af61284bb208cc8c469e3fe75bd4f4bdc5bf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub quota's en beperking
 
 ## <a name="quotas-and-throttling"></a>Quota en beperkingen
 Elk Azure-abonnement kan maximaal 10 IoT hubs en maximaal 1 gratis hub hebben.
 
-Elke IoT-hub is ingericht met een bepaald aantal eenheden in een specifieke SKU. Zie voor meer informatie [prijzen van Azure IoT Hub][lnk-pricing]. De SKU en het aantal eenheden bepalen het dagelijkse maximumquotum van berichten die u kunt verzenden.
+Elke IoT-hub is ingericht met een bepaald aantal eenheden in een bepaalde laag. Zie voor meer informatie [prijzen van Azure IoT Hub][lnk-pricing]. De laag en het aantal eenheden bepalen het dagelijkse maximumquotum van berichten die u kunt verzenden.
 
-De SKU bepaalt ook de bandbreedteregeling beperkingen die IoT Hub worden afgedwongen voor alle bewerkingen.
+De laag bepaalt ook de bandbreedteregeling beperkingen die IoT Hub worden afgedwongen voor alle bewerkingen.
 
 ## <a name="operation-throttles"></a>Bewerking vertragingen
 Bewerking vertragingen zijn snelheid beperkingen die zijn toegepast in minuut bereiken en zijn bedoeld om te voorkomen dat misbruik. IoT Hub wordt geprobeerd om te voorkomen dat er fouten indien mogelijk wordt geretourneerd, maar begint uitzonderingen retourneren als de beperking wordt geschonden te lang.
@@ -36,21 +36,21 @@ Op elk gewenst kunt u quota's of versnelling limieten verhogen door het aantal i
 
 De volgende tabel toont de afgedwongen vertragingen. Waarden verwijzen naar een afzonderlijke hub.
 
-| Vertragen | Gratis en S1 hubs | S2-hubs | S3-hubs | 
+| Vertragen | Gratis B1 en S1 | B2 en S2 | B3 en S3 | 
 | -------- | ------- | ------- | ------- |
 | Identiteit registerbewerkingen (maken, ophalen, weergeven, bijwerken en verwijderen) | 1.67/sec/Unit (min-100/unit) | 1.67/sec/Unit (min-100/unit) | 83.33/sec/Unit (min-5000/unit) |
 | Apparaatverbindingen | Hogere van 100 per seconde of sec-12-eenheid <br/> Twee S1 eenheden zijn bijvoorbeeld 2\*12 = 24/sec, maar u hebt ten minste 100 per seconde voor uw units. Met negen S1 eenheden, hebt u 108 per seconde (9\*12) voor uw units. | sec-120-eenheid | 6000/sec/unit |
 | Apparaat-naar-cloud verzendt | Hogere van 100 per seconde of sec-12-eenheid <br/> Twee S1 eenheden zijn bijvoorbeeld 2\*12 = 24/sec, maar u hebt ten minste 100 per seconde voor uw units. Met negen S1 eenheden, hebt u 108 per seconde (9\*12) voor uw units. | sec-120-eenheid | 6000/sec/unit |
-| Cloud-naar-apparaat verzendt | 1.67/sec/Unit (min-100/unit) | 1.67/sec/Unit (min-100/unit) | 83.33/sec/Unit (min-5000/unit) |
-| Cloud-naar-apparaat ontvangt <br/> (alleen als apparaat maakt gebruik van HTTPS)| 16.67/sec/Unit (min-1000/unit) | 16.67/sec/Unit (min-1000/unit) | 833.33/sec/Unit (min-50000/unit) |
+| Cloud-naar-apparaat verzendt<sup>1</sup> | 1.67/sec/Unit (min-100/unit) | 1.67/sec/Unit (min-100/unit) | 83.33/sec/Unit (min-5000/unit) |
+| Cloud-naar-apparaat ontvangt<sup>1</sup> <br/> (alleen als apparaat maakt gebruik van HTTPS)| 16.67/sec/Unit (min-1000/unit) | 16.67/sec/Unit (min-1000/unit) | 833.33/sec/Unit (min-50000/unit) |
 | Bestand uploaden | 1.67 bestand uploaden meldingen/sec/eenheid (min-100/unit) | 1.67 bestand uploaden meldingen/sec/eenheid (min-100/unit) | 83.33 bestand uploaden meldingen/sec/eenheid (min-5000/unit) |
-| Directe methoden | 160KB/sec/unit<sup>1</sup> | 480KB/sec/unit<sup>1</sup> | 24MB/sec/unit<sup>1</sup> | 
-| Apparaatdubbel leest | 10/sec | Hogere van 10 per seconde of sec-1-eenheid | 50/sec/unit |
-| Apparaatdubbel werkt bij | 10/sec | Hogere van 10 per seconde of sec-1-eenheid | 50/sec/unit |
-| Taakbewerkingen <br/> (maken, bijwerken, weergeven, verwijderen) | 1.67/sec/Unit (min-100/unit) | 1.67/sec/Unit (min-100/unit) | 83.33/sec/Unit (min-5000/unit) |
-| Doorvoer van taken per apparaat bewerkingen | 10/sec | Hogere van 10 per seconde of sec-1-eenheid | 50/sec/unit |
+| Directe methoden<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
+| Apparaat-twin leest<sup>1</sup> | 10/sec | Hogere van 10 per seconde of sec-1-eenheid | 50/sec/unit |
+| Twin apparaatupdates<sup>1</sup> | 10/sec | Hogere van 10 per seconde of sec-1-eenheid | 50/sec/unit |
+| Taken operations<sup>1</sup> <br/> (maken, bijwerken, weergeven, verwijderen) | 1.67/sec/Unit (min-100/unit) | 1.67/sec/Unit (min-100/unit) | 83.33/sec/Unit (min-5000/unit) |
+| Taken per apparaat bewerking doorvoer<sup>1</sup> | 10/sec | Hogere van 10 per seconde of sec-1-eenheid | 50/sec/unit |
 
-<sup>1</sup>beperking van de grootte van de meter is 8 KB
+<sup>1</sup>deze functie is niet beschikbaar in de basisstaffel van IoT Hub. Zie voor meer informatie [het kiezen van de juiste IoT-Hub](iot-hub-scaling.md). <br/><sup>2</sup>beperking van de grootte van de meter is 8 KB.
 
 De *apparaatverbindingen* versnelling bepaalt de snelheid waarmee nieuwe apparaatverbindingen worden met een IoT-hub gemaakt kunnen. De *apparaatverbindingen* versnelling heeft geen betrekking op het maximale aantal gelijktijdig verbonden apparaten. De beperking, is afhankelijk van het aantal eenheden die zijn ingericht voor de IoT-hub.
 
@@ -70,13 +70,14 @@ IoT Hub worden afgedwongen andere operationele beperkingen:
 | Bewerking | Limiet |
 | --------- | ----- |
 | Bestand uploaden URI 's | 10000 SAS-URI's kan worden uit voor een opslagaccount in één keer. <br/> Er kunnen 10 SAS URI's per apparaat tegelijk zijn uitgeschakeld. |
-| Taken | Taakgeschiedenis blijft tot 30 dagen <br/> Maximum aantal gelijktijdige taken is 1 (voor gratis) en S1, 5 (voor S2), 10 (voor S3). |
+| Jobs<sup>1</sup> | Taakgeschiedenis blijft tot 30 dagen <br/> Maximum aantal gelijktijdige taken is 1 (voor gratis) en S1, 5 (voor S2), 10 (voor S3). |
 | Extra eindpunten | SKU betaald misschien hubs 10 extra eindpunten. Beschikbare SKU-hubs kunnen één extra eindpunt hebben. |
 | Regels voor het bericht doorsturen | SKU betaald misschien hubs 100 routeringsregels. Beschikbare SKU-hubs misschien vijf routeringsregels. |
 | Apparaat-naar-cloud-berichten | Maximale berichtgrootte van 256 KB |
-| Messaging-cloud-naar-apparaat | Maximale berichtgrootte van 64 KB |
-| Messaging-cloud-naar-apparaat | Maximaal aantal berichten voor de levering van in behandeling is 50 |
-| Directe methode | Directe methode maximale nettolading is 128 KB |
+| Cloud-naar-apparaat messaging<sup>1</sup> | Maximale berichtgrootte 64 KB. Maximaal aantal berichten voor de levering van in behandeling is 50. |
+| Directe methode<sup>1</sup> | Directe methode maximale nettolading is 128 KB. |
+
+<sup>1</sup>deze functie is niet beschikbaar in de basisstaffel van IoT Hub. Zie voor meer informatie [het kiezen van de juiste IoT-Hub](iot-hub-scaling.md).
 
 > [!NOTE]
 > Het maximum aantal apparaten dat u verbinding met een enkele IoT-hub maken kunt is momenteel 500.000. Als u deze limiet verhogen wilt, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).

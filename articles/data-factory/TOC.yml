@@ -118,6 +118,8 @@
   items:
     - name: Visueel gegevensfabrieken maken
       href: author-visually.md
+    - name: Continue integratie en implementatie
+      href: continuous-integration-deployment.md
     - name: Gegevens kopiëren
       items:
         - name: Gegevens kopiëren met de kopieeractiviteit

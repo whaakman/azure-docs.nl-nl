@@ -1,6 +1,6 @@
 ---
 title: De Databricks Notebook-activiteit uitvoeren in Azure Data Factory op een Databricks Notebook
-description: Meer informatie over hoe u de Databricks Notebook-activiteit in een Azure Data Factory kunt gebruiken voor het uitvoeren van een Databricks Notebook in het Databricks-takencluster.
+description: Meer informatie over hoe u de Databricks Notebook-activiteit in een Azure Data Factory kunt gebruiken voor het uitvoeren van een Databricks-notebook in het Databricks-takencluster.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -13,21 +13,21 @@ ms.topic: get-started-article
 ms.date: 3/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: d1dcec26529c747a209dd10fcefbbadaa40365a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7a90906f0bb41b0ced368e9010e0c8a4981f038c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>De Databricks Notebook-activiteit uitvoeren in Azure Data Factory op een Databricks Notebook
+# <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>De Databricks Notebook-activiteit uitvoeren in Azure Data Factory op een Databricks-notebook
 
-In deze zelfstudie gebruikt u de Azure Portal om een Azure Data Factory-pijplijn te maken die een Databricks Notebook uitvoert op basis van het Databricks-takencluster. Bovendien worden tijdens de uitvoering Azure Data Factory-parameters doorgestuurd naar de Databricks Notebook.
+In deze zelfstudie gebruikt u Azure Portal om een Azure Data Factory-pijplijn te maken die een Databricks-notebook uitvoert op basis van het Databricks-takencluster. Bovendien worden tijdens de uitvoering Azure Data Factory-parameters doorgestuurd naar de Databricks-notebook.
 
 In deze zelfstudie voert u de volgende stappen uit:
 
   - Een data factory maken.
 
-  - Een pijplijn maken die gebruikmaakt van de Databricks Notebook-activiteit.
+  - Een pijplijn maken die gebruikmaakt van Databricks Notebook-activiteit.
 
   - Een pijplijnuitvoering activeren.
 
@@ -37,7 +37,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-  - **Azure Databricks-werkruimte**. [Maak een Databricks-werkruimte](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) of gebruik een bestaande werkruimte. U maakt een Python Notebook in uw Azure Databricks-werkruimte. Vervolgens voert u de notebook uit en geeft u er parameters aan door met behulp van Azure Data Factory.
+  - **Azure Databricks-werkruimte**. [Maak een Databricks-werkruimte](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) of gebruik een bestaande werkruimte. U maakt een Python-notebook in uw Azure Databricks-werkruimte. Vervolgens voert u de notebook uit en geeft u er parameters aan door met behulp van Azure Data Factory.
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
@@ -149,7 +149,7 @@ In deze sectie maakt u een aan Databricks gekoppelde service. Deze gekoppelde se
 
           ![Een nieuwe map maken](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Maak een nieuwe notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) met de naam **mynotebook** in de map **adftutorial** en klik op **Maken.**
+       3. [Maak een nieuwe notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) met de naam **mynotebook** in de map **adftutorial****** en klik op **Maken.**
 
           ![Een nieuwe notebook maken](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 

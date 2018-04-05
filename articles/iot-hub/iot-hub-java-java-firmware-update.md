@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: java
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: v-masebo
-ms.openlocfilehash: 024c2e9bf580f97b412a85913ca29d757872556a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 19d9cc6722d65d8bcd76d73fda0f24a598479647
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>Apparaatbeheer gebruiken om te zetten van een apparaat firmware-update (Java/Java)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 In de [aan de slag met Apparaatbeheer] [ lnk-dm-getstarted] zelfstudie, hebt u gezien hoe u de [apparaat twin] [ lnk-devtwin] en [methoden directe] [ lnk-c2dmethod] primitieven op afstand opnieuw opstarten van een apparaat. Deze zelfstudie gebruikt de dezelfde IoT Hub primitieven en ziet u hoe u een end-to-end gesimuleerde firmware-update.  Dit patroon wordt gebruikt in de firmware-update-implementatie voor de [frambozen Pi apparaat implementatie voorbeeld][lnk-rpi-implementation].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 In deze handleiding ontdekt u hoe u:
 

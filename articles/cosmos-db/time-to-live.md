@@ -2,11 +2,11 @@
 title: Verlopen van gegevens in Azure Cosmos DB met levensduur | Microsoft Docs
 description: Microsoft Azure Cosmos DB biedt TTL, de mogelijkheid om documenten automatisch verwijderd uit het systeem na een bepaalde periode.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 keywords: TTL
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 6f8ce4e270b94bf1043c27ba879878e20372ffe7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Gegevens in Azure Cosmos DB verzamelingen automatisch met TTL verloopt
 Toepassingen kunnen maken en opslaan van de enorme hoeveelheden gegevens. Sommige van deze gegevens, zoals machine gegenereerde gegevens, logboeken en gebruiker gebeurtenissessie informatie is alleen nuttig voor een beperkte periode. Zodra de gegevens wordt overtollige aan de behoeften van de toepassing het is veilig om deze gegevens verwijderen en de opslagbehoeften van een toepassing te verminderen.
@@ -49,7 +49,7 @@ De bovenstaande logica kan worden weergegeven in de volgende matrix:
 | --- |:--- |:--- |:--- |
 | TTL ontbreekt op document |Er is niets om op te heffen op documentniveau omdat het document en de verzameling hebt geen concept van TTL. |Er zijn geen documenten in deze verzameling verloopt. |De documenten in deze verzameling verlopen wanneer n interval is verstreken. |
 | TTL = -1 op document |Er zijn geen overschrijven op het documentniveau van het, omdat de verzameling bevat geen definitie van de eigenschap DefaultTTL die een document kan overschrijven. TTL voor een document is niet geïnterpreteerd door het systeem. |Er zijn geen documenten in deze verzameling verloopt. |Het document met TTL =-1 in deze verzameling verloopt nooit. Alle andere documenten verloopt na "n" interval. |
-| TTL = n op document |Er zijn geen overschrijven op het documentniveau van het. TTL voor een document in niet geïnterpreteerd door het systeem. |Het document met TTL = n verloopt na interval n, in seconden. Andere documenten wordt overgenomen van het interval van -1 en nooit verlopen. |Het document met TTL = n verloopt na interval n, in seconden. Andere documenten overneemt "n" interval van de verzameling. |
+| TTL = n op document |Er zijn geen overschrijven op het documentniveau van het. TTL voor een document is niet geïnterpreteerd door het systeem. |Het document met TTL = n verloopt na interval n, in seconden. Andere documenten wordt overgenomen van het interval van -1 en nooit verlopen. |Het document met TTL = n verloopt na interval n, in seconden. Andere documenten overneemt "n" interval van de verzameling. |
 
 ## <a name="configuring-ttl"></a>TTL configureren
 Standaard is de TTL standaard in alle Cosmos DB verzamelingen en op alle documenten uitgeschakeld. TTL kan worden ingesteld via programmacode of via de Azure-portal in de **instellingen** sectie voor de verzameling. 

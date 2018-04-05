@@ -7,6 +7,8 @@
 
 Azure IoT Hub is een volledig beheerde service waarmee betrouwbare en veilige tweerichtingscommunicatie tussen miljoenen apparaten en een oplossing voor back-end. Vorige zelfstudies ([aan de slag met IoT Hub] en [Cloud naar apparaat verzenden met IoT Hub]) illustratie van de apparaat-naar-cloud- en cloud-naar-apparaat messaging basisfunctionaliteit van IoT-Hub. IoT Hub biedt u ook de mogelijkheid om aan te roepen niet duurzame methoden op apparaten vanuit de cloud. Rechtstreekse methoden vertegenwoordigen een request-reply interactie met een apparaat dat vergelijkbaar is met een HTTPS-aanroep in dat ze slagen of onmiddellijk (na een door de gebruiker opgegeven time), mislukken zodat de gebruiker die de status van de aanroep kennen. [Een directe methode aangeroepen voor een apparaat] [ lnk-devguide-methods] worden direct methoden in meer detail beschreven en biedt hulp bij het gebruik van directe methoden in plaats van cloud naar apparaat-berichten of gewenste eigenschappen.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 In deze handleiding ontdekt u hoe u:
 
 * De Azure portal gebruiken voor het maken van een IoT-hub en een apparaat-id maakt in uw IoT-hub.

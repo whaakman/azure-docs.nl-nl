@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
 
@@ -30,7 +30,7 @@ Application Insights biedt ondersteuning voor Java-apps die in Linux, Unix of Wi
 
 U hebt de volgende zaken nodig:
 
-* Oracle JRE 1.6 of hoger, of Zulu JRE 1.6 of hoger
+* Oracle of Zulu JRE versie 1.7 of 1.8
 * Een abonnement op [Microsoft Azure](https://azure.microsoft.com/).
 
 *Als u een web-app hebt die al is gepubliceerd, kunt u de alternatieve procedure volgen om [de SDK tijdens runtime toe te voegen in de webserver](app-insights-java-live.md). Met deze alternatieve procedure hoeft u de code niet helemaal aan te passen, maar hebt u niet de optie om code te schrijven voor het bijhouden van gebruikersactiviteit.*
@@ -169,8 +169,7 @@ De Application Insights-SDK zoekt in deze volgorde naar de sleutel:
 U kunt de instrumentatiesleutel ook [instellen in code](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. Een HTTP-filter toevoegen

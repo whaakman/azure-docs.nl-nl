@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Exemplaar van SQL Server-failovercluster configureren op virtuele Machines in Azure
 
@@ -375,27 +375,13 @@ De load balancer maken:
 
 1. Terug naar de Azure-resourcegroep met de virtuele machines en zoek de nieuwe load balancer. U moet Vernieuw de weergave voor de resourcegroep. Klik op de load balancer.
 
-1. Klik op de load balancer-blade **back-endpools**.
+1. Klik op **back-endpools** en klik op **+ toevoegen** toevoegen van een back-endpool.
 
-1. Klik op **+ toevoegen** toevoegen van een back-endpool.
+1. De back-endpool koppelen aan de beschikbaarheidsset waarin de virtuele machines.
 
-1. Typ een naam voor de back-endpool.
+1. Onder **doel-IP-netwerkconfiguraties**, Controleer **virtuele MACHINE** en kiest u de virtuele machines die wordt opgenomen als clusterknooppunten. Zorg dat alle virtuele machines die als host voor de FCI fungeert bevatten. 
 
-1. Klik op **toevoegen van een virtuele machine**.
-
-1. Op de **virtuele machines kiezen** blade, klikt u op **een beschikbaarheidsset kiezen**.
-
-1. Kies dat de beschikbaarheid van de set dat u de SQL Server-virtuele machines in geplaatst.
-
-1. Op de **virtuele machines kiezen** blade, klikt u op **de virtuele machines kiezen**.
-
-   Uw Azure-portal moet eruitzien als in de volgende afbeelding:
-
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. Klik op **Selecteer** op de **virtuele machines kiezen** blade.
-
-1. Klik op **OK** twee keer.
+1. Klik op **OK** om de back endpool te maken.
 
 ### <a name="configure-a-load-balancer-health-probe"></a>Een load balancer-test health configureren
 

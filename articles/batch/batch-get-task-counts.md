@@ -2,17 +2,17 @@
 title: Voortgang van een taak door de taken op status - Azure Batch worden geteld | Microsoft Docs
 description: De voortgang van een taak door het aanroepen van de bewerking taak telt ophalen om te tellen van taken voor een job. U krijgt een telling van actieve, uitgevoerd en voltooide taken en door de taken die u hebt is geslaagd of mislukt.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: tamram
-ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bc112ed5b481560362962d6b550d336de6b3d9b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>Aantal taken per status voor het bewaken van de voortgang van een taak (Preview)
 
@@ -31,7 +31,7 @@ De bewerking ophalen taak telt telt taken op status, als volgt:
 - Een taak wordt beschouwd als **met** wanneer deze is toegewezen aan een rekenknooppunt, maar is nog niet voltooid. Een taak wordt beschouwd als **met** wanneer de status is `preparing` of `running`, zoals aangegeven door de [informatie ophalen over een taak] [ rest_get_task] bewerking.
 - Een taak wordt beschouwd als **voltooid** wanneer het is niet meer kunnen worden uitgevoerd. Een taak geteld als **voltooid** heeft meestal is voltooid, of succes is voltooid en heeft de limiet voor opnieuw proberen ook uitgeput. 
 
-De bewerking ophalen taak telt rapporten ook hoeveel taken hebt voltooid of mislukt. Batch bepaalt of een taak is geslaagd of door het controleren van mislukt de **resultaat** eigenschap van de eigenschap [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo]:
+De bewerking ophalen taak telt rapporten ook hoeveel taken hebt voltooid of mislukt. Batch bepaalt of een taak is geslaagd of door het controleren van mislukt de **resultaat** eigenschap van de [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] eigenschap:
 
     - Een taak wordt beschouwd als **geslaagd** als het resultaat van uitvoering van de taak is `success`.
     - Een taak wordt beschouwd als **mislukt** als het resultaat van uitvoering van de taak is `failure`.

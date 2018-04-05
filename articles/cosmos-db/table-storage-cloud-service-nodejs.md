@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure Table storage: Node.js-webtoepassing
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="overview"></a>Overzicht
 In deze zelfstudie, de toepassing u gemaakt in de [Node.js-webtoepassing met een snelle] zelfstudie wordt uitgebreid met de Microsoft Azure-clientbibliotheken voor Node.js gebruiken om te werken met data management-services. U kunt uw toepassing uitbreiden door een web gebaseerde takenlijst-toepassing die u naar Azure implementeren kunt te maken. De takenlijst kan een gebruiker taken ophalen, het toevoegen van nieuwe taken en taken te markeren als voltooid.
 
-De items worden opgeslagen in Azure Storage. Azure Storage biedt niet-gestructureerde gegevensopslag die fouttolerante en maximaal beschikbaar is. Azure Storage bevat verschillende gegevensstructuren waar u kunt opslaan en toegang tot gegevens. U kunt de storage-services van de API's opgenomen in de Azure SDK voor Node.js of via de REST-API's gebruiken. Zie voor meer informatie [opslaan en toegang tot gegevens in Azure].
+De items worden opgeslagen in Azure Storage of Azure Cosmos DB. Azure Storage en Azure Cosmos DB bieden ongestructureerde gegevensopslag die fouttolerantie en een hoge beschikbaarheid. Azure Storage en Azure Cosmos DB bevatten verschillende gegevensstructuren waar u kunt opslaan en toegang tot gegevens. U kunt opslag en Azure Cosmos DB services van de API's opgenomen in de Azure SDK voor Node.js of via de REST-API's gebruiken. Zie voor meer informatie [opslaan en toegang tot gegevens in Azure].
 
 Deze zelfstudie wordt ervan uitgegaan dat u hebt voltooid de [Node.js-webtoepassing] en [Node.js snelle][Node.js-webtoepassing met een snelle] zelfstudies.
 
@@ -40,7 +40,7 @@ De volgende schermafbeelding ziet de voltooide toepassing:
 ![De voltooide webpagina in internet explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Storage-referenties instelling in het bestand Web.Config
-U moet doorgeven in de storage-referenties voor toegang tot Azure Storage. Dit wordt gedaan door het gebruik van de toepassingsinstellingen web.config.
+U moet doorgeven in de storage-referenties voor toegang tot Azure Storage of Azure Cosmos DB. Dit wordt gedaan door het gebruik van de toepassingsinstellingen web.config.
 De web.config-instellingen worden doorgegeven als omgevingsvariabelen knooppunt, die vervolgens worden gelezen door de Azure SDK.
 
 > [!NOTE]
@@ -144,7 +144,7 @@ In deze sectie worden de basistoepassing gemaakt door de **snelle** opdracht wor
     Task.prototype = {
       find: function(query, callback) {
         self = this;
-        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+        self.storageClient.queryEntities(this.tablename, query, null, null, function entitiesQueried(error, result) {
           if(error) {
             callback(error);
           } else {
@@ -181,7 +181,7 @@ In deze sectie worden de basistoepassing gemaakt door de **snelle** opdracht wor
             callback(error);
           }
           entity.completed._ = true;
-          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+          self.storageClient.replaceEntity(self.tableName, entity, function entityUpdated(error) {
             if(error) {
               callback(error);
             }
@@ -215,7 +215,7 @@ In deze sectie worden de basistoepassing gemaakt door de **snelle** opdracht wor
     TaskList.prototype = {
       showTasks: function(req, res) {
         self = this;
-        var query = azure.TableQuery()
+        var query = new azure.TableQuery()
           .where('completed eq ?', false);
         self.task.find(query, function itemsFound(error, items) {
           res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -224,7 +224,10 @@ In deze sectie worden de basistoepassing gemaakt door de **snelle** opdracht wor
 
       addTask: function(req,res) {
         var self = this
-        var item = req.body.item;
+        var item = {
+            name: req.body.name, 
+            category: req.body.category
+        };
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
             throw error;
@@ -307,7 +310,7 @@ In deze sectie worden de basistoepassing gemaakt door de **snelle** opdracht wor
             td Category
             td Date
             td Complete
-          if tasks != []
+          if tasks == []
             tr
               td
           else
@@ -325,9 +328,9 @@ In deze sectie worden de basistoepassing gemaakt door de **snelle** opdracht wor
       hr
       form.well(action="/addtask", method="post")
         label Item Name:
-        input(name="item[name]", type="textbox")
+        input(name="name", type="textbox")
         label Item Category:
-        input(name="item[category]", type="textbox")
+        input(name="category", type="textbox")
         br
         button.btn(type="submit") Add item
     ```
@@ -414,7 +417,7 @@ De volgende stappen laten zien hoe om te stoppen en verwijderen van uw toepassin
    Het kan enkele minuten duren voordat de service is verwijderd. Nadat de service is verwijderd, ontvangt u een bericht weergegeven dat aangeeft dat de service is verwijderd.
 
 [Node.js-webtoepassing met een snelle]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-[opslaan en toegang tot gegevens in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[opslaan en toegang tot gegevens in Azure]: https://docs.microsoft.com/azure/storage/
 [Node.js-webtoepassing]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

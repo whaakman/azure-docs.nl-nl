@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Wat te doen in het geval van een Azure Storage-storing
 Bij Microsoft werken we hard om ervoor te zorgen dat onze services altijd beschikbaar zijn. Soms dwingt afgezien van onze invloed ons op een manier die niet-geplande storingen in een of meer regio's veroorzaken. Als u deze zeldzame exemplaren verwerken, bieden we het volgende op hoog niveau richtlijnen voor Azure Storage-services.
@@ -42,10 +42,10 @@ Als een of meer opslagservices tijdelijk niet beschikbaar op een of meer regio's
 In dit geval is geen actie ondernemen vereist. We werken naar eer en geweten voor het herstellen van de beschikbaarheid van de Azure-service. U kunt de servicestatus bewaken op de [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
 
 ### <a name="option-2-copy-data-from-secondary"></a>Optie 2: Gegevens kopiëren van secundaire
-Als u hebt gekozen [geografisch redundante opslag met leestoegang (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (aanbevolen) voor uw storage-accounts, hebt u alleen toegang tot uw gegevens van de secundaire regio. U kunt hulpprogramma's gebruiken zoals [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), en de [bibliotheek voor gegevensverplaatsing van Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) gegevens uit de secundaire regio kopiëren naar een ander opslagaccount in een unimpacted regio en wijst u uw toepassingen aan dit opslagaccount voor zowel lezen als beschikbaarheid schrijven.
+Als u hebt gekozen [geografisch redundante opslag met leestoegang (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (aanbevolen) voor uw storage-accounts, hebt u alleen toegang tot uw gegevens van de secundaire regio. U kunt hulpprogramma's gebruiken zoals [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), en de [bibliotheek voor gegevensverplaatsing van Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) gegevens uit de secundaire regio kopiëren naar een ander opslagaccount in een unimpacted regio en wijst u uw toepassingen aan dit opslagaccount voor zowel lezen als beschikbaarheid schrijven.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Wat ze kunnen verwachten als een opslag-failover wordt uitgevoerd
-Als u hebt gekozen [geografisch redundante opslag (GRS)](storage-redundancy.md#geo-redundant-storage) of [geografisch redundante opslag met leestoegang (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (aanbevolen), Azure Storage houdt uw gegevens duurzaam in twee gebieden (primair en secundair). In beide regio's houdt de Azure Storage voortdurend meerdere replica's van uw gegevens.
+Als u hebt gekozen [geografisch redundante opslag (GRS)](storage-redundancy-grs.md) of [geografisch redundante opslag met leestoegang (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (aanbevolen), Azure Storage houdt uw gegevens duurzaam in twee gebieden (primair en secundair). In beide regio's houdt de Azure Storage voortdurend meerdere replica's van uw gegevens.
 
 Wanneer een regionale noodgeval is van invloed op uw primaire regio, wordt eerst geprobeerd om de service in deze regio te herstellen. Afhankelijk van de aard van de sitedatabase en de effecten, in sommige soms we niet mogelijk om terug te zetten van de primaire regio. Op dat moment wordt uitgevoerd, er een geo-failover. De regio-overschrijdende gegevensreplicatie is een asynchrone proces waarbij een vertraging kunt uitgevoerd, zodat het mogelijk dat de wijzigingen die nog niet is gerepliceerd naar de secundaire regio mogelijk verloren gegaan. U kunt een query de ['Tijd van laatste synchronisatie' van uw opslagaccount](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) voor meer informatie over de replicatiestatus.
 

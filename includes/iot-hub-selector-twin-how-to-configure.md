@@ -9,18 +9,18 @@
 
 ## <a name="introduction"></a>Inleiding
 
-In [aan de slag met IoT Hub apparaat horende][lnk-twin-tutorial], hebt u geleerd hoe u de metagegevens van apparaten instellen van uw oplossing voor back-end met *labels*, voorwaarden apparaat vanuit een app apparaat rapporteren met behulp van *gerapporteerd eigenschappen*, en deze gegevens door middel van een SQL-achtige taal opvragen.
+In [aan de slag met IoT Hub apparaat horende][lnk-twin-tutorial], hebt u geleerd hoe in te stellen apparaten metagegevens met *labels*. U voorwaarden apparaat ontvangen van een apparaat-app met *gerapporteerd eigenschappen*, en vervolgens deze gegevens door middel van een SQL-achtige taal opgevraagd.
 
-In deze zelfstudie maakt u informatie over het gebruik van de apparaat-twin *gewenst eigenschappen* samen met *gerapporteerd eigenschappen*, apparaat-apps op afstand te configureren. Meer specifiek, deze zelfstudie laat zien hoe een apparaat-twin gerapporteerd en gewenste eigenschappen een configuratie met meerdere stappen van de apparaattoepassing van een inschakelen en de zichtbaarheid van de oplossing voor back-end van de status van deze bewerking op alle apparaten opgeven. U vindt meer informatie over de rol van apparaatconfiguraties in [overzicht van Apparaatbeheer met IoT Hub][lnk-dm-overview].
+Deze zelfstudie wordt beschreven hoe u de apparaat-twin *gewenst eigenschappen* en *eigenschappen gerapporteerd* apparaat-apps op afstand te configureren. Gemeld en gewenste eigenschappen in een twin apparaat een configuratie met meerdere stappen van de apparaattoepassing van een inschakelen en geef de zichtbaarheid van de status van deze bewerking op alle apparaten. U vindt meer informatie over de rol van apparaatconfiguraties in [overzicht van Apparaatbeheer met IoT Hub][lnk-dm-overview].
 
-Op een hoog niveau kunt horende apparaten het back-end oplossing om op te geven van de gewenste configuratie voor de beheerde apparaten, in plaats van door specifieke opdrachten te sturen. Hiermee wordt het apparaat die verantwoordelijk is voor de beste manier om het bijwerken van de configuratie ervan (belangrijk in IoT-scenario's waarin specifieke apparaat voorwaarden invloed hebben op het onmiddellijk uit te voeren door specifieke opdrachten) in te stellen geplaatst tijdens voortdurend rapporteren aan de back-end oplossing de huidige status en potentiële fouten van het updateproces. Dit patroon is noodzakelijk hulpmiddel voor het beheer van grote sets van apparaten, zoals kunnen de back-end oplossing volledig inzicht in de status van het configuratieproces hebben op alle apparaten.
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
-> [!NOTE]
-> In scenario's waarin apparaten worden beheerd op een nieuwe interactieve wijze (inschakelen voor een ventilator van een gebruiker beheerde app), kunt u overwegen [methoden directe][lnk-methods].
-> 
-> 
+Op een hoog niveau kunt horende apparaten het back-end oplossing om op te geven van de gewenste configuratie voor de beheerde apparaten, in plaats van door specifieke opdrachten te sturen. Het apparaat is verantwoordelijk voor het instellen van de beste manier om de configuratie van (belangrijk in IoT-scenario's waarin specifieke apparaat voorwaarden invloed hebben op het onmiddellijk uit te voeren door specifieke opdrachten) bijwerken tijdens het rapportage voortdurend de huidige status en potentiële fouten van het updateproces. Dit patroon is noodzakelijk hulpmiddel voor het beheer van grote sets van apparaten, zoals dit de volledige oplossing back-end-zichtbaarheid van de status van het configuratieproces op alle apparaten biedt.
 
-In deze zelfstudie, verandert de back-end oplossing de telemetrie-configuratie van een doelapparaat en dat, als gevolg hiervan volgt de apparaattoepassing een proces met meerdere stappen voor het toepassen van een configuratie-update (bijvoorbeeld vereisen van een software-module opnieuw wordt opgestart, waarvoor deze zelfstudie simuleert met een eenvoudige vertraging).
+> [!TIP]
+> In scenario's waarin apparaten worden beheerd op een nieuwe interactieve wijze (bijvoorbeeld een ventilator van een gebruiker beheerde app inschakelen), kunt u overwegen [methoden directe][lnk-methods].
+
+De back-end oplossing wijzigingen in deze zelfstudie de telemetrie-configuratie van een apparaat zodat de apparaattoepassing van toepassing een configuratie-update is. Een configuratie-update zou bijvoorbeeld een software-module opnieuw wordt opgestart, die in deze zelfstudie met een eenvoudige vertraging simuleert vereisen.
 
 De back-end oplossing slaat de configuratie in de apparaat-twin gewenste eigenschappen in de volgende manier:
 
@@ -39,10 +39,8 @@ De back-end oplossing slaat de configuratie in de apparaat-twin gewenste eigensc
             ...
         }
 
-> [!NOTE]
-> Omdat configuraties kunnen complexe objecten, unieke id's zijn toegewezen (hashes of [GUID's][lnk-guid]) voor het vereenvoudigen van hun vergelijkingen.
-> 
-> 
+Omdat configuraties kunnen complexe objecten, unieke id's zijn toegewezen (hashes of [GUID's][lnk-guid]).
+
 
 De app apparaat rapporteert de huidige configuratie voor het spiegelen van de gewenste eigenschap **telemetryConfig** in de gerapporteerde eigenschappen:
 
@@ -62,7 +60,7 @@ De app apparaat rapporteert de huidige configuratie voor het spiegelen van de ge
 
 Opmerking hoe de gerapporteerde **telemetryConfig** heeft een extra eigenschap **status**die worden gebruikt voor het rapporteren van de status van het configuratieproces van de update.
 
-Wanneer een nieuwe gewenste configuratie wordt ontvangen, rapporteert de apparaattoepassing een in behandeling configuratie door de gegevens te wijzigen:
+Wanneer een nieuwe gewenste configuratie wordt ontvangen, rapporteert de apparaattoepassing een in behandeling configuratie door de status te wijzigen:
 
         {
             "properties": {
@@ -82,8 +80,7 @@ Wanneer een nieuwe gewenste configuratie wordt ontvangen, rapporteert de apparaa
             }
         }
 
-Klik vervolgens op een later tijdstip rapporteert de apparaattoepassing het slagen of mislukken van deze bewerking door het bijwerken van de bovenstaande eigenschap.
-Houd er rekening mee hoe de back-end oplossing kunnen op elk gewenst moment de status van de configuratie niet opvragen op alle apparaten.
+Klik vervolgens op een later tijdstip rapporteert de apparaattoepassing het slagen of mislukken van deze bewerking door het bijwerken van de eigenschap. De back-end oplossing kan de status van het configuratieproces opvragen op alle apparaten op elk gewenst moment.
 
 In deze handleiding ontdekt u hoe u:
 

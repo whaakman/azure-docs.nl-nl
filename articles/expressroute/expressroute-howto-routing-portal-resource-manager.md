@@ -5,7 +5,7 @@ documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1ad6c62c3c5828143cb78f464fc1181bdf3b19f7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f0f0a31abc4e2d3114d71729c6c447c569295290
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Maken en wijzigen van de peering voor een ExpressRoute-circuit
 
@@ -61,8 +61,6 @@ Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de c
 > 
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft-peering maken
-
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
 
 1. Configureer het ExpressRoute-circuit. Zorg dat het circuit volledig is ingericht door de connectiviteitsprovider voordat u verder gaat. Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteitsprovider om in te schakelen van Microsoft-peering voor u te vragen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider routering voor u, na het maken van het circuit niet beheert blijven echter uw configuratie met behulp van de volgende stappen.
 

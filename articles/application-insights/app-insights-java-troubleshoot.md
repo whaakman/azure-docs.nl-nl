@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 894b2234074dcfb262de9033a7728cad3bef2248
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b3205603b91077ca2c3226dcb78589de37d15cf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Probleemoplossing voor en antwoorden op vragen over Application Insights voor Java
 Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen enkele tips.
@@ -48,7 +48,7 @@ Vragen of problemen met [Azure Application Insights in Java][java]? Hier volgen 
 * Bekijkt u de juiste AI-resource? Neem overeen met de sleutel van uw toepassing op de resource waarbij u telemetrie verwacht. Ze moeten hetzelfde zijn.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Ik zie niet alle gegevens die ik ben verwacht
-* Open de quota en prijzen blade en controleer of [steekproeven](app-insights-sampling.md) wordt uitgevoerd. (de verzending van 100% betekent dat steekproeven in bewerking niet.) De Application Insights-service kan worden ingesteld op accepteert alleen een fractie van de telemetrie van uw app binnenkomt. Hiermee houdt u binnen uw maandelijkse quotum telemetrie. 
+* Open het gebruik en geschatte kosten pagina en controleer of [steekproeven](app-insights-sampling.md) wordt uitgevoerd. (de verzending van 100% betekent dat steekproeven in bewerking niet.) De Application Insights-service kan worden ingesteld op accepteert alleen een fractie van de telemetrie van uw app binnenkomt. Hiermee houdt u binnen uw maandelijkse quotum telemetrie. 
 * Hebt u SDK steekproeven ingeschakeld? Zo ja, zou u gegevens met de frequentie die is opgegeven voor de toepasselijke typen actieve.
 * Voert u een oudere versie van Java SDK? Vanaf versie 2.0.1, hebben we fouttolerantie mechanisme voor het afhandelen van onregelmatige netwerk en back-end-fouten, evenals gegevenspersistentie op lokale stations geïntroduceerd.
 * Zijn ophalen u beperkt vanwege een uitzonderlijk groot telemetrie? Als u informatie logboekregistratie inschakelt, ziet u een logboek bericht 'App worden beperkt door'. De huidige limiet is 32 kB telemetrie items/seconde.

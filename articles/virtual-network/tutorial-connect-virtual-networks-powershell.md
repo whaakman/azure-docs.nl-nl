@@ -1,26 +1,27 @@
 ---
 title: Virtuele netwerken te verbinden met het virtuele netwerk peering - PowerShell | Microsoft Docs
-description: Ontdek hoe u virtuele netwerken te verbinden met het virtuele netwerk peering.
+description: In dit artikel leert u hoe u virtuele netwerken te verbinden met het virtuele netwerk peering, met behulp van Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
+ms.assetid: ''
 ms.service: virtual-network
-ms.devlang: 
-ms.topic: 
+ms.devlang: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: b067dfd6d50b61614c2f3de2fa0e159cd645f9eb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.custom: ''
+ms.openlocfilehash: 445baa36f33cbe02b68bdb37406f842932089183
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Virtuele netwerken te verbinden met het virtuele netwerk peering met behulp van PowerShell
 
@@ -36,7 +37,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Als u wilt installeren en gebruiken van PowerShell lokaal, in dit artikel is vereist voor de Azure PowerShell moduleversie 5.4.1 of hoger. Voer ` Get-Module -ListAvailable AzureRM` de geïnstalleerde versie vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
+Als u wilt installeren en gebruiken van PowerShell lokaal, in dit artikel is vereist voor de Azure PowerShell moduleversie 5.4.1 of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
 
 ## <a name="create-virtual-networks"></a>Virtuele netwerken maken
 
@@ -157,7 +158,7 @@ De virtuele machine duurt een paar minuten maken. Ga niet verder met latere stap
 
 ## <a name="communicate-between-vms"></a>Communicatie tussen virtuele machines
 
-U kunt verbinding maken met het openbare IP-adres van een virtuele machine vanaf het Internet. Gebruik [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) te retourneren van het openbare IP-adres van een virtuele machine. Het volgende voorbeeld wordt het openbare IP-adres van de *myVm1* VM:
+U kunt verbinding maken met het openbare IP-adres van een virtuele machine vanaf het internet. Gebruik [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) te retourneren van het openbare IP-adres van een virtuele machine. Het volgende voorbeeld wordt het openbare IP-adres van de *myVm1* VM:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -203,35 +204,8 @@ Wanneer deze niet langer nodig is, gebruik [Remove-AzureRmResourcegroup](/powers
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-**<a name="register"></a>Registreren voor de peering preview globale virtueel netwerk**
-
-Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Virtuele netwerken in verschillende regio's is momenteel in preview-peering. Zie [virtuele netwerk updates](https://azure.microsoft.com/updates/?product=virtual-network) voor beschikbare regio's. Virtuele netwerken to-peer tussen regio's, moet u eerst registreren voor de preview, door de volgende stappen (binnen het abonnement elk virtueel netwerk dat u wilt peer wordt):
-
-1. Registreer het abonnement dat elke virtuele netwerk dat u wilt peer in voor de preview hiertoe de volgende opdrachten:
-
-    ```powershell-interactive
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-2. Bevestig dat u voor de preview zijn geregistreerd met de volgende opdracht:
-
-    ```powershell-interactive    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-
-    Als u probeert te peer virtuele netwerken in verschillende regio's voordat de **RegistrationState** uitvoer wordt weergegeven nadat het invoeren van de vorige opdracht is **geregistreerde** voor beide abonnementen peering mislukt .
-
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u twee netwerken te verbinden met het virtuele netwerk peering. In dit artikel hebt u geleerd hoe u twee netwerken, in dezelfde Azure-locatie, verbinden met het virtuele netwerk peering. U kunt ook virtuele netwerken in peer [verschillende regio's](#register)in [verschillende Azure-abonnementen](create-peering-different-subscriptions.md#portal) en kunt u [hub en spoke-netwerk ontwerpen](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) met peering. Voordat de peering productie virtuele netwerken, het raadzaam dat u zorgvuldig vertrouwd raken met de [peering overzicht](virtual-network-peering-overview.md), [beheren peering](virtual-network-manage-peering.md), en [virtueel netwerk limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+In dit artikel hebt u geleerd hoe u twee netwerken in dezelfde Azure-regio, verbinden met het virtuele netwerk peering. U kunt ook virtuele netwerken in verschillende peer [ondersteunde regio's](virtual-network-manage-peering.md#cross-region) en in [verschillende Azure-abonnementen](create-peering-different-subscriptions.md#powershell), evenals maken [hub en spoke-netwerk ontwerpen](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) met peering. Zie voor meer informatie over het virtuele netwerk peering, [peering Virtual network-overzicht](virtual-network-peering-overview.md) en [beheren van virtueel netwerk peerings](virtual-network-manage-peering.md).
 
-U kunt [uw eigen computer verbinden met een virtueel netwerk](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via een VPN, en communiceren met resources in een virtueel netwerk of in virtuele netwerken peer is ingesteld. Scriptvoorbeelden van het voor herbruikbare scripts om uit te voeren veel van de taken besproken in het virtuele netwerk artikelen blijven.
-
-> [!div class="nextstepaction"]
-> [Voorbeelden van virtueel netwerk script](../networking/powershell-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+U kunt [uw eigen computer verbinden met een virtueel netwerk](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via een VPN, en communiceren met resources in een virtueel netwerk of in virtuele netwerken peer is ingesteld. Zie voor herbruikbare scripts om uit te voeren veel van de taken besproken in het virtuele netwerk artikelen [voorbeelden script](powershell-samples.md).

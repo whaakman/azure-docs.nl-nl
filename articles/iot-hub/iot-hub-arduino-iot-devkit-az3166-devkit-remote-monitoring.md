@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 92efd0970bcf516c4210f831a0c2f23b3ee7b5d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b288595ca06c3a3cccb72082658f1927f2ae558a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Verbinding maken met MXChip IoT DevKit Azure IoT Suite voor externe controle
 
@@ -35,7 +35,7 @@ Voltooid de [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot
 
 Een actief Azure-abonnement. Als u geen abonnement hebt, kunt u via een van deze twee manieren registreren:
 
-* Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azureinfo.microsoft.com/us-freetrial.html)
+* Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azure.microsoft.com/en-us/free/)
 * Claim uw [Azure-tegoeden](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) als u MSDN of Visual Studio-abonnee bent
 
 ## <a name="create-an-azure-iot-suite"></a>Maken van een Azure IoT Suite

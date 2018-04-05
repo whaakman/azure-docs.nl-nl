@@ -2,21 +2,21 @@
 title: Azure Batch compute knooppunt omgevingsvariabelen | Microsoft Docs
 description: Knooppunt omgeving variabeleverwijzing berekenen voor Azure Batch Analytics.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 05/05/2017
-ms.author: tamram
-ms.openlocfilehash: 29f642754430957e77ef68946f721f8e15dba065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: ca8d6a6484cd1f145e7d807681bf2d012f2399e0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch compute knooppunt-omgevingsvariabelen
 De [Azure Batch-service](https://azure.microsoft.com/services/batch/) stelt u de volgende omgevingsvariabelen op rekenknooppunten. U kunt verwijzen naar deze omgevingsvariabelen in taak opdrachtregels, en de programma's en scripts worden uitgevoerd door de opdracht-regels.
@@ -44,7 +44,7 @@ De opdrachtregels uitgevoerd door de taken op rekenknooppunten knooppunten komen
 | AZ_BATCH_JOB_ID                 | De ID van de job waartoe de taak behoort. | Alle taken, behalve de taak starten. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | Het volledige pad van de taakvoorbereidingstaak [taakmap] [ files_dirs] op het knooppunt. | Alle taken met uitzondering van begintaak en jobvoorbereidingstaak. Alleen beschikbaar als de taak is geconfigureerd met een jobvoorbereidingstaak. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | Het volledige pad van de taakvoorbereidingstaak [taak werkmap] [ files_dirs] op het knooppunt. | Alle taken met uitzondering van begintaak en jobvoorbereidingstaak. Alleen beschikbaar als de taak is geconfigureerd met een jobvoorbereidingstaak. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
-| AZ_BATCH_NODE_ID                | De ID van het knooppunt dat de taak is toegewezen. | Alle taken. | TVM-1219235766_3-20160919t172711z |
+| AZ_BATCH_NODE_ID                | De ID van het knooppunt dat de taak is toegewezen. | Alle taken. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_ROOT_DIR          | Het volledige pad van de hoofdmap van alle [Batch-mappen] [ files_dirs] op het knooppunt. | Alle taken. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | Het volledige pad van de [gedeelde map] [ files_dirs] op het knooppunt. Alle taken die worden uitgevoerd op een knooppunt hebt lezen/schrijven-toegang tot deze map. Taken die worden uitgevoerd op andere knooppunten hoeft geen externe toegang tot deze map (dit is niet een netwerkmap 'gedeeld'). | Alle taken. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | Het volledige pad van de [start taakmap] [ files_dirs] op het knooppunt. | Alle taken. | C:\user\tasks\startup |
@@ -52,7 +52,7 @@ De opdrachtregels uitgevoerd door de taken op rekenknooppunten knooppunten komen
 | AZ_BATCH_TASK_DIR               | Het volledige pad van de [taakmap] [ files_dirs] op het knooppunt. Deze map bevat de `stdout.txt` en `stderr.txt` voor de taak en de AZ_BATCH_TASK_WORKING_DIR. | Alle taken. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | De id van de huidige taak. | Alle taken, behalve de taak starten. | task001 |
 | AZ_BATCH_TASK_WORKING_DIR       | Het volledige pad van de [taak werkmap] [ files_dirs] op het knooppunt. De actieve taak heeft lees-/ schrijftoegang tot deze map. | Alle taken. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
-| CCP_NODES                       | De lijst met knooppunten en het aantal kernen per knooppunt dat wordt toegewezen aan een [taak met meerdere instanties][multi_instance]. Knooppunten en kernen worden vermeld in de notatie`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, waarbij het aantal knooppunten wordt gevolgd door een of meer IP-adressen en het aantal kernen voor elk. |  Meerdere exemplaren primaire en subtaken zijn. |`2 10.0.0.4 1 10.0.0.5 1` |
+| CCP_NODES                       | De lijst met knooppunten en het aantal kernen per knooppunt dat wordt toegewezen aan een [taak met meerdere instanties][multi_instance]. Knooppunten en kernen worden vermeld in de notatie `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, waarbij het aantal knooppunten wordt gevolgd door een of meer IP-adressen en het aantal kernen voor elk. |  Meerdere exemplaren primaire en subtaken zijn. |`2 10.0.0.4 1 10.0.0.5 1` |
 | AZ_BATCH_NODE_LIST              | De lijst met knooppunten die zijn toegewezen aan een [taak met meerdere instanties] [ multi_instance] in de notatie `nodeIP;nodeIP`. | Meerdere exemplaren primaire en subtaken zijn. | `10.0.0.4;10.0.0.5` |
 | AZ_BATCH_HOST_LIST              | De lijst met knooppunten die zijn toegewezen aan een [taak met meerdere instanties] [ multi_instance] in de notatie `nodeIP,nodeIP`. | Meerdere exemplaren primaire en subtaken zijn. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_MASTER_NODE            | De IP-adres en poort van het rekenknooppunt waarop de primaire taak van een [taak met meerdere instanties] [ multi_instance] wordt uitgevoerd. | Meerdere exemplaren primaire en subtaken zijn. | `10.0.0.4:6000`|

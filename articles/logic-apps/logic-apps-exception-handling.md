@@ -2,23 +2,23 @@
 title: Fout- en uitzonderingsverwerking voor logische Apps in Azure | Microsoft Docs
 description: Patronen voor fout- en afhandeling van uitzonderingen in Logic Apps.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: dereklee
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 2ae4f0ae9782ada23089d364e8a1700144ef5ff7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Voor het afhandelen van fouten en uitzonderingen in Logic Apps
 
@@ -55,9 +55,9 @@ Als u een beleid voor opnieuw proberen in niet definieert de **retryPolicy** sec
         "retryPolicy" : {
             "type": "exponential",
             "count": 4,
-            "interval": "PT7.5S",
+            "interval": "PT7S",
             "minimumInterval": "PT5S",
-            "maximumInterval": "PT45S"
+            "maximumInterval": "PT1H"
         }
     },
     "runAfter": {}
@@ -177,7 +177,7 @@ Hoewel het afvangen van fouten van een scope nuttig is, kunt u ook context om te
 
 De  **@result()** functie accepteert van een enkele parameter (van de scope-naam) en retourneert een matrix met alle actie resultaten uit binnen dat bereik. Deze actie-objecten bevatten dezelfde kenmerken als de  **@actions()** object, zoals de actie begintijd, eindtijd, status, invoer, correlatie-id's en uitvoer. Als u wilt verzenden context voor acties die is mislukt binnen een bereik, u gemakkelijk kunt combineren een  **@result()** werken met een **runAfter** eigenschap.
 
-Uitvoeren van een actie *voor elk* actie in een bereik dat is een **mislukt** resultaat, en om te filteren op de matrix van de resultaten naar de mislukte acties, kunt u koppel  **@result()** met een  **[matrix van Filter](../connectors/connectors-native-query.md)**  actie en een  **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)**  lus. U kunt de gefilterde resultaten matrix en een actie uitvoeren voor elke fout met de **ForEach** lus. 
+Uitvoeren van een actie *voor elk* actie in een bereik dat is een **mislukt** resultaat, en om te filteren op de matrix van de resultaten naar de mislukte acties, kunt u koppel  **@result()** met een **[matrix van Filter](../connectors/connectors-native-query.md)** actie en een **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)** lus. U kunt de gefilterde resultaten matrix en een actie uitvoeren voor elke fout met de **ForEach** lus. 
 
 Hier volgt een voorbeeld, gevolgd door een gedetailleerde uitleg, die een HTTP POST-aanvraag met de hoofdtekst van de reactie van alle acties die niet binnen het bereik 'My_Scope' verzendt:
 

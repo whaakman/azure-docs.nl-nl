@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: nberdy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,14 +15,17 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 47bf7437eda09a536aa2d960cf5ec474e23356a6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Begrijpen en direct methoden uit IoT Hub aanroepen
-IoT-Hub kunt u direct methoden op apparaten uit de cloud. Rechtstreekse methoden vertegenwoordigen een request-reply interactie met een apparaat dat vergelijkbaar is met een HTTP-aanroep in dat ze slagen of onmiddellijk (na een door de gebruiker opgegeven time mislukken). Deze aanpak is nuttig voor scenario's waarin het verloop van directe actie verschillend, afhankelijk van of het apparaat is kunnen reageren. Verzendt een SMS wake-up bijvoorbeeld op een apparaat als het offline (SMS wordt duurder dan een methodeaanroep).
+IoT Hub biedt u de mogelijkheid om aan te roepen rechtstreekse methoden op apparaten vanuit de cloud. Rechtstreekse methoden vertegenwoordigen een request-reply interactie met een apparaat dat vergelijkbaar is met een HTTP-aanroep in dat ze slagen of onmiddellijk (na een door de gebruiker opgegeven time mislukken). Deze aanpak is nuttig voor scenario's waarin het verloop van directe actie verschillend, afhankelijk van of het apparaat is kunnen reageren. Verzendt een SMS wake-up bijvoorbeeld op een apparaat als het offline (SMS wordt duurder dan een methodeaanroep).
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 Elke methode apparaat gericht op één apparaat. [Taken] [ lnk-devguide-jobs] plannen methodeaanroep voor niet-verbonden apparaten en bieden een manier om aan te roepen rechtstreekse methoden op meerdere apparaten.
 
 Iedereen met **service verbinding** machtigingen voor IoT Hub kunnen een methode aangeroepen voor een apparaat.
@@ -86,7 +89,7 @@ De back-end-app ontvangt een antwoord dat bestaat uit:
 ## <a name="handle-a-direct-method-on-a-device"></a>Verwerken van een directe methode op een apparaat
 ### <a name="mqtt"></a>MQTT
 #### <a name="method-invocation"></a>De methodeaanroep
-Directe methodeaanvragen in het onderwerp MQTT, ontvangen apparaten:`$iothub/methods/POST/{method name}/?$rid={request id}`
+Directe methodeaanvragen in het onderwerp MQTT, ontvangen apparaten: `$iothub/methods/POST/{method name}/?$rid={request id}`
 
 De instantie die het apparaat ontvangt is in de volgende indeling:
 
@@ -109,7 +112,7 @@ De hoofdtekst kan is ingesteld door het apparaat en geen status.
 
 ### <a name="amqp"></a>AMQP
 #### <a name="method-invocation"></a>De methodeaanroep
-Het apparaat ontvangt directe methodeaanvragen door een koppeling ontvangen op adres`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+Het apparaat ontvangt directe methodeaanvragen door een koppeling ontvangen op adres `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
 Het AMQP-bericht binnenkomt op de koppeling ontvangen dat de aanvraag methode vertegenwoordigt. Het volgende bevat:
 * De correlatie-ID-eigenschap, die een aanvraag-ID bevat die moet worden doorgegeven met de desbetreffende reactie van de methode terug
@@ -117,7 +120,7 @@ Het AMQP-bericht binnenkomt op de koppeling ontvangen dat de aanvraag methode ve
 * De tekst van het AMQP-bericht met de nettolading van de methode als JSON
 
 #### <a name="response"></a>Antwoord
-Het apparaat maakt een verzendende koppeling om te retourneren van het antwoord van de methode op adres`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+Het apparaat maakt een verzendende koppeling om te retourneren van het antwoord van de methode op adres `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
 De methode antwoord geretourneerd op de koppeling verzenden en de structuur van als volgt:
 * De correlatie-ID-eigenschap, die de aanvraag-ID doorgegeven in de methode aanvraagbericht bevat

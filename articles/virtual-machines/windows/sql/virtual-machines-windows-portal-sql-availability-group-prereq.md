@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2a0af65af068f3a78a08e46e0e42caefd87d7b1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Voldoen aan de vereisten voor het maken van AlwaysOn-beschikbaarheidsgroepen op virtuele machines in Azure
 
@@ -42,7 +42,7 @@ U hebt een Azure-account nodig. U kunt [gratis Azure-account openen](/pricing/fr
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 1. Meld u aan bij [Azure Portal](http://portal.azure.com).
-2. Klik op  **+**  voor het maken van een nieuw object in de portal.
+2. Klik op **+** voor het maken van een nieuw object in de portal.
 
    ![Nieuw object](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
 
@@ -51,9 +51,9 @@ U hebt een Azure-account nodig. U kunt [gratis Azure-account openen](/pricing/fr
    ![Resourcegroep](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Klik op **resourcegroep**.
 5. Klik op **Create**.
-6. Op de **resourcegroep** blade onder **Resourcegroepnaam**, typ een naam voor de resourcegroep. Typ bijvoorbeeld **sql-ha-rg**.
+6. Onder **Resourcegroepnaam**, typ een naam voor de resourcegroep. Typ bijvoorbeeld **sql-ha-rg**.
 7. Als u meerdere Azure-abonnementen hebt, controleert u of het abonnement de Azure-abonnement dat u wilt maken van de beschikbaarheidsgroep in.
-8. Selecteer een locatie. De locatie is de Azure-regio waar u wilt maken van de beschikbaarheidsgroep. Voor deze zelfstudie gaan we voor het bouwen van alle resources in een Azure-locatie.
+8. Selecteer een locatie. De locatie is de Azure-regio waar u wilt maken van de beschikbaarheidsgroep. In dit artikel wordt uitgelegd alle resources in een Azure-locatie.
 9. Controleer **vastmaken aan dashboard** is ingeschakeld. Deze instelling optioneel wordt een snelkoppeling voor de resourcegroep op de Azure-portaldashboard.
 
    ![Resourcegroep](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
@@ -69,14 +69,14 @@ De oplossing maakt gebruik van een virtueel netwerk met twee subnetten. De [Virt
 
 Het virtuele netwerk maken:
 
-1. Klik in de Azure-portal in de resourcegroep op **+ toevoegen**. Azure wordt geopend de **Alles** blade.
+1. Klik in de Azure-portal in de resourcegroep op **+ toevoegen**. 
 
    ![Nieuw item](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/02-newiteminrg.png)
 2. Zoeken naar **virtueel netwerk**.
 
      ![Het virtuele netwerk zoeken](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/04-findvirtualnetwork.png)
 3. Klik op **virtueel netwerk**.
-4. Op de **virtueel netwerk** blade, klikt u op de **Resource Manager** implementatiemodel en klik vervolgens op **maken**.
+4. Op de **virtueel netwerk**, klikt u op de **Resource Manager** implementatiemodel en klik vervolgens op **maken**.
 
     De volgende tabel ziet u de instellingen voor het virtuele netwerk:
 
@@ -106,14 +106,14 @@ Het nieuwe virtuele netwerk heeft een subnet, met de naam **Admin**. Dit subnet 
 1. Klik op de resourcegroep die u hebt gemaakt, op uw dashboard **SQL-HA-RG**. Het netwerk niet vinden in de resourcegroep onder **Resources**.
 
     Als **SQL-HA-RG** niet wordt weergegeven, vinden door te klikken op **resourcegroepen** en filteren op naam van de resourcegroep.
-2. Klik op **autoHAVNET** op de lijst met resources. Azure opent u de blade van de configuratie van netwerk.
-3. Op de **autoHAVNET** blade virtueel netwerk onder **instellingen** , klikt u op **subnetten**.
+2. Klik op **autoHAVNET** op de lijst met resources. 
+3. Op de **autoHAVNET** virtuele netwerk, onder **instellingen** , klikt u op **subnetten**.
 
     Let op het subnet dat u al hebt gemaakt.
 
    ![Het virtuele netwerk configureren](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/07-addsubnet.png)
 5. Maak een tweede subnet. Klik op **+ Subnet**.
-6. Op de **subnet toevoegen** blade configureren van het subnet met typen **sqlsubnet** onder **naam**. Azure automatisch een geldige geeft **-adresbereik**. Controleer of dit adresbereik ten minste 10 adressen erin. In een productieomgeving mogelijk meer adressen.
+6. Op **subnet toevoegen**, het subnet configureren door te typen **sqlsubnet** onder **naam**. Azure automatisch een geldige geeft **-adresbereik**. Controleer of dit adresbereik ten minste 10 adressen erin. In een productieomgeving mogelijk meer adressen.
 7. Klik op **OK**.
 
     ![Het virtuele netwerk configureren](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/08-configuresubnet.png)
@@ -134,7 +134,7 @@ De volgende tabel geeft een overzicht van de configuratie-instellingen van het n
 
 ## <a name="create-availability-sets"></a>Beschikbaarheidssets maken
 
-Voordat u virtuele machines maken, moet u beschikbaarheidssets maken. Beschikbaarheidssets Verminder de uitvaltijd van gebeurtenissen voor gepland of ongepland onderhoud. Een Azure beschikbaarheidsset is een logische groep resources die door Azure wordt geplaatst op fysieke domeinen met fouten en domeinen van de update. Een foutdomein zorgt ervoor dat de leden van de beschikbaarheidsset afzonderlijke energie- en netwerkbronnen. Een updatedomein zorgt ervoor dat de leden van de beschikbaarheidsset niet worden verbroken voor onderhoud op hetzelfde moment. Zie voor meer informatie [de beschikbaarheid van virtuele machines beheren](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Voordat u virtuele machines maken, moet u beschikbaarheidssets maken. Beschikbaarheidssets Verminder de uitvaltijd van gebeurtenissen voor gepland of ongepland onderhoud. Een Azure beschikbaarheidsset is een logische groep resources die door Azure wordt geplaatst op fysieke domeinen met fouten en domeinen van de update. Een foutdomein zorgt ervoor dat de leden van de beschikbaarheidsset afzonderlijke energie- en netwerkbronnen. Een updatedomein zorgt ervoor dat de leden van de beschikbaarheidsset niet worden verbroken voor onderhoud op hetzelfde moment. Zie voor meer informatie, [de beschikbaarheid van virtuele machines beheren](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 U moet twee beschikbaarheidssets. Een is voor de domeincontrollers. De tweede is voor de VM's van SQL Server.
 
@@ -157,9 +157,9 @@ Wanneer u het netwerk, subnetten, beschikbaarheidssets en een Internet gerichte 
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Maken van virtuele machines voor de domeincontrollers
 Als u wilt maken en configureren van de domeincontrollers, terug naar de **SQL-HA-RG** resourcegroep.
 
-1. Klik op **Add**. De **Alles** blade wordt geopend.
+1. Klik op **Add**. 
 2. Type **Windows Server 2016 Datacenter**.
-3. Klik op **Windows Server 2016 Datacenter**. In de **Windows Server 2016 Datacenter** blade, Controleer of het implementatiemodel **Resource Manager**, en klik vervolgens op **maken**. Azure wordt geopend de **virtuele machine maken** blade.
+3. Klik op **Windows Server 2016 Datacenter**. In **Windows Server 2016 Datacenter**, Controleer of het implementatiemodel **Resource Manager**, en klik vervolgens op **maken**. 
 
 Herhaal de voorgaande stappen voor het maken van twee virtuele machines. Naam van de twee virtuele machines:
 
@@ -202,7 +202,7 @@ Nadat de virtuele machines worden gemaakt, configureert u de domeincontroller.
 ### <a name="configure-the-domain-controller"></a>De domeincontroller configureren
 In de volgende stappen configureert de **ad-primaire-dc** machines als een domeincontroller voor corp.contoso.com.
 
-1. Open in de portal de **SQL-HA-RG** resource Groepsbeleid en selecteer de **ad-primaire-dc** machine. Op de **ad-primaire-dc** blade, klikt u op **Connect** een RDP-bestand voor toegang tot extern bureaublad te openen.
+1. Open in de portal de **SQL-HA-RG** resource Groepsbeleid en selecteer de **ad-primaire-dc** machine. Op **ad-primaire-dc**, klikt u op **Connect** een RDP-bestand voor toegang tot extern bureaublad te openen.
 
     ![Verbinding maken met een virtuele machine](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
 2. Meld u aan met uw geconfigureerde beheerdersaccount (**\DomainAdmin**) en het wachtwoord (**Contoso! 0000**).
@@ -246,7 +246,7 @@ Een manier om op te halen van het primaire domeincontroller IP-adres is via de A
 
 2. Klik op de primaire domeincontroller.
 
-3. Klik op de blade van de domeincontroller primair domein **netwerkinterfaces**.
+3. Klik op de primaire domeincontroller **netwerkinterfaces**.
 
 ![Netwerkinterfaces](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/25-primarydcip.png)
 
@@ -266,7 +266,7 @@ Na het maken van de eerste domeincontroller en DNS op de eerste server inschakel
 ### <a name="configure-the-second-domain-controller"></a>De tweede domeincontroller configureren
 Nadat de primaire domeincontroller opnieuw is opgestart, kunt u de tweede domeincontroller configureren. Deze stap optioneel is voor hoge beschikbaarheid. Volg deze stappen voor het configureren van de tweede domeincontroller:
 
-1. Open in de portal de **SQL-HA-RG** resource Groepsbeleid en selecteer de **ad-secundaire-dc** machine. Op de **ad-secundaire-dc** blade, klikt u op **Connect** een RDP-bestand voor toegang tot extern bureaublad te openen.
+1. Open in de portal de **SQL-HA-RG** resource Groepsbeleid en selecteer de **ad-secundaire-dc** machine. Op **ad-secundaire-dc**, klikt u op **Connect** een RDP-bestand voor toegang tot extern bureaublad te openen.
 2. Aanmelden bij de virtuele machine met behulp van uw geconfigureerde beheerdersaccount (**BUILTIN\DomainAdmin**) en het wachtwoord (**Contoso! 0000**).
 3. Het voorkeurs-DNS-serveradres wijzigen op het adres van de domeincontroller.
 4. In **Netwerkcentrum**, klikt u op de netwerkinterface.
@@ -305,7 +305,7 @@ Nadat de server klaar is voor wijzigingen in de configuratie, moet u de server o
 
 ### <a name="add-the-private-ip-address-to-the-second-domain-controller-to-the-vpn-dns-server"></a>Het privé IP-adres toevoegen aan de tweede domeincontroller voor de VPN-DNS-Server
 
-Wijzig de DNS-Server zodanig dat het IP-adres van de secundaire domeincontroller in de Azure-portal onder virtuele netwerk. Hierdoor kan de DNS-service redundantie.
+Wijzig de DNS-Server zodanig dat het IP-adres van de secundaire domeincontroller in de Azure-portal onder virtuele netwerk. Deze instelling kunt de DNS-service redundantie.
 
 ### <a name=DomainAccounts></a> Configureer de domeinaccounts
 
@@ -313,7 +313,7 @@ In de volgende stappen configureert u de Active Directory-accounts. De volgende 
 
 | |Installatie-account<br/> |sqlserver-0 <br/>SQL Server en SQL Agent-Service-account |sqlserver-1<br/>SQL Server en SQL Agent-Service-account
 | --- | --- | --- | ---
-|Voornaam |Installeren |SQLSvc1 | SQLSvc2
+|**Voornaam** |Installeren |SQLSvc1 | SQLSvc2
 |**SamAccountName van gebruiker** |Installeren |SQLSvc1 | SQLSvc2
 
 Gebruik de volgende stappen om elk account te maken.
@@ -350,7 +350,7 @@ Nu dat u klaar bent met het configureren van Active Directory en de gebruikersob
 
 Drie extra virtuele machines maken. De oplossing vereist twee virtuele machines met SQL Server-exemplaren. Een derde virtuele machine fungeert als een witness. Windows Server 2016 kunt gebruiken een [cloud witness](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), maar voor consistentie met eerdere besturingssystemen in dit document maakt gebruik van een virtuele machine voor een witness.  
 
-Houd rekening met de volgende deisign beslissingen voordat u doorgaat.
+Houd rekening met de volgende ontwerpbeslissingen nemen voordat u doorgaat.
 
 * **Opslag - Azure schijven die worden beheerd**
 
@@ -358,7 +358,7 @@ Houd rekening met de volgende deisign beslissingen voordat u doorgaat.
 
 * **Netwerk - particuliere IP-adressen in productie**
 
-   Deze zelfstudie maakt gebruik van openbare IP-adressen voor de virtuele machines. Hierdoor kan externe verbinding rechtstreeks naar de virtuele machine via het internet - het configuratiestappen eenvoudiger maakt. Microsoft raadt alleen privé IP-adressen in een productieomgeving aan om te reduceren de kwetsbaarheidfootprint van het exemplaar van SQL Server VM-resource.
+   Deze zelfstudie maakt gebruik van openbare IP-adressen voor de virtuele machines. Een openbaar IP-adres kan externe verbinding rechtstreeks naar de virtuele machine via het internet - het configuratiestappen eenvoudiger maakt. Microsoft raadt alleen privé IP-adressen in een productieomgeving aan om te reduceren de kwetsbaarheidfootprint van het exemplaar van SQL Server VM-resource.
 
 ### <a name="create-and-configure-the-sql-server-vms"></a>Maken en configureren van de VM's van SQL Server
 Maak vervolgens drie virtuele machines--twee SQL Server-VM's en een VM voor een extra clusterknooppunt. Voor het maken van elk van de VM, gaat u terug naar de **SQL-HA-RG** resourcegroep, klikt u op **toevoegen**, zoeken naar het juiste galerij-item, klikt u op **virtuele Machine**, en klik vervolgens op  **Vanuit galerie**. Gebruik de informatie in de volgende tabel kunt u de virtuele machines maken:
@@ -383,7 +383,7 @@ Nadat de drie virtuele machines zijn volledig is ingericht, moet u kan toevoegen
 
 ### <a name="joinDomain"></a>De servers toevoegen aan het domein
 
-U kunt nu aan de virtuele machines naar **corp.contoso.com**. Doe het volgende voor de VM's van SQL Server en de bestandsserver van de bestandsshare-witness:
+U kunt nu aan de virtuele machines naar **corp.contoso.com**. Voer de volgende stappen uit voor de VM's van SQL Server en de bestandsserver van de bestandsshare-witness:
 
 1. Extern verbinding maken met de virtuele machine met **BUILTIN\DomainAdmin**.
 2. In **Serverbeheer**, klikt u op **lokale Server**.
@@ -449,7 +449,7 @@ Herhaal de voorgaande stappen op de andere SQL Server-VM.
 
 ## <a name="add-failover-clustering-features-to-both-sql-server-vms"></a>Functies voor failoverclustering toevoegen aan beide VM's van SQL Server
 
-Om toe te voegen functies voor failoverclustering, doe het volgende op beide VM's van SQL Server:
+Om toe te voegen functies voor failoverclustering, voer de volgende stappen uit op beide VM's van SQL Server:
 
 1. Verbinding maken met de virtuele machine van SQL Server via de Remote Desktop Protocol (RDP) met behulp van de *CORP\install* account. Open **Dashboard voor Serverbeheer**.
 2. Klik op de **functies en onderdelen toevoegen** koppeling in het dashboard.
@@ -492,6 +492,36 @@ De methode de poorten te openen, is afhankelijk van de firewalloplossing die u g
 8. Op de **naam** pagina, geeft u de regelnaam van een (zoals **Azure LB Probe**) in de **naam** in het tekstvak en klik vervolgens op **voltooien**.
 
 Herhaal deze stappen op de tweede SQL Server-VM.
+
+## <a name="configure-system-account-permissions"></a>Machtigingen van het systeemaccount configureren
+
+Voor het maken van een account voor het systeemaccount en relevante machtigingen verlenen, voert u de volgende stappen uit op elke SQL Server-exemplaar:
+
+1. Maak een account voor `[NT AUTHORITY\SYSTEM]` op elke SQL Server-exemplaar. Het volgende script maakt dit account:
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. De volgende machtigingen toewijzen aan `[NT AUTHORITY\SYSTEM]` op elke SQL Server-exemplaar:
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   Deze machtigingen worden verleend door het volgende script:
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
 
 ## <a name="next-steps"></a>Volgende stappen
 

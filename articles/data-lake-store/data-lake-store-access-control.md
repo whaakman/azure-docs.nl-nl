@@ -2,7 +2,7 @@
 title: Overzicht van Access Control in Data Lake Store | Microsoft Docs
 description: Begrijpen hoe toegangsbeheer werkt in Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Toegangsbeheer in Azure Data Lake Store
 
@@ -124,15 +124,15 @@ Hier volgen enkele algemene scenario's om te begrijpen welke machtigingen zijn v
 
 ## <a name="viewing-permissions-in-the-azure-portal"></a>Weergavemachtigingen in de Azure Portal
 
-Klik in de blade **Data Explorer** in het Data Lake Store-account op **Toegang** om de ACL's voor een bestand of map te bekijken. Klik op **Toegang** om de ACL's te zien voor de map **Catalogus** in het **mydatastore**-account.
+Klik in de blade **Data Explorer** in het Data Lake Store-account op **Toegang** om de ACL's te bekijken voor het bestand dat of de map die in de Data Explorer wordt bekeken. Klik op **Toegang** om de ACL's te zien voor de map **Catalogus** in het **mydatastore**-account.
 
 ![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Het bovenste gedeelte van de blade geeft een overzicht weer van uw machtigingen. (In de schermopname is de gebruiker Bob.) Daaronder worden de toegangsmachtigingen weergegeven. Hierna klikt u vanaf de blade **Toegang** op **Eenvoudige weergave** om de vereenvoudigde weergave te zien.
+Op deze blade ziet u in het bovenste gedeelte de machtigingen van de eigenaar. (Op de schermopname is Bob de gebruiker die eigenaar is.) Daarna worden de toegewezen toegangsbeheerlijsten weergegeven. 
 
 ![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Klik op **Geavanceerde weergave** om een geavanceerdere weergave te openen waar de concepten Standaard ACL's, Masker en Supergebruiker worden weergegeven.
+Klik op **Geavanceerde weergave** om een geavanceerdere weergave te openen waar de Standaard ACL's, Masker en een omschrijving van supergebruikers worden weergegeven.  Deze blade biedt ook een manier om Standaard-ACL's recursief in te stellen voor onderliggende bestanden en mappen op basis van de machtigingen van de huidige map.
 
 ![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -164,7 +164,7 @@ De gebruiker die het item heeft gemaakt, wordt automatisch de gebruiker die eige
 * De groep die eigenaar van een bestand is wijzigen, zolang deze gebruiker ook lid is van de doelgroep.
 
 > [!NOTE]
-> De gebruiker die eigenaar is, kan de gebruiker die eigenaar van een ander bestand is *niet* wijzigen. Alleen supergebruikers kunnen de gebruiker die eigenaar is van een bestand of map wijzigen.
+> De gebruiker die eigenaar is, kan de gebruiker die eigenaar van een bestand of map is *niet* wijzigen. Alleen supergebruikers kunnen de gebruiker die eigenaar is van een bestand of map wijzigen.
 >
 >
 
@@ -177,9 +177,14 @@ Wanneer een nieuw item in het bestandssysteem wordt gemaakt, wijst Data Lake Sto
 * **Voorbeeld 1**: de hoofdmap '/'. Deze map wordt gemaakt wanneer een Data Lake Store-account wordt gemaakt. In dit geval is de groep die eigenaar is, ingesteld op de gebruiker die het account heeft gemaakt.
 * **Voorbeeld 2** (alle andere gevallen): wanneer een nieuw item wordt gemaakt, wordt de groep die eigenaar is, gekopieerd van de bovenliggende map.
 
+De groep die eigenaar is, gedraagt zich op dezelfde manier als toegewezen machtigingen voor andere gebruikers/groepen.
+
 De groep die eigenaar is kan worden gewijzigd door:
 * Alle supergebruikers.
 * De gebruiker die eigenaar is, als deze gebruiker ook lid is van de doelgroep.
+
+> [!NOTE]
+> De groep die eigenaar is, kan de ACL's van een bestand of map *niet* wijzigen.
 
 ## <a name="access-check-algorithm"></a>Algoritme voor toegangscontrole
 
@@ -209,7 +214,7 @@ Ter informatie: dit is waar het masker voor een bestand of map wordt weergegeven
 ![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> Het masker voor de Toegangs-ACL en de Standaard-ACL van de hoofdmap ('/') zijn voor een nieuw Data Lake Store-account standaard ingesteld op LSU.
+> Het masker voor de Toegangs-ACL van de hoofdmap ('/') zijn voor een nieuw Data Lake Store-account standaard ingesteld op LSU.
 >
 >
 
@@ -308,7 +313,7 @@ Er wordt een GUID weergegeven wanneer een gebruiker niet meer bestaat in Azure A
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Biedt Data Lake Store ondersteuning voor overname van ACL's?
 
-Nee.
+Nee, maar Standaard ACL's kunnen worden gebruikt voor het instellen van ACL's voor onderliggende bestanden en mappen die nieuw zijn gemaakt onder de bovenliggende map.  
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>Wat is het verschil tussen een masker en een umask?
 
@@ -317,7 +322,7 @@ Nee.
 | De eigenschap **masker** is beschikbaar op elk bestand en elke map. | De **umask** is een eigenschap van het Data Lake Store-account. Er bevindt zich dus slechts één umask in de Data Lake Store.    |
 | De eigenschap masker op een bestand of map kan worden gewijzigd door de gebruiker of groep die eigenaar is van een bestand, of door een supergebruiker. | De eigenschap umask kan niet worden gewijzigd door een gebruiker, zelfs niet door een supergebruiker. Het is een onveranderbare, constante waarde.|
 | De eigenschap masker wordt gebruikt om tijdens het algoritme toegangscontrole bij runtime te bepalen of een gebruiker een bewerking op een bestand of map uit mag voeren. De rol van het masker is om op het moment van toegangscontrole 'effectieve machtigingen' te maken. | De umask wordt helemaal niet gebruikt tijdens toegangscontrole. De umask wordt gebruikt om de Toegangs-ACL van nieuwe onderliggende items van een map te bepalen. |
-| Het masker is een LSU-waarde van 3-bits die van toepassing is op de benoemde gebruiker, de benoemde groep en de gebruiker die eigenaar is op het moment van de toegangscontrole.| De umask is een 9-bits-waarde die van toepassing is op de gebruiker die eigenaar is, de groep die eigenaar is en **anderen** van een nieuw onderliggend element.|
+| Het masker is een LSU-waarde van 3-bits die van toepassing is op de benoemde gebruiker, de groep die eigenaar is en de benoemde groep op het moment van de toegangscontrole.| De umask is een 9-bits-waarde die van toepassing is op de gebruiker die eigenaar is, de groep die eigenaar is en **anderen** van een nieuw onderliggend element.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Waar kan ik meer informatie over het POSIX-model voor toegangsbeheer?
 

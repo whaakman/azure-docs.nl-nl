@@ -1,26 +1,26 @@
 ---
 title: Maken van een virtuele Azure-netwerk - Azure CLI | Microsoft Docs
-description: "Snel informatie over het maken van een virtueel netwerk met de Azure CLI. Een virtueel netwerk kunt Azure-resources, zoals virtuele machines, privé communiceren met elkaar en met het internet."
+description: Snel informatie over het maken van een virtueel netwerk met de Azure CLI. Een virtueel netwerk kunt Azure-resources, zoals virtuele machines, privé communiceren met elkaar en met het internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 46fec48720c817072ce838dd2e4c07725be5a7fe
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: ''
+ms.openlocfilehash: d07f06a1a70c859544c3b1ceb6146dc11e4d10aa
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Een virtueel netwerk maken met de Azure CLI
 
@@ -129,4 +129,4 @@ In dit artikel leert u gemaakt een standaard virtueel netwerk en twee virtuele m
 Standaard Azure onbeperkte persoonlijke communicatie tussen virtuele machines, maar kunt alleen binnenkomende SSH-sessies voor Linux VM's van het Internet. Voor informatie over het toestaan of beperken van verschillende soorten netwerkcommunicatie naar en van virtuele machines, Ga naar de volgende zelfstudie.
 
 > [!div class="nextstepaction"]
-> [Filteren van netwerkverkeer](virtual-networks-create-nsg-arm-cli.md)
+> [Filteren van netwerkverkeer](tutorial-filter-network-traffic-cli.md)

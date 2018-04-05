@@ -3,23 +3,23 @@ title: Taakafhankelijkheden gebruiken voor het uitvoeren van taken op basis van 
 description: Taken maken die afhankelijk van de voltooiing van andere taken zijn voor het verwerken van MapReduce-stijl en vergelijkbare big data werkbelastingen in Azure Batch.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 465306d2de8d1dbe6ba1f0cd74be720b78a50de3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba85e075c39251b0b3d7c4b8bc3f8d53a1afadf7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Maak taakafhankelijkheden taken die afhankelijk van andere taken zijn uitvoeren
 
@@ -76,8 +76,8 @@ Er zijn drie algemene taak afhankelijkheid scenario's die u in Azure Batch gebru
 
 | Scenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Voorbeeld |  |
 |:---:| --- | --- |
-|  [-Op-een](#one-to-one) |*Taakb* is afhankelijk van *Taaka* <p/> *Taakb* zal niet worden gepland voor uitvoering tot *Taaka* is voltooid |![Diagram:-op-een afhankelijkheid][1] |
-|  [Een-op-veel](#one-to-many) |*taakC* is afhankelijk van *taakA* én *taakB* <p/> *Taakc* zal niet worden gepland voor uitvoering totdat beide *Taaka* en *Taakb* zijn met succes voltooid |![Diagram: een-op-veel-afhankelijkheid][2] |
+|  [One-to-one](#one-to-one) |*Taakb* is afhankelijk van *Taaka* <p/> *Taakb* zal niet worden gepland voor uitvoering tot *Taaka* is voltooid |![Diagram:-op-een afhankelijkheid][1] |
+|  [One-to-many](#one-to-many) |*taakC* is afhankelijk van *taakA* én *taakB* <p/> *Taakc* zal niet worden gepland voor uitvoering totdat beide *Taaka* en *Taakb* zijn met succes voltooid |![Diagram: een-op-veel-afhankelijkheid][2] |
 |  [Taak-ID-bereik](#task-id-range) |*Taakd* afhankelijk is van een bereik van taken <p/> *Taakd* zal niet worden gepland voor uitvoering totdat de taken met de id's *1* via *10* zijn met succes voltooid |![Diagram: Taak-id bereik afhankelijkheid][3] |
 
 > [!TIP]
@@ -85,7 +85,7 @@ Er zijn drie algemene taak afhankelijkheid scenario's die u in Azure Batch gebru
 > 
 > In de voorbeelden in deze sectie wordt een afhankelijke taak alleen wordt uitgevoerd nadat de bovenliggende taken is voltooid. Dit gedrag is het standaardgedrag voor een afhankelijke taak. Nadat een bovenliggende-taak is mislukt door te geven van een afhankelijkheid-actie voor het standaardgedrag negeren, kunt u een afhankelijke taak uitvoeren. Zie de [afhankelijkheid acties](#dependency-actions) sectie voor meer informatie.
 
-### <a name="one-to-one"></a>-Op-een
+### <a name="one-to-one"></a>One-to-one
 In een-op-een-relatie is een taak afhankelijk is van een bovenliggende taak voltooid. Voor het maken van de afhankelijkheid bieden een enkele taak-ID toe aan de [taakafhankelijkheden][net_taskdependencies].[ OnId] [ net_onid] statische methode wanneer u de waarden voor de [DependsOn] [ net_dependson] eigenschap van [CloudTask] [ net_cloudtask].
 
 ```csharp

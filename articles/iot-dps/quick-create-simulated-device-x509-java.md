@@ -1,22 +1,22 @@
 ---
 title: Een gesimuleerd X.509-apparaat inrichten in Azure IoT Hub met behulp van Java | Microsoft Docs
-description: 'Azure-snelstart: een gesimuleerd X.509-apparaat maken en inrichten voor IoT Hub Device Provisioning Service met de SDK voor Java'
+description: 'Azure-quickstart: een gesimuleerd X.509-apparaat maken en inrichten voor IoT Hub Device Provisioning Service met de SDK voor Java'
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 12/21/2017
 ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 7e4ad361df8a37d4a82c1bc50c6fb134a1ad5159
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6ff10b982579c8c457c632055e654fefc05858a5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd X.509-apparaat maken en inrichten voor IoT Hub Device Provisioning Service met behulp van de Java apparaat-SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -39,7 +39,12 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
-
+1. Navigeer naar de hoofdmap van azure-iot-sdk-java en bouw het project om alle benodigde pakketten te downloaden.
+   
+   ```cmd/sh
+   cd azure-iot-sdk-java
+   mvn install -DskipTests=true
+   ```
 1. Navigeer naar het certificaatgeneratorproject en bouw het project. 
 
     ```cmd/sh
@@ -64,7 +69,7 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 
         1. Maak een bestand met de naam **_X509individual.pem_** op de Windows-computer, open het in een editor naar keuze en kopieer de inhoud van het klembord naar dit bestand. Sla het bestand op.
 
-        1. Voer **N** in bij _Wilt u de verificatiecode invoeren?_ en houd de programma-uitvoer geopend zodat u deze later in deze snelstart kunt raadplegen. Noteer de waarden voor _Clientcertificaat_ en _Persoonlijke sleutel van clientcertificaat_.
+        1. Voer **N** in bij _Wilt u de verificatiecode invoeren?_ en houd de programma-uitvoer geopend zodat u deze later in deze quickstart kunt raadplegen. Noteer de waarden voor _Clientcertificaat_ en _Persoonlijke sleutel van clientcertificaat_.
     
     - **Inschrijvingsgroepen**:
 
@@ -74,7 +79,7 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 
         1. Maak een bestand met de naam **_X509group.pem_** op de Windows-computer, open het in een editor naar keuze en kopieer de inhoud van het klembord naar dit bestand. Sla het bestand op.
 
-        1. Voer **J** in bij _Wilt u de verificatiecode invoeren?_ en houd het programma geopend zodat u het later in deze snelstart kunt raadplegen. Noteer de waarden voor _Clientcertificaat_, _Persoonlijke sleutel van clientcertificaat_, _Certificaatondertekening_ en _Basiscertificaat_.
+        1. Voer **J** in bij _Wilt u de verificatiecode invoeren?_ en houd het programma geopend zodat u het later in deze quickstart kunt raadplegen. Noteer de waarden voor _Clientcertificaat_, _Persoonlijke sleutel van clientcertificaat_, _Certificaatondertekening_ en _Basiscertificaat_.
 
         > [!NOTE]
         > Het bovenstaande `Root Cert` is alleen van toepassing op certificaten die zijn gemaakt in de console-uitvoer en kan niet worden gebruikt voor het ondertekenen van aanvullende clientcertificaten. Als u een meer robuuste set testcertificaten nodig hebt, raadpleegt u het [Voorbeeld van het beheren van CA-certificaten](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
@@ -236,13 +241,13 @@ Voltooi de stappen in [Set up the IoT Hub Device Provisioning Service with the A
 Als u wilt blijven doorwerken met het voorbeeld van de apparaatclient en deze beter wilt leren kennen, wis de resources die in deze Snelstartgids zijn gemaakt dan niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources die via deze Snelstartgids zijn gemaakt, te verwijderen.
 
 1. Sluit het uitvoervenster van het voorbeeld van de apparaatclient op de computer.
-1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer uw Device Provisioning Service. Open de blade **Inschrijvingen beheren** voor uw service en klik vervolgens op het tabblad **Afzonderlijke inschrijvingen**. Selecteer de *registratie-id* van het apparaat dat u hebt ingeschreven met behulp van deze snelstart. Klik vervolgens bovenaan op de knop **Verwijderen**. 
-1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer vervolgens uw IoT-hub. Open de blade **IoT-apparaten** voor uw hub, selecteer de *apparaat-id* van het apparaat dat u hebt geregistreerd in deze snelstart en klik vervolgens bovenaan op de knop **Verwijderen**.
+1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer uw Device Provisioning Service. Open de blade **Inschrijvingen beheren** voor uw service en klik vervolgens op het tabblad **Afzonderlijke inschrijvingen**. Selecteer de *registratie-id* van het apparaat dat u hebt ingeschreven met behulp van deze quickstart. Klik vervolgens bovenaan op de knop **Verwijderen**. 
+1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer vervolgens uw IoT-hub. Open de blade **IoT-apparaten** voor uw hub, selecteer de *apparaat-id* van het apparaat dat u hebt geregistreerd in deze quickstart en klik vervolgens bovenaan op de knop **Verwijderen**.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een gesimuleerd X.509-apparaat op uw Windows-computer gemaakt en het ingericht voor uw IoT-hub met de Azure IoT Hub Device Provisioning Service in de portal. Als u wilt weten hoe u uw X.509-apparaat programmatisch kunt registreren, gaat u verder met de snelstart voor programmatische registratie van een X.509-apparaat. 
+In deze quickstart hebt u een gesimuleerd X.509-apparaat op uw Windows-computer gemaakt en het ingericht voor uw IoT-hub met de Azure IoT Hub Device Provisioning Service in de portal. Als u wilt weten hoe u uw X.509-apparaat programmatisch kunt registreren, gaat u verder met de quickstart voor programmatische registratie van een X.509-apparaat. 
 
 > [!div class="nextstepaction"]
-> [Azure-snelstart: X.509-apparaat inschrijven bij Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
+> [Azure-quickstart: X.509-apparaat inschrijven bij Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)

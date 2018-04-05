@@ -2,84 +2,117 @@
 title: Aangepaste gebeurtenissen voor Azure Event Grid met Azure Portal | Microsoft Docs
 description: Gebruik Azure Event Grid en PowerShell om een onderwerp te publiceren en u te abonneren op deze gebeurtenis.
 services: event-grid
-keywords: 
+keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f1185c0b2d5d320cd712642f422408348bee7a37
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Aangepaste gebeurtenissen maken en routeren met behulp van Azure Portal en Event Grid
 
-Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u Azure Portal om een aangepast onderwerp te maken, u op het onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Ter vereenvoudiging van dit artikel stuurt u hier de gebeurtenissen echter naar een URL via welke de berichten alleen maar worden verzameld. U maakt deze URL met behulp van hulpprogramma's van derden vanuit [RequestBin](https://requestb.in/) of [Hookbin](https://hookbin.com/).
-
->[!NOTE]
->**RequestBin** en **Hookbin** zijn niet bedoeld voor gebruik met hoge doorvoer. Het gebruik van deze hulpprogramma's is alleen om de mogelijkheden aan te tonen. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma.
-
-Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar een eindpunt zijn verzonden.
-
-![Gebeurtenisgegevens](./media/custom-event-quickstart-portal/request-result.png)
+Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel gebruikt u Azure Portal om een aangepast onderwerp te maken, u op het onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. U verzendt de gebeurtenis naar een Azure-functie die de gegevens van de gebeurtenis registreert. Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar een eindpunt zijn verzonden en zijn geregistreerd.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-resource-group"></a>Een resourcegroep maken
-
-Event Grid-onderwerpen zijn Azure-resources en moeten in een Azure-resourcegroep worden geplaatst. De resourcegroep is een logische verzameling waarin Azure-resources worden geïmplementeerd en beheerd.
-
-1. Selecteer in het linkernavigatievenster de optie **Resourcegroepen**. Selecteer vervolgens **Toevoegen**.
-
-   ![Een resourcegroep maken](./media/custom-event-quickstart-portal/create-resource-group.png)
-
-1. Stel de naam van de resourcegroep in op *gridResourceGroup* en de locatie op *westus2*. Selecteer **Maken**.
-
-   ![Waarden opgeven voor de resourcegroep](./media/custom-event-quickstart-portal/provide-resource-group-values.png)
-
 ## <a name="create-a-custom-topic"></a>Een aangepast onderwerp maken
 
-Een onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. 
+Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. 
 
-1. Selecteer **Alle services** en ga naar *Event Grid* om een onderwerp te maken voor de resourcegroep. Selecteer **Event Grid-onderwerpen** uit de beschikbare opties.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-   ![Event Grid-onderwerp maken](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
+1. Selecteer **Een resource maken** om een aangepast onderwerp te maken. 
 
-1. Selecteer **Toevoegen**.
+   ![Een resource maken](./media/custom-event-quickstart-portal/create-resource.png)
 
-   ![Event Grid-onderwerp toevoegen](./media/custom-event-quickstart-portal/add-topic.png)
+1. Zoek naar *Event Grid-onderwerp* en selecteer dat uit de beschikbare opties.
 
-1. Geef een naam op voor het onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Selecteer een van de [ondersteunde regio's](overview.md). Selecteer de resourcegroep die u eerder hebt gemaakt. Selecteer **Maken**.
+   ![event grid-onderwerp zoeken](./media/custom-event-quickstart-portal/search-event-grid.png)
 
-   ![Waarden opgeven voor Event Grid-onderwerp](./media/custom-event-quickstart-portal/provide-topic-values.png)
+1. Selecteer **Maken**.
 
-1. Nadat het onderwerp is gemaakt, selecteert u **Vernieuwen** om het onderwerp te zien.
+   ![Eerste stappen](./media/custom-event-quickstart-portal/select-create.png)
 
-   ![Event Grid-onderwerp zien](./media/custom-event-quickstart-portal/see-topic.png)
+1. Geef een unieke naam op voor het aangepaste onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Gebruik niet de naam die in de afbeelding wordt weergegeven. Maak in plaats daarvan een eigen naam. Selecteer een van de [ondersteunde regio's](overview.md). Geef een naam op voor de resourcegroep. Selecteer **Maken**.
 
-## <a name="create-a-message-endpoint"></a>Het eindpunt van een bericht maken
+   ![Waarden opgeven voor Event Grid-onderwerp](./media/custom-event-quickstart-portal/create-custom-topic.png)
 
-Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. In plaats van code te schrijven om op de gebeurtenis te reageren, maken we een eindpunt waarop de berichten worden verzameld, zodat u ze kunt weergeven. RequestBin en Hookbin zijn hulpprogramma's van derden waarmee u een eindpunt kunt maken en aanvragen kunt weergeven die naar dit eindpunt worden verzonden. Ga naar [RequestBin](https://requestb.in/) en klik op **Create a RequestBin** of ga naar [Hookbin](https://hookbin.com/) en klik op **Create New Endpoint**.  Kopieer de URL. U hebt deze nodig wanneer u zich abonneert op het onderwerp.
+1. Nadat het aangepaste onderwerp is gemaakt, ziet u een melding dat de implementatie gelukt is.
+
+   ![Zie melding implementatie gelukt](./media/custom-event-quickstart-portal/success-notification.png)
+
+   Is de implementatie mislukt, ga dan na waardoor de fout werd veroorzaakt. Selecteer **Implementatie mislukt**.
+
+   ![Selecteer implementatie mislukt](./media/custom-event-quickstart-portal/select-failed.png)
+
+   Selecteer het foutbericht.
+
+   ![Selecteer implementatie mislukt](./media/custom-event-quickstart-portal/failed-details.png)
+
+   De volgende afbeelding toont een implementatie die is mislukt omdat de naam van het aangepaste onderwerp al in gebruik is. Als u deze fout ziet, voert u de implementatie opnieuw uit met een andere naam.
+
+   ![Naamconflict](./media/custom-event-quickstart-portal/name-conflict.png)
+
+## <a name="create-an-azure-function"></a>Een Azure-functie maken
+
+Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. In dit artikel gebruikt u Azure Functions om een functie-app voor het eindpunt te maken.
+
+1. Selecteer **Een resource maken** om een functie te maken.
+
+   ![Een resource maken](./media/custom-event-quickstart-portal/create-resource-small.png)
+
+1. Selecteer **Compute** en **Functie-app**.
+
+   ![Functie maken](./media/custom-event-quickstart-portal/create-function.png)
+
+1. Geef een unieke naam op voor de Azure-functie. Gebruik niet de naam die in de afbeelding wordt weergegeven. Selecteer de resourcegroep die u in dit artikel hebt gemaakt. Gebruik **Verbruiksabonnement** voor het hostingabonnement. Gebruik het voorgestelde nieuwe opslagaccount. Nadat u de waarden hebt opgegeven, selecteert u **Maken**.
+
+   ![Geef waarden voor de functie op](./media/custom-event-quickstart-portal/provide-function-values.png)
+
+1. Wanneer de implementatie is voltooid, selecteert u **Ga naar resource**.
+
+   ![Ga naar resource](./media/custom-event-quickstart-portal/go-to-resource.png)
+
+1. Bij **Functies** selecteert u **+**.
+
+   ![Functie toevoegen](./media/custom-event-quickstart-portal/add-function.png)
+
+1. Selecteer **Aangepaste functie** in de beschikbare opties.
+
+   ![Aangepaste functie](./media/custom-event-quickstart-portal/select-custom-function.png)
+
+1. Schuif omlaag totdat u **Trigger gebeurtenisraster** ziet. Selecteer **C#**.
+
+   ![Trigger gebeurtenisraster selecteren](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
+
+1. Accepteer de standaardwaarden en selecteer **Maken**.
+
+   ![Nieuwe functie](./media/custom-event-quickstart-portal/new-function.png)
+
+Uw functie is nu gereed voor het ontvangen van gebeurtenissen.
 
 ## <a name="subscribe-to-a-topic"></a>Abonneren op een onderwerp
 
-U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. 
+U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren en waar de gebeurtenissen naartoe moeten worden gestuurd.
 
-1. Selecteer opnieuw **Alle services** en ga naar *Event Grid* om een Event Grid-abonnement te maken. Selecteer **Event Grid-abonnementen** uit de beschikbare opties.
+1. Selecteer **Event Grid-abonnement toevoegen** in uw Azure-functie.
 
-   ![Event Grid-abonnement maken](./media/custom-event-quickstart-portal/create-subscription.png)
+   ![Event Grid-abonnement toevoegen](./media/custom-event-quickstart-portal/add-event-grid-subscription.png)
 
-1. Selecteer **+ Gebeurtenisabonnement**.
+1. Geef waarden op voor het abonnement. Selecteer **Event Grid-onderwerpen** als onderwerptype. Selecteer voor het abonnement en de resourcegroep het abonnement en de resourcegroep waar u uw aangepaste onderwerp hebt gemaakt. Selecteer bijvoorbeeld de naam van uw aangepast onderwerp. Het abonnee-eindpunt is vooraf ingevuld met de URL voor de functie.
 
-   ![Event Grid-abonnement toevoegen](./media/custom-event-quickstart-portal/add-subscription.png)
+   ![Abonnementswaarden opgeven](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
-1. Geef een unieke naam op voor het gebeurtenisabonnement. Selecteer als onderwerptype **Event Grid-onderwerpen**. Selecteer voor het exemplaar het aangepaste onderwerp dat u hebt gemaakt. Geef de URL van RequestBin of Hookbin op als eindpunt voor gebeurtenismeldingen. Als u klaar bent het opgeven van de waarden, klikt u op **Maken**.
+1. Voordat u de gebeurtenis activeert, opent u de logboeken voor de functie zodat u de gebeurtenisgegevens kunt zien wanneer deze worden verzonden. Selecteer **Logboeken** onderaan uw Azure-functie.
 
-   ![Waarde opgeven voor Event Grid-abonnement](./media/custom-event-quickstart-portal/provide-subscription-values.png)
+   ![Logboeken selecteren](./media/custom-event-quickstart-portal/select-logs.png)
 
-Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Gebruik ter vereenvoudiging van dit artikel Cloud Shell om voorbeeldgebeurtenisgegevens naar het onderwerp te verzenden. Meestal worden de gebeurtenisgegevens verzonden via een toepassing of Azure-service.
+Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Gebruik ter vereenvoudiging van dit artikel Cloud Shell om voorbeeldgebeurtenisgegevens naar het aangepaste onderwerp te verzenden. Meestal worden de gebeurtenisgegevens verzonden via een toepassing of Azure-service.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -88,8 +121,8 @@ Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid n
 Eerst gaan we de URL en de sleutel voor het onderwerp ophalen. Gebruik de onderwerpnaam voor `<topic_name>`.
 
 ```azurecli-interactive
-endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
-key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
+endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
+key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
 ```
 
 In het volgende voorbeeld worden de voorbeeldgebeurtenisgegevens opgehaald:
@@ -98,41 +131,27 @@ In het volgende voorbeeld worden de voorbeeldgebeurtenisgegevens opgehaald:
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
 ```
 
-Als u `echo "$body"` kunt u de volledige gebeurtenis zien. Het element `data` van de JSON is de nettolading van de gebeurtenis. Elke juist opgemaakte JSON kan in dit veld worden ingevoerd. U kunt het onderwerpveld ook gebruiken voor geavanceerd routeren en filteren.
+Als u de volledige gebeurtenis wilt weergeven, gebruikt u `echo "$body"`. Het element `data` van de JSON is de nettolading van de gebeurtenis. Elke juist opgemaakte JSON kan in dit veld worden ingevoerd. U kunt het onderwerpveld ook gebruiken voor geavanceerd routeren en filteren.
 
-CURL is een hulpprogramma waarmee HTTP-aanvragen worden uitgevoerd. In dit artikel gebruiken we CURL om de gebeurtenis naar het onderwerp te verzenden. 
+CURL is een hulpprogramma waarmee HTTP-aanvragen worden verzonden. In dit artikel gebruiken we CURL om de gebeurtenis naar het aangepaste onderwerp te verzenden. 
 
 ```azurecli-interactive
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Blader naar de eindpunt-URL die u eerder hebt gemaakt. U kunt ook op Vernieuwen klikken in het geopende browservenster. U ziet de gebeurtenis die u zojuist hebt verzonden.
+U hebt de gebeurtenis geactiveerd en Event Grid heeft het bericht verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Bekijk de logboeken voor de gebeurtenisgegevens.
 
-```json
-[{
-  "id": "1807",
-  "eventType": "recordInserted",
-  "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2017-08-10T21:03:07+00:00",
-  "data": {
-    "make": "Ducati",
-    "model": "Monster"
-  },
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
-}]
-```
+![Logboeken weergeven](./media/custom-event-quickstart-portal/view-log-entry.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u verder wilt werken met deze gebeurtenis, schoont u de resources die u hebt gemaakt in dit artikel, niet op. Als u niet verder wilt werken, verwijdert u de resources die u in dit artikel hebt gemaakt.
+Als u verder wilt werken met deze gebeurtenis, schoon dan de resources die u in dit artikel hebt gemaakt, niet op. Verwijder anders de resources die u in dit artikel hebt gemaakt.
 
 Selecteer de resourcegroep en klik op **Resourcegroep verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U weet nu hoe u onderwerpen maakt en hoe u zich abonneert op een gebeurtenis. Kijk waar Event Grid u nog meer bij kan helpen:
+U weet nu hoe u aangepaste onderwerpen maakt en hoe u zich abonneert op een gebeurtenis. Kijk waar Event Grid u nog meer bij kan helpen:
 
 - [Over Event Grid](overview.md)
 - [Blob Storage-gebeurtenissen naar een aangepast eindpunt op het web routeren](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)

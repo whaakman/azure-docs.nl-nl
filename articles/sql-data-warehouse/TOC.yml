@@ -141,13 +141,15 @@
       href: sql-data-warehouse-troubleshoot.md
 - name: Handleidingen
   items:
-    - name: Servicekenmerken
+    - name: Upgraden
+      href: upgrade-to-latest-generation.md
+    - name: Herstellen
       items:
-        - name: Een datawarehouse herstellen - portal
+        - name: Portal
           href: sql-data-warehouse-restore-database-portal.md
-        - name: Een datawarehouse herstellen - PowerShell
+        - name: PowerShell
           href: sql-data-warehouse-restore-database-powershell.md
-        - name: Een datawarehouse herstellen - REST API
+        - name: REST API
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: Beveiliging
       items:

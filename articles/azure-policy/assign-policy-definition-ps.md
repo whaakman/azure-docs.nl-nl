@@ -9,11 +9,11 @@ ms.date: 3/14/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 9f7d32d3d1208b6fe6075f7dacdd6d350aee03e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 45c5ccd0f891a5592eee7400de108c5097f75286
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Quickstart: Een beleidstoewijzing maken om niet-compatibele resources te identificeren met de PowerShell-module van Azure Resource Manager
 
@@ -48,7 +48,7 @@ In de voorgaande opdrachten wordt de volgende informatie gebruikt:
 - **Naam**: weergavenaam voor de beleidstoewijzing. In dit geval gebruikt u de toewijzing *Virtuele machines zonder beheerde schijven controleren*.
 - **Definitie**: de beleidsdefinitie, op basis waarvan u de toewijzing maakt. In dit geval is het de beleidsdefinitie *Virtuele machines zonder beheerde schijven controleren*.
 - **Bereik**: een bereik bepaalt voor welke resources of groep resources de beleidstoewijzing wordt afgedwongen. Dit kan variëren van een abonnement tot resourcegroepen. Vergeet niet om &lt;scope&gt; te vervangen door de naam van uw resourcegroep.
-- **SKU**: met deze opdracht maakt u een beleidstoewijzing met de Standaard-laag. Met de Standard-laag kunt u geschaald management, nalevingsbeoordeling en herstel bewerkstelligen. De Standard-laag is momenteel gratis. In de toekomst worden er kosten in rekening gebracht voor de Standard-laag. Prijswijzigingen worden aangekondigd en gedetailleerd toegelicht op [Prijzen van Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+- **SKU**: met deze opdracht maakt u een beleidstoewijzing met de Standaard-laag. Met de Standard-laag kunt u geschaald management, nalevingsbeoordeling en herstel bewerkstelligen. Zie [Prijzen voor Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy) voor extra details over prijscategorieën.
 
 
 U bent er nu klaar voor om niet-compatibele resources te identificeren om inzicht te krijgen in de nalevingsstatus van uw omgeving.

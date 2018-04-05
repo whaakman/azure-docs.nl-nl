@@ -1,12 +1,11 @@
 ---
 title: Simulatie van high-frequency trading met Stream Analytics | Microsoft Docs
-description: Het uitvoeren van lineaire-regressiemodeltrainingen en scores als onderdeel van dezelfde Stream Analytics-taak
-keywords: machine learning, geavanceerde analyses, lineaire regressie, simulatie, UDA, door gebruiker gedefinieerde functie
-documentationcenter: 
+description: Lineaire-regressiemodeltrainingen en scores uitvoeren als onderdeel van dezelfde Stream Analytics-taak
+keywords: machine learning, geavanceerde analyses, lineaire regressie, simulatie, UDA, door de gebruiker gedefinieerde functie
+documentationcenter: ''
 services: stream-analytics
 author: zhongc
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 997ccfc1-abaf-4c12-bef2-632481140f05
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 349dc5c5277260b664d7214979ef15d1689b2716
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulatie van high-frequency trading met Stream Analytics
 Met een combinatie van SQL-taal en UDF's (door de gebruiker gedefinieerde functies) en UDA's (door de gebruiker gedefinieerde aggregaties) van JavaScript in Azure Stream Analytics kunnen gebruikers geavanceerde analyses uitvoeren. Geavanceerde analyses omvatten mogelijk onder andere onlinetraining en -scoring voor Machine Learning, evenals simulatie van het stateful-proces. In dit artikel wordt beschreven hoe u lineaire regressie kunt uitvoeren in een Azure Stream Analytics-taak met continue training en scoring in een high-frequency trading-scenario.
@@ -74,7 +73,7 @@ Ter demonstratie gebruiken we een lineair model dat door Darryl Shen in [zijn ve
 
 VOI (Volume Order Imbalance) is een functie van de huidige prijs en het huidige volume voor vraag/aanbod, en de prijs en het volume voor vraag/aanbod sinds de laatste tick. In de verhandeling wordt de correlatie tussen VOI en toekomstige prijsstijgingen en -dalingen geïdentificeerd. Er wordt een lineair model gebouwd tussen de afgelopen 5 VOI-waarden en de prijswijziging in de volgende 10 ticks. Het model wordt getraind door lineaire regressie te gebruiken voor de gegevens van de vorige dag. 
 
-Het getrainde model wordt vervolgens gebruikt voor het maken van voorspellingen van koersen in realtime op de huidige handelsdag. Als er een prijswijziging van voldoende grootte wordt voorspeld, wordt een aandelentransactie uitgevoerd. Afhankelijk van de instelling voor de drempelwaarde, kunnen voor een enkel aandeel tijdens een handelsdag duizenden transacties worden verwacht.
+Het getrainde model wordt vervolgens gebruikt om in realtime koersen te voorspellen op de huidige handelsdag. Als er een prijswijziging wordt voorspeld die groot genoeg is, wordt er een aandelentransactie uitgevoerd. Afhankelijk van de instelling voor de drempelwaarde, kunnen voor een enkel aandeel tijdens een handelsdag duizenden transacties worden verwacht.
 
 ![Definitie van VOI](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
@@ -105,7 +104,7 @@ Eerst wordt de invoer opgeschoond. Tijdvak wordt geconverteerd naar datum en tij
         WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
 
-Als volgende wordt de functie **LAG** gebruikt om waarden van de laatste tick te krijgen. Eén uur van de waarde **LIMIT DURATION** wordt willekeurig gekozen. Door de frequentie waarmee koersen worden gegeven, kunt u er gerust van uitgaan dat u de vorige tick vindt door één uur terug te gaan.  
+Vervolgens wordt de functie **LAG** gebruikt om waarden van de laatste tick te verkrijgen. Eén uur van de waarde **LIMIT DURATION** wordt willekeurig gekozen. Door de frequentie waarmee koersen worden gegeven, kunt u er gerust van uitgaan dat u de vorige tick vindt door één uur terug te gaan.  
 
     shiftedquotes AS (
         /* get previous bid/ask price and size in order to calculate VOI */
@@ -123,7 +122,7 @@ Als volgende wordt de functie **LAG** gebruikt om waarden van de laatste tick te
         FROM timefilteredquotes
     ),
 
-Dan kan de VOI waarde worden berekend. Voor alle zekerheid worden de null-waarden eruit gefilterd als de vorige tick niet bestaat.
+Dan kan de VOI-waarde worden berekend. Voor alle zekerheid worden de null-waarden eruit gefilterd als de vorige tick niet bestaat.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -286,7 +285,7 @@ Als we het model van de vorige dag willen gebruiken voor het verzamelen van scor
         WHERE type = 'voi'
     ),
 
-Nu kunnen we voorspellingen maken en signalen voor kopen/verkopen genereren op basis van het model, met een drempelwaarde van 0,02. Een handelswaarde van 10 is kopen. Een handelswaarde van -10 is verkopen.
+Nu kunnen we voorspellingen maken en koop-/verkoopsignalen genereren op basis van het model. We gebruiken hierbij een drempelwaarde van 0,02. Een handelswaarde van 10 is kopen. Een handelswaarde van -10 is verkopen.
 
     prediction AS (
         /* make prediction if there is a model */
@@ -453,4 +452,4 @@ Met uitzondering van de JavaScript-UDA kan het grootste deel van de query worden
 
 Momenteel kunnen er met Visual Studio geen fouten in de UDA worden opgespoord. We werken eraan om dit mogelijk te maken, en willen dan tevens de mogelijkheid toevoegen om stapsgewijs door JavaScript-code heen te lopen. Houd er bovendien rekening mee dat de namen van de velden die de UDA bereiken, uit kleine letters bestaan. Dit werd niet als kenmerkend gedrag gezien tijdens het testen van query's. Maar met compatibiliteitsniveau 1.1 van Azure Stream Analytics blijft het hoofdlettergebruik van veldnamen behouden, zodat het gedrag natuurlijker is.
 
-Ik hoop dat dit artikel dient als inspiratie voor alle gebruikers van Azure Stream Analytics, die onze service onafgebroken gebruiken om geavanceerde analyses in nagenoeg realtime uit te voeren. Stuur ons uw feedback, zodat we het implementeren van query's voor scenario's met geavanceerde analyses kunnen vereenvoudigen.
+Ik hoop dat dit artikel dient als inspiratie voor alle gebruikers van Azure Stream Analytics, die onze service onafgebroken kunnen gebruiken om geavanceerde analyses in nagenoeg realtime uit te voeren. Stuur ons uw feedback, zodat we het implementeren van query's voor scenario's met geavanceerde analyses kunnen vereenvoudigen.

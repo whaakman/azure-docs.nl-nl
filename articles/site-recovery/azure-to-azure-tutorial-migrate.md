@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Virtuele Azure-machines migreren naar een andere regio
 
@@ -35,7 +35,15 @@ Voor deze zelfstudie wordt ervan uitgegaan dat u al een Azure-abonnement hebt. A
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie hebt u virtuele Azure-machines nodig in een Azure-regio van waaruit u wilt migreren. Bovendien zijn er een aantal instellingen die u moet controleren voordat u begint.
+- Zorg ervoor dat u virtuele Azure-machines hebt in de Azure-regio waaruit u wilt migreren.
+- Zorg ervoor dat u inzicht hebt in de [architectuur en onderdelen voor dit scenario](azure-to-azure-architecture.md).
+- Controleer de [beperkingen en vereisten voor ondersteuning](azure-to-azure-support-matrix.md).
+
+
+
+## <a name="before-you-start"></a>Voordat u begint
+
+Voordat u replicatie instelt, moet u deze stappen voltooien.
 
 
 ### <a name="verify-target-resources"></a>Doelbronnen controleren
@@ -114,9 +122,7 @@ In Site Recovery wordt een lijst opgehaald van de virtuele machines die zijn gek
 
     ![replicatie inschakelen](media/tutorial-migrate-azure-to-azure/settings.png)
 
->[!NOTE]
-  >
-  > Momenteel wordt het repliceren van virtuele Azure-machines met beheerde schijven niet ondersteund. 
+ 
 
 ## <a name="run-a-failover"></a>Een failover uitvoeren
 

@@ -2,10 +2,10 @@
 title: 'Azure Backup-fout oplossen: Guest Agent Status niet beschikbaar | Microsoft Docs'
 description: Symptomen, oorzaken en oplossingen van Azure Backup-fouten die betrekking hebben op de agent, uitbreiding en schijven.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 keywords: Azure back-up. VM-agent; Verbinding met het netwerk;
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup-fout oplossen: problemen met de agent of de extensie
 
@@ -78,21 +78,6 @@ Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-ser
 **4 oorzaak: [de status van de momentopname kan niet worden opgehaald, of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **5 oorzaak: [de Backup-extensie niet bijwerken of laden](#the-backup-extension-fails-to-update-or-load)**  
 **6 oorzaak: [Backup-service is niet gemachtigd om de oude herstelpunten verwijderd vanwege een vergrendeling van de groep resource](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
-
-## <a name="disk-configuration-is-not-supported"></a>De schijfconfiguratie wordt niet ondersteund.
-
-Foutbericht: 'de configuratie van de opgegeven schijf wordt niet ondersteund'
-
-> [!NOTE]
-> We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met schijf die groter is dan 1 TB een. Zie voor meer informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
->
->
-
-Op dit moment Azure Backup biedt geen ondersteuning voor schijven die zijn [groter zijn dan 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). Als u schijven die groter dan 1 TB zijn hebt:  
-1. [Koppel nieuwe schijven](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) die kleiner zijn dan 1 TB.  
-2. Gegevens kopiëren van schijven die groter zijn dan 1 TB aan de zojuist gemaakte schijven die kleiner dan 1 TB zijn.  
-3. Zorg ervoor dat alle gegevens zijn gekopieerd. Verwijder vervolgens de schijven die groter dan 1 TB zijn.  
-4. Start de back-up.
 
 ## <a name="causes-and-solutions"></a>Oorzaken en oplossingen
 

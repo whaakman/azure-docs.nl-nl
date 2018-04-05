@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a450e3432a629a4fae9627c0e2df58102ad3387
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 51ae5c9d5e4f363f3762389347de865212b45b9b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Back-ups maken van virtuele Azure-machines naar Recovery Services-kluizen
 
@@ -47,7 +47,7 @@ Afhankelijk van het aantal virtuele machines dat u wilt beveiligen, kunt u vanaf
 
 ## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>De back-uptaak configureren vanaf de VM-beheerblade
 
-Voer de volgende stappen uit als u de back-uptaak wilt configureren vanaf de VM-beheerblade in Azure Portal. De volgende stappen gelden alleen voor virtuele machines in Azure Portal.
+Voer de volgende stappen uit als u de back-uptaak wilt configureren vanaf de VM-beheerblade in Azure Portal. De volgende stappen gelden alleen voor virtuele machines in de Azure-portal.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik in het menu Hub op **Alle services** en typ **Virtuele machines** in het dialoogvenster Filter. Terwijl u typt, wordt de lijst met resources gefilterd. Wanneer u Virtuele machines ziet, selecteert u deze optie.
@@ -175,7 +175,7 @@ Een Recovery Services-kluis maken:
 Nu u uw kluis hebt gemaakt, leert u hoe u de opslagreplicatie instelt.
 
 ### <a name="set-storage-replication"></a>Opslagreplicatie instellen
-U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante opslag en lokaal redundante opslag. Uw kluis heeft standaard geografisch redundante opslag. Als de Recovery Services-kluis uw primaire back-up is, laat u de opslagoptie voor replicatie ingesteld op geografisch redundante opslag. Kies lokaal redundante opslag als u een goedkopere optie wilt die minder duurzaam is. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante](../storage/common/storage-redundancy.md#locally-redundant-storage) opslag in het [overzicht van Azure Storage-replicatie](../storage/common/storage-redundancy.md).
+U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante opslag en lokaal redundante opslag. Uw kluis heeft standaard geografisch redundante opslag. Als de Recovery Services-kluis uw primaire back-up is, laat u de opslagoptie voor replicatie ingesteld op geografisch redundante opslag. Kies lokaal redundante opslag als u een goedkopere optie wilt die minder duurzaam is. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy-grs.md) en [lokaal redundante](../storage/common/storage-redundancy-lrs.md) opslag in het [overzicht van Azure Storage-replicatie](../storage/common/storage-redundancy.md).
 
 De instelling voor opslagreplicatie bewerken:
 
@@ -196,7 +196,7 @@ De instelling voor opslagreplicatie bewerken:
 
     ![keuzes bij opslagconfiguratie](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante ](../storage/common/storage-redundancy.md#locally-redundant-storage) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
+    Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy-grs.md) en [lokaal redundante ](../storage/common/storage-redundancy-lrs.md) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
 
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Een back-doel selecteren, beleid instellen en definiëren welke items moeten worden beveiligd

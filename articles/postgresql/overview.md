@@ -10,15 +10,15 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 02/28/2018
-ms.openlocfilehash: ef7f710fb39c3745ff5a20a73cd4dc5c1fa1fece
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 766373f4b9390e576285db73d9e9e9942eb6624f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Wat is Azure Database for PostgreSQL?
 
-Azure Database for PostgreSQL is een relationele databaseservice in de Microsoft Cloud die is gebouwd voor ontwikkelaars op basis van de community-versie van de open-source [PostgreSQL](https://www.postgresql.org/)-database-engine. Deze service is beschikbaar in de openbare-previewversie. Azure Database for PostgreSQL heeft het volgende te bieden:
+Azure Database for PostgreSQL is een relationele databaseservice in de Microsoft Cloud die is gebouwd voor ontwikkelaars op basis van de community-versie van de open-source [PostgreSQL](https://www.postgresql.org/)-database-engine. Azure Database for PostgreSQL heeft het volgende te bieden:
 
 - Ingebouwde hoge beschikbaarheid zonder extra kosten
 - Voorspelbare prestaties, tegen all-inclusive prijzen op basis van betalen per gebruik
@@ -29,7 +29,7 @@ Azure Database for PostgreSQL is een relationele databaseservice in de Microsoft
 
 Alle deze mogelijkheden vereisen nauwelijks beheer, en alles wordt zonder extra kosten geleverd. Dankzij deze mogelijkheden kunt u zich richten op het sneller ontwikkelen en op de markt brengen van toepassingen, in plaats van kostbare tijd en middelen in te zetten voor het beheer van virtuele machines en infrastructuur. U kunt bovendien de open-source hulpprogramma's en het platform van uw keuze blijven gebruiken om uw toepassing verder te ontwikkelen, en deze te leveren met de snelheid en efficiëntie die uw bedrijf vereist zonder dat u nieuwe vaardigheden hoeft te leren. 
 
-Dit artikel bevat een inleiding tot de belangrijkste concepten en functies van Azure Database for PostgreSQL met betrekking tot prestaties, schaalbaarheid en beheerbaarheid. Zie deze snelstarts om snel aan de slag te gaan:
+Dit artikel bevat een inleiding tot de belangrijkste concepten en functies van Azure Database for PostgreSQL met betrekking tot prestaties, schaalbaarheid en beheerbaarheid. Zie deze snelstartgidsen om snel aan de slag te gaan:
 
 - [Een Azure Database for PostgreSQL maken met Azure Portal](quickstart-create-server-database-portal.md)
 - [Een Azure Database for PostgreSQL maken met Azure CLI](quickstart-create-server-database-azure-cli.md)
@@ -45,10 +45,10 @@ Er zijn drie prijscategorieën voor de Azure Database for PostgreSQL-service: Ba
 Hoe bepaalt u wanneer u omhoog of omlaag moet schalen? U gebruikt de ingebouwde Azure-functies voor bewaking en waarschuwingen. Met behulp van deze tools kunt u snel beoordelen wat de impact is van het aanpassen van de schaal op basis van uw huidige of verwachte prestatie- of opslagbehoeften. Zie [Waarschuwingen](howto-alert-on-metric.md) voor meer details.
 
 ## <a name="keep-your-app-and-business-running"></a>Continuïteit van uw app en uw bedrijf
-De toonaangevende serviceovereenkomst (SLA) van Azure met 99,99% beschikbaarheid (niet beschikbaar in preview) dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, zorgt u ervoor dat uw app continu (24 uur per dag, 7 dagen per week) in de lucht blijft. Elke Azure Database for PostgreSQL-server is voorzien van ingebouwde beveiliging, fouttolerantie en gegevensbeveiliging die u anders zelf zou moeten kopen of ontwerpen, ontwikkelen en beheren. Elke prijscategorie van Azure Database for PostgreSQL bevat een uitgebreide reeks functies en opties voor bedrijfscontinuïteit, zodat u snel aan de slag kunt gaan en efficiënt kunt werken. Met behulp van [herstelpunten](howto-restore-server-portal.md) kunt u een database terugzetten naar een eerdere toestand, tot 35 dagen geleden. Als er een storing optreedt in het datacenter dat uw databases host, kunt u bovendien databases terugzetten met geografisch redundante back-upkopieën.
+De toonaangevende serviceovereenkomst (SLA) van Azure met 99,99% beschikbaarheid dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, zorgt ervoor dat uw app continu (24 uur per dag, 7 dagen per week) beschikbaar blijft. Elke Azure Database for PostgreSQL-server is voorzien van ingebouwde beveiliging, fouttolerantie en gegevensbeveiliging die u anders zelf zou moeten kopen of ontwerpen, ontwikkelen en beheren. Elke prijscategorie van Azure Database for PostgreSQL bevat een uitgebreide reeks functies en opties voor bedrijfscontinuïteit, zodat u snel aan de slag kunt gaan en efficiënt kunt werken. Met behulp van [herstelpunten](howto-restore-server-portal.md) kunt u een database terugzetten naar een eerdere toestand, tot 35 dagen geleden. Als er een storing optreedt in het datacenter dat uw databases host, kunt u bovendien databases terugzetten met geografisch redundante back-upkopieën.
 
 ## <a name="secure-your-data"></a>Uw gegevens beveiligen
-Azure databaseservices hebben traditiegetrouw een uitstekende gegevensbeveiliging. Deze traditie wordt voortgezet in Azure Database for PostgreSQL, met functies voor toegangsbeperking, het beveiligen van niet-actieve en actieve gegevens en activiteitsbewaking. Bezoek het [Vertrouwenscentrum van Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx) voor informatie over de beveiliging van het Azure-platform.
+Azure databaseservices hebben traditiegetrouw een uitstekende gegevensbeveiliging. Deze traditie wordt voortgezet in Azure Database for PostgreSQL, met functies voor toegangsbeperking, het beveiligen van niet-actieve en actieve gegevens en activiteitsbewaking. Bezoek het [Vertrouwenscentrum van Azure](https://www.microsoft.com/en-us/trustcenter/security) voor informatie over de beveiliging van het Azure-platform.
 
 De Azure Database for PostgreSQL-service gebruikt opslagversleuteling voor niet-actieve gegevens. Gegevens, met inbegrip van back-ups, worden op schijf versleuteld (met uitzondering van tijdelijke bestanden die door de engine tijdens het uitvoeren van query's worden gemaakt). De service maakt gebruikt van AES 256-bits versleuteling die deel uitmaakt van Azure Storage-versleuteling. De sleutels worden door het systeem beheerd. Opslagversleuteling is altijd actief en kan niet worden uitgeschakeld.
 

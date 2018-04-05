@@ -2,10 +2,10 @@
 title: Diagnostische logboekregistratie voor gebeurtenissen van de Batch - Azure inschakelen | Microsoft Docs
 description: Registreren en analyseren van diagnostische gebeurtenissen voor Azure Batch-account resources zoals pools en taken.
 services: batch
-documentationcenter: 
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
 ms.service: batch
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7bc6fd9921ab0f2374ace33ea5c1ab93a78f860
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Gebeurtenissen voor diagnostische evaluatie en bewaking van Batch-oplossingen
 
@@ -48,7 +48,7 @@ Diagnostische logboekregistratie is niet standaard ingeschakeld voor uw Batch-ac
 
 Het is raadzaam dat u de volledige leest [overzicht van Azure diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artikel om beter inzicht niet alleen het inschakelen van logboekregistratie, maar de logboek-categorieën ondersteund door de verschillende Azure-services. Azure Batch ondersteunt bijvoorbeeld momenteel één logboek categorie: **servicelogboeken**.
 
-## <a name="service-logs"></a>Service-Logboeken
+## <a name="service-logs"></a>Service Logs
 Azure Batch-Service-logboeken bevatten gebeurtenissen die door de Azure Batch-service tijdens de levensduur van een Batch-bron, zoals een groep of de taak. Elke gebeurtenis verzonden door de Batch wordt opgeslagen in het opgegeven opslagaccount in JSON-indeling. Dit is bijvoorbeeld de hoofdtekst van een steekproef **groep maken gebeurtenis**:
 
 ```json

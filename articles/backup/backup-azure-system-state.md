@@ -2,10 +2,10 @@
 title: Maak een back-up van systeemstatus van Windows naar Azure | Microsoft Docs
 description: Informatie over het maken van de systeemstatus van Windows Server en/of Windows computers naar Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: carmonm
-editor: 
+editor: ''
 keywords: back-up maken; hoe u een back-up maakt; back-up van bestanden en mappen maken
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: df2565be7c543be061c3297f4d87aeae5eae4b8e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b4847a4b2d8397530d8a6bb4bc4729a6966634f2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Back-up van systeemstatus Windows in de implementatie van Resource Manager
 Dit artikel wordt uitgelegd hoe u back-up van de systeemstatus van uw Windows Server naar Azure. Het artikel is bedoeld als handleiding waarmee u stapsgewijs de basis onder de knie krijgt.
@@ -87,7 +87,7 @@ Wanneer u een Recovery Services-kluis maakt, zorg er dan voor dat de opslagredun
 
     ![keuzes bij opslagconfiguratie](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante ](../storage/common/storage-redundancy.md#locally-redundant-storage) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
+    Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy-grs.md) en [lokaal redundante ](../storage/common/storage-redundancy-lrs.md) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
 
 Nu dat u kunt een kluis hebt gemaakt, kunt u deze voor de back-up van systeemstatus Windows configureren.
 

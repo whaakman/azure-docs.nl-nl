@@ -6,7 +6,7 @@ documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Een Azure-bestandsshare koppelen en de share openen in Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows en Windows Server. In dit artikel ziet u drie verschillende manieren om een Azure-bestandsshare in Windows te koppelen: met de File Explorer-gebruikersinterface, via PowerShell en via de opdrachtprompt. 
@@ -50,6 +50,31 @@ U kunt Azure-bestandsshares koppelen aan een Windows-installatie die wordt uitge
 * **Sleutel van het opslagaccount**: voor het koppelen van een Azure-bestandsshare hebt u de primaire (of secundaire) opslagsleutel nodig. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
 
 * **Zorg ervoor dat poort 445 is geopend**: Azure Files maakt gebruik van het SMB-protocol. SMB communiceert via TCP-poort 445 - controleer of de TCP-poort 445 van de clientcomputer niet door uw firewall wordt geblokkeerd.
+
+## <a name="persisting-connections-across-reboots"></a>Verbindingen behouden tijdens opnieuw opstarten
+### <a name="cmdkey"></a>CmdKey
+De eenvoudigste manier om permanente verbindingen tot stand brengen, is uw opslagaccountreferenties op te slaan in Windows met behulp van het opdrachtregelprogramma 'CmdKey'. Hier volgt een voorbeeld van de opdrachtregel voor het opslaan van referenties van het opslagaccount op uw virtuele machine:
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> De domeinnaam wordt hier 'AZURE'
+
+CmdKey biedt u ook de mogelijkheid de opgeslagen referenties weer te geven:
+
+```
+C:\>cmdkey /list
+```
+De uitvoer is als volgt:
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+Nadat de referenties zijn opgeslagen, hoeft u deze niet langer op te geven als u verbinding maakt met uw share. U kunt in plaats daarvan verbinding maken zonder referenties op te geven.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>De Azure-bestandsshare koppelen met de Verkenner
 > [!Note]  

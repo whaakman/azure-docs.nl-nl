@@ -1,9 +1,9 @@
 ---
 title: 'Zelfstudie: Gegevens streamen naar Azure Databricks met behulp van Event Hubs | Microsoft Docs'
-description: Informatie over het gebruik van Azure Databricks met Event Hubs voor het opnemen van streaming-gegevens van Twitter en het lezen van de gegevens in realtime.
+description: Informatie over het gebruik van Azure Databricks met Event Hubs voor het opnemen van streaminggegevens van Twitter en het lezen van de gegevens in bijna-realtime.
 services: azure-databricks
 documentationcenter: ''
-author: nitinme
+author: lenadroid
 manager: cgronlun
 editor: cgronlun
 ms.service: azure-databricks
@@ -12,28 +12,30 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/15/2018
-ms.author: nitinme
-ms.openlocfilehash: b740d638c24def9aec05ad134f8c8372b2a25082
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/23/2018
+ms.author: alehall
+ms.openlocfilehash: 94b09b824becc8a67adf4edfd2d4b44496a6169c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Zelfstudie: Gegevens streamen naar Azure Databricks met behulp van Event Hubs
 
-In deze zelfstudie maakt u verbinding met een systeem voor gegevensopname met Azure Databricks om in realtime gegevens te streamen in een Apache Spark-cluster. U stelt een realtime systeem voor gegevensopname in met Azure Event Hubs en verbindt dit vervolgens met Azure Databricks voor het verwerken van de berichten die ervan afkomstig zijn. Voor toegang tot een realtime stroom van gegevens, kunt u Twitter-API's gebruiken om tweets op te nemen in Event Hubs. Zodra u de gegevens in Azure Databricks hebt, kunt u analytische taken uitvoeren voor het verder analyseren van de gegevens. In deze zelfstudie extraheert u de tweets die de term 'Azure' bevatten.
+In deze zelfstudie maakt u verbinding met een systeem voor gegevensopname met Azure Databricks om in bijna-realtime gegevens te streamen in een Apache Spark-cluster. U stelt een systeem voor gegevensopname in met Azure Event Hubs en verbindt dit vervolgens met Azure Databricks voor het verwerken van de berichten die ervan afkomstig zijn. Voor toegang tot een stroom van gegevens, kunt u Twitter-API's gebruiken om tweets op te nemen in Event Hubs. Zodra u de gegevens in Azure Databricks hebt, kunt u analytische taken uitvoeren voor het verder analyseren van de gegevens. 
 
-In de volgende schermafbeeldingen wordt de stroom van de toepassing weergegeven:
+Aan het einde van deze zelfstudie hebt u gestreamde tweets van Twitter waarin de term 'Azure' is opgenomen en hebt u de tweets in Azure Databricks gelezen.
 
-![Azure Databricks met Event Hubs](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "Azure Databricks met Event Hubs") 
+In de volgende afbeelding wordt de stroom van de toepassing weergegeven:
 
-Deze zelfstudie bestaat uit de volgende taken: 
+![Azure Databricks met Event Hubs](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "Azure Databricks met Event Hubs")
+
+Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
 > * Een Azure Databricks-werkruimte maken
 > * Een Apache Spark-cluster in Azure Databricks maken
-> * Een Twitter-app voor toegang tot realtime gegevens maken
+> * Een Twitter-app voor toegang tot streaminggegevens maken
 > * Notitieblokken maken in Azure Databricks
 > * Bibliotheken toevoegen voor Event Hubs en Twitter-API
 > * Tweets verzenden naar Event Hubs
@@ -46,7 +48,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 Zorg ervoor dat u aan de volgende vereisten voldoet voordat u met deze zelfstudie begint:
 - Een Azure Event Hubs-naamruimte.
 - Een Event Hub in de naamruimte.
-- De verbindingsreeks voor toegang tot de Event Hubs-naamruimte. De verbindingsreeks moet een vergelijkbare bestandsindeling hebben als `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`.
+- De verbindingsreeks voor toegang tot de Event Hubs-naamruimte. De verbindingsreeks moet een vergelijkbare bestandsindeling hebben als `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`.
 - Beleid voor gedeelde toegang en beleidssleutel voor Event Hubs.
 
 U kunt aan deze vereisten voldoen via de stappen in het artikel [Een Azure Event Hubs-naamruimte en een event hub maken](../event-hubs/event-hubs-create.md).
@@ -57,29 +59,27 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Een Azure Databricks-werkruimte maken
 
-In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure Portal. 
+In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure Portal.
 
-1. Selecteer in Azure Portal **Een resource maken** > **Gegevens en analyses** > **Azure Databricks (Preview)**. 
+1. Selecteer in Azure Portal **Een resource maken** > **Gegevens en analyses** > **Azure Databricks**.
 
     ![Databricks in Azure Portal](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks in Azure Portal")
-
-2. Bij **Azure Databricks (Preview)** klikt u op **Maken**.
 
 3. Geef bij **Azure Databricks Service** de waarden op voor het maken van een Databricks-werkruimte.
 
     ![Een Azure Databricks-werkruimte maken](./media/databricks-stream-from-eventhubs/create-databricks-workspace.png "Een Azure Databricks-werkruimte maken")
 
-    Geef de volgende waarden op: 
-     
+    Geef de volgende waarden op:
+
     |Eigenschap  |Beschrijving  |
     |---------|---------|
-    |**Naam van de werkruimte**     | Geef een naam op voor uw Databricks-werkruimte        |
+    |**Werkruimtenaam**     | Geef een naam op voor uw Databricks-werkruimte.        |
     |**Abonnement**     | Selecteer uw Azure-abonnement in de vervolgkeuzelijst.        |
-    |**Resourcegroep**     | Geef aan of u een nieuwe resourcegroep wilt maken of een bestaande wilt gebruiken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie. |
-    |**Locatie**     | Selecteer **VS Oost 2**. Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor andere beschikbare regio's.        |
-    |**Prijscategorie**     |  U kunt kiezen voor **Standard** of **Premium**. Bekijk de pagina [Prijzen voor Databricks](https://azure.microsoft.com/pricing/details/databricks/) voor meer informatie over deze categorieën.       |
+    |**Resourcegroep**     | Geef aan of u een nieuwe resourcegroep wilt maken of een bestaande groep wilt gebruiken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie. |
+    |**Locatie**     | Selecteer **VS - oost 2**. Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor andere beschikbare regio's.        |
+    |**Prijscategorie**     |  U kunt kiezen tussen **Standard** en **Premium**. Bekijk de pagina [Prijzen voor Databricks](https://azure.microsoft.com/pricing/details/databricks/) voor meer informatie over deze categorieën.       |
 
-    Selecteer **Vastmaken aan dashboard** en klik op **Maken**.
+    Selecteer **Vastmaken aan dashboard** en selecteer **Maken**.
 
 4. Het duurt enkele minuten om het account te maken. Tijdens het maken van het account wordt rechts in de portal de tegel **Implementatie verzenden voor Azure Databricks** weergegeven. Mogelijk moet u op uw dashboard naar rechts scrollen om de tegel te zien. Bovenaan het scherm wordt ook een voortgangsbalk weergegeven. U kunt beide gebieden bekijken voor de voortgang.
 
@@ -87,9 +87,9 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Een Spark-cluster maken in Databricks
 
-1. Ga in Azure Portal naar de Databricks-werkruimte die u hebt gemaakt en klik op **Werkruimte starten**.
+1. Ga in de Azure Portal naar de Databricks-werkruimte die u hebt gemaakt en selecteer **Werkruimte starten**.
 
-2. U wordt omgeleid naar de Azure Databricks-portal. Klik in het portal op **Cluster**.
+2. U wordt omgeleid naar de Azure Databricks-portal. Klik in de portal op **Cluster**.
 
     ![Databricks in Azure](./media/databricks-stream-from-eventhubs/databricks-on-azure.png "Databricks in Azure")
 
@@ -97,17 +97,17 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
     ![Een Databricks Spark-cluster maken in Azure](./media/databricks-stream-from-eventhubs/create-databricks-spark-cluster.png "Een Databricks Spark-cluster maken in Azure")
 
-    Accepteer alle standaardwaarden behalve de volgende:
+    Accepteer alle andere standaardwaarden, anders dan de volgende:
 
     * Voer een naam in voor het cluster.
-    * Voor dit artikel maakt u een cluster met een **4.0**-runtime. 
+    * Voor dit artikel maakt u een cluster met een **4.0**-runtime.
     * Zorg ervoor dat u het selectievakje **Beëindigen na ____ minuten van inactiviteit** inschakelt. Geef een duur (in minuten) op waarna het cluster moet worden beëindigd als het niet wordt gebruikt.
-    
+
     Selecteer **Cluster maken**. Zodra het cluster wordt uitgevoerd, kunt u notitieblokken koppelen aan het cluster en Spark-taken uitvoeren.
 
-## <a name="create-a-twitter-application"></a>Maak een Twitter-toepassing
+## <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
 
-Als u een realtime stream met tweets wilt ontvangen, maakt u een toepassing in Twitter. Volg de instructies om een Twitter-toepassing te maken en leg de waarden vast die u nodig hebt om deze zelfstudie te voltooien.
+Als u een stream van tweets wilt ontvangen, maakt u een toepassing in Twitter. Volg de instructies om een Twitter-toepassing te maken en leg de waarden vast die u nodig hebt om deze zelfstudie te voltooien.
 
 1. Ga in een webbrowser naar [Twitter Application Management](http://twitter.com/app) en selecteer **Create New App**.
 
@@ -133,7 +133,7 @@ In deze zelfstudie gebruikt u de Twitter-API's om tweets te verzenden naar Event
 
 2. Op de pagina Nieuwe bibliotheek selecteert u bij **Bron** de optie **Maven-coördinaat**. Voer bij **Coördinaat** de coördinaat in voor het pakket dat u wilt toevoegen. Dit zijn de Maven-coördinaten voor de bibliotheken die in deze zelfstudie worden gebruikt:
 
-    * Apache Spark Event Hubs-connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.0`
+    * Apache Spark Event Hubs-connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
     * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
     ![Maven-coördinaten opgeven](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Maven-coördinaten opgeven")
@@ -142,7 +142,7 @@ In deze zelfstudie gebruikt u de Twitter-API's om tweets te verzenden naar Event
 
 4. Selecteer de map waaraan u de bibliotheek hebt toegevoegd en selecteer vervolgens de naam van de bibliotheek.
 
-    ![Bibliotheek selecteren voor het toevoegen van ](./media/databricks-stream-from-eventhubs/select-library.png "Bibliotheek selecteren voor het toevoegen van ")
+    ![Toe te voegen bibliotheek selecteren](./media/databricks-stream-from-eventhubs/select-library.png "Toe te voegen bibliotheek selecteren")
 
 5. Selecteer op de bibliotheekpagina het cluster waar u de bibliotheek wilt gebruiken. Nadat de bibliotheek aan het cluster is gekoppeld, verandert de status onmiddellijk in **Toegevoegd**.
 
@@ -177,7 +177,7 @@ Plak in het notitieblok **SendTweetsToEventHub**de volgende code en vervang de t
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
     import java.util.concurrent._
-    
+
     val namespaceName = "<EVENT HUBS NAMESPACE>"
     val eventHubName = "<EVENT HUB NAME>"
     val sasKeyName = "<POLICY NAME>"
@@ -187,51 +187,51 @@ Plak in het notitieblok **SendTweetsToEventHub**de volgende code en vervang de t
                 .setEventHubName(eventHubName)
                 .setSasKeyName(sasKeyName)
                 .setSasKey(sasKey)
-    
+
     val pool = Executors.newFixedThreadPool(1)
     val eventHubClient = EventHubClient.create(connStr.toString(), pool)
-    
+
     def sendEvent(message: String) = {
       val messageData = EventData.create(message.getBytes("UTF-8"))
-      eventHubClient.get().send(messageData) 
+      eventHubClient.get().send(messageData)
       System.out.println("Sent event: " + message + "\n")
     }
-    
+
     import twitter4j._
     import twitter4j.TwitterFactory
     import twitter4j.Twitter
     import twitter4j.conf.ConfigurationBuilder
-    
+
     // Twitter configuration!
     // Replace values below with yours
-    
+
     val twitterConsumerKey = "<CONSUMER KEY>"
     val twitterConsumerSecret = "<CONSUMER SECRET>"
     val twitterOauthAccessToken = "<ACCESS TOKEN>"
     val twitterOauthTokenSecret = "<TOKEN SECRET>"
-    
+
     val cb = new ConfigurationBuilder()
       cb.setDebugEnabled(true)
       .setOAuthConsumerKey(twitterConsumerKey)
       .setOAuthConsumerSecret(twitterConsumerSecret)
       .setOAuthAccessToken(twitterOauthAccessToken)
       .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
-    
+
     val twitterFactory = new TwitterFactory(cb.build())
     val twitter = twitterFactory.getInstance()
-    
+
     // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
-    
+
     val query = new Query(" #Azure ")
     query.setCount(100)
     query.lang("en")
     var finished = false
     while (!finished) {
-      val result = twitter.search(query) 
+      val result = twitter.search(query)
       val statuses = result.getTweets()
       var lowestStatusId = Long.MaxValue
       for (status <- statuses.asScala) {
-        if(!status.isRetweet()){ 
+        if(!status.isRetweet()){
           sendEvent(status.getText())
         }
         lowestStatusId = Math.min(status.getId(), lowestStatusId)
@@ -239,24 +239,24 @@ Plak in het notitieblok **SendTweetsToEventHub**de volgende code en vervang de t
       }
       query.setMaxId(lowestStatusId - 1)
     }
-    
+
     // Closing connection to the Event Hub
     eventHubClient.get().close()
 
-Voor het uitvoeren van het notitieblok, drukt u op **SHIFT + ENTER**. U ziet uitvoer zoals het onderstaande codefragment. Elke gebeurtenis in de uitvoer is een realtime tweet die in de Event Hubs met de term 'Azure' wordt opgenomen. 
+Voor het uitvoeren van het notitieblok, drukt u op **SHIFT + ENTER**. U ziet uitvoer zoals het onderstaande codefragment. Elke gebeurtenis in de uitvoer is een tweet die in Event Hubs met de term 'Azure' wordt opgenomen.
 
     Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
     Sent event: Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah 
+    https://t.co/7vs7cKtvah
     #cloudcomputing #Azure
-    
+
     Sent event: 4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie
-    
+
     Sent event: Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
-    
+
     Sent event: Top 10 Tricks to #Save Money with #Azure Virtual Machines https://t.co/F2wshBXdoz #Cloud
-    
+
     ...
     ...
 
@@ -266,26 +266,26 @@ Plak in het notitieblok **ReadTweetsFromEventHub**de volgende code en vervang de
 
     import org.apache.spark.eventhubs._
 
-    // Build connection string with the above information 
+    // Build connection string with the above information
     val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
       .setEventHubName("<EVENT HUB NAME>")
       .build
-    
-    val customEventhubParameters = 
+
+    val customEventhubParameters =
       EventHubsConf(connectionString)
       .setMaxEventsPerTrigger(5)
-    
+
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
-    
+
     incomingStream.printSchema
-    
+
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
 U krijgt de volgende uitvoer:
 
-  
+
     root
      |-- body: binary (nullable = true)
      |-- offset: long (nullable = true)
@@ -293,7 +293,7 @@ U krijgt de volgende uitvoer:
      |-- enqueuedTime: long (nullable = true)
      |-- publisher: string (nullable = true)
      |-- partitionKey: string (nullable = true)
-   
+
     -------------------------------------------
     Batch: 0
     -------------------------------------------
@@ -301,9 +301,9 @@ U krijgt de volgende uitvoer:
     |body  |offset|sequenceNumber|enqueuedTime   |publisher|partitionKey|
     +------+------+--------------+---------------+---------+------------+
     |[50 75 62 6C 69 63 20 70 72 65 76 69 65 77 20 6F 66 20 4A 61 76 61 20 6F 6E 20 41 70 70 20 53 65 72 76 69 63 65 2C 20 62 75 69 6C 74 2D 69 6E 20 73 75 70 70 6F 72 74 20 66 6F 72 20 54 6F 6D 63 61 74 20 61 6E 64 20 4F 70 65 6E 4A 44 4B 0A 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 37 76 73 37 63 4B 74 76 61 68 20 0A 23 63 6C 6F 75 64 63 6F 6D 70 75 74 69 6E 67 20 23 41 7A 75 72 65]                              |0     |0             |2018-03-09 05:49:08.86 |null     |null        |
-    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        | 
+    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        |
     +------+------+--------------+---------------+---------+------------+
-    
+
     -------------------------------------------
     Batch: 1
     -------------------------------------------
@@ -314,19 +314,19 @@ Omdat de uitvoer in een binaire modus is, gebruikt u het volgende fragment om de
 
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Event Hub message format is JSON and contains "body" field
     // Body is binary, so we cast it to string to see the actual content of the message
-    val messages = 
+    val messages =
       incomingStream
       .withColumn("Offset", $"offset".cast(LongType))
       .withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType))
       .withColumn("Timestamp", $"enqueuedTime".cast(LongType))
       .withColumn("Body", $"body".cast(StringType))
       .select("Offset", "Time (readable)", "Timestamp", "Body")
-    
+
     messages.printSchema
-    
+
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
 De uitvoer lijkt nu op die in het volgende codefragment:
@@ -336,7 +336,7 @@ De uitvoer lijkt nu op die in het volgende codefragment:
      |-- Time (readable): timestamp (nullable = true)
      |-- Timestamp: long (nullable = true)
      |-- Body: string (nullable = true)
-    
+
     -------------------------------------------
     Batch: 0
     -------------------------------------------
@@ -344,7 +344,7 @@ De uitvoer lijkt nu op die in het volgende codefragment:
     |Offset|Time (readable)  |Timestamp |Body
     +------+-----------------+----------+-------+
     |0     |2018-03-09 05:49:08.86 |1520574548|Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah 
+    https://t.co/7vs7cKtvah
     #cloudcomputing #Azure          |
     |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
     |0     |2018-03-09 05:49:02.936|1520574542|@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|
@@ -356,18 +356,18 @@ De uitvoer lijkt nu op die in het volgende codefragment:
     ...
     ...
 
-Dat is alles. Met behulp van Azure Databricks hebt u realtime gegevens naar Azure Event Hubs gestreamd. U hebt vervolgens de stroomgegevens gebruikt met behulp van de Event Hubs-connector voor Apache Spark.
+Dat is alles. Met behulp van Azure Databricks hebt u gegevens naar Azure Event Hubs gestreamd in bijna-realtime. U hebt vervolgens de stroomgegevens gebruikt met behulp van de Event Hubs-connector voor Apache Spark.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Nadat u de zelfstudie hebt voltooid, kunt u het cluster beëindigen. Dit doet u door vanuit de Azure Databricks-werkruimte in het linkerdeelvenster **Clusters** te selecteren. Voor het cluster dat u wilt beëindigen, plaatst u de cursor op het weglatingsteken onder de kolom **Acties** en selecteert u het pictogram **Beëindigen**.
+Nadat u de zelfstudie hebt voltooid, kunt u het cluster beëindigen. Dit doet u door vanuit de Azure Databricks-werkruimte in het linkerdeelvenster **Clusters** te selecteren. Voor het cluster dat u wilt beëindigen, plaatst u de cursor op het weglatingsteken onder de kolom **Acties** en selecteert u het **beëindigingspictogram**.
 
 ![Een Databricks-cluster stopzetten](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Een Databricks-cluster stopzetten")
 
-Als u het cluster niet handmatig beëindigt, stopt het automatisch, op voorwaarde dat het selectievakje **Beëindigen na __ minuten inactiviteit** is geselecteerd tijdens het maken van het cluster. In dat geval stopt het cluster automatisch als het gedurende de opgegeven tijd inactief is geweest.
+Als u het cluster niet handmatig beëindigt, stopt het cluster automatisch, op voorwaarde dat het selectievakje **Beëindigen na __ minuten inactiviteit** is ingeschakeld tijdens het maken van het cluster. In dat geval stopt het cluster automatisch als het gedurende de opgegeven tijd inactief is geweest.
 
-## <a name="next-steps"></a>Volgende stappen 
-In deze zelfstudie hebt u het volgende geleerd:
+## <a name="next-steps"></a>Volgende stappen
+In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Een Azure Databricks-werkruimte maken
@@ -381,4 +381,4 @@ In deze zelfstudie hebt u het volgende geleerd:
 Ga verder naar de volgende zelfstudie voor meer informatie over het uitvoeren van sentimentanalyses op de gestreamde gegevens met behulp van Azure Databricks en [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Zelfstudie: Sentimentanalyse voor streaming-gegevens met behulp van Azure Databricks](databricks-stream-from-eventhubs.md)
+>[Zelfstudie: Sentimentanalyse voor streaming-gegevens met behulp van Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)

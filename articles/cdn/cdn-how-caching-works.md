@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: da43e122c3e7d5e852107d4e4cca237ce4824267
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-caching-works"></a>Hoe opslaan in cache werkt
+# <a name="how-caching-works"></a>Hoe caching werkt
 
 In dit artikel biedt een overzicht van de algemene concepten voor opslaan in cache en hoe [Azure Content Delivery Network (CDN)](cdn-overview.md) opslaan in cache gebruikt om prestaties te verbeteren. Als u meer informatie over het aanpassen van het gedrag van uw CDN-eindpunt, Zie [besturingselement Azure CDN cachegedrag met caching regels](cdn-caching-rules.md) en [besturingselement Azure CDN cachegedrag met queryreeksen](cdn-query-string.md).
 
@@ -64,7 +64,7 @@ Twee headers kunnen worden gebruikt voor het definiëren van cache nieuwheid: `C
 ## <a name="cache-directive-headers"></a>Headers van de instructie cache
 
 > [!IMPORTANT]
-> Standaard een Azure CDN-eindpunt dat is geoptimaliseerd voor DSA instructie cache headers worden genegeerd en wordt overgeslagen opslaan in cache. Voor **Azure CDN van Verizon standaard** en **Azure CDN van Akamai standaard** profielen, kunt u aanpassen hoe een Azure CDN-eindpunt deze koppen omgaat met behulp van [CDNcachingregels](cdn-caching-rules.md)in te schakelen in. Voor **Azure CDN van Verizon** profielen, die u gebruikt de [regelengine](cdn-rules-engine.md) in te schakelen in.
+> Standaard een Azure CDN-eindpunt dat is geoptimaliseerd voor DSA instructie cache headers worden genegeerd en wordt overgeslagen opslaan in cache. Voor **Azure CDN van Verizon standaard** en **Azure CDN van Akamai standaard** profielen, kunt u aanpassen hoe een Azure CDN-eindpunt deze koppen omgaat met behulp van [CDNcachingregels](cdn-caching-rules.md)in te schakelen in. Voor **Azure CDN van Verizon Premium** profielen, die u gebruikt de [regelengine](cdn-rules-engine.md) in te schakelen in.
 
 Azure CDN ondersteunt de volgende HTTP-instructie cache headers, waarin de Cacheduur van de en het delen van de cache.
 
@@ -123,7 +123,7 @@ De volgende tabel beschrijft de standaard cachegedrag voor de Azure CDN-producte
 |                    | Verizon: levering algemene webtoepassingen | Verizon: DSA | Akamai: levering algemene webtoepassingen | Akamai: DSA | Akamai: groot bestand downloaden | Akamai: Algemeen of VOD streamen van media |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Voldoen aan de oorsprong**   | Ja    | Nee   | Ja | Nee | Ja | Ja |
-| **Cacheduur CDN** | 7 dagen | None | 7 dagen | None | 1 dag | 1 jaar |
+| **Cacheduur CDN** | 7 dagen | Geen | 7 dagen | Geen | 1 dag | 1 jaar |
 
 **Oorsprong inwilligen**: geeft aan of te voldoen aan de [instructie cache headers ondersteund](#http-cache-directive-headers) als ze in het HTTP-antwoord op de bronserver voorkomen.
 

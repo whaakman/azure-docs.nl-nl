@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d4fe2d410152fc4d65f2d22bc26e5e72b91bc282
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: eb4de9d7781ae355e42a6fec9f7732ad67228e70
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Snelstart: een Service Fabric Windows-containertoepassing implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -83,17 +83,20 @@ Configureer de toewijzing van de containerpoort naar de hostpoort zó, dat binne
 Een volledig voorbeeld van een ApplicationManifest.xml-bestand vindt u aan het einde van dit artikel.
 
 ## <a name="create-a-cluster"></a>Een cluster maken
-U kunt voor het implementeren van de toepassing naar een cluster in Azure een Party-cluster gebruiken. Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform.  Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt. Party-clusters ondersteunen containers. Als u uw eigen cluster instelt, moet het cluster echter worden uitgevoerd op Windows Server 2016 met Containers om containers te kunnen uitvoeren.
+U kunt voor het implementeren van de toepassing naar een cluster in Azure een cluster van derden gebruiken. Clusters van derden zijn gratis, tijdelijke Service Fabric-clusters die worden gehost op Azure en uitgevoerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en meer te weten komen over het platform.  Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt. Party-clusters ondersteunen containers. Als u besluit uw eigen cluster in te stellen en te gebruiken, moet het cluster worden uitgevoerd op een SKU die ondersteuning biedt voor containers (zoals Windows Server 2016 Datacenter met Containers).
 
-Meld u aan en [neem deel aan een Windows-cluster](http://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Het certificaat en de waarde van het **verbindingseindpunt** worden in volgende stappen gebruikt.
+Meld u aan en [neem deel aan een Windows-cluster](http://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Klik op de koppeling **Hoe kan ik verbinding maken met een beveiligd Party-cluster?** en kopieer het certificaatwachtwoord. Het certificaat, het certificaatwachtwoord en de waarde van het **verbindingseindpunt** worden in volgende stappen gebruikt.
 
 ![PFX en verbindingseindpunt](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+> [!Note]
+> Er zijn per uur een beperkt aantal Party-clusters beschikbaar. Als er een fout optreedt wanneer u zich probeert aan te melden voor een Party-cluster, kunt u een bepaalde tijd wachten en het opnieuw proberen, of kunt u deze stappen in de zelfstudie [Een .NET-app implementeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) volgen om een Service Fabric-cluster in uw Azure-abonnement te maken en daarin de toepassing te implementeren. Het cluster dat is gemaakt met behulp van Visual Studio ondersteunt containers. Nadat u de toepassing in uw cluster hebt geïmplementeerd en geverifieerd, kunt u verdergaan naar [Volledig voorbeeld van de manifesten voor de Service Fabric-toepassing en -service](#complete-example-service-fabric-application-and-service-manifests) in deze quickstart. 
+>
 
 Op een Windows-computer installeert u het PFX-bestand in het certificaatarchief *CurrentUser\My*.
 
 ```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
-\CurrentUser\My
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
 
 
   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
@@ -118,7 +121,7 @@ Klik op **Publish**.
 
 Elke toepassing in het cluster moet een unieke naam hebben.  Clusters van derden vormen echter een openbare, gedeelde omgeving en er kan een conflict met een bestaande toepassing optreden.  Als er een naamconflict is, wijzigt u de naam van het Visual Studio-project en voert u de implementatie opnieuw uit.
 
-Open een browser en ga naar http://zwin7fh14scd.westus.cloudapp.azure.com:80. U ziet de IIS-standaardwebpagina: ![IIS-standaardwebpagina][iis-default]
+Open een browser en ga naar het **verbindingseindpunt** dat is opgegeven op de pagina met het cluster van een derde. U kunt de URL eventueel vooraf laten gaan door de schema-id, `http://`, en de poort, `:80`, aan het einde toevoegen. Bijvoorbeeld http://zwin7fh14scd.westus.cloudapp.azure.com:80. U ziet de IIS-standaardwebpagina: ![IIS-standaardwebpagina][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Volledig voorbeeld van de manifesten voor de Fabric Service-toepassing en -service
 Dit zijn de volledige manifesten voor de service en toepassing die worden gebruikt in deze snelstartgids.

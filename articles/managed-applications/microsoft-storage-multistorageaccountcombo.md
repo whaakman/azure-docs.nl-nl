@@ -1,6 +1,6 @@
 ---
-title: Azure beheerde toepassing MultiStorageAccountCombo UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Storage.MultiStorageAccountCombo UI-element voor beheerde Azure-toepassingen
+title: Azure MultiStorageAccountCombo UI-element | Microsoft Docs
+description: Beschrijft het Microsoft.Storage.MultiStorageAccountCombo UI-element voor Azure-portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: e1dda7917988146807ca6cfab10a3a4eac0b7bb2
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: c395c076a4910e124c1b93ebc61b5e491b2b53ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountCombo UI-element
-Een groep besturingselementen voor het maken van meerdere opslagaccounts met namen die met een algemeen voorvoegsel beginnen. Gebruik van dit element wanneer [maken van een Azure-toepassing beheerd](publish-service-catalog-app.md).
+# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountCombo UI element
+Een groep besturingselementen voor het maken van meerdere opslagaccounts met namen die met een algemeen voorvoegsel beginnen.
 
 ## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
@@ -56,7 +56,7 @@ Een groep besturingselementen voor het maken van meerdere opslagaccounts met nam
 - De namen van opslagaccounts zijn gegenereerd lexicographically op basis van `count`. Bijvoorbeeld, als `count` 10 is, wordt de namen van opslagaccounts eindigen met gehele getallen 2 cijfers (01, 02, 03, enz.).
 - De standaardwaarde voor `defaultValue.prefix` is **null**, en voor `defaultValue.type` is **Premium_LRS**.
 - Een type dat niet is opgegeven in `constraints.allowedTypes` is verborgen, en een type dat niet is opgegeven in `constraints.excludedTypes` wordt weergegeven.
-`constraints.allowedTypes`en `constraints.excludedTypes` zijn beide optioneel, maar niet gelijktijdig worden gebruikt.
+`constraints.allowedTypes` en `constraints.excludedTypes` zijn beide optioneel, maar niet gelijktijdig worden gebruikt.
 - Naast het genereren van de namen van opslagaccounts, `count` wordt gebruikt voor het instellen van de juiste vermenigvuldiger voor het element. Een statische waarde, zoals ondersteunt **2**, of een dynamische waarde van een ander element, zoals `[steps('step1').storageAccountCount]`. De standaardwaarde is **1**.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
@@ -70,6 +70,5 @@ Een groep besturingselementen voor het maken van meerdere opslagaccounts met nam
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot beheerde toepassingen, [overzicht van Azure Managed toepassing](overview.md).
 * Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](create-uidefinition-elements.md).

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure virtuele-machineschaalsets Veelgestelde vragen
 
@@ -63,7 +63,11 @@ Vind antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure.
 
 **V:** Maken schaalsets gebruik van beschikbaarheidssets van Azure?
 
-**A:** Ja. Een schaalset is een impliciete beschikbaarheidsset met vijf foutdomeinen en vijf updatedomeinen. Schaalsets met meer dan 100 virtuele machines omvatten meerdere *plaatsingsgroepen* die gelijkwaardig zijn aan meerdere beschikbaarheidssets. Zie voor meer informatie over de plaatsing van groepen [Werken met grote schaalsets voor virtuele machines](virtual-machine-scale-sets-placement-groups.md). Een beschikbaarheidsset met virtuele machines kan bestaan in hetzelfde virtuele netwerk als een schaalset met virtuele machines. Een veelvoorkomende configuratie is om beheerknooppunt-VM's (waarvoor vaak een unieke configuratie is vereist) in een beschikbaarheidsset te zetten en gegevensknooppunten in de schaalset te zetten.
+**A:** Een regionale (niet-zonal) schaalset gebruikt *plaatsing groepen*, die kan worden geconfigureerd om te fungeren als een impliciete beschikbaarheidsset met vijf domeinen met fouten en vijf domeinen bijwerken. Schaalsets van meer dan 100 virtuele machines verdeeld over meerdere groepen voor plaatsing. Zie voor meer informatie over de plaatsing van groepen [Werken met grote schaalsets voor virtuele machines](virtual-machine-scale-sets-placement-groups.md). Een beschikbaarheidsset met virtuele machines kan bestaan in hetzelfde virtuele netwerk als een schaalset met virtuele machines. Een veelvoorkomende configuratie is om beheerknooppunt-VM's (waarvoor vaak een unieke configuratie is vereist) in een beschikbaarheidsset te zetten en gegevensknooppunten in de schaalset te zetten.
+
+**V:** Schalen sets werken met Azure beschikbaarheid zones?
+
+**A:** Ja. Zie voor meer informatie de [zone doc-schaalset](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Automatisch schalen

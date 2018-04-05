@@ -3,17 +3,17 @@ title: Maken en beheren van Azure-Database voor de MySQL-server met Azure portal
 description: Dit artikel wordt beschreven hoe u kunt snel een nieuwe Azure-Database voor de MySQL-server maken en beheren van de server met de Azure-Portal.
 services: mysql
 author: ajlam
-ms.author: nolanwu
+ms.author: andrela
 editor: jasonwhowell
 manager: kfile
 ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0e274c0ada3de5e9000ae41516e5b9b67ef1490b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4b52cb9e42e582d42424c2814e2e30f764a8679b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Maken en beheren van Azure-Database voor de MySQL-server met Azure portal
 Dit onderwerp wordt beschreven hoe u snel een nieuwe Azure-Database voor de MySQL-server kunt maken. Het bevat ook informatie over het beheren van de server met behulp van de Azure-portal. Serverbeheer omvat server-gegevens en het wachtwoord opnieuw instellen, resources schalen en verwijderen van de server-databases weer te geven.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 88020b27403f06ab8f1c0a1c45b798db02f517f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Overzicht van metrische gegevens in Microsoft Azure
 Dit artikel wordt beschreven wat metrische gegevens zijn in Microsoft Azure, hun voordelen en het gebruik ervan.  
@@ -116,7 +116,7 @@ Metrische waarschuwingen: ze vervolgens kunnen u een melding via e-mail of start
 
  ![Metrische gegevens en regels voor waarschuwingen in de Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Near-realtime waarschuwingen (preview): deze hebben de mogelijkheid voor het bewaken van meerdere metrische gegevens en drempelwaarden voor een resource en vervolgens een melding via een [actie groep](/monitoring-action-groups.md). Meer informatie over [bijna realtime metriek waarschuwingen hier](https://aka.ms/azuremonitor/near-real-time-alerts).
+Nieuwere metrische waarschuwingen hebben de mogelijkheid voor het bewaken van meerdere metrische gegevens en drempelwaarden voor een resource en vervolgens een melding via een [actie groep](/monitoring-action-groups.md). Meer informatie over [nieuwere waarschuwingen hier](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Automatisch schalen van uw Azure resources

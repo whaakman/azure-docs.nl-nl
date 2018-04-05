@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 476dc5fb8a5d9fb7fbcee898517455c52a3a9d73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 309a64c47eb95ca2ca05bb82bc1c41256305823d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Aanroepen van een SSIS-pakket met de activiteit opgeslagen procedure in Azure Data Factory
 In dit artikel wordt beschreven hoe een SSIS-pakket van een Azure Data Factory-pijplijn met behulp van een activiteit opgeslagen procedure aanroepen. 
@@ -28,7 +28,7 @@ In dit artikel wordt beschreven hoe een SSIS-pakket van een Azure Data Factory-p
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-De procedures in dit artikel maakt gebruik van een Azure SQL-database die als host fungeert voor de SSIS-catalogus. U kunt ook een Azure SQL beheerd-exemplaar (afgeschermd voorbeeld).
+De procedures in dit artikel maakt gebruik van een Azure SQL-database die als host fungeert voor de SSIS-catalogus. U kunt ook een Azure SQL beheerd-exemplaar (Preview) gebruiken.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Een Azure SSIS Integration Runtime maken
 Een Azure-SSIS-integratie runtime maken als u geen volgt u de stapsgewijze instructies in de [zelfstudie: implementeren SSIS-pakketten](../tutorial-create-azure-ssis-runtime-portal.md). U moet een gegevensfactory van versie 2 voor het maken van een Azure-SSIS-integratie runtime maken. 

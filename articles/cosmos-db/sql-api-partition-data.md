@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fe78289938e752731ff2e830fb62ad210e12111e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Partitioneren in Azure Cosmos-database met behulp van de SQL-API
 
@@ -78,7 +78,7 @@ In de SQL-API geeft u de definitie van de partitie sleutel in de vorm van een JS
 Bekijk hoe de keuze van de partitiesleutel heeft impact op de prestaties van uw toepassing.
 
 ## <a name="working-with-the-azure-cosmos-db-sdks"></a>Werken met de SDK's van Azure Cosmos DB
-Azure Cosmos DB is ondersteuning toegevoegd voor automatische partitionering met [REST API-versie 2015-12-16](/rest/api/documentdb/). Om te kunnen gepartitioneerde containers te maken, moet u de SDK-versies 1.6.0 downloaden of hoger in een van de ondersteunde platforms SDK (.NET, Node.js, Java, Python, MongoDB). 
+Azure Cosmos DB is ondersteuning toegevoegd voor automatische partitionering met [REST API-versie 2015-12-16](/rest/api/cosmos-db/). Om te kunnen gepartitioneerde containers te maken, moet u de SDK-versies 1.6.0 downloaden of hoger in een van de ondersteunde platforms SDK (.NET, Node.js, Java, Python, MongoDB). 
 
 ### <a name="creating-containers"></a>Containers maken
 Het volgende voorbeeld ziet u een .NET-codefragment voor het maken van een container voor het opslaan van apparaat telemetriegegevens van 20.000 aanvraageenheden per seconde van doorvoer. De SDK stelt u de waarde OfferThroughput (die op zijn beurt stelt de `x-ms-offer-throughput` aanvraag-header in de REST-API). Hier stelt de `/deviceId` als de partitiesleutel. De keuze van de partitiesleutel wordt opgeslagen samen met de rest van de container-metagegevens, zoals naam en het indexeringsbeleid.
@@ -225,6 +225,6 @@ In het volgende gedeelte kijken we hoe u naar een gepartitioneerde containers ui
 In dit artikel wordt een overzicht van het werken met partitionering van Azure DB die Cosmos-containers met de SQL-API opgegeven. Zie ook [partitionerings- en horizontaal schalen](../cosmos-db/partition-data.md) voor een overzicht van de concepten en aanbevolen procedures voor het partitioneren van Azure Cosmos DB API. 
 
 * Schaal en prestaties testen met Azure Cosmos DB uitvoeren. Zie [prestaties en schaal testen met Azure Cosmos DB](performance-testing.md) voor een voorbeeld.
-* Aan de slag programmeren met de [SDK's](sql-api-sdk-dotnet.md) of de [REST-API](/rest/api/documentdb/)
+* Aan de slag programmeren met de [SDK's](sql-api-sdk-dotnet.md) of de [REST-API](/rest/api/cosmos-db/)
 * Meer informatie over [ingerichte doorvoer in Azure Cosmos-DB](request-units.md)
 

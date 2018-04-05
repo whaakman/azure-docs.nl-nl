@@ -5,29 +5,29 @@ services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 149d2ba5108fb49741203fbe5c50add6c0d523ae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitie en schalen in Azure Cosmos-DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is een globaal gedistribueerd, multimodel-database-service waarmee u snel, voorspelbare prestaties bereiken. Het schalen naadloos samen met uw toepassing wanneer het groeit. Dit artikel bevat een overzicht van hoe werkt voor alle gegevens partitioneren in Azure Cosmos DB modellen. Ook wordt beschreven hoe u Azure DB die Cosmos-containers wilt effectief schalen uw toepassingen kunt configureren.
 
-Partitionering en partitiesleutels worden besproken in deze Azure vrijdag video met Scott Hanselman en Azure Cosmos DB Principal Engineering Manager, Shireesh Thota:
+Partitionering en partitiesleutels worden besproken in deze video met Azure Cosmos DB Program Manager, Andrew Liu:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Partitioneren in Azure Cosmos DB
@@ -53,7 +53,7 @@ Kort samengevat: dit is hoe partitioneren werkt in Azure Cosmos DB:
 * Achter de schermen, richt Azure Cosmos DB partities nodig om te fungeren **T** aanvragen per seconde. Als **T** hoger is dan de maximale doorvoer per partitie **t**, vervolgens Azure Cosmos DB bepalingen **N = T/t** partities.
 * Azure Cosmos DB wordt de sleutel ruimte van de partitie sleutel hashes gelijkmatig meerdere de **N** partities. Dus elke partitie (fysieke partitie) hosts **1/N** partitie sleutelwaarden (logische partities).
 * Wanneer een fysieke partitie **p** bereikt de opslaglimiet bereikt, Azure Cosmos DB naadloos splitst **p** in twee nieuwe partities, **p1** en **p2** . Deze distribueert waarden die overeenkomen met ongeveer de helft van de sleutels aan elk van de partities. Deze bewerking gesplitste is onzichtbaar voor uw toepassing. De splitsbewerking wordt niet uitgevoerd als een fysieke partitie de opslaglimiet bereikt en alle gegevens in de fysieke partitie hoort bij dezelfde logische partitiesleutel. Dit komt doordat de gegevens voor een sleutel die één logische partitie zich op dezelfde fysieke partitie bevinden moet en dus de fysieke partitie in p1 en p2 kan niet worden opgesplitst. In dit geval moet de strategie voor een andere partitie worden gebruikt.
-* Wanneer u de doorvoer die hoger is dan inrichten  **t*N**, Azure Cosmos DB splitst een of meer van de partities ter ondersteuning van de hogere doorvoer.
+* Wanneer u de doorvoer die hoger is dan inrichten **t * N**, Azure Cosmos DB splitst een of meer van de partities ter ondersteuning van de hogere doorvoer.
 
 De semantiek voor partitiesleutels zijn enigszins verschillen overeenkomen met de semantiek van elke API, zoals wordt weergegeven in de volgende tabel:
 
@@ -99,7 +99,7 @@ Azure Cosmos DB is ontworpen voor voorspelbare prestaties. Wanneer u een contain
 ## <a name="work-with-the-azure-cosmos-db-apis"></a>Werken met de Azure Cosmos DB-API 's
 U kunt de Azure portal of Azure CLI gebruiken containers maken en op elk gewenst moment worden geschaald. Deze sectie wordt beschreven hoe containers maken en de sleuteldefinitie doorvoer en partitie opgeven in elk van de ondersteunde API's.
 
-### <a name="azure-cosmos-db-api"></a>Azure Cosmos DB-API
+### <a name="azure-cosmos-db-api"></a>Azure Cosmos DB API
 Het volgende voorbeeld laat zien hoe een container (verzameling) maken met behulp van de API van Azure Cosmos DB. 
 
 ```csharp

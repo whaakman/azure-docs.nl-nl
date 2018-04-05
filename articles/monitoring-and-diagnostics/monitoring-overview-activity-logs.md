@@ -3,7 +3,7 @@ title: Overzicht van de Azure Activity Log | Microsoft Docs
 description: Meer informatie over wat het Azure Activity Log is en hoe u deze kunt gebruiken om te begrijpen gebeurtenissen binnen uw Azure-abonnement.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6e373740d6b5af4b3b7d3dca8877c952d79f8b20
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitor abonnement activiteit met de Azure Activity Log
 De **Azure Activity Log** is een abonnementlogboek die biedt inzicht in het abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit omvat een bereik van gegevens van operationele gegevens van de Azure Resource Manager-updates op Service Health-gebeurtenissen. Het activiteitenlogboek heette vroeger 'Controlelogboeken' of 'Operationele Logs' sinds de beheercategorie rapporten besturingselement vlak gebeurtenissen voor uw abonnementen. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor een (PUT, POST, verwijderen schrijfbewerkingen) die zijn gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen. Het activiteitenlogboek bevat geen leesbewerkingen (GET) en bewerkingen voor resources die gebruikmaken van het klassieke / 'RDFE' model.
@@ -38,7 +38,7 @@ U kunt gebeurtenissen ophalen uit uw activiteitenlogboek met de Azure portal, CL
 
 > [!NOTE]
 
->  [Waarschuwingen (Preview)](monitoring-overview-unified-alerts.md) momenteel een verbeterde ervaring bij het maken en beheren van activiteit logboek waarschuwingsregels biedt.  [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
+>  [De nieuwere waarschuwingen)](monitoring-overview-unified-alerts.md) biedt een verbeterde ervaring bij het maken en beheren van de activiteit zich met regels voor waarschuwingen aanmelden.  [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
 
 
 Bekijk de volgende video introductie van het activiteitenlogboek.
@@ -126,7 +126,7 @@ U kunt het activiteitenlogboek naar een Event Hub stream of opslaan in een Opsla
   * de Service Bus Namespace waarin u een Event Hub wilt voor streaming van deze gebeurtenissen worden gemaakt.
 
      ![Activiteitenlogboek blade exporteren](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Klik op **opslaan** deze instellingen op te slaan. De instellingen zijn onmiddellijk worden toegepast op uw abonnement.
+4. Klik op **opslaan** deze instellingen op te slaan. De instellingen worden onmiddellijk toegepast op uw abonnement.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Logboek profielen met de PowerShell-Cmdlets voor Azure configureren
 #### <a name="get-existing-log-profile"></a>Bestaande profiel voor het logboek ophalen

@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie voor Kubernetes in Azure: Kubernetes bewaken'
-description: AKS-zelfstudie - Kubernetes bewaken met Microsoft Operations Management Suite (OMS)
+description: 'AKS-zelfstudie: Kubernetes controleren met Azure Log Analytics'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 227601858dbe07e6cb774a2d24878ddca05aaf56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86ae0c5ab302c49fa58df887d9dffef6cec31708
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>Azure Container Service (AKS) bewaken
+# <a name="tutorial-monitor-azure-container-service-aks"></a>Zelfstudie: AKS (Azure Container Service) controleren
 
 Het is erg belangrijk om uw Kubernetes-cluster en -containers te bewaken, vooral wanneer u een productiecluster op schaal uitvoert met meerdere toepassingen.
 
@@ -40,11 +40,11 @@ Selecteer in Azure Portal **Een resource maken** en zoek naar `Container Monitor
 
 ![Oplossing toevoegen](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Maak een nieuwe OMS-werkruimte of selecteer een bestaande werkruimte. Het formulier OMS-werkruimte begeleidt u door dit proces.
+Maak een nieuwe Log Analytics-werkruimte of selecteer een bestaande werkruimte. Het formulier Log Analytics-werkruimte begeleidt u door dit proces.
 
 Wanneer u de werkruimte maakt, selecteert u **Aan dashboard vastmaken** om deze eenvoudig op te halen.
 
-![OMS-werkruimte](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+![Log Analytics-werkruimte](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
 Selecteer **Ok** wanneer u gereed bent. Nadat de validatie is voltooid, selecteert u **Maken** om de containerbewakingsoplossing te maken.
 
@@ -58,7 +58,7 @@ Als u deze waarden wilt ophalen, selecteert u **OMS-werkruimte** in het linkerme
 
 ## <a name="create-kubernetes-secret"></a>Kubernetes-geheim maken
 
-Sla de instellingen van de OMS-werkruimte op in een Kubernetes-geheim met de naam `omsagent-secret`. Doe dit met behulp van de opdracht [kubectl create secret][kubectl-create-secret]. Werk `WORKSPACE_ID` bij met de id van uw OMS-werkruimte en `WORKSPACE_KEY` met de sleutel van de werkruimte.
+Sla de instellingen van de Log Analytics-werkruimte op in een Kubernetes-geheim met de naam `omsagent-secret`. Doe dit met behulp van de opdracht [kubectl create secret][kubectl-create-secret]. Werk `WORKSPACE_ID` bij met de id van uw Log Analytics-werkruimte en `WORKSPACE_KEY` met de sleutel van de werkruimte.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -154,7 +154,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-Wanneer de agents worden uitgevoerd, duurt het een aantal minuten voordat de OMS de gegevens heeft opgenomen en verwerkt.
+Wanneer de agents worden uitgevoerd, duurt het een aantal minuten voordat de gegevens zijn opgenomen en verwerkt in Log Analytics.
 
 ## <a name="access-monitoring-data"></a>Toegang tot bewakingsgegevens
 
@@ -166,7 +166,7 @@ Raadpleeg de [Azure Log Analytics-documentatie][log-analytics-docs] voor gedetai
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u uw Kubernetes-cluster met OMS bewaakt. Behandelde taken zijn:
+In deze zelfstudie hebt u uw Kubernetes-cluster gecontroleerd met Log Analytics. Behandelde taken zijn:
 
 > [!div class="checklist"]
 > * De containerbewakingsoplossing configureren

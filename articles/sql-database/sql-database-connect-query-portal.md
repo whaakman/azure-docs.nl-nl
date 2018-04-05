@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 97b14de64c4aa6bf134f2c293e4bb8b5725810d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: de SQL-queryeditor gebruiken om verbinding te maken en query's op gegevens uit te voeren
 
-De SQL-queryeditor is een hulpprogramma voor het uitvoeren van query's in de browser waarmee u op een efficiënte en eenvoudige manier SQL-query's kunt uitvoeren op een Azure SQL-database of Azure SQL-datawarehouse zonder Azure Portal te verlaten. In deze quickstart ziet u hoe u de queryeditor gebruikt om verbinding te maken met een SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen.
+De SQL-queryeditor is een hulpprogramma voor het uitvoeren van query's in de browser waarmee u op een efficiënte en eenvoudige manier SQL-query's kunt uitvoeren op een Azure SQL-database of Azure SQL-datawarehouse zonder Azure Portal te verlaten. In deze snelstartgids ziet u hoe u de queryeditor gebruikt om verbinding te maken met een SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -142,19 +142,25 @@ Gebruik de volgende code om het nieuwe product te verwijderen dat u eerder hebt 
 
 ## <a name="query-editor-considerations"></a>Overwegingen bij queryeditor
 
-U moet enkele dingen weten voordat u met de queryeditor gaat werken terwijl deze de status Preview heeft:
+U moet enkele dingen weten voordat u met de queryeditor gaat werken:
 
 1. Zorg ervoor dat de optie Toegang tot Azure-services toestaan is ingesteld op 'AAN' in de firewall-instellingen van Azure SQL Server. Met deze optie geeft de SQL-queryeditor toegang tot uw SQL-databases en datawarehouses.
 
-2. Het aanmelden bij Azure Active Directory Administrator-beheerders werkt niet met accounts waarvoor tweeledige authenticatie is ingeschakeld.
+2. Als de SQL-server zich in een virtueel netwerk bevindt, kan de queryeditor niet worden gebruikt om query’s uit te voeren in de databases op die server.
 
-3. E-mailaccounts (bijvoorbeeld outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) worden nog niet ondersteund als Active Directory-beheerders. Kies een gebruiker die ofwel in het systeem zelf in Azure Active Directory is gemaakt, ofwel gefedereerd in Azure Active Directory
+3. Door op de F5-toets te drukken, wordt de pagina Queryeditor vernieuwd en wordt de query waaraan wordt gewerkt, beëindigd. U kunt de knop Uitvoeren op de werkbalk gebruiken om query's uit te voeren.
 
-4. Query's op ruimtelijke gegevenstypen worden nog niet ondersteund in de queryeditor. Het uitvoeren van query's op ruimtelijke kolommen leidt tot de fout System.IO.FileNotFoundException.
+4. De queryeditor biedt geen ondersteuning voor het maken van verbinding met de masterdatabase
 
-5. Er is geen ondersteuning voor IntelliSense voor databasetabellen en -views. Het automatisch aanvullen van namen die al eerder zijn getypt, wordt wel ondersteund.
+5. Er is een time-out van vijf minuten voor uitvoering van de query.
 
-6. Door op de F5-toets te drukken, wordt de pagina Queryeditor vernieuwd en wordt de query waaraan wordt gewerkt, beëindigd. U kunt de knop Uitvoeren op de werkbalk gebruiken om query's uit te voeren.
+6. Het aanmelden bij Azure Active Directory Administrator-beheerders werkt niet met accounts waarvoor tweeledige authenticatie is ingeschakeld.
+
+7. E-mailaccounts (bijvoorbeeld outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) worden nog niet ondersteund als Active Directory-beheerders. Kies een gebruiker die ofwel in het systeem zelf in Azure Active Directory is gemaakt, ofwel gefedereerd in Azure Active Directory
+
+8. De queryeditor ondersteunt alleen cilindrische projectie voor geografiegegevenstypen.
+
+9. Er is geen ondersteuning voor IntelliSense voor databasetabellen en -views. Het automatisch aanvullen van namen die al eerder zijn getypt, wordt wel ondersteund.
 
 
 ## <a name="next-steps"></a>Volgende stappen

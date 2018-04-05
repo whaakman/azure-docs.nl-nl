@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 09dd82c34308955cbbf3bf5a5d8745ee16d7818b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0aa1fd19af8819de54ab468c48516f402c1e2a9d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Een web-app verbinden met een redis-cache
 
@@ -44,12 +44,12 @@ Dit script maakt gebruik van de volgende opdrachten voor het maken van een resou
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Hiermee maakt u een App Service-plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Hiermee maakt u een Azure-web-app. |
-| [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az_redis_create) | Hiermee maakt u een nieuw redis-cache-exemplaar. |
-| [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az_redis_list_keys) | Hiermee geeft u een lijst van de toegangssleutels voor de redis-cache-instantie weer. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Hiermee kunt u een app-instelling voor een Azure-web-app maken of bijwerken. App-instellingen worden weergegeven als omgevingsvariabelen voor uw app. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Hiermee maakt u een App Service-plan. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Hiermee maakt u een Azure-web-app. |
+| [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az-redis-create) | Hiermee maakt u een nieuw redis-cache-exemplaar. |
+| [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys) | Hiermee geeft u een lijst van de toegangssleutels voor de redis-cache-instantie weer. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Hiermee kunt u een app-instelling voor een Azure-web-app maken of bijwerken. App-instellingen worden weergegeven als omgevingsvariabelen voor uw app. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -2,11 +2,11 @@
 title: IP-adressen behouden wanneer failover van virtuele machines naar een andere Azure-regio in Azure | Microsoft Docs
 description: Hierin wordt beschreven hoe u IP-adressen voor scenario's voor failover van Azure naar Azure met Azure Site Recovery behouden
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>IP-adres bewaren voor failover van de virtuele machine van Azure
 
@@ -84,11 +84,7 @@ De bovenstaande geïsoleerde failover voorbeeld kan worden uitgebreid bevatten m
 
 ### <a name="further-considerations"></a>Verdere overwegingen
 
-VPN-Gateways gebruikmaken van openbare IP-adressen en gateway hops verbindingen tot stand gebracht. Als u niet wilt gebruiken van openbare IP-adres en/of wilt voorkomen dat extra hops, kunt u nu globale VNet-Peering gebruiken als peer virtuele netwerken in Azure-regio's.
-
-Deze functie is momenteel in de openbare preview en ter ondersteuning van meer regio's is wordt uitgevouwen: directe verbinding voor VM-VM zonder de betrokkenheid van alle openbare internet of eventuele extra hops inschakelen.
-
-Raadpleeg voor meer informatie de [peering documentatie](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) en [prijzen](https://azure.microsoft.com/pricing/details/virtual-network/).
+VPN-Gateways gebruikmaken van openbare IP-adressen en gateway hops verbindingen tot stand gebracht. Als u niet wilt gebruiken van openbare IP-adres en/of wilt voorkomen dat extra hops, kunt u Azure [virtueel netwerk peering](../virtual-network/virtual-network-peering-overview.md) als virtuele netwerken via peer [Azure-regio's ondersteund](../virtual-network/virtual-network-manage-peering.md#cross-region).
 
 ## <a name="on-premises-to-azure-connectivity"></a>Connectiviteit op lokale-die naar Azure
 

@@ -6,9 +6,10 @@
 ## [Abonnements- en servicebeperkingen](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Aan de slag
-## [Een op een route gebaseerde VPN-gateway maken - Azure Portal](create-routebased-vpn-gateway-portal.md)
-## [Een op een route gebaseerde VPN-gateway maken - PowerShell](create-routebased-vpn-gateway-powershell.md)
-## [Een op een route gebaseerde VPN-gateway maken - CLI](create-routebased-vpn-gateway-cli.md)
+## Een op een route gebaseerde VPN-gateway maken
+### [Azure Portal](create-routebased-vpn-gateway-portal.md)
+### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
+### [Azure-CLI](create-routebased-vpn-gateway-cli.md)
 
 # Concepten
 ## [Planning en ontwerp voor VPN Gateway](vpn-gateway-plan-design.md)
@@ -87,13 +88,16 @@
 ### [Voorbeeld: Cisco ASA-apparaat (IKEv2/geen BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Migratie van het klassieke model naar het Resource Manager-model](vpn-gateway-classic-resource-manager-migration.md)
 ## [Problemen oplossen](vpn-gateway-troubleshoot.md)
-### [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Door de community voorgestelde VPN- of firewallinstellingen voor apparaten](vpn-gateway-third-party-settings.md)
-### [Problemen met een punt-naar-site-verbinding](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-#### [Problemen met een punt-naar-site-verbinding - Mac OS X-VPN-client](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
-### [Problemen met een site-naar-site-verbinding](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
-#### [Site-naar-Site-verbinding wordt herhaaldelijk verbroken](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [VNet- of VPN-verbindingen configureren en valideren](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
+### [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
+### Problemen met een punt-naar-site-verbinding
+#### [Problemen met een punt-naar-site-verbinding](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Problemen met een punt-naar-site-verbinding - Mac OS X-VPN-client](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### Problemen met een site-naar-site-verbinding
+#### [Problemen met een site-naar-site-verbinding](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Site-naar-Site-verbinding wordt herhaaldelijk verbroken](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

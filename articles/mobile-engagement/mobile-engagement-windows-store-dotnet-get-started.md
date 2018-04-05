@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 48103867-7f64-4646-b019-42bd797d38e2
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f1de1092458bfc12236802d829a2043dcc74540
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Aan de slag met Azure Mobile Engagement voor universele Windows-apps
+> [!IMPORTANT]
+> Azure Mobile Engagement wordt op 31-03-2018 buiten gebruik gesteld. Deze pagina wordt kort daarna verwijderd.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps, en om pushmeldingen te verzenden aan gesegmenteerde gebruikers van een universele Windows-toepassing.

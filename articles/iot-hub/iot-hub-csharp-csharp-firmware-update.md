@@ -5,8 +5,8 @@ services: iot-hub
 documentationcenter: .net
 author: JimacoMS2
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: v-jamebr
-ms.openlocfilehash: bd0a227861d75dc66af8fb4865a17a3b6d0f70ba
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 984fd7516b5c05973c45891f4eda31c41a5a2be5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Apparaatbeheer gebruiken om te zetten van een apparaat firmware-update (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Inleiding
 In de [aan de slag met Apparaatbeheer] [ lnk-dm-getstarted] zelfstudie, hebt u gezien hoe u de [apparaat twin] [ lnk-devtwin] en [methoden directe] [ lnk-c2dmethod] primitieven op afstand opnieuw opstarten van een apparaat. Deze zelfstudie gebruikt de dezelfde IoT Hub primitieven en ziet u hoe u een end-to-end gesimuleerde firmware-update.  Dit patroon wordt gebruikt in de firmware-update-implementatie voor de [frambozen Pi apparaat implementatie voorbeeld][lnk-rpi-implementation].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 In deze handleiding ontdekt u hoe u:
 
@@ -75,7 +77,7 @@ In deze sectie maakt u een .NET-consoletoepassing (met C#) die een externe firmw
     static string targetDevice = "{deviceIdForTargetDevice}";
     ```
         
-6. Voeg de volgende methode voor de **programma** klasse. Deze methode, controleert of de apparaat-twin om de bijgewerkte status elke 500 milliseconden. Geschreven naar de console alleen wanneer de status is gewijzigd. Voor dit voorbeeld, om te voorkomen dat het verbruik van extra IoT Hub berichten in uw abonnement polling stopt wanneer het apparaat de status van meldt **applyComplete** of een fout.  
+6. Voeg de volgende methode toe aan de klasse **Program**. Deze methode, controleert of de apparaat-twin om de bijgewerkte status elke 500 milliseconden. Geschreven naar de console alleen wanneer de status is gewijzigd. Voor dit voorbeeld, om te voorkomen dat het verbruik van extra IoT Hub berichten in uw abonnement polling stopt wanneer het apparaat de status van meldt **applyComplete** of een fout.  
    
     ```csharp   
     public static async Task QueryTwinFWUpdateReported(DateTime startTime)
@@ -134,7 +136,7 @@ In deze sectie maakt u een .NET-consoletoepassing (met C#) die een externe firmw
     Console.ReadLine();
     ```
         
-9. De oplossing bouwen.
+9. Bouw de oplossing.
 
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
 In deze sectie doet u het volgende:
@@ -371,7 +373,7 @@ In deze sectie doet u het volgende:
     }
     ```
         
-15. De oplossing bouwen.       
+15. Bouw de oplossing.       
 
 > [!NOTE]
 > Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u een beleid voor opnieuw proberen implementeren (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel [Transient Fault Handling][lnk-transient-faults] (Afhandeling van tijdelijke fouten).

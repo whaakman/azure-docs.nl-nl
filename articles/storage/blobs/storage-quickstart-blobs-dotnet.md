@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b84a56996a335f8a137c4219c55b9878e39b5a3b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van .NET
 
@@ -25,21 +25,23 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 Maak om deze snelstart te volgen eerst een Azure opslagaccount in [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Zie voor meer informatie over het maken van het account [Een opslagaccount maken](../common/storage-quickstart-create-account.md).
 
-Download en installeer vervolgens .NET Core 2.0 voor uw besturingssysteem. U kunt ook een editor installeren die u wilt gebruiken bij uw besturingssysteem.
+Download en installeer vervolgens .NET Core 2.0 voor uw besturingssysteem. Als u Windows uitvoert, kunt u desgewenst Visual Studio installeren en .NET Framework gebruiken. U kunt ook een editor installeren die u wilt gebruiken bij uw besturingssysteem.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-- Installeer [.NET Core voor Windows](https://www.microsoft.com/net/download/windows/build) 
-- Installeer desgewenst [Visual Studio voor Windows](https://www.visualstudio.com/) 
+- Installeer [.NET Core voor Windows](https://www.microsoft.com/net/download/windows) of [.NET Framework](https://www.microsoft.com/net/download/windows) (opgenomen in Visual Studio voor Windows)
+- Installeer [Visual Studio voor Windows](https://www.visualstudio.com/). Als u van .NET Core gebruikmaakt, is het installeren van Visual Studio optioneel.  
+
+Zie [Choose between .NET Core and .NET Framework for server apps](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) (Kiezen tussen .NET Core en .NET Framework voor server-apps) voor informatie over de keuze tussen .NET Core en .NET Framework.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-- Installeer [.NET Core voor Linux](https://www.microsoft.com/net/download/linux/build)
+- Installeer [.NET Core voor Linux](https://www.microsoft.com/net/download/linux)
 - Installeer desgewenst [Visual Studio Code](https://www.visualstudio.com/) en de [C#-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
 
 # <a name="macostabmacos"></a>[MacOS](#tab/macos)
 
-- Installeer [.NET Core voor macOS](https://www.microsoft.com/net/download/macos/build).
+- Installeer [.NET Core voor macOS](https://www.microsoft.com/net/download/macos).
 - Installeer desgewenst [Visual Studio voor Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ---
@@ -58,7 +60,22 @@ Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond. Zoek vo
 
 ## <a name="configure-your-storage-connection-string"></a>De opslagverbindingsreeks configureren
 
-U moet de verbindingsreeks voor uw opslagaccount opgeven om de toepassing uit te voeren. U kunt deze verbindingsreeks opslaan in een omgevingsvariabele op de lokale computer waarop de toepassing wordt uitgevoerd. U kunt de omgevingsvariabele maken met behulp van een van de volgende opdrachten, afhankelijk van uw besturingssysteem. Vervang `<yourconnectionstring>` door de werkelijke verbindingsreeks.
+U moet de verbindingsreeks voor uw opslagaccount opgeven om de toepassing uit te voeren. Kopieer de verbindingsreeks vanuit Azure Portal en schrijf deze naar een nieuwe omgevingsvariabele. In het voorbeeld wordt de verbindingsreeks uit de omgevingsvariabele gelezen en gebruikt om uw aanvragen voor Azure Storage te verifiëren.
+
+### <a name="copy-your-connection-string-from-the-azure-portal"></a>De verbindingsreeks vanuit Azure Portal kopiëren
+
+Ga als volgt te werk als u de verbindingsreeks wilt kopiëren:
+
+1. Navigeer naar [Azure Portal](https://portal.azure.com).
+2. Zoek uw opslagaccount.
+3. In de sectie **Instellingen** van het overzicht met opslagaccounts selecteert u **Toegangssleutels**.
+4. Zoek de waarde van de **Verbindingsreeks** onder **key1** en klik op de knop **Kopiëren** om de verbindingsreeks te kopiëren.  
+
+    ![Schermopname waarin een verbindingsreeks vanuit Azure Portal wordt gekopieerd](media/storage-quickstart-blobs-dotnet/portal-connection-string.png)
+
+## <a name="write-your-connection-string-to-an-environment-variable"></a>De verbindingsreeks naar een omgevingsvariabele schrijven
+
+Schrijf vervolgens de nieuwe omgevingsvariabele op de lokale computer waarop de toepassing wordt uitgevoerd. Als u de omgevingsvariabele wilt instellen, opent u een consolevenster en volgt u de aanwijzingen voor uw besturingssysteem. Vervang `<yourconnectionstring>` door de feitelijke verbindingsreeks:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -66,21 +83,25 @@ U moet de verbindingsreeks voor uw opslagaccount opgeven om de toepassing uit te
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
+Nadat u de omgevingsvariabele hebt toegevoegd, moet u actieve programma's die de omgevingsvariabele moeten lezen, opnieuw starten. Start ook het consolevenster opnieuw. Als u bijvoorbeeld Visual Studio als editor gebruikt, start u Visual Studio opnieuw voordat u het voorbeeld uitvoert. 
+
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
 export storageconnectionstring=<yourconnectionstring>
 ```
 
+Nadat u de omgevingsvariabele toevoegt, voert u `source ~/.bashrc` uit vanuit het consolevenster om de wijzigingen van kracht te laten worden.
+
 # <a name="macostabmacos"></a>[MacOS](#tab/macos)
 
 Bewerk uw .bash_profile en voeg de omgevingsvariabele toe:
 
-```
-export STORAGE_CONNECTION_STRING=
+```bash
+export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 ```
 
-Nadat u de omgevingsvariabele toevoegt, meldt u zich af en weer aan om de wijzigingen door te voeren. U kunt ook in uw "source .bash_profile" typen in uw terminal.
+Nadat u de omgevingsvariabele toevoegt, voert u `source .bash_profile` uit vanuit het consolevenster om de wijzigingen van kracht te laten worden.
 
 ---
 
@@ -88,23 +109,50 @@ Nadat u de omgevingsvariabele toevoegt, meldt u zich af en weer aan om de wijzig
 
 Met dit voorbeeld wordt een testbestand gemaakt in uw lokale map **Mijn documenten** en geüpload naar de Blob-opslag. Vervolgens wordt een lijst gemaakt van de blobs in de container en wordt het bestand gedownload met een nieuwe naam, zodat u het oude en nieuwe bestand kunt vergelijken. 
 
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+Als u Visual Studio als editor gebruikt, drukt u op **F5** om het uit te voeren. 
+
+Navigeer anders naar de toepassingsmap en voer de toepassing uit met de opdracht `dotnet run`.
+
+```
+dotnet run
+```
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
 Navigeer naar de toepassingsmap en voer de toepassing uit met de opdracht `dotnet run`.
 
 ```
 dotnet run
 ```
 
-De uitvoer lijkt op die in het volgende voorbeeld:
+# <a name="macostabmacos"></a>[MacOS](#tab/macos)
+
+Navigeer naar de toepassingsmap en voer de toepassing uit met de opdracht `dotnet run`.
 
 ```
-Azure Blob storage quick start sample
-Temp file = /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Uploading to Blob storage as blob 'QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt'
-List blobs in container.
-https://mystorageaccount.blob.core.windows.net/quickstartblobs/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Downloading blob to /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374_DOWNLOADED.txt
-The program has completed successfully.
-Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
+dotnet run
+```
+
+---
+
+De uitvoer van de voorbeeldtoepassing is vergelijkbaar met het volgende voorbeeld:
+
+```
+Azure Blob storage - .NET Quickstart sample
+
+Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
+
+Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt'
+
+Listing blobs in container.
+https://storagesamples.blob.core.windows.net/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+
+Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db_DOWNLOADED.txt
+
+Press any key to delete the sample files and example container.
 ```
 
 Wanneer u op **Enter** drukt, worden de opslagcontainer en de bestanden verwijderd. Controleer voordat u doorgaat of de map **Mijn documenten** de twee bestanden bevat. Als u ze opent, ziet u dat ze identiek zijn. Kopieer de URL van de blob in het consolevenster en plak deze in een browser om de inhoud van de blob weer te geven.
@@ -123,8 +171,8 @@ Het eerste wat het voorbeeld doet, is controleren of de omgevingsvariabele een v
 // Retrieve the connection string for use with the application. The storage connection string is stored
 // in an environment variable on the machine running the application called storageconnectionstring.
 // If the environment variable is created after the application is launched in a console or with Visual
-// Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring", EnvironmentVariableTarget.User);
+// Studio, the shell or application needs to be closed and reloaded to take the environment variable into account.
+string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))

@@ -4,9 +4,9 @@ description: Informatie over het analyseren van problemen met de extensie duurza
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ebab8660dfe21984e1a7f9a1cb925aea60de213
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostische gegevens in duurzame functies (Azure-functies)
 
@@ -50,6 +50,7 @@ Elke gebeurtenis van de levenscyclus van een exemplaar van de orchestration word
 * **reden**: aanvullende gegevens die zijn gekoppeld aan de gebeurtenis bijhouden. Als u een exemplaar wacht op een externe gebeurtenismelding, geeft dit veld de naam van de gebeurtenis die wordt gewacht. Als een functie is mislukt, wordt dit de foutdetails bevatten.
 * **isReplay**: Booleaanse waarde die aangeeft of de tracerings-gebeurtenis voor opnieuw uitvoeren.
 * **extensionVersion**: de versie van de uitbreiding duurzame taak. Dit is vooral belangrijk gegevens tijdens het rapporteren van mogelijke fouten in de uitbreiding. Langlopende exemplaren mogelijk meerdere versies rapporteren als een update treedt op wanneer deze wordt uitgevoerd. 
+* **sequenceNumber**: volgnummer uitvoering voor een gebeurtenis. Gecombineerd met de timestamp helpt om de gebeurtenissen door de uitvoeringstijd. *Houd er rekening mee dat dit aantal zal opnieuw worden ingesteld op nul als de host opnieuw wordt opgestart terwijl het exemplaar wordt uitgevoerd, dus is het belangrijk om te sorteren altijd op tijdstempel eerst vervolgens sequenceNumber.*
 
 De uitgebreidheid voor het bijhouden van gegevens naar Application Insights die kan worden geconfigureerd in de `logger` sectie van de `host.json` bestand.
 
@@ -72,11 +73,11 @@ Standaard worden alle bijhouden gebeurtenissen verzonden. De hoeveelheid gegeven
 
 ### <a name="single-instance-query"></a>De query één exemplaar
 
-De volgende query ziet u historische traceringsgegevens voor één exemplaar van de [Hello Sequence](durable-functions-sequence.md) orchestration werken. Het geschreven met behulp van de [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Deze gefilterd zodat alleen replay-uitvoering de *logische* uitvoeringspad wordt weergegeven.
+De volgende query ziet u historische traceringsgegevens voor één exemplaar van de [Hello Sequence](durable-functions-sequence.md) orchestration werken. Het geschreven met behulp van de [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Deze gefilterd zodat alleen replay-uitvoering de *logische* uitvoeringspad wordt weergegeven. Gebeurtenissen kunnen worden besteld sorteer `timestamp` en `sequenceNumber` zoals weergegeven in de onderstaande query: 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -84,16 +85,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay == false
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-Het resultaat is een lijst met het bijhouden van gebeurtenissen die het uitvoeringspad van de orchestration, met inbegrip van alle functies van de activiteit weergeven.
 
-![Application Insights-query](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+Het resultaat is een lijst met gebeurtenissen bijhouden die het uitvoeringspad van de orchestration geeft, inclusief de functies van een activiteit de uitvoeringstijd in oplopende volgorde geordend.
 
-> [!NOTE]
-> Sommige van deze gebeurtenissen bijhouden volgorde vanwege het ontbreken van precisie zijn de `timestamp` kolom. Dit wordt bijgehouden in GitHub als [uitgeven #71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
+![Application Insights-query](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### <a name="instance-summary-query"></a>Samenvatting query exemplaar
 

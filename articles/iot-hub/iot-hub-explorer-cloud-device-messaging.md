@@ -2,10 +2,10 @@
 title: Beheer van Azure IoT Hub cloud apparaat met iothub explorer messaging | Microsoft Docs
 description: Informatie over het gebruik van de iothub-explorer CLI tool monitor apparaat cloud-berichten (D2C) en het verzenden van cloud naar apparaat (C2D)-berichten in Azure IoT Hub.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
+tags: ''
 keywords: iothub explorer cloud apparaat messaging, iot hub cloud naar apparaat, cloud device Messaging
 ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
 ms.service: iot-hub
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: 30151b7bdc544bc36e959cc3528d37897198fc7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e74c08849ae2f98d3189c0cd3d340874ea085ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Iothub-explorer gebruiken om te verzenden en ontvangen van berichten tussen het apparaat en IoT-Hub
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub explorer](https://github.com/azure/iothub-explorer) heeft een aantal opdrachten die IoT Hub beheer vergemakkelijkt. Deze zelfstudie is gericht op het iothub-explorer gebruiken om te verzenden en ontvangen van berichten tussen het apparaat en uw IoT-hub.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="what-you-will-learn"></a>Wat u leert
 

@@ -2,23 +2,23 @@
 title: De resultaten of Logboeken van de voltooide taken en taken met een gegevensarchief - Azure Batch behouden | Microsoft Docs
 description: Meer informatie over verschillende opties voor persistent maken uitvoergegevens van Batch-taken en taken. U kunt deze persistent maken van gegevens naar Azure Storage of naar een ander gegevensarchief.
 services: batch
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ca93e823f02b1483ed290cf89de191937d1e2c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb8b1ca3514e27221e95cb2def823c8f89d151e5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="persist-job-and-task-output"></a>Taken persistent maken
 
@@ -79,7 +79,7 @@ Gebruik de API van Batch-service om vast te leggen van de taak uitvoer wanneer:
 - U wilt behouden van gegevens naar een Azure Storage-container met de naam volgens de [Batch bestand conventies standaard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
-> De API van Batch-service biedt geen ondersteuning voor vastleggen van gegevens van de taken die worden uitgevoerd in groepen die zijn gemaakt met de configuratie van de cloud-service. Zie voor meer informatie over persistent maken taak de uitvoer van groepen met de configuratie van de cloud-services [taak en gegevens naar Azure Storage met de Batch-bestand Conventions-bibliotheek voor .NET voor het persistent maken](batch-task-output-file-conventions.md)
+> De API van Batch-service biedt geen ondersteuning voor vastleggen van gegevens van de taken die worden uitgevoerd in groepen die zijn gemaakt met de configuratie van de cloud-service. Zie voor meer informatie over persistent maken taak de uitvoer van groepen met de configuratie van de cloud-services [taak en gegevens naar Azure Storage met de Batch-bestand Conventions-bibliotheek voor .NET voor het persistent maken ](batch-task-output-file-conventions.md)
 > 
 > 
 
@@ -113,7 +113,7 @@ U kunt voor het implementeren van het bestand Conventions-naamgevingsnorm zelf w
 
 U kunt ook uw eigen volledig bestand gegevensverplaatsing oplossing implementeren. Gebruik deze benadering wanneer:
 
-- U wilt behouden taakgegevens naar een ander gegevensarchief dan Azure Storage. Om bestanden te uploaden naar een gegevensopslag zoals Azure SQL- of Azure DataLake, kunt u een aangepast script of uitvoerbaar bestand te uploaden naar die locatie. U kunt deze vervolgens aanroepen op de opdrachtregel na het uitvoeren van uw primaire uitvoerbaar bestand. Bijvoorbeeld op een knooppunt Windows kunt u deze twee opdrachten aanroepen:`doMyWork.exe && uploadMyFilesToSql.exe`
+- U wilt behouden taakgegevens naar een ander gegevensarchief dan Azure Storage. Om bestanden te uploaden naar een gegevensopslag zoals Azure SQL- of Azure DataLake, kunt u een aangepast script of uitvoerbaar bestand te uploaden naar die locatie. U kunt deze vervolgens aanroepen op de opdrachtregel na het uitvoeren van uw primaire uitvoerbaar bestand. Bijvoorbeeld op een knooppunt Windows kunt u deze twee opdrachten aanroepen: `doMyWork.exe && uploadMyFilesToSql.exe`
 - U wilt uitvoeren van de controle te wijzen of vroeg uploaden van de eerste resultaten.
 - Wilt u gedetailleerde controle over het afhandelen van fouten. U wilt bijvoorbeeld uw eigen oplossing implementeren als u wilt gebruiken van afhankelijkheid Taakacties bepaald op basis van specifieke taak afsluitcodes upload-acties te ondernemen. Zie voor meer informatie over afhankelijkheid Taakacties [Maak taakafhankelijkheden taken die afhankelijk van andere taken zijn uitvoeren](batch-task-dependencies.md). 
 

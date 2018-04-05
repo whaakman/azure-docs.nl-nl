@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a527939d6bc73e3dee5701bc53ef8312e68d2953
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ac7ddbccdef736bce941716883cf821a0f5c1f34
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Problemen met implementatie oplossen met Azure Containerexemplaren
+# <a name="troubleshoot-container-and-deployment-issues-in-azure-container-instances"></a>Container en implementatie problemen in Azure Containerexemplaren
 
 In dit artikel laat zien hoe het oplossen van problemen bij het implementeren van containers naar Containerexemplaren van Azure. Hierin worden ook enkele van de algemene problemen die u kunt tegenkomen.
 

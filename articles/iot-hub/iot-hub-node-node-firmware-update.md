@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: juanpere
-ms.openlocfilehash: e169367592b25ea45c3d1017937316a3b3b538b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8ef556793534c9eb8300ee262a4b134960f862a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Apparaatbeheer gebruiken om te zetten van een apparaat firmware-update (knooppunt/knooppunt)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 In de [aan de slag met Apparaatbeheer] [ lnk-dm-getstarted] zelfstudie, hebt u gezien hoe u de [apparaat twin] [ lnk-devtwin] en [methoden directe] [ lnk-c2dmethod] primitieven op afstand opnieuw opstarten van een apparaat. Deze zelfstudie maakt gebruik van de dezelfde IoT Hub primitieven en biedt richtlijnen en ziet u hoe u een end-to-end gesimuleerde firmware-update.  Dit patroon wordt gebruikt in de firmware-update-implementatie voor de Intel Edison apparaat.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 In deze handleiding ontdekt u hoe u:
 
@@ -34,7 +36,7 @@ Aan het einde van deze zelfstudie hebt u twee console Node.js-apps:
 
 **dmpatterns_fwupdate_service.js**, wordt de reactie die een directe methode wordt aangeroepen in de gesimuleerde apparaattoepassing weergegeven, en regelmatig (elke 500ms) geeft de bijgewerkte gerapporteerde eigenschappen.
 
-**dmpatterns_fwupdate_device.js**, die verbinding maakt met uw IoT-hub aan de apparaat-id eerder hebt gemaakt, ontvangen een directe methode firmwareUpdate, wordt uitgevoerd via een proces met meerdere status om te simuleren een firmware-update inclusief: wachten op voor het downloaden van de installatiekopie, downloaden van de nieuwe installatiekopie en ten slotte de installatiekopie toe te passen.
+**dmpatterns_fwupdate_device.js**, die verbinding maakt met uw IoT-hub aan de apparaat-id eerder hebt gemaakt, ontvangen een directe methode firmwareUpdate, wordt uitgevoerd via een proces met meerdere status om te simuleren een firmware-update inclusief: wacht tot de installatiekopie download downloaden van de nieuwe installatiekopie en ten slotte de installatiekopie toe te passen.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 

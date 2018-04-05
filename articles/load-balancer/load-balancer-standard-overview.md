@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 15bbd32d982bdefc5665421b828ce0c8234b7257
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
-ms.translationtype: MT
+ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer standaard
 
@@ -76,9 +76,6 @@ De back-endpool kan zelfstandige virtuele machines, beschikbaarheidssets of virt
 Wanneer u overweegt het ontwerp van uw back endpool, u kunt ontwerpen voor het laagste aantal resources in de afzonderlijke back-end voor de duur van beheerbewerkingen verder te optimaliseren.  Er is geen verschil in prestaties vlak of schaal.
 
 ## <a name="az"></a>Beschikbaarheid Zones
-
->[!NOTE]
-> Gebruik [beschikbaarheid Zones Preview](https://aka.ms/availabilityzones) met standaard Load Balancer vereist [registratie voor beschikbaarheid Zones](https://aka.ms/availabilityzones).
 
 Standaard Load Balancer biedt ondersteuning voor extra mogelijkheden in regio's waar beschikbaarheid Zones beschikbaar zijn.  Deze functies zijn incrementele aan alle standaard Load Balancer biedt.  Beschikbaarheid Zones configuraties zijn beschikbaar voor openbare en interne standaard Load Balancer.
 

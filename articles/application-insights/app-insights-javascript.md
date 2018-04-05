@@ -2,7 +2,7 @@
 title: Azure Application Insights voor JavaScript-web-apps | Microsoft Docs
 description: Verzamel tellingen van het aantal paginaweergaven en sessies, webclientgegevens en gebruikspatronen. Detecteer uitzonderingen en prestatieproblemen in JavaScript-webpagina's.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7cc061b921109f173837352199ff64f055ae2483
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0887c50ea7da00859e370f60626eabb03fcc1f4b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights voor webpagina’s
 Krijg inzicht in de prestaties en het gebruik van uw webpagina's of app. Wanneer u [Application Insights](app-insights-overview.md) toevoegt aan uw paginascript, krijgt u de beschikking over allerlei gegevens, zoals de tijden voor het laden van pagina’s en AJAX-aanroepen, tellingen en details van browseruitzonderingen en AJAX-fouten, evenals de aantallen gebruikers en sessies. Al deze gegevens kunnen worden gesegmenteerd op pagina, clientbesturingssysteem en browserversie, geografische locatie en andere dimensies. U kunt waarschuwingen instellen voor foutaantallen of het langzaam laden van de pagina. En door het invoegen van trace-aanroepen in JavaScript-code, kunt u bijhouden hoe de verschillende functies van uw webpaginatoepassing worden gebruikt.
@@ -50,6 +50,28 @@ Als u nog geen resource hebt, maakt u er een:
 Haal het script voor webpagina's op in Snel starten:
 
 ![Kies op de overzichtsblade van uw app de optie Snel starten, Code ophalen voor het bewaken van mijn webpagina’s. Kopieer het script.](./media/app-insights-javascript/02-monitor-web-page.png)
+
+> [!NOTE]
+> De *Aan de slag*-ervaring kan verschillen op basis van het app-type dat u selecteert bij het maken van uw Application Insights-resource. Als het script niet aanwezig is voor uw app, zoals weergegeven in de vorige schermafbeelding, gebruikt u het volgende script.
+
+```HTML
+<!-- 
+To collect end-user usage analytics about your application, 
+insert the following script into each page you want to track.
+Place this code immediately before the closing </head> tag,
+and before any other scripts. Your first data will appear 
+automatically in just a few seconds.
+-->
+<script type="text/javascript">
+var appInsights=window.appInsights||function(a){
+  function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+  }({
+      instrumentationKey:"<your instrumentation key>"
+  });
+  
+window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+</script>
+```
 
 Voeg het script in vlak vóór de `</head>`-tag op elke pagina die u wilt volgen. Als uw website een basispagina heeft, kunt u daar het script plaatsen. Bijvoorbeeld:
 

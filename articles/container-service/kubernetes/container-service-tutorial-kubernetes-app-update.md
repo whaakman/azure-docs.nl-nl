@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87de0f23a00b035b12bac6cf655781961b1fb9e5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Een toepassing bijwerken in Kubernetes
 
@@ -29,7 +29,7 @@ In deze zelfstudie, deel zes van zeven, wordt de voorbeeldapp Azure Vote bijgewe
 > * De containerinstallatiekopie naar Azure Container Registry pushen
 > * De bijgewerkte containerinstallatiekopie implementeren
 
-In de volgende zelfstudies wordt Operations Management Suite geconfigureerd voor het controleren van het Kubernetes-cluster.
+In de volgende zelfstudies wordt Log Analytics geconfigureerd om het Kubernetes-cluster te controleren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -71,7 +71,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Toepassing lokaal testen
 
-Blader naar http://localhost:8080 om de bijgewerkte toepassing te zien.
+Blader naar http://localhost:8080 om de bijgewerkte app weer te geven.
 
 ![Afbeelding van Kubernetes-cluster in Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -166,7 +166,7 @@ In deze zelfstudie hebt u een toepassing bijgewerkt en deze update geïmplemente
 > * De containerinstallatiekopie is gepusht naar Azure Container Registry
 > * De bijgewerkte toepassing is geïmplementeerd
 
-Ga naar de volgende zelfstudie om te leren hoe u Kubernetes controleert met Operations Management Suite.
+Ga naar de volgende zelfstudie om te leren hoe u Kubernetes bewaakt met Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Kubernetes bewaken met OMS](./container-service-tutorial-kubernetes-monitor.md)
+> [Kubernetes bewaken met Log Analystics](./container-service-tutorial-kubernetes-monitor.md)

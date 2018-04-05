@@ -2,10 +2,10 @@
 title: Azure Backup-Server gebruiken voor back-up van werkbelastingen naar Azure | Microsoft Docs
 description: Azure Backup-Server beveiligen of back-up van werkbelastingen naar de Azure portal gebruiken.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: PVRK
 manager: shivamg
-editor: 
+editor: ''
 keywords: Azure Backup-server; beveiligen van workloads; back-up van werkbelastingen
 ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 95c11de3a1aed680d37dd86c1783ac8bee7ffec3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Met Azure Backup Server voorbereiden op het maken van back-ups van workloads
 > [!div class="op_single_selector"]
@@ -67,11 +67,11 @@ U kunt de DPM-opslag met behulp van Windows Server-Ontdubbeling ontdubbelen. Mee
 
 > [!NOTE]
 > Azure Backup-Server is ontworpen om uit te voeren op een speciale server met één doel. U kunt Azure Backup-Server niet installeren op:
-> - Een computer die als een domeincontroller
-> - Een computer waarop de rol toepassingsserver is geïnstalleerd
-> - Een computer die een System Center Operations Manager-beheerserver
+> - Een computer die wordt uitgevoerd als een domeincontroller
+> - Een computer waarop de toepassingsserverfunctie is geïnstalleerd
+> - Een computer die een System Center Operations Manager-beheerserver is
 > - Een computer waarop Exchange Server wordt uitgevoerd
-> - Een computer die een knooppunt van een cluster
+> - Een computer die een knooppunt van een cluster is
 
 Altijd Azure Backup-Server toevoegen aan een domein. Als u van plan bent de server naar een ander domein verplaatsen, is het raadzaam dat u de server aan het nieuwe domein toevoegen voordat u Azure Backup-Server installeert. Een bestaande back-upserver van Azure-machine verplaatsen naar een nieuw domein nadat implementatie *niet ondersteund*.
 
@@ -101,7 +101,7 @@ Een Recovery Services-kluis maken:
    Zodra uw kluis is gemaakt, wordt het in de portal geopend.
 
 ### <a name="set-storage-replication"></a>Opslagreplicatie instellen
-U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante opslag en lokaal redundante opslag. Uw kluis heeft standaard geografisch redundante opslag. Als deze kluis uw primaire kluis is, laat u de opslagoptie die is ingesteld op geografisch redundante opslag. Kies lokaal redundante opslag als u een goedkopere optie wilt die niet zo duurzaam is. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante](../storage/common/storage-redundancy.md#locally-redundant-storage) opslag in het [overzicht van Azure Storage-replicatie](../storage/common/storage-redundancy.md).
+U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante opslag en lokaal redundante opslag. Uw kluis heeft standaard geografisch redundante opslag. Als deze kluis uw primaire kluis is, laat u de opslagoptie die is ingesteld op geografisch redundante opslag. Kies lokaal redundante opslag als u een goedkopere optie wilt die niet zo duurzaam is. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy-grs.md) en [lokaal redundante](../storage/common/storage-redundancy-lrs.md) opslag in het [overzicht van Azure Storage-replicatie](../storage/common/storage-redundancy.md).
 
 De instelling voor opslagreplicatie bewerken:
 

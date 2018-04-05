@@ -2,7 +2,7 @@
 title: Azure AD Connect Health gebruiken met synchronisatie | Microsoft Docs
 description: Dit is de Azure AD Connect Health-pagina waarop wordt besproken hoe u synchronisatie met Azure AD Connect kunt controleren.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>De Azure AD Connect synchronisatie met Azure AD Connect Health bewaken
 De volgende documentatie is specifiek voor het bewaken van Azure AD Connect-synchronisatie met Azure AD Connect Health.  Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -83,11 +83,12 @@ In het rapport worden de bestaande synchronisatiefouten in de volgende categorie
 | Dubbel-kenmerk |Fouten wanneer Azure AD Connect objecten probeert te maken of bij te werken met dubbele waarden in een of meer kenmerken in Azure AD die uniek moeten zijn in een tenant, zoals proxyAddresses, UserPrincipalName. |
 | Gegevens komen niet overeen |Fouten wanneer de zachte match er niet in slaagt om objecten te koppelen die synchronisatiefouten opleveren. |
 | Gegevensvalidatiefout |Fouten vanwege ongeldige gegevens, zoals niet-ondersteunde tekens in essentiële kenmerken, zoals UserPrincipalName, indelingsfouten die de validatie niet doorstaan voordat ze naar Azure AD worden geschreven. |
+| Federatief domein wijzigen | Fouten wanneer accounts een ander federatief domein gebruiken. |
 | Groot-kenmerk |Fouten wanneer een of meer kenmerken groter zijn dan de toegestane grootte, lengte of aantal. |
 | Overige |Alle andere fouten die niet in de bovenstaande categorieën passen. Op basis van feedback wordt deze categorie in subcategorieën gesplitst. |
 
 ![Overzicht van synchronisatiefoutenrapport](./media/active-directory-aadconnect-health-sync/errorreport01.png)
-![Categorieën in synchronisatiefoutenrapport](./media/active-directory-aadconnect-health-sync/errorreport02.png)
+![Categorieën in synchronisatiefoutenrapport](./media/active-directory-aadconnect-health-sync/SyncErrorByTypes.PNG)
 
 ### <a name="list-of-objects-with-error-per-category"></a>Lijst van objecten met fouten per categorie
 Als u op een categorie inzoomt, wordt de lijst weergegeven met objecten die de fout in die categorie vertonen.

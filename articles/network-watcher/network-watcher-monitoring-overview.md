@@ -4,8 +4,8 @@ description: Deze pagina bevat een overzicht van de netwerk-Watcher-service voor
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Bewaking Azure network-overzicht
 
@@ -47,6 +47,7 @@ Netwerk-Watcher heeft momenteel de volgende mogelijkheden:
 * **[Netwerk-abonnementen](#network-subscription-limits)**  -Hiermee kunt u gebruik van netwerkbronnen op basis van limieten weergeven.
 * **[Configureren van diagnostische gegevens logboek](#diagnostic-logs)**  – biedt één of diagnostische logboeken voor netwerkbronnen in een resourcegroep uit te schakelen.
 * **[Problemen met verbinding](network-watcher-connectivity-overview.md)**  -controleert of de mogelijkheid tot stand brengen van een directe TCP-verbinding van een virtuele machine naar een opgegeven eindpunt verrijkt met Azure context.
+* **[Monitor voor verbinding](connection-monitor.md)**  -problemen met latentie en configuratie tussen Azure een virtuele machine en een IP-adres, bron- en doel-IP-adres en poort bewaken.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Op rollen gebaseerde toegangsbeheer (RBAC) in de netwerk-Watcher
 

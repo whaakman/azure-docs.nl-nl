@@ -2,21 +2,21 @@
 title: Een gesimuleerd X.509-apparaat met C inrichten voor Azure IoT Hub | Microsoft Docs
 description: 'Azure quickstart: een gesimuleerd X.509-apparaat met de SDK voor C maken en inrichten voor Azure IoT Hub Device Provisioning Service'
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
 ms.date: 12/20/2017
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4d723a3b78a43d3b609d5a884591a92606ca11cc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 484b82b79d796536a2c9a527b42e90f4e37c7bda
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd X.509-apparaat met de SDK met C maken en inrichten voor Azure IoT Hub Device Provisioning Service
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -24,6 +24,8 @@ ms.lasthandoff: 02/09/2018
 In deze stappen wordt getoond hoe u een gesimuleerd X.509-apparaat maakt op een ontwikkelcomputer met Windows OS en het codevoorbeeld gebruikt om dit gesimuleerde apparaat te verbinden met de Device Provisioning Service en uw IoT-hub. 
 
 Voltooi de stappen in [IoT Hub Device Provisioning Service instellen](./quick-setup-auto-provision.md) voordat u verdergaat.
+
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 <a id="setupdevbox"></a>
 
@@ -66,7 +68,7 @@ Voltooi de stappen in [IoT Hub Device Provisioning Service instellen](./quick-se
 
 2. Klik met de rechtermuisknop op het project **dice\_device\_enrollment** onder de map **Provision\_Tools** en selecteer **Set as Startup Project**. Voer de oplossing uit. Voer in het uitvoervenster **i** in voor individuele registratie wanneer hierom wordt gevraagd. In het uitvoervenster wordt een lokaal gegenereerd X.509-certificaat weergegeven voor uw gesimuleerde apparaat. Kopieer de uitvoer naar Klembord vanaf *-----BEGIN CERTIFICATE-----* tot en met de eerste *-----END CERTIFICATE-----*, en zorg ervoor dat deze beide regels ook zijn opgenomen. U hebt alleen het eerste certificaat uit het uitvoervenster nodig.
  
-3. Maak een bestand met de naam  **_X509testcert.pem_**  op uw Windows-computer, open het in een editor naar keuze en kopieer de inhoud van het Klembord naar dit bestand. Sla het bestand op. 
+3. Maak een bestand met de naam **_X509testcert.pem_** op uw Windows-computer, open het in een editor naar keuze en kopieer de inhoud van het Klembord naar dit bestand. Sla het bestand op. 
 
 4. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **All resources** en open uw Provisioning-service.
 
@@ -74,7 +76,7 @@ Voltooi de stappen in [IoT Hub Device Provisioning Service instellen](./quick-se
 
 5. Voer onder bij **Registratielijstitem toevoegen** de volgende gegevens in:
     - Selecteer **X.509** als *mechanisme* voor identiteitscontrole.
-    - Selecteer onder *PEM- of CER-bestand voor certificaat* het certificaatbestand  **_X509testcert.pem_**  dat in de vorige stappen is gemaakt met behulp van de widget *Bestandenverkenner*.
+    - Selecteer onder *PEM- of CER-bestand voor certificaat* het certificaatbestand **_X509testcert.pem_** dat in de vorige stappen is gemaakt met behulp van de widget *Bestandenverkenner*.
     - Desgewenst kunt u de volgende informatie verstrekken:
         - Selecteer een IoT-hub die is gekoppeld aan uw inrichtingsservice.
         - Voer een unieke apparaat-id in. Vermijd gevoelige gegevens bij het benoemen van uw apparaat. 

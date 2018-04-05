@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: kgremban
-ms.openlocfilehash: 6f1a40f254473ae7d02168f0cfd6ad5c0d461d82
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7f64783f5e1c79436b671ef98f30f5e3594b94e6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Uploaden van bestanden op uw apparaat naar de cloud met IoT Hub
 
@@ -29,7 +29,7 @@ Deze zelfstudie volgt het gebruik van de [bestand uploaden mogelijkheden van IoT
 - Geef een opslagcontainer veilig voor het uploaden van een bestand.
 - De client voor Python gebruiken voor het uploaden van een bestand via uw IoT-hub.
 
-De [aan de slag met IoT Hub](iot-hub-node-node-getstarted.md) en [Cloud naar apparaat verzenden met IoT Hub](iot-hub-node-node-c2d.md) zelfstudies ziet de apparaat-naar-cloud- en cloud-naar-apparaat messaging basisfunctionaliteit van IoT-Hub. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens verzenden van uw apparaten in de relatief klein apparaat-naar-cloud-berichten die IoT Hub accepteert. Wanneer u upland bestanden van een apparaat moet, kunt u de beveiliging en betrouwbaarheid van IoT Hub.
+De [aan de slag met IoT Hub](iot-hub-node-node-getstarted.md) zelfstudie laat zien dat de basisfunctionaliteit apparaat-naar-cloud messaging zijn van IoT-Hub. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens verzenden van uw apparaten in de relatief klein apparaat-naar-cloud-berichten die IoT Hub accepteert. Wanneer u upland bestanden van een apparaat moet, kunt u de beveiliging en betrouwbaarheid van IoT Hub.
 
 > [!NOTE]
 > IoT Hub Python SDK ondersteunt momenteel alleen zoals uploaden van bestanden op basis van het teken **.txt** bestanden.

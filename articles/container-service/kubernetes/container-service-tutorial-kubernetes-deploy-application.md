@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 02ec97fecd4759e9f35ab313ffe2d18fa076170a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7119976ada00e10ebeadf6fcff2daf125f439c17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-applications-in-kubernetes"></a>Toepassingen uitvoeren in Kubernetes
 
@@ -26,7 +26,7 @@ In deze zelfstudie, deel vier van zeven, wordt een voorbeeldtoepassing geïmplem
 > * Toepassing uitvoeren in Kubernetes
 > * De toepassing testen
 
-In de volgende zelfstudies wordt deze toepassing geschaald en bijgewerkt en wordt Operations Management Suite geconfigureerd om het Kubernetes-cluster te controleren.
+In de volgende zelfstudies wordt deze toepassing opgeschaald en bijgewerkt, en wordt Log Analytics geconfigureerd om het Kubernetes-cluster te controleren.
 
 In deze zelfstudie wordt ervan uitgegaan dat u over basiskennis van Kubernetes-concepten beschikt. Raadpleeg de [Kubernetes-documentatie](https://kubernetes.io/docs/home/) voor gedetailleerde informatie over Kubernetes.
 

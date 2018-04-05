@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 730753efb6efaad659e1a713b0b68329032b3983
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8e0898cf8046443728f92a8e05f17e51221fe60a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Uw ontwikkelomgeving voorbereiden in Windows
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/09/2018
 > 
 > 
 
- Als u [Azure Service Fabric-toepassingen][1] wilt bouwen en uitvoeren op een Windows-ontwikkelmachine, moet u de runtime, SDK en hulpprogramma's installeren. U moet er ook voor zorgen dat de Windows PowerShell-scripts die in de SDK zijn opgenomen, kunnen worden uitgevoerd.
+Als u [Azure Service Fabric-toepassingen][1] wilt bouwen en uitvoeren op een Windows-ontwikkelmachine, moet u de Service Fabric-runtime, SDK en hulpprogramma's installeren. U moet ook [de uitvoering van de Windows PowerShell-scripts inschakelen](#enable-powershell-script-execution) die in de SDK zijn opgenomen.
 
 ## <a name="prerequisites"></a>Vereisten
 ### <a name="supported-operating-system-versions"></a>Ondersteunde versies van besturingssystemen
@@ -49,12 +49,12 @@ De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeli
 ## <a name="install-the-sdk-and-tools"></a>De SDK en hulpprogramma's installeren
 ### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017 gebruiken
 De hulpprogramma's voor Service Fabric vormen een onderdeel van de Azure-workload voor ontwikkeling in Visual Studio 2017. Schakel deze workload in als onderdeel van de Visual Studio-installatie.
-Bovendien moet u de Microsoft Azure Service Fabric SDK installeren met behulp van het webplatforminstallatieprogramma.
+Bovendien moet u de Microsoft Azure Service Fabric SDK en runtime installeren met behulp van het webplatforminstallatieprogramma.
 
 * [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Visual Studio 2015 gebruiken (hiervoor is Visual Studio 2015 Update 2 of later vereist)
-Hulpprogramma's voor Service Fabric worden in Visual Studio 2015 geïnstalleerd samen met de SDK met behulp van het webplatforminstallatieprogramma:
+In Visual Studio 2015 worden de hulpprogramma's voor Service Fabric samen met de SDK en runtime geïnstalleerd met behulp van het webplatforminstallatieprogramma:
 
 * [De SDK en hulpprogramma's voor Microsoft Azure Service Fabric installeren][full-bundle-vs2015]
 

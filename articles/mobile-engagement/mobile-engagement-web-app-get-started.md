@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 04afe53a-4caf-4c80-bd75-20cc630cd75c
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb7a0e61b6d29c292642fd950aed7617de9b340d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Aan de slag met Azure Mobile Engagement voor web-apps
+> [!IMPORTANT]
+> Azure Mobile Engagement wordt op 31-03-2018 buiten gebruik gesteld. Deze pagina wordt kort daarna verwijderd.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 In dit onderwerp wordt beschreven hoe u met Azure Mobile Engagement uw gebruik van web-apps leert te begrijpen.
@@ -36,7 +40,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 Deze Web SDK bevindt zich nog in de previewfase en ondersteunt momenteel alleen Analytics en biedt geen ondersteuning voor het verzenden van pushmeldingen in browsers of apps. 
 
 > [!NOTE]
-> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started) voor meer informatie.
+> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started) voor meer informatie.
 > 
 > 
 

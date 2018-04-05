@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 556f4bfb204504de55c41da9615e61d5a88c75b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5e35be84df53386398deaca19d60d4a93f53e541
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Toepassing schalen in Azure Container Service (AKS)
+# <a name="tutorial-scale-application-in-azure-container-service-aks"></a>Zelfstudie: toepassing schalen in AKS (Azure Container Service)
 
 Als u de zelfstudies volgt, hebt u een werkend Kubernetes-cluster in AKS en hebt u de Azure Voting-app geïmplementeerd.
 
@@ -26,7 +26,7 @@ In deze zelfstudie, deel vijf van de acht, schaalt u de schillen in de app en pr
 > * Kubernetes-schillen handmatig schalen
 > * Schillen die de front-end van de app uitvoeren, automatisch schalen
 
-In de volgende zelfstudies wordt de Azure Vote-toepassing bijgewerkt en wordt Operations Management Suite geconfigureerd om het Kubernetes-cluster te controleren.
+In de volgende zelfstudies wordt de Azure Vote-toepassing bijgewerkt en wordt Log Analytics geconfigureerd om het Kubernetes-cluster te controleren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

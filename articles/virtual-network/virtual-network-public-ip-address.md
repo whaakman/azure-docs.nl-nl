@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: efb24f5e55d7ba0077797d3f7d0f2177020f92b3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Maken, wijzigen of verwijderen van een openbaar IP-adres
 
@@ -58,7 +58,7 @@ Openbare IP-adressen hebben nominaal kosten met zich mee. Als de prijzen, lezen 
     |Abonnement|Ja|Moet aanwezig zijn in dezelfde [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) als de bron die u wilt koppelen van het openbare IP-adres.|
     |Resourcegroep|Ja|Kan bestaan in de dezelfde of verschillende, [resourcegroep](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) als de bron die u wilt koppelen van het openbare IP-adres.|
     |Locatie|Ja|Moet aanwezig zijn in dezelfde [locatie](https://azure.microsoft.com/regions)wordt ook verwezen als regio, als de bron die u wilt koppelen van het openbare IP-adres in.|
-    |Beschikbaarheidszone| Nee | Deze instelling wordt alleen weergegeven als u een ondersteunde locatie selecteren. Zie voor een lijst van ondersteunde locaties [beschikbaarheid zones overzicht](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Beschikbaarheid zones zijn momenteel in preview-versie. Voordat u selecteert een zone of zone-redundante optie, moet u eerst de stappen in uitvoeren [registreren voor de beschikbaarheid van zones preview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#get-started-with-the-availability-zones-preview). Als u hebt geselecteerd de **Basic** SKU, *geen* automatisch voor u is geselecteerd. Als u liever een specifieke zone te garanderen, kunt u een specifieke zone kunt selecteren. De keuze is geen zone-redundante. Als u hebt geselecteerd de **standaard** SKU: Zone-redundante wordt automatisch geselecteerd voor u en uw gegevenspad robuuste maakt tot het mislukken van de zone. Als u liever gegarandeerd dat een specifieke zone die geen robuuste tot het mislukken van de zone, kunt u een specifieke zone kunt selecteren.
+    |Beschikbaarheidszone| Nee | Deze instelling wordt alleen weergegeven als u een ondersteunde locatie selecteren. Zie voor een lijst van ondersteunde locaties [beschikbaarheid zones overzicht](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Als u hebt geselecteerd de **Basic** SKU, *geen* automatisch voor u is geselecteerd. Als u liever een specifieke zone te garanderen, kunt u een specifieke zone kunt selecteren. De keuze is geen zone-redundante. Als u hebt geselecteerd de **standaard** SKU: Zone-redundante wordt automatisch geselecteerd voor u en uw gegevenspad robuuste maakt tot het mislukken van de zone. Als u liever gegarandeerd dat een specifieke zone die geen robuuste tot het mislukken van de zone, kunt u een specifieke zone kunt selecteren.
   
 
 **Opdrachten**

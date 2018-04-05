@@ -1,11 +1,11 @@
 ---
 title: Een data factory-pijplijn maken met Azure Portal | Microsoft Docs
-description: "Deze zelfstudie bevat stapsgewijze instructies voor het maken van een data factory met een pijplijn met behulp van Azure Portal. De pijplijn gebruikt de kopieeractiviteit om gegevens vanuit Azure Blob-opslag naar een SQL database te kopiëren."
+description: Deze zelfstudie bevat stapsgewijze instructies voor het maken van een data factory met een pijplijn met behulp van Azure Portal. De pijplijn gebruikt de kopieeractiviteit om gegevens vanuit Azure Blob-opslag naar een SQL database te kopiëren.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 116832175a4b7e4497c9005be7841cb56c1d235b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren van Azure Blob-opslag naar een SQL database met Azure Data Factory
 In deze zelfstudie maakt u een data factory met behulp van de Azure Data Factory-gebruikersinterface. Met de pijplijn in deze data factory worden gegevens gekopieerd van Azure Blob-opslag naar een SQL database. Het configuratiepatroon in deze zelfstudie geldt voor het kopiëren van een gegevensarchief op basis van bestanden naar een relationeel gegevensarchief. Zie de tabel [Ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als sink.
@@ -73,7 +73,7 @@ Voer nu de volgende stappen uit om uw blobopslag en SQL database voor te bereide
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Geef Azure-services toegang tot SQL Server. Zorg ervoor dat **Toegang tot Azure-services toestaan** is **ingeschakeld** voor SQL Server, zodat Data Factory gegevens naar SQL Server kan schrijven. Voer de volgende stappen uit om deze instelling te controleren en in te schakelen:
+2. Geef Azure-services toegang tot SQL Server. Zorg ervoor dat **Toegang tot Azure-services toestaan** is **ingeschakeld** voor SQL Server, zodat Data Factory gegevens naar SQL Server kan schrijven. Voer de volgende stappen uit om dit te controleren en de instelling in te schakelen:
 
     a. Selecteer aan de linkerkant **Meer services** > **SQL-servers**.
 
@@ -102,7 +102,7 @@ In deze stap maakt u een data factory en start u de Data Factory-gebruikersinter
 
     b. Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in. 
          
-    Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen. 
+    Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie. 
 6. Selecteer **V2 (preview-versie)** bij **Versie**.
 7. Selecteer onder **Locatie** een locatie voor de data factory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensarchieven (bijvoorbeeld Azure Storage en SQL Database) en berekenservices (bijvoorbeeld Azure HDInsight) die door de data factory worden gebruikt, kunnen zich in andere regio's bevinden.
 8. Selecteer **Vastmaken aan dashboard**. 
@@ -150,7 +150,7 @@ In deze zelfstudie begint u met het maken van de pijplijn. Vervolgens maakt u ge
     ![Naam van de gegevensset](./media/tutorial-copy-data-portal/dataset-name.png)
 9. Ga naar het tabblad **Verbinding** van het venster **Eigenschappen**. Klik naast het tekstvak **Gekoppelde service** op **+Nieuw**. 
 
-    Een gekoppelde service verbindt een gegevensopslag of een rekenservice aan de data factory. In dit geval maakt u een Azure Storage-gekoppelde service om uw opslagaccount te koppelen aan de gegevensopslag. De gekoppelde service beschikt over de verbindingsgegevens die Data Factory gebruikt om tijdens de uitvoering verbinding te maken met de blobopslag. De gegevensset geeft informatie over de container, map en het bestand (optioneel) met de brongegevens. 
+    Een gekoppelde service verbindt een gegevensopslag of een rekenservice aan de data factory. In dit geval maakt u een Azure Storage-gekoppelde service om uw opslagaccount te koppelen aan de gegevensopslag. De gekoppelde service beschikt over de verbindingsgegevens die Data Factory gebruikt om tijdens runtime een verbinding met Blob Storage tot stand te brengen. De gegevensset geeft informatie over de container, map en het bestand (optioneel) met de brongegevens. 
 
     ![Knop Nieuwe gekoppelde service](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 10. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit: 
@@ -191,7 +191,7 @@ In deze zelfstudie begint u met het maken van de pijplijn. Vervolgens maakt u ge
 19. Op het tabblad **Algemeen** van het venster **Eigenschappen** geeft u **OutputSqlDataset** op als **Naam**. 
     
     ![Naam Uitvoergegevensset](./media/tutorial-copy-data-portal/output-dataset-name.png)
-20. Ga naar het tabblad **Verbinding** en selecteer naast **Gekoppelde service** de optie **+Nieuw**. Een gegevensset moet worden gekoppeld aan een gekoppelde service. De gekoppelde service beschikt over de verbindingsreeks die door Data Factory wordt gebruikt om tijdens de uitvoering verbinding te maken met de SQL database. De dataset geeft informatie over de container, map en het bestand (optioneel) met de brongegevens. 
+20. Ga naar het tabblad **Verbinding** en selecteer naast **Gekoppelde service** de optie **+Nieuw**. Een gegevensset moet worden gekoppeld aan een gekoppelde service. De gekoppelde service beschikt over de verbindingsreeks die door Data Factory wordt gebruikt om tijdens runtime een verbinding met de SQL-database tot stand te brengen. De dataset geeft informatie over de container, map en het bestand (optioneel) met de brongegevens. 
     
     ![Gekoppelde service](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
 21. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit: 
@@ -200,11 +200,11 @@ In deze zelfstudie begint u met het maken van de pijplijn. Vervolgens maakt u ge
 
     b. Selecteer bij **Servernaam** uw SQL Server-exemplaar.
 
-    c. Selecteer bij **Databasenaam** uw SQL database.
+    c. Selecteer uw SQL-database bij **Databasenaam**.
 
-    d. Geef bij **Gebruikersnaam** de naam van de gebruiker op.
+    d. Voer bij **Gebruikersnaam** de naam van de gebruiker in.
 
-    e. Geef bij **Wachtwoord** het wachtwoord van de gebruiker op.
+    e. Voer bij **Wachtwoord** het wachtwoord voor de gebruiker in.
 
     f. Als u de verbinding wilt testen, selecteert u **Verbinding testen**.
 
@@ -303,7 +303,7 @@ U kunt de uitvoering van een pijplijn testen voordat u artefacten (gekoppelde se
     ![Meldingen tonen](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## <a name="configure-code-repository"></a>Codeopslagplaats configureren
-U kunt de code die is gekoppeld aan uw data factory-artefacten naar een codeopslagplaats voor Visual Studio Team Services publiceren. In deze stap maakt u de codeopslagplaats. 
+U kunt de code die is gekoppeld aan uw data factory-artefacten naar een codeopslagplaats voor Visual Studio Team Services publiceren. In deze stap maakt u de codeopslagplaats.  Zie [Author with VSTS Git integration](author-visually.md#author-with-vsts-git-integration) (Creëren met VSTS Git-integratie) voor meer informatie over creëren met visuals.
 
 Als u niet wilt werken met een codeopslagplaats voor Visual Studio Team Services, kunt u deze stap overslaan. U kunt publiceren naar Data Factory zoals u in de vorige stap hebt gedaan. 
 
@@ -369,7 +369,7 @@ In deze stap moet u handmatig de pijplijn activeren, die u in de vorige stap hee
 2. Ga naar het tabblad **Controleren** aan de linkerkant. U ziet een pijplijn die wordt geactiveerd door een handmatige trigger. U kunt via de links in de kolom **Acties** details van de activiteiten bekijken en de pijplijn opnieuw uitvoeren.
 
     ![Pijplijnuitvoeringen controleren](./media/tutorial-copy-data-portal/monitor-pipeline.png)
-3. Selecteer de link **Uitvoeringen van activiteit weergeven** in de kolom **Acties** om de activiteituitvoeringen te zien die zijn gekoppeld aan de pijplijnuitvoering. Omdat er in dit voorbeeld slechts één activiteit in de pijplijn is, ziet u slechts één vermelding in de lijst. Selecteer de link **Details** (pictogram van een bril) in de kolom **Acties** om details over de kopieerbewerking te zien. Als u wilt terugkeren naar de weergave**Pijplijnuitvoeringen**, selecteert u **Pijplijnen** bovenaan. Selecteer **Vernieuwen** om de weergave te vernieuwen.
+3. Selecteer de link **Uitvoeringen van activiteit weergeven** in de kolom **Acties** om de activiteituitvoeringen te zien die zijn gekoppeld aan de pijplijnuitvoering. Omdat er in dit voorbeeld slechts één activiteit in de pijplijn is, ziet u slechts één vermelding in de lijst. Selecteer de koppeling **Details** (pictogram van een bril) in de kolom **Acties** om details over de kopieerbewerking te zien. Als u wilt terugkeren naar de weergave**Pijplijnuitvoeringen**, selecteert u **Pijplijnen** bovenaan. Selecteer **Vernieuwen** om de weergave te vernieuwen.
 
     ![Uitvoering van activiteiten controleren](./media/tutorial-copy-data-portal/view-activity-runs.png)
 4. Controleer of er twee extra rijen zijn toegevoegd aan de **emp**-tabel in de SQL database. 
@@ -428,7 +428,7 @@ In dit schema maakt u een planningstrigger voor de pijplijn. De trigger voert de
 10. Controleer of er twee rijen per minuut (voor elke pijplijnuitvoering) tot de opgegeven eindtijd in de **emp**-tabel worden ingevoegd. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een blobopslag. U hebt het volgende geleerd: 
+Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een blobopslag. U hebt geleerd hoe u: 
 
 > [!div class="checklist"]
 > * Een data factory maken.

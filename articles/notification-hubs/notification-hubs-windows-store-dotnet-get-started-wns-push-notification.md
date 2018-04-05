@@ -5,7 +5,7 @@ services: notification-hubs
 documentationcenter: windows
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8464a7e48a02be39fb624322fac6c26f4c6c6806
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Aan de slag met Notification Hubs voor Universeel Windows-platform-apps
 
@@ -94,11 +94,11 @@ De Notification Hub is nu geconfigureerd om met WNS te kunnen werken. U hebt de 
 1. Klik met de rechtermuisknop op de oplossing in Visual Studio en selecteer **Manage NuGet Packages**.  
     Het venster **Manage NuGet Packages** wordt geopend.
 
-2. Voer in het zoekvak **WindowsAzure.Messaging.Managed** in, selecteer **Install** en accepteer de gebruiksvoorwaarden.
+2. Voer in het zoekvak **Microsoft.Azure.NotificationHubs** in, selecteer **Installeren** en accepteer de gebruiksvoorwaarden.
    
     ![Het venster NuGet-pakketten beheren][20]
    
-    Met deze actie wordt een verwijzing gedownload, geïnstalleerd en toegevoegd aan de Azure messaging-bibliotheek voor Windows met het [WindowsAzure.Messaging.Managed NuGet-pakket](http://nuget.org/packages/WindowsAzure.Messaging).
+    Met deze actie wordt een verwijzing gedownload, geïnstalleerd en toegevoegd. Deze verwijst naar de Azure Notification Hubs-bibliotheek voor Windows door gebruik te maken van het [Microsoft.Azure.NotificationHubs NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs).
 
 3. Open het projectbestand App.xaml.cs en voeg de volgende `using`-instructies toe: 
    

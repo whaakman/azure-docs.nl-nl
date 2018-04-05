@@ -2,10 +2,10 @@
 title: Azure IoT-apparaat SDK voor C - IoTHubClient | Microsoft Docs
 description: Het gebruik van de bibliotheek IoTHubClient in de Azure-IoT-apparaat-SDK voor C apps voor apparaten die communiceren met een IoT-hub maken.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
 ms.service: iot-hub
 ms.devlang: cpp
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: 6efd2980ce4dde99d934b3fe174d341fb68fac03
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0fa07b2a785bd7d1a26924918e4428fd420e1547
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT-apparaat SDK voor C: meer informatie over IoTHubClient
 De [eerst artikel](iot-hub-device-sdk-c-intro.md) in deze reeks geïntroduceerd de **Azure IoT-device SDK voor C**. Dit artikel worden beschreven dat er twee architectuur lagen SDK zijn. Aan de basis is de **IoTHubClient** bibliotheek die rechtstreeks communicatie met IoT Hub beheert. Er is ook de **serialisatiefunctie** bibliotheek die op deze voortbouwt om serialisatie-services te bieden. In dit artikel bieden we aanvullende details over de **IoTHubClient** bibliotheek.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Het vorige artikel wordt beschreven hoe u de **IoTHubClient** bibliotheek voor het verzenden van gebeurtenissen naar IoT Hub en ontvangen van berichten. In dit artikel wordt uitgebreid die discussie waarin wordt uitgelegd hoe nauwkeuriger beheren *wanneer* verzenden en ontvangen van gegevens, inleiding tot u de **lager niveau API's**. Ook wordt uitgelegd hoe u eigenschappen koppelen aan gebeurtenissen (en berichten ophalen) met de eigenschap afhandeling van functies in de **IoTHubClient** bibliotheek. Ten slotte, bieden we extra uitleg van de verschillende manieren voor het afhandelen van berichten uit IoT Hub is ontvangen.
 

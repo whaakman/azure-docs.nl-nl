@@ -2,23 +2,23 @@
 title: Azure Batch-taak startgebeurtenis | Microsoft Docs
 description: Naslaginformatie voor Batch-taak start gebeurtenis.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: tamram
-ms.openlocfilehash: c47ab36c99dddd46a14c15018a2a46bf7f873ffa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: 0ad0f87df9db39088769579d538b919b42634c4b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="task-start-event"></a>Gebeurtenissen voor het starten van taak
+# <a name="task-start-event"></a>Gebeurtenis taak starten
 
  Deze gebeurtenis wordt verzonden wanneer een taak is gepland om te starten op een rekenknooppunt door de planner. Houd er rekening mee dat als de taak wordt later opnieuw of opnieuw wordt deze gebeurtenis weer voor dezelfde taak, maar het aantal nieuwe pogingen worden verzonden en besturingssysteemversie van de taak wordt dienovereenkomstig bijgewerkt.
 
@@ -55,29 +55,29 @@ ms.lasthandoff: 10/11/2017
 |systemTaskVersion|Int32|Dit is de interne nieuwe pogingen voor een taak. Intern kan de Batch-service opnieuw proberen een taak voor het account voor tijdelijke problemen. Deze problemen kunnen interne planning fouten of pogingen tot het herstellen van de rekenknooppunten in een verkeerde status.|
 |[nodeInfo](#nodeInfo)|Complex Type|Bevat informatie over het rekenknooppunt waarop de taak is uitgevoerd.|
 |[multiInstanceSettings](#multiInstanceSettings)|Complex Type|Geeft aan dat de taak taak met meerdere instanties vereisen van meerdere rekenknooppunten.  Zie [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) voor meer informatie.|
-|[beperkingen](#constraints)|Complex Type|De uitvoering van beperkingen voor deze taak.|
+|[Beperkingen](#constraints)|Complex Type|De uitvoering van beperkingen voor deze taak.|
 |[executionInfo](#executionInfo)|Complex Type|Bevat informatie over de uitvoering van de taak.|
 
-###  <a name="nodeInfo"></a>nodeInfo
+###  <a name="nodeInfo"></a> nodeInfo
 
 |Elementnaam|Type|Opmerkingen|
 |------------------|----------|-----------|
 |poolId|Tekenreeks|De id van de groep waarop de taak is uitgevoerd.|
 |nodeId|Tekenreeks|De id van het knooppunt waarop de taak is uitgevoerd.|
 
-###  <a name="multiInstanceSettings"></a>multiInstanceSettings
+###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
 |Elementnaam|Type|Opmerkingen|
 |------------------|----------|-----------|
-|numberOfInstances|int|Het aantal rekenknooppunten dat is vereist voor de taak.|
+|numberOfInstances|Int|Het aantal rekenknooppunten dat is vereist voor de taak.|
 
-###  <a name="constraints"></a>beperkingen
+###  <a name="constraints"></a> Beperkingen
 
 |Elementnaam|Type|Opmerkingen|
 |------------------|----------|-----------|
 |maxTaskRetryCount|Int32|Het maximum aantal keren dat de taak kan opnieuw worden uitgevoerd. De Batch-service probeert een taak opnieuw als de afsluitcode gelijk aan nul is.<br /><br /> Houd er rekening mee dat deze waarde specifiek het aantal nieuwe pogingen bepaalt. De Batch-service probeert de taak één keer en probeer vervolgens tot deze limiet. Bijvoorbeeld, als het maximale aantal pogingen maximaal 3, Batch probeert een taak is 4 een time-out (een initiële probeer en 3 nieuwe pogingen).<br /><br /> Als het maximale aantal pogingen 0 is, probeert taken niet in de Batch-service opnieuw.<br /><br /> Als het maximale aantal pogingen -1 is, probeert de Batch-service opnieuw taken zonder limiet.<br /><br /> De standaardwaarde is 0 (geen herhaalde pogingen).|
 
-###  <a name="executionInfo"></a>executionInfo
+###  <a name="executionInfo"></a> executionInfo
 
 |Elementnaam|Type|Opmerkingen|
 |------------------|----------|-----------|

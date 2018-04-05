@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>Toepassingen uitvoeren in Azure Container Service (AKS)
+# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Zelfstudie: Toepassingen uitvoeren in Azure Container Service (AKS)
 
 In deze zelfstudie, deel vier van acht, wordt een voorbeeldtoepassing geïmplementeerd in een Kubernetes-cluster. Dit zijn de uitgevoerde stappen:
 
@@ -24,7 +24,7 @@ In deze zelfstudie, deel vier van acht, wordt een voorbeeldtoepassing geïmpleme
 > * Toepassing uitvoeren in Kubernetes
 > * De toepassing testen
 
-In de volgende zelfstudies wordt deze toepassing geschaald en bijgewerkt en wordt Operations Management Suite geconfigureerd om het Kubernetes-cluster te controleren.
+In de volgende zelfstudies wordt deze toepassing opgeschaald en bijgewerkt, en wordt Log Analytics geconfigureerd om het Kubernetes-cluster te controleren.
 
 In deze zelfstudie wordt ervan uitgegaan dat u over basiskennis van Kubernetes-concepten beschikt. Raadpleeg de [Kubernetes-documentatie][kubernetes-documentation] voor gedetailleerde informatie over Kubernetes.
 

@@ -1,12 +1,12 @@
 ---
-title: "Een functie maken die kan worden geïntegreerd met Azure Logic Apps | Microsoft Docs"
+title: Een functie maken die kan worden geïntegreerd met Azure Logic Apps | Microsoft Docs
 description: Maak een functie die met Azure Logic Apps en Azure Cognitive Services integreert om het gevoel van een tweet te categoriseren en meldingen te verzenden wanneer het gevoel slecht is.
 services: functions, logic-apps, cognitive-services
 keywords: werkstroom, cloud-apps, cloudservices, bedrijfsprocessen, systeemintegratie, enterprise application integration, EAI
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: functions
 ms.workload: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: 9e9369d9dc9f7298b93927b49685f4e24de8a7fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 16a46b4c49687186e25c399dcc2c5c168e7c5004
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Een functie maken die kan worden geïntegreerd met Azure Logic Apps
 
@@ -71,8 +71,6 @@ De Cognitive Services-API's zijn als afzonderlijke resources beschikbaar in Azur
 5. Klik in de linkernavigatiekolom op **Sleutels**, kopieer de waarde van **Sleutel 1** en sla deze op. U gebruikt deze sleutel om uw logische app te verbinden aan uw Cognitive Services-API. 
  
     ![Sleutels](media/functions-twitter-email/keys.png)
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-the-function-app"></a>De functie-app maken
 

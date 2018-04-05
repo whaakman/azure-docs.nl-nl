@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 946d0f6456ce27931c91066d63c028388ecec84c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 7039b87c80aecb837059d80087c97e8691da2988
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -122,7 +122,7 @@ Vergeet niet dat Azure Cosmos DB soevereine en government clouds respecteert bij
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Hoe start ontwikkelen van toepassingen met de SQL-API?
 Eerst moet u aanmelden voor een Azure-abonnement. Zodra u zich voor een Azure-abonnement aanmelden, kunt u een SQL-API-container toevoegen aan uw Azure-abonnement. Zie voor instructies over het toevoegen van een account voor Azure Cosmos DB [Azure DB die Cosmos-databaseaccount maken](create-sql-api-dotnet.md#create-account). 
 
-[SDK's](sql-api-sdk-dotnet.md) zijn beschikbaar voor .NET, Python, Node.js, JavaScript en Java. Ontwikkelaars kunnen ook gebruikmaken van de [RESTful HTTP API's](/rest/api/documentdb/) om te communiceren met Azure Cosmos DB resources uit verschillende platforms en talen.
+[SDK's](sql-api-sdk-dotnet.md) zijn beschikbaar voor .NET, Python, Node.js, JavaScript en Java. Ontwikkelaars kunnen ook gebruikmaken van de [RESTful HTTP API's](/rest/api/cosmos-db/) om te communiceren met Azure Cosmos DB resources uit verschillende platforms en talen.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Ik toegang tot de vooraf gedefinieerde voorbeelden voor een goed uitgangspunt?
 Voorbeelden voor de SQL-API [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), en [Python](sql-api-python-samples.md) SDK's zijn beschikbaar op GitHub.
@@ -140,10 +140,10 @@ Een verzameling is een groep van documenten en hun bijbehorende JavaScript-toepa
 Verzamelingen zijn ook de factureringsentiteiten voor Azure Cosmos DB. Elke verzameling wordt per uur gefactureerd op basis van de ingerichte doorvoer en opslagruimte gebruikt. Zie voor meer informatie [prijzen van Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Hoe maak ik een database?
-U kunt databases maken met behulp van de [Azure-portal](https://portal.azure.com), zoals beschreven in [een verzameling toevoegen](create-sql-api-dotnet.md#create-collection), wordt er één van de [Azure Cosmos DB SDK's](sql-api-sdk-dotnet.md), of de [REST-API's](/rest/api/documentdb/). 
+U kunt databases maken met behulp van de [Azure-portal](https://portal.azure.com), zoals beschreven in [een verzameling toevoegen](create-sql-api-dotnet.md#create-collection), wordt er één van de [Azure Cosmos DB SDK's](sql-api-sdk-dotnet.md), of de [REST-API's](/rest/api/cosmos-db/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Hoe stel ik gebruikers en machtigingen in?
-U kunt gebruikers en machtigingen maken met een van de [Cosmos DB API SDK's](sql-api-sdk-dotnet.md) of de [REST-API's](/rest/api/documentdb/).  
+U kunt gebruikers en machtigingen maken met een van de [Cosmos DB API SDK's](sql-api-sdk-dotnet.md) of de [REST-API's](/rest/api/cosmos-db/).  
 
 ### <a name="does-the-sql-api-support-sql"></a>De SQL-API biedt ondersteuning voor SQL?
 De SQL-querytaal ondersteund door SQL-API-accounts is een uitgebreide subset van de queryfunctionaliteit die wordt ondersteund door SQL Server. De Azure Cosmos DB SQL-querytaal biedt geavanceerde hiërarchische en relationele operators en uitbreidingsmogelijkheden via op basis van JavaScript, door gebruiker gedefinieerde functies (UDF's). JSON-grammatica biedt de mogelijkheid voor het JSON-documenten te modelleren als structuren met gelabelde knooppunten, die worden gebruikt door zowel de Azure DB die Cosmos automatische indexering technieken en de SQL-querydialect van Azure Cosmos-database. Zie voor meer informatie over het gebruik van SQL-grammatica de [SQL-Query] [ query] artikel.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 3caa3d2b8640c83f1001aeac3b0a5e9ada143183
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c05407d761a8848f9e032aa219960cd7ea6fa93
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-protect-an-api-using-oauth-20-with-azure-active-directory-and-api-management"></a>Het beveiligen van een API met behulp van OAuth 2.0 met Azure Active Directory en API Management
 
@@ -181,9 +181,9 @@ Klik op **verzenden** en u moet mogelijk de API-aanroep.
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configureer een beleid voor de validatie van JWT vooraf om aanvragen te verifiëren
 
-Wanneer een gebruiker probeert te maken van een aanroep van de Developer-Console, op dit punt wordt de gebruiker wordt gevraagd aan te melden en de Ontwikkelaarsconsole namens de gebruiker een Token toegang zal krijgen. Alles werkt zoals verwacht. Echter, wat gebeurt er als iemand onze API zonder een token of met een ongeldig token aanroepen? Bijvoorbeeld, u kunt proberen te verwijderen van de `Authorization` header en vindt u kunnen nog steeds de API aan te roepen. De reden is dat APIM wordt niet gevalideerd Access Token op dit moment. Dit wordt doorgegeven de `Auhtorization` header met de back-end API.
+Wanneer een gebruiker probeert te maken van een aanroep van de Developer-Console, op dit punt wordt de gebruiker wordt gevraagd aan te melden en de Ontwikkelaarsconsole namens de gebruiker een Token toegang zal krijgen. Alles werkt zoals verwacht. Echter, wat gebeurt er als iemand onze API zonder een token of met een ongeldig token aanroepen? Bijvoorbeeld, u kunt proberen te verwijderen van de `Authorization` header en vindt u kunnen nog steeds de API aan te roepen. De reden is dat APIM wordt niet gevalideerd Access Token op dit moment. Dit gewoon wordt doorgegeven de `Auhtorization` header met de back-end API.
 
-Kunnen we gebruiken de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid voor het autoriseren van aanvragen in APIM vooraf door het valideren van de toegangstokens voor elke inkomende aanvraag. Als een aanvraag voor een geldig token niet beschikt, wordt geblokkeerd door de API Management en niet wordt doorgestuurd naar de back-end. We kunnen toevoegen de onderstaande beleid `Echo API`. 
+Kunnen we gebruiken de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid voor het autoriseren van aanvragen in APIM vooraf door het valideren van de toegangstokens voor elke inkomende aanvraag. Als een aanvraag voor een geldig token niet beschikt, wordt geblokkeerd door de API Management en niet wordt doorgestuurd naar de back-end. Bijvoorbeeld: we kunt toevoegen de hieronder beleid de `<inbound>` beleidssectie van de `Echo API`. Het controleert de claim doelgroep in een toegangstoken en wordt een foutbericht geretourneerd als het token niet geldig is. Zie voor meer informatie over het configureren van beleid [instellen of bewerken van beleid](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -196,7 +196,12 @@ Kunnen we gebruiken de [JWT valideren](api-management-access-restriction-policie
 </validate-jwt>
 ```
 
+## <a name="build-an-application-to-call-the-api"></a>Maken van een toepassing de API aan te roepen
+
+In deze handleiding gebruikt we de Developer-Console in APIM als de voorbeeldtoepassing voor de client aan te roepen de `Echo API` beveiligd met OAuth 2.0. Raadpleeg voor meer informatie over het ontwikkelen van een toepassing en implementeren van de OAuth 2.0-stroom [Azure Active Directory-codevoorbeelden](../active-directory/develop/active-directory-code-samples.md).
+
 ## <a name="next-steps"></a>Volgende stappen
+* Meer informatie over [Azure Active Directory en OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)
 * Bekijk meer [video's](https://azure.microsoft.com/documentation/videos/index/?services=api-management) over API Management.
 * Zie voor andere manieren voor het beveiligen van uw back-endservice [wederzijdse certificaatverificatie](api-management-howto-mutual-certificates.md).
 

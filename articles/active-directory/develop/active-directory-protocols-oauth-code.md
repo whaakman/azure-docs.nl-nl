@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 241f872b3069a58a35df7104f3335964298c7a20
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2ad995c4b48c2c298edd7c6b4da92ea8f3c4a060
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure Active Directory
 Azure Active Directory (Azure AD) maakt gebruik van OAuth 2.0 waarmee u toegang verlenen aan webtoepassingen en web-API's in uw Azure AD-tenant. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze open source-bibliotheken.
@@ -59,7 +59,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | prompt |optioneel |Geef het type van de interactie van de gebruiker die is vereist.<p> Geldige waarden zijn: <p> *aanmelding*: de gebruiker moet worden gevraagd om te verifiëren. <p> *toestemming*: gebruiker toestemming heeft gekregen, maar moet worden bijgewerkt. De gebruiker moet worden gevraagd om toestemming. <p> *admin_consent*: een beheerder moet worden gevraagd om toestemming namens alle gebruikers in hun organisatie |
 | login_hint |optioneel |Kan worden gebruikt voor het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten.  Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden opgehaald uit een eerdere aanmelden met de `preferred_username` claim. |
 | domain_hint |optioneel |Biedt een aanwijzing over de tenant of het domein dat de gebruiker gebruiken moet om aan te melden. De waarde van de domain_hint is een geregistreerd domein voor de tenant. Als de tenant aan een lokale directory is gefedereerd, is AAD wordt omgeleid naar de opgegeven tenant federation-server. |
-| code_challenge_method | optioneel    | De methode die wordt gebruikt voor het coderen van de `code_verifier` voor de `code_challenge` parameter. Een van `plain` of `S256`.  Als uitgesloten, `code_challenge` wordt ervan uitgegaan dat als leesbare tekst als `code_challenge` is opgenomen.  Azure AAD v2.0 ondersteunt zowel `plain` en `S256`. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | optioneel    | De methode die wordt gebruikt voor het coderen van de `code_verifier` voor de `code_challenge` parameter. Een van `plain` of `S256`.  Als uitgesloten, `code_challenge` wordt ervan uitgegaan dat als leesbare tekst als `code_challenge` is opgenomen.  Azure AAD v1.0 ondersteunt zowel `plain` en `S256`. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 | code_challenge        | optioneel    | Gebruikt voor het beveiligen van autorisatie code verleent via bewijs sleutel voor Code Exchange (PKCE) van een native client. Vereist als `code_challenge_method` is opgenomen.  Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]

@@ -3,8 +3,8 @@ title: Hoe Queue storage gebruiken met Java | Microsoft Docs
 description: Informatie over het gebruik van de Azure Queue-service maken en verwijderen van wachtrijen, en invoegen, ophalen en verwijderen van berichten. Voorbeelden die zijn geschreven in Java.
 services: storage
 documentationcenter: java
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 68cecc8e-38c9-4a24-99e8-cb722bc63cf9
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
-ms.openlocfilehash: 6735e247393e47ed18049c8055eb92b990e8bb02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: cd79a21fedca1c21c2e4a65394d424f1590f32c3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Queue Storage gebruiken met Java
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -397,7 +397,7 @@ Nu dat u de basisprincipes van queue storage hebt geleerd, volgt u deze koppelin
 
 * [Azure-opslag-SDK voor Java][Azure Storage SDK for Java]
 * [naslaginformatie over Azure Storage Client SDK][naslaginformatie over Azure Storage Client SDK]
-* [REST-API van Azure Storage-Services][Azure Storage Services REST API]
+* [Azure Storage Services REST API][Azure Storage Services REST API]
 * [Azure Storage-teamblog][Azure Storage Team Blog]
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671

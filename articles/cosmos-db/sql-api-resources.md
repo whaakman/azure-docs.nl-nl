@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Hiërarchisch bronmodel en basisconcepten voor Azure Cosmos DB
 
@@ -158,7 +158,7 @@ Als onderdeel van het inrichten en beheren van een databaseaccount kunt u config
     </tbody>
 </table>
 
-Naast het inrichten, configureren en beheren van uw databaseaccount vanuit de Azure-portal u kunt ook via een programma maken en Cosmos DB database accounts beheren met behulp van de [Azure Cosmos DB REST API's](/rest/api/documentdb/) evenals [client-SDK's](sql-api-sdk-dotnet.md).  
+Naast het inrichten, configureren en beheren van uw databaseaccount vanuit de Azure-portal u kunt ook via een programma maken en Cosmos DB database accounts beheren met behulp van de [Azure Cosmos DB REST API's](/rest/api/cosmos-db/) evenals [client-SDK's](sql-api-sdk-dotnet.md).  
 
 ## <a name="databases"></a>Databases
 Een Cosmos-DB-database is een logische container voor een of meer verzamelingen en gebruikers, zoals wordt weergegeven in het volgende diagram. U kunt een willekeurig aantal databases onder een Cosmos-DB-databaseaccount onderworpen aan beperkingen van de aanbieding maken.  
@@ -177,7 +177,7 @@ U kunt een willekeurig aantal verzamelingen binnen een database onderworpen aan 
 
 Een Azure DB die Cosmos-database is ook een container van gebruikers. Een gebruiker, beurt, is een logische naamruimte voor een reeks machtigingen die voorziet in fijnmazig autorisatie en toegang tot de verzamelingen, documenten en bijlagen.  
 
-Zoals met andere bronnen in het model van de resource Azure Cosmos DB, databases kunnen worden gemaakt, vervangen, verwijderd, lezen of opgesomd eenvoudig met behulp van de [REST-API's](/rest/api/documentdb/) of een van de [client-SDK's](sql-api-sdk-dotnet.md). Azure Cosmos-DB garandeert een sterke consistentie voor lezen en het opvragen van de metagegevens van de bron van een database. Een database wordt automatisch verwijderd, zorgt u ervoor dat u geen toegang de verzamelingen of gebruikers die zijn opgenomen in deze tot.   
+Zoals met andere bronnen in het model van de resource Azure Cosmos DB, databases kunnen worden gemaakt, vervangen, verwijderd, lezen of opgesomd eenvoudig met behulp van de [REST-API's](/rest/api/cosmos-db/) of een van de [client-SDK's](sql-api-sdk-dotnet.md). Azure Cosmos-DB garandeert een sterke consistentie voor lezen en het opvragen van de metagegevens van de bron van een database. Een database wordt automatisch verwijderd, zorgt u ervoor dat u geen toegang de verzamelingen of gebruikers die zijn opgenomen in deze tot.   
 
 ## <a name="collections"></a>Verzamelingen
 Een Cosmos-DB-verzameling is een container voor uw JSON-documenten. 
@@ -195,7 +195,7 @@ Het indexeringsbeleid van elke verzameling kunt u afweging prestaties en opslag 
 * Kies of u wilt opnemen of uitsluiten van specifieke paden of patronen in uw documenten van de index. U kunt dit doen door de instelling includedPaths en excludedPaths op de indexingPolicy van een verzameling respectievelijk. U kunt ook de opslag en prestaties verschillen voor bereik en hash-query's voor een specifiek pad patronen configureren. 
 * Kiezen tussen synchrone (consistent) en indexupdates van asynchrone (lazy). De index wordt standaard synchroon bijgewerkt op elke invoegen, vervangen of verwijderen van een document aan de verzameling. Hierdoor kan de query's te houden van hetzelfde consistentieniveau als die van het document leest. Terwijl Azure Cosmos DB schrijven is geoptimaliseerd en volgehouden volumes van document schrijfbewerkingen samen met synchrone index onderhoud ten behoeve van consistente query's ondersteunt, kunt u bepaalde verzamelingen voor het bijwerken van de index traag kunt configureren. Vertraagde indexeren verder de prestaties voor schrijven en is ideaal voor bulksgewijs opname scenario's voor voornamelijk lezen zware verzamelingen.
 
-Het indexeringsbeleid kan worden gewijzigd door het uitvoeren van een PUT voor de verzameling. Dit kan worden bereikt via de [client SDK](sql-api-sdk-dotnet.md), wordt de [Azure-portal](https://portal.azure.com) of de [REST-API's](/rest/api/documentdb/).
+Het indexeringsbeleid kan worden gewijzigd door het uitvoeren van een PUT voor de verzameling. Dit kan worden bereikt via de [client SDK](sql-api-sdk-dotnet.md), wordt de [Azure-portal](https://portal.azure.com) of de [REST-API's](/rest/api/cosmos-db/).
 
 ### <a name="querying-a-collection"></a>Opvragen van een verzameling
 De documenten binnen een verzameling kunnen willekeurige schema's en u kunt documenten binnen een verzameling query zonder op te geven van een schema of secundaire indexen tevoren betaalt. U kunt een query de verzameling met behulp van de [verwijzing naar de Azure Cosmos DB SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx), waarmee u uitgebreide hiërarchische, ruimtelijke en relationele operators en uitbreidingsmogelijkheden via UDF's op basis van JavaScript. JSON-grammatica biedt de mogelijkheid voor het modelleren van JSON-documenten als structuren met labels als structuurknooppunten. Dit is zowel door automatische indexering technieken SQL-API, evenals Azure Cosmos DB SQL-dialect misbruikt. De SQL-querytaal bestaat uit drie belangrijkste aspecten:   
@@ -204,7 +204,7 @@ De documenten binnen een verzameling kunnen willekeurige schema's en u kunt docu
 2. Een subset van relationele bewerkingen inclusief samenstelling, filter, statistische functies, projecties en self joins. 
 3. Pure JavaScript gebaseerd UDF's die met werken (1) en (2).  
 
-Het model van Azure DB die Cosmos query probeert toegang te bieden een evenwicht tussen functionaliteit, efficiëntie en eenvoud. De database-engine van Azure DB die Cosmos systeemeigen compileert en voert de SQL-query-instructies. U kunt een verzameling met een query de [REST-API's](/rest/api/documentdb/) of een van de [client-SDK's](sql-api-sdk-dotnet.md). De .NET SDK wordt geleverd met een LINQ-provider.
+Het model van Azure DB die Cosmos query probeert toegang te bieden een evenwicht tussen functionaliteit, efficiëntie en eenvoud. De database-engine van Azure DB die Cosmos systeemeigen compileert en voert de SQL-query-instructies. U kunt een verzameling met een query de [REST-API's](/rest/api/cosmos-db/) of een van de [client-SDK's](sql-api-sdk-dotnet.md). De .NET SDK wordt geleverd met een LINQ-provider.
 
 > [!TIP]
 > U kunt de SQL-API uitproberen en SQL-query's uitvoeren op onze gegevensset in de [Queryspeelplaats](https://www.documentdb.com/sql/demo).
@@ -226,7 +226,7 @@ De JavaScript-logica geregistreerd op het niveau van een verzameling kan databas
 
 De mogelijkheid om uit te voeren van JavaScript rechtstreeks in de database-engine in dezelfde adresruimte als de buffergroep maakt zodat en transactionele uitvoering van de activiteiten van de database op de documenten van een verzameling. Bovendien Cosmos DB database-engine maakt een grondige toezegging voor de JSON en JavaScript elimineert impedantie niet overeenkomen tussen de systemen type van de toepassing en de database.   
 
-Nadat u een verzameling maakt, kunt u opgeslagen procedures, triggers en UDF's registreren met een verzameling met de [REST-API's](/rest/api/documentdb/) of een van de [client-SDK's](sql-api-sdk-dotnet.md). U kunt verwijzen naar en ze worden uitgevoerd na de registratie. Houd rekening met de volgende opgeslagen procedure volledig in JavaScript is geschreven, hieronder de code in twee argumenten (naam en de naam van auteur) en maakt een nieuw document, query's voor een document en werkt vervolgens het – alle binnen een impliciete ACID-transactie. Op elk moment tijdens het uitvoeren als een JavaScript-uitzondering is opgetreden, de hele transactie afgebroken.
+Nadat u een verzameling maakt, kunt u opgeslagen procedures, triggers en UDF's registreren met een verzameling met de [REST-API's](/rest/api/cosmos-db/) of een van de [client-SDK's](sql-api-sdk-dotnet.md). U kunt verwijzen naar en ze worden uitgevoerd na de registratie. Houd rekening met de volgende opgeslagen procedure volledig in JavaScript is geschreven, hieronder de code in twee argumenten (naam en de naam van auteur) en maakt een nieuw document, query's voor een document en werkt vervolgens het – alle binnen een impliciete ACID-transactie. Op elk moment tijdens het uitvoeren als een JavaScript-uitzondering is opgetreden, de hele transactie afgebroken.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -279,10 +279,10 @@ U ziet dat omdat de database systeemeigen JSON en JavaScript begrijpt, er is gee
 
 Opgeslagen procedures en triggers communiceren met een verzameling en de documenten in een verzameling via een goed gedefinieerde objectmodel, waarmee de huidige context van de verzameling.  
 
-Verzamelingen in de SQL-API kunnen worden gemaakt, verwijderd, gelezen of opgesomde eenvoudig met behulp van de [REST-API's](/rest/api/documentdb/) of een van de [client-SDK's](sql-api-sdk-dotnet.md). De SQL-API biedt altijd sterke consistentie voor lezen en het opvragen van de metagegevens van een verzameling. Als u een verzameling verwijdert, wordt automatisch zorgt ervoor dat u geen toegang de documenten, bijlagen, opgeslagen procedures, triggers tot en UDF's daarin.   
+Verzamelingen in de SQL-API kunnen worden gemaakt, verwijderd, gelezen of opgesomde eenvoudig met behulp van de [REST-API's](/rest/api/cosmos-db/) of een van de [client-SDK's](sql-api-sdk-dotnet.md). De SQL-API biedt altijd sterke consistentie voor lezen en het opvragen van de metagegevens van een verzameling. Als u een verzameling verwijdert, wordt automatisch zorgt ervoor dat u geen toegang de documenten, bijlagen, opgeslagen procedures, triggers tot en UDF's daarin.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>Opgeslagen procedures, triggers en door gebruiker gedefinieerde functies (UDF)
-Zoals beschreven in de vorige sectie, kunt u toepassingslogica rechtstreeks binnen een transactie in de database-engine kunt uitvoeren. De toepassingslogica volledig in JavaScript kan worden geschreven en kan worden gemodelleerd als een opgeslagen procedure, trigger of een UDF. De JavaScript-code binnen een opgeslagen procedure of een trigger kunt invoegen, vervangen, verwijderen, lezen of documenten binnen een verzameling opvragen. JavaScript binnen een UDF kan niet aan de andere kant invoegen, vervangen of verwijderen van documenten. UDF's de documenten van de resultatenset van een query inventariseren en produceren van een andere resultatenset. Voor multitenancy zorgt Azure Cosmos DB een strikte reservering gebaseerde resource governance. Elk opgeslagen procedure, trigger of een UDF opgehaald van een vaste quantum van besturingssysteem resources voor het werk. Bovendien opgeslagen procedures, triggers of UDF's kunnen geen koppeling tegen externe JavaScript-bibliotheken en als deze groter is dan de resource-budgetten toegewezen aan hen zijn gebeurd. U kunt registreren, opgeslagen procedures, triggers of UDF's registratie met een verzameling met de REST-API's.  Bij de registratie een opgeslagen procedure, trigger of een UDF vooraf gecompileerd en opgeslagen als byte-code, die later wordt uitgevoerd. De volgende ssection illustrateshow kunt u de Azure Cosmos DB JavaScript SDK registreert, uit te voeren en hef de registratie van een opgeslagen procedure, trigger en een UDF. De JavaScript-SDK is een eenvoudige wrapper via de [REST-API's](/rest/api/documentdb/). 
+Zoals beschreven in de vorige sectie, kunt u toepassingslogica rechtstreeks binnen een transactie in de database-engine kunt uitvoeren. De toepassingslogica volledig in JavaScript kan worden geschreven en kan worden gemodelleerd als een opgeslagen procedure, trigger of een UDF. De JavaScript-code binnen een opgeslagen procedure of een trigger kunt invoegen, vervangen, verwijderen, lezen of documenten binnen een verzameling opvragen. JavaScript binnen een UDF kan niet aan de andere kant invoegen, vervangen of verwijderen van documenten. UDF's de documenten van de resultatenset van een query inventariseren en produceren van een andere resultatenset. Voor multitenancy zorgt Azure Cosmos DB een strikte reservering gebaseerde resource governance. Elk opgeslagen procedure, trigger of een UDF opgehaald van een vaste quantum van besturingssysteem resources voor het werk. Bovendien opgeslagen procedures, triggers of UDF's kunnen geen koppeling tegen externe JavaScript-bibliotheken en als deze groter is dan de resource-budgetten toegewezen aan hen zijn gebeurd. U kunt registreren, opgeslagen procedures, triggers of UDF's registratie met een verzameling met de REST-API's.  Bij de registratie een opgeslagen procedure, trigger of een UDF vooraf gecompileerd en opgeslagen als byte-code, die later wordt uitgevoerd. De volgende ssection illustrateshow kunt u de Azure Cosmos DB JavaScript SDK registreert, uit te voeren en hef de registratie van een opgeslagen procedure, trigger en een UDF. De JavaScript-SDK is een eenvoudige wrapper via de [REST-API's](/rest/api/cosmos-db/). 
 
 ### <a name="registering-a-stored-procedure"></a>Registreren van een opgeslagen procedure
 De registratie van een opgeslagen procedure maakt een nieuwe resource van de opgeslagen procedure op een verzameling via HTTP POST.  
@@ -410,7 +410,7 @@ De registratie van een UDF gebeurt gewoon door uitgifte van een HTTP DELETE op b
             console.log("Error");
         });
 
-Hoewel de bovenstaande codefragmenten de registratie (POST), registratie (PUT), (GET) lijst/lezen en uitvoeren (POST) via de [JavaScript SDK](https://github.com/Azure/azure-documentdb-js), u kunt ook de [REST-API's](/rest/api/documentdb/) of andere [client-SDK's](sql-api-sdk-dotnet.md). 
+Hoewel de bovenstaande codefragmenten de registratie (POST), registratie (PUT), (GET) lijst/lezen en uitvoeren (POST) via de [JavaScript SDK](https://github.com/Azure/azure-documentdb-js), u kunt ook de [REST-API's](/rest/api/cosmos-db/) of andere [client-SDK's](sql-api-sdk-dotnet.md). 
 
 ## <a name="documents"></a>Documenten
 U kunt invoegen, vervangen, verwijderen, lezen, opsommen en willekeurige JSON-documenten in een verzameling opvragen. Azure Cosmos DB schrijft geen schema niet en vereist geen secundaire indexen ter ondersteuning van uitvoeren van query's over documenten in een verzameling. De maximale grootte voor een document is 2 MB.   

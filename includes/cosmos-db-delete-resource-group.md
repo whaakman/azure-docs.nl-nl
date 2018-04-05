@@ -1,10 +1,14 @@
-Als u niet gaat u deze app blijven gebruiken, verwijdert u alle resources die zijn gemaakt door deze snelstartgids met de volgende stappen, zodat u eventuele kosten niet:
+Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door de onderstaande stappen te volgen, zodat u geen kosten in rekening worden gebracht:
 
-1. Selecteer in de Azure-portal **resourcegroepen** aan de linkerkant.  
+1. Selecteer in Azure Portal **Resourcegroepen** aan de linkerkant en selecteer vervolgens de resourcegroep die u hebt gemaakt.  
 
-   ![Metrische gegevens in de Azure portal](./media/cosmos-db-delete-resource-group/delete-resources.png)
+    Als het menu links is samengevouwen, klikt u op ![Knop Uitvouwen](./media/cosmos-db-delete-resource-group/expand.png) om het menu uit te vouwen.
 
-2. Selecteer in de lijst met resourcegroepen, de resourcegroep hebt gemaakt klik vervolgens op **resourcegroep verwijderen**.
+   ![Metrische gegevens in Azure Portal](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
 
-3. Typ de naam van de resourcegroep verwijderen en klik vervolgens op **verwijderen**.
+2. Selecteer de resourcegroep in het nieuwe venster en klik op **Resourcegroep verwijderen**.
+
+   ![Metrische gegevens in Azure Portal](./media/cosmos-db-delete-resource-group/delete-resources.png)   
+
+3. Voer in het nieuwe venster de naam in van de resourcegroep die u wilt verwijderen en klik vervolgens op **Verwijderen**.
 

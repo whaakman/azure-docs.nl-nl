@@ -3,23 +3,23 @@ title: Azure Systeemmonitor-overzicht | Microsoft Docs
 description: Monitor voor Azure verzamelt statistieken voor gebruik in waarschuwingen, webhooks, automatisch schalen en automatisering. Artikel ook de naam van andere Microsoft-controle-opties.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 448711b7b2e102662bc157485561c33bf7f5fba1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Overzicht van Azure Monitor
 Dit artikel bevat een overzicht van de Monitor van de Azure-service in Microsoft Azure. Monitor voor Azure biedt en bevat koppelingen naar aanvullende informatie over het gebruik van Azure-Monitor wordt besproken.  Als u liever een video-inleiding, Zie de volgende stappen koppelingen onder aan dit artikel. 
@@ -35,15 +35,13 @@ Azure Monitor heeft een startpagina waarmee gebruikers:
 - De mogelijkheden voor bewaking door Azure begrijpen.
 - Detecteren, configureren, en ingebouwde Azure-platform- en premium bewakingsmogelijkheden.
 
-Terwijl de Monitor van de Azure-service wordt uitgebracht, is de overzichtspagina van landingspagina preview. 
-
 De pagina is een startpunt voor navigatie, met inbegrip van op twee locaties. Curated problemen die aandacht vereisen van andere services worden weergegeven en kan de gebruiker Navigeer in de context.
  
 ![Model voor controle en diagnostische gegevens voor niet-rekenresources](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
 Wanneer u de pagina opent, kunt u kiezen uit de abonnementen leestoegang tot. Voor een geselecteerde abonnement, kunt u het volgende zien:
 
-- **Waarschuwingen en meldingen bronnen geactiveerd** - deze tabel wordt het aantal samenvatting weergegeven, waarschuwing bronnen, en hoe vaak waarschuwingen die zijn gestart voor de geselecteerde duur. Dit geldt voor zowel de metrische gegevens en de activiteit logboek waarschuwingen. *< bewerken: waarschuwingen (Preview) met uniforme wijze van werken ook weergegeven voor alle waarschuwingen - gebeurtenissen, metrische gegevens en Logboeken >*
+- **Waarschuwingen en meldingen bronnen geactiveerd** - deze tabel wordt het aantal samenvatting weergegeven, waarschuwing bronnen, en hoe vaak waarschuwingen die zijn gestart voor de geselecteerde duur. Toepassing op oudere en nieuwere waarschuwingen. Meer informatie over de [nieuwere Azure waarschuwingen](monitoring-overview-unified-alerts.md). 
 - **Fouten in het logboek activiteit** -als een van uw Azure-resources om foutniveau prioriteit logboekgebeurtenissen, kunt u een aantal op hoog niveau weergeven en klik verder naar de pagina activiteitenlogboek voor het onderzoeken van elke gebeurtenis.
 - **Status van de Azure-Service** -ziet u een aantal problemen met de service, gebeurtenissen voor gepland onderhoud en health aanbevelingen servicestatus. Status van de Azure-Service biedt persoonlijke informatie wanneer problemen in de Azure-infrastructuur invloed zijn op uw services.  Zie [Azure-servicestatus](../service-health/service-health-overview.md) voor meer informatie.  
 - **Application Insights** -Zie KPI's voor elke resource AppInsights in het huidige abonnement. De KPI's zijn geoptimaliseerd voor servertoepassing bewaking buiten de ASP.NET-web-apps, Java, knooppunt en algemene toepassingstypen. De KPI's zijn metrische gegevens voor de frequentie van aanvragen, reactieduur Faalpercentage en beschikbaarheid %. 
@@ -143,12 +141,12 @@ Een aantal visualisatie methoden zijn:
 
 ### <a name="automate"></a>Automatiseren
 > [!NOTE]
-> Als onderdeel van de lopende evolutie van waarschuwingen op Microsoft Azure wordt nu een uniforme ervaring voor waarschuwingen is voorbeeld wordt weergegeven. Meer informatie over [Azure waarschuwingen (Preview)](monitoring-overview-unified-alerts.md)
+> Als onderdeel van de lopende evolutie van waarschuwingen op Microsoft Azure wordt nu is een uniforme ervaring voor waarschuwingen beschikbaar. Meer informatie over [nieuwe waarschuwingen van Azure](monitoring-overview-unified-alerts.md)
 
-In de standaard Azure-waarschuwingen kunt u bewakingsgegevens trigger waarschuwingen of zelfs hele processen. Voorbeelden zijn:
+In de Azure-waarschuwingen kunt u bewakingsgegevens trigger waarschuwingen of zelfs hele processen. Voorbeelden zijn:
 
 * Gebruik gegevens naar de compute-exemplaren voor automatisch schalen omhoog of omlaag op basis van het laden van toepassingen.
-* Verzend een e-mailberichten wanneer een metriek een vooraf ingestelde drempelwaarde overschrijdt.
+* Verzenden van e-mailberichten op basis van voorwaarden metriek of logboekbestand. 
 * Een URL (webhook) voor het uitvoeren van een actie in een systeem buiten Azure aanroepen
 * Starten van een runbook in Azure automation, zodat een waaier aan taken uitvoeren
 

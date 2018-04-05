@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 54fe9113-e239-4ed7-9fd1-a502d7ac7f47
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abe0ad6117cc2feb72ebe788d07b50e8f145174c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Aan de slag met Azure Mobile Engagement voor Cordova/Phonegap
+> [!IMPORTANT]
+> Azure Mobile Engagement wordt op 31-03-2018 buiten gebruik gesteld. Deze pagina wordt kort daarna verwijderd.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps en het verzenden van pushmeldingen aan gesegmenteerde gebruikers van een mobiele toepassing die is ontwikkeld met Cordova.
@@ -28,7 +32,7 @@ In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te kr
 In deze zelfstudie maken we een lege Cordova-app met een Mac en integreren we vervolgens de Mobile Engagement SDK. Deze app verzamelt analytische basisgegevens en ontvangt pushmeldingen via Apple Push Notification System (APNS) voor iOS en Google Cloud Messaging (GCM) voor Android. We implementeren de app op een iOS- of Android-apparaat voor testdoeleinden. 
 
 > [!NOTE]
-> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started) voor meer informatie.
+> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started) voor meer informatie.
 > 
 > 
 

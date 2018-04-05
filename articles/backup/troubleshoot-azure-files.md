@@ -1,6 +1,6 @@
 ---
 title: Problemen met back-ups van Azure-bestanden oplossen
-description: Dit artikel gaat over het oplossen van problemen die optreden bij het beveiligen van uw Azure-bestanden (bestandsshares) in Azure.
+description: Dit artikel gaat over het oplossen van problemen die optreden bij het beveiligen van uw Azure-bestandsshares.
 services: backup
 ms.service: backup
 keywords: Voeg geen sleutelwoorden toe en bewerk ze niet zonder overleg met uw SEO-expert.
@@ -10,21 +10,20 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Problemen oplossen met back-ups maken van Azure-bestanden
-
 U kunt met behulp van de informatie in de volgende tabellen problemen en fouten oplossen die optreden tijdens het back-ups maken van Azure-bestanden.
 
 ## <a name="preview-boundaries"></a>Beperkingen van preview
 Back-ups maken van Azure-bestanden is een preview-versie. De volgende back-upscenario's worden niet ondersteund voor Azure-bestandsshares:
-- Bestandsshares beveiligen in opslagaccounts met replicatie via [zone-redundante opslag](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) of [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
-- Bestandshares beveiligen in opslagaccounts waarvoor virtuele netwerken zijn ingeschakeld.
-- Back-ups maken van Azure-bestanden met PowerShell of CLI.
+- Azure-bestandsshares beveiligen in opslagaccounts met replicatie via [zone-redundante opslag](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) of [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
+- Azure-bestandshares beveiligen in opslagaccounts waarvoor virtuele netwerken zijn ingeschakeld.
+- Back-ups maken van Azure-bestandsshares met PowerShell of CLI.
 
 ### <a name="limitations"></a>Beperkingen
 - Maximum aantal geplande back-ups per dag is 1.
@@ -64,6 +63,6 @@ De volgende tabel is bedoeld voor het configureren van de back-up:
 | Een of meer bestanden kunnen niet worden hersteld. Controleer de lijst met mislukte bestanden in het pad hierboven voor meer informatie. | <ul> <li> Oorzaken voor het mislukken van de hersteltaak worden in het bestand vermeld (pad staat in de taakgegevens). Los de oorzaken op en voer de herstelbewerking alleen voor de mislukte bestanden opnieuw uit. <li> Veelvoorkomende oorzaken voor fouten bij bestand terugzetten: <br/> -Controleer of de mislukte bestanden niet op dit moment in gebruik zijn. <br/> -Er bestaat een map met dezelfde naam als het mislukte bestand in de bovenliggende map. |
 
 ## <a name="see-also"></a>Zie ook
-Voor meer informatie over back-ups maken van Azure-bestandsshares, raadpleegt u de volgende artikelen:
+Voor meer informatie over het maken van back-ups van Azure-bestandsshares raadpleegt u de volgende artikelen:
 - [Een back-up maken van Azure-bestandsshares](backup-azure-files.md)
 - [Back up Azure File share FAQ](backup-azure-files-faq.md) (Veelgestelde vragen over back-ups maken van Azure-bestandsshares)

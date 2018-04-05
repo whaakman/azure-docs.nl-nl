@@ -2,30 +2,30 @@
 title: Een MongoDB-app met Azure Cosmos DB verbinden met behulp van Node.js | Microsoft-documenten
 description: Leer hoe u een bestaande Node.js MongoDB-app kunt verbinden met Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: mimig
-ms.openlocfilehash: 1b63c56e055a6dd5220a6c5e8050d493390e9168
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6357e1f71d96a1ec4894f9cf1130fc1e8808d3f4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: een bestaande Node.js MongoDB-web-app migreren 
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-Deze Quick Start laat zien hoe u een bestaande, in Node.js geschreven [MongoDB](mongodb-introduction.md)-app kunt gebruiken en verbinden met uw Azure Cosmos DB-database, die MongoDB-clientverbindingen ondersteunt. Met andere woorden, uw Node.js-toepassing weet alleen dat het wordt verbonden met een database met behulp van MongoDB-API’s. Het is duidelijk voor de toepassing dat de gegevens worden opgeslagen in Azure Cosmos DB.
+In deze snelstartgids ziet u hoe u een bestaande, in Node.js geschreven MongoDB-app kunt gebruiken en verbinden met uw Azure Cosmos DB-database, die MongoDB-clientverbindingen ondersteunt met behulp van de [MongoDB-API](mongodb-introduction.md). Met andere woorden, uw Node.js-toepassing weet alleen dat het wordt verbonden met een database met behulp van MongoDB-API’s. Het is duidelijk voor de toepassing dat de gegevens worden opgeslagen in Azure Cosmos DB.
 
 Als u klaar bent, beschikt u over een MEAN-toepassing (MongoDB, Express, Angular en Node.js) die wordt uitgevoerd op [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

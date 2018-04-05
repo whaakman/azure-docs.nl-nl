@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
 ms.service: iot-hub
 ms.devlang: javascript
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 85a68910c6510be870362b51d5b8fa50e4d42328
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 526fdce85df388fec04dd5df35183200c1478570
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (knooppunt)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Inleiding
 Azure IoT Hub is een volledig beheerde service waarmee stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten inschakelen en een back-end oplossing. De [aan de slag met IoT Hub] zelfstudie laat zien hoe u een iothub maken, een apparaat-id in het inrichten en code van een gesimuleerde apparaattoepassing dat apparaat-naar-cloud-berichten verzendt.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Deze zelfstudie bouwt voort op [aan de slag met IoT Hub]. Hier ziet u hoe aan:
 

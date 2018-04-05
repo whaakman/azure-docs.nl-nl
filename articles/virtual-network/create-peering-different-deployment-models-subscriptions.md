@@ -4,7 +4,7 @@ description: Informatie over het maken van een virtueel netwerk peering tussen v
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 4c76083c7b1478ba865f047584ba313d029a1e35
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7a0104e68b07dbdff5483b771429fb9bc19a523f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Maak een virtueel netwerk peering - verschillend implementatiemodellen en -abonnementen
 
@@ -33,7 +33,7 @@ De stappen voor het maken van een virtueel netwerk peering verschillen, afhankel
 |[Beide Resource Manager](create-peering-different-subscriptions.md) |Verschil|
 |[Een Resource Manager, een klassiek](create-peering-different-deployment-models.md) |Dezelfde|
 
-Een virtueel netwerk peering kan niet worden gemaakt tussen twee virtuele netwerken die zijn geïmplementeerd via het klassieke implementatiemodel. Deze zelfstudie maakt gebruik van virtuele netwerken die bestaan in dezelfde regio. De mogelijkheid als peer virtuele netwerken in verschillende regio's is in preview. Als u wilt gebruiken die mogelijkheid, moet u [registreren](#register). 
+Een virtueel netwerk peering kan niet worden gemaakt tussen twee virtuele netwerken die zijn geïmplementeerd via het klassieke implementatiemodel. Deze zelfstudie maakt gebruik van virtuele netwerken die bestaan in dezelfde regio. Deze zelfstudie samenwerkt virtuele netwerken in dezelfde regio. U kunt ook virtuele netwerken in verschillende peer [ondersteunde regio's](virtual-network-manage-peering.md#cross-region).  
 
 Bij het maken van een virtueel netwerk peering tussen virtuele netwerken die bestaan uit verschillende abonnementen moeten de abonnementen beide zijn gekoppeld aan dezelfde Azure Active Directory-tenant. Als u een Azure Active Directory-tenant nog geen hebt, kunt u snel [maken van een](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). U kunt verbinding maken met virtuele netwerken tot verschillende abonnementen behoren en andere Azure Active Directory-tenants met behulp van een Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -43,7 +43,7 @@ U kunt de [Azure-portal](#portal), de Azure [opdrachtregelinterface](#cli) (CLI)
 
 Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Als u een account met machtigingen voor beide abonnementen, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor logboekregistratie buiten de portal en slaat u de stappen voor het toewijzen van een andere gebruikersmachtigingen aan de virtuele netwerken.
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) als GebruikerA. Het account dat u zich met aanmeldt moet hebben de vereiste machtigingen om de peering van een virtueel netwerk maken. Zie de [machtigingen](#permissions) sectie van dit artikel voor meer informatie.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) als GebruikerA. Het account dat u zich met aanmeldt moet hebben de vereiste machtigingen om de peering van een virtueel netwerk maken. Zie voor een lijst met machtigingen [virtuele netwerk peering machtigingen](virtual-network-manage-peering.md#permissions).
 2. Klik op **+ nieuw**, klikt u op **Networking**, klikt u vervolgens op **virtueel netwerk**.
 3. In de **virtueel netwerk maken** blade invoert, of Selecteer waarden voor de volgende instellingen en klik vervolgens op **maken**:
     - **Name**: *myVnetA*
@@ -99,7 +99,7 @@ Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Al
 Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Als u een account met machtigingen voor beide abonnementen, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor logboekregistratie buiten Azure en de regels van het script die gebruiker roltoewijzingen maakt verwijderen. Vervang UserA@azure.com en UserB@azure.com in alle van de volgende scripts met de gebruikersnamen die u voor GebruikerA en verleent. 
 
 1. [Installeer](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure CLI 1.0 voor het maken van het virtuele netwerk (klassiek).
-2. Open een CLI-sessie en meld u aan bij Azure als het gebruik van de gebruiker b het `azure login` opdracht.
+2. Open een CLI-sessie en meld u aan bij Azure als het gebruik van de gebruiker b het `azure login` opdracht. Het account dat u zich met aanmeldt moet hebben de vereiste machtigingen om de peering van een virtueel netwerk maken. Zie voor een lijst met machtigingen [virtuele netwerk peering machtigingen](virtual-network-manage-peering.md#permissions).
 3. De CLI in Service Management-modus uitgevoerd door te voeren de `azure config mode asm` opdracht.
 4. Voer de volgende opdracht voor het maken van het virtuele netwerk (klassiek):
  
@@ -185,7 +185,7 @@ Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Al
 
 1. Installeer de nieuwste versie van de PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) en [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modules. Zie [Overzicht van Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) als u nog geen ervaring hebt met Azure PowerShell.
 2. Een PowerShell-sessie starten.
-3. In PowerShell, meld u aan bij de gebruiker b-abonnement als gebruiker b door te voeren de `Add-AzureAccount` opdracht.
+3. In PowerShell, meld u aan bij de gebruiker b-abonnement als gebruiker b door te voeren de `Add-AzureAccount` opdracht. Het account dat u zich met aanmeldt moet hebben de vereiste machtigingen om de peering van een virtueel netwerk maken. Zie voor een lijst met machtigingen [virtuele netwerk peering machtigingen](virtual-network-manage-peering.md#permissions).
 4. Als een virtueel netwerk (klassiek) maken met PowerShell, moet u een nieuwe maken of wijzigen van een bestaand, netwerk-configuratiebestand. Meer informatie over hoe [exporteren, bijwerken en importeren van configuratie van netwerkbestanden](virtual-networks-using-network-configuration-file.md). Het bestand moet bevatten de volgende **VirtualNetworkSite** element voor het virtuele netwerk in deze zelfstudie gebruikt:
 
     ```xml
@@ -214,7 +214,7 @@ Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Al
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Meld u af bij Azure als gebruiker b en meld u aan bij de GebruikerA abonnement als GebruikerA door te voeren de `login-azurermaccount` opdracht. Het account dat u zich met aanmeldt moet hebben de vereiste machtigingen om de peering van een virtueel netwerk maken. Zie de [machtigingen](#permissions) sectie van dit artikel voor meer informatie.
+7. Meld u af bij Azure als gebruiker b en meld u aan bij de GebruikerA abonnement als GebruikerA door te voeren de `login-azurermaccount` opdracht. Het account dat u zich met aanmeldt moet hebben de vereiste machtigingen om de peering van een virtueel netwerk maken. Zie voor een lijst met machtigingen [virtuele netwerk peering machtigingen](virtual-network-manage-peering.md#permissions).
 8. Het virtuele netwerk (Resource Manager) maken met het volgende script kopiëren, plakken in naar PowerShell en drukt u vervolgens op `Enter`:
 
     ```powershell
@@ -268,19 +268,6 @@ Deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Al
 
 12. **Optionele**: hoewel maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken vanaf een virtuele machine op een andere, te valideren.
 13. **Optionele**: voor het verwijderen van de resources die u in deze zelfstudie maakt, voert u de stappen in [resources verwijderen](#delete-powershell) in dit artikel.
-
-## <a name="permissions"></a>Machtigingen
-
-De accounts die u gebruikt voor het maken van een virtueel netwerk peering moeten de benodigde rol of machtiging hebben. Bijvoorbeeld, als u twee virtuele netwerken met de naam myVnetA en myVnetB zijn peering, uw account moet worden toegewezen aan de volgende minimale rol of machtiging voor elke virtuele netwerk:
-    
-|Virtueel netwerk|Implementatiemodel|Rol|Machtigingen|
-|---|---|---|---|
-|myVnetA|Resource Manager|[Inzender voor netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Klassiek|[Inzender voor klassieke netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
-|myVnetB|Resource Manager|[Inzender voor netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Klassiek|[Inzender voor klassieke netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
-
-Meer informatie over [ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (alleen voor Resource Manager).
 
 ## <a name="delete"></a>Resources verwijderen
 Wanneer u deze zelfstudie hebt voltooid, kunt u mogelijk wilt verwijderen van de resources die u hebt gemaakt in de zelfstudie, zodat u geen gebruik kosten. Verwijderen van een resourcegroep, verwijdert tevens alle bronnen die zich in de resourcegroep.

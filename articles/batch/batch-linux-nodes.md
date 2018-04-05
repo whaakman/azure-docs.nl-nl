@@ -3,23 +3,23 @@ title: Voer Linux op de virtuele machine rekenknooppunten - Azure Batch | Micros
 description: Informatie over het verwerken van uw parallelle compute-workloads op groepen van Linux virtuele machines in Azure Batch.
 services: batch
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b2257917e2368478beb75957677de23d4157865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9aa896bfc4c860c87757f9379fc44cc5ee8d18a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Linux-rekenknooppunten in de Batch-pools inrichten
 
@@ -57,9 +57,9 @@ Wanneer u een verwijzing van de installatiekopie van virtuele machine configuree
 ### <a name="node-agent-sku"></a>Knooppunt agent SKU
 De Batch-knooppunt-agent is een programma dat wordt uitgevoerd op elk knooppunt in de groep en de opdracht en controle interface vormt tussen het knooppunt en de Batch-service. Er zijn verschillende implementaties van de agent van het knooppunt, SKU's, ook wel voor verschillende besturingssystemen. In wezen, wanneer u de configuratie van een virtuele Machine maakt, u eerst de verwijzing van de installatiekopie van virtuele machine opgeven en vervolgens geeft u de knooppunt-agent installeren op de installatiekopie. Normaal gesproken elke agent knooppunt SKU is compatibel met meerdere installatiekopieën van virtuele machines. Hier volgen enkele voorbeelden van knooppunt agent SKU's:
 
-* batch.node.Ubuntu 14.04
+* batch.node.ubuntu 14.04
 * batch.node.centos 7
-* batch.node.Windows amd64
+* batch.node.windows amd64
 
 > [!IMPORTANT]
 > Niet alle installatiekopieën van virtuele machines die beschikbaar in de Marketplace zijn zijn compatibel met de momenteel beschikbare Batch knooppunt agents. Gebruik de Batch-SDK's voor een lijst met de agent beschikbaar knooppunt SKU's en installatiekopieën van virtuele machines waarmee ze compatibel zijn. Zie de [installatiekopieën van de lijst van de virtuele Machine](#list-of-virtual-machine-images) verderop in dit artikel voor meer informatie en voorbeelden van hoe u een lijst met geldige afbeeldingen tijdens runtime ophaalt.
@@ -213,28 +213,28 @@ De volgende tabel bevat de Marketplace-installatiekopieën voor virtuele machine
 >
 >
 
-| **Uitgever** | **Aanbieding** | **Afbeelding SKU** | **Versie** | **Knooppunt agent SKU-ID** |
+| **Publisher** | **Aanbieding** | **Afbeelding SKU** | **Versie** | **Knooppunt agent SKU-ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| Canonical | UbuntuServer | 14.04.5-LTS | meest recente | batch.node.Ubuntu 14.04 |
-| Canonical | UbuntuServer | 16.04.0-LTS | meest recente | batch.node.Ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | meest recente | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 16.04.0-LTS | meest recente | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | meest recente | batch.node.debian 8 |
 | OpenLogic | CentOS | 7.0 | meest recente | batch.node.centos 7 |
 | OpenLogic | CentOS | 7.1 | meest recente | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7.1 | meest recente | batch.node.centos 7 |
 | OpenLogic | CentOS | 7.2 | meest recente | batch.node.centos 7 |
-| Oracle | Oracle Linux | 7.0 | meest recente | batch.node.centos 7 |
-| Oracle | Oracle Linux | 7.2 | meest recente | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.0 | meest recente | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.2 | meest recente | batch.node.centos 7 |
 | SUSE | openSUSE | 13.2 | meest recente | batch.node.opensuse 13.2 |
-| SUSE | openSUSE Leap | 42.1 | meest recente | batch.node.opensuse 42,1 |
-| SUSE | SLES | 12-SP1 | meest recente | batch.node.opensuse 42,1 |
-| SUSE | SLES HPC | 12-SP1 | meest recente | batch.node.opensuse 42,1 |
-| Microsoft-advertenties | Linux-gegevens-wetenschappelijke-vm | linuxdsvm | meest recente | batch.node.centos 7 |
-| Microsoft-advertenties | Standard-gegevens-wetenschappelijke-vm | Standard-gegevens-wetenschappelijke-vm | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008 R2 SP1 | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter met Containers | meest recente | batch.node.Windows amd64 |
+| SUSE | openSUSE-Leap | 42.1 | meest recente | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | meest recente | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12-SP1 | meest recente | batch.node.opensuse 42.1 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | meest recente | batch.node.centos 7 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | meest recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | meest recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | meest recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | meest recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | meest recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | meest recente | batch.node.windows amd64 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Verbinding maken met gebruik van SSH Linux-knooppunten
 Tijdens de ontwikkeling of bij het oplossen van problemen soms is het nodig zijn om te melden bij de knooppunten in de pool. In tegenstelling tot Windows rekenknooppunten, kunt u Remote Desktop Protocol (RDP) niet gebruiken voor het verbinding maken met Linux-knooppunten. De Batch-service kan in plaats daarvan SSH-toegang op elk knooppunt voor externe verbinding.

@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie voor Azure Container register - Push een bijgewerkte installatiekopie naar regionale implementaties
-description: "Een installatiekopie van het gewijzigde Docker push naar uw Azure geogerepliceerde register bevatten, en vervolgens de wijzigingen vervolgens automatisch geïmplementeerd in WebApps die worden uitgevoerd in meerdere regio's te zien. Deel 2 van een reeks drie delen."
+title: 'Zelfstudie voor Azure Container Registry: een bijgewerkte installatiekopie naar regionale implementaties pushen'
+description: Push een aangepaste Docker-installatiekopie naar uw geo-gerepliceerde Azure-containerregister. Vervolgens worden de wijzigingen automatisch geïmplementeerd in web-apps die in meerdere regio's worden uitgevoerd. Deel drie van een serie van drie.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,37 +9,37 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 359fdcabd579d277e40f02eba2d4603ebd9f5f1f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.openlocfilehash: f8eab93d1e6633ae4f17c5bb4836d96629d55cd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="push-an-updated-image-to-regional-deployments"></a>Een installatiekopie van een bijgewerkte push naar regionale implementaties
+# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Zelfstudie: een bijgewerkte installatiekopie naar regionale implementaties pushen
 
-Dit maakt deel uit drie in een zelfstudie reeks drie delen. In de [vorige zelfstudie](container-registry-tutorial-deploy-app.md), geo-replicatie is geconfigureerd voor twee verschillende regionale Web-App-implementaties. In deze zelfstudie maakt u eerst wijzigen van de toepassing, klikt u vervolgens een nieuwe container-installatiekopie bouwen en dit doorgeven aan het register geogerepliceerde. Ten slotte kunt u deze wijziging automatisch door Azure Container register webhooks, in beide gevallen Web-App geïmplementeerd weergeven.
+Dit is deel drie van een serie met drie zelfstudies. In de [vorige zelfstudie](container-registry-tutorial-deploy-app.md) is geo-replicatie geconfigureerd voor twee verschillende regionale web-app-implementaties. In deze zelfstudie past u eerst de app aan, maakt u daarna een nieuwe containerinstallatiekopie en pusht u deze vervolgens naar het geo-gerepliceerde register. Ten slotte kunt u deze wijziging, die automatisch wordt geïmplementeerd door Azure Container Registry-webhooks, in beide web-app-instanties weergeven.
 
-In deze zelfstudie is het laatste gedeelte in de reeks:
+Deze zelfstudie, het laatste deel in de serie, gaat over het volgende:
 
 > [!div class="checklist"]
-> * De webtoepassing HTML wijzigen
-> * Opbouwen en labels van de Docker-afbeelding
-> * De wijziging in Azure Container register push
-> * De bijgewerkte app weergeven in twee verschillende regio 's
+> * De web-app-HTML wijzigen
+> * De Docker-installatiekopie maken en taggen
+> * De wijziging naar Azure Container Registry pushen
+> * De bijgewerkte app in twee verschillende regio's weergeven
 
-Als u de twee nog niet hebt geconfigureerd *Web-App voor Containers* regionale implementaties terug naar de vorige zelfstudie in de reeks [web-app implementeren in Azure Container register](container-registry-tutorial-deploy-app.md).
+Als u de twee regionale *Web App for Containers*-implementaties nog niet hebt geconfigureerd, gaat u naar de vorige zelfstudie in de serie: [Web-app implementeren vanuit Azure Container Registry](container-registry-tutorial-deploy-app.md).
 
 ## <a name="modify-the-web-application"></a>De webtoepassing wijzigen
 
-In deze stap moet u een wijziging aanbrengt in de webtoepassing die maximaal zichtbaar zijn wanneer u de installatiekopie van het bijgewerkte container in Azure Container register pushen.
+In deze stap brengt u een wijziging aan in de web-app die zeer zichtbaar is wanneer u de bijgewerkte containerinstallatiekopie naar Azure Container Registry pusht.
 
-Zoek de `AcrHelloworld/Views/Home/Index.cshtml` bestand in de toepassingsbron die u [gekloond vanuit GitHub](container-registry-tutorial-prepare-registry.md#get-application-code) in een vorige zelfstudie en geopend in uw favoriete teksteditor. Voeg de volgende regel onder de bestaande `<h1>` regel:
+Zoek het bestand `AcrHelloworld/Views/Home/Index.cshtml` in de app-bron die u in een vorige zelfstudie hebt [gekloond vanuit GitHub](container-registry-tutorial-prepare-registry.md#get-application-code) en open het in uw favoriete teksteditor. Voeg de volgende regel toe onder de bestaande regel `<h1>`:
 
 ```html
 <h1>MODIFIED</h1>
 ```
 
-De gewijzigde `Index.cshtml` moet er ongeveer uitzien:
+De aangepaste `Index.cshtml` moet er ongeveer zo uitzien:
 
 ```html
 @{
@@ -68,23 +68,23 @@ De gewijzigde `Index.cshtml` moet er ongeveer uitzien:
 </div>
 ```
 
-## <a name="rebuild-the-image"></a>De installatiekopie van het opnieuw samenstellen
+## <a name="rebuild-the-image"></a>De installatiekopie herbouwen
 
-Nu dat u de webtoepassing hebt bijgewerkt, opnieuw worden opgebouwd de installatiekopie van de container. De naam van de volledig gekwalificeerde installatiekopie, met inbegrip van de aanmeldings-server-URL voor het label als voorheen gebruiken:
+Nu u de web-app hebt bijgewerkt, moet u de bijbehorende containerinstallatiekopie herbouwen. Gebruik net als eerder de naam van de volledig gekwalificeerde installatiekopie, met inbegrip van de URL voor de aanmeldingsserver, voor de tag:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-## <a name="push-image-to-azure-container-registry"></a>Push-installatiekopie in Azure Container register
+## <a name="push-image-to-azure-container-registry"></a>Installatiekopie pushen naar Azure Container Registry
 
-Push-nu de bijgewerkte *acr helloworld* container installatiekopie toe aan het register geo-replicatie. U bent hier, uitvoeren van een enkel `docker push` opdracht voor het implementeren van de bijgewerkte installatiekopie met de Register-replica's in zowel de *VS-West* en *VS-Oost* regio's.
+Push nu de bijgewerkte containerinstallatiekopie *acr-helloworld* naar uw geo-gerepliceerde register. Hier voert u een enkele `docker push`-opdracht uit om de bijgewerkte installatiekopie naar de registerreplica's in de regio's *VS West* en *VS Oost* te implementeren.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Uitvoer ziet er ongeveer als volgt:
+De uitvoer ziet er ongeveer als volgt uit:
 
 ```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
@@ -98,47 +98,47 @@ a75caa09eb1f: Layer already exists
 v1: digest: sha256:4c3f2211569346fbe2d1006c18cbea2a4a9dcc1eb3a078608cef70d3a186ec7a size: 1792
 ```
 
-## <a name="view-the-webhook-logs"></a>Bekijk de logboeken van de webhook
+## <a name="view-the-webhook-logs"></a>Logboeken van webhooks bekijken
 
-Terwijl de installatiekopie wordt gerepliceerd, ziet u de Azure-Container register webhooks wordt geactiveerd.
+Terwijl de installatiekopie wordt gerepliceerd, worden de Azure Container Registry-webhooks geactiveerd.
 
-Om te zien van de regionale webhooks die zijn gemaakt tijdens de implementatie van de container *Web-Apps voor Containers* in een vorige zelfstudie gaat u naar het register van de container in Azure portal en selecteer vervolgens **Webhooks**onder **SERVICES**.
+Als u de regionale webhooks wilt bekijken die zijn gemaakt tijdens de implementatie van de container naar *Web App for Containers* in een vorige zelfstudie, gaat u naar het containerregister in Azure Portal en selecteert u onder **SERVICES** de optie **Webhooks**.
 
-![Container register Webhooks in de Azure portal][tutorial-portal-01]
+![Webhooks van containerregisters in Azure Portal][tutorial-portal-01]
 
-Selecteer elke Webhook om te zien van de geschiedenis van de aanroepen en antwoorden. Er is een rij voor de **push** actie in de logboeken van beide Webhooks. Hier het logboek voor de Webhook zich in de *VS-West* regio toont de **push** actie geactiveerd door de `docker push` in de vorige stap:
+Selecteer elke webhook om de geschiedenis van de bijbehorende aanroepen en antwoorden te bekijken. U zou een rij moeten zien voor de actie **push** in de logboeken van beide webhooks. Hier toont het logboek voor de webhook in de regio *VS West* de actie **push** die is geactiveerd door de `docker push` in de vorige stap:
 
-![Container register Webhook logboek in de Azure portal (VS-West)][tutorial-portal-02]
+![Logboek voor containerregister-webhook in Azure Portal (VS West)][tutorial-portal-02]
 
-## <a name="view-the-updated-web-app"></a>De bijgewerkte web-app weergeven
+## <a name="view-the-updated-web-app"></a>Bijgewerkte web-app weergeven
 
-De Webhooks waarschuwen Web-Apps dat een nieuwe installatiekopie in het register, die automatisch wordt de bijgewerkte container geïmplementeerd naar de twee regionale web-apps is is geactiveerd.
+De webhooks geven door aan de web-apps dat een nieuwe installatiekopie naar het register is gepusht, en hierdoor wordt automatisch de bijgewerkte container naar de twee regionale web-apps geïmplementeerd.
 
-Controleer of dat de toepassing is bijgewerkt in beide implementaties door te navigeren naar beide regionale Web-App-implementaties in uw webbrowser. Als een herinnering vindt u de URL voor de geïmplementeerde web-app in de rechterbovenhoek van elke overzichtstabblad van App Service.
+Controleer of de app in beide implementaties is bijgewerkt door naar beide regionale web-app-implementaties te navigeren in uw webbrowser. U kunt de URL voor de geïmplementeerde web-app vinden in de rechterbovenhoek van elk App Service-overzichtstabblad.
 
-![Overzicht van App Service in de Azure portal][tutorial-portal-03]
+![App Service-overzicht in Azure Portal][tutorial-portal-03]
 
-Overzicht van de bijgewerkte toepassing, selecteer de koppeling in het overzicht van App Service. Hier volgt een van de voorbeeldweergave van de app actief *VS-West*:
+Selecteer de link in het App Service-overzicht om de bijgewerkte app te bekijken. Hier volgt een voorbeeldweergave van de app die wordt uitgevoerd in *VS West*:
 
-![Browserweergave van gewijzigde web-app wordt uitgevoerd in de regio VS-West][deployed-app-westus-modified]
+![Browserweergave van gewijzigde web-app die wordt uitgevoerd in de regio VS West][deployed-app-westus-modified]
 
-Controleer of de installatiekopie van het bijgewerkte container ook is geïmplementeerd naar de *VS-Oost* implementatie door weer te geven in uw browser.
+Controleer of de bijgewerkte containerinstallatiekopie ook is geïmplementeerd naar *VS Oost* door deze in uw browser weer te geven.
 
-![Browserweergave van gewijzigde web-app wordt uitgevoerd in de regio VS-Oost][deployed-app-eastus-modified]
+![Browserweergave van gewijzigde web-app die wordt uitgevoerd in de regio VS Oost][deployed-app-eastus-modified]
 
-Met één `docker push`u beide regionale Web-App-implementaties hebt bijgewerkt en Azure Container register geleverd de container-installatiekopieën van netwerk-en close-opslagplaatsen.
+Met één `docker push` hebt u beide regionale web-app-implementaties bijgewerkt, en Azure Container Registry heeft de containerinstallatiekopieën vanuit opslagplaatsen dicht bij het netwerk geleverd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie, bijgewerkt en een nieuwe versie van de webcontainer van de toepassing toe aan het register geogerepliceerde gepusht. Webhooks in Azure Container register gewaarschuwd Web-Apps voor Containers van de update, wat een lokale pull vanuit de Register-replica's.
+In deze zelfstudie hebt u een nieuwe versie van de web-app-container bijgewerkt en naar het geo-gerepliceerde register gepusht. Webhooks in Azure Container Registry gaven de update door aan Web App for Containers, waardoor een lokale pull vanuit de registerreplica's werd geactiveerd.
 
-In dit de laatste zelfstudie in de reeks u:
+In deze zelfstudie, de laatste in deze serie, hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * De webtoepassing HTML bijgewerkt
-> * Gebouwd en de Docker-afbeelding met tags
-> * De wijziging in Azure Container register gepusht
-> * De bijgewerkte app weergegeven in twee verschillende regio 's
+> * U hebt de web-app-HTML gewijzigd
+> * U hebt de Docker-installatiekopie gemaakt en getagd
+> * U hebt de wijziging naar Azure Container Registry gepusht
+> * U hebt de bijgewerkte app in twee verschillende regio's weergegeven
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

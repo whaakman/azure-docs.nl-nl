@@ -2,10 +2,10 @@
 title: Een back-up van Windows-bestanden en -mappen maken in Azure (Resource Manager) | Microsoft Docs
 description: Leer hoe u een back-up van Windows-bestanden en -mappen maakt in Azure met behulp van Resource Manager-implementatie.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: back-up maken; hoe u een back-up maakt; back-up van bestanden en mappen maken
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: bb631eff77932b6bdcf858256c47c9d7381a58c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Eerste blik: een back-up maken van bestanden en mappen met Resource Manager-implementatie
 In dit artikel wordt uitgelegd hoe u een back-up maakt van bestanden en mappen op uw Windows Server (of Windows-computer) in Azure met behulp van Resource Manager-implementatie. Het artikel is bedoeld als handleiding waarmee u stapsgewijs de basis onder de knie krijgt. Als u met Azure Backup wilt leren werken, bent u hier op de goede plek.
@@ -87,7 +87,7 @@ Wanneer u een Recovery Services-kluis maakt, zorg er dan voor dat de opslagredun
 
     ![keuzes bij opslagconfiguratie](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante ](../storage/common/storage-redundancy.md#locally-redundant-storage) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
+    Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy-grs.md) en [lokaal redundante ](../storage/common/storage-redundancy-lrs.md) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
 
 Nu u een kluis hebt gemaakt, kunt u deze voor de back-ups van bestanden en mappen configureren.
 

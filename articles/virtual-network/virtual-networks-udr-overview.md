@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 9afaa7d34665f5c8ef4c4c819fe3b7e995bd71d3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 34fdf45094fae8e751d6b3e5c57d5b4df2e78200
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -38,9 +38,9 @@ Elke route bevat een adresvoorvoegsel en het volgende hoptype. Wanneer uitgaand 
 |-------|---------                                               |---------      |
 |Standaard|Uniek voor het virtuele netwerk                           |Virtueel netwerk|
 |Standaard|0.0.0.0/0                                               |Internet       |
-|Standaard|10.0.0.0/8                                              |None           |
-|Standaard|172.16.0.0/12                                           |None           |
-|Standaard|192.168.0.0/16                                          |None           |
+|Standaard|10.0.0.0/8                                              |Geen           |
+|Standaard|172.16.0.0/12                                           |Geen           |
+|Standaard|192.168.0.0/16                                          |Geen           |
 |Standaard|100.64.0.0/10                                           |Geen           |
 
 De 'volgende hoptypen' in de bovenstaande tabel bepalen hoe Azure verkeer routeert dat bestemd is voor het vermelde adresvoorvoegsel. Hieronder worden de 'volgende hoptypen' toegelicht:
@@ -110,7 +110,7 @@ De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen
 |Virtueel netwerk                 |VNetLocal                                       |VNETLocal (niet beschikbaar in CLI 1.0 in de asm-modus)|
 |Internet                        |Internet                                        |Internet (niet beschikbaar in CLI 1.0 in de asm-modus)|
 |Virtueel apparaat               |VirtualAppliance                                |VirtualAppliance|
-|Geen                            |None                                            |Null (niet beschikbaar in CLI 1.0 in de asm-modus)|
+|Geen                            |Geen                                            |Null (niet beschikbaar in CLI 1.0 in de asm-modus)|
 |Peering op virtueel netwerk         |VNet-peering                                    |Niet van toepassing|
 |Service-eindpunt voor virtueel netwerk|VirtualNetworkServiceEndpoint                   |Niet van toepassing|
 
@@ -130,11 +130,9 @@ Als er uitgaand verkeer wordt verzonden vanuit een subnet, selecteert Azure een 
 Als meerdere routes hetzelfde adresvoorvoegsel bevatten, selecteert Azure het routetype op basis van de volgende prioriteit:
 
 1. Door de gebruiker gedefinieerde route
+2. Een systeemroute met het hoptype *Virtueel netwerk*, *VNet-peering* of *VirtualNetworkServiceEndpoint*.
 2. BGP-route
-3. Systeemroute
-
-> [!NOTE]
-> Systeemroutes voor verkeer dat is gerelateerd aan virtuele netwerken, peerings voor virtuele netwerken of service-eindpunten voor virtuele netwerken zijn voorkeursroutes, zelfs als BGP-routes specifieker zijn.
+3. Een systeemroute met een ander hoptype dan *Virtueel netwerk*, *VNet-peering* of *VirtualNetworkServiceEndpoint*.
 
 Een routetabel bevat bijvoorbeeld de volgende routes:
 
@@ -210,8 +208,8 @@ De routetabel voor *Subnet1* in de afbeelding bevat de volgende routes:
 |3   |Gebruiker   |Actief |10.0.0.0/24         |Virtueel netwerk        |                   |Within-Subnet1|
 |4   |Standaard|Ongeldig|10.1.0.0/16         |VNet-peering           |                   |              |
 |5   |Standaard|Ongeldig|10.2.0.0/16         |VNet-peering           |                   |              |
-|6   |Gebruiker   |Actief |10.1.0.0/16         |Geen                   |                   |ToVNet2-1-Drop|
-|7   |Gebruiker   |Actief |10.2.0.0/16         |None                   |                   |ToVNet2-2-Drop|
+|6   |Gebruiker   |Actief |10.1.0.0/16         |None                   |                   |ToVNet2-1-Drop|
+|7   |Gebruiker   |Actief |10.2.0.0/16         |Geen                   |                   |ToVNet2-2-Drop|
 |8   |Standaard|Ongeldig|10.10.0.0/16        |Gateway van een virtueel netwerk|[X.X.X.X]          |              |
 |9   |Gebruiker   |Actief |10.10.0.0/16        |Virtueel apparaat      |10.0.100.4         |To-On-Prem    |
 |10  |Standaard|Actief |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |

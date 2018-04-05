@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Breng uw resources met Azure-beheergroepen 
 
@@ -42,11 +42,15 @@ Als u een hiërarchie die worden gegroepeerd per afdelingen maakt, u zich kunt t
 - Elke beheergroep kan meerdere onderliggende elementen hebben. 
 
 ### <a name="preview-subscription-visibility-limitation"></a>Preview abonnement zichtbaarheid beperking 
-Er is momenteel een beperking in de Preview-versie waarin u kan geen abonnementen die u hebt toegang tot overgenomen weergeven. De toegang tot het abonnement wordt overgenomen, maar de Azure Resource Manager kan geen voldoen nog aan de overname-toegang.  
+Er is een beperking in de Preview-versie waarin u kunt abonnementen die u hebt toegang tot overgenomen weergeven niet. De toegang tot het abonnement wordt overgenomen, maar de Azure Resource Manager niet kan voldoen nog aan de overname-toegang.  
 
 Retourneert de gegevens met de REST API voor informatie over het abonnement als u toegang hebt, maar binnen de Azure-portal en Azure Powershell de abonnementen niet weergeven. 
 
-Dit item wordt gewerkt en worden opgelost voordat beheergroepen aangekondigde als 'Algemene beschikbaarheid'.  
+Dit item wordt gewerkt en worden opgelost voordat beheergroepen worden vermeld als 'Algemene beschikbaarheid'.  
+
+### <a name="cloud-solution-providercsp-limitation-during-preview"></a>Beperking van de oplossing Provider(CSP) tijdens de Preview cloud 
+Er is een beperking voor Cloud Solution Provider(CSP) Partners waar ze kunnen maken of beheren van de beheergroepen zijn klant in de directory van de klant niet.  
+Dit item wordt gewerkt en worden opgelost voordat beheergroepen worden vermeld als 'Algemene beschikbaarheid'.
 
 
 ## <a name="root-management-group-for-each-directory"></a>De beheergroep hoofdmap voor elke map

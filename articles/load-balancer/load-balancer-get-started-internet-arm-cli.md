@@ -4,8 +4,8 @@ description: Meer informatie over het maken van een openbare load balancer met b
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jennoc
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
@@ -13,300 +13,251 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/19/2017
 ms.author: kumud
-ms.openlocfilehash: bd8c2703a1b43834e1c82e0776e2dee807bb3192
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f2ba819c2341b2e481c2cfa5d5231f4cd5b6295b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="creating-a-public-load-balancer-using-the-azure-cli"></a>Een openbare load balancer maken met behulp van Azure CLI
+# <a name="create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Een openbare load balancer maken om taken van VM's te verdelen met behulp van Azure CLI 2.0
 
-> [!div class="op_single_selector"]
-> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
-> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [Azure-CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
-> * [Sjabloon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+In deze snelstart wordt beschreven hoe u een Azure-load balancer maakt. U test de load balancer door twee virtuele machines (VM's) te implementeren waarop een Ubuntu-server wordt uitgevoerd en waartussen de taken van een web-app worden verdeeld.
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie versie 2.0.28 of hoger van Azure CLI uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
-[!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Dit artikel is van toepassing op het Resource Manager-implementatiemodel. Hier vindt u [meer informatie over hoe u een openbare load balancer maakt met behulp van de klassieke implementatie](load-balancer-get-started-internet-classic-portal.md)
+Maak een resourcegroep maken met [az group create](https://docs.microsoft.com/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
-[!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupLB* gemaakt op de locatie *VS Oost*:
 
-## <a name="deploying-the-solution-using-the-azure-cli"></a>De oplossing implementeren met de Azure CLI
-
-De volgende stappen laten zien hoe u Azure Resource Manager gebruikt om een openbare load balancer te maken met behulp van CLI. Met Azure Resource Manager wordt elke resource afzonderlijk gemaakt en geconfigureerd, en vervolgens samengevoegd om een resource te maken.
-
-U moet de volgende objecten maken en configureren om een load balancer te implementeren:
-
-* Front-end-IP-configuratie: bevat openbare IP-adressen voor inkomend netwerkverkeer.
-* Back-endadresgroep: bevat netwerkinterfaces (NIC's) waardoor de virtuele machines netwerkverkeer kunnen ontvangen van de load balancer.
-* Regels voor taakverdeling: bevat regels die een openbare poort op de load balancer toewijzen aan een poort in de back-endadresgroep.
-* NAT-regels voor binnenkomende verbindingen: bevat regels die een openbare poort op de load balancer toewijzen aan een poort voor een specifieke virtuele machine in de back-endadresgroep.
-* Tests: bevat statustests die worden gebruikt om de beschikbaarheid van exemplaren van virtuele machines in de back-endadresgroep te controleren.
-
-Zie [Ondersteuning van Azure Resource Manager voor Azure Load Balancer](load-balancer-arm.md) voor meer informatie.
-
-## <a name="set-up-cli-to-use-resource-manager"></a>CLI instellen voor het gebruik van Resource Manager
-
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
-2. Voer de opdracht **azure config mode** uit om over te schakelen naar de modus Resource Manager, zoals hieronder weergegeven.
-
-    ```azurecli
-        azure config mode arm
-    ```
-
-    Verwachte uitvoer:
-
-        info:    New mode is arm
-
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Een virtueel netwerk en een openbaar IP-adres voor de front-end-IP-adresgroep maken
-
-1. Maak een virtueel netwerk (VNet) met de naam *NRPVnet* op locatie VS - oost met een resourcegroep met de naam *NRPRG*.
-
-    ```azurecli
-        azure network vnet create NRPRG NRPVnet eastUS -a 10.0.0.0/16
-    ```
-
-    Maak een subnet met de naam *NRPVnetSubnet* en een CIDR-blok 10.0.0.0/24 in *NRPVnet*.
-
-    ```azurecli
-        azure network vnet subnet create NRPRG NRPVnet NRPVnetSubnet -a 10.0.0.0/24
-    ```
-
-2. Maak een openbaar IP-adres met de naam *NRPPublicIP* dat moet worden gebruikt door een front-end-IP-adresgroep met DNS-naam *loadbalancernrp.eastus.cloudapp.azure.com*. Onderstaande opdracht gebruikt het statische toewijzingstype en een time-out voor inactiviteit van vier minuten.
-
-    ```azurecli
-        azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
-    ```
-
-   > [!IMPORTANT]
-   > De load balancer gebruikt het domeinlabel van het openbare IP als FQDN. Dit een wijziging ten opzichte van de klassieke implementatie, die de cloudservice gebruikt als Fully Qualified Domain Name van de load balancer.
-   > In dit voorbeeld is de FQDN *loadbalancernrp.eastus.cloudapp.azure.com*.
-
-## <a name="create-a-load-balancer"></a>Een load balancer maken
-
-Met de volgende opdracht wordt er een load balancer met de naam *NRPlb* gemaakt in de resourcegroep *NRPRG* op de Azure-locatie *VS - oost*.
-
-    ```azurecli
-    azure network lb create NRPRG NRPlb eastus
-    ```
-
-## <a name="create-a-front-end-ip-pool-and-a-backend-address-pool"></a>Een front-end-IP-adresgroep en back-endadresgroep maken
-In dit voorbeeld ziet u hoe u de front-end-IP-adresgroep maakt die het binnenkomende netwerkverkeer ontvangt op de load balancer, en de back-end-IP-adresgroep waarheen de front-endgroep het netwerkverkeer met gelijke taakverdeling verzendt.
-
-1. Maak een front-end-IP-adresgroep door het openbare IP dat u in de vorige stap hebt gemaakt en de load balancer te koppelen.
-
-    ```azurecli
-        azure network lb frontend-ip create nrpRG NRPlb NRPfrontendpool -i nrppublicip
-    ```
-
-2. Stel een back-endadresgroep in die wordt gebruikt om binnenkomend verkeer van de front-end-IP-adresgroep te ontvangen.
-
-    ```azurecli
-        azure network lb address-pool create NRPRG NRPlb NRPbackendpool
-    ```
-
-## <a name="create-lb-rules-nat-rules-and-probe"></a>LB-regels, NAT-regels en test maken
-
-In dit voorbeeld worden de volgende items gemaakt.
-
-* een NAT-regel om al het verkeer dat binnenkomt op poort 21, om te zetten naar poort 22<sup>1</sup>
-* een NAT-regel om al het verkeer dat binnenkomt op poort 23, om te zetten naar poort 22
-* een load balancer-regel om al het verkeer dat binnenkomt op poort 80, gelijk te verdelen naar poort 80 op de adressen in de back-endgroep.
-* een testregel om de integriteitsstatus te testen op een pagina met de naam *HealthProbe.aspx*.
-
-<sup>1</sup> NAT-regels worden gekoppeld aan een specifiek exemplaar van een virtuele machine achter de load balancer. Het netwerkverkeer dat binnenkomt op poort 21, wordt verzonden naar een specifieke virtuele machine op poort 22 die aan deze NAT-regel is gekoppeld. U moet een protocol (UDP of TCP) voor een NAT-regel opgeven. Beide protocollen kunnen niet worden toegewezen aan dezelfde poort.
-
-1. Maak de NAT-regels.
-
-    ```azurecli
-        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh1 --protocol tcp --frontend-port 21 --backend-port 22
-        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh2 --protocol tcp --frontend-port 23 --backend-port 22
-    ```
-
-2. Maak een load balancer-regel.
-
-    ```azurecli
-        azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
-    ```
-
-3. Maak een statustest.
-
-    ```azurecli
-        azure network lb probe create --resource-group nrprg --lb-name nrplb --name healthprobe --protocol "http" --port 80 --path healthprobe.aspx --interval 15 --count 4
-    ```
-
-4. Controleer uw instellingen.
-
-    ```azurecli
-        azure network lb show nrprg nrplb
-    ```
-
-    Verwachte uitvoer:
-
-        info:    Executing command network lb show
-        + Looking up the load balancer "nrplb"
-        + Looking up the public ip "NRPPublicIP"
-        data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb
-        data:    Name                            : nrplb
-        data:    Type                            : Microsoft.Network/loadBalancers
-        data:    Location                        : eastus
-        data:    Provisioning State              : Succeeded
-        data:    Frontend IP configurations:
-        data:      Name                          : NRPfrontendpool
-        data:      Provisioning state            : Succeeded
-        data:      Public IP address id          : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/publicIPAddresses/NRPPublicIP
-        data:      Public IP allocation method   : Static
-        data:      Public IP address             : 40.114.13.145
-        data:
-        data:    Backend address pools:
-        data:      Name                          : NRPbackendpool
-        data:      Provisioning state            : Succeeded
-        data:
-        data:    Load balancing rules:
-        data:      Name                          : HTTP
-        data:      Provisioning state            : Succeeded
-        data:      Protocol                      : Tcp
-        data:      Frontend port                 : 80
-        data:      Backend port                  : 80
-        data:      Enable floating IP            : false
-        data:      Idle timeout in minutes       : 4
-        data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
-        data:      Backend address pool          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
-        data:
-        data:    Inbound NAT rules:
-        data:      Name                          : ssh1
-        data:      Provisioning state            : Succeeded
-        data:      Protocol                      : Tcp
-        data:      Frontend port                 : 21
-        data:      Backend port                  : 22
-        data:      Enable floating IP            : false
-        data:      Idle timeout in minutes       : 4
-        data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
-        data:
-        data:      Name                          : ssh2
-        data:      Provisioning state            : Succeeded
-        data:      Protocol                      : Tcp
-        data:      Frontend port                 : 23
-        data:      Backend port                  : 22
-        data:      Enable floating IP            : false
-        data:      Idle timeout in minutes       : 4
-        data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
-        data:
-        data:    Probes:
-        data:      Name                          : healthprobe
-        data:      Provisioning state            : Succeeded
-        data:      Protocol                      : Http
-        data:      Port                          : 80
-        data:      Interval in seconds           : 15
-        data:      Number of probes              : 4
-        data:
-        info:    network lb show command OK
-
-## <a name="create-nics"></a>NIC's maken
-
-U moet NIC's maken (of bestaande wijzigen) en deze koppelen aan NAT-regels, load balancer-regels en tests.
-
-1. Maak een NIC met de naam *lb-nic1-be*, en koppel deze aan de NAT-regel *rdp1* en de back-endadresgroep *NRPbackendpool*.
-
-    ```azurecli
-        azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
-    ```
-
-    Verwachte uitvoer:
-
-        info:    Executing command network nic create
-        + Looking up the network interface "lb-nic1-be"
-        + Looking up the subnet "nrpvnetsubnet"
-        + Creating network interface "lb-nic1-be"
-        + Looking up the network interface "lb-nic1-be"
-        data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-        data:    Name                            : lb-nic1-be
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : eastus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 10.0.0.4
-        data:      Private IP Allocation Method  : Dynamic
-        data:      Subnet                        : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet
-        data:      Load balancer backend address pools
-        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
-        data:      Load balancer inbound NAT rules:
-        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
-        data:
-        info:    network nic create command OK
-
-2. Maak een NIC met de naam *lb-nic2-be*, en koppel deze aan de NAT-regel *rdp2* en de back-endadresgroep *NRPbackendpool*.
-
-    ```azurecli
-        azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
-    ```
-
-3. Maak een virtuele machine (VM) met de naam *web1* en koppel deze aan de NIC met de naam *lb-nic1-be*. Voordat onderstaande opdracht is uitgevoerd, is er een opslagaccount met de naam *web1nrp* gemaakt.
-
-    ```azurecli
-        azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
-    ```
-
-    > [!IMPORTANT]
-    > Virtuele machines in een load balancer moeten zich in dezelfde beschikbaarheidsset bevinden. Gebruik `azure availset create` om een beschikbaarheidsset te maken.
-
-    De uitvoer moet er ongeveer als volgt uitzien:
-
-        info:    Executing command vm create
-        + Looking up the VM "web1"
-        Enter username: azureuser
-        Enter password for azureuser: *********
-        Confirm password: *********
-        info:    Using the VM Size "Standard_A1"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        + Looking up the storage account web1nrp
-        + Looking up the availability set "nrp-avset"
-        info:    Found an Availability set "nrp-avset"
-        + Looking up the NIC "lb-nic1-be"
-        info:    Found an existing NIC "lb-nic1-be"
-        info:    Found an IP configuration with virtual network subnet id "/subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet" in the NIC "lb-nic1-be"
-        info:    This is a NIC without publicIP configured
-        + Creating VM "web1"
-        info:    vm create command OK
-
-    > [!NOTE]
-    > Het bericht **Dit is een NIC waarvoor geen openbaar IP-adres is geconfigureerd** wordt verwacht, omdat de NIC die voor de load balancer is gemaakt, verbinding maakt met internet via het openbare IP-adres van de load balancer.
-
-    Omdat de NIC *lb-nic1-be* aan de NAT-regel *rdp1* is gekoppeld, kunt u met behulp van RDP via poort 3441 op de load balancer verbinding maken met *web1*.
-
-4. Maak een virtuele machine (VM) met de naam *web2* en koppel deze aan de NIC met de naam *lb-nic2-be*. Voordat onderstaande opdracht is uitgevoerd, is er een opslagaccount met de naam *web1nrp* gemaakt.
-
-    ```azurecli
-        azure vm create --resource-group nrprg --name web2 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
-    ```
-
-## <a name="update-an-existing-load-balancer"></a>Een bestaande load balancer bijwerken
-U kunt regels toevoegen die naar een bestaande load balancer verwijzen. In het volgende voorbeeld wordt een nieuwe load balancer-regel toegevoegd aan de bestaande load balancer **NRPlb**
-
-```azurecli
-azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule2 --protocol tcp --frontend-port 8080 --backend-port 8051 --frontend-ip-name frontendnrppool --backend-address-pool-name NRPbackendpool
+```azurecli-interactive
+  az group create \
+    --name myResourceGroupLB \
+    --location eastus
 ```
 
-## <a name="delete-a-load-balancer"></a>Een load balancer verwijderen
-Gebruik de volgende opdracht om een load balancer te verwijderen:
+## <a name="create-a-public-ip-address"></a>Een openbaar IP-adres maken
 
-```azurecli
-azure network lb delete --resource-group nrprg --name nrplb
+Om toegang te krijgen tot uw web-app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Gebruik [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) om in *myResourceGroupLB* een openbaar IP-adres te maken met de naam *myPublicIP*.
+
+```azurecli-interactive
+  az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
 ```
+
+## <a name="create-azure-load-balancer"></a>Azure-load balancer maken
+
+In deze sectie wordt beschreven hoe u de volgende onderdelen van de load balancer kunt maken en configureren:
+  - een front-end IP-pool die het binnenkomende netwerkverkeer op de load balancer ontvangt.
+  - een back-end IP-pool waar de front-endpool het netwerkverkeer op de load balancer heen stuurt.
+  - een statustest die de status van de back-end-VM-exemplaren vaststelt.
+  - een load balancer-regel die bepaalt hoe het verkeer over de VM's wordt verdeeld.
+
+### <a name="create-the-load-balancer"></a>Load balancer maken
+
+Maak met [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) een openbare Azure-load balancer met de naam **myLoadBalancer** die een front-endgroep bevat met de naam **myFrontEndPool**, een back-endgroep met de naam **myBackEndPool**, die wordt gekoppeld aan het openbare IP-adres **myPublicIP** dat u in de vorige stap hebt gemaakt.
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group myResourceGroupLB \
+    --name myLoadBalancer \
+    --public-ip-address myPublicIP \
+    --frontend-ip-name myFrontEndPool \
+    --backend-pool-name myBackEndPool       
+  ```
+
+### <a name="create-the-health-probe"></a>Statustest maken
+
+Een statuscontrole controleert alle exemplaren van de virtuele machines om ervoor te zorgen dat deze netwerkverkeer kunnen verzenden. Het exemplaar van een virtuele machine met mislukte testcontroles wordt uit de load balancer verwijderd totdat deze weer online komt en een testcontrole bepaalt of deze in orde is. Maak met [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) een statustest om de status van de virtuele machines te bewaken. 
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
+```
+
+### <a name="create-the-load-balancer-rule"></a>Load balancer-regel maken
+
+Een load balancer-regel definieert de front-end-IP-configuratie voor het binnenkomende verkeer en de back-end-IP-pool om het verkeer te ontvangen, samen met de gewenste bron- en doelpoort. Maak met [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) de regel *myLoadBalancerRuleWeb* voor het luisteren naar poort 80 in de front-endpool *myFrontEndPool* en het verzenden van netwerkverkeer met evenredige taakverdeling naar de back-endadresgroep *myBackEndPool* waarbij ook van poort 80 gebruik wordt gemaakt. 
+
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEndPool \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe  
+```
+
+## <a name="configure-virtual-network"></a>Virtueel netwerk configureren
+
+Voordat u enkele VM's implementeert en uw load balancer test, maakt u de ondersteunende virtuele-netwerkbronnen.
+
+### <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
+
+Maak met [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) in *myResourceGroup* een virtueel netwerk met de naam *myVnet* met een subnet met de naam *mySubnet*.
+
+```azurecli-interactive
+  az network vnet create \
+    --resource-group myResourceGroupLB \
+    --location eastus \
+    --name myVnet \
+    --subnet-name mySubnet
+```
+###  <a name="create-a-network-security-group"></a>Een netwerkbeveiligingsgroep maken
+Maak een netwerkbeveiligingsgroep om binnenkomende verbindingen met uw virtuele netwerk te definiëren.
+
+```azurecli-interactive
+  az network nsg create \
+    --resource-group myResourceGroupLB \
+    --name myNetworkSecurityGroup
+```
+
+### <a name="create-a-network-security-group-rule"></a>Regel voor netwerkbeveiligingsgroep maken
+
+Maak een regel voor de netwerkbeveiligingsgroep om binnenkomende verbindingen via poort 80 toe te staan.
+
+```azurecli-interactive
+  az network nsg rule create \
+    --resource-group myResourceGroupLB \
+    --nsg-name myNetworkSecurityGroup \
+    --name myNetworkSecurityGroupRuleHTTP \
+    --protocol tcp \
+    --direction inbound \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 80 \
+    --access allow \
+    --priority 200
+```
+### <a name="create-nics"></a>NIC's maken
+
+Maak met [az network nic create](/cli/azure/network/nic#az_network_nic_create) drie netwerkinterfaces en koppel deze aan het openbare IP-adres en de netwerkbeveiligingsgroep. 
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+  az network nic create \
+    --resource-group myResourceGroupLB \
+    --name myNic$i \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup \
+    --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool
+done
+```
+
+
+## <a name="create-backend-servers"></a>Back-endservers maken
+
+In dit voorbeeld maakt u drie virtuele machines die worden gebruikt als back-endservers voor de load balancer. Installeer tevens NGINX op de virtuele machines om te controleren of de load balancer is gemaakt.
+
+### <a name="create-an-availability-set"></a>Beschikbaarheidsset maken
+
+Een beschikbaarheidsset maken met [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+
+ ```azurecli-interactive
+  az vm availability-set create \
+    --resource-group myResourceGroupLB \
+    --name myAvailabilitySet
+```
+
+### <a name="create-two-virtual-machines"></a>Twee virtuele machines maken
+
+U kunt een cloud-init-configuratiebestand maken om NGINX te installeren en een 'Hallo wereld' Node.js-app uit te voeren op een virtuele Linux-machine. Maak in uw huidige shell een bestand met de naam cloud-init.txt en plak de volgende configuratie in de shell. Zorg ervoor dat u het hele cloud-init-bestand correct kopieert, met name de eerste regel:
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+``` 
+ 
+Maak de virtuele machines met [az vm create](/cli/azure/vm#az_vm_create).
+
+ ```azurecli-interactive
+for i in `seq 1 2`; do
+  az vm create \
+    --resource-group myResourceGroupLB \
+    --name myVM$i \
+    --availability-set myAvailabilitySet \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+    --no-wait
+    done
+```
+Het kan enkele minuten duren voordat de VM's zijn geïmplementeerd.
+
+## <a name="test-the-load-balancer"></a>Load balancer testen
+
+Gebruik [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) om het openbare IP-adres van de load balancer op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
+
+```azurecli-interactive
+  az network public-ip show \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --query [ipAddress] \
+    --output tsv
+``` 
+![Load balancer testen](./media/load-balancer-get-started-internet-arm-cli/running-nodejs-app.png)
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+U kunt de opdracht [az group delete](/cli/azure/group#az_group_delete) gebruiken om de resourcegroep, de load balancer en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
+
+```azurecli-interactive 
+  az group delete --name myResourceGroupLB
+```
+
 
 ## <a name="next-steps"></a>Volgende stappen
-[Aan de slag met het configureren van een interne load balancer](load-balancer-get-started-ilb-arm-cli.md)
-
-[Een distributiemodus voor de load balancer configureren](load-balancer-distribution-mode.md)
-
-[TCP-time-outinstellingen voor inactiviteit voor de load balancer configureren](load-balancer-tcp-idle-timeout.md)
+In deze snelstart hebt u een load balancer gemaakt, VM's aan de load balancer gekoppeld, een regel voor het load balancer-verkeer geconfigureerd, een statustest gemaakt en vervolgens de load balancer getest. Als u meer wilt weten over load balancers en de bijbehorende resources, gaat u door naar de artikelen met procedures.

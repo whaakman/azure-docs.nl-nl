@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie Azure Cosmos DB: de Apache TinkerPop Gremlin-console gebruiken om objecten te maken, query''s uit te voeren en door grafen te gaan| Microsoft Docs'
+title: "Zelfstudie Azure Cosmos DB: de Apache TinkerPop Gremlin-console gebruiken om objecten te maken, query's uit te voeren en door grafen te gaan| Microsoft Docs"
 description: Een Azure Cosmos DB Quick Start voor het maken van hoekpunten, randen en query's met behulp van de Graph API van Azure Cosmos DB.
 services: cosmos-db
 author: luisbosquez
@@ -13,17 +13,17 @@ ms.devlang: terminal
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 2729ad97b49e7284022adae06c5b5f006647849c
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 3f0ec59ccee61fd0dbb7587a9d2ec3e17b1cf873
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Zelfstudie Azure Cosmos DB: gebruik de Gremlin-console om objecten te maken, query’s op grafen uit te voeren en door grafen te gaan
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-In deze snelstartgids ziet u hoe u met Azure Portal een Azure Cosmos DB-account, een database en een graaf (container) kunt maken, en vervolgens de [Gremlin-console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) van [Apache TinkerPop](http://tinkerpop.apache.org) kunt gebruiken om met gegevens van de Graph API te werken. In deze zelfstudie gaat u hoekpunten en randen maken, er query’s op uitvoeren, een eigenschap van een hoekpunt bijwerken, query’s uitvoeren op hoekpunten, door de graaf gaan en een hoekpunt verwijderen.
+In deze snelstartgids ziet u hoe u met Azure Portal een [Graph API](graph-introduction.md)-account van Azure Cosmos DB, een database en een graaf (container) kunt maken, en vervolgens de [Gremlin-console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) van [Apache TinkerPop](http://tinkerpop.apache.org) kunt gebruiken om met gegevens van de Graph API te werken. In deze zelfstudie gaat u hoekpunten en randen maken, er query’s op uitvoeren, een eigenschap van een hoekpunt bijwerken, query’s uitvoeren op hoekpunten, door de graaf gaan en een hoekpunt verwijderen.
 
 ![Azure Cosmo DB vanuit de Apache Gremlin-console](./media/create-graph-gremlin-console/gremlin-console.png)
 

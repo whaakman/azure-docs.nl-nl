@@ -2,7 +2,7 @@
 title: Een Azure Storage-account controleren | Microsoft Docs
 description: Informatie over het bewaken van een opslagaccount in Azure met behulp van de Azure-portal.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Een opslagaccount in de Azure portal controleren
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/24/2018
 > Er worden kosten in verband met het onderzoeken van controlegegevens in de Azure portal. Zie voor meer informatie [Storage Analytics en facturering](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Azure Files momenteel ondersteunt Opslaganalyse metrische gegevens, maar logboekregistratie nog niet ondersteunt.
->
-> Storage-accounts met een replicatietype van de Zone-redundante opslag (ZRS) ondersteuning voor metrische gegevens en logboekregistratie. De vorige ZRS-accounts die zijn gewijzigd ZRS klassieke, kunt u geen ondersteuning voor metrische gegevens logboekregistratie. Zie voor meer informatie over ZRS [Zone-redundante opslag](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Zie voor een gedetailleerde uitleg over het gebruik van Storage Analytics en andere hulpprogramma's om te bepalen, onderzoeken en oplossen van problemen met Azure Storage met [Monitor, vaststellen en oplossen van Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -47,7 +45,7 @@ ms.lasthandoff: 01/24/2018
 
    Er zijn twee soorten metrische gegevens die kunt u inschakelen voor elke service, die beide zijn standaard ingeschakeld voor nieuwe storage-accounts:
 
-   * **Cumulatieve**: metrische gegevens zoals inkomend en uitgaand, beschikbaarheid, latentie en geslaagd percentages verzamelt. Deze metrische gegevens worden voor de blob, queue, table en Bestandsservices samengevoegd.
+   * **Cumulatieve**: metrische gegevens zoals inkomend en uitgaand, beschikbaarheid, latentie en geslaagd percentages verzamelt. Deze metrische gegevens worden voor de blob-, wachtrij- tabel- en bestandsservices geaggregeerd.
    * **Per API**: naast de cumulatieve metrische gegevens, verzamelt u dezelfde set van metrische gegevens voor elke opslagbewerking in de API van Azure Storage-service.
 
    Om in te stellen het bewaarbeleid voor gegevens, gaan de **bewaartermijn (dagen)** schuifregelaar of Voer het aantal dagen aan gegevens te behouden tussen 1 en 365. De standaardwaarde voor nieuwe opslagaccounts is zeven dagen. Als u niet een bewaarbeleid instellen wilt, voert u nul. Als er geen bewaarbeleid, is het tot u de bewakingsgegevens verwijderen.

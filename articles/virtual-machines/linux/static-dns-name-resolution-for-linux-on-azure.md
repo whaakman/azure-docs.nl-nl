@@ -2,12 +2,12 @@
 title: Interne DNS gebruiken voor naamomzetting van de virtuele machine met de Azure CLI 2.0 | Microsoft Docs
 description: Het maken van virtueel netwerk netwerkinterfacekaarten en interne DNS gebruiken voor naamomzetting van de virtuele machine in Azure met de Azure CLI 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: bb7234b6b046963a6b3a649cc521655b88cd9875
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a17a82aa9bc31997d52aa41f387f95d7a8ae4ae2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Maken van virtuele netwerkinterfacekaarten en interne DNS gebruiken voor naamomzetting van de virtuele machine in Azure
 Dit artikel ziet u het instellen van statische interne DNS-namen voor virtuele Linux-machines met virtuele netwerkinterfacekaarten (vNics) en DNS-labelnamen met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Statische DNS-namen worden gebruikt voor permanente infrastructuurservices zoals een Jenkins build-server, die wordt gebruikt voor dit document of een Git-server.
@@ -90,7 +90,7 @@ az network vnet create \
 ```
 
 ## <a name="create-the-network-security-group"></a>De Netwerkbeveiligingsgroep maken
-Beveiligingsgroepen voor Azure-netwerk zijn equivalent aan een firewall op de netwerklaag. Zie voor meer informatie over Netwerkbeveiligingsgroepen [het nsg's maken in de Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Beveiligingsgroepen voor Azure-netwerk zijn equivalent aan een firewall op de netwerklaag. Zie voor meer informatie over Netwerkbeveiligingsgroepen [het nsg's maken in de Azure CLI](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Maken van de netwerkbeveiligingsgroep met [az netwerk nsg maken](/cli/azure/network/nsg#az_network_nsg_create). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
 

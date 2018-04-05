@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41a47adb1f1da417038757934f0a6cf7e11555da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-a-container-group"></a>Een containergroep implementeren
 
@@ -22,7 +22,7 @@ Azure Containerexemplaren ondersteunt de implementatie van meerdere containers n
 Dit document begeleidt u bij de configuratie van een eenvoudige meerdere container ter uitgevoerd door het implementeren van een Azure Resource Manager-sjabloon.
 
 > [!NOTE]
-> Meerdere container groepen zijn momenteel beperkt tot Linux containers. Terwijl we proberen te zorgen dat alle functies op Windows-containers, vindt u de huidige platform verschillen in [quota en beschikbaarheid in regio's voor exemplaren van Azure-Container](container-instances-quotas.md).
+> Meerdere container groepen zijn momenteel beperkt tot Linux containers. Hoewel we ons best doen om alle functies beschikbaar te maken voor Windows-containers, kunnen de [quota en beschikbaarheid in regio´s voor Azure Container Instances](container-instances-quotas.md) variëren op de verschillende platforms.
 
 ## <a name="configure-the-template"></a>De sjabloon configureren
 
@@ -45,7 +45,7 @@ In dit voorbeeld wordt een containergroep met twee containers is een openbaar IP
     {
       "name": "myContainerGroup",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2017-10-01-preview",
+      "apiVersion": "2018-04-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -152,7 +152,7 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld:latest,microsoft/aci-tutorial-sidecar  52.168.26.124:80,8080  1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="view-logs"></a>Logboeken bekijken
+## <a name="view-logs"></a>Logboeken weergeven
 
 Weergave van de logboekuitvoer van een container met de [az container logboeken] [ az-container-logs] opdracht. De `--container-name` argument Hiermee geeft u de container waarin voor het ophalen van Logboeken. In dit voorbeeld wordt is de eerste container opgegeven.
 
@@ -202,7 +202,7 @@ Zoals u ziet, is de ter periodiek een HTTP-aanvraag die naar de belangrijkste we
 In dit artikel betrekking op de stappen die nodig zijn voor het implementeren van een exemplaar van de container voor meerdere Azure-container. Zie de zelfstudie exemplaren van Azure-Container voor een end-to-end Containerexemplaren Azure-ervaring.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Azure Containerexemplaren][aci-tutorial]
+> [Zelfstudie voor Azure Container Instances][aci-tutorial]
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md

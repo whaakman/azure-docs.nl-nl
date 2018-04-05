@@ -10,19 +10,19 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: carlrab
-ms.openlocfilehash: 987429dce79fe2adc852f33d98adc048d2e86937
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91e7759784732320d88a9f22381df265b3eb8aab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren voor gegevens
 
-[SSMS][ssms-install-latest-84g] (SQL Server Management Studio) is een geïntegreerde omgeving voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL Database voor Microsoft Windows. In deze Quick Start ziet u hoe u SSMS gebruikt om verbinding te maken met een Azure SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen. 
+[SSMS][ssms-install-latest-84g] (SQL Server Management Studio) is een geïntegreerde omgeving voor het beheren van een SQL-infrastructuur, van SQL Server tot SQL Database voor Microsoft Windows. In deze snelstart ziet u hoe u SSMS gebruikt om verbinding te maken met een Azure SQL-database en vervolgens Transact-SQL-instructies gebruikt om gegevens in de database te zoeken, in te voegen, bij te werken en te verwijderen. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-In deze Quick Start wordt uitgegaan van de resources die u hebt gemaakt in een van deze Quick Starts:
+In deze snelstart wordt uitgegaan van de resources die u hebt gemaakt in een van deze snelstartgidsen:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 

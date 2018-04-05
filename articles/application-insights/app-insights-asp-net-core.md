@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights voor ASP.NET Core
 
@@ -95,7 +95,7 @@ Uw app opnieuw te starten en vervolgens te klikken om op koppelingen handmatig k
 
 1. Uw app uitvoeren door te klikken op IIS Express ![Schermopname van Visual Studio IIS Express-pictogram](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. Kopieer de url van de adresbalk van de browser. Het is in de indeling http://localhost: {willekeurige poortnummer}
+2. Kopieer de url van de adresbalk van de browser. Het is in de notatie http://localhost:{random poortnummer}
 
    ![Schermafbeelding van de adresbalk van de browser-url](./media/app-insights-asp-net-core/0013-copy-url.png)
 
@@ -159,7 +159,7 @@ Meerdere bevestiging vragen zal optreden, lezen en accepteren als u akkoord met 
    ```
      ![Schermafbeelding van de codewijziging _ViewImports.cshtml](./media/app-insights-asp-net-core/00018-view-imports.png)
 
-3. In **Layout.cshtml** toevoegen van de regel onder voordat de ``</head>`` label, maar vóór alle andere scripts.
+3. In **_Layout.cshtml** toevoegen van de regel onder voordat de ``</head>`` label, maar vóór alle andere scripts.
 
     ```C#
     @Html.Raw(snippet.FullScript)

@@ -1,49 +1,49 @@
 ---
-title: Maken van een gemiddelde stack op een Linux VM in Azure | Microsoft Docs
-description: Informatie over het maken van een stack MongoDB, snelle AngularJS en Node.js (gemiddelde) op een Linux VM in Azure.
+title: Een MEAN-stack maken op een virtuele Linux-machine in Azure | Microsoft Docs
+description: Informatie over het maken van een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack op een virtuele Linux-machine in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/08/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 2bd89bf25f619caef07ae099232add55dbe0cda7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Maak een stack MongoDB, snelle AngularJS en Node.js (gemiddelde) op een Linux VM in Azure
+# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack op een virtuele Linux-machine in Azure maken
 
-Deze zelfstudie laat zien hoe u een stack MongoDB, snelle AngularJS en Node.js (gemiddelde) implementeren op een Linux VM in Azure. De gemiddelde stack die u maakt kan toevoegen, verwijderen en het weergeven van rapporten in een database. Procedures voor:
+In deze zelfstudie leert u hoe u een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack op een virtuele Linux-machine in Azure implementeert. Met de door u gemaakt MEAN-stack kunt u boeken aan een database toevoegen, eruit verwijderen of erin vermelden. Procedures voor:
 
 > [!div class="checklist"]
 > * Een Linux-VM maken
 > * Node.js installeren
-> * MongoDB installeren en instellen van de server
-> * Express installeren en instellen van de routes naar de server
-> * Toegang tot de routes met AngularJS
+> * MongoDB installeren en de server instellen
+> * Express installeren en routes naar de server instellen
+> * Routes openen met AngularJS
 > * De toepassing uitvoeren
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Een Linux-VM maken
 
-Maak een resourcegroep met de [az groep maken](https://docs.microsoft.com/cli/azure/group#az_group_create) opdracht en maak een Linux-VM met de [az vm maken](https://docs.microsoft.com/cli/azure/vm#az_vm_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Maak een resourcegroep met de opdracht [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) en maak een virtuele Linux-machine met de opdracht [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Het volgende voorbeeld wordt de Azure CLI voor het maken van een resourcegroep met de naam *myResourceGroupMEAN* in de *eastus* locatie. Een virtuele machine gemaakt met de naam *myVM* met SSH-sleutels als deze niet al bestaan op de standaardlocatie van de sleutel. Als u een specifieke set van sleutels, gebruikt de--ssh-sleutel / waarde-optie.
+In het volgende voorbeeld wordt gebruikgemaakt van Azure CLI om in locatie *VS Oost*een resourcegroep te maken met de naam *myResourceGroupMEAN*. Er wordt een VM gemaakt met de naam *myVM* met SSH-sleutels (indien deze niet al op een standaardsleutellocatie aanwezig zijn). Als u een bepaalde set sleutels wilt gebruiken, gebruikt u de optie --ssh-key-value.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMEAN --location eastus
@@ -57,7 +57,7 @@ az vm create \
 az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 ```
 
-Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie vergelijkbaar met het volgende voorbeeld: 
+Wanneer de virtuele machine is gemaakt, toont Azure CLI informatie die lijkt op de informatie in het volgende voorbeeld: 
 
 ```azurecli-interactive
 {
@@ -73,7 +73,7 @@ Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie vergelijkb
 ```
 Noteer het `publicIpAddress`. Dit adres wordt gebruikt voor toegang tot de virtuele machine.
 
-Gebruik de volgende opdracht voor het maken van een SSH-sessie met de virtuele machine. Zorg ervoor dat de juiste openbare IP-adres gebruiken. In ons voorbeeld boven onze IP is adres 13.72.77.9.
+Gebruik de volgende opdracht om voor de VM een SSH-sessie te maken. Zorg ervoor dat u het juiste IP-adres gebruikt. In ons voorbeeld hierboven was 13.72.77.9 het IP-adres.
 
 ```bash
 ssh azureuser@13.72.77.9
@@ -81,31 +81,31 @@ ssh azureuser@13.72.77.9
 
 ## <a name="install-nodejs"></a>Node.js installeren
 
-[Node.js](https://nodejs.org/en/) is een JavaScript-runtime gebouwd op van de Chrome V8 JavaScript-engine. Node.js wordt gebruikt in deze zelfstudie voor het instellen van de Express-routes en de AngularJS-domeincontrollers.
+[Node.js](https://nodejs.org/en/) is een JavaScript-runtime die op de V8 JavaScript-engine van Chrome is gebouwd. Node.js wordt in deze zelfstudie gebruikt voor het instellen van de Express-routes en AngularJS-controllers.
 
-Installeer op de virtuele machine met behulp van de bash-shell die u hebt geopend met SSH, Node.js.
+Installeer Node.js op de VM met behulp van de bash-shell die u met SSH hebt geopend.
 
 ```bash
 sudo apt-get install -y nodejs
 ```
 
-## <a name="install-mongodb-and-set-up-the-server"></a>MongoDB installeren en instellen van de server
-[MongoDB](http://www.mongodb.com) -gegevens opslaat in flexibele, zoals JSON-documenten. Velden in een database document naar kunnen variëren en gegevensstructuur na verloop van tijd kan worden gewijzigd. Voor onze voorbeeldtoepassing toevoegen we adresboekrecords aan MongoDB die rapportnaam, isbn nummer, auteur en het aantal pagina's bevatten. 
+## <a name="install-mongodb-and-set-up-the-server"></a>MongoDB installeren en de server instellen
+Met [MongoDB](http://www.mongodb.com) worden gegevens opgeslagen in flexibele JSON-achtige documenten. Velden in een database kunnen per document variëren en de gegevensstructuur kan in de loop van de tijd worden gewijzigd. Voor deze toepassing voegen we boekrecords aan MongoDB toe die de naam, de isbn, de auteur en het aantal pagina's van het boek bevatten. 
 
-1. Stel op de virtuele machine met behulp van de bash-shell die u hebt geopend met SSH, de MongoDB-sleutel.
+1. Stel MongoDB in op de VM met behulp van de bash-shell die u met SSH hebt geopend.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
-2. De package manager bijwerken met de sleutel.
+2. Werk de pakketmanager met de sleutel bij.
   
     ```bash
     sudo apt-get update
     ```
 
-3. MongoDB installeren.
+3. Installeer MongoDB.
 
     ```bash
     sudo apt-get install -y mongodb
@@ -117,21 +117,21 @@ sudo apt-get install -y nodejs
     sudo service mongodb start
     ```
 
-5. Er moet ook installeren de [hoofdtekst parser](https://www.npmjs.com/package/body-parser-json) pakket om ons verwerken van de JSON aanvragen doorgegeven aan de server te helpen.
+5. Het [body-parser](https://www.npmjs.com/package/body-parser-json)-pakket dient ook te worden geïnstalleerd om de JSON te verwerken die in aanvragen aan de server wordt doorgegeven.
 
-    Installeer de npm package manager.
+    Installeer de npm-pakketmanager.
 
     ```bash
     sudo apt-get install npm
     ```
 
-    Installeer het pakket van de parser hoofdtekst.
+    Installeer het pakket body-parser.
     
     ```bash
     sudo npm install body-parser
     ```
 
-6. Maak een map met de naam *Books* en voeg een bestand toe met de naam *server.js* die de configuratie voor de webserver bevat.
+6. Maak een map met de naam *Books* en voeg er een bestand aan toe met de naam *server.js*, dat de configuratie voor de webserver bevat.
 
     ```node.js
     var express = require('express');
@@ -146,17 +146,17 @@ sudo apt-get install -y nodejs
     });
     ```
 
-## <a name="install-express-and-set-up-routes-to-the-server"></a>Express installeren en instellen van de routes naar de server
+## <a name="install-express-and-set-up-routes-to-the-server"></a>Express installeren en routes naar de server instellen
 
-[Express](https://expressjs.com) is een minimaal en flexibel Node.js web application framework met functies voor webtoepassingen en mobiele toepassingen. Snelle in deze zelfstudie wordt gebruikt om door te geven voor het adresboek van gegevens van en naar onze MongoDB-database. [Mongoose](http://mongoosejs.com) biedt een ongecompliceerde, schema's gebaseerde oplossing om te modelleren uw toepassingsgegevens. Mongoose wordt gebruikt in deze zelfstudie voor het bieden van een boek-schema voor de database.
+[Express](https://expressjs.com) is een minimaal en flexibel Node.js-webtoepassingsframework dat functies biedt voor web- en mobiele toepassingen. In deze zelfstudie wordt Express gebruikt om boekgegevens door te geven naar en vanaf de MongoDB-database. [Mongoose](http://mongoosejs.com) biedt een eenvoudige, op schema's gebaseerde oplossing voor het modelleren van uw toepassingsgegevens. In deze zelfstudie wordt Mongoose gebruikt om een boekschema voor de database te bieden.
 
-1. Snelle en Mongoose installeren.
+1. Installeer Express en Mongoose.
 
     ```bash
     sudo npm install express mongoose
     ```
 
-2. In de *Books* map, maak een map met de naam *apps* en toevoegen van een bestand met de naam *routes.js* van de expliciete routes gedefinieerd.
+2. Maak in de map *Books* een map met de naam *apps* en voeg een bestand toe met de naam *routes.js* en waarin de express-routes zijn gedefinieerd.
 
     ```node.js
     var Book = require('./models/book');
@@ -198,7 +198,7 @@ sudo apt-get install -y nodejs
     };
     ```
 
-3. In de *apps* map, maak een map met de naam *modellen* en toevoegen van een bestand met de naam *book.js* met de adresboek Modelconfiguratie gedefinieerd.  
+3. Maak in de map *apps* een map met de naam *models* en voeg een bestand toe met de naam *book.js* en waarin de configuratie van het boekmodel is gedefinieerd.  
 
     ```node.js
     var mongoose = require('mongoose');
@@ -216,11 +216,11 @@ sudo apt-get install -y nodejs
     module.exports = mongoose.model('Book', bookSchema); 
     ```
 
-## <a name="access-the-routes-with-angularjs"></a>Toegang tot de routes met AngularJS
+## <a name="access-the-routes-with-angularjs"></a>Routes openen met AngularJS
 
-[AngularJS](https://angularjs.org) biedt een webframework voor het maken van weergaven in uw webtoepassingen. In deze zelfstudie gebruiken we AngularJS om verbinding te onze webpagina snelle en acties uitvoeren op onze adresboek-database.
+[AngularJS](https://angularjs.org) biedt een webframework voor het maken van dynamische weergaven in uw webtoepassingen. In deze zelfstudie wordt AngularJS gebruikt om de webpagina verbinding te laten maken met Express en acties op de boekdatabase uit te voeren.
 
-1. Wijzig de map back-up naar *Books* (`cd ../..`), en maak vervolgens een map met de naam *openbare* en toevoegen van een bestand met de naam *script.js* met de configuratie van de domeincontroller gedefinieerd.
+1. Wijzig de directory weer in *Books* (`cd ../..`), maak een map met de naam *public* en voeg een bestand toe met de naam *script.js* en waarin de configuratie voor de controller is gedefinieerd.
 
     ```node.js
     var app = angular.module('myApp', []);
@@ -262,7 +262,7 @@ sudo apt-get install -y nodejs
     });
     ```
     
-2. In de *openbare* map, maakt u een bestand met de naam *index.html* met de webpagina die is gedefinieerd.
+2. Maak in de map *public* een bestand met de naam *index.html* en waarin de webpagina is gedefinieerd.
 
     ```html
     <!doctype html>
@@ -317,39 +317,39 @@ sudo apt-get install -y nodejs
 
 ##  <a name="run-the-application"></a>De toepassing uitvoeren
 
-1. Wijzig de map back-up naar *Books* (`cd ..`) en start de server door het uitvoeren van deze opdracht:
+1. Wijzig de directory weer in *Books* (`cd ..`) en start de server door de volgende opdracht uit te voeren:
 
     ```bash
     nodejs server.js
     ```
 
-2. Open een webbrowser naar het adres dat u hebt vastgelegd voor de virtuele machine. Bijvoorbeeld: *http://13.72.77.9:3300*. U ziet dat lijkt op de volgende pagina:
+2. Open in een webbrowser het adres dat u voor de VM hebt opgenomen. Bijvoorbeeld *http://13.72.77.9:3300*. Er verschijnt een pagina die er ongeveer als volgt uitziet:
 
-    ![Book record](media/tutorial-mean/meanstack-init.png)
+    ![Boekrecord](media/tutorial-mean/meanstack-init.png)
 
-3. Gegevens invoeren in de tekstvakken en klik op **toevoegen**. Bijvoorbeeld:
+3. Voer gegevens in de tekstvakken in en klik op **Toevoegen**. Bijvoorbeeld:
 
-    ![Book record toevoegen](media/tutorial-mean/meanstack-add.png)
+    ![Boekrecord toevoegen](media/tutorial-mean/meanstack-add.png)
 
-4. Na de pagina te vernieuwen, ziet u dat lijkt op deze pagina:
+4. Als u de pagina hebt vernieuwd, verschijnt een pagina die er ongeveer als volgt uitziet:
 
-    ![Lijst adresboekrecords](media/tutorial-mean/meanstack-list.png)
+    ![Boekrecords vermelden](media/tutorial-mean/meanstack-list.png)
 
-5. U kunt klikken **verwijderen** en de book record verwijderen uit de database.
+5. Klik op **Verwijderen** en verwijder de boekrecord uit de database.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt u een webtoepassing waarin wordt bijgehouden adresboek registreert met behulp van een gemiddelde gemaakt stack op een Linux-VM. U hebt geleerd hoe u:
+In deze zelfstudie hebt u een webtoepassing gemaakt die boekrecords bijhoudt met behulp van een MEAN-stack op een VM in Linux. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * Een Linux-VM maken
 > * Node.js installeren
-> * MongoDB installeren en instellen van de server
-> * Express installeren en instellen van de routes naar de server
-> * Toegang tot de routes met AngularJS
+> * MongoDB installeren en de server instellen
+> * Express installeren en routes naar de server instellen
+> * Routes openen met AngularJS
 > * De toepassing uitvoeren
 
-Ga naar de volgende zelfstudie voor meer informatie over het beveiligen van webservers met SSL-certificaten.
+Ga door naar de volgende zelfstudie om te leren hoe u webservers kunt beveiligen met behulp van SSL-certificaten.
 
 > [!div class="nextstepaction"]
-> [Webserver met SSL beveiligde](tutorial-secure-web-server.md)
+> [Webserver beveiligen met SSL](tutorial-secure-web-server.md)

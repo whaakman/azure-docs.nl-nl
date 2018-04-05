@@ -12,31 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 03/30/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 2b42840bc1053e9574e7c8ab1c68611c3b2bc7df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a4ed9ddabe19406fa694992f29cf529b491438c0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Op kenmerken gebaseerde regels maken voor dynamisch lidmaatschap in Azure Active Directory
-In Azure Active Directory (Azure AD), kunt u geavanceerde regels om in te schakelen van complexe op kenmerken gebaseerde dynamisch lidmaatschap voor groepen maken. In dit artikel beschrijft de kenmerken en de syntaxis voor het maken van regels voor dynamisch lidmaatschap voor gebruikers of apparaten.
+In Azure Active Directory (Azure AD), kunt u geavanceerde regels om in te schakelen van complexe op kenmerken gebaseerde dynamisch lidmaatschap voor groepen maken. In dit artikel beschrijft de kenmerken en de syntaxis voor het maken van regels voor dynamisch lidmaatschap voor gebruikers of apparaten. U kunt een regel instellen voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen.
 
 Wanneer alle kenmerken van een gebruiker of apparaat wijzigt, evalueert het systeem alle dynamische groep regels in een map om te controleren of de wijziging zou een groep toevoegt of verwijdert. Als een gebruiker of apparaat voldoet aan een regel voor een groep, worden ze toegevoegd als een lid van die groep. Als u niet langer voldoen aan de regel, worden ze verwijderd.
 
 > [!NOTE]
-> U kunt een regel instellen voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen.
->
 > Dit onderdeel vereist een Azure AD Premium P1-licentie voor elk lid van de gebruiker toegevoegd aan ten minste één dynamische groep. Dit is niet verplicht daadwerkelijk licenties toewijzen aan gebruikers voor deze leden in dynamische groepen, maar hoeft u het minimum aantal licenties in de tenant omvatten alle dergelijke gebruikers hebben. Bijvoorbeeld: als er een totaal van 1000 unieke gebruikers in alle dynamische groepen in uw tenant, moet u ten minste 1000 licenties voor Azure AD Premium-P1 of hoger, om te voldoen aan de licentievereiste hebt.
 >
 > U kunt een dynamische groep voor apparaten of gebruikers maken, maar u een regel waarmee zowel gebruikersclaims als apparaatobjecten bevat kan niet maken.
 > 
 > Op dit moment is het niet mogelijk te maken van een groep apparaten op basis van kenmerken van de eigenaar van de gebruiker. Apparaat lidmaatschapsregels kunnen alleen verwijzen naar het onmiddellijke kenmerken van apparaatobjecten in de map.
-> 
-> Microsoft-Teams biedt nog geen ondersteuning voor dynamisch lidmaatschap. U kunt controleren of de fout in de logboeken die zijn gekoppeld aan 'Kan niet dynamisch lidmaatschapsgroep migreren'
 
 ## <a name="to-create-an-advanced-rule"></a>Geavanceerde regels maken
 1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account dat is een globale beheerder of de beheerder van een gebruiker.
@@ -74,7 +70,7 @@ Zie de volgende secties voor de volledige lijst van ondersteunde parameters en r
 De totale lengte van de hoofdtekst van de geavanceerde regel kan niet groter zijn dan 2048 tekens bestaan.
 
 > [!NOTE]
-> De tekenreeks en de regex-bewerkingen zijn niet hoofdlettergevoelig. U kunt ook uitvoeren null-controles met *null* als een constante, bijvoorbeeld user.department - eq *$null*.
+> De tekenreeks en de regex-bewerkingen zijn niet hoofdlettergevoelig. U kunt ook uitvoeren Null-controles met *null* als een constante, bijvoorbeeld user.department - eq *null*.
 > Tekenreeksen met aanhalingstekens ' moet worden voorafgegaan met ' teken bijvoorbeeld user.department - eq \`'Verkoop'.
 
 ## <a name="supported-expression-rule-operators"></a>Ondersteunde expressie regeloperators
@@ -106,11 +102,11 @@ Hieronder vindt u alle Operators per prioriteitsvolgorde van lagere hoger. Opera
 Alle operators kunnen worden gebruikt met of zonder het voorvoegsel afbreekstreepje. Haakjes zijn alleen nodig wanneer voorrang voldoet niet aan uw vereisten.
 Bijvoorbeeld:
 ```
-   user.department -eq "Marketing" -and user.country -eq "US"
+   user.department –eq "Marketing" –and user.country –eq "US"
 ```
 is gelijk aan:
 ```
-   (user.department -eq "Marketing") -and (user.country -eq "US")
+   (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
 ## <a name="using-the--in-and--notin-operators"></a>Met behulp van de - In en notIn - operators
 
@@ -160,32 +156,32 @@ Toegestane operators
 
 | Eigenschappen | Toegestane waarden | Gebruik |
 | --- | --- | --- |
-| city |Een tekenreekswaarde of *$null* |(user.city - eq '' waarde '') |
-| Land |Een tekenreekswaarde of *$null* |(user.country - eq '' waarde '') |
-| companyName | Een tekenreekswaarde of *$null* | (user.companyName - eq '' waarde '') |
-| Afdeling |Een tekenreekswaarde of *$null* |(user.department - eq '' waarde '') |
+| city |Een tekenreekswaarde of *null* |(user.city - eq '' waarde '') |
+| Land |Een tekenreekswaarde of *null* |(user.country - eq '' waarde '') |
+| companyName | Een tekenreekswaarde of *null* | (user.companyName - eq '' waarde '') |
+| Afdeling |Een tekenreekswaarde of *null* |(user.department - eq '' waarde '') |
 | displayName |Waarde van een tekenreeks |(user.displayName - eq '' waarde '') |
-| werknemer-id |Waarde van een tekenreeks |(user.employeeId - eq '' waarde '')<br>(user.employeeId - ne *$null*) |
-| facsimileTelephoneNumber |Een tekenreekswaarde of *$null* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Een tekenreekswaarde of *$null* |(user.givenName - eq '' waarde '') |
-| jobTitle |Een tekenreekswaarde of *$null* |(user.jobTitle - eq '' waarde '') |
-| E-mail |Een tekenreekswaarde of *$null* (SMTP-adres van de gebruiker) |(user.mail - eq '' waarde '') |
+| werknemer-id |Waarde van een tekenreeks |(user.employeeId - eq '' waarde '')<br>(user.employeeId - ne *null*) |
+| facsimileTelephoneNumber |Een tekenreekswaarde of *null* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Een tekenreekswaarde of *null* |(user.givenName - eq '' waarde '') |
+| jobTitle |Een tekenreekswaarde of *null* |(user.jobTitle - eq '' waarde '') |
+| E-mail |Een tekenreekswaarde of *null* (SMTP-adres van de gebruiker) |(user.mail - eq '' waarde '') |
 | mailNickName |De waarde van een tekenreeks (mailalias van de gebruiker) |(user.mailNickName -eq "value") |
-| mobiele |Een tekenreekswaarde of *$null* |(user.mobile - eq '' waarde '') |
+| mobiele |Een tekenreekswaarde of *null* |(user.mobile - eq '' waarde '') |
 | objectId |GUID van het gebruikersobject |(user.objectId - eq '1111111-1111-1111-1111-111111111111') |
 | onPremisesSecurityIdentifier | On-premises beveiligings-id (SID) voor gebruikers die zijn gesynchroniseerd van on-premises naar de cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Geen DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Een tekenreekswaarde of *$null* |(user.physicalDeliveryOfficeName - eq '' waarde '') |
-| postalCode |Een tekenreekswaarde of *$null* |(user.postalCode - eq '' waarde '') |
+| physicalDeliveryOfficeName |Een tekenreekswaarde of *null* |(user.physicalDeliveryOfficeName - eq '' waarde '') |
+| postalCode |Een tekenreekswaarde of *null* |(user.postalCode - eq '' waarde '') |
 | preferredLanguage |ISO 639-1-code |(user.preferredLanguage - eq 'en-US') |
-| sipProxyAddress |Een tekenreekswaarde of *$null* |(user.sipProxyAddress - eq '' waarde '') |
-| state |Een tekenreekswaarde of *$null* |(user.state - eq '' waarde '') |
-| StreetAddress |Een tekenreekswaarde of *$null* |(user.streetAddress - eq '' waarde '') |
-| Achternaam |Een tekenreekswaarde of *$null* |(user.surname - eq '' waarde '') |
-| telephoneNumber |Een tekenreekswaarde of *$null* |(user.telephoneNumber - eq '' waarde '') |
+| sipProxyAddress |Een tekenreekswaarde of *null* |(user.sipProxyAddress - eq '' waarde '') |
+| state |Een tekenreekswaarde of *null* |(user.state - eq '' waarde '') |
+| StreetAddress |Een tekenreekswaarde of *null* |(user.streetAddress - eq '' waarde '') |
+| Achternaam |Een tekenreekswaarde of *null* |(user.surname - eq '' waarde '') |
+| telephoneNumber |Een tekenreekswaarde of *null* |(user.telephoneNumber - eq '' waarde '') |
 | usageLocation |Twee letters landcode |(user.usageLocation - eq "VS") |
 | userPrincipalName |Waarde van een tekenreeks |(user.userPrincipalName -eq "alias@domain") |
-| UserType |lid Gast *$null* |(user.userType - eq 'Lid') |
+| UserType |lid Gast *null* |(user.userType - eq 'Lid') |
 
 ### <a name="properties-of-type-string-collection"></a>Eigenschappen van het type tekenreeks-verzameling
 Toegestane operators
@@ -226,9 +222,9 @@ De volgende expressie selecteert alle gebruikers die beschikken over een service
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-## <a name="use-of-null-values"></a>Gebruik van null-waarden
+## <a name="use-of-null-values"></a>Gebruik van Null-waarden
 
-Geef een null-waarde in een regel, kunt u de *null* waarde. Zorg ervoor dat u geen gebruik aanhalingstekens rond het woord *null* -als u dit doet, wordt dit geïnterpreteerd als een letterlijke tekenreeks-waarde. De juiste manier om te verwijzen naar de null-waarde is als volgt:
+Geef een null-waarde in een regel, kunt u de *null* waarde. Zorg ervoor dat u geen gebruik aanhalingstekens rond het woord *null* -als u dit doet, wordt dit geïnterpreteerd als een letterlijke tekenreeks-waarde. De niet-operator kan niet worden gebruikt als een vergelijkende operator voor null. Als u deze gebruikt, krijgt u een fout of u null gebruiken of $null. Gebruik in plaats daarvan - eq of -ne. De juiste manier om te verwijzen naar de null-waarde is als volgt:
 ```
    user.mail –ne $null
 ```
@@ -253,14 +249,15 @@ U kunt een groep met alle directe ondergeschikten van een manager maken. Wanneer
 
 > [!NOTE]
 > 1. Voor de regel werkt, controleert u of de **ID Manager** eigenschap correct is ingesteld op gebruikers in uw tenant. U kunt de huidige waarde voor een gebruiker controleren op hun **tabblad profiel**.
-> 2. Deze regel ondersteunt alleen **direct** rapporten. Het is momenteel niet mogelijk een groep maken voor een geneste hiërarchie, bijvoorbeeld een groep met directe ondergeschikten en hun rapporten.
+> 2. Deze regel ondersteunt alleen **direct** rapporten. Het is momenteel niet mogelijk een groep maken voor een geneste hiërarchie; bijvoorbeeld, een groep met directe ondergeschikten en hun rapporten.
+> 3. Deze regel kan niet worden gecombineerd met andere geavanceerde regels.
 
 **De groep configureren**
 
 1. Volg de stappen 1-5 van sectie [voor het maken van de geavanceerde regel](#to-create-the-advanced-rule), en selecteer een **lidmaatschapstype** van **dynamische gebruiker**.
 2. Op de **dynamische lidmaatschapsregels** blade invoeren van de regel met de volgende syntaxis:
 
-    *Directe ondergeschikten voor "{obectID_of_manager}"*
+    *Directe ondergeschikten voor "{objectID_of_manager}"*
 
     Een voorbeeld van een geldige regel:
 ```
@@ -295,19 +292,43 @@ U kunt ook een regel die u apparaatobjecten voor lidmaatschap in een groep selec
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Dynamisch lidmaatschap wijzigen in een statisch, en omgekeerd
 Het is mogelijk om te wijzigen hoe lidmaatschap wordt beheerd in een groep. Dit is handig als u de naam en de ID in het systeem behouden wilt, zodat alle bestaande verwijzingen naar de groep nog steeds geldig zijn zijn. maken van een nieuwe groep zou moeten worden bijgewerkt die verwijzingen.
 
-We zijn bezig het bijwerken van de Azure-portal om deze functionaliteit. In de tussentijd kunt u PowerShell-cmdlets zoals hieronder wordt weergegeven.
+We hebben het Azure AD-beheercentrum ondersteuning toevoegen deze functionaliteit bijgewerkt. Klanten kunnen bestaande groepen nu converteren van dynamisch lidmaatschap naar toegewezen lidmaatschap en vice versa hetzij via Azure AD-beheercentrum of PowerShell-cmdlets, zoals hieronder wordt weergegeven.
 
 > [!WARNING]
 > Wanneer u een bestaande statische groep naar een dynamische groep, worden alle bestaande leden wordt verwijderd uit de groep en vervolgens de lidmaatschapsregel om toe te voegen nieuwe leden wordt verwerkt. Als de groep wordt gebruikt voor het beheren van toegang tot apps of resources, kunnen de oorspronkelijke leden toegang verliezen totdat de lidmaatschapsregel volledig is verwerkt.
 >
-> Het is een aanbevolen procedure voor het testen van de nieuwe regel voor lidmaatschap tevoren om ervoor te zorgen dat het nieuwe lidmaatschap van de groep is zoals verwacht.
+> Het is raadzaam dat u de nieuwe regel voor lidmaatschap vooraf testen om ervoor te zorgen dat het nieuwe lidmaatschap van de groep is zoals verwacht.
 
-**Met behulp van PowerShell Lidmaatschapsbeheer voor een groep wijzigen**
+### <a name="using-azure-ad-admin-center-to-change-membership-management-on-a-group"></a>Met behulp van Azure AD-beheercentrum Lidmaatschapsbeheer voor een groep wijzigen 
+
+1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account dat is een globale beheerder of de beheerder van een gebruiker in uw tenant.
+2. Selecteer **groepen**.
+3. Van de **alle groepen** lijst, opent u de groep die u wilt wijzigen.
+4. Selecteer **eigenschappen**.
+5. Op de **eigenschappen** pagina voor de groep op, selecteer een **lidmaatschapstype** (statische) toegewezen, dynamische gebruiker of dynamische apparaat, afhankelijk van uw van het gewenste lidmaatschapstype. Voor dynamisch lidmaatschap, kunt u de regel builder opties voor een eenvoudige regel selecteren of een geavanceerde regel zelf schrijven. 
+
+De volgende stappen zijn een voorbeeld van een groep wijzigen van statisch naar dynamisch lidmaatschap voor een groep gebruikers. 
+
+1. Op de **eigenschappen** pagina voor de geselecteerde groep, selecteer een **lidmaatschapstype** van **dynamische gebruiker**, selecteer Ja in het dialoogvenster uitleg over de wijzigingen aan de groep lidmaatschap om door te gaan. 
+  
+   ![Selecteer het lidmaatschapstype van dynamische gebruiker](./media/active-directory-groups-dynamic-membership-azure-portal/select-group-to-convert.png)
+  
+2. Selecteer **toevoegen dynamische query**, en geef vervolgens de regel.
+  
+   ![Geef de regel](./media/active-directory-groups-dynamic-membership-azure-portal/enter-rule.png)
+  
+3. Na het maken van de regel, selecteer **toevoegen query** aan de onderkant van de pagina.
+4. Selecteer **opslaan** op de **eigenschappen** pagina voor de groep uw wijzigingen op te slaan. De **lidmaatschapstype** van de groep is direct bijgewerkt in de lijst met groepen.
+
+> [!TIP]
+> Conversie kan mislukken als de geavanceerde regel die u hebt ingevoerd onjuist is. Een melding wordt weergegeven in de bovenste rechterhoek van de portal die deze een uitleg bevat van waarom de regel kan niet worden geaccepteerd door het systeem. Lees zorgvuldig om te begrijpen hoe u de regel om deze geldig kunt aanpassen.
+
+### <a name="using-powershell-to-change-membership-management-on-a-group"></a>Met behulp van PowerShell Lidmaatschapsbeheer voor een groep wijzigen
 
 > [!NOTE]
-> Dynamische groepseigenschappen die u wilt gebruiken van cmdlets uit wijzigen **preview-versie van** [Azure AD PowerShell-versie 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). U kunt de evaluatieversie van installeren [hier](https://www.powershellgallery.com/packages/AzureADPreview).
+> Dynamische groepseigenschappen die u wilt gebruiken van cmdlets uit wijzigen **preview-versie van** [Azure AD PowerShell-versie 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). U kunt installeren de Preview-versie van de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
 
-Hier volgt een voorbeeld van de functies die Lidmaatschapsbeheer op een bestaande groep overschakelen. Houd er rekening mee nauwkeurig worden correct manipuleren van de eigenschap GroupTypes en behouden van alle waarden die daar bestaat mogelijk geen verband houdt met dynamisch lidmaatschap.
+Hier volgt een voorbeeld van de functies die Lidmaatschapsbeheer op een bestaande groep overschakelen. In dit voorbeeld nauwkeurig voor correct manipuleren van de eigenschap GroupTypes en het behouden van alle waarden die niet aan dynamisch lidmaatschap.
 
 ```
 #The moniker for dynamic groups as used in the GroupTypes property of a group object

@@ -2,23 +2,23 @@
 title: Versleuteling in Azure Data Lake Store | Microsoft Docs
 description: Versleuteling in Azure Data Lake Store helpt u uw gegevens te beveiligen, beveiligingsbeleid voor uw onderneming te implementeren en te voldoen aan wettelijke vereisten. In dit artikel vindt u een overzicht van het ontwerp en worden een aantal technische aspecten van de implementatie besproken.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: esung22
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Versleuteling van gegevens in Azure Data Lake Store
 
@@ -106,7 +106,7 @@ Het volgende diagram illustreert deze concepten:
 4.  Sla het versleutelde gegevensblok op in permanente opslag.
 
 > [!NOTE] 
-> Uit prestatieoverwegingen wordt de goedgekeurde DEK voor korte tijd opgeslagen in het cachegeheugen en daarna onmiddellijk gewist. Op permanente media wordt deze altijd opgeslagen terwijl deze versleuteld is door de MEK.
+> De DEK wordt altijd versleuteld door de MEK opgeslagen, op permanente media of in het cachegeheugen.
 
 ## <a name="key-rotation"></a>Sleutelroulatie
 

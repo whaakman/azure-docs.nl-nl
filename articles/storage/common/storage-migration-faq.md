@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89d1a4767c240c7e4fedb9d7ac47d6d4fb0aa737
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Veelgestelde vragen over Azure Storage-migratie
 
@@ -168,7 +168,7 @@ AzCopy gebruiken om de gegevens te downloaden. Zie voor meer informatie [gegeven
 
 **Hoe wijzig ik de secundaire locatie voor de regio Europa voor een opslagaccount**
 
-Als u een opslagaccount maakt, selecteert u de primaire regio voor het account. De selectie van de secundaire regio is gebaseerd op de primaire regio en kan niet worden gewijzigd. Zie voor meer informatie [Azure Storage-replicatie](storage-redundancy.md).
+Als u een opslagaccount maakt, selecteert u de primaire regio voor het account. De selectie van de secundaire regio is gebaseerd op de primaire regio en kan niet worden gewijzigd. Zie voor meer informatie [geografisch redundante opslag (GRS): Cross-regionale replicatie voor de Azure Storage](storage-redundancy.md).
 
 **Waar vind ik meer informatie over Azure Storage Service versleuteling (SSE)**  
   
@@ -284,7 +284,7 @@ Voor andere gebruikers toegang tot de storage-resources:
 
     - **SAS-token**: een SAS-token gebruiken voor toegang tot gegevens van het eindpunt. Zie voor meer informatie [gedeelde handtekeningen voor toegang](storage-dotnet-shared-access-signature-part-1.md).
 
-**Hoe gebruik een aangepast domein HTTPS met mijn storage-account? Bijvoorbeeld, hoe maak ik 'https://mystorageaccountname.blob.core.windows.net/images/image.gif' worden weergegeven als 'https://www.contoso.com/images/image.gif'?**
+**Hoe gebruik een aangepast domein HTTPS met mijn storage-account? Bijvoorbeeld, hoe maak ik 'https://mystorageaccountname.blob.core.windows.net/images/image.gif'worden weergegeven als'https://www.contoso.com/images/image.gif'?**
 
 SSL is momenteel niet ondersteund op opslagaccounts met aangepaste domeinen.
 Maar u kunt aangepaste niet-HTTPS-domeinen. Zie voor meer informatie [een aangepaste domeinnaam configureren voor het eindpunt van de Blob-opslag](../blobs/storage-custom-domain-name.md).

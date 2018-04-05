@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 82a6b6580fbe69b11fdb8a47e2ca09c19b341bbc
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="update-an-application-in-azure-container-service-aks"></a>Een toepassing bijwerken in Azure Container Service (AKS)
+# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>Zelfstudie: een toepassing bijwerken in Azure Container Service (AKS)
 
 Nadat een toepassing is geïmplementeerd in Kubernetes, kunt u deze bijwerken door een nieuwe containerinstallatiekopie of versie van de installatiekopie op te geven. Wanneer u dit doet, wordt de update gefaseerd, zodat telkens maar een deel van de implementatie wordt bijgewerkt. Dankzij deze gefaseerde update kan de toepassing tijdens de update worden uitgevoerd. Het biedt ook een terugdraaimechanisme als er een implementatiefout optreedt. 
 
@@ -27,7 +27,7 @@ In deze zelfstudie, deel zes van acht, wordt de voorbeeldapp Azure Vote bijgewer
 > * De containerinstallatiekopie naar Azure Container Registry pushen
 > * De bijgewerkte containerinstallatiekopie implementeren
 
-In de volgende zelfstudies wordt Operations Management Suite geconfigureerd voor het controleren van het Kubernetes-cluster.
+In de volgende zelfstudies wordt Log Analytics geconfigureerd om het Kubernetes-cluster te controleren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -89,7 +89,7 @@ Gebruik [docker tag][docker-tag] om de installatiekopie te taggen. Vervang `<acr
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Gebruik [docker push][docker-push] om de installatiekopie naar uw register te uploaden. Vervang `<acrLoginServer>` door de naam van de aanmeldingsserver van Azure Container Registry.
+Gebruik [docker push][docker-push] om de installatiekopie naar uw register te uploaden. Vervang `<acrLoginServer>` door de naam van de aanmeldingsserver van Azure Container Registry. Als u problemen ondervindt met pushen naar het ACR-register, controleert u of u de opdracht [az acr login][az-acr-login] hebt uitgevoerd.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -164,7 +164,7 @@ In deze zelfstudie hebt u een toepassing bijgewerkt en deze update geïmplemente
 > * De containerinstallatiekopie is gepusht naar Azure Container Registry
 > * De bijgewerkte toepassing is geïmplementeerd
 
-Ga naar de volgende zelfstudie om te leren hoe u Kubernetes controleert met Operations Management Suite.
+Ga naar de volgende zelfstudie om te leren hoe u Kubernetes controleert met Log Analytics.
 
 > [!div class="nextstepaction"]
 > [Kubernetes bewaken met Log Analytics][aks-tutorial-monitor]
@@ -179,3 +179,4 @@ Ga naar de volgende zelfstudie om te leren hoe u Kubernetes controleert met Oper
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

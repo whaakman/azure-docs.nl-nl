@@ -1,11 +1,11 @@
 ---
-title: "Uw strategie voor Mobile Engagement definiëren | Microsoft Docs"
+title: Uw strategie voor Mobile Engagement definiëren | Microsoft Docs
 description: Informatie over het gebruik en de optimalisatie van Mobile Engagement met analyses en pushmeldingen.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: db68bd3ebf7efde1d23820445f07c83c8c27dc20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 494dd27acfd59eb79da13dae9bbbe0f80ee41370
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="define-your-mobile-engagement-strategy"></a>Uw strategie voor Mobile Engagement definiëren
+> [!IMPORTANT]
+> Azure Mobile Engagement wordt op 31-03-2018 buiten gebruik gesteld. Deze pagina wordt kort daarna verwijderd.
+> 
+
 *U hebt uw app niet zomaar geschreven: u wilt wel dat uw gebruikers deze ook gebruiken.*
 
 We zijn ervan overtuigd dat u veel moeite hebt gedaan om er een geweldige app van te maken. U hebt waarschijnlijk ook een aanzienlijk marketingbudget geïnvesteerd om gebruikers aan te trekken. Maar na de eerste opwindende piek, ziet u dat uw app langzamerhand steeds minder wordt gebruikt. *Daar gaat het bij Azure Mobile Engagement om*: dat gebruikers blijven hangen en dat u uw app stapsgewijs kunt verbeteren via testen en leermomenten.

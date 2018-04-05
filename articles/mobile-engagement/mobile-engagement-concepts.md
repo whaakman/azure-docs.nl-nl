@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8d19abd1-0a6c-4772-9fa5-5e99980ac5da
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bc09de37c1b2aca35ef1ea74227df770f15baf5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Azure Mobile Engagement-concepten
+> [!IMPORTANT]
+> Azure Mobile Engagement wordt op 31-03-2018 buiten gebruik gesteld. Deze pagina wordt kort daarna verwijderd.
+> 
+
 Mobile Engagement definieert een aantal algemene concepten voor alle ondersteunde platforms. Dit artikel biedt een korte beschrijving van deze concepten.
 
 Dit artikel is een goede start als u niet bekend bent met Mobile Engagement. Lees ook de documentatie voor het specifieke platform dat u gebruikt, omdat daarin meer details en voorbeelden worden gegeven voor bepaalde concepten, inclusief eventuele beperkingen.

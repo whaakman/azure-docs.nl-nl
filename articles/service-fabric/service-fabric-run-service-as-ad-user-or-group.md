@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 1cf23a8f564553e65ac2c0fd34d44d81fe2327ea
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7dc467d9977d536011e1c3fcf663fc335f90a492
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Een service worden uitgevoerd als een Active Directory-gebruiker of groep
-U kunt toepassingen die worden uitgevoerd in het cluster onder verschillende gebruikersaccounts beveiligen met behulp van Azure Service Fabric. Hierdoor waarop toepassingen worden uitgevoerd, zelfs in een gedeelde gehoste omgeving veiliger van elkaar. Service Fabric-toepassingen worden standaard uitgevoerd onder het account waaronder het Fabric.exe-proces wordt uitgevoerd onder. Voor een zelfstandige cluster van Windows Server, kunt u een service als uitvoeren een [groep beheerde serviceaccounts (gMSA)](service-fabric-run-service-as-gmsa.md) of een Active Directory-gebruiker of een groep met behulp van een RunAs-beleid. Houd er rekening mee dat dit maakt gebruik van Active Directory on-premises binnen uw domein en niet Azure Active Directory (Azure AD).
+Op een zelfstandige cluster van Windows Server, kunt u een service uitvoeren als een Active Directory-gebruiker of groep met behulp van een RunAs-beleid.  Service Fabric-toepassingen worden standaard uitgevoerd onder het account waaronder het Fabric.exe-proces wordt uitgevoerd onder. Uitvoeren van toepassingen onder verschillende accounts, zelfs in een gedeelde gehoste omgeving zorgt ervoor dat ze van elkaar veiliger. Houd er rekening mee dat dit maakt gebruik van Active Directory on-premises binnen uw domein en niet Azure Active Directory (Azure AD).  U kunt ook uitvoeren met een service als een [groep beheerde serviceaccounts (gMSA)](service-fabric-run-service-as-gmsa.md).
 
 U kunt andere bronnen in het domein (bijvoorbeeld bestandsshares) die machtigingen hebben gekregen benaderen via een domeingebruiker of -groep.
 

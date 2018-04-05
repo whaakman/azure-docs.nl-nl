@@ -5,20 +5,20 @@ documentationcenter: na
 services: expressroute
 author: ganesr
 manager: ganesr
-editor: 
+editor: ''
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 87cf32c23c2b3f50057016a23212c95b706f2910
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 829646be6404f86d9f370b3a402cfc0c0c980699
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Routeringsvereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten:
@@ -107,7 +107,7 @@ Controleer of uw IP-adres en AS-nummer in een van de volgende registers op uw na
 
 Als uw voorvoegsel en AS-nummer in voorgaande registers niet aan u zijn toegewezen, moet u een ondersteuningsaanvraag openen voor handmatige validatie van uw voorvoegsels en het ASN. De ondersteuning vraagt naar de vereiste documentatie, zoals een autorisatiebrief waaruit blijkt dat u de resources mag gebruiken.
 
-Een persoonlijk AS-nummer is toegestaan met Microsoft-peering, maar moet ook handmatig worden gevalideerd.
+Een persoonlijk AS-nummer is toegestaan met Microsoft-peering, maar moet ook handmatig worden gevalideerd. Bovendien verwijderen we persoonlijke AS-nummers in het AS-pad voor de ontvangen voorvoegsels. Hierdoor is het niet mogelijk om persoonlijke AS-nummers aan het AS-pad toe te voegen om [routering voor Microsoft-peering te beïnvloeden](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
 > Openbare IP-adressen die naar Microsoft zijn geadverteerd via ExpressRoute, mogen niet worden geadverteerd naar internet. Dit kan de connectiviteit met andere Microsoft-services verbreken. Openbare IP-adressen die worden gebruikt door servers in uw netwerk en communiceren met O365-eindpunten in Microsoft, kunnen echter wel worden geadverteerd via ExpressRoute. 
@@ -118,7 +118,7 @@ Een persoonlijk AS-nummer is toegestaan met Microsoft-peering, maar moet ook han
 Routeringsuitwisseling vindt plaats via het eBGP-protocol. EBGP-sessies worden tot stand gebracht tussen de MSEE's en uw routers. Verificatie van BGP-sessies is niet vereist. Indien nodig kan een MD5-hash worden geconfigureerd. Zie [Configure routing](expressroute-howto-routing-classic.md) (Routering configureren) en [Circuit provisioning workflows and circuit states](expressroute-workflows.md) (Werkstromen voor de inrichting van ExpressRoute-circuits en circuittoestanden) voor informatie over het configureren van BGP-sessies.
 
 ## <a name="autonomous-system-numbers"></a>Autonome systeemnummers
-Microsoft gebruikt AS 12076 voor openbare Azure-peering, privé Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund. Alleen voor de Microsoft-peering vereisen wij een openbaar geregistreerde ASN. Zowel privé als openbare peering kunnen persoonlijke ASN's gebruiken.
+Microsoft gebruikt AS 12076 voor openbare Azure-peering, privé Azure-peering en Microsoft-peering. We hebben ASN's van 65515 tot 65520 gereserveerd voor intern gebruik. Zowel 16- als 32-bits AS-getallen worden ondersteund.
 
 Er zijn geen vereisten met betrekking tot gegevensoverdrachtsymmetrie. De inkomende en uitgaande paden lopen mogelijk langs verschillende routerparen. Identieke routes moeten worden geadverteerd van beide zijden van meerdere circuitparen waarvan u eigenaar bent. Route metrics hoeven niet identiek te zijn.
 

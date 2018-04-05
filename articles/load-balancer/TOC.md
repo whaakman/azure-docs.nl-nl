@@ -8,7 +8,7 @@
 ## [IPv6-ondersteuning](load-balancer-ipv6-overview.md)
 ## [Meerdere frontends](load-balancer-multivip-overview.md)
 ## [Uitgaande verbindingen](load-balancer-outbound-connections.md)
-## [Load balancer van het type Standard en beschikbaarheidszones](load-balancer-standard-availability-zones.md)
+## [De standaardversie van Load Balancer en beschikbaarheidszones](load-balancer-standard-availability-zones.md)
 ## [Metrische en diagnostische gegevens voor een load balancer van het type Standard](load-balancer-standard-diagnostics.md)
 
 # Aan de slag
@@ -20,13 +20,19 @@
 
 # Procedures
 
+## [Een zoneredundante openbare load balancer van het type Standard maken](load-balancer-get-started-internet-az-portal.md)
+### [Een zoneredundante openbare load balancer van het type Standard maken (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Een zoneredundante openbare load balancer van het type Standard maken (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [Een zonegebonden openbare load balancer van het type Standard maken](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+### [Een zonegebonden openbare load balancer van het type Standard maken (PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+### [Een zonegebonden openbare load balancer van het type Standard maken (CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+## [Taken over VM's in meerdere beschikbaarheidszones verdelen](load-balancer-standard-public-availability-zones-portal.md)
+###  [Taken over VM's in meerdere beschikbaarheidszones verdelen (CLI)](load-balancer-standard-public-zone-redundant-cli.md)
+##  [Taken over VM's binnen een zone verdelen (CLI)](load-balancer-standard-public-zonal-cli.md)   
+## [Een load balancer van het type Basic maken (sjabloon)](load-balancer-get-started-internet-arm-template.md)
 ## [Een openbare load balancer maken met IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Een openbare load balancer maken met IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Een openbare load balancer maken met IPv6 (sjabloon)](load-balancer-ipv6-internet-template.md)
-## [Een zoneredundante openbare load balancer (Standard) maken](load-balancer-get-started-internet-az-portal.md)
-### [Een zoneredundante openbare load balancer (Standard) maken (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Een zoneredundante openbare load balancer (Standard) maken (CLI)](load-balancer-get-started-internet-az-cli.md)
-## [Een load balancer van het type Basic maken (sjabloon)](load-balancer-get-started-internet-arm-template.md)
 ## [Een interne load balancer configureren](load-balancer-get-started-ilb-arm-portal.md)
 ### [Een interne load balancer configureren (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Een interne load balancer configureren (CLI)](load-balancer-get-started-ilb-arm-cli.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Netwerkverkeer filteren met netwerkbeveiligingsgroepen
 
@@ -32,7 +32,7 @@ NSG's bevatten de volgende eigenschappen:
 
 | Eigenschap | Beschrijving | Beperkingen | Overwegingen |
 | --- | --- | --- | --- |
-| Name |Naam voor de NSG |Moet uniek zijn binnen de regio.<br/>Kan letters, cijfers, onderstrepingstekens, punten en afbreekstreepjes bevatten.<br/>Moet beginnen met een letter of cijfer.<br/>Moet eindigen op een letter, cijfer of onderstrepingsteken.<br/>Mag niet meer dan 80 tekens bevatten. |Omdat u mogelijk meerdere NSG's moet maken, is het raadzaam namen te gebruiken die aangeven wat het doel van de NSG is. |
+| Naam |Naam voor de NSG |Moet uniek zijn binnen de regio.<br/>Kan letters, cijfers, onderstrepingstekens, punten en afbreekstreepjes bevatten.<br/>Moet beginnen met een letter of cijfer.<br/>Moet eindigen op een letter, cijfer of onderstrepingsteken.<br/>Mag niet meer dan 80 tekens bevatten. |Omdat u mogelijk meerdere NSG's moet maken, is het raadzaam namen te gebruiken die aangeven wat het doel van de NSG is. |
 | Regio |Azure-[regio](https://azure.microsoft.com/regions) waar de NSG wordt gemaakt. |NSG's kunnen alleen worden gekoppeld aan resources binnen dezelfde regio als de NSG. |Voor meer informatie over hoeveel NSG's u per regio kunt hebben, leest u het artikel over [Azure-limieten](../azure-subscription-service-limits.md#virtual-networking-limits-classic).|
 | Resourcegroep |De [resourcegroep](../azure-resource-manager/resource-group-overview.md#resource-groups) waarin de NSG bestaat. |Hoewel een NSG bestaat in een resourcegroep, kan deze worden gekoppeld aan resources in elke willekeurige resourcegroep, mits de resource tot dezelfde Azure-regio als de NSG behoort. |Resourcegroepen worden gebruikt voor het beheren van meerdere resources tegelijk, als een implementatie-eenheid.<br/>U kunt de NSG desgewenst groeperen met resources waaraan deze is gekoppeld. |
 | Regels |Regels voor binnenkomend of uitgaand verkeer die bepalen welk verkeer wordt toegestaan of geweigerd. | |Zie de sectie [NSG-regels](#Nsg-rules) in dit artikel. |
@@ -79,7 +79,7 @@ De standaardregels kunnen verkeer als volgt toestaan en weigeren:
 
 **Standaardregels voor binnenkomend verkeer**
 
-| Name | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Access |
+| Naam | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | Toestaan |
 | AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | Toestaan |
@@ -87,7 +87,7 @@ De standaardregels kunnen verkeer als volgt toestaan en weigeren:
 
 **Standaardregels voor uitgaand verkeer**
 
-| Name | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Access |
+| Naam | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | Toestaan |
 | AllowInternetOutBound | 65001 | * | * | Internet | * | * | Toestaan |
@@ -123,10 +123,10 @@ U kunt NSG's implementeren in het klassieke implementatiemodel of het implementa
 
 | Implementatieprogramma | Klassiek | Resource Manager |
 | --- | --- | --- |
-| Azure Portal   | Nee | [Ja](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [Ja](virtual-networks-create-nsg-classic-ps.md) | [Ja](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **V1**   | [Ja](virtual-networks-create-nsg-classic-cli.md) | [Ja](virtual-networks-create-nsg-arm-cli.md) |
-| Azure CLI **V2**   | Nee | [Ja](virtual-networks-create-nsg-arm-cli.md) |
+| Azure Portal   | Ja | [Ja](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Ja](virtual-networks-create-nsg-classic-ps.md) | [Ja](tutorial-filter-network-traffic.md) |
+| Azure CLI **V1**   | [Ja](virtual-networks-create-nsg-classic-cli.md) | [Ja](tutorial-filter-network-traffic-cli.md) |
+| Azure CLI **V2**   | Nee | [Ja](tutorial-filter-network-traffic-cli.md) |
 | Azure Resource Manager-sjabloon   | Nee  | [Ja](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planning

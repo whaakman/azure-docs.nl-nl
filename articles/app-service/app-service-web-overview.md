@@ -2,10 +2,10 @@
 title: Overzicht van Web Apps | Microsoft Docs
 description: Lees hoe Azure App Service u helpt bij het ontwikkelen en hosten van web-apps
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f8510bb6b412e9af8aad30ba32bc74206c22042f
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: e789d3c6e10399491eb055b850a590ae10aacd11
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="web-apps-overview"></a>Overzicht van Web Apps
 
@@ -29,17 +29,12 @@ Web Apps voegen niet alleen de kracht van Microsoft Azure aan uw toepassing toe,
 
 Met App Service betaalt u voor de Azure-rekenresources die u gebruikt. De rekenresources die u gebruikt, zijn vastgesteld door het _App Service-plan_ waarmee u uw Web-Apps uitvoert. Zie [Overzicht van Azure App Service-plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) voor meer informatie.
 
-In de volgende 5 minuten durende video maakt u kennis met Azure App Service Web Apps.
-
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Web-Apps-with-Yochay-Kiriaty/player]
->
->
-
 ## <a name="why-use-web-apps"></a>Waarom Web Apps gebruiken?
+
 Hier volgen enkele belangrijke functies van App Service Web Apps:
 
 * **Meerdere talen en frameworks**: Web Apps biedt uitstekende ondersteuning voor ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP of Python. U kunt ook [PowerShell en andere scripts of uitvoerbare bestanden](web-sites-create-web-jobs.md) als achtergrondservices uitvoeren.
-* **DevOps-optimalisatie**: stel [continue integratie en implementatie](app-service-continuous-deployment.md) in met Visual Studio-teamservices, GitHub, BitBucket, Docker Hub of Azure Container Service. Verhoog updateniveaus via [test- en faseringsomgevingen](web-sites-staged-publishing.md). Beheer uw apps in Web Apps met [Azure PowerShell](/powershell/azureps-cmdlets-docs) of de [platformoverschrijdende opdrachtregelinterface (CLI)](/cli/azure/install-azure-cli).
+* **DevOps-optimalisatie**: stel [continue integratie en implementatie](app-service-continuous-deployment.md) in met Visual Studio Team Services, GitHub, BitBucket, Docker Hub of Azure Container Registry. Verhoog updateniveaus via [test- en faseringsomgevingen](web-sites-staged-publishing.md). Beheer uw apps in Web Apps met [Azure PowerShell](/powershell/azureps-cmdlets-docs) of de [platformoverschrijdende opdrachtregelinterface (CLI)](/cli/azure/install-azure-cli).
 * **Globale schaling met hoge beschikbaarheid**: u kunt handmatig of automatisch [omhoog](web-sites-scale.md) schalen of [uit](../monitoring-and-diagnostics/insights-how-to-scale.md)schalen. U kunt uw apps overal in de globale datacenterinfrastructuur van Microsoft hosten; de [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) van App Service belooft hoge beschikbaarheid.
 * **Verbindingen met SaaS-platforms en on-premises gegevens**: u kunt kiezen uit meer dan 50 [connectors](../connectors/apis-list.md) voor bedrijfssystemen (zoals SAP), SaaS-services (zoals Salesforce) en internetservices (zoals Facebook). Toegang tot on-premises gegevens met [hybride verbindingen](../biztalk-services/integration-hybrid-connection-overview.md) en [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Beveiliging en naleving**: App Service voldoet aan de vereisten van [ISO, SOC en PCI](https://www.microsoft.com/TrustCenter/). Verifieer gebruikers met [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) of via sociaal aanmelden ([Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) en [Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)). Maak [IP-adresbeperkingen](app-service-ip-restrictions.md) en [ beheer service-identiteiten](app-service-managed-service-identity.md).
@@ -71,4 +66,3 @@ Uw eerste web-app maken.
 
 > [!div class="nextstepaction"]
 > [HTML](app-service-web-get-started-html.md)
-

@@ -1,25 +1,22 @@
 ---
-title: Toegangslogboeken, Prestatielogboeken, back-end-status en metrische gegevens voor Application Gateway bewaken | Microsoft Docs
+title: Monitor toegangslogboeken, Prestatielogboeken, back-end-status en metrische gegevens voor Application Gateway
 description: Meer informatie over het inschakelen en beheren van toegang en Prestatielogboeken voor Application Gateway
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
-ms.openlocfilehash: dfa451a06fbadbb63c83f800ac164db399efd583
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Back-end-status, diagnostische logboeken en metrische gegevens voor Application Gateway
 
@@ -27,9 +24,9 @@ U kunt met behulp van Azure Application Gateway resources bewaken in de volgende
 
 * [Status van de back-end](#back-end-health): Application Gateway biedt de mogelijkheid voor het bewaken van de status van de servers in de back-end-adresgroepen via de Azure-portal en via PowerShell. U kunt ook de status van de back-end-adresgroepen via de prestaties van diagnostische logboeken vinden.
 
-* [Logboeken](#diagnostic-logs): Logboeken toestaan voor prestaties, toegang en andere gegevens worden opgeslagen of gebruikt van een resource voor controledoeleinden.
+* [Logboeken](#diagnostic-logging): Logboeken toestaan voor prestaties, toegang en andere gegevens worden opgeslagen of gebruikt van een resource voor controledoeleinden.
 
-* [Metrische gegevens](#metrics): Application Gateway is momenteel een waarde. Met deze metriek wordt de doorvoer van de toepassingsgateway in bytes per seconde.
+* [Metrische gegevens](#metrics): Application Gateway is momenteel zeven metrische gegevens om weer te geven prestatiemeteritems.
 
 ## <a name="back-end-health"></a>Back-end-status
 
@@ -318,13 +315,22 @@ U kunt ook verbinding maken met uw opslagaccount en ophalen van de JSON-logboekv
 
 Metrische gegevens zijn een functie voor bepaalde waar u prestatiemeteritems kunt bekijken in de portal voor Azure-resources. Voor Application Gateway, zijn de volgende metrische gegevens zijn beschikbaar:
 
-- Actieve verbindingen
-- Mislukte aanvragen
-- In orde Host tellen
-- Response-Status
-- Doorvoer
-- Totaal aantal aanvragen
-- Onjuiste telling van de Host
+- **Actieve verbindingen**
+- **Mislukte aanvragen**
+- **In orde Host tellen**
+
+   U kunt filteren op een per per back-end van toepassingen in orde/slecht hosts in een specifieke back-endpool weergeven.
+
+
+- **Response-Status**
+
+   De verdeling van antwoord status code kan verder worden ingedeeld als u wilt weergeven van antwoorden in 2xx, 3xx 4xx en 5xx-categorieën.
+
+- **Doorvoer**
+- **Totaal aantal aanvragen**
+- **Onjuiste telling van de Host**
+
+   U kunt filteren op een per per back-end van toepassingen in orde/slecht hosts in een specifieke back-endpool weergeven.
 
 Blader naar een toepassingsgateway onder **bewaking** klikt u op **metrische gegevens**. Als u wilt de beschikbare waarden weergeven, selecteert u de **METRIEK** vervolgkeuzelijst.
 

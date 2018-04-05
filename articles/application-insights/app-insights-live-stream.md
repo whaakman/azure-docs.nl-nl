@@ -2,7 +2,7 @@
 title: Metrische gegevens livestream met aangepaste metrische gegevens en diagnostische gegevens in Azure Application Insights | Microsoft Docs
 description: Bewaken van uw web-app in realtime met aangepaste metrische gegevens en onderzoeken van problemen met een live feed fouten, traceringen en gebeurtenissen.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 866fc729b3167863c2d423d0e6ac0d7640e3425e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f0338642ab99af2fd5ec4f6432bbb8d626daea29
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Livestream metrische gegevens: De Monitor & spoor met een latentie van 1 seconde 
 
@@ -115,12 +115,15 @@ De aangepaste filters criteria die u opgeeft worden verzonden naar het onderdeel
 ![Api-sleutel maken](./media/app-insights-live-stream/live-metrics-apikeycreate.png)
 
 ### <a name="add-api-key-to-configuration"></a>API-sleutel toevoegen aan configuratie
+
+# <a name="net-standardtabnet-standard"></a>[.NET Standard](#tab/.net-standard)
+
 In het bestand applicationinsights.config voegt u de AuthenticationApiKey toe aan de QuickPulseTelemetryModule:
 ``` XML
 
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
-</Add> 
+</Add>
 
 ```
 Of in code wordt ingesteld op de QuickPulseTelemetryModule:
@@ -130,6 +133,34 @@ Of in code wordt ingesteld op de QuickPulseTelemetryModule:
     module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
 
 ```
+# <a name="net-core-tabnet-core"></a>[.NET Core] (#tab/.net-core)
+
+Uw bestand startup.cs als volgt wijzigen:
+
+Eerst toevoegen
+
+``` C#
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using Microsoft.ApplicationInsights.Extensibility;
+```
+
+Klik onder de methode configureren toevoegen:
+
+``` C#
+  QuickPulseTelemetryModule dep;
+            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
+            foreach (var module in modules)
+            {
+                if (module is QuickPulseTelemetryModule)
+                {
+                    dep = module as QuickPulseTelemetryModule;
+                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+                    dep.Initialize(TelemetryConfiguration.Active);
+                }
+            }
+```
+
+---
 
 Als u kent en de gekoppelde servers vertrouwt, kunt u de aangepaste filters zonder het geverifieerde kanaal proberen. Deze optie is beschikbaar voor zes maanden. Met deze overschrijving is vereist eenmaal elke nieuwe sessie of als een nieuwe server online is.
 

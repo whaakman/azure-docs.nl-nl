@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,16 +15,19 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Begrijpen en gebruiken van apparaat horende in IoT-Hub
 
-*Apparaat horende* zijn JSON-documenten die status apparaatgegevens, met inbegrip van metagegevens, configuraties en voorwaarden opslaan. Azure IoT Hub onderhoudt een apparaat twin voor elk apparaat dat u verbinding met IoT Hub maakt. Dit artikel wordt beschreven:
+*Apparaat horende* zijn JSON-documenten die status apparaatgegevens, met inbegrip van metagegevens, configuraties en voorwaarden opslaan. Azure IoT Hub onderhoudt een apparaat twin voor elk apparaat dat u verbinding met IoT Hub maakt. 
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+Dit artikel wordt beschreven:
 
 * De structuur van het apparaat twin: *labels*, *gewenste* en *eigenschappen gerapporteerd*.
 * De bewerkingen die apparaat-apps en back-ends op het apparaat horende kunnen uitvoeren.

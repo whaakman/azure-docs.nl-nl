@@ -1,57 +1,57 @@
 ---
 title: 'Azure Cosmos DB: een web-app ontwikkelen met .NET en de MongoDB-API | Microsoft-documenten'
-description: "Biedt een voorbeeld van .NET-code die u kunt gebruiken om verbinding te maken met de MongoDB-API van Azure Cosmos DB en er query’s op uit te voeren"
+description: Biedt een voorbeeld van .NET-code die u kunt gebruiken om verbinding te maken met de MongoDB-API van Azure Cosmos DB en er query’s op uit te voeren
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/10/2017
+ms.date: 03/19/2018
 ms.author: mimig
-ms.openlocfilehash: c92d970783ae0fb36e5761e4f35af7d4d6718121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90b1ec66007302ed02032e04e7f3d771012ad02d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: een MongoDB-API-web-app ontwikkelen met .NET en de Azure Portal
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdatabase en een verzameling kunt maken met behulp van Azure Portal. Vervolgens ontwikkelt en implementeert u een web-app voor taaklijsten op basis van het [MongoDB .NET-stuurprogramma](https://docs.mongodb.com/ecosystem/drivers/csharp/). 
+In deze snelstart ziet u hoe u een Azure Cosmos DB-account, een documentdatabase en een verzameling kunt maken met behulp van de Azure-portal. Vervolgens ontwikkelt en implementeert u een web-app voor taaklijsten op basis van het [MongoDB .NET-stuurprogramma](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites-to-run-the-sample-app"></a>Vereisten voor het uitvoeren van de voorbeeld-app
 
-Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
+Als u het voorbeeld wilt uitvoeren, hebt u [Visual Studio](https://www.visualstudio.com/downloads/) en een geldig Azure Cosmos DB-account nodig.
+
+Als u Visual Studio nog niet hebt, downloadt u [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) waarbij de workload **ASP.NET-ontwikkeling en webontwikkeling** tijdens het instellen wordt geïnstalleerd.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
+## <a name="clone-the-sample-app"></a>De voorbeeld-app klonen
 
-We gaan nu een MongoDB API-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
+Download eerst de voorbeeld-API-app MongoDB vanuit GitHub. Deze implementeert een lijst met taken met het documentopslagmodel van MongoDB.
 
-1. Open een venster in een git-terminal zoals git bash en `cd` naar een werkmap.  
-
+1. Open een venster in een git-terminal zoals git bash en `cd` naar een werkmap.
 2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
     ```
 
-3. Open vervolgens het oplossingenbestand in Visual Studio. 
+Als u niet git wilt gebruiken, kunt u ook [het project als een ZIP-bestand downloaden](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started/archive/master.zip).
 
 ## <a name="review-the-code"></a>De code bekijken
 
@@ -134,7 +134,7 @@ Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u geleerd hoe een Azure Cosmos DB-account kunt maken en een web-app kunt uitvoeren met de API voor MongoDB. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
+In deze snelstart hebt u geleerd hoe een Azure Cosmos DB-account kunt maken en een web-app kunt uitvoeren met de API voor MongoDB. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB voor de MongoDB-API](mongodb-migrate.md)

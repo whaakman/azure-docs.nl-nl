@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 4acf1f549a6c901fb0b772c4591f1f35d61365ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b0d938112aaea4d86dd539b53a1749cc800607a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Klassieke metrische waarschuwingen in de Azure-Monitor maken voor Azure-services - Azure-portal
 > [!div class="op_single_selector"]
@@ -31,25 +31,25 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Overzicht
 
 > [!NOTE]
-> In dit artikel wordt beschreven hoe oudere metrische waarschuwingen maken. Azure Monitor ondersteunt nu nieuwere, voor betere metrische waarschuwingen. Deze waarschuwingen kunnen meerdere metrische gegevens controleren en waarschuwen voor dimensionale metrische gegevens mogelijk maken. Meer informatie over [bijna Real-Time metriek waarschuwingen](monitoring-near-real-time-metric-alerts.md).
+> In dit artikel wordt beschreven hoe oudere klassieke metrische waarschuwingen maken. Azure ondersteunt van de Monitor nu [nieuwere metrische waarschuwingen](monitoring-near-real-time-metric-alerts.md). 
 >
 >
 
-In dit artikel leest u hoe Azure metrische waarschuwingen met de Azure portal instellen. 
+Dit artikel ziet u het instellen van klassieke metrische waarschuwingen van Azure met Azure portal. 
 
 U kunt een waarschuwing op basis van bewaking metrische gegevens voor of gebeurtenissen op uw Azure-services kunt ontvangen.
 
 * **Metrische waarden** -de waarschuwing wordt geactiveerd wanneer de waarde van een opgegeven waarde overschrijdt de drempelwaarde die u in beide richtingen toewijst. Dat wil zeggen, deze beide wordt geactiveerd wanneer de voorwaarde voor het eerst wordt voldaan en vervolgens later wanneer die voorwaarde wordt niet langer wordt voldaan.    
 * **Activiteit logboekgebeurtenissen** -een waarschuwing kunt activeren voor *elke* gebeurtenis of alleen wanneer bepaalde gebeurtenis zich voordoet. Meer informatie over [activiteit logboek waarschuwingen](monitoring-activity-log-alerts.md).
 
-U kunt het volgende te doen als er wordt een waarschuwing voor metrische configureren:
+U kunt het volgende te doen als er wordt een klassieke metrische-waarschuwing configureren:
 
 * e-mailmeldingen verzenden naar de servicebeheerder en medebeheerders
 * e-mail verzenden naar andere e-mailberichten die u opgeeft.
 * een webhook aanroepen
 * starten van de uitvoering van een Azure-runbook (alleen van de Azure-portal)
 
-U kunt configureren en ophalen van informatie over metrische waarschuwingsregels met
+U kunt configureren en informatie ophalen over klassieke metrische waarschuwingsregels gebruiken
 
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -63,7 +63,7 @@ U kunt configureren en ophalen van informatie over metrische waarschuwingsregels
 
     ![Bewaking](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Selecteer de **metrische waarschuwing toevoegen** opdracht en vul de velden in.
+3. Selecteer de **metrische waarschuwing toevoegen (klassiek)** opdracht en vul de velden in.
 
     ![Waarschuwing toevoegen](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 

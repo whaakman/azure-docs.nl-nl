@@ -5,8 +5,8 @@ services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 7e116400f55375afe1e57abc6dadae0536cdfceb
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ee5ceb29a3782967b0b9682a4b1f3d69cffd0e03
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Inleiding tot Azure Cosmos DB Table-API
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Inleiding tot Azure Cosmos DB: tabel-API
 
 [Azure Cosmos DB](introduction.md) biedt de Table-API voor toepassingen die zijn geschreven voor Azure Table-opslag en die premium-mogelijkheden nodig hebben, zoals:
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/23/2018
 
 Toepassingen die zijn geschreven voor Azure Table-opslag kunnen met behulp van de Table-API zonder codeaanpassingen worden gemigreerd naar Azure Cosmos DB en zo gebruikmaken van premium-mogelijkheden. In Table-API zijn client-SDK's beschikbaar voor .NET, Java, Python en Node.js.
 
-Het is raadzaam om de volgende video te bekijken, waarin Aravind Ramachandran uitlegt hoe u aan de slag gaat met de Table-API voor Azure Cosmos DB:
+Het is raadzaam om de volgende video te bekijken, waarin Aravind Krishna uitlegt hoe u aan de slag gaat met de Table-API voor Azure Cosmos DB:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 

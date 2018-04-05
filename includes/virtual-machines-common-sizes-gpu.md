@@ -5,14 +5,14 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 03/30/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 54ab118ca9a8dcc591b275f87be2894d2bfad54d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5457ac8bd229889ed2b96354c44066959c00c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 GPU geoptimaliseerd VM grootten gespecialiseerde virtuele machines met één of meerdere NVIDIA GPU's beschikbaar zijn. Deze grootten zijn ontworpen voor rekenintensieve en grafisch-intensieve visualisatie werkbelastingen. In dit artikel bevat informatie over het aantal en type GPU's, Vcpu, gegevensschijven, en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering van. 
 
@@ -27,7 +27,7 @@ NC-serie virtuele machines worden mogelijk gemaakt door de [NVIDIA Tesla R80](ht
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 | 24 | 1 |
+| Standard_NC6 |6 |56 | 340 | 1 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 48 | 2 |
 | Standard_NC24 |24 |224 | 1440 | 4 | 64 | 4 |
 | Standard_NC24r* |24 |224 | 1440 | 4 | 64 | 4 |
@@ -46,10 +46,10 @@ NCv2-serie VM's zijn gemaakt, aangeboden via [NVIDIA Tesla P100](http://images.n
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | ---  |
-| Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 | 8 |
-| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_NC24rs_v2* |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_NC6s_v2 |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_NC12s_v2 |12 |224 | 1474 | 2 | 24 | 8 |
+| Standard_NC24s_v2 |24 |448 | 2948 | 4 | 32 | 8 |
+| Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = één P100-kaart.
 
@@ -65,10 +65,10 @@ NCv3-serie VM's zijn gemaakt, aangeboden via [NVIDIA Tesla V100](http://www.nvid
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6s_v3 |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_NC12s_v3 |12 |224 | 672 | 2 | 24 | 8 |
-| Standard_NC24s_v3 |24 |448 | 1344 | 4 | 32 | 8 | 
-| Standard_NC24rs_v3* |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_NC6s_v3 |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_NC12s_v3 |12 |224 | 1474 | 2 | 24 | 8 |
+| Standard_NC24s_v3 |24 |448 | 2948 | 4 | 32 | 8 | 
+| Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = één V100-kaart.
 
@@ -84,10 +84,10 @@ De ND-serie virtuele machines zijn een nieuwe aanvulling op de GPU-familie die z
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND6s |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_ND12s |12 |224 | 672 | 2 | 24 | 8 | 
-| Standard_ND24s |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_ND24rs* |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_ND6s |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_ND12s |12 |224 | 1474 | 2 | 24 | 8 | 
+| Standard_ND24s |24 |448 | 2948 | 4 | 32 | 8 |
+| Standard_ND24rs* |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = één p 40-kaart.
 
@@ -101,7 +101,7 @@ Elke GPU in NV exemplaren wordt geleverd met een licentie RASTER. Deze licentie 
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | GPU | Max. aantal gegevensschijven | Max. aantal NIC's | Virtuele werkstations | Virtuele toepassingen | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standard_NV6 |6 |56 |340 | 1 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
 

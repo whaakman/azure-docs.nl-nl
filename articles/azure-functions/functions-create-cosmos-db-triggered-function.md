@@ -5,22 +5,22 @@ services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 03/27/2018
 ms.author: glenga
-ms.custom: 
-ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 60836bd88335dc5c58423bad94b6a95e9782c474
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Een door Azure Cosmos DB geactiveerde functie maken
 
@@ -34,8 +34,6 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 + Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
 ## <a name="create-an-azure-function-app"></a>Een Azure-functie-app maken
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
@@ -48,7 +46,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
 1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
 
-    ![De snelstartpagina van Functions in Azure Portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
+    ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
 2. Typ `cosmos` in het zoekveld en kies vervolgens de gewenste taal voor de trigger-sjabloon voor de Azure Cosmos DB.
 
@@ -74,7 +72,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
     | Instelling      | Voorgestelde waarde  | Beschrijving                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Naam van de database | Unieke id voor de Azure Cosmos DB-database  |
-    | **API** | SQL (DocumentDB) | In dit onderwerp wordt gebruikgemaakt van de documentdatabase-API.  |
+    | **API** | SQL | In dit onderwerp wordt gebruik gemaakt van de SQL-API.  |
     | **Abonnement** | Azure-abonnement | Het abonnement waarmee deze nieuwe Cosmos DB-account is gemaakt.  |
     | **Resourcegroep** | myResourceGroup |  Gebruik de bestaande resourcegroep die uw functie-app bevat. |
     | **Locatie**  | West-Europa | Selecteer een locatie die zich in de buurt van uw functie-app bevindt of van andere apps die gebruikmaken van de opgeslagen documenten.  |

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: dc4c690633d14163eddfa70e8417a645f95a0861
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c8804dce7dd8291b65f704ba36aaa1cd05eb4518
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Een Azure-SSIS-integratie runtime maken in Azure Data Factory
 Dit artikel bevat stappen voor het inrichten van een Azure-SSIS-integratie runtime in Azure Data Factory. Vervolgens kunt u SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) gebruiken om pakketten van SQL Server Integration Services (SSIS) te implementeren in deze runtime van Azure.
 
 De zelfstudie: [zelfstudie: pakketten van SQL Server Integration Services (SSIS) implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md) hebt u geleerd hoe u een Azure-SSIS integratie Runtime (IR) maken met behulp van Azure SQL Database als archief voor SSIS-catalogus. Dit artikel wordt op de zelfstudie wordt uitgebreid en ziet u hoe u het volgende doen: 
 
-- Azure SQL beheerd exemplaar (afgeschermd voorbeeld) gebruiken voor het hosten van een catalogus SSIS (SSISDB-database).
+- Azure SQL beheerd exemplaar (Preview) gebruiken voor het hosten van een catalogus SSIS (SSISDB-database).
 - Azure-SSIS-IR lid maken van een Azure-netwerk (VNet). Zie voor informatie over het samenvoegen van een Azure-SSIS-IR met een VNet en een VNet configureren in Azure-portal, [Azure SSIS-IR Join naar VNet](join-azure-ssis-integration-runtime-virtual-network.md). 
 
 > [!NOTE]
@@ -44,11 +44,11 @@ Wanneer u een exemplaar van een Azure-SSI-IR inricht, worden ook het Azure Featu
 ## <a name="prerequisites"></a>Vereisten
 
 - **Azure-abonnement**. Als u geen abonnement hebt, kunt u een [gratis proefaccount](http://azure.microsoft.com/pricing/free-trial/) maken.
-- **Azure SQL Database server** of **SQL Server Managed Instance (private preview) (Extended Private Preview)**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. Noteer de prijscategorie van uw Azure SQL-server. Zie voor een lijst met ondersteunde Prijscategorieën voor Azure SQL Database, [limieten voor SQL-Database](../sql-database/sql-database-resource-limits.md).
+- **Azure SQL Database-server** of **beheerde exemplaar van SQL Server (Preview) (Private Preview uitgebreid)**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. Noteer de prijscategorie van uw Azure SQL-server. Zie voor een lijst met ondersteunde Prijscategorieën voor Azure SQL Database, [limieten voor SQL-Database](../sql-database/sql-database-resource-limits.md).
 
-    Bevestig dat uw Azure SQL Database-server of beheerde exemplaar van SQL Server (uitgebreide afgeschermd voorbeeld) beschikt niet over een catalogus SSIS (SSIDB database). Het inrichten van Azure-SSIS-IR biedt geen ondersteuning voor het gebruik van een bestaande SSIS-catalogus.
+    Bevestig dat uw Azure SQL Database-server of beheerde exemplaar van SQL Server (Preview) beschikt niet over een catalogus SSIS (SSIDB database). Het inrichten van Azure-SSIS-IR biedt geen ondersteuning voor het gebruik van een bestaande SSIS-catalogus.
 - **Klassieke of Azure Resource Manager virtuele Network(VNet) (optioneel)**. U hebt een virtueel netwerk (VNet) in Azure nodig als ten minste aan een van de volgende voorwaarden wordt voldaan:
-    - U host de SSIS-catalogusdatabase in een SQL Server Managed Instance (private preview) die deel uitmaakt van een VNet.
+    - Als u beheert de catalogus SSIS-database op een SQL Server beheerd-exemplaar (Preview) die deel uitmaakt van een VNet.
     - U wilt verbinding maken met on-premises gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd in een Azure SSIS Integration Runtime.
 - **Azure PowerShell**. Volg de instructies in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Azure PowerShell installeren en configureren). U gebruikt PowerShell om een script uit te voeren voor het inrichten van een Azure SSIS Integration Runtime die SSIS-pakketten uitvoert in de cloud. 
 
@@ -181,15 +181,15 @@ $AzureSSISNodeNumber = 2
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (private preview) server endpoint]"
+$SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (Preview) server endpoint]"
 $SSISDBServerAdminUserName = "[your server admin username]"
 $SSISDBServerAdminPassword = "[your server admin password]"
 
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "[your Azure SQL Database pricing tier. Examples: Basic, S0, S1, S2, S3, etc.]"
 
-## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (private preview) 
+## These two parameters apply if you are using a VNet and an Azure SQL Managed Instance (Preview) 
 # Specify information about your classic or Azure Resource Manager virtual network (VNet). 
 $VnetId = "[your VNet resource ID or leave it empty]" 
 $SubnetName = "[your subnet name or leave it empty]" 
@@ -204,7 +204,7 @@ Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
 ### <a name="validate-the-connection-to-database"></a>Valideren van verbinding met de database
-Het volgende script voor het valideren van uw Azure SQL Database-server server.database.windows.net of uw eindpunt beheerde exemplaar van Azure SQL (afgeschermd voorbeeld) server toevoegen. 
+Voeg het volgende script voor het valideren van uw Azure SQL Database-server server.database.windows.net of uw eindpunt van de server beheerd exemplaar van Azure SQL (Preview). 
 
 ```powershell
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID="+ $SSISDBServerAdminUserName +";Password="+ $SSISDBServerAdminPassword
@@ -263,7 +263,7 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 
 ### <a name="create-an-integration-runtime"></a>Een Integration Runtime maken
-Voer de volgende opdracht voor het maken van een Azure-SSIS-integratie runtime die SSIS-pakketten in Azure wordt uitgevoerd: het script te gebruiken in het gedeelte op basis van het type database (vs Azure SQL Database. Azure SQL Managed-exemplaar (private preview)) die u gebruikt. 
+Voer de volgende opdracht voor het maken van een Azure-SSIS-integratie runtime die SSIS-pakketten in Azure wordt uitgevoerd: het script te gebruiken in het gedeelte op basis van het type database (vs Azure SQL Database. Azure SQL Managed-exemplaar (Preview)) die u gebruikt. 
 
 #### <a name="azure-sql-database-to-host-the-ssisdb-database-ssis-catalog"></a>Azure SQL Database voor het hosten van de SSISDB-database (SSIS-catalogus) 
 
@@ -286,7 +286,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
 
 U hoeft niet te waarden doorgeven voor VNetId en Subnet, tenzij u toegang tot lokale gegevens moet, dat wil zeggen, hebt u lokale gegevens bronnen/bestemmingen in uw SSIS-pakketten. U moet de waarde voor de parameter CatalogPricingTier doorgeven. Zie voor een lijst met ondersteunde Prijscategorieën voor Azure SQL Database, [limieten voor SQL-Database](../sql-database/sql-database-resource-limits.md).
 
-#### <a name="azure-sql-managed-instance-private-preview-to-host-the-ssisdb-database"></a>Azure SQL beheerd-exemplaar (afgeschermd voorbeeld) voor het hosten van de SSISDB-database
+#### <a name="azure-sql-managed-instance-preview-to-host-the-ssisdb-database"></a>Azure SQL beheerd-exemplaar (Preview) voor het hosten van de SSISDB-database
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -306,7 +306,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -Subnet $SubnetName
 ```
 
-U moet waarden voor VnetId en Subnet parameters met Azure SQL beheerd-instantie (afgeschermd voorbeeld) die lid wordt van een VNet doorgeven. De parameter CatalogPricingTier geldt niet voor Azure SQL beheerd-exemplaar. 
+U moet waarden voor VnetId en Subnet parameters met Azure SQL beheerd-instantie (Preview) die lid wordt van een VNet doorgeven. De parameter CatalogPricingTier geldt niet voor Azure SQL beheerd-exemplaar (Preview). 
 
 ### <a name="start-integration-runtime"></a>Integration Runtime starten
 Voer de volgende opdracht uit om de Azure SSIS Integration Runtime te starten: 
@@ -325,7 +325,7 @@ Het duurt **20-30 minuten** voordat deze opdracht is voltooid.
 
 
 ### <a name="full-script"></a>Volledige script
-Hier is de volledige-script dat wordt gemaakt van een Azure-SSIS-IR en deze gekoppeld is aan een VNet. Dit script wordt ervan uitgegaan dat u van Azure SQL beheerd exemplaar (MI) gebruikmaakt voor het hosten van de SSIS-catalogus. 
+Hier is de volledige-script dat wordt gemaakt van een Azure-SSIS-IR en deze gekoppeld is aan een VNet. Dit script wordt ervan uitgegaan dat u van de Azure SQL beheerd-exemplaar (Preview gebruikmaakt) voor het hosten van de SSIS-catalogus. 
 
 ```powershell
 # Azure Data Factory version 2 information 
@@ -351,7 +351,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 

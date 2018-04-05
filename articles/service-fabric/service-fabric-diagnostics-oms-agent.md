@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 4c4095071235dac7e8be3c16b614bdfa5b706a1c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4b0845cbb25d160b53b483641e242422c98029ee
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>De OMS-Agent aan een cluster toevoegen
 
@@ -61,12 +61,11 @@ De beste manier om de OMS-Agent toevoegen aan het cluster is via de virtuele-mac
  
 5. Voer de opdracht deze configuratie toepassen op uw VM-exemplaren die al bestaan:  
 
-
     ```sh
     az vmss update-instances
     ```
 
-Dit duurt minder dan 15 min. is de agent toevoegen aan uw knooppunten. U kunt controleren of de agents zijn toegevoegd met behulp van de `az vmss extension list` API:
+    Dit duurt minder dan 15 min. is de agent toevoegen aan uw knooppunten. U kunt controleren of de agents zijn toegevoegd met behulp van de `az vmss extension list` API:
 
     ```sh
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>

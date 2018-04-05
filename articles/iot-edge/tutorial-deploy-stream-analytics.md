@@ -2,18 +2,18 @@
 title: Azure Stream Analytics met Azure IoT-rand implementeren | Microsoft Docs
 description: Azure Stream Analytics implementeren als een module die u wilt een edge-apparaat
 services: iot-edge
-keywords: 
-author: msebolt
+keywords: ''
+author: kgremban
 manager: timlt
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implementeren van Azure Stream Analytics als een module van de rand van de IoT - voorbeeld
 
@@ -132,7 +132,7 @@ U bent nu klaar om te implementeren, de Azure Stream Analytics-taak op het appar
 
 1. Ga in de Azure-portal in uw IoT-hub naar **IoT rand (preview)**, en open vervolgens de detailpagina voor uw IoT-randapparaat.
 
-2. Selecteer **modules ingesteld**.  
+2. Selecteer **Modules instellen**.  
     Als u de module tempSensor op dit apparaat hebt geïmplementeerd, kan deze automatisch invullen. Als dit niet het geval is, voegt u de module als volgt:
 
    a. Selecteer **IoT rand Module toevoegen**.
@@ -172,9 +172,9 @@ U bent nu klaar om te implementeren, de Azure Stream Analytics-taak op het appar
     }
     ```
 
-9. Selecteer **volgende**.
+9. Selecteer **Volgende**.
 
-10. In de **Template bekijken** stap, selecteer **indienen**.
+10. Selecteer in de stap **Sjabloon controleren** de optie **Indienen**.
 
 11. Terug naar de pagina met apparaten en selecteer vervolgens **vernieuwen**.  
     Hier ziet u de nieuwe Stream Analytics-module wordt uitgevoerd, samen met de module IoT Edge-agent en de rand van de IoT-hub.

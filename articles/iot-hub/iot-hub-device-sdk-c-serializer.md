@@ -2,10 +2,10 @@
 title: Azure IoT-apparaat SDK voor C - serialisatiefunctie | Microsoft Docs
 description: Het gebruik van de serialisatiefunctie-bibliotheek in de Azure-IoT-apparaat-SDK voor C apps voor apparaten die communiceren met een IoT-hub maken.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
 ms.service: iot-hub
 ms.devlang: cpp
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 04b5ebf6d8c568fbfd9b291bef95af973ec5d6d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT-apparaat SDK voor C: meer informatie over de serialisatiefunctie
 De [eerst artikel](iot-hub-device-sdk-c-intro.md) in deze reeks geïntroduceerd de **Azure IoT-device SDK voor C**. Het volgende artikel opgegeven een gedetailleerdere beschrijving van de [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). In dit artikel is voltooid dekking van de SDK door te geven van een gedetailleerdere beschrijving van de resterende component: de **serialisatiefunctie** bibliotheek.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 De inleidende artikel wordt beschreven hoe u de **serialisatiefunctie** bibliotheek gebeurtenissen te verzenden en ontvangen van berichten uit IoT Hub. In dit artikel we die discussie uitbreiden door te geven van een uitgebreidere uitleg van het model van uw gegevens met de **serialisatiefunctie** macrotaal. Het artikel ook meer informatie over hoe de bibliotheek berichten serialiseert bevat (en in sommige gevallen hoe u kunt bepalen het gedrag voor serialisatie). We beschrijven ook bepaalde parameters die kunt u wijzigen om te bepalen van de grootte van de modellen die u maakt.
 

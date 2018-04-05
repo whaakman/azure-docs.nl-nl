@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory gebruiken om te verifiëren van Azure Batch serviceoplossingen | Microsoft Docs"
+title: Azure Active Directory gebruiken om te verifiëren van Azure Batch serviceoplossingen | Microsoft Docs
 description: Batch ondersteunt Azure AD voor de verificatie van de Batch-service.
 services: batch
 documentationcenter: .net
 author: dlepow
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
+ms.openlocfilehash: e2d97929ada820a1ce969c59fb69b3518fe2eb6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Verificatie van oplossingen voor Batch-service met Active Directory
 
@@ -138,7 +138,7 @@ Om te verifiëren met een service-principal, moet u een RBAC-rol toewijzen aan u
 
 1. Ga in de Azure-portal naar het Batch-account wordt gebruikt door uw toepassing.
 2. In de **instellingen** blade voor het Batch-account, selecteer **Access Control (IAM)**.
-3. Klik op de **toevoegen** knop. 
+3. Klik op de knop **Toevoegen**. 
 4. Van de **rol** vervolgkeuzelijst, kiest u de _Inzender_ of _lezer_ rol voor uw toepassing. Zie voor meer informatie over deze rollen [aan de slag met toegangsbeheer op basis van rollen in Azure portal](../active-directory/role-based-access-control-what-is.md).  
 5. In de **Selecteer** en voer de naam van uw toepassing. Selecteer uw toepassing uit de lijst en klikt u op **opslaan**.
 

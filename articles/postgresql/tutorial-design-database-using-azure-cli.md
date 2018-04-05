@@ -1,21 +1,5 @@
----
-title: 'Zelfstudie: een Azure Database for PostgreSQL ontwerpen met Azure CLI'
-description: Deze zelfstudie laat zien hoe u uw eerste Azure Database for PostgreSQL-server kunt maken, configureren en er query's op kunt toepassen met Azure CLI.
-services: postgresql
-author: rachel-msft
-ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
-ms.service: postgresql
-ms.custom: mvc
-ms.devlang: azure-cli
-ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 56425ec7ccb1d6629b82db6683a02a57ab9999b4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+--titel: ' zelfstudie: een Azure-Database voor PostgreSQL met Azure CLI ontwerpen ' Beschrijving: in deze zelfstudie laat zien hoe maken, configureren en uw eerste Azure-Database voor gebruik van Azure CLI PostgreSQL-server een query.
+Services: postgresql auteur: Koos msft ms.author: raagyema manager: kfile-editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure cli ms.topic: zelfstudie ms.date: 01-04/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Zelfstudie: een Azure Database for PostgreSQL ontwerpen met Azure CLI 
 In deze zelfstudie gebruikt u Azure CLI (Command Line Interface of opdrachtregelinterface in goed Nederlands) en andere hulpprogramma's om deze bewerkingen uit te voeren:
@@ -61,11 +45,11 @@ Het geretourneerde JSON-script moet het volgende bevatten:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.5"
 }
 ```
 
-Als versie 0.0.3 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
+Als versie 0.0.5 wordt geretourneerd, voert u het volgende voor het bijwerken van de extensie: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -149,7 +133,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
   Met de volgende opdracht maakt u bijvoorbeeld verbinding met de standaarddatabase **postgres** op uw PostgreSQL-server **mydemoserver.postgres.database.azure.com** met behulp van toegangsreferenties. Voer het `<server_admin_password>` in dat u koos toen u werd gevraagd om een wachtwoord.
   
   ```azurecli-interactive
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
 2.  Wanneer u met de server bent verbonden, maakt u bij de prompt een lege database:

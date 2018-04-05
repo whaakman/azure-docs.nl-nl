@@ -2,21 +2,21 @@
 title: Een gesimuleerd X.509-apparaat met Node.js inrichten voor Azure IoT Hub | Microsoft Docs
 description: 'Azure-snelstartgids: een gesimuleerd X.509-apparaat met de SDK voor Node.js maken en inrichten voor Azure IoT Hub Device Provisioning Service'
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 01/29/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a9ec0690467fa787fc1ef1bd95685a119c6eb6fb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8295ffe14446423ae2cc3de31616aa375a91e96c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd X.509-apparaat met de SDK met Node.js maken en inrichten voor Azure IoT Hub Device Provisioning Service
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -27,6 +27,7 @@ Het inrichten van mobiele apparaten gaat in twee stappen. De eerste stap bestaat
 
 Deze stappen laten zien hoe in u een vermelding voor apparaatinschrijving kunt maken in de Device Provisioning Service, hoe u een X.509-apparaat op uw ontwikkelcomputer kunt simuleren, het gesimuleerde apparaat kunt verbinden met de Device Provisioning Service en het apparaat kunt registreren op uw IoT-hub met behulp van de [apparaat-SDK voor Azure IoT Hub Node.js](https://github.com/Azure/azure-iot-sdk-node).
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>De omgeving voorbereiden 
 
@@ -185,12 +186,12 @@ Als u wilt blijven doorwerken met het voorbeeld van de apparaatclient en deze be
 
 1. Sluit het uitvoervenster van het voorbeeld van de apparaatclient op de computer.
 1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer uw Device Provisioning Service. Open de blade **Inschrijvingen beheren** voor uw service en klik vervolgens op het tabblad **Afzonderlijke inschrijvingen** of **Inschrijvingsgroepen**. Selecteer de *registratie-id* of *groepsnaam* van het apparaat dat u hebt ingeschreven met behulp van deze snelstartgids. Klik vervolgens bovenaan op de knop **Verwijderen**. 
-1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer vervolgens uw IoT-hub. Open de blade **IoT-apparaten** voor uw hub, selecteer de *apparaat-id* van het apparaat dat u hebt geregistreerd in deze snelstartgids en klik vervolgens bovenaan op de knop **Verwijderen**.
+1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer vervolgens uw IoT-hub. Open de blade **IoT-apparaten** voor uw hub, selecteer de *apparaat-id* van het apparaat dat u hebt geregistreerd in deze quickstart en klik vervolgens bovenaan op de knop **Verwijderen**.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een gesimuleerd X.509-apparaat gemaakt en het ingericht voor uw IoT-hub met de Azure IoT Hub Device Provisioning Service op de portal. Als u wilt weten hoe u uw X.509-apparaat programmatisch kunt registreren, gaat u verder met de snelstartgids voor programmatische registratie van een X.509-apparaat. 
+In deze snelstartgids hebt u een gesimuleerd X.509-apparaat gemaakt en het ingericht voor uw IoT-hub met de Azure IoT Hub Device Provisioning Service op de portal. Als u wilt weten hoe u uw X.509-apparaat programmatisch kunt registreren, gaat u verder met de quickstart voor programmatische registratie van een X.509-apparaat. 
 
 > [!div class="nextstepaction"]
-> [Azure-snelstartgids: X.509-apparaat inschrijven bij Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-node.md)
+> [Azure-quickstart: X.509-apparaat inschrijven bij Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-node.md)

@@ -5,7 +5,7 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 5c514cc3d281d9e2baeae415aed240579af75650
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8283955b58978e3a76456ec3eff63f4fba4e51f0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Netwerk beveiliging groep overgebracht logboeken configureren met PowerShell
 
@@ -51,6 +51,8 @@ Get-AzureRmNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $ns
 Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true
 ```
 
+Het opslagaccount dat u opgeeft dat geen netwerk-regels geconfigureerd die toegang tot het netwerk te tot alleen Microsoft-services of specifieke virtuele netwerken beperken.
+
 ## <a name="disable-network-security-group-flow-logs"></a>Netwerkbeveiligingsgroep uitschakelen stroom Logboeken
 
 Gebruik het volgende voorbeeld stroom Logboeken uitschakelen:
@@ -61,7 +63,7 @@ Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $ns
 
 ## <a name="download-a-flow-log"></a>Downloaden van een stroom-logboek
 
-De locatie voor de opslag van een stroom-logboek is gedefinieerd bij het maken. Een handig hulpmiddel voor toegang tot deze stroom logboeken opgeslagen naar een opslagaccount is Microsoft Azure Storage Explorer, die u kunt hier downloaden: http://storageexplorer.com/
+De locatie voor de opslag van een stroom-logboek is gedefinieerd bij het maken. Een handig hulpmiddel voor toegang tot deze stroom logboeken opgeslagen naar een opslagaccount is Microsoft Azure Storage Explorer, die u kunt hier downloaden:  http://storageexplorer.com/
 
 Als een opslagaccount is opgegeven, worden bestanden voor pakket worden opgeslagen in een opslagaccount op de volgende locatie:
 

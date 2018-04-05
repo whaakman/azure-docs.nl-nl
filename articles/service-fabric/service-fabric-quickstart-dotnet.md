@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/2018
+ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4c81baec0c047b551e1bdac2152b330f010baa18
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6038251ba79797312a0fec61e4a6f3d2e99d5435
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Quickstart: een .NET-Service Fabric-toepassing maken in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -72,9 +72,9 @@ Druk op **F5** om de toepassing te implementeren.
 
 Wanneer de implementatie is voltooid, start u een browser en opent u deze pagina: `http://localhost:8080` - de webfront-end van de toepassing.
 
-![Front-end van de toepassing](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
+![Front-end van toepassing](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
-U kunt nu een reeks stemmingsopties toevoegen en beginnen met stemmen. De toepassing wordt uitgevoerd en alle gegevens worden in uw Service Fabric-cluster opgeslagen, zonder dat daarvoor een aparte database nodig is.
+U kunt nu een reeks stemmingsopties toevoegen en beginnen met het verzamelen van stemmen. De toepassing wordt uitgevoerd en alle gegevens worden in uw Service Fabric-cluster opgeslagen, zonder dat daarvoor een aparte database nodig is.
 
 ## <a name="walk-through-the-voting-sample-application"></a>Stapsgewijs door de voorbeeldstemtoepassing gaan
 De stemtoepassing bestaat uit twee services:
@@ -91,6 +91,7 @@ Wanneer u in de toepassing stemt, vinden de volgende gebeurtenissen plaats:
 3. De back-endservice neemt de binnenkomende aanvraag aan en slaat het bijgewerkte resultaat op in een betrouwbare dictionary die wordt gerepliceerd naar meerdere knooppunten binnen het cluster en opgeslagen op schijf. Gegevens van de toepassing worden opgeslagen in het cluster, zodat er geen database nodig is.
 
 ## <a name="debug-in-visual-studio"></a>Fouten opsporen met Visual Studio
+
 Als u met Visual Studio fouten opspoort in de toepassing, gebruikt u daarvoor een lokaal ontwikkelingscluster van Service Fabric. U hebt de mogelijkheid om uw foutopsporingservaring aan uw specifieke scenario aan te passen. In deze toepassing worden gegevens met behulp van een betrouwbare dictionary opgeslagen in de back-endservice. Visual Studio verwijdert standaard de toepassing wanneer u het foutopsporingsprogramma stopt. Door de toepassing te verwijderen, worden de gegevens in de back-endservice ook verwijderd. Als u de gegevens tussen de foutopsporingssessies wilt kunnen behouden, kunt u de **foutopsporingsmodus van de toepassing** als eigenschap op het **Voting**-project in Visual Studio wijzigen.
 
 Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
@@ -169,7 +170,7 @@ Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio impleme
 
 4. Open een browser en typ het adres van het cluster gevolgd door ':8080' om bij de toepassing in het cluster te komen, bijvoorbeeld `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. U zou nu moeten kunnen zien dat de toepassing in het cluster in Azure wordt uitgevoerd.
 
-    ![Front-end van de toepassing](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+    ![Front-end van toepassing](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Toepassingen en services voor schalen in een cluster
 Service Fabric-services kunnen eenvoudig worden geschaald in een cluster om een wijziging in de belasting voor de services aan te kunnen. U schaalt een service door het aantal exemplaren te wijzigen dat wordt uitgevoerd in het cluster. Er zijn meerdere manieren waarop u uw services kunt schalen. U kunt daarvoor scripts of opdrachten van PowerShell of Service Fabric-CLI (sfctl) gebruiken. Gebruik voor dit voorbeeld Service Fabric Explorer.

@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Controleren en meldingen ontvangen over belangrijke acties in uw Azure-abonnement
 
@@ -74,7 +74,7 @@ Klik op het tabblad **JSON** om de volledige gebeurtenisdetails weer te geven. D
 
 5. Selecteer onder **Waarschuwing via** de optie **Nieuwe** actiegroep en geef een **naam** en **korte naam** op voor de actiegroep. De actiegroep definieert de set acties die wordt uitgevoerd wanneer de waarschuwing is geactiveerd (als de criteria overeenkomen met een nieuwe gebeurtenis).
 
-6. Voeg onder **Acties** een of meer acties toe door het volgende op te geven: een **Naam** voor de actie, het **Actietype** (bijvoorbeeld, e-mail- of sms-bericht) en de **Details** voor dit specifieke actietype (bijvoorbeeld, een webhook-URL, e-mailadres of SMS-nummer).
+6. Voeg onder **Acties** een of meer acties toe door het volgende op te geven: een **Naam** voor de actie, het **Actietype** (bijvoorbeeld e-mail, sms of webhook) en de **Details** voor dit specifieke actietype (bijvoorbeeld, een webhook-URL, e-mailadres of sms-nummer).
 
     ![Een netwerkbeveiligingsgroep maken in de portal](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -83,7 +83,7 @@ Klik op het tabblad **JSON** om de volledige gebeurtenisdetails weer te geven. D
 ## <a name="test-the-activity-log-alert"></a>De waarschuwing voor activiteitenlogboek testen
 
 > [!NOTE]
-> Het duurt ongeveer 10 minuten voordat een waarschuwing voor activiteitenlogboek volledig is ingeschakeld. Nieuwe gebeurtenissen die plaatsvinden voordat de waarschuwing voor activiteitenlogboek volledig is ingeschakeld, genereren geen meldingen.
+> Het duurt ongeveer 5 minuten voordat een waarschuwing voor activiteitenlogboek volledig is ingeschakeld. Nieuwe gebeurtenissen die plaatsvinden voordat de waarschuwing voor activiteitenlogboek volledig is ingeschakeld, genereren geen meldingen.
 >
 >
 

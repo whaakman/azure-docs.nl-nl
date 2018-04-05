@@ -5,9 +5,9 @@ services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gebeurtenis raster trigger voor Azure Functions
 
 In dit artikel wordt uitgelegd hoe u voor het afhandelen van [gebeurtenis raster](../event-grid/overview.md) gebeurtenissen in de Azure Functions.
 
-Gebeurtenis raster is een Azure-service waarmee HTTP-aanvragen op de hoogte van gebeurtenissen die worden verzonden *uitgevers*. Een uitgever is de service of de resource die afkomstig is van de gebeurtenis. Bijvoorbeeld, een Azure blob storage-account is een uitgever en een blob uploaden of de verwijdering is een gebeurtenis. Sommige [Azure-services hebben een ingebouwde ondersteuning voor het publiceren van gebeurtenissen naar de gebeurtenis raster](../event-grid/overview.md#event-publishers). 
+Gebeurtenis raster is een Azure-service waarmee HTTP-aanvragen op de hoogte van gebeurtenissen die worden verzonden *uitgevers*. Een uitgever is de service of de resource die afkomstig is van de gebeurtenis. Bijvoorbeeld, een Azure blob storage-account is een uitgever en een blob uploaden of de verwijdering is een gebeurtenis. Sommige [Azure-services hebben een ingebouwde ondersteuning voor het publiceren van gebeurtenissen naar de gebeurtenis raster](../event-grid/overview.md#event-sources). 
 
 Gebeurtenis *handlers* ontvangen en verwerken van gebeurtenissen. Azure Functions is een van de verschillende [Azure-services die hebben een ingebouwde ondersteuning voor het verwerken van gebeurtenissen van de gebeurtenis raster](../event-grid/overview.md#event-handlers). In dit artikel leert u hoe u een trigger gebeurtenis raster een functie aanroepen wanneer een gebeurtenis wordt ontvangen van de gebeurtenis raster.
 

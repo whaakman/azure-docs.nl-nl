@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: 2c69519b865169b477950bc8fa659d5ad9081bbf
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 75d1580df5e36b2c88939fde9077c5a1948f6348
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-storage-account-options"></a>Opties voor Azure Storage-account
 
@@ -218,7 +218,7 @@ Voor het bewaken van uw bestaande opslagaccounts en het verzamelen van deze gege
 Zie [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) (Metrische gegevens in opslaganalyse) en [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx) (Tabelschema van metrische gegevens in opslaganalyse) voor meer informatie
 
 > [!NOTE]
-> Blob Storage-accounts geven het service-eindpunt van de tabel alleen weer voor het opslaan en openen van de metrische gegevens voor dat account. ZRS-accounts (zone-redundante opslagaccounts) ondersteunen het verzamelen van metrische gegevens, terwijl klassieke ZRS-accounts dat niet doen. Zie [Zone-redundante opslag](storage-redundancy.md#zone-redundant-storage) voor meer informatie. 
+> Blob Storage-accounts geven het service-eindpunt van de tabel alleen weer voor het opslaan en openen van de metrische gegevens voor dat account. 
 
 Voor het controleren van het opslagverbruik voor Blob Storage moet u de metrische gegevens over capaciteit inschakelen.
 Als dit is ingeschakeld, worden de capaciteitsgegevens van een Blob Storage-serviceaccount dagelijks geregistreerd en vastgelegd als een tabelvermelding die naar de *$MetricsCapacityBlob*-tabel binnen hetzelfde opslagaccount wordt geschreven.

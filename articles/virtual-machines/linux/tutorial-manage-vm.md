@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7dab67b46a2853e9585c88c8e4d4263f844c3b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 487ffffca445fb3f98dcaa6550b0b1b74290b803
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Virtuele Linux-machines maken en beheren met de Azure CLI
 
@@ -91,7 +91,7 @@ exit
 
 ## <a name="understand-vm-images"></a>Inzicht in VM-installatiekopieën
 
-Azure Marketplace bevat vele installatiekopieën die kunnen worden gebruikt voor het maken van virtuele machines. In de vorige stappen is een virtuele machine gemaakt met behulp van een Ubuntu-installatiekopie. In deze stap wordt de Azure CLI gebruikt om op de Marketplace te zoeken naar een CentOS-installatiekopie, die vervolgens wordt gebruikt voor het implementeren van een tweede virtuele machine.  
+Azure Marketplace bevat vele installatiekopieën die kunnen worden gebruikt voor het maken van virtuele machines. In de vorige stappen is een virtuele machine gemaakt met behulp van een Ubuntu-installatiekopie. In deze stap wordt de Azure CLI gebruikt om op de Marketplace te zoeken naar een CentOS-installatiekopie, die vervolgens wordt gebruikt voor het implementeren van een tweede virtuele machine. 
 
 Als u een lijst wilt weergeven van de meest gebruikte installatiekopieën, gebruikt u de opdracht [az vm image list](/cli/azure/vm/image#az_vm_image_list).
 
@@ -136,7 +136,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Als u een virtuele machine wilt implementeren met een specifieke installatiekopie, noteert u de waarde ervan in de kolom *Urn*. Bij het opgeven van de installatiekopie kan het versienummer van de installatiekopie worden vervangen door 'nieuwste', waarmee de meest recente versie van de distributie wordt geselecteerd. In dit voorbeeld wordt het argument `--image` gebruikt om de nieuwste versie van een CentOS 6.5-installatiekopie op te geven.  
+Als u een virtuele machine wilt implementeren met een specifieke installatiekopie, noteert u de waarde in de kolom *Urn*, die bestaat uit de uitgever, aanbieding, SKU en eventueel een versienummer om de installatiekopie te [identificeren](cli-ps-findimage.md#terminology). Bij het opgeven van de installatiekopie kan het versienummer van de installatiekopie worden vervangen door 'nieuwste', waarmee de meest recente versie van de distributie wordt geselecteerd. In dit voorbeeld wordt het argument `--image` gebruikt om de nieuwste versie van een CentOS 6.5-installatiekopie op te geven.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -259,7 +259,7 @@ Een Azure VM kan op een van de vele energiestatussen worden ingesteld. Deze stat
 
 ### <a name="find-power-state"></a>Energiestatus zoeken
 
-Als u de status van een bepaalde virtuele machine wilt ophalen, gebruikt u de opdracht [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Zorg ervoor dat u een geldige naam opgeeft voor de virtuele machine en resourcegroep. 
+Als u de status van een bepaalde virtuele machine wilt ophalen, gebruikt u de opdracht [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). Zorg ervoor dat u een geldige naam opgeeft voor de virtuele machine en resourcegroep. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

@@ -2,10 +2,10 @@
 title: Eindpunten van een klassieke Linux VM instellen | Microsoft Docs
 description: Informatie over het instellen van eindpunten voor een Linux-VM in de Azure portal voor de communicatie met een virtuele Linux-machine in Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: f3749738-1109-4a1d-8635-40e4bd220e91
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: bb82bfc4c5c85b9cacce907578326cab4e518766
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a37c70a0a304ecfa0c3ce205451f456948593ebe
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-set-up-endpoints-on-a-linux-classic-virtual-machine-in-azure"></a>Het instellen van eindpunten op een Linux klassieke virtuele machine in Azure
 Alle Linux virtuele machines die u maakt in Azure met behulp van het klassieke implementatiemodel kunnen automatisch via een particulier netwerkkanaal met andere virtuele machines in dezelfde cloudservice- of virtueel netwerk communiceren. Computers op Internet of een andere virtuele netwerken vereisen echter eindpunten het binnenkomend netwerkverkeer naar een virtuele machine wordt omgeleid. In dit artikel is ook beschikbaar voor [Windows virtuele machines](../../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -36,4 +36,4 @@ Wanneer u een virtuele Linux-machine in de Azure portal maakt, wordt een eindpun
 
 ## <a name="next-steps"></a>Volgende stappen
 * U kunt ook een VM-eindpunt maken met behulp van de [Azure-opdrachtregelinterface](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Voer de **azure vm-eindpunt maken** opdracht.
-* Als u een virtuele machine hebt gemaakt in het Resource Manager-implementatiemodel, kunt u de Azure CLI gebruiken in de modus Resource Manager voor [netwerk beveiligingsgroepen maken](../../../virtual-network/virtual-networks-create-nsg-arm-cli.md) aan verkeer voor beheer met de virtuele machine.
+* Als u een virtuele machine hebt gemaakt in het Resource Manager-implementatiemodel, kunt u de Azure CLI gebruiken in de modus Resource Manager voor [netwerk beveiligingsgroepen maken](../../../virtual-network/tutorial-filter-network-traffic-cli.md) aan verkeer voor beheer met de virtuele machine.

@@ -1,24 +1,24 @@
 ---
 title: Het beheren van Azure Log Analytics Agent | Microsoft Docs
-description: "In dit artikel beschrijft de verschillende beheertaken die u normaal gesproken wordt uitvoert tijdens de levenscyclus van de Microsoft Monitoring Agent (MMA) op een machine is geïmplementeerd."
+description: In dit artikel beschrijft de verschillende beheertaken die u normaal gesproken wordt uitvoert tijdens de levenscyclus van de Microsoft Monitoring Agent (MMA) op een machine is geïmplementeerd.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
+ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5ff4f79a607143683b37726f1c02a6057dc6b9b0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Beheer en onderhoud van de agent Log Analytics voor Windows en Linux
 
@@ -69,6 +69,34 @@ $mma.ReloadConfiguration()
 >[!NOTE]
 >Als u eerder hebt gebruikt de opdrachtregel of script te installeren of configureren van de agent `EnableAzureOperationalInsights` is vervangen door `AddCloudWorkspace` en `RemoveCloudWorkspace`.
 >
+
+### <a name="linux-agent"></a>Linux-agent
+De volgende stappen laten zien hoe de Linux-agent opnieuw te configureren als u wilt registreren met een andere werkruimte of wilt verwijderen van een werkruimte van de configuratie ervan.  
+
+1.  Voer de volgende opdracht om te controleren of dat deze is geregistreerd met een werkruimte.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Er moet een status vergelijkbaar met het volgende voorbeeld - geretourneerd 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+    Het is belangrijk dat de status ook ziet u de agent wordt uitgevoerd, anders de volgende stappen voor het configureren van de agent niet worden voltooid.  
+
+2. Als deze al is geregistreerd met een werkruimte, verwijdert u de geregistreerde werkruimte door de volgende opdracht uit te voeren.  Anders als dit niet is geregistreerd, gaat u verder met de volgende stap.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
+    
+3. Als u wilt registreren bij een andere werkruimte, voert u de opdracht `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 
+4. Duurde om te controleren of uw wijzigingen invloed, voert u de opdracht.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Er moet een status vergelijkbaar met het volgende voorbeeld - geretourneerd 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+De agent-service hoeft niet opnieuw worden opgestart om de wijzigingen pas van kracht.
 
 ## <a name="update-proxy-settings"></a>Proxy-instellingen bijwerken 
 De agent om te communiceren met de service via een proxyserver configureren of [OMS Gateway](log-analytics-oms-gateway.md) na de implementatie gebruikt u een van de volgende methoden om deze taak te voltooien.
@@ -148,7 +176,7 @@ Het gedownloade bestand voor de agent is een zelfstandig installatiepakket dat i
 3. Typ bij de opdrachtprompt `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Linux-agent
-Voer de volgende opdracht op de Linux-computer voor het verwijderen van de agent.  De *--opschonen* argument haalt de agent en de configuratie.
+Voer de volgende opdracht op de Linux-computer uit om de agent te verwijderen.  Met het argument *--purge* worden de agent en de configuratie ervan volledig verwijderd.
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 

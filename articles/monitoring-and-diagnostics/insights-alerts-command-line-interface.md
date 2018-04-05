@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ea7da35acefc139625e71904c8aa1b01b87e4df
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Klassieke metrische waarschuwingen maken in de Azure-Monitor voor Azure-services - platformoverschrijdende CLI
 > [!div class="op_single_selector"]
@@ -30,11 +30,11 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="overview"></a>Overzicht
 > [!NOTE]
-> In dit artikel wordt beschreven hoe oudere metrische waarschuwingen maken. Azure ondersteunt van de Monitor nu [nieuwere, metrische waarschuwingen voor een betere](monitoring-near-real-time-metric-alerts.md). Deze waarschuwingen kunnen meerdere metrische gegevens controleren en waarschuwen voor dimensionale metrische gegevens mogelijk maken. CLI-ondersteuning voor nieuwere metrische waarschuwingen is binnenkort beschikbaar.
+> In dit artikel wordt beschreven hoe oudere klassieke metrische waarschuwingen maken. Azure ondersteunt van de Monitor nu [nieuwere, metrische waarschuwingen voor een betere](monitoring-near-real-time-metric-alerts.md). Deze waarschuwingen kunnen meerdere metrische gegevens controleren en waarschuwen voor dimensionale metrische gegevens mogelijk maken. CLI-ondersteuning voor nieuwere metrische waarschuwingen is binnenkort beschikbaar.
 >
 >
 
-In dit artikel leest u hoe Azure metrische waarschuwingen met behulp van de platformoverschrijdende opdrachtregelinterface (CLI) instellen.
+In dit artikel leest u hoe Azure classic metrische waarschuwingen met behulp van de platformoverschrijdende opdrachtregelinterface (CLI) instellen.
 
 > [!NOTE]
 > Monitor voor Azure is de nieuwe naam voor wat 'Azure Insights' is aangeroepen tot 25 september 2016. Echter bevatten de naamruimten en dus de onderstaande opdrachten nog steeds de 'inzichten'.
@@ -46,14 +46,14 @@ U kunt een waarschuwing op basis van bewaking metrische gegevens voor of gebeurt
 * **Metrische waarden** -de waarschuwing wordt geactiveerd wanneer de waarde van een opgegeven waarde overschrijdt de drempelwaarde die u in beide richtingen toewijst. Dat wil zeggen, deze beide wordt geactiveerd wanneer de voorwaarde voor het eerst wordt voldaan en vervolgens later wanneer die voorwaarde wordt niet langer wordt voldaan.    
 * **Activiteit logboekgebeurtenissen** -een waarschuwing kunt activeren voor *elke* gebeurtenis of alleen wanneer een bepaalde gebeurtenis zich voordoet. Voor meer informatie over waarschuwingen voor activiteit logboek [Klik hier](monitoring-activity-log-alerts.md)
 
-U kunt het volgende te doen als er wordt een waarschuwing voor metrische configureren:
+U kunt het volgende te doen als er wordt een klassieke metrische-waarschuwing configureren:
 
 * e-mailmeldingen verzenden naar de servicebeheerder en medebeheerders
 * e-mail verzenden naar andere e-mailberichten die u opgeeft.
 * een webhook aanroepen
 * uitvoering van een Azure-runbook (alleen van de Azure-portal op dit moment) starten
 
-U kunt configureren en ophalen van informatie over metrische waarschuwingsregels met
+U kunt configureren en informatie ophalen over klassieke metrische waarschuwingsregels gebruiken
 
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -112,7 +112,7 @@ U kunt altijd help voor opdrachten ontvangen door een opdracht te typen en stell
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-5. Als u webhook maken of e-mail verzenden wanneer een metrische waarschuwing wordt geactiveerd, moet u eerst de e-mailadres en/of webhooks maken. Vervolgens maakt u de regel onmiddellijk daarna. Kan geen koppelt u webhook of e-mailberichten met regels die gebruikmaken van de CLI al is gemaakt.
+5. Als u webhook maken of e-mail verzenden wanneer een klassieke metrische waarschuwing wordt geactiveerd, moet u eerst de e-mailadres en/of webhooks maken. Vervolgens maakt u de regel onmiddellijk daarna. Kan geen koppelt u webhook of e-mailberichten met regels die gebruikmaken van de CLI al is gemaakt.
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com

@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a31c05ed-6ec0-40f3-99ab-8fdd28b1a89a
 ms.service: iot-hub
 ms.devlang: dotnet
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: df0a319cdeabef8c854d7c60c7b90ef775be3ce1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3110e81a7229f8f279609a64949c7f0ce78d338
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Verzenden van berichten vanuit de cloud op uw apparaat met IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Inleiding
 Azure IoT Hub is een volledig beheerde service waarmee stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten inschakelen en een back-end oplossing. De [aan de slag met IoT Hub] zelfstudie laat zien hoe u een iothub maken, een apparaat-id in het inrichten en code van de app voor een apparaat dat apparaat-naar-cloud-berichten verzendt.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Deze zelfstudie bouwt voort op [aan de slag met IoT Hub]. Hier ziet u hoe aan:
 

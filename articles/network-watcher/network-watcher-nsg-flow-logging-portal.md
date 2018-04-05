@@ -5,7 +5,7 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Netwerk groep stroom beveiligingslogboeken in de Azure portal beheren
 
@@ -38,7 +38,10 @@ Groep netwerk-stroom beveiligingslogboeken zijn een functie van netwerk-Watcher 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [maken van een exemplaar van de netwerk-Watcher](network-watcher-create.md). Het scenario wordt ervan uitgegaan dat u hebt een resourcegroep met een geldige virtuele machine.
+Voor het voltooien van de stappen in dit artikel hebt u al in de volgende bronnen:
+
+- Een bestaande netwerk-Watcher. Zie het maken van een netwerk-Watcher [maken van een exemplaar van de netwerk-Watcher](network-watcher-create.md).
+- Een bestaande resourcegroep met een geldige virtuele machine. Als u een virtuele machine geen hebt, raadpleegt u maken een [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) of [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) virtuele machine.
 
 ## <a name="register-insights-provider"></a>Insights provider registreren
 
@@ -68,7 +71,7 @@ Selecteer een netwerkbeveiligingsgroep in de lijst.
 
 ### <a name="step-3"></a>Stap 3 
 
-Op de **stroom logboeken instellingen** blade zet de status op **op**, en configureer vervolgens een opslagaccount.  Wanneer u bent klaar, selecteert u **OK**. Selecteer vervolgens **opslaan**.
+Op de **stroom logboeken instellingen** blade zet de status op **op**, en configureer vervolgens een opslagaccount. Selecteer een bestaand opslagaccount met **alle netwerken** (standaard) geselecteerd onder **Firewalls en virtuele netwerken**onder de **instellingen** voor het opslagaccount. Wanneer u een opslagaccount hebt geselecteerd, selecteer **OK**, en selecteer vervolgens **opslaan**.
 
 ![Overzicht van de stroom-Logboeken][3]
 

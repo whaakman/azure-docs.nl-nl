@@ -1,20 +1,19 @@
 ---
 title: Wat is Azure Machine Learning? | Microsoft Docs
-description: "Overzicht van Azure Machine Learning Experimenten en Modelbeheer, een geïntegreerde end-to-end gegevenswetenschapoplossing voor professionele gegevenswetenschappers waarmee ze geavanceerde analyseapplicaties kunnen ontwikkelen, ermee kunnen experimenteren en ze op cloudschaal kunnen implementeren."
+description: Overzicht van Azure Machine Learning Experimenten en Modelbeheer, een geïntegreerde end-to-end gegevenswetenschapoplossing voor professionele gegevenswetenschappers waarmee ze geavanceerde analyseapplicaties kunnen ontwikkelen, ermee kunnen experimenteren en ze op cloudschaal kunnen implementeren.
 services: machine-learning
-author: haining
-ms.author: haining
-manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: mwinkle
+ms.author: mwinkle
+manager: cgronlun
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: 5535433c478b989e255451a0bf882dfb8ba8f8fe
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: e5716e3fc519c48aaea3ec17939d11008a1b1fd4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-azure-machine-learning"></a>Wat is Azure Machine Learning?
 
@@ -146,72 +145,7 @@ Visual Studio Code-hulpprogramma's voor AI is een extensie in Visual Studio Code
  
 
 ## <a name="what-are-the-machine-learning-options-from-microsoft"></a>Wat zijn de machine learning-opties van Microsoft?
-Behalve Azure Machine Learning zijn er tal van opties in Azure voor het bouwen, implementeren en beheren van machine learning-modellen. 
-* Microsoft Machine Learning Services in SQL Server
-* Microsoft Machine Learning Server
-* Data Science Virtual Machine
-* Spark MLLib in HDInsight
-* Batch AI Training-service
-* Microsoft Cognitive Toolkit
-* Microsoft Cognitive Services
-
-
-### <a name="microsoft-machine-learning-services-in-sql-server"></a>Microsoft Machine Learning-services in SQL Server
-Met [Microsoft Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) kunt u machine learning-modellen uitvoeren, trainen en implementeren met behulp van R of Python. U kunt gegevens gebruiken die zich on-premises en in SQL Server-databases bevinden. 
-
-Gebruik Microsoft Machine Learning Services als u modellen on-premises of binnen Microsoft SQL Server wilt trainen of implementeren. Met Machine Learning-services gebouwde modellen kunnen worden geïmplementeerd met Azure Machine Learning-modelbeheer. 
-
-### <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning Server 
-[Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone) is een enterprise-server voor hosting en beheer van parallelle en gedistribueerde werkbelastingen van R- en Python-processen. Microsoft Machine Learning-Server wordt uitgevoerd op Linux, Windows, Hadoop en Apache Spark. Het is ook beschikbaar is op [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/). Het biedt een engine voor het uitvoeren van oplossingen met behulp van [Microsoft Machine Learning-pakketten](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package), en breidt open source R en Python uit met ondersteuning voor de volgende scenario's:
-
-- krachtige analyse
-- statistische analyse
-- machine learning
-- enorm grote gegevenssets
-
-Functionaliteit met toegevoegde waarde wordt geboden via bedrijfseigen pakketten die bij de server worden geïnstalleerd. Voor ontwikkeling kunt u gebruikmaken van IDE's zoals [R Tools voor Visual Studio](https://www.visualstudio.com/vs/rtvs/) en [Python Tools voor Visual Studio](https://www.visualstudio.com/vs/python/).
-
-Gebruik Microsoft Machine Learning Server als u het volgende wilt doen:
-
-- Met R en Python gebouwde modellen bouwen en implementeren op een server
-- R- en Python-training op grote schaal distribueren op een Hadoop- of Spark-cluster
-
-### <a name="data-science-virtual-machine"></a>Data Science Virtual Machine
-[Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) is een aangepaste VM-installatiekopie op de Azure-cloud van Microsoft, die speciaal is gebouwd voor gegevenswetenschap. DSVM bevat veel populaire gegevenswetenschap- en andere hulpprogramma's die vooraf zijn geïnstalleerd en geconfigureerd voor het snel ontwikkelen van intelligente toepassingen voor geavanceerde analyses. Het is beschikbaar op Windows Server en op Linux. We bieden de Windows-editie van DSVM op Server 2016 en Server 2012. We bieden de Linux-versie van de DSVM op Ubuntu 16.04 LTS en op Linux-distributies op basis van OpenLogic 7.2 CentOS. 
-
-Gebruik Data Science Virtual Machine wanneer u uw taken wilt uitvoeren op hosten op één knooppunt. Of als u uw verwerking op één computer extern omhoog wilt schalen. Data Science Virtual Machine wordt ondersteund als doel voor zowel Azure Machine Learning Experimenten als Azure Machine Learning Modelbeheer. 
-
-### <a name="spark-mllib-in-hdinsight"></a>Spark MLLib in HDInsight
-Met [MLLib Spark in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-ipython-notebook-machine-learning) kunt u modellen maken als onderdeel van Spark-taken die worden uitgevoerd op big data. Met Spark kunt u gegevens eenvoudig transformeren en voorbereiden en vervolgens het maken van modelen uitschalen in één taak. Modellen die zijn gemaakt via Spark MLLib kunnen worden geïmplementeerd, beheerd en bewaakt door Azure Machine Learning Modelbeheer. Trainingsuitvoeringen kunnen worden verzonden en beheerd met Azure Machine Learning Experimenten. Spark kan ook worden gebruikt voor het uitschalen van gegevensvoorbereidingstaken die zijn gemaakt in de Machine Learning Workbench. 
-
-Gebruik Spark als u uw gegevensverwerking wilt uitschalen en modellen wilt maken als onderdeel van een gegevenspijplijn. U kunt Spark-taken maken in Scala, Java, Python of R. 
-
-### <a name="batch-ai-training"></a>Batch AI Training 
-[Azure Batch AI Training](https://aka.ms/batchaitraining) helpt u parallel experimenteren met uw AI-modellen met behulp van elk gewenst framework, en traint ze vervolgens op grote schaal over geclusterde GPU's. Beschrijf de taakvereisten en de configuratie die u wilt uitvoeren, dan doen wij de rest. 
-
-Met Batch AI Training kunt u deep learning uitschalen over geclusterde GPU's, met behulp van frameworks zoals:
-
-- Cognitive Toolkit
-- Caffe
-- Chainer
-- TensorFlow
-
-Azure Machine Learning-Model Management kan worden gebruikt om modellen uit Batch AI Training te nemen om ze te implementeren, beheren controleren.  Batch AI Training wordt in de toekomst geïntegreerd met Azure Machine Learning Experimenten. 
-
-### <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) is een uniforme deep learning-werkset waarin neurale netwerken worden beschreven als calculatiestappen in een gerichte graaf. In deze gerichte graaf vertegenwoordigen bladknooppunten invoerwaarden of netwerkparameters, terwijl andere knooppunten matrixbewerkingen op hun invoer vertegenwoordigen. Met de Cognitive Toolkit kunt u gemakkelijk populaire modeltypen realiseren en combineren, zoals feed-forward DNN's, convolutionele netwerken (CNNs) en recurrente netwerken (RNN's/LSTM's). De toolkit implementeert leren met stochastische gradiëntdaling (SGD, terugpropagatie van fouten) met automatische differentiëring en parallellisatie over meerdere GPU's en servers.
-
-Gebruik de Cognitive Toolkit wanneer u een model wilt opbouwen met behulp van deep learning.  De Cognitive Toolkit kan worden gebruikt in elk van de voorafgaande services.
-
-### <a name="microsoft-cognitive-services"></a>Microsoft Cognitive Services
-Microsoft Cognitieve Services is een set van 30 API's waarmee u apps kunt bouwen die gebruikmaken van natuurlijke communicatiemethoden. Dankzij deze API's kunnen uw apps zien, horen, spreken, begrijpen en onze behoeften interpreteren, met slechts enkele regels code. Voeg eenvoudig intelligente functies toe aan uw apps, zoals: 
-
-- Emotie- en stemmingsdetectie
-- Beeld- en spraakherkenning
-- Taal begrijpen
-- Kennis en zoeken
-
-Microsoft Cognitive Services kan worden gebruikt om apps te ontwikkelen op allerlei apparaten en platforms. De API's worden voortdurend verbeterd, en zijn gemakkelijk in te stellen. 
+Behalve Azure Machine Learning zijn er tal van opties in Azure voor het bouwen, implementeren en beheren van machine learning-modellen. [Hier vindt u informatie daarover.](overview-more-machine-learning.md)
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

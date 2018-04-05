@@ -5,7 +5,7 @@ documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute-circuits en Routeringsdomeinen
  U moet bestellen een *ExpressRoute-circuit* uw on-premises infrastructuur verbinding te maken met Microsoft via een connectiviteitsprovider. De volgende afbeelding ziet een logische representatie van de verbinding tussen uw WAN en Microsoft.
@@ -72,7 +72,7 @@ Zie de [pagina met veelgestelde vragen](expressroute-faqs.md) voor meer informat
 ## <a name="routing-domain-comparison"></a>Vergelijking van routering domein
 De volgende tabel vergelijkt de drie Routeringsdomeinen:
 
-|  | **Persoonlijke Peering** | **Openbare Peering** | **Microsoft Peering*** |
+|  | **Persoonlijke Peering** | **Openbare Peering** (afgeschaft voor nieuw aangemaakte) | **Microsoft Peering** |
 | --- | --- | --- | --- |
 | **Max. # voorvoegsels per peering ondersteund** |4000 standaard 10.000 met ExpressRoute Premium |200 |200 |
 | **IP-adresbereiken ondersteund** |Een geldig IP-adres binnen uw WAN. |Openbare IP-adressen die eigendom zijn van door u of uw connectiviteitsprovider. |Openbare IP-adressen die eigendom zijn van door u of uw connectiviteitsprovider. |
@@ -81,7 +81,7 @@ De volgende tabel vergelijkt de drie Routeringsdomeinen:
 | **Routering Interface IP-adressen** |RFC1918 en openbare IP-adressen |Openbare IP-adressen voor u geregistreerd in routeringsregisters. |Openbare IP-adressen voor u geregistreerd in routeringsregisters. |
 | **MD5-Hash-ondersteuning** |Ja |Ja |Ja |
 
-(*) De laag Premium-invoegtoepassing SKU is vereist
+
 
 U kunt een of meer van de Routeringsdomeinen inschakelen als onderdeel van uw ExpressRoute-circuit. U kunt alle Routeringsdomeinen plaatsen op de dezelfde VPN-verbinding als u wilt samenvoegen tot één routeringsdomein. U kunt ze ook op andere Routeringsdomeinen, vergelijkbaar met het diagram plaatsen. De aanbevolen configuratie is dat privépeering rechtstreeks is verbonden met het Basisnetwerk en de openbare en Microsoft-peering koppelingen zijn verbonden met uw Perimeternetwerk.
 

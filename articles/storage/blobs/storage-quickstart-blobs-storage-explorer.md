@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Quickstart: blobs uploaden, downloaden en vermelden met behulp van Azure Storage Explorer
 
@@ -47,7 +47,7 @@ Wanneer de verbinding tot stand is gebracht, wordt Azure Storage Explorer gelade
 
 Blobs worden altijd naar een container geüpload. Hierdoor kunt u groepen blobs ordenen net zoals u bestanden in mappen op de computer ordent.
 
-Breid het opslagaccount uit dat u hebt gemaakt in de vorige stap, om een container te maken. Selecteer **Blobcontainers**, klik met de rechtermuisknop en selecteer **Blobcontainer maken**. Voer een naam in voor de blobcontainer. Raadpleeg de sectie [Naamgevingsregels voor containers](storage-dotnet-how-to-use-blobs.md#create-a-container) voor een lijst met regels en beperkingen voor namen van blobcontainers. Als u klaar bent, drukt u op **Enter** om de blobcontainer te maken. Als de blobcontainer is gemaakt, wordt deze weergegeven in de map **Blobcontainers** voor het geselecteerde opslagaccount.
+Breid het opslagaccount uit dat u hebt gemaakt in de vorige stap, om een container te maken. Selecteer **Blobcontainers**, klik met de rechtermuisknop en selecteer **Blobcontainer maken**. Voer een naam in voor de blobcontainer. Raadpleeg de sectie [De container maken en machtigingen instellen](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) voor een lijst met regels en beperkingen voor namen van blobcontainers. Als u klaar bent, drukt u op **Enter** om de blobcontainer te maken. Als de blobcontainer is gemaakt, wordt deze weergegeven in de map **Blobcontainers** voor het geselecteerde opslagaccount.
 
 ## <a name="upload-blobs-to-the-container"></a>Blobs uploaden naar de container
 

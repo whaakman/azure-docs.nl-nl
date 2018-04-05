@@ -4,22 +4,22 @@ description: Een Mac of Windows-client het certificaat voor verificatie via cert
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager, azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 04/02/2018
 ms.author: cherylmc
-ms.openlocfilehash: de98201b65f5531f334aded1056f622cecb6e190
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: bf2788fff64ab8b3a5ccf75b8a80f2bd5aba5151
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>Een clientcertificaat voor punt-naar-Site Azure certificaat verificatie verbindingen installeren
 
@@ -29,17 +29,13 @@ Alle clients die verbinding maken met een virtueel netwerk met Azure certificaat
 
 U kunt een clientcertificaat van een basiscertificaat dat is gegenereerd met behulp van de oplossing van een CA voor ondernemingen of een zelfondertekend basiscertificaat genereren. Zie de [PowerShell](vpn-gateway-certificates-point-to-site.md) of [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) instructies voor het stappen. Na het clientcertificaten worden gegenereerd, door ze te exporteren als pfx-bestanden. Zorg dat u de volledige certificaatketen meegenomen bij het exporteren.
 
-## <a name="installwin"></a>Een certificaat installeren op Windows-clients
+## <a name="installwin"></a>Certificaat - Windows installeren
 
 [!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
-## <a name="installmac"></a>Een certificaat installeren op Mac-clients
+## <a name="installmac"></a>Certificaat - Mac installeren
 
 Mac-VPN-clients worden ondersteund voor het Resource Manager-implementatiemodel alleen. Ze worden niet ondersteund voor het klassieke implementatiemodel.
-
-> [!NOTE]
->  IKEv2 is momenteel beschikbaar als preview-product.
->
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 

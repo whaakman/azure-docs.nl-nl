@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Een melding ontvangen wanneer een metrische waarde voldoet aan een voorwaarde
 
@@ -34,20 +34,20 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 2. Zoek en selecteer **Logische app**. Klik op de knop **Maken**.
 
-3. Voer de logische app-gegevens in zoals op de volgende afbeelding wordt weergegeven.  Gebruik de standaardlocatie. Selecteer de optie **Vastmaken aan dashboard**.  Klik op **Maken** wanneer u klaar bent. 
+3. Voer de naam myLogicApp en de resourcegroep myResourceGroup in. Gebruik uw abonnement.  Gebruik de standaardlocatie. Selecteer de optie **Vastmaken aan dashboard**.  Klik op **Maken** wanneer u klaar bent. 
 
-    ![Voer basisinformatie over de logische app in via de portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Voer basisinformatie over de logische app in via de portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
 4. De logische app moet worden vastgemaakt aan het dashboard. Navigeer naar de logische app door erop te klikken.
 
 5. Selecteer in het paneel Logische app de functie **Ontwerper van logische app**
 
-     ![Maak een trigger Terugkeerpatroon in de functie Ontwerper voor logische app in het portalpaneel](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Maak een trigger Terugkeerpatroon in de functie Ontwerper voor logische app in het portalpaneel](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
 6. Stel de waarden in zoals weergegeven in het volgende diagram.
 
-    ![Configureer de logische app-trigger in het portalpaneel](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configureer de logische app-trigger in het portalpaneel](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
 7. Selecteer in de ontwerpfunctie de trigger **Terugkeerpatroon**.
 
@@ -75,7 +75,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 5. U ziet nu een grafiek met het totale aantal uitvoeringen die het afgelopen uur zijn gestart met de logische app. Als u die niet ziet, zorg er dan voor dat u na de bovenstaande stap minstens vijf minuten hebt gewacht, en vernieuw dan uw browser. 
 
-    ![Een grafiek met metrische gegevens tekenen voor de logische app-resource](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Een grafiek met metrische gegevens tekenen voor de logische app-resource](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>Een waarschuwing voor metrische gegevens maken voor uw logische app
 
@@ -87,7 +87,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 4. Voer ten slotte uw e-mailadres in bij **Aanvullende e-mailadressen voor beheerder**. Als u deze waarschuwing hebt ingesteld, ontvangt u een e-mailbericht als uw logische app binnen een periode van 5 minuten meer dan 10 mislukte uitvoeringen heeft.
 
-    ![De logische app-waarschuwing configureren in het portalpaneel](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![De logische app-waarschuwing configureren in het portalpaneel](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Waarschuwingen voor metrische gegevens ontvangen voor de logische app
 1. Als het goed is, ontvangt u binnen enkele ogenblikken een e-mailbericht van Microsoft Azure-waarschuwingen waarin staat dat de waarschuwing is geactiveerd.

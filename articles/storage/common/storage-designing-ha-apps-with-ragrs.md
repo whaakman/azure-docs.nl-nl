@@ -12,28 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: tamram
-ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f7f3f2d99e5582a1bcb672cc176258dfff9c3217
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Maximaal beschikbare toepassingen met behulp van RA-GRS ontwerpen
 
 Een algemene functie van de cloud-gebaseerde infrastructuur zoals Azure Storage is dat ze een maximaal beschikbare platform voor het hosten van toepassingen. Ontwikkelaars van cloud-gebaseerde toepassingen Overweeg zorgvuldig hoe u dit platform voor het leveren van maximaal beschikbare toepassingen voor hun gebruikers. Dit artikel is gericht op hoe ontwikkelaars geografisch redundante opslag met leestoegang (RA-GRS kunt) om ervoor te zorgen dat hun toepassingen met Azure Storage maximaal beschikbaar zijn.
 
-Azure Storage biedt vier opties voor de redundantie voor gegevens in uw opslagaccount:
-
-- LRS (lokaal redundante opslag)
-- ZRS (Zone-redundante opslag) 
-- GRS (geografisch redundante opslag)
-- RA-GRS (geografisch redundante opslag met leestoegang). 
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 Dit artikel is gericht op GRS en RA-GRS. Met GRS worden drie kopieën van uw gegevens worden opgeslagen in de primaire regio die u hebt geselecteerd bij het instellen van het opslagaccount. Drie extra kopieën worden asynchroon worden bijgehouden in een secundaire regio die is opgegeven door Azure. RA-GRS is hetzelfde als GRS, behalve dat u beschikken over leestoegang tot de secundaire kopie. Zie voor meer informatie over de verschillende opties voor Azure Storage-redundantie [Azure Storage-replicatie](https://docs.microsoft.com/azure/storage/storage-redundancy). De replicatie-artikel ziet ook de koppelingen tussen de primaire en secundaire regio's.
 
 Er zijn codefragmenten die zijn opgenomen in dit artikel en een koppeling naar een compleet codevoorbeeld aan het einde die u kunt downloaden en uitvoeren.
+
+> [!NOTE]
+> Azure Storage ondersteunt nu zone-redundante opslag (ZRS) voor het bouwen van maximaal beschikbare toepassingen. ZRS biedt een eenvoudige oplossing voor de redundantie van de behoeften van veel toepassingen. ZRS biedt bescherming tegen hardwarestoringen en onherstelbare rampen in een enkel datacenter. Zie voor meer informatie [Zone-redundante opslag (ZRS): maximaal beschikbare toepassingen voor Azure Storage](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>Belangrijke functies van RA-GRS
 
@@ -105,7 +103,7 @@ Er zijn veel manieren voor het afhandelen van aanvragen voor updates in de modus
 
 Hoe wilt u weten welke fouten herstelbare? Dit wordt bepaald door de storage-clientbibliotheek. Een 404-fout (resource niet gevonden) is bijvoorbeeld niet-herstelbare omdat deze opnieuw proberen is niet waarschijnlijk leiden tot succes. Een 500 fout is aan de andere kant herstelbare omdat het een serverfout is opgetreden, en dit eenvoudig een tijdelijk probleem komen kan. Bekijk voor meer informatie de [open source code voor de klasse ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) in de storage-clientbibliotheek voor .NET. (Zoek naar de methode ShouldRetry).
 
-### <a name="read-requests"></a>Alleen aanvragen
+### <a name="read-requests"></a>Aanvragen lezen
 
 Alleen aanvragen kunnen worden omgeleid naar de secundaire opslag als er een probleem met de primaire opslag. Als opgemerkt in [uiteindelijk consistente gegevens met behulp van](#using-eventually-consistent-data), moet deze zijn aanvaardbaar is voor uw toepassing verouderde gegevens mogelijk lezen. Als u de storage-clientbibliotheek voor toegang tot gegevens van de RA-GRS gebruikt, kunt u het gedrag van een leesaanvraag voor het opnieuw door een waarde voor de **LocationMode** eigenschap in op een van de volgende:
 
@@ -135,7 +133,7 @@ Voor deze scenario's, moet u bepalen dat er een actieve probleem met het primair
 
 Het patroon Circuitonderbreker kan ook worden toegepast voor het bijwerken van aanvragen. Echter worden niet updateaanvragen omgeleid naar secundaire opslag alleen-lezen is. Voor deze aanvragen, laat u de **LocationMode** eigenschap ingesteld op **PrimaryOnly** (de standaardinstelling). U kunt een waarde van toepassing op deze aanvragen – zoals 10 fouten in een rij- en als de drempelwaarde wordt voldaan, schakelt de toepassing in de modus alleen-lezen voor het afhandelen van deze fouten. U kunt dezelfde methoden gebruiken voor het retourneren van modus als die hieronder wordt beschreven in de volgende sectie over het patroon Circuitonderbreker bijwerken.
 
-## <a name="circuit-breaker-pattern"></a>Patroon voor Circuitonderbreker
+## <a name="circuit-breaker-pattern"></a>Patroon Circuitonderbreker
 
 Het patroon Circuitonderbreker gebruiken in uw toepassing kunt voorkomen dat deze opnieuw wordt geprobeerd een bewerking die is waarschijnlijk geen herhaaldelijk. Kunt u de toepassing wordt uitgevoerd in plaats van exponentieel inneemt bij de bewerking is geprobeerd. Daarnaast wordt gedetecteerd wanneer het probleem is opgelost, op dat moment kan de toepassing probeer het opnieuw.
 
@@ -200,18 +198,18 @@ Voor het derde scenario wanneer het eindpunt van de primaire opslag pingen weer 
 
 ## <a name="handling-eventually-consistent-data"></a>Uiteindelijk consistente gegevens verwerken
 
-RA-GRS werkt met het repliceren van transacties van de primaire naar de secundaire regio. Dit replicatieproces zorgt ervoor dat de gegevens in de secundaire regio is *uiteindelijk consistent*. Dit betekent dat alle transacties in de primaire regio uiteindelijk wordt weergegeven in de secundaire regio, maar dat er mogelijk een vertraging voordat ze worden weergegeven en of er is geen garantie de transacties in de secundaire regio in dezelfde volgorde als waarin ze oorspronkelijk zijn toegepast in de primaire regio binnenkomen. Als uw transacties in de secundaire regio volgorde plaatsvinden, u *mogelijk* Houd rekening met uw gegevens in de secundaire regio niet in een inconsistente status totdat de service de resultaten.
+RA-GRS werkt door transacties te repliceren van de primaire naar de secundaire regio. Dit replicatieproces zorgt ervoor dat de gegevens in de secundaire regio is *uiteindelijk consistent*. Dit betekent dat alle transacties in de primaire regio uiteindelijk wordt weergegeven in de secundaire regio, maar dat er mogelijk een vertraging voordat ze worden weergegeven en of er is geen garantie de transacties in de secundaire regio in dezelfde volgorde als waarin ze oorspronkelijk zijn toegepast in de primaire regio binnenkomen. Als uw transacties in de secundaire regio volgorde plaatsvinden, u *mogelijk* Houd rekening met uw gegevens in de secundaire regio niet in een inconsistente status totdat de service de resultaten.
 
 De volgende tabel toont een voorbeeld van wat er gebeuren kan wanneer u de details van een werknemer haar een lid maken van bijwerken de *beheerders* rol. In dit voorbeeld hiervoor moet u bijwerken de **werknemer** entiteit en update een **beheerdersrol** entiteit met een telling van het totale aantal beheerders. U ziet hoe de updates volgorde in de secundaire regio worden toegepast.
 
-| **Tijd** | **Transactie**                                            | **Replicatie**                       | **Tijd van laatste synchronisatie** | **Resultaat** |
+| **Time** | **Transactie**                                            | **Replicatie**                       | **Tijd van laatste synchronisatie** | **Resultaat** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transactie A: <br> Werknemer invoegen <br> entiteit in primaire |                                   |                    | Transactie A ingevoegd op primaire,<br> nog niet gerepliceerd. |
 | T1       |                                                            | Een transactie <br> gerepliceerd naar<br> secundair | T1 | Een transactie is gerepliceerd naar de secundaire. <br>Tijd van laatste synchronisatie is bijgewerkt.    |
 | T2       | Transactie B:<br>Update<br> werknemer-entiteit<br> in primaire  |                                | T1                 | Transactie geschreven naar de primaire B<br> nog niet gerepliceerd.  |
 | T3       | Transactie C:<br> Update <br>Beheerder<br>de entiteit rol in<br>primair |                    | T1                 | Transactie geschreven naar de primaire, C<br> nog niet gerepliceerd.  |
 | *T4*     |                                                       | Transactie C <br>gerepliceerd naar<br> secundair | T1         | Transactie C gerepliceerd naar de secundaire.<br>LastSyncTime niet bijgewerkt, omdat <br>transactie B is nog niet gerepliceerd.|
-| *T 5*     | Entiteiten lezen <br>secundaire                           |                                  | T1                 | Ophalen van de verouderde waarde voor de werknemer <br> entiteit omdat de transactie B nog niet <br> nog gerepliceerd. Ophalen van de nieuwe waarde voor<br> Administrator-rol entiteit omdat C<br> gerepliceerd. Tijd van laatste synchronisatie is nog steeds niet<br> is bijgewerkt, omdat de transactie B<br> nog niet gerepliceerd. U kunt zien de<br>Administrator-rol entiteit komt niet overeen <br>omdat de entiteit datum/tijd na <br>de tijd van laatste synchronisatie. |
+| *T5*     | Entiteiten lezen <br>secundaire                           |                                  | T1                 | Ophalen van de verouderde waarde voor de werknemer <br> entiteit omdat de transactie B nog niet <br> nog gerepliceerd. Ophalen van de nieuwe waarde voor<br> Administrator-rol entiteit omdat C<br> gerepliceerd. Tijd van laatste synchronisatie is nog steeds niet<br> is bijgewerkt, omdat de transactie B<br> nog niet gerepliceerd. U kunt zien de<br>Administrator-rol entiteit komt niet overeen <br>omdat de entiteit datum/tijd na <br>de tijd van laatste synchronisatie. |
 | *T6*     |                                                      | Transactie B<br> gerepliceerd naar<br> secundair | T6                 | *T6* – alle transacties via C hebben <br>zijn gerepliceerd, tijd van laatste synchronisatie<br> is bijgewerkt. |
 
 In dit voorbeeld wordt ervan uitgegaan dat de client overschakelt naar het lezen van de secundaire regio op t 5. Deze kan lezen de **beheerdersrol** entiteit op dit moment, maar de entiteit bevat een waarde op voor het aantal komt niet overeen met het aantal beheerders **werknemer** entiteiten die zijn gemarkeerd als beheerders in de secundaire regio op dit moment. De client kan deze waarde, met het risico dat het inconsistente informatie is gewoon weergeven. U kunt ook de client kan proberen om te bepalen die de **beheerdersrol** is een mogelijk inconsistente status omdat de updates is een ongeldige volgorde, en vervolgens de gebruiker van dit feit informeert.

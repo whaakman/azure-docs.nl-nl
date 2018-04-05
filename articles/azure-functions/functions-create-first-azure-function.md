@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/21/2018
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc, devcenter
-ms.openlocfilehash: c1f7c1a12aea8336b71d6e3eb47037d193841ddb
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: mvc, devcenter, cc996988-fb4f-47
+ms.openlocfilehash: 86cc435a7d632f1cc1b9a0e4a2e6508059d4d675
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Uw eerste functie maken in Azure Portal
 
@@ -40,13 +40,11 @@ U moet een functie-app hebben die als host fungeert voor de uitvoering van uw fu
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
 Vervolgens maakt u een functie in de nieuwe functie-app.
 
 ## <a name="create-function"></a>Een door HTTP geactiveerde functie maken
 
-1. Vouw de nieuwe functie-app uit en klik vervolgens op de knop  **+**  naast **Functies**.
+1. Vouw de nieuwe functie-app uit en klik vervolgens op de knop **+** naast **Functies**.
 
 2.  Selecteer op de pagina **Ga snel aan de slag** de optie **WebHook + API**, **Kies een taal** voor uw functie en klik op **Deze functie maken**. 
    

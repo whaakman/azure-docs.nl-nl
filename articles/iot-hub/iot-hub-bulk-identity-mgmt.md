@@ -14,21 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 74645f3fdece14790311592a0fdd4ce6570a5bae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 97b0e4c4dd8c67fdcd422fb04b7c32815b6c3fdb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Beheren van uw IoT Hub apparaat-id's in bulk
 
 Elke IoT-hub heeft een id-register die kunt u per apparaat om resources te maken in de service. De id-register kunt u ook toegang tot het apparaat gerichte-eindpunten. In dit artikel wordt beschreven hoe importeren en exporteren van apparaat-id's in bulk naar en van een id-register.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Importeren en exporteren bewerkingen plaatsvinden in de context van *taken* waarmee u kunt het uitvoeren van de service bulkbewerkingen tegen een IoT-hub.
 
 De **RegistryManager** klasse bevat de **ExportDevicesAsync** en **ImportDevicesAsync** methoden die gebruikmaken van de **taak** framework. Deze methoden kunnen u exporteren, importeren en synchroniseren van het geheel van een id-register van IoT hub.
 
 In dit onderwerp beschrijft het gebruik van de **RegistryManager** klasse en **taak** system bulkimport en uitvoer van apparaten en naar een IoT-hub identiteitsregister uit te voeren. U kunt ook de Azure IoT Hub apparaat inrichtingsservice gebruiken om in te schakelen zonder tussenkomst, just-in-time inrichten van een of meer IoT hubs zonder menselijke tussenkomst. Zie voor meer informatie, de [documentatie service inrichten][lnk-dps].
+
 
 ## <a name="what-are-jobs"></a>Wat zijn taken?
 

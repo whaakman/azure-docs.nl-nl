@@ -2,7 +2,7 @@
 title: Toegang tot Azure-resources met Privileged Identity Management (PIM) beheren
 description: Meer informatie over het gebruik van toegangsbeheer op basis van rollen in PIM voor toegang tot Azure-resources.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: skwan
 manager: mtillman
 editor: bryanla
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
-ms.author: skwan
-ms.openlocfilehash: 1f31d8b76351ac8871f8a5b03d513f7b6704c709
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 03/30/2018
+ms.author: billmath
+ms.openlocfilehash: 1e74579ef2f0e18f23a40dfc573177938b9b726f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="manage-access-to-azure-resources-with-privileged-identity-management-preview"></a>Beheren van toegang tot Azure-resources met Privileged Identity Management (Preview)
+# <a name="manage-access-to-azure-resources-with-privileged-identity-management"></a>Toegang tot Azure-resources met Privileged Identity Management beheren
 
 Om te voorkomen dat bevoegde accounts cyberbeveiliging-aanvallen, kunt u Azure Active Directory Privileged Identity Management (PIM) Verlaag de blootstellingstijd van bevoegdheden en vergroot de zichtbaarheid van het gebruik door middel van rapporten en waarschuwingen. PIM doet dit door gebruikers in het maken van alleen op hun bevoegdheden 'just in time' te beperken (Just in time), of door het toewijzen van bevoegdheden gedurende een kortere periode waarna bevoegdheden automatisch worden ingetrokken. 
 

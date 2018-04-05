@@ -1,31 +1,46 @@
+---
+title: Globale distributie met Azure DB Cosmos
+description: Leer hoe u gegevens globaal kunt repliceren met Azure Cosmos DB in Azure Portal
+services: cosmos-db
+author: mimig1
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 03/26/2018
+ms.author: mimig
+ms.custom: include file
+ms.openlocfilehash: b62d1cc3b7ea79adbf24f214ba3bb9e92c3a1f0c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 03/28/2018
+---
+Bekijk de volgende video voor meer informatie over globale distributie met Azure Cosmos DB. In deze video bespreekt Andrew Liu, Program Manager van Azure Cosmos DB, de functionaliteit van globale distributie.
 
-U kunt meer informatie over Azure Cosmos DB globale distributiepunten in deze Azure vrijdag video met Scott Hanselman en Principal Engineering Manager Karthik Raman.
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+Zie [Gegevens globaal distribueren met Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md) voor meer informatie over hoe globale databasereplicatie werkt in Azure Cosmos DB.
 
-Zie voor meer informatie over hoe globale databasereplicatie in Azure Cosmos DB werkt, [Distribueer gegevens globaal met Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
+## <a id="addregion"></a>Globale databaseregio's toevoegen met Azure Portal
+Azure Cosmos DB is wereldwijd beschikbaar in alle [Azure-regio's][azureregions]. Nadat u het standaardconsistentieniveau voor uw databaseaccount hebt geselecteerd, kunt u een of meer regio's aan het account koppelen (afhankelijk van uw keuze van het standaardconsistentieniveau en behoeften voor globale distributie).
 
-## <a id="addregion"></a>Globale database regio's met de Azure-Portal toevoegen
-Azure Cosmos DB is beschikbaar in alle [Azure-regio's] [ azureregions] wereldwijd. Na het selecteren van het standaardniveau voor consistentie voor het account van uw database, koppelt u een of meer regio's (afhankelijk van uw keuze standaard consistentie niveau en globale distributie moet).
-
-1. In de [Azure-portal](https://portal.azure.com/), klik in de linkerbalk op **Azure Cosmos DB**.
-2. In de **Azure Cosmos DB** blade, selecteer de database-account te wijzigen.
-3. Klik op de accountblade **globaal gegevens repliceren** in het menu.
-4. In de **globaal gegevens repliceren** blade, selecteer de regio's toevoegen of verwijderen door te klikken op gebieden in de kaart en klik vervolgens op **opslaan**. Er is een kosten voor het toevoegen van regio's, raadpleegt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) of de [gegevens globaal met Azure Cosmos DB distribueren](../articles/cosmos-db/distribute-data-globally.md) artikel voor meer informatie.
+1. Klik in [Azure Portal](https://portal.azure.com/) in de linkerbalk op **Azure Cosmos DB**.
+2. Selecteer op de pagina **Azure Cosmos DB** het databaseaccount dat u wilt wijzigen.
+3. Klik op de accountpagina op **Gegevens globaal repliceren** in het menu.
+4. Selecteer op de pagina **Gegevens globaal repliceren** de regio's die u wilt toevoegen of verwijderen door op de kaart op regio's te klikken. Klik vervolgens op **Opslaan**. Er zijn kosten verbonden aan het toevoegen van regio's. Raadpleeg de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) of het artikel [Gegevens globaal distribueren met Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md) voor meer informatie.
    
-    ![Klik op de regio's in de kaart toevoegen of verwijderen][1]
+    ![Klik op de kaart op de regio's die u wilt toevoegen of verwijderen][1]
     
-Als u een tweede regio toevoegt de **handmatige Failover** optie is ingeschakeld op de **globaal gegevens repliceren** blade in de portal. Deze optie kunt u het failoverproces van testen of de regio primaire schrijven wijzigen. Als u een derde regio toevoegt de **Failover prioriteiten** optie is ingeschakeld op de blade dezelfde zodat u kunt de failovervolgorde voor leesbewerkingen wijzigen.  
+Zodra u een tweede regio toevoegt, komt de optie **Handmatige failover** beschikbaar op de pagina **Gegevens globaal repliceren** in de portal. Deze optie kunt u gebruiken om het failoverproces te testen of om de primaire regio voor schrijfbewerkingen te wijzigen. Als u een derde regio toevoegt, komt op dezelfde pagina de optie **Failoverprioriteiten** beschikbaar. Hiermee kunt u de failovervolgorde voor leesbewerkingen wijzigen.  
 
-### <a name="selecting-global-database-regions"></a>Globale database regio's selecteren
-Er zijn twee algemene scenario's voor het configureren van twee of meer gebieden:
+### <a name="selecting-global-database-regions"></a>Globale databaseregio's selecteren
+Er zijn twee gangbare scenario's voor het configureren van twee of meer regio's:
 
-1. Lage latentie toegang leveren om gegevens naar eindgebruikers ongeacht waar ze zich overal ter wereld bevinden te
-2. Toevoegen van regionale tolerantie voor bedrijfscontinuïteit en herstel na noodgevallen (BCDR)
+1. Gegevenstoegang met lage latentie bieden aan eindgebruikers, ongeacht waar deze zich bevinden
+2. Regionale tolerantie toevoegen voor bedrijfscontinuïteit en herstel na noodgevallen (BCDR)
 
-Voor het leveren van lage latentie voor eindgebruikers, is het raadzaam zowel de toepassing implementeren en toevoegen van Azure Cosmos-database in de regio's die overeenkomen met het is aan waar gebruikers van de toepassing zich bevinden.
+In het eerste geval wordt het aanbevolen om zowel de toepassing als Azure Cosmos DB te implementeren in de regio's die overeenkomen met de gebieden waar de gebruikers van de toepassing zich bevinden.
 
-Voor BCDR, wordt aanbevolen om toe te voegen regio's op basis van de regio-paren die wordt beschreven in de [zakelijke continuïteit en herstel na noodgevallen (BCDR): Azure-gebieden gekoppeld] [ bcdr] artikel.
+Voor BCDR wordt het aanbevolen om regio's toe te voegen op basis van de regioparen die worden beschreven in het artikel [Bedrijfscontinuïteit en herstel na noodgevallen (BCDR): gekoppelde Azure-regio’s][bcdr].
 
 <!--
 

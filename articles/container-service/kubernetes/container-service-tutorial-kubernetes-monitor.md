@@ -1,6 +1,6 @@
 ---
 title: Zelfstudie voor Azure Container Service - Kubernetes bewaken
-description: Zelfstudie voor Azure Container Service - Kubernetes bewaken met Microsoft Operations Management Suite (OMS)
+description: Zelfstudie voor Azure Container Service - Kubernetes bewaken met Log Analytics
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,24 +9,24 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 965ce4b7e154684fc1d171c90f17498afc828a66
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e7d55f1579ce45a39f9b07225bc88c8ef8ff6b66
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Kubernetes-cluster bewaken met Operations Management Suite
+# <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Een Kubernetes-cluster bewaken met Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Het is erg belangrijk om uw Kubernetes-cluster en -containers te bewaken, vooral wanneer u een productiecluster op schaal bewaakt met meerdere apps. 
 
-U kunt gebruikmaken van meerdere Kubernetes-bewakingsoplossingen, zowel van Microsoft als van derden. In deze zelfstudie bewaakt u het Kubernetes-cluster met behulp van Containers in [Operations Management Suite](../../operations-management-suite/operations-management-suite-overview.md), de cloud-IT-beheeroplossing van Microsoft. (OMS Containers is beschikbaar als preview-versie.)
+U kunt gebruikmaken van meerdere Kubernetes-bewakingsoplossingen, zowel van Microsoft als van derden. In deze zelfstudie bewaakt u het Kubernetes-cluster met behulp van Containers in [Log Analytics](../../operations-management-suite/operations-management-suite-overview.md), de cloud-IT-beheeroplossing van Microsoft. (Containers is beschikbaar als preview-versie.)
 
 In deze zelfstudie, deel zeven van zeven, komen de volgende taken aan bod:
 
 > [!div class="checklist"]
-> * Instellingen voor OMS Workspace ophalen
+> * Werkruimte-instellingen voor Log Analytics ophalen
 > * OMS-agenten instellen op de Kubernetes-knooppunten
 > * Toegang tot de bewakingsgegevens in de OMS-portal of in Azure Portal
 
@@ -40,11 +40,19 @@ Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u t
 
 Als u de [OMS-portal](https://mms.microsoft.com) opent, gaat u naar **Instellingen** > **Verbonden bronnen** > **Linux-servers**. Hier vindt u de *werkstroom-id* en een primaire of secundaire *werkruimtesleutel*. Noteer deze waarden. U hebt ze nodig om OMS-agenten voor het cluster in te stellen.
 
+## <a name="create-kubernetes-secret"></a>Kubernetes-geheim maken
+
+Sla de instellingen van de Log Analytics-werkruimte op in een Kubernetes-geheim met de naam `omsagent-secret`. Doe dit met behulp van de opdracht [kubectl create secret][kubectl-create-secret]. Werk `WORKSPACE_ID` bij met de id van uw Log Analytics-werkruimte en `WORKSPACE_KEY` met de sleutel van de werkruimte.
+
+```console
+kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
+```
+
 ## <a name="set-up-oms-agents"></a>OMS-agenten instellen
 
 Hier ziet u een YAML-bestand waarmee u OMS-agenten op de eindpunten van het Linux-cluster kunt instellen. Er wordt een Kubernetes-[DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) gemaakt, die één identieke pod op elk clusterknooppunt uitvoert. De resource DaemonSet is zeer geschikt voor het implementeren van een bewakingsagent. 
 
-Sla de volgende tekst op in een bestand met de naam `oms-daemonset.yaml` en vervang de waarden in de tijdelijke aanduidingen met *myWorkspaceID* en *myWorkspaceKey* door de OMS Workspace-id en -sleutel. (Tijdens productie kunt u deze waarden als geheimen coderen.)
+Sla de volgende tekst op in een bestand met de naam `oms-daemonset.yaml` en vervang de waarden in de tijdelijke aanduidingen met *myWorkspaceID* en *myWorkspaceKey* door de id en sleutel van de Log Analytics-werkruimte. (Tijdens productie kunt u deze waarden als geheimen coderen.)
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -56,20 +64,13 @@ spec:
   metadata:
    labels:
     app: omsagent
-    agentVersion: v1.3.4-127
-    dockerProviderVersion: 10.0.0-25
+    agentVersion: 1.4.3-174
+    dockerProviderVersion: 1.0.0-30
   spec:
    containers:
      - name: omsagent 
        image: "microsoft/oms"
        imagePullPolicy: Always
-       env:
-       - name: WSID
-         value: myWorkspaceID
-       - name: KEY 
-         value: myWorkspaceKey
-       - name: DOMAIN
-         value: opinsights.azure.com
        securityContext:
          privileged: true
        ports:
@@ -82,6 +83,11 @@ spec:
           name: docker-sock
         - mountPath: /var/log 
           name: host-log
+        - mountPath: /etc/omsagent-secret
+          name: omsagent-secret
+          readOnly: true
+        - mountPath: /var/lib/docker/containers 
+          name: containerlog-path  
        livenessProbe:
         exec:
          command:
@@ -90,13 +96,27 @@ spec:
          - ps -ef | grep omsagent | grep -v "grep"
         initialDelaySeconds: 60
         periodSeconds: 60
+   nodeSelector:
+    beta.kubernetes.io/os: linux    
+   # Tolerate a NoSchedule taint on master that ACS Engine sets.
+   tolerations:
+    - key: "node-role.kubernetes.io/master"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"     
    volumes:
     - name: docker-sock 
       hostPath:
        path: /var/run/docker.sock
     - name: host-log
       hostPath:
-       path: /var/log
+       path: /var/log 
+    - name: omsagent-secret
+      secret:
+       secretName: omsagent-secret
+    - name: containerlog-path
+      hostPath:
+       path: /var/lib/docker/containers 
 ```
 
 Maak de DaemonSet met de volgende opdracht:
@@ -118,15 +138,15 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         0            3           <none>          5m
 ```
 
-Wanneer de agents worden uitgevoerd, duurt het een aantal minuten voordat de OMS de gegevens heeft opgenomen en verwerkt.
+Wanneer de agents worden uitgevoerd, duurt het een aantal minuten voordat Log Analytics de gegevens heeft opgenomen en verwerkt.
 
 ## <a name="access-monitoring-data"></a>Toegang tot bewakingsgegevens
 
-Bekijk en analyseer met de [Container-oplossing](../../log-analytics/log-analytics-containers.md) de bewakingsgegevens van de OMS-container. U kunt dit doen in de OMS-portal of in Azure Portal. 
+Bekijk en analyseer met de [Container-oplossing](../../log-analytics/log-analytics-containers.md) de bewakingsgegevens van de container. U kunt dit doen in de OMS-portal of in Azure Portal. 
 
 Als u de Container-oplossing wilt installeren via de [OMS-portal](https://mms.microsoft.com), gaat u naar **Oplossingengalerie**. Voeg vervolgens **Container-oplossing** toe. U kunt de Containers-oplossing ook toevoegen vanaf [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-Zoek in de OMS-portal, op het OMS-dashboard, naar een overzichtstegel **Containers**. Klik op de tegel voor details, waaronder: containergebeurtenissen, fouten, status, voorraad installatiekopieën en CPU- en geheugengebruik. Klik voor meer gedetailleerde informatie op een rij op een tegel of voer een [zoekopdracht in een logboek](../../log-analytics/log-analytics-log-searches.md) uit.
+Zoek in de OMS-portal naar de overzichtstegel **Containers** in het dashboard. Klik op de tegel voor details, waaronder: containergebeurtenissen, fouten, status, voorraad installatiekopieën en CPU- en geheugengebruik. Klik voor meer gedetailleerde informatie op een rij op een tegel of voer een [zoekopdracht in een logboek](../../log-analytics/log-analytics-log-searches.md) uit.
 
 ![Dashboard Containers in OMS-portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
@@ -136,10 +156,10 @@ Zie de [Azure Log Analytics-documentatie](../../log-analytics/index.yml) voor ge
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u uw Kubernetes-cluster met OMS bewaakt. Behandelde taken zijn:
+In deze zelfstudie hebt u uw Kubernetes-cluster bewaakt met Log Analytics. Behandelde taken zijn:
 
 > [!div class="checklist"]
-> * Instellingen voor OMS Workspace ophalen
+> * Werkruimte-instellingen voor Log Analytics ophalen
 > * OMS-agenten instellen op de Kubernetes-knooppunten
 > * Toegang tot de bewakingsgegevens in de OMS-portal of in Azure Portal
 

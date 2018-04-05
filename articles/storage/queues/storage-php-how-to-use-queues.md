@@ -3,8 +3,8 @@ title: Hoe Queue storage gebruiken met PHP | Microsoft Docs
 description: Informatie over het gebruik van de Azure Queue storage-service maken en verwijderen van wachtrijen, en invoegen, ophalen en verwijderen van berichten. Voorbeelden zijn geschreven in PHP.
 documentationcenter: php
 services: storage
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 7582b208-4851-4489-a74a-bb952569f55b
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 01/11/2018
-ms.author: tamram
-ms.openlocfilehash: 02ffd817f34ae7d5fa1557db0a74e8ff06ab69fc
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.author: rogarana
+ms.openlocfilehash: ec0c6e22919e84bbaed284e16211ef52e526991d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Queue Storage gebruiken met PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -48,7 +48,7 @@ In deze handleiding, moet u de service-functies voor wachtrij opslag kunnen word
       }
     }
     ```
-2. Download  **[composer.phar] [ composer-phar]**  in de hoofdmap van uw project.
+2. Download **[composer.phar] [ composer-phar]** in de hoofdmap van uw project.
 3. Open een opdrachtprompt en voer de volgende opdracht in de hoofdmap van uw project
    
     ```

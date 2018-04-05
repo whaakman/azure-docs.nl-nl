@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: juanpere
-ms.openlocfilehash: 157f112869f0042e330e6b281367632ca015e890
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e54ba3e3015c7175814c7f4e3330ad2de3819136
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>Apparaatbeheer gebruiken om te zetten van een apparaat firmware-update (.NET/knooppunt)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 In de [aan de slag met Apparaatbeheer] [ lnk-dm-getstarted] zelfstudie, hebt u gezien hoe u de [apparaat twin] [ lnk-devtwin] en [methoden directe] [ lnk-c2dmethod] primitieven op afstand opnieuw opstarten van een apparaat. Deze zelfstudie gebruikt de dezelfde IoT Hub primitieven en ziet u hoe u een end-to-end gesimuleerde firmware-update.  Dit patroon wordt gebruikt in de firmware-update-implementatie voor de [frambozen Pi apparaat implementatie voorbeeld][lnk-rpi-implementation].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 In deze handleiding ontdekt u hoe u:
 
@@ -34,7 +36,7 @@ Aan het einde van deze zelfstudie hebt u een Node.js-consoletoepassing apparaat 
 
 **dmpatterns_fwupdate_service.js**, wordt de reactie die een directe methode wordt aangeroepen in de gesimuleerde apparaattoepassing weergegeven, en regelmatig (elke 500ms) geeft de bijgewerkte gerapporteerde eigenschappen.
 
-**TriggerFWUpdate**, die verbinding maakt met uw IoT-hub aan de apparaat-id eerder hebt gemaakt, ontvangen een directe methode firmwareUpdate, wordt uitgevoerd via een proces met meerdere status om te simuleren een firmware-update inclusief: wachten op voor het downloaden van de installatiekopie, downloaden van de nieuwe installatiekopie en ten slotte de installatiekopie toe te passen.
+**TriggerFWUpdate**, die verbinding maakt met uw IoT-hub aan de apparaat-id eerder hebt gemaakt, ontvangen een directe methode firmwareUpdate, wordt uitgevoerd via een proces met meerdere status om te simuleren een firmware-update inclusief: wachten op de installatiekopie-downloaden downloaden van de nieuwe installatiekopie en ten slotte de installatiekopie toe te passen.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
@@ -107,7 +109,7 @@ In deze sectie maakt u een .NET-consoletoepassing (met C#) die een externe firmw
         
 1. Open in Solution Explorer de **opstartprojecten instellen...**  en zorg ervoor dat de **actie** voor **TriggerFWUpdate** project **Start**.
 
-1. De oplossing bouwen.
+1. Bouw de oplossing.
 
 [!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
 

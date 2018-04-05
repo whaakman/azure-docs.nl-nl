@@ -317,10 +317,6 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: Een containerservice bouwen
           items:
-            - name: Een certificaat in een container gebruiken
-              href: service-fabric-securing-containers.md
-            - name: gMSA instellen voor Windows-containers
-              href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Docker Compose (preview)
               href: service-fabric-docker-compose.md
             - name: Resourcebeheer voor containers en services
@@ -383,22 +379,30 @@
               href: service-fabric-reliable-actors-fabrictransportsettings.md
             - name: ReliableDictionaryActorStateProvider configureren
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
-        - name: Oude Java-toepassing migreren voor ondersteuning van Maven
-          href: service-fabric-migrate-old-javaapp-to-use-maven.md
-        - name: Omgekeerde proxy voor veilige communicatie configureren
-          href: service-fabric-reverseproxy-configure-secure-communication.md
         - name: Een ASP.NET Core-service bouwen
           href: service-fabric-add-a-web-frontend.md
         - name: Beveiliging configureren
           items:
             - name: Toepassingsgeheimen beheren
               href: service-fabric-application-secret-management.md
+            - name: Omgekeerde proxy voor veilige communicatie configureren
+              href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Het opstartscript van een service uitvoeren als lokale gebruiker of systeemaccount
               href: service-fabric-run-script-at-service-startup.md
             - name: Een service uitvoeren als lokale gebruiker of systeemaccount
               href: service-fabric-application-runas-security.md
             - name: Een beveiligingsbeleid voor toegang toewijzen voor eindpunten
               href: service-fabric-assign-policy-to-endpoint.md
+            - name: Een service uitvoeren als AD-gebruiker of -groep
+              href: service-fabric-run-service-as-ad-user-or-group.md
+            - name: Een service uitvoeren als door een groep beheerd serviceaccount
+              href: service-fabric-run-service-as-gmsa.md
+            - name: Een certificaat in een container gebruiken
+              href: service-fabric-securing-containers.md
+            - name: gMSA instellen voor Windows-containers
+              href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: Oude Java-toepassing migreren voor ondersteuning van Maven
+          href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Werken in een Windows-/VS-ontwikkelomgeving
       items:
         - name: Toepassingen beheren in Visual Studio
@@ -501,8 +505,6 @@
               href: service-fabric-cluster-upgrade.md
             - name: Toegangsbeheer instellen
               href: service-fabric-cluster-security-roles.md
-            - name: Configureren
-              href: service-fabric-cluster-fabric-settings.md
             - name: Een poort in de load balancer openen
               href: create-load-balancer-rule.md
             - name: Clustercertificaten beheren
@@ -525,14 +527,8 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: Schalen
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: Beveiliging configureren
-              items:
-                - name: Toegangsbeheer instellen
-                  href: service-fabric-cluster-security-roles.md
-                - name: Een service uitvoeren als AD-gebruiker of -groep
-                  href: service-fabric-run-service-as-ad-user-or-group.md
-                - name: Een service uitvoeren als door een groep beheerd serviceaccount
-                  href: service-fabric-run-service-as-gmsa.md
+            - name: Toegangsbeheer instellen
+              href: service-fabric-cluster-security-roles.md
             - name: Configureren
               href: service-fabric-cluster-manifest.md
             - name: Upgraden
@@ -614,6 +610,8 @@
       href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
     - name: REST
       href: /rest/api/servicefabric
+    - name: Clusterinstellingen en upgradebeleid voor infrastructuur configureren
+      href: service-fabric-cluster-fabric-settings.md
     - name: XML-schema van servicemodel
       href: service-fabric-service-model-schema.md
     - name: Omgevingsvariabelen

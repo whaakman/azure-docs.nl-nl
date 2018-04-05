@@ -2,10 +2,10 @@
 title: DPM back-up werkbelastingen naar Azure-portal gebruiken | Microsoft Docs
 description: Een inleiding tot de back-ups van DPM-servers via de Azure Backup-service
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: 
+editor: ''
 keywords: System Center Data Protection Manager, data protection manager, back-up van dpm
 ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 05917705264965afda873fb32a28b70e4da87aa3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Met DPM voorbereiden op het maken van back-ups van workloads in Azure
 > [!div class="op_single_selector"]
@@ -94,7 +94,7 @@ Een Recovery Services-kluis maken:
    Zodra uw kluis is gemaakt, wordt het in de portal geopend.
 
 ### <a name="set-storage-replication"></a>Opslagreplicatie instellen
-U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante opslag en lokaal redundante opslag. Uw kluis heeft standaard geografisch redundante opslag. Laat de optie ingesteld op geografisch redundante opslag als dit uw primaire back-up is. Kies lokaal redundante opslag als u een goedkopere optie wilt die niet zo duurzaam is. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante](../storage/common/storage-redundancy.md#locally-redundant-storage) opslag in het [overzicht van Azure Storage-replicatie](../storage/common/storage-redundancy.md).
+U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante opslag en lokaal redundante opslag. Uw kluis heeft standaard geografisch redundante opslag. Laat de optie ingesteld op geografisch redundante opslag als dit uw primaire back-up is. Kies lokaal redundante opslag als u een goedkopere optie wilt die niet zo duurzaam is. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy-grs.md) en [lokaal redundante](../storage/common/storage-redundancy-lrs.md) opslag in het [overzicht van Azure Storage-replicatie](../storage/common/storage-redundancy.md).
 
 De instelling voor opslagreplicatie bewerken:
 

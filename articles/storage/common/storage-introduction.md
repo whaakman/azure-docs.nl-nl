@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Inleiding tot Microsoft Azure Storage
 
@@ -147,7 +147,7 @@ Om ervoor te zorgen dat uw gegevens duurzaam zijn, heeft Azure Storage de mogeli
 
 **Lokaal redundante opslag (LRS)**
 
-Lokaal redundante opslag (LRS) is zodanig ontworpen dat ten minste 99,999999999% (11 9’s) de duurzaamheid van objecten in een bepaald jaar geven. Dit betekent dat er meerdere kopieën van uw gegevens worden beheerd door Azure Storage in het datacenter dat is opgegeven tijdens de configuratie van het opslagaccount. Wanneer wijzigingen worden vastgelegd, worden alle kopieën bijgewerkt en wordt pas daarna de bewerking als voltooid gezien. Dit betekent dat de replica's altijd zijn gesynchroniseerd. Bovendien zijn de kopieën opgeslagen in afzonderlijke foutdomeinen en upgrade-domeinen, wat inhoudt dat de gegevens zelfs beschikbaar zijn als een opslagknooppunt met uw gegevens uitvalt of offline wordt gezet om te worden bijgewerkt.
+Lokaal redundante opslag (LRS) is zodanig ontworpen dat ten minste 99,999999999% (11 9's) duurzaamheid van objecten in een bepaald jaar wordt geboden. Dit betekent dat er meerdere kopieën van uw gegevens worden beheerd door Azure Storage in het datacenter dat is opgegeven tijdens de configuratie van het opslagaccount. Wanneer wijzigingen worden vastgelegd, worden alle kopieën bijgewerkt en wordt pas daarna de bewerking als voltooid gezien. Dit betekent dat de replica's altijd zijn gesynchroniseerd. Bovendien zijn de kopieën opgeslagen in afzonderlijke foutdomeinen en upgrade-domeinen, wat inhoudt dat de gegevens zelfs beschikbaar zijn als een opslagknooppunt met uw gegevens uitvalt of offline wordt gezet om te worden bijgewerkt.
 
 **Zone-redundante opslag (ZRS) (Preview)**
 

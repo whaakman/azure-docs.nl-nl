@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: 7f69b5268adc857c6e45f8fa11fbcca42f64b71f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b3d9d45da0fb62445867d13c9dff7502af77e8a8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>VPN-apparaten en IPSec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen
 
@@ -81,9 +81,13 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 >
 > (\*\*) Routers uit de ISR 7200-serie bieden alleen ondersteuning voor PolicyBased VPN's.
 
-## <a name="Download VPN device configuration scripts from Azure"></a>VPN-apparaat configuratiescripts downloaden van Azure
+## <a name="configscripts"></a>VPN-apparaat configuratiescripts downloaden van Azure
 
 Voor bepaalde apparaten, kunt u downloaden configuratiescripts rechtstreeks uit Azure. Zie voor meer informatie en instructies [downloaden VPN-apparaat configuratiescripts](vpn-gateway-download-vpndevicescript.md).
+
+### <a name="devices-with-available-configuration-scripts"></a>Apparaten met beschikbare configuratiescripts
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="additionaldevices"></a>Niet-gevalideerde VPN-apparaten
 
@@ -158,10 +162,10 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Geen         |
 | 2 |AES256        |SHA1              |Geen         |
-| 3 |3DES          |SHA1              |None         |
-| 4 |AES256        |SHA256            |Geen         |
-| 5 |AES128        |SHA1              |Geen         |
-| 6 |3DES          |SHA256            |None         |
+| 3 |3DES          |SHA1              |Geen         |
+| 4 |AES256        |SHA256            |None         |
+| 5 |AES128        |SHA1              |None         |
+| 6 |3DES          |SHA256            |Geen         |
 
 #### <a name="azure-gateway-as-responder"></a>Azure-Gateway als antwoorder
 
@@ -169,7 +173,7 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Geen         |
 | 2 |AES256        |SHA1              |Geen         |
-| 3 |3DES          |SHA1              |Geen         |
+| 3 |3DES          |SHA1              |None         |
 | 4 |AES256        |SHA256            |Geen         |
 | 5 |AES128        |SHA1              |None         |
 | 6 |3DES          |SHA256            |None         |
@@ -188,7 +192,7 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 | 19|AES256        |SHA256            |14           |
 | 20|AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
-| 22|AES128        |SHA256            |Geen         |
+| 22|AES128        |SHA256            |None         |
 | 23|AES128        |SHA256            |1            |
 | 24|AES128        |SHA256            |2            |
 | 25|AES128        |SHA256            |14           |

@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Een inleiding tot Azure gebeurtenis raster
 
@@ -33,25 +33,26 @@ Op dit moment ondersteunt raster gebeurtenis de volgende gebieden:
 *   VS - west
 *   VS - west 2
 
-Dit artikel bevat een overzicht van Azure Event raster. Als u aan de slag met Event raster wilt, Zie [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md). De volgende afbeelding toont hoe gebeurtenis raster uitgevers en handlers verbinding maakt, maar biedt geen een uitgebreide lijst met ondersteunde opties.
+Dit artikel bevat een overzicht van Azure Event raster. Als u aan de slag met Event raster wilt, Zie [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md). De volgende afbeelding toont hoe gebeurtenis raster bronnen en handlers verbinding maakt, maar biedt geen een uitgebreide lijst met ondersteunde opties.
 
 ![Gebeurtenis raster functionele model](./media/overview/functional-model.png)
 
-## <a name="event-publishers"></a>Gebeurtenisuitgevers
+## <a name="event-sources"></a>Bronnen van gebeurtenissen
 
-De volgende Azure-services hebt op dit moment wordt de uitgever van de ingebouwde ondersteuning voor de gebeurtenis raster:
+Op dit moment ondersteunen de volgende Azure-services te gebeurtenis raster verzenden gebeurtenissen:
 
 * Azure-abonnementen (beheerbewerkingen)
 * Aangepaste-onderwerpen
 * Event Hubs
 * IoT Hub
 * Resourcegroepen (beheerbewerkingen)
+* Service Bus
 * Storage Blob
 * Opslag voor algemene doeleinden v2 (GPv2)
 
 ## <a name="event-handlers"></a>Gebeurtenis-handlers
 
-De volgende Azure-services hebt op dit moment handler ingebouwde ondersteuning voor gebeurtenis raster: 
+Op dit moment ondersteunen de volgende Azure-services verwerking van gebeurtenissen van gebeurtenis raster: 
 
 * Azure Automation
 * Azure Functions
@@ -60,7 +61,7 @@ De volgende Azure-services hebt op dit moment handler ingebouwde ondersteuning v
 * Microsoft Flow
 * WebHooks
 
-Wanneer u Azure Functions als de handler, gebruikt u de trigger gebeurtenis raster in plaats van de algemene HTTP-triggers. Gebeurtenis raster valideert automatisch gebeurtenis raster functie triggers. U moet implementeren met algemene HTTP-triggers de [validatie antwoord](security-authentication.md#webhook-event-delivery).
+Wanneer u Azure Functions als de handler, gebruikt u de trigger gebeurtenis raster in plaats van de algemene HTTP-triggers. Functie-triggers van Event Grid worden namelijk automatisch gevalideerd. Bij gebruik van algemene HTTP-triggers moet u een [validatie-antwoord](security-authentication.md#webhook-event-delivery) implementeren.
 
 ## <a name="concepts"></a>Concepten
 

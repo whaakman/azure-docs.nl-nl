@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="web-application-firewall-waf"></a>Web Application Firewall (WAF)
 
@@ -44,7 +44,7 @@ Dit zijn de belangrijkste voordelen van Application Gateway en Web Application F
 
 * U controleert op aanvallen tegen de webtoepassing door een real-time logboek van WAF te raadplegen. Dit logboek is geïntegreerd met [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) om waarschuwingen en logboeken van WAF bij te houden en gemakkelijk trends te ontdekken.
 
-* WAF zal binnenkort worden geïntegreerd met Azure Security Center. Azure Security Center biedt een centraal overzicht van de beveiligingsstatus van al uw Azure-resources.
+* Aan de slag met Azure Security Center. Azure Security Center biedt een centraal overzicht van de beveiligingsstatus van al uw Azure-resources.
 
 ### <a name="customization"></a>Aanpassing
 
@@ -114,7 +114,7 @@ In Application Gateway WAF kunnen de volgende twee modi worden geconfigureerd:
 
 ### <a name="application-gateway-waf-reports"></a>Bewaking met WAF
 
-Het bewaken van de status van uw toepassingsgateway is belangrijk. De status van Web Application Firewall zelf, en van de toepassingen die ermee worden beveiligd, kan worden gecontroleerd via logboekregistratie en integratie met Azure Monitor, Azure Security Center (binnenkort) en Log Analytics.
+Het bewaken van de status van uw toepassingsgateway is belangrijk. De status van Web Application Firewall zelf, en van de toepassingen die ermee worden beveiligd, kan worden gecontroleerd via logboekregistratie en integratie met Azure Monitor, Azure Security Center en Log Analytics.
 
 ![diagnostische gegevens](./media/application-gateway-web-application-firewall-overview/diagnostics.png)
 
@@ -124,7 +124,7 @@ Elke toepassingsgateway is geïntegreerd met [Azure Monitor](../monitoring-and-d
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../security-center/security-center-intro.md) helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Toepassingsgateway nu [geïntegreerd in Azure Security Center](application-gateway-integration-security-center.md). Azure Security Center scant uw omgeving op niet-beveiligde webtoepassingen. Application Gateway WAF kan worden aanbevolen om deze kwetsbare resources te beschermen. U kunt Application Gateway WAF rechtstreeks maken vanuit Azure Security Center.  Deze WAF-exemplaren zijn geïntegreerd met Azure Security Center en sturen waarschuwingen en statusinformatie terug naar Azure Security Center voor rapportage.
+[Azure Security Center](../security-center/security-center-intro.md) helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Toepassingsgateway is [geïntegreerd in Azure Security Center](application-gateway-integration-security-center.md). Azure Security Center scant uw omgeving op niet-beveiligde webtoepassingen. Application Gateway WAF kan worden aanbevolen om deze kwetsbare resources te beschermen. U kunt Application Gateway WAF rechtstreeks maken vanuit Azure Security Center.  Deze WAF-exemplaren zijn geïntegreerd met Azure Security Center en sturen waarschuwingen en statusinformatie terug naar Azure Security Center voor rapportage.
 
 ![afbeelding 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 

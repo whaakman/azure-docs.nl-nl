@@ -2,7 +2,7 @@
 title: Aan de slag met Azure Data Lake Store met Azure Portal | Microsoft Docs
 description: Azure Portal gebruiken om een Data Lake Store-account te maken en basisbewerkingen in Data Lake Store uit te voeren
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91ed55e5f12c10e67653bdadfca80bd072779711
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Aan de slag met Azure Data Lake Store met Azure Portal
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 ## <a name="create-an-azure-data-lake-store-account"></a>Een Azure Data Lake Store-account maken
 
 1. Meld u aan bij de nieuwe [Azure Portal](https://portal.azure.com).
-2. Klik op **Een resource maken**, klik op **Gegevens en opslag** en klik vervolgens op **Azure Data Lake Store**. Lees de informatie op de blade **Azure Data Lake Store** en klik vervolgens op **Maken** in de linkerbenedenhoek van het blad.
+2. Klik op **Een resource maken > Opslag > Data Lake Store**.
 3. In de blade **Nieuwe Data Lake Store** geeft u de waarden op zoals u ze in de volgende schermafbeelding ziet:
    
     ![Een nieuw Azure Data Lake Store-account maken](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Een nieuw Azure Data Lake Store-account maken")
@@ -50,7 +50,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
    * **Versleutelingsinstellingen**. Er zijn drie opties:
      
      * **Geen versleuteling inschakelen**.
-     * **Sleutels gebruiken die worden beheerd door Azure Data Lake**.  Als u wilt dat Azure Data Lake Store uw versleutelingssleutels beheert.
+     * **Sleutels gebruiken die worden beheerd door Data Lake Store**.  Als u wilt dat Azure Data Lake Store uw versleutelingssleutels beheert.
      * **Sleutels gebruiken uit uw eigen Key Vault**. U kunt een bestaande Azure Key Vault selecteren of een nieuwe Key Vault maken. Als u de sleutels uit een Key Vault wilt gebruiken, moet u machtigingen voor het Azure Data Lake Store-account toewijzen voor toegang tot de Azure Key Vault. Zie [Machtigingen toewijzen aan Azure Key Vault](#assign-permissions-to-azure-key-vault) voor instructies.
        
         ![Versleuteling van Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Versleuteling van Data Lake Store")
@@ -61,7 +61,7 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 
 4. Klik op **Create**. Als u ervoor kiest om het account vast te maken aan het dashboard, gaat u terug naar het dashboard en ziet u de voortgang van de inrichting van uw Data Lake Store-account. Wanneer het Data Lake Store-account is ingericht, wordt de accountblade weergegeven.
 
-### <a name="assign-permissions-to-azure-key-vault"></a>Machtigingen toewijzen aan Azure Key Vault
+## <a name="assign-permissions-to-azure-key-vault"></a>Machtigingen toewijzen aan Azure Key Vault
 Als u de sleutels uit een Azure Key Vault hebt gebruikt om versleuteling voor het Data Lake Store-account te configureren, moet u de toegang tussen het Azure Data Lake Store-account en de Azure Key Vault configureren. Volg hiervoor de volgende stappen.
 
 1. Als u sleutels uit de Azure Key Vault hebt gebruikt, wordt boven aan de blade voor het Data Lake Store-account een waarschuwing weergegeven. Klik op de waarschuwing om **Versleuteling** te openen.
@@ -87,7 +87,7 @@ Als u de sleutels uit een Azure Key Vault hebt gebruikt om versleuteling voor he
 ## <a name="createfolder"></a>Mappen maken in Azure Data Lake Store-account
 U kunt onder uw Data Lake Store-account mappen maken om gegevens te beheren en op te slaan.
 
-1. Open het Data Lake Store-account dat u hebt gemaakt. Klik in het linkerdeelvenster op **Bladeren**, klik op **Data Lake Store** en klik vervolgens op de blade Data Lake Store op de accountnaam waaronder u mappen wilt maken. Als u het account hebt vastgemaakt aan het startboard, klikt u op de tegel voor dat account.
+1. Open het Data Lake Store-account dat u hebt gemaakt. Klik in het linkerdeelvenster op **Alle resources** en klik in de blade Alle resources op de accountnaam waaronder u mappen wilt maken. Als u het account hebt vastgemaakt aan het startboard, klikt u op de tegel voor dat account.
 2. Klik op de blade van het Data Lake Store-account op **Gegevensverkenner**.
    
     ![Mappen maken in het Data Lake Store-account](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Mappen maken in het Data Lake Store-account")

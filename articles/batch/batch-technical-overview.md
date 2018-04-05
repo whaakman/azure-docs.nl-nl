@@ -4,7 +4,7 @@ description: Meer informatie over het gebruik van de Azure Batch-service voor gr
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: jkabat
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,15 +15,15 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b784e64962569f22cba3bc52b6a4e9443a4587d5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-is-azure-batch"></a>Wat is Azure Batch?
 
-Met Azure Batch kunt u grootschalige parallelle en HPC-batchrekentaken (High Performance Computing) efficiënt uitvoeren in Azure. Azure Batch maakt en beheert een pool van rekenknooppunten (virtuele machines), installeert de toepassingen die u wilt uitvoeren, en plant het uitvoeren van taken op de knooppunten. Er is geen cluster- of taakplanner-software die u moet installeren, beheren of schalen. In plaats daarvan gebruikt u [Batch-API's en hulpprogramma's](batch-apis-tools.md), scripts voor de opdrachtregel of Azure Portal voor het configureren, beheren en bewaken van uw taken. 
+Met Azure Batch kunt u grootschalige parallelle en HPC-batchrekentaken (High Performance Computing) efficiënt uitvoeren in Azure. Azure Batch maakt en beheert een pool van rekenknooppunten (virtuele machines), installeert de toepassingen die u wilt uitvoeren, en plant het uitvoeren van taken op de knooppunten. Er is geen cluster- of taakplanner-software die u moet installeren, beheren of schalen. In plaats daarvan gebruikt u [Batch-API's en hulpprogramma's](batch-apis-tools.md), scripts voor de opdrachtregel of de Azure-portal voor het configureren, beheren en bewaken van uw taken. 
 
 Ontwikkelaars kunnen Batch gebruiken als een platformservice voor het bouwen van de SaaS-toepassingen of de client-apps waar grootschalige uitvoering is vereist. Bijvoorbeeld een service met Batch bouwen die een Monte Carlo risicosimulatie uitvoert voor een financiële dienstverlener, of een service voor het verwerken van vele installatiekopieën.
 
@@ -89,9 +89,9 @@ Zie het [Overzicht van de Batch-functies voor ontwikkelaars](batch-api-basics.md
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees een van deze snelstarts om snel aan de slag te gaan met Azure Batch:
+Lees een van deze snelstartgidsen om snel aan de slag te gaan met Azure Batch:
 * [Uw eerste Batch-taak uitvoeren met Azure CLI](quick-create-cli.md)
-* [Uw eerste Batch-taak uitvoeren met Azure Portal](quick-create-portal.md)
+* [Uw eerste Batch-taak uitvoeren met de Azure-portal](quick-create-portal.md)
 * [Uw eerste Batch-taak uitvoeren met de .NET-API](quick-run-dotnet.md)
 * [Uw eerste Batch-taak uitvoeren met de Python-API](quick-run-python.md)
 

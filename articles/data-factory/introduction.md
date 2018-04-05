@@ -2,10 +2,10 @@
 title: Inleiding tot Azure Data Factory | Microsoft Docs
 description: 'Leer wat Azure Data Factory is: een cloudgebaseerde gegevensintegratieservice waarmee de verplaatsing en transformatie van gegevens wordt beheerd en geautomatiseerd.'
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 89f5391cfbfd85f9f0715a8c7d288cc3981cc618
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Wanneer de gegevens eenmaal aanwezig zijn in een gecentraliseerd gegevensarchief
 Nadat de onbewerkte gegevens zijn omgezet in gebruiksklare bedrijfsgegevens, laadt u de gegevens in Azure Data Warehouse, Azure SQL Database, Azure CosmosDB of een andere analyse-engine waar gebruikers in uw bedrijf naar kunnen verwijzen met hun hulpprogramma's voor business intelligence.
 
 ### <a name="monitor"></a>Controleren
-Nadat u uw pijplijn voor gegevensintegratie hebt gemaakt en geïmplementeerd, en op die manier toegevoegde waarde biedt met getransformeerde gegevens, controleert u hoe vaak de geplande activiteiten en pijplijnen slagen en mislukken. Azure Data Factory heeft ingebouwde ondersteuning voor pijplijnbewaking via Azure Monitor, API, PowerShell, Microsoft Operations Management Suite en statusvensters in Azure Portal.
+Nadat u uw pijplijn voor gegevensintegratie hebt gemaakt en geïmplementeerd, en op die manier toegevoegde waarde biedt met getransformeerde gegevens, controleert u hoe vaak de geplande activiteiten en pijplijnen slagen en mislukken. Azure Data Factory heeft ingebouwde ondersteuning voor pijplijnbewaking via Azure Monitor, API, PowerShell, Log Analytics en statusvensters in Azure Portal.
 
 ## <a name="top-level-concepts"></a>Concepten van het hoogste niveau
 Een Azure-abonnement kan een of meer Azure Data Factory-exemplaren (ofwel 'data factory's') hebben. Azure Data Factory bestaat uit vier hoofdonderdelen. Deze onderdelen werken samen om een platform te bieden waarop u gegevensgestuurde werkstromen kunt maken met stappen voor de verplaatsing en transformatie van gegevens.

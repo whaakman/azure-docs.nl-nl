@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c410db9a7255a039ab9b41ae39f2fe1018719f8f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
 In dit artikel beschrijft de opties voor het beveiligen van uw IoT-hub. IoT Hub gebruikt *machtigingen* toegang verlenen tot elk IoT hub-eindpunt. Machtigingen beperken de toegang tot een IoT-hub die op basis van functionaliteit.
 
-Dit artikel wordt beschreven:
+Dit artikel bevat:
 
 * De andere machtigingen die u kunt verlenen aan een apparaat of back-end-app voor toegang tot uw IoT-hub.
 * Het verificatieproces en de tokens die wordt gebruikt om machtigingen te controleren.
 * Het bereik van referenties om toegang tot specifieke bronnen te beperken.
 * IoT Hub-ondersteuning voor het X.509-certificaten.
 * Aangepast apparaat verificatiemechanismen die gebruikmaken van bestaande apparaten identiteit registers of verificatieschema's.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 U moet de juiste machtigingen voor toegang tot een van de IoT Hub-eindpunten hebben. Een apparaat moet bijvoorbeeld een token met beveiligingsreferenties samen met elk bericht dat naar IoT Hub verzendt.
 

@@ -2,10 +2,10 @@
 title: Het apparaat met Azure IoT SDK voor C | Microsoft Docs
 description: Aan de slag met het apparaat met Azure IoT SDK voor C en informatie over het maken van apps voor apparaten die communiceren met een IoT-hub.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e448b061-6bdd-470a-a527-15ec03cca7b9
 ms.service: iot-hub
 ms.devlang: cpp
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: cc559a19f6d7c31b3bc00a74851f4d42719832de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6a85ae65a0f20892b3a20656abac05e90538a1bd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-apparaat SDK voor C
 
 De **Azure IoT-device SDK** is een set van bibliotheken die zijn ontworpen voor het vereenvoudigen van het proces van het verzenden van berichten naar en ontvangen van berichten uit de **Azure IoT Hub** service. Er zijn verschillende variaties van de SDK, elke die gericht is op een specifiek platform, maar in dit artikel beschrijft de **Azure IoT-device SDK voor C**.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Het apparaat met Azure IoT SDK voor C is geschreven in C ANSI (C99) om te maximaliseren draagbaarheid. Deze functie stelt de bibliotheken geschikt bewerkingen uitvoeren op meerdere platforms en apparaten, vooral wanneer het minimaliseren van schijf en geheugengebruik is een prioriteit.
 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 3218778640acc5d08cef94849e25323650c42c6c
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f8b97aeb4c37578b884c924bd1919a59fa0f1cf8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, quota's worden ook wel worden genoemd. Dit document betrekking niet op dit moment op alle Azure-services. Na verloop van tijd wordt de lijst uitgebreid en bijgewerkt ten aanzien van het platform.
@@ -71,7 +71,7 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [IoT Hub](#iot-hub-limits)
 * [Service voor IoT Hub apparaat-inrichting](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
-* [Meld u Analytics / Operational Insights](#log-analytics-limits)
+* [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)

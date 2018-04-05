@@ -2,25 +2,25 @@
 title: Visual Studio Connected Service for Azure Cosmos DB
 description: Biedt ontwikkelaars de mogelijkheid om eenvoudig hun Azure Cosmos DB-account te koppelen en te beheren via Visual Studio Connected Services.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
 manager: DJ
 +tags: cosmos-db
 editor: Jenny Jiang
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 93be368d34f02e64d11abe9a04b11272ce18124d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio Connected Service (Preview)
 
@@ -36,11 +36,13 @@ Zorg ervoor dat u over de volgende zaken beschikt:
 * Een Azure Cosmos DB-account. Als u dit nog niet hebt, volgt u de stappen in [Een Azure Cosmos DB-account maken](create-sql-api-dotnet.md) om een account te maken op de Azure Portal of raadpleegt u [Een Azure Cosmos DB-account maken in het hulpprogramma Connected Service](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
 * Als u een lokale omgeving wilt gebruiken voor ontwikkelingsdoeleinden, kunt u de [Azure Cosmos DB Emulator](local-emulator.md) gebruiken. In deze omgeving wordt de Azure Cosmos DB Service geëmuleerd.
 * [Visual Studio](http://www.visualstudio.com/).
-* De meest recent Azure Cosmos DB Connected Service Bits. U kunt Azure Cosmos DB Connected Service downloaden op de Visual Studio-Marketplace zoals geïllustreerd in de volgende schermopname. Open **Visual Studio** op uw computer. In het menu **Tools** selecteert u **Extensions and update...**. Kies vervolgens **Online** / **Visual Studio Marketplace**. Voer **cosmosdb** in om de bits te zoeken.
+* De meest recent Azure Cosmos DB Connected Service Bits. U kunt Azure Cosmos DB Connected Service downloaden op de Visual Studio-Marketplace zoals geïllustreerd in de volgende schermopname. Open **Visual Studio** op uw computer. In het menu **Extra** selecteert u **Extensies en updates...**. Vervolgens kiest u **Online** / **Visual Studio Marketplace**. Voer **cosmosdb** in om de bits te zoeken.
 
     U kunt ook Azure Cosmos DB Connected Service installeren via [Visual Studio Marketplace](https://go.microsoft.com/fwlink/?linkid=858709).
 
     ![Schermopname van download van Connected Service: bits.png](./media/connected-service/connected-service-downloadbits.png) 
+
+Zodra u de Azure Cosmos DB Connected Service-extensie hebt gedownload, sluit u Visual Studio om de extensie te installeren.
 
 ## <a id="SetupVS"></a>Uw Visual Studio-oplossing instellen
 1. Open **Visual Studio** op uw computer.

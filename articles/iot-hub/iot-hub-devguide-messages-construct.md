@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5979c0d79a0abd9897fd3970ccea1d9ba07f9dfd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Maken en IoT Hub berichten lezen
 
-IoT Hub definieert ter ondersteuning naadloze interoperabiliteit van alle protocollen, een gemeenschappelijke berichtindeling voor alle apparaten gerichte protocollen. Deze berichtindeling wordt gebruikt voor zowel [apparaat-naar-cloud] [ lnk-d2c] en [cloud-naar-apparaat] [ lnk-c2d] berichten. Een [IoT Hub bericht] [ lnk-messaging] bestaat uit:
+IoT Hub definieert ter ondersteuning naadloze interoperabiliteit van alle protocollen, een gemeenschappelijke berichtindeling voor alle apparaten gerichte protocollen. Deze berichtindeling wordt gebruikt voor zowel [apparaat-naar-cloud] [ lnk-d2c] en [cloud-naar-apparaat] [ lnk-c2d] berichten. 
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+Een [IoT Hub bericht] [ lnk-messaging] bestaat uit:
 
 * Een set *Systeemeigenschappen*. Eigenschappen die IoT Hub worden geïnterpreteerd of ingesteld. Deze verzameling is een vooraf vastgesteld.
 * Een set *toepassingseigenschappen*. Een woordenlijst van eigenschappen van een verbindingsreeks die de toepassing kunt definiëren en toegang zonder deserialiseren van de berichttekst. IoT Hub wordt nooit wijzigt deze eigenschappen.

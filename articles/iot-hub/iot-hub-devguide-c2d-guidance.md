@@ -2,10 +2,10 @@
 title: Opties voor Azure IoT Hub cloud-naar-apparaat | Microsoft Docs
 description: Handleiding voor ontwikkelaars - richtlijnen voor wanneer rechtstreekse methoden van apparaat twin gewenste eigenschappen of cloud-naar-apparaat-berichten gebruiken voor communicatie van cloud-naar-apparaat.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: dc8256022aca37823245ecb9a9326240f1c449c2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Cloud-naar-apparaat communicatie richtlijnen
 IoT Hub biedt drie opties voor apparaat-apps om functionaliteit om een back-endserver voor apps weer te geven:
@@ -26,6 +26,8 @@ IoT Hub biedt drie opties voor apparaat-apps om functionaliteit om een back-ends
 * [Directe methoden] [ lnk-methods] voor communicatie waarvoor onmiddellijke bevestiging van het resultaat. Rechtstreekse methoden worden vaak gebruikt voor interactief beheer van apparaten zoals het inschakelen van een ventilator.
 * [Dubbele eigenschappen van de gewenste] [ lnk-twins] voor langlopende opdrachten bedoeld voor het plaatsen van het apparaat in een bepaalde status gewenst. Bijvoorbeeld, het interval voor het verzenden van telemetrie ingesteld op 30 minuten.
 * [Cloud-naar-apparaatberichten] [ lnk-c2d] voor eenzijdige meldingen naar de apparaat-app.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Hier volgt een gedetailleerde vergelijking van de verschillende communicatieopties van cloud-naar-apparaat.
 

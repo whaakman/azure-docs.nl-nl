@@ -1,6 +1,6 @@
 ---
-title: Azure beheerde toepassing StorageAccountSelector UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Storage.StorageAccountSelector UI-element voor beheerde Azure-toepassingen
+title: Azure StorageAccountSelector UI-element | Microsoft Docs
+description: Beschrijft het Microsoft.Storage.StorageAccountSelector UI-element voor Azure-portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 366a862acc15decf6a8e19f875d5d052695f373c
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: ca66b788af68699b4750e1e2826b6a6b104c72c7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAccountSelector UI-element
-Een besturingselement voor het selecteren van een nieuwe of bestaande opslagaccount. Gebruik van dit element wanneer [maken van een Azure-toepassing beheerd](publish-service-catalog-app.md).
+Een besturingselement voor het selecteren van een nieuwe of bestaande opslagaccount.
 
 ## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
@@ -51,7 +51,7 @@ Een besturingselement voor het selecteren van een nieuwe of bestaande opslagacco
 - Indien opgegeven, `defaultValue.name` automatisch wordt gevalideerd voor uniekheid. Als de opslagaccountnaam is niet uniek is, moet de gebruiker Geef een andere naam of kies een bestaand opslagaccount.
 - De standaardwaarde voor `defaultValue.type` is **Premium_LRS**.
 - Een type dat niet is opgegeven in `constraints.allowedTypes` is verborgen, en een type dat niet is opgegeven in `constraints.excludedTypes` wordt weergegeven.
-`constraints.allowedTypes`en `constraints.excludedTypes` zijn beide optioneel, maar niet gelijktijdig worden gebruikt.
+`constraints.allowedTypes` en `constraints.excludedTypes` zijn beide optioneel, maar niet gelijktijdig worden gebruikt.
 - Als `options.hideExisting` is **true**, de gebruiker een bestaand opslagaccount niet kiezen. De standaardwaarde is **false**.
 
 
@@ -66,6 +66,5 @@ Een besturingselement voor het selecteren van een nieuwe of bestaande opslagacco
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot beheerde toepassingen, [overzicht van Azure Managed toepassing](overview.md).
 * Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](create-uidefinition-elements.md).

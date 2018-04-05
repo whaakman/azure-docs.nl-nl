@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2372b6bd91dfb1c33456b42e91aa2496532796ef
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk
 Aanmelden bij uw Azure-SSIS-integratie runtime (IR) naar een Azure-netwerk in de volgende scenario's: 
 
-- Als u beheert de catalogusdatabase van de SQL Server Integration Services (SSIS)-op Azure SQL Database beheerd-instantie (afgeschermd voorbeeld) in een virtueel netwerk.
+- Als u beheert de catalogusdatabase van de SQL Server Integration Services (SSIS)-op Azure SQL Database beheerd-instantie (Preview) in een virtueel netwerk.
 - U wilt verbinding maken met on-premises gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd in een Azure SSIS Integration Runtime.
 
  Azure Data Factory versie 2 (Preview) kunt u uw Azure-SSIS-integratie runtime toevoegen aan een virtueel netwerk gemaakt met behulp van het klassieke implementatiemodel of het Azure Resource Manager-implementatiemodel. 
@@ -34,12 +34,12 @@ Als SSIS-pakketten toegang krijgen de gegevensarchieven alleen openbare cloud to
 
 Als de SSIS-catalogus wordt gehost in een Azure SQL Database-exemplaar dat niet in het virtuele netwerk, moet u de juiste poorten open. 
 
-Als de SSIS-catalogus wordt gehost in beheerde exemplaar van SQL Database in een virtueel netwerk, kunt u deelnemen aan een Azure-SSIS-IR naar:
+Als de SSIS-catalogus wordt gehost in beheerde exemplaar van SQL Database (Preview) in een virtueel netwerk, kunt u deelnemen aan een Azure-SSIS-IR naar:
 
 - Hetzelfde virtuele netwerk.
-- Een ander virtueel netwerk met een netwerk-naar-netwerkverbinding met beheerde exemplaar van SQL Database met. 
+- Een ander virtueel netwerk met een netwerk-naar-netwerkverbinding met met beheerde exemplaar van SQL Database (Preview). 
 
-Het virtuele netwerk kan worden geïmplementeerd via het klassieke implementatiemodel of het Azure Resource Manager-implementatiemodel. Als u van plan bent om te worden toegevoegd aan de Azure-SSIS-IR in de *hetzelfde virtuele netwerk* met beheerde exemplaar van SQL Database, zorg ervoor dat de Azure-SSIS-IR een *ander subnet* uit met SQL-Database Beheerde exemplaar.   
+Het virtuele netwerk kan worden geïmplementeerd via het klassieke implementatiemodel of het Azure Resource Manager-implementatiemodel. Als u van plan bent om te worden toegevoegd aan de Azure-SSIS-IR in de *hetzelfde virtuele netwerk* met beheerde exemplaar van SQL Database (Preview), zorg ervoor dat de Azure-SSIS-IR een *ander subnet* uit met SQL Beheerde exemplaar database (Preview).   
 
 De volgende secties vindt u meer informatie.
 
@@ -60,7 +60,7 @@ Als u nodig hebt voor het implementeren van een netwerkbeveiligingsgroep (NSG) i
 | ---- | --------- | ------------------ | ------- | ----------------------------------- |
 | 10100, 20100, 30100 (als u de IR aan een klassiek virtueel netwerk koppelt)<br/><br/>29876, 29877 (als u de IR aan een virtueel netwerk van Azure Resource Manager koppelt) | Inkomend | TCP | Deze poorten Azure-services gebruiken om te communiceren met de knooppunten van de runtime van uw Azure-SSIS-integratie in het virtuele netwerk. | Internet | 
 | 443 | Uitgaand | TCP | De knooppunten van de runtime van uw Azure-SSIS-integratie in het virtuele netwerk deze poort gebruiken voor toegang tot Azure-services, zoals Azure Storage en Azure Event Hubs. | Internet | 
-| 1433<br/>11000-11999<br/>14000-14999  | Uitgaand | TCP | De knooppunten van de runtime van uw Azure-SSIS-integratie in het virtuele netwerk deze poorten gebruiken voor toegang tot SSISDB gehost door uw Azure SQL Database-server (dit doel is niet van toepassing op SSISDB gehost door beheerde exemplaar van SQL-Database.) | Internet | 
+| 1433<br/>11000-11999<br/>14000-14999  | Uitgaand | TCP | De knooppunten van de runtime van uw Azure-SSIS-integratie in het virtuele netwerk deze poorten gebruiken voor toegang tot SSISDB gehost door uw Azure SQL Database-server (dit doel is niet van toepassing op SSISDB gehost door beheerde exemplaar van SQL Database (Preview).) | Internet | 
 
 ## <a name="azure-portal-data-factory-ui"></a>Azure-portal (Data Factory-UI)
 Deze sectie wordt beschreven hoe u een bestaande Azure SSIS-runtime toevoegen aan een virtueel netwerk (klassiek of Azure resourcemanager) met behulp van de Azure-portal en de Data Factory-gebruikersinterface. Eerst moet u het virtuele netwerk op de juiste wijze configureren voordat u uw Azure-SSIS-IR toevoegt aan het. Ga via een van de volgende twee secties op basis van het type van het virtuele netwerk (klassiek of Azure resourcemanager). Ga vervolgens verder met de derde sectie uw Azure-SSIS-IR koppelen aan het virtuele netwerk. 
@@ -207,7 +207,7 @@ Het script in de [maken van een Azure-SSIS-integratie runtime](create-azure-ssis
 $ResourceGroupName = "<Azure resource group name>"
 $DataFactoryName = "<Data factory name>" 
 $AzureSSISName = "<Specify Azure-SSIS IR name>"
-## These two parameters apply if you are using a virtual network and Azure SQL Database Managed Instance (private preview) 
+## These two parameters apply if you are using a virtual network and Azure SQL Database Managed Instance (Preview) 
 # Specify information about your classic or Azure Resource Manager virtual network.
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
@@ -292,6 +292,6 @@ Zie voor meer informatie over de Azure-SSIS-runtime, in de volgende onderwerpen:
 
 - [Azure-SSIS-integratie runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel bevat conceptuele informatie over de integratie runtimes in het algemeen, met inbegrip van de Azure-SSIS-IR 
 - [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). In dit artikel vindt stapsgewijze instructies voor het maken van een Azure-SSIS-IR Een Azure SQL database wordt gebruikt voor het hosten van de SSIS-catalogus. 
-- [Een Azure-SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel wordt op de zelfstudie wordt uitgebreid en bevat instructies over het gebruik van Azure SQL Database beheerd-instantie (afgeschermd voorbeeld) en de IR toevoegen aan een virtueel netwerk. 
+- [Een Azure-SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel wordt op de zelfstudie wordt uitgebreid en bevat instructies over het gebruik van Azure SQL Database beheerd-instantie (Preview) en de IR toevoegen aan een virtueel netwerk. 
 - [Een Azure-SSIS IR controleren](monitor-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel leest u hoe u informatie over een Azure-SSIS IR ophaalt. Daarnaast bevat het artikel beschrijvingen van statuswaarden die worden gebruikt in de geretourneerde informatie. 
 - [Een Azure-SSIS IR beheren](manage-azure-ssis-integration-runtime.md). In dit artikel leest u hoe u een Azure-SSIS IR stopt, start of verwijdert. Deze ook wordt beschreven hoe u uw Azure-SSIS-IR uitbreiden door knooppunten toe te voegen. 

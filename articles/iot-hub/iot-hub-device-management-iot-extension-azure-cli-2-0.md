@@ -2,10 +2,10 @@
 title: Azure IoT device management met IoT-extensie voor Azure CLI 2.0 | Microsoft Docs
 description: Gebruik de IoT-extensie voor Azure CLI 2.0-hulpprogramma voor Azure IoT Hub Apparaatbeheer, met daarin de rechtstreekse methoden en de Twin eigenschappen van de gewenste opties.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: chrissie926
 manager: timlt
-tags: 
+tags: ''
 keywords: Azure iot-Apparaatbeheer, Apparaatbeheer via azure iot hub, apparaat management iot, Apparaatbeheer via iot hub
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 07b9f14048b6618863efd5bd8eb8bcc8f52ec735
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ceace7331c7548c5b4e27f8529152fd69d5469cd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>De IoT-uitbreiding voor Azure CLI 2.0 wordt gebruikt voor het beheer van Azure IoT Hub-apparaten
 
@@ -27,7 +27,9 @@ ms.lasthandoff: 03/09/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[De IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is een nieuwe open-source IoT-extensie die wordt toegevoegd aan de mogelijkheden van [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) omvat de opdrachten voor interactie met Azure resource manager en beheer-eindpunten. Azure CLI 2.0 bevat opdrachten voor interactie met Azure resource manager en beheer-eindpunten. U kunt bijvoorbeeld Azure CLI 2.0 gebruiken om een virtuele machine in Azure of een IoT-Hub te maken. Extensie van de CLI kunt een Azure-service naar de Azure CLI zodat die u toegang tot extra servicespecifieke mogelijkheden verbeteren. De extensie IoT biedt IoT ontwikkelaars opdrachtregel toegang tot alle IoT Hub, IoT-rand en IoT Hub apparaat-inrichtingsservice mogelijkheden.
+[De IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is een nieuwe open-source IoT-extensie die wordt toegevoegd aan de mogelijkheden van [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest). Azure CLI 2.0 bevat opdrachten voor interactie met Azure resource manager en beheer-eindpunten. U kunt bijvoorbeeld Azure CLI 2.0 gebruiken om een virtuele machine in Azure of een IoT-hub te maken. Extensie van de CLI kunt een Azure-service naar de Azure CLI zodat die u toegang tot extra servicespecifieke mogelijkheden verbeteren. De extensie IoT biedt IoT ontwikkelaars opdrachtregel toegang tot alle IoT Hub, IoT-rand en IoT Hub apparaat-inrichtingsservice mogelijkheden.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 | Beheeroptie          | Taak                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -39,8 +41,7 @@ ms.lasthandoff: 03/09/2018
 
 Zie voor meer gedetailleerde uitleg over de verschillen en richtlijnen over het gebruik van deze opties, [apparaat-naar-cloud communicatie richtlijnen](iot-hub-devguide-d2c-guidance.md) en [Cloud-naar-apparaat communicatie richtlijnen](iot-hub-devguide-c2d-guidance.md).
 
-> [!NOTE]
-> Apparaatdubbels zijn JSON-documenten waarin statusinformatie van een apparaat (metagegevens, configuraties en voorwaarden) zijn opgeslagen. IoT Hub persistente een apparaat twin voor elk apparaat dat verbinding met het maakt. Zie voor meer informatie over apparaat horende [aan de slag met apparaat horende](iot-hub-node-node-twin-getstarted.md).
+Apparaatdubbels zijn JSON-documenten waarin statusinformatie van een apparaat (metagegevens, configuraties en voorwaarden) zijn opgeslagen. IoT Hub persistente een apparaat twin voor elk apparaat dat verbinding met het maakt. Zie voor meer informatie over apparaat horende [aan de slag met apparaat horende](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Wat u leert
 
@@ -61,12 +62,12 @@ Azure CLI 2.0 en de IoT-extensie voor Azure CLI 2.0 uitvoeren met verschillende 
 
 - [Python 2.7 x of Python 3.x](https://www.python.org/downloads/)
 
-- Installeer Azure CLI 2.0. Een eenvoudige manier om te installeren op Windows is downloaden en installeren de [MSI](https://aka.ms/InstallAzureCliWindows). U kunt ook de installatie-instructies volgen op [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) voor het instellen van Azure CLI 2.0 in uw omgeving. Uw versie van Azure CLI 2.0 moet ten minste 2.0.24 of hoger. Gebruik `az –version` om te valideren. 
+- Installeer Azure CLI 2.0. Een eenvoudige manier om Azure CLI 2.0 te installeren in Windows is de [MSI](https://aka.ms/InstallAzureCliWindows) te downloaden en installeren. U kunt ook de installatie-instructies volgen op [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) voor het instellen van Azure CLI 2.0 in uw omgeving. Uw versie van Azure CLI 2.0 moet minimaal versie 2.0.24 of hoger zijn. Gebruik `az –version` om de versie te valideren. 
 
-- De IoT-uitbreiding te installeren. De eenvoudigste manier is om uit te voeren `az extension add --name azure-cli-iot-ext`. [Het Leesmij-bestand extensie IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) beschrijft de verschillende manieren voor het installeren van de extensie.
+- De IoT-uitbreiding te installeren. De eenvoudigste manier is `az extension add --name azure-cli-iot-ext` uit te voeren. [In het Leesmij-bestand bij de IoT-extensie](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) worden verschillende manieren voor het installeren van de extensie beschreven.
 
 
-## <a name="log-in-to-your-azure-account"></a>Aanmelden bij uw Azure-account
+## <a name="log-in-to-your-azure-account"></a>Meld u aan bij uw Azure-account
 
 Meld u aan bij uw Azure-account met de volgende opdracht:
 

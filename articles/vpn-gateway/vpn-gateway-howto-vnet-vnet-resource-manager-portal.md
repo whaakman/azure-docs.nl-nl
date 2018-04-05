@@ -5,7 +5,7 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 03/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: a24bd41adbe26b1905f7817f5e5888e492d234f4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a95fdf078baa35eb9ca8ade462223b204be77d8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van Azure Portal
 
@@ -127,7 +127,7 @@ Wanneer het VNet is gemaakt, kunt u er extra adresruimte en subnetten aan toevoe
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Een gatewaysubnet maken
-Voordat u het virtuele netwerk verbindt met een gateway, moet u eerst het gatewaysubnet maken voor het virtuele netwerk waarmee u verbinding wilt maken. Indien mogelijk is het beste een gatewaysubnet met een CIDR-blok van /28 of /27 te gebruiken zodat er voldoende IP-adressen zijn om aan toekomstige aanvullende configuratievereisten te voldoen.
+Voordat u een virtuele netwerkgateway voor uw virtuele netwerk gaat maken, dient u eerst het gatewaysubnet te maken. Het gatewaysubnet bevat de IP-adressen die door de virtuele netwerkgateway worden gebruikt. Indien mogelijk is het beste een gatewaysubnet met een CIDR-blok van /28 of /27 te gebruiken zodat er voldoende IP-adressen zijn om aan toekomstige aanvullende configuratievereisten te voldoen.
 
 Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [voorbeeldinstellingen](#values) wanneer u het gatewaysubnet maakt.
 

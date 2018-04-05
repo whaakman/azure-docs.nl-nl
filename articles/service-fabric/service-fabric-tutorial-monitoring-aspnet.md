@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 0f51b52d9f4d5c8979ba636311e63089c11cd114
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Zelfstudie: een ASP.NET Core-toepassing in Service Fabric bewaken en onderzoeken
 Deze zelfstudie is deel vier een serie. U doorloopt de stappen om controle en diagnose in te stellen met behulp van Application Insights voor een ASP.NET Core-toepassing die wordt uitgevoerd op een Service Fabric-cluster. U verzamelt de telemetrie van de toepassing die in het eerste deel van deze zelfstudie is ontwikkeld: [Een .NET Service Fabric-toepassing bouwen](service-fabric-tutorial-create-dotnet-app.md). 
@@ -83,7 +83,7 @@ Zorg ervoor dat u de bovenstaande stappen uitvoert voor **beide** services in de
 
 ## <a name="add-the-microsoftapplicationinsightsservicefabricnative-nuget-to-the-services"></a>Voeg de NuGet Microsoft.ApplicationInsights.ServiceFabric.Native toe aan de services
 
-Application Insights heeft twee Service Fabric-specifieke NuGets die afhankelijk van het scenario kunnen worden gebruikt. Eén wordt met de native services van Service Fabric gebruikt, de ander met de containers en uitvoerbare bestanden van derden. In dit geval gebruikt u de NuGet Microsoft.ApplicationInsights.ServiceFabric.Native om het begrip van de servicecontext dat u erdoor krijgt, goed te benutten. Bekijk [Microsoft Application Insights voor Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/develop/README.md) om meer te weten te komen over de Application Insights-SDK en de Service Fabric-specifieke NuGets. 
+Application Insights heeft twee Service Fabric-specifieke NuGets die afhankelijk van het scenario kunnen worden gebruikt. Eén wordt met de native services van Service Fabric gebruikt, de ander met de containers en uitvoerbare bestanden van derden. In dit geval gebruikt u de NuGet Microsoft.ApplicationInsights.ServiceFabric.Native om het begrip van de servicecontext dat u erdoor krijgt, goed te benutten. Bekijk [Microsoft Application Insights voor Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) om meer te weten te komen over de Application Insights-SDK en de Service Fabric-specifieke NuGets. 
 
 Hier volgen de stappen om de NuGet in te stellen:
 1. Klik met de rechtermuisknop op **Oplossing 'Voting'** boven in uw Solution Explorer en klik op **NuGet-pakketten beheren voor Oplossing...**.

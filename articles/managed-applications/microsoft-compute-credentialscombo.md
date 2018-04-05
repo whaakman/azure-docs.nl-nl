@@ -1,6 +1,6 @@
 ---
-title: Azure beheerde toepassing CredentialsCombo UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Compute.CredentialsCombo UI-element voor beheerde Azure-toepassingen
+title: Azure CredentialsCombo UI-element | Microsoft Docs
+description: Beschrijft het Microsoft.Compute.CredentialsCombo UI-element voor Azure-portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8faa36aca762bc8d787d5750fcf7efdbaf986ea
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: c17677a9e34de4c1afca8f04c8bd22c2155c3439
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI-element
-Een groep besturingselementen met ingebouwde validatie voor wachtwoorden voor Windows en Linux- en openbare SSH-sleutels. Gebruik van dit element wanneer [maken van een Azure-toepassing beheerd](publish-service-catalog-app.md).
+Een groep besturingselementen met ingebouwde validatie voor wachtwoorden voor Windows en Linux- en openbare SSH-sleutels.
 
 ## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
 ![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
@@ -82,7 +82,7 @@ Als `osPlatform` is **Linux**, wordt het volgende schema gebruikt:
 ```
 
 ## <a name="remarks"></a>Opmerkingen
-- `osPlatform`moet worden opgegeven en kan **Windows** of **Linux**.
+- `osPlatform` moet worden opgegeven en kan **Windows** of **Linux**.
 - Als `constraints.required` is ingesteld op **true**, en vervolgens het wachtwoord of SSH tekstvakken met openbare sleutels moeten bevatten waarden kan worden gevalideerd. De standaardwaarde is **true**.
 - Als `options.hideConfirmation` is ingesteld op **true**, en vervolgens het tweede tekstvak voor het bevestigen van het wachtwoord van de gebruiker wordt verborgen. De standaardwaarde is **false**.
 - Als `options.hidePassword` is ingesteld op **true**, en vervolgens de optie wachtwoordverificatie te gebruiken, wordt verborgen. Het kan worden gebruikt alleen wanneer `osPlatform` is **Linux**. De standaardwaarde is **false**.
@@ -107,6 +107,5 @@ Als de gebruiker een openbare SSH-sleutel hebt opgegeven, wordt de volgende uitv
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot beheerde toepassingen, [overzicht van Azure Managed toepassing](overview.md).
 * Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](create-uidefinition-elements.md).
