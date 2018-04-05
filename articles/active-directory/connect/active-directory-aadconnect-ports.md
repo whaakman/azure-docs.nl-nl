@@ -91,7 +91,7 @@ Azure AD Connect moet bovendien kunnen rechtstreeks IP-verbinding maken met de [
 
 Azure AD Connect moet bovendien kunnen rechtstreeks IP-verbinding maken met de [Azure datacentrum IP-adresbereiken](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Opnieuw, dit is alleen vereist voor het registratieproces van eenmalige aanmelding.
 
-## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabel 7 a &7;ter - Azure AD Connect Health-agent voor (AD FS/Sync) en Azure AD
+## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabel 7a & 7b - Azure AD Connect Health-agent voor (AD FS/Sync) en Azure AD
 De volgende tabellen beschrijven de eindpunten, poorten en protocollen die vereist voor communicatie tussen Azure AD Connect Health-agents en Azure AD zijn
 
 ### <a name="table-7a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabel 7 - poorten en protocollen voor Azure AD Connect Health-agent voor (AD FS/Sync) en Azure AD
