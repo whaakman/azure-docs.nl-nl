@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9b3c4efc712ebe9c0fe209d2ca0478367872d3b7
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
-ms.translationtype: MT
+ms.openlocfilehash: 9d5e189720a92ca17289d0c9717e9e10bf8691d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -250,7 +250,9 @@ De topologie die wordt weergegeven in de kaart is laag 3-topologie en bevat geen
 
 Alle gegevens die pagina's grafisch weergegeven via het netwerk-Prestatiemeter-dashboard en inzoomen is ook beschikbaar in ingebouwd [logboekanalyse zoeken](log-analytics-log-search-new.md). U kunt interactieve analyses van gegevens in de opslagplaats en correleren van gegevens uit verschillende bronnen. U kunt ook aangepaste waarschuwingen en weergaven maken en de gegevens exporteren naar Excel, Power BI of een deelbaar koppeling. De **algemene query's** gebied in het dashboard heeft enkele nuttig query's die u als startpunt gebruiken kunt voor het maken van uw eigen query's en rapporten. 
 
- 
+##<a name="pricing"></a>Prijzen
+
+Informatie over prijzen [online](log-analytics-network-performance-monitor-pricing-faq.md).
 
 ## <a name="provide-feedback"></a>Feedback geven 
 

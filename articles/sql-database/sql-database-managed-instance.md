@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/03/2018
 ms.author: bonova
-ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een exemplaar beheerd (preview)?
 
@@ -69,6 +69,23 @@ De volgende tabel ziet u enkele eigenschappen, toegankelijk via de Transact-SQL 
 
 ![Eenmalige aanmelding](./media/sql-database-managed-instance/sso.png) 
 
+## <a name="vcore-based-purchasing-model"></a>op basis van vCore aankoopmodel
+
+Op basis van vCore aankoopmodel geeft uw flexibiliteit, controle, transparantie en een eenvoudige manier om te vertalen naar on-premises werklastvereisten naar de cloud. Dit model kunt u scale compute, geheugen en opslag op basis van hun werkbelasting behoeften. Het model vCore is ook in aanmerking voor van 30 procent besparingen met het [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+Een virtuele core vertegenwoordigt de logische CPU aangeboden met de optie te kiezen tussen generaties van hardware.
+- Logische CPU's van de vierde generatie zijn gebaseerd op Intel E5 2673 v3 (Haswell)-processors van 2,4 GHz.
+- Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2.3 GHz-processors.
+
+De volgende tabel helpt u begrijpen hoe u selecteert de optimale configuratie van uw berekenings-, geheugen-, opslag- en i/o-resources.
+
+||Gen 4|Gen 5|
+|----|------|-----|
+|Hardware|Intel E5-2673 v3 (Haswell) 2,4 GHz processors, gekoppeld SSD vCore = 1 PP (fysieke kernen)|Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, snelle eNVM SSD, vCore = 1 LP (hyper-thread)|
+|Prestatieniveaus|8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
+|Geheugen|7GB per vCore|5.5GB per vCore|
+||||
+
 ## <a name="managed-instance-service-tier"></a>Beheerde exemplaar servicelaag
 
 Beheerde exemplaar is beschikbaar in een enkel servicelaag - algemeen - die is ontworpen voor toepassingen met typische beschikbaarheid en algemene vereisten voor i/o-latentie.
@@ -89,11 +106,11 @@ Hieronder worden de belangrijkste functies van de servicelaag voor algemene doel
 
 |Functie | Beschrijving|
 |---|---|
-| Aantal vCores * | 8, 16, 24|
+| Aantal vCores * | 8, 16, 24 (gen 4)<br>8, 16, 24, 32, 40 (Gen5)|
 | SQL Server-versie / bouwen | SQL Server recente (beschikbaar) |
 | Grootte van de opslagruimte min | 32 GB |
 | Maximale opslaggrootte | 8 TB |
-| Maximale opslag per database | 4 TB |
+| Maximale opslag per database | 8 TB |
 | Verwachte opslag IOP 's | 500-7500 IOP's per bestand (afhankelijk van gegevensbestand). Zie [Premium-opslag](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Het aantal gegevensbestanden (rijen) per de database | Meerdere | 
 | Aantal logboekbestanden (LOGBOEKREGISTRATIE) per database | 1 | 
@@ -106,7 +123,7 @@ Hieronder worden de belangrijkste functies van de servicelaag voor algemene doel
 | Portal-ondersteuning | Ja|
 |||
 
-\* Een virtuele core vertegenwoordigt de logische CPU aangeboden met de optie te kiezen tussen generaties van hardware. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell) 2,4 GHz processors en Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2.3 GHz-processors.  
+\* Een virtuele core vertegenwoordigt de logische CPU aangeboden met de optie te kiezen tussen generaties van hardware. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell) 2,4 GHz processors en Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2.3 GHz-processors. 
 
 ## <a name="advanced-security-and-compliance"></a>Geavanceerde beveiliging en naleving van voorschriften 
 
@@ -152,7 +169,7 @@ Dankzij [Azure Active Directory-integratie](sql-database-aad-authentication.md) 
 SQL database-verificatie verwijst naar hoe gebruikers hun identiteit bewijzen bij het verbinden met de database. SQL Database ondersteunt twee typen verificatie:  
 
 - SQL-verificatie met een gebruikersnaam en wachtwoord.
-- Azure Active Directory-verificatie, die gebruikmaakt van identiteiten die worden beheerd door Azure Active Directory en wordt ondersteund voor beheerde en geïntegreerde domeinen.  
+- Azure Active Directory-verificatie, die gebruikmaakt van identiteiten die worden beheerd door Azure Active Directory en wordt ondersteund voor beheerde en geïntegreerde domeinen. 
 
 ### <a name="authorization"></a>Autorisatie
 
@@ -160,11 +177,11 @@ Autorisatie verwijst naar wat een gebruiker binnen een Azure SQL Database kunt u
 
 ## <a name="database-migration"></a>Databasemigratie 
 
-Beheerd exemplaar doelen gebruikersscenario met massaopslag databasemigratie vanaf on-premises of IaaS database implementaties.  Beheerd exemplaar ondersteunt verschillende opties voor de migratie van database: 
+Beheerd exemplaar doelen gebruikersscenario met massaopslag databasemigratie vanaf on-premises of IaaS database implementaties. Beheerd exemplaar ondersteunt verschillende opties voor de migratie van database: 
 
 ### <a name="data-migration-service"></a>Service voor migratie van gegevens
 
-De Azure-Service voor het migreren van Database is een volledig beheerde service die is ontworpen om in te schakelen naadloze migraties uit meerdere databasebronnen naar Azure Data platforms met minimale downtime.   Deze service stroomlijnt de vereiste taken voor het verplaatsen van bestaande van derden en SQL Server-databases naar Azure. Implementatie-opties bevatten Azure SQL Database, exemplaar beheerd en SQL Server in Azure VM op openbare Preview. Zie [uw lokale-database migreren naar beheerde exemplaar met behulp van DMS](https://aka.ms/migratetoMIusingDMS).  
+De Azure-Service voor het migreren van Database is een volledig beheerde service die is ontworpen om in te schakelen naadloze migraties uit meerdere databasebronnen naar Azure Data platforms met minimale downtime. Deze service stroomlijnt de vereiste taken voor het verplaatsen van bestaande van derden en SQL Server-databases naar Azure. Implementatie-opties bevatten Azure SQL Database, exemplaar beheerd en SQL Server in Azure VM op openbare Preview. Zie [uw lokale-database migreren naar beheerde exemplaar met behulp van DMS](https://aka.ms/migratetoMIusingDMS). 
 
 ### <a name="backup-and-restore"></a>Back-ups en herstellen  
 
@@ -174,7 +191,7 @@ De migratie maakt gebruik van SQL-back-ups naar Azure blob storage. Back-ups opg
 
 Beheerde exemplaar doelstellingen leveren bijna serveroppervlaktegebied van 100% compatibel met lokale SQL Server afkomstig in fasen totdat de algemene beschikbaarheid van de service. Voor een functies en vergelijkingslijst Zie [algemene functies van SQL](sql-database-features.md).
  
-Beheerde exemplaar ondersteunt achterwaartse compatibiliteit met SQL 2008-databases.  Directe migratie van SQL 2005-database-servers wordt ondersteund, compatibiliteitsniveau voor de gemigreerde SQL 2005-databases worden bijgewerkt naar SQL 2008. 
+Beheerde exemplaar ondersteunt achterwaartse compatibiliteit met SQL 2008-databases. Directe migratie van SQL 2005-database-servers wordt ondersteund, compatibiliteitsniveau voor de gemigreerde SQL 2005-databases worden bijgewerkt naar SQL 2008. 
  
 Het volgende diagram geeft een overzicht van de compatibiliteit van het oppervlak in beheerde exemplaar:  
 
@@ -182,7 +199,7 @@ Het volgende diagram geeft een overzicht van de compatibiliteit van het oppervla
 
 ### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Belangrijke verschillen tussen de SQL Server on-premises en beheerd exemplaar 
 
-Beheerde exemplaar voordelen van wordt altijd-up-to-date in de cloud, betekent dat voor sommige functies in on-premises SQL-Server kunnen een verouderd, buiten gebruik gesteld of alternatieven zijn.  Er zijn specifieke gevallen wanneer extra wilt dat een bepaalde functie in een iets andere manier werkt of service wordt niet uitgevoerd in een omgeving die u wilt geen volledig controle herkend: 
+Beheerde exemplaar voordelen van wordt altijd-up-to-date in de cloud, betekent dat voor sommige functies in on-premises SQL-Server kunnen een verouderd, buiten gebruik gesteld of alternatieven zijn. Er zijn specifieke gevallen wanneer extra wilt dat een bepaalde functie in een iets andere manier werkt of service wordt niet uitgevoerd in een omgeving die u wilt geen volledig controle herkend: 
 
 - Hoge beschikbaarheid is ingebouwd in en vooraf is geconfigureerd. Altijd op functies voor hoge beschikbaarheid niet worden weergegeven in een dezelfde manier als bij SQL IaaS-implementaties 
 - Automatische back-ups en punt in tijd terugzetten. Klanten kan initiëren `copy-only` back-ups die niet aan de automatische back-keten verstoren. 
@@ -192,7 +209,7 @@ Beheerde exemplaar voordelen van wordt altijd-up-to-date in de cloud, betekent d
  
 ### <a name="managed-instance-administration-features"></a>Beheerde exemplaar-beheerfuncties  
 
-Beheerde exemplaar inschakelen systeembeheerder om zich te richten op wat belangrijk de meest voor bedrijven is. Veel systeembeheerder/DBA activiteiten zijn niet vereist of ze zijn eenvoudige. Bijvoorbeeld, OS / RDBMS-installatie en patchen, dynamische exemplaar vergroten of verkleinen en configuratie, back-ups van databasereplicatie (inclusief systeemdatabases), configuratie voor hoge beschikbaarheid en configuratie van de status en prestaties bewaken van gegevens stromen.  
+Beheerde exemplaar inschakelen systeembeheerder om zich te richten op wat belangrijk de meest voor bedrijven is. Veel systeembeheerder/DBA activiteiten zijn niet vereist of ze zijn eenvoudige. Bijvoorbeeld, OS / RDBMS-installatie en patchen, dynamische exemplaar vergroten of verkleinen en configuratie, back-ups van databasereplicatie (inclusief systeemdatabases), configuratie voor hoge beschikbaarheid en configuratie van de status en prestaties bewaken van gegevens stromen. 
 
 > [!IMPORTANT]
 > Zie voor een lijst van ondersteunde gedeeltelijk ondersteunde en niet-ondersteunde functies [SQL-Database functies](sql-database-features.md). Zie voor een lijst van T-SQL-verschillen in ten opzichte van de SQL Server-exemplaren beheerd [beheerd exemplaar T-SQL verschillen met SQL Server](sql-database-managed-instance-transact-sql-information.md)
