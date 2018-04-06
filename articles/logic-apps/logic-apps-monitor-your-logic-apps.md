@@ -3,9 +3,9 @@ title: Controleer de status, logboekregistratie instellen en ontvang waarschuwin
 description: Status en prestaties voor logische apps bewaken, meld u diagnostische gegevens en waarschuwingen instellen
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, instellen van logboekregistratie van diagnostische gegevens en waarschuwingen inschakelen voor Azure Logic Apps
 
@@ -76,9 +76,9 @@ Als u meldingen over fouten of andere mogelijke problemen, instellen van [waarsc
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Diagnostische gegevens voor uw logische app logboekregistratie inschakelen
 
-Voor uitgebreidere foutopsporing met details van de runtime en gebeurtenissen, kunt u zich aanmelden met diagnostische gegevens instellen [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics is een service in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) die wordt bewaakt uw cloud en on-premises omgevingen om te helpen uw behouden hun beschikbaarheid en prestaties. 
+Voor uitgebreidere foutopsporing met details van de runtime en gebeurtenissen, kunt u zich aanmelden met diagnostische gegevens instellen [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics is een service in Azure die wordt bewaakt uw cloud en on-premises omgevingen om te helpen uw behouden hun beschikbaarheid en prestaties. 
 
-Voordat u begint, moet u een OMS-werkruimte hebt. Meer informatie over [het maken van een OMS-werkruimte](../log-analytics/log-analytics-get-started.md).
+Voordat u begint, moet u een werkruimte voor logboekanalyse hebben. Meer informatie over [het maken van een werkruimte voor logboekanalyse](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. In de [Azure-portal](https://portal.azure.com), zoeken en selecteert u uw logische app. 
 
@@ -90,16 +90,16 @@ Voordat u begint, moet u een OMS-werkruimte hebt. Meer informatie over [het make
 
    ![Logboeken met diagnostische gegevens inschakelen](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Selecteer de OMS-werkruimte en gebeurtenis categorie voor logboekregistratie nu zoals wordt weergegeven:
+4. Selecteer in de categorie voor Log Analytics-werkruimte en de gebeurtenis voor logboekregistratie nu zoals wordt weergegeven:
 
    1. Selecteer **verzenden met logboekanalyse**. 
    2. Onder **logboekanalyse**, kies **configureren**. 
-   3. Onder **OMS werkruimten**, selecteer de OMS-werkruimte moet worden gebruikt voor logboekregistratie.
+   3. Onder **OMS werkruimten**, selecteert u de werkruimte voor logboekanalyse voor logboekregistratie.
    4. Onder **logboek**, selecteer de **WorkflowRuntime** categorie.
    5. Kies een metrische interval.
    6. Als u bent klaar, kiest u **Opslaan**.
 
-   ![Selecteer de OMS-werkruimte en de gegevens voor logboekregistratie](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Selecteer de werkruimte voor logboekanalyse en gegevens voor logboekregistratie](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 U kunt nu gebeurtenissen en andere gegevens zoeken voor trigger-gebeurtenissen, gebeurtenissen en actie uitgevoerd.
 
@@ -113,23 +113,23 @@ Om te zoeken en weergeven van gebeurtenissen in uw logische app, zoals gebeurten
 
    ![Kies 'Log Analytics'](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. Onder **logboekanalyse**, zoeken en selecteert u de OMS-werkruimte. 
+2. Onder **logboekanalyse**, zoeken en selecteert u de werkruimte voor logboekanalyse. 
 
-   ![Selecteer de OMS-werkruimte](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Selecteer de werkruimte voor logboekanalyse](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. Onder **Management**, kies **OMS-Portal**.
 
    ![Kies 'OMS-Portal'](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
-4. Kies op de startpagina OMS **logboek zoeken**.
+4. Kies op de startpagina **logboek zoeken**.
 
-   ![Kies op uw startpagina OMS "Logboek zoeken"](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+   ![Kies op uw startpagina "Logboek zoeken"](media/logic-apps-monitor-your-logic-apps/logsearch.png)
 
    -of-
 
-   ![Kies in het menu OMS "Logboek zoeken"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+   ![Kies in het menu "Logboek zoeken"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. Geef in het zoekvak, een veld dat u wilt zoeken en druk op **Enter**. Wanneer u te typen begint, OMS laat zien u mogelijke overeenkomsten en de bewerkingen die u kunt gebruiken. 
+5. Geef in het zoekvak, een veld dat u wilt zoeken en druk op **Enter**. Wanneer u te typen begint, ziet u mogelijke overeenkomsten en de bewerkingen die u kunt gebruiken. 
 
    Bijvoorbeeld als u zoekt de top 10-gebeurtenissen die hebben plaatsgevonden, invoeren en deze zoekopdracht selecteren: **categorie Zoek == "WorkflowRuntime" | 10 beperken**
 

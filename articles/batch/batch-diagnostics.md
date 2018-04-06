@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Gebeurtenissen voor diagnostische evaluatie en bewaking van Batch-oplossingen
 
@@ -97,7 +97,7 @@ Naast de diagnostische gebeurtenissen in een Azure Storage-account op te slaan, 
   Stream Batch diagnostische gebeurtenissen naar de service voor inkomende gegevens zeer schaalbaar, Event Hubs. Event Hubs kunnen miljoenen gebeurtenissen per seconde die u kunt vervolgens transformeren en opslaan met behulp van een realtime-analyseprovider opnemen.
 * [Azure diagnostische logboeken met logboekanalyse analyseren](../log-analytics/log-analytics-azure-storage.md)
   
-  De diagnostische logboeken verzenden met Log Analytics kunt u ze in de portal Operations Management Suite (OMS) te analyseren, of ze te exporteren voor analyse in Power BI of Excel.
+  De diagnostische logboeken verzenden met Log Analytics kunt u ze in de Azure portal te analyseren, of ze te exporteren voor analyse in Power BI of Excel.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

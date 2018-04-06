@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02553bb59cb37bab21d53adafc42fddcf08795a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure enterprise scaffold - prescriptieve abonnement governance
 Ondernemingen zijn steeds meer gebruik nemen van de openbare cloud voor de wendbaarheid en flexibiliteit. Ze met behulp van de sterkte van de cloud inkomsten te genereren of resources voor het bedrijf optimaliseren. Microsoft Azure biedt een groot aantal services dat ondernemingen zoals bouwstenen voor het oplossen van een breed scala aan werkbelastingen en toepassingen kunnen samenstellen. 
@@ -135,7 +135,7 @@ Azure Resource Manager-beleidsregels zijn een krachtig hulpprogramma in de Azure
 > 
 
 ### <a name="audit---what-happened"></a>Audit - wat is er gebeurd?
-Om weer te geven hoe u uw omgeving werkt, moet u controleren gebruikersactiviteit. De meeste brontypen in Azure maken diagnostische logboeken die u via een hulpprogramma log of in Azure Operations Management Suite kunt analyseren. U kunt activiteitenlogboeken verzamelen meerdere abonnementen op bieden een afdelingen of enterprise-weergave. Controlerecords zijn zowel een belangrijk hulpprogramma voor Netwerkcontrole en een cruciaal mechanisme voor het activeren van gebeurtenissen in de Azure-omgeving.
+Om weer te geven hoe u uw omgeving werkt, moet u controleren gebruikersactiviteit. De meeste brontypen in Azure maken diagnostische logboeken die u via een hulpprogramma log of in de Azure Log Analytics kunt analyseren. U kunt activiteitenlogboeken verzamelen meerdere abonnementen op bieden een afdelingen of enterprise-weergave. Controlerecords zijn zowel een belangrijk hulpprogramma voor Netwerkcontrole en een cruciaal mechanisme voor het activeren van gebeurtenissen in de Azure-omgeving.
 
 Activiteitenlogboeken van implementaties van Resource Manager kunnen u bepalen de **operations** die vond plaats en door wie deze uitgevoerd. Activiteitenlogboeken kunnen worden verzameld en worden geaggregeerd met de hulpprogramma's zoals logboekanalyse.
 

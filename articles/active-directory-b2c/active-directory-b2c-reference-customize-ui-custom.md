@@ -1,8 +1,7 @@
 ---
-title: 'Azure Active Directory B2C: Verwijzen naar: aanpassen van de gebruikersinterface van het traject van een gebruiker met aangepast beleid | Microsoft Docs'
-description: Een onderwerp op Azure Active Directory B2C aangepast beleid
+title: De gebruikersinterface van een gebruiker reis met aangepast beleid aanpassen | Microsoft Docs
+description: Meer informatie over Azure Active Directory B2C aangepast beleid
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
 editor: ''
@@ -11,31 +10,31 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: b0f68f76bfb746b91cb82b2b7e9e750f15f14253
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>De gebruikersinterface van het traject van een gebruiker met aangepast beleid aanpassen
+# <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>De gebruikersinterface van een gebruiker reis met aangepast beleid aanpassen
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
-> Dit artikel is een geavanceerde beschrijving van de werking van UI-aanpassing en het inschakelen van de B2C aangepaste beleidsregels, met behulp van het kader van de gebruikerservaring identiteit
+> Dit artikel is een geavanceerde beschrijving van de werking van UI-aanpassing en inschakelen met Azure AD B2C aangepast beleid, met behulp van het kader van de gebruikerservaring identiteit.
 
 
 Een naadloze gebruikerservaring is de sleutel voor een oplossing voor business-to-consumer. Een naadloze gebruikerservaring is een ervaring op apparaat of de browser, waarbij traject van een gebruiker via de service is niet te onderscheiden van die van de klantenservice die ze gebruiken.
 
 ## <a name="understand-the-cors-way-for-ui-customization"></a>Inzicht in de CORS-manier voor aanpassing van de gebruikersinterface
 
-Azure AD B2C kunt u het ontwerp-en-werking van de gebruikerservaring (UX) op de verschillende pagina's die worden geleverd en weergegeven door Azure AD B2C via uw aangepaste beleidsregels aanpassen.
+Azure AD B2C kunt u het ontwerp-en-werking van de gebruikerservaring (UX) op de verschillende pagina's die worden geleverd en worden weergegeven door Azure AD B2C aanpassen met behulp van uw eigen beleid.
 
 Daartoe Azure AD B2C code in uw consumenten browser wordt uitgevoerd en gebruikt de benadering van moderne en standard [Cross-Origin-Resource delen (CORS)](http://www.w3.org/TR/cors/) aangepaste inhoud laden vanuit een specifieke URL die u opgeeft in een aangepast beleid om te verwijzen naar uw HTML5/CSS-sjablonen. CORS is een mechanisme waarmee beperkte resources, zoals lettertypen, op een webpagina worden aangevraagd vanuit een ander domein buiten het domein waarvan de bron afkomstig is.
 
 Vergeleken met de oude traditionele manier waarop de sjabloonpagina's eigendom zijn van de oplossing waar u opgegeven beperkt tekst en afbeeldingen, waarbij beperkt beheer van indeling en de werking is aangeboden voorloopspaties aan meer dan problemen voor een naadloze ervaring, de CORS-manier ondersteunt HTML5 en CSS en kunnen u:
 
-- De inhoud te hosten en de oplossing injects de besturingselementen die met behulp van de client een script.
+- De inhoud te hosten en de oplossing injects clientscript met besturingselementen.
 - Volledige controle over elke pixel van lay-out en zorgeloos hebben.
 
 U kunt zoveel inhoudspagina's desgewenst door HTML5/CSS-bestanden naar gelang van toepassing op te geven.
@@ -66,7 +65,7 @@ Om ervoor te zorgen dat alles werkt zoals verwacht, moet u het volgende doen:
 - Zorg ervoor dat uw inhoud HTML5 compatibel is en toegankelijk is
 - Zorg ervoor dat de inhoudsserver voor CORS is ingeschakeld.
 - Fungeren inhoud via HTTPS.
-- Absolute URL zoals https://yourdomain/content gebruiken voor alle koppelingen en CSS-inhoud.
+- Absolute URL's gebruiken zoals https://yourdomain/content voor alle koppelingen en CSS-inhoud.
 
 > [!TIP]
 > Controleer of de site die u bij het hosten van uw inhoud op CORS is ingeschakeld en testen van CORS-aanvragen, kunt u de site http://test-cors.org/. Dankzij deze site, kunt u de CORS-aanvraag verzenden naar een externe server (om te testen of CORS wordt ondersteund) of de CORS-aanvraag verzenden naar een testserver (om het verkennen van bepaalde functies van CORS).
@@ -76,7 +75,7 @@ Om ervoor te zorgen dat alles werkt zoals verwacht, moet u het volgende doen:
 
 Dankzij deze benadering op basis van CORS hebben eindgebruikers consistente ervaring tussen uw toepassing en de pagina's die worden bediend door Azure AD B2C.
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Als een vereiste moet u een opslagaccount maken. U moet een Azure-abonnement om een Azure Blob Storage-account te maken. U kunt aanmelden met een gratis proefversie op de [Azure-website](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -115,7 +114,7 @@ Als u de voorgaande stappen hebt gevolgd de HTML5 en CSS-bestanden van de *UI-aa
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Zorg ervoor dat het opslagaccount heeft CORS ingeschakeld
 
-CORS (Cross-Origin Resource Sharing) moet zijn ingeschakeld op uw eindpunt voor Azure AD B2C Premium uw inhoud laden omdat uw inhoud wordt gehost op een ander domein dan het domein van de pagina is voor de Azure AD B2C Premium.
+CORS (Cross-Origin Resource Sharing) moet zijn ingeschakeld op uw eindpunt voor Azure AD B2C om uw inhoud te laden. Dit komt doordat de inhoud wordt gehost op een ander domein dan het domein dat Azure AD B2C wordt de behoeve van de pagina.
 
 Om te controleren of de opslag die zijn voor het hosten van uw inhoud op CORS ingeschakeld is, gaat u verder met de volgende stappen:
 
@@ -161,11 +160,11 @@ De volgende tabel beschrijft de set van inhoud definitie-id's wordt herkend door
 | *api.idpselections.signup* | **Selectie van de id-provider voor registratie**. Deze pagina bevat een lijst met de id-providers die de gebruiker uit tijdens de registratie kiezen kan. Deze providers zijn enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts (op basis van e-mailadres of de gebruiker naam). |
 | *api.localaccountpasswordreset* | **Wachtwoordpagina vergeten**. Deze pagina bevat een formulier dat de gebruiker heeft voor het vervullen van voor het initiëren van hun wachtwoord opnieuw instellen.  |
 | *api.localaccountsignin* | **Aanmeldingspagina voor lokaal account**. Deze pagina bevat een formulier aanmelden met de gebruiker in te vullen wanneer aanmelden met een lokaal account dat is gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan een tekstinvoervak en wachtwoordvak vermelding bevatten. |
-| *api.localaccountsignup* | **Lokaal account aanmeldingspagina**. Deze pagina bevat een teken van een formulier dat de gebruiker heeft in te vullen wanneer aanmelden voor een lokaal account dat is gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan andere invoer besturingselementen zoals tekstinvoervak, vermelding wachtwoordvak keuzerondje, één vervolgkeuzelijsten en meervoudige selectie selectievakjes bevatten. |
-| *api.phonefactor* | **Multi-factor authentication-pagina**. Op deze pagina kunnen gebruikers hun telefoonnummers (met behulp van de tekst of stem) controleren tijdens aanmelding registreert of aanmeldt. |
-| *api.selfasserted* | **De aanmeldpagina sociale account**. Deze pagina bevat een teken van een formulier dat de gebruiker heeft in te vullen wanneer u zich aanmeldt met een bestaand account van een identiteitsprovider van sociale zoals Facebook of Google +. Deze pagina is vergelijkbaar met de voorgaande sociale account registratiepagina met uitzondering van de invoervelden wachtwoord. |
-| *api.selfasserted.profileupdate* | **Update profielpagina**. Deze pagina bevat een formulier dat de gebruiker gebruiken kunt voor hun profiel bijwerken. Deze pagina is vergelijkbaar met de voorgaande sociale account registratiepagina met uitzondering van de invoervelden wachtwoord. |
-| *api.signuporsignin* | **Unified registreren of aanmelden pagina**.  Deze pagina beide sign up verwerkt en aanmelden van gebruikers, die enterprise identiteitsproviders, sociale id-providers zoals Facebook of Google + of lokale accounts kunnen gebruiken.
+| *api.localaccountsignup* | **Lokaal account aanmeldingspagina**. Deze pagina bevat een aanmeldingsformulier hebt ingevuld dat de gebruiker heeft in te vullen wanneer aanmelden voor een lokaal account dat is gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan andere invoer besturingselementen zoals tekstinvoervak, vermelding wachtwoordvak keuzerondje, één vervolgkeuzelijsten en meervoudige selectie selectievakjes bevatten. |
+| *api.phonefactor* | **Multi-factor authentication-pagina**. Gebruikers kunnen hun telefoonnummers (met behulp van de tekst of stem) verifiëren tijdens het registreren of aanmelden op deze pagina. |
+| *api.selfasserted* | **De aanmeldpagina sociale account**. Deze pagina bevat een aanmeldingsformulier hebt ingevuld dat de gebruiker heeft in te vullen tijdens het aanmelden met behulp van een bestaand account van een identiteitsprovider van sociale zoals Facebook of Google +. Deze pagina is vergelijkbaar met de voorgaande sociale account aanmeldpagina met uitzondering van de invoervelden wachtwoord. |
+| *api.selfasserted.profileupdate* | **Update profielpagina**. Deze pagina bevat een formulier dat de gebruiker gebruiken kunt voor hun profiel bijwerken. Deze pagina is vergelijkbaar met de voorgaande sociale account aanmeldpagina met uitzondering van de invoervelden wachtwoord. |
+| *api.signuporsignin* | **Unified registreren of aanmelden pagina**.  Deze pagina verwerkt beide registreren en aanmelden van gebruikers, die enterprise identiteitsproviders, sociale id-providers zoals Facebook of Google + of lokale accounts kunnen gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Naslaginformatie: Inzicht in hoe aangepaste beleidsregels werken met de identiteit ervaring Framework in B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

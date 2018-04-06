@@ -4,7 +4,7 @@ description: Informatie over het in- of HTTPS uitschakelen op uw Azure CDN-eindp
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
-ms.author: casoper
-ms.openlocfilehash: fea7121fc67944b20b8f39007edb0c0aad86aeaa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: rli; v-deasim
+ms.openlocfilehash: 554ae4c19d1a3d35075ad174549a62a20329e5fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>HTTPS configureren op een aangepast domein Azure Content Delivery Network
 
@@ -45,7 +45,7 @@ Volg deze stappen zodat HTTPS op een aangepast domein:
 
 ### <a name="step-1-enable-the-feature"></a>Stap 1: De functie inschakelen 
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar uw Verizon standard of premium CDN-profiel.
+1. In de [Azure-portal](https://portal.azure.com), blader naar uw **Azure CDN Standard van Verizon** of **Azure CDN Premium van Verizon** CDN-profiel.
 
 2. Klik op het eindpunt met uw aangepaste domein in de lijst met eindpunten.
 
@@ -149,7 +149,7 @@ Wanneer u HTTPS op een aangepast domein hebt ingeschakeld, kunt u deze later uit
 
 ### <a name="step-1-disable-the-feature"></a>Stap 1: De functie uitschakelen 
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar uw Verizon standard of premium CDN-profiel.
+1. In de [Azure-portal](https://portal.azure.com), blader naar uw **Azure CDN Standard van Verizon** of **Azure CDN Premium van Verizon** CDN-profiel.
 
 2. Klik op het eindpunt met uw aangepaste domein in de lijst met eindpunten.
 

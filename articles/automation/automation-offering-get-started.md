@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 961b783b44b95a871c98f96d3783f3429636f295
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2fcbbc2532e5cb9963922b4987ba0c7080fdb170
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-azure-automation"></a>Aan de slag met Azure Automation
 
@@ -33,11 +33,11 @@ Voor het automatiseren van de implementatie en beheer van bronnen in uw lokale d
 
 U kunt meerdere Hybrid Runbook Workers kunt implementeren. Met hybride Runbook Workers gebruiken voor maximale beschikbaarheid voor uw runbooks en taakverdeling runbooktaken. In sommige gevallen kunt u runbooktaken voor specifieke werkbelastingen of omgevingen reserveren. Microsoft Monitoring Agent op de hybride Runbook Worker initieert communicatie met de Automation-service via TCP-poort 443. Met hybride Runbook Workers hebt geen binnenkomende firewallvereisten.  
 
-U kunt een runbook dat wordt uitgevoerd op een hybride Runbook Worker beheertaken kunnen uitvoeren op basis van andere machines of services in uw omgeving. In dit scenario, kan het runbook ook toegang nodig tot andere poorten. Als de beleidsregels van uw IT-beveiliging niet toestaan van computers in uw netwerk verbinding maken met internet, bekijkt u [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md). De Gateway Operations Management Suite (OMS) fungeert als proxy voor de hybride Runbook Worker. Deze verzamelt taakstatus en ontvangt informatie over de configuratie van uw Automation-account.
+U kunt een runbook dat wordt uitgevoerd op een hybride Runbook Worker beheertaken kunnen uitvoeren op basis van andere machines of services in uw omgeving. In dit scenario, kan het runbook ook toegang nodig tot andere poorten. Als de beleidsregels van uw IT-beveiliging niet toestaan van computers in uw netwerk verbinding maken met internet, bekijkt u [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md). De OMS-Gateway fungeert als proxy voor de hybride Runbook Worker. Deze verzamelt taakstatus en ontvangt informatie over de configuratie van uw Automation-account.
 
 Runbooks die worden uitgevoerd op een hybride Runbook Worker worden uitgevoerd in de context van het lokale systeemaccount op de computer. Het is raadzaam een beveiligingscontext wanneer u beheertaken op de lokale Windows-computer uitvoeren. Als u wilt dat het runbook aan taken uitvoeren op basis van bronnen die zich buiten de lokale computer, moet u mogelijk beveiligde referentieassets definiëren in het Automation-account. U kunt toegang krijgen tot beveiligde referentieassets van het runbook en deze gebruiken voor verificatie met de externe bron. U kunt [referentie](automation-credentials.md), [certificaat](automation-certificates.md), en [verbinding](automation-connections.md) activa in uw runbook. Gebruik de activa met cmdlets die u gebruiken kunt om op te geven van de referenties voor deze verificatie.
 
-U kunt toepassen DSC-configuraties die zijn opgeslagen in Azure Automation aan virtuele machines. Andere fysieke en virtuele machines kunnen configuraties van aanvragen van de Automation DSC-pull-server. U hoeft niet te implementeren van een infrastructuur voor de ondersteuning van de Automation DSC-pull-server voor het beheren van configuraties van uw on-premises fysieke of virtuele Windows- en Linux systemen. U hoeft alleen uitgaande toegang tot internet vanaf elk systeem dat u beheren wilt met behulp van Automation DSC. Communicatie vindt plaats via TCP-poort 443 met de OMS-service.   
+U kunt toepassen DSC-configuraties die zijn opgeslagen in Azure Automation aan virtuele machines. Andere fysieke en virtuele machines kunnen configuraties van aanvragen van de Automation DSC-pull-server. U hoeft niet te implementeren van een infrastructuur voor de ondersteuning van de Automation DSC-pull-server voor het beheren van configuraties van uw on-premises fysieke of virtuele Windows- en Linux systemen. U hoeft alleen uitgaande toegang tot internet vanaf elk systeem dat u beheren wilt met behulp van Automation DSC. Communicatie vindt plaats via TCP-poort 443 naar de Log Analytics-service.   
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -125,9 +125,9 @@ De volgende artikelen bevatten een overzicht en de implementatie stappen voor he
 Voor de Azure uitvoeren als en klassieke Run As-accounts, [bijwerken Automation Run As-account](automation-create-runas-account.md) wordt beschreven hoe u uw bestaande Automation-account bijwerken met het Run As-accounts vanuit de portal. Ook wordt beschreven hoe u PowerShell als het Automation-account is niet oorspronkelijk is geconfigureerd met een Run As- of klassieke Run As-account wordt gebruikt. U kunt een Run As-account en een klassieke Run As-account maken met behulp van een certificaat dat uitgegeven door uw enterprise-certificeringsinstantie (CA). Bekijk [Automation Update die Run As-account](automation-create-runas-account.md) voor informatie over het maken van de accounts met behulp van deze configuratie.     
  
 ## <a name="network-planning"></a>Plan uw netwerk
-Voor de hybride Runbook Worker verbinding maken met en registreren bij OMS moet hebben toegang tot het poortnummer en de URL's die in deze sectie worden beschreven. Dit is in aanvulling op de [poorten en URL's die zijn vereist voor Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) wilt verbinden met OMS. 
+Voor de hybride Runbook Worker verbinding maken met en registreren met logboekanalyse moet hebben toegang tot het poortnummer en de URL's die in deze sectie worden beschreven. Dit is in aanvulling op de [poorten en URL's die zijn vereist voor Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) verbinding maken met logboekanalyse. 
 
-Als u een proxyserver voor communicatie tussen de agent en de OMS-service gebruikt, moet u ervoor dat de juiste resources toegankelijk zijn. Als u een firewall gebruikt toegang tot het internet te beperken, moet u uw firewall om toegang te verlenen.
+Als u een proxyserver voor de communicatie tussen de agent en de Log Analytics-service gebruikt, moet u ervoor dat de juiste resources toegankelijk zijn. Als u een firewall gebruikt toegang tot het internet te beperken, moet u uw firewall om toegang te verlenen.
 
 De volgende URL's en -poort zijn vereist voor de Hybrid Runbook Worker-rol om te communiceren met Automation:
 
@@ -167,36 +167,36 @@ De volgende tabel bevat de methoden voor het maken van een Automation-account in
 
 |Methode | Beschrijving |
 |-------|-------------|
-| Selecteer **Automation en Control** in de Azure Marketplace | Een Azure Marketplace-aanbieding maakt een Automation-account en de OMS-werkruimte die gekoppeld en in dezelfde resourcegroep en regio zijn. Integratie met OMS bevat ook het voordeel van logboekanalyse controleren en analyseren van runbook-taak status en taak streams gedurende een bepaalde periode. U kunt ook de geavanceerde functies in Log Analytics gebruiken om te escaleren of problemen onderzoeken. De aanbieding implementeert de **bijhouden** en **updatebeheer** oplossingen die zijn standaard ingeschakeld. |
-| Selecteer **Automation** in de Marketplace | Deze methode maakt u een Automation-account in een nieuwe of bestaande resourcegroep die niet is gekoppeld aan een OMS-werkruimte. Alle beschikbare oplossingen van zijn niet opgenomen de **Automation en Control** aanbieden. Deze methode is een eenvoudige configuratie die u in Automation introduceert. Dit kunt u informatie over het schrijven van runbooks en DSC-configuraties en informatie over het gebruik van de mogelijkheden van de service. |
-| Selecteer **Management** oplossingen | Als u selecteert een **Management** oplossing, inclusief [updatebeheer](../operations-management-suite/oms-solution-update-management.md), [starten/stoppen virtuele machines tijdens daluren](automation-solution-vm-management.md), of [bijhouden](../log-analytics/log-analytics-change-tracking.md), de oplossing voor u wordt gevraagd om een bestaand Automation-account en de OMS-werkruimte. De oplossing biedt u de optie voor het maken van een Automation-account en de OMS-werkruimte, zoals is vereist voor de oplossing worden geïmplementeerd in uw abonnement. |
+| Selecteer **Automation en Control** in de Azure Marketplace | Een Azure Marketplace-aanbieding maakt een Automation-account en de werkruimte voor logboekanalyse die gekoppeld en in dezelfde resourcegroep en regio zijn. Integratie met logboekanalyse bevat ook het voordeel van het controleren en analyseren van runbook-taak status en taak streams gedurende een bepaalde periode. U kunt ook de geavanceerde functies in Log Analytics gebruiken om te escaleren of problemen onderzoeken. De aanbieding implementeert de **bijhouden** en **updatebeheer** oplossingen die zijn standaard ingeschakeld. |
+| Selecteer **Automation** in de Marketplace | Deze methode maakt u een Automation-account in een nieuwe of bestaande resourcegroep die niet is gekoppeld aan een werkruimte voor logboekanalyse. Alle beschikbare oplossingen van zijn niet opgenomen de **Automation en Control** aanbieden. Deze methode is een eenvoudige configuratie die u in Automation introduceert. Dit kunt u informatie over het schrijven van runbooks en DSC-configuraties en informatie over het gebruik van de mogelijkheden van de service. |
+| Selecteer **Management** oplossingen | Als u selecteert een **Management** oplossing, inclusief [updatebeheer](../operations-management-suite/oms-solution-update-management.md), [starten/stoppen virtuele machines tijdens daluren](automation-solution-vm-management.md), of [bijhouden](../log-analytics/log-analytics-change-tracking.md), de oplossing voor u wordt gevraagd om een bestaand Automation-account en de werkruimte voor logboekanalyse. De oplossing biedt u de optie voor het maken van een Automation-account en de werkruimte voor logboekanalyse zoals vereist voor de oplossing worden geïmplementeerd in uw abonnement. |
 
-### <a name="create-an-automation-account-thats-integrated-with-oms"></a>Een Automation-account die geïntegreerd met OMS maken
-Bij vrijgeven Automation wordt aangeraden dat u selecteert de **Automation en Control** aanbieding in de Marketplace. Met deze methode maakt u een Automation-account en er wordt van de integratie met een OMS-werkruimte. Wanneer u deze methode gebruikt, hebt u ook de optie voor het installeren van de oplossingen die beschikbaar in de aanbieding zijn.  
+### <a name="create-an-automation-account-thats-integrated-with-log-analytics"></a>Een Automation-account die geïntegreerd met logboekanalyse maken
+Bij vrijgeven Automation wordt aangeraden dat u selecteert de **Automation en Control** aanbieding in de Marketplace. Met deze methode maakt u een Automation-account en er wordt van de integratie met een werkruimte voor logboekanalyse. Wanneer u deze methode gebruikt, hebt u ook de optie voor het installeren van de oplossingen die beschikbaar in de aanbieding zijn.  
 
-[Een zelfstandige Automation-account maken](automation-create-standalone-account.md) wordt u begeleid bij het proces van het maken van een Automation-account en de OMS-werkruimte onboarding de **Automation en Control** aanbieden. U kunt informatie over het maken van Automation-account voor het testen van een zelfstandige of een voorbeeld van de service.  
+[Een zelfstandige Automation-account maken](automation-create-standalone-account.md) wordt u begeleid bij het proces van het maken van een Automation-account en de werkruimte voor logboekanalyse onboarding de **Automation en Control** aanbieden. U kunt informatie over het maken van Automation-account voor het testen van een zelfstandige of een voorbeeld van de service.  
 
-Een Automation-account en de OMS-werkruimte maken met behulp van de **Automation en Control** Marketplace-aanbieding:
+Een Automation-account en de werkruimte voor logboekanalyse maken met behulp van de **Automation en Control** Marketplace-aanbieding:
 
 1. Aanmelden bij de Azure-portal met een account dat lid is van de rol van de beheerders abonnement en een CO-beheerder van het abonnement.
 2. Selecteer **nieuwe**.<br><br> ![Selecteer Nieuw in de Azure-portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Zoeken naar **Automation**. Selecteer in de lijst met zoekresultaten **Automation en Control**.<br><br> ![Zoek en selecteer Automation & besturingselement in Azure Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 4. Bekijk de beschrijving voor de aanbieding en selecteer vervolgens **maken**.  
-5. Onder **Automation en Control**, selecteer **OMS-werkruimte**. Onder **OMS werkruimten**, selecteer een OMS-werkruimte die gekoppeld aan het Azure-abonnement dat u het Automation-account in. Als u een OMS-werkruimte niet hebt, selecteert u **nieuwe werkruimte maken**. Onder **OMS-werkruimte**: 
+5. Onder **Automation en Control**, selecteer **OMS-werkruimte**. Onder **OMS werkruimten**, selecteer een werkruimte voor logboekanalyse die gekoppeld aan het Azure-abonnement dat u het Automation-account in. Als u een werkruimte voor logboekanalyse niet hebt, selecteert u **nieuwe werkruimte maken**. Onder **OMS-werkruimte**: 
   1. Voor **OMS-werkruimte**, voer een naam voor de nieuwe werkruimte.
   2. Voor **abonnement**, selecteer een abonnement aan koppelen. Als de standaardselectie niet het abonnement dat u wilt gebruiken, schakelt u het abonnement uit de vervolgkeuzelijst.
   3. Voor **resourcegroep**, kunt u een resourcegroep maken of Selecteer een bestaande resourcegroep.  
   4. Voor **locatie**, selecteer een regio. Zie voor meer informatie [welke regio's Azure Automation is beschikbaar in](https://azure.microsoft.com/regions/services/). Oplossingen worden aangeboden in twee lagen: laag gratis en per knooppunt (OMS). Gratis laag heeft een limiet op de hoeveelheid gegevens die dagelijks, verzameld bewaarperiode en runbook-taak runtime minuten. De per knooppunt (OMS) laag niet hebben een limiet van de hoeveelheid gegevens die worden verzameld per dag.  
-  5. Selecteer **Automation-account**.  Als u een nieuwe OMS-werkruimte maakt, moet u ook een Automation-account die is gekoppeld aan de nieuwe OMS-werkruimte maken. Uw Azure-abonnement, resourcegroep en de regio bevatten. 
+  5. Selecteer **Automation-account**.  Als u een nieuwe werkruimte voor logboekanalyse maakt, moet u ook een Automation-account dat aan de nieuwe werkruimte voor logboekanalyse is gekoppeld. Uw Azure-abonnement, resourcegroep en de regio bevatten. 
     1. Selecteer **een Automation-account maken**.
     2. Onder **Automation-Account**, in de **naam** en voer de naam van het Automation-account.
-    Alle andere opties worden automatisch ingevuld op basis van de OMS-werkruimte geselecteerd. U kunt deze opties niet wijzigen. 
+    Alle andere opties worden automatisch ingevuld op basis van de werkruimte voor logboekanalyse geselecteerd. U kunt deze opties niet wijzigen. 
     3. Een Uitvoeren als-account van Azure is de standaardmethode voor verificatie voor de aanbieding. Nadat u hebt geselecteerd **OK**, de configuratieopties die worden gevalideerd en het Automation-account is gemaakt. Selecteer om de voortgang, in het menu te volgen **meldingen**. 
-    4. Selecteer anders een bestaand Automation Uitvoeren als-account. Het account dat u selecteert kan niet al zijn gekoppeld aan een andere OMS-werkruimte. Als het, wordt er een melding weergegeven. Als het account is al gekoppeld aan een OMS-werkruimte, selecteer een andere Automation Run As-account of een maken.
+    4. Selecteer anders een bestaand Automation Uitvoeren als-account. Het account dat u selecteert, kan niet al zijn gekoppeld aan een andere werkruimte voor logboekanalyse. Als het, wordt er een melding weergegeven. Als het account is al gekoppeld aan een werkruimte voor logboekanalyse, selecteer een andere Automation Run As-account of een maken.
     5. Nadat u opgeven of de vereiste gegevens selecteren, selecteert u **maken**. De informatie is geverifieerd en de Automation-Account en Run As-accounts worden gemaakt. U keert automatisch terug naar de **OMS-werkruimte** deelvenster.  
 6. Nadat u opgeven of selecteren van de vereiste informatie op de **OMS-werkruimte** deelvenster **maken**.  De informatie wordt gecontroleerd en de werkruimte is gemaakt. Selecteer om de voortgang, in het menu te volgen **meldingen**. U keert terug naar de **oplossing toevoegen** deelvenster.  
 7. Onder **Automation en Control** instellingen u wilt bevestigen dat voor het installeren van de aanbevolen oplossingen die vooraf zijn geselecteerd. Als u een van de standaardopties wijzigen, kunt u de oplossingen later afzonderlijk installeren.  
-8. Selecteer het volgende om door te gaan met de voorbereiding Automation en een OMS-werkruimte **maken**. Alle instellingen worden gevalideerd en probeert dan Azure voor het implementeren van de aanbieding in uw abonnement. Dit proces kan enkele seconden duren. Selecteer om de voortgang bijhouden, in het menu **meldingen**. 
+8. Selecteer het volgende om door te gaan met de voorbereiding van Automation en een werkruimte voor logboekanalyse **maken**. Alle instellingen worden gevalideerd en probeert dan Azure voor het implementeren van de aanbieding in uw abonnement. Dit proces kan enkele seconden duren. Selecteer om de voortgang bijhouden, in het menu **meldingen**. 
 
 Nadat de aanbieding vrijgegeven is, kunt u de volgende taken uitvoeren:
 * Begin met het maken van runbooks.

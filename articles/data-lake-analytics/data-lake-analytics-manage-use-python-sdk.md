@@ -2,7 +2,7 @@
 title: Azure Data Lake Analytics beheren met Python | Microsoft Docs
 description: 'Leer hoe u met Python een Data Lake Store-account maakt en taken verzendt. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: matt1883
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
 ms.custom: devcenter
-ms.openlocfilehash: 22b56e9569ac1fd2afe2c91013fa5605f9f3ef99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0182a14979550c880904ec829f6b59dee016cad2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Azure Data Lake Analytics beheren met Python
 
@@ -95,7 +95,7 @@ import logging, getpass, pprint, uuid, time
 
 Voer dit script om te controleren dat de modules die kunnen worden geïmporteerd.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 ### <a name="interactive-user-authentication-with-a-pop-up"></a>Interactieve gebruikersverificatie met een pop-upvenster
 
@@ -150,13 +150,11 @@ armGroupResult = resourceClient.resource_groups.create_or_update( rg, ResourceGr
 Maak eerst een store-account.
 
 ```python
-adlaAcctResult = adlaAcctClient.account.create(
+adlsAcctResult = adlsAcctClient.account.create(
     rg,
-    adla,
-    DataLakeAnalyticsAccount(
-        location=location,
-        default_data_lake_store_account=adls,
-        data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
+    adls,
+    DataLakeStoreAccount(
+        location=location)
     )
 ).wait()
 ```

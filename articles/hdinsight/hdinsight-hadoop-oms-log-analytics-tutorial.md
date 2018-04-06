@@ -2,7 +2,7 @@
 title: Log Analytics gebruiken voor het bewaken van Azure HDInsight-clusters | Microsoft Docs
 description: Informatie over het gebruiken van Azure-logboekanalyse voor het bewaken van taken die worden uitgevoerd in een HDInsight-cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 2c43b9aabda56e1204870575e86934bf93d05882
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: be71b065999c30546432895804df8633da21b43e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics gebruiken voor het bewaken van HDInsight-clusters
 
 Informatie over het gebruiken van Azure-logboekanalyse voor het bewaken van bewerkingen voor Hadoop-cluster in HDInsight.
 
-[Meld u Analytics](../log-analytics/log-analytics-overview.md) is een service in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) die wordt bewaakt uw cloud en on-premises omgevingen voor het onderhouden van de beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden. 
+[Meld u Analytics](../log-analytics/log-analytics-overview.md) is een service die wordt bewaakt uw cloud en on-premises omgevingen voor het onderhouden van de beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure-abonnement**. Voordat u met deze zelfstudie begint, moet u een Azure-abonnement hebben. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/free).
 
-* **Een Azure HDInsight-cluster**. Op dit moment kunt u Azure Operations Management Suite met de volgende typen van de HDInsight-cluster:
+* **Een Azure HDInsight-cluster**. U kunt op dit moment Log Analytics gebruiken met de volgende typen van de HDInsight-cluster:
 
     * Hadoop
     * HBase

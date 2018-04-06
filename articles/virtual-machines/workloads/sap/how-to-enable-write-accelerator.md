@@ -1,13 +1,13 @@
 ---
 title: Azure schrijven Accelerator voor SAP-oplossingen | Microsoft Docs
-description: "Bedieningshandleiding voor SAP HANA-systemen die zijn geïmplementeerd op virtuele machines in Azure."
+description: Bedieningshandleiding voor SAP HANA-systemen die zijn geïmplementeerd op virtuele machines in Azure.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d1ca15028590824cef95e3e9c2d957f9883a0e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 177bc05eea3aa05231c71a42950fa622b68afc53
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Azure schrijven Accelerator voor SAP-implementaties
 Azure schrijven Accelerator is een functionaliteit die is opgehaald uitgerold voor virtuele machines M-serie uitsluitend. De Accelerator voor het schrijven van Azure is niet beschikbaar bij alle andere VM-reeks in Azure, met uitzondering van de M-serie. Als de naam van de staat, is het doel van de functionaliteit voor het verbeteren van i/o-latentie van schrijfbewerkingen op basis van de Azure Premium-opslag. 
@@ -28,10 +28,11 @@ Azure schrijven Accelerator is een functionaliteit die is opgehaald uitgerold vo
 >[!NOTE]
 > Op dit moment de Accelerator voor het schrijven van Azure is openbare preview-versie en wit-aanbieding voor uw Azure-abonnement-ID is vereist
 
-De Accelerator voor Azure schrijven-functionaliteit is beschikbaar als openbare preview in:
+De Accelerator voor Azure schrijven-functionaliteit is beschikbaar voor implementatie van de M-serie als openbare preview in:
 
 - West US2
 - West-Europa
+- Zuidoost-Azië
 
 ## <a name="planning-for-using-azure-write-accelerator"></a>Planning voor het gebruik van Azure schrijven Accelerator
 Azure schrijven Accelerator moet worden gebruikt voor de volumes die het transactielogboek bevatten of Logboeken van een DBMS opnieuw. Het is niet raadzaam Accelerator voor Azure schrijven voor de volumes van een DBMS gebruiken. Reden voor deze beperking is dat Azure schrijven Accelerator de Azure Premium Storage VHD's te koppelen zonder de extra lees-caching die beschikbaar is voor Premium-opslag is vereist. Grotere voordelen met dit type opslaan in cache worden geconstateerd bij traditionele databases. Aangezien Accelerator schrijven alleen invloed op de activiteiten schrijven en geen leesbewerkingen versnellen, is het ontwerp van de ondersteunde voor SAP schrijven Accelerator gebruiken op basis van het transactielogboek of stations van databases ondersteund SAP opnieuw. 

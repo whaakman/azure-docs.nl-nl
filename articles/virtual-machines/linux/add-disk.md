@@ -3,9 +3,9 @@ title: Een schijf toevoegen aan de Linux-VM met de Azure CLI | Microsoft Docs
 description: Meer informatie over een permanente schijf toevoegen aan uw Linux-VM met de Azure CLI 1.0 en 2.0.
 keywords: virtuele Linux-machine, resource-schijf toevoegen
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
@@ -17,18 +17,18 @@ ms.devlang: azurecli
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9db7d300b745001906bdc38769dcbe6e4d7c7b83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Een schijf toevoegen aan een virtuele Linux-machine
 In dit artikel laat zien hoe een permanente schijf koppelen met uw virtuele machine zodat u kunt uw gegevens - zelfs als uw virtuele machine is ingericht vanwege onderhoud vergroten of verkleinen. 
 
 
 ## <a name="use-managed-disks"></a>Gebruik de schijven van de beheerde
-Schijfbeheer voor Azure Virtual machines vereenvoudigt de Azure-schijven die worden beheerd door het beheer van de storage-accounts die zijn gekoppeld aan de VM-schijven. U hoeft alleen te geven van het type (Premium of standaard) en de grootte van de schijf die u nodig en Azure maken en beheren van de schijf voor u. Zie voor meer informatie [schijven beheerd overzicht](managed-disks-overview.md).
+Met Azure Managed Disks wordt het beheren van schrijven voor virtuele Azure-machines eenvoudiger. Hierbij worden namelijk de opslagaccounts die zijn gekoppeld aan de VM-schijven beheerd. U hoeft alleen het type (Premium of Standard) en de grootte op te geven van de schijf die u nodig hebt. Azure maakt en beheert de schijf dan voor u. Zie voor meer informatie [schijven beheerd overzicht](managed-disks-overview.md).
 
 
 ### <a name="attach-a-new-disk-to-a-vm"></a>Een nieuwe schijf koppelen aan een virtuele machine

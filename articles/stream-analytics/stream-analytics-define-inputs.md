@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 405fcf190ab03b84ec463da8a1942adb8e326498
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Gegevensverbinding: meer informatie over gegevens invoer van de stroom van gebeurtenissen voor Stream Analytics
 De gegevensverbinding met een Stream Analytics-taak is een stream van gebeurtenissen van een gegevensbron waarnaar wordt verwezen als de taak *invoer*. Stream Analytics is een uitstekende integratie met Azure stream gegevensbronnen, waaronder [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), en [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Deze invoerbronnen kunnen zijn in dezelfde Azure-abonnement als analytics-taak, of vanuit een ander abonnement.
@@ -176,7 +176,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Help opvragen
-Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
 U hebt geleerd over opties voor gegevensverbinding in Azure voor uw Stream Analytics-taken. Voor meer informatie over Stream Analytics, Zie:

@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: d49a1c97a578726c26f8533476042646b0b302d3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d8ed5747f29f969535bbafc1624d9d02e54c8418
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-autorisatiecodestroom
 U kunt het verlenen van OAuth 2.0 autorisatie code in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's gebruiken. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OAuth 2.0, u kunt toevoegen, registreren, aanmelden en andere identiteitsbeheer taken naar uw mobiele en bureaublad-apps. In dit artikel is taalonafhankelijk. In het artikel wordt beschreven hoe verzenden en ontvangen van HTTP-berichten zonder gebruik van een open source-bibliotheken.
@@ -195,7 +195,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | Parameter | Vereist? | Beschrijving |
 | --- | --- | --- |
 | p |Vereist |Het beleid dat is gebruikt voor het verkrijgen van het oorspronkelijke vernieuwingstoken. U kunt een ander beleid niet gebruiken in deze aanvraag. Houd er rekening mee dat u, deze parameter moet naar toevoegt de *querytekenreeks*, niet in de hoofdtekst van de POST. |
-| client_id |Aanbevolen |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
+| client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
+| client_secret |Vereist |De client_secret die is gekoppeld aan uw client_id in de [Azure-portal](https://portal.azure.com). |
 | grant_type |Vereist |Het type verlenen. Voor deze fase van de autorisatiecodestroom, het type grant moet `refresh_token`. |
 | Bereik |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD zowel de machtigingen die worden aangevraagd. Met behulp van de client-ID als het bereik geeft aan dat uw app moet een toegangstoken die kan worden gebruikt op basis van uw eigen service of web-API, vertegenwoordigd door de dezelfde client-ID.  De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen nodig.  Ook kunt u de `openid` bereik voor het aanvragen van een token ID bij Azure AD B2C. |
 | redirect_uri |Optioneel |De omleidings-URI van de toepassing waarin u de autorisatiecode ontvangen. |

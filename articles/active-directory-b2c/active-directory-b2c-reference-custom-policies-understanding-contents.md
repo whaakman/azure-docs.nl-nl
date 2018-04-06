@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Wat is de aangepaste beleidsregels van het Azure AD B2C aangepast beleid starter pack?
 
@@ -39,7 +39,7 @@ Dit claims schema's is onderverdeeld in drie secties:
 3.  En uiteindelijk een derde sectie met een lijst met aanvullende, optionele claims die kunnen worden verzameld van de gebruiker opgeslagen in de map en tokens verzonden tijdens het aanmelden. Nieuwe claims type verzameld van de gebruiker en/of verzonden in het token kan in deze sectie worden toegevoegd.
 
 > [!IMPORTANT]
-> Het schema claims bevat beperkingen op bepaalde claims zoals wachtwoorden en gebruikersnamen. Het beleid vertrouwen Framework (TF) behandelt Azure AD als andere claimprovider en alle bijbehorende beperkingen zijn gemodelleerd in het premium-beleid. Een beleid kan worden gewijzigd zodat meer beperkingen toevoegen, of gebruik een andere claimprovider voor opslag van referenties waarvoor een eigen beperkingen.
+> Het schema claims bevat beperkingen op bepaalde claims zoals wachtwoorden en gebruikersnamen. Het beleid vertrouwen Framework (TF) behandelt Azure AD als andere claimprovider en alle bijbehorende beperkingen zijn gemodelleerd in het aangepaste beleid. Een beleid kan worden gewijzigd zodat meer beperkingen toevoegen, of gebruik een andere claimprovider voor opslag van referenties waarvoor een eigen beperkingen.
 
 De beschikbare claimtypen worden hieronder vermeld.
 
@@ -51,12 +51,12 @@ De volgende claims zijn vereist voor de gebruiker trajecten goed te laten werken
 |-------------|-------------|
 | *UserId* | Gebruikersnaam |
 | *signInName* | Meld u aan de naam |
-| *tenantId* | Tenant-id (ID) van het gebruikersobject in Azure AD B2C Premium |
-| *objectId* | Object-id (ID) van het gebruikersobject in Azure AD B2C Premium |
+| *tenantId* | Tenant-id (ID) van het gebruikersobject in Azure AD B2C |
+| *objectId* | Object-id (ID) van het gebruikersobject in Azure AD B2C |
 | *Wachtwoord* | Wachtwoord |
 | *newPassword* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Wachtwoordbeleid gebruikt door Azure AD B2C Premium om te bepalen van de Wachtwoordsterkte, verlopen, enzovoort. |
+| *passwordPolicies* | Wachtwoordbeleid door Azure AD B2C gebruikt om te bepalen van de Wachtwoordsterkte, verlopen, enzovoort. |
 | *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
@@ -66,9 +66,9 @@ De volgende claims zijn vereist voor de gebruiker trajecten goed te laten werken
 | *email* | E-mailadres dat kan worden gebruikt om contact op met de gebruiker |
 | *signInNamesInfo.emailAddress* | E-mailadres waarmee de gebruiker kunt aanmelden |
 | *otherMails* | E-mailadressen die kunnen worden gebruikt om contact op met de gebruiker |
-| *userPrincipalName* | De gebruikersnaam die is opgeslagen in de Azure AD B2C Premium |
+| *userPrincipalName* | De gebruikersnaam die is opgeslagen in de Azure AD B2C |
 | *upnUserName* | Gebruikersnaam voor het maken van de UPN-naam |
-| *mailNickName* | De naam van gebruiker e-mail nick die is opgeslagen in de Azure AD B2C Premium |
+| *mailNickName* | De naam van gebruiker e-mail nick die is opgeslagen in de Azure AD B2C |
 | *newUser* | |
 | *executed-SelfAsserted-Input* | Claim die aangeeft of de kenmerken van de gebruiker zijn verzameld |
 | *executed-PhoneFactor-Input* | Claim waarmee wordt aangegeven of een nieuw telefoonnummer van de gebruiker is verzameld |

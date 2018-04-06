@@ -1,23 +1,22 @@
 ---
-title: "Bedrijfscontinuïteit met behulp van de cloud - databasherstel - SQL Database | Microsoft Docs"
-description: "Ontdek hoe Azure SQL Database bedrijfscontinuïteit en databaseherstel met behulp van de cloud ondersteunt en u helpt om essentiële cloudtoepassingen ononderbroken uit te voeren."
-keywords: "bedrijfscontinuïteit, bedrijfscontinuïteit met de cloud, databasenoodherstel, databaseherstel"
+title: Bedrijfscontinuïteit met behulp van de cloud - databasherstel - SQL Database | Microsoft Docs
+description: Ontdek hoe Azure SQL Database bedrijfscontinuïteit en databaseherstel met behulp van de cloud ondersteunt en u helpt om essentiële cloudtoepassingen ononderbroken uit te voeren.
+keywords: bedrijfscontinuïteit, bedrijfscontinuïteit met de cloud, databasenoodherstel, databaseherstel
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 08/25/2017
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 160e65130efc78bc1a98a0feceb1c824cf226156
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: 1f125596a6cc874f285611290d5c42700009afbe
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -27,20 +26,20 @@ In dit overzicht worden de mogelijkheden beschreven die Azure SQL Database biedt
 
 SQL Database bevat verschillende functies voor bedrijfscontinuïteit, zoals geautomatiseerde back-ups en optionele databasereplicatie. Elke functie heeft verschillende kenmerken voor geschatte hersteltijd (ERT) en mogelijk gegevensverlies voor recente transacties. Wanneer u bekend bent met deze opties, kunt u eruit kiezen en ze in de meeste scenario's samen gebruiken voor verschillende doeleinden. Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit moet u weten wat de maximaal acceptabele tijd is voordat de toepassing volledig is hersteld na de storing. Dit is de beoogde hersteltijd (RTO). U moet ook de maximale hoeveelheid recente gegevens begrijpen updates (tijdsinterval) de toepassing kan tolereren verliezen tijdens het herstellen van na de gebeurtenis verstoren - dit is uw herstelpuntdoel (RPO).
 
-In de volgende tabel worden de ERT en RPO vergeleken voor de drie meest voorkomende scenario's.
+De volgende tabel vergelijkt de invoegen en RPO voor elke servicelaag voor de drie meest voorkomende scenario's.
 
-| Mogelijkheid | Basislaag | Standaardlaag | Premiumlaag |
-| --- | --- | --- | --- |
-| Herstel naar een bepaald tijdstip vanuit back-up |Willekeurig herstelpunt binnen 7 dagen |Willekeurig herstelpunt binnen 35 dagen |Willekeurig herstelpunt binnen 35 dagen |
-| Geo-herstel van back-ups geo-replicatie |ERT < 12 u, RPO < 1 u |ERT < 12 u, RPO < 1 u |ERT < 12 u, RPO < 1 u |
-| Herstel vanuit Azure Backup Vault |ERT < 12 u, RPO < 1 wk |ERT < 12 u, RPO < 1 wk |ERT < 12 u, RPO < 1 wk |
-| Actieve geo-replicatie |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |
+| Mogelijkheid | Basic | Standard | Premium  | Algemeen doel | Bedrijfskritiek
+| --- | --- | --- | --- |--- |--- |
+| Herstel naar een bepaald tijdstip vanuit back-up |Willekeurig herstelpunt binnen 7 dagen |Willekeurig herstelpunt binnen 35 dagen |Willekeurig herstelpunt binnen 35 dagen |Een herstelpunt binnen de geconfigureerde tijd (maximaal 35 dagen)|Een herstelpunt binnen de geconfigureerde tijd (maximaal 35 dagen)|
+| Geo-herstel van back-ups geo-replicatie |ERT < 12 u, RPO < 1 u |ERT < 12 u, RPO < 1 u |ERT < 12 u, RPO < 1 u |ERT < 12 u, RPO < 1 u|ERT < 12 u, RPO < 1 u|
+| Herstel vanuit Azure Backup Vault |ERT < 12 u, RPO < 1 wk |ERT < 12 u, RPO < 1 wk |ERT < 12 u, RPO < 1 wk |ERT < 12 u, RPO < 1 wk|ERT < 12 u, RPO < 1 wk|
+| Actieve geo-replicatie |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
 
-### <a name="use-database-backups-to-recover-a-database"></a>Databaseback-ups gebruiken om een database te herstellen
+### <a name="use-point-in-time-restore-to-recover-a-database"></a>Gebruik restore-punt in tijd een database herstellen
 
-SQL-Database wordt automatisch uitgevoerd wekelijks een combinatie van volledige databaseback-ups, differentiële back-ups database per uur en transactie logboekback-ups om de vijf - tien minuten om te voorkomen dat uw bedrijf verlies van gegevens. Deze back-ups worden opgeslagen in geografisch redundante opslag voor 35 dagen voor databases in de Standard en Premium Servicelagen en 7 dagen voor databases in de laag Basic-service. Zie voor meer informatie [Servicelagen](sql-database-service-tiers.md). Als de retentietermijn voor de servicelaag niet aan uw bedrijfsvereisten voldoet, verhoogt u de retentietermijn door [de servicelaag te wijzigen](sql-database-service-tiers.md). De volledige en differentiële databaseback-ups worden ook gerepliceerd naar een [gekoppeld datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in een datacenter. Zie voor meer informatie [automatische databaseback-ups](sql-database-automated-backups.md).
+SQL-Database wordt automatisch uitgevoerd wekelijks een combinatie van volledige databaseback-ups, differentiële back-ups database per uur en transactie logboekback-ups om de vijf - tien minuten om te voorkomen dat uw bedrijf verlies van gegevens. Deze back-ups worden opgeslagen in de opslag van de RA-GRS voor 35 dagen voor databases in de Standard en Premium Servicelagen en 7 dagen voor databases in de laag Basic-service. In het algemeen en zakelijke kritische Servicelagen (preview) is de bewaartermijn van de back-ups configureerbaar tot 35 dagen. Zie voor meer informatie [Servicelagen](sql-database-service-tiers.md). Als de retentietermijn voor de servicelaag niet aan uw bedrijfsvereisten voldoet, verhoogt u de retentietermijn door [de servicelaag te wijzigen](sql-database-service-tiers.md). De volledige en differentiële databaseback-ups worden ook gerepliceerd naar een [gekoppeld datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in een datacenter. Zie voor meer informatie [automatische databaseback-ups](sql-database-automated-backups.md).
 
-Als de ingebouwde bewaarperiode niet voldoende is voor uw toepassing is, kunt u deze uitbreiden door het configureren van een bewaarbeleid uit de database op lange termijn. Zie voor meer informatie [lange bewaartermijn](sql-database-long-term-retention.md).
+Als de maximale ondersteunde PITR bewaarperiode niet voldoende is voor uw toepassing is, kunt u deze uitbreiden door een langdurige bewaarperiode (LTR)-beleid voor de databases te configureren. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
 
 U kunt deze automatische databaseback-ups gebruiken om een database te herstellen na diverse storingen, zowel binnen uw datacenter als naar een ander datacenter. Bij het gebruik van automatische databaseback-ups is de geschatte duur van het herstel afhankelijk van diverse factoren, waaronder het totale aantal databases dat op hetzelfde moment in dezelfde regio moet worden hersteld, de grootte van de database, de transactielogboekgrootte en de netwerkbandbreedte. De hersteltijd is meestal minder dan 12 uur. Wanneer er naar een andere gegevensregio wordt hersteld, is het mogelijke gegevensverlies beperkt tot 1 uur door de geografisch redundante opslag van differentiële back-ups die elk uur worden uitgevoerd.
 
@@ -55,7 +54,7 @@ Gebruik automatische back-ups als uw mechanisme voor bedrijfscontinuïteit en he
 * Een lage wijzigingssnelheid van gegevens (laag aantal transacties per uur) heeft en het verliezen van maximaal een uur na de wijziging een acceptabel gegevensverlies is.
 * Kostengevoelig is.
 
-Als u sneller herstel nodig hebt, gebruikt u [actieve geo-replicatie](sql-database-geo-replication-overview.md) (naast besproken). Als u kunnen gegevens herstellen vanaf een periode die ouder zijn dan 35 dagen wilt, gebruikt u [lange bewaartermijn van de back-](sql-database-long-term-retention.md). 
+Als u sneller herstel nodig hebt, gebruikt u [actieve geo-replicatie](sql-database-geo-replication-overview.md) (naast besproken). Als u kunnen gegevens herstellen vanaf een periode die ouder zijn dan 35 dagen wilt, gebruikt u [lange bewaartermijn](sql-database-long-term-retention.md). 
 
 ### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Actieve geo-replicatie en automatische failover groepen (in preview) te verminderen hersteltijd en beperken tot verlies van gegevens die zijn gekoppeld aan een herstelbewerking gebruiken
 
@@ -77,12 +76,12 @@ Gebruik van actieve geo-replicatie en automatische failover groepen (in preview)
 * Heeft een hoge frequentie van gegevenswijziging en een uur aan gegevensverlies is niet acceptabel.
 * De extra kosten van actieve geo-replicatie zijn lager dan de mogelijke financiële verplichting en het bijbehorende bedrijfsverlies.
 
->
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Een database herstellen na een gebruikers- of toepassingsfout
-* Niemand is perfect! Een gebruiker kan mogelijk per ongeluk bepaalde gegevens verwijderen, per ongeluk een belangrijke tabel wissen of zelfs een volledige database verwijderen. Of een toepassing kan mogelijk per ongeluk goede gegevens overschrijven met beschadigde gegevens vanwege een toepassingsfout.
+
+Niemand is perfect! Een gebruiker kan mogelijk per ongeluk bepaalde gegevens verwijderen, per ongeluk een belangrijke tabel wissen of zelfs een volledige database verwijderen. Of een toepassing kan mogelijk per ongeluk goede gegevens overschrijven met beschadigde gegevens vanwege een toepassingsfout.
 
 Dit zijn de opties voor herstel in dit scenario.
 
@@ -101,8 +100,9 @@ Zie [Een verwijderde database herstellen](sql-database-recovery-using-backups.md
 >
 >
 
-### <a name="restore-from-azure-backup-vault"></a>Herstel vanuit Azure Backup Vault
-Als de gegevensverlies buiten de huidige bewaarperiode voor automatische back-ups opgetreden en uw database is geconfigureerd voor lange bewaartermijn, kunt u naar een nieuwe database terugzetten vanuit een wekelijkse back-up in Azure Backup-kluis. Op dit punt kunt u de oorspronkelijke database vervangen door de herstelde database of de benodigde gegevens uit de herstelde gegevens naar de oorspronkelijke database kopiëren. Als u nodig hebt voor het ophalen van een oude versie van de database vóór de upgrade van een primaire toepassing, voldoen aan een aanvraag van auditors of een juridische volgorde, dat kunt u een database met behulp van een volledige back-up zijn opgeslagen in de Azure Backup-kluis.  Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
+### <a name="restore-backups-from-long-term-retention"></a>Terugzetten van back-ups van lange bewaartermijn
+
+Als de gegevensverlies buiten de huidige bewaarperiode voor automatische back-ups opgetreden en uw database is geconfigureerd voor lange bewaartermijn, kunt u naar een nieuwe database terugzetten vanuit een volledige back-up in de opslag van links naar rechts. Op dit punt kunt u de oorspronkelijke database vervangen door de herstelde database of de benodigde gegevens uit de herstelde gegevens naar de oorspronkelijke database kopiëren. Als u nodig hebt voor het ophalen van een oude versie van de database vóór de upgrade van een primaire toepassing, voldoen aan een aanvraag van auditors of een juridische volgorde, dat kunt u een database met behulp van een volledige back-up zijn opgeslagen in de Azure Backup-kluis.  Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Een database herstellen naar een andere regio na een storing in een regionaal Azure-datacenter
 <!-- Explain this scenario -->

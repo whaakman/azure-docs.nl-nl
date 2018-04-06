@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren door technologieën voor In-Memory in SQL-Database
 
@@ -22,7 +22,7 @@ In-Memory technologieën in Azure SQL Database gebruikt, kunt u met verschillend
 Hier vindt u twee voorbeelden van hoe In het geheugen OLTP geholpen prestaties aanzienlijk verbeteren:
 
 - Met behulp van de In-geheugen OLTP [Quorum bedrijfsoplossingen kon worden dubbele van hun werkbelasting en verbetert de dtu's met 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU betekent *dtu*, en bevat een mesurement van resourceverbruik.
+    - DTU betekent *database transaction unit*, en bevat een mesurement van resourceverbruik.
 - De volgende video toont aanzienlijke verbetering in het verbruik van met een werklast voorbeeld: [In het geheugen OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
     - Zie voor meer informatie het blogbericht: [In het geheugen OLTP in Azure SQL Database-blogberichten](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -36,7 +36,7 @@ De volgende video wordt uitgelegd mogelijke prestatieverbeteringen met technolog
 
 Azure SQL-Database heeft de volgende In het geheugen-technologieën:
 
-- *In het geheugen OLTP* verhoogt de doorvoer en vermindert de latentie voor de transactieverwerking. Scenario's die van de In-geheugen OLTP profiteren zijn: hoge gegevensdoorvoer transactieverwerking zoals handelspartners en games, gegevensopname uit gebeurtenissen of IoT-apparaten, opslaan in cache laden van gegevens en de tijdelijke tabel en de variabele scenario's voor een tabel.
+- *In het geheugen OLTP* verhoogt de transactie en vermindert de latentie voor de transactieverwerking. Scenario's die van de In-geheugen OLTP profiteren zijn: hoge gegevensdoorvoer transactieverwerking zoals handelspartners en games, gegevensopname uit gebeurtenissen of IoT-apparaten, opslaan in cache laden van gegevens en de tijdelijke tabel en de variabele scenario's voor een tabel.
 - *Geclusterde columnstore-indexen* (maximaal 10 keer) voor de opslag van kooldioxide verminderen en verbeterde prestaties voor query's voor rapportage en analyse. U kunt deze met feitentabellen in de datamarts meer gegevens in uw database passen en de prestaties verbeteren. Bovendien kunt u deze met historische gegevens in de operationele database te archiveren en kunnen maximaal 10 keer meer gegevens opvragen.
 - *Niet-geclusterde columnstore-indexen* voor HTAP helpt u bij de realtime inzicht in uw bedrijf via het opvragen van de operationele database rechtstreeks, zonder de noodzaak om uit te voeren een dure uitpakken, transformeren, en load (ETL)-proces en wacht tot de het datawarehouse worden ingevuld. Niet-geclusterde columnstore-indexen uitvoering van zeer snel van analysequery's op de OLTP-database terwijl vermindert de gevolgen voor de operationele werkbelasting.
 - U kunt ook de combinatie van een tabel geoptimaliseerd voor geheugen met een columnstore-index hebben. Deze combinatie kunt u zeer snel transactieverwerking, uitvoeren en *gelijktijdig* analysequery's zeer snel worden uitgevoerd op dezelfde gegevens.
@@ -71,7 +71,7 @@ Gedetailleerde video's over de technologieën:
 
 In het geheugen OLTP bevat geheugen geoptimaliseerde tabellen die worden gebruikt voor het opslaan van gebruikersgegevens. Deze tabellen zijn vereist voor het geheugen. Aangezien u geheugen rechtstreeks in de SQL Database-service beheert, hebben we het concept van een quotum voor gebruikersgegevens. Dit idee wordt aangeduid als *In het geheugen OLTP-opslag*.
 
-Elke prijscategorie en elke elastische pool prijscategorie ondersteunde zelfstandige-database bevat een bepaalde hoeveelheid In het geheugen OLTP-opslag. Op het moment van schrijven krijgt u een gigabyte van opslag van elke 125 database transactie-eenheden (dtu's) of transactie-eenheden voor de elastische database (edtu's). Zie voor meer informatie [limieten](sql-database-resource-limits.md).
+Elke prijscategorie en elke elastische pool prijscategorie ondersteunde zelfstandige-database bevat een bepaalde hoeveelheid In het geheugen OLTP-opslag. Zie [resource op basis van het DTU-limieten](sql-database-dtu-resource-limits.md) en [vCore gebaseerde limieten](sql-database-vcore-resource-limits.md).
 
 De volgende items meetellen voor uw opslagruimte In het geheugen OLTP cap:
 
@@ -87,8 +87,8 @@ Zie voor meer informatie over het gebruik van de opslag In het geheugen OLTP con
 
 De In-Memory OLTP-opslag wordt gedeeld met elastische pools voor alle databases in de groep. Daarom kan het gebruik in één database mogelijk andere databases beïnvloeden. Er zijn twee oplossingen voor deze:
 
-- Configureer een Max-aantal edtu's voor databases die lager is dan het aantal eDTU voor de groep als geheel. Dit maximum hoofdletters in een database in de groep, de grootte bereikt die overeenkomt met het aantal eDTU's van het opslaggebruik In-Memory OLTP.
-- Configureer een minimum-aantal edtu's die groter is dan 0. Dit minimum zorgt ervoor dat elke database in de groep is de hoeveelheid beschikbaar geheugen OLTP-opslag die overeenkomt met de geconfigureerde Min-eDTU.
+- Configureer een `Max-eDTU` of `MaxvCore` voor databases die lager is dan het aantal eDTU of vCore voor de groep als geheel. Dit maximum hoofdletters in een database in de groep, de grootte bereikt die overeenkomt met het aantal eDTU's van het opslaggebruik In-Memory OLTP.
+- Configureer een `Min-eDTU` of `MinvCore` die groter is dan 0. Dit minimum zorgt ervoor dat elke database in de groep is de hoeveelheid beschikbaar geheugen OLTP-opslag die overeenkomt met de geconfigureerde `Min-eDTU` of `vCore`.
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>De gegevensgrootte van en opslag voor de columnstore-indexen
 
@@ -152,7 +152,7 @@ Zie voor een meer eenvoudig, maar meer aantrekkelijk prestaties demo voor In-geh
 
 #### <a name="installation-steps"></a>Installatiestappen
 
-1. In de [Azure-portal](https://portal.azure.com/), een Premium-database maken op een server. Stel de **bron** met de voorbeelddatabase van AdventureWorksLT. Zie voor gedetailleerde instructies [uw eerste Azure SQL-database maken](sql-database-get-started-portal.md).
+1. In de [Azure-portal](https://portal.azure.com/), een Premium of -Business-kritische (preview) maken database op een server. Stel de **bron** met de voorbeelddatabase van AdventureWorksLT. Zie voor gedetailleerde instructies [uw eerste Azure SQL-database maken](sql-database-get-started-portal.md).
 
 2. Verbinding maken met de database met SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 

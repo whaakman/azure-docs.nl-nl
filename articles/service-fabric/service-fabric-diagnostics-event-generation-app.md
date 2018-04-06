@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7af0dd37b5c16e48ce4e504211e68a29cf8bce77
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-and-service-level-logging"></a>Toepassing en service logboekregistratie
 
@@ -36,10 +36,11 @@ Wanneer u een Service Fabric-oplossing van een sjabloon in Visual Studio maakt e
 
 Het is belangrijk dat u zorgvuldig plannen hoe u uw code wordt instrumenteren. Het plan rechts instrumentation kunt u mogelijk uw codebasis destabilizing en hoeven de code reinstrument voorkomen. Om risico te beperken, kunt u een instrumentatiebiblotheek zoals [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), die deel uitmaakt van Microsoft ASP.NET Core. ASP.NET Core is een [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) interface die u met de leverancier van uw keuze, gebruiken kunt terwijl het effect op de bestaande code worden geminimaliseerd. U kunt de code in ASP.NET Core voor Windows en Linux, en in het volledige .NET Framework, zodat uw code instrumentation gestandaardiseerd.
 
-## <a name="choosing-a-logging-provider"></a>Een provider logboekregistratie kiezen
+## <a name="application-insights-sdk"></a>Application Insights-SDK
 
-Als uw toepassing afhankelijk van hoge prestaties is, **EventSource** is meestal een goede benadering. **EventSource** *doorgaans* minder bronnen gebruikt en beter presteert dan ASP.NET Core logboekregistratie of een van de beschikbare oplossingen van derden.  Dit is een probleem voor veel services, maar als uw service prestatiegerichte, met is niet **EventSource** mogelijk een betere keuze. Gestructureerde echter ophalen van deze voordelen van logboekregistratie, **EventSource** moet een grotere geïnvesteerd van het technische team. Indien mogelijk een snelle prototype van een aantal logboekregistratieopties doen en kies vervolgens die het beste voldoet aan uw behoeften.
+Application Insights is een uitgebreide geïntegreerd met Service Fabric gebruiksklaar. Gebruikers kunnen de AI Service Fabric-nuget-pakketten toevoegen en ontvangen van gegevens en logboekbestanden gemaakt en verzameld die kunnen worden weergegeven in de Azure portal. Gebruikers wordt bovendien aangeraden om toe te voegen met hun eigen telemetrie om te onderzoeken en fouten opsporen in hun toepassingen en bijhouden welke services en onderdelen van de toepassing zijn het meest gebruikt. De [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) klasse in de SDK biedt veel verschillende manieren om bij te houden van telemetrie in uw toepassingen. Bekijk een voorbeeld van het instrumenteren en application insights toevoegen aan uw toepassing in onze zelfstudie voor [bewaking en het onderzoeken van een .NET-toepassing](service-fabric-tutorial-monitoring-aspnet.md)
+
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat u ervoor uw provider logboekregistratie gekozen hebt softwareontwikkelaars uw toepassingen en services, moeten uw logboeken en gebeurtenissen worden geaggregeerd voordat ze kunnen worden verzonden naar een willekeurig platform analyse. Meer informatie over [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) en [af](service-fabric-diagnostics-event-aggregation-wad.md) om enkele van de aanbevolen opties beter te begrijpen.
+Nadat u ervoor uw provider logboekregistratie gekozen hebt softwareontwikkelaars uw toepassingen en services, moeten uw logboeken en gebeurtenissen worden geaggregeerd voordat ze kunnen worden verzonden naar een willekeurig platform analyse. Meer informatie over [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md), en [af](service-fabric-diagnostics-event-aggregation-wad.md) om enkele van de aanbevolen opties beter te begrijpen.

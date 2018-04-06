@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 87845df92c77ace484a7afdde3ee20b570cf9cbb
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9d92602ef5071579e0c741dd24a4e3e9f7b2c747
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Besturingselement Azure CDN cachegedrag met queryreeksen - premium-laag
 > [!div class="op_single_selector"]
@@ -44,9 +44,10 @@ Drie beschikbare modi voor query-tekenreeks zijn beschikbaar:
 
 - **Er is geen cache**: In deze modus kan aanvragen met queryreeksen zijn niet in cache opgeslagen op het knooppunt CDN pop-locatie. Het POP-knooppunt de asset rechtstreeks vanaf de oorspronkelijke server opgehaald en doorgegeven aan de aanvrager aan elke aanvraag.
 
-- **unieke cache**: In deze modus kan elke aanvraag met een unieke URL, met inbegrip van de queryreeks wordt behandeld als een unieke activum met een eigen cache. Bijvoorbeeld: het antwoord op de bronserver voor een aanvraag voor `example.ashx?q=test1` is opgeslagen in de cache op de POP-knooppunt en voor daaropvolgende caches met dezelfde querytekenreeks geretourneerd. Een aanvraag voor `example.ashx?q=test2` in cache wordt opgeslagen als een afzonderlijk actief door een eigen time-to-live-instelling.
+- **unieke cache**: In deze modus kan elke aanvraag met een unieke URL, met inbegrip van de queryreeks wordt behandeld als een unieke activum met een eigen cache. Het antwoord op de bronserver voor een aanvraag voor example.ashx?q=test1 is bijvoorbeeld in cache bij het POP-knooppunt en voor daaropvolgende caches met dezelfde querytekenreeks geretourneerd. Een aanvraag voor example.ashx?q=test2 in cache wordt opgeslagen als een afzonderlijk actief door een eigen time-to-live-instelling.
    
-    Gebruik deze modus niet de queryreeks bevat de parameters die met elke aanvraag, zoals een sessie-ID of een gebruikersnaam verandert, omdat het tot een lage Cachetreffer verhouding leiden zal.
+    >[!IMPORTANT] 
+    > Gebruik deze modus niet de queryreeks bevat de parameters die met elke aanvraag, zoals een sessie-ID of een gebruikersnaam verandert, omdat het tot een lage Cachetreffer verhouding leiden zal.
 
 ## <a name="changing-query-string-caching-settings-for-premium-cdn-profiles"></a>Het wijzigen van de queryreeks opslaan in cache-instellingen voor premium-CDN-profielen
 1. Een CDN-profiel te openen en klik vervolgens op **beheren**.

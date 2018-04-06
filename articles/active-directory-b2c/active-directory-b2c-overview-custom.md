@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 269b65662796c092190cd2622c240756f6bd1cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Aangepast beleid
 
@@ -48,7 +48,7 @@ U wordt aangeraden het gebruik van drie soorten beleidsbestanden:
 - **een Relying Party (RP)-bestand** is één taak gerichte bestand die wordt opgeroepen rechtstreeks door de toepassing of service (aka Relying Party).  Lees het artikel op beleid bestand definities voor meer informatie.  Elke unieke taak vereist een eigen RP en afhankelijk van de huisstijl van de vereisten voor het aantal mogelijk 'Totaal aantal toepassingen x totale aantal gevallen'.
 
 
-Ingebouwde beleid in Azure AD B2C Volg het 3-bestandspatroon afgebeeld hierboven, maar de ontwikkelaar ziet alleen het bestand Relying Party (RP), terwijl de portal wijzigingen aangebracht op de achtergrond in het bestand Extensions worden.
+Ingebouwde beleid in Azure AD B2C Volg het 3-bestandspatroon afgebeeld hierboven, maar de ontwikkelaar ziet alleen het bestand Relying Party (RP), terwijl de portal wijzigingen aangebracht op de achtergrond in het bestand uitbreidingen worden.
 
 ## <a name="core-concepts-you-should-know-when-using-custom-policies"></a>Belangrijkste concepten waarover die u weten moet wanneer u aangepaste beleidsregels
 
@@ -89,7 +89,7 @@ Een aangepast beleid wordt weergegeven als een of meer XML-bestanden die in een 
 
 | Bestand met beleidsregel van type | Voorbeelden bestandsnaam | Aanbevolen gebruik | Neemt over van |
 |---------------------|--------------------|-----------------|---------------|
-| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Bevat de core claims schema, claimtransformaties, claimproviders en gebruiker trajecten geconfigureerd door Microsoft<br><br>Minimale wijzigingen aanbrengen in dit bestand | None |
+| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Bevat de core claims schema, claimtransformaties, claimproviders en gebruiker trajecten geconfigureerd door Microsoft<br><br>Minimale wijzigingen aanbrengen in dit bestand | Geen |
 | Extensie (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Uw wijzigingen aan de BASE-bestand hier consolideren<br><br>Gewijzigde claimproviders<br><br>Gewijzigde gebruiker trajecten<br><br>Uw eigen aangepaste schemadefinities | BASE-bestand |
 | Relying Party (RP) | B2C_1A_sign_up_sign_in.xml| Token vorm en sessie instellingen hier wijzigen| Extensions(ext) bestand |
 

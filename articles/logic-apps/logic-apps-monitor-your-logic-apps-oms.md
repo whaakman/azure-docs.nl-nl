@@ -1,12 +1,12 @@
 ---
-title: Monitor en get inzicht in uw logische app wordt uitgevoerd met OMS - Azure Logic Apps | Microsoft Docs
-description: Bewaken van uw logische app wordt uitgevoerd met logboekanalyse en Operations Management Suite (OMS) om inzicht te krijgen en uitgebreidere foutopsporing informatie voor probleemoplossing en diagnostische gegevens opvragen
+title: Monitor en get inzicht in uw logische app wordt uitgevoerd met Log Analytics - Azure Logic Apps | Microsoft Docs
+description: Bewaken van uw logische app wordt uitgevoerd met logboekanalyse insights en uitgebreidere foutopsporing details voor probleemoplossing en diagnostische gegevens ophalen
 author: divyaswarnkar
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2f9f27dc74348909b89941c2bb17ccdf610dba33
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d484aaf7d7582bd474d7437a7a62f41880690dbc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Controleren en verkrijgen van inzicht in logic app wordt uitgevoerd met Operations Management Suite (OMS) en Log Analytics
+# <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Controleren en verkrijgen van inzicht in logic app wordt uitgevoerd met Log Analytics
 
-Voor bewaking en uitgebreidere informatie over foutopsporing, kunt u Log Analytics inschakelen op hetzelfde moment als u een logische app maakt. Log Analytics biedt Diagnostische logboekregistratie en controle voor uw logische app wordt uitgevoerd via de portal Operations Management Suite (OMS). Wanneer u de oplossing Logic Apps aan OMS toevoegt, krijgt u de cumulatieve status van uw logische app wordt uitgevoerd en de specifieke gegevens, zoals status, uitvoeringstijd, de status opnieuw indienen en correlatie-id's.
+Voor bewaking en uitgebreidere informatie over foutopsporing, kunt u Log Analytics inschakelen op hetzelfde moment als u een logische app maakt. Log Analytics biedt Diagnostische logboekregistratie en controle voor uw logische app wordt uitgevoerd via de Azure portal. Wanneer u de oplossing Logic Apps Management toevoegt, krijgt u de cumulatieve status van uw logische app wordt uitgevoerd en de specifieke gegevens, zoals status, uitvoeringstijd, de status opnieuw indienen en correlatie-id's.
 
-Dit onderwerp wordt beschreven hoe logboekanalyse inschakelen of installeren van de oplossing Logic Apps Management in OMS zodat u de runtime-gebeurtenissen en de gegevens voor uw logische app uitgevoerd bekijken kunt.
+Dit onderwerp leest het inschakelen van logboekanalyse zodat u de runtime-gebeurtenissen weergeven kunt of gegevens voor uw logische app uitgevoerd.
 
  > [!TIP]
- > Volg deze stappen voor voor het bewaken van uw bestaande logische apps [Diagnostische logboekregistratie inschakelen en logic app runtimegegevens verzenden naar OMS](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+ > Volg deze stappen voor voor het bewaken van uw bestaande logische apps [Diagnostische logboekregistratie inschakelen en logic app runtimegegevens verzenden naar logboekanalyse](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 ## <a name="requirements"></a>Vereisten
 
-Voordat u begint, moet u een OMS-werkruimte hebt. Meer informatie over [het maken van een OMS-werkruimte](../log-analytics/log-analytics-get-started.md). 
+Voordat u begint, moet u een werkruimte voor logboekanalyse hebben. Meer informatie over [het maken van een werkruimte voor logboekanalyse](../log-analytics/log-analytics-quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Logboekregistratie van diagnostische gegevens inschakelen bij het maken van logische apps
 
@@ -44,56 +44,47 @@ Voordat u begint, moet u een OMS-werkruimte hebt. Meer informatie over [het make
    1. Geef een naam voor uw logische app en selecteer uw Azure-abonnement. 
    2. Maak of Selecteer een Azure-resourcegroep.
    3. Stel **Meld Analytics** naar **op**. 
-   Selecteer de OMS-werkruimte waar u wilt verzenden van gegevens voor uw logische app wordt uitgevoerd. 
+   Selecteer de werkruimte voor logboekanalyse waar u wilt verzenden van gegevens voor uw logische app wordt uitgevoerd. 
    4. Als u klaar bent, kiest u **vastmaken aan dashboard** > **maken**.
 
       ![Logische app maken](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
 
-      Nadat u deze stap, Azure uw logische app, nu is maakt die zijn gekoppeld aan de OMS-werkruimte. 
-      Deze stap installeert ook ook automatisch het beheersysteem voor Logic Apps in de OMS-werkruimte.
+      Nadat u deze stap, Azure uw logische app, nu is maakt die zijn gekoppeld aan uw werkruimte voor logboekanalyse. 
+      Deze stap installeert ook ook automatisch het beheersysteem voor Logic Apps in uw werkruimte.
 
-3. Om weer te geven van de logische app wordt uitgevoerd in OMS, [doorgaan met deze stappen](#view-logic-app-runs-oms).
+3. Om weer te geven van uw logische app wordt uitgevoerd, [doorgaan met deze stappen](#view-logic-app-runs-oms).
 
-## <a name="install-the-logic-apps-management-solution-in-oms"></a>De oplossing Logic Apps Management in OMS installeren
+## <a name="install-the-logic-apps-management-solution"></a>De oplossing Logic Apps installeren
 
-Als u al ingeschakeld logboekanalyse tijdens het maken van uw logische app, moet u deze stap overslaan. U hebt al het beheersysteem voor Logic Apps geïnstalleerd in OMS.
+Als u al ingeschakeld logboekanalyse tijdens het maken van uw logische app, moet u deze stap overslaan. U hebt al het beheersysteem voor Logic Apps geïnstalleerd.
 
 1. In de [Azure-portal](https://portal.azure.com), kies **meer Services**. Zoek naar 'log analytics' als filter, en kies **logboekanalyse** zoals wordt weergegeven:
 
    ![Kies 'Log Analytics'](media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-2. Onder **logboekanalyse**, zoeken en selecteert u de OMS-werkruimte. 
+2. Onder **logboekanalyse**, zoeken en selecteert u de werkruimte voor logboekanalyse. 
 
-   ![Selecteer de OMS-werkruimte](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
+   ![Selecteer de werkruimte voor logboekanalyse](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
 3. Onder **Management**, kies **OMS-Portal**.
 
    ![Kies 'OMS-Portal'](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. Op uw startpagina OMS als de upgrade banner wordt weergegeven, kies de banner zodat u uw OMS-werkruimte eerst upgraden. Kies vervolgens **galerie met oplossingen**.
-
-   ![Kies 'Galerie met oplossingen'](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
-
-5. Onder **alle oplossingen**, zoeken en kiest u de tegel voor de **Logic Apps Management** oplossing.
+4. Onder **alle oplossingen**, zoeken en kiest u de tegel voor de **Logic Apps Management** oplossing.
 
    ![Kies 'Logic Apps Management'](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
 
-6. Voor het installeren van de oplossing in de OMS-werkruimte, kiest u **toevoegen**.
+5. Voor het installeren van de oplossing in de werkruimte voor logboekanalyse, kies **toevoegen**.
 
    ![Kies "Toevoegen" voor 'Logic Apps Management'](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-your-logic-app-runs-in-your-oms-workspace"></a>Uw logische app wordt uitgevoerd in de OMS-werkruimte weergeven
+## <a name="view-your-logic-app-runs-in-your-log-analytics-workspace"></a>Uw logische app wordt uitgevoerd in de werkruimte voor logboekanalyse weergeven
 
-1. Het aantal en de status van uw logische app wordt uitgevoerd, Ga naar de overzichtspagina voor de OMS-werkruimte. Lees de informatie op de **Logic Apps Management** tegel.
+1. Het aantal en de status van uw logische app wordt uitgevoerd, Ga naar de overzichtspagina voor uw werkruimte voor logboekanalyse. Lees de informatie op de **Logic Apps Management** tegel.
 
    ![Overzichttegel waarbij logic app uitvoeren en status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
-
-   > [!Note]
-   > Als deze upgrade banner wordt weergegeven in plaats van de tegel Logic Apps Management, kiest u de banner zodat u uw OMS-werkruimte eerst upgraden.
-  
-   > ![Upgrade 'OMS-werkruimte'](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. Kies een overzicht met meer informatie over uw logische app wordt uitgevoerd, de **Logic Apps Management** tegel.
 

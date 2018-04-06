@@ -1,28 +1,28 @@
 ---
 title: Ontwerp van de maximaal beschikbare service met behulp van Azure SQL Database | Microsoft Docs
 description: Meer informatie over het ontwerp van de toepassing voor maximaal beschikbare services met Azure SQL Database.
-keywords: "herstel na noodgevallen, oplossingen voor herstel na noodgevallen, back-up van app-gegevens, geo-replicatie, cloud zakelijke continuïteit plannen"
+keywords: herstel na noodgevallen, oplossingen voor herstel na noodgevallen, back-up van app-gegevens, geo-replicatie, cloud zakelijke continuïteit plannen
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c596006e33c2c4f0228c14a65f58e82bcf300727
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Maximaal beschikbare services met behulp van Azure SQL Database ontwerpen
 
 Bij het maken en implementeren van maximaal beschikbare services in Azure SQL-Database, gebruikt u [failover groepen en actieve geo-replicatie](sql-database-geo-replication-overview.md) om herstelmogelijkheden bij uitval van regionale en kritieke fouten optreden. Ook kunt snel herstel van de secundaire databases. Dit artikel is gericht op algemene patronen van de toepassing en de voordelen en -en nadelen van elke optie. Zie voor meer informatie over actieve geo-replicatie met elastische Pools [elastische Pool disaster recovery strategieën](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 > [!NOTE]
-> Als u Premium-databases en pools gebruikt, kunt u ze robuuste bij regionale uitval door deze te converteren naar zone redundant implementatieconfiguratie (momenteel in preview). Zie [Zone-redundante databases](sql-database-high-availability.md).  
+> Als u Premium of Business-kritische (preview) databases en elastische pools, kunt u ze tegen regionale uitval door deze te converteren naar zone redundant implementatieconfiguratie (momenteel in preview). Zie [Zone-redundante databases](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Met behulp van twee Azure-regio's voor bedrijfscontinuïteit met minimale downtime
 In dit scenario hebben de toepassingen in de volgende kenmerken: 

@@ -2,10 +2,10 @@
 title: MySQL clusterize met gelijke taakverdeling sets | Microsoft Docs
 description: Instellen van een taakverdeling hoge beschikbaarheid Linux MySQL-cluster met het klassieke implementatiemodel in Azure gemaakt
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: bureado
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e2671def47879e3d4eae000c9084cd458e29b933
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Sets met gelijke taakverdeling kunt clusterize MySQL op Linux
 > [!IMPORTANT]
@@ -335,7 +335,7 @@ Er gelden de volgende beperkingen:
 
 * Het script linbit DRBD resource die wordt beheerd DRBD als een resource in pacemaker heeft gebruikt `drbdadm down` bij het afsluiten van een knooppunt, zelfs als het knooppunt wordt alleen op stand-by. Dit is niet ideaal omdat de slave niet de resource DRBD synchroniseert wordt terwijl de master schrijfbewerkingen opgehaald. Als het model niet vriendelijk mislukt, kan de slave de systeemstatus van een oudere bestand overnemen. Er zijn twee mogelijke manieren om dit op te lossen:
   * Afdwingen van een `drbdadm up r0` op alle clusterknooppunten via een lokale (niet-clusterized) watchdog
-  * Het bewerken van het linbit DRBD script, om ervoor te zorgen dat `down` niet wordt aangeroepen in`/usr/lib/ocf/resource.d/linbit/drbd`
+  * Het bewerken van het linbit DRBD script, om ervoor te zorgen dat `down` niet wordt aangeroepen in `/usr/lib/ocf/resource.d/linbit/drbd`
 * De load balancer moet ten minste vijf seconden reageert, zodat toepassingen clusterbewust is en minder gevoelig voor time-out. Andere architecturen, zoals in-app-wachtrijen en query middlewares, kunnen ook helpen.
 * MySQL-afstemming is nodig om ervoor te zorgen dat beheerbare tempo geschreven en caches worden leeggemaakt naar de schijf zo vaak mogelijk geheugen gegevensverlies te minimaliseren.
 * Prestaties zijn afhankelijk in VM schrijven onderling verbinding maken in de virtuele switch, omdat dit het mechanisme dat door DRBD is voor replicatie van het apparaat.

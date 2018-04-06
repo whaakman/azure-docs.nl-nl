@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ac3d2d90909d740d28eb05396b915280f58c8ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e05d620a457edf427c946366a9caca471ac8531e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Een Log Analytics-werkruimte maken in de Azure portal
 Dit is een unieke Log Analytics-omgeving met een eigen data-opslagplaats, gegevensbronnen en oplossingen in de Azure-Portal die kunt u een werkruimte voor logboekanalyse instellen.  De stappen in dit artikel zijn vereist als u van plan bent op het verzamelen van gegevens van de volgende bronnen:
@@ -47,7 +47,7 @@ Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azur
   * Selecteer een **abonnement** om te koppelen door een selectie in de vervolgkeuzelijst te maken als de geselecteerde standaardwaarde niet juist is.
   * Voor **resourcegroep**, ervoor kiezen een bestaande resource gebruiken groep al setup of maak een nieuwe.  
   * Selecteer een beschikbaar **locatie**.  Bekijk [in welke regio's Log Analytics beschikbaar is](https://azure.microsoft.com/regions/services/) voor aanvullende informatie.
-  * Als u een werkruimte in een nieuw abonnement gemaakt nadat 2 April 2018 maakt, gebruiken deze automatisch de *Per GB* prijzen plan en de optie voor het selecteren van een prijscategorie niet meer beschikbaar.  Als u een werkruimte voor een bestaand abonnement gemaakt vóór 2 April of aan het abonnement dat is gekoppeld aan een bestaande EA inschrijving maakt, hebt u de optie te kiezen tussen drie Prijscategorieën.  U gaat de gratis categorie selecteren in deze snelstartgids.  Zie [Prijzen voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor aanvullende informatie over de afzonderlijke lagen.
+  * Als u een werkruimte in een nieuw abonnement gemaakt nadat 2 April 2018 maakt, gebruiken deze automatisch de *Per GB* prijzen plan en de optie voor het selecteren van een prijscategorie niet meer beschikbaar.  Als u een werkruimte voor een bestaand abonnement gemaakt vóór 2 April of aan het abonnement dat is gekoppeld aan een bestaande EA inschrijving maakt, selecteert u uw voorkeur prijscategorie.  Zie [Prijzen voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor aanvullende informatie over de afzonderlijke lagen.
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 

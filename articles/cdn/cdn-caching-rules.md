@@ -4,7 +4,7 @@ description: CDN caching regels kunt u instellen of wijzigen van standaardgedrag
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 60693b919fad6808bfe60b504d2a70caf80fbe48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Besturingselement Azure CDN cachegedrag met caching van regels
 
 > [!NOTE] 
-> In het cachegeheugen regels zijn alleen beschikbaar voor **Azure CDN van Verizon standaard** en **Azure CDN van Akamai standaard**. Voor **Azure CDN van Verizon Premium**, kunt u de [Azure CDN regelengine](cdn-rules-engine.md) in de **beheren** portal voor vergelijkbare functionaliteit.
+> In het cachegeheugen regels zijn alleen beschikbaar voor **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai**. Voor **Azure CDN Premium van Verizon**, kunt u de [Azure CDN regelengine](cdn-rules-engine.md) in de **beheren** portal voor vergelijkbare functionaliteit.
  
 Azure Content Delivery Network (CDN) biedt twee manieren om te bepalen hoe uw bestanden in de cache opgeslagen: 
 

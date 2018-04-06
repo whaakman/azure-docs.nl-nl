@@ -2,7 +2,7 @@
 title: Apps publiceren met een Azure AD-toepassingsproxy | Microsoft Docs
 description: Publiceer on-premises toepassingen naar de cloud met Azure AD-toepassingsproxy in de Azure portal.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1bf72b450747e98e254db77514fc7a902bbe70cc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Toepassingen publiceren met Azure AD-toepassingsproxy
 
@@ -53,7 +53,7 @@ Volg deze stappen voor het publiceren van uw apps met Application Proxy. Als u d
    - **Interne URL**: de URL die u gebruikt voor toegang tot de toepassing uit binnen uw particuliere netwerk. U kunt voor het publiceren een specifiek pad opgeven op de back-endserver, terwijl de rest van de server ongepubliceerd blijft. U kunt op deze manier kunnen verschillende sites op dezelfde server als verschillende apps publiceren en elk een eigen naam en toegangsregels geven.
 
      > [!TIP]
-     > Als u een pad publiceert, moet u ervoor zorgen dat dit alle benodigde installatiekopieën, scripts en opmaakmodellen voor uw toepassing bevat. Als uw app zich bijvoorbeeld bevindt op het pad https://uwapp/app en gebruikmaakt van installatiekopieën op https://uwapp/media, moet u https://uwapp/ publiceren als het pad. Deze interne URL hoeft niet te worden van de startpagina van die uw gebruikers te zien. Zie voor meer informatie [instellen van een aangepaste startpagina van gepubliceerde apps](application-proxy-office365-app-launcher.md).
+     > Als u een pad publiceert, moet u ervoor zorgen dat dit alle benodigde installatiekopieën, scripts en opmaakmodellen voor uw toepassing bevat. Bijvoorbeeld, als uw app wordt op https://yourapp/app en gebruikmaakt van installatiekopieën zich bevindt op https://yourapp/media, en vervolgens moet u publiceren https://yourapp/ als het pad. Deze interne URL hoeft niet te worden van de startpagina van die uw gebruikers te zien. Zie voor meer informatie [instellen van een aangepaste startpagina van gepubliceerde apps](application-proxy-office365-app-launcher.md).
 
    - **Externe URL**: het adres uw gebruikers gaat naar om toegang tot de app van buiten uw netwerk. Als u niet wilt gebruiken van het standaarddomein toepassingsproxy, leest u over [aangepaste domeinen in Azure AD-toepassingsproxy](active-directory-application-proxy-custom-domains.md).
    - **Verificatie vooraf**: hoe Application Proxy gebruikers worden geverifieerd voordat ze toegang geven tot uw toepassing. 
@@ -61,6 +61,9 @@ Volg deze stappen voor het publiceren van uw apps met Application Proxy. Als u d
      - Azure Active Directory: de gebruikers worden omgeleid met de toepassingsproxy zodat zij zich kunnen aanmelden met Azure AD. Hierbij worden hun machtigingen geverifieerd voor de directory en de toepassing. We raden deze optie als de standaardconfiguratie, zodat u van Azure AD-beveiligingsfuncties zoals voorwaardelijke toegang en multi-factor Authentication profiteren kunt.
      - Passthrough: Gebruikers hebben geen worden geverifieerd bij Azure Active Directory om toegang tot de toepassing. U kunt nog steeds verificatievereisten op de back-end instellen.
    - **Connector-groep**: Connectors verwerken van de externe toegang tot uw toepassing en connector groepeert u indelen connectors en apps per regio, netwerk of doel help. Als u een connector groepen die zijn gemaakt nog niet hebt, uw app is toegewezen aan **standaard**.
+
+>[!NOTE]
+>Als uw toepassing websockets gebruikt verbinding maken, kunt u Zorg ervoor dat er connectorversies 1.5.612.0 of hoger met websocket-ondersteuning en de toegewezen Connector groep alleen gebruik van deze connectors.
 
    ![Uw toepassing configureren](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Indien nodig, extra instellingen configureren. Voor de meeste toepassingen, moet u deze instellingen behouden de standaardwaarden hebben. 

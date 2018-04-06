@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: 0d550d3bda119cfcb9ecc6f852006d5e325fdfa3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Netwerkverbindingen met de netwerk-Watcher van Azure met Azure portal controleren
 
@@ -29,7 +29,7 @@ U moet voldoen aan de volgende vereisten voordat u de stappen in dit artikel uit
 
 * Een exemplaar van netwerk-Watcher in de regio die u wilt bewaken van een verbinding voor. Als u dit niet al hebt, kunt u een door de stappen in [maken van een exemplaar van Azure-netwerk-Watcher](network-watcher-create.md).
 * Een virtuele machine voor het bewaken van. Zie voor meer informatie over het maken van een virtuele machine, maak een [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) of [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) VM.
-* Hebben de `AzureNetworkWatcherExtension` geïnstalleerd in de virtuele machine die u wilt bewaken van een verbinding van. Zie voor informatie over het installeren van de extensie in een Windows-VM [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) en installeren van de extensie in een Linux-VM-Zie [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+* Hebben de `AzureNetworkWatcherExtension` geïnstalleerd in de virtuele machine die u wilt bewaken van een verbinding van. Zie voor informatie over het installeren van de extensie in een Windows-VM [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) en installeren van de extensie in een Linux-VM-Zie [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). De extensie is niet vereist op de doeleindpunt dat u wilt bewaken.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
 

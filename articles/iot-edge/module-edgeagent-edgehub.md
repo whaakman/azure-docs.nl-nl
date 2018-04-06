@@ -2,22 +2,22 @@
 title: Naslaginformatie over Azure IoT EdgeAgent en EdgeHub | Microsoft Docs
 description: Bekijk de specifieke eigenschappen en hun waarden voor de module edgeAgent en edgeHub horende
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17c97c6f233c9861ac42abc0a1f11089bb938e7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0971d5bba59ce3c7b1a6409ef3248f33a41e37c9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Eigenschappen van de rand agent en de rand hub module horende
 
-De Edge-agent en de rand hub zijn twee modules die gezamenlijk de rand van de IoT-runtime. Zie voor meer informatie over welke rechten die elke module uitvoert [begrijp de rand van Azure IoT-runtime en de architecture]](iot-edge-runtime.md). 
+De Edge-agent en de rand hub zijn twee modules die gezamenlijk de rand van de IoT-runtime. Zie voor meer informatie over welke rechten elke module uitvoert, [begrijpen van de rand van Azure IoT-runtime en de bijbehorende architectuur](iot-edge-runtime.md). 
 
 Dit artikel bevat de gewenste eigenschappen en gerapporteerde eigenschappen van de module runtime horende. Zie [implementatie en controle] [ lnk-deploy] voor meer informatie over het implementeren van modules die zich in IoT Edge-apparaten.
 

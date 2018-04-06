@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b845f3112d96838454653dcd742b950009206bf4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3da4b0286ddea88d8009757ea44797e4269140a2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -404,7 +404,7 @@ U ziet dat de doeltabel een identiteitskolom.
 
 Merk op dat als de bron en doel-tabel verschillende schema's zijn (doel heeft een extra kolom met de identiteit). In dit scenario moet u opgeven **structuur** eigenschap in de definitie van de gegevensset doel, waaronder de identiteitskolom niet.
 
-## <a name="invoke-stored-procedure-from-sql-sink"></a>Aanroepen van opgeslagen procedure uit SQL-sink
+## <a name="invoking-stored-procedure-for-sql-sink"></a> Aanroepen van opgeslagen procedure uit SQL-sink
 
 Wanneer gegevens worden gekopieerd naar SQL Server-database, wordt in een gebruiker opgeslagen procedure kan worden geconfigureerd en worden aangeroepen met extra parameters opgegeven.
 
@@ -499,7 +499,7 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | ntext |Tekenreeks, Char] |
 | numerieke |Decimale |
 | nvarchar |Tekenreeks, Char] |
-| echte |Single |
+| echte |Enkelvoudig |
 | ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |

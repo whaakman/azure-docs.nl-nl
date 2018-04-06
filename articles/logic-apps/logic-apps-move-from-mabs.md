@@ -2,11 +2,11 @@
 title: Apps verplaatsen van BizTalk Services naar Azure Logic Apps | Microsoft Docs
 description: Verplaatsen of Azure BizTalk Services (MABS) migreert naar Azure Logic Apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jonfancey
 manager: anneta
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: jonfan; LADocs
-ms.openlocfilehash: 6e00e62e60c059a16731a77e529b4b93f50802e9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f5ad003189d70216198f2d5c7719a971c16d5479
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="move-from-biztalk-services-to-azure-logic-apps"></a>Verplaatsen van BizTalk Services naar Azure Logic Apps
 
@@ -130,7 +130,7 @@ In tegenstelling tot BizTalk Services, worden deze acties losgekoppeld van de tr
 
 ## <a name="manage-and-monitor"></a>Beheren en controleren
 
-In BizTalk Services biedt een speciale portal mechanismen voor het bijhouden om te controleren en oplossen van problemen. Logic Apps biedt uitgebreidere bijhouden en bewakingsmogelijkheden via de [Azure-portal](../logic-apps/logic-apps-monitor-your-logic-apps.md), en met de [B2B Operations Management Suite-oplossing](../logic-apps/logic-apps-monitor-b2b-message.md), bevat een mobiele app voor het bewaren van gaten op dingen Wanneer u bent op de verplaatsing.
+In BizTalk Services biedt een speciale portal mechanismen voor het bijhouden om te controleren en oplossen van problemen. Logic Apps biedt uitgebreidere bijhouden en bewakingsmogelijkheden via de [Azure-portal](../logic-apps/logic-apps-monitor-your-logic-apps.md), en een mobiele app voor het bewaren van gaten op zaken wanneer u zich op de verplaatsing bevat.
 
 ## <a name="high-availability"></a>Hoge beschikbaarheid
 

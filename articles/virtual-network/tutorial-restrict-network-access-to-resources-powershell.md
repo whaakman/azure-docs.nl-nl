@@ -1,38 +1,38 @@
 ---
 title: Toegang tot het netwerk beperken tot bronnen in PaaS - Azure PowerShell | Microsoft Docs
-description: Informatie over het en beperken van toegang tot het netwerk voor Azure-resources, zoals Azure Storage en Azure SQL Database met de service-eindpunten van een virtueel netwerk met behulp van PowerShell.
+description: In dit artikel leert u hoe u en beperken van toegang tot het netwerk voor Azure-resources, zoals Azure Storage en Azure SQL Database met de service-eindpunten van een virtueel netwerk met Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 7e402af74babda2ce32d4a1597c61d71aba89b9e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 28c95e1333b4641e50284a869135a9608dd3242f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Toegang tot het netwerk beperken tot PaaS-resources met de service-eindpunten van een virtueel netwerk met behulp van PowerShell
 
 Service-eindpunten voor virtueel netwerk kunnen u de netwerktoegang tot bepaalde bronnen Azure-service naar een virtueel netwerksubnet beperken. U kunt ook internettoegang tot de resources verwijderen. Service-eindpunten bieden rechtstreekse verbinding met uw virtuele netwerk met de ondersteunde Azure-services, zodat u kunt persoonlijke adresruimte van het virtuele netwerk gebruiken voor toegang tot de Azure-services. Verkeer dat is bestemd voor Azure-resources via de service-eindpunten altijd blijft op de Microsoft Azure-backbone-netwerk. In dit artikel leert u hoe:
 
-> [!div class="checklist"]
-> * Een virtueel netwerk maken met één subnet
-> * Toevoegen van een subnet en een service-eindpunt inschakelen
-> * Een Azure-resource maken en toegang tot het netwerk laat van alleen een subnet
-> * Een virtuele machine (VM) implementeren voor elk subnet
-> * Toegang tot een resource van een subnet bevestigen
-> * Controleer de toegang is geweigerd tot een bron van een subnet en het internet
+* Een virtueel netwerk maken met één subnet
+* Toevoegen van een subnet en een service-eindpunt inschakelen
+* Een Azure-resource maken en toegang tot het netwerk laat van alleen een subnet
+* Een virtuele machine (VM) implementeren voor elk subnet
+* Toegang tot een resource van een subnet bevestigen
+* Controleer de toegang is geweigerd tot een bron van een subnet en het internet
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -93,7 +93,7 @@ $subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="restrict-network-access-to-and-from-a-subnet"></a>Beperken van toegang tot het netwerk naar en van een subnet
+## <a name="restrict-network-access-for-a-subnet"></a>Beperken van toegang tot het netwerk voor een subnet
 
 Maken van netwerkbeveiliging groep beveiligingsregels voor verbindingen met [nieuw AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). De volgende regel staat uitgaande toegang tot het openbare IP-adressen toegewezen aan de Azure Storage-service: 
 
@@ -114,7 +114,7 @@ De volgende regel de toegang weigert aan alle openbare IP-adressen. Deze regel, 
 
 ```azurepowershell-interactive
 $rule2 = New-AzureRmNetworkSecurityRuleConfig `
-  -Name Deny-internet-All `
+  -Name Deny-Internet-All `
   -Access Deny `
   -DestinationAddressPrefix Internet `
   -DestinationPortRange * `
@@ -167,7 +167,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 Stapsgewijze instructies voor het beperken van toegang tot het netwerk naar bronnen die zijn gemaakt via de Azure-services ingeschakeld voor service-eindpunten varieert op services. Zie de documentatie voor afzonderlijke services voor specifieke stappen voor elke service. De rest van dit artikel bevat stappen voor het beperken van toegang tot het netwerk voor een Azure Storage-account als voorbeeld.
 
-### <a name="create-a-storage-account"></a>Een opslagaccount maken
+### <a name="create-a-storage-account"></a>Create a storage account
 
 Maken van een Azure storage-account met [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). Vervang `<replace-with-your-unique-storage-account-name>` met een naam die is uniek voor alle Azure locaties tussen 3 tot 24 tekens lang zijn, met behulp van alleen cijfers en kleine letters.
 
@@ -372,9 +372,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt u een service-eindpunt voor een virtueel netwerksubnet ingeschakeld. Hebt u geleerd dat de service-eindpunten kunnen worden ingeschakeld voor resources met meerdere Azure-services worden geïmplementeerd. U hebt een Azure Storage-account en een beperkte netwerktoegang tot het opslagaccount alleen bronnen binnen een virtueel netwerksubnet gemaakt. Voordat u service-eindpunten virtuele netwerken in productie maakt, wordt aanbevolen dat u zorgvuldig vertrouwd raken met [service-eindpunten](virtual-network-service-endpoints-overview.md).
+In dit artikel hebt u een service-eindpunt voor een virtueel netwerksubnet ingeschakeld. Hebt u geleerd dat de service-eindpunten kunnen worden ingeschakeld voor resources met meerdere Azure-services worden geïmplementeerd. U hebt een Azure Storage-account en een beperkte netwerktoegang tot het opslagaccount alleen bronnen binnen een virtueel netwerksubnet gemaakt. Zie voor meer informatie over service-eindpunten, [overzicht van de Service-eindpunten](virtual-network-service-endpoints-overview.md) en [subnetten beheren](virtual-network-manage-subnet.md).
 
-Als u meerdere virtuele netwerken in uw account hebt, kunt u twee virtuele netwerken met elkaar verbinden zodat de resources in elk virtueel netwerk met elkaar kunnen communiceren. Ga naar de volgende zelfstudie voor informatie over het verbinden van virtuele netwerken.
-
-> [!div class="nextstepaction"]
-> [Verbinding maken met virtuele netwerken](./tutorial-connect-virtual-networks-powershell.md)
+Als u meerdere virtuele netwerken in uw account hebt, kunt u twee virtuele netwerken met elkaar verbinden zodat de resources in elk virtueel netwerk met elkaar kunnen communiceren. Voor meer informatie Zie [verbinding maken met virtuele netwerken](tutorial-connect-virtual-networks-powershell.md).

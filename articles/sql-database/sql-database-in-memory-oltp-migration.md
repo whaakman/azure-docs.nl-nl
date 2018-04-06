@@ -10,14 +10,14 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-ms.openlocfilehash: 77e73ec1004babb5fce1e293acfade9264cd6945
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 00823ca44ec7135a9937bb37dd4ed58ec996c89d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Gebruik In het geheugen OLTP voor het verbeteren van de toepassingsprestaties van uw in SQL-Database
-[In het geheugen OLTP](sql-database-in-memory.md) kan worden gebruikt voor het verbeteren van de prestaties van transactieverwerking gegevensopname en tijdelijke gegevensscenario, in [Premium](sql-database-service-tiers.md) Azure SQL-Databases zonder te verhogen van de prijscategorie. 
+[In het geheugen OLTP](sql-database-in-memory.md) kan worden gebruikt voor het verbeteren van de prestaties van transactieverwerking gegevensopname en tijdelijke gegevensscenario, in [Premium en kritieke zakelijke laag](sql-database-service-tiers.md) databases zonder de prijscategorie te verhogen. 
 
 > [!NOTE] 
 > Meer informatie over hoe [Quorum wordt sleutel database werkbelasting verdubbeld tijdens DTU verlagen door 70% met SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
@@ -25,8 +25,8 @@ ms.lasthandoff: 03/16/2018
 
 Volg deze stappen vast te stellen In het geheugen OLTP in uw bestaande database.
 
-## <a name="step-1-ensure-you-are-using-a-premium-database"></a>Stap 1: Zorg ervoor dat u gebruikt een Premium-database
-In het geheugen OLTP wordt alleen ondersteund in Premium-databases. In het geheugen wordt ondersteund als het geretourneerde resultaat 1 (niet 0):
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Stap 1: Zorg ervoor dat u gebruikmaakt van een database van de laag Premium en kritieke zakelijke
+In het geheugen OLTP wordt alleen ondersteund in Premium en kritieke zakelijke laag-databases. In het geheugen wordt ondersteund als het geretourneerde resultaat 1 (niet 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');

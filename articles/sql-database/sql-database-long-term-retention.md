@@ -1,161 +1,66 @@
 ---
 title: Azure SQL Database back-ups opslaan voor maximaal tien jaar | Microsoft Docs
-description: Meer informatie over hoe Azure SQL Database opslaan back-ups ondersteunt maximaal tien jaar.
+description: Meer informatie over hoe Azure SQL Database opslaan volledige databaseback-ups ondersteunt maximaal tien jaar.
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 2f31e89fce2746e57d6a670aef949d0d534af4c1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: 51f00984a8f0d750bdb478ae4bc8093adad8108e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database back-ups voor maximaal tien jaar opslaan
-Veel toepassingen hebben regelgeving, compatibiliteit of andere zakelijke doeleinden die vereisen dat u voor het bewaren van back-ups buiten de 7 35 dagen geleverd door de Azure SQL Database [automatische back-ups](sql-database-automated-backups.md). Met behulp van de lange termijn bewaren van back-functie kunt u uw back-ups van SQL database opslaan in een Azure Recovery Services-kluis voor maximaal tien jaar. U kunt maximaal 1000 databases per kluis opslaan. Vervolgens kunt u back-up selecteren in de kluis om het te herstellen als een nieuwe database.
+
+Veel toepassingen hebben regelgeving, compatibiliteit of andere zakelijke doeleinden die vereisen dat u voor het bewaren van back-ups buiten de 7 35 dagen geleverd door de Azure SQL Database [automatische back-ups](sql-database-automated-backups.md). Met behulp van de lange termijn bewaren (LTR)-functie kunt u opgegeven SQL-database volledige back-ups in opslaan [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blobopslag voor maximaal tien jaar. Vervolgens kunt u back-up herstellen als een nieuwe database.
 
 > [!IMPORTANT]
-> Lange bewaartermijn van de back-up is momenteel in preview en beschikbaar zijn in de volgende gebieden: Australië-Oost, Australië-Zuidoost, Brazilië-Zuid, VS-midden, Oost-Azië, VS-Oost, VS-Oost 2, India centraal, India-Zuid, Japan-Oost, Japan-West, Noordelijk Centraal, VS, Noord Europa, Zuid-centraal VS, Zuidoost-Azië, West-Europa en VS-West.
+> Lange bewaartermijn is momenteel in preview. Bestaande back-ups die zijn opgeslagen in de kluis Recovery-Service van Azure-Services als onderdeel van het vorige voorbeeld van deze functie worden gemigreerd naar een SQL Azure-opslag.<!-- and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.-->
 >
 
-> [!NOTE]
-> U kunt maximaal 200 databases per kluis inschakelen tijdens een periode van 24 uur. Het is raadzaam dat u een afzonderlijke kluis voor elke server om te minimaliseren, de impact van deze limiet. 
-> 
+## <a name="how-sql-database-long-term-retention-works"></a>De werking van de SQL-Database lange bewaartermijn
 
-## <a name="how-sql-database-long-term-backup-retention-works"></a>De werking van de back-up op lange termijn bewaren van SQL-Database
+Lange bewaartermijn van de back-up maakt gebruik van de [automatische back-ups van SQL-Database](sql-database-automated-backups.md) vergt voor punt-tijd terugzetten (PITR) gemaakt. U kunt een bewaarbeleid voor de lange termijn voor elke SQL-database configureren en opgeven hoe vaak moet u de back-ups kopiëren naar de langetermijnopslag. U kunt het beleid een combinatie van vier parameters definiëren om in te schakelen die flexibiliteit: wekelijkse back-up bewaren (B) maandelijkse back-up bewaren (M), de jaarlijkse back-up bewaren (Y) en de week van jaar (WeekOfYear). Als u opgeeft W, één back-up elke week worden gekopieerd naar de langetermijnopslag. Als u M opgeeft, wordt één back-up tijdens de eerste week van elke maand worden gekopieerd naar de langetermijnopslag. Als u Y opgeeft, wordt een back-up van de week is opgegeven door WeekOfYear gekopieerd naar de langetermijnopslag. Elke back-up worden voor de periode die door deze parameters worden opgegeven in de opslag op lange termijn behouden. 
 
-Met bewaren van back-up op lange termijn, kunt u een SQL database-server koppelen aan een Azure Recovery Services-kluis. 
+Voorbeelden:
 
-* In de dezelfde Azure-abonnement dat de SQL-server gemaakt en in dezelfde geografische regio en resourcegroep, moet u de kluis maken. 
-* Configureert u een bewaarbeleid voor elke database. Het beleid zorgt ervoor dat de wekelijkse volledige back-ups moeten worden gekopieerd naar de Recovery Services-kluis en bewaard voor de opgegeven bewaarperiode (maximaal 10 jaar). 
-* Vervolgens kunt u de database uit een van deze back-ups herstellen naar een nieuwe database in een willekeurige server in het abonnement. Azure-opslag maakt een kopie van de bestaande back-ups en het exemplaar heeft geen invloed van de prestaties op de bestaande database.
+-  W=0, M=0, Y=5, WeekOfYear=3
 
-> [!TIP]
-> Zie voor een uitleg handleiding [en herstel van back-up op lange termijn bewaren van Azure SQL Database configureren](sql-database-long-term-backup-retention-configure.md).
+   De 3e volledige back-up van elk jaar worden voor 5 jaar behouden.
 
-## <a name="enable-long-term-backup-retention"></a>Lange bewaartermijn van de back-up inschakelen
+- W=0, M=3, Y=0
 
-Lange bewaartermijn van back-up voor een database configureren:
+   De eerste volledige back-up van elke maand worden behouden voor 3 maanden.
 
-1. Maak een Azure Recovery Services-kluis in dezelfde regio, abonnement en resourcegroep als uw SQL database-server. 
-2. De server naar de kluis registreren.
-3. Maak een beleid voor Azure Recovery Services-beveiliging.
-4. Het beveiligingsbeleid van toepassing op de databases die langdurig bewaren van back-up vereisen.
+- W=12, M=0, Y=0
 
-Als u wilt configureren, beheren en een database herstellen via langdurig bewaren van back-up van automatische back-ups in een Azure Recovery Services-kluis, voert u een van de volgende opties:
+   Elke wekelijkse volledige back-up worden voor 12 weken behouden.
 
-* Met de Azure portal: klik op **lange bewaartermijn van de back-**, selecteert u een database en klik vervolgens op **configureren**. 
+- W=6, M=12, Y=10, WeekOfYear=16
 
-   ![Selecteer een database voor lange bewaartermijn van de back-up](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
+   Elke wekelijkse volledige back-up worden voor 6 weken behouden. Behalve de eerste volledige back-up van elke maand, die worden bewaard gedurende 12 maanden. Met uitzondering van de volledige back-up op 16de week van jaar, die gehouden tien jaar. 
 
-* Met behulp van PowerShell: Ga naar [en herstel van back-up op lange termijn bewaren van Azure SQL Database configureren](sql-database-long-term-backup-retention-configure.md).
+De volgende tabel ziet u de uitgebracht en verlooptijd van de lange termijn back-ups voor het volgende beleid:
 
-## <a name="restore-a-database-thats-stored-with-the-long-term-backup-retention-feature"></a>Een database die opgeslagen met de functie voor de lange termijn bewaren van back-up terugzetten
+W = 12 weken (84 dagen), M = 12 maanden (365 dagen), Y = 10 jaar (3650 dagen), WeekOfYear = 15 (week na 15 April)
 
-Herstellen vanuit back-up op lange termijn bewaren van back-up:
+   ![Voorbeeld van links naar rechts](./media/sql-database-long-term-retention/ltr-example.png)
 
-1. Lijst van de kluis waarin de back-up is opgeslagen.
-2. Lijst van de container die is gekoppeld aan uw logische server.
-3. Lijst van de gegevensbron in de kluis die is gekoppeld aan uw database.
-4. Lijst van de herstelpunten die beschikbaar zijn voor het herstellen.
-5. Herstel de database van het herstelpunt dat naar de doelserver in uw abonnement.
 
-Als u wilt configureren, beheren en een database herstellen via langdurig bewaren van back-up van automatische back-ups in een Azure Recovery Services-kluis, voert u een van de volgende opties:
+ 
+Als u zou de bovenstaande beleid wijzigen en set W = 0 (geen wekelijkse back-ups), de frequentie van back-ups als veranderen zou weergegeven in de bovenstaande tabel op de gemarkeerde Data. De opslagruimte die nodig zijn voor deze back-ups behouden zou dienovereenkomstig verminderen. Opmerking: De LTR exemplaren worden gemaakt door Azure storage-service, zodat het kopieerproces geen invloed op de prestaties op de bestaande database heeft.
+Als u een database herstellen uit de opslag LTR, kunt u een specifieke back-up op basis van de timestamp.   De database kan worden hersteld met een bestaande server onder hetzelfde abonnement als de oorspronkelijke database. 
 
-* Met de Azure portal: Ga naar [lange Backup-bewaartermijn met de Azure portal beheren](sql-database-long-term-backup-retention-configure.md). 
+## <a name="configure-long-term-backup-retention"></a>Langetermijnretentie van back-ups configureren
 
-* Met behulp van PowerShell: Ga naar [lange Backup-bewaartermijn met behulp van PowerShell beheren](sql-database-long-term-backup-retention-configure.md).
-
-## <a name="get-pricing-for-long-term-backup-retention"></a>Prijzen voor lange bewaartermijn van de back-ophalen
-
-Lange bewaartermijn van back-up van een SQL-database wordt in rekening gebracht volgens de [Azure Backup-services prijzen tarieven](https://azure.microsoft.com/pricing/details/backup/).
-
-Nadat de SQL database-server naar de kluis is geregistreerd, wordt u in rekening gebracht voor de totale opslag die wordt gebruikt door de wekelijkse back-ups zijn opgeslagen in de kluis.
-
-## <a name="view-available-backups-that-are-stored-in-long-term-backup-retention"></a>Beschikbare back-ups weergeven die zijn opgeslagen in lange bewaartermijn van de back-up
-
-Als u wilt configureren, beheren en een database herstellen via langdurig bewaren van back-up van automatische back-ups in een Azure Recovery Services-kluis met behulp van de Azure-portal, voert u een van de volgende opties:
-
-* Met de Azure portal: Ga naar [lange Backup-bewaartermijn met de Azure portal beheren](sql-database-long-term-backup-retention-configure.md). 
-
-* Met behulp van PowerShell: Ga naar [lange Backup-bewaartermijn met behulp van PowerShell beheren](sql-database-long-term-backup-retention-configure.md).
-
-## <a name="disable-long-term-retention"></a>Lange bewaartermijn uitschakelen
-
-De recovery-service wordt automatisch het opruimen van de back-ups op basis van het opgegeven bewaarbeleid verwerkt. 
-
-Als u wilt stoppen met het verzenden van de back-ups voor een specifieke database naar de kluis, verwijder het bewaarbeleid voor die database.
-  
-```
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName 'RG1' -ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
-```
-
-> [!NOTE]
-> De back-ups die zich al in de kluis worden hierdoor niet beïnvloed. Ze worden automatisch verwijderd door de herstelservice wanneer de bewaartermijn is verstreken.
-
-## <a name="long-term-backup-retention-faq"></a>Lange bewaartermijn in back-Veelgestelde vragen
-
-**Kan ik handmatig specifieke back-ups in de kluis verwijderen?**
-
-Momenteel niet. Back-ups van ruimt de kluis automatisch wanneer de bewaartermijn is verlopen.
-
-**Kan ik mijn server voor het opslaan van back-ups naar meer dan één kluis registreren?**
-
-Nee, kunt u back-ups naar slechts één kluis momenteel opslaan op een tijdstip.
-
-**Kan ik een kluis en de server hebben met verschillende abonnementen?**
-
-Nee, de kluis en de server moeten zich in hetzelfde abonnement en dezelfde resourcegroep.
-
-**Kan ik een kluis die ik in een regio die verschilt van mijn server regio gemaakt gebruiken?**
-
-Nee, de kluis en de server, moet in dezelfde regio kopie tijd minimaliseren en verkeer kosten te voorkomen.
-
-**Hoeveel databases kan ik opslaan in een kluis?**
-
-Op dit moment kunnen ondersteuning we voor maximaal 1000 databases per kluis. 
-
-**Het aantal kluizen kan ik maken per abonnement?**
-
-U kunt maximaal 25 kluizen per abonnement maken.
-
-**Hoeveel databases kan ik per dag per kluis configureren?**
-
-U kunt 200 databases per dag per kluis instellen.
-
-**Werkt langdurig bewaren van back-up met elastische pools?**
-
-Ja. Elke database in de groep kan worden geconfigureerd met het bewaarbeleid.
-
-**Kan ik een kiezen voor de tijd waarop de back-up is gemaakt?**
-
-Nee, bepaalt de SQL-Database het back-upschema minimaliseren de invloed van de prestaties van uw databases.
-
-**Ik heb transparante gegevensversleuteling is ingeschakeld voor de database. Kan ik deze met de kluis gebruiken?** 
-
-Ja, transparante gegevensversleuteling wordt ondersteund. U kunt de database herstellen uit de kluis, zelfs als de oorspronkelijke database niet meer bestaat.
-
-**Wat gebeurt er met de back-ups in de kluis als mijn abonnement wordt onderbroken?** 
-
-Als uw abonnement wordt onderbroken, wordt de bestaande databases en de back-ups behouden. Nieuwe back-ups worden niet gekopieerd naar de kluis. Nadat u het abonnement opnieuw activeert, hervat de service back-ups kopiëren naar de kluis. Uw kluis wordt toegankelijk is voor de bewerkingen voor het herstellen met behulp van de back-ups die zijn gekopieerd er voordat u het abonnement is onderbroken. 
-
-**Krijg ik toegang tot de back-upbestanden voor SQL-database zodat ik kan downloaden of deze naar de SQL-server terugzetten?**
-
-Nee, momenteel niet.
-
-**Is het mogelijk om meerdere planningen (dagelijks, wekelijks, maandelijks, jaarlijks) binnen een bewaarbeleid SQL.**
-
-Nee, meerdere schema's zijn momenteel alleen beschikbaar voor back-ups van virtuele machine.
-
-**Wat gebeurt er als we langdurig bewaren van back-up voor een database die is een secundaire actieve geo-replicatie-database hebt ingesteld?**
-
-Omdat er geen back-ups op replica's onderneemt, is er momenteel geen optie voor het bewaren van de lange termijn back-up op secundaire databases. Het is echter belangrijk dat gebruikers langdurig bewaren van back-up op een secundaire actieve geo-replicatie-database instellen voor de volgende redenen:
-* Wanneer een failover gebeurt en de database een primaire database wordt, duurt we een volledige back-up, die is geüpload naar de kluis.
-* Er is geen extra kosten verbonden aan de klant voor het instellen van langdurig bewaren van back-up op een secundaire database.
+Zie voor meer informatie over het configureren van lange bewaartermijn met behulp van de Azure-portal of met behulp van PowerShell, [lange bewaartermijn van de back-up configureren](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Omdat de databaseback-ups voorkomen dat gegevens per ongeluk beschadigd of verwijderd, zijn ze een essentieel onderdeel van een zakelijke continuïteit en noodherstelplan. Zie voor meer informatie over de andere SQL-Database-oplossingen voor bedrijfscontinuïteit, [Business continuity overview](sql-database-business-continuity.md).

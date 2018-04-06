@@ -8,15 +8,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 331f8ed2e77a076dd8969dc37add1cdeafc852dc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e10fefdd3bd46aeb90fd2cfc82d4fee3b17d867b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Toepassingsproxy en Qlik verstand 
 Azure Active Directory-toepassingsproxy en Qlik zin hebben hun samen zodat u zich eenvoudig kunt toepassingsproxy gebruiken voor externe toegang voor uw implementatie Qlik zin.  
@@ -25,20 +25,7 @@ Azure Active Directory-toepassingsproxy en Qlik zin hebben hun samen zodat u zic
 De rest van dit scenario wordt ervan uitgegaan dat u het volgende gedaan:
  
 - Geconfigureerd [Qlik zin](https://community.qlik.com/docs/DOC-19822). 
-- Een connector voor toepassingsproxy geïnstalleerd 
-
-## <a name="install-an-application-proxy-connector"></a>Een Application Proxy connector installeren 
-Als u al Application Proxy ingeschakeld hebt en hebt een connector is geïnstalleerd, kunt u deze sectie overslaan en verplaatst op naar [uw app toevoegen aan Azure AD met toepassingsproxy](application-proxy-ping-access.md). 
-
-De connector voor toepassingsproxy is een Windows Server-service die het verkeer van uw werknemers extern naar uw gepubliceerde apps wordt verwezen. Zie voor meer installatie-instructies, [toepassingsproxy inschakelen in de Azure portal](active-directory-application-proxy-enable.md). 
-
-
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) als globale beheerder. 
-2. Selecteer de Azure Active Directory > toepassingsproxy. 
-3. Selecteer de Connector downloaden om de Application Proxy connector downloaden te starten. Volg de installatie-instructies. 
- 
->[!NOTE]
->Downloaden van de connector moet automatisch toepassingsproxy inschakelen voor uw directory, maar als u dit niet kunt selecteren **Enable Application Proxy**. 
+- [Een connector voor toepassingsproxy geïnstalleerd](active-directory-application-proxy-enable.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Uw toepassingen publiceren in Azure 
 Als u wilt publiceren QlikSense, moet u twee toepassingen publiceren in Azure.  
@@ -47,12 +34,12 @@ Als u wilt publiceren QlikSense, moet u twee toepassingen publiceren in Azure.
 Volg deze stappen voor het publiceren van uw app. Voor een meer overzicht van de stappen 1-8, Zie gedetailleerde [toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md). 
 
 
-1. Als dat niet in de laatste sectie aanmelden bij de Azure-portal als globale beheerder. 
+1. Meld u aan bij de Azure portal als globale beheerder. 
 2. Selecteer **Azure Active Directory** > **bedrijfstoepassingen**. 
 3. Selecteer **toevoegen** boven aan de blade. 
 4. Selecteer **On-premises toepassing**. 
 5.       Vul de vereiste velden met informatie over uw nieuwe app. Gebruik de volgende richtlijnen voor de instellingen: 
-    - **Interne URL**: deze toepassing moet een interne URL de URL van de QlikSense is. Bijvoorbeeld: **https&#58;//demo.qlikemm.com** 
+    - **Interne URL**: deze toepassing moet een interne URL de URL van de QlikSense is. Bijvoorbeeld: **https&#58;//demo.qlikemm.com:4244** 
     - **Methode voor verificatie vooraf**: Azure Active Directory (aanbevolen maar niet vereist) 
 1.       Selecteer **toevoegen** onderaan de blade. Uw toepassing wordt toegevoegd en het menu Snel starten wordt geopend. 
 2.       Selecteer in het menu Snel starten **een gebruiker toewijzen voor het testen van**, en ten minste één gebruiker toevoegen aan de toepassing. Zorg ervoor dat deze testaccount toegang heeft tot de on-premises toepassing. 
@@ -62,8 +49,8 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer overzicht van de
 ### <a name="application-2"></a>Toepassing #2: 
 Volg dezelfde stappen als toepassing #1, met de volgende uitzonderingen: 
 
-**Stap &#5;**: de interne URL moet nu de QlikSense-URL met de verificatiepoort gebruikt door de toepassing. De standaardwaarde is **4244** voor HTTPS en 4248 voor HTTP. Ex: **https&#58;//demo.qlik.com:4244** 
-**stap #10:** niet instellen van eenmalige aanmelding en laat de **eenmalige aanmelding uitgeschakeld**
+**Stap 5 #**: de interne URL moet nu de QlikSense-URL met de verificatiepoort gebruikt door de toepassing. De standaardwaarde is **4244** voor HTTPS en 4248 voor HTTP. Ex: **https&#58;//demo.qlik.com:4244**</br></br> 
+**Stap 10 #:** niet instellen van eenmalige aanmelding en laat de **eenmalige aanmelding uitgeschakeld**
  
  
 ## <a name="testing"></a>Testen 

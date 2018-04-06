@@ -2,7 +2,7 @@
 title: Query uitvoeren op Azure-logboekanalyse Azure HDInsight-clusters bewaken | Microsoft Docs
 description: Informatie over het uitvoeren van query's op Azure-logboekanalyse voor het bewaken van de taken die worden uitgevoerd in een HDInsight-cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: f9e023ae8d6c50049b588cf056629cd8d46ee603
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1b2f5fc9bd4f8fc8cd70437e38831595d0a8a819
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Query uitvoeren op Azure-logboekanalyse voor het bewaken van HDInsight-clusters
 
@@ -33,7 +33,7 @@ Meer informatie over enkele algemene scenario's over het gebruik van Azure-logbo
 
 * U moet een HDInsight-cluster voor het gebruik van Azure-logboekanalyse hebt geconfigureerd. Zie voor instructies [gebruik Azure Log Analytics met HDInsight-clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-* U moet toevoegen de HDInsight-cluster-specifieke oplossingen voor de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) werkruimte, zoals beschreven in [toevoegen HDInsight-cluster beheeroplossingen met logboekanalyse](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+* U moet toevoegen de HDInsight-cluster-specifieke oplossingen voor de [logboekanalyse](../operations-management-suite/operations-management-suite-overview.md) werkruimte, zoals beschreven in [toevoegen HDInsight-cluster beheeroplossingen met logboekanalyse](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>HDInsight-cluster metrische gegevens analyseren
 
@@ -86,7 +86,7 @@ Informatie over het zoeken van foutberichten tijdens een specifiek tijdvenster. 
 
     ![Open OMS-dashboard](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS-dashboard")
 
-2. Klik in het dashboard OMS vanuit het startscherm op **logboek zoeken**.
+2. Klik in de OMS-portal, vanuit het startscherm op **logboek zoeken**.
 
     ![Open logboek zoeken](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "logboek zoeken openen")
 
@@ -126,7 +126,7 @@ U kunt een query die u wilt dat een waarschuwing wilt maken.
 
     ![Open OMS-dashboard](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS-dashboard")
 
-2. Klik in het dashboard OMS vanuit het startscherm op **logboek zoeken**.
+2. Klik in de OMS-portal, vanuit het startscherm op **logboek zoeken**.
 
     ![Open logboek zoeken](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "logboek zoeken openen")
 
@@ -152,5 +152,5 @@ U kunt een query die u wilt dat een waarschuwing wilt maken.
 
 ## <a name="see-also"></a>Zie ook
 
-* [Werken met Operations Management Suite Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Werken met logboekanalyse](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Maken van regels voor waarschuwingen in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)

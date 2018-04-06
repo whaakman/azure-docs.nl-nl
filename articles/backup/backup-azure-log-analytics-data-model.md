@@ -2,10 +2,10 @@
 title: Log Analytics-gegevensmodel voor Azure Backup
 description: In dit artikel wordt gesproken over logboekanalyse Gegevensdetails model voor Azure backup-gegevens.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: dfd5c73d-0d34-4d48-959e-1936986f9fc0
 ms.service: backup
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 041a8835a1dd185739b23d4073fd5811bb4490b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d55ec8ac4416fe0a082812584552462292b6dbb7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-gegevensmodel voor Azure backup-gegevens
-In dit artikel beschrijft het gegevensmodel dat wordt gebruikt voor logboekanalyse reporting gegevens worden gepusht. Met dit gegevensmodel, kunt u aangepaste query's, dashboards maken en gebruiken in OMS. 
+In dit artikel beschrijft het gegevensmodel dat wordt gebruikt voor logboekanalyse reporting gegevens worden gepusht. Met behulp van deze gegevensmodel, kunt u aangepaste query's, dashboards maken en gebruiken in Log Analytics. 
 
 ## <a name="using-azure-backup-data-model"></a>Met behulp van Azure Backup-gegevensmodel
 U kunt de volgende velden geleverd als onderdeel van het gegevensmodel gebruiken voor het maken van visuele elementen, aangepaste query's en dashboard volgens uw vereisten.
@@ -286,4 +286,4 @@ Deze tabel bevat informatie over velden met betrekking tot de kluis.
 | ResourceType |Tekst |Dit veld vertegenwoordigt type van de resource waarvan gegevens worden verzameld - kluizen |
 
 ## <a name="next-steps"></a>Volgende stappen
-Wanneer u het gegevensmodel voor het maken van Azure Backup rapporten bekijkt, kunt u beginnen [dashboard maken](../log-analytics/log-analytics-dashboards.md) in Log Analytics en OMS.
+Wanneer u het gegevensmodel voor het maken van Azure Backup rapporten bekijkt, kunt u beginnen [dashboard maken](../log-analytics/log-analytics-dashboards.md) in logboekanalyse.

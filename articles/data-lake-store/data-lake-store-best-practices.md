@@ -2,7 +2,7 @@
 title: Aanbevolen procedures voor het gebruik van Azure Data Lake Store | Microsoft Docs
 description: Meer informatie over de aanbevolen procedures over gegevensopname, datum, beveiliging en prestaties voor het werken met Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Aanbevolen procedures voor het gebruik van Azure Data Lake Store
 In dit artikel leert u over aanbevolen procedures en overwegingen voor het werken met Azure Data Lake Store. Dit artikel bevat informatie over beveiliging, prestaties, tolerantie en bewaking voor Data Lake Store. Werken met echte big data in services zoals Azure HDInsight is voordat u Data Lake Store complex. Moest u gegevens verdelen over meerdere Blob storage-accounts zodat petabyte opslag en optimale prestaties op deze schaal kunnen worden gerealiseerd. Met Data Lake Store worden de meeste van de vaste limieten voor de grootte en de prestaties verwijderd. Er zijn echter nog steeds bepaalde overwegingen die van dit artikel behandelt zodat u de beste prestaties met Data Lake Store kunt ophalen. 
@@ -129,7 +129,7 @@ Data Lake Store biedt gedetailleerde diagnostische logboeken en controle. Data L
 
 ### <a name="export-data-lake-store-diagnostics"></a>Diagnostische gegevens export Data Lake Store 
 
-Een van de snelste manieren om toegang te krijgen tot doorzoekbare Logboeken in Data Lake Store is het inschakelen van de back-upfunctie voor logboekbestanden aan **Operations Management Suite (OMS)** onder de **Diagnostics** blade voor het Data Lake Store-account. Dit biedt directe toegang tot de binnenkomende logboeken met tijd en de inhoud filters, samen met opties (e-mailadres/webhook) waarschuwingen geactiveerd binnen 15 minuten durende intervallen. Zie voor instructies [toegang tot diagnoselogboeken voor Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
+Een van de snelste manieren om toegang te krijgen tot doorzoekbare Logboeken in Data Lake Store is het inschakelen van de back-upfunctie voor logboekbestanden aan **logboekanalyse** onder de **Diagnostics** blade voor het Data Lake Store-account. Dit biedt directe toegang tot de binnenkomende logboeken met tijd en de inhoud filters, samen met opties (e-mailadres/webhook) waarschuwingen geactiveerd binnen 15 minuten durende intervallen. Zie voor instructies [toegang tot diagnoselogboeken voor Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
 
 Voor meer realtime waarschuwingen en meer controle over waar u de logboeken land, kunt u Logboeken te exporteren naar Azure EventHub waar inhoud kan worden geanalyseerd afzonderlijk of via een tijdvenster om realtime meldingen naar een wachtrij te verzenden. Een afzonderlijke toepassing zoals een [logische App](../connectors/connectors-create-api-azure-event-hubs.md) kunnen vervolgens gebruiken en de waarschuwingen op het juiste kanaal communiceren, evenals metrische gegevens aan de bewaking van hulpprogramma's zoals NewRelic, Datadog of AppDynamics verzenden. U kunt ook als u een hulpprogramma van derden zoals ElasticSearch gebruikt, u kunt de logboeken te exporteren naar Blob Storage en gebruiken de [Azure Logstash invoegtoepassing](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) gebruiken voor de gegevens in de stack Elasticsearch Kibana en Logstash (ELK).
 
@@ -139,7 +139,7 @@ Als Data Lake Store-upfunctie voor logboekbestanden niet is ingeschakeld, Azure 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Als de eigenschap is ingesteld en de knooppunten worden opnieuw opgestart, Data Lake Store diagnostics wordt geschreven naar de YARN-logboeken op de knooppunten (/tmp/<user>/yarn.log), en belangrijke informatie, zoals fouten of beperking (foutcode HTTP 429) kan worden bewaakt. Deze informatie kan ook worden bewaakt in OMS of waar logboeken worden verzonden in de [Diagnostics](data-lake-store-diagnostic-logs.md) blade van het Data Lake Store-account. Het verdient aanbeveling met ten minste clientzijde logboekregistratie is ingeschakeld, of gebruikmaken van de optie met Data Lake Store voor operationeel inzicht en gemakkelijker foutopsporing-upfunctie voor logboekbestanden.
+Als de eigenschap is ingesteld en de knooppunten worden opnieuw opgestart, Data Lake Store diagnostics wordt geschreven naar de YARN-logboeken op de knooppunten (/tmp/<user>/yarn.log), en belangrijke informatie, zoals fouten of beperking (foutcode HTTP 429) kan worden bewaakt. Deze informatie kan ook worden bewaakt in logboekanalyse of waar logboeken worden verzonden in de [Diagnostics](data-lake-store-diagnostic-logs.md) blade van het Data Lake Store-account. Het verdient aanbeveling met ten minste clientzijde logboekregistratie is ingeschakeld, of gebruikmaken van de optie met Data Lake Store voor operationeel inzicht en gemakkelijker foutopsporing-upfunctie voor logboekbestanden.
 
 ### <a name="run-synthetic-transactions"></a>Synthetische transacties worden uitgevoerd 
 

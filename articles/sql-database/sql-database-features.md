@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: d8adf097d6bee404cff8e7b15782c6c59531a897
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bca2629ea4a0c859e92d829b49072fbdf3f9ffe2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking: Azure SQL Database en SQL Server 
 
@@ -45,7 +45,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [Gegevensregistratie wijzigen](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Nee | Ja |
 | [Wijzigingen bijhouden](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Ja |Ja |
 | [Sortering instructies](https://docs.microsoft.com/sql/t-sql/statements/collations) | Ja | Ja |
-| [Columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja - [Premium-laag en de prijscategorie Standard - S3 en hoger](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
+| [Columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Ja - [Premium-laag, laag Standard - S3 en hoger voor algemene doeleinden laag en kritieke zakelijke lagen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Ja |
 | [De common language runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Nee | Ja - Zie [CLR verschillen](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Ingesloten databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Ja | Ja |
 | [Ingesloten gebruikers](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Ja | Ja |
@@ -82,7 +82,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Ja | Nee, kunt u herstellen COPY_ONLY volledige back-ups die u onderneemt periodiek - Zie [back-up verschillen](sql-database-managed-instance-transact-sql-information.md#backup) en [herstellen verschillen](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Geo-replicatie](sql-database-geo-replication-overview.md) | Ja | Nee |
 | [Verwerking van de grafiek](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
-| [Optimalisatie in het geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja - [alleen Premium-editie](sql-database-in-memory.md) | Nee |
+| [Optimalisatie in het geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja - [Premium en kritieke zakelijke-lagen](sql-database-in-memory.md) | Nee |
 | [Ondersteuning voor JSON-gegevens](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Ja | Ja |
 | [Elementen van de taal](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De meeste - Zie afzonderlijke elementen |  Ja - Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
 | [Gekoppelde servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Niet - Zie [elastische query](sql-database-elastic-query-horizontal-partitioning.md) | Alleen naar SQL Server |

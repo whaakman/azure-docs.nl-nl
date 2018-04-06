@@ -2,10 +2,10 @@
 title: Vastleggen van een Azure Linux VM te gebruiken als sjabloon | Microsoft Docs
 description: Informatie over het vastleggen en een installatiekopie van een Linux-gebaseerde Azure virtuele machine (VM) gemaakt met het Azure Resource Manager-implementatiemodel generalize.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 71c60c8d29e4db8aab1932a1bece03396a12e4da
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Vastleggen van een virtuele Linux-machine uitgevoerd op Azure
 Volg de stappen in dit artikel generaliseren en vastleggen van uw Azure Linux virtuele machine (VM) in het Resource Manager-implementatiemodel. Wanneer u de virtuele machine generalize, kunt u persoonlijke gegevens te verwijderen en voorbereiden van de virtuele machine moet worden gebruikt als een afbeelding. U vervolgens een installatiekopie van een gegeneraliseerde virtuele harde schijf (VHD) voor het besturingssysteem, virtuele harde schijven voor bijgesloten gegevensschijven, vastleggen en een [Resource Manager-sjabloon](../../azure-resource-manager/resource-group-overview.md) voor nieuwe VM-implementaties. Dit artikel wordt uitgelegd hoe u een VM-installatiekopie met de Azure CLI 1.0 vastleggen voor een virtuele machine met niet-beheerde schijven. U kunt ook [vastleggen van een VM die gebruikmaakt van Azure beheerd schijven met de Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Beheerde schijven worden verwerkt door de Azure-platform en hoeven niet de voorbereidings- of locatie om op te slaan. Zie [Azure Managed Disks overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Overzicht van Azure Managed Disks) voor meer informatie. 
@@ -38,7 +38,7 @@ U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 ## <a name="before-you-begin"></a>Voordat u begint
 Zorg ervoor dat u voldoet aan de volgende vereisten:
 
-* **Azure virtuele machine gemaakt in het Resource Manager-implementatiemodel** -als u een Linux-VM nog niet hebt gemaakt, kunt u de [portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), wordt de [Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), of [Resource Manager-sjablonen](create-ssh-secured-vm-from-template.md). 
+* **Azure virtuele machine gemaakt in het Resource Manager-implementatiemodel** -als u een Linux-VM nog niet hebt gemaakt, kunt u de [portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), wordt de [Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), of [Resource Manager-sjablonen ](create-ssh-secured-vm-from-template.md). 
   
     De virtuele machine naar wens configureren. Bijvoorbeeld: [gegevensschijven toevoegen](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), toepassen van updates en toepassingen te installeren. 
 * **Azure CLI** -installeren van de [Azure CLI](../../cli-install-nodejs.md) op een lokale computer.
@@ -86,12 +86,12 @@ Gebruik de Azure CLI generaliseren en vastleggen van de virtuele machine. In de 
    > [!IMPORTANT]
    > De VHD-bestanden van de installatiekopie gemaakt in hetzelfde opslagaccount die de oorspronkelijke VM gebruikt standaard. Gebruik de *hetzelfde opslagaccount* voor het opslaan van de VHD's voor nieuwe VM's u van de installatiekopie maken. 
 
-6. Als u wilt zoeken naar de locatie van een vastgelegde installatiekopie, opent u het JSON-sjabloon in een teksteditor. In de **storageProfile**, vinden de **uri** van de **installatiekopie** zich in de **system** container. Bijvoorbeeld: de URI van de installatiekopie van de OS-schijf is vergelijkbaar met`https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
+6. Als u wilt zoeken naar de locatie van een vastgelegde installatiekopie, opent u het JSON-sjabloon in een teksteditor. In de **storageProfile**, vinden de **uri** van de **installatiekopie** zich in de **system** container. Bijvoorbeeld: de URI van de installatiekopie van de OS-schijf is vergelijkbaar met `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Stap 3: Een virtuele machine van de vastgelegde installatiekopie maken
 De afbeelding met een sjabloon nu gebruiken voor het maken van een Linux-VM. Deze stappen ziet u hoe u de Azure CLI en het JSON-bestand-sjabloon die u hebt vastgelegd voor het maken van de virtuele machine in een nieuw virtueel netwerk.
 
-### <a name="create-network-resources"></a>Maken van netwerkbronnen
+### <a name="create-network-resources"></a>Netwerkbronnen maken
 De sjabloon wilt gebruiken, moet u eerst een virtueel netwerk en NIC instellen voor uw nieuwe virtuele machine. Het is raadzaam om dat het maken van een resourcegroep voor deze bronnen op de locatie waar uw VM-installatiekopie is opgeslagen. De opdrachten uitvoeren is vergelijkbaar met de volgende, waarbij namen voor uw resources en juiste Azure locatie ('centralus' in deze opdrachten):
 
 ```azurecli
@@ -113,7 +113,7 @@ Voor het implementeren van een virtuele machine van de installatiekopie met behu
 azure network nic show myResourceGroup1 myNIC
 ```
 
-De **Id** in de uitvoer is vergelijkbaar met`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`
+De **Id** in de uitvoer is vergelijkbaar met `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`
 
 ### <a name="create-a-vm"></a>Een virtuele machine maken
 Voer nu de volgende opdracht voor het maken van uw virtuele machine van de vastgelegde installatiekopie van de virtuele machine. Gebruik de **-f** parameter om het pad naar het sjabloon JSON-bestand die u hebt opgeslagen.
@@ -177,7 +177,7 @@ Gebruik de vastgelegde installatiekopie en de sjabloon voor het implementeren va
 Als u de vastgelegde installatiekopie en de sjabloon, volgt (gespecificeerd in de vorige sectie):
 
 * Zorg ervoor dat uw VM-installatiekopie in hetzelfde opslagaccount die als host fungeert voor uw VM VHD.
-* Kopieer het JSON-bestand van het sjabloon en geef een unieke naam voor de besturingssysteemschijf van de nieuwe VM VHD (of VHD's). Bijvoorbeeld, in de **storageProfile**onder **vhd**in **uri**, Geef een unieke naam voor de **osDisk** VHD, vergelijkbaar met`https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
+* Kopieer het JSON-bestand van het sjabloon en geef een unieke naam voor de besturingssysteemschijf van de nieuwe VM VHD (of VHD's). Bijvoorbeeld, in de **storageProfile**onder **vhd**in **uri**, Geef een unieke naam voor de **osDisk** VHD, vergelijkbaar met `https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
 * Maak een NIC in dezelfde of een ander virtueel netwerk.
 * Maak een implementatie met de gewijzigde sjabloon JSON-bestand in de resourcegroep waarin u het virtuele netwerk hebt ingesteld.
 

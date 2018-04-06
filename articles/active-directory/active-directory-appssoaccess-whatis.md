@@ -2,10 +2,10 @@
 title: Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory? | Microsoft Docs
 description: Gebruik Azure Active Directory voor eenmalige aanmelding tot alle van de website en SaaS toepassingen die u nodig hebt voor bedrijven inschakelen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 42a24654eb059894a855474c922a4dd2da185149
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?
 Eenmalige aanmelding betekent wordt toegang tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, wanneer u zich aanmeldt slechts één keer met behulp van één gebruikersaccount. Wanneer u bent aangemeld, kunt u alle toepassingen zonder verificatie openen (bijvoorbeeld: Typ een wachtwoord) een tweede keer.
@@ -68,7 +68,7 @@ Configureren op basis van wachtwoorden eenmalige aanmelding kan de gebruikers in
 Azure AD ondersteunt op basis van wachtwoorden eenmalige aanmelding voor een cloud-app die een op basis van een HTML-aanmeldingspagina is. Met behulp van een aangepaste browser-invoegtoepassing AAD automatiseert van de gebruiker aanmelden via veilig bij het ophalen van referenties van de toepassing zoals de gebruikersnaam en het wachtwoord van de map en voert u deze referenties in van de toepassing aanmeldingspagina namens de de gebruiker. Er zijn twee gebruiksvoorbeelden:
 
 1. **Beheerder beheert referenties** – beheerders kunnen maken en beheren van referenties van de toepassing en deze referenties toewijzen aan gebruikers of groepen die toegang nodig tot de toepassing. In dergelijke gevallen de eindgebruiker hoeft niet te weten de referenties, maar nog steeds één aanmelding toegang krijgt tot de toepassing gewoon door erop te klikken in het deelvenster toegang of via een opgegeven koppeling. Hierdoor kunnen beide, beheer van de levenscyclus van de referenties door de beheerder, evenals de gemak voor eindgebruikers waarbij ze niet hoeft te onthouden of app-specifiek wachtwoorden beheren. De referenties zijn van de eindgebruiker verscholen tijdens de automatische aanmelding; ze zijn echter technisch kunnen worden gedetecteerd door de gebruiker met de foutopsporing voor web hulpprogramma's en gebruikers en beheerders moeten het dezelfde beveiligingsbeleid volgen als de referenties zijn rechtstreeks door de gebruiker weergegeven. Beheerder geleverde referenties zijn nuttig wanneer ze toegang verlenen account die wordt gedeeld door veel gebruikers, zoals sociale media of toepassingen delen van documenten.
-2. **Gebruiker beheert referenties** – beheerders kunnen toepassingen toewijzen aan gebruikers of groepen en eindgebruikers hun eigen referenties rechtstreeks bij de toegang tot de toepassing voor het eerst in het deelvenster toegang in te voeren. Hiermee maakt u gemakkelijker te maken voor eindgebruikers waarbij ze niet hoeft voortdurend de wachtwoorden van de app-specifiek invoeren telkens wanneer die ze toegang krijgen de toepassing tot. Deze gebruiksvoorbeeld kan ook worden gebruikt als een stap voor stap steen voor administratief beheer van de referenties op, waarbij de beheerder nieuwe referenties voor de toepassing op een later tijdstip instellen kunt zonder de toegang van apps van de eindgebruiker.
+2. **Gebruiker beheert referenties** – beheerders kunnen toepassingen toewijzen aan gebruikers of groepen en eindgebruikers hun eigen referenties rechtstreeks bij de toegang tot de toepassing voor het eerst in het deelvenster toegang in te voeren. Hiermee maakt u gemakkelijker te maken voor eindgebruikers waarbij ze niet hoeft voortdurend de wachtwoorden van de app-specifiek invoeren telkens wanneer die ze toegang krijgen de toepassing tot. Gebruikers kunnen hun wachtwoorden beheren door bijwerken of verwijderen van deze indien nodig blijven. Deze gebruiksvoorbeeld kan ook worden gebruikt als een stap voor stap steen voor administratief beheer van de referenties op, waarbij de beheerder nieuwe referenties voor de toepassing op een later tijdstip instellen kunt zonder de toegang van apps van de eindgebruiker.
 
 In beide gevallen moeten referenties worden opgeslagen in een versleutelde status in de map en alleen via HTTPS wordt doorgegeven tijdens het proces voor automatische aanmelding. Gebruik op basis van wachtwoorden eenmalige aanmelding, biedt Azure AD een oplossing voor identiteitsbeheer voor gemakkelijke toegang voor apps die niet kunnen ondersteunen federation-protocollen.
 
@@ -151,7 +151,7 @@ Azure AD levert aanpasbare op verschillende manieren voor het implementeren van 
 Welke methode(n) die u wilt implementeren in uw organisatie is uw keuze.
 
 ### <a name="azure-ad-access-panel"></a>Azure AD-Toegangsvenster
-Het toegangsvenster op https://myapps.microsoft.com is een webgebaseerde portal waarmee gebruikers met een organisatieaccount in Azure Active Directory om weer te geven en starten van cloud-gebaseerde toepassingen waartoe ze toegang hebben gekregen door de beheerder van Azure AD . Als u een eindgebruiker met [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), kunt u ook gebruikmaken van mogelijkheden voor groepsbeheer met Self-service via het toegangsvenster.
+Het toegangsvenster op https://myapps.microsoft.com is een webgebaseerde portal waarmee gebruikers met een organisatieaccount in Azure Active Directory om weer te geven en starten van cloudtoepassingen waaraan ze zijn geweest toegangsrechten door de Azure AD-beheerder. Als u een eindgebruiker met [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), kunt u ook gebruikmaken van mogelijkheden voor groepsbeheer met Self-service via het toegangsvenster.
 
 ![Azure AD-Toegangsvenster](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 
@@ -160,7 +160,7 @@ Het Toegangspaneel is gescheiden van de Azure-portal en vereist geen gebruikers 
 Zie voor meer informatie over het Azure AD-Toegangsvenster de [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
 ### <a name="office-365-application-launcher"></a>Startprogramma voor toepassingen van Office 365
-Voor organisaties die Office 365 hebt geïmplementeerd, worden toepassingen die zijn toegewezen aan gebruikers via Azure AD wordt ook weergegeven in de Office 365-portal op https://portal.office.com/myapps. Dit maakt het eenvoudig en voor gebruikers in een organisatie hun apps starten zonder gebruik te maken van een tweede portal en de aanbevolen app startende oplossing voor organisaties met behulp van Office 365.
+Voor organisaties die Office 365 hebt geïmplementeerd, ook toepassingen die zijn toegewezen aan gebruikers via Azure AD worden weergegeven in de Office 365-portal op https://portal.office.com/myapps. Dit maakt het eenvoudig en voor gebruikers in een organisatie hun apps starten zonder gebruik te maken van een tweede portal en de aanbevolen app startende oplossing voor organisaties met behulp van Office 365.
 
 ![][4]
 

@@ -2,10 +2,10 @@
 title: Loskoppelen van een schijf van een Linux-VM in Azure | Microsoft Docs
 description: Meer informatie naar een gegevensschijf loskoppelen van Azure een virtuele machine gemaakt met behulp van het klassieke implementatiemodel.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: 8433affa-376b-4c22-863a-40488adda486
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 3b9678e7b1cfbff1ba83ae6cf881546335ab3e12
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 1d4490e21dba139117471bbf270bd33e7503b6b6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>Een schijf loskoppelen van een virtuele Linux-machine
 > [!IMPORTANT] 

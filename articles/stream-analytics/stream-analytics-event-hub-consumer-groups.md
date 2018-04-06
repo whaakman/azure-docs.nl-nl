@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 48fa5d0274549aa35e67526a758eef1f34198a6a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e860705d38aadf7676dad7e9ff8ed7a9af67e210
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Fouten opsporen in Azure Stream Analytics met event hub-ontvangers
 
@@ -79,7 +79,7 @@ Voor query's waarin drie of meer invoerwaarden zijn verbonden met de dezelfde co
 
 
 ## <a name="get-help"></a>Help opvragen
-Voor meer informatie en ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Voor meer informatie en ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Stream Analytics](stream-analytics-introduction.md)

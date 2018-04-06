@@ -6,13 +6,13 @@ keywords: ansible, rollen, matrix, versie, azure, devops
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 03/25/2018
 ms.topic: article
-ms.openlocfilehash: f62cc2df9e4ce815c4427b80e271ddc672748e4f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011cb173ffdecc7a22c2e470209719ccaf6bda58
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="ansible-module-and-version-matrix"></a>De module en versie matrix Ansible
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 02/01/2018
 Ansible wordt geleverd met een aantal modules die kunnen worden uitgevoerd op externe hosts rechtstreeks of via hulpmiddelen marketing en verkoop.
 Dit artikel worden de modules Ansible voor Azure die Azure-cloud-bronnen zoals virtuele machine, netwerken en containerservices kunt inrichten. U kunt deze modules ophalen van de officiële release van Ansible of van de volgende playbook rollen dat is uitgegeven door Microsoft.
 
-| Ansible-module voor Azure                   |  2.4 Ansible |  Playbook rol [azure_module](#introduction-to-azuremodule) |  Playbook Role [azure_preview_module](#introduction-to-azurepreviewmodule) | 
+| Ansible-module voor Azure                   |  2.4 Ansible |  2.5 Ansible |  Playbook Role [azure_preview_module](#introduction-to-azurepreviewmodule) | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
 | **Compute**                    |           |                          |                                  | 
 | azure_rm_availabilityset                    | Ja          | Ja                         | Ja                                 | 
@@ -54,7 +54,7 @@ Dit artikel worden de modules Ansible voor Azure die Azure-cloud-bronnen zoals v
 | azure_rm_appgwroute_facts                   | -            | -                           | Ja                                 |
 | azure_rm_appgwroutetable                    | -            | -                           | Ja                                 |
 | azure_rm_securitygroup                      | Ja          | Ja                         | Ja                                 | 
-| azure_rm_appgwroutetable_facts              | Ja          | Ja                         | Ja                                 | 
+| azure_rm_appgwroutetable_facts              | -            | -                           | Ja                                 | 
 | **Storage**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | Ja          | Ja                         | Ja                                 | 
 | azure_rm_storageaccount_facts               | Ja          | Ja                         | Ja                                 | 
@@ -76,7 +76,7 @@ Dit artikel worden de modules Ansible voor Azure die Azure-cloud-bronnen zoals v
 | azure_rm_functionapp_facts                  | Ja          | Ja                         | Ja                                 | 
 | **Databases**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Ja                         | Ja                                 | 
-| azure_rm_sqlserver_facts                    | -            | -                           | Ja                                 | 
+| azure_rm_sqlserver_facts                    | -            | Ja                         | Ja                                 | 
 | azure_rm_sqldatabase                        | -            | Ja                         | Ja                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | Ja                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | Ja                                 | 
@@ -100,17 +100,13 @@ Dit artikel worden de modules Ansible voor Azure die Azure-cloud-bronnen zoals v
 | azure_rm_postgresqlconfiguration            | -            | -                           | Ja                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Ja                                 | 
 | **Key Vault**                    |           |                          |                                  | 
-| azure_rm_keyvault                           | -            | -                           | Ja                                 |
+| azure_rm_keyvault                           | -            | Ja                         | Ja                                 |
 | azure_rm_keyvault_facts                     | -            | -                           | Ja                                 |
-| azure_rm_keyvaultkey                        | -            | -                           | Ja                                 |
-| azure_rm_keyvaultsecret                     | -            | -                           | Ja                                 |
+| azure_rm_keyvaultkey                        | -            | Ja                         | Ja                                 |
+| azure_rm_keyvaultsecret                     | -            | Ja                         | Ja                                 |
 
-## <a name="introduction-to-azuremodule"></a>Inleiding tot azure_module
-De [azure_module playbook rol](https://galaxy.ansible.com/Azure/azure_modules/) bevat de meest recente wijzigingen en bugfixes voor Azure modules van de [ontwikkeling branche van de opslagplaats Ansible](https://github.com/ansible/ansible/tree/devel). Als u de volgende release van Ansible niet kunt wachten, is installatie van de functie azure_module een goede keuze.
 
-De rol van de playbook azure_module wordt elke drie weken uitgebracht.
-
-## <a name="introduction-to-azurepreviewmodule"></a>Inleiding tot azure_preview_module
+## <a name="introduction-to-playbook-role-for-azure"></a>Inleiding tot rol playbook voor Azure
 De [azure_preview_module playbook rol](https://galaxy.ansible.com/Azure/azure_preview_modules/) is de meest uitgebreide rol en bevat de meest recente Azure modules. De updates en oplossingen voor problemen bent tijdig meer dan de officiële release van Ansible klaar. Als u Ansible voor Azure-resource inrichting doeleinden gebruikt, bent u aangeraden de functie azure_preview_module installeren.
 
 De rol van de playbook azure_preview_module wordt elke drie weken uitgebracht.

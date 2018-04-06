@@ -2,10 +2,10 @@
 title: Vervaldatum van Azure Blob storage in Azure Content Delivery Network beheren | Microsoft Docs
 description: Meer informatie over de opties voor het beheren van time to live voor blobs in Azure CDN opslaan in cache.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: bafb04a1a19c4436d8f6c1c21700e9463334b3de
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 72a823ef04ad69d1d3b40377c32a02bacb8328c2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Vervaldatum van Azure Blob storage in Azure Content Delivery Network beheren
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ U kunt de cache-instellingen van de Azure-portal ook beheren door in te stellen 
 De voorkeursmethode voor het instellen van een blob `Cache-Control` header is het gebruik van cachebewerkingen regels in de Azure portal. Zie voor meer informatie over CDN caching regels [besturingselement Azure CDN cachegedrag met caching regels](cdn-caching-rules.md).
 
 > [!NOTE] 
-> In het cachegeheugen regels zijn alleen beschikbaar voor **Azure CDN van Verizon standaard** en **Azure CDN van Akamai standaard** profielen. Voor **Azure CDN van Verizon Premium** profielen, moet u de [Azure CDN regelengine](cdn-rules-engine.md) in de **beheren** portal voor vergelijkbare functionaliteit.
+> In het cachegeheugen regels zijn alleen beschikbaar voor **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai** profielen. Voor **Azure CDN Premium van Verizon** profielen, moet u de [Azure CDN regelengine](cdn-rules-engine.md) in de **beheren** portal voor vergelijkbare functionaliteit.
 
 **Om te navigeren naar de pagina in het cachegeheugen regels CDN**:
 

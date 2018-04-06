@@ -4,7 +4,7 @@ description: Opslaan in cache is het proces voor het opslaan van gegevens lokaal
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: rli; v-deasim
+ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-caching-works"></a>Hoe caching werkt
 
@@ -64,7 +64,7 @@ Twee headers kunnen worden gebruikt voor het definiëren van cache nieuwheid: `C
 ## <a name="cache-directive-headers"></a>Headers van de instructie cache
 
 > [!IMPORTANT]
-> Standaard een Azure CDN-eindpunt dat is geoptimaliseerd voor DSA instructie cache headers worden genegeerd en wordt overgeslagen opslaan in cache. Voor **Azure CDN van Verizon standaard** en **Azure CDN van Akamai standaard** profielen, kunt u aanpassen hoe een Azure CDN-eindpunt deze koppen omgaat met behulp van [CDNcachingregels](cdn-caching-rules.md)in te schakelen in. Voor **Azure CDN van Verizon Premium** profielen, die u gebruikt de [regelengine](cdn-rules-engine.md) in te schakelen in.
+> Standaard een Azure CDN-eindpunt dat is geoptimaliseerd voor DSA instructie cache headers worden genegeerd en wordt overgeslagen opslaan in cache. Voor **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai** profielen, kunt u aanpassen hoe een Azure CDN-eindpunt deze koppen omgaat met behulp van [CDNcachingregels](cdn-caching-rules.md)in te schakelen in. Voor **Azure CDN Premium van Verizon** profielen, die u gebruikt de [regelengine](cdn-rules-engine.md) in te schakelen in.
 
 Azure CDN ondersteunt de volgende HTTP-instructie cache headers, waarin de Cacheduur van de en het delen van de cache.
 
@@ -95,14 +95,14 @@ Azure CDN ondersteunt de volgende HTTP-instructie cache headers, waarin de Cache
 Als de cache verlopen is, wordt HTTP-cache validatiefuncties worden gebruikt voor het vergelijken van de versie van de cache van een bestand met de versie op de bronserver. **Azure CDN van Verizon** ondersteunt zowel `ETag` en `Last-Modified` validatiefuncties standaard terwijl **Azure CDN van Akamai** ondersteunt alleen `Last-Modified` standaard.
 
 **ETag:**
-- **Azure CDN van Verizon** gebruikt `ETag` standaard tijdens **Azure CDN van Akamai** niet.
+- **Azure CDN van Verizon** gebruikt `ETag` standaard terwijl **Azure CDN van Akamai** niet.
 - `ETag` Hiermee definieert u een tekenreeks die uniek is voor elk bestand en de versie van een bestand. Bijvoorbeeld `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Geïntroduceerd in HTTP 1.1 en recenter is dan `Last-Modified`. Dit is nuttig wanneer de datum van laatste wijziging moeilijk is te bepalen.
 - Ondersteunt validatie van sterke en zwakke validatie; Azure CDN ondersteunt echter alleen sterke verificatie. Voor sterke verificatie, de twee weergaven voor bytes moet identiek zijn. 
 - Een cache valideert een bestand met `ETag` door te sturen een `If-None-Match` koptekst met een of meer `ETag` Validators bestaat in de aanvraag. Bijvoorbeeld `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Als de versie van de server overeenkomt met een `ETag` validator in de lijst met deze statuscode 304 (niet gewijzigd) verzendt in zijn reactie. Als de versie verschilt, reageert de server met de statuscode 200 (OK) en de bijgewerkte resource.
 
 **Last-Modified:**
-- Voor **Azure CDN van Verizon alleen**, `Last-Modified` wordt gebruikt als `ETag` maakt geen deel uit van de HTTP-antwoord. 
+- Voor **Azure CDN van Verizon** alleen `Last-Modified` wordt gebruikt als `ETag` maakt geen deel uit van de HTTP-antwoord. 
 - Hiermee geeft u de datum en tijd waarop de oorspronkelijke server heeft vastgesteld met dat de bron voor het laatst is gewijzigd. Bijvoorbeeld `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - Een cache valideert een bestand met `Last-Modified` door te sturen een `If-Modified-Since` -koptekst met een datum en tijd in de aanvraag. De oorspronkelijke server vergelijkt die datum met de `Last-Modified` koptekst van de meest recente resource. Als de bron is niet gewijzigd sinds de opgegeven tijd, retourneert de server statuscode 304 (niet gewijzigd) in zijn reactie. Als de bron zijn gewijzigd, wordt de server opgevraagd code 200 (OK) en de bijgewerkte resource.
 
@@ -123,7 +123,7 @@ De volgende tabel beschrijft de standaard cachegedrag voor de Azure CDN-producte
 |                    | Verizon: levering algemene webtoepassingen | Verizon: DSA | Akamai: levering algemene webtoepassingen | Akamai: DSA | Akamai: groot bestand downloaden | Akamai: Algemeen of VOD streamen van media |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Voldoen aan de oorsprong**   | Ja    | Nee   | Ja | Nee | Ja | Ja |
-| **Cacheduur CDN** | 7 dagen | Geen | 7 dagen | Geen | 1 dag | 1 jaar |
+| **Cacheduur CDN** | 7 dagen | Geen | 7 dagen | None | 1 dag | 1 jaar |
 
 **Oorsprong inwilligen**: geeft aan of te voldoen aan de [instructie cache headers ondersteund](#http-cache-directive-headers) als ze in het HTTP-antwoord op de bronserver voorkomen.
 

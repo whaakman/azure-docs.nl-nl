@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: vvasic
-ms.openlocfilehash: cfee95f5978073277a5351b976156cafefb87c16
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2ea5c0e640ac7e635692dafac1f30f377aa79625
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="enable-automatic-tuning"></a>Automatisch instellen inschakelen
 
@@ -22,7 +22,7 @@ Azure SQL-Database is een automatisch beheerd gegevens-service die voortdurend b
 ## <a name="enable-automatic-tuning-on-server"></a>Automatische afstemming op server inschakelen
 Op het niveau van de server kunt u automatische afstemmen configuratie van de 'Azure standaard' overnemen of niet worden overgenomen van de configuratie. Azure zijn standaard ingeschakeld FORCE_LAST_GOOD_PLAN, CREATE_INDEX ingeschakeld en DROP_INDEX uitgeschakeld.
 
-## <a name="configure-automiatic-tuning-e-mail-notifications"></a>Automiatic afstemmen e-mailmeldingen configureren
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Automatische afstemmen e-mailmeldingen configureren
 
 Zie [automatische afstemming van e-mailmeldingen](sql-database-automatic-tuning-email-notifications.md)
 

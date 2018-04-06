@@ -2,10 +2,10 @@
 title: OpenFOAM HPC Pack uitvoeren op virtuele Linux-machines | Microsoft Docs
 description: Een Microsoft HPC Pack cluster in Azure implementeren en uitvoeren van een taak OpenFOAM op meerdere rekenknooppunten van Linux via een netwerk RDMA.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: c0bb1637-bb19-48f1-adaa-491808d3441f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f43790d3495e1c09730e90b5077ec840731a7d83
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>OpenFoam uitvoeren met Microsoft HPC Pack op een Linux RDMA-cluster in Azure
 In dit artikel laat zien hoe OpenFoam uitvoeren in virtuele machines in Azure. Hier kunt u een cluster met Microsoft HPC Pack met Linux-rekenknooppunten in Azure en voer implementeert een [OpenFoam](http://openfoam.com/) taak met de Intel MPI. Zodat de rekenknooppunten via het netwerk van Azure RDMA communiceren, kunt u RDMA-compatibele Azure VM's voor de rekenknooppunten. Andere opties OpenFoam uitvoeren in Azure, volledig geconfigureerde commerciële installatiekopieën beschikbaar zijn in de Marketplace, zoals de UberCloud [OpenFoam 2.3 op CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/), en door te voeren op [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -268,8 +268,8 @@ In deze stap maakt u een hostbestand (een lijst van rekenknooppunten) die de **m
    1. Stelt de omgevingsvariabelen voor **mpirun**, en sommige opdrachtparameters toevoegen voor het uitvoeren van de taak MPI via het netwerk RDMA. In dit geval wordt de volgende variabelen ingesteld:
       
       * I_MPI_FABRICS shm:dapl =
-      * I_MPI_DAPL_PROVIDER weergeeft van een-v2-ib0 =
-      * I_MPI_DYNAMIC_CONNECTION = 0
+      * I_MPI_DAPL_PROVIDER=ofa-v2-ib0
+      * I_MPI_DYNAMIC_CONNECTION=0
    2. Maakt een hostbestand volgens de omgeving variabele $CCP_NODES_CORES die is ingesteld door het hoofdknooppunt HPC wanneer de taak wordt geactiveerd.
       
       De indeling van $CCP_NODES_CORES volgt dit patroon:
@@ -280,9 +280,9 @@ In deze stap maakt u een hostbestand (een lijst van rekenknooppunten) die de **m
       
       waar
       
-      * `<Number of nodes>`-het aantal knooppunten dat is toegewezen aan deze taak.  
-      * `<Name of node_n_...>`-de naam van elk knooppunt dat is toegewezen aan deze taak.
-      * `<Cores of node_n_...>`-het aantal kernen op het knooppunt dat is toegewezen aan deze taak.
+      * `<Number of nodes>` -het aantal knooppunten dat is toegewezen aan deze taak.  
+      * `<Name of node_n_...>` -de naam van elk knooppunt dat is toegewezen aan deze taak.
+      * `<Cores of node_n_...>` -het aantal kernen op het knooppunt dat is toegewezen aan deze taak.
       
       Bijvoorbeeld, als de taak twee knooppunten om uit te voeren moet, is $CCP_NODES_CORES vergelijkbaar met
       
@@ -291,8 +291,8 @@ In deze stap maakt u een hostbestand (een lijst van rekenknooppunten) die de **m
       ```
    3. Aanroepen van de **mpirun** opdracht en voegt u twee parameters toe aan de opdrachtregel.
       
-      * `--hostfile <hostfilepath>: <hostfilepath>`-het pad van het script maakt bestand met de host
-      * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}`-een omgevingsvariabele ingesteld door het hoofdknooppunt HPC Pack, waarin het aantal totale kernen toegewezen aan deze taak worden opgeslagen. In dit geval geeft het aantal processen voor **mpirun**.
+      * `--hostfile <hostfilepath>: <hostfilepath>` -het pad van het script maakt bestand met de host
+      * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` -een omgevingsvariabele ingesteld door het hoofdknooppunt HPC Pack, waarin het aantal totale kernen toegewezen aan deze taak worden opgeslagen. In dit geval geeft het aantal processen voor **mpirun**.
 
 ## <a name="submit-an-openfoam-job"></a>Verzenden van een taak OpenFOAM
 U kunt nu een taak in HPC Cluster Manager verzenden. U moet de hpcimpirun.sh script in de opdrachtregels voor enkele van de taken van de taak doorgeven.
@@ -305,7 +305,7 @@ U kunt nu een taak in HPC Cluster Manager verzenden. U moet de hpcimpirun.sh scr
    ![Taakdetails][job_details]
 5. In **taak resources**, kies het type resource als 'Knooppunt' en het Minimum ingesteld op 2. Deze configuratie wordt de taak uitgevoerd op twee Linux-knooppunten, elk met acht kernen in dit voorbeeld heeft.
    
-   ![Taak resources][job_resources]
+   ![Taakresources][job_resources]
 6. Klik op **taken bewerken** in de navigatiebalk aan de linkerkant en klik vervolgens op **toevoegen** een taak toevoegen aan de taak. Vier taken toevoegen aan de taak met de volgende regels en instellingen.
    
    > [!NOTE]
@@ -344,7 +344,7 @@ U kunt nu een taak in HPC Cluster Manager verzenden. U moet de hpcimpirun.sh scr
    
    Standaard verzonden HPC Pack door de taak als uw huidige aangemelde gebruikersaccount. Nadat u op **indienen**, ziet u mogelijk een dialoogvenster waarin u de gebruikersnaam en wachtwoord invoeren.
    
-   ![Taak referenties][creds]
+   ![Taakreferenties][creds]
    
    Onder bepaalde omstandigheden onthoudt HPC Pack u de gebruikersgegevens invoeren voordat u dit dialoogvenster niet weergeven. Voer de volgende opdracht achter de opdrachtprompt en verzend de taak zodat HPC Pack opnieuw weergeven.
    

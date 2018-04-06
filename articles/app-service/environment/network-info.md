@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Overwegingen voor een App-serviceomgeving netwerken #
 
@@ -163,7 +163,7 @@ De eerste twee inkomende vereisten voor de as-omgeving naar de functie worden aa
 
 ![Inkomende beveiligingsregels][4]
 
-Een standaardregel kunt de IP-adressen in het VNet om te communiceren met het subnet van de as-omgeving. Een andere standaardregel kunnen de load balancer, ook wel bekend als het openbare VIP, om te communiceren met de as-omgeving. Overzicht van de standaardregels Selecteer **regels standaard** naast de **toevoegen** pictogram. Als u al het andere nadat de NSG regels weergegeven regel weigeren plaatst, voorkomt u verkeer tussen het VIP en de as-omgeving. Om te voorkomen dat verkeer dat afkomstig is van binnen het VNet, toevoegen inkomende van uw eigen regel om toe te staan. Een bron die gelijk is aan AzureLoadBalancer gebruiken met als bestemming **eventuele** en een poortbereik van  **\*** . Omdat de regel van het NSG wordt toegepast op het subnet van de as-omgeving, hoeft u niet te worden specifieke in het doel.
+Een standaardregel kunt de IP-adressen in het VNet om te communiceren met het subnet van de as-omgeving. Een andere standaardregel kunnen de load balancer, ook wel bekend als het openbare VIP, om te communiceren met de as-omgeving. Overzicht van de standaardregels Selecteer **regels standaard** naast de **toevoegen** pictogram. Als u al het andere nadat de NSG regels weergegeven regel weigeren plaatst, voorkomt u verkeer tussen het VIP en de as-omgeving. Om te voorkomen dat verkeer dat afkomstig is van binnen het VNet, toevoegen inkomende van uw eigen regel om toe te staan. Een bron die gelijk is aan AzureLoadBalancer gebruiken met als bestemming **eventuele** en een poortbereik van **\***. Omdat de regel van het NSG wordt toegepast op het subnet van de as-omgeving, hoeft u niet te worden specifieke in het doel.
 
 Als u een IP-adres aan uw app toegewezen, zorg er dan voor dat u de poorten open houden. Selecteer de poorten vindt **App Service-omgeving** > **IP-adressen**.  
 
@@ -175,31 +175,10 @@ Nadat uw nsg's zijn gedefinieerd, kunt u ze aan het subnet dat u uw as-omgeving 
 
 ## <a name="routes"></a>Routes ##
 
-Routes zijn een essentieel onderdeel van geforceerde tunnels en hoe deze werken. In een virtueel Azure-netwerk vindt routering plaats op basis van LPM (Longest Prefix Match). Als er meer dan één route met dezelfde overeenkomende LPM is, wordt een route geselecteerd op basis van de oorsprong. Dit gebeurt in de volgende volgorde:
+Geforceerde tunneling is wanneer u routes in uw VNet instellen, zodat het uitgaande verkeer rechtstreeks naar het internet, maar ergens anders zoals een ExpressRoute-gateway of een virtueel apparaat niet kan worden verstuurd.  Als u wilt uw as-omgeving zodanig te configureren en vervolgens het document te lezen op [configureren van uw App Service-omgeving met geforceerde Tunneling][forcedtunnel].  Dit document ziet u de opties die beschikbaar zijn voor gebruik met ExpressRoute en geforceerde tunneling.
 
-- UDR (door de gebruiker opgegeven route)
-- BGP-route (wanneer u ExpressRoute gebruikt)
-- Systeemroute
-
-Lees [User-defined routes en doorsturen via IP][UDRs] (Door de gebruiker opgegeven routes en Doorsturen via IP) voor meer informatie over routering in een virtueel netwerk .
-
-De Azure SQL-database die gebruikmaakt van de as-omgeving voor het beheren van het systeem is een firewall. Is er communicatie afkomstig te zijn van het openbare VIP as-omgeving. Verbindingen met de SQL-database van de as-omgeving wordt geweigerd als deze onder de ExpressRoute-verbinding en u een ander IP-adres worden verzonden.
-
-Als antwoorden op binnenkomende management-aanvragen worden verzonden naar beneden de ExpressRoute, is het antwoordadres anders dan de oorspronkelijke doelhost. Dit verschil verbreekt de TCP-communicatie.
-
-Voor de as werken terwijl uw VNet is geconfigureerd met een ExpressRoute-omgeving, is het eenvoudigste wat te doen:
-
--   Configureren van ExpressRoute adverteren _0.0.0.0/0_. Standaard maakt hierdoor al het uitgaande verkeer dat naar on-premises locaties wordt verzonden gebruik van geforceerde tunnels.
--   Maak een UDR. Toepassen op het subnet waarin de as-omgeving met een adresvoorvoegsel van _0.0.0.0/0_ en type van een volgende hop _Internet_.
-
-Als u deze twee wijzigingen aanbrengt, wordt niet internet bestemd verkeer dat afkomstig van het subnet van de as-omgeving is uitgevoerd op de ExpressRoute- en de as-omgeving werkt. 
-
-> [!IMPORTANT]
-> De routes die zijn gedefinieerd in een UDR, moeten specifiek genoeg zijn om voorrang te krijgen boven alle routes die worden geadverteerd met de ExpressRoute-configuratie. In het voorgaande voorbeeld wordt het brede adresbereik 0.0.0.0/0 gebruikt. Dit bereik kan mogelijk per ongeluk worden overschreven door routeadvertenties die gebruikmaken van specifiekere adresbereiken.
->
-> ASEs worden niet ondersteund met ExpressRoute-configuraties die cross routes van het openbare peering pad naar het pad voor persoonlijke peering adverteert. ExpressRoute-configuraties waarvoor openbare peering is geconfigureerd, ontvangen routeadvertenties van Microsoft. De advertenties bevatten een groot aantal IP-adresbereiken van Microsoft Azure. Als de adresbereiken cross aangekondigd op het pad voor persoonlijke peering, zijn alle uitgaande pakketten van subnet van de as-omgeving force tunneled aan een klant on-premises netwerkinfrastructuur. Deze stroom netwerk wordt momenteel niet ondersteund met ASEs. Een mogelijke oplossing voor dit probleem is om advertentieoverschrijdende routes van het openbare-peeringpad naar het privé-peeringpad te stoppen.
-
-Volg deze stappen voor het maken van een UDR:
+Bij het maken van een as-omgeving in de portal maken we ook een aantal routetabellen op het subnet dat wordt gemaakt met de as-omgeving.  Routes die spreken gewoon uitgaand verkeer rechtstreeks naar het internet te verzenden.  
+Voor het maken van dezelfde routes handmatig, als volgt te werk:
 
 1. Ga naar de Azure-portal. Selecteer **Networking** > **routetabellen**.
 
@@ -217,17 +196,15 @@ Volg deze stappen voor het maken van een UDR:
 
     ![Nsg's en -routes][7]
 
-### <a name="deploy-into-existing-azure-virtual-networks-that-are-integrated-with-expressroute"></a>Implementeren in een bestaande virtuele Azure-netwerken die zijn geïntegreerd met ExpressRoute ###
+## <a name="service-endpoints"></a>Service-eindpunten ##
 
-Als u wilt uw as-omgeving implementeren in een VNet dat geïntegreerd met ExpressRoute, moet u het subnet waar u het as-omgeving geïmplementeerd configureert. Gebruik vervolgens een Resource Manager-sjabloon te implementeren. Voor het maken van een as-omgeving in een VNet dat al is ExpressRoute geconfigureerd:
+Met service-eindpunten kunt u de toegang tot multitenant-services beperken tot een reeks virtuele Azure-netwerken en subnetten. In de documentatie [Virtual Network Service Endpoints][serviceendpoints] (Virtuele netwerkservice-eindpunten) vindt u meer informatie over service-eindpunten. 
 
-- Maak een subnet voor het hosten van de as-omgeving.
+Wanneer u service-eindpunten voor een bron inschakelt, worden er routes gemaakt die een hogere prioriteit hebben dan alle andere routes. Als u service-eindpunten gebruikt met een ASE met geforceerde tunnels, maakt het managementverkeer van Azure SQL en Azure Storage geen gebruik van geforceerde tunnels. 
 
-    > [!NOTE]
-    > Niets anders kan niet in het subnet, maar de as-omgeving. Zorg dat u kiest een adresruimte waarmee voor toekomstige groei. U kan niet deze instelling later wijzigen. Een grootte van het is raadzaam `/25` met 128 adressen.
+Als Service-eindpunten in een subnet met een Azure SQL-exemplaar is ingeschakeld, moet Service-eindpunten zijn ingeschakeld op alle Azure SQL-exemplaren waarmee vanuit dat subnet een verbinding wordt gemaakt. Als u vanuit hetzelfde subnet toegang wilt hebben tot meerdere Azure SQL-exemplaren, is het niet mogelijk om Service-eindpunten wel op het ene Azure SQL-exemplaar in te schakelen en niet op een ander. Azure Storage gedraagt zich niet op dezelfde manier als Azure SQL. Wanneer u Service-eindpunten met Azure Storage inschakelt, kunt u de toegang tot die resource vanuit uw subnet vergrendelen en toegang behouden tot andere Azure Storage-accounts, zelfs als Service-eindpunten op die accounts niet is ingeschakeld.  
 
-- Maken udr's (bijvoorbeeld routetabellen) zoals eerder beschreven, en die op het subnet.
-- De as-omgeving maken met behulp van een Resource Manager-sjabloon, zoals beschreven in [een as-omgeving maken met behulp van een Resource Manager-sjabloon][MakeASEfromTemplate].
+![Service-eindpunten][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -237,6 +214,7 @@ Als u wilt uw as-omgeving implementeren in een VNet dat geïntegreerd met Expres
 [5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
 [7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
+[8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -258,3 +236,6 @@ Als u wilt uw as-omgeving implementeren in een VNet dat geïntegreerd met Expres
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[forcedtunnel]: ./forced-tunnel-support.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

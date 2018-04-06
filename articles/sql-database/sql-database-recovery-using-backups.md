@@ -2,18 +2,19 @@
 title: Een Azure SQL database terugzetten vanaf een back-up | Microsoft Docs
 description: Meer informatie over het herstellen van de punt in tijd, waarmee u kunt terugdraaien een Azure SQL Database naar een eerder punt in tijd (maximaal 35 dagen).
 services: sql-database
-author: CarlRabeler
+author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 02/13/2018
-ms.author: carlrab
-ms.openlocfilehash: d2cc2e44c13750b654e2d6acf39d4f6a80cac98a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database herstelt via automatische databaseback-ups
 SQL Database biedt deze opties voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md) en [back-ups in lange bewaartermijn](sql-database-long-term-retention.md). U kunt herstellen met een databaseback-up naar:
@@ -30,7 +31,7 @@ Een herstelde database maakt de kosten van een extra opslagruimte in de volgende
 - Terugzetten van P11 – P15 S4 S12 of P1 – P6 als de maximale databasegrootte groter dan 500 GB is.
 - Terugzetten van P1 – P6 naar S4 S12 als de maximale databasegrootte groter dan 250 GB is.
 
-De extra overhead is omdat de maximale grootte van de herstelde database groter dan de hoeveelheid opslagruimte opgenomen voor het prestatieniveau is en eventuele extra opslagruimte ingericht boven het inbegrepen bedrag is extra kosten verbonden.  Zie voor prijsinformatie van extra opslagruimte, het [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/).  Als de werkelijke hoeveelheid schijfruimte minder dan de hoeveelheid opslagruimte die zijn opgenomen is, kan klikt u vervolgens dit extra kosten verbonden worden vermeden door de maximale grootte van de database voor het bedrag opgenomen te beperken. Zie voor meer informatie over opslaggrootte van de database en het wijzigen van de maximale grootte van de database [één database limieten](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+De extra overhead is omdat de maximale grootte van de herstelde database groter dan de hoeveelheid opslagruimte opgenomen voor het prestatieniveau is en eventuele extra opslagruimte ingericht boven het inbegrepen bedrag is extra kosten verbonden.  Zie voor prijsinformatie van extra opslagruimte, het [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/).  Als de werkelijke hoeveelheid schijfruimte minder dan de hoeveelheid opslagruimte die zijn opgenomen is, kan klikt u vervolgens dit extra kosten verbonden worden vermeden door de maximale grootte van de database voor het bedrag opgenomen te beperken. Zie voor meer informatie over opslaggrootte van de database en het wijzigen van de maximale grootte van de database [één database resource op basis van het DTU-limieten](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) en [één database op basis van vCore limieten](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 
 > [!NOTE]
 > [Automatische databaseback-ups](sql-database-automated-backups.md) worden gebruikt bij het maken van een [kopiëren van de database](sql-database-copy.md). 
@@ -117,7 +118,7 @@ Geo-restore is de standaardoptie voor herstel wanneer de database is niet beschi
 Punt in tijd terugzetten op een secundaire geo-server is momenteel niet ondersteund. Punt in tijd terugzetten kan alleen op een primaire database worden uitgevoerd. Zie voor gedetailleerde informatie over het herstellen van een storing met geo-restore [herstellen van een storing](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Herstel van back-ups is de eenvoudigste noodhersteloplossingen die beschikbaar zijn in SQL-Database met de langste Recovery Point Objective (RPO) en de schatting herstel tijd (invoegen). Geo-restore is voor oplossingen met behulp van Basic databases, vaak een redelijke DR-oplossing met een invoegen van 12 uur. Voor oplossingen met behulp van grotere Standard of Premium-databases die korter hersteltijden nodig hebt, moet u overwegen [actieve geo-replicatie](sql-database-geo-replication-overview.md). Actieve geo-replicatie biedt een veel lager RPO en invoegen als u alleen hoeft initieer een failover naar een continu gerepliceerde secundaire. Zie voor meer informatie over zakelijke continuïteit keuzes [overzicht van zakelijke continuïteit](sql-database-business-continuity.md).
+> Herstel van back-ups is de eenvoudigste noodhersteloplossingen die beschikbaar zijn in SQL-Database met de langste Recovery Point Objective (RPO) en de schatting herstel tijd (invoegen). Geo-restore is voor oplossingen met behulp van de databases klein formaat (bijvoorbeeld Basic servicelaag of klein formaat tenant-databases in een elastische pools), vaak een redelijke DR-oplossing met een invoegen van 12 uur. Voor oplossingen voor grote databases gebruikt en behoefte korter herstel tijdstippen, moet u overwegen [Failover groepen en actieve geo-replicatie](sql-database-geo-replication-overview.md). Actieve geo-replicatie biedt een veel lager RPO en invoegen als u alleen hoeft initieer een failover naar een continu gerepliceerde secundaire. Zie voor meer informatie over zakelijke continuïteit keuzes [overzicht van zakelijke continuïteit](sql-database-business-continuity.md).
 > 
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -149,6 +150,5 @@ Automatische back-ups beveiligen uw databases van gebruikers- en toepassingsfout
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor een overzicht van zakelijke continuïteit en scenario's [Business continuity overview](sql-database-business-continuity.md).
 * Voor meer informatie over Azure SQL Database geautomatiseerde back-ups, Zie [geautomatiseerde back-ups van SQL-Database](sql-database-automated-backups.md).
-* Zie voor meer informatie over lange bewaartermijn van de back-up, [lange bewaartermijn van de back-](sql-database-long-term-retention.md).
-* Configureren, beheren en herstellen van lange bewaartermijn van automatische back-ups in een Azure Recovery Services-kluis met de Azure portal, Zie [configureren en gebruiken op lange termijn back-up bewaren](sql-database-long-term-backup-retention-configure.md). 
+* Zie voor meer informatie over lange bewaartermijn, [lange bewaartermijn](sql-database-long-term-retention.md).
 * Zie voor meer informatie over opties voor sneller herstel, [Failover groepen en actieve geo-replicatie](sql-database-geo-replication-overview.md).  

@@ -1,8 +1,8 @@
 ---
 title: Verzamelen van aangepaste logboeken in Azure Log Analytics | Microsoft Docs
-description: "Log Analytics kunt verzamelen van gebeurtenissen uit tekstbestanden op Windows- en Linux-computers.  In dit artikel wordt beschreven hoe een nieuwe aangepaste logboek en details van de records die ze in de werkruimte voor logboekanalyse maken definiëren."
+description: Log Analytics kunt verzamelen van gebeurtenissen uit tekstbestanden op Windows- en Linux-computers.  In dit artikel wordt beschreven hoe een nieuwe aangepaste logboek en details van de records die ze in de werkruimte voor logboekanalyse maken definiëren.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
 De gegevensbron voor de aangepaste logboeken in Log Analytics kunt u het verzamelen van gebeurtenissen uit tekstbestanden op Windows- en Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog.  Zodra verzameld, kunt u elke record in de aanmelding bij afzonderlijke velden met parseren de [aangepaste velden](log-analytics-custom-fields.md) functie van logboekanalyse.
@@ -31,7 +31,7 @@ De logboekbestanden moeten worden verzameld, moeten overeenkomen met de volgende
 
     YYYY-MM-DD HH:MM:SS<br>M/D/JJJJ UU: MM: SS AM/PM <br>Ma DD JJJJ: mm: ss
 
-- Het logboekbestand mag geen circulaire updates toestaan waar het bestand wordt overschreven met nieuwe gegevens.
+- Het logboekbestand mag geen toestaan circulair vastleggen of logrotatie, waar het bestand wordt overschreven met nieuwe gegevens.
 - Het logboekbestand moet gebruiken ASCII- of UTF-8-codering.  Andere indelingen zoals UTF-16 worden niet ondersteund.
 
 >[!NOTE]
@@ -78,7 +78,7 @@ De volgende tabel bevat voorbeelden van geldige patronen om op te geven van de v
 | Alle bestanden in */var/log/audit* met een naam die begint met het logboek en een txt-extensie op Linux-agent |/var/log/audit/log\*.txt |
 
 1. Selecteer Windows of Linux welke padindeling van het opgeven die u wilt toevoegen.
-2. Typ in het pad en de  **+**  knop.
+2. Typ in het pad en de **+** knop.
 3. Het proces herhalen voor elke extra paden.
 
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Stap 4. Geef een naam en beschrijving voor het logboek

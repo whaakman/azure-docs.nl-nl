@@ -2,33 +2,32 @@
 title: Een Power BI Desktop-bestand importeren in Azure Analysis Services | Microsoft Docs
 description: Beschrijft hoe een Power BI Desktop-bestand (pbix) importeren met behulp van Azure portal.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/26/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2ba9bc0e4b9a55312875fe120ee179800aeefb23
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Een Power BI Desktop-bestand importeren
 
 U kunt een nieuw model maken in Azure als door het importeren van een Power BI Desktop-bestand (pbix). Metagegevens van het model en gegevens in de cache datasource-verbindingen worden geïmporteerd. Rapporten en visualisaties zijn niet geïmporteerd.
 
 **Beperkingen**   
-- Het model pbix moet verbinding maken met [ondersteunde gegevensbronnen voor Analysis Services](analysis-services-datasource.md) alleen. 
+- Het model pbix kunt verbinden met Azure SQL Database- en Azure SQL Data Warehouse-gegevensbronnen alleen. 
 - De pbix-model kan niet live hebben of DirectQuery-verbindingen. 
-- Als het model pbix met on-premises gegevensbronnen verbindt, een [On-premises gegevensgateway](analysis-services-gateway.md) moet worden geconfigureerd voor de Analysis Services-server.
 - Importeren mislukt mogelijk als de pbix-gegevensmodel niet ondersteund in Analysis Services-metagegevens bevat.
 
 ## <a name="to-import-from-pbix"></a>Om te importeren uit pbix

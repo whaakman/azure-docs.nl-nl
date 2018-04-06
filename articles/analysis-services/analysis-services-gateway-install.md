@@ -2,24 +2,24 @@
 title: On-premises gegevensgateway installeren | Microsoft Docs
 description: Informatie over het installeren en configureren van een On-premises data gateway.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: c2cbe1c60f67c689a38d1585245610a6fa73bff4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installeren en configureren van een lokale gegevensgateway
 Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Services-servers in dezelfde regio verbinding met on-premises gegevensbronnen maken. Zie voor meer informatie over de gateway, [On-premises gegevensgateway](analysis-services-gateway.md).
@@ -44,6 +44,7 @@ Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Service
 * De gateway installeren op een computer waarop blijft op en gaat niet naar de slaapstand.
 * Installeer de gateway niet op een computer draadloos verbonden met uw netwerk. Prestaties kan afnemen.
 * Aanmelden bij Azure met een account in Azure AD voor dezelfde [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) als het abonnement registreert u de gateway in. Azure B2B (Gast) accounts worden niet ondersteund bij het installeren en registreren van een gateway.
+* De hier beschreven (unified)-gateway wordt niet ondersteund in Azure Government (Fairfax). Gebruik de specifieke On-premises gateway voor Azure Analysis Services. De speciale gateway biedt geen ondersteuning voor extra services, zoals Power BI en Power-Apps. Toegewijde gateway is van uw servers snel starten in de portal geïnstalleerd.
 
 
 ## <a name="download"></a>Downloaden

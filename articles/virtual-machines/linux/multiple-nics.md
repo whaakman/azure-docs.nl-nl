@@ -2,10 +2,10 @@
 title: Maak een Linux-VM in Azure met meerdere NIC's | Microsoft Docs
 description: Informatie over het maken van een Linux-VM met meerdere NIC's gekoppeld met behulp van de Azure CLI 2.0 of Resource Manager-sjablonen.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 635d1373a51f2f2e4d4f7ab5053e520f5b9363a6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 79c5d70d201b54e7ca1c8d421a5f0dc5e6b53bcd
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Het maken van een virtuele Linux-machine in Azure met meerdere netwerk netwerkinterfacekaarten
 U kunt een virtuele machine (VM) maken in Azure met meerdere virtuele netwerkinterfaces (NIC's) is gekoppeld. Een veelvoorkomend scenario is om verschillende subnetten voor front-end en back-end-verbinding of een netwerk dat is toegewezen aan een oplossing met bewaking of back-up. Dit artikel wordt uitgelegd hoe een virtuele machine maken met meerdere NIC's gekoppeld en hoe toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig.
@@ -190,7 +190,7 @@ echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-Als u de wijziging permanente en toegepast tijdens de activering van network-stack, bewerk */etc/sysconfig/network-scipts/ifcfg-eth0* en */etc/sysconfig/network-scipts/ifcfg-eth1*. De regel ALTER *' NM_CONTROLLED = yes '* naar *' NM_CONTROLLED = Nee "*. Zonder deze stap wordt worden de aanvullende dat regels/routering niet automatisch toegepast.
+Als u de wijziging permanente en toegepast tijdens de activering van network-stack, bewerk */etc/sysconfig/network-scripts/ifcfg-eth0* en */etc/sysconfig/network-scripts/ifcfg-eth1*. De regel ALTER *' NM_CONTROLLED = yes '* naar *' NM_CONTROLLED = Nee "*. Zonder deze stap wordt worden de aanvullende dat regels/routering niet automatisch toegepast.
  
 Vervolgens kunt u de routeringstabellen uitbreiden. Stel, dat we hebben de volgende instellingen:
 

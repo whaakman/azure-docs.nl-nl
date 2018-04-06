@@ -2,7 +2,7 @@
 title: Hadoop-clusters in HDInsight met behulp van Azure-portal beheren | Microsoft Docs
 description: Informatie over het maken en beheren van HDInsight-clusters met behulp van de Azure-portal.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b0a9b808f2c1a65d10c1c12500325a9b5a34bc5a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -33,7 +33,7 @@ Met behulp van de [Azure-portal][azure-portal], kunt u in Azure HDInsight Hadoop
 Als u wilt de stappen in dit artikel, moet u een **Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="open-the-azure-portal"></a>De Azure portal openen
-1. Aanmelden bij [https://portal.azure.com](https://portal.azure.com).
+1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com).
 2. Nadat u de portal geopend, kunt u:
 
    * Klik op **maken van een resource** in het menu links om een nieuw cluster te maken:
@@ -75,7 +75,7 @@ Wanneer u een HDInsight-cluster maakt, moet u een Azure-abonnement opgeven. Het 
 Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistration ontvangt, raadpleegt u [oplossen van veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## <a name="list-and-show-clusters"></a>Lijst en clusters weer te geven
-1. Aanmelden bij [https://portal.azure.com](https://portal.azure.com).
+1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com).
 2. Klik op **HDInsight-Clusters** in het menu links voor een lijst met bestaande clusters. Als er geen **HDInsight-Clusters**, klikt u op **alle services** eerste.
 3. Klik op de naam van het cluster. Als de clusterlijst te lang is, kunt u het filter boven aan de pagina.
 4. Klik op een cluster in de lijst om te zien van de overzichtspagina:
@@ -103,7 +103,7 @@ Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistrati
     * **Met externe Metastores**: de metastores Hive en Oozie weergeven. De metastores kan alleen worden geconfigureerd tijdens het maken van het cluster. Zie [gebruik Hive/Oozie-metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Acties script**: Voer Bash-scripts op het cluster. Zie [aanpassen Linux gebaseerde HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster-linux.md).
     * **Toepassingen**: toevoegen/verwijderen HDInsight-toepassingen.  Zie [aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
-    * **Bewaking**: het cluster in Azure Operations Management Suite en Azure-logboekanalyse bewaken.
+    * **Bewaking**: het cluster in Azure-logboekanalyse bewaken.
     * **Eigenschappen**: Bekijk de clustereigenschappen.
     * **Storage-accounts**: de storage-accounts en de sleutels weergeven. De storage-accounts zijn geconfigureerd tijdens het maken van het cluster.
     * **Data Lake Store toegang**: Data Lake slaat toegang configureren.  Zie [HDInsight-clusters maken met Data Lake Store met behulp van de Azure-portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -345,7 +345,7 @@ Zie [HDInsight-clusters beheren met behulp van de Ambari-Webgebruikersinterface]
 ## <a name="browse-files"></a>Blader door bestanden
 De Azure-portal kunt u de inhoud van de standaardcontainer bladeren.
 
-1. Aanmelden bij [https://portal.azure.com](https://portal.azure.com).
+1. Aanmelden bij [ https://portal.azure.com ](https://portal.azure.com).
 2. Klik op **HDInsight-Clusters** in het menu links voor een lijst met bestaande clusters.
 3. Klik op de naam van het cluster. Als de clusterlijst te lang is, kunt u het filter boven aan de pagina.
 4. Klik op **Opslagaccounts** in het linkermenu cluster.

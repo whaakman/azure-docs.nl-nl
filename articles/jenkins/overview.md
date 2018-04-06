@@ -11,11 +11,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
-ms.openlocfilehash: 08906939ecc80999de94ad7e7141081f959fb6f2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ca4a6cb886b0453848dc7b29e15de2063878a65d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-and-jenkins"></a>Azure en Jenkins
 
@@ -31,7 +31,7 @@ Host Jenkins in Azure uw automation build centraliseren en schalen van uw implem
 - [Virtuele machines in Azure](/azure/virtual-machines/linux/overview). Zie onze [zelfstudie](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) een Jenkins-exemplaar maken op een virtuele machine.
 - Op een Kubernetes cluster dat wordt uitgevoerd [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), Zie onze [how-to](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-Bewaken en beheren van uw Azure-Jenkins met [logboekanalyse](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview), en de [Azure CLI](/cli/azure).
+Bewaken en beheren van uw Azure-Jenkins met [logboekanalyse](/azure/log-analytics/log-analytics-overview) en de [Azure CLI](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Schalen van uw build-automatisering op aanvraag
 

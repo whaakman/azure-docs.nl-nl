@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
 ms.author: jeanb
-ms.openlocfilehash: 269491beb2acb854098f6513007c5390f318f945
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8c6b0f8ef457c7d40673f27b67a6d33592908fad
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Beheer van de .NET SDK: Instellen en uitvoeren van analytics-taken met de Azure Stream Analytics-API voor .NET
 Informatie over het instellen en uitvoeren met behulp van de Stream Analytics-API voor .NET met de Management .NET SDK analytics-taken. Instellen van een project, invoer en uitvoer bronnen, transformaties en start maken en taken stoppen. U kunt gegevens uit Blob-opslag of van een event hub streamen voor uw analytics-taken.
@@ -277,7 +277,7 @@ De **verwijderen** methode verwijdert de taak, evenals de onderliggende submappe
    ```
 
 ## <a name="get-support"></a>Ondersteuning krijgen
-Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
 U hebt de basisbeginselen van het gebruik van een .NET SDK maken en analytics-taken uitvoeren. Raadpleeg de volgende onderwerpen voor meer informatie:

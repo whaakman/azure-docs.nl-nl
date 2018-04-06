@@ -1,11 +1,11 @@
 ---
 title: Gebruik Azure IoT Hub apparaat twin eigenschappen (Python) | Microsoft Docs
-description: "Het gebruik van Azure IoT Hub apparaat horende apparaten configureren. De Azure IoT SDK's voor Python kunt u een gesimuleerde apparaattoepassing en een service-app die gevolgen heeft voor de apparaatconfiguratie van een met behulp van een apparaat-twin geïmplementeerd."
+description: Het gebruik van Azure IoT Hub apparaat horende apparaten configureren. De Azure IoT SDK's voor Python kunt u een gesimuleerde apparaattoepassing en een service-app die gevolgen heeft voor de apparaatconfiguratie van een met behulp van een apparaat-twin geïmplementeerd.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d0bcec50-26e6-40f0-8096-733b2f3071ec
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2018
-ms.author: v-masebo
-ms.openlocfilehash: d0d5a30a76068eb3212124fd14e7ea1616b75708
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: e6f4aa61e37769dc4851f8284d07a7991ee38c91
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-desired-properties-to-configure-devices-python"></a>Gewenste eigenschappen gebruiken voor het configureren van apparaten (Python)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]

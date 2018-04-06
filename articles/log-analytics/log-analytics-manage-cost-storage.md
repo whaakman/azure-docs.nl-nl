@@ -1,6 +1,6 @@
 ---
 title: Beheren van de kosten van de gegevens in Azure Log Analytics | Microsoft Docs
-description: Informatie over het wijzigen van de prijsstelling en beheren van volume en het bewaren van beleid voor uw werkruimte voor logboekanalyse in de Azure portal.
+description: Informatie over het wijzigen van de prijsstelling en volume en het bewaren van beleid voor uw werkruimte voor logboekanalyse in Azure beheren.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 629031310eba21bc3308754706bd7ba227009ac6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="manage-cost-by-controlling-data-volume-and-retention-with-your-log-analytics-workspace"></a>Kosten beheren door gegevensvolume en retentie met uw werkruimte voor logboekanalyse te beheren
+# <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Kosten beheren via Besturingsmechanismen gegevensvolume en te bewaren in Log Analytics
 Log Analytics is ontworpen om scale en ondersteuning voor het verzamelen, te indexeren en opslaan van grote hoeveelheden gegevens per dag van elke bron in uw onderneming of geïmplementeerd in Azure.  Hoewel dit kan een primaire stuurprogramma voor uw organisatie, is kostenefficiëntie uiteindelijk het onderliggende stuurprogramma. Het is ook afhankelijk van het plan geselecteerd hiertoe het is belangrijk om te begrijpen dat de kosten van een werkruimte logboek Analytisc NET is niet gebaseerd op het volume van de gegevens die zijn verzameld, en hoe lang u hebt gekozen voor het opslaan van gegevens die zijn gegenereerd op basis van uw verbonden bronnen.  
 
 In dit artikel bekijken we hoe u proactief bewaken Gegevensgroei volume en opslag, en limieten voor het beheren van de bijbehorende kosten definiëren. 

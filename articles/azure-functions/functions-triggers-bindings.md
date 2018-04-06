@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure-functies, functies, gebeurtenisverwerking, webhooks, dynamisch berekenen, architectuur zonder server
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d008e94186dd3c5a18c92617ebddfffa966358d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 
@@ -49,7 +49,7 @@ In versie 2.x van de Azure Functions-runtime, moet u expliciet registreren de [b
 
 Uitbreidingen worden geleverd als NuGet-pakketten, waarbij de pakketnaam doorgaans wordt gestart met [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  De manier waarop u installeren en registreren van uitbreidingen van de binding is afhankelijk van hoe het ontwikkelen van uw functies: 
 
-+ [Lokaal in C# met behulp van Visual Studio of Code van de VS](#precompiled-functions-c)
++ [Lokaal in C# met behulp van Visual Studio of Code van de VS](#local-c-development-using-visual-studio-or-vs-code)
 + [Lokaal via Azure Functions kernonderdelen](#local-development-azure-functions-core-tools)
 + [In de Azure portal](#azure-portal-development) 
 
@@ -635,7 +635,7 @@ In C# en andere .NET-talen, kunt u een patroon imperatieve binding in plaats van
 
 ## <a name="functionjson-file-schema"></a>Function.JSON bestand schema
 
-De *function.json* bestand schema is beschikbaar op [http://json.schemastore.org/function](http://json.schemastore.org/function).
+De *function.json* bestand schema is beschikbaar op [ http://json.schemastore.org/function ](http://json.schemastore.org/function).
 
 ## <a name="handling-binding-errors"></a>Afhandeling van bindingsfouten
 

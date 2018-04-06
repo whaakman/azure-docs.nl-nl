@@ -7,14 +7,14 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e9ec0a0a602965561b77619123588db57c59993c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dc97c0703150df9773427b13fc07371c3593ce9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Een Azure SQL Database of een failover naar een secundaire herstellen
 Azure SQL Database biedt de volgende mogelijkheden voor het herstellen van een storing:
@@ -26,7 +26,7 @@ Azure SQL Database biedt de volgende mogelijkheden voor het herstellen van een s
 Zie voor meer informatie over zakelijke continuïteit-scenario's en de onderdelen van deze scenario's ondersteunen, [bedrijfscontinuïteit](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Als u zone-redundante Premium-databases of groepen gebruikt, wordt het herstelproces wordt automatisch uitgevoerd en de rest van dit materiaal is niet van toepassing. 
+> Als u zone-redundante Premium of kritieke zakelijke databases of groepen (preview) gebruikt, wordt het herstelproces wordt automatisch uitgevoerd en de rest van dit materiaal is niet van toepassing. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Voorbereiden voor het geval er een storing
 Voor een correcte werking met herstel naar een ander gegevensgebied met behulp van failover-groepen of geografisch redundante back-ups, moet u een server voorbereiden in een ander datacenter onderbreking om te worden van de nieuwe primaire server indien nodig ook goed gedefinieerde beschreven stappen hebt ontstaan en getest om te controleren of een smooth herstel. Deze voorbereidende stappen omvatten:

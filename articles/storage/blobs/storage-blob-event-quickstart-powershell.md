@@ -2,30 +2,28 @@
 title: Azure Blob storage-gebeurtenissen te routeren naar een aangepaste website-eindpunt - Powershell | Microsoft Docs
 description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen van Blob Storage.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: david-stanford
 ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 374a24448eb1bf366e26bb55fdf09e470b030c89
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e5524732185d7b80ebf16a9bce6de9ca0183c27e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Blob storage gebeurtenissen routeren naar een aangepaste website-eindpunt met PowerShell
 
 Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel, Azure PowerShell gebruiken om u te abonneren op gebeurtenissen in de Blob-opslag, trigger een gebeurtenis en het resultaat te bekijken. 
 
-Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Om te vereenvoudigen het voorbeeld in dit artikel, worden gebeurtenissen verzonden naar een URL die alleen de berichten worden verzameld. U maakt deze URL met behulp van hulpprogramma's van derden vanuit [RequestBin](https://requestb.in/) of [Hookbin](https://hookbin.com/).
+Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Om te vereenvoudigen het voorbeeld in dit artikel, worden gebeurtenissen verzonden naar een URL die alleen de berichten worden verzameld. U maakt deze URL met behulp van een hulpprogramma van derden, [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** en **Hookbin** zijn niet bedoeld voor gebruik met hoge doorvoer. Het gebruik van deze hulpprogramma's is alleen om de mogelijkheden aan te tonen. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma.
+> **Hookbin** is niet bedoeld voor gebruik met hoge doorvoer. Dit hulpprogramma wordt alleen gebruikt ter demonstratie. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma.
 
 Als u de stappen in dit artikel hebt voltooid, ziet u dat de gegevens van gebeurtenissen naar een eindpunt zijn verzonden.
-
-![Gebeurtenisgegevens](./media/storage-blob-event-quickstart/request-result.png)
 
 ## <a name="setup"></a>Instellen
 
@@ -61,7 +59,7 @@ $resourceGroup = "gridResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Als u gebeurtenissen van Blob-opslag, moet u ofwel een [Blob-opslagaccount](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) of een [algemeen v2-opslagaccount](../common/storage-account-options.md#general-purpose-v2). **Algemene doel v2 (GPv2)** storage-accounts die ondersteuning bieden voor alle functies voor storage-services, met inbegrip van Blobs, bestanden, wachtrijen en tabellen zijn. Een **Blob-opslagaccount** is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde gegevens als blobs (objecten) in Azure Storage. BLOB storage-accounts zijn vergelijkbaar met opslagaccounts voor algemeen gebruik en delen van de meeste duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties van functies dat u vandaag inclusief 100 procent API-consistentie voor blok-blobs gebruikt en toevoeg-blobs. Voor toepassingen die alleen blok- of toevoeg-blob-opslag nodig hebben, wordt het gebruik van Blob-opslagaccounts aangeraden.  
 
@@ -84,7 +82,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Het eindpunt van een bericht maken
 
-Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. In plaats van code te schrijven om op de gebeurtenis te reageren, maken we een eindpunt waarop de berichten worden verzameld, zodat u ze kunt weergeven. RequestBin en Hookbin zijn hulpprogramma's van derden waarmee u een eindpunt kunt maken en aanvragen kunt weergeven die naar dit eindpunt worden verzonden. Ga naar [RequestBin](https://requestb.in/) en klik op **Create a RequestBin** of ga naar [Hookbin](https://hookbin.com/) en klik op **Create New Endpoint**. Kopieer de URL van de opslaglocatie en vervang `<bin URL>` in het volgende script.
+Voordat u zich abonneert op het onderwerp, gaan we het eindpunt voor het gebeurtenisbericht maken. In plaats van code te schrijven om op de gebeurtenis te reageren, maken we een eindpunt waarop de berichten worden verzameld, zodat u ze kunt weergeven. Hookbin is een hulpprogramma van derden waarmee u een eindpunt kunt maken en aanvragen kunt weergeven die naar dit eindpunt worden verzonden. Ga naar [Hookbin](https://hookbin.com/) en klik op **Create New Endpoint**. Kopieer de URL van de opslaglocatie en vervang `<bin URL>` in het volgende script.
 
 ```powershell
 $binEndPoint = "<bin URL>"
@@ -92,7 +90,7 @@ $binEndPoint = "<bin URL>"
 
 ## <a name="subscribe-to-your-storage-account"></a>Abonneren op uw storage-account
 
-U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. Het volgende voorbeeld is lid van het opslagaccount dat u hebt gemaakt en wordt de URL van RequestBin of Hookbin als het eindpunt voor gebeurtenismelding doorgegeven. 
+U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. Het opslagaccount hebt gemaakt de URL van Hookbin doorgegeven als het eindpunt voor gebeurtenismelding lid van het volgende voorbeeld. 
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id

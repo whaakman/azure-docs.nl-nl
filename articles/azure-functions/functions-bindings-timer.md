@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 89469af2b1d02ef00fc347e47719956885e7f142
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
@@ -171,8 +171,8 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**type** | N.v.t. | Moet worden ingesteld op 'timerTrigger'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
 |**Naam** | N.v.t. | De naam van de variabele die staat voor de timer-object in de functiecode. | 
-|**schedule**|**ScheduleExpression**|Een [CRON expressie](#cron-expressions) of een [TimeSpan](#timespan) waarde. Een `TimeSpan` kan alleen worden gebruikt voor een functie-app die wordt uitgevoerd op een App Service-Plan. U kunt de expressie van de planning opnemen in een app-instelling en deze eigenschap instellen op de app verpakt naam van instelling **%** hekjes, zoals in dit voorbeeld: '% NameOfAppSettingWithScheduleExpression %'. |
-|**runOnStartup**|**RunOnStartup**|Als `true`, de functie wordt aangeroepen wanneer de runtime wordt gestart. De runtime wordt bijvoorbeeld gestart wanneer de functie-app ontwaakt na inactiviteit vanwege inactiviteit. Wanneer de functie-app opnieuw wordt gestart als gevolg van wijzigingen van de functie, en wanneer de functie-app uitgeschaald. Dus **runOnStartup** moet zelden of nooit worden ingesteld op `true`, zoals brengt code uitvoeren op maximaal onvoorspelbare tijdstippen. Als u nodig hebt voor het activeren van de functie buiten de timer-planning, kunt u een tweede functie met een andere triggertype maken en delen van de code tussen de twee functies. Kan bijvoorbeeld activeren op implementatie [aanpassen van uw implementatie](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) aanroepen van de tweede functie door het maken van een HTTP-aanvraag bij de implementatie is voltooid.|
+|**schedule**|**ScheduleExpression**|Een [CRON expressie](#cron-expressions) of een [TimeSpan](#timespan) waarde. Een `TimeSpan` kan alleen worden gebruikt voor een functie-app die wordt uitgevoerd op een App Service-Plan. U kunt de expressie van de planning opnemen in een app-instelling en deze eigenschap instellen op de app verpakt naam van instelling **%** hekjes, zoals in dit voorbeeld: '% ScheduleAppSetting %'. |
+|**runOnStartup**|**RunOnStartup**|Als `true`, de functie wordt aangeroepen wanneer de runtime wordt gestart. De runtime wordt bijvoorbeeld gestart wanneer de functie-app ontwaakt na inactiviteit vanwege inactiviteit. Wanneer de functie-app opnieuw wordt gestart als gevolg van wijzigingen van de functie, en wanneer de functie-app uitgeschaald. Dus **runOnStartup** moet zelden of nooit worden ingesteld op `true`, zoals brengt code uitvoeren op maximaal onvoorspelbare tijdstippen.|
 |**useMonitor**|**UseMonitor**|Ingesteld op `true` of `false` om aan te geven of het schema moet worden gecontroleerd. Planning bewaking persistente planning voorvallen als hulpmiddel om ervoor te zorgen dat de planning correct wordt bijgehouden, zelfs wanneer de functie app-exemplaren opnieuw opstart. Als niet expliciet is ingesteld, de standaardinstelling is `true` voor schema's die u een interval dat groter is dan 1 minuut hebt. Voor schema's die meer dan één keer per minuut activeren, de standaardwaarde is `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

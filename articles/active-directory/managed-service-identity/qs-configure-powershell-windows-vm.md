@@ -2,10 +2,10 @@
 title: Het configureren van MSI op een virtuele machine in Azure met behulp van PowerShell
 description: Stap door stapsgewijze instructies voor het configureren van een beheerde Service identiteit (MSI) op een virtuele machine van Azure, met behulp van PowerShell.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 42c361ac69122d00df290f4c3c2eb2cfeeb9eb47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 76ea24a658c728aebd15be55cc0c8dfca27f01ec
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configureren van een VM beheerde Service identiteit (MSI) met behulp van PowerShell
 
@@ -40,9 +40,9 @@ Maken van een VM MSI ingeschakeld:
 1. Verwijzen naar een van de volgende Azure VM snelstartgidsen, alleen de benodigde secties voltooid ('Aanmelden bij Azure', 'Resourcegroep maken', 'Netwerken groep maken', 'De virtuele machine maken'). 
 
    > [!IMPORTANT] 
-   > Wanneer u naar de sectie 'De VM maken' krijgen, moet u een kleine wijziging van de [nieuw AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet-syntaxis. Zorg ervoor dat om toe te voegen een `-IdentityType "SystemAssigned"` parameter voor het inrichten van de virtuele machine met een MSI-bestand, bijvoorbeeld:
+   > Wanneer u naar de sectie 'De VM maken' krijgen, moet u een kleine wijziging van de [nieuw AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet-syntaxis. Zorg ervoor dat om toe te voegen een `-AssignIdentity "SystemAssigned"` parameter voor het inrichten van de virtuele machine met een MSI-bestand, bijvoorbeeld:
    >  
-   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
+   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -AssignIdentity "SystemAssigned" ...`
 
    - [Maken van een virtuele Windows-machine met behulp van PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Maken van een virtuele Linux-machine met behulp van PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
@@ -66,11 +66,11 @@ Als u inschakelen, MSI op een bestaande virtuele Machine wilt:
    Login-AzureRmAccount
    ```
 
-2. Eerst ophalen van de eigenschappen van de virtuele machine met behulp van de `Get-AzureRmVM` cmdlet. Om in te schakelen MSI, gebruikt u de `-IdentityType` overschakelen op de [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
+2. Eerst ophalen van de eigenschappen van de virtuele machine met behulp van de `Get-AzureRmVM` cmdlet. Om in te schakelen MSI, gebruikt u de `-AssignIdentity` overschakelen op de [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType "SystemAssigned"
+   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity "SystemAssigned"
    ```
 
 3. Toevoegen van de MSI VM uitbreiding met behulp van de `-Type` parameter bij de [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven 'ManagedIdentityExtensionForWindows' of 'ManagedIdentityExtensionForLinux', afhankelijk van het type van de virtuele machine, en deze met de naam de `-Name` parameter. De `-Settings` parameter geeft u de poort die wordt gebruikt door het eindpunt van het OAuth-token voor de aanschaf van token. Zorg ervoor dat u de juiste `-Location` parameter die overeenkomt met de locatie van de bestaande virtuele machine:

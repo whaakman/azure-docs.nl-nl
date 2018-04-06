@@ -5,7 +5,7 @@ services: cdn
 documentationcenter: .NET
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: db7b5053cb926d2ec86c7feea4ac411acbeb1ae2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d1a12e0d5bd5852cf8de3d5fec93f2bfdd3ab257
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Vervaldatum van webinhoud in Azure inhoud Delivery Network beheren
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ U kunt de cache-instellingen van de Azure-portal ook beheren door in te stellen 
 De voorkeursmethode voor het instellen van een webserver `Cache-Control` header is het gebruik van cachebewerkingen regels in de Azure portal. Zie voor meer informatie over CDN caching regels [besturingselement Azure CDN cachegedrag met caching regels](cdn-caching-rules.md).
 
 > [!NOTE] 
-> In het cachegeheugen regels zijn alleen beschikbaar voor **Azure CDN van Verizon standaard** en **Azure CDN van Akamai standaard** profielen. Voor **Azure CDN van Verizon Premium** profielen, moet u de [Azure CDN regelengine](cdn-rules-engine.md) in de **beheren** portal voor vergelijkbare functionaliteit.
+> In het cachegeheugen regels zijn alleen beschikbaar voor **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai** profielen. Voor **Azure CDN Premium van Verizon** profielen, moet u de [Azure CDN regelengine](cdn-rules-engine.md) in de **beheren** portal voor vergelijkbare functionaliteit.
 
 **Om te navigeren naar de pagina in het cachegeheugen regels CDN**:
 

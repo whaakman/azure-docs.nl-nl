@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: 2bb85eafc7722840b6a35956403c29d4ac642cc1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f38faf4d75125201ee209eb40c9f223a0487f042
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Verbinding maken met on-premises gegevensbronnen met Azure On-premises Data Gateway
 De lokale data gateway fungeert als een brug, bieden veilige gegevensoverdracht tussen uw Azure Analysis Services-servers in de cloud en on-premises gegevensbronnen. Naast het werken met meerdere Azure Analysis Services-servers in dezelfde regio, werkt de meest recente versie van de gateway ook met Azure Logic Apps, Power BI, Power-Apps en Microsoft-Flow. U kunt meerdere services in dezelfde regio koppelen met een enkele gateway. 

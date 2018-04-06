@@ -2,10 +2,10 @@
 title: Opnieuw instellen van wachtwoord van de Linux-VM en SSH-sleutel van de CLI | Microsoft Docs
 description: Het gebruik van de VMAccess-extensie van de Azure-opdrachtregelinterface (CLI) op een Linux-VM wachtwoord of SSH-sleutel opnieuw instellen en controleren van de consistentie van de schijf los van de SSH-configuratie
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: d975eb70-5ff1-40d1-a634-8dd2646dcd17
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 4577b6b9656b6a1cf83e6f9a227526701ba297b4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: c36498d2f4fef506dc7047fe91666aceec73c13d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Het opnieuw instellen van een Linux-VM wachtwoord of SSH-sleutel, los van de SSH-configuratie en consistentie van de schijf met behulp van de VMAccess-extensie controleren
 Als u geen verbinding met een virtuele Linux-machine in Azure vanwege een vergeten wachtwoord, een onjuiste Secure Shell (SSH)-sleutel, of een probleem met de SSH-configuratie gebruiken de VMAccessForLinux-extensie met de Azure CLI opnieuw instellen van het wachtwoord of SSH-sleutel, los van de SSH-configuratie en controleren van de consistentie van de schijf. 
@@ -53,7 +53,7 @@ U moet het volgende doen:
 * Een nieuw wachtwoord of SSH-sleutels hebben als u wilt instellen, ofwel een. U kunt deze niet nodig als u wilt de SSH-configuratie opnieuw instellen.
 
 ## <a name="pwresetcli"></a>Het wachtwoord opnieuw instellen
-1. Maak een bestand op uw lokale computer met de naam PrivateConf.json met deze regels. Vervang **gebruik met Windows** en  **myP@ssW0rd**  met uw eigen gebruikersnaam en wachtwoord en stel uw eigen datum voor verlopen.
+1. Maak een bestand op uw lokale computer met de naam PrivateConf.json met deze regels. Vervang **gebruik met Windows** en **myP@ssW0rd** met uw eigen gebruikersnaam en wachtwoord en stel uw eigen datum voor verlopen.
 
     ```   
         {
@@ -83,7 +83,7 @@ U moet het volgende doen:
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ## <a name="resetbothcli"></a>Zowel het wachtwoord en de SSH-sleutel opnieuw instellen
-1. Maak een bestand met de naam PrivateConf.json met deze inhoud. Vervang de **gebruik met Windows**, **mySSHKey** en  **myP@ssW0rd**  waarden door uw eigen waarden.
+1. Maak een bestand met de naam PrivateConf.json met deze inhoud. Vervang de **gebruik met Windows**, **mySSHKey** en **myP@ssW0rd** waarden door uw eigen waarden.
 
     ``` 
         {

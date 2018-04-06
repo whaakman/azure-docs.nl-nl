@@ -5,9 +5,9 @@ documentationcenter: na
 services: expressroute
 author: ajaycode
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 586d78e29177dd4a627c94cd754c21cc2b6f37d4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configureren van netwerk-Prestatiemeter voor ExpressRoute
 
-Netwerk Performance Monitor (NPM) is een cloud-gebaseerde netwerk bewakingsoplossing, die wordt bewaakt connectiviteit tussen Azure-cloud-implementaties en lokale locaties (filialen, enzovoort). NPM maakt deel uit van Microsoft Operations Management Suite (OMS). NPM biedt nu een extensie voor ExpressRoute waarmee u de prestaties van het netwerk via ExpressRoute-circuits die zijn geconfigureerd voor gebruik van persoonlijke Peering bewaken. Wanneer u NPM voor ExpressRoute configureert, kunt u detecteren netwerkproblemen identificeren en oplossen.
+Netwerk Performance Monitor (NPM) is een cloud-gebaseerde netwerk bewakingsoplossing, die wordt bewaakt connectiviteit tussen Azure-cloud-implementaties en lokale locaties (filialen, enzovoort). NPM maakt deel uit van logboekanalyse. NPM biedt nu een extensie voor ExpressRoute waarmee u de prestaties van het netwerk via ExpressRoute-circuits die zijn geconfigureerd voor gebruik van persoonlijke Peering bewaken. Wanneer u NPM voor ExpressRoute configureert, kunt u detecteren netwerkproblemen identificeren en oplossen.
 
 U kunt:
 
@@ -72,11 +72,11 @@ Maak een werkruimte in het abonnement waarvoor de VNets koppelen aan de ExpressR
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer het abonnement waarvoor de VNETs brengen aan uw ExpressRoute-circuit. Zoek in de lijst van services in de **Marketplace** voor 'Prestatiemeter netwerk'. Klik in het retourtype op om de **netwerk Prestatiemeter** pagina.
 
->[!NOTE]
->U kunt een nieuwe werkruimte maken of gebruik een bestaande werkruimte.  Als u gebruiken van een bestaande werkruimte wilt, moet u ervoor zorgen dat de werkruimte is gemigreerd naar de nieuwe querytaal. [Meer informatie...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
->
+   >[!NOTE]
+   >U kunt een nieuwe werkruimte maken of gebruik een bestaande werkruimte.  Als u gebruiken van een bestaande werkruimte wilt, moet u ervoor zorgen dat de werkruimte is gemigreerd naar de nieuwe querytaal. [Meer informatie...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >
 
-  ![portal](.\media\how-to-npm\3.png)<br><br>
+   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Aan de onderkant van de belangrijkste **netwerk Prestatiemeter** pagina, klikt u op **maken** openen **netwerk-Prestatiemeter - nieuwe oplossing maken** pagina. Klik op **OMS-werkruimte - Selecteer een werkruimte** om de werkruimten pagina te openen. Klik op **+ maken nieuwe werkruimte** om de pagina van de werkruimte te openen.
 3. Op de **OMS-werkruimte** pagina **nieuw** en configureer de volgende instellingen:
 
@@ -86,15 +86,15 @@ Maak een werkruimte in het abonnement waarvoor de VNets koppelen aan de ExpressR
   * Locatie - moet u een [regio ondersteund](#regions).
   * Prijscategorie - Selecteer vrije
   
-  >[!NOTE]
-  >Het ExpressRoute-circuit kan worden, overal ter wereld en hoeft niet te worden in dezelfde regio bevinden als de werkruimte.
-  >
+    >[!NOTE]
+    >Het ExpressRoute-circuit kan worden, overal ter wereld en hoeft niet te worden in dezelfde regio bevinden als de werkruimte.
+    >
   
-  ![Werkruimte](.\media\how-to-npm\4.png)<br><br>
+    ![Werkruimte](.\media\how-to-npm\4.png)<br><br>
 4. Klik op **OK** opslaan en de sjabloon instellingen implementeren. Nadat de sjabloon wordt gevalideerd, klikt u op **maken** voor het implementeren van de werkruimte.
 5. Nadat u de werkruimte is geïmplementeerd, gaat u naar de **NetworkMonitoring(name)** resource die u hebt gemaakt. Controleer de instellingen en klik vervolgens op **oplossing is aanvullende configuratie vereist**.
 
-  ![aanvullende configuratie](.\media\how-to-npm\5.png)
+   ![aanvullende configuratie](.\media\how-to-npm\5.png)
 
 ## <a name="agents"></a>Stap 2: Installeren en configureren van agents
 
@@ -126,9 +126,9 @@ Het is raadzaam dat u ten minste twee agents voor elke zijde van de ExpressRoute
 2. Klik op de pagina **Welkom** op **Volgende**.
 3. Op de **licentievoorwaarden** pagina, lees de licentievoorwaarden en klik vervolgens op **ik ga akkoord**.
 4. Op de **doelmap** pagina, wijzigen of de standaardinstallatiemap houden en klik vervolgens op **volgende**.
-5. Op de **installatieopties voor Agent** pagina kunt u de agent verbinden met Azure logboekanalyse (OMS) of Operations Manager. Of u kunt de keuzes leeg laten als u wilt dat de agent later configureren. Nadat u uw selection(s), klikt u op **volgende**.
+5. Op de **installatieopties voor Agent** pagina kunt u de agent verbinden met Azure-logboekanalyse of Operations Manager. Of u kunt de keuzes leeg laten als u wilt dat de agent later configureren. Nadat u uw selection(s), klikt u op **volgende**.
 
-  * Als u wilt verbinding maken met **Azure logboekanalyse (OMS)**, plak de **werkruimte-ID** en **Werkruimtesleutel** (primaire sleutel) dat u hebt gekopieerd in Kladblok in de vorige sectie. Klik op **Volgende**.
+  * Als u wilt verbinding maken met **Azure Log Analytics**, plak de **werkruimte-ID** en **Werkruimtesleutel** (primaire sleutel) dat u hebt gekopieerd in Kladblok in de vorige sectie. Klik op **Volgende**.
 
     ![ID en -sleutel](.\media\how-to-npm\8.png)
   * Als u wilt verbinding maken met **Operations Manager**op de **Beheergroepconfiguratie** pagina, typt u de **Beheergroepsnaam**, **Management Server** , en de **Beheerserverpoort**. Klik op **Volgende**.
@@ -139,7 +139,7 @@ Het is raadzaam dat u ten minste twee agents voor elke zijde van de ExpressRoute
     ![Account](.\media\how-to-npm\10.png)
 6. Op de **gereed voor installatie** pagina, Controleer uw selecties en klik vervolgens op **installeren**.
 7. Klik op de pagina **Configuratie voltooid** op **Voltooien**.
-8. Als u klaar is Microsoft Monitoring Agent wordt weergegeven in het Configuratiescherm. U kunt uw configuratie er bekijken en controleren of de agent aan Operational Insights (OMS) is verbonden. Wanneer verbonden met OMS, de agent wordt weergegeven voor een bericht weergegeven: **de Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite-service**.
+8. Als u klaar is Microsoft Monitoring Agent wordt weergegeven in het Configuratiescherm. U kunt uw configuratie er bekijken en controleren of de agent voor Azure logboekanalyse (OMS) is verbonden. Wanneer verbinding is gemaakt, de agent wordt een bericht weergegeven: **de Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite-service**.
 
 9. Herhaal de dit voor elk VNET dat u moet worden bewaakt.
 
@@ -162,8 +162,8 @@ Eenvoudig kunt u controleren of uw agents communiceren.
 
 1. Open op een server met de bewakingsagent de **Configuratiescherm**.
 2. Open de **Microsoft Monitoring Agent**.
-3. Klik op de **Azure logboekanalyse (OMS)** tabblad.
-4. In de **Status** kolom ziet u de agent verbonden is met de Operations Management Suite-service.
+3. Klik op de **Azure Log Analytics** tabblad.
+4. In de **Status** kolom ziet u dat de agent is verbonden met logboekanalyse.
 
   ![status](.\media\how-to-npm\12.png)
 

@@ -2,10 +2,10 @@
 title: PowerShell-script voor het Linux-HPC-cluster implementeren | Microsoft Docs
 description: Voer een PowerShell-script voor het implementeren van een Linux HPC Pack 2012 R2-cluster in Azure virtuele machines
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 73041960-58d3-4ecf-9540-d7e1a612c467
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 477859db8c884714d9b5140483d300ebfe6c116a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 66affb47190ba0c6fccaae8e8267b310682aee46
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Een high performance computing (HPC)-cluster op Linux maken met het implementatiescript HPC Pack IaaS
 De implementatie van HPC Pack IaaS PowerShell-script voor het implementeren van een volledige HPC Pack 2012 R2-cluster voor Linux-werkbelastingen in virtuele machines in Azure worden uitgevoerd. Het cluster bestaat uit een op die lid zijn van Active Directory hoofdknooppunt met Windows Server en Microsoft HPC Pack en rekenknooppunten die worden uitgevoerd op een van de Linux-distributies die wordt ondersteund door HPC Pack. Als u een HPC Pack cluster in Azure voor Windows werkbelasting implementeren wilt, Zie [een Windows HPC-cluster maken met het implementatiescript HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

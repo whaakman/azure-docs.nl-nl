@@ -2,10 +2,10 @@
 title: Instellen van een cluster Linux RDMA MPI-toepassingen uitvoeren | Microsoft Docs
 description: Maak een Linux-cluster met een grootte van H16r, H16mr, A8 of A9-VM's met het netwerk van Azure RDMA MPI-apps uitvoeren
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 01834bad-c8e6-48a3-b066-7f1719047dd2
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 428dc1e8ba03ba17e348a33a33b5cf5e6118a43c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Een Linux RDMA-cluster instellen voor het uitvoeren van MPI-toepassingen
 Meer informatie over het instellen van een Linux RDMA-cluster in Azure met [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) parallelle Message Passing Interface (MPI)-toepassingen uit te voeren. Dit artikel bevat stappen voor het voorbereiden van een installatiekopie Linux HPC Intel MPI uitvoeren op een cluster. Nadat de voorbereiding, moet u een cluster van virtuele machines met behulp van deze installatiekopie en een van de RDMA-compatibele Azure VM-grootten (H16mr momenteel H16r A8 of A9) implementeert. De cluster gebruiken voor het uitvoeren van MPI-toepassingen die efficiënt via een lage latentie, een hoge gegevensdoorvoer netwerk op basis van remote direct memory access (RDMA)-technologie communiceren.

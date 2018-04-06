@@ -12,15 +12,15 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 4e50a1be3437ab1b027c1ca0f160402239e13e92
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud: uw database in Azure SQL Database beheren
 
-Verplaatsen van de traditionele zelf wordt beheerd, automatisch gecontroleerde omgeving met een PaaS-omgeving kan enigszins overweldigend lijken op het eerste. Als een ontwikkelaar van de app of een DBA, zou u wilt weten van de belangrijkste mogelijkheden van het platform waarmee u uw toepassing beschikbaar is, zodat, veilige en robuuste - altijd. In dit artikel is erop gericht precies dat doet. Het artikel bondig organiseert bronnen en biedt u enkele richtlijnen over het optimaal gebruik van de belangrijkste mogelijkheden van SQL Database beheren en uw toepassing efficiënt houden en optimale resultaten in de cloud bereikt. Typische publiek voor dit artikel zou zijn de eigenschappen die:-
+Verplaatsen van de traditionele zelf wordt beheerd, automatisch gecontroleerde omgeving met een PaaS-omgeving kan enigszins overweldigend lijken op het eerste. Als een ontwikkelaar van de app of een DBA, zou u wilt weten van de belangrijkste mogelijkheden van het platform waarmee u uw toepassing beschikbaar is, zodat, veilige en robuuste - altijd. In dit artikel is erop gericht precies dat doet. Het artikel bondig organiseert bronnen en biedt u enkele richtlijnen over het optimaal gebruik van de belangrijkste mogelijkheden van SQL Database beheren en uw toepassing efficiënt houden en optimale resultaten in de cloud bereikt. Typische publiek voor dit artikel zou zijn de eigenschappen die: 
 - Migratie van hun toepassingen met Azure SQL DB – modernisering van uw toepassingen beoordeelt.
 - Zijn bezig met hun toepassing(en) – continu migratiescenario's migreren.
 - De migratie naar Azure SQL DB – nieuwe DBA in de cloud onlangs voltooid.
@@ -218,7 +218,7 @@ Een benadering voor het oplossen van prestatieproblemen aanzienlijk kan profiter
 
 Prestaties op te lossen is het belangrijk om te bepalen of het is alleen de toepassing of het maken van back-database die wordt die invloed hebben op de toepassingsprestaties van uw. Vaak is het prestatieprobleem veroorzaakt in de toepassingslaag. Het is mogelijk de architectuur of de data access-patroon. Neem bijvoorbeeld dat een chatty toepassing die is gevoelig voor netwerklatentie. In dit geval wordt uw toepassing te lijden heeft onder omdat er veel korte aanvragen heen en weer ('chatty') tussen de toepassing en de server en in een overbelaste netwerk, deze interactie optellen fast. In dit geval de prestaties verbeteren, kunt u [Batch query's](sql-database-performance-guidance.md#batch-queries). Met batches kunt u kostte omdat nu uw aanvragen in een batch verwerkt; dus helpt u bij het beperken van de retour-latentie en verbeteren de toepassingsprestaties van uw. 
 
-Bovendien, als u merkt dat een verslechtering van de algehele prestaties van uw database, kunt u bewaken de [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) en [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamische Beheerweergave weergaven om begrijpen CPU, i/o-en geheugen. Prestaties van uw wordt mogelijk beïnvloed omdat de database tekort van resources komt is. Kan het zijn dat u wilt wijzigen van het prestatieniveau en/of servicelaag op basis van de groeiende en werkbelasting eisen verkleinen. 
+Bovendien, als u merkt dat een verslechtering van de algehele prestaties van uw database, kunt u bewaken de [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) en [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamische Beheerweergave weergaven om begrijpen CPU, IO en geheugen. Prestaties van uw wordt mogelijk beïnvloed omdat de database tekort van resources komt is. Kan het zijn dat u wilt wijzigen van het prestatieniveau en/of servicelaag op basis van de groeiende en werkbelasting eisen verkleinen. 
 
 Zie voor een uitgebreide set met aanbevelingen voor het afstemmen van prestatieproblemen: [optimaliseren van uw database](sql-database-performance-guidance.md#tune-your-database).
 

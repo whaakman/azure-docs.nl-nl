@@ -1,24 +1,24 @@
 ---
 title: Aan de slag met Azure IoT Hub Apparaatbeheer (.NET/.NET) | Microsoft Docs
-description: "Het gebruik van Azure IoT Hub Apparaatbeheer initiëren externe apparaten opnieuw worden opgestart. U het apparaat met Azure IoT SDK voor .NET gebruiken voor het implementeren van een gesimuleerde apparaattoepassing met een directe methode en de service Azure IoT SDK voor .NET voor het implementeren van een service-app die de directe methode aanroept."
+description: Het gebruik van Azure IoT Hub Apparaatbeheer initiëren externe apparaten opnieuw worden opgestart. U het apparaat met Azure IoT SDK voor .NET gebruiken voor het implementeren van een gesimuleerde apparaattoepassing met een directe methode en de service Azure IoT SDK voor .NET voor het implementeren van een service-app die de directe methode aanroept.
 services: iot-hub
 documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: v-jamebr
-ms.openlocfilehash: 3af7fbfb9740e00d9ff9c2b077cb444a8057b8c3
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.author: v-jamebr;dobett
+ms.openlocfilehash: 44160eeb90f0f65c974b7188dd7c70cce382bf21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-management-netnet"></a>Aan de slag met Apparaatbeheer (.NET/.NET)
 
@@ -68,7 +68,7 @@ In deze sectie maakt u een .NET-consoletoepassing (met C#) die een externe opnie
         static ServiceClient client;
         static string targetDevice = "myDeviceId";
         
-6. Voeg de volgende methode voor de **programma** klasse.  Deze code haalt de apparaat-twin voor het apparaat rebooting en levert de gerapporteerde eigenschappen.
+6. Voeg de volgende methode toe aan de klasse **Program**.  Deze code haalt de apparaat-twin voor het apparaat rebooting en levert de gerapporteerde eigenschappen.
    
         public static async Task QueryTwinRebootReported()
         {
@@ -76,7 +76,7 @@ In deze sectie maakt u een .NET-consoletoepassing (met C#) die een externe opnie
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Voeg de volgende methode voor de **programma** klasse.  Deze code wordt het opnieuw opstarten op het apparaat met een directe methode gestart.
+7. Voeg de volgende methode toe aan de klasse **Program**.  Deze code wordt het opnieuw opstarten op het apparaat met een directe methode gestart.
 
         public static async Task StartReboot()
         {
@@ -97,7 +97,7 @@ In deze sectie maakt u een .NET-consoletoepassing (met C#) die een externe opnie
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
         
-8. De oplossing bouwen.
+8. Bouw de oplossing.
 
 > [!NOTE]
 > In deze zelfstudie wordt slechts één query uitvoert voor gemelde eigenschappen van het apparaat. In productiecode raden wij polling voor het detecteren van wijzigingen in de eigenschappen van gemeld.
@@ -181,7 +181,7 @@ In deze sectie wordt u
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-8. In de Visual Studio Solution Explorer met de rechtermuisknop op uw oplossing en klik vervolgens op **Opstartprojecten instellen...** . Selecteer **één opstartproject**, en selecteer vervolgens de **SimulateManagedDevice** -project in de vervolgkeuzelijst. De oplossing bouwen.       
+8. In de Visual Studio Solution Explorer met de rechtermuisknop op uw oplossing en klik vervolgens op **Opstartprojecten instellen...** . Selecteer **één opstartproject**, en selecteer vervolgens de **SimulateManagedDevice** -project in de vervolgkeuzelijst. Bouw de oplossing.       
 
 > [!NOTE]
 > Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u een beleid voor opnieuw proberen implementeren (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel [Transient Fault Handling][lnk-transient-faults] (Afhandeling van tijdelijke fouten).

@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 0f23a76506a6692dd907a0b9fc7cfadfe7cd8f40
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7830a8a4bfc43e158069cc7cdc186e289e166751
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Azure SQL Database prestatieproblemen met Intelligent Insights oplossen
 
@@ -30,7 +30,7 @@ Intelligent Insights detecteert automatisch prestatieproblemen met SQL-Database 
 
 | Prestatiepatronen waarneembaar | Details output |
 | :------------------- | ------------------- |
-| [Limieten bereiken](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Verbruik van beschikbare resources (dtu's), werkthreads database of database aanmelding sessies beschikbaar is op het bewaakte abonnement is bereikt-limieten, waardoor prestatieproblemen met de SQL-Database. |
+| [Limieten voor bereikt](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Verbruik van beschikbare resources (dtu's), werkthreads database of database aanmelding sessies beschikbaar is op het bewaakte abonnement is bereikt-limieten, waardoor prestatieproblemen met de SQL-Database. |
 | [Toename van de werkbelasting](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Toename van de werkbelasting of continue opeenstapeling van werkbelasting op de database is gedetecteerd, waardoor prestatieproblemen met de SQL-Database. |
 | [Geheugendruk](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Werknemers die aangevraagd geheugen verleent moeten wachten voor geheugentoewijzingen statistisch aanzienlijke hoeveelheid tijd. Of een hogere opeenstapeling van werknemers die aangevraagd geheugen verleent bestaat, die van invloed op prestaties van de SQL-Database. |
 | [Vergrendelen](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Vergrendelen van overmatige database is gedetecteerd, die van invloed op prestaties van de SQL-Database. |
@@ -52,13 +52,13 @@ Intelligent Insights detecteert automatisch prestatieproblemen met SQL-Database 
 
 De volgende sectie beschrijft de eerder vermelde waarneembaar prestatiepatronen in meer detail.
 
-## <a name="reaching-resource-limits"></a>Limieten bereiken
+## <a name="reaching-resource-limits"></a>Limieten voor bereikt
 
 ### <a name="what-is-happening"></a>Wat gebeurt er
 
 Dit patroon waarneembaar prestaties combineert prestatieproblemen die gerelateerd zijn aan de beschikbare resource limieten, worker limieten en sessielimieten is bereikt. Nadat u dit probleem wordt gedetecteerd, een beschrijvingsveld van het logboek diagnostics geeft aan of het prestatieprobleem betrekking heeft op de resource, worker of sessielimieten.
 
-Bronnen op de SQL-Database worden gewoonlijk aangeduid als [DTU-bronnen](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Ze bestaan uit een gecombineerde meting van CPU- en i/o-resources voor (gegevens en transactie logboekregistratie i/o). Het patroon van limieten bereiken wanneer gedetecteerd wordt herkend verslechtering van de query-prestaties wordt veroorzaakt door een van de gemeten limieten bereiken.
+Bronnen op de SQL-Database worden gewoonlijk aangeduid als [DTU-bronnen](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Ze bestaan uit een gecombineerde meting van CPU- en i/o (gegevens en transactie logboekregistratie i/o). Het patroon van limieten bereiken wanneer gedetecteerd wordt herkend verslechtering van de query-prestaties wordt veroorzaakt door een van de gemeten limieten bereiken.
 
 De sessie limieten-resource geeft aan dat het aantal beschikbare gelijktijdige aanmeldingen bij de SQL-database. Dit patroon prestaties wordt herkend als het aantal beschikbare gelijktijdige aanmeldingen bij de database hebt bereikt door toepassingen die zijn verbonden met de SQL-databases. Als toepassingen probeert te gebruiken meer sessies dan beschikbaar zijn op een database, wordt de prestaties van query's beïnvloed.
 
@@ -220,7 +220,7 @@ Zie voor meer informatie over het optimaliseren van de prestaties van query's [Q
 
 ### <a name="what-is-happening"></a>Wat gebeurt er
 
-Dit patroon waarneembaar prestaties geeft aan dat een database prestatieniveau waarin een knelpunt threads probeert te krijgen tot bronnen van tempDB bestaat. (Deze voorwaarde niet i/o gerelateerde.) De typisch scenario voor dit probleem is honderden gelijktijdige query's alle maken, gebruiken, en zet kleine tempDB-tabellen. Het systeem gedetecteerd dat het aantal gelijktijdige query's met behulp van dezelfde tempDB-tabellen verhoogd met voldoende statistische significantie databaseprestaties vergeleken met de basislijn voor de afgelopen zeven dagen prestaties beïnvloeden.
+Dit patroon waarneembaar prestaties geeft aan dat een database prestatieniveau waarin een knelpunt threads probeert te krijgen tot bronnen van tempDB bestaat. (Dit probleem is gerelateerd IO niet.) De typisch scenario voor dit probleem is honderden gelijktijdige query's alle maken, gebruiken, en zet kleine tempDB-tabellen. Het systeem gedetecteerd dat het aantal gelijktijdige query's met behulp van dezelfde tempDB-tabellen verhoogd met voldoende statistische significantie databaseprestaties vergeleken met de basislijn voor de afgelopen zeven dagen prestaties beïnvloeden.
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
@@ -234,7 +234,7 @@ Zie voor meer informatie [Inleiding tot tabellen geoptimaliseerd voor geheugen](
 
 Dit patroon waarneembaar prestaties geeft aan dat een verslechtering van de huidige database werkbelasting prestaties ten opzichte van de afgelopen zeven dagen basislijn. Het is vanwege het gebrek aan beschikbare dtu's in de elastische pool van uw abonnement. 
 
-Bronnen op de SQL-Database worden gewoonlijk aangeduid als [DTU-bronnen](sql-database-what-is-a-dtu.md), die bestaan uit een gecombineerde meting van CPU- en i/o-resources voor (gegevens en transactie logboekregistratie i/o). [Azure elastische groep resources](sql-database-elastic-pool.md) worden gebruikt als een groep beschikbaar eDTU-resources die zijn gedeeld tussen meerdere databases voor het schalen van toepassing. Wanneer de beschikbare eDTU-resources in uw elastische pool niet voldoende voor de ondersteuning van alle databases in de groep, wordt een prestatieprobleem elastische pool DTU tekort gedetecteerd door het systeem.
+Bronnen op de SQL-Database worden gewoonlijk aangeduid als [DTU-bronnen](sql-database-what-is-a-dtu.md), die bestaan uit een gecombineerde meting van CPU- en i/o (gegevens en transactie logboekregistratie i/o). [Azure elastische groep resources](sql-database-elastic-pool.md) worden gebruikt als een groep beschikbaar eDTU-resources die zijn gedeeld tussen meerdere databases voor het schalen van toepassing. Wanneer de beschikbare eDTU-resources in uw elastische pool niet voldoende voor de ondersteuning van alle databases in de groep, wordt een prestatieprobleem elastische pool DTU tekort gedetecteerd door het systeem.
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 

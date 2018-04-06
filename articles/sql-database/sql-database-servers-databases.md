@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database-servers en databases maken en beheren
 
@@ -26,7 +26,7 @@ SQL-Database biedt drie typen databases:
 Microsoft Azure SQL Database ondersteunt tabular data stream (TDS)-protocol clientversie 7.3 of hoger en alleen versleutelde TCP/IP-verbindingen.
 
 > [!IMPORTANT]
-> Exemplaar van SQL Database-beheerd biedt die momenteel in de openbare preview een enkel servicelaag voor algemene doeleinden. Zie voor meer informatie [beheerde exemplaar van SQL Database](sql-database-managed-instance.md). De rest van dit artikel niet van toepassing op beheerde exemplaar.
+> Exemplaar van SQL Database-beheerd biedt die momenteel in de openbare preview een enkel servicelaag voor algemene doeleinden. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie. De rest van dit artikel niet van toepassing op beheerde exemplaar.
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Wat is een logische Azure SQL-server?
 
@@ -53,7 +53,7 @@ Een logische server met Azure Database:
 - Biedt toegang tot metagegevens van ingesloten resources via DMV's door verbinding te maken met een hoofddatabase 
 - Voorziet in het bereik voor management-beleidsregels die van toepassing op de databases - aanmeldingen, firewall-, controleren, dreiging detectie, enz. 
 - Wordt beperkt door een quotum binnen het bovenliggende abonnement (zes servers per abonnement standaard - [Zie abonnement hier beperkt](../azure-subscription-service-limits.md))
-- Voorziet in het bereik voor databasequotum en DTU-quotum voor de resources die deze (zoals 45.000 DTU bevat)
+- Voorziet in het bereik voor de databasequotum en DTU of vCore quotum voor de resources die deze (zoals 45.000 DTU bevat)
 - Het bereik versiebeheer voor mogelijkheden ingeschakeld op ingesloten bronnen 
 - Hoofdaanmeldingen op serverniveau kunnen alle databases op een server beheren
 - Kunnen aanmeldingen bevatten die vergelijkbaar zijn met die in de exemplaren van SQL Server op uw locaties die toegang hebben tot een of meer databases op de server, en waaraan beperkte beheerrechten kunnen worden verleend. Zie [Aanmeldingen](sql-database-manage-logins.md) voor meer informatie.
@@ -135,7 +135,7 @@ Maken en beheren van Azure SQL-server, databases en firewalls met de [Azure CLI]
 |[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Een lijst met beschikbare service doelstellingen en opslaglimieten|
 |[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Retourneert het gebruik van de database|
 |[AZ sql db weergeven](/cli/azure/sql/db#az_sql_db_show)|Een database of de data warehouse opgehaald|
-|[AZ sql database-update](/cli/azure/sql/db#az_sql_db_update)|Een database bijwerkt|
+|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Een database bijwerkt|
 |[AZ sql db verwijderen](/cli/azure/sql/db#az_sql_db_delete)|Hiermee verwijdert u een database|
 |[az group create](/cli/azure/group#az_group_create)|Maakt een resourcegroep|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Hiermee maakt u een server|
@@ -169,7 +169,7 @@ Gebruik de volgende T-SQL-opdrachten voor het maken en beheren van Azure SQL-ser
 |[ALTER DATABASE (Azure SQL datawarehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Hiermee wijzigt u een Azure SQL datawarehouse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Hiermee verwijdert u een database.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retourneert de edition (servicelaag), de servicedoelstelling (prijscategorie) en de naam van de elastische groep, indien aanwezig, voor een Azure SQL database of een Azure SQL Data Warehouse. Als u aangemeld bent op de database master in een Azure SQL Database-server, retourneert de informatie voor alle databases. Voor Azure SQL Data Warehouse, moet u verbonden zijn met de database master.|
-|[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retourneert de CPU, i/o- en geheugen verbruik voor een Azure SQL Database-database. Er bestaat een rij voor elke 15 seconden zelfs als er geen activiteit in de database.|
+|[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retourneert de CPU, IO en geheugen verbruik voor een Azure SQL Database-database. Er bestaat een rij voor elke 15 seconden zelfs als er geen activiteit in de database.|
 |[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Retourneert de gegevens in CPU-gebruik en opslag voor een Azure SQL Database. De gegevens worden verzameld en geaggregeerd binnen vijf minuten.|
 |[sys.database_connection_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Statistieken voor SQL-Database database connectiviteitsgebeurtenissen, met een overzicht van de database verbinding successen en mislukkingen bevat. |
 |[sys.event_log (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Geslaagde Azure SQL Database-databaseverbindingen verbindingsfouten en impassen retourneert. U kunt deze informatie gebruiken bij te houden of de activiteit van uw database met SQL Database oplossen.|

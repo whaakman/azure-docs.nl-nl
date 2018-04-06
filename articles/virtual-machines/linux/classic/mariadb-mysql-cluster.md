@@ -2,10 +2,10 @@
 title: Uitvoeren van een MariaDB (MySQL)-cluster in Azure | Microsoft Docs
 description: Maken van een MariaDB + Galera MySQL-cluster op virtuele machines in Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: sabbour
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: d0d21937-7aac-4222-8255-2fdc4f2ea65b
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 53e9bf18b26338212411ea7c4f260eb308486738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5438bfb75abaac2bed55a76b38f69790f7fc87fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL)-cluster: zelfstudie voor Azure
 > [!IMPORTANT]
@@ -163,10 +163,10 @@ Dit artikel wordt beschreven hoe u de volgende stappen uit:
             service mysql stop
 7. Maak een configuratie-tijdelijke aanduiding.
 
-   a. De MySQL-configuratie voor het maken van een tijdelijke aanduiding voor de clusterinstellingen bewerken. Geen vervanging voor de  **`<Variables>`**  of verwijder de opmerking nu. Dat gebeurt nadat u een virtuele machine met deze sjabloon maken.
+   a. De MySQL-configuratie voor het maken van een tijdelijke aanduiding voor de clusterinstellingen bewerken. Geen vervanging voor de **`<Variables>`** of verwijder de opmerking nu. Dat gebeurt nadat u een virtuele machine met deze sjabloon maken.
 
             vi /etc/my.cnf.d/server.cnf
-   b. Bewerk de  **[galera]**  sectie en maak deze.
+   b. Bewerk de **[galera]** sectie en maak deze.
 
    c. Bewerk de **[mariadb]** sectie.
 
@@ -184,11 +184,11 @@ Dit artikel wordt beschreven hoe u de volgende stappen uit:
            #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
 8. Vereiste poorten op de firewall openen met behulp van FirewallD op CentOS 7.
 
-   * MySQL:`firewall-cmd --zone=public --add-port=3306/tcp --permanent`
-   * GALERA:`firewall-cmd --zone=public --add-port=4567/tcp --permanent`
-   * GALERA IST:`firewall-cmd --zone=public --add-port=4568/tcp --permanent`
-   * RSYNC:`firewall-cmd --zone=public --add-port=4444/tcp --permanent`
-   * Laden van de firewall:`firewall-cmd --reload`
+   * MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+   * GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
+   * GALERA IST: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
+   * RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
+   * Laden van de firewall: `firewall-cmd --reload`
 
 9. Het systeem voor prestaties optimaliseren. Zie voor meer informatie [prestaties afstemmen strategie](optimize-mysql.md).
 
@@ -281,8 +281,8 @@ Maak drie virtuele machines met de sjabloon die u hebt gemaakt, en vervolgens co
 
         sudo vi /etc/my.cnf.d/server.cnf
 
-    Verwijder de opmerking  **`wsrep_cluster_name`**  en  **`wsrep_cluster_address`**  door het verwijderen van de  **#**  aan het begin van de regel.
-    Verder vervangen  **`<ServerIP>`**  in  **`wsrep_node_address`**  en  **`<NodeName>`**  in  **`wsrep_node_name`**  met de VM-IP-adres een naam, respectievelijk, en verwijder deze regels ook de opmerkingen.
+    Verwijder de opmerking **`wsrep_cluster_name`** en **`wsrep_cluster_address`** door het verwijderen van de **#** aan het begin van de regel.
+    Verder vervangen **`<ServerIP>`** in **`wsrep_node_address`** en **`<NodeName>`** in **`wsrep_node_name`** met de VM-IP-adres een naam, respectievelijk, en verwijder deze regels ook de opmerkingen.
 5. Start het cluster op MariaDB1 en laat het uitgevoerd bij het opstarten.
 
         sudo service mysql bootstrap
@@ -299,7 +299,7 @@ Nu Azure Load Balancer gebruiken voor een evenwicht tussen aanvragen tussen de d
 
 De volgende opdrachten uitvoeren op uw computer met behulp van de Azure CLI.
 
-De parameters-structuur van de opdracht is:`azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+De parameters-structuur van de opdracht is: `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
     azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306

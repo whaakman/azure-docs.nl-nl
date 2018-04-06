@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Zelfstudie: Werkplek door Facebook configureren voor het automatisch gebruikers inrichten
 
@@ -57,7 +57,7 @@ Voordat u configureren en inschakelen van de inrichting service, moet u bepalen 
 Deze sectie helpt u bij uw Azure AD verbinden met werkplek door Facebook van gebruikersaccount API-inrichting, en configureren van de inrichting service te maken, bijwerken en uitschakelen van toegewezen gebruikersaccounts in werkplek door Facebook op basis van gebruikers en groepen toewijzing in Azure AD.
 
 >[!Tip]
->U kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor werkplek door Facebook, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
+>U kunt er ook voor kiezen om in te schakelen op basis van SAML eenmalige aanmelding voor werkplek door Facebook, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
 
 ### <a name="to-configure-user-account-provisioning-to-workplace-by-facebook-in-azure-ad"></a>Voor het configureren van account gebruikersaanvragen werkplek door Facebook in Azure AD:
 
@@ -75,7 +75,7 @@ Azure AD biedt ondersteuning voor de mogelijkheid om automatisch te synchroniser
 
     ![inrichten](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Onder de **beheerdersreferenties** sectie, voer het geheim-Token van uw werkplek door Facebook-beheerder en stel de waarde van de Tenant-URL op `https://www.facebook.com/scim/v1/` .
+5. Onder de **beheerdersreferenties** sectie, voer Access Token van uw werkplek door Facebook-beheerder en stel de waarde van de Tenant-URL op `https://www.facebook.com/scim/v1/` . Deze [instructies](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) over het maken van een Access-Token voor de werkplek. 
 
 6. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD verbinding kunt maken met uw werkplek met Facebook-app. Als de verbinding is mislukt, zorg ervoor dat uw werkplek door Facebook-account Team beheerdersmachtigingen heeft.
 
@@ -91,7 +91,7 @@ Azure AD biedt ondersteuning voor de mogelijkheid om automatisch te synchroniser
 
 12. Klik op **opslaan.**
 
-Zie voor meer informatie over het configureren van automatische inrichting [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
+Zie voor meer informatie over het configureren van automatische inrichting. [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 
 U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd met werkplek met Facebook.
 

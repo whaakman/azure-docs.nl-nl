@@ -2,9 +2,9 @@
 title: Maken en een Linux-VHD uploaden naar Azure | Microsoft Docs
 description: Maken en uploaden van een Azure virtuele harde schijf (VHD) met het Linux-besturingssysteem met behulp van het klassieke implementatiemodel
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-ms.openlocfilehash: 49cf4f1718e4dce1e86aa3c8921eaa8af5f16192
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 1ba568eeaf3bbc3d786cc48e54404aa65a00fecc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Een virtuele harde schijf met het Linux-besturingssysteem maken en uploaden
 > [!IMPORTANT] 
@@ -46,7 +46,7 @@ In dit artikel wordt ervan uitgegaan dat u de volgende items hebt:
 ## <a name="step-1-prepare-the-image-to-be-uploaded"></a>Stap 1: Bereid de afbeelding die moet worden geüpload
 Azure biedt ondersteuning voor verschillende Linux-distributies (Zie [goedgekeurde distributies](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). De volgende artikelen helpen u bij het voorbereiden van de verschillende Linux-distributies die worden ondersteund in Azure. Nadat u de stappen in de volgende handleidingen hebt voltooid, kun je hier als u een VHD-bestand dat is gereed om te uploaden naar Azure hebt:
 
-* **[Op basis van centOS distributies](../create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[CentOS-based Distributions](../create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](../debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](../oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](../redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -59,7 +59,7 @@ Azure biedt ondersteuning voor verschillende Linux-distributies (Zie [goedgekeur
 > 
 > 
 
-Zie ook de  **[opmerkingen bij de installatie van Linux](../create-upload-generic.md#general-linux-installation-notes)**  voor meer algemene tips voor het Linux-installatiekopieën voorbereiden voor Azure.
+Zie ook de **[opmerkingen bij de installatie van Linux](../create-upload-generic.md#general-linux-installation-notes)** voor meer algemene tips voor het Linux-installatiekopieën voorbereiden voor Azure.
 
 <a id="connect"> </a>
 

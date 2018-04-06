@@ -3,7 +3,7 @@ title: Apparaat firmware-update met Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Klik hier voor meer informatie over het beheer van apparaten op Azure IoT Hub gebruiken om te zetten van een apparaat firmware-update. U kunt het Azure-IoT-apparaat-SDK voor .NET gebruiken voor het implementeren van een gesimuleerde apparaattoepassing en de Azure IoT service SDK voor .NET voor het implementeren van een service-app waarmee de firmware-update wordt geactiveerd.
 services: iot-hub
 documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
-ms.author: v-jamebr
-ms.openlocfilehash: 984fd7516b5c05973c45891f4eda31c41a5a2be5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-jamebr;dobett
+ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Apparaatbeheer gebruiken om te zetten van een apparaat firmware-update (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

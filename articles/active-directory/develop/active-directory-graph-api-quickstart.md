@@ -3,7 +3,7 @@ title: Snelstartgids voor Azure AD Graph API | Microsoft Docs
 description: Azure Active Directory Graph API biedt programmatische toegang tot Azure AD via REST-API voor OData-eindpunten. Toepassingen kunnen Azure AD Graph API gebruiken om uit te voeren maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen op Active directory-gegevens en objecten.
 services: active-directory
 documentationcenter: n/a
-author: viv-liu
+author: mtillman
 manager: mtillman
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2017
-ms.author: viviali
+ms.date: 04/02/2018
+ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 6869fc8ec582ea857128e91f1f127e9255e77865
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d195d808e07b872c11379f13b6e89794da39f70e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Snelstartgids voor Azure AD Graph API
 De Azure Active Directory (AD) Graph API biedt programmatische toegang tot Azure AD via REST-API voor OData-eindpunten. Toepassingen kunnen Azure AD Graph API gebruiken om uit te voeren maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen op Active directory-gegevens en objecten. Bijvoorbeeld, kunt u Azure AD Graph API om een nieuwe gebruiker maken, weergeven of bijwerken van de eigenschappen van de gebruiker, het wachtwoord van gebruiker wijzigen, Controleer het lidmaatschap voor op rollen gebaseerde toegang uitschakelen of verwijderen van de gebruiker. Zie voor meer informatie over Azure AD Graph API-functies en toepassingsscenario's [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) en [vereisten voor Azure AD Graph API](https://msdn.microsoft.com/library/hh974476.aspx). 

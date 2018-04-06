@@ -1,30 +1,30 @@
 ---
-title: Meld u analytics voor Apache Kafka - Azure HDInsight | Microsoft Docs
-description: Informatie over het gebruik van Operations Management Suite logboeken van Apache Kafka-cluster in Azure HDInsight analyseren.
+title: Meld u Analytics voor Apache Kafka - Azure HDInsight | Microsoft Docs
+description: Informatie over het gebruik van logboekanalyse logboeken van Apache Kafka-cluster in Azure HDInsight analyseren.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 6fcb925829e33704c94c96209a61346b0404e13b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 15107a0fbcd6242ac13f366b16be10efaeaad6bb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Logboeken voor Apache Kafka op HDInsight analyseren
 
-Informatie over het gebruik van Microsoft Operations Management Suite logboeken die worden gegenereerd door Apache Kafka op HDInsight analyseren.
+Informatie over het gebruik van logboekanalyse logboeken die worden gegenereerd door Apache Kafka op HDInsight analyseren.
 
-## <a name="enable-oms-for-kafka"></a>OMS voor Kafka inschakelen
+## <a name="enable-log-analytics-for-kafka"></a>Log Analytics voor Kafka inschakelen
 
 De stappen voor het inschakelen van logboekanalyse voor HDInsight zijn hetzelfde voor alle HDInsight-clusters. Gebruik de volgende koppelingen om te begrijpen hoe maken en configureren van de vereiste services:
 
@@ -32,33 +32,33 @@ De stappen voor het inschakelen van logboekanalyse voor HDInsight zijn hetzelfde
 
 2. Maak een Kafka op HDInsight-cluster. Zie voor meer informatie de [beginnen met Apache Kafka op HDInsight](apache-kafka-get-started.md) document.
 
-3. Configureer het cluster Kafka logboekanalyse gebruiken. Zie voor meer informatie de [gebruik logboekanalyse voor het bewaken van HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
+3. Configureer het cluster Kafka Log Analytics gebruiken. Zie voor meer informatie de [gebruik logboekanalyse voor het bewaken van HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
 
     > [!NOTE]
-    > U kunt ook configureren met het cluster voor het gebruik van logboekanalyse met behulp van de `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. Deze cmdlet vereist de volgende informatie:
+    > U kunt ook configureren met het cluster Log Analytics gebruiken met behulp van de `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. Deze cmdlet vereist de volgende informatie:
     >
     > * De naam van het HDInsight-cluster.
-    > * De ID van de werkruimte voor logboekanalyse. U kunt de werkruimte-ID vinden in de OMS-werkruimte voor uw log analytics-werkruimte.
-    > * De primaire sleutel voor de OMS-verbinding. Ga voor de primaire sleutel uw log analytics-exemplaar selecteren en vervolgens __OMS-Portal__. Selecteer in de OMS-Portal __instellingen__, __verbonden bronnen__, en vervolgens __Linux-Servers__.
+    > * De ID van de werkruimte voor logboekanalyse. U kunt de werkruimte-ID vinden in de werkruimte voor logboekanalyse.
+    > * De primaire sleutel voor de verbinding met logboekanalyse. Ga voor de primaire sleutel in uw Log Analytics-exemplaar selecteren en vervolgens __OMS-Portal__. Selecteer in de OMS-Portal __instellingen__, __verbonden bronnen__, en vervolgens __Linux-Servers__.
 
 
 > [!IMPORTANT]
-> duurt ongeveer twintig minuten voordat de gegevens beschikbaar voor logboekanalyse.
+> Duurt ongeveer twintig minuten voordat de gegevens beschikbaar voor logboekanalyse.
 
 ## <a name="query-logs"></a>Querylogboeken
 
-1. Van de [Azure-portal](https://portal.azure.com), selecteer uw log analytics-werkruimte.
+1. Van de [Azure-portal](https://portal.azure.com), selecteer uw werkruimte voor logboekanalyse.
 
 2. Selecteer __Meld zoeken__. Hier kunt kunt u de gegevens die worden verzameld van Kafka zoeken. Hier volgen enkele voorbeelden van zoekopdrachten:
 
-    * Schijfgebruik:`Type=Perf ObjectName="Logical Disk" (CounterName="Free Megabytes")  InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by   Computer interval 1HOUR`
-    * CPU-gebruik:`Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR`
-    * Binnenkomende berichten per seconde:`Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR`
-    * Binnenkomende bytes per seconde:`Type=metrics_kafka_CL HostName_s="wn0-kafka" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR`
-    * Uitgaande bytes per seconde:`Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" |  measure avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) interval 1HOUR`
+    * Schijfgebruik: `Type=Perf ObjectName="Logical Disk" (CounterName="Free Megabytes")  InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by   Computer interval 1HOUR`
+    * CPU-gebruik: `Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR`
+    * Binnenkomende berichten per seconde: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR`
+    * Binnenkomende bytes per seconde: `Type=metrics_kafka_CL HostName_s="wn0-kafka" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR`
+    * Uitgaande bytes per seconde: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" |  measure avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) interval 1HOUR`
 
     > [!IMPORTANT]
-    > De querywaarden vervangt door uw specifieke gegevens van de cluster. Bijvoorbeeld: `ClusterName_s` moet worden ingesteld op de naam van het cluster. `HostName_s`moet worden ingesteld op de domeinnaam van een knooppunt van de werknemer in het cluster.
+    > De querywaarden vervangt door uw specifieke gegevens van de cluster. Bijvoorbeeld: `ClusterName_s` moet worden ingesteld op de naam van het cluster. `HostName_s` moet worden ingesteld op de domeinnaam van een knooppunt van de werknemer in het cluster.
 
     U kunt ook opgeven `*` om te zoeken van alle typen in het logboek geregistreerd. De volgende logboeken zijn momenteel beschikbaar voor query's:
 

@@ -2,7 +2,7 @@
 title: Oplossingen voor HDInsight-cluster toevoegen aan Azure Log Analytics | Microsoft Docs
 description: Informatie over het gebruik van Azure-logboekanalyse voor het maken van aangepaste weergaven voor HDInsight-clusters.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: f8a073fbf40feaef97053bb1165d63bbca3e3feb
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ab959d2cdaf840a1a88a71a0b8f29d84a8979330
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Oplossingen voor HDInsight-cluster toevoegen aan Log Analytics
 
-HDInsight biedt clusterspecifieke oplossingen die u voor Azure-logboekanalyse toevoegen kunt. [Oplossingen voor](../log-analytics/log-analytics-add-solutions.md) functionaliteit toevoegen [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), bieden aanvullende gegevens hulpprogramma's en analyses met logboekanalyse. Deze oplossingen belangrijk prestatiegegevens verzamelen van uw HDInsight-clusters en bieden de hulpprogramma's om te zoeken naar de metrische gegevens. Deze oplossingen bieden ook visualisaties en -dashboards voor de meeste clustertypen worden ondersteund in HDInsight. Met behulp van de metrische gegevens die u verzamelt van de oplossing, kunt u aangepaste regels voor bewaking en waarschuwingen. 
+HDInsight biedt clusterspecifieke oplossingen die u voor Azure-logboekanalyse toevoegen kunt. [Oplossingen voor](../log-analytics/log-analytics-add-solutions.md) functionaliteit toevoegen aan Log Analytics, bieden aanvullende gegevens hulpprogramma's en analyses. Deze oplossingen belangrijk prestatiegegevens verzamelen van uw HDInsight-clusters en bieden de hulpprogramma's om te zoeken naar de metrische gegevens. Deze oplossingen bieden ook visualisaties en -dashboards voor de meeste clustertypen worden ondersteund in HDInsight. Met behulp van de metrische gegevens die u verzamelt van de oplossing, kunt u aangepaste regels voor bewaking en waarschuwingen. 
 
-In dit artikel leert u hoe clusterspecifieke beheeroplossingen toevoegen aan een Operations Management Suite-werkruimte.
+In dit artikel leert u hoe clusterspecifieke beheeroplossingen toevoegen aan een werkruimte voor logboekanalyse.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,15 +33,15 @@ In dit artikel leert u hoe clusterspecifieke beheeroplossingen toevoegen aan een
 
 ## <a name="add-cluster-specific-management-solutions"></a>Oplossingen voor het beheer van de cluster-specifieke toevoegen
 
-In deze sectie kunt u een oplossing voor beheer van HBase-cluster toevoegen aan een bestaande Operations Management Suite-werkruimte.
+In deze sectie kunt u een oplossing voor beheer van HBase-cluster toevoegen aan een bestaande werkruimte voor logboekanalyse.
 
-1. Open een HDInsigt-cluster in de Azure-portal klikt u op **bewaking**, en klik vervolgens op **Open OMS-Dashboard**.
+1. Open een HDInsight-cluster in de Azure-portal klikt u op **bewaking**, en klik vervolgens op **Open OMS-Dashboard**.
 
     ![Open Operations Management Suite-dashboard](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS-dashboard")
 
-1. Klik in het dashboard OMS **galerie met oplossingen** of de **ontwerper** pictogram in het linkerdeelvenster.
+1. Klik in het dashboard op **galerie met oplossingen** of de **ontwerper** pictogram in het linkerdeelvenster.
 
-    ![Invoegtoepassing voor Operations Management Suite beheeroplossing](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-add-management-solution-oms-portal.png "beheeroplossing invoegtoepassing voor Operations Management Suite")
+    ![Oplossing voor het beheer in logboekanalyse toevoegen](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-add-management-solution-oms-portal.png "beheeroplossing invoegtoepassing voor Operations Management Suite")
 
 2. In de galerie met oplossingen, klikt u op een van de volgende tegels:
 
@@ -55,7 +55,7 @@ In deze sectie kunt u een oplossing voor beheer van HBase-cluster toevoegen aan 
 
      ![Toevoegen van de oplossing voor het beheer van HBase](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/add-hbase-management-solution.png "oplossing voor het beheer van HBase toevoegen")
 
-4. U ziet een tegel op OMS-dashboard voor het beheersysteem voor HBase. Als het cluster dat hebt gekoppeld met Operations Management Suite (als onderdeel van de vereiste voor dit artikel) een HBase-cluster is, wordt de naam van het cluster en het aantal knooppunten in de tegel weergegeven in het cluster.
+4. U ziet een tegel op het dashboard voor het beheersysteem voor HBase. Als het cluster dat hebt gekoppeld met Operations Management Suite (als onderdeel van de vereiste voor dit artikel) een HBase-cluster is, wordt de naam van het cluster en het aantal knooppunten in de tegel weergegeven in het cluster.
 
     ![HBase-beheersysteem toegevoegd](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/added-hbase-management-solution.png "HBase-beheersysteem toegevoegd")
 
@@ -65,5 +65,5 @@ In deze sectie kunt u een oplossing voor beheer van HBase-cluster toevoegen aan 
 
 ## <a name="see-also"></a>Zie ook
 
-* [Werken met Operations Management Suite Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Werken met logboekanalyse](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Maken van regels voor waarschuwingen in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)

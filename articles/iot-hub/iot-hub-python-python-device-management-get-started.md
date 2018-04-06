@@ -1,11 +1,11 @@
 ---
 title: Aan de slag met Azure IoT Hub Apparaatbeheer (Python) | Microsoft Docs
-description: "Het externe apparaat opnieuw opstarten initiëren met Apparaatbeheer via IoT Hub. U kunt de Azure IoT SDK voor Python gebruiken voor het implementeren van een gesimuleerde apparaattoepassing die een directe methode bevat en een service-app die de directe methode aanroept."
+description: Het externe apparaat opnieuw opstarten initiëren met Apparaatbeheer via IoT Hub. U kunt de Azure IoT SDK voor Python gebruiken voor het implementeren van een gesimuleerde apparaattoepassing die een directe methode bevat en een service-app die de directe methode aanroept.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
-ms.author: v-masebo
-ms.openlocfilehash: b9dfbd775de3bb54e405e4054bca4e2b878305a3
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: 001a5d180e2b97894174ba7c63ec3947c9968364
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-management-python"></a>Aan de slag met Apparaatbeheer (Python)
 
@@ -39,8 +39,8 @@ Aan het einde van deze zelfstudie hebt u twee Python console apps:
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * [Python 2.x of 3.x][lnk-python-download]. Zorg ervoor dat u de 32-bits of 64-bits installatie gebruikt, zoals vereist door uw configuratie. Zorg ervoor dat u Python toevoegt aan uw platformspecifieke omgevingsvariabele als u hierom wordt gevraagd tijdens de installatie. Als u Python 2.x gebruikt, moet u mogelijk *pip* [installeren of upgraden, het Python-pakketbeheersysteem][lnk-install-pip].
-    * Installeer de [azure-iothub-apparaat-client](https://pypi.org/project/azure-iothub-device-client/) pakket, met de opdracht`pip install azure-iothub-device-client`
-    * Installeer de [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) pakket, met de opdracht`pip install azure-iothub-service-client`
+    * Installeer de [azure-iothub-apparaat-client](https://pypi.org/project/azure-iothub-device-client/) pakket, met de opdracht   `pip install azure-iothub-device-client`
+    * Installeer de [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) pakket, met de opdracht   `pip install azure-iothub-service-client`
 * Als u een Windows-besturingssysteem hebt, gebruikt u vervolgens het [herdistribueerbare pakket van Visual C++][lnk-visual-c-redist] om het gebruik van systeemeigen DLL's van Python mogelijk te maken.
 * Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
 

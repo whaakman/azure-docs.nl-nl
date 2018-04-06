@@ -5,8 +5,8 @@ services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: sethm
-ms.openlocfilehash: c3ee6a87592145801167b35ff281c04062e525da
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 8ca00b234c00bfeb52a5b601e8780d56a0732dd9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Event Hubs metrische gegevens in de Azure-Monitor (preview)
 
@@ -46,7 +46,7 @@ Voor de metrische gegevens voor ondersteuning van dimensies, moet u filteren op 
 
 ## <a name="billing"></a>Facturering
 
-Met metrische gegevens in de Azure-Monitor is die momenteel beschikbaar is tijdens het Preview-versie. Echter, als u aanvullende oplossingen die metrische gegevens voor opnemen gebruikt, u mogelijk worden gefactureerd door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als archiveren van metrische gegevens aan een Azure Storage-account. U wordt ook door opnieuw Management Suite (OMS) gefactureerd als stream van metrische gegevens aan OMS voor geavanceerde analyse.
+Met metrische gegevens in de Azure-Monitor is die momenteel beschikbaar is tijdens het Preview-versie. Echter, als u aanvullende oplossingen die metrische gegevens voor opnemen gebruikt, u mogelijk worden gefactureerd door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als archiveren van metrische gegevens aan een Azure Storage-account. U wordt ook door Azure gefactureerd als stream van metrische gegevens voor logboekanalyse voor geavanceerde analyse.
 
 De volgende metrische gegevens geven een overzicht van de status van uw service. 
 
@@ -59,55 +59,55 @@ Alle waarden van de metrische gegevens worden verzonden naar Azure Monitor elke 
 
 Telt het aantal aanvragen voor gegevens en beheer van bewerkingen.
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-| Inkomende aanvragen (preview) | Het aantal aanvragen voor de service Azure Event Hubs gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName |
-| Geslaagde aanvragen (preview)   | Het aantal geslaagde aanvragen voor de service Azure Event Hubs gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName |
-| Server-fouten (preview) | Het aantal aanvragen dat is niet verwerkt vanwege een fout in de Azure Event Hubs-service gedurende een bepaalde periode. <br/><br/>Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName |
-|Gebruikersfouten (preview)|Het aantal aanvragen dat is niet verwerkt als gevolg van gebruikersfouten gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Beperkte aanvragen (preview)|Het aantal aanvragen die zijn beperkt omdat het gebruik van de eenheid doorvoer is overschreden.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Quota overschreden fouten (preview)|Het aantal aanvragen overschrijdt de beschikbare quota. Zie [in dit artikel](event-hubs-quotas.md) voor meer informatie over Event Hubs-quota.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
+| Inkomende aanvragen (preview) | Het aantal aanvragen voor de service Azure Event Hubs gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName |
+| Geslaagde aanvragen (preview)   | Het aantal geslaagde aanvragen voor de service Azure Event Hubs gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName |
+| Server-fouten (preview) | Het aantal aanvragen dat is niet verwerkt vanwege een fout in de Azure Event Hubs-service gedurende een bepaalde periode. <br/><br/>Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName |
+|Gebruikersfouten (preview)|Het aantal aanvragen dat is niet verwerkt als gevolg van gebruikersfouten gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|Beperkte aanvragen (preview)|Het aantal aanvragen die zijn beperkt omdat het gebruik van de eenheid doorvoer is overschreden.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|Quota overschreden fouten (preview)|Het aantal aanvragen overschrijdt de beschikbare quota. Zie [in dit artikel](event-hubs-quotas.md) voor meer informatie over Event Hubs-quota.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
 
 ## <a name="throughput-metrics"></a>Doorvoermetrieken
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-|Beperkte aanvragen (preview)|Het aantal aanvragen die zijn beperkt omdat het gebruik van de eenheid doorvoer is overschreden.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
+|Beperkte aanvragen (preview)|Het aantal aanvragen die zijn beperkt omdat het gebruik van de eenheid doorvoer is overschreden.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
 
 ## <a name="message-metrics"></a>Bericht metrische gegevens
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-|Binnenkomende berichten (preview)|Het aantal gebeurtenissen of berichten die worden verzonden naar Event Hubs gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Uitgaande berichten (preview)|Het aantal gebeurtenissen of berichten die zijn opgehaald uit Event Hubs gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Binnenkomende Bytes (preview)|Het aantal bytes dat is verzonden naar de Azure Event Hubs-service gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Uitgaande Bytes (preview)|Het aantal bytes opgehaald uit de service Azure Event Hubs gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
+|Binnenkomende berichten (preview)|Het aantal gebeurtenissen of berichten die worden verzonden naar Event Hubs gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|Uitgaande berichten (preview)|Het aantal gebeurtenissen of berichten die zijn opgehaald uit Event Hubs gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|Binnenkomende Bytes (preview)|Het aantal bytes dat is verzonden naar de Azure Event Hubs-service gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|Uitgaande Bytes (preview)|Het aantal bytes opgehaald uit de service Azure Event Hubs gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
 
 ## <a name="connection-metrics"></a>Metrische gegevens voor verbinding
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-|ActiveConnections (preview)|Het aantal actieve verbindingen voor een naamruimte, evenals op een entiteit.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Verbindingen Opened (preview)|Het aantal geopende verbindingen.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Verbindingen gesloten (preview)|Het aantal verbindingen afgesloten.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
+|ActiveConnections (preview)|Het aantal actieve verbindingen voor een naamruimte, evenals op een entiteit.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|Verbindingen Opened (preview)|Het aantal geopende verbindingen.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|Verbindingen gesloten (preview)|Het aantal verbindingen afgesloten.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
 
 ## <a name="event-hubs-capture-metrics"></a>Event Hubs vastleggen metrische gegevens
 
 U kunt Event Hubs vastleggen metrische gegevens controleren wanneer u de functie vastleggen voor uw event hubs inschakelen. De volgende metrische gegevens wordt beschreven wat u kunt bewaken met vastleggen is ingeschakeld.
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-|Achterstand (Preview) vastleggen|Het aantal bytes die nog moeten worden vastgelegd met de gekozen bestemming.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Vastgelegde berichten (Preview)|Het aantal berichten of gebeurtenissen die worden vastgelegd met de gekozen bestemming gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Vastgelegde Bytes (Preview)|Het aantal bytes die worden vastgelegd met de gekozen bestemming gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
+|Achterstand (Preview) vastleggen|Het aantal bytes die nog moeten worden vastgelegd met de gekozen bestemming.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|Vastgelegde berichten (Preview)|Het aantal berichten of gebeurtenissen die worden vastgelegd met de gekozen bestemming gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
+|Vastgelegde Bytes (Preview)|Het aantal bytes die worden vastgelegd met de gekozen bestemming gedurende een bepaalde periode.<br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Dimension: EntityName|
 
 ## <a name="metrics-dimensions"></a>Metrische gegevens dimensies
 
 Azure Event Hubs ondersteunt de volgende dimensies voor metrische gegevens in Azure-Monitor. Dimensies toevoegen aan uw metrische gegevens is optioneel. Als u dimensies niet toevoegt, worden de metrische gegevens opgegeven op het niveau van de naamruimte. 
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-|entityName| Event Hubs biedt ondersteuning voor de event hub-entiteiten onder de naamruimte.|
+|EntityName| Event Hubs biedt ondersteuning voor de event hub-entiteiten onder de naamruimte.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

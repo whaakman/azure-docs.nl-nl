@@ -2,10 +2,10 @@
 title: NAMD met Microsoft HPC Pack op de virtuele Linux-machines | Microsoft Docs
 description: Een Microsoft HPC Pack cluster in Azure implementeren en uitvoeren van een simulatie NAMD met charmrun op meerdere rekenknooppunten voor Linux
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 76072c6b-ac35-4729-ba67-0d16f9443bd7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61dd49d4bd3183b6b9a78036d6d7d01798e4dc89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>NAMD uitvoeren met Microsoft HPC Pack op Linux-rekenknooppunten in Azure
 Dit artikel ziet u een manier voor het uitvoeren van een werkbelasting Linux high performance computing (HPC) op virtuele machines in Azure. Hier kunt u instellen van een [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster in Azure met Linux-rekenknooppunten en voer een [NAMD](http://www.ks.uiuc.edu/Research/namd/) simulatie te berekenen en de structuur van een systeem grote biomoleculaire visualiseren.  
@@ -228,11 +228,11 @@ U bent nu klaar om te verzenden van een taak NAMD in HPC Cluster Manager.
    ![Nieuwe HPC-taak][namd_job]
 5. Op de **taakdetails** pagina onder **taak Resources**, selecteer het type resource als **knooppunt** en stel de **Minimum** 3. , wordt de taak uitgevoerd op drie Linux-knooppunten en elk knooppunt vier kernen heeft.
    
-   ![Taak resources][job_resources]
+   ![Taakresources][job_resources]
 6. Klik op **taken bewerken** in de navigatiebalk aan de linkerkant en klik vervolgens op **toevoegen** een taak toevoegen aan de taak.    
 7. Op de **taakdetails en i/o-omleiding** pagina, stelt u de volgende waarden:
    
-   * **Opdrachtregel**-
+   * **Vanaf de opdrachtregel** -
      `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
      
      > [!TIP]
@@ -240,9 +240,9 @@ U bent nu klaar om te verzenden van een taak NAMD in HPC Cluster Manager.
      > 
      > 
    * **Werkmap** -/namd2
-   * **Minimale** - 3
+   * **Minimum** - 3
      
-     ![Taakdetails][task_details]
+     ![Taakgegevens][task_details]
      
      > [!NOTE]
      > De werkmap hier ingestelde omdat **charmrun** probeert om te navigeren naar de dezelfde werkmap op elk knooppunt. Als de werkmap niet is ingesteld, wordt de opdracht in HPC Pack gestart in een willekeurige naam map gemaakt op een van de Linux-knooppunten. Dit zorgt ervoor dat de volgende fout op de andere knooppunten: `/bin/bash: line 37: cd: /tmp/nodemanager_task_94_0.mFlQSN: No such file or directory.` om te voorkomen dat dit probleem, een mappad die kan worden geopend door alle knooppunten de werkmap opgeven.
@@ -252,7 +252,7 @@ U bent nu klaar om te verzenden van een taak NAMD in HPC Cluster Manager.
    
    Standaard verzonden HPC Pack door de taak als uw huidige aangemelde gebruikersaccount. Een dialoogvenster vragen u de gebruikersnaam en wachtwoord invoeren nadat u op **indienen**.
    
-   ![Taak referenties][creds]
+   ![Taakreferenties][creds]
    
    Onder bepaalde omstandigheden onthoudt HPC Pack u de gebruikersgegevens invoeren voordat u dit dialoogvenster niet weergeven. Voer de volgende opdracht achter de opdrachtprompt en verzend de taak zodat HPC Pack opnieuw weergeven.
    

@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure SQL Database-benchmark
+title: Overzicht van Azure SQL Database DTU benchmark
 description: Dit onderwerp beschrijft de Azure SQL Database Benchmark in het meten van de prestaties van Azure SQL Database gebruikt.
 services: sql-database
 author: jan-eng
@@ -9,15 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 684ae62400adbde6f0624b802b79a926c06961c8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="azure-sql-database-benchmark-overview"></a>Overzicht van Azure SQL Database-benchmark
+# <a name="azure-sql-database-dtu-benchmark-overview"></a>Overzicht van Azure SQL Database DTU benchmark
 ## <a name="overview"></a>Overzicht
-Microsoft Azure SQL Database biedt drie [Servicelagen](sql-database-service-tiers.md) met meerdere prestatieniveaus. Elke prestatieniveau biedt een toenemende verzameling resources of power, ontworpen voor steeds meer hogere doorvoer.
+In de DTU gebaseerde aankoopmodel, Microsoft Azure SQL Database biedt drie [Servicelagen](sql-database-service-tiers.md) met meerdere prestatieniveaus. Elke prestatieniveau biedt een toenemende verzameling resources of power, ontworpen voor steeds meer hogere doorvoer.
+
+> [!IMPORTANT]
+> Azure SQL Database ondersteunt nu ook een vCore gebaseerde aankoopmodel (preview). Zie voor informatie [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 Het is belangrijk om te bepalen hoe de toenemende macht van elke prestatieniveau zet in verbeterde databaseprestaties. U doet dit Microsoft heeft ontwikkeld Azure SQL Database Benchmark (ASDB). De benchmark oefent een combinatie van basisbewerkingen gevonden in alle OLTP-werkbelastingen. We meten van de doorvoer voor databases die worden uitgevoerd op elk prestatieniveau worden gerealiseerd.
 

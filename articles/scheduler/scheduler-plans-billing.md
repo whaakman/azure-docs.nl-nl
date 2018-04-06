@@ -5,7 +5,7 @@ services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,33 +14,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: f0662230c5d1663e37ee2be58f234934ec3d55dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b25e97b0f0d0b6f63134a774856eb7ec8f77b679
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Plannen en facturering in Azure Scheduler
 ## <a name="job-collection-plans"></a>Taak Verzamelingsplannen
-Taakverzamelingen zijn de factureerbare entiteit in Azure Scheduler. Taakverzamelingen bevatten een aantal taken en komen in drie plannen – vrije, Standard en Premium-die hieronder worden beschreven.
+Taakverzamelingen zijn de factureerbare entiteit in Azure Scheduler. Taakverzamelingen bevatten een aantal taken en zijn beschikbaar in drie plannen: Standard, P10 Premium en P20 Premium – die hieronder beschreven zijn.
 
 | **Taakverzamelingsabonnement** | **Maximum aantal taken per Taakverzameling** | **Maximale terugkeerpatroon** | **Maximum aantal Taakverzamelingen per abonnement** | **Limieten** |
 |:--- |:--- |:--- |:--- |:--- |
-| **Gratis** |5 taken per taakverzameling |Eenmaal per uur. Kan niet vaker dan eens per uur taken worden uitgevoerd |Een abonnement mag maximaal 1 gratis taakverzameling |Kan niet worden gebruikt [HTTP uitgaande autorisatie-object](scheduler-outbound-authentication.md) |
 | **Standard** |50 taken per taakverzameling |Eenmaal per minuut. Kan niet vaker dan eens per minuut taken worden uitgevoerd |Een abonnement mag maximaal 100 standaard taakverzamelingen |Toegang tot de volledige functieset van Scheduler |
 | **P10 Premium** |50 taken per taakverzameling |Eenmaal per minuut. Kan niet vaker dan eens per minuut taken worden uitgevoerd |Een abonnement mag maximaal 10.000 P10 Premium taakverzamelingen. <a href="mailto:wapteams@microsoft.com">Neem contact met ons</a> voor meer informatie. |Toegang tot de volledige functieset van Scheduler |
 | **P20 Premium** |1000 taken per taakverzameling |Eenmaal per minuut. Kan niet vaker dan eens per minuut taken worden uitgevoerd |Een abonnement mag maximaal 10.000 P20 Premium taakverzamelingen. <a href="mailto:wapteams@microsoft.com">Neem contact met ons</a> voor meer informatie. |Toegang tot de volledige functieset van Scheduler |
 
 ## <a name="upgrades-and-downgrades-of-job-collection-plans"></a>Upgrades en Downgrades van de taak Verzamelingsplannen
-U kunt upgraden of downgraden van een taakverzamelingsabonnement op elk gewenst moment tussen de vrije, Standard en Premium-abonnementen. Wanneer downgraden naar een gratis taakverzameling, kan echter de downgrade voor een van de volgende redenen mislukken:
-
-* Er bestaat al een gratis taakverzameling in het abonnement
-* Een taak in de taakverzameling heeft een hogere terugkeer dan is toegestaan voor jobs in gratis jobverzamelingen. De maximale terugkeerpatroon dat is toegestaan in een gratis taakverzameling is één keer per uur
-* Er zijn meer dan 5 taken in de taakverzameling
-* Een taak in de taakverzameling heeft een HTTP of HTTPS-actie die gebruikmaakt van een [HTTP uitgaande autorisatie-object](scheduler-outbound-authentication.md)
+U kunt upgraden of downgraden van een taakverzamelingsabonnement op elk gewenst moment tussen de Standard, P10 Premium en P20 Premium-abonnementen.
 
 ## <a name="billing-and-azure-plans"></a>Facturering en Azure-abonnementen
-Abonnementen zijn niet in rekening gebracht gratis taakverzamelingen. Als u meer dan 100 standaard taakverzamelingen (10 facturering standaardeenheden) hebt, is een betere koop alle taakverzamelingen hebben in de premium-abonnement.
+Als u meer dan 100 standaard taakverzamelingen (10 facturering standaardeenheden) hebt, is een betere koop alle taakverzamelingen hebben in de premium-abonnement.
 
 Als u een standaard jobverzameling en verzameling van de taak één premium hebt, bent u gefactureerd één standaard facturering eenheid *en* één facturering premium-eenheid. De Scheduler-service van rekeningen op basis van het aantal actieve taken verzamelingen die zijn ingesteld op standaard of premium; Dit wordt verderop in de volgende twee secties.
 

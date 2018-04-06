@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API importeren beperkingen en bekende problemen
 ## <a name="about-this-list"></a>Over deze lijst
@@ -27,9 +27,11 @@ Bij het importeren van een API kunt u tegenkomt enkele beperkingen of geven aan 
 ## <a name="open-api"> </a>Open API/Swagger
 Als u uw document Open API importeren fouten ontvangt, controleert u of u hebt deze - met de ontwerpfunctie voor in de Azure portal (ontwerp - Front-End - API specificatie Editor openen), gevalideerd of met een derde hulpprogramma zoals <a href="http://www.swagger.io">Swagger Editor</a>.
 
-* **Hostnaam** APIM vereist een host name-kenmerk.
-* **Pad baseren** APIM vereist een kenmerk basispad.
-* **Schema's** APIM is een matrix schema vereist.
+* Alleen JSON-indeling voor OpenAPI wordt ondersteund.
+* Schema's waarnaar wordt verwezen met **$ref** eigenschappen mogen niet andere **$ref** eigenschappen.
+* **$ref** verwijzingen kunnen niet naar externe bestanden.
+* **x-ms-paden** en **x servers** zijn de enige ondersteunde extensies.
+* Aangepaste extensies zijn worden genegeerd tijdens het importeren en niet opgeslagen of bewaard voor exporteren.
 
 > [!IMPORTANT]
 > Zie dit [document](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) voor belangrijke informatie en tips die betrekking hebben op OpenAPI importeren.

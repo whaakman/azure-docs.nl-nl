@@ -9,11 +9,11 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: bonova
-ms.openlocfilehash: 36ce6889cccbf5ae7df519c5c73846f12eed4a08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ebfab93c94c27de8e765ac3f8278372c8f0690f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Historische gegevens in tijdelijke tabellen met bewaarbeleid beheren
 Tijdelijke tabellen wordt mogelijk uitgebreid grootte van de database meer dan gewone tabellen, met name als u historische gegevens voor een langere periode behouden. Bewaarbeleid voor historische gegevens is daarom een belangrijk aspect van het plannen en beheren van de levenscyclus van elke tijdelijke tabel. Tijdelijke tabellen in Azure SQL Database worden geleverd met eenvoudig te gebruiken bewaren mechanisme waarmee u deze taak.

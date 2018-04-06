@@ -2,10 +2,10 @@
 title: Apache Tomcat instellen op een virtuele Linux-machine | Microsoft Docs
 description: Informatie over het instellen van Apache Tomcat7 met behulp van Azure Virtual Machines waarop Linux wordt uitgevoerd.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 45ecc89c-1cb0-4e80-8944-bd0d0bbedfdc
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Tomcat7 instellen op een virtuele Linux-machine met Azure
 Apache Tomcat (of gewoon Tomcat, ook voorheen ondersteuning Tomcat) is een open-source-webserver en de servlet-container die is ontwikkeld door de Apache Software Foundation (AVP). Tomcat implementeert de Servlet Java en de specificaties Java Server Pages (JSP) van Sun Microsystems. Tomcat biedt een pure Java HTTP web server-omgeving waarin u Java-code uit te voeren. In de eenvoudigste configuratie, Tomcat uitgevoerd in een proces één besturingssysteem. Dit proces wordt uitgevoerd voor een virtuele Java-machine (JVM). Elke HTTP-aanvraag via een browser Tomcat wordt als een afzonderlijke thread in het proces Tomcat verwerkt.  
@@ -90,9 +90,9 @@ TCP-poort 8080 is het standaardpoortnummer dat Tomcat wordt geluisterd. Als deze
 
    1. Voer een naam voor het eindpunt in voor het eindpunt **eindpunt**, en voer dan 80 in **openbare poort**.  
 
-      Als u deze op 80 instellen, moet u niet het poortnummer in de URL die wordt gebruikt voor toegang tot Tomcat opnemen. Bijvoorbeeld: http://tomcatdemo.cloudapp.net.    
+      Als u deze op 80 instellen, moet u niet het poortnummer in de URL die wordt gebruikt voor toegang tot Tomcat opnemen. Bijvoorbeeld http://tomcatdemo.cloudapp.net.    
 
-      Als u deze op een andere waarde, zoals 81 instellen, moet u het poortnummer toevoegen aan de URL voor toegang tot Tomcat. Bijvoorbeeld: http://tomcatdemo.cloudapp.net:81 /.
+      Als u deze op een andere waarde, zoals 81 instellen, moet u het poortnummer toevoegen aan de URL voor toegang tot Tomcat. Bijvoorbeeld http://tomcatdemo.cloudapp.net:81/.
    2. Voer 8080 in **particuliere poort**. Standaard luistert Tomcat op TCP-poort 8080. Als u de standaardwaarde gewijzigd van Tomcat-poort luistert, moet u bijwerken **particuliere poort** moet hetzelfde zijn als de Tomcat poort luistert.  
       ![Schermopname van gebruikersinterface waarin de opdracht, de openbare poort en het particuliere poort toevoegen][7]
 4. Klik op **OK** het eindpunt toevoegen aan uw virtuele machine.
@@ -184,7 +184,7 @@ Gebruik de volgende opdracht Tomcat7 installeren.
 Als u niet Tomcat7 gebruikt, gebruikt u de juiste variatie van deze opdracht.  
 
 #### <a name="confirm-that-tomcat7-installation-is-successful"></a>Bevestig dat Tomcat7 installatie geslaagd is
-Controleert of de Tomcat7 is geïnstalleerd, bladert u naar de DNS-naam van de Tomcat-server. In dit artikel is de voorbeeld-URL http://tomcatexample.cloudapp.net/. Als u een bericht als volgt ziet, Tomcat7 juist is geïnstalleerd.
+Controleert of de Tomcat7 is geïnstalleerd, bladert u naar de DNS-naam van de Tomcat-server. In dit artikel de voorbeeld-URL is http://tomcatexample.cloudapp.net/. Als u een bericht als volgt ziet, Tomcat7 juist is geïnstalleerd.
 ![Bericht Tomcat7 installatie is voltooid][16]
 
 ### <a name="install-other-tomcat7-components"></a>Andere onderdelen Tomcat7 installeren
@@ -231,7 +231,7 @@ Start Tomcat7 services met de volgende opdracht om ervoor te zorgen dat de wijzi
 
     sudo /etc/init.d/tomcat7 restart  
 
-Open uw browser en voer **http://<your tomcat server DNS name>manager/html** als de URL. De URL is voor het voorbeeld in dit artikel http://tomcatexample.cloudapp.net/manager/html.  
+Open uw browser en voer **http://<your tomcat server DNS name>manager/html** als de URL. Voor het voorbeeld in dit artikel wordt de URL is http://tomcatexample.cloudapp.net/manager/html.  
 
 Nadat u verbinding maakt ziet er ongeveer als volgt:  
 ![Schermopname van Tomcat Web Application Manager][18]
@@ -265,7 +265,7 @@ Nadat u verbinding maakt ziet er ongeveer als volgt:
         sudo yum installeren w3m w3m-img
 
 
-        w3m http://localhost: 8080  
+        w3m http://localhost:8080  
 #### <a name="solution"></a>Oplossing
 
   * Als de Tomcat luisteren poort is niet hetzelfde zijn als de particuliere poort van het eindpunt voor het verkeer naar de virtuele machine, hoeft u de particuliere poort om dat hetzelfde zijn als de Tomcat luisteren op poort te wijzigen.   

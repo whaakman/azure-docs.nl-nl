@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 63a8b9f8c81ad3dc122bf25d8a06cdf242a0f35b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Afstemming van de prestaties in Azure SQL Database
 
@@ -39,7 +39,7 @@ Azure SQL Database biedt vier [Servicelagen](sql-database-service-tiers.md) die 
   * **U hebt een database met één gebruiker**. Toepassingen die meestal een enkele gebruiker aan een database koppelt hebt geen hoge gelijktijdigheid van taken en prestaties van de vereisten. Deze toepassingen zijn kandidaten voor de laag Basic-service.
 * **Standaard**: de standaard servicelaag biedt verbeterde prestaties, voorspelbaarheid en biedt goede prestaties voor databases die meerdere gelijktijdige aanvragen, zoals werkgroep en webtoepassingen. Wanneer u een database van de laag Standard service kiest, u kunt het formaat van uw databasetoepassing op basis van voorspelbare prestaties, minuut gedurende een minuut.
   * **Uw database heeft meerdere gelijktijdige aanvragen**. Toepassingen die meer dan één gebruiker op een tijdstip meestal moeten hogere prestaties. Werkgroep- of toepassingen die hebben laag tot gemiddeld i/o-verkeer vereisten ondersteunen meerdere gelijktijdige query's zijn bijvoorbeeld geschikt voor het serviceniveau Standard.
-* **Premium**: de Premium servicecategorie voorziet in voorspelbare prestaties tweede via ten tweede voor elke database Premium. Wanneer u de Premium servicecategorie kiest, kunt u het formaat van uw databasetoepassing op basis van de piekbelasting voor die database. Het plan verwijdert gevallen in welke prestaties van de variantie kleine query's naar het duurt langer dan verwacht in latentie gevoelig bewerkingen kan veroorzaken. Dit model kan aanzienlijk te vereenvoudigen, de ontwikkelings- en validatie cycli voor toepassingen die u wilt maken van sterke instructies over de resourcebehoeften piek, prestaties van de variantie of latentie van query. De meeste Premium-laag service gebruiksvoorbeelden hebben een of meer van deze kenmerken:
+* **Premium**: de Premium servicecategorie voorziet in voorspelbare prestaties seconde via seconde, voor elke Premium- of Business-kritische (preview) van de database. Wanneer u de Premium servicecategorie kiest, kunt u het formaat van uw databasetoepassing op basis van de piekbelasting voor die database. Het plan verwijdert gevallen in welke prestaties van de variantie kleine query's naar het duurt langer dan verwacht in latentie gevoelig bewerkingen kan veroorzaken. Dit model kan aanzienlijk te vereenvoudigen, de ontwikkelings- en validatie cycli voor toepassingen die u wilt maken van sterke instructies over de resourcebehoeften piek, prestaties van de variantie of latentie van query. De meeste Premium-laag service gebruiksvoorbeelden hebben een of meer van deze kenmerken:
   * **Hoge piekbelasting**. Een speciale, hoge prestaties verificatieniveau is vereist door een toepassing die is vereist aanzienlijk CPU, geheugen of input/output (I/O) om de bewerkingen te voltooien. Een databasebewerking bekend is dat het aantal CPU-kernen gebruiken voor een langere periode is bijvoorbeeld geschikt is voor de Premium servicecategorie.
   * **Veel gelijktijdige aanvragen**. Sommige databasetoepassingen-service is veel gelijktijdige aanvragen, bijvoorbeeld wanneer voor een website die een intensief verkeer. Basis en standaard Servicelagen beperkt het aantal gelijktijdige aanvragen per database. Toepassingen waarvoor meer verbindingen moet om een juiste reserveringsgrootte voor het afhandelen van het maximum aantal benodigde aanvragen te kiezen.
   * **Lage latentie**. Sommige toepassingen moeten een reactie van de database in de minimale tijd te garanderen. Als een specifieke opgeslagen procedure als onderdeel van een bredere klant-bewerking wordt aangeroepen, is u wellicht een vereiste om een return-aanroep die in 99 procent van de tijd niet meer dan 20 milliseconden. Dit type toepassing profiteert van de Premium servicecategorie om ervoor te zorgen dat de vereiste rekenkracht beschikbaar is.

@@ -2,25 +2,25 @@
 title: Aangepaste op rollen gebaseerde toegang besturingselement functies maken en toewijzen aan de interne en externe gebruikers in Azure | Microsoft Docs
 description: Aangepaste RBAC-rollen gemaakt met behulp van PowerShell en CLI voor interne en externe gebruikers toewijzen
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: kgremban
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/06/2017
+ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b60b30e3a5a4f5adec4fbef8c4e981ad034a7f6c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Inleiding op rollen gebaseerd toegangsbeheer
 
@@ -53,10 +53,10 @@ Er zijn twee algemene voorbeelden wanneer RBAC is gebruikt (maar niet tot beperk
 * Werken met gebruikers binnen de organisatie (ze zijn onderdeel van de gebruiker Azure Active Directory-tenant), maar deel uitmaken van verschillende teams of groepen die gedetailleerde toegang tot het hele abonnement of bepaalde resourcegroepen of resource-scopes in de omgeving nodig hebben
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Toegang verlenen op het abonnementsniveau van een voor een gebruiker buiten Azure Active Directory
-RBAC-rollen kunnen alleen worden toegekend **eigenaars** van het abonnement daarom de gebruiker met beheerdersrechten moet zijn aangemeld met een gebruikersnaam die heeft deze een vooraf toegewezen rol of het Azure-abonnement is gemaakt.
+RBAC-rollen kunnen alleen worden toegekend **eigenaars** van het abonnement. Daarom moet de beheerder zijn aangemeld als een gebruiker die deze rol heeft een vooraf toegewezen of het Azure-abonnement is gemaakt.
 
-Nadat u aanmelden als beheerder, selecteert u vanuit de Azure-portal 'Abonnementen' in en kies de gewenste versie.
-![abonnementsblade in Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) standaard als het Azure-abonnement heeft aangeschaft door de gebruiker met beheerdersrechten de gebruiker wordt weergegeven als **accountbeheerder**, dit wordt de rol van het abonnement. Zie voor meer informatie over de functies van Azure-abonnement, [toevoegen of wijzigen Azure-beheerdersrollen die het abonnement of de services beheren](/billing/billing-add-change-azure-subscription-administrator.md).
+Nadat u zich als beheerder aanmelden, selecteert u vanuit de Azure-portal 'Abonnementen' in en kies de gewenste versie.
+![abonnementsblade in Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) standaard als het Azure-abonnement heeft aangeschaft door de gebruiker met beheerdersrechten de gebruiker wordt weergegeven als **accountbeheerder**, dit wordt de rol van het abonnement. Zie voor meer informatie over de Azure-abonnement rollen [toevoegen of wijzigen Azure-beheerdersrollen die het abonnement of de services beheren](/billing/billing-add-change-azure-subscription-administrator.md).
 
 In dit voorbeeld wordt de gebruiker "alflanigan@outlook.com' is de **eigenaar** van de 'gratis proefversie' abonnement in het AAD-tenant 'tenant Azure Default'. Omdat deze gebruiker de maker van het Azure-abonnement met de eerste 'Outlook' van de Microsoft-Account (Microsoft-Account = Outlook, etc. Live) naam van het standaarddomein voor andere gebruikers die zijn toegevoegd aan deze tenant zijn **'@alflaniganuoutlook.onmicrosoft.com'**. Door het ontwerp van de syntaxis van het nieuwe domein wordt gevormd door het samenstellen van de naam van de gebruikersnaam en het domein van de gebruiker die de tenant wordt gemaakt en het toevoegen van de extensie **'. onmicrosoft.com '**.
 Bovendien kunnen gebruikers zich aanmelden met een aangepaste domeinnaam in de tenant na het toevoegen van en controle van de voor de nieuwe tenant. Zie voor meer informatie over het controleren van een aangepaste domeinnaam in een Azure Active Directory-tenant [een aangepaste domeinnaam toevoegen aan uw directory](/active-directory/active-directory-add-domain).
@@ -185,154 +185,154 @@ Voor grotere organisaties, kunnen de RBAC-rollen worden toegepast op dezelfde ma
 Deze groepen zijn beveiligingsgroepen die zijn ingericht en beheerd alleen binnen Azure Active Directory.
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>Maakt een aangepaste RBAC-rol om te openen met behulp van PowerShell ondersteuningsaanvragen
-De ingebouwde RBAC-rollen die beschikbaar in Azure zijn ervoor zorgen dat bepaalde machtigingsniveaus op basis van de beschikbare bronnen in de omgeving. Als geen van deze rollen behoeften van de gebruiker admin, is er echter de optie voor het beperken van toegang nog meer door aangepaste RBAC-rollen te maken.
+De ingebouwde rollen die beschikbaar in Azure zijn ervoor zorgen dat bepaalde machtigingsniveaus op basis van de beschikbare bronnen in de omgeving. Als de ingebouwde rollen niet voldoen aan uw behoeften, kunt u aangepaste rollen maken.
 
-Maken van aangepaste RBAC-rollen moet een ingebouwde functie, bewerken en vervolgens importeren in de omgeving. Het downloaden en het uploaden van de rol worden beheerd met PowerShell of CLI.
+Voor het maken van een aangepaste beveiligingsrol, kunt u beginnen met een ingebouwde rol, bewerken en maak vervolgens een nieuwe rol. In dit voorbeeld de ingebouwde **lezer** rol is aangepast om de gebruiker de optie ondersteuningsaanvragen te openen.
 
-Het is belangrijk om te begrijpen van de vereisten voor het maken van een aangepaste rol die u kunnen gedetailleerde toegang verlenen op het abonnementsniveau en ook de uitgenodigde gebruikers de flexibiliteit ondersteuningsaanvragen te openen.
+Gebruik in PowerShell de [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) opdracht exporteren van de **lezer** rol in JSON-indeling.
 
-In dit voorbeeld de ingebouwde functie **lezer**, kunnen de gebruikers toegang tot alle bereiken in de resource weergeven maar niet te bewerken of nieuwe maken, is aangepast om de gebruiker de optie ondersteuningsaanvragen te openen.
-
-De eerste actie van het exporteren van de **lezer** rol moet worden uitgevoerd in PowerShell met verhoogde machtigingen worden uitgevoerd als administrator.
-
-```
-Login-AzureRMAccount
-
-Get-AzureRMRoleDefinition -Name "Reader"
-
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
-
+```powershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
 ```
 
+Hieronder ziet u de JSON-uitvoer voor de rol lezer.
 
+```json
+{
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-
-
-![Schermopname van PowerShell voor de rol Lezer RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/15.png)
-
-Vervolgens moet u het JSON-sjabloon van de rol extraheren.
-
-
-
-
-
-![JSON-sjabloon voor aangepaste lezer RBAC-rol](./media/role-based-access-control-create-custom-roles-for-internal-external-users/16.png)
-
-Een typische RBAC-rol bestaat uit drie gedeelten **acties**, **NotActions** en **AssignableScopes**.
-
-In de **actie** sectie worden de toegestane bewerkingen voor deze rol wordt vermeld. Het is belangrijk te weten dat elke actie van een resourceprovider is toegewezen. In dit geval voor het maken van ondersteuningstickets voor van de **Microsoft.Support** resourceprovider moet worden weergegeven.
-
-Om te kunnen zien alle resourceproviders beschikbaar is en geregistreerd in uw abonnement, kunt u PowerShell gebruiken.
-```
-Get-AzureRMResourceProvider
-
-```
-Bovendien kunt u de alle de beschikbare PowerShell-cmdlets voor het beheren van de resourceproviders controleren.
-    ![Schermopname van PowerShell voor provider bronbeheer](./media/role-based-access-control-create-custom-roles-for-internal-external-users/17.png)
-
-Als u wilt beperken welke acties voor een bepaalde RBAC-rol, resourceproviders worden vermeld in de sectie **NotActions**.
-Laatste, het verplicht is dat de RBAC-rol bevat de expliciete abonnement-id's waar het wordt gebruikt. De abonnement-id's worden vermeld in de **AssignableScopes**, anders u niet mag worden importeren van de rol in uw abonnement.
-
-Na het maken en aanpassen van de RBAC-rol, moet deze worden geïmporteerd back de omgeving.
-
-```
-New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
-
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
+}
 ```
 
-In dit voorbeeld is de aangepaste naam voor deze rol RBAC 'Lezer ondersteuning tickets toegangsniveau' zodat de gebruiker kan alles in het abonnement weergeven en openen van aanvragen voor ondersteuning.
+Vervolgens moet bewerken u de JSON-uitvoer voor het maken van uw aangepaste rol.
+
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
+
+                   ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
+```
+
+Een typische rol bestaat uit drie gedeelten **acties**, **NotActions**, en **AssignableScopes**.
+
+De **actie** sectie vindt u de toegestane bewerkingen voor de rol. In dit geval maken ondersteuning servicetickets, de **Microsoft.Support/&ast;**  bewerking moet worden toegevoegd. Het is belangrijk te weten dat elke bewerking van een resourceprovider beschikbaar wordt gesteld. Als u een lijst van de bewerkingen voor een resourceprovider, kunt u de [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) opdracht of Raadpleeg [Resourceprovider van Azure Resource Manager operations](role-based-access-control-resource-provider-operations.md).
+
+Als u wilt beperken welke acties voor een bepaalde functie, resourceproviders worden vermeld in de **NotActions** sectie.
+Het is verplicht dat de rol bevat de expliciete abonnement-id's waar het wordt gebruikt. De abonnement-id's worden vermeld in **AssignableScopes**, anders u niet mag worden importeren van de rol in uw abonnement.
+
+Voor het maken van de aangepaste rol die u gebruikt de [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) opdracht en geeft u het bijgewerkte definitiebestand van de JSON-rol.
+
+```powershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+In dit voorbeeld is de naam voor deze aangepaste rol 'lezer ondersteuningstickets toegangsniveau'. Dit kan de gebruiker om alles in het abonnement en ook openen ondersteuningsaanvragen weer te geven.
 
 > [!NOTE]
-> De slechts twee ingebouwde RBAC-rollen waardoor de actie van het openen van ondersteuningsaanvragen zijn **eigenaar** en **Inzender**. Voor een gebruiker om te kunnen openen ondersteuningsaanvragen moet hij worden toegewezen een RBAC-rol alleen op het abonnementsbereik, omdat alle ondersteuningsaanvragen zijn gemaakt op basis van een Azure-abonnement.
+> De slechts twee ingebouwde rollen waarmee een gebruiker ondersteuningsaanvragen openen zijn **eigenaar** en **Inzender**. Voor een gebruiker om te kunnen openen ondersteuningsaanvragen moet hij worden toegewezen een rol bij het abonnementsbereik, omdat alle ondersteuningsaanvragen zijn gemaakt op basis van een Azure-abonnement.
 
-Deze nieuwe aangepaste rol is toegewezen aan een gebruiker uit dezelfde map.
+De nieuwe aangepaste rol is nu beschikbaar in de Azure-portal en kan worden toegewezen aan gebruikers.
 
+![Schermafbeelding van de aangepaste rol geïmporteerd in de Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
 
+![schermopname van het aangepaste geïmporteerde rol toewijzen aan gebruiker in dezelfde map](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
 
+![schermopname van machtigingen voor aangepaste geïmporteerde beveiligingsrol](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
 
+Gebruikers met deze aangepaste rol kunnen nu nieuwe ondersteuningsaanvragen maken.
 
-![schermopname van aangepaste RBAC-rol geïmporteerd in de Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+![Schermafbeelding van de aangepaste rol ondersteuningsaanvragen maken](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
 
+Gebruikers met deze aangepaste rol kunnen andere acties worden uitgevoerd, zoals virtuele machines maken of maken van resourcegroepen.
 
+![Schermafbeelding van de aangepaste rol kan niet worden gemaakt van virtuele machines](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
 
-
-
-![schermopname van het aangepaste geïmporteerde RBAC-rol toewijzen aan gebruiker in dezelfde map](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
-
-
-
-
-
-![schermopname van machtigingen voor aangepaste geïmporteerde RBAC-rol](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
-
-In het voorbeeld zijn meer gedetailleerd overzicht te benadrukken de grenzen van deze aangepaste RBAC-rol als volgt:
-* Nieuwe ondersteuningsaanvragen kunt maken
-* Nieuwe scopes van de resource kan niet worden gemaakt (bijvoorbeeld: virtuele machine)
-* Kan de nieuwe resourcegroepen niet maken.
-
-
-
-
-
-![schermopname van aangepaste RBAC-rol ondersteuningsaanvragen maken](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
-
-
-
-
-
-![schermopname van aangepaste RBAC-rol kan niet worden gemaakt van virtuele machines](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
-
-
-
-
-
-![schermopname van aangepaste RBAC-rol kan niet worden gemaakt van nieuwe RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
+![Schermafbeelding van de aangepaste rol kan niet worden gemaakt van nieuwe RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-azure-cli"></a>Maakt een aangepaste RBAC-rol om te openen met behulp van Azure CLI ondersteuningsaanvragen
-Azure CLI is uitgevoerd op een Mac en zonder dat toegang tot PowerShell, is de manier om te gaan.
 
-De stappen voor het maken van een aangepaste beveiligingsrol zijn hetzelfde, met de enige uitzondering die met behulp van de rol CLI in een JSON-sjabloon kan niet worden gedownload, maar deze kan worden weergegeven in de CLI.
+De stappen voor het maken van een aangepaste beveiligingsrol met Azure CLI zijn vergelijkbaar met behulp van PowerShell, behalve dat de JSON-uitvoer verschilt.
 
-In dit voorbeeld hebt ik ervoor gekozen de ingebouwde rol van **back-up lezer**.
+Bijvoorbeeld, u kunt beginnen met de ingebouwde **lezer** rol. U kunt de acties van de rol Lezer gebruiken de [az rol definitielijst](/cli/azure/role/definition#az_role_definition_list) opdracht.
 
+```azurecli
+az role definition list --name "Reader" --output json
 ```
 
-azure role show "backup reader" --json
-
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "notActions": []
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
 ```
 
+Maak een JSON-bestand met de volgende indeling. De **Microsoft.Support/&ast;**  bewerking is toegevoegd aan de **acties** secties zodat deze gebruiker ondersteuningsaanvragen terwijl u moet een lezer kunt openen. U moet de abonnements-ID waarop u deze rol wordt gebruikt in toevoegen de **AssignableScopes** sectie.
 
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-
-
-![Schermafbeelding van de rol van back-lezer CLI weergeven](./media/role-based-access-control-create-custom-roles-for-internal-external-users/24.png)
-
-De rol in Visual Studio bewerken na het kopiëren van de eigenschappen in een JSON-sjabloon, het **Microsoft.Support** resourceprovider is toegevoegd aan de **acties** secties zodat deze gebruiker ondersteuningsaanvragen openen kunt terwijl u moet een lezer voor de back-upkluizen. Opnieuw is het nodig zijn om toe te voegen van de abonnements-ID waarop u deze rol wordt gebruikt in de **AssignableScopes** sectie.
-
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
 ```
 
-azure role create --inputfile <path>
+Gebruik voor het maken van de aangepaste rol die de [az roldefinitie maken](/cli/azure/role/definition#az_role_definition_create) opdracht.
 
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
 ```
 
+De nieuwe aangepaste rol is nu beschikbaar in de Azure-portal en het proces voor het gebruik van deze rol is hetzelfde als in de vorige sectie met PowerShell.
 
-
-
-
-![CLI-schermopname van het importeren van aangepaste RBAC-rol](./media/role-based-access-control-create-custom-roles-for-internal-external-users/25.png)
-
-De nieuwe functie is nu beschikbaar in de Azure-portal en de toewijzing-proces is hetzelfde als in de eerdere voorbeelden.
-
-
-
-
-
-![Azure portal schermafbeelding van aangepaste RBAC-rol gemaakt met behulp van de CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
-
-De Azure-Cloud-Shell is vanaf de meest recente Build-2017 algemeen beschikbaar. Azure Cloud-Shell vormt een aanvulling op de IDE- en de Azure-portal. Met deze service krijgt u een browser gebaseerde shell die is geverifieerd en wordt gehost in Azure en u kunt deze gebruiken in plaats van de CLI op uw computer geïnstalleerd.
-
-
-
-
-
-![Azure Cloud Shell](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)
+![Azure portal schermafbeelding van de aangepaste rol die zijn gemaakt met behulp van de CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)

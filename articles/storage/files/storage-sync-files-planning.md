@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -173,6 +173,7 @@ Azure File-synchronisatie is alleen beschikbaar in de volgende regio's Preview-v
 |--------|---------------------|
 | Australië - oost | New South Wales |
 | Canada - midden | Toronto |
+| Canada - oost | Quebec (stad) |
 | VS - midden | Iowa |
 | Oost-Azië | Hongkong |
 | VS - oost | Virginia |
@@ -180,7 +181,6 @@ Azure File-synchronisatie is alleen beschikbaar in de volgende regio's Preview-v
 | Noord-Europa | Ierland |
 | Zuidoost-Azië | Singapore |
 | Verenigd Koninkrijk Zuid | Londen |
-| West Cental VS |
 | West-Europa | Nederland |
 | VS - west | Californië |
 
@@ -191,6 +191,6 @@ Wij ondersteunen alleen met een Azure-bestandsshare die zich in dezelfde regio b
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Houd rekening met firewall en proxy-instellingen](storage-sync-files-firewall-and-proxy.md)
-* [Planning voor de implementatie van een Azure-bestanden](storage-files-planning.md)
+* [Implementatie van Azure Files plannen](storage-files-planning.md)
 * [Azure Files implementeren](storage-files-deployment-guide.md)
 * [Azure File synchronisatie implementeren](storage-sync-files-deployment-guide.md)

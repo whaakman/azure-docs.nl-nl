@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Toegang tot diagnoselogboeken voor Azure Data Lake Store
 Informatie over het inschakelen van diagnostische logboekregistratie voor uw Data Lake Store-account en het weergeven van de logboeken die worden verzameld voor uw account.
@@ -47,7 +47,7 @@ Organisaties kunnen diagnostische logboekregistratie inschakelen voor hun Azure 
         
         * Selecteer de optie voor **Stream naar een event hub** stroom logboek gegevens naar een Azure Event Hub. Zeer waarschijnlijk zal gebruik deze optie als u een pijplijn downstreamverwerking binnenkomende Logboeken in realtime analyseren. Als u deze optie selecteert, moet u de details opgeven voor de Azure Event Hub die u wilt gebruiken.
 
-        * Selecteer de optie voor **verzenden met logboekanalyse** om de Azure Log Analytics-service gebruiken voor het analyseren van de gegenereerde logboekgegevens. Als u deze optie selecteert, moet u de details opgeven voor de Operations Management Suite-werkruimte dat zou u de logboekanalyse uitvoeren is. Zie [weergeven of gegevens die worden verzameld met logboekanalyse logboek search analyseren](../log-analytics/log-analytics-tutorial-viewdata.md) voor meer informatie over het gebruik van logboekanalyse.
+        * Selecteer de optie voor **verzenden met logboekanalyse** om de Azure Log Analytics-service gebruiken voor het analyseren van de gegenereerde logboekgegevens. Als u deze optie selecteert, moet u de details opgeven voor de werkruimte voor logboekanalyse dat zou u de logboekanalyse uitvoeren is. Zie [weergeven of gegevens die worden verzameld met logboekanalyse logboek search analyseren](../log-analytics/log-analytics-tutorial-viewdata.md) voor meer informatie over het gebruik van logboekanalyse.
      
    * Geef op of u wilt ophalen controlelogboeken of Logboeken aanvragen of beide.
    * Geef het aantal dagen waarvoor de gegevens moeten worden bewaard. Bewaartermijn is alleen van toepassing als u Azure storage-account gebruikt voor het archiveren van gegevens aan het logboek.

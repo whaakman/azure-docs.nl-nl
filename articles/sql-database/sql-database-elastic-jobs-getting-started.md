@@ -9,11 +9,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: sstein
-ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 85fd04966822f8dd6a0c3086002e4388411d1051
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Aan de slag met taken voor elastische Database
 Elastische Database-taken (preview) voor Azure SQL Database kunt u op betrouwbare wijze uitvoeren T-SQL-scripts die meerdere databases tijdens het automatisch opnieuw uit te voeren en het geven van de uiteindelijke voltooiing garanties omvatten. Zie voor meer informatie over de functie van de taak elastische Database [elastische taken](sql-database-elastic-jobs-overview.md).
@@ -460,7 +460,7 @@ Alle rijen uit **klanten** tabel, opgeslagen in verschillende shards vullen de E
 Nu kunt u functies van de gegevens van Excel. De verbindingsreeks gebruiken met de servernaam, databasenaam en referenties verbinding maken met uw integratiefuncties BI en gegevens van de elastische database. Zorg ervoor dat SQL Server wordt ondersteund als een gegevensbron voor het hulpprogramma. Raadpleeg de elastische query uitvoeren op database en de externe tabellen net als elke andere SQL Server-database en SQL Server-tabellen die u met het hulpprogramma verbinding wilt maken.
 
 ### <a name="cost"></a>Kosten
-Er zijn geen extra kosten voor het gebruik van de functie van de query elastische Database. Echter op dit moment deze functie is alleen beschikbaar op premium-databases als een eindpunt, maar de shards kunnen zijn van een servicelaag.
+Er zijn geen extra kosten voor het gebruik van de functie van de query elastische Database. Deze functie is echter alleen beschikbaar voor Premium- en Business-kritische (preview) op dit moment databases en elastische pools als een eindpunt, maar de shards kunnen zijn van een servicelaag.
 
 Zie voor informatie over prijzen [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/).
 

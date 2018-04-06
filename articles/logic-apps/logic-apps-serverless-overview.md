@@ -1,12 +1,12 @@
 ---
 title: Overzicht van Azure zonder server | Microsoft Docs
 description: Krachtige oplossingen in de cloud maken zonder om na te denken over de infrastructuur.
-keywords: 
+keywords: ''
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 30c7dd36efca5ffcae770fe310a43a107d9136af
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Overzicht van Azure zonder server met functies en Logic Apps
 
@@ -45,7 +45,7 @@ Om te beginnen met Logic Apps beginnen met [maken van uw eerste logische app](qu
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Hoe kan ik bouwen en implementeren zonder server-toepassingen in Azure?
 
-Azure biedt een uitgebreide set hulpprogramma's voor ontwikkeling, implementatie en beheer van apps zonder server.  Apps kunnen worden gebouwd rechtstreeks in de Azure portal of met [tooling vanuit Visual Studio](logic-apps-serverless-get-started-vs.md).  Wanneer een toepassing ontwikkeld deze kan worden [onmiddellijk geïmplementeerd](logic-apps-create-deploy-template.md).  Azure biedt ook bewaking voor zonder server apps.  Deze bewaking toegankelijk zijn vanuit de Azure-portal via de API SDK's of met geïntegreerde tooling OMS en Application Insights.
+Azure biedt een uitgebreide set hulpprogramma's voor ontwikkeling, implementatie en beheer van apps zonder server.  Apps kunnen worden gebouwd rechtstreeks in de Azure portal of met [tooling vanuit Visual Studio](logic-apps-serverless-get-started-vs.md).  Wanneer een toepassing ontwikkeld deze kan worden [onmiddellijk geïmplementeerd](logic-apps-create-deploy-template.md).  Azure biedt ook bewaking voor zonder server apps.  Deze bewaking toegankelijk zijn vanuit de Azure-portal via de API SDK's of met geïntegreerde tooling Log Analytics en Application Insights.
 
 ## <a name="next-steps"></a>Volgende stappen
 

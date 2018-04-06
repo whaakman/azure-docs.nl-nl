@@ -1,13 +1,13 @@
 ---
-title: Bewaken van HBase met Operations Management Suite (OMS) - Azure HDInsight | Microsoft Docs
-description: OMS gebruiken met Azure-logboekanalyse voor het bewaken van HDInsight HBase-clusters.
+title: Bewaken van HBase met Azure Log Analytics - Azure HDInsight | Microsoft Docs
+description: Gebruik Azure-logboekanalyse voor het bewaken van HDInsight HBase-clusters.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -16,23 +16,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: f78d570cfa8b040cd7673a5e14e6a992511f60bb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3746713cdadff0a4c6f4fe25d278e8d78555f9d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="monitor-hbase-with-operations-management-suite-oms"></a>Monitor HBase bij Operations Management Suite (OMS)
+# <a name="monitor-hbase-with-log-analytics"></a>Monitor HBase met logboekanalyse
 
 Bewaking van HDInsight HBase maakt gebruik van Azure-logboekanalyse voor het verzamelen van HDInsight HBase-maatstaven voor prestaties van uw HDInsight-clusterknooppunten. De Monitor biedt een HBase-specifieke visualisaties en dashboards, hulpprogramma's om te zoeken in de metrische gegevens en de mogelijkheid om aangepaste regels voor bewaking en waarschuwingen te maken. U kunt de metrische gegevens voor meerdere HDInsight HBase-clusters bewaken over meerdere Azure-abonnementen.
 
-Log Analytics is een service in [Operations Management Suite (OMS)](../../operations-management-suite/operations-management-suite-overview.md) die wordt bewaakt uw cloud en on-premises omgevingen voor het onderhouden van de beschikbaarheid en prestaties. Log Analytics verzamelt gegevens die zijn gegenereerd door de resources in uw cloud en on-premises omgevingen en van andere controleprogramma's, om te voorzien in analysis meerdere bronnen.
+Log Analytics is een service in [Azure](../../operations-management-suite/operations-management-suite-overview.md) die wordt bewaakt uw cloud en on-premises omgevingen voor het onderhouden van de beschikbaarheid en prestaties. Log Analytics verzamelt gegevens die zijn gegenereerd door de resources in uw cloud en on-premises omgevingen en van andere controleprogramma's, om te voorzien in analysis meerdere bronnen.
 
-[Meld u Analytics beheeroplossingen](../../log-analytics/log-analytics-add-solutions.md) functionaliteit toevoegen aan OMS, bieden aanvullende gegevens hulpprogramma's en analyses. Log Analytics-oplossingen voor beheer zijn een verzameling van logica, visualiseren en gegevens overname regels die het bieden van metrische gegevens voor een bepaald gebied. Een oplossing kan ook definiëren voor nieuwe recordtypen te verzamelen en deze records kunnen worden geanalyseerd met logboek zoekopdrachten of met nieuwe functies van gebruikersinterface.
+[Meld u Analytics beheeroplossingen](../../log-analytics/log-analytics-add-solutions.md) functionaliteit toevoegen aan Log Analytics, bieden aanvullende gegevens hulpprogramma's en analyses. Log Analytics-oplossingen voor beheer zijn een verzameling van logica, visualiseren en gegevens overname regels die het bieden van metrische gegevens voor een bepaald gebied. Een oplossing kan ook definiëren voor nieuwe recordtypen te verzamelen en deze records kunnen worden geanalyseerd met logboek zoekopdrachten of met nieuwe functies van gebruikersinterface.
 
 [Inzicht & Analytics](https://azure.microsoft.com/pricing/details/insight-analytics/) is gebaseerd op het platform logboekanalyse. U kunt de mogelijkheden voor Log Analytics gebruiken en hiervoor te betalen per GB ingenomen bij de service of uw werkruimte overschakelen naar de laag inzicht & Analytics en betalen per knooppunt beheerd door de service. Inzicht & Analytics biedt een uitbreiding van de mogelijkheden die worden aangeboden door logboekanalyse. De bewaking van HBase-oplossing is beschikbaar met logboekanalyse of inzicht & Analytics.
 
-Wanneer u een oplossing voor bewaking van HDInsight HBase inricht, maakt u een OMS-werkruimte. Elke werkruimte als een unieke Log Analytics-omgeving met een eigen data-opslagplaats, gegevensbronnen en oplossingen. U kunt meerdere werkruimten maken in uw abonnement ondersteuning voor meerdere omgevingen zoals productie en testen.
+Wanneer u een oplossing voor bewaking van HDInsight HBase inricht, maakt u een werkruimte voor logboekanalyse. Elke werkruimte als een unieke Log Analytics-omgeving met een eigen data-opslagplaats, gegevensbronnen en oplossingen. U kunt meerdere werkruimten maken in uw abonnement ondersteuning voor meerdere omgevingen zoals productie en testen.
 
 ## <a name="provision-hdinsight-hbase-monitoring"></a>Inrichten van HDInsight HBase bewaking
 
@@ -50,7 +50,7 @@ Wanneer u een oplossing voor bewaking van HDInsight HBase inricht, maakt u een O
 
     ![Beheer van oplossingen deelvenster](./media/apache-hbase-monitor-with-oms/hbase-solution.png)  
 6. Lees de informatie over de oplossing voor beheer in het deelvenster van de oplossing voor beheer en selecteer vervolgens **maken**. 
-7. In de *management oplossingsnaam* deelvenster, selecteer een bestaande werkruimte koppelen met het beheersysteem of maak een nieuwe OMS-werkruimte en selecteert u vervolgens.
+7. In de *management oplossingsnaam* deelvenster, selecteer een bestaande werkruimte koppelen met het beheersysteem of maak een nieuwe werkruimte voor logboekanalyse en selecteert u vervolgens.
 8. Werkruimte-instellingen voor de Azure-abonnement, resourcegroep en locatie zo nodig wijzigen. 
     ![werkruimte voor de oplossing](./media/apache-hbase-monitor-with-oms/solution-workspace.png)  
 9. Selecteer **Maken**.  
@@ -68,9 +68,9 @@ Wanneer u een oplossing voor bewaking van HDInsight HBase inricht, maakt u een O
 
 Voor het gebruik van de hulpprogramma's van HDInsight HBase bewaking, moet u uw cluster zodanig configureren dat er de metrische gegevens van de server van de regio, hoofdknooppunten en ZooKeeper-knooppunten met logboekanalyse worden verzonden. Deze configuratie wordt uitgevoerd door te voeren van een scriptactie op uw HDInsight-HBase-cluster.
 
-### <a name="get-oms-workspace-id-and-workspace-key"></a>OMS-werkruimte-ID en Werkruimtesleutel ophalen
+### <a name="get-log-analytics-workspace-id-and-workspace-key"></a>Log Analytics-werkruimte-ID en Werkruimtesleutel ophalen
 
-U moet uw OMS-werkruimte-ID en Werkruimtesleutel zodat de knooppunten in het cluster voor verificatie met logboekanalyse. Deze waarden ophalen:
+U moet uw Log Analytics-werkruimte-ID en Werkruimtesleutel zodat de knooppunten in het cluster voor verificatie met logboekanalyse. Deze waarden ophalen:
 
 1. Selecteer in het deelvenster HBase bewaking in de Azure portal overzicht.
 
@@ -146,5 +146,5 @@ Nadat de scriptactie is voltooid, ziet u gegevens in de oplossing bewaking binne
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Maken van waarschuwingen in OMS Log Analytics](../../log-analytics/log-analytics-alerts-creating.md)
+* [Maken van waarschuwingen in Log Analytics](../../log-analytics/log-analytics-alerts-creating.md)
 * [Gegevens met logboek zoekopdrachten niet vinden in Azure-logboekanalyse](../../log-analytics/log-analytics-log-searches.md).

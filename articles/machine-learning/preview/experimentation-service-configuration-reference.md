@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0bd9786d0c6a6e6ba571c58e7fdc4ad86cc20024
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning-experimenten Service configuratiebestanden
 
@@ -190,7 +190,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **TrackedRun**: met deze markering geeft de experimenteren-Service al dan niet voor het bijhouden van de groep in de Azure ML-Workbench geschiedenis infrastructuur worden uitgevoerd. De standaardwaarde is _true_. 
 
-**UseSampling**: _UseSampling_ bepaalt of de actieve voorbeeldgegevenssets voor gegevensbronnen worden gebruikt voor de verwerking. Indien ingesteld op _false_, gegevensbronnen opnemen en gebruik van de volledige gegevens lezen uit de gegevensopslag. Indien ingesteld op _true_, actieve voorbeelden worden gebruikt. Gebruikers kunnen gebruiken de ** DataSourceSettings ' om op te geven welke specifieke voorbeeldgegevenssets te gebruiken als ze willen de actieve steekproef overschrijven. 
+**UseSampling**: _UseSampling_ bepaalt of de actieve voorbeeldgegevenssets voor gegevensbronnen worden gebruikt voor de verwerking. Indien ingesteld op _false_, gegevensbronnen opnemen en gebruik van de volledige gegevens lezen uit de gegevensopslag. Indien ingesteld op _true_, actieve voorbeelden worden gebruikt. Gebruikers kunnen gebruiken de **DataSourceSettings** om op te geven welke specifieke voorbeeldgegevenssets te gebruiken als ze willen de actieve steekproef overschrijven. 
 
 **DataSourceSettings**: deze configuratiesectie bevat instellingen voor de gegevensbron. In deze sectie gebruiker geeft op welke bestaande steekproef voor een bepaalde gegevensbron wordt gebruikt als onderdeel van de uitvoering. 
 

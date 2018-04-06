@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: 95c11de3a1aed680d37dd86c1783ac8bee7ffec3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3b37afc9d768313f6cc202eeecca22528cc57b07
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Met Azure Backup Server voorbereiden op het maken van back-ups van workloads
 > [!div class="op_single_selector"]
@@ -183,7 +183,7 @@ Zodra de extractie proces is voltooid, schakel het selectievakje in om te starte
 2. Klik op het welkomstscherm op de **volgende** knop. Hiermee gaat u naar de *vereiste controleert* sectie. Klik op dit scherm **controleren** om te bepalen of de hardware en software-vereisten voor Azure Backup-Server is voldaan. Als aan alle vereisten zijn voldaan is, ziet u een bericht weergegeven dat aangeeft dat de computer voldoet aan de vereisten. Klik op de **volgende** knop.
 
     ![Azure Backup-Server - welkomstpagina en de vereisten controleren](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Microsoft Azure Backup-Server vereist dat SQL Server Standard en het installatiepakket voor de Azure Backup-Server wordt geleverd met de juiste SQL Server-binaire bestanden die nodig zijn. Bij het starten met een nieuwe installatie van de Azure Backup-Server, moet u de optie kiest **nieuw exemplaar van SQL Server installeren met deze installatie** en klik op de **controleren en installeren** knop. Nadat de vereiste onderdelen zijn geïnstalleerd, klikt u op **volgende**.
+3. Microsoft Azure Backup-Server vereist SQL Server Standard. Het installatiepakket voor de Azure Backup-Server wordt verder meegeleverd met de juiste SQL Server-binaire bestanden nodig als u niet wilt gebruiken van uw eigen SQL. Bij het starten met een nieuwe installatie van de Azure Backup-Server, moet u de optie kiest **nieuw exemplaar van SQL Server installeren met deze installatie** en klik op de **controleren en installeren** knop. Nadat de vereiste onderdelen zijn geïnstalleerd, klikt u op **volgende**.
 
     ![Azure Backup-Server - controle van SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 

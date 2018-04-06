@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Handleiding voor Azure Marketplace en AppSource uitgever
 
@@ -121,7 +121,8 @@ Elke winkel ondersteunt meerdere publishing opties en aanbieding typen. Selectee
 Neem contact op met Me gebruikt wanneer het niveau van de proefversie of transactie deelname is niet haalbaar. Het voordeel van deze benadering is dat het mogelijk uitgevers met een oplossing in de markt maakt naar onmiddellijk te ontvangen van leads die kunnen worden nurtured in de fundamentele aanbiedingen uw zakelijke vliegwiel starten. Het nadeel is echter dat betrokkenheid van de klant beperkt, ten opzichte van andere aanbiedingstypen is.
 
 >[!IMPORTANT]
->Wordt niet aanbevolen de contactpersoon mij vermeldingstype. U dient te gebruiken alleen in situaties waar er geen manier is tot stand brengen van een evaluatieversie. Betrokkenheid van de klant is de beste met evaluatie- en transactie-aanbiedingen. Als u elk type evaluatieversie hebt, vindt onze voorbereidingsproces u op een van deze opties, afhankelijk van uw scenario.
+<<<<<<< Betrokkenheid van de klant HEAD best met proefversie is en Transact biedt. De waarde van Contact met Me opnemen de lead die u ontvangt, dus als u dit soort aanbieding kiest, zorg ervoor dat de bestemming voor de lead is geconfigureerd en u klaar bent voor de lead maximaliseren. === Wordt niet aanbevolen de contactpersoon mij vermeldingstype. U dient te gebruiken alleen in situaties waar er geen manier is tot stand brengen van een evaluatieversie. Betrokkenheid van de klant is de beste met evaluatie- en transactie-aanbiedingen. Als u elk type evaluatieversie hebt, vindt onze voorbereidingsproces u op een van deze opties, afhankelijk van uw scenario.
+>>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
 
 Wanneer de aanbieding voornamelijk uit professionele services (bijvoorbeeld beoordelingen, implementaties, workshops), gebruik bestaat aanbieden de ondersteuningsdiensten type. Aanbieding-bereik, de duur en prijs moeten worden opgelost, moeten zijn voor één klant en moeten worden uitgevoerd op de site.
 

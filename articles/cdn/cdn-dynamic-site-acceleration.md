@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
-ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: rli; v-deasim
+ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamische site-versnelling via Azure CDN
 
@@ -152,7 +152,7 @@ Met DSA, opslaan in cache is standaard uitgeschakeld op de CDN, zelfs wanneer de
 
 Als u een website met een combinatie van statische en dynamische activa hebt, is het beste een hybride-benadering voor de beste prestaties. 
 
-Voor **Azure CDN van Verizon standaard** en **Azure CDN van Akamai standaard** profielen, kunt u inschakelen in cache opslaan voor specifieke DSA-eindpunten met behulp van [regels opslaan in cache](cdn-caching-rules.md).
+Voor **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai** profielen, kunt u inschakelen in cache opslaan voor specifieke DSA-eindpunten met behulp van [regels opslaan in cache](cdn-caching-rules.md).
 
 Toegang krijgen tot cachebewerkingen regels:
 
@@ -164,7 +164,7 @@ Toegang krijgen tot cachebewerkingen regels:
 
 2. Een globale of aangepaste cacheregel om in te schakelen voor uw eindpunt DSA caching maken. 
 
-Voor **Azure CDN van Verizon Premium** profielen, inschakelen in cache opslaan voor specifieke DSA-eindpunten met behulp van de [regelengine](cdn-rules-engine.md). Alleen de eindpunten van uw profiel die zijn geoptimaliseerd voor DSA van invloed op alle regels die zijn gemaakt. 
+Voor **Azure CDN Premium van Verizon** profielen, inschakelen in cache opslaan voor specifieke DSA-eindpunten met behulp van de [regelengine](cdn-rules-engine.md). Alleen de eindpunten van uw profiel die zijn geoptimaliseerd voor DSA van invloed op alle regels die zijn gemaakt. 
 
 Toegang krijgen tot de regelengine:
     

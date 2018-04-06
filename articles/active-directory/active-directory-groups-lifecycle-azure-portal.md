@@ -2,11 +2,11 @@
 title: Verlooptijd voor Office 365-groepen in Azure Active Directory | Microsoft Docs
 description: Het instellen van de vervaldatum voor Office 365-groepen in Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 95593eaacd73316ab527ffda8f977fbf0eb15558
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: aa8551db8c3982fa61b3d4731a8aac3e2832f1b1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Het vervalbeleid voor Office 365-groepen configureren
 
@@ -66,7 +66,7 @@ E-mailmeldingen zoals deze zijn verzonden naar de Office 365-eigenaars Groepsbel
 
 ![Verlopen van e-mailmeldingen](./media/active-directory-groups-lifecycle-azure-portal/expiration-notification.png)
 
-Van de **vernieuwen groep** e-mailmelding, eigenaars Groepsbeleid kunnen rechtstreeks t hegroup toegangsgegevens pagina in het deelvenster toegang. Meer informatie over de groep, zoals de beschrijving, wanneer deze is laatst vernieuwd wanneer het verloopt en ook de mogelijkheid voor het vernieuwen van de groep krijgt daar van de gebruikers. De detailpagina groep nu bevat ook koppelingen naar de resources van de Office 365-groep, zodat de Groepseigenaar gemakkelijk de inhoud en activiteit in de groep weergeven kunt.
+Van de **vernieuwen groep** e-mailmelding, groep eigenaren kunnen rechtstreeks toegang tot de detailpagina groep in het deelvenster toegang. Meer informatie over de groep, zoals de beschrijving, wanneer deze is laatst vernieuwd wanneer het verloopt en ook de mogelijkheid voor het vernieuwen van de groep krijgt daar van de gebruikers. De detailpagina groep nu bevat ook koppelingen naar de resources van de Office 365-groep, zodat de Groepseigenaar gemakkelijk de inhoud en activiteit in de groep weergeven kunt.
 
 Wanneer een groep is verlopen, kan de groep één dag na de vervaldatum is verwijderd. Een e-mailmelding zoals deze wordt verzonden naar de Office 365-groepseigenaren waarin ze worden geïnformeerd over de vervaldatum en de volgende verwijdering van hun Office 365-groep.
 

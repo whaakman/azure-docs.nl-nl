@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c61fe7c62f0718d390509d3b0ff3327bd193f43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
@@ -26,7 +26,7 @@ U kunt met Azure diagnoselogboeken basisanalyse bekijken en deze opslaan in een 
 
  - Azure-opslagaccount
  - Azure Event Hubs
- - [De opslagplaats OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [Log Analytics-werkruimte](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Deze functie is beschikbaar voor alle CDN-eindpunten die behoren tot Verizon (standaard en Premium) en CDN-profielen van Akamai (standaard). 
 
@@ -34,7 +34,7 @@ Logboeken met diagnostische gegevens van Azure kunnen u basisgebruik metrische g
 
 - Exporteer gegevens voor blob-opslag, exporteren naar CSV en grafieken genereren in Excel.
 - Gegevens exporteren naar Event Hubs en correleren met gegevens van andere Azure-services.
-- Gegevens exporteren om te melden analytics en gegevens in uw eigen OMS-werkruimte weergeven
+- Gegevens exporteren om te melden analytics en gegevens in uw eigen Log Analytics-werkruimte weergeven
 
 De volgende afbeelding toont een typische CDN core analytics weergave van gegevens.
 
@@ -68,9 +68,9 @@ Meld u aan bij [Azure Portal](http://portal.azure.com). Als u nog niet ingeschak
 
 *Afbeelding 2 - logboekregistratie met Azure Storage*
 
-### <a name="logging-with-oms-log-analytics"></a>Logboekregistratie met OMS Log Analytics
+### <a name="logging-with-log-analytics"></a>Logboekregistratie met logboekanalyse
 
-Gebruik OMS Log Analytics voor het opslaan van de logboeken, als volgt te werk:
+Log Analytics gebruiken voor het opslaan van de logboeken als volgt te werk:
 
 1. Van de **diagnostische logboeken** blade Selecteer **verzenden met logboekanalyse**. 
 
@@ -84,7 +84,7 @@ Gebruik OMS Log Analytics voor het opslaan van de logboeken, als volgt te werk:
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Voer de naam van een nieuwe OMS-werkruimte. De naam van een OMS-werkruimte moet uniek zijn en mag alleen letters, cijfers en afbreekstreepjes; spaties en onderstrepingstekens bevatten, zijn niet toegestaan. 
+4. Voer de naam van een nieuwe Log Analytics-werkruimte. De naam van een Log Analytics-werkruimte moet uniek zijn en mag alleen letters, cijfers en afbreekstreepjes; spaties en onderstrepingstekens bevatten, zijn niet toegestaan. 
 5. Selecteer vervolgens een bestaand abonnement, de resourcegroep (nieuwe of bestaande), de locatie en de prijscategorie. U hebt ook de mogelijkheid om deze configuratie aan uw dashboard vastmaken. Klik op **OK** om de configuratie te voltooien.
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/08_Workspace-resource.png)
@@ -97,11 +97,11 @@ Gebruik OMS Log Analytics voor het opslaan van de logboeken, als volgt te werk:
 
 6. Klik op **Opslaan**.
 
-7. Uw nieuwe OMS-werkruimte weergeven, gaat u naar uw Azure-portaldashboard en klik op de naam van uw log analytics-werkruimte. Klik op de tegel OMS-Portal om uw werkruimte in de OMS-opslagplaats weer te geven. 
+7. Uw nieuwe werkruimte voor logboekanalyse bekijken, gaat u naar uw Azure-portaldashboard en klik op de naam van uw log analytics-werkruimte. Klik op de tegel OMS-Portal om uw werkruimte voor logboekanalyse weer te geven. 
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
 
-    De OMS-opslagplaats is nu gereed om gegevens te registreren. Om die gegevens gebruiken, moet u een [OMS oplossing](#consuming-oms-log-analytics-data), gedekte verderop in dit artikel.
+    Uw werkruimte voor logboekanalyse is nu gereed om gegevens te registreren. Om die gegevens gebruiken, moet u een [Log Analytics-oplossing](#consuming-diagnostics-logs-from-a-log-analytics-workspace), gedekte verderop in dit artikel.
 
 Zie voor meer informatie over het logboek gegevens vertragingen [meld gegevens vertragingen](#log-data-delays).
 
@@ -123,7 +123,7 @@ Om te schakelen diagnostische logboeken in een Opslagaccount, gebruikt u deze op
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
-In de inschakelen diagnostische logboeken in een OMS-werkruimte, gebruikt u deze opdracht:
+In de inschakelen diagnostische logboeken in een werkruimte voor logboekanalyse, gebruikt u deze opdracht:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -179,16 +179,16 @@ Dit is hoe u het hulpprogramma kunt gebruiken:
 4.  Voer het hulpprogramma.
 5.  Het resulterende CSV-bestand bevat de analytische gegevens in een eenvoudige platte hiërarchie.
 
-## <a name="consuming-diagnostics-logs-from-an-oms-log-analytics-repository"></a>Diagnostische logboeken van een opslagplaats OMS Log Analytics gebruiken
-Log Analytics is een service in Operations Management Suite (OMS) die wordt bewaakt uw cloud en on-premises omgevingen voor het onderhouden van de beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden. 
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Diagnostische logboeken van een werkruimte voor logboekanalyse gebruiken
+Log Analytics is een service in Azure waarmee u uw cloud- en on-premises omgevingen kunt bewaken om zo hun beschikbaarheid en prestaties te onderhouden. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden. 
 
-Als u wilt gebruiken Log Analytics, moet u [logboekregistratie inschakelen](#enable-logging-with-azure-storage) in de Azure-logboekanalyse OMS-opslagplaats die eerder in dit artikel wordt besproken.
+Als u wilt gebruiken Log Analytics, moet u [logboekregistratie inschakelen](#enable-logging-with-azure-storage) naar de Azure Log Analytics-werkruimte die eerder in dit artikel wordt besproken.
 
-### <a name="using-the-oms-repository"></a>Met behulp van de OMS-opslagplaats
+### <a name="using-the-log-analytics-workspace"></a>Met behulp van de werkruimte voor logboekanalyse
 
  Het volgende diagram toont de architectuur van de invoer en uitvoer van de opslagplaats:
 
-![OMS Log Analytics-opslagplaats](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Log Analytics-werkruimte](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Afbeelding 3 - Log Analytics-opslagplaats*
 
@@ -196,7 +196,7 @@ U kunt de gegevens op verschillende manieren weergeven met behulp van oplossinge
 
 U kunt beheeroplossingen vanuit Azure marketplace installeren door te klikken op de **nu downloaden** koppeling aan de onderkant van elke oplossing.
 
-### <a name="adding-an-oms-cdn-management-solution"></a>Toevoegen van een oplossing voor het beheer van OMS CDN
+### <a name="adding-a-log-analytics-cdn-management-solution"></a>Toevoegen van een beheeroplossing Log Analytics CDN
 
 Volg deze stappen voor het toevoegen van een oplossing voor:
 
@@ -219,7 +219,7 @@ Volg deze stappen voor het toevoegen van een oplossing voor:
 
     ![Alles bekijken](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6.  Wanneer u op **maken**, zult u gevraagd een nieuwe OMS-werkruimte maken of gebruiken van een bestaande. 
+6.  Wanneer u op **maken**, zult u gevraagd een nieuwe werkruimte voor logboekanalyse maken of gebruiken van een bestaande. 
 
     ![Alles bekijken](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
@@ -241,11 +241,11 @@ Volg deze stappen voor het toevoegen van een oplossing voor:
 
     Klik op de werkruimte voor logboekanalyse die u gaat u naar uw werkruimte hebt gemaakt. 
 
-11. Klik op de **OMS-Portal** tegel voor uw nieuwe oplossing in de OMS-portal.
+11. Klik op de **OMS-Portal** tegel voor uw nieuwe oplossing.
 
     ![Alles bekijken](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. De OMS-portal ziet er nu als het volgende scherm:
+12. Uw portal ziet er nu als het volgende scherm:
 
     ![Alles bekijken](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
@@ -261,11 +261,11 @@ Volg deze stappen voor het toevoegen van een oplossing voor:
 
 ### <a name="offers-and-pricing-tiers"></a>Aanbiedingen en Prijscategorieën
 
-U kunt zien aanbiedingen en Prijscategorieën voor OMS-beheeroplossingen voor [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+U kunt zien aanbiedingen en Prijscategorieën voor beheeroplossingen voor [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Weergaven aanpassen
 
-U kunt de weergave aanpassen in uw gegevens met behulp van de **ontwerper**. Om te beginnen ontwerpen, gaat u naar de OMS-werkruimte en klik op de **ontwerper** tegel.
+U kunt de weergave aanpassen in uw gegevens met behulp van de **ontwerper**. Om te beginnen ontwerpen, gaat u naar de werkruimte voor logboekanalyse en klik op de **ontwerper** tegel.
 
 ![Designer weergeven](./media/cdn-diagnostics-log/27_Designer.png)
 
@@ -410,7 +410,7 @@ Van de Voorbeeldeigenschappen:
 
 * [Azure diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Basisanalyse via de aanvullende portal Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [OMS Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure-logboekanalyse REST-API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

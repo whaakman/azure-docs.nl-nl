@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 03f21c076624ee758d313c4f58e29c616226de57
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e332651af29514ca773b1476eafb0381207df86e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Het maken van een taak analytics verwerking voor Stream Analytics
 De resource op het hoogste niveau in Azure Stream Analytics is een Stream Analytics-taak.  Bestaat uit een of meer invoer gegevensbronnen, een query uitdrukken van de gegevenstransformatie en een of meer uitvoer-doelen die resultaten naar worden geschreven. Samen kunnen deze gebruikers verwerken voor streaming gegevensscenario data-analyses uitvoeren.
@@ -44,7 +44,7 @@ Het kan enkele minuten duren voordat de Stream Analytics-taak moet worden gemaak
    ![Azure portal gegevensanalyse taakstatus verwerken](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 
 ## <a name="get-help"></a>Help opvragen
-Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

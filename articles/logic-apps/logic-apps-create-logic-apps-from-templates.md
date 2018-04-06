@@ -3,9 +3,9 @@ title: Werkstromen maken van sjablonen - Azure Logic Apps | Microsoft Docs
 description: Werkstromen sneller met behulp van sjablonen voor logic app bouwen
 author: kevinlam1
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9145b9cb85cda9179f7ce46de017a0ab3a38924
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2e939143d7181722df17ea7837658d96272e3a3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Logic app werkstromen van vooraf gedefinieerde sjablonen maken
 
@@ -42,7 +42,7 @@ Als u nog geen abonnement op Azure hebt, [meld u dan aan voor een gratis Azure-a
 
 1. Als u nog niet gedaan hebt, meld u bij de [Azure-portal](https://portal.azure.com "Azure-portal").
 
-2. Kies in het Azure hoofdmenu **maken van een resource** > **Enterprise Integration** > **logische App**.
+2. Kies in het hoofdmenu van Azure **Een resource maken** > **Bedrijfsintegratie** > **Logische app**.
 
    ![Azure Portal, Nieuw, Enterprise Integration, Logische app](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -56,7 +56,7 @@ Als u nog geen abonnement op Azure hebt, [meld u dan aan voor een gratis Azure-a
    | **Abonnement** | *naam-van-uw-Azure-abonnement* | Selecteer het Azure-abonnement dat u wilt gebruiken. | 
    | **Resourcegroep** | *naam-van-uw-Azure-resourcegroep* | Maak of Selecteer een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) voor deze logische app, en om alle resources die zijn gekoppeld aan deze app te organiseren. | 
    | **Locatie** | *uw-Azure-datacenter-regio* | Selecteer de regio van het datacenter voor het implementeren van uw logische app, bijvoorbeeld VS - west. | 
-   | **Log Analytics** | **Uit** (standaard) of **op** | Schakel [Diagnostische logboekregistratie](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) voor uw logische app via [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Vereist dat er al een [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) werkruimte. | 
+   | **Log Analytics** | **Uit** (standaard) of **op** | Schakel [Diagnostische logboekregistratie](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) voor uw logische app via [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Vereist dat er al een werkruimte voor logboekanalyse. | 
    |||| 
 
 4. Wanneer u klaar bent, selecteert u **Vastmaken aan dashboard**. Op die manier wordt uw logische app automatisch weergegeven op uw Azure-dashboard en wordt geopend na de implementatie. Kies **Maken**.

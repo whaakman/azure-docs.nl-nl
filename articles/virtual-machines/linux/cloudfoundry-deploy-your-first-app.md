@@ -2,12 +2,12 @@
 title: Uw eerste app implementeren in Cloud Foundry op Microsoft Azure | Microsoft Docs
 description: Een toepassing implementeert op Cloud Foundry op Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: seanmck
-manager: timlt
-editor: 
-tags: 
-keywords: 
+manager: jeconnoc
+editor: ''
+tags: ''
+keywords: ''
 ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b617127fc0a3f8dcae293e356ea669edcfa5deff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e7b321c9fc8f8568cd8109cea0ae877048d3663
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Uw eerste app implementeren in Cloud Foundry op Microsoft Azure
 
@@ -35,7 +35,7 @@ Er zijn verschillende opties voor het maken van een Cloud Foundry-omgeving op Az
 - [Implementeert de open source Cloud Foundry-pakketten rechtstreeks] [ oss-cf-bosh] door het instellen van een [BOSH](http://bosh.io) directeur, een virtuele machine die de implementatie van de Cloud Foundry-omgeving coördineert.
 
 > [!IMPORTANT] 
-> Als u PCF vanuit Azure Marketplace implementeert, noteer de SYSTEMDOMAINURL en de beheerdersreferenties nodig voor toegang tot de belangrijke Manager van de Apps die worden beschreven in de marketplace-Implementatiehandleiding. Ze zijn nodig om deze zelfstudie te voltooien. Voor implementaties van marketplace is de SYSTEMDOMAINURL in het formulier https://system. *IP-adres*. cf.pcfazure.com.
+> Als u PCF vanuit Azure Marketplace implementeert, noteer de SYSTEMDOMAINURL en de beheerdersreferenties nodig voor toegang tot de belangrijke Manager van de Apps die worden beschreven in de marketplace-Implementatiehandleiding. Ze zijn nodig om deze zelfstudie te voltooien. De SYSTEMDOMAINURL is voor implementaties van marketplace, in het formulier https://system. *IP-adres*. cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Verbinding maken met de domeincontroller van de Cloud
 

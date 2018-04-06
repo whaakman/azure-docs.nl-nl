@@ -2,10 +2,10 @@
 title: Linux VM's in een cluster HPC Pack compute | Microsoft Docs
 description: Meer informatie over het maken en gebruiken van een HPC Pack-cluster in Azure voor Linux van de high performance computing (HPC)-workloads
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 4d080fdd-5ffe-4f54-a78d-4c818f6eb3fb
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Aan de slag met Linux-rekenknooppunten in een HPC Pack-cluster in Azure
 Instellen van een [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) cluster in Azure met een hoofdknooppunt met Windows Server en meerdere rekenknooppunten met een ondersteunde Linux-distributie. Gebruik de opties voor het verplaatsen van gegevens tussen de Linux-knooppunten en het Windows-hoofdknooppunt van het cluster. Informatie over het verzenden van Linux HPC-taken voor het cluster.
@@ -46,7 +46,7 @@ Zie voor meer informatie over opties voor de implementatie van HPC Pack cluster 
 * **Linux-distributies** -momenteel HPC Pack ondersteunt de volgende Linux-distributies voor rekenknooppunten. U kunt Marketplace-versies van deze verdelingen gebruiken indien beschikbaar, of geef uw eigen.
   
   * **Op basis van centOS**: 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, 6.5 HPC, 7.1 HPC
-  * **Red Hat Enterprise Linux**: 6.7, 6,8, 7.2
+  * **Red Hat Enterprise Linux**: 6.7, 6.8, 7.2
   * **SUSE Linux Enterprise Server**: SLES 12 SLES 12 (Premium) SLES 12 SP1, SLES 12 SP1 (Premium) SLES 12 voor HPC SLES 12 voor HPC (Premium)
   * **Ubuntu Server**: 14.04 TNS, 16.04 TNS
     
@@ -221,7 +221,7 @@ U kunt ook een gedeelde map van het hoofdknooppunt op Linux-knooppunten koppelen
    
     ![Machtigingen voor de bestandsshare][fileshareperms]
    
-    ![Delen van bestanden][filesharing]
+    ![Bestandsdeling][filesharing]
 2. Open een Windows PowerShell-venster en voer de volgende opdrachten:
    
     ```powershell
@@ -266,7 +266,7 @@ Er zijn verschillende manieren om taken voor het cluster HPC Pack te verzenden:
 
 * HPC Cluster Manager of HPC Job Manager GUI
 * HPC-webportal
-* REST API
+* REST-API
 
 Verzenden van de taak aan het cluster in Azure via HPC Pack GUI-hulpprogramma's en de HPC-webportal zijn hetzelfde als voor Windows rekenknooppunten. Zie [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) en [het verzenden van taken van een on-premises clientcomputer](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

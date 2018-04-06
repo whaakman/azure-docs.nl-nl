@@ -2,10 +2,10 @@
 title: Overzicht van Azure Linux VM-Agent | Microsoft Docs
 description: Informatie over het installeren en configureren van Linux-Agent (waagent) voor het beheren van uw virtuele machine interactie met Azure-Infrastructuurcontroller.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: be3955c670382af1a2b558e8e7d656ca5a1f353d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Uitleg en het gebruik van de Azure Linux Agent
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -79,12 +79,12 @@ De volgende systemen zijn getest en bekend zijn bij het werken met de Azure Linu
 > 
 
 * CoreOS
-* CentOS 6.3 +
-* Red Hat Enterprise Linux 6.7 +
-* Debian 7.0 +
-* Ubuntu 12.04 +
+* CentOS 6.3+
+* Red Hat Enterprise Linux 6.7+
+* Debian 7.0+
+* Ubuntu 12.04+
 * openSUSE 12.3 +
-* SLES 11 SP3 +
+* SLES 11 SP3+
 * Oracle Linux 6.4 +
 
 Andere ondersteunde systemen:
@@ -94,15 +94,15 @@ Andere ondersteunde systemen:
 De Linux-agent is afhankelijk van sommige systeempakketten juist werken als:
 
 * Python 2.6 +
-* OpenSSL 1.0 +
-* OpenSSH 5.3 +
+* OpenSSL 1.0+
+* OpenSSH 5.3+
 * Hulpprogramma's voor FileSystem: sfdisk fdisk, mkfs, gescheiden
 * Hulpprogramma's voor wachtwoord: chpasswd, sudo
 * Tekst voor het verwerken van hulpprogramma's: ype, grep
 * Hulpprogramma's voor netwerk: IP-route
 * Kernel-ondersteuning voor het koppelen van de UDF-bestandssystemen.
 
-## <a name="installation"></a>Installeren
+## <a name="installation"></a>Installatie
 Installatie met een RPM of een pakket DEB vanuit uw distributiepunt pakket opslagplaats is de voorkeursmethode voor installatie en upgrade van de Azure Linux Agent. Alle de [goedgekeurd door providers van distributie](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) het Azure Linux agentpakket integreren in hun installatiekopieën en -opslagplaatsen.
 
 Raadpleeg de documentatie in de [Azure Linux Agent opslagplaats op GitHub](https://github.com/Azure/WALinuxAgent) voor Geavanceerde installatieopties, zoals het installeren van de bron of naar aangepaste locaties of voorvoegsels.
@@ -273,19 +273,19 @@ Standaard: n
 
 Als de set, logboek uitgebreidheid wordt versterkt. Waagent /var/log/waagent.log zich aanmeldt en maakt gebruik van de functionaliteit van de logrotate systeem om te draaien Logboeken.
 
-**OS. EnableRDMA**  
+**OS.EnableRDMA**  
 Type: Booleaanse  
 Standaard: n
 
 Als is ingesteld, de agent probeert te installeren en vervolgens een RDMA-kernel-stuurprogramma dat overeenkomt met de versie van de firmware van de onderliggende hardware laden.
 
-**OS. RootDeviceScsiTimeout:**  
+**OS.RootDeviceScsiTimeout:**  
 Type: geheel getal  
 Standaard: 300
 
 Hiermee configureert u de SCSI-time-out in seconden op de OS-schijf- en stations. Als dat niet is ingesteld, het systeem standaardwaarden worden gebruikt.
 
-**OS. OpensslPath:**  
+**OS.OpensslPath:**  
 Type: String  
 Standaard: geen
 

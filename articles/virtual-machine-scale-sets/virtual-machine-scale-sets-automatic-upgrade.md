@@ -2,12 +2,12 @@
 title: Automatische upgrades voor het besturingssysteem met de virtuele machine van Azure schalen sets | Microsoft Docs
 description: Meer informatie over het automatisch bijwerken van het besturingssysteem op de VM-exemplaren in een schaalset
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 28a9b3d68037aac0c1198da4232c045487b01174
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Virtuele machine van Azure-schaalset automatische upgrades voor het besturingssysteem
 
@@ -93,9 +93,9 @@ De volgende SKU's die momenteel worden ondersteund (meer worden toegevoegd):
 > [!NOTE]
 > Deze sectie geldt alleen voor zonder Service Fabric-schaalsets. Service Fabric heeft een eigen begrip van de toepassingsstatus. Als u automatische Upgrades voor het besturingssysteem met Service Fabric, wordt de nieuwe installatiekopie van het besturingssysteem uitgerold Updatedomein door Updatedomein hoge beschikbaarheid van de services die worden uitgevoerd in Service Fabric onderhouden. Zie voor meer informatie over de kenmerken duurzaamheid van Service Fabric-clusters [deze documentatie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
-Tijdens een OS Upgrade VM-exemplaren in een schaalset zijn bijgewerkt één batch tegelijk. De upgrade moet alleen doorgaan als de Klanttoepassing op de bijgewerkte VM-exemplaren in orde is. We raden aan dat de toepassing health signalen met de scale set OS Upgrade-engine biedt. Standaard tijdens Upgrades voor het besturingssysteem acht het platform VM energiestatus en extensie Inrichtingsstatus om te bepalen of een VM-exemplaar in orde na een upgrade. Tijdens het bijwerken van het besturingssysteem van een VM-instantie, is schijf met het besturingssysteem op een VM-exemplaar vervangen door een nieuwe schijf op basis van de meest recente versie van de installatiekopie. Nadat het bijwerken van het besturingssysteem is voltooid, wordt de geconfigureerde extensies worden uitgevoerd op deze virtuele machines. Alleen wanneer de extensies op een virtuele machine met succes zijn ingericht, wordt de toepassing beschouwd als in orde. 
+Tijdens een OS Upgrade VM-exemplaren in een schaalset zijn bijgewerkt één batch tegelijk. De upgrade moet alleen doorgaan als de Klanttoepassing op de bijgewerkte VM-exemplaren in orde is. Daarom is vereist dat de toepassing health signalen met de scale set OS Upgrade-engine biedt. Tijdens Upgrades voor het besturingssysteem beschouwt het platform VM energiestatus en extensie Inrichtingsstatus om te bepalen of een VM-exemplaar in orde na een upgrade. Tijdens het bijwerken van het besturingssysteem van een VM-instantie, is schijf met het besturingssysteem op een VM-exemplaar vervangen door een nieuwe schijf op basis van de meest recente versie van de installatiekopie. Nadat het bijwerken van het besturingssysteem is voltooid, wordt de geconfigureerde extensies worden uitgevoerd op deze virtuele machines. Alleen wanneer de extensies op een virtuele machine met succes zijn ingericht, wordt de toepassing beschouwd als in orde. 
 
-Een schaalset kan eventueel worden geconfigureerd met de toepassing statuscontroles om te voorzien van het platform nauwkeurige informatie over de actieve status van de toepassing. Statuscontroles van toepassing zijn aangepast Load Balancer-tests die worden gebruikt als een signaal health. De toepassing die wordt uitgevoerd op een scale set VM-instantie kan reageren op de externe HTTP of TCP-aanvragen die aangeeft of het goed is. Zie voor meer informatie over de werking aangepaste voor Load Balancer-tests [Understand load balancer tests](../load-balancer/load-balancer-custom-probe-overview.md). Een toepassing Health test is niet vereist voor automatische upgrades voor het besturingssysteem, maar er wordt sterk aanbevolen.
+Bovendien de schaalaanpassingsset *moet* worden geconfigureerd met de toepassing statuscontroles om te voorzien van het platform nauwkeurige informatie over de actieve status van de toepassing. Statuscontroles van toepassing zijn aangepast Load Balancer-tests die worden gebruikt als een signaal health. De toepassing die wordt uitgevoerd op een scale set VM-instantie kan reageren op de externe HTTP of TCP-aanvragen die aangeeft of het goed is. Zie voor meer informatie over de werking aangepaste voor Load Balancer-tests [Understand load balancer tests](../load-balancer/load-balancer-custom-probe-overview.md).
 
 Als de schaalaanpassingsset is geconfigureerd voor het gebruik van meerdere groepen voor plaatsing, tests met behulp van een [standaard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) moet worden gebruikt.
 
@@ -110,7 +110,7 @@ De aanbevolen stappen voor het herstellen van virtuele machines en schakelt u au
 * Implementeer de bijgewerkte scale ingesteld die alle VM-instanties, waaronder mislukte die wordt bijgewerkt. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Stel een aangepaste Load Balancer-test als de toepassing Health test op schaal configureren
-Als een best practice, maakt u een load balancer-test expliciet voor health-schaalset. Hetzelfde eindpunt voor een bestaande HTTP-test of de TCP-controle kan worden gebruikt, maar een health test mogelijk verschillend gedrag van een traditionele load balancer-test. Zo kan een traditionele load balancer-test slecht als de belasting van het exemplaar te hoog is, is terwijl die niet altijd geschikt voor het bepalen van de status van het exemplaar bij een automatische OS upgrade retourneren. Configureer de test met een hoge Zoek frequentie van minder dan twee minuten.
+U *moet* expliciet maakt u een load balancer-test voor health-schaalset. Hetzelfde eindpunt voor een bestaande HTTP-test of de TCP-controle kan worden gebruikt, maar een health test mogelijk verschillend gedrag van een traditionele load balancer-test. Zo kan een traditionele load balancer-test slecht als de belasting van het exemplaar te hoog is, is terwijl die niet altijd geschikt voor het bepalen van de status van het exemplaar bij een automatische OS upgrade retourneren. Configureer de test met een hoge Zoek frequentie van minder dan twee minuten.
 
 De load balancer-test kan worden verwezen de *Schaalaanpassingsset* van de schaal ingesteld en kan worden gekoppeld aan beide een intern of openbaar gerichte load balancer als volgt:
 
@@ -227,7 +227,7 @@ Als u over het gebruik van statustesten van de toepassing wilt uitbreiden, uitvo
 2. Identificeer de volgende batch van VM-exemplaren te werken met een batch met maximaal 20% van totaal aantal exemplaren.
 3. Werk het besturingssysteem van de volgende batch van VM-exemplaren.
 4. Als er meer dan 20% van de bijgewerkte exemplaren zijn niet in orde, stopt u de upgrade; Anders gaat u verder.
-5. Als de klant heeft geconfigureerd statuscontroles van toepassing, de upgrade wordt gewacht tot vijf minuten voor tests aan de orde, wordt onmiddellijk gaat door op de volgende batch; anders wordt er 30 minuten zijn verstreken voordat u doorgaat naar de volgende batch.
+5. Voor schaalsets die geen deel uitmaken van een Service Fabric-cluster, de upgrade wordt gewacht tot vijf minuten duren voor de tests worden in orde en vervolgens onmiddellijk gaat door op de volgende batch. De schaal ingesteld wacht 30 minuten voordat u doorgaat naar de volgende batch voor schaalsets die deel van een Service Fabric-cluster uitmaken.
 6. Als er nog exemplaren om bij te werken, Ga naar de stap 1) voor de volgende batch; anders is de upgrade is voltooid.
 
 De OS Upgrade-Engine-controles voor de algehele status van de VM-exemplaar vóór de upgrade van elke batch-schaalset. Tijdens het upgraden van een batch, mogelijk zijn er andere gelijktijdige gepland of ongepland onderhoud gebeurt er in de Azure-Datacenters die mogelijk van invloed op beschikbaarheid van uw virtuele machines. Het is daarom mogelijk tijdelijk meer dan 20% van instanties mogelijk uitgeschakeld. In dergelijke gevallen aan het einde van de huidige batch de schaal ingesteld upgrade stopt.
@@ -237,7 +237,8 @@ De OS Upgrade-Engine-controles voor de algehele status van de VM-exemplaar vóó
 
 U kunt de volgende sjabloon gebruiken voor het implementeren van een schaalset die gebruikmaakt van automatische upgrades <a href='https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json'>automatische rolling upgrades - Ubuntu 16.04-TNS</a>
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 

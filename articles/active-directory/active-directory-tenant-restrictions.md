@@ -2,23 +2,23 @@
 title: Beheer toegang tot cloud-apps door het beperken van tenants - Azure | Microsoft Docs
 description: Het gebruik van beperkingen van de Tenant te beheren welke gebruikers toegang apps op basis van hun Azure AD-tenant tot.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
 editor: yossib
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: 63e0fa54433a60fe7384d21cf7d215cc8283afca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Gebruik Tenant beperkingen voor het beheren van toegang tot SaaS cloudtoepassingen
 
@@ -71,8 +71,8 @@ De volgende configuratie is vereist voor het inschakelen van beperkingen van de 
 Voor elke inkomende aanvraag login.microsoftonline.com, login.microsoft.com en login.windows.net invoegen twee HTTP-headers: *Restrict Access aan Tenants* en *Restrict Access Context*.
 
 De headers moeten de volgende elementen zijn: 
-- Voor *Restrict Access aan Tenants*, een waarde van \<tenant lijst toegestaan\>, dit is een door komma's gescheiden lijst met tenants die u wilt toestaan dat gebruikers toegang krijgen tot. Elk domein dat is geregistreerd bij een tenant kan worden gebruikt voor het identificeren van de tenant in deze lijst. Bijvoorbeeld, om toegang te verlenen aan zowel Contoso en Fabrikam-tenants, de naam/waarde-paar ziet eruit als:`Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
-- Voor *Restrict Access Context*, een waarde van één map-ID, declareren waarover de Tenant-beperkingen configureert. Bijvoorbeeld, om te declareren Contoso als de tenant die de beperkingen van de Tenant-beleid instellen, de naam/waarde-paar ziet eruit als:`Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+- Voor *Restrict Access aan Tenants*, een waarde van \<tenant lijst toegestaan\>, dit is een door komma's gescheiden lijst met tenants die u wilt toestaan dat gebruikers toegang krijgen tot. Elk domein dat is geregistreerd bij een tenant kan worden gebruikt voor het identificeren van de tenant in deze lijst. Bijvoorbeeld, om toegang te verlenen aan zowel Contoso en Fabrikam-tenants, de naam/waarde-paar ziet eruit als:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+- Voor *Restrict Access Context*, een waarde van één map-ID, declareren waarover de Tenant-beperkingen configureert. Bijvoorbeeld, om te declareren Contoso als de tenant die de beperkingen van de Tenant-beleid instellen, de naam/waarde-paar ziet eruit als: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
 > U vindt de ID van uw directory in de [Azure-portal](https://portal.azure.com). Meld u aan als beheerder, selecteer **Azure Active Directory**, selecteer daarna **eigenschappen**.
@@ -112,7 +112,9 @@ Raadpleeg [moderne authenticatie van Office 365 bijgewerkt](https://blogs.office
 
 Beperkingen van de tenant wordt momenteel ondersteund door Office 365-browser gebaseerde toepassingen (de Office-Portal, Yammer, SharePoint-sites, Outlook op het Web, enz.). Voor Rich clients (Outlook, Skype voor bedrijven, Word, Excel, PowerPoint, enz.) Beperkingen van de tenant kunnen alleen worden afgedwongen wanneer moderne verificatie wordt gebruikt.  
 
-Outlook en Skype voor bedrijven-clients die moderne verificatie ondersteunen kunnen nog steeds gebruik van verouderde protocollen tegen tenants waarop moderne verificatie niet is ingeschakeld, effectief Tenant beperkingen omzeilen. Voor Outlook op Windows, kunnen klanten ervoor kiezen om te voorkomen dat eindgebruikers niet-goedgekeurde e-mailaccounts toevoegen aan hun profielen beperkingen implementeren. Zie bijvoorbeeld de [Voorkom het toevoegen van niet-standaard Exchange-accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) instellen via Groepsbeleid. Voor Outlook op niet-Windows-platforms, en voor Skype voor bedrijven op alle platforms is volledige ondersteuning voor de beperkingen van de Tenant momenteel niet beschikbaar.
+Outlook en Skype voor bedrijven-clients die moderne verificatie ondersteunen mogelijk kunnen met verouderde protocollen tegen tenants waarop moderne verificatie niet is ingeschakeld, effectief Tenant beperkingen omzeilen. Toepassingen die gebruikmaken van verouderde protocollen worden geblokkeerd door een Tenant beperkingen als ze contact opneemt met login.microsoftonline.com, login.microsoft.com of login.windows.net tijdens de verificatie.
+
+Voor Outlook op Windows, kunnen klanten ervoor kiezen om te voorkomen dat eindgebruikers niet-goedgekeurde e-mailaccounts toevoegen aan hun profielen beperkingen implementeren. Zie bijvoorbeeld de [Voorkom het toevoegen van niet-standaard Exchange-accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) instellen via Groepsbeleid. Voor Outlook op niet-Windows-platforms, en voor Skype voor bedrijven op alle platforms is volledige ondersteuning voor de beperkingen van de Tenant momenteel niet beschikbaar.
 
 ## <a name="testing"></a>Testen
 

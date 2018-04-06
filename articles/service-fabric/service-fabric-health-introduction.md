@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c5ce0a765451171f7cbd6d875d4302d1e406b4f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Inleiding tot de statuscontrole Service Fabric
 Azure Service Fabric introduceert een statusmodel waarmee de uitgebreide, flexibele en uitbreidbare statusevaluatie en rapportage. Het model kunt near-realtime bewaking van de status van het cluster en de services die erin worden uitgevoerd. Kunt u eenvoudig verkrijgen van informatie en corrigeer eventuele problemen voordat ze trapsgewijs en grote storingen veroorzaken. In het typische model services verzenden rapporten op basis van hun lokale weergaven en dat er gegevens worden samengevoegd om op te geven van een algemene-clusterniveau weergeven.

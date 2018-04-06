@@ -1,12 +1,13 @@
 ---
-title: Doorsturen van netwerkverkeer - Azure PowerShell | Microsoft Docs
-description: Informatie over het netwerkverkeer omgeleid met een routetabel met behulp van PowerShell.
+title: Doorsturen van netwerkverkeer Azure PowerShell | Microsoft Docs
+description: Informatie over het netwerkverkeer omgeleid met een routetabel met behulp van PowerShell in dit artikel.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
@@ -16,24 +17,23 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6f3bd2a9683daf5f523cc5cfe43e568fb508694
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Doorsturen van netwerkverkeer met een routetabel met behulp van PowerShell
 
 Azure automatisch routes verkeer tussen alle subnetten in een virtueel netwerk, standaard. U kunt uw eigen routes voor het overschrijven van Azure maken standaardroutering. De mogelijkheid voor het maken van aangepaste routes is handig als u bijvoorbeeld het routeren van verkeer tussen subnetten via een netwerk (NVA) voor virtueel apparaat. In dit artikel leert u hoe:
 
-> [!div class="checklist"]
-> * Een routetabel maken
-> * Een route maken
-> * Een virtueel netwerk maken met meerdere subnetten
-> * Een routetabel aan een subnet koppelen
-> * Maken van een NVA waarmee verkeer
-> * Virtuele machines (VM) implementeren in verschillende subnetten
-> * Verkeer leiden uit één subnet naar een andere door middel van een NVA
+* Een routetabel maken
+* Een route maken
+* Een virtueel netwerk maken met meerdere subnetten
+* Een routetabel aan een subnet koppelen
+* Maken van een NVA waarmee verkeer
+* Virtuele machines (VM) implementeren in verschillende subnetten
+* Verkeer leiden uit één subnet naar een andere door middel van een NVA
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -239,43 +239,43 @@ Open het gedownloade RDP-bestand. Als u wordt gevraagd, selecteert u **Connect**
 
 Geef de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de virtuele machine (mogelijk moet u selecteren **meer opties**, vervolgens **gebruik een ander account**, de referenties die u hebt opgegeven tijdens het maken van de virtuele machine opgeven), Selecteer vervolgens **OK**. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Selecteer **Ja** om door te gaan met de verbinding. 
 
-In een latere stap, de opdracht tracert.exe gebruikt voor het testen van routering. Tracert maakt gebruik van het Internet Control Message Protocol (ICMP), die via de Windows Firewall is geweigerd. ICMP inschakelen via de Windows firewall met de volgende opdracht vanuit PowerShell:
+In een latere stap, de opdracht tracert.exe gebruikt voor het testen van routering. Tracert maakt gebruik van het Internet Control Message Protocol (ICMP), die via de Windows Firewall is geweigerd. ICMP inschakelen via de Windows firewall met de volgende opdracht vanuit PowerShell op de *myVmPrivate* VM:
 
 ```powershell
-New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
+New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 ```
 
-Hoewel tracert wordt gebruikt voor het testen van routering in dit artikel, wordt zodat ICMP via de Windows Firewall voor productie-implementaties niet aanbevolen.
+Hoewel de opdracht Traceroute wordt gebruikt voor het testen van routering in dit artikel, wordt zodat ICMP via de Windows Firewall voor productie-implementaties niet aanbevolen.
 
-Inschakelen van doorsturen via IP in het besturingssysteem van de *myVmNva* door de volgende stappen uit te voeren de *myVmPrivate* VM:
+U doorsturen via IP in Azure voor de netwerkinterface van de VM in ingeschakeld [Enable IP fowarding](#enable-ip-forwarding). In de VM moet het besturingssysteem of een toepassing die wordt uitgevoerd vanuit de virtuele machine, ook kunnen voor het doorsturen van netwerkverkeer. Inschakelen van doorsturen via IP in het besturingssysteem van de *myVmNva*.
 
-Extern bureaublad naar de *myVmNva* VM met de volgende opdracht vanuit PowerShell:
+Vanaf een opdrachtprompt op de *myVmPrivate* VM, extern bureaublad naar de *myVmNva*:
 
 ``` 
 mstsc /v:myvmnva
 ```
     
-Voer de volgende opdracht in PowerShell zodat doorsturen via in het besturingssysteem IP:
+Voer zodat doorsturen via IP in het besturingssysteem de volgende opdracht in PowerShell uit de *myVmNva* VM:
 
 ```powershell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
     
-Start opnieuw op de virtuele machine, die ook ontkoppeld van de extern bureaublad-sessiehost.
+Start opnieuw op de *myVmNva* VM, die ook ontkoppeld van de extern bureaublad-sessiehost.
 
-Tijdens het nog wordt verbonden met de *myVmPrivate* VM na het *myVmNva* VM opnieuw wordt opgestart, maken een extern-bureaubladsessie naar de *myVmPublic* VM met de volgende opdracht:
+Tijdens het nog wordt verbonden met de *myVmPrivate* VM, een extern-bureaubladsessie met de *myVmPublic* VM na het *myVmNva* VM opnieuw wordt opgestart:
 
 ``` 
 mstsc /v:myVmPublic
 ```
     
-ICMP inschakelen via de Windows firewall met de volgende opdracht vanuit PowerShell:
+ICMP inschakelen via de Windows firewall met de volgende opdracht vanuit PowerShell op de *myVmPublic* VM:
 
 ```powershell
-New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-Voor het testen van routering van netwerkverkeer naar de *myVmPrivate* VM van de *myVmPublic* virtuele machine, voer de volgende opdracht vanuit PowerShell:
+Voor het testen van routering van netwerkverkeer naar de *myVmPrivate* VM van de *myVmPublic* virtuele machine, voer de volgende opdracht vanuit PowerShell op de *myVmPublic* VM:
 
 ```
 tracert myVmPrivate
@@ -293,10 +293,11 @@ over a maximum of 30 hops:
 Trace complete.
 ```
       
-U ziet dat de eerste hop 10.0.2.4 die de virtuele netwerkapparaat van privé IP-adres is. De tweede hop is 10.0.1.4, de persoonlijke IP-adres van de *myVmPrivate* VM. De route toegevoegd aan de *myRouteTablePublic* routetabel en die is gekoppeld aan de *openbare* subnet veroorzaakt Azure voor het routeren van het verkeer via de NVA in plaats van rechtstreeks naar de *persoonlijke* subnet.
+U ziet dat de eerste hop 10.0.2.4 die de NVA privé IP-adres is. De tweede hop is 10.0.1.4, de persoonlijke IP-adres van de *myVmPrivate* VM. De route toegevoegd aan de *myRouteTablePublic* routetabel en die is gekoppeld aan de *openbare* subnet veroorzaakt Azure voor het routeren van het verkeer via de NVA in plaats van rechtstreeks naar de *persoonlijke* subnet.
 
 Sluit de extern-bureaubladsessie naar de *myVmPublic* VM, zodat u nog steeds is verbonden met de *myVmPrivate* VM.
-Voor het testen van routering van netwerkverkeer naar de *myVmPublic* VM van de *myVmPrivate* virtuele machine, voer de volgende opdracht uit vanaf de opdrachtprompt:
+
+Voor het testen van routering van netwerkverkeer naar de *myVmPublic* VM van de *myVmPrivate* virtuele machine, voer de volgende opdracht vanaf een opdrachtprompt op de *myVmPrivate* VM:
 
 ```
 tracert myVmPublic
@@ -309,7 +310,7 @@ Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net 
 over a maximum of 30 hops:
     
 1     1 ms     1 ms     1 ms  10.0.0.4
-    
+   
 Trace complete.
 ```
 
@@ -327,9 +328,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel wordt een routetabel gemaakt en gekoppeld aan een subnet. U hebt gemaakt met een eenvoudig virtueel netwerkapparaat dat verkeer van een openbare subnet naar een persoonlijke subnet gerouteerd. Implementeren van tal van vooraf geconfigureerde virtuele netwerkapparaten die netwerkfuncties zoals firewall en WAN-optimalisatie van uitvoeren de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Voordat u implementeert routetabellen voor gebruik in productieomgevingen, wordt aanbevolen dat u zorgvuldig vertrouwd raken met [routering in Azure](virtual-networks-udr-overview.md), [beheren routetabellen](manage-route-table.md), en [Azure beperkt](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+In dit artikel wordt een routetabel gemaakt en gekoppeld aan een subnet. U hebt gemaakt met een eenvoudig virtueel netwerkapparaat dat verkeer van een openbare subnet naar een persoonlijke subnet gerouteerd. Implementeren van tal van vooraf geconfigureerde virtuele netwerkapparaten die netwerkfuncties zoals firewall en WAN-optimalisatie van uitvoeren de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Zie voor meer informatie over routering, [Routering-overzicht](virtual-networks-udr-overview.md) en [beheren een routetabel](manage-route-table.md).
 
-Terwijl u veel Azure-resources binnen een virtueel netwerk implementeren kunt, kunnen geen resources voor sommige Azure PaaS-services worden geïmplementeerd in een virtueel netwerk. U kunt nog steeds toegang beperken tot de bronnen van sommige services Azure PaaS verkeer alleen via een virtueel netwerksubnet al. Ga naar de volgende zelfstudie voor informatie over het netwerktoegang tot Azure PaaS-resources te beperken.
-
-> [!div class="nextstepaction"]
-> [Beperken van toegang tot het netwerk voor PaaS-resources](tutorial-restrict-network-access-to-resources-powershell.md)
+Terwijl u veel Azure-resources binnen een virtueel netwerk implementeren kunt, kunnen geen resources voor sommige Azure PaaS-services worden geïmplementeerd in een virtueel netwerk. U kunt nog steeds toegang beperken tot de bronnen van sommige services Azure PaaS verkeer alleen via een virtueel netwerksubnet al. Voor meer informatie Zie [beperken van toegang tot het netwerk voor PaaS-resources](tutorial-restrict-network-access-to-resources-powershell.md).

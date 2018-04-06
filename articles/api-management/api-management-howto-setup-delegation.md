@@ -2,10 +2,10 @@
 title: Het overdragen van de gebruiker de registratie- en productinformatie abonnement
 description: Informatie over het overdragen van de registratie en product gebruikerabonnement aan een derde partij in Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8c19111ed966ff89a2934dd5232625aab1f8b28b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Het overdragen van de gebruiker de registratie- en productinformatie abonnement
 Overdracht kunt u uw bestaande website te gebruiken voor het verwerken van ontwikkelaars sign-in/sign-up-to-date en abonnement op producten in plaats van met behulp van de ingebouwde functie in de portal voor ontwikkelaars. Hierdoor kan uw website aan de eigenaar van de gebruikersgegevens en de validatie van de volgende stappen uitvoeren in een aangepaste manier.
@@ -173,7 +173,7 @@ Zie voor meer informatie over delegering, de volgende video:
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [eenmalige aanmelding (SSO)-token van een aanvraag]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[Een gebruiker maken]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
+[Een gebruiker maken]: https://docs.microsoft.com/en-us/rest/api/apimanagement/user/createorupdate
 [aanroepen van de REST-API voor het product abonnement]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [voorbeeldcode hieronder]: #delegate-example-code

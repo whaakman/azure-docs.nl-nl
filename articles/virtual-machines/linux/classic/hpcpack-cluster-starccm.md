@@ -2,10 +2,10 @@
 title: Uitvoeren van de STER-CCM + met HPC Pack op de virtuele Linux-machines | Microsoft Docs
 description: Een Microsoft HPC Pack cluster in Azure implementeren en uitvoeren van een STER-taak CCM + op meerdere Linux-rekenknooppunten via een netwerk RDMA.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: xpillons
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 75523406-d268-4623-ac3e-811c7b74de4b
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8689d7abfd5ab45277df3b5672a1f6e7e874d88e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Uitvoeren van de STER-CCM + met Microsoft HPC Pack op een Linux RDMA-cluster in Azure
 Dit artikel ziet u het implementeren van een cluster Microsoft HPC Pack op Azure en voer een [CD adapco STER-CCM +](http://www.cd-adapco.com/products/star-ccm%C2%AE) taak op meerdere Linux-rekenknooppunten die met elkaar door middel van InfiniBand verbonden zijn.
@@ -284,7 +284,7 @@ Vervang **runner.java** met uw voorkeur STER-CCM + Java model linksboven en logb
     exit ${RTNSTS}
 ```
 
-In onze test hebben we een token Power-On-Demand-licentie gebruikt. Voor die u hebt ingesteld de **$CDLMD_LICENSE_FILE** omgevingsvariabele  **1999@flex.cd-adapco.com**  en de sleutel in de **- podkey** optie van de opdrachtregel.
+In onze test hebben we een token Power-On-Demand-licentie gebruikt. Voor die u hebt ingesteld de **$CDLMD_LICENSE_FILE** omgevingsvariabele **1999@flex.cd-adapco.com** en de sleutel in de **- podkey** optie van de opdrachtregel.
 
 Na enkele initialisatie pakt het script--uit de **$CCP_NODES_CORES** omgevingsvariabelen die HPC Pack instellen--de lijst met knooppunten voor het bouwen van een hostfile die gebruikmaakt van het MPI-venster te starten. Deze hostfile bevat de lijst met namen van de compute nodes die worden gebruikt voor de taak één naam per regel.
 
@@ -296,19 +296,19 @@ De indeling van **$CCP_NODES_CORES** volgt dit patroon:
 
 Waar:
 
-* `<Number of nodes>`is het aantal knooppunten dat is toegewezen aan deze taak.
-* `<Name of node_n_...>`is de naam van elk knooppunt dat is toegewezen aan deze taak.
-* `<Cores of node_n_...>`is het aantal kernen op het knooppunt dat is toegewezen aan deze taak.
+* `<Number of nodes>` is het aantal knooppunten dat is toegewezen aan deze taak.
+* `<Name of node_n_...>` is de naam van elk knooppunt dat is toegewezen aan deze taak.
+* `<Cores of node_n_...>` is het aantal kernen op het knooppunt dat is toegewezen aan deze taak.
 
 Het aantal kernen (**$NBCORES**) ook wordt berekend op basis van het aantal knooppunten (**$NBNODES**) en het aantal kernen per knooppunt (opgegeven als parameter **$NBCORESPERNODE**).
 
 Voor de MPI-opties zijn de waarden die worden gebruikt met Intel MPI op Azure:
 
-* `-mpi intel`Intel MPI opgeven.
-* `-fabric UDAPL`Azure InfiniBand-woorden gebruiken.
-* `-cpubind bandwidth,v`bandbreedte optimaliseren voor MPI met STER-CCM +.
-* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"`om Intel MPI werken met Azure InfiniBand en instellen van het vereiste aantal kernen per knooppunt.
-* `-batch`starten van de STER-CCM + in batchmodus met geen gebruikersinterface.
+* `-mpi intel` Intel MPI opgeven.
+* `-fabric UDAPL` Azure InfiniBand-woorden gebruiken.
+* `-cpubind bandwidth,v` bandbreedte optimaliseren voor MPI met STER-CCM +.
+* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` om Intel MPI werken met Azure InfiniBand en instellen van het vereiste aantal kernen per knooppunt.
+* `-batch` starten van de STER-CCM + in batchmodus met geen gebruikersinterface.
 
 Ten slotte voor het starten van een taak, zorg dat uw knooppunten actief zijn en online in de Cluster-beheer zijn. Vanuit een PowerShell-opdrachtprompt voert u dit:
 
