@@ -2,10 +2,10 @@
 title: Maak verbinding met Operations Manager met Log Analytics | Microsoft Docs
 description: Voor het onderhouden van uw bestaande investeringen in System Center Operations Manager en de uitgebreide mogelijkheden met Log Analytics gebruiken, kunt u de Operations Manager integreren met de OMS-werkruimte.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: magoedte
 ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Maak verbinding met Operations Manager met Log Analytics
 Voor het onderhouden van uw bestaande investeringen in System Center Operations Manager en de uitgebreide mogelijkheden met Log Analytics gebruiken, kunt u de Operations Manager integreren met de OMS-werkruimte.  Hiermee kunt dat u gebruikmaken van de mogelijkheden van OMS terwijl u Operations Manager gebruiken voor:
@@ -101,7 +101,7 @@ De volgende stappen uitvoeren als een interne proxyserver tussen de beheergroep 
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
 2. Vouw Operations Management Suite en klik vervolgens op **verbindingen**.
 3. Klik in de weergave OMS-verbinding op **Proxyserver configureren**.
-4. Op **Wizard Operations Management Suite: proxyserver** pagina **een proxyserver gebruiken voor toegang tot de Operations Management Suite**, en typ vervolgens de URL met het poortnummer, bijvoorbeeld http:// corpproxy:80 en klik vervolgens op **voltooien**.
+4. Op **Wizard Operations Management Suite: proxyserver** pagina **een proxyserver gebruiken voor toegang tot de Operations Management Suite**, en typ vervolgens de URL met het poortnummer, bijvoorbeeld http://corpproxy:80 en klik vervolgens op **voltooien**.
 
 Als de proxyserver verificatie vereist, moet u de volgende stappen voor het configureren van referenties en instellingen die worden doorgegeven naar beheerde computers die rapporteert aan OMS in de beheergroep moet uitvoeren.
 
@@ -159,7 +159,7 @@ Er zijn een aantal verschillende manieren kunt u controleren of uw OMS aan Opera
 3. Afhankelijk van de oplossingen die u hebt ingeschakeld, ziet u een overeenkomstige management pack die worden vermeld in de zoekresultaten.  Bijvoorbeeld, als u de waarschuwing beheeroplossing hebt ingeschakeld, is het management pack Microsoft System Center Advisor waarschuwing Management in de lijst.
 4. Van de **bewaking** bekijken, navigeert u naar de **Operations Management Suite\Health status** weergeven.  Selecteer een beheerserver onder de **status van beheerservers** deelvenster en in de **detailweergave** deelvenster Bevestig de waarde voor eigenschap **URI verificatieservice** komt overeen met de OMS-werkruimte-ID.
    
-   ![OMS-opsmgr-mg-authsvcuri-Property-MS](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
+   ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-oms"></a>Integratie met OMS verwijderen
 Wanneer u integratie tussen uw Operations Manager-beheergroep en de OMS-werkruimte niet meer nodig hebt, zijn er verschillende stappen nodig goed verwijderen van de verbinding en de configuratie in de beheergroep. De volgende procedure moet u de OMS-werkruimte bijwerken door de documentatie van uw beheergroep te verwijderen, verwijder de OMS-connectors en verwijder vervolgens de management packs ondersteunende OMS.   
@@ -172,8 +172,8 @@ Management packs voor de oplossingen u die zijn geïntegreerd met Operations Man
     > Controleer of u hebt geen aangepaste management packs die het woord Advisor of IntelligencePack in de naam voordat u doorgaat, anders de volgende stappen verwijderen uit de beheergroep.
     > 
 
-2. Typ vanaf de opdrachtregel-shell`Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-3. Volgende type`Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+2. Typ vanaf de opdrachtregel-shell `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+3. Volgende type `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 4. Het script gebruiken voor het verwijderen van management packs die een afhankelijkheid hebben van andere management packs van System Center Advisor resterende *RecursiveRemove.ps1* u eerder via het TechNet Script Center hebt gedownload.  
  
     > [!NOTE]
@@ -184,7 +184,7 @@ Management packs voor de oplossingen u die zijn geïntegreerd met Operations Man
 6. Onder **beheer**, selecteer de **Management Packs** knooppunt en in de **zoekt u naar:** in het vak **Advisor** en controleer het volgende Management packs zijn nog steeds in de beheergroep geïmporteerd:
    
    * Microsoft System Center Advisor
-   * Microsoft System Center Advisor interne
+   * Microsoft System Center Advisor Internal
 7. Klik in de OMS-portal op de tegel **Instellingen**.
 8. Selecteer **verbonden gegevensbronnen**.
 9. U ziet in de tabel onder de sectie System Center Operations Manager, de naam van de beheergroep die u wilt verwijderen uit de werkruimte.  Onder de kolom **laatste gegevens**, klikt u op **verwijderen**.  

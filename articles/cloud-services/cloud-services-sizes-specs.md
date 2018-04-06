@@ -2,10 +2,10 @@
 title: De grootte van virtuele machine voor Azure-cloudservices | Microsoft Docs
 description: Geeft de grootte van andere virtuele machines (en -id's) voor Azure cloud service-web- en werkrollen rollen.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
 ms.service: cloud-services
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
 ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Grootten voor Cloudservices
 Dit onderwerp beschrijft de beschikbare grootten en opties voor Cloudservice rolexemplaren (webrollen en werkrollen). Het biedt tevens overwegingen voor de implementatie moet letten bij het plannen van deze bronnen te gebruiken. Is een ID die u in plaats van elke grootte uw [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). Prijzen voor elke grootte beschikbaar zijn op de [Cloud Services-prijzen](https://azure.microsoft.com/pricing/details/cloud-services/) pagina.

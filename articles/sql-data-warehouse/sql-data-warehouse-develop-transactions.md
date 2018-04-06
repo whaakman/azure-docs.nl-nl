@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ae621788-e575-41f5-8bfe-fa04dc4b0b53
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Transacties in SQL datawarehouse
 Zoals u verwachten zou, SQL Data Warehouse biedt ondersteuning voor transacties als onderdeel van de datawarehouse-workload. Om te controleren of dat de prestaties van SQL Data Warehouse wordt onderhouden op grote schaal zijn sommige functies echter beperkt in vergelijking tot SQL Server. In dit artikel worden de verschillen gemarkeerd en geeft een lijst van de andere. 
@@ -46,7 +46,7 @@ In de tabel hieronder de volgende veronderstellingen zijn aangebracht:
 | DW1000 |7.5 |60 |450 |30,000,000 |1,800,000,000 |
 | DW1200 |9 |60 |540 |36,000,000 |2,160,000,000 |
 | DW1500 |11.25 |60 |675 |45,000,000 |2,700,000,000 |
-| DW2000 ZIJN |15 |60 |900 |60,000,000 |3,600,000,000 |
+| DW2000 |15 |60 |900 |60,000,000 |3,600,000,000 |
 | DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
 | DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
 

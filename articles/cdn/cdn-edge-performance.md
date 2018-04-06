@@ -2,10 +2,10 @@
 title: Prestaties van edge-knooppunt in Azure CDN analyseren | Microsoft Docs
 description: Prestaties van edge-knooppunt in Microsoft Azure CDN analyseren. Rand prestaties Analytics biedt gedetailleerde informatie verkeer en bandbreedte gebruik voor de CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Prestaties van edge nod analyseren in Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -107,8 +107,8 @@ Het doel van deze metrische gegevens is om aan te bieden inzicht in de volgende 
 | Geen Cache-Config-Byte-snelheid |Geeft het percentage van het verkeer vanaf de CDN (randservers) wordt aangeboden aan de aanvrager (bijvoorbeeld een webbrowser) die wordt niet in cache worden opgeslagen vanwege de Bypass-Cache-functie. |
 | Gecomprimeerde Byte-snelheid |Geeft het percentage van het verkeer dat is verzonden vanaf de CDN (randservers) naar aanvragers (bijvoorbeeld een webbrowser) in een gecomprimeerde indeling. |
 | Verzonden bytes |Hiermee geeft u de hoeveelheid gegevens in bytes die aan de aanvrager (bijvoorbeeld een webbrowser) vanaf de CDN (randservers) zijn geleverd. |
-| De bytes In |Geeft de hoeveelheid gegevens in bytes verzonden van aanvragers (bijvoorbeeld een webbrowser) naar de CDN (randservers). |
-| Extern bytes |Hiermee geeft u de hoeveelheid gegevens in bytes van CDN en klant oorsprong servers verzonden naar de CDN (randservers). |
+| Bytes In |Geeft de hoeveelheid gegevens in bytes verzonden van aanvragers (bijvoorbeeld een webbrowser) naar de CDN (randservers). |
+| Bytes Remote |Hiermee geeft u de hoeveelheid gegevens in bytes van CDN en klant oorsprong servers verzonden naar de CDN (randservers). |
 
 #### <a name="performance-metrics"></a>Maatstaven voor prestaties
 Het doel van deze metrische gegevens is om bij te houden van CDN-prestaties voor uw-verkeer.
@@ -153,7 +153,7 @@ Elk rapport in deze module bevat een grafiek en statistieken over gebruik van ba
 | Protocollen |Geeft de uitsplitsing van verkeer tussen de protocollen HTTP en HTTPS. Een grafiek ring geeft het percentage treffers dat is opgetreden voor elk type protocol. |
 | HTTP-methoden |Hiermee kunt u een snel beeld van waarmee HTTP-methoden worden gebruikt om aan te vragen van uw gegevens te krijgen. De meest voorkomende HTTP-aanvraagmethoden zijn meestal GET, HEAD en POST. Een grafiek ring geeft het percentage treffers dat is opgetreden voor elk type HTTP-aanvraagmethode. |
 | URL 's |Bevat een grafiek weergegeven waarin de top 10 aangevraagde URL's. Een balk weergegeven voor elke URL. De hoogte van de balk geeft aan hoeveel treffers dat bepaalde URL is gegenereerd via de tijdsspanne waarvoor de lijst. Statistieken voor de top 100 aangevraagde dat URL 's direct onder deze grafiek worden weergegeven. |
-| CNAME-records |Bevat een grafiek weergegeven waarin de top 10 CNAMEs gebruikt voor het aanvragen van activa gedurende de tijd van een rapport omvatten. Statistieken voor de top 100 aangevraagd dat cnames direct onder deze grafiek worden weergegeven. |
+| CNAMEs |Bevat een grafiek weergegeven waarin de top 10 CNAMEs gebruikt voor het aanvragen van activa gedurende de tijd van een rapport omvatten. Statistieken voor de top 100 aangevraagd dat cnames direct onder deze grafiek worden weergegeven. |
 | Oorsprongen |Bevat een grafiek weergegeven waarin de top 10 CDN of klant oorsprong servers van waaruit de activa zijn aangevraagd gedurende een opgegeven periode. Statistieken voor de top 100 aangevraagd CDN of klant oorsprong-servers direct onder deze grafiek worden weergegeven. Klant oorsprong servers worden geïdentificeerd door de naam zijn gedefinieerd in de mapnaam-optie. |
 | Geo-POP 's |Geeft aan hoeveel van uw verkeer wordt gerouteerd via een bepaalde point-of-presence (POP). De afkorting van drie letters vertegenwoordigt een pop-server in onze CDN-netwerk. |
 | Clients |Bevat een grafiek weergegeven waarin de top 10-clients die activa aangevraagd gedurende een opgegeven periode. Voor de doeleinden van dit rapport worden beschouwd als alle aanvragen die afkomstig uit hetzelfde IP-adres zijn van dezelfde client. Statistieken voor de top 100 clients worden direct onder deze grafiek weergegeven. Dit rapport is nuttig voor het bepalen van de download activiteit patronen voor uw eerste clients. |

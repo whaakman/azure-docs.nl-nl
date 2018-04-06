@@ -3,7 +3,7 @@ title: Wat is Apache Hive en HiveQL - Azure HDInsight | Microsoft Docs
 description: Apache Hive is een systeem voor het datawarehouse van gegevens voor Hadoop. U kunt de gegevens die zijn opgeslagen in met behulp van HiveQL, Hive query die vergelijkbaar is met Transact-SQL. In dit document wordt beschreven hoe Hive en HiveQL gebruiken met Azure HDInsight.
 keywords: hiveql, wat hive, hadoop hiveql, is het gebruik van hive, informatie over hive, wat is er hive
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 01/26/2018
 ms.author: larryfr
 ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Wat is Apache Hive en HiveQL in Azure HDInsight?
 
@@ -78,7 +78,7 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Hive biedt ook ondersteuning voor aangepaste **serialisatiefunctie/deserializers (serde-schrijfbewerking)** voor complexe of onregelmatig gestructureerde gegevens. Zie voor meer informatie de [een aangepaste JSON serde-schrijfbewerking gebruiken met HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) document.
 
-Zie voor meer informatie over ondersteunde bestandsindelingen in Hive, de [taal handmatig (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+Zie voor meer informatie over ondersteunde bestandsindelingen in Hive, de [handmatige (taalhttps://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 ### <a name="hive-internal-tables-vs-external-tables"></a>Interne tabellen tegenover externe tabellen hive
 

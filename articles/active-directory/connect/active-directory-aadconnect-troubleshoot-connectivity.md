@@ -2,10 +2,10 @@
 title: 'Azure AD Connect: Problemen met verbindingen | Microsoft Docs'
 description: Legt uit hoe u problemen met verbindingen met Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Oplossen van problemen met de netwerkverbinding met Azure AD Connect
 Dit artikel wordt uitgelegd hoe de verbinding tussen Azure AD Connect en Azure AD werkt en het oplossen van problemen met de netwerkverbinding. Deze problemen zijn waarschijnlijk kunnen worden bekeken in een omgeving met een proxyserver.
@@ -75,10 +75,10 @@ Deze fout treedt op als het eindpunt **https://secure.aadcdn.microsoftonline-p.c
 Als de installatiewizard voltooid is in de verbinding te maken met Azure AD, maar het wachtwoord zelf kan niet worden geverifieerd dat u deze fout te zien:  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-* Het wachtwoord is een tijdelijk wachtwoord en moet worden gewijzigd? Is het daadwerkelijk het juiste wachtwoord? Probeer te melden bij https://login.microsoftonline.com (op een andere computer dan de Azure AD Connect-server) en controleer of dat het account kan worden gebruikt.
+* Het wachtwoord is een tijdelijk wachtwoord en moet worden gewijzigd? Is het daadwerkelijk het juiste wachtwoord? Probeer aan te melden bij https://login.microsoftonline.com (op een andere computer dan de Azure AD Connect-server) en controleer of het account kan worden gebruikt.
 
 ### <a name="verify-proxy-connectivity"></a>Controleer de proxy-connectiviteit
-Om te controleren of de Azure AD Connect-server de werkelijke connectiviteit met de Proxy- en Internet heeft, moet u enkele PowerShell gebruiken om te zien als de proxy webaanvragen of niet toestaat. Voer in een PowerShell-prompt `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technisch de eerste aanroep https://login.microsoftonline.com is en deze URI werkt ook, maar de overige URI is sneller reageren.)
+Om te controleren of de Azure AD Connect-server de werkelijke connectiviteit met de Proxy- en Internet heeft, moet u enkele PowerShell gebruiken om te zien als de proxy webaanvragen of niet toestaat. Voer in een PowerShell-prompt `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technisch de eerste aanroep is het https://login.microsoftonline.com en deze URI ook werkt, maar de overige URI is sneller reageren.)
 
 PowerShell gebruikt de configuratie in machine.config contact opnemen met de proxy. De instellingen van winhttp/netsh moeten geen invloed op deze cmdlets.
 
@@ -101,7 +101,7 @@ Wanneer Azure AD Connect een aanvraag exporteren naar Azure AD verzendt, kan Azu
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Het communicatiepatroon tussen Azure AD Connect en Azure AD
 Als u deze voorgaande stappen hebt uitgevoerd en nog steeds geen verbinding kunt maken, u mogelijk op dit moment gaan zo kijken netwerk Logboeken. Deze sectie wordt een patroon normaal en geslaagde verbinding documenteren. Het is ook algemene rood herrings die kan worden genegeerd wanneer u de logboeken netwerk lezen aanbieding.
 
-* Er zijn https://dc.services.visualstudio.com aanroepen. Dit is niet vereist om deze URL is geopend in de proxy voor de installatie mislukt en deze aanroepen kunnen worden genegeerd.
+* Er zijn aanroepen naar https://dc.services.visualstudio.com. Dit is niet vereist om deze URL is geopend in de proxy voor de installatie mislukt en deze aanroepen kunnen worden genegeerd.
 * U ziet de werkelijke hosts in de DNS-naam ruimte nsatc.net en andere naamruimten niet onder microsoftonline.com een lijst met DNS-omzetting. Echter, er zijn webserviceaanvragen op de namen van de werkelijke en er geen URL's toevoegen aan de proxy.
 * De eindpunten adminwebservice provisioningapi detectie eindpunten en gebruikt voor het zoeken van het werkelijke eindpunt te gebruiken. Deze eindpunten zijn verschillend afhankelijk van uw regio.
 

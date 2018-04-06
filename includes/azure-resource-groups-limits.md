@@ -16,7 +16,7 @@
 | Parameters |256 |256 |
 | Variabelen |256 |256 |
 | Bronnen (zoals aantal kopieën) |800 |800 |
-| uitvoer |64 |64 |
+| Uitvoer |64 |64 |
 | Sjabloonexpressie |24.576 tekens |24.576 tekens |
 | Bronnen in de geëxporteerde sjablonen |200 |200 | 
 | De grootte van de sjabloon |1 MB |1 MB |

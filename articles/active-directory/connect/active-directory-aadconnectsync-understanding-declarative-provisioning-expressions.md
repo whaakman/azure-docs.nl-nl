@@ -2,10 +2,10 @@
 title: 'Azure AD Connect: Expressies declaratieve inrichting | Microsoft Docs'
 description: Verklaart de declaratieve inrichting expressies.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-synchronisatie: inzicht declaratieve inrichting expressies
 Azure AD Connect-synchronisatie is gebaseerd op het declaratieve inrichting is geïntroduceerd in Forefront Identity Manager 2010. Hiermee kunt u voor het implementeren van uw identiteit van de volledige integratie bedrijfslogica zonder de noodzaak om gecompileerde code te schrijven.
@@ -80,9 +80,9 @@ Operators links naar rechts worden geëvalueerd en dezelfde evaluatie prioriteit
 De functies kunnen van zowel één waarde als meerdere waarden kenmerken werken. Voor kenmerken met meerdere waarden, de functie werkt via elke waarde en dezelfde functie geldt voor elke waarde.
 
 Bijvoorbeeld:  
-`Trim([proxyAddresses])`Een ' trim ' van elke waarde in het kenmerk proxyAddress doen.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`Voor elke waarde met een @-sign, vervangt u het domein met @contoso.com.  
-`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`Voor het SIP-adres zoeken en verwijderen van de waarden.
+`Trim([proxyAddresses])` Een ' trim ' van elke waarde in het kenmerk proxyAddress doen.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"` Voor elke waarde met een @-sign, vervangt u het domein met @contoso.com.  
+`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Voor het SIP-adres zoeken en verwijderen van de waarden.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over de configuratiemodel in [Understanding declaratieve inrichting](active-directory-aadconnectsync-understanding-declarative-provisioning.md).

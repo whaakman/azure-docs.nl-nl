@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="performance-metrics"></a>Maatstaven voor prestaties
+# <a name="performance-metrics"></a>Metrische gegevens voor prestaties
 
 Metrische gegevens moeten worden verzameld voor informatie over de prestaties van uw cluster, evenals de toepassingen die erin worden uitgevoerd. Voor Service Fabric-clusters, wordt u aangeraden de volgende prestatiemeteritems verzamelen.
 
@@ -30,14 +30,14 @@ Voor de computers in uw cluster, kunt u het verzamelen van de volgende prestatie
 
 | Prestatiemeteritem-categorie | Naam van het meteritem |
 | --- | --- |
-| Fysieke schijf (per schijf) | Gem. Wachtrijlengte voor schijf lezen |
-| Fysieke schijf (per schijf) | Gem. Wachtrijlengte voor schijf schrijven |
-| Fysieke schijf (per schijf) | Gem. Leestijd schijf |
-| Fysieke schijf (per schijf) | Gem. Schrijftijd schijf |
+| Fysieke schijf (per schijf) | Avg. Wachtrijlengte voor schijf lezen |
+| Fysieke schijf (per schijf) | Avg. Wachtrijlengte voor schijf schrijven |
+| Fysieke schijf (per schijf) | Avg. Leestijd schijf |
+| Fysieke schijf (per schijf) | Avg. Schrijftijd schijf |
 | Fysieke schijf (per schijf) | Schijf lezen per seconde |
-| Fysieke schijf (per schijf) | Gelezen Bytes per seconde |
+| Fysieke schijf (per schijf) | Bytes gelezen op schijf/sec |
 | Fysieke schijf (per schijf) | Schijf schrijven per seconde |
-| Fysieke schijf (per schijf) | Geschreven Bytes per seconde |
+| Fysieke schijf (per schijf) | Bytes geschreven naar schijf/sec |
 | Geheugen | Beschikbare megabytes (MB) |
 | PagingFile | % Gebruik |
 | Processor(Total) | Percentage processortijd |
@@ -60,7 +60,7 @@ De volgende prestatiemeteritems verzamelen als u .NET-services in uw cluster imp
 
 | Prestatiemeteritem-categorie | Naam van het meteritem |
 | --- | --- |
-| .NET CLR-geheugen (per-service) | Proces-ID |
+| .NET CLR-geheugen (per-service) | Proces-id |
 | .NET CLR-geheugen (per-service) | # Totaal aantal toegewezen Bytes |
 | .NET CLR-geheugen (per-service) | # Totaal aantal Bytes gereserveerd |
 | .NET CLR-geheugen (per-service) | Aantal bytes in alle Heaps |

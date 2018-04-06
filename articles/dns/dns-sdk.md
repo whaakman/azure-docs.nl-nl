@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
 ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Maken van DNS-zones en -recordsets met de .NET SDK
 
@@ -41,7 +41,7 @@ Normaal gesproken wordt programmatische toegang tot Azure-resources verleend via
 Azure DNS-.NET SDK, hebt u nodig voor het installeren van de **Azure DNS-bibliotheek** NuGet-pakket en andere Azure-pakketten vereist.
 
 1. In **Visual Studio**, opent u een project of een nieuw project.
-2. Ga naar **extra**  **>**  **NuGet-Pakketbeheer**  **>**  **NuGet-pakketten voor beheren Oplossing...** .
+2. Ga naar **extra** **>** **NuGet-Pakketbeheer** **>** **NuGet-pakketten voor beheren Oplossing...** .
 3. Klik op **Bladeren**, inschakelen de **Include prerelease** selectievakje, en het type **Microsoft.Azure.Management.Dns** in het zoekvak.
 4. Selecteer het pakket en klikt u op **installeren** toe te voegen aan uw Visual Studio-project.
 5. Herhaal dit proces bovenstaande ook het volgende om pakketten te installeren: **Microsoft.Rest.ClientRuntime.Azure.Authentication** en **Microsoft.Azure.Management.ResourceManager**.

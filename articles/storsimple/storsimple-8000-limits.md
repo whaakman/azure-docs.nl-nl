@@ -5,7 +5,7 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
 ms.service: storsimple
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc3c0ad193af7625c8c4c1c2e82b6bdc8be33310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Wat zijn StorSimple 8000 series system beperkingen?
 
@@ -35,7 +35,7 @@ StorSimple biedt schaalbare en flexibele opslag voor uw datacenter. Er zijn echt
 | Maximum aantal lokaal vastgemaakte volumes |32 | |
 | Maximum aantal planningen per bandbreedtesjabloon |168 |Een planning voor elk uur wordt elke dag van de week (24 * 7). |
 | Maximale grootte van een gelaagd volume op fysieke apparaten |64 TB voor 8100 en 8600 |8100 en 8600 zijn fysieke apparaten. |
-| Maximale grootte van een gelaagd volume op virtuele apparaten in Azure |8010 30 TB <br></br> 64 TB voor de 8020 |8010 als de 8020 zijn virtuele apparaten in Azure die gebruikmaken van Standard-opslag- en Premium-opslag respectievelijk. |
+| Maximale grootte van een gelaagd volume op virtuele apparaten in Azure |30 TB for 8010 <br></br> 64 TB voor de 8020 |8010 als de 8020 zijn virtuele apparaten in Azure die gebruikmaken van Standard-opslag- en Premium-opslag respectievelijk. |
 | Maximale grootte van een lokaal vastgemaakt volume op een fysieke apparaten |8.5 TB voor 8100 <br></br> 22,5 TB voor 8600 |8100 en 8600 zijn fysieke apparaten. |
 | Maximum aantal iSCSI-verbindingen |512 | |
 | Maximum aantal verbindingen iSCSI-initiators |512 | |
@@ -53,9 +53,9 @@ StorSimple biedt schaalbare en flexibele opslag voor uw datacenter. Er zijn echt
 | Maximum aantal clients lezen/schrijven doorvoer (wanneer geleverd vanuit de HDD-laag) * |120/250 MB/s | |
 | Maximum aantal clients lezen/schrijven doorvoer (wanneer geleverd vanuit de cloudlaag) * voor Update 3 en hoger ** |40/60 MB/s voor gelaagde volumes<br><br>60/80 MB/s voor gelaagde volumes archivering optie is geselecteerd tijdens het maken van volume |Lees doorvoer is afhankelijk van clients genereren en bijhouden van voldoende i/o-wachtrijdiepte. <br><br>Snelheid bereikt, is afhankelijk van de snelheid van het onderliggende storage-account gebruikt. |
 
-&#42; Maximale doorvoer per i/o-type is gemeten met 100 procent lezen en schrijven van 100 procent scenario's. Werkelijke doorvoer mogelijk lager en is afhankelijk van i/o mix en de voorwaarden.
+&#42;Maximale doorvoer per i/o-type is gemeten met 100 procent lezen en schrijven van 100 procent scenario's. Werkelijke doorvoer mogelijk lager en is afhankelijk van i/o mix en de voorwaarden.
 
-&#42; &#42; Prestaties cijfers vóór de Update 3 mogelijk lager.
+&#42;&#42;Prestaties cijfers vóór de Update 3 mogelijk lager.
 
 ## <a name="next-steps"></a>Volgende stappen
 Controleer de [StorSimple systeemvereisten](storsimple-8000-system-requirements.md).

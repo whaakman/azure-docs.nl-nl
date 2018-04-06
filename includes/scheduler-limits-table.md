@@ -15,5 +15,5 @@ De volgende tabel worden beschreven van de belangrijkste quota, limieten, standa
 | **Taakverzamelingen** |Maximum aantal taakverzameling per abonnement is 200.000. |
 | **Geschiedenis vasthouden** |Taakgeschiedenis worden bewaard gedurende 2 maanden of tot de laatste 1000 uitvoeringen. |
 | **Voltooide en mislukte taak bewaren** |Voltooide en mislukte jobs worden bewaard gedurende 60 dagen. |
-| **Time-out** |Er is een statische (niet-configureerbare) aanvraag time-out van 60 seconden voor HTTP-acties. Volg voor actieve bewerkingen langer, asynchrone HTTP-protocollen. bijvoorbeeld, een 202 onmiddellijk geretourneerd, maar blijven werken op de achtergrond. |
+| **Timeout** |Er is een statische (niet-configureerbare) aanvraag time-out van 60 seconden voor HTTP-acties. Volg voor actieve bewerkingen langer, asynchrone HTTP-protocollen. bijvoorbeeld, een 202 onmiddellijk geretourneerd, maar blijven werken op de achtergrond. |
 

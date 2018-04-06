@@ -2,7 +2,7 @@
 title: Gelijktijdigheid beheren in Microsoft Azure Storage
 description: Gelijktijdigheid van taken voor de services Blob, Queue, Table en bestand beheren
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: jasontang501
 manager: tadb
 editor: tysonn
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gelijktijdigheid beheren in Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
@@ -197,7 +197,7 @@ Zie voor meer informatie:
 
 * [Voorwaardelijke kop opgeven voor bewerkingen van de Blob-Service](http://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease-Container](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Lease Blob ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>Het beheren van gelijktijdigheid van taken in de Tabelservice
 De tabelservice gebruikt optimistische gelijktijdigheid controleert als standaardgedrag wanneer u werkt met entiteiten, in tegenstelling tot de blob-service waarbij u expliciet kiezen moet optimistische gelijktijdigheid controles uit te voeren. De andere verschil tussen de tabel en de blob-services is dat u alleen het gelijktijdigheid gedrag van entiteiten beheren kunt dat met de blob-service kunt u de gelijktijdigheid van zowel containers en blobs beheren.  
@@ -286,7 +286,7 @@ Voor de volledige voorbeeldtoepassing waarnaar wordt verwezen in deze blog:
 Voor meer informatie over Azure Storage-Zie:  
 
 * [Startpagina van Microsoft Azure Storage](https://azure.microsoft.com/services/storage/)
-* [Inleiding tot Azure Storage](storage-introduction.md)
+* [Kennismaking met Azure Storage](storage-introduction.md)
 * Opslag aan de slag voor [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [tabel](../../cosmos-db/table-storage-how-to-use-dotnet.md), [wachtrijen](../storage-dotnet-how-to-use-queues.md), en [bestanden](../storage-dotnet-how-to-use-files.md)
 * Opslagarchitectuur – [Azure Storage: een maximaal beschikbare Cloudopslagservice met sterke consistentie](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

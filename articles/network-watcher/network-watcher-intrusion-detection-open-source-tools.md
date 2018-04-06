@@ -5,7 +5,7 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Inbraakdetectie netwerk met de netwerk-Watcher en open-source hulpprogramma's uitvoeren
 
 Pakket mogelijk zijn een belangrijk onderdeel voor de implementatie van network inbraakdetectie detectiesystemen (id's) en Network Security Monitoring (NSM) uitvoeren. Er zijn verschillende hulpmiddelen van de open-source-id's die pakket opnamen verwerken en zoek naar de handtekeningen van mogelijke aanvallen en schadelijke activiteiten. Met behulp van het pakket worden opgegeven door de netwerk-Watcher, kunt u uw netwerk voor eventuele schadelijke beveiligingsrisico's of beveiligingsproblemen analyseren.
 
-Dergelijke open-source hulpprogramma is Suricata, een id-engine die gebruikmaakt van rulesets netwerkverkeer te bewaken en waarschuwingen wordt geactiveerd wanneer verdachte gebeurtenissen optreden. Suricata biedt een met meerdere threads-engine, wat betekent dat netwerkverkeeranalyse met hogere snelheid en efficiëntie kan uitvoeren. Ga naar de website op https://suricata-ids.org/ voor meer informatie over Suricata en de mogelijkheden ervan.
+Dergelijke open-source hulpprogramma is Suricata, een id-engine die gebruikmaakt van rulesets netwerkverkeer te bewaken en waarschuwingen wordt geactiveerd wanneer verdachte gebeurtenissen optreden. Suricata biedt een met meerdere threads-engine, wat betekent dat netwerkverkeeranalyse met hogere snelheid en efficiëntie kan uitvoeren. Ga voor meer informatie over Suricata en de mogelijkheden ervan naar hun website op https://suricata-ids.org/.
 
 ## <a name="scenario"></a>Scenario
 
@@ -38,7 +38,7 @@ Beide open-source hulpprogramma's kunnen worden ingesteld op een virtuele machin
 
 ### <a name="install-suricata"></a>Suricata installeren
 
-Ga naar http://suricata.readthedocs.io/en/latest/install.html voor alle andere methoden van installatie
+Voor alle andere methoden van installatie, gaat u naar http://suricata.readthedocs.io/en/latest/install.html
 
 1. Voer in de opdrachtregeloptie terminal van uw virtuele machine in de volgende opdrachten:
 
@@ -232,7 +232,7 @@ Raadpleeg voor meer informatie over het installeren van Logstash de [officiële 
     ./bin/kibana
     ```
 
-1. Als u wilt de webinterface voor uw Kibana weergeven, gaat u naar`http://localhost:5601`
+1. Als u wilt de webinterface voor uw Kibana weergeven, gaat u naar `http://localhost:5601`
 1. Voor dit scenario, het patroon index voor de logboeken Suricata is ' logstash-* "
 
 1. Als u weergeven van het dashboard Kibana op afstand wilt, maakt u een inkomende NSG-regel om toegang te kunnen **5601 poort**.

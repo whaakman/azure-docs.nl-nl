@@ -5,7 +5,7 @@ services: application-gateway
 documentationcenter: na
 author: amsriva
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
 ms.openlocfilehash: ea9ae8373ff67bf9557b06bbc8a4b0d82a03e2d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-gateway-redirect-overview"></a>Overzicht van Application Gateway-omleiding
 
@@ -28,7 +28,7 @@ Een veelvoorkomend scenario voor veel webtoepassingen is de ondersteuning van au
 2. Omleiding op basis van het pad. Dit type omleiding kunt HTTP naar HTTPS-omleiding alleen op een specifieke site gebied, zoals een winkelwagen winkelwagen gebied aangeduid met/mandje / *.
 3. Omleiden naar de externe site.
 
-![omleiden](./media/application-gateway-redirect-overview/redirect.png)
+![redirect](./media/application-gateway-redirect-overview/redirect.png)
 
 Met deze wijziging heeft klanten zou moeten maken van een nieuw omleiding configuration-object waarmee de doel-listener of een externe site die omleiding gewenst is. Het configuratie-element ondersteunt ook opties voor het inschakelen van de URI-pad en query-tekenreeks toegevoegd aan de omgeleide URL. Klanten kunnen ook voor kiezen of omleiding een tijdelijke (HTTP-statuscode 302) of een permanente omleiding (HTTP-statuscode 301 is). Wanneer deze configuratie omleiding gemaakt is gekoppeld aan de bron-listener via een nieuwe regel. Wanneer u een eenvoudige regel gebruikt, wordt de configuratie van de omleiding is gekoppeld aan een bron-listener en is een globale omleiding. Wanneer een regel op basis van het pad wordt gebruikt, wordt de omleidings-configuratie wordt gedefinieerd op de kaart URL-pad en daarom alleen van toepassing op het gebied specifiek pad van een site.
 

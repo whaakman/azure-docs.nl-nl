@@ -1,9 +1,9 @@
 ---
 title: Beheren van een Azure DB die Cosmos-account via Azure Portal | Microsoft Docs
-description: "Informatie over het beheren van uw Azure DB die Cosmos-account via Azure Portal. Een handleiding voor het gebruik van de Azure Portal weergeven, kopiëren, verwijderen en toegang tot accounts vinden."
+description: Informatie over het beheren van uw Azure DB die Cosmos-account via Azure Portal. Een handleiding voor het gebruik van de Azure Portal weergeven, kopiëren, verwijderen en toegang tot accounts vinden.
 keywords: Azure Portal, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: kirillg
 manager: jhubbard
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
 ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Het beheren van een Azure DB die Cosmos-account
 Informatie over het globale consistentie instellen, in combinatie met sleutels en verwijderen van een Azure DB die Cosmos-account in de Azure-portal.
@@ -50,7 +50,7 @@ Alleen-lezen sleutels zijn ook beschikbaar is op deze pagina. Lees- en query's z
 ### <a name="copy-an-access-key-or-password-in-the-azure-portal"></a>Kopieer een toegangssleutel of het wachtwoord in de Azure portal
 Op de **sleutels** pagina (of **verbindingsreeks** pagina voor accounts met MongoDB-API), klikt u op de **kopie** knop aan de rechterkant van de sleutel of het wachtwoord die u wilt kopiëren.
 
-![Weergeven en een toegangssleutel in de Azure portal, sleutels pagina kopiëren](./media/manage-account/copykeys.png)
+![Een toegangssleutel in Azure Portal bekijken en kopiëren op de pagina Sleutels](./media/manage-account/copykeys.png)
 
 ### <a name="regenerate-access-keys-and-passwords"></a>Toegangstoetsen en wachtwoorden opnieuw wilt genereren
 U moet de toegangssleutels (en wachtwoorden voor accounts met MongoDB-API) aan uw account voor Azure Cosmos DB periodiek om ervoor te zorgen dat uw verbindingen veiliger wijzigen. Twee toegang sleutels/wachtwoorden zijn toegewezen zodat u kunt het onderhouden van verbindingen met de Azure DB die Cosmos-account met behulp van één toegangssleutel terwijl u de toegangssleutel opnieuw genereert.
@@ -86,7 +86,7 @@ Voor het ophalen van de verbindingsreeks, het volgende doen:
 
 Als u de verbindingsreeks in de [hulpprogramma voor migratie van Azure Cosmos DB Database](import-data.md), naam van de database toevoegen aan het einde van de verbindingsreeks. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
-## <a id="delete"></a>Een Azure DB die Cosmos-account verwijderen
+## <a id="delete"></a> Een Azure DB die Cosmos-account verwijderen
 Als u wilt verwijderen een Cosmos-DB Azure-account van de Azure portal die u niet langer gebruikt, met de rechtermuisknop op de accountnaam en klik op **account verwijderen**.
 
 ![Het verwijderen van een Azure DB die Cosmos-account in de Azure-portal](./media/manage-account/deleteaccount.png)

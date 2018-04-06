@@ -2,7 +2,7 @@
 title: Het Team gegevens wetenschap proces in actie - met een Azure HDInsight Hadoop-Cluster van een gegevensset 1 TB | Microsoft Docs
 description: Met behulp van het Team gegevens wetenschap proces voor een end-to-end-scenario die gebruikmaakt van een HDInsight Hadoop-cluster te bouwen en implementeren van een model met behulp van een grote (1 TB) openbaar gegevensset
 services: machine-learning,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
 ms.openlocfilehash: 760e08643fb3e71478fc899278591569da1d515b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Het Team gegevens wetenschap proces in actie - met een Azure HDInsight Hadoop-Cluster van een gegevensset 1 TB
 
@@ -98,7 +98,7 @@ Is de ' Hadoop opdrachtregel ', die onze werkpaard voor de gegevensverkenning is
 
 Nu worden ingesteld en klaar om te beginnen met de eerste deel van deze stapsgewijze Kennismaking: gegevensverkenning gebruik van Hive en voorbereiden van gegevens voor Azure Machine Learning.
 
-## <a name="hive-db-tables"></a>Hive-database en tabellen maken
+## <a name="hive-db-tables"></a> Hive-database en tabellen maken
 Voor het maken van Hive-tabellen voor onze gegevensset Criteo, opent u de ***Hadoop-opdrachtregel*** op het bureaublad van het hoofdknooppunt en voer de Hive-map met de opdracht
 
     cd %hive_home%\bin
@@ -124,7 +124,7 @@ De volgende code maakt een database 'criteo' en genereert vervolgens 4 tabellen:
 
 De testgegevensset opgesplitst in twee verschillende tabellen, omdat een van de dagen een feestdag. Het doel is om te bepalen of het model verschillen tussen een feestdag en niet van de snelheid doorklikken kan detecteren.
 
-Het script [voorbeeld &#95; hive &#95; maken &#95; criteo &#95; database &#95; en &#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) voor het gemak Hier wordt weergegeven:
+Het script [voorbeeld&#95;hive&#95;maken&#95;criteo&#95;database&#95;en&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) voor het gemak Hier wordt weergegeven:
 
     CREATE DATABASE IF NOT EXISTS criteo;
     DROP TABLE IF EXISTS criteo.criteo_count;
@@ -165,7 +165,7 @@ Alle deze tabellen zijn externe zodat u gewoon naar de Azure Blob Storage (wasb)
         hive
    
      Nu op de opdrachtregel REPL knippen en plakken van de query wordt uitgevoerd het.
-2. **Een query's opslaan en uitvoeren van de opdracht**: de tweede is het opslaan van de query's in een bestand .hql ([voorbeeld &#95; hive &#95; maken &#95; criteo &#95; database &#95; en &#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) en vervolgens voert u de volgende opdracht de query uit te voeren:
+2. **Een query's opslaan en uitvoeren van de opdracht**: de tweede is het opslaan van de query's in een bestand .hql ([voorbeeld&#95;hive&#95;maken&#95;criteo&#95;database&#95;en&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) en voert u de volgende opdracht de query uit te voeren:
    
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -194,11 +194,11 @@ Vervolgens ziet u de volgende uitvoer:
         criteo_train
         Time taken: 1.437 seconds, Fetched: 4 row(s)
 
-## <a name="exploration"></a>Gegevensverkenning in component
+## <a name="exploration"></a> Gegevensverkenning in component
 U bent nu klaar voor sommige basic gegevensverkenning in Hive. U begint met het aantal voorbeelden in de trein tellen en gegevenstabellen testen.
 
 ### <a name="number-of-train-examples"></a>Aantal train-voorbeelden
-De inhoud van [voorbeeld &#95; hive &#95; &#95;tellen; train &#95; tabel &#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) worden hier weergegeven:
+De inhoud van [voorbeeld&#95;hive&#95;aantal&#95;trainen&#95;tabel&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) worden hier weergegeven:
 
         SELECT COUNT(*) FROM criteo.criteo_train;
 
@@ -212,7 +212,7 @@ U kunt ook een mag de volgende opdracht uit de Hive-opslaglocatie eveneens verle
         hive -f C:\temp\sample_hive_count_criteo_train_table_examples.hql
 
 ### <a name="number-of-test-examples-in-the-two-test-datasets"></a>Aantal voorbeelden van de test in de twee gegevenssets van de test
-Het aantal voorbeelden in de twee gegevenssets van de test nu tellen. De inhoud van [voorbeeld &#95; hive &#95; &#95;tellen; criteo &#95; test &#95; dag &#95; 22 &#95; tabel &#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) hier zijn:
+Het aantal voorbeelden in de twee gegevenssets van de test nu tellen. De inhoud van [voorbeeld&#95;hive&#95;aantal&#95;criteo&#95;testen&#95;dag&#95;22&#95;tabel&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) hier zijn:
 
         SELECT COUNT(*) FROM criteo.criteo_test_day_22;
 
@@ -227,7 +227,7 @@ Gebruikelijke u ook het script kan aanroepen vanuit de Hive-opslaglocatie / Acti
 
 Ten slotte het onderzoeken van het aantal voorbeelden van de test in de testgegevensset op basis van dag\_23.
 
-De opdracht om dit te doen is vergelijkbaar met alleen wordt weergegeven (Raadpleeg [voorbeeld &#95; hive &#95; &#95;tellen; criteo &#95; test &#95; dag &#95; 23 &#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
+De opdracht om dit te doen is vergelijkbaar met alleen wordt weergegeven (Raadpleeg [voorbeeld&#95;hive&#95;aantal&#95;criteo&#95;testen&#95;dag&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
         SELECT COUNT(*) FROM criteo.criteo_test_day_23;
 
@@ -237,7 +237,7 @@ Hierdoor hebt:
         Time taken: 253.089 seconds, Fetched: 1 row(s)
 
 ### <a name="label-distribution-in-the-train-dataset"></a>Distributiepunten in de gegevensset train label
-De distributie van het label in de gegevensset train is van belang. Als u wilt dit ziet, inhoud van weergeven [voorbeeld &#95; hive &#95; criteo &#95; &#95;label; verdeling &#95; train &#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
+De distributie van het label in de gegevensset train is van belang. Als u wilt dit ziet, inhoud van weergeven [voorbeeld&#95;hive&#95;criteo&#95;label&#95;distributie&#95;trainen&#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
 
         SELECT Col1, COUNT(*) AS CT FROM criteo.criteo_train GROUP BY Col1;
 
@@ -250,7 +250,7 @@ Dit geeft de label-distributie:
 Houd er rekening mee dat het percentage positieve labels ongeveer 3.3% (consistent met de oorspronkelijke gegevensset is).
 
 ### <a name="histogram-distributions-of-some-numeric-variables-in-the-train-dataset"></a>Histogram distributies van bepaalde numerieke variabelen in de gegevensset train
-Kunt u systeemeigen van Hive ' histogram\_numerieke ' functie om erachter te komen hoe de distributie van de numerieke variabelen eruit ziet. Hier vindt u de inhoud van [voorbeeld &#95; hive &#95; criteo &#95; histogram &#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
+Kunt u systeemeigen van Hive ' histogram\_numerieke ' functie om erachter te komen hoe de distributie van de numerieke variabelen eruit ziet. Hier vindt u de inhoud van [voorbeeld&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
 
         SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
             (SELECT
@@ -287,7 +287,7 @@ Dit resulteert in het volgende:
 De LATERAL BEELD - vouwen combinatie in Hive fungeert voor het produceren van een SQL-achtige uitvoer in plaats van de gebruikelijke lijst. Houd er rekening mee dat in deze tabel de eerste kolom komt overeen met de opslaglocatie center en de tweede de frequentie van de opslaglocatie.
 
 ### <a name="approximate-percentiles-of-some-numeric-variables-in-the-train-dataset"></a>Geschatte percentielen van bepaalde numerieke variabelen in de gegevensset train
-Is ook de berekening van de geschatte percentielen van belang met numerieke variabelen. Hive de systeemeigen ' percentiel\_ongeveer ' Dit wordt uitgevoerd voor ons. De inhoud van [voorbeeld &#95; hive &#95; criteo &#95; geschatte &#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) zijn:
+Is ook de berekening van de geschatte percentielen van belang met numerieke variabelen. Hive de systeemeigen ' percentiel\_ongeveer ' Dit wordt uitgevoerd voor ons. De inhoud van [voorbeeld&#95;hive&#95;criteo&#95;geschatte&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) zijn:
 
         SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -299,7 +299,7 @@ Dit levert:
 De distributie van percentielen nauw verwant aan de distributie van het histogram van een numerieke variabele meestal.         
 
 ### <a name="find-number-of-unique-values-for-some-categorical-columns-in-the-train-dataset"></a>Aantal unieke waarden vinden voor sommige categorische kolommen in de gegevensset train
-U doorgaat met de gegevensverkenning, vinden, voor sommige categorische kolommen, het aantal unieke waarden die ze nemen. U doet dit door de inhoud van weergeven [voorbeeld &#95; hive &#95; criteo &#95; unieke &#95; waarden &#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
+U doorgaat met de gegevensverkenning, vinden, voor sommige categorische kolommen, het aantal unieke waarden die ze nemen. U doet dit door de inhoud van weergeven [voorbeeld&#95;hive&#95;criteo&#95;unieke&#95;waarden&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
 
         SELECT COUNT(DISTINCT(Col15)) AS num_uniques FROM criteo.criteo_train;
 
@@ -310,7 +310,7 @@ Dit levert:
 
 Houd er rekening mee dat Col15 19M unieke waarden bevat. Met behulp van naïve technieken zoals 'één hot codering' is voor het coderen van dergelijke hoge dimensionale categorische variabelen niet haalbaar. In het bijzonder een krachtige, robuuste techniek aangeroepen [Learning met telt](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) voor efficiënt aanpakken van dit probleem is beschreven en gedemonstreerd.
 
-Ten slotte het aantal unieke waarden voor sommige andere categorische kolommen ook kijken. De inhoud van [voorbeeld &#95; hive &#95; criteo &#95; unieke &#95; waarden &#95; meerdere &#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) zijn:
+Ten slotte het aantal unieke waarden voor sommige andere categorische kolommen ook kijken. De inhoud van [voorbeeld&#95;hive&#95;criteo&#95;unieke&#95;waarden&#95;meerdere&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) zijn:
 
         SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
         COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
@@ -325,7 +325,7 @@ Opnieuw, houd er rekening mee dat Col20, met uitzondering van de kolommen veel u
 
 ### <a name="co-occurrence-counts-of-pairs-of-categorical-variables-in-the-train-dataset"></a>Mede exemplaar telt paren van categorische variabelen in de gegevensset train
 
-Het aantal mede exemplaar uit paren van categorische variabelen is ook van belang. Dit kan worden bepaald met de code in [voorbeeld &#95; hive &#95; criteo &#95; gekoppeld &#95; categorische &#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
+Het aantal mede exemplaar uit paren van categorische variabelen is ook van belang. Dit kan worden bepaald met de code in [voorbeeld&#95;hive&#95;criteo&#95;gekoppelde&#95;categorische&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
 
         SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
 
@@ -348,10 +348,10 @@ Reverse hun exemplaar van het aantal sorteren en zoek boven 15 in dit geval. Hie
         265366bf        6f5c7c41        782142
         Time taken: 560.22 seconds, Fetched: 15 row(s)
 
-## <a name="downsample"></a>Omlaag voorbeeld gegevenssets voor Azure Machine Learning
+## <a name="downsample"></a> Omlaag voorbeeld gegevenssets voor Azure Machine Learning
 Met de gegevenssets verkend en gedemonstreerd hoe u doet dit type geen variabelen (inclusief combinaties), exploratie omlaag voorbeeld de gegevenssets zodat modellen in Azure Machine Learning kunnen worden opgebouwd. Let erop dat de focus van het probleem is: gezien een set voorbeeld kenmerken (functie waarden van Col2 - Col40), voorspellen als Col1 0 (geen klik) of 1 (klik is).
 
-Voorbeeld de trein en gegevenssets test 1% van de oorspronkelijke grootte van Hive systeemeigen ASELECT() om functie te gebruiken. Het volgende script [voorbeeld &#95; hive &#95; criteo &#95; verkleinen &#95; train &#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) doet u dit voor de gegevensset train:
+Voorbeeld de trein en gegevenssets test 1% van de oorspronkelijke grootte van Hive systeemeigen ASELECT() om functie te gebruiken. Het volgende script [voorbeeld&#95;hive&#95;criteo&#95;verkleinen&#95;trainen&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) doet u dit voor de gegevensset train:
 
         CREATE TABLE criteo.criteo_train_downsample_1perc (
         col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
@@ -368,7 +368,7 @@ Dit levert:
         Time taken: 12.22 seconds
         Time taken: 298.98 seconds
 
-Het script [voorbeeld &#95; hive &#95; criteo &#95; verkleinen &#95; test &#95; dag &#95; 22 &#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) gebeurt dit voor testgegevens, dag\_22:
+Het script [voorbeeld&#95;hive&#95;criteo&#95;verkleinen&#95;testen&#95;dag&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) gebeurt dit voor testgegevens, dag\_22:
 
         --- Now for test data (day_22)
 
@@ -386,7 +386,7 @@ Dit levert:
         Time taken: 317.66 seconds
 
 
-Ten slotte wordt het script [voorbeeld &#95; hive &#95; criteo &#95; verkleinen &#95; test &#95; dag &#95; 23 &#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) gebeurt dit voor testgegevens, dag\_23:
+Ten slotte wordt het script [voorbeeld&#95;hive&#95;criteo&#95;verkleinen&#95;testen&#95;dag&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) gebeurt dit voor testgegevens, dag\_23:
 
         --- Finally test data day_23
         CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -406,7 +406,7 @@ Met dit bent u gereed voor gebruik van onze omlaag opgevangen train en test gege
 
 Er is een definitieve belangrijk onderdeel voordat u doorgaat naar Azure Machine Learning, die betrekking heeft op de tabel count. In de volgende subsectie wordt de count-tabel in bepaalde detail besproken.
 
-## <a name="count"></a>Een korte bespreking van de count-tabel
+## <a name="count"></a> Een korte bespreking van de count-tabel
 Als u hebt gezien, hebben verschillende categorische variabelen een zeer hoge dimensionaliteit. In dit overzicht, een krachtige methode aangeroepen [Learning met telt](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) voor het coderen van deze variabelen in een efficiënte robuuste wijze wordt weergegeven. Meer informatie over deze techniek is in de koppeling.
 
 [!NOTE]
@@ -415,7 +415,7 @@ Als u hebt gezien, hebben verschillende categorische variabelen een zeer hoge di
 
 Als u wilt bouwen aantal tabellen op de gegevens van het aantal, de gegevens in de map onbewerkte/aantal te gebruiken. In de sectie modellering gebruikers weergegeven hoe u deze aantal tabellen voor categorische functies maken, of u kunt ook een aantal vooraf gemaakte tabel gebruiken voor hun explorations. In welke volgt wanneer 'vooraf gemaakte aantal tabellen' worden genoemd, bedoelen we met behulp van het aantal tabellen die zijn opgegeven. Gedetailleerde instructies over toegang krijgen tot deze tabellen zijn beschikbaar in de volgende sectie.
 
-## <a name="aml"></a>Een model met Azure Machine Learning bouwen
+## <a name="aml"></a> Een model met Azure Machine Learning bouwen
 Het model bouwen proces in Azure Machine Learning verloopt als volgt:
 
 1. [De gegevens ophalen uit de Hive-tabellen in Azure Machine Learning](#step1)
@@ -426,7 +426,7 @@ Het model bouwen proces in Azure Machine Learning verloopt als volgt:
 
 U bent nu klaar voor het bouwen van modellen in Azure Machine Learning studio. Onze omlaag steekproefgegevens wordt opgeslagen als Hive-tabellen in het cluster. Gebruik de Azure Machine Learning **importgegevens** module om deze gegevens te lezen. De referenties voor toegang tot het opslagaccount van dit cluster zijn opgegeven in het volgende.
 
-### <a name="step1"></a>Stap 1: Gegevens ophalen uit de Hive-tabellen in Azure Machine Learning met de module gegevens importeren en selecteren om een machine learning-experiment
+### <a name="step1"></a> Stap 1: Gegevens ophalen uit de Hive-tabellen in Azure Machine Learning met de module gegevens importeren en selecteren om een machine learning-experiment
 Begin met het selecteren een **+ nieuw** -> **EXPERIMENT** -> **leeg Experiment**. Klik vanuit de **Search** vak op de bovenste links, zoek naar 'Gegevens importeren'. Slepen en neerzetten de **importgegevens** module doorsturen naar het experiment (middelste gedeelte van het scherm) met de module voor gegevenstoegang canvas.
 
 Dit is wat de **importgegevens** lijkt tijdens het ophalen van gegevens uit de Hive-tabel:
@@ -437,7 +437,7 @@ Voor de **importgegevens** module, de waarden van de parameters die beschikbaar 
 
 1. 'Hive-query' kiezen voor **gegevensbron**
 2. In de **Hive databasequery** vak een eenvoudige SELECT * FROM < uw\_database\_name.your\_tabel\_name >-voldoende is.
-3. **Hcatalog server-URI**: als uw cluster "abc", wordt dit eenvoudig is: https://abc.azurehdinsight.net
+3. **Hcatalog server-URI**: als uw cluster "abc", wordt dit gewoon is: https://abc.azurehdinsight.net
 4. **Hadoop-gebruikersaccountnaam**: de naam van de gebruiker gekozen op het moment van het bedrijf stellen van het cluster. (Niet de RAS-gebruikersnaam!)
 5. **Het wachtwoord voor gebruikersaccount Hadoop**: het wachtwoord voor de naam van de gebruiker gekozen op het moment van het bedrijf stellen van het cluster. (Niet de RAS-wachtwoord!)
 6. **Locatie van uitvoergegevens**: 'Azure' kiezen
@@ -460,7 +460,7 @@ Schakel de opgeslagen gegevensset voor gebruik in een machine learning-experimen
 > 
 > 
 
-### <a name="step2"></a>Stap 2: Een eenvoudig experiment maken in Azure Machine Learning om te voorspellen klikken / geen klikken
+### <a name="step2"></a> Stap 2: Een eenvoudig experiment maken in Azure Machine Learning om te voorspellen klikken / geen klikken
 Ons Azure ML-experiment ziet er als volgt:
 
 ![Machine Learning-experiment](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -537,7 +537,7 @@ Dit fragment toont dat voor de kolommen op geteld, u het aantal ophalen en kans 
 
 U bent nu gereed voor het bouwen van een Azure Machine Learning-model met behulp van deze getransformeerde gegevenssets. In de volgende sectie wordt beschreven hoe u dit kunt doen.
 
-### <a name="step3"></a>Stap 3: Bouwen, te trainen en het model beoordelen
+### <a name="step3"></a> Stap 3: Bouwen, te trainen en het model beoordelen
 
 #### <a name="choice-of-learner"></a>Keuze van cursist
 U moet eerst een cursist kiezen. Gebruik een tweeklasse gestimuleerd beslissingsstructuur als onze cursist. Hier volgen de standaardopties voor deze cursist:
@@ -556,7 +556,7 @@ Zodra u een getraind model hebt, bent u klaar om te beoordelen op de testgegeven
 
 ![De module Score Model (Scoremodel)](./media/hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step4"></a>Stap 4: Het model beoordelen
+### <a name="step4"></a> Stap 4: Het model beoordelen
 Tot slot moet u het model prestaties analyseren. Meestal is een goede indicatie voor twee klasse (binair) classificatie problemen, de AUC. Dit visualiseren, koppelt u de **Score Model** module die u wilt een **Evaluate Model** -module voor dit. Te klikken op **Visualize** op de **Evaluate Model** module resulteert in een afbeelding zoals de volgende:
 
 ![Module BDT model evalueren](./media/hive-criteo-walkthrough/0Tl0cdg.png)
@@ -565,7 +565,7 @@ Binair (of twee klasse) classificatie problemen met een goede indicatie van nauw
 
 ![Module Evaluate Model visualiseren](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step5"></a>Stap 5: Het model publiceren als een webservice
+### <a name="step5"></a> Stap 5: Het model publiceren als een webservice
 De mogelijkheid voor het publiceren van een Azure Machine Learning-model als webservices met een minimum van fuss is een zeer nuttige functie voor het maken van het algemeen beschikbaar. Zodra u dat hebt gedaan, kan iedereen bellen naar de webservice met invoer gegevens die ze voorspellingen voor nodig hebt, en het model om te retourneren die voorspellingen maakt gebruik van de webservice.
 
 Om dit te doen, moet u eerst het getrainde model opslaan als een object van het getrainde Model. Dit wordt gedaan met de rechtermuisknop op de **Train Model** module en met behulp van de **opslaan als getrainde Model** optie.

@@ -2,7 +2,7 @@
 title: Werken met gegevens in Azure Cosmos DB georuimtelijke | Microsoft Docs
 description: Begrijpen hoe maken, index en query ruimtelijke-objecten met Azure Cosmos DB en de SQL-API.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -16,10 +16,10 @@ ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Werken met georuimtelijke en GeoJSON locatiegegevens in Azure Cosmos-DB
 In dit artikel bevat een inleiding tot de functionaliteit georuimtelijke in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Na het lezen van dit, kunt u zich de volgende vragen beantwoorden:
@@ -192,7 +192,7 @@ Ruimtelijke functies kunnen worden gebruikt om uit te voeren nabijheid query's o
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
 
-**Resultaten**
+**Results**
 
     [{
       "id": "WakefieldFamily"
@@ -213,7 +213,7 @@ Argumenten van de veelhoek in ST_WITHIN mag slechts één keer, dat wil zeggen, 
         'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 
-**Resultaten**
+**Results**
 
     [{
       "id": "WakefieldFamily",
@@ -233,7 +233,7 @@ Azure Cosmos DB biedt ook ondersteuning voor inverse query's uitvoeren, dat wil 
     WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
 
 
-**Resultaten**
+**Results**
 
     [{
       "id": "MyDesignatedLocation",
@@ -249,7 +249,7 @@ ST_ISVALID en ST_ISVALIDDETAILED kunnen worden gebruikt om te controleren of een
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
-**Resultaten**
+**Results**
 
     [{
       "$1": false
@@ -263,7 +263,7 @@ Deze functies kunnen ook worden gebruikt voor het valideren van de veelhoek. Bij
         [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
         ]]})
 
-**Resultaten**
+**Results**
 
     [{
        "$1": { 

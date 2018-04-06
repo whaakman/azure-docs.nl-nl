@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: Het oplossen van problemen tijdens de synchronisatie | Microsoft Docs'
 description: Legt uit hoe u fouten aangetroffen tijdens de synchronisatie met Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
 ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Het oplossen van problemen tijdens de synchronisatie
 Er kunnen optreden wanneer identiteitsgegevens van Windows Server Active Directory (AD DS) is gesynchroniseerd met Azure Active Directory (Azure AD). Dit artikel bevat een overzicht van de verschillende soorten synchronisatiefouten enkele van de mogelijke scenario's die ervoor zorgen dat deze fouten en mogelijke manieren de fouten te herstellen. Dit artikel bevat de algemene fouttypen en kan geen betrekking op alle mogelijke fouten.
@@ -42,7 +42,7 @@ Fouten tijdens de Export naar Azure AD aangeeft dat de bewerking \(toevoegen, bi
 #### <a name="description"></a>Beschrijving
 * Wanneer Azure AD Connect \(synchronisatie-engine\) Hiermee geeft u Azure Active Directory toevoegen of bijwerken van objecten, Azure AD overeenkomt met het binnenkomende object met behulp van de **sourceAnchor** kenmerk de **onveranderbare id genoemd**  kenmerk van objecten in Azure AD. Deze overeenkomst, heet een **harde overeen met**.
 * Wanneer Azure AD **vindt geen** elk object dat overeenkomt met de **onveranderbare id genoemd** kenmerk met de **sourceAnchor** kenmerk van het binnenkomende object, voordat u een nieuwe inricht object valt terug voor het gebruik van de kenmerken ProxyAddresses en UserPrincipalName te vinden. Deze overeenkomst, heet een **zachte overeen met**. Het zachte overeenkomen met is ontworpen om overeen met objecten die al aanwezig in Azure AD (die afkomstig zijn in Azure AD) met de nieuwe objecten worden toegevoegd/bijgewerkt tijdens de synchronisatie die dezelfde entiteit (gebruikers, groepen) on-premises vertegenwoordigen.
-* **InvalidSoftMatch** fout treedt op wanneer een overeenkomst met de vaste geen overeenkomende objecten vindt **en** zachte overeen met een overeenkomende object vindt, maar dat object heeft een andere waarde van *onveranderbare id genoemd* dan het binnenkomende object *SourceAnchor*, opmaken of het overeenkomende object is gesynchroniseerd met een ander object van on premises Active Directory.
+* **InvalidSoftMatch** fout treedt op wanneer een overeenkomst met de vaste geen overeenkomende objecten vindt **en** zachte overeen met een overeenkomende object vindt, maar dat object heeft een andere waarde van *onveranderbare id genoemd* dan de binnenkomende object *SourceAnchor*, opmaken of het overeenkomende object is gesynchroniseerd met een ander object van on premises Active Directory.
 
 Met andere woorden, in volgorde voor het zachte overeenkomt met het werk worden zachte komt overeen met het object mag geen geen waarde voor de *onveranderbare id genoemd*. Als een met object *onveranderbare id genoemd* set met een waarde is niet mogelijk de harde-match, maar die voldoet aan de soft-match-criteria, de bewerking resulteert in een InvalidSoftMatch synchronisatie-fout.
 
@@ -70,14 +70,14 @@ Azure Active Directory-schema is niet toegestaan voor twee of meer objecten hebb
 
 #### <a name="example-case"></a>Voorbeeld van de case:
 1. **Bob Smith** is een gesynchroniseerde gebruiker in Azure Active Directory vanuit de on-premises Active Directory van *contoso.com*
-2. Bob Smith **UserPrincipalName** is ingesteld als  **bobs@contoso.com** .
+2. Bob Smith **UserPrincipalName** is ingesteld als **bobs@contoso.com**.
 3. **' abcdefghijklmnopqrstuv == "** is de **SourceAnchor** berekend door Azure AD Connect met Bob Smith **objectGUID** van on-premises Active Directory dit is de  **onveranderbare id genoemd** voor Bob Smith bij Azure Active Directory.
 4. Bob heeft ook de volgende waarden voor de **proxyAddresses** kenmerk:
    * smtp:bobs@contoso.com
    * smtp:bob.smith@contoso.com
    * **smtp:bob@contoso.com**
 5. Een nieuwe gebruiker **Bob Taylor**, wordt toegevoegd aan de on-premises Active Directory.
-6. Bob Taylor van **UserPrincipalName** is ingesteld als  **bobt@contoso.com** .
+6. Bob Taylor van **UserPrincipalName** is ingesteld als **bobt@contoso.com**.
 7. **' abcdefghijkl0123456789 == ""** is de **sourceAnchor** berekend door Azure AD Connect met Bob Taylor van **objectGUID** premises uit op Active Directory. Bob Taylor van object is niet gesynchroniseerd met Azure Active Directory.
 8. Bob Taylor heeft de volgende waarden voor het kenmerk proxyAddresses
    * smtp:bobt@contoso.com
@@ -85,7 +85,7 @@ Azure Active Directory-schema is niet toegestaan voor twee of meer objecten hebb
    * **smtp:bob@contoso.com**
 9. Azure AD Connect wordt herkend door de toevoeging van Bob Taylor in on-premises Active Directory en vraagt u Azure AD de dezelfde wijzigingen aanbrengen tijdens de synchronisatie.
 10. Azure AD wordt eerst harde overeen uitvoeren. Dat wil zeggen, zoekt als er een object met de onveranderbare id genoemd gelijk is aan ' abcdefghijkl0123456789 == ". Vaste overeen zal mislukken als er geen andere objecten in Azure AD die onveranderbare id genoemd hebben.
-11. Azure AD probeert vervolgens te zacht-match Bob Taylor. Dat wil zeggen, zoekt als er een object met proxyAddresses gelijk aan de drie waarden is, met inbegrip vansmtp:bob@contoso.com
+11. Azure AD probeert vervolgens te zacht-match Bob Taylor. Dat wil zeggen, zoekt als er een object met proxyAddresses gelijk aan de drie waarden is, met inbegrip van smtp:bob@contoso.com
 12. Azure AD vindt van Bob Smith-object om te voldoen aan de soft-match-criteria. Maar dit object heeft de waarde van onveranderbare id genoemd = "abcdefghijklmnopqrstuv ==". wat aangeeft dat dit object is gesynchroniseerd vanuit een ander object van on-premises Active Directory. Dus Azure AD kan niet soft-match deze objecten en resulteert in een **InvalidSoftMatch** synchronisatiefout.
 
 #### <a name="how-to-fix-invalidsoftmatch-error"></a>Het InvalidSoftMatch fout oplossen
@@ -114,8 +114,8 @@ Wanneer Azure AD probeert te zacht overeen met twee objecten, is het mogelijk da
 * Een e-mailtoegang beveiligingsgroep wordt gemaakt in Office 365. Beheerder voegt een nieuwe gebruiker of contactpersoon in on-premises AD (die niet wordt gesynchroniseerd naar Azure AD nog) met dezelfde waarde voor het kenmerk ProxyAddresses als die van de Office 365-groep.
 
 #### <a name="example-case"></a>Voorbeeld van de aanvraag
-1. De beheerder maakt een nieuwe beveiligingsgroep voor e-mailtoegang in Office 365 voor de btw-afdeling en biedt een e-mailadres als tax@contoso.com. Hiermee wijst u het kenmerk ProxyAddresses voor deze groep met de waarde van toe**smtp:tax@contoso.com**
-2. Een nieuwe gebruiker koppelt Contoso.com en een account is gemaakt voor de gebruiker on-premises met de proxyAddress als**smtp:tax@contoso.com**
+1. De beheerder maakt een nieuwe beveiligingsgroep voor e-mailtoegang in Office 365 voor de btw-afdeling en biedt een e-mailadres als tax@contoso.com. Hiermee wijst u het kenmerk ProxyAddresses voor deze groep met de waarde van toe **smtp:tax@contoso.com**
+2. Een nieuwe gebruiker koppelt Contoso.com en een account is gemaakt voor de gebruiker on-premises met de proxyAddress als **smtp:tax@contoso.com**
 3. Als Azure AD Connect het nieuwe gebruikersaccount synchroniseert zal, krijgt deze de fout 'ObjectTypeMismatch'.
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>Het ObjectTypeMismatch fout oplossen
@@ -141,13 +141,13 @@ Als Azure AD Connect probeert om een nieuw object toevoegen of bijwerken van een
 
 #### <a name="example-case"></a>Voorbeeld van de case:
 1. **Bob Smith** is een gesynchroniseerde gebruiker in Azure Active Directory vanuit de on-premises Active Directory contoso.com
-2. Bob Smith **UserPrincipalName** on-premises is ingesteld als  **bobs@contoso.com** .
+2. Bob Smith **UserPrincipalName** on-premises is ingesteld als **bobs@contoso.com**.
 3. Bob heeft ook de volgende waarden voor de **proxyAddresses** kenmerk:
    * smtp:bobs@contoso.com
    * smtp:bob.smith@contoso.com
    * **smtp:bob@contoso.com**
 4. Een nieuwe gebruiker **Bob Taylor**, wordt toegevoegd aan de on-premises Active Directory.
-5. Bob Taylor van **UserPrincipalName** is ingesteld als  **bobt@contoso.com** .
+5. Bob Taylor van **UserPrincipalName** is ingesteld als **bobt@contoso.com**.
 6. **Bob Taylor** heeft de volgende waarden voor de **ProxyAddresses** kenmerk i. smtp:bobt@contoso.com ii. smtp:bob.taylor@contoso.com
 7. Bob Taylor van object wordt gesynchroniseerd met Azure AD is.
 8. Beheerder besloten om bij te werken van Bob Taylor **ProxyAddresses** kenmerk met de volgende waarde: ik. **smtp:bob@contoso.com**
@@ -187,15 +187,15 @@ Dit is een specifieke aanvraag die resulteert in een **'FederatedDomainChangeErr
 Het achtervoegsel UserPrincipalName is voor een gesynchroniseerde gebruiker gewijzigd van één federatieve domein naar een ander federatieve domein on-premises. Bijvoorbeeld: *UserPrincipalName = bob@contoso.com*  is gewijzigd in *UserPrincipalName = bob@fabrikam.com* .
 
 #### <a name="example"></a>Voorbeeld
-1. Bob Smith, een account voor Contoso.com is, wordt toegevoegd als een nieuwe gebruiker in Active Directory met de UserPrincipalNamebob@contoso.com
-2. Bob wordt verplaatst naar een andere afdeling contoso.com Fabrikam.com genoemd en zijn UserPrincipalName is gewijzigd inbob@fabrikam.com
+1. Bob Smith, een account voor Contoso.com is, wordt toegevoegd als een nieuwe gebruiker in Active Directory met de UserPrincipalName bob@contoso.com
+2. Bob wordt verplaatst naar een andere afdeling contoso.com Fabrikam.com genoemd en zijn UserPrincipalName is gewijzigd in bob@fabrikam.com
 3. Contoso.com en fabrikam.com domeinen zijn gefedereerde met Azure Active Directory-domeinen.
 4. Berend userPrincipalName niet wordt bijgewerkt en resulteert in een synchronisatiefout 'FederatedDomainChangeError'.
 
 #### <a name="how-to-fix"></a>Op te lossen
 Als een gebruiker UserPrincipalName achtervoegsel is bijgewerkt van bob @**contoso.com** naar bob @**fabrikam.com**, waarbij beide **contoso.com** en **fabrikam.com** zijn **domeinen federatieve**, klikt u vervolgens als volgt te werk om de synchronisatiefout te verhelpen
 
-1. Bijwerken van de gebruiker UserPrincipalName in Azure AD van bob@contoso.com naar bob@contoso.onmicrosoft.com. Met de Azure AD PowerShell-Module kunt u de volgende PowerShell-opdracht:`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
+1. Bijwerken van de gebruiker UserPrincipalName in Azure AD van bob@contoso.com naar bob@contoso.onmicrosoft.com. Met de Azure AD PowerShell-Module kunt u de volgende PowerShell-opdracht: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Toestaan dat de volgende synchronisatiecyclus om synchronisatie. Deze tijdsynchronisatie kan worden geverifieerd en de UserPrincipalName van Bob om te worden bijgewerkt bob@fabrikam.com zoals verwacht.
 
 #### <a name="related-articles"></a>Gerelateerde artikelen

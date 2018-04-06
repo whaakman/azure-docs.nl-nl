@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell gebruiken om een Azure VM te maken met een rapportserver in systeemeigen modus
 > [!IMPORTANT] 
@@ -66,7 +66,7 @@ In dit onderwerp wordt beschreven en wordt u begeleid bij de implementatie en co
    * **Grootte: A3** is de aanbevolen VM-grootte voor SQL Server-werkbelastingen. Als een virtuele machine alleen als een rapportserver gebruikt wordt, is een VM-grootte van A2 voldoende tenzij de report server optreedt in een grote werkbelasting. Zie voor een VM prijsgegevens, [prijzen van virtuele Machines](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Nieuwe gebruikersnaam**: de naam die u opgeeft als beheerder op de virtuele machine wordt gemaakt.
    * **Nieuw wachtwoord** en **bevestigen**. Dit wachtwoord wordt gebruikt voor het nieuwe beheerdersaccount en het wordt aanbevolen dat een sterk wachtwoord te gebruiken.
-   * Klik op **Volgende**. ![volgende](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Klik op **Volgende**. ![Volgende](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. Op de volgende pagina de volgende velden te bewerken:
    
    * **Cloudservice**: Selecteer **Maak een nieuwe Cloudservice**.
@@ -80,7 +80,7 @@ In dit onderwerp wordt beschreven en wordt u begeleid bij de implementatie en co
      * **HTTPS**: de openbare en persoonlijke standaardpoorten zijn **443**. Er is een best practice bij beveiliging voor het wijzigen van de particuliere poort en configureer uw firewall en de rapportserver de particuliere poort gebruiken. Zie voor meer informatie over eindpunten [hoe instellen om communicatie met een virtuele Machine](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Let op: als u een andere poort dan 443, wijzigt u de parameter **$HTTPsport = 443** in het HTTPS-script.
    * Klik op volgende. ![Volgende](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. Gebruik de standaardwaarde op de laatste pagina van de wizard **de VM-agent installeren** geselecteerde. De stappen in dit onderwerp maken geen gebruik van de VM-agent, maar als u van plan bent te houden van deze virtuele machine, de VM-agent en -extensies kunt u hij CM verbeteren.  Zie voor meer informatie over de VM-agent [VM-Agent en -extensies – Part 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Een van de standaard-serverextensies geïnstalleerd ad met is de extensie 'BGINFO' die wordt weergegeven op de VM-bureaublad, systeemgegevens zoals intern IP-adres en de vrije schijfruimte.
-9. Klik op voltooien. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+9. Klik op voltooien. ![OK](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. De **Status** van de virtuele machine wordt weergegeven als **starten (inrichten)** bij het inrichten verwerken en vervolgens wordt weergegeven, **met** wanneer de virtuele machine is ingericht en gereed voor gebruik.
 
 ## <a name="step-2-create-a-server-certificate"></a>Stap 2: Een servercertificaat maken

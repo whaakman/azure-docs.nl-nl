@@ -119,7 +119,6 @@
 #### [Node.js-back-end](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## Beveiligen
-### [Verificatie en autorisatie](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Verifiëren met id-providers
 #### [Verificatie via Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Verificatie via Facebook](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

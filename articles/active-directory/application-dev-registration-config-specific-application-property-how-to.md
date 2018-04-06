@@ -2,10 +2,10 @@
 title: Het specifieke velden voor een toepassing ontwikkelde aangepaste invullen | Microsoft Docs
 description: Instructies voor het specifieke velden invullen bij het registreren van een aangepaste toepassing ontwikkeld met Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Het specifieke velden voor een toepassing ontwikkelde aangepaste invullen
 
@@ -48,7 +48,7 @@ Zodra u de bovenstaande velden hebt ingevuld, de toepassing worden geregistreerd
 | Veld           | Beschrijving                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Toepassings-id  | Wanneer u een toepassing registreert, wijst Azure AD uw toepassing een toepassing. De toepassing-ID kan worden gebruikt als unieke identificatie van uw toepassing in verificatieaanvragen naar Azure AD, evenals voor toegang tot resources, zoals de Graph API.                                                          |
-| App-ID-URI      | Dit moet een unieke URI, meestal van het formulier **https://&lt;tenant\_naam&gt;/&lt;toepassing\_naam&gt;.** Dit wordt gebruikt tijdens de machtiging grant-stroom als een unieke id op te geven van de resource waarvoor het token moet worden uitgegeven. Dit wordt ook de claim 'aud' in het uitgegeven toegangstoken. |
+| URI voor de app-id      | Dit moet een unieke URI, meestal van het formulier **https://&lt;tenant\_naam&gt;/&lt;toepassing\_naam&gt;.** Dit wordt gebruikt tijdens de machtiging grant-stroom als een unieke id op te geven van de resource waarvoor het token moet worden uitgegeven. Dit wordt ook de claim 'aud' in het uitgegeven toegangstoken. |
 | Nieuw logo uploaden | U kunt deze gebruiken voor het uploaden van een logo voor uw toepassing. Het logo moet bmp-, JPG of PNG-indeling en de bestandsgrootte moet groter zijn dan 100KB. Voor de afmetingen van de installatiekopie moet 215 x 215 pixels, met de afmetingen van de centrale afbeelding van 94 x 94 pixels.                                                       |
 | URL van startpagina   | Dit is de aanmeldings-URL opgegeven tijdens de toepassingsregistratie.                                                                                                                                                                                                                                              |
 | URL voor afmelden      | Deze de URL van één afmelden afmelden. Azure AD nu een afmeldingsaanvraag verzonden naar deze URL als de gebruiker de sessie met Azure AD wist met behulp van andere geregistreerde toepassing.                                                                                                                                       |
