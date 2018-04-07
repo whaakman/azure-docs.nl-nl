@@ -2,23 +2,23 @@
 title: Een VM-installatiekopie toevoegen aan Azure-Stack | Microsoft Docs
 description: Toevoegen van uw organisatie aangepaste Windows of Linux-VM-installatiekopie voor tenants kunnen gebruiken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2018
+ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een aangepaste virtuele machine in Azure Stack beschikbaar maken
 
@@ -126,6 +126,7 @@ Als u wilt de installatiekopie toevoegen aan de Stack Azure Marketplace, moet u 
     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
   ```
 
+
 De opdracht doet het volgende:
 
 * Wordt geverifieerd op de Stack van Azure-omgeving.
@@ -133,9 +134,9 @@ De opdracht doet het volgende:
 * Voegt de VM-installatiekopie toe aan de opslagplaats voor VM-installatiekopieën.
 * Maakt een Marketplace-item.
 
-Om te controleren of de opdracht is geslaagd, in de portal, gaat u naar de Marketplace. Controleer of de VM-installatiekopie is beschikbaar in de **virtuele Machines** categorie.
+Om te controleren of de opdracht is geslaagd, in de portal, gaat u naar de Marketplace. Controleer of de VM-installatiekopie is beschikbaar in de **Compute** categorie.
 
-![VM-installatiekopie is toegevoegd](./media/azure-stack-add-vm-image/image5.PNG)
+![VM-installatiekopie is toegevoegd](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Een VM-installatiekopie verwijderen met behulp van PowerShell
 
@@ -185,7 +186,7 @@ Installatiekopieën moet kunnen worden verwezen door een Blob storage-URI. De in
 
    * Wanneer u uploadt de [Windows VM-installatiekopie](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), Vervang door de **aanmelden bij Azure** stap met het [configureren van de Azure-Stack-operator PowerShell-omgeving](azure-stack-powershell-configure-admin.md) stap.  
 
-   * Noteer de URI waar u de installatiekopie van het uploaden van Blob-opslag. De Blob storage-URI heeft de volgende indeling:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
+   * Noteer de URI waar u de installatiekopie van het uploaden van Blob-opslag. De Blob storage-URI heeft de volgende indeling: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*VHD.
 
    * U kunt de blob anoniem toegankelijk maken, gaat u naar de storage-account blob-container waar de VHD van de VM-installatiekopie is geüpload. Selecteer **Blob**, en selecteer vervolgens **toegangsbeleid**. Eventueel, kunt u in plaats daarvan een shared access signature voor de container genereren en opnemen als onderdeel van de blob-URI.
 
