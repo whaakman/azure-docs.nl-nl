@@ -2,7 +2,7 @@
 title: Een app in Azure herstellen
 description: Informatie over het herstellen van uw app vanaf een back-up.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 60b55acaf687dae76e054b428b8d6584d8eb09f8
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 502e3cefca5e2e60efe6a9875de0b63413bc4578
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="restore-an-app-in-azure"></a>Een app in Azure herstellen
 Dit artikel laat zien hoe u een app in [Azure App Service](../app-service/app-service-web-overview.md) die u hebt eerder back-up gemaakt (Zie [Back-up van uw app in Azure](web-sites-backup.md)). U kunt uw app met de gekoppelde databases op aanvraag naar een eerdere status herstellen of een nieuwe app op basis van een back-ups van uw oorspronkelijke app maken. Azure App Service ondersteunt de volgende databases voor back-up en herstel:
 - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
-- [Azure-Database voor MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
-- [Azure-Database voor PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
+- [Azure-Database voor MySQL)](https://azure.microsoft.com/en-us/services/mysql)
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgres)
 - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Herstellen vanuit back-ups is beschikbaar voor apps die worden uitgevoerd **standaard** en **Premium** laag. Zie voor meer informatie over het schalen van uw app [een app in Azure opschalen](web-sites-scale.md). **Premium** laag kan een groter aantal dagelijkse back-ups worden uitgevoerd dan **standaard** laag.
@@ -78,7 +78,7 @@ Schuif naar beneden om te zoeken naar de gewenste herstelbewerking en klikt u op
 
 De detailpagina geeft de beschikbare informatie met betrekking tot de herstelbewerking opnieuw.
 
-## <a name="automate-with-scripts"></a>Automatiseren met behulp van scripts
+## <a name="automate-with-scripts"></a>Automatiseren met scripts
 
 U kunt back-beheer met behulp van scripts, automatiseren met behulp van de [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).
 

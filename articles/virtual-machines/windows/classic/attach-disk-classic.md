@@ -2,9 +2,9 @@
 title: Een schijf koppelen aan een klassieke Azure-VM | Microsoft Docs
 description: Een gegevensschijf koppelen aan een virtuele Windows-machine gemaakt met het klassieke implementatiemodel en het initialiseren.
 services: virtual-machines-windows, storage
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-ms.openlocfilehash: 8219ee8bbaa3d53f95e441c934a0524666593c7b
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 48a6b96bd611fcc8fa8219aeef359419255b8cef
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Een gegevensschijf koppelen aan een virtuele Windows-machine die is gemaakt volgens het klassieke implementatiemodel
 
@@ -67,7 +67,7 @@ Instructies voor het koppelen van een volgende om door te gaan een [nieuwe schij
 1. Verbinding maken met de virtuele machine. Zie voor instructies [verbinding maken met en meld u aan een virtuele machine van Azure waarop Windows wordt uitgevoerd bij](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Nadat u zich aanmeldt bij de virtuele machine, opent u **Serverbeheer**. Selecteer in het linkerdeelvenster **File and Storage Services**.
 
-    ![Open Serverbeheer](../media/attach-disk-portal/fileandstorageservices.png)
+    ![Open Server Manager](../media/attach-disk-portal/fileandstorageservices.png)
 
 3. Selecteer **schijven**.
 4. De **schijven** sectie vindt u de schijven. De meeste gevallen heeft een virtuele machine schijf 0, schijf van 1 en 2 schijf. Schijf 0 is de schijf van het besturingssysteem, schijf van 1 wordt de tijdelijke schijf en schijf 2 is de gegevensschijf die zojuist is gekoppeld aan de virtuele machine. De gegevensschijf geeft een lijst van de partitie als **onbekende**.

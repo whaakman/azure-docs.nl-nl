@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Het gebruik van batchverwerking voor het verbeteren van de toepassingsprestaties SQL-Database
 Batchverwerking van bewerkingen met Azure SQL Database aanzienlijk verbetert de prestaties en schaalbaarheid van uw toepassingen. Om te begrijpen wat de voordelen, het eerste deel van dit artikel bevat informatie over sommige voorbeeld testresultaten die sequentieel en batch aanvragen voor een SQL-Database te vergelijken. De rest van het artikel ziet u de technieken, scenario's en om te gebruiken met succes batchverwerking in uw Azure-toepassingen.
@@ -154,7 +154,7 @@ In de code, maakt u een **DataTable** met exact dezelfde namen en typen van het 
         cmd.ExecuteNonQuery();
     }
 
-In het vorige voorbeeld de **SqlCommand** object voegt rijen uit een tabelwaardeparameter  **@TestTvp** . De eerder gemaakte **DataTable** object is toegewezen aan deze parameter met de **SqlCommand.Parameters.Add** methode. De invoegt in één aanroep aanzienlijk batchverwerking, verhoogt de prestaties via sequentiële ingevoegd.
+In het vorige voorbeeld de **SqlCommand** object voegt rijen uit een tabelwaardeparameter **@TestTvp**. De eerder gemaakte **DataTable** object is toegewezen aan deze parameter met de **SqlCommand.Parameters.Add** methode. De invoegt in één aanroep aanzienlijk batchverwerking, verhoogt de prestaties via sequentiële ingevoegd.
 
 Ter verbetering van het vorige voorbeeld verder een opgeslagen procedure te gebruiken in plaats van een opdracht op basis van tekst. De volgende Transact-SQL-opdracht maakt u een opgeslagen procedure waarmee de **SimpleTestTableType** tabelwaardeparameter.
 

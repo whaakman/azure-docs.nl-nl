@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure logboekregistratie en controle
 ## <a name="introduction"></a>Inleiding
@@ -74,7 +74,7 @@ De volgende tabel lijsttype belangrijkste logboeken beschikbaar in Azure.
 |[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Logboekregistratie voor opslag en metrische gegevens voor een opslagaccount biedt|Biedt inzicht in de trace-aanvragen trends in gebruik analyseren en onderzoeken van problemen met uw opslagaccount.|    REST-API of de [clientbibliotheek](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG (Netwerkbeveiligingsgroep) stroom-Logboeken](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-indeling en ziet u per regel op basis van een binnenkomende en uitgaande stromen|Informatie weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Toepassing inzicht](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logboeken, uitzonderingen en aangepaste diagnostische gegevens|    Application Performance (APM)-service voor webontwikkelaars op meerdere platforms.| REST-API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Gegevens verwerken / beveiligingswaarschuwing| Azure Security Center-waarschuwing, OMS-waarschuwing| Informatie over beveiliging en waarschuwingen.|   REST-API's, JSON|
+|Gegevens verwerken / beveiligingswaarschuwing| Azure Security Center-waarschuwing, Log Analytics-waarschuwing|   Informatie over beveiliging en waarschuwingen.|   REST-API's, JSON|
 
 ### <a name="activity-log"></a>Activiteitenlogboek
 De [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), biedt inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement. Het activiteitenlogboek heette vroeger 'Controlelogboeken' of 'Operationele Logs', omdat deze rapporten [besturingselement vlak gebeurtenissen](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) voor uw abonnementen. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor een (PUT, POST, verwijderen schrijfbewerkingen) die zijn gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen. Het activiteitenlogboek omvat geen leesbewerkingen (GET).
@@ -114,7 +114,7 @@ Azure Diagnostics-logboeken bieden verschillende configuratieopties die, Azure p
 
 -   [Deze stream naar Event Hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) voor opname door een service van derden of aangepaste analytics-oplossing zoals [Power BI.](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
--   Analyseer ze met [OMS-logboekanalyse.](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+-   Analyseer ze met [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 
 **Services, ondersteund schema voor diagnostische logboeken en ondersteunde logboek categorieën per resourcetype**
 
@@ -333,11 +333,11 @@ Veel beveiligingsbewerkingen en respons op incidenten teams afhankelijk van een 
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Log Analytics is een service in [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) die helpt u bij het verzamelen en analyseren van gegevens die zijn gegenereerd voor resources in uw cloud en on-premises omgevingen. Dit biedt u realtime-inzichten geïntegreerd zoeken en aangepaste dashboards met miljoenen records gemakkelijk te analyseren voor alle werkbelastingen en servers, ongeacht de fysieke locatie.
+Log Analytics is een service in Azure die helpt u bij het verzamelen en analyseren van gegevens die zijn gegenereerd voor resources in uw cloud en on-premises omgevingen. Dit biedt u realtime-inzichten geïntegreerd zoeken en aangepaste dashboards met miljoenen records gemakkelijk te analyseren voor alle werkbelastingen en servers, ongeacht de fysieke locatie.
 
 ![Log Analytics](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-Op de center Log Analytics is de OMS-opslagplaats, die wordt gehost in de Azure-cloud. Gegevens worden vanuit verbonden bronnen verzameld in de opslagplaats door gegevensbronnen te configureren en oplossingen toe te voegen aan uw abonnement. Gegevensbronnen en oplossingen creëren elk verschillende recordtypen die hun eigen set eigenschappen hebben, maar nog steeds samen kunnen worden geanalyseerd in query's in de opslagplaats. Hiermee kunt u dezelfde hulpprogramma's en methoden gebruiken om te werken met verschillende soorten gegevens die door verschillende bronnen zijn verzameld.
+Op de center Log Analytics is de werkruimte voor logboekanalyse, die wordt gehost in de Azure-cloud. Gegevens worden verzameld in de werkruimte van verbonden bronnen door configureren gegevensbronnen en oplossingen voor toe te voegen aan uw abonnement. Gegevensbronnen en oplossingen voor maakt elk verschillende recordtypen die hun eigen set eigenschappen, maar kunnen nog steeds worden geanalyseerd samen in query's naar de werkruimte. Hiermee kunt u dezelfde hulpprogramma's en methoden gebruiken om te werken met verschillende soorten gegevens die door verschillende bronnen zijn verzameld.
 
 Verbonden bronnen zijn de computers en andere bronnen die gegevens genereren die worden verzameld door Log Analytics. Het kan hierbij gaan agents zijn geïnstalleerd op [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) en [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) computers die rechtstreeks verbinding te maken of agents in [een verbonden beheergroep van System Center Operations Manager.](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents) Log Analytics kunnen ook worden verzameld van [Azure-opslag.](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)
 

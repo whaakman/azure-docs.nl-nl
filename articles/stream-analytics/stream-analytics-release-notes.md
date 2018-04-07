@@ -1,28 +1,24 @@
 ---
-title: Releaseopmerkingen voor stream Analytics | Microsoft Docs
-description: Opmerkingen bij de Release van de stream Analytics
+title: Azure Stream Analytics - Release-opmerkingen
+description: In dit artikel beschrijft de versiegeschiedenis van Azure Stream Analytics en de bijbehorende Visual Studio-hulpprogramma's.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/03/2017
 ms.author: jeanb
-ms.openlocfilehash: 645c9e7014beba0312de3784bbc04734927929a9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/03/2017
+ms.openlocfilehash: b5f6f4f42929127521320e56bcc9b36c324cde89
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-release-notes"></a>Stream Analytics release-opmerkingen
 
 ## <a name="notes-for-06142017-update-of-stream-analytics-tools-for-visual-studio"></a>Opmerkingen voor de update 14-06/2017 van Stream Analytics-hulpprogramma's voor Visual Studio
-Deze update is voor onze Visual Studio-hulpprogramma's. Deze versie bevat de volgende nieuwe functies:
+Deze update is voor Visual Studio Tools. Deze versie bevat de volgende nieuwe functies:
 
 | Titel | Beschrijving |
 | --- | --- |
@@ -31,19 +27,19 @@ Deze update is voor onze Visual Studio-hulpprogramma's. Deze versie bevat de vol
 | Ondersteuning voor CSV en Avro voor lokale testen invoer | Naast de JSON, kunt nu u CSV en de Avro-bestandsindeling voor lokale testen invoer.|
 
 ## <a name="notes-for-05032017-update-of-stream-analytics"></a>Opmerkingen voor 03-05/2017 bijwerken van de Stream Analytics
-Deze update is voor onze voor probleemoplossing documentatie-release.
+Deze update is voor de release van de documentatie voor probleemoplossing.
 
-De [probleemoplossingsgids](stream-analytics-troubleshooting-guide.md) en andere documenten zijn uitgebracht. Controleer, feedback is Welkom.
+De [probleemoplossingsgids](stream-analytics-troubleshooting-guide.md) en andere documenten zijn uitgebracht. Bekijk deze handleiding en uw feedback is Welkom.
 
 ## <a name="notes-for-04242017-update-of-stream-analytics-tools-for-visual-studio"></a>Opmerkingen voor 24/04/2017 bijwerken van de Stream Analytics-hulpprogramma's voor Visual Studio
-Deze update is voor onze Visual Studio-hulpprogramma's. Deze versie bevat de volgende nieuwe functies:
+Deze update is voor Visual Studio Tools. Deze versie bevat de volgende nieuwe functies:
 
 | Titel | Beschrijving |
 | --- | --- |
 | Testresultaat van lokale bekijken in Visual Studio | Als u wilt weergeven van het uitvoerresultaat van de lokale test, druk op ENTER in het consolevenster uitvoer of sluit het bestand. Het resultaat wordt weergegeven in een venster in Visual Studio in tabelindeling. |
 | Lokale uitvoerresultaat in JSON-indeling | Wanneer u een lokale test uitvoert, wordt het uitvoerresultaat wordt gegenereerd als JSON- en CSV-bestandsindeling. |
 | Een voorbeeld van Blob-/ tabelnaam opslag invoer/uitvoer-gegevens | Door te dubbelklikken op een blob of tabel opslag invoer/uitvoer in de Project-weergave, kunt u de gegevens in Visual Studio eenvoudig bekijken. |
-| Foutbericht voor invoer/uitvoer weergeven | Als er een runtime-fouten gerelateerd aan uw project in- of uitgangen zijn, wordt deze weergegeven op de taak diagram waarin u de muisaanwijzer kunt erop om het gedetailleerde foutbericht te zien.|
+| Foutbericht voor invoer/uitvoer weergeven | Als er een runtimefout met betrekking tot de invoer of uitvoer van de taak, wordt deze weergegeven op de taak diagram waarin u de muisaanwijzer kunt erop om het gedetailleerde foutbericht te zien.|
 
 
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Opmerkingen bij de release-01-02/2017 van Stream Analytics
@@ -76,7 +72,7 @@ Deze versie bevat de volgende update:
 | Titel | Beschrijving |
 | --- | --- |
 | Update van de REST-API-versie |De REST-API-versie is bijgewerkt naar 2015-10-01. Details zijn te vinden op MSDN op [Stream Analytics Management REST API-verwijzing](https://msdn.microsoft.com/library/azure/dn835031.aspx) en [Machine Learning-integratie in Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md). |
-| Azure Machine Learning-integratie |Met deze versie bevat ondersteuning voor Azure Machine Learning van de gebruiker gedefinieerde functies. Zie de [zelfstudie](stream-analytics-machine-learning-integration-tutorial.md) voor meer informatie, evenals de [algemene blog aankondiging](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
+| Azure Machine Learning-integratie |Met deze versie bevat ondersteuning voor Azure Machine Learning van de gebruiker gedefinieerde functies. Zie voor meer informatie de [zelfstudie](stream-analytics-machine-learning-integration-tutorial.md) en de [algemene blog aankondiging](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
 
 ## <a name="notes-for-11122015-release-of-stream-analytics"></a>Opmerkingen voor 11-12-2015-release van Stream Analytics
 Deze versie bevat de volgende update:
@@ -93,7 +89,7 @@ Deze versie bevat de volgende updates:
 | Extra query language-functies |Stream Analytics heeft de query language uitgebreid door de volgende functies: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [maximum](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [aanmelding](https://msdn.microsoft.com/library/azure/mt605290.aspx), [VIERKANT](https://msdn.microsoft.com/library/azure/mt605288.aspx), en [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx). |
 | Cumulatieve beperkingen verwijderd |Deze release verwijdert de beperking van 15 statistische functies in een query. Er is nu geen limiet aan het aantal aggregaties per query. |
 | Toegevoegde groep door System.Timestamp-functie |De [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) functie nu kunt u beide window_type of [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx). |
-| Toegevoegde OFFSET voor Tumbling en Hopping van windows |Standaard [Tumbling](https://msdn.microsoft.com/library/azure/dn835055.aspx) en [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) windows zijn uitgelijnd tegen de nul tijd (1/1/0001 12:00:00 AM UTC). De nieuwe (optioneel) parameter 'offsetsize' kunt u opgeven die een aangepaste offset (of uitlijning). |
+| Toegevoegde OFFSET voor Tumbling en Hopping van windows |Standaard [Tumbling](https://msdn.microsoft.com/library/azure/dn835055.aspx) en [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) windows zijn uitgelijnd tegen de nul tijd (1/1/0001 12:00:00 AM UTC). De nieuwe parameter (optioneel) `offsetsize` kunt u een aangepaste offset (of uitlijning) opgeven. |
 
 ## <a name="notes-for-09292015-release-of-stream-analytics"></a>Opmerkingen voor 29-09/2015-release van Stream Analytics
 Deze versie bevat de volgende updates:
@@ -151,16 +147,16 @@ Deze versie bevat de volgende updates:
 | --- | --- |
 | Vertraging in de configuratie van Azure Storage-account |Wanneer u een Stream Analytics-taak in een regio voor de eerste keer maakt, wordt u gevraagd een nieuw opslagaccount maken of geef een bestaande account voor het bewaken van de Stream Analytics-taken in deze regio. Vanwege een wachttijd bij het configureren van bewaking, een ander Stream Analytics-taak maken in dezelfde regio binnen 30 minuten prompt voor het opgeven van een tweede opslagaccount in plaats van de recent geconfigureerde structuur in de vervolgkeuzelijst bewaking Storage-Account wordt weergegeven. Om te voorkomen dat een onnodige Storage-account maakt, wacht u 30 minuten na het maken van een taak in een regio voor de eerste keer voordat u extra taken in deze regio inricht. |
 | Upgrade van de taak |Stream Analytics ondersteunt op dit moment geen live bewerkingen van de definitie of de configuratie van een actieve taak. Wijzigen van de invoer, uitvoer, query, scale of configuratie van een actieve taak, moet u de taak te stoppen. |
-| Gegevenstypen die zijn afgeleid van de invoerbron |Als een CREATE TABLE-instructie wordt niet gebruikt, wordt het invoertype is afgeleid van invoerindeling, bijvoorbeeld alle velden uit CSV tekenreeks zijn. Velden moeten expliciet worden geconverteerd naar het juiste type met de CAST-functie om te voorkomen dat type verschil fouten. |
+| Gegevenstypen die zijn afgeleid van de invoerbron |Als een CREATE TABLE-instructie wordt niet gebruikt, wordt het invoertype is afgeleid van invoerindeling, bijvoorbeeld alle velden uit CSV tekenreeks zijn. Velden expliciet converteren naar het juiste type met de CAST-functie om te voorkomen dat type verschil fouten. |
 | Ontbrekende velden worden als null-waarden gegenereerd |Verwijst naar een veld dat is niet aanwezig in de invoerbron resulteert in een null-waarden in de uitvoergebeurtenis. |
 | MET instructies moeten worden voorafgegaan door een SELECT-instructies |SELECT-instructies moeten subquery's gedefinieerd met de instructies volgen in uw query. |
 | Probleem-geheugen |Streaming Analytics-taken met een grote tolerantie voor out-van-order gebeurtenissen en/of complexe query's voor het onderhouden van een grote hoeveelheid status kan ertoe leiden dat de taak is een tekort aan geheugen, wat resulteert in een taak opnieuw starten. De bewerkingen starten en stoppen, zijn zichtbaar in de bewerkingslogboeken van de taak. U lost dit schaal uit de query voor meerdere partities. Deze beperking wordt in een toekomstige release verholpen door op de prestaties van de betrokken taken in plaats van ze te beïnvloeden. |
 | Grote blob invoer zonder nettolading timestamp kunnen-geheugen probleem veroorzaken |Grote bestanden van Blob-opslag mogelijk Stream Analytics-taken vastlopen als een tijdstempelveld niet is opgegeven via de TIMESTAMP BY. Om dit te voorkomen, houd dan 10 MB van elke blob in grootte. |
-| SQL-Database gebeurtenis volume beperking |Wanneer u SQL-Database als een output-doel, kan zeer grote hoeveelheden uitvoergegevens kunnen ertoe leiden dat de Stream Analytics-taak time-out. U lost dit probleem, vermindering van het volume uitvoer met behulp van statistische functies of filteroperators of Azure Blob-opslag of Event Hubs in plaats daarvan als een output-doel kiezen. |
+| SQL-Database gebeurtenis volume beperking |Wanneer u SQL-Database als een output-doel, kunnen grote hoeveelheden uitvoergegevens de Stream Analytics-taak time-out veroorzaken. U lost dit probleem, vermindering van het volume uitvoer met behulp van statistische functies of filteroperators of Azure Blob-opslag of Event Hubs in plaats daarvan als een output-doel kiezen. |
 | Power BI-gegevenssets kan slechts één tabel bevatten. |Power BI biedt geen ondersteuning voor meerdere tabellen in een bepaalde gegevensset. |
 
 ## <a name="get-help"></a>Help opvragen
-Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Uitproberen voor verdere hulp van de [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

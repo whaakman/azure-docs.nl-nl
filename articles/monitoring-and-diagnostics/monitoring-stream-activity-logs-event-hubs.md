@@ -3,7 +3,7 @@ title: De Azure Activity Log naar Event Hubs Stream | Microsoft Docs
 description: Informatie over het streamen van de Azure Activity Log naar Event Hubs.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: ec4c2d2c-8907-484f-a910-712403a06829
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: johnkem
-ms.openlocfilehash: 4b2d9866839f943f65beb271d44bc691441b0fb3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8a599558fc35ca2bf48ce2a5f11ec4978bf10277
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream de Azure Activity Log naar Event Hubs
 U kunt streamen de [Azure Activity Log](monitoring-overview-activity-logs.md) in bijna realtime voor elke toepassing door een van beide:
@@ -56,38 +56,48 @@ Voor het bijwerken van het profiel van het logboek activiteitenlogboek om op te 
 
    > [!WARNING]  
    > Als u iets anders dan selecteert **alle regio's**, mist u belangrijke gebeurtenissen die u verwacht te ontvangen. Het activiteitenlogboek is een logboek met algemene (niet-regionale), de meeste gebeurtenissen hoeft dus niet een regio die is gekoppeld. 
-   > 
+   >
 
 4. Selecteer **opslaan** deze instellingen op te slaan. De instellingen zijn direct toegepast op uw abonnement.
 5. Als u meerdere abonnementen hebt, herhaalt u deze actie en alle gegevens verzenden naar de dezelfde event hub.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-cmdlets
-Als een profiel voor een logboek al bestaat, moet u eerst dat profiel te verwijderen.
+Als een profiel voor een logboek al bestaat, moet u eerst het bestaande profiel voor het logboek verwijderen en vervolgens een nieuw logboekbestand-profiel maken.
 
-1. Gebruik `Get-AzureRmLogProfile` om te bepalen of er een logboek-profiel bestaat.
-2. Als dit het geval is, gebruik `Remove-AzureRmLogProfile` om deze te verwijderen.
-3. Gebruik `Set-AzureRmLogProfile` om een profiel te maken:
+1. Gebruik `Get-AzureRmLogProfile` om te bepalen of er een logboek-profiel bestaat.  Als u een profiel voor een logboek bestaat, zoekt u naar de *naam* eigenschap.
+2. Gebruik `Remove-AzureRmLogProfile` verwijderen van het logboek-profiel met behulp van de waarde van de *naam* eigenschap.
+
+    ```powershell
+    # For example, if the log profile name is 'default'
+    Remove-AzureRmLogProfile -Name "default"
+    ```
+3. Gebruik `Add-AzureRmLogProfile` voor het maken van een nieuw logboekbestand-profiel:
 
    ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your event hub belongs to>"
+   $eventHubNamespace = "<event hub namespace>"
 
-   Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+   # Build the service bus rule Id from the settings above
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
 
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
-
-De regel-ID van Service Bus is een tekenreeks met deze indeling: `{service bus resource ID}/authorizationrules/{key name}`. 
 
 ### <a name="via-azure-cli"></a>Via Azure CLI
-Als een profiel voor een logboek al bestaat, moet u eerst dat profiel te verwijderen.
+Als een profiel voor een logboek al bestaat, moet u eerst het bestaande profiel voor het logboek verwijderen en vervolgens een nieuw logboekbestand-profiel maken.
 
-1. Gebruik `azure insights logprofile list` om te bepalen of er een logboek-profiel bestaat.
-2. Als dit het geval is, gebruik `azure insights logprofile delete` om deze te verwijderen.
-3. Gebruik `azure insights logprofile add` om een profiel te maken:
+1. Gebruik `az monitor log-profiles list` om te bepalen of er een logboek-profiel bestaat.
+2. Gebruik `az monitor log-profiles delete --name "<log profile name>` verwijderen van het logboek-profiel met behulp van de waarde van de *naam* eigenschap.
+3. Gebruik `az monitor log-profiles create` voor het maken van een nieuw logboekbestand-profiel:
 
    ```azurecli-interactive
-   azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
-
-De regel-ID van Service Bus is een tekenreeks met deze indeling: `{service bus resource ID}/authorizationrules/{key name}`.
 
 ## <a name="consume-the-log-data-from-event-hubs"></a>De logboekgegevens van Event Hubs gebruiken
 Het schema voor het logboek is beschikbaar in [bewaken abonnement activiteit met de Azure Activity Log](monitoring-overview-activity-logs.md). Elke gebeurtenis wordt in een matrix met JSON-blobs aangeroepen *records*.

@@ -2,12 +2,12 @@
 title: Maken en beheren van een virtuele Machine van Azure met behulp van Java | Microsoft Docs
 description: Java- en Azure Resource Manager gebruiken voor het implementeren van een virtuele machine en de ondersteunende bronnen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: b970b7a5e1db6d8580ede9699d4776a79e03c98f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: da8f8b0e84a51683bd4f631832e1f319f3a9bbb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Maken en beheren van Windows-machines in Azure met behulp van Java
 
@@ -133,7 +133,7 @@ Voordat u deze stap, zorg ervoor dat u toegang tot hebben een [Active Directory-
     graphURL=https://graph.windows.net/
     ```
 
-    Vervang  **&lt;abonnement-id&gt;**  met uw abonnements-id  **&lt;toepassing-id&gt;**  met de toepassings-id van het Active Directory  **&lt;verificatiesleutel&gt;**  voor de Toepassingssleutel, en  **&lt;tenant-id&gt;**  met tenant-id.
+    Vervang **&lt;abonnement-id&gt;** met uw abonnements-id **&lt;toepassing-id&gt;** met de toepassings-id van het Active Directory **&lt;verificatiesleutel&gt;** voor de Toepassingssleutel, en **&lt;tenant-id&gt;** met tenant-id.
 
 2. Sla het bestand op.
 3. Omgevingsvariabele AZURE_AUTH_LOCATION in uw shell met het volledige pad naar het verificatiebestand instellen.
@@ -320,7 +320,7 @@ azure.virtualMachines.define("myVM")
 
 ## <a name="perform-management-tasks"></a>Beheertaken uitvoeren
 
-Tijdens de levenscyclus van een virtuele machine, kan u wilt uitvoeren van beheertaken, zoals starten, stoppen of een virtuele machine wordt verwijderd. Bovendien wilt u maken code om herhaalde of complexe taken te automatiseren.
+Tijdens de levenscyclus van een virtuele machine wilt u mogelijk beheertaken uitvoeren, zoals het starten, stoppen of verwijderen van een virtuele machine. Bovendien wilt u maken code om herhaalde of complexe taken te automatiseren.
 
 Wanneer u ondernemen met de virtuele machine moet, moet u een exemplaar van deze. Deze code toevoegen aan de try-blok van de belangrijkste methode:
 

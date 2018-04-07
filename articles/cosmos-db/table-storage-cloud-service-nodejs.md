@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3708c4a1bae93682f81d8aad0f3649f6b2381ff5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure Table storage: Node.js-webtoepassing
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -55,7 +55,7 @@ Voer de volgende stappen uit om de opslagaccountreferenties ophalen en toe te vo
 3. Voer de volgende cmdlet om op te halen van de accountgegevens voor de opslag van de Azure Powershell-venster:
 
     ```powershell
-    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccount
     ```
 
    De voorgaande cmdlet haalt de lijst met opslagaccounts en sleutels die zijn gekoppeld aan de gehoste service-account.
@@ -342,9 +342,20 @@ Het bestand **layout.jade** in de map **views** wordt gebruikt als een algemeen 
 
 1. Downloaden en uitpakken van de bestanden voor [Twitter Bootstrap](http://getbootstrap.com/). Kopieer de **bootstrap.min.css** bestand van de **bootstrap\\verdeling\\css** map de **openbare\\stylesheets** map van uw toepassing tasklist.
 2. Van de **weergaven** map, open de **layout.jade** -bestand in een teksteditor en vervang de inhoud door het volgende:
-
-    DOCTYPE HTML-html head titel = Titelkoppeling (rel = 'stylesheet', href='/stylesheets/bootstrap.min.css') koppeling (rel = 'stylesheet', href='/stylesheets/style.css') body.app nav.navbar.navbar-standaard div.navbar-header a.navbar-brand(href='/') inhoud van mijn taken blokkeren
-
+ 
+```jade
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body.app
+        nav.navbar.navbar-default
+          div.navbar-header
+            a.navbar-brand(href='/') My Tasks
+        block content
+```
 3. Sla de **layout.jade** bestand.
 
 ### <a name="running-the-application-in-the-emulator"></a>De toepassing wordt uitgevoerd in de Emulator

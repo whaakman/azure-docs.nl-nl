@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5685c1e1c502b5f3700fb1c4487778d38ff19d1e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8a9b0b2c0541504954c4a1352180552cc650a31f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-dependent-routing"></a>Gegevensafhankelijke routering
 **Gegevensafhankelijke routering** is de mogelijkheid om de gegevens in een query voor het routeren van de aanvraag met een juiste database gebruiken. Dit is een fundamenteel patroon bij het werken met shard-databases. De aanvraagcontext kan ook worden gebruikt voor het routeren van de aanvraag, met name als de sleutel sharding geen deel uit van de query maakt. Elke specifieke query of een transactie in een toepassing met gegevensafhankelijke routering is beperkt tot toegang tot een individuele database per aanvraag. Voor de Azure SQL Database elastische hulpprogramma's voor deze routering wordt uitgevoerd met de **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) klasse.

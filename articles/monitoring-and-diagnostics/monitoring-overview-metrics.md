@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: ancav
-ms.openlocfilehash: 4598267e92716529774f42d22ab7c47d944d4495
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Overzicht van metrische gegevens in Microsoft Azure
 Dit artikel wordt beschreven wat metrische gegevens zijn in Microsoft Azure, hun voordelen en het gebruik ervan.  
@@ -47,7 +47,7 @@ U kunt ook:
 
 * Configureren van een metriek **Waarschuwing regel waarmee u een melding verzendt of duurt automatische actie** wanneer de metriek overschrijdt de drempelwaarde die u hebt ingesteld. Automatisch schalen is een speciale geautomatiseerde actie op die u kunt u de bron om te voldoen aan de inkomende aanvragen worden uitgebreid of wordt op uw website of de computerbronnen is geladen. U kunt een regel van de instelling voor automatisch schalen schalen in- of configureren op basis van een metriek een drempelwaarde overschrijden.
 
-* **Route** alle metrische gegevens Application Insights of logboekanalyse (OMS) om in te schakelen instant analytics, zoeken en aangepaste waarschuwingen op metrische gegevens van uw resources. U kunt ook de metrische gegevens naar een Event Hub, zodat u kunt ze vervolgens doorsturen naar Azure Stream Analytics of aangepaste apps voor vrijwel in realtime analyse streamen. U instellen kunt de Event Hub met behulp van diagnostische instellingen voor streaming.
+* **Route** alle metrische gegevens Application Insights of Log Analytics om in te schakelen instant analytics, zoeken en aangepaste waarschuwingen op metrische gegevens van uw resources. U kunt ook de metrische gegevens naar een Event Hub, zodat u kunt ze vervolgens doorsturen naar Azure Stream Analytics of aangepaste apps voor vrijwel in realtime analyse streamen. U instellen kunt de Event Hub met behulp van diagnostische instellingen voor streaming.
 
 * **Archiveren van metrische gegevens naar opslag** voor het bewaren van langer of te gebruiken voor het melden van offline. Bij het configureren van diagnostische instellingen voor uw resource, kunt u uw metrische gegevens routeren naar Azure Blob-opslag.
 
@@ -100,11 +100,18 @@ Azure metrische gegevens zijn toegankelijk via de Azure-Monitor API's. Er zijn t
 Zie voor een meer gedetailleerd overzicht met de Azure-Monitor REST API's, [Azure Monitor REST-API-overzicht](monitoring-rest-api-walkthrough.md).
 
 ## <a name="export-metrics"></a>Metrische gegevens exporteren
-Gaat u naar de **diagnostische instellingen** blade onder de **Monitor** tabblad en de opties voor exporteren van metrische gegevens weergeven. U kunt selecteren metrische gegevens (en diagnostische logboeken) worden doorgestuurd naar Blob storage, Azure Event Hubs of OMS voor use cases die eerder werden vermeld in dit artikel.
+Gaat u naar de **diagnostische instellingen** blade onder de **Monitor** tabblad en de opties voor exporteren van metrische gegevens weergeven. U kunt selecteren metrische gegevens (en diagnostische logboeken) worden doorgestuurd naar de Blob-opslag naar Azure Event Hubs of met logboekanalyse voor use cases die eerder werden vermeld in dit artikel.
 
  ![Opties voor exporteren van metrische gegevens die in de Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
 U kunt dit configureren via Resource Manager-sjablonen, [PowerShell](insights-powershell-samples.md), [Azure CLI](insights-cli-samples.md), of [REST-API's](https://msdn.microsoft.com/library/dn931943.aspx).
+
+> [!NOTE]
+> Verzenden van multidimensionale metrische gegevens via de diagnostische instellingen is momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte één dimensionale metrische gegevens, getotaliseerd over dimensiewaarden.
+>
+> *Bijvoorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een niveau van de wachtrij. Echter, wanneer geëxporteerd via diagnostische instellingen voor die de metrische gegevens worden weergegeven als alle binnenkomende berichten in alle wachtrijen in de Event Hub.
+>
+>
 
 ## <a name="take-action-on-metrics"></a>Metrische gegevens van actie ondernemen
 Als u meldingen ontvangen of geautomatiseerde acties ondernemen met metrische gegevens, kunt u regels voor waarschuwingen of instellingen voor automatisch schalen configureren.

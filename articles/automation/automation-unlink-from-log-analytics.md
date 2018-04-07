@@ -1,18 +1,18 @@
 ---
-title: Ontkoppelen van Azure Automation-account van logboekanalyse | Microsoft Docs
+title: Een Azure Automation-account loskoppelen van Log Analytics
 description: Dit artikel bevat een overzicht van hoe u uw Azure Automation-account van een werkruimte voor logboekanalyse ontkoppelen.
 services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/19/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 4928f1b92e84fc2b960c1f41e7531de9e346dfa2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Het ontkoppelen van uw Automation-account van een werkruimte voor logboekanalyse
 
@@ -21,16 +21,27 @@ Azure Automation worden geïntegreerd met logboekanalyse te bieden niet alleen o
 * [Updatebeheer](../operations-management-suite/oms-solution-update-management.md)
 * [Tracering wijzigen](../log-analytics/log-analytics-change-tracking.md)
 * [Virtuele machines starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
- 
-Als u dat u niet langer wilt integreren van uw Automation-account met Log Analytics besluit, kunt u uw account rechtstreeks vanuit de Azure portal kunt ontkoppelen.  Voordat u doorgaat, moet u eerst te verwijderen van de oplossingen die eerder vermeld, anders dit proces zal worden voorkomen dat u doorgaat.  Bekijk het onderwerp voor de specifieke oplossing die u hebt geïmporteerd voor informatie over de stappen die nodig zijn om deze te verwijderen.  
+
+Als u dat u niet langer wilt integreren van uw Automation-account met Log Analytics besluit, kunt u uw account rechtstreeks vanuit de Azure portal kunt ontkoppelen.  Voordat u doorgaat, moet u eerst te verwijderen van de oplossingen die eerder vermeld, anders dit proces zal worden voorkomen dat u doorgaat. Bekijk het onderwerp voor de specifieke oplossing die u hebt geïmporteerd voor informatie over de stappen die nodig zijn om deze te verwijderen.
 
 U kunt de volgende stappen voor het ontkoppelen van uw Automation-account uitvoeren na het verwijderen van deze oplossingen.
 
+> [!NOTE]
+> Sommige oplossingen met inbegrip van eerdere versies van de oplossing van Azure SQL-controle automation activa hebt gemaakt en moet mogelijk ook voor het ontkoppelen van de werkruimte worden verwijderd.
+
 ## <a name="unlink-workspace"></a>Ontkoppelen van de werkruimte
 
-1. Open uw Automation-account in de Azure-portal en op de Automation-account selecteren pagina **ontkoppelen werkruimte** onder de sectie **verwante Resources** aan de linkerkant.<br><br> ![Werkruimte optie ontkoppelen](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)<br><br>  
-2. Klik op de pagina van de werkruimte ontkoppelen **ontkoppelen werkruimte**.<br><br> ![Ontkoppelen van de pagina voor werkruimte](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).<br><br>  U ontvangt een prompt waarin u wordt gevraagd of u wilt doorgaan.<br><br>
-3. Terwijl Azure Automation probeert te ontkoppelen van het account werkruimte voor logboekanalyse, u kunt de voortgang volgen onder **meldingen** in het menu.
+1. Open uw Automation-account in de Azure-portal en op de Automation-account selecteren pagina **ontkoppelen werkruimte** onder de sectie **verwante Resources** aan de linkerkant.
+
+   ![Werkruimte optie ontkoppelen](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)
+
+1. Klik op de pagina van de werkruimte ontkoppelen **ontkoppelen werkruimte**.
+
+   ![Pagina voor werkruimte ontkoppelen](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).
+
+   U ontvangt een prompt waarin u wordt gevraagd of u wilt doorgaan.
+
+1. Terwijl Azure Automation probeert te ontkoppelen van het account werkruimte voor logboekanalyse, u kunt de voortgang volgen onder **meldingen** in het menu.
 
 Als u de Update-beheeroplossing gebruikt, eventueel u mogelijk wilt verwijderen van de volgende items die niet langer nodig zijn na het verwijderen van de oplossing.
 
@@ -40,10 +51,10 @@ Als u de Update-beheeroplossing gebruikt, eventueel u mogelijk wilt verwijderen 
 
 Als u de starten/stoppen virtuele machines tijdens rustige uren oplossing gebruikt, eventueel u mogelijk wilt verwijderen van de volgende items die niet langer nodig zijn na het verwijderen van de oplossing.
 
-* Starten en stoppen van runbook-planningen VM 
+* Starten en stoppen van runbook-planningen VM
 * VM-runbooks starten en stoppen
-* Variabelen   
+* Variabelen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt uw Automation-account om te integreren met logboekanalyse configureren, Zie [taakstatus en taak streams doorsturen van automatisering met logboekanalyse](automation-manage-send-joblogs-log-analytics.md). 
+Als u wilt uw Automation-account om te integreren met logboekanalyse configureren, Zie [taakstatus en taak streams doorsturen van automatisering met logboekanalyse](automation-manage-send-joblogs-log-analytics.md).

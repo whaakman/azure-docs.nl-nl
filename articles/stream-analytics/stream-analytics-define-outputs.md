@@ -1,26 +1,21 @@
 ---
-title: 'Stream Analytics-uitvoer: opties voor opslag, analyse | Microsoft Docs'
+title: Typen van de uitvoer van de Azure Stream Analytics-taken
 description: Meer informatie over Stream Analytics uitvoer Gegevensopties met inbegrip van Power BI voor analyseresultaten als doel.
-keywords: gegevenstransformatie, analyseresultaten, opties voor opslag van gegevens
-services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: ''
-author: SnehaGunda
+services: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 02/18/2017
-ms.author: sngun
-ms.openlocfilehash: ae8c4daf6b4beff3b1baf7ef5a5f3b84d706401a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Stream Analytics-uitvoer: opties voor opslag, analyse
+# <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Stream Analytics-uitvoer: opties voor opslag en analyse
 Houd rekening met hoe de geretourneerde gegevens wordt gebruikt bij het ontwerpen van een Stream Analytics-taak. Hoe kunt u de resultaten van de Stream Analytics-taak weergeven en waarin kunt u deze opslaan?
 
 Azure Stream Analytics heeft om in te schakelen tal van toepassing patronen, verschillende opties voor het opslaan van de uitvoer en weergeven van resultaten van de analyse. Dit maakt het eenvoudig taakuitvoer weergeven en geeft u de extra flexibiliteit in het verbruik en de opslag van de taakuitvoer van de voor gegevensopslag en andere doeleinden. Geen uitvoer geconfigureerd in de taak moet bestaan voordat de taak is gestart en gebeurtenissen start stromende. Bijvoorbeeld, als u een Blob-opslag als uitvoer gebruikt, de taak niet een opslagaccount maken automatisch. Een opslagaccount maken voordat de Stream Analytics-taak wordt gestart.

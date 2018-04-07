@@ -5,8 +5,8 @@ services: service-bus-relay
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b919f1fb0799ec497742115b2611f34872af2027
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Relay metrische gegevens in de Azure-Monitor (preview)
 
@@ -44,7 +44,7 @@ Voor de metrische gegevens voor ondersteuning van dimensies, moet u met de waard
 
 ## <a name="billing"></a>Facturering
 
-Met metrische gegevens in de Azure-Monitor is die momenteel beschikbaar is tijdens het Preview-versie. Echter, als u aanvullende oplossingen die metrische gegevens voor opnemen gebruikt, u mogelijk worden gefactureerd door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als archiveren van metrische gegevens aan een Azure Storage-account. U wordt ook door opnieuw Management Suite (OMS) gefactureerd als stream van metrische gegevens aan OMS voor geavanceerde analyse.
+Met metrische gegevens in de Azure-Monitor is die momenteel beschikbaar is tijdens het Preview-versie. Echter, als u aanvullende oplossingen die metrische gegevens voor opnemen gebruikt, u mogelijk worden gefactureerd door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als archiveren van metrische gegevens aan een Azure Storage-account. U wordt ook door logboekanalyse gefactureerd als stream van metrische gegevens voor logboekanalyse voor geavanceerde analyse.
 
 De volgende metrische gegevens geven een overzicht van de status van uw service. 
 

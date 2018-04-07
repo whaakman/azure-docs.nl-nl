@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b317a2d9241016b66651af4659c7daf2e8d8f2cc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8f212797decdd967154584927984bc0a4e58f4ba
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatiseren van bronnen in uw datacenter of de cloud met Hybrid Runbook Worker
 
@@ -70,7 +70,7 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
    * *WorkspaceName* (optioneel): de naam van de werkruimte de logboekanalyse. Als u een werkruimte voor logboekanalyse niet hebt, wordt het script maakt en configureert u een.
 
      > [!NOTE]
-     > De enige Automation-regio's ondersteund voor de integratie met logboekanalyse zijn momenteel - **Australië-Zuidoost**, **VS-Oost 2**, **Zuidoost-Azië**, en  **West-Europa**. Als uw Automation-account zich niet in een van deze regio's, wordt het script maakt een werkruimte voor logboekanalyse maar wordt er een waarschuwingsbericht weergegeven dat er kan geen koppeling ze samen.
+     > De enige Automation-regio's ondersteund voor de integratie met logboekanalyse zijn momenteel - **Australië-Zuidoost**, **VS-Oost 2**, **Zuidoost-Azië**, en ** West-Europa**. Als uw Automation-account zich niet in een van deze regio's, wordt het script maakt een werkruimte voor logboekanalyse maar wordt er een waarschuwingsbericht weergegeven dat er kan geen koppeling ze samen.
 
 2. Start op uw computer **Windows PowerShell** van de **Start** scherm in de beheerdersmodus.
 3. Ga naar de map waarin het script dat u hebt gedownload en het wijzigen van de waarden voor parameters worden uitgevoerd vanuit de PowerShell opdrachtregel-shell, *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, en *- WorkspaceName*.
@@ -93,6 +93,7 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
 De eerste twee stappen eenmaal uitvoeren voor uw Automation-omgeving en vervolgens de resterende stappen herhalen voor elke worker-computer.
 
 #### <a name="1-create-log-analytics-workspace"></a>1. Een Log Analytics-werkruimte maken
+
 Als u nog geen een werkruimte voor logboekanalyse, maakt u een met instructies voor [beheren van uw werkruimte](../log-analytics/log-analytics-manage-access.md). Als u al hebt, kunt u een bestaande werkruimte gebruiken.
 
 #### <a name="2-add-automation-solution-to-log-analytics-workspace"></a>2. Automation-oplossing naar de werkruimte voor logboekanalyse toevoegen
@@ -102,6 +103,7 @@ Oplossingen voegen functionaliteit toe aan Log Analytics. De Automation-oplossin
 Volg de instructies voor [toevoegen van een oplossing met behulp van de galerie met oplossingen](../log-analytics/log-analytics-add-solutions.md) toevoegen de **Automation** oplossing voor uw werkruimte voor logboekanalyse.
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Microsoft Monitoring Agent installeren
+
 Microsoft Monitoring Agent verbonden computers met logboekanalyse. Wanneer u de agent op uw on-premises computer installeren en met uw werkruimte verbinden, worden de onderdelen die vereist zijn voor hybride Runbook Worker automatisch gedownload.
 
 Volg de instructies voor [verbinding maken met Windows-computers met logboekanalyse](../log-analytics/log-analytics-windows-agent.md) voor het installeren van de agent op de lokale computer. U kunt dit proces voor meerdere computers meerdere werknemers toevoegen aan uw omgeving herhalen.

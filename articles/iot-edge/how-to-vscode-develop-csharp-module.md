@@ -2,24 +2,24 @@
 title: Visual Studio Code gebruiken voor het ontwikkelen van een C#-module met Azure IoT rand | Microsoft Docs
 description: Ontwikkelen en implementeren van een C#-module met Azure IoT rand in de Visual Studio Code zonder context overschakelen.
 services: iot-edge
-keywords: 
+keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4cf07d5c4a21fa989e7de6e996cc62424099e3e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 48c6cacebdeb7505c8dc2bcaed099c33862589ac
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-develop-a-c-module-with-azure-iot-edge"></a>Visual Studio Code gebruiken voor het ontwikkelen van een C#-module met Azure IoT rand
 In dit artikel vindt u gedetailleerde instructies voor het gebruik van [Visual Studio Code](https://code.visualstudio.com/) als de belangrijkste ontwikkelprogramma te ontwikkelen en implementeren van uw Azure-IoT-Edge-modules. 
 
 ## <a name="prerequisites"></a>Vereisten
-Deze zelfstudie wordt ervan uitgegaan dat u gebruikmaakt van een computer of virtuele machine met Windows of Linux als uw ontwikkelcomputer. Uw IoT-randapparaat kan een andere fysieke apparaat, of kunt u uw IoT-randapparaat simuleren op uw ontwikkelcomputer.
+In dit artikel wordt ervan uitgegaan dat u gebruikmaakt van een computer of virtuele machine met Windows of Linux als uw ontwikkelcomputer. Uw IoT-randapparaat kan een andere fysieke apparaat, of kunt u uw IoT-randapparaat simuleren op uw ontwikkelcomputer.
 
 Voordat u deze richtlijnen, voert u de volgende zelfstudies:
 - Azure IoT rand implementeren op een gesimuleerd apparaat in [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) of [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
@@ -86,7 +86,7 @@ Installeren en starten van de rand van Azure IoT-runtime op uw apparaat. Impleme
 In de zelfstudie [ontwikkelen van een C#-module](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module), bijwerken, maken en publiceren van uw installatiekopie module in VS-Code. Vervolgens gaat u naar de Azure-portal voor het implementeren van uw C#-module. Deze sectie wordt het gebruik van de VS Code implementeren en controleren van uw C#-module.
 
 ### <a name="start-a-local-docker-registry"></a>Start een lokale Docker-register
-Voor deze zelfstudie kunt u een register Docker-compatibel. Twee populaire Docker Registerservices beschikbaar in de cloud zijn [Azure Container register](https://docs.microsoft.com/azure/container-registry/) en [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Deze sectie wordt een [lokale Docker-register](https://docs.docker.com/registry/deploying/), die voor het testen van tijdens het ontwikkelen van uw eerdere eenvoudiger is.
+Voor dit artikel kunt u een register Docker-compatibel. Twee populaire Docker-registerservices die beschikbaar zijn in de cloud zijn [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) en [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Deze sectie wordt een [lokale Docker-register](https://docs.docker.com/registry/deploying/), die voor het testen van tijdens het ontwikkelen van uw eerdere eenvoudiger is.
 In de VS-Code **geïntegreerde terminal** (Ctrl + '), voer de volgende opdracht om te starten van een lokale register:  
 
 ```cmd/sh
@@ -253,14 +253,14 @@ De volgende stappen ziet u het maken van een IoT-Edge-module op basis van .NET C
 
 ### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Een Docker-installatiekopie maken en deze publiceren naar het register
 
-1. Vouw in VS Code Explorer de **Docker** map. Vouw vervolgens ofwel de map voor uw platform container **linux x64** of **windows nano**.
+1. Vouw in VS Code Explorer de **Docker** map. Vouw vervolgens de map voor uw containerplatform uit, **linux-x64** of **windows-nano**.
 2. Met de rechtermuisknop op de **Dockerfile** bestand en selecteer **bouwen IoT rand module Docker installatiekopie**. 
 
     ![Schermafbeelding van de VS Code Explorer](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
 
 3. In de **map selecteren** venster ofwel om te zoeken of invoeren `./bin/Debug/netcoreapp2.0/publish`. Selecteer **map selecteren als EXE_DIR**.
-4. Typ in het pop-tekst boven aan het venster tegenover Code, naam van de installatiekopie. Bijvoorbeeld: `<your container registry address>/filtermodule:latest`. Als u naar het lokale register implementeert, moet dit worden `localhost:5000/filtermodule:latest`.
-5. De installatiekopie naar uw opslagplaats Docker forceren. Gebruik de **rand: Push IoT rand module Docker installatiekopie** opdracht en de afbeeldings-URL in het pop-tekst boven aan het venster VS-Code invoeren. Gebruik dezelfde afbeeldings-URL die u hebt gebruikt in de vorige stap. Controleer het consolelogboek om te controleren of dat de installatiekopie van het met succes is gepusht.
+4. Typ in het pop-uptekstvak boven aan het VS Code-venster de naam van de installatiekopie. Bijvoorbeeld: `<your container registry address>/filtermodule:latest`. Als u naar het lokale register implementeert, moet dit worden `localhost:5000/filtermodule:latest`.
+5. Push de installatiekopie naar uw Docker-opslagplaats. Gebruik de **rand: Push IoT rand module Docker installatiekopie** opdracht en de afbeeldings-URL in het pop-tekst boven aan het venster VS-Code invoeren. Gebruik dezelfde afbeeldings-URL die u hebt gebruikt in de vorige stap. Controleer het consolelogboek om te controleren of dat de installatiekopie van het met succes is gepusht.
 
     ![Schermafbeelding van de installatiekopie van het Docker pushen](./media/how-to-vscode-develop-csharp-module/push-image.png) ![schermafbeelding van de consolelogboek](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
 
@@ -296,7 +296,7 @@ De volgende stappen ziet u het maken van een IoT-Edge-module op basis van .NET C
     "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
-   > Declaratieve regels in de runtime definiëren waar deze berichten stromen. In deze zelfstudie moet u twee routes. De eerste route transporten berichten van de temperatuursensor naar de filtermodule via het eindpunt 'input1'. Dit is het eindpunt dat u met de handler FilterMessages geconfigureerd. De tweede route transporten berichten van de module expressiefilter IoT-hub. In deze route upstream is een speciale bestemming waarin wordt uitgelegd IoT-Hub rand om berichten te verzenden naar IoT Hub.
+   > Declaratieve regels in de runtime definiëren waar deze berichten stromen. In dit artikel moet u twee routes. Met de eerste route worden berichten van de temperatuursensor naar de filtermodule getransporteerd via het eindpunt 'input1'. Dit is het eindpunt dat u met de handler FilterMessages geconfigureerd. Met de tweede route worden berichten van de filtermodule naar IoT Hub getransporteerd. In deze route upstream is een speciale bestemming waarin wordt uitgelegd IoT-Hub rand om berichten te verzenden naar IoT Hub.
 
 3. Sla dit bestand.
 4. Selecteer in het palet opdracht **rand: implementatie voor randapparaat maken**. Selecteer vervolgens uw IoT-rand apparaat-ID voor het maken van een implementatie. Of, met de rechtermuisknop op het apparaat-ID in de lijst met apparaten en selecteer **implementatie creëert voor randapparaat**.
@@ -317,7 +317,4 @@ De volgende stappen ziet u het maken van een IoT-Edge-module op basis van .NET C
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt u een IoT-Edge-module gemaakt en geïnstalleerd op een IoT-randapparaat in VS-Code. Zie voor meer informatie over andere scenario's wanneer u Azure IoT rand in de VS Code ontwikkelt, de volgende zelfstudie:
-
-> [!div class="nextstepaction"]
-> [Fouten opsporen in C#-module in VS-Code](how-to-vscode-debug-csharp-module.md)
+[Fouten opsporen in C#-module in VS-Code](how-to-vscode-debug-csharp-module.md)

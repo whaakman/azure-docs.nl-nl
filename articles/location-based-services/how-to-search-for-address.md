@@ -2,17 +2,16 @@
 title: Het zoeken naar een adres met behulp van de zoekservice Azure locatie op basis van Services (preview) | Microsoft Docs
 description: Meer informatie over het zoeken naar een adres met de Azure locatie op basis van Services (preview) Search-service
 services: location-based-services
-keywords: Voeg geen sleutelwoorden toe en bewerk ze niet zonder overleg met uw SEO-expert.
 author: kgremban
 ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8b886607fe0915396a659593cd5910a271fca93
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Het zoeken van een adres met behulp van de zoekservice Azure locatie op basis van Services (preview)
 De Search-service is een RESTful reeks API's die zijn ontworpen voor ontwikkelaars om te zoeken naar adressen, locaties, punten van belang, lijsten van bedrijven en andere geografische informatie. Een breedtegraad/lengtegraad wijst de Search-Service naar een specifiek adres, cross straat, geografische functie of interessante (POI). Breedtegraad en lengtegraad waarden geretourneerd door de zoekservice API's kunnen worden gebruikt als parameters in andere Azure locatie op basis van Services zoals de verkeer stromen API's en Route.
@@ -154,7 +153,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
 
     | Sleutel | Waarde |
     |-----|------------|
-    | nummer | true |
+    | getal | true |
 
     Als de [getal](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter met de aanvraag is verzonden, moet het antwoord eventueel de kant van de straat (links/rechts) en ook de positie van een offset voor dat nummer.
     

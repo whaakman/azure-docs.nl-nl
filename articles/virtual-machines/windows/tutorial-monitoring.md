@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b908e8877162a6a1d9292616a1704c1c528e1725
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Controleren en bijwerken van een virtuele Windows-Machine met Azure PowerShell
 
@@ -238,7 +238,7 @@ De grafiek toont wijzigingen die in de loop der tijd hebben plaatsgevonden. Nada
 
 ## <a name="advanced-monitoring"></a>Geavanceerde controle
 
-U kunt doen meer geavanceerde bewaking van uw virtuele machine met behulp van de oplossingen zoals updatebeheer en wijzigings- en geleverd door Azure Automation-inventarisatie. [Operations Management Suite](../../automation/automation-intro.md).
+U kunt doen meer geavanceerde bewaking van uw virtuele machine met behulp van de oplossingen zoals updatebeheer en wijzigings- en voorraad geleverd door [Azure Automation](../../automation/automation-intro.md).
 
 Wanneer u toegang tot de werkruimte voor logboekanalyse hebt, kunt u de werkruimte-id en werkruimtesleutel op vinden selecteren **geavanceerde instellingen** onder **instellingen**. Gebruik de [Set AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) opdracht naar de Microsoft Monitoring agent-extensie aan de virtuele machine toevoegen. Bijwerken van de waarden van variabelen in het onderstaande voorbeeld om weer te geven u werkruimtesleutel Log Analytics en werkruimte-id.
 

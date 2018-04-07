@@ -5,7 +5,7 @@ services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: zhangmanling
-editor: 
+editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: cdn
 ms.devlang: multiple
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: aaec713a7680aeda8317f5af41b9b99bcbdca4b7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Azure Content Delivery Network activa met tokenverificatie beveiligen
+# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Azure CDN activa met tokenverificatie beveiligen
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Overzicht
 
-Tokenverificatie is een mechanisme waarmee u om te voorkomen dat het Azure Content Delivery Network (CDN) voor de activa aan niet-geautoriseerde clients. Tokenverificatie gewoonlijk wordt uitgevoerd om te voorkomen dat 'hotlinking' van inhoud, waarop een andere website, zoals een mededelingenbord uw assets zonder toestemming gebruikt. Hotlinking kunnen een invloed hebben op de kosten voor het leveren van inhoud. Doordat tokenverificatie op CDN aanvragen door CDN edge-server geverifieerd voordat het CDN de inhoud biedt. 
+Tokenverificatie is een mechanisme waarmee u om te voorkomen dat het Azure Content Delivery Network (CDN) voor de activa aan niet-geautoriseerde clients. Tokenverificatie gewoonlijk wordt uitgevoerd om te voorkomen dat *hotlinking* van inhoud, waarop een andere website, zoals een mededelingenbord uw assets zonder toestemming gebruikt. Hotlinking kunnen een invloed hebben op de kosten voor het leveren van inhoud. Doordat tokenverificatie op CDN aanvragen door CDN edge-server geverifieerd voordat het CDN de inhoud biedt. 
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
@@ -42,6 +42,9 @@ Tokenverificatie verifieert dat aanvragen worden gegenereerd door een vertrouwde
 
 Zie voor meer informatie de gedetailleerde configuratie-voorbeelden voor elke parameter in [tokenverificatie instellen](#setting-up-token-authentication).
 
+>[!IMPORTANT] 
+> Als het token autorisatie voor elk willekeurig pad voor dit account is ingeschakeld, is standaard cachemodus alleen de modus die kan worden gebruikt voor het opslaan van de query-tekenreeks. Zie [Cachegedrag in Azure CDN bepalen met queryreeksen](cdn-query-string-premium.md) voor meer informatie.
+
 ## <a name="reference-architecture"></a>Referentiearchitectuur
 
 Het volgende werkstroomdiagram wordt beschreven hoe de CDN tokenverificatie werken met uw web-app gebruikt.
@@ -56,11 +59,11 @@ Het volgende stroomdiagram wordt beschreven hoe Azure CDN valideert een clientaa
 
 ## <a name="setting-up-token-authentication"></a>Token verificatie instellen
 
-1. Van de [Azure-portal](https://portal.azure.com), blader naar uw CDN-profiel en klik vervolgens op **beheren** starten van de aanvullende portal.
+1. Van de [Azure-portal](https://portal.azure.com), blader naar uw CDN-profiel en selecteer vervolgens **beheren** starten van de aanvullende portal.
 
     ![Knop voor CDN-profiel beheren](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Beweeg de muisaanwijzer over **HTTP grote**, klikt u vervolgens op **Token Auth** in het doel. U kunt vervolgens instellen van de versleutelingssleutel en versleuteling parameters als volgt:
+2. Beweeg de muisaanwijzer over **HTTP grote**, selecteer daarna **Token Auth** in het doel. U kunt vervolgens instellen van de versleutelingssleutel en versleuteling parameters als volgt:
 
     1. Een of meer versleutelingssleutels maken. Een coderingssleutel is hoofdlettergevoelig en kan een combinatie van alfanumerieke tekens bevatten. Andere soorten tekens, inclusief spaties, zijn niet toegestaan. De maximale lengte is 250 tekens. Om ervoor te zorgen dat uw coderingssleutels willekeurige zijn, kunt u deze maken met behulp van de [OpenSSL hulpprogramma](https://www.openssl.org/). 
 
@@ -76,7 +79,7 @@ Het volgende stroomdiagram wordt beschreven hoe Azure CDN valideert een clientaa
     
     2. Voer een unieke coderingssleutel in de **primaire sleutel** in en voert u desgewenst een back-sleutel in de **back-sleutel** vak.
 
-    3. Selecteer de versie van de minimale codering voor elke sleutel van de **minimumversie versleuteling** lijst en klik vervolgens op **Update**:
+    3. Selecteer de versie van de minimale codering voor elke sleutel van de **minimumversie versleuteling** lijst, en selecteer vervolgens **Update**:
        - **V2**: geeft aan dat de sleutel voor het genereren versie 2.0 en 3.0 tokens kan worden gebruikt. Gebruik deze optie alleen als u zijn overgang van een oudere versie 2.0-versleutelingssleutel met een sleutel versie 3.0.
        - **V3**: (aanbevolen) geeft aan dat de sleutel kan alleen worden gebruikt voor het genereren versie 3.0-tokens.
 
@@ -156,27 +159,29 @@ Het volgende stroomdiagram wordt beschreven hoe Azure CDN valideert een clientaa
     
     6. Selecteer de versie van een versleuteling van de **versleuteling versie** lijst: **V2** voor versie 2 of **V3** voor versie 3 (aanbevolen). 
 
-    7. Klik op **versleutelen** om het token te genereren.
+    7. Selecteer **versleutelen** om het token te genereren.
 
     Het token wordt gegenereerd, wordt weergegeven in de **Token gegenereerd** vak. Voor het gebruik van het token, voegt u deze als een queryreeks aan het einde van het bestand in de URL-pad. Bijvoorbeeld `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    8. Test indien gewenst uw token met het hulpprogramma decoderen zodat u uw token parameters kunt weergeven. De waarde van het token in plakken de **Token gebruikt voor het ontsleutelen** vak. Selecteer de versleutelingssleutel van te gebruiken de **sleutel te ontsleutelen** lijst en klik vervolgens op **ontsleutelen**.
+    8. Test indien gewenst uw token met het hulpprogramma decoderen zodat u uw token parameters kunt weergeven. De waarde van het token in plakken de **Token gebruikt voor het ontsleutelen** vak. Selecteer de versleutelingssleutel van te gebruiken de **sleutel te ontsleutelen** lijst, en selecteer vervolgens **ontsleutelen**.
 
     Nadat het token wordt ontsleuteld, de parameters worden weergegeven in de **oorspronkelijke Parameters** vak.
 
-    9. Eventueel aanpassen van het type antwoordcode die worden geretourneerd wanneer een aanvraag wordt geweigerd. Selecteer **ingeschakeld**, selecteer vervolgens de antwoordcode van de **antwoordcode** lijst. **Kopnaam** automatisch ingesteld op **locatie**. Klik op **opslaan** voor het implementeren van de nieuwe antwoordcode. Voor bepaalde reactiecodes, u moet ook de URL invoeren van de foutpagina weergegeven in de **headerwaarde** vak. De **403** antwoordcode (verboden) is standaard geselecteerd. 
+    9. Eventueel aanpassen van het type antwoordcode die worden geretourneerd wanneer een aanvraag wordt geweigerd. Selecteer **ingeschakeld**, selecteer vervolgens de antwoordcode van de **antwoordcode** lijst. **Kopnaam** automatisch ingesteld op **locatie**. Selecteer **opslaan** voor het implementeren van de nieuwe antwoordcode. Voor bepaalde reactiecodes, u moet ook de URL invoeren van de foutpagina weergegeven in de **headerwaarde** vak. De **403** antwoordcode (verboden) is standaard geselecteerd. 
 
-3. Onder **HTTP grote**, klikt u op **regelengine**. De regelengine voor kunt u paden voor het toepassen van de functie, de functie tokenverificatie inschakelen en aanvullende verificatie-gerelateerde functies token inschakelen definiëren. Zie voor meer informatie [regels engine verwijzing](cdn-rules-engine-reference.md).
+3. Onder **HTTP grote**, selecteer **regelengine**. De regelengine voor kunt u paden voor het toepassen van de functie, de functie tokenverificatie inschakelen en aanvullende verificatie-gerelateerde functies token inschakelen definiëren. Zie voor meer informatie [regels engine verwijzing](cdn-rules-engine-reference.md).
 
     1. Selecteer een bestaande regel of een nieuwe regel maken om te definiëren van de asset of het pad waarvan u wilt toepassen tokenverificatie. 
-    2. Token als verificatie wilt inschakelen voor een regel, selecteer  **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)**  van de **functies** lijst, en selecteer vervolgens **ingeschakeld**. Klik op **Update** als u een regel wilt bijwerken of **toevoegen** als u een regel wilt maken.
+    2. Token als verificatie wilt inschakelen voor een regel, selecteer **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** van de **functies** lijst, en selecteer vervolgens **ingeschakeld**. Selecteer **Update** als u een regel wilt bijwerken of **toevoegen** als u een regel wilt maken.
         
     ![Voorbeeld van CDN regels engine tokenverificatie inschakelen](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. U kunt ook aanvullende verificatie-gerelateerde functies token inschakelen in de regelengine. Als u een van de volgende functies selecteert in de **functies** lijst, en selecteer vervolgens **ingeschakeld**.
     
     - **[Token DOS autorisatiecode](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: bepaalt het type van de reactie die aan een gebruiker worden geretourneerd wanneer een aanvraag wordt geweigerd. Regels hier overschrijven de antwoordcode ingesteld in de **afhandeling van aangepaste DOS** sectie op de verificatiepagina op basis van tokens.
+
     - **[URL-aanvraag met negeren Auth token](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Hiermee wordt bepaald of de URL die wordt gebruikt voor het valideren van het token hoofdlettergevoelig is.
+
     - **[Token Auth Parameter](cdn-rules-engine-reference-features.md#token-auth-parameter)**: wijzigt de naam van het token auth querytekenreeksparameter die wordt weergegeven in de aangevraagde URL. 
         
     ![CDN-regels in de engine tokenverificatie instellingen voorbeeld](./media/cdn-token-auth/cdn-rules-engine2.png)
@@ -193,4 +198,4 @@ Beschikbare talen zijn onder andere:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN-functies en prijzen-provider
 
-Zie voor meer informatie over functies [overzicht van CDN](cdn-overview.md). Zie voor meer informatie over prijzen [Content Delivery Network prijzen](https://azure.microsoft.com/pricing/details/cdn/).
+Zie voor meer informatie over functies [Azure CDN productfuncties](cdn-features.md). Zie voor meer informatie over prijzen [Content Delivery Network prijzen](https://azure.microsoft.com/pricing/details/cdn/).

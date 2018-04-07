@@ -3,9 +3,9 @@ title: Optimaliseren van uw virtuele Linux-machine in Azure | Microsoft Docs
 description: Meer informatie over een aantal optimalisatietips om ervoor te zorgen dat u uw Linux-VM voor optimale prestaties in Azure hebt ingesteld
 keywords: virtuele Linux-machine, linux virtuele machine, ubuntu virtuele machine
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: d3ee98253a69580e5ecafb4e117ef93f7c981416
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5b0d7eb0767bb18cd74c545dc386aa16be487dae
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Uw Linux VM optimaliseren voor Azure
 Maken van virtuele Linux-machine (VM) is eenvoudig doen vanaf de opdrachtregel of in de portal. Deze zelfstudie laat zien hoe u om te controleren of u dit hebt ingesteld om de prestaties van het Microsoft Azure-platform te optimaliseren. In dit onderwerp maakt gebruik van een virtuele Ubuntu Server-machine, maar u kunt ook maken Linux virtuele machine met [uw eigen installatiekopieën die u als sjabloon](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -124,7 +124,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Met behulp van Software-RAID bereiken hoger ik / Ops
-Als uw werkbelastingen meer IOps vereisen dan één schijf kan bieden, moet u een software-RAID-configuratie van meerdere schijven gebruiken. Omdat Azure al tolerantie van de schijf op de lokale fabric-laag voert, kunt u het hoogste niveau van de prestaties van een configuratie van RAID-0 striping van bereiken.  Inrichten en schijven te maken in de Azure-omgeving en deze koppelt aan uw Linux-VM voordat partitioneren, formatteren en koppelen van de stations.  Meer informatie over het configureren van een software-RAID-instellingen op uw Linux-VM in azure vindt u in de  **[configureren van Software-RAID op Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**  document.
+Als uw werkbelastingen meer IOps vereisen dan één schijf kan bieden, moet u een software-RAID-configuratie van meerdere schijven gebruiken. Omdat Azure al tolerantie van de schijf op de lokale fabric-laag voert, kunt u het hoogste niveau van de prestaties van een configuratie van RAID-0 striping van bereiken.  Inrichten en schijven te maken in de Azure-omgeving en deze koppelt aan uw Linux-VM voordat partitioneren, formatteren en koppelen van de stations.  Meer informatie over het configureren van een software-RAID-instellingen op uw Linux-VM in azure vindt u in de **[configureren van Software-RAID op Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** document.
 
 ## <a name="next-steps"></a>Volgende stappen
 Denk eraan dat als met alle optimalisatie discussies die u nodig hebt voor het uitvoeren van de tests voor en na elke wijziging voor het meten van de gevolgen heeft voor de wijziging.  Optimalisatie wordt stap voor stap processen met verschillende resultaten op verschillende computers in uw omgeving.  Wat werkt voor één configuratie werkt niet voor anderen.

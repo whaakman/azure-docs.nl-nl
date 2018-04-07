@@ -1,24 +1,19 @@
 ---
-title: Inleiding tot Stream Analytics | Microsoft Docs
+title: Overzicht van Azure Stream Analytics
 description: Lees over Stream Analytics, een beheerde service waarmee u streaminggegevens van het Internet of Things (IoT) in realtime kun analyseren.
-keywords: analyse als een service, beheerde services, verwerking van streams, analyse van streams, wat is analyse van streams
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 10/17/2017
 ms.author: jeanb
-ms.openlocfilehash: 70a4b0b358b79ec892483a9fa5573e4bf2d57534
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
-ms.translationtype: HT
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 10/17/2017
+ms.openlocfilehash: 1912972b2a5ef40bcc61140225f1fdbcbb1535c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="what-is-stream-analytics"></a>Wat is een Stream Analytics?
 
@@ -86,5 +81,5 @@ Als beheerde service draagt Stream Analytics bij aan het voorkomen van gegevensv
 
 * Aan de slag met het [experimenteren met invoer en query’s van IoT-apparaten](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md).
 * Bouw een [end-to-end Stream Analytics-oplossing](stream-analytics-real-time-fraud-detection.md) voor het onderzoeken van telefoonmetagegevens op frauduleuze oproepen.
-* Antwoorden op vragen over Stream Analytics vindt u op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+* Antwoorden op vragen over Stream Analytics vindt u op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

@@ -4,7 +4,7 @@ description: Informatie over het configureren van LVM op Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: 7f533725-1484-479d-9472-6b3098d0aecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 7926627aaa3f0da935131f491d927ab5cb4b35c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a22426d0422585714cb78d541a84d55d2fce6e0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>LVM configureren op een virtuele Linux-machine in Azure
 Dit document wordt uitgelegd hoe het configureren van logische Volume Manager (LVM) in uw virtuele machine van Azure. Het is mogelijk LVM configureren op elke schijf die is gekoppeld aan de virtuele machine, standaard de meeste cloud afbeeldingen geen LVM geconfigureerd op de schijf met het besturingssysteem. Dit is om problemen te voorkomen met groepen dubbele volume als de besturingssysteemschijf is ooit gekoppeld aan een andere virtuele machine van de dezelfde distributie en het type, dat wil zeggen tijdens een scenario voor herstel. Daarom is het aanbevolen alleen voor LVM gebruiken op de gegevensschijven.
@@ -141,7 +141,7 @@ In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we na
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. (Optioneel) Opstartparameters failsafe in`/etc/fstab`
+5. (Optioneel) Opstartparameters failsafe in `/etc/fstab`
    
     Groot aantal distributies bevat de `nobootwait` of `nofail` koppelen van de parameters die kunnen worden toegevoegd aan de `/etc/fstab` bestand. Deze parameters toestaan voor fouten bij het koppelen van een bepaald bestandssysteem en dat het Linux-systeem om door te gaan om op te starten, zelfs als deze niet correct koppelen het RAID-bestandssysteem. Raadpleeg de distributie-documentatie voor meer informatie over deze parameters.
    

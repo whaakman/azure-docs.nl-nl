@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: f553933d5a1435a96421939af8522daf53db1ff3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ee6181baf7a16bc827d35aaf5d18b281bcf9c3f7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ring Buffer doel code voor uitgebreide gebeurtenissen in SQL-Database
 
@@ -219,7 +219,7 @@ U kunt de resultaten, we de cel onder de kolomkop geklikt **target_data_XML**.
 
 Klik in het deelvenster met resultaten we de cel onder de kolomkop geklikt **target_data_XML**. Klikt u op een ander tabblad van het bestand in ssms.exe waarin de inhoud van de resultaatcel wordt weergegeven, als XML gemaakt.
 
-De uitvoer wordt weergegeven in het volgende blok. Het lijkt erop lang, maar dit is slechts twee  **<event>**  elementen.
+De uitvoer wordt weergegeven in het volgende blok. Het lijkt erop lang, maar dit is slechts twee **<event>** elementen.
 
 &nbsp;
 

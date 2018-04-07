@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6020272d79ace55041da94ee45165e557e92b80f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiveren van de Azure Activity Log
 In dit artikel, laten we zien hoe u de Azure-portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt bij de archivering van uw [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) in een opslagaccount. Deze optie is handig als u wilt behouden uw activiteitenlogboek van meer dan 90 dagen (met volledige controle over het bewaarbeleid) voor controle, statische analyses of back-up. Als u hoeft alleen uw gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft instellen naar een opslagaccount archivering omdat activiteitenlogboek gebeurtenissen worden behouden in de Azure-platform gedurende 90 dagen zonder in te schakelen archivering.
@@ -43,29 +43,43 @@ Als u wilt archiveren het activiteitenlogboek met behulp van de methoden hierond
 5. Klik op **Opslaan**.
 
 ## <a name="archive-the-activity-log-via-powershell"></a>Het activiteitenlogboek via PowerShell archiveren
-```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
-```
+
+   ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your storage account belongs to>"
+   $storageAccountName = "<your storage account name>"
+
+   # Build the storage account Id from the settings above
+   $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   ```
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
-| StorageAccountId |Nee |Resource-ID van het Opslagaccount waarin activiteitenlogboeken moet worden opgeslagen. |
-| Locaties |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. U kunt een lijst weergeven met alle regio's [via deze pagina](https://azure.microsoft.com/en-us/regions) of met behulp van [de Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Ja |Aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
-| Categorieën |Ja |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
+| StorageAccountId |Ja |Resource-ID van het Opslagaccount waarin activiteitenlogboeken moet worden opgeslagen. |
+| Locaties |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. U kunt een lijst met alle regio's weergeven voor uw abonnement met `(Get-AzureRmLocation).Location`. |
+| RetentionInDays |Nee |Aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
+| Categorieën |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen.  Als niet wordt opgegeven, klikt u vervolgens alle mogelijke waarden wordt aangenomen dat |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Het activiteitenlogboek via CLI archiveren
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
-```
+
+   ```azurecli-interactive
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
+   ```
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
 | naam |Ja |Naam van uw logboek-profiel. |
-| storageId |Nee |Resource-ID van het Opslagaccount waarin activiteitenlogboeken moet worden opgeslagen. |
-| Locaties |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. U kunt een lijst weergeven met alle regio's [via deze pagina](https://azure.microsoft.com/en-us/regions) of met behulp van [de Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Ja |Aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. De waarde nul wordt de logboeken voor onbepaalde tijd worden opgeslagen (permanent). |
-| categorieën |Ja |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
+| storage-account-id |Ja |Resource-ID van het Opslagaccount waarin activiteitenlogboeken moet worden opgeslagen. |
+| Locaties |Ja |Door spaties gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. U kunt een lijst met alle regio's weergeven voor uw abonnement met `az account list-locations --query [].name`. |
+| dagen |Ja |Aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. De waarde nul wordt de logboeken voor onbepaalde tijd worden opgeslagen (permanent).  Als nul is, wordt de ingeschakelde parameter moet worden ingesteld op true. |
+|ingeschakeld | Ja |Waar of ONWAAR.  Gebruikt voor het in- of uitschakelen van het bewaarbeleid.  Indien waar, moet de parameter dagen een waarde groter dan 0 zijn.
+| categorieën |Ja |Door spaties gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Opslag-schema van het activiteitenlogboek
 Nadat u hebt ingesteld archivering, wordt een opslagcontainer gemaakt in de storage-account zodra een activiteitenlogboek gebeurtenis plaatsvindt. De blobs in de container Volg dezelfde indeling voor de activiteitenlogboek- en diagnostische logboeken. De structuur van deze BLOB's is:

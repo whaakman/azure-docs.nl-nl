@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 04/06/2018
 ms.author: brenduns
-ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure-Stack 1712 update
 
@@ -43,11 +43,14 @@ Het buildnummer van Azure Stack 1712 update **180106.1**. Als een klant is geïm
 U moet eerst installeren met de Azure-Stack [1711 bijwerken](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) voordat deze update worden toegepast.
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
+- Na de installatie van 1712 toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).  
+  - [KB 4103348 - API van de netwerkcontroller-service vastloopt wanneer u probeert een Azure-Stack-update te installeren](https://support.microsoft.com/help/4103348)
 
-Deze update is ook vereist voor firmware-updates te installeren van de OEM-partner na het voltooien van de installatie van de 1712 Azure Stack-update.
 
-> [!NOTE]
-> Raadpleeg uw OEM-partner-website om de updates te downloaden.
+- Update 1712 is ook vereist voor firmware-updates te installeren van de OEM-partner na het voltooien van de installatie van de 1712 Azure Stack-update.
+
+  > [!NOTE]
+  > Raadpleeg uw OEM-partner-website om de updates te downloaden.
 
 ### <a name="new-features-and-fixes"></a>Nieuwe functies en oplossingen
 

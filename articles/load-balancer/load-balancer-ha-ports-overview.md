@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: 09c51441d393de5d801e7a4c259b711a527349d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6e9dd09558a3485629d5b70dd8b68b292427b18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-availability-ports-overview"></a>Overzicht van hoge beschikbaarheid-poorten
 
@@ -72,20 +72,20 @@ Deze configuratie is niet toegestaan voor een andere load balancing regelconfigu
 
 U kunt echter een openbare standaard Load Balancer voor de back-end-exemplaren naast deze regel HA poort configureren.
 
-## <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Een zwevend IP (Direct Server Return) HA poorten configuratie voor één op de interne standaard Load Balancer
+### <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Een zwevend IP (Direct Server Return) HA poorten configuratie voor één op de interne standaard Load Balancer
 
 U kunt ook de load balancer voor het gebruik van een regel met voor taakverdeling configureren **HA poort** met een één front-end en de **zwevend IP** ingesteld op **ingeschakeld**. 
 
 Deze configuratie kunt u meer zwevend IP-load balancing-regels en / of een openbare Load Balancer toevoegen. U kunt een niet - zwevend IP-HA boad taakverdeling poortconfiguratie boven op deze configuratie echter niet gebruiken.
 
-## <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Configuraties met meerdere HA poorten op de interne standaard Load Balancer
+### <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>Configuraties met meerdere HA poorten op de interne standaard Load Balancer
 
 Als uw scenario vereist dat u meer dan één HA poort frontends voor dezelfde back-endadresgroep configureert, kunt u dit doen door: 
 - configureren van meer dan één frontend adressen persoonlijke IP-voor een enkele interne standaard Load Balancer-resource.
 - Configureer meerdere regels, waarbij elke regel één heeft taakverdeling unieke frontend-IP-adres is geselecteerd.
 - Selecteer **HA poorten** optie en stel **zwevend IP** naar **ingeschakeld** voor alle van de load-balancingregels.
 
-## <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Interne Load Balancer met HA poorten & openbare Load Balancer op dezelfde back-end-exemplaren
+### <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>Interne Load Balancer met HA poorten & openbare Load Balancer op dezelfde back-end-exemplaren
 
 U kunt configureren **één** openbare standaard Load Balancer-resource voor de back endresources samen met een enkele interne standaard Load Balancer met HA-poorten.
 

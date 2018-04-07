@@ -2,12 +2,12 @@
 title: Een beheerde gegevensschijf koppelen aan een virtuele machine van Windows - Azure | Microsoft Docs
 description: Klik hier voor meer informatie over het nieuwe beheerde gegevensschijf koppelen aan een virtuele machine van Windows in de Azure portal met het implementatiemodel van Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 603d1c423ff2039915bdd3d5ed4a79b78d491edc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 14721b2f2bc7913c2b7eadfc5ee801a223201ea9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Hoe u een beheerde gegevensschijf koppelen aan een virtuele machine van Windows in de Azure portal
 
@@ -38,7 +38,7 @@ U kunt ook [een gegevensschijf met behulp van Powershell koppelen](attach-disk-p
 3. Klik op de pagina virtuele machine op **schijven**.
 4. Op de **schijven** pagina, klikt u op **+ gegevensschijf toevoegen**.
 5. Selecteer in de vervolgkeuzelijst voor de nieuwe schijf, **maken-schijf**.
-6. In de **-beheerde schijven maken** pagina, typ een naam voor de schijf en pas deze zo nodig de overige instellingen. Wanneer u klaar bent, klikt u op **maken**.
+6. In de **-beheerde schijven maken** pagina, typ een naam voor de schijf en pas deze zo nodig de overige instellingen. Klik op **Maken** wanneer u klaar bent.
 7. In de **schijven** pagina, klikt u op **opslaan** om op te slaan van de nieuwe schijfconfiguratie voor de virtuele machine.
 6. Nadat Azure de schijf wordt gemaakt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen voor de schijf van de virtuele machine onder **gegevensschijven**.
 

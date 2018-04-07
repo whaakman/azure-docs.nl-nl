@@ -6,7 +6,7 @@ cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 15c9a6608421b3eeebe6fbe91a10a849bf36ed85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 171b0f938e44218d11cfb001e3f58ebd0feb35fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migreren naar Premium-opslag met behulp van Azure Site Recovery
 
@@ -80,7 +80,7 @@ U kunt Site Recovery kunt gebruiken voor het migreren van Azure IaaS VM's tussen
 ### <a name="step-1-create-a-recovery-services-vault"></a>Stap 1: Een Recovery Services-kluis maken
 
 1. Open de [Azure Portal](https://portal.azure.com).
-2. Selecteer **maken van een resource** > **Management** > **back-up** en **Site Recovery (OMS)**. U kunt ook selecteren **Bladeren** > **Recovery Services-kluis** > **toevoegen**. 
+2. Selecteer **maken van een resource** > **Management** > **back-up- en Site Recovery (OMS)**. U kunt ook selecteren **Bladeren** > **Recovery Services-kluis** > **toevoegen**. 
 3. Geef een regio die virtuele machines worden gerepliceerd naar. Selecteer de regio waar uw Bronmachines en bron storage-accounts zijn omwille van de migratie in dezelfde regio. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Stap 2: Uw beveiligingsdoelstellingen kiezen 
@@ -157,7 +157,7 @@ Om te bevestigen dat de configuratieserver is gekoppeld aan het beleid voor wach
 
    De failover-VM heeft twee tijdelijke schijven: één van de primaire virtuele machine en de andere gemaakt tijdens het inrichten van de virtuele machine in de regio van het herstel. Als u wilt uitsluiten van de tijdelijke schijf voordat de replicatie, installeert u de mobility-service voordat u replicatie inschakelt. Zie voor meer informatie over het uitsluiten van de tijdelijke schijf, [schijven uitsluiten van replicatie](../../site-recovery/vmware-walkthrough-overview.md).
 
-2. Replicatie als volgt inschakelen:
+2. Schakel als volgt replicatie in:
    1. Selecteer **toepassing repliceren** > **bron**. Nadat u replicatie voor het eerst hebt ingeschakeld, selecteert u **+ repliceren** in de kluis aanvullende machines replicatie in te schakelen.
    2. In stap 1 voert instellen **bron** als de processerver.
    3. Geef het implementatiemodel na een failover, een premium storage-account om te migreren naar, een standaard opslagaccount logboeken en een virtueel netwerk niet opslaan in stap 2.

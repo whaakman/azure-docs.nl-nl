@@ -3,9 +3,8 @@ title: Consistentieniveaus in Azure Cosmos DB | Microsoft Docs
 description: Azure Cosmos DB heeft vijf consistentieniveaus te verdelen uiteindelijke consistentie, beschikbaarheid en latentie-en nadelen.
 keywords: uiteindelijke consistentie azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
@@ -14,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Gegevens instelbare consistentieniveaus in Azure Cosmos-DB
 Azure Cosmos DB is compleet met globale verdeling in gedachten voor elke gegevensmodel ontworpen. Het is ontworpen om voorspelbare lage latentie garanties en meerdere goed gedefinieerde beperkte consistentie modellen bieden. Op dit moment Azure Cosmos DB bevat vijf consistentieniveaus: sterk, gebonden-verouderd, sessie, consistente voorvoegsel en uiteindelijk. Gebonden-verouderd, sessie, consistente voorvoegsel en uiteindelijke worden aangeduid als 'beperkte consistentie modellen' als ze bieden minder consistentie dan sterk, die de meeste maximaal consistent model beschikbaar is. 
 
-Naast de **sterk** en **uiteindelijke consistentie** modellen vaak die worden aangeboden door gedistribueerde databases Azure Cosmos DB biedt drie meer zorgvuldig gecodeerd en geoperationaliseerd consistentie modellen:  **gebonden veroudering**, **sessie**, en **consistent voorvoegsel**. Het nut van elk van deze consistentieniveaus is gevalideerd tegen werkelijkheid gebruiksvoorbeelden. Gezamenlijk kunnen deze vijf consistentieniveaus u afweging goed gemotiveerd tussen de consistentie, beschikbaarheid en latentie. 
+Naast de **sterk** en **uiteindelijke consistentie** modellen vaak die worden aangeboden door gedistribueerde databases Azure Cosmos DB biedt drie meer zorgvuldig gecodeerd en geoperationaliseerd consistentie modellen: ** gebonden veroudering**, **sessie**, en **consistent voorvoegsel**. Het nut van elk van deze consistentieniveaus is gevalideerd tegen werkelijkheid gebruiksvoorbeelden. Gezamenlijk kunnen deze vijf consistentieniveaus u afweging goed gemotiveerd tussen de consistentie, beschikbaarheid en latentie. 
 
 In de volgende video toont Azure Cosmos DB Program Manager Andrew Liu de klare algemene distributie-functies.
 
@@ -109,7 +108,7 @@ U kunt een standaardniveau voor consistentiecontrole configureren op uw database
 
 ## <a name="configuring-the-default-consistency-level"></a>Het standaardniveau voor consistentiecontrole configureren
 1. In de [Azure-portal](https://portal.azure.com/), klik in de Snelbalk op **Azure Cosmos DB**.
-2. In de **Azure Cosmos DB** pagina, selecteert u het account van de database te wijzigen.
+2. Selecteer op de pagina **Azure Cosmos DB** het databaseaccount dat u wilt wijzigen.
 3. Klik op de accountpagina **consistentie standaard**.
 4. In de **standaard consistentie** pagina, selecteer het nieuwe consistentieniveau en klikt u op **opslaan**.
    

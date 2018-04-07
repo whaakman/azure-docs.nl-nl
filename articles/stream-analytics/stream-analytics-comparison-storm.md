@@ -1,24 +1,19 @@
 ---
-title: 'Analytics platforms: vergelijking van Apache Storm Stream Analytics | Microsoft Docs'
-description: Lees hoe u een cloudplatform analytics kiezen met behulp van een vergelijking van Apache Storm Stream Analytics. Verschillen in functies en begrijpen.
-keywords: Analytics platform, analytics platforms, cloudplatform analytics, storm-vergelijking
+title: 'Analytics platforms: Apache Storm vergelijking van Azure Stream Analytics'
+description: Richtlijnen voor het kiezen van een cloudplatform analytics met behulp van een vergelijking van Apache Storm Stream Analytics. Verschillen in functies en begrijpen.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/27/2017
 ms.author: jeanb
-ms.openlocfilehash: 48599c362c5db50ebec3acd0aaa4359439edb00b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/27/2017
+ms.openlocfilehash: 94ac3c0075014a3e014ede8104a6aa259527a0ae
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Een streaming analytics platform kiezen: vergelijking van Apache Storm en Azure Stream Analytics
 Azure biedt verschillende oplossingen voor het analyseren van streaminggegevens: [Azure Streaming Analytics](https://docs.microsoft.com/azure/stream-analytics/) en [Apache Storm op Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-storm/). Beide platforms analytics biedt de voordelen van een PaaS-oplossing. Maar de platforms hebben enkele belangrijke verschillen in hun mogelijkheden ook als u in hoe u configureren en beheren. 

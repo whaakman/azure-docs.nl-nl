@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: b70780b2e1d169aced3412f6fe6d13ad4dab82be
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9ad63a67d3b51cad1376eb9e97e68fb9102013e3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Gebeurtenis-aggregatie en verzameling op basis van Linux Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 Wanneer u een Azure Service Fabric-cluster uitvoert, is het een goed idee de logboeken verzamelen van alle knooppunten in een centrale locatie. De logboeken die in een centrale locatie, helpt u bij het analyseren en oplossen van problemen in het cluster of problemen in de toepassingen en services die worden uitgevoerd in het cluster.
 
-Een manier om te uploaden en verzamelen van Logboeken is het gebruik van de extensie Linux Azure Diagnostics (LAD), waardoor logboeken kunnen uploaden naar Azure Storage en heeft ook de optie om Logboeken te verzenden naar Azure Application Insights of Event Hubs. U kunt ook een extern proces gebruiken om te lezen van de gebeurtenissen uit de opslag en plaats deze in een analyse platform-product, zoals [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) of een andere oplossing voor het parseren van het logboek.
+Een manier om te uploaden en verzamelen van Logboeken is het gebruik van de extensie Linux Azure Diagnostics (LAD), waardoor logboeken kunnen uploaden naar Azure Storage en heeft ook de optie om Logboeken te verzenden naar Azure Application Insights of Event Hubs. U kunt ook een extern proces gebruiken om te lezen van de gebeurtenissen uit de opslag en plaats deze in een analyse platform-product, zoals [logboekanalyse](../log-analytics/log-analytics-service-fabric.md) of een andere oplossing voor het parseren van het logboek.
 
 ## <a name="log-and-event-sources"></a>Logboekbestand en de gebeurtenis
 
@@ -52,4 +52,4 @@ Hiermee configureert u de agent LAD voor het controleren van de opgegeven logboe
 ## <a name="next-steps"></a>Volgende stappen
 
 1. Zie inzicht in meer detail welke gebeurtenissen u bij het oplossen van problemen te onderzoeken [LTTng documentatie](http://lttng.org/docs) en [LAD met behulp van](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-2. [Instellen van de OMS-agent](service-fabric-diagnostics-event-analysis-oms.md) om te helpen de metrische gegevens te verzamelen, Containers die zijn geïmplementeerd op het cluster controleren en visualiseren van uw logboeken 
+2. [Instellen van de agent logboekanalyse](service-fabric-diagnostics-event-analysis-oms.md) om te helpen de metrische gegevens te verzamelen, Containers die zijn geïmplementeerd op het cluster controleren en visualiseren van uw logboeken 

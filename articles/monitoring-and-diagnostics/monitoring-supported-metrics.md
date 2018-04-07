@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: 68f5784f1724441ff6f18e2581c8e01d66c60c5e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c9dab276b39b1ceb55851e865f9166e3e9e7fee8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure-Monitor
-Azure biedt verschillende manieren om te communiceren met metrische gegevens, inclusief grafieken ze in de portal of opvragen ze toegang hebben tot deze via de REST-API met PowerShell of CLI. Hieronder volgt een volledige lijst met alle metrische gegevens op dit moment met metrische gegevens van de Monitor van het Azure-pipeline.
+Azure biedt verschillende manieren om te communiceren met metrische gegevens, inclusief grafieken ze in de portal of opvragen ze toegang hebben tot deze via de REST-API met PowerShell of CLI. Hieronder volgt een volledige lijst met alle metrische gegevens op dit moment met metrische gegevens van de Monitor van het Azure-pipeline. Het is mogelijk dat andere metrische gegevens beschikbaar zijn in de portal of met oudere API's. Deze lijst hieronder bevat alleen beschikbaar via de geconsolideerde Azure Monitor metrische pijplijn metrische gegevens. Zoeken naar en toegang hebben tot deze metrische gegevens gebruik de [2018-01-01-api-versie](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
-> Het is mogelijk dat andere metrische gegevens beschikbaar zijn in de portal of met oudere API's. Deze lijst bevat alleen beschikbaar via de geconsolideerde Azure Monitor metrische pijplijn metrische gegevens. Zoeken naar en toegang hebben tot de metrische gegevens met dimensies gebruik de [2018-01-01-api-versie](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+> Verzenden van multidimensionale metrische gegevens via de diagnostische instellingen is momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte één dimensionale metrische gegevens, getotaliseerd over dimensiewaarden.
+>
+> *Bijvoorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een niveau van de wachtrij. Echter, wanneer geëxporteerd via diagnostische instellingen voor die de metrische gegevens worden weergegeven als alle binnenkomende berichten in alle wachtrijen in de Event Hub.
 >
 >
 
@@ -129,19 +131,19 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |---|---|---|---|---|---|
 |connectedclients|Gekoppelde clients|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed|Totaal aantal bewerkingen|Count|Totaal||Er zijn geen dimensies|
-|cachehits|Treffers in cache|Count|Totaal||Er zijn geen dimensies|
+|cachehits|Cachetreffers|Count|Totaal||Er zijn geen dimensies|
 |cachemisses|Cachemissers|Count|Totaal||Er zijn geen dimensies|
-|getcommands|Opgehaald|Count|Totaal||Er zijn geen dimensies|
+|getcommands|Opgehaalde items|Count|Totaal||Er zijn geen dimensies|
 |setcommands|Sets|Count|Totaal||Er zijn geen dimensies|
 |operationsPerSecond|Bewerkingen Per seconde|Count|Totaal||Er zijn geen dimensies|
 |evictedkeys|Verwijderde sleutels|Count|Totaal||Er zijn geen dimensies|
-|totalkeys|Totale aantal sleutels|Count|Maximum||Er zijn geen dimensies|
+|totalkeys|Totaal aantal sleutels|Count|Maximum||Er zijn geen dimensies|
 |expiredkeys|Verlopen sleutels|Count|Totaal||Er zijn geen dimensies|
 |usedmemory|Gebruikt geheugen|Bytes|Maximum||Er zijn geen dimensies|
 |usedmemoryRss|Gebruikt geheugen RSS|Bytes|Maximum||Er zijn geen dimensies|
-|serverLoad|Belasting van de server|Procent|Maximum||Er zijn geen dimensies|
+|serverLoad|Serverbelasting|Procent|Maximum||Er zijn geen dimensies|
 |cacheWrite|Cache schrijven|BytesPerSecond|Maximum||Er zijn geen dimensies|
-|cacheRead|Cache lezen|BytesPerSecond|Maximum||Er zijn geen dimensies|
+|cacheRead|Gelezen uit cache|BytesPerSecond|Maximum||Er zijn geen dimensies|
 |percentProcessorTime|CPU|Procent|Maximum||Er zijn geen dimensies|
 |connectedclients0|Verbonden Clients (Shard 0)|Count|Maximum||Er zijn geen dimensies|
 |totalcommandsprocessed0|Totaal aantal bewerkingen (Shard 0)|Count|Totaal||Er zijn geen dimensies|
@@ -334,15 +336,15 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |---|---|---|---|---|---|
 |TotalCalls|Totaal aantal aanroepen|Count|Totaal|Totaal aantal aanroepen.|Er zijn geen dimensies|
 |SuccessfulCalls|Geslaagde aanroepen|Count|Totaal|Aantal geslaagde aanroepen.|Er zijn geen dimensies|
-|TotalErrors|Totale aantal fouten|Count|Totaal|Totaal aantal aanroepen met foutmelding (HTTP-antwoord code 4xx of 5xx).|Er zijn geen dimensies|
-|BlockedCalls|Geblokkeerde aanroepen|Count|Totaal|Het aantal aanroepen dat overschreden snelheid of quotumlimiet.|Er zijn geen dimensies|
-|ServerErrors|Serverfouten|Count|Totaal|Het aantal aanroepen met interne servicefout (HTTP-antwoord code 5xx).|Er zijn geen dimensies|
-|ClientErrors|Clientfouten|Count|Totaal|Het aantal aanroepen met de fout op de client (HTTP-antwoord code 4xx).|Er zijn geen dimensies|
-|DataIn|Inkomende gegevens|Bytes|Totaal|Grootte van binnenkomende gegevens in bytes.|Er zijn geen dimensies|
+|TotalErrors|Totaal aantal fouten|Count|Totaal|Het totaal aantal aanroepen met een foutbericht (HTTP-antwoordcode 4xx of 5xx).|Er zijn geen dimensies|
+|BlockedCalls|Geblokkeerde aanroepen|Count|Totaal|Het aantal aanroepen die de tarief- of quotumlimiet hebben overschreden.|Er zijn geen dimensies|
+|ServerErrors|Serverfouten|Count|Totaal|Het aantal aanroepen met een interne servicefout (HTTP-responscode 5xx).|Er zijn geen dimensies|
+|ClientErrors|Clientfouten|Count|Totaal|Het aantal aanroepen met een fout aan de clientzijde (HTTP-responscode 4xx).|Er zijn geen dimensies|
+|DataIn|Inkomende gegevens|Bytes|Totaal|Grootte van inkomende gegevens in bytes.|Er zijn geen dimensies|
 |DataOut|Uitgaande gegevens|Bytes|Totaal|Grootte van uitgaande gegevens in bytes.|Er zijn geen dimensies|
-|Latentie|Latentie|MilliSeconds|Gemiddeld|Latentie in milliseconden.|Er zijn geen dimensies|
-|CharactersTranslated|Vertaald tekens|Count|Totaal|Totaal aantal tekens in inkomende aanvraag opgegeven tekst.|Er zijn geen dimensies|
-|SpeechSessionDuration|Spraak sessieduur|Seconden|Totaal|Totale duur van de sessie spraak in seconden.|Er zijn geen dimensies|
+|Latentie|Latentie|MilliSeconds|Gemiddeld|Latentie in milliseconden|Er zijn geen dimensies|
+|CharactersTranslated|Tekens vertaald|Count|Totaal|Totaal aantal tekens in inkomende tekstaanvraag.|Er zijn geen dimensies|
+|SpeechSessionDuration|Duur van de spraaksessie|Seconden|Totaal|Totale duur van de spraaksessie in seconden.|Er zijn geen dimensies|
 |TotalTransactions|Totaal aantal transacties|Count|Totaal|Totaal aantal transacties|Er zijn geen dimensies|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines

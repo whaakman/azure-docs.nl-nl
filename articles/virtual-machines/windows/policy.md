@@ -2,10 +2,10 @@
 title: Beveiliging met beleidsregels op Windows-machines in Azure afdwingen | Microsoft Docs
 description: Het toepassen van een beleid voor een Azure Resource Manager virtuele Windows-computer
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0b71ba54-01db-43ad-9bca-8ab358ae141b
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 4bb9a5087ead309ab24128594c53ae313cd4b63c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7ec348bbd75bfce268d1e3d7a46b79397ee39f98
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Beleid toepassen op Windows-VM's met Azure Resource Manager
 Een organisatie kan met behulp van beleid afdwingen verschillende conventies en regels in de hele onderneming. Afdwinging van het gewenste gedrag kunt risico's te beperken tijdens bijdragen aan het succes van de organisatie. In dit artikel wordt beschreven hoe u Azure Resource Manager-beleid kunt gebruiken voor het definiëren van het gewenste gedrag voor virtuele Machines die uw organisatie.
@@ -225,7 +225,7 @@ U kunt informatie over het gebruik van bepaalde soorten extensies verbieden. Bij
 ```
 
 
-## <a name="azure-hybrid-use-benefit"></a>Azure hybride gebruik Benefit
+## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 
 Wanneer u een on-premises-licentie hebt, kunt u de licentiekosten op uw virtuele machines kunt opslaan. Wanneer u de licentie niet hebt, moet u de optie verbieden. Het volgende beleid verbiedt informatie over het gebruik van Azure hybride gebruik voordeel (AHUB):
 

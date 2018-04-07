@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: cff6d780826164de6ef0122849e40d453192f81c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure-Stack 1803 update
 
@@ -44,7 +44,9 @@ Het buildnummer van Azure Stack 1803 update **20180329.1**.
 
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
-*Er zijn geen stappen na-update voor de update 1803.*
+Na de installatie van 1803 toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).
+
+- [KB 4103348 - API van de netwerkcontroller-service vastloopt wanneer u probeert een Azure-Stack-update te installeren](https://support.microsoft.com/en-us/help/4103348)
 
 
 ### <a name="new-features"></a>Nieuwe functies 
@@ -90,7 +92,7 @@ Deze update bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
 
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces kan controleren    
-Tijdens de installatie van de update 1803, kunnen er uitvaltijd van de blob-service en interne services die gebruikmaken van blob-service. Het gaat hierbij om bepaalde bewerkingen van de virtuele machine.  Uitvaltijd kan hierdoor mislukken van de tenant bewerkingen of waarschuwingen van de services die geen toegang gegevens tot. Dit probleem lost zichzelf zodra de update voor de installatie is voltooid. 
+<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
 
 
 ### <a name="known-issues-post-installation"></a>Bekende problemen (na de installatie)
@@ -129,10 +131,6 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180323.2
 
 #### <a name="compute"></a>Compute
 - Instellingen voor virtuele-machineschaalsets schalen zijn niet beschikbaar in de portal. Als tijdelijke oplossing kunt u [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Vanwege verschillen tussen versies van PowerShell, moet u de `-Name` parameter in plaats van `-VMScaleSetName`.
-
-- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
-
-  U lost dit probleem door contact op met ondersteuning om aan te vragen van de Hotfix **1.0.180302.4** voor Azure-Stack. 
 
 - Bij het maken van een beschikbaarheidsset in de portal door te gaan naar **nieuw** > **Compute** > **beschikbaarheidsset**, kunt u alleen maken een beschikbaarheidsset met een domein met fouten en het updatedomein van 1. Als tijdelijke oplossing bij het maken van een nieuwe virtuele machine, maakt u de beschikbaarheidsset met behulp van PowerShell, CLI of vanuit de portal.
 

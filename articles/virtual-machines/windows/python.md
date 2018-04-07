@@ -2,12 +2,12 @@
 title: Maken en beheren van een Windows-VM in Azure met behulp van Python | Microsoft Docs
 description: Leer hoe u Python maken en beheren van een Windows-VM in Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
-ms.openlocfilehash: bb777d41570d7b1dc97402d532519488912948e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d56143a470be4da1faaea949ea286fca1ffd319d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Maken en beheren van Windows-machines in Azure met Python
 
@@ -363,7 +363,7 @@ Nu u de ondersteunende resources hebt gemaakt, kunt u een virtuele machine maken
 
 ## <a name="perform-management-tasks"></a>Beheertaken uitvoeren
 
-Tijdens de levenscyclus van een virtuele machine, kan u wilt uitvoeren van beheertaken, zoals starten, stoppen of een virtuele machine wordt verwijderd. Bovendien wilt u maken code om herhaalde of complexe taken te automatiseren.
+Tijdens de levenscyclus van een virtuele machine wilt u mogelijk beheertaken uitvoeren, zoals het starten, stoppen of verwijderen van een virtuele machine. Bovendien wilt u maken code om herhaalde of complexe taken te automatiseren.
 
 ### <a name="get-information-about-the-vm"></a>Informatie ophalen over de virtuele machine
 

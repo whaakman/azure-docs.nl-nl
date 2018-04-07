@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -30,7 +30,7 @@ Computers wordt beheerd door update management-gebruik de volgende configuraties
 * Automation Hybrid Runbook Worker
 * Microsoft Update of Windows Server Update Services voor Windows-computers
 
-Het volgende diagram toont een conceptueel overzicht van het gedrag en de gegevensstroom van hoe de oplossing evalueert en beveiligingsupdates geldt voor alle verbonden Windows Server- en Linux-computers in een werkruimte.    
+Het volgende diagram toont een conceptueel overzicht van het gedrag en de gegevensstroom van hoe de oplossing evalueert en beveiligingsupdates geldt voor alle verbonden Windows Server- en Linux-computers in een werkruimte.
 
 ![Processtroom management bijwerken](media/automation-update-management/update-mgmt-updateworkflow.png)
 
@@ -70,21 +70,24 @@ De volgende tabel worden de besturingssystemen die worden niet ondersteund:
 
 #### <a name="windows"></a>Windows
 
-Windows-agents moeten worden geconfigureerd om te communiceren met een Windows Server Update Services (WSUS)-server of toegang hebben tot Microsoft Update. Worden ook de Windows-agent kan niet beheerd gelijktijdig door System Center Configuration Manager. De [Windows-agent](../log-analytics/log-analytics-agent-windows.md) is vereist. Deze agent wordt automatisch geïnstalleerd als u voorbereiden op een virtuele machine in Azure.
+Windows-agents moeten worden geconfigureerd om te communiceren met een Windows Server Update Services (WSUS)-server of toegang hebben tot Microsoft Update. Updatebeheer met System Center Configuration Manager kan worden gebruikt, voor meer informatie over de integratiescenario's gaat u naar [System Center Configuration Manager integreren met updatebeheer](oms-solution-updatemgmt-sccmintegration.md#configuration). De [Windows-agent](../log-analytics/log-analytics-agent-windows.md) is vereist. Deze agent wordt automatisch geïnstalleerd als u voorbereiden op een virtuele machine in Azure.
 
 #### <a name="linux"></a>Linux
 
 Voor Linux moet de machine naar een update-opslagplaats persoonlijke of openbare worden kan toegang hebben. Een OMS-Agent voor Linux geconfigureerd voor rapportage aan meerdere Log Analytics-werkruimten wordt niet ondersteund met deze oplossing.
 
-Zie voor meer informatie over het installeren van de OMS-Agent voor Linux en download de nieuwste versie [Operations Management Suite-Agent voor Linux](https://github.com/microsoft/oms-agent-for-linux). Raadpleeg [Operations Management Suite-agent voor Windows](../log-analytics/log-analytics-windows-agent.md) voor meer informatie over het installeren van de OMS-agent voor Windows.  
+Zie voor meer informatie over het installeren van de OMS-Agent voor Linux en download de nieuwste versie [Operations Management Suite-Agent voor Linux](https://github.com/microsoft/oms-agent-for-linux). Raadpleeg [Operations Management Suite-agent voor Windows](../log-analytics/log-analytics-windows-agent.md) voor meer informatie over het installeren van de OMS-agent voor Windows.
 
 ## <a name="permissions"></a>Machtigingen
-Om te kunnen maken en beheren van de update-implementaties, moet u specifieke machtigingen. Voor meer informatie over deze machtigingen [rollen gebaseerd toegangsbeheer - updatebeheer](automation-role-based-access-control.md#update-management) 
+
+Om te kunnen maken en beheren van de update-implementaties, moet u specifieke machtigingen. Voor meer informatie over deze machtigingen [rollen gebaseerd toegangsbeheer - updatebeheer](automation-role-based-access-control.md#update-management)
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
+
 Deze oplossing bestaat uit de volgende resources die zijn toegevoegd aan uw Automation-account en rechtstreeks verbonden agents of verbonden Operations Manager-beheergroepen.
 
 ### <a name="hybrid-worker-groups"></a>Hybrid Worker-groepen
+
 Nadat u deze oplossing hebt ingeschakeld, wordt elke Windows-computer die rechtstreeks zijn verbonden met uw werkruimte voor logboekanalyse automatisch geconfigureerd als een hybride Runbook Worker ter ondersteuning van de runbooks die zijn opgenomen in deze oplossing. Voor elke Windows-computer worden beheerd door de oplossing, wordt deze vermeld onder de pagina voor hybride worker groepen als een systeem hybrid worker-groep voor het Automation-account na de naamgevingsconventie *Hostname FQDN_GUID*. U kunt deze groepen met runbooks kan niet richt in uw account, anders die ze mislukken. Deze groepen zijn alleen bedoeld ter ondersteuning van de beheeroplossing.
 
 U kunt de Windows-computers echter wel toevoegen aan een Hybrid Runbook Worker-groep in uw Automation-account voor ondersteuning van Automation-runbooks, mits u hetzelfde account gebruikt voor zowel de oplossing als het lidmaatschap van de Hybrid Runbook Worker-groep. Deze functionaliteit is toegevoegd aan versie 7.2.12024.0 van de Hybrid Runbook Worker.
@@ -119,14 +122,13 @@ Heartbeat
 
 Op een Windows-computer, kunt u het volgende om te controleren of de verbinding van de agent met logboekanalyse bekijken:
 
-1.  Open Microsoft Monitoring Agent in het Configuratiescherm en op de **Azure Log Analytics** tabblad, de agent geeft een bericht weergegeven: **de Microsoft Monitoring Agent is verbonden met logboekanalyse** .   
-2.  Open het Windows-gebeurtenislogboek, ga naar **Toepassings- en servicelogboeken\Operations Manager**, en zoek naar gebeurtenis-id 3000 en 5002 van de bronserviceconnector. Deze gebeurtenissen geven aan de computer met de werkruimte voor logboekanalyse is geregistreerd en configuratie ontvangt.  
+1. Open Microsoft Monitoring Agent in het Configuratiescherm en op de **Azure Log Analytics** tabblad, de agent geeft een bericht weergegeven: **de Microsoft Monitoring Agent is verbonden met logboekanalyse** .   
+2. Open het Windows-gebeurtenislogboek, ga naar **Toepassings- en servicelogboeken\Operations Manager**, en zoek naar gebeurtenis-id 3000 en 5002 van de bronserviceconnector. Deze gebeurtenissen geven aan de computer met de werkruimte voor logboekanalyse is geregistreerd en configuratie ontvangt.
 
 Als de agent kan niet communiceren met logboekanalyse en deze is geconfigureerd om te communiceren met internet via een firewall of proxyserver, controleert u de firewall of proxy-server correct is geconfigureerd aan de hand van [netwerkconfiguratie voor Windows-agent](../log-analytics/log-analytics-agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Als uw Linux-systemen zijn geconfigureerd om te communiceren met een proxy of Gateway OMS en u voorbereiden op deze oplossing, update de *proxy.conf* machtigingen voor het verlenen van de groep omiuser leesmachtigingen voor het bestand door het uitvoeren van de volgende opdrachten:  
-> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> Als uw Linux-systemen zijn geconfigureerd om te communiceren met een proxy of Gateway OMS en u voorbereiden op deze oplossing, update de *proxy.conf* machtigingen voor het verlenen van de groep omiuser leesmachtigingen voor het bestand door het uitvoeren van de volgende opdrachten: `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
 
 Bij pas toegevoegde Linux-agents staat de status **Bijgewerkt** na het uitvoeren van een beoordeling. Dit proces kan maximaal zes uur duren.
@@ -136,6 +138,7 @@ Om te controleren op een Operations Manager-beheergroep communiceert met Log Ana
 ## <a name="data-collection"></a>Gegevensverzameling
 
 ### <a name="supported-agents"></a>Ondersteunde agents
+
 De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing.
 
 | Verbonden bron | Ondersteund | Beschrijving |
@@ -145,11 +148,13 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 | Beheergroep Operations Manager |Ja |De oplossing verzamelt informatie over systeemupdates van agents in een verboden beheergroep.<br>Er is geen directe verbinding van de Operations Manager-agent naar Log Analytics vereist. Gegevens uit de beheergroep doorgestuurd naar de werkruimte voor logboekanalyse. |
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
+
 Voor elke beheerde Windows-computer wordt twee keer per dag een scan uitgevoerd. Om de vijftien minuten wordt de Windows-API aangeroepen voor de laatste updatetijd om op die manier te bepalen of de status is gewijzigd. Als dat het geval is, wordt er een nalevingsscan gestart. Voor elke beheerde Linux-computer wordt elke drie uur een scan uitgevoerd.
 
-Het kan dertig minuten tot zes uur duren voordat er in het dashboard bijgewerkte gegevens worden weergegeven van de beheerder computers.   
+Het kan dertig minuten tot zes uur duren voordat er in het dashboard bijgewerkte gegevens worden weergegeven van de beheerder computers.
 
 ## <a name="viewing-update-assessments"></a>Update-evaluaties weergeven
+
 Klik op de **updatebeheer** op uw automation-account om de status van uw apparaten weer te geven.
 
 Deze weergave bevat informatie over uw machines ontbrekende updates, update-implementaties en geplande update-implementaties.
@@ -165,7 +170,7 @@ Wanneer de updates zijn beoordeeld voor alle Linux- en Windows-computers in uw w
 
 Om te voorkomen dat updates buiten een onderhoudsperiode in Ubuntu worden toegepast, moet u het pakket Unattended-Upgrade opnieuw configureren en automatische updates uitschakelen. Zie [het onderwerp Automatic Updates in de Engelstalige Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) voor meer informatie.
 
-Voor virtuele machines die zijn gemaakt op basis van de on-demand RHEL-installatiekopieën (Red Hat Enterprise Linux) die beschikbaar zijn in Azure Marketplace, zijn ze geregistreerd voor toegang tot de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) die is geïmplementeerd in Azure. Andere Linux-distributies moeten volgens de ondersteunde methoden worden bijgewerkt vanuit de online distro-bestandsopslagplaats.  
+Voor virtuele machines die zijn gemaakt op basis van de on-demand RHEL-installatiekopieën (Red Hat Enterprise Linux) die beschikbaar zijn in Azure Marketplace, zijn ze geregistreerd voor toegang tot de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) die is geïmplementeerd in Azure. Andere Linux-distributies moeten volgens de ondersteunde methoden worden bijgewerkt vanuit de online distro-bestandsopslagplaats.
 
 ## <a name="viewing-missing-updates"></a>Ontbrekende updates weergeven
 
@@ -204,8 +209,8 @@ De volgende tabel bevat een voorbeeld-logboek zoekt bijwerkrecords die door deze
 |Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;Computer, titel, KBID, classificatie, PublishedDate project |Alle computers met ontbrekende updates<br>Voeg een van de volgende opties om te beperken van het besturingssysteem:<br>Besturingssysteemtype = 'Windows'<br>Besturingssysteemtype == 'Linux' |
 | Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;waar Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Ontbrekende updates voor een specifieke computer (vervang de waarde door de naam van uw eigen computer)|
 | Gebeurtenis<br>&#124;waar EventLevelName == "error" en elke Computer in ((Update &#124; waar (classificatie == 'Beveiligingsupdates' of classificatie == 'Essentiële Updates')<br>&#124;waar UpdateState == 'Vereist' en een optionele == false <br>&#124; distinct Computer)) |Foutgebeurtenissen voor machines met ontbrekende essentiële of beveiligingsupdates |
-| Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;afzonderlijke titel |Afzonderlijke ontbrekende updates op alle computers | 
-| UpdateRunProgress<br>&#124;waar InstallationStatus == "is mislukt" <br>&#124;overzicht van AggregatedValue count() door de Computer, de titel, UpdateRunName = |Computers met updates die niet in een update-uitvoering<br>Voeg een van de volgende opties om te beperken van het besturingssysteem:<br>Besturingssysteemtype = 'Windows'<br>Besturingssysteemtype == 'Linux' | 
+| Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;afzonderlijke titel |Afzonderlijke ontbrekende updates op alle computers |
+| UpdateRunProgress<br>&#124;waar InstallationStatus == "is mislukt" <br>&#124;overzicht van AggregatedValue count() door de Computer, de titel, UpdateRunName = |Computers met updates die niet in een update-uitvoering<br>Voeg een van de volgende opties om te beperken van het besturingssysteem:<br>Besturingssysteemtype = 'Windows'<br>Besturingssysteemtype == 'Linux' |
 | Update<br>&#124;waar besturingssysteemtype == 'Linux'<br>&#124;waar UpdateState! = 'Niet nodig' en (classificatie == 'Essentiële Updates' of de indeling 'Beveiligingsupdates' ==)<br>&#124;overzicht van AggregatedValue = count() door Computer |Lijst met alle Linux machines, die een pakketupdate beschikbaar hebben, welke essentiële of beveiligingsupdates beveiligingslek adressen | 
 | UpdateRunProgress<br>&#124;waar UpdateRunName == "DeploymentName"<br>&#124;overzicht van AggregatedValue = count() door Computer|Computers die zijn bijgewerkt tijdens het uitvoeren van updates (vervang de waarde met de naam van uw update-implementatie) | 
 
@@ -239,15 +244,15 @@ Implementeren van updates door updateclassificatie werkt mogelijk niet op openSU
 
 Deze sectie bevat informatie over het oplossen van problemen met de oplossing Update Management.
 
-Als u problemen ondervindt tijdens de onboarding van de oplossing of een virtuele machine, gaat u naar het gebeurtenislogboek **Toepassings- en servicelogboeken\Operations Manager** voor gebeurtenissen met gebeurtenis-id 4502 en het gebeurtenisbericht met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. In de volgende tabel worden specifieke foutberichten weergegeven, plus een mogelijke oplossing voor elk van deze fouten.  
+Als u problemen ondervindt tijdens de onboarding van de oplossing of een virtuele machine, gaat u naar het gebeurtenislogboek **Toepassings- en servicelogboeken\Operations Manager** voor gebeurtenissen met gebeurtenis-id 4502 en het gebeurtenisbericht met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. In de volgende tabel worden specifieke foutberichten weergegeven, plus een mogelijke oplossing voor elk van deze fouten.
 
-| Bericht | Reden | Oplossing |   
-|----------|----------|----------|  
-| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>System.InvalidOperationException: {"Message":"Machine is al<br>geregistreerd bij een ander account. "} | Machine is al vrijgegeven aan een andere werkruimte voor updatebeheer | Voer het opruimen van oude artefacten uit door [de hybride runbookgroep te verwijderen](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
-| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>System.Net.Http.HttpRequestException: Er is een fout opgetreden tijdens het verzenden van de aanvraag. ---><br>System.Net.WebException: De onderliggende verbinding<br>is gesloten: Er is een onverwachte fout<br>opgetreden tijdens het ontvangen. ---> System.ComponentModel.Win32Exception:<br>De client en server kunnen niet communiceren,<br>omdat ze geen gemeenschappelijk algoritme hebben | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|  
-| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>Newtonsoft.Json.JsonReaderException: Fout tijdens het parseren van oneindig positieve waarde. | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)| 
-| Het certificaat dat is doorgegeven door de service <wsid>.oms.opinsights.azure.com<br>is niet uitgegeven door een certificeringsinstantie<br>die wordt gebruikt voor Microsoft-services. Contact<br>de netwerkbeheerder om na te gaan of er een proxy wordt uitgevoerd waarmee<br>TLS/SSL-communicatie wordt onderschept. |Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|  
-| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Maken van een zelfondertekend certificaat is mislukt. ---><br>System.UnauthorizedAccessException: Toegang is geweigerd. | Genereren van zelfondertekend certificaat is mislukt | Controleer of het systeemaccount<br>leestoegang heeft tot de map:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
+| Bericht | Reden | Oplossing |
+|----------|----------|----------|
+| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>System.InvalidOperationException: {"Message":"Machine is al<br>geregistreerd bij een ander account. "} | Machine is al vrijgegeven aan een andere werkruimte voor updatebeheer | Voer het opruimen van oude artefacten uit door [de hybride runbookgroep te verwijderen](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>System.Net.Http.HttpRequestException: Er is een fout opgetreden tijdens het verzenden van de aanvraag. ---><br>System.Net.WebException: De onderliggende verbinding<br>is gesloten: Er is een onverwachte fout<br>opgetreden tijdens het ontvangen. ---> System.ComponentModel.Win32Exception:<br>De client en server kunnen niet communiceren,<br>omdat ze geen gemeenschappelijk algoritme hebben | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
+| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>Newtonsoft.Json.JsonReaderException: Fout tijdens het parseren van oneindig positieve waarde. | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
+| Het certificaat dat is doorgegeven door de service <wsid>.oms.opinsights.azure.com<br>is niet uitgegeven door een certificeringsinstantie<br>die wordt gebruikt voor Microsoft-services. Contact<br>de netwerkbeheerder om na te gaan of er een proxy wordt uitgevoerd waarmee<br>TLS/SSL-communicatie wordt onderschept. |Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
+| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Maken van een zelfondertekend certificaat is mislukt. ---><br>System.UnauthorizedAccessException: Toegang is geweigerd. | Genereren van zelfondertekend certificaat is mislukt | Controleer of het systeemaccount<br>leestoegang heeft tot de map:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
 
 ## <a name="next-steps"></a>Volgende stappen
 

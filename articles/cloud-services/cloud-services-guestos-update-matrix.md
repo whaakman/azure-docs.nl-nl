@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1f24db331b3d59eaad54c5c2488e56913261cff2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Gast OS releases en SDK compatibiliteit matrix
 Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor Cloud-Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Gastbesturingssysteem updates zoals beschreven in [Update-instellingen van Azure Gast OS][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -42,6 +42,9 @@ Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor C
 Onzekerheid over het Gastbesturingssysteem is of hoe de Gast OS releases werk? Lees [dit](#how-it-works) sectie.
 
 ## <a name="news-updates"></a>Nieuws
+###### <a name="april-6-2018"></a>**6 april 2018**
+Het Gastbesturingssysteem maart heeft uitgegeven.
+
 ###### <a name="march-19-2018"></a>**19 maart 2018**
 Het Gastbesturingssysteem februari heeft uitgegeven.
 
@@ -90,8 +93,9 @@ Implementatie van het Gastbesturingssysteem juli juli 19 wordt gestart en heeft 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.17_201803-01 |6 april 2018 |Post 5.19 |NOG TE BEPALEN |
 | WA-GUEST-OS-5.16_201802-01 |12 maart 2018 |Post punt 5.18 |NOG TE BEPALEN |
-| WA-GUEST-OS-5.15_201801-01 |4 januari 2018 |Post 5.17 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-5.15_201801-01~~ |4 januari 2018 |6 april 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 januari 2018 |12 maart 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 december 2017 |4 januari 2018|NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
@@ -116,8 +120,9 @@ Implementatie van het Gastbesturingssysteem juli juli 19 wordt gestart en heeft 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.52_201803-01 |6 april 2018 |Post 4.54 |NOG TE BEPALEN |
 | WA-GUEST-OS-4.51_201802-01 |12 maart 2018 |Post 4,53 |NOG TE BEPALEN |
-| WA-GUEST-OS-4.50_201801-01 |4 januari 2018 |Post 4.52 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-4.50_201801-01~~ |4 januari 2018 |6 april 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 januari 2018 |12 maart 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 december 2017 |4 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
@@ -142,8 +147,9 @@ Implementatie van het Gastbesturingssysteem juli juli 19 wordt gestart en heeft 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.59_201803-01 |6 april 2018 |Post 3.61 |NOG TE BEPALEN |
 | WA-GUEST-OS-3.58_201802-01 |19 maart 2018 |Post 3.60 |NOG TE BEPALEN |
-| WA-GUEST-OS-3.57_201801-01 |29 januari 2018 |Post 3.59 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-3.57_201801-01~~ |29 januari 2018 |6 april 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 januari 2018 |19 maart 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 december 2017 |29 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
@@ -168,8 +174,9 @@ Implementatie van het Gastbesturingssysteem juli juli 19 wordt gestart en heeft 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.72_201803-01 |6 april 2018 |Post 2.74 |NOG TE BEPALEN |
 | WA-GUEST-OS-2.71_201802-01 |12 maart 2018 |Post 2,73 |NOG TE BEPALEN |
-| WA-GUEST-OS-2.70_201801-01 |29 januari 2018 |Post 2.72 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.70_201801-01~~ |29 januari 2018 |6 april 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.69_201712-01~~ |4 januari 2018 |12 maart 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 december 2017 |29 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |

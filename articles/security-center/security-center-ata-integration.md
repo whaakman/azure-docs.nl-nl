@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: YuriDio
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fb32fc55288229fb1d09dce98b6092d38c10abf2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Maken van verbinding Microsoft Advanced Threat Analytics met Azure Security Center
 Dit document helpt u de integratie tussen Microsoft Advanced Threat Analytics en Azure Security Center configureren.
@@ -58,7 +58,7 @@ Ervan uitgaande dat u hebt al ATA is geïnstalleerd, en goed werkt on-premises, 
 
     ![Directe agent](./media/security-center-ata-integration/security-center-ata-integration-fig6.png)
 
-12. Deze agent in het ATA Center installeren. Tijdens de installatie, zorg ervoor dat u de optie **Koppel de agent voor Azure logboekanalyse (OMS)**, en geef de *werkruimte-ID*, en *primaire sleutel* wanneer aangevraagd .
+12. Deze agent in het ATA Center installeren. Tijdens de installatie, zorg ervoor dat u de optie **de agent verbinden met Azure-logboekanalyse**, en geef de *werkruimte-ID*, en *primaire sleutel* wanneer dit wordt aangevraagd.
 
 
 Zodra de installatie is voltooid, de integratie is voltooid en u zich voor een overzicht van nieuwe waarschuwingen verzonden van ATA naar het Beveiligingscentrum in de **Search** resultaat. De oplossing wordt weergegeven in de **beveiligingsoplossingen** pagina onder **verbonden oplossingen**. 

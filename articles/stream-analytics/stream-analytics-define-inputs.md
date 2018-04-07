@@ -1,24 +1,19 @@
 ---
-title: 'Gegevensverbinding: gegevensstroom invoer van een stroom gebeurtenissen | Microsoft Docs'
-description: Meer informatie over het instellen van een gegevensverbinding met Stream Analytics 'invoer' genoemd. Invoer bevatten een gegevensstroom van gebeurtenissen en ook verwijzen naar gegevens.
-keywords: gegevensstroom, gegevensverbinding, stroom gebeurtenissen
+title: Gegevensstroom invoer van een stroom gebeurtenissen in Azure Stream Analytics
+description: Meer informatie over het instellen van een verbinding van de gegevens in Azure Stream Analytics. Invoer bevatten een gegevensstroom van gebeurtenissen en ook verwijzen naar gegevens.
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: sngun
-ms.openlocfilehash: 405fcf190ab03b84ec463da8a1942adb8e326498
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0a90e97779416db7b7244cce9d6bdad740161051
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Gegevensverbinding: meer informatie over gegevens invoer van de stroom van gebeurtenissen voor Stream Analytics
 De gegevensverbinding met een Stream Analytics-taak is een stream van gebeurtenissen van een gegevensbron waarnaar wordt verwezen als de taak *invoer*. Stream Analytics is een uitstekende integratie met Azure stream gegevensbronnen, waaronder [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), en [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Deze invoerbronnen kunnen zijn in dezelfde Azure-abonnement als analytics-taak, of vanuit een ander abonnement.

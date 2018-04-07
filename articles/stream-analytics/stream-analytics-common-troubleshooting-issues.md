@@ -1,24 +1,19 @@
 ---
-title: Problemen oplossen voor een verkeerd ingedeelde invoervelden in Azure Stream Analytics | Microsoft Docs
+title: Problemen oplossen voor een verkeerd ingedeelde invoervelden in Azure Stream Analytics
 description: Hoe weet ik welke gebeurtenis in mijn invoer gegevens probleem wordt veroorzaakt door in een Stream Analytics-taak
-keywords: 
-documentationcenter: 
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
 manager: Kfile
-ms.assetid: 
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: sngun
-ms.openlocfilehash: 6b6c154568fe97b7495ae70dc162dc475169afea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fcbb03b4d9aed797cf99c374661c743d39f81276
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Veelvoorkomende problemen in de Stream Analytics en stappen op te lossen
 
@@ -39,7 +34,7 @@ Hier kunt u de logboeken met diagnostische gegevens om de details van de waarsch
 
 3. Als u de JSON-gegevens die door een onjuiste indeling heeft, voert u de code CheckMalformedEvents.cs, krijgt u de it van de [GitHub-opslagplaats voor voorbeelden](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Deze code leest de partitie-Id, offset en de gegevens die zich in deze offset worden afgedrukt. 
 
-4. Zodra u de gegevens gelezen, kunt u deze kunt analyseren en verbeter de serialisatie-indeling. 
+4. Zodra de gegevens zijn gelezen, kunt u de serialisatie-indeling analyseren en corrigeren. 
 
 ## <a name="handling-duplicate-records-when-using-azure-sql-database-as-output-for-a-stream-analytics-job"></a>Verwerking van dubbele records bij gebruik van Azure SQL Database als uitvoer voor een Stream Analytics-taak
 

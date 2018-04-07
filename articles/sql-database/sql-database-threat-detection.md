@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 04/01/2018
 ms.author: ronmat
-ms.openlocfilehash: 4cb31eef4ba4b85ea28a58bb9b947b4e07cb0b58
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c4a94ab9c7e0dab9e8c25e54fdd0a30b28b7a8a3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sql-database-threat-detection"></a>Detectie van dreigingen van SQL Database
 
@@ -21,7 +21,7 @@ Detectie van dreigingen SQL detecteert afwijkende activiteiten die ongebruikelij
 
 ## <a name="overview"></a>Overzicht
 
-Detectie van dreigingen SQL biedt een nieuwe laag van beveiliging, waarmee klanten om te detecteren en op mogelijke bedreigingen reageert wanneer deze zich voordoen doordat beveiligingswaarschuwingen op vreemde activiteiten worden gedetecteerd.  Gebruikers ontvangen een melding van de op verdachte databaseactiviteiten, mogelijke beveiligingsproblemen en SQL-injectieaanvallen, evenals database afwijkende toegangspatronen. Detectie van dreigingen SQL waarschuwingen Geef details op van de verdachte activiteit en actie voor het onderzoeken en het risico dat het beste. Gebruikers kunnen de verdachte gebeurtenissen met verkennen [SQL Database Auditing](sql-database-auditing.md) om te bepalen of ze het gevolg zijn van een poging om te openen, inbreuk of misbruik van gegevens in de database. Detectie van dreigingen kunt u eenvoudig op mogelijke bedreigingen adres met de database hoeft te worden van een deskundige beveiliging of systemen bewaking van de geavanceerde beveiliging te beheren.
+Detectie van dreigingen SQL biedt een nieuwe laag van beveiliging, waarmee klanten om te detecteren en op mogelijke bedreigingen reageert wanneer deze zich voordoen doordat beveiligingswaarschuwingen op vreemde activiteiten worden gedetecteerd.  Gebruikers ontvangen een melding van de op verdachte databaseactiviteiten, mogelijke beveiligingsproblemen en SQL-injectieaanvallen, evenals database afwijkende toegangspatronen. Detectie van dreigingen SQL waarschuwingen Geef details op van de verdachte activiteit en actie voor het onderzoeken en het risico dat het beste. Gebruikers kunnen de verdachte gebeurtenissen met verkennen [SQL Database Auditing](sql-database-auditing.md) om te bepalen of ze het gevolg zijn van een poging om te openen, inbreuk of misbruik van gegevens in de database. Met bedreigingsdetectie is het eenvoudig om potentiële bedreigingen voor de database weg te nemen zonder de hulp van een beveiligingsexpert of het moeten beheren van geavanceerde bewakingssystemen.
 
 SQL-injectie is bijvoorbeeld een van de algemene Web application beveiligingsproblemen op het Internet worden gebruikt voor aanvallen op gegevensgestuurde toepassingen. Aanvallers te profiteren van de toepassing zwakke plekken in het injecteren schadelijke SQL-instructies in de toepassing invoervelden, schendingen veroorzaken of wijzigen van gegevens in de database.
 
@@ -33,12 +33,12 @@ Detectie van dreigingen SQL integreert waarschuwingen met [Azure Security Center
     ![Navigatiedeelvenster][1]
 3. In de **controle en detectie van dreigingen** configuratiepagina inschakelen **ON** controle, waarin de threat detectie-instellingen worden weergegeven.
   
-    ![Navigatiedeelvenster][2]
+    ![Navigatievenster][2]
 4. Schakel **ON** Bedreigingendetectie.
 5. De lijst met e-mailberichten voor het ontvangen van beveiligingsberichten na detectie van afwijkende databaseactiviteiten configureren.
 6. Klik op **opslaan** in de **controle en detectie van bedreigingen** pagina om de nieuwe of bijgewerkte controle en threat detectie-instellingen opslaan.
        
-    ![Navigatiedeelvenster][3]
+    ![Navigatievenster][3]
 
 ## <a name="set-up-threat-detection-using-powershell"></a>Detectie van dreigingen met behulp van PowerShell instellen
 
@@ -48,7 +48,7 @@ Zie voor een scriptvoorbeeld van een, [configureren van controle en detectie van
 1. U ontvangt een e-mailmelding na detectie van afwijkende databaseactiviteiten. <br/>
    Het e-mailbericht bevat informatie over de verdachte-gebeurtenis met inbegrip van de aard van de afwijkende activiteiten, databasenaam, servernaam, toepassingsnaam en de tijd van de gebeurtenis. Bovendien wordt het e-mailbericht bevat informatie over mogelijke oorzaken en aanbevolen acties te onderzoeken en potentiële risico dat naar de database.<br/>
      
-    ![Navigatiedeelvenster][4]
+    ![Navigatievenster][4]
 2. De e-mailmelding bevat een directe koppeling naar het SQL-logboek. Op deze koppeling te klikken, start de Azure-portal en Hiermee opent u de SQL-controlerecords rond de tijd van de verdachte activiteit. Klik op een controlerecord voor meer informatie over de verdachte databaseactiviteiten, waardoor het gemakkelijker vinden van de SQL-instructies die zijn uitgevoerd (die toegankelijk zijn, wat ze hebben gedaan en wanneer) en bepalen of de gebeurtenis legitieme of schadelijke is (bijvoorbeeld een toepassing kwetsbaarheid voor SQL-injectie misbruik wordt gemaakt, iemand geschonden gevoelige gegevens, enzovoort).<br/>
    ![Navigatiedeelvenster][5]
 
@@ -57,15 +57,15 @@ Zie voor een scriptvoorbeeld van een, [configureren van controle en detectie van
 
 Detectie van SQL Database dreigingen integreert de waarschuwingen met [Azure Security Center](https://azure.microsoft.com/services/security-center/). Een live SQL security-tegel in de database page in de Azure portal houdt de status van actieve bedreigingen. 
 
-   ![Navigatiedeelvenster][6]
+   ![Navigatievenster][6]
    
 1. Beveiligingstegel te klikken op de SQL wordt gestart van de pagina Azure Security Center-waarschuwingen en biedt een overzicht van actieve SQL bedreigingen die zijn gedetecteerd op de database. 
 
-  ![Navigatiedeelvenster][7]
+  ![Navigatievenster][7]
 
 2. Te klikken op een specifieke waarschuwing biedt aanvullende informatie en acties voor deze bedreiging onderzoeken en oplossen van problemen met toekomstige bedreigingen.
 
-  ![Navigatiedeelvenster][8]
+  ![Navigatievenster][8]
 
 
 ## <a name="next-steps"></a>Volgende stappen

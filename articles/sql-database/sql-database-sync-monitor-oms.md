@@ -1,21 +1,21 @@
 ---
-title: Azure SQL van het synchroniseren van gegevens (Preview) met logboekanalyse OMS bewaken | Microsoft Docs
-description: Meer informatie over het bewaken van Azure SQL-gegevenssynchronisatie (Preview) met behulp van OMS-logboekanalyse
+title: Azure SQL van het synchroniseren van gegevens (Preview) met logboekanalyse bewaken | Microsoft Docs
+description: Meer informatie over het bewaken van Azure SQL-gegevenssynchronisatie (Preview) met behulp van logboekanalyse
 services: sql-database
-ms.date: 11/07/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: c106d5bbea118c9b78cbccee187b8eb5c347f232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Controleprogramma SQL synchroniseren van gegevens (Preview) met OMS Log Analytics 
+# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Controleprogramma SQL synchroniseren van gegevens (Preview) met logboekanalyse 
 
 Controleer het activiteitenlogboek synchroniseren van de SQL-gegevens en fouten en waarschuwingen te detecteren, voorheen moest u handmatig synchroniseren van de SQL-gegevens controleren in de Azure portal of PowerShell of de REST-API gebruiken. Volg de stappen in dit artikel voor het configureren van een aangepaste oplossing waarmee het synchroniseren van gegevens implementatiebewakingservaring worden verbeterd. U kunt deze oplossing aanpassen aan uw scenario.
 
@@ -23,27 +23,27 @@ Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard voor uw synchronisatiegroepen controle 
 
-Niet langer hoeft te zoeken in de logboeken van elke groep voor synchronisatie afzonderlijk om te zoeken naar problemen. U kunt alle groepen van de synchronisatie van een van uw abonnementen op één plek bewaken met behulp van een aangepaste weergave van OMS (Operations Management Suite). Deze weergave geeft de informatie die van belang is voor klanten synchroniseren van de SQL-gegevens weer.
+Niet langer hoeft te zoeken in de logboeken van elke groep voor synchronisatie afzonderlijk om te zoeken naar problemen. U kunt alle groepen van de synchronisatie van een van uw abonnementen op één plek bewaken met behulp van een aangepaste weergave voor logboekanalyse. Deze weergave geeft de informatie die van belang is voor klanten synchroniseren van de SQL-gegevens weer.
 
 ![Gegevens synchroniseren bewakingsdashboard](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Geautomatiseerd e-mailmeldingen
 
-U moet niet langer Raadpleeg het logboek handmatig in de Azure-portal of via PowerShell of de REST-API. Met [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), kunt u waarschuwingen die rechtstreeks naar de e-mailadressen van de mensen die u zien wilt wanneer er een fout optreedt.
+U moet niet langer Raadpleeg het logboek handmatig in de Azure-portal of via PowerShell of de REST-API. Met [logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), kunt u waarschuwingen die rechtstreeks naar de e-mailadressen van de mensen die u zien wilt wanneer er een fout optreedt.
 
 ![Gegevens synchroniseren e-mailmeldingen](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>Hoe u deze bewakingsfuncties instellen? 
 
-Implementeer een aangepaste OMS bewakingsoplossing voor SQL-gegevenssynchronisatie in minder dan een uur door het volgende doen:
+Implementeer een aangepast logboekanalyse bewakingsoplossing voor SQL-gegevenssynchronisatie in minder dan een uur door het volgende doen:
 
 U moet drie onderdelen configureren:
 
--   Een PowerShell-runbook om te synchroniseren van gegevens van SQL-logboekgegevens feed met OMS.
+-   Een PowerShell-runbook om te synchroniseren van gegevens van SQL-logboekgegevens feed met logboekanalyse.
 
--   Een OMS-logboekanalyse-waarschuwing voor e-mailmeldingen.
+-   Een Log Analytics-waarschuwing voor e-mailmeldingen.
 
--   Een OMS-weergave voor bewaking.
+-   Een Log Analytics-weergave voor bewaking.
 
 ### <a name="samples-to-download"></a>Voorbeelden voor het downloaden
 
@@ -51,7 +51,7 @@ Download de volgende twee voorbeelden:
 
 -   [Gegevens synchroniseren logboek PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Gegevens synchroniseren logboek OMS bekijken](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Gegevensweergave Sync Log Analytics](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Vereisten
 
@@ -59,11 +59,11 @@ Zorg ervoor dat u de volgende zaken die u hebt ingesteld:
 
 -   Een Azure Automation-account
 
--   Log Analytics gekoppeld aan OMS-werkruimte
+-   Log Analytics-werkruimte
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>PowerShell-Runbook ophalen van de SQL-logboek voor gegevens synchroniseren 
 
-Gebruik een PowerShell-runbook gehost in Azure Automation om de logboekgegevens van het synchroniseren van de SQL-gegevens ophalen en deze verzenden naar OMS. Een voorbeeld van een script is opgenomen. Als een vereiste moet u een Azure Automation-account hebben. Vervolgens moet u een runbook maken en plannen om uit te voeren. 
+Gebruik een gehost in Azure Automation PowerShell-runbook ophalen van de logboekgegevens van het synchroniseren van de SQL-gegevens en verzenden met logboekanalyse. Een voorbeeld van een script is opgenomen. Als een vereiste moet u een Azure Automation-account hebben. Vervolgens moet u een runbook maken en plannen om uit te voeren. 
 
 ### <a name="create-a-runbook"></a>Een runbook maken
 
@@ -121,9 +121,9 @@ Het runbook plannen:
 
 Om te controleren of uw automation wordt uitgevoerd zoals verwacht, klikt u onder **overzicht** vinden voor uw automation-account, de **taak statistieken** weergeven onder **bewaking**. Deze weergave aan uw dashboard voor eenvoudige weergave vastmaken. Geslaagde wordt uitgevoerd van het runbook als 'Voltooid' weergeven en kan niet wordt uitgevoerd, weergegeven als 'Mislukt'.
 
-## <a name="create-an-oms-log-reader-alert-for-email-notifications"></a>Een waarschuwing OMS Log Reader voor e-mailmeldingen maken
+## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Een Log Analytics Reader-waarschuwing voor e-mailmeldingen maken
 
-Als u wilt maken van een waarschuwing die gebruikmaakt van OMS Log Analytics, het volgende doen. U moet als een vereiste hebt gekoppeld aan een OMS-werkruimte logboekanalyse.
+Als u wilt maken van een waarschuwing die gebruikmaakt van Log Analytics, het volgende doen. U moet als een vereiste hebt gekoppeld aan een Log Analytics-werkruimte logboekanalyse.
 
 1.  Selecteer in de OMS-portal **logboek zoeken**.
 
@@ -179,7 +179,7 @@ Deze oplossing is in de meeste gevallen gratis.
 
 **Azure Automation:** kan er een kosten die zijn gemaakt met de Azure Automation-account, afhankelijk van uw gebruik. De eerste 500 minuten van taakuitvoeringstijd per maand zijn gratis. Deze oplossing wordt in de meeste gevallen verwacht gebruik van minder dan 500 minuten per maand. Plannen om te voorkomen kosten, het runbook moet worden uitgevoerd bij een interval van twee uur of langer. Zie voor meer informatie [Automation prijzen](https://azure.microsoft.com/pricing/details/automation/).
 
-**OMS Log Analytics:** mogelijk zijn er kosten verbonden met OMS afhankelijk van uw gebruik. De laag gratis omvat 500 MB aan opgenomen gegevens per dag. In de meeste gevallen heeft deze oplossing wordt verwacht voor het opnemen van minder dan 500 MB per dag. Als u wilt verlagen van het gebruik, de fout alleen-lezen filtering gebruiken opgenomen in het runbook. Als u meer dan 500 MB per dag worden gebruikt, moet u een upgrade uitvoeren naar de laag betaald om te voorkomen dat het risico van analytics stoppen wanneer de limiet is bereikt. Zie voor meer informatie [logboekanalyse prijzen](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Log Analytics:** mogelijk zijn er kosten verbonden met logboekanalyse afhankelijk van uw gebruik. De laag gratis omvat 500 MB aan opgenomen gegevens per dag. In de meeste gevallen heeft deze oplossing wordt verwacht voor het opnemen van minder dan 500 MB per dag. Als u wilt verlagen van het gebruik, de fout alleen-lezen filtering gebruiken opgenomen in het runbook. Als u meer dan 500 MB per dag worden gebruikt, moet u een upgrade uitvoeren naar de laag betaald om te voorkomen dat het risico van analytics stoppen wanneer de limiet is bereikt. Zie voor meer informatie [logboekanalyse prijzen](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Codevoorbeelden
 
@@ -187,7 +187,7 @@ Download de codevoorbeelden in dit artikel uit de volgende locaties beschreven:
 
 -   [Gegevens synchroniseren logboek PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Gegevens synchroniseren logboek OMS bekijken](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Gegevensweergave Sync Log Analytics](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:

@@ -2,10 +2,10 @@
 title: Verzenden van taken naar een Pack HPC-cluster in Azure | Microsoft Docs
 description: Meer informatie over het instellen van een on-premises computer voor het verzenden van taken naar een cluster HPC Pack in Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management,hpc-pack
 ms.assetid: 78f6833c-4aa6-4b3e-be71-97201abb4721
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: d5953f1e1dd2deb4d871bd67352a6a5b2ae13dbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>HPC-taken vanaf een on-premises computer verzenden naar een HPC Pack-cluster die in Azure is geïmplementeerd
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ Verzenden van taken naar een client op de lokale computer configureren voor een 
 ![Verzenden van een taak aan een cluster in Azure][jobsubmit]
 
 ## <a name="prerequisites"></a>Vereisten
-* **HPC Pack hoofdknooppunt geïmplementeerd in een Azure VM** -het is raadzaam dat u hulpprogramma's, zoals een [snelstartsjabloon met de Azure](https://azure.microsoft.com/documentation/templates/) of een [Azure PowerShell-script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voor het implementeren van het hoofdknooppunt en cluster. U moet de DNS-naam van het hoofdknooppunt en de referenties van de Clusterbeheerder van een om de stappen in dit artikel te voltooien.
+* **HPC Pack hoofdknooppunt geïmplementeerd in een Azure VM** -het is raadzaam dat u hulpprogramma's, zoals een [snelstartsjabloon met de Azure](https://azure.microsoft.com/documentation/templates/) of een [Azure PowerShell-script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) het hoofdknooppunt en cluster implementeren . U moet de DNS-naam van het hoofdknooppunt en de referenties van de Clusterbeheerder van een om de stappen in dit artikel te voltooien.
 * **Clientcomputer** -moet u een Windows- of Windows Server-clientcomputer die HPC Pack client-hulpprogramma's kan worden uitgevoerd (Zie [systeemvereisten](https://technet.microsoft.com/library/dn535781.aspx)). Als u alleen de HPC Pack web-portal of REST-API gebruiken om taken te verzenden wilt, kunt u elke clientcomputer van uw keuze.
 * **HPC Pack installatiemedia** - installeren van het installatiepakket voor de gratis hulpprogramma's client HPC Pack voor de nieuwste versie van HPC Pack (HPC Pack 2012 R2) beschikbaar via is de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Zorg ervoor dat u dezelfde versie van HPC Pack die is geïnstalleerd op het hoofdknooppunt VM downloaden.
 

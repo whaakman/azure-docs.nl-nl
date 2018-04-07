@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Claims toewijzen in Azure Active Directory (openbare preview)
 
@@ -234,7 +234,7 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Claims toewijzing van eigenschappen van beleid
-Gebruik de eigenschappen van een toewijzing van beleid om te bepalen welke claims worden verzonden en waar de gegevens afkomstig is uit de claimprovider. Als er geen beleid is ingesteld, geeft het systeem tokens met de claimset core, de basic claimset en optionele claims die de toepassing ervoor gekozen heeft te ontvangen.
+Gebruik de eigenschappen van een toewijzing van beleid om te bepalen welke claims worden verzonden en waar de gegevens afkomstig is uit de claimprovider. Als er geen beleid is ingesteld, het systeem problemen tokens met de kern instelt, de basic claimset en een claim [optionele claims](develop/active-directory-optional-claims.md) die de toepassing heeft gekozen om te ontvangen.
 
 ### <a name="include-basic-claim-set"></a>Basic claimset opnemen
 

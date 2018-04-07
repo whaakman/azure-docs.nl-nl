@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 448711b7b2e102662bc157485561c33bf7f5fba1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Overzicht van Azure Monitor
 Dit artikel bevat een overzicht van de Monitor van de Azure-service in Microsoft Azure. Monitor voor Azure biedt en bevat koppelingen naar aanvullende informatie over het gebruik van Azure-Monitor wordt besproken.  Als u liever een video-inleiding, Zie de volgende stappen koppelingen onder aan dit artikel. 
@@ -168,4 +168,4 @@ Meer informatie over
 - Instellen van de [Azure Diagnostics Extensions](../azure-diagnostics.md) als u probeert te analyseren van problemen in uw Cloud-Service, de virtuele Machine virtuele machine instellen of Service Fabric-toepassing schalen.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) als u te diagnostische problemen in uw App Service-Web-app probeert.
 - [Het oplossen van Azure Storage](../storage/common/storage-e2e-troubleshooting.md) bij gebruik van Storage-Blobs, tabellen of wachtrijen
-- [Meld u Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) en de [Operations Management Suite](https://www.microsoft.com/oms/)
+- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

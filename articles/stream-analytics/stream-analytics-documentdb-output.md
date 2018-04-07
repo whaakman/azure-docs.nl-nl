@@ -1,26 +1,21 @@
 ---
-title: JSON-uitvoer voor Stream Analytics | Microsoft Docs
-description: Meer informatie over hoe Stream Analytics doel Azure Cosmos DB voor de JSON-uitvoer, voor het archiveren van gegevens en lage latentie query's op niet-gestructureerde JSON-gegevens.
-keywords: JSON-uitvoer
-documentationcenter: ''
-services: stream-analytics,documentdb
+title: Azure Stream Analytics-uitvoer naar een Cosmos-DB
+description: Dit artikel wordt beschreven hoe u met Azure Stream Analytics uitvoer opslaan bij Azure Cosmos DB voor JSON-uitvoer, voor het archiveren van gegevens en lage latentie query's op niet-gestructureerde JSON-gegevens.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 8bda2abda6f2b7207a5a7195c24b07da9089fb06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: f7115f7d19cd44ae7d0812d3aa6c48d8dd58c20d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Azure Cosmos Doeldatabase voor JSON-uitvoer van de Stream Analytics
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-uitvoer naar Azure Cosmos-DB  
 Stream Analytics kunt richten [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) inschakelen voor JSON-uitvoer, lage latentie en archiveren gegevensquery op niet-gestructureerde JSON-gegevens. Dit document bevat informatie over enkele aanbevolen procedures voor het implementeren van deze configuratie.
 
 Voor gebruikers die niet bekend met Cosmos DB bent, Bekijk [leertraject voor Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) aan de slag. 
@@ -35,7 +30,7 @@ De Azure DB die Cosmos-uitvoer in Stream Analytics kunt schrijven uw stream resu
 Sommige van de opties voor het verzamelen van Cosmos DB worden hieronder beschreven.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Consistentie, beschikbaarheid en latentie afstemmen
-Om te voldoen aan uw toepassing, kunt Cosmos DB u fijnmazig afstemmen van de database en verzamelingen en afweging tussen de consistentie, beschikbaarheid en latentie. Afhankelijk van welke mate van lezen van consistentie op basis van de behoeften van uw scenario lezen en schrijven latentie, dat kunt u een consistentiecontrole-niveau voor het databaseaccount van uw. Standaard kunnen Cosmos DB ook synchrone indexeren op elke bewerking CRUD aan uw verzameling. Dit is een andere nuttig optie om te bepalen van de prestaties schrijven leestijd in Cosmos-database. Raadpleeg voor meer informatie over dit onderwerp de [wijzigen van uw database en query consistentieniveaus](../cosmos-db/consistency-levels.md) artikel.
+Om te voldoen aan uw toepassing, kunt Cosmos DB u fijnmazig afstemmen van de database en verzamelingen en afweging tussen de consistentie, beschikbaarheid en latentie. Afhankelijk van welke mate van lezen van consistentie op basis van de behoeften van uw scenario lezen en schrijven latentie, dat kunt u een consistentiecontrole-niveau voor het databaseaccount van uw. Standaard kunnen Cosmos DB ook synchrone indexeren op elke bewerking CRUD aan uw verzameling. Dit is een andere nuttig optie om te bepalen van de prestaties schrijven leestijd in Cosmos-database. Raadpleeg voor meer informatie de [wijzigen van uw database en query consistentieniveaus](../cosmos-db/consistency-levels.md) artikel.
 
 ## <a name="upserts-from-stream-analytics"></a>Upserts vanuit Stream Analytics
 Stream Analytics-integratie met Cosmos DB kunt u invoegen of bijwerken van de records in uw Cosmos-DB-verzameling op basis van een bepaalde Document-ID-kolom. Dit wordt ook wel een *Upsert*.

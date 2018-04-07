@@ -9,20 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea2dc723c674e7119b6ef38771a73ff4c11e98d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6c94701507f86f6ecab2875f952215cc3e4cc719
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code---preview"></a>Een rand van de IoT-oplossing met meerdere modules in Visual Studio Code opstellen - voorbeeld
-U kunt Visual Studio Code gebruiken voor het ontwikkelen van uw IoT-Edge-oplossing met meerdere modules. Deze zelfstudie wordt u bij het maken, bijwerken en implementeren van een rand van de IoT-oplossing die pipe-sensorgegevens gewoon op het gesimuleerde apparaat IoT Edge in Visual Studio Code. In deze zelfstudie leert u het volgende:
+U kunt Visual Studio Code gebruiken voor het ontwikkelen van uw IoT-Edge-oplossing met meerdere modules. Dit artikel begeleidt bij het maken, bijwerken en implementeren van een rand van de IoT-oplossing die pipes sensorgegevens op het gesimuleerde apparaat IoT Edge in Visual Studio Code. In dit artikel leert u hoe:
 
-> [!div class="checklist"]
-> * Visual Studio Code gebruiken om een Edge van de IoT-oplossing te maken
-> * VS-Code gebruiken een nieuwe module toevoegen aan uw werkende rand van de IoT-oplossing. 
-> * Implementeren van de rand van de IoT-oplossing (meerdere modules) naar uw IoT-Edge-apparaat
-> * Gegevens weergeven die zijn gegenereerd
+* Visual Studio Code gebruiken om een Edge van de IoT-oplossing te maken
+* VS-Code gebruiken een nieuwe module toevoegen aan uw werkende rand van de IoT-oplossing. 
+* Implementeren van de rand van de IoT-oplossing (meerdere modules) naar uw IoT-Edge-apparaat
+* Gegenereerde gegevens weergeven
 
 ## <a name="prerequisites"></a>Vereisten
 * Hieronder zelfstudies voltooien
@@ -60,15 +59,14 @@ U kunt Visual Studio Code gebruiken voor het ontwikkelen van uw IoT-Edge-oplossi
 
 3. Als u [simuleren een IoT-randapparaat](tutorial-simulate-device-linux.md) op uw ontwikkelcomputer. U ziet dat de containers voor de installatiekopie module in een paar minuten wordt gestart.
 
-## <a name="view-generated-data"></a>Gegevens weergeven die zijn gegenereerd
+## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 
-1. Voor het bewaken van gegevens die binnenkomen in de IoT-hub, selecteer de **weergave** > **opdracht palet...**  en zoek naar **IoT: D2C bericht bewaking starten**. 
-2. Als u wilt stoppen met het bewaken van gegevens, gebruikt u de **IoT: D2C bericht bewaking stopt** opdracht in het palet opdracht. 
+1. Om gegevens die binnenkomen in de IoT Hub te controleren, selecteert u **View** > **Command Palette...** en zoekt u naar **IoT: Start monitoring D2C message**. 
+2. Als u wilt stoppen met het controleren van gegevens, gebruikt u de opdracht **IoT: Stop monitoring D2C message** in de Command Palette. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt u een Edge van de IoT-oplossing met een C#-module, later u een functiemodule toegevoegd, de routes voor de oplossing wordt bijgewerkt, gebouwd en geïmplementeerd op het gesimuleerde apparaat van de rand van de IoT gemaakt. U kunt door te gaan naar een van de volgende zelfstudies voor meer informatie over andere scenario's bij het ontwikkelen van Azure IoT rand in de VS-Code.
+U kunt door te gaan naar een van de volgende artikelen voor meer informatie over andere scenario's bij het ontwikkelen van Azure IoT rand in de Visual Studio Code:
 
-> [!div class="nextstepaction"]
-> [Fouten opsporen in een C#-module in VS-Code](how-to-vscode-debug-csharp-module.md)
-> [fouten opsporen in een C#-functie in VS-Code](how-to-vscode-debug-azure-function.md)
+* [Fouten opsporen in een C#-module in VS-Code](how-to-vscode-debug-csharp-module.md)
+* [Fouten opsporen in een C#-functie in VS-Code](how-to-vscode-debug-azure-function.md)

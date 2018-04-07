@@ -1,24 +1,19 @@
 ---
-title: Understanding Stream Analytics-taak bewaken | Microsoft Docs
-description: Informatie over Stream Analytics-taak controleren
-keywords: query-monitor
+title: Taak bewaken in Azure Stream Analytics begrijpen
+description: Dit artikel wordt beschreven hoe u taken in Azure Stream Analytics bewaken
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: cbfbc653deccbd215a404479100ee5cae860cb3f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 4b048705c80b7776ab0ab6823e27659a01eedeb5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics-taak bewaking en het controleren van query's begrijpen
 
@@ -58,7 +53,7 @@ Een ander interessant gegevenspunt voor het bewaken van de taak is de tijd van d
 Dit is de toepassing-tijd (dat wil zeggen de tijd die met behulp van de tijdstempel van de gegevens van de gebeurtenis) van de meest recente uitvoer van de taak.
 
 ## <a name="get-help"></a>Help opvragen
-Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

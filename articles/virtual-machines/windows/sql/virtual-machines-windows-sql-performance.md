@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: 2aa066caf6239f29038228c3c91607d913e70682
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4f955a0880254cb67ccd3e46ad04b3685341263
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Aanbevolen procedures voor prestaties voor SQL Server op virtuele machines van Azure
 
@@ -39,7 +39,7 @@ Hier volgt een lijst met snelle controle voor optimale prestaties van SQL Server
 
 | Onderwerp | Optimalisaties |
 | --- | --- |
-| [VM-grootte](#vm-size-guidance) |[DS3](../sizes-memory.md) of hoger voor SQL Enterprise edition.<br/><br/>[DS2](../sizes-memory.md) of hoger voor SQL Standard- en Web-edities. |
+| [VM-grootte](#vm-size-guidance) |[DS3](../sizes-general.md) of hoger voor SQL Enterprise edition.<br/><br/>[DS2](../sizes-general.md) of hoger voor SQL Standard- en Web-edities. |
 | [Storage](#storage-guidance) |Gebruik [Premium-opslag](../premium-storage.md). Standard-opslag wordt alleen aanbevolen voor ontwikkelen en testen.<br/><br/>Houd de [opslagaccount](../../../storage/common/storage-create-storage-account.md) en SQL Server VM in dezelfde regio.<br/><br/>Schakel Azure [geografisch redundante opslag](../../../storage/common/storage-redundancy.md) (geo-replicatie) van het opslagaccount. |
 | [Schijven](#disks-guidance) |Gebruik een minimum van 2 [P30 schijven](../premium-storage.md#scalability-and-performance-targets) (1 voor logboekbestanden, 1 voor gegevensbestanden en TempDB).<br/><br/>Vermijd het gebruik van besturingssysteem of tijdelijke schijven voor database-opslag of registratie.<br/><br/>Lees-caching op de schijven die als host fungeert voor de gegevens en TempDB-gegevensbestanden inschakelen<br/><br/>Schakel niet opslaan in cache op een of meer schijven die als host fungeert voor het logboekbestand.<br/><br/>Belangrijk: Stop de service SQL Server bij het wijzigen van de cache-instellingen voor een virtuele machine van Azure-schijf.<br/><br/>Als u verbeterde i/o-doorvoer meerdere Azure gegevensschijven stripe.<br/><br/>Formatteren met grootten gedocumenteerde toewijzing. |
 | [I/O](#io-guidance) |Database pagina compressie inschakelen.<br/><br/>Schakel directe bestand de initialisatie van de gegevensbestanden worden opgeslagen.<br/><br/>Autogrow van de limiet voor de database.<br/><br/>Autoshrink op de database niet uitschakelen.<br/><br/>Verplaats alle databases naar gegevensschijven, met inbegrip van systeemdatabases.<br/><br/>SQL Server-fout logboek- en traceringsbestanden bestandsmappen naar gegevensschijven verplaatsen.<br/><br/>Het instellen van standaardbestandslocaties voor back-up en -database.<br/><br/>Schakel vergrendelde pagina's.<br/><br/>SQL Server prestaties correcties toepassen. |

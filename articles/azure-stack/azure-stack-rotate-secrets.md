@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f3c6d50ac128cd766a1d22689b737da975922466
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 509570dfe0e3d4be2e589ac1958dd377dc4e8e03
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure-Stack draaien
 
@@ -69,7 +69,7 @@ Geheime rotatie van de onderstaande instructies wordt uitgevoerd, wordt deze waa
 2.  Bereid een nieuwe reeks vervanging externe certificaten. De nieuwe set overeenkomt met de certificaat-specificaties die worden beschreven in de [Azure Stack PKI-certificaatvereisten](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 3.  Een back-up naar de certificaten gebruikt voor rotatie op een veilige back-locatie opslaan. Als uw rotatie wordt uitgevoerd en mislukt, vervangt u de certificaten in de bestandsshare met de back-ups voordat u de draaihoek opnieuw uitvoeren. Houd er rekening mee, back-ups behouden in de veilige back-uplocatie.
 3.  Een bestandsshare die u vanaf de ERCS virtuele machines openen kunt maken. De bestandsshare moet leesbaar en beschrijfbaar zijn voor de **CloudAdmin** identiteit.
-4.  Open een PowerShell ISE-console op de ERCS VM die gebruikmaakt van de **CloudAdmin** account.  Navigeer naar de bestandsshare. 
+4.  Open een PowerShell ISE-console vanaf een computer waarop u toegang tot de bestandsshare hebt. Navigeer naar de bestandsshare. 
 5.  Voer **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** om de vereiste mappen voor uw externe certificaten te maken.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Externe en interne geheimen draaien

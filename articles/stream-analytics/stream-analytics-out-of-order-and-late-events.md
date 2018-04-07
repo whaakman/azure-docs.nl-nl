@@ -1,24 +1,19 @@
 ---
-title: Verwerken van gebeurtenis volgorde en lateness met Azure Stream Analytics | Microsoft Docs
-description: Meer informatie over de werking van Stream Analytics met out volgorde of laat gebeurtenissen in gegevensstromen.
-keywords: volgorde, laat, gebeurtenissen
-documentationcenter: ''
+title: Verwerken van gebeurtenis volgorde en lateness in Azure Stream Analytics
+description: Dit artikel wordt beschreven hoe de Stream Analytics out volgorde of laat gebeurtenissen in gegevensstreams verwerkt.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 3c1924ad87715f7a44c3666991e792adc3a20af9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics gebeurtenis volgorde overwegingen
 
@@ -132,7 +127,7 @@ Azure Stream Analytics deze functionaliteit wordt geïmplementeerd met behulp va
 * Wanneer u meerdere tijdlijnen samenvoegen wilt, kan de uitvoer door een extra tolerantieperiode voor late gebrek aan gegevens in een van de bronnen of partities worden vertraagd.
 
 ## <a name="get-help"></a>Help opvragen
-Voor meer informatie en ondersteuning kunt u proberen de [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Voor meer informatie en ondersteuning kunt u proberen de [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Stream Analytics](stream-analytics-introduction.md)

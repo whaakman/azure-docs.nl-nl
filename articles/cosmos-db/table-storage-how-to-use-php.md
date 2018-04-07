@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: mimig
-ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Het gebruik van Azure Storage, Table-service of Cosmos DB tabel API met PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -422,7 +422,7 @@ catch(ServiceException $e){
 }
 ```
 
-Voor controles gelijktijdigheid van taken, kunt u instellen de Etag voor een entiteit moet worden verwijderd met behulp van de **DeleteEntityOptions -> setEtag** methode en geven de **DeleteEntityOptions** object naar de  **deleteEntity** als een vierde parameter.
+Voor controles gelijktijdigheid van taken, kunt u instellen de Etag voor een entiteit moet worden verwijderd met behulp van de **DeleteEntityOptions -> setEtag** methode en geven de **DeleteEntityOptions** object naar de ** deleteEntity** als een vierde parameter.
 
 ## <a name="batch-table-operations"></a>Batchbewerkingen tabel
 De **TableRestProxy -> batch** methode kunt u meerdere bewerkingen uitvoeren in een enkele aanvraag. Het patroon hier omvat het toevoegen van bewerkingen voor **BatchRequest** object en vervolgens doorgegeven de **BatchRequest** object toe aan de **TableRestProxy -> batch** methode. Toevoegen van een bewerking voor een **BatchRequest** object, u een van de volgende methoden kunt aanroepen, kunt u meerdere keren:
@@ -435,9 +435,6 @@ De **TableRestProxy -> batch** methode kunt u meerdere bewerkingen uitvoeren in 
 * **addDeleteEntity** (toevoegen van een bewerking deleteEntity)
 
 Het volgende voorbeeld ziet u het uitvoeren van **insertEntity** en **deleteEntity** bewerkingen in één aanvraag. 
-
-> [!NOTE]
-> Azure Cosmos DB ondersteunt nog geen batchbewerkingen voor tabellen. 
 
 ```php
 require_once 'vendor/autoload.php';

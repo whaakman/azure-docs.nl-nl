@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure-Stack 1802 update
 
@@ -56,7 +56,9 @@ Het buildnummer van Azure Stack 1802 update **20180302.1**.
 
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
-*Er zijn geen stappen na-update voor de update 1802.*
+Na de installatie van 1802 toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).  
+- [KB 4103348 - API van de netwerkcontroller-service vastloopt wanneer u probeert een Azure-Stack-update te installeren](https://support.microsoft.com/help/4103348)
+
 
 
 ### <a name="new-features-and-fixes"></a>Nieuwe functies en oplossingen
@@ -82,7 +84,7 @@ Deze update bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
 
 - **Er is ondersteuning toegevoegd voor meerdere domeinen met fouten**.  Zie voor meer informatie [hoge beschikbaarheid voor Azure-Stack](azure-stack-key-features.md#high-availability-for-azure-stack).
 
-- **Verschillende oplossingen** voor prestaties, stabiliteit, beveiliging en het besturingssysteem dat wordt gebruikt door Azure stack.
+- **Verschillende oplossingen** voor prestaties, stabiliteit, beveiliging en het besturingssysteem dat wordt gebruikt door de Azure-Stack.
 
 <!--
 #### New features
@@ -141,6 +143,10 @@ Er zijn geen bekende problemen na het bijwerken van 1802.
 
 #### <a name="compute"></a>Compute
 - Instellingen voor virtuele-machineschaalsets schalen zijn niet beschikbaar in de portal. Als tijdelijke oplossing kunt u [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Vanwege verschillen tussen versies van PowerShell, moet u de `-Name` parameter in plaats van `-VMScaleSetName`.
+
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  Dit probleem wordt opgelost in versie 1803. U lost dit probleem voor versie 1802, installeer Azure Stack hotfix **1.0.180302.4**. Zie voor meer informatie [KB 4131152: bestaande virtuele-Machineschaalsets mogelijk onbruikbaar]( https://support.microsoft.com/help/4131152). 
 
 - Azure-Stack ondersteunt het gebruik van alleen vaste type VHD's. Enkele afbeeldingen die worden aangeboden via de marketplace op Azure-Stack dynamische VHD's gebruiken maar die zijn verwijderd. Vergroten of verkleinen van een virtuele machine (VM) met een dynamische schijf is gekoppeld, blijft de virtuele machine een mislukte status.
 

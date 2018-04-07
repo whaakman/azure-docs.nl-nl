@@ -2,10 +2,10 @@
 title: Gebruik van SSH-sleutels met Windows voor virtuele Linux-machines | Microsoft Docs
 description: Informatie over het genereren en gebruiken van SSH-sleutels op een Windows-computer verbinding maken met een virtuele Linux-machine in Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
-ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fcc2365c3b41fb69492aa68bf7c48c2d3b8ee5f3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Hoe gebruik SSH-sleutels met Windows in Azure
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ Hier worden de implementatiescenario's en de typen bestanden die u in elk gebrui
 ## <a name="install-git-for-windows"></a>Installeer Git voor Windows
 De voorgaande sectie verschillende pakketten die zijn vermeld de `openssl` hulpprogramma voor Windows. Dit hulpprogramma is nodig om openbare en persoonlijke sleutels te maken. De volgende voorbeelden worden het installeren en gebruiken in detail beschreven **Git voor Windows**, maar u kunt kiezen welke u liever pakket. **GIT voor Windows** hebt u toegang tot een aantal extra open source software ([OSS](https://en.wikipedia.org/wiki/Open-source_software)) hulpprogramma's en hulpmiddelen die nuttig zijn kunnen bij het werken met virtuele Linux-machines.
 
-1. Download en installeer **Git voor Windows** van de volgende locatie: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
+1. Download en installeer **Git voor Windows** van de volgende locatie: [ https://git-for-windows.github.io/ ](https://git-for-windows.github.io/).
 2. De standaardopties te gebruiken tijdens het installatieproces accepteren, tenzij u moet in het bijzonder te wijzigen.
 3. Voer **Git Bash** van de **Menu Start** > **Git** > **Git Bash**. De console lijkt op het volgende voorbeeld:
 

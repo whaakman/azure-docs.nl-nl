@@ -2,10 +2,10 @@
 title: Virtuele machine maken vanaf een speciale schijf in Azure | Microsoft Docs
 description: Maak een nieuwe virtuele machine door het koppelen van een niet-beheerde gespecialiseerde schijf, in het Resource Manager-implementatiemodel.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 811cc6cea80acbe6cbbf4533c1f9a8c9c7f53702
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ffa36967eb987f5e1b66f007ae60a63e640a609a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Een virtuele machine vanaf een speciale VHD in een opslagaccount maken
 
@@ -138,7 +138,7 @@ U moet de URL's van de bron- en storage-accounts. De URL's eruit: `https://<stor
 
 U kunt de Azure portal of Azure Powershell gebruiken om de URL te krijgen:
 
-* **Portal**: klik op de  **>**  voor **alle services** > **opslagaccounts** > *opslag account* > **Blobs** en de bron-VHD-bestand is waarschijnlijk in de **VHD's** container. Klik op **eigenschappen** voor de container en kopieer de tekst met het label **URL**. U moet de URL's van de bron- en doelserver containers. 
+* **Portal**: klik op de **>** voor **alle services** > **opslagaccounts** > *opslag account* > **Blobs** en de bron-VHD-bestand is waarschijnlijk in de **VHD's** container. Klik op **eigenschappen** voor de container en kopieer de tekst met het label **URL**. U moet de URL's van de bron- en doelserver containers. 
 * **PowerShell**: Gebruik [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) ophalen van de gegevens voor de virtuele machine met de naam **myVM** in de resourcegroep **myResourceGroup**. Zoeken in de resultaten in de **archiefprofiel** sectie voor de **Vhd-Uri**. Het eerste deel van de Uri is de URL van de container en het laatste deel is de naam van de OS-VHD voor de virtuele machine.
 
 ```powershell

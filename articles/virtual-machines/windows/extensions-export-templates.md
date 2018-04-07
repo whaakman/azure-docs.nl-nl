@@ -2,10 +2,10 @@
 title: Azure-resourcegroepen die VM-extensies bevatten exporteren | Microsoft Docs
 description: Resource Manager-sjablonen met uitbreidingen van de virtuele machine exporteren.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: danis
-ms.openlocfilehash: 739ae7995fca41fe8abb7cd54ccb72ff3bc43854
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2dc05fd21df3d408ed57badeec2b5c06e25bf50c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exporteren van resourcegroepen met VM-extensies
 
@@ -33,13 +33,13 @@ Er zijn veel uitbreidingen van de virtuele Machine beschikbaar. Niet alle uitbre
 
 De volgende extensies kunnen met de functie voor automatisering script worden geëxporteerd.
 
-| Extensie ||||
+| Toestelnummer ||||
 |---|---|---|---|
 | Acronis back-up | Datadog Windows-Agent | Patches voor Linux OS | VM-momentopname Linux
 | Back-up Acronis Linux | Docker-uitbreiding | Puppet-Agent |
-| BG Info | DSC-extensie | Site 24 x 7 Apm inzicht |
-| BMC CTM Agent Linux | Dynatrace Linux | 24 x 7 Linux siteserver |
-| BMC CTM Agent Windows | Dynatrace Windows | 24 x 7 Windows siteserver |
+| Bg Info | DSC-extensie | Site 24 x 7 Apm inzicht |
+| BMC CTM Agent Linux | Dynatrace Linux | Site 24x7 Linux Server |
+| BMC CTM Agent Windows | Dynatrace Windows | Site 24x7 Windows Server |
 | Chef-Client | HPE beveiliging toepassing Defender | Trend Micro DSA |
 | Aangepast Script | IaaS Antimalware | Trend Micro DSA Linux |
 | Aangepaste scriptextensie | IaaS diagnostische gegevens | Toegang voor Linux VM |

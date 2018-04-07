@@ -1,24 +1,19 @@
 ---
-title: Gebruikmaken van de query garandeert in Azure Stream Analytics | Microsoft Docs
-description: Informatie over het configureren van invoer partities, definitie van de query te verfijnen en het instellen van taak streaming-eenheden schalen Stream Analytics-taken.
-keywords: gegevens streaming afstemmen analytics streaming gegevensverwerking,
+title: In Azure Stream Analytics query garandeert en schaal gebruiken
+description: In dit artikel wordt beschreven hoe Stream Analytics-taken schalen door invoer partities configureren, definitie van de query te verfijnen en het instellen van de taak streaming-eenheden.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: eb19a9b4e92e7007f64ae7b593663be6a47a7a4b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Gebruik de query garandeert in Azure Stream Analytics
 In dit artikel leest u hoe om te profiteren van garandeert in Azure Stream Analytics. U leert hoe Stream Analytics-taken schalen door invoer partities configureren en de definitie van de analytics query afstemmen.
@@ -50,7 +45,7 @@ Wanneer u met Stream Analytics werkt, kunt u profiteren van het partitioneren va
 -   IoT Hub (u moet de partitiesleutel expliciet instellen)
 -   Service Bus
 
-Power BI, SQL en SQL-datawarehouse uitvoer ondersteuning geen voor partitioneren. Maar u kunt nog steeds partitioneren de invoer zoals beschreven in [in deze sectie](#multi-step-query-with-a-grouping-key) 
+Power BI, SQL en SQL-datawarehouse uitvoer ondersteuning geen voor partitioneren. Maar u kunt nog steeds partitioneren de invoer zoals beschreven in [in deze sectie](#multi-step-query-with-different-partition-by-values) 
 
 Zie voor meer informatie over de partities, de volgende artikelen:
 
@@ -65,7 +60,7 @@ Een *perfect parallelle* taak is het meest schaalbare scenario dat we in Azure S
 
 2. Nadat de gegevens worden verspreid de invoer-zijde, moet u ervoor zorgen dat uw query is gepartitioneerd. Hiervoor moet u gebruikmaken van **PARTITION BY** in alle stappen. Meerdere stappen zijn toegestaan, maar ze alle moeten worden gepartitioneerd met dezelfde sleutel. Op dit moment wordt de te nemen partitionerende sleutel moet worden ingesteld op **PartitionId** in volgorde van de taak moet worden volledig parallelle.  
 
-3. De meeste van onze uitvoer kunt profiteren van partitioneren, maar als u een uitvoertype die biedt geen ondersteuning voor partitioneren uw taak niet volledig parallelle. Raadpleeg de [uitvoer sectie](#Outputs) voor meer informatie.
+3. De meeste van onze uitvoer kunt profiteren van partitioneren, maar als u een uitvoertype die biedt geen ondersteuning voor partitioneren uw taak niet volledig parallelle. Raadpleeg de [uitvoer sectie](#outputs) voor meer informatie.
 
 4. Het aantal invoer partities moet gelijk zijn aan het aantal partities van de uitvoer. BLOB storage uitvoer ondersteunt momenteel geen partities. Maar dat is geen probleem, omdat deze het partitieschema van de upstream-query. Hier volgen voorbeelden van waarden van partitie waarmee een volledig parallelle taak:  
 
@@ -221,7 +216,7 @@ Deze query kan worden geschaald naar 24 SUs.
 
 
 ## <a name="get-help"></a>Help opvragen
-Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

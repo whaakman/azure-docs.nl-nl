@@ -7,13 +7,13 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: e907edc98228ecab645e63f5e38094e3a04812de
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9127362ec806b7b3cbf3971488bb5393eb170eff
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>De vereiste waarden voor het verifiëren van een toepassing voor toegang tot SQL-Database vanuit code ophalen
 Maken en beheren van SQL-Database van de code die u moet uw app registreren in het domein met Azure Active Directory (AAD) in het abonnement waar uw Azure-resources zijn gemaakt.

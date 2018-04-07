@@ -2,9 +2,9 @@
 title: Een virtuele machine met C# en Resource Manager-sjabloon implementeren | Microsoft Docs
 description: Informatie over het gebruik van C# en Resource Manager-sjabloon voor het implementeren van een virtuele machine in Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
-ms.openlocfilehash: b82a70d1b654ff9601db501011d9aa21af8e36c2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: f2c488a891d1037535f1782da54544ac6af9dd41
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Een Azure-virtuele Machine met C# en Resource Manager-sjabloon implementeren
 In dit artikel laat zien hoe een Azure Resource Manager-sjabloon met C# implementeren. De sjabloon die u maakt implementeert een enkele virtuele machine met Windows Server in een nieuw virtueel netwerk met één subnet.
@@ -200,7 +200,7 @@ Voordat u een sjabloon implementeren kunt, zorg ervoor dat u toegang tot hebben 
     graphURL=https://graph.windows.net/
     ```
 
-    Vervang  **&lt;abonnement-id&gt;**  met uw abonnements-id  **&lt;toepassing-id&gt;**  met de toepassings-id van het Active Directory  **&lt;verificatiesleutel&gt;**  voor de Toepassingssleutel, en  **&lt;tenant-id&gt;**  met tenant-id.
+    Vervang **&lt;abonnement-id&gt;** met uw abonnements-id **&lt;toepassing-id&gt;** met de toepassings-id van het Active Directory **&lt;verificatiesleutel&gt;** voor de Toepassingssleutel, en **&lt;tenant-id&gt;** met tenant-id.
 
 3. Sla het bestand azureauth.properties.
 4. Stel een omgevingsvariabele in Windows met de naam AZURE_AUTH_LOCATION met het volledige pad naar het bestand met autorisatieregels die u hebt gemaakt, bijvoorbeeld de volgende PowerShell-opdracht kan worden gebruikt:
@@ -249,7 +249,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 
 De sjabloon en de parameters worden van een opslagaccount in Azure geïmplementeerd. In deze stap maakt u het account maken en de bestanden uploaden. 
 

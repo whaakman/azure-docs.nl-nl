@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels logboek
 Wanneer een [waarschuwing is gemaakt in Azure ](monitor-alerts-unified-usage.md), hebt u de optie [configureren met de actiegroepen](monitoring-action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en de details over het configureren van de aangepaste JSON-indeling webhook.
@@ -54,7 +54,7 @@ Webhooks omvatten een URL en een nettolading opgemaakt in JSON is de gegevens na
 | Zoeken Interval StartTime |#searchintervalstarttimeutc |Begintijd voor de query in UTC-notatie. 
 | SearchQuery |#searchquery |Logboek zoekquery gebruikt door de waarschuwingsregel. |
 | Zoekresultaten |'IncludeSearchResults': true|Records dat wordt geretourneerd door de query als een JSON-tabel, beperkt tot de eerste 1000 records; Als 'IncludeSearchResults': true is toegevoegd in de aangepaste JSON-webhook definitie als eigenschap op het hoogste niveau. |
-| WorkspaceID |#workspaceid |ID van de werkruimte voor logboekanalyse (OMS). |
+| WorkspaceID |#workspaceid |ID van de werkruimte voor logboekanalyse. |
 | Toepassings-id |#applicationid |ID van uw toepassing inzicht app. |
 | Abonnements-id |#subscriptionid |ID van uw Azure-abonnement gebruikt met Application Insights. 
 
@@ -77,7 +77,7 @@ Zorg ervoor dat zodanig zoekresultaten in een aangepaste nettolading **IncudeSea
 Deze sectie vindt u voorbeeld nettolading voor webhook voor logboek-meldingen, inclusief wanneer de nettolading standaard is en wanneer de aangepast.
 
 > [!NOTE]
-> Compatibiliteit met eerdere versies, zodat de nettolading van de standaard webhook voor waarschuwingen met behulp van Azure-logboekanalyse is hetzelfde als [OMS waarschuwing management](../log-analytics/log-analytics-alerts-creating.md). Maar voor logboek-waarschuwingen met [Application Insights](../application-insights/app-insights-analytics.md), de nettolading van de standaard webhook is gebaseerd op schema van de groep acties.
+> Compatibiliteit met eerdere versies, zodat de nettolading van de standaard webhook voor waarschuwingen met behulp van Azure-logboekanalyse is hetzelfde als [Log Analytics management waarschuwing](../log-analytics/log-analytics-alerts-creating.md). Maar voor logboek-waarschuwingen met [Application Insights](../application-insights/app-insights-analytics.md), de nettolading van de standaard webhook is gebaseerd op schema van de groep acties.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Standaard Webhook voor logboek-waarschuwingen 
 Beide voorbeelden hebben een dummy-nettolading met slechts twee kolommen en twee rijen aangegeven.

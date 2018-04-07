@@ -2,10 +2,10 @@
 title: Gedetailleerde extern bureaublad probleemoplossing in Azure | Microsoft Docs
 description: Bekijk de gedetailleerde stappen voor het externe bureaublad fouten waar u kunt niet naar een Windows virtuele machines in Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: kan geen verbinding maken met extern bureaublad, problemen met extern bureaublad, extern bureaublad geen verbinding maken, extern bureaublad-fouten, probleemoplossing extern bureaublad, problemen met extern bureaublad
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2017
 ms.author: genli
-ms.openlocfilehash: afbaa3afc78efd220d74def2e9f106e9fbd1ee2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1485bc5ac7ae47df9a1a36c8b88d6515b5624360
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Gedetailleerde probleemoplossing voor problemen met extern bureaublad-verbinding voor Windows-VM's in Azure
 In dit artikel bevat gedetailleerde stappen voor probleemoplossing opsporen en oplossen van complexe extern bureaublad-fouten voor op basis van Windows Azure virtual machines.
@@ -191,12 +191,12 @@ Exit-PSSession
 
 Controleer of de extern bureaublad-eindpunt voor de Azure VM is ook TCP-poort 3398 als de interne poort. Start van de Azure VM en probeer opnieuw de verbinding met extern bureaublad.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 [Het opnieuw instellen van een wachtwoord of de service Extern bureaublad voor virtuele machines van Windows](reset-rdp.md)
 
 [Azure PowerShell installeren en configureren](/powershell/azure/overview)
 
 [Secure Shell (SSH)-verbindingen met een op basis van Linux virtuele machine van Azure oplossen](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Toegang tot een toepassing die wordt uitgevoerd op een virtuele machine van Azure oplossen](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Problemen oplossen met toegang tot een toepassing die wordt uitgevoerd op een virtuele Azure-machine](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

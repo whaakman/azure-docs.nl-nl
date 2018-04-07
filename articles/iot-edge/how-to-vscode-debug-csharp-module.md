@@ -9,22 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c2a1acd2c249bdbc92119bc92f055b095f318f00
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 65f2fb4526f1048ae88193f85a552a2202afa1d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Gebruik Visual Studio Code fouten opsporen in een C#-module met Azure IoT rand
 In dit artikel vindt u gedetailleerde instructies voor het gebruik van [Visual Studio Code](https://code.visualstudio.com/) als de belangrijkste ontwikkelprogramma fouten opsporen in uw Azure-IoT-Edge-modules.
 
 ## <a name="prerequisites"></a>Vereisten
-Deze zelfstudie wordt ervan uitgegaan dat u gebruikmaakt van een computer of virtuele machine met Windows of Linux als uw ontwikkelcomputer. Uw IoT-randapparaat kan een andere fysieke apparaat, of kunt u uw IoT-randapparaat simuleren op uw ontwikkelcomputer.
+In dit artikel wordt ervan uitgegaan dat u gebruikmaakt van een computer of virtuele machine met Windows of Linux als uw ontwikkelcomputer. Uw IoT-randapparaat kan een andere fysieke apparaat, of kunt u uw IoT-randapparaat simuleren op uw ontwikkelcomputer.
 
-Voordat u deze richtlijnen, moet u de volgende zelfstudie voltooien:
-- [Een rand van de IoT-oplossing met meerdere modules in Visual Studio Code ontwikkelen](tutorial-multiple-modules-in-vscode.md)
-
-Nadat u de voorgaande zelfstudie hebt voltooid, hebt u de volgende items gereed:
+Voer de stappen in voordat u de instructies in dit artikel, [ontwikkelen van een rand van de IoT-oplossing met meerdere modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md). Daarna moet u de volgende items gereed hebt:
 - Een lokale Docker-register uitgevoerd op uw ontwikkelcomputer. Aangeraden wordt een lokale Docker-register voor prototype- en testdoeleinden gebruiken. U kunt in het register van de container bijwerken de `module.json` bestand in de modulemap voor elke.
 - Een rand van de IoT-oplossing project-werkruimte met een C#-module-submap van deze.
 - De `Program.cs` bestand met de meest recente code van de module.
@@ -55,8 +52,5 @@ Nadat u de voorgaande zelfstudie hebt voltooid, hebt u de volgende items gereed:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie een IoT-Edge-module gemaakt en geïmplementeerd voor foutopsporing. U fouten kunt opsporen in VS-Code hebt gestart. Voor meer informatie over andere scenario's wanneer u Azure IoT rand in de VS Code ontwikkelt, Zie: 
-
-> [!div class="nextstepaction"]
-> [Een rand van de IoT-oplossing met meerdere modules in Visual Studio Code ontwikkelen](tutorial-multiple-modules-in-vscode.md)
+[Visual Studio Code gebruiken om op te sporen Azure werkt in combinatie met Azure IoT rand](how-to-vscode-debug-azure-function.md)
 

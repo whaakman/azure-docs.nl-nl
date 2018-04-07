@@ -1,26 +1,21 @@
 ---
-title: Query testen in Azure Stream Analytics | Microsoft Docs
-description: Speldenpunt problemen bij het oplossen van Stream Analytics-taken.
-keywords: invoer, invoer steekproeven oplossen
-documentationcenter: ''
+title: Een met voorbeeldgegevens in Azure Stream Analytics query testen
+description: In dit artikel wordt beschreven hoe een met invoer voorbeeldgegevens in Azure Stream Analytics query testen.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 99c9f7f2dc84f53d09b7aee1916c5532427de692
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 305b767ee86de6c8b04fed17514a9092afc2d735
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Azure Stream Analytics query testen en invoer-stream steekproeven
+# <a name="test-a-query-and-sample-input-in-azure-stream-analytics"></a>Testen van een query en ingevoerd in Azure Stream Analytics-voorbeeld 
 
 U kunt steekproef nemen invoer gebeurtenissen die afkomstig zijn van een bestand en het testen van query's in de portal zonder starten of stoppen van een taak met behulp van Azure Stream Analytics.
 
@@ -56,7 +51,7 @@ Nadat u tevreden met de resultaten bent, kunt u uw query opslaan, uw taak starte
 
 ## <a name="get-help"></a>Help opvragen
 
-Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Voor verdere hulp kunt u proberen de [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

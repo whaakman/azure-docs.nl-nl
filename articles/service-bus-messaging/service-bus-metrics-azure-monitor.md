@@ -5,8 +5,8 @@ services: service-bus-messaging
 documentationcenter: .NET
 author: christianwolf42
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 20115897bb5ae2638588e79d80700fa8ece06104
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3660f0a6794a2fd784ec8846177da7effe7fe681
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-metrische gegevens in de Azure-Monitor (preview)
 
@@ -28,7 +28,7 @@ Azure biedt een uniforme gebruikersinterfaces voor het bewaken van alle verschil
 
 ## <a name="access-metrics"></a>Toegang tot metrische gegevens
 
-Azure biedt verschillende manieren met toegang tot metrische gegevens. U kunt de toegang tot metrische gegevens via de [Azure-portal](https://portal.azure.com), of gebruik de Azure-Monitor API's (REST en .NET) en analyse-oplossingen zoals bewerking Management Suite (OMS) en Event Hubs. Zie voor meer informatie [Azure Monitor metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure biedt verschillende manieren met toegang tot metrische gegevens. U kunt de toegang tot metrische gegevens via de [Azure-portal](https://portal.azure.com), of gebruik de Azure-Monitor API's (REST en .NET) en analyse-oplossingen zoals Log Analytics en Event Hubs. Zie voor meer informatie [Azure Monitor metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 Metrische gegevens zijn standaard ingeschakeld en u toegang hebt tot de meest recente 30 dagen aan gegevens. Als u gegevens wilt behouden voor een langere periode nodig hebt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in de Azure-Monitor.
 
@@ -46,7 +46,7 @@ Voor de metrische gegevens voor ondersteuning van dimensies, moet u met de waard
 
 ## <a name="billing"></a>Facturering
 
-Met metrische gegevens in de Azure-Monitor is gratis tijdens de Preview-versie. Echter, als u aanvullende oplossingen die metrische gegevens voor opnemen gebruikt, u mogelijk worden gefactureerd door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als archiveren van metrische gegevens aan een Azure Storage-account. U wordt ook door opnieuw Management Suite (OMS) gefactureerd als stream van metrische gegevens aan OMS voor geavanceerde analyse.
+Met metrische gegevens in de Azure-Monitor is gratis tijdens de Preview-versie. Echter, als u aanvullende oplossingen die metrische gegevens voor opnemen gebruikt, u mogelijk worden gefactureerd door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als archiveren van metrische gegevens aan een Azure Storage-account. U wordt ook door logboekanalyse gefactureerd als stream van metrische gegevens voor logboekanalyse voor geavanceerde analyse.
 
 De volgende metrische gegevens geven een overzicht van de status van uw service. 
 

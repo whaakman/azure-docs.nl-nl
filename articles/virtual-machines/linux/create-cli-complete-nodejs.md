@@ -4,8 +4,8 @@ description: Maken van opslag, een Linux-VM, een virtueel netwerk en subnet, een
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a43e138d3497e01fe9e0e5c55a4a66adac767c6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Een volledige Linux-omgeving maken met de Azure CLI 1.0
 In dit artikel verder gaan we met een eenvoudig netwerk met een combinatie van virtuele machines die gebruikt voor ontwikkeling en eenvoudige computing worden en een load balancer. We doorlopen het proces door opdracht totdat u twee werkt, beveiligde virtuele Linux-machines waarmee u verbinding hebt van een willekeurige plaats op het Internet maken kunt. Vervolgens kunt u op verplaatsen naar complexe netwerken en omgevingen.
@@ -53,7 +53,7 @@ azure config mode arm
 
 In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter `myResourceGroup`, `mystorageaccount`, en `myVM`.
 
-De resourcegroep maken. Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westeurope` locatie:
+Maak de resourcegroep. Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westeurope` locatie:
 
 ```azurecli
 azure group create -n myResourceGroup -l westeurope
@@ -300,7 +300,7 @@ data:
 info:    group create command OK
 ```
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 Storage-accounts moet u voor uw VM-schijven en voor eventuele extra gegevensschijven die u wilt toevoegen. U kunt storage-accounts maken bijna onmiddellijk na het maken van resourcegroepen.
 
 Hier gebruiken we de `azure storage account create` opdracht, en het type opslagondersteuning die u wilt dat de locatie van het account, de resourcegroep die wordt doorgegeven bepaalt. Het volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount`:
@@ -382,7 +382,7 @@ data:    vhds  Off            Sun, 27 Sep 2015 19:03:54 GMT
 info:    storage container list command OK
 ```
 
-## <a name="create-a-virtual-network-and-subnet"></a>Een virtueel netwerk en subnet maken
+## <a name="create-a-virtual-network-and-subnet"></a>Een virtueel netwerk en een subnet maken
 Vervolgens gaat u moet maken van een virtueel netwerk in Azure en een subnet van uw virtuele machines maken worden uitgevoerd. Het volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet` met de `192.168.0.0/16` adresvoorvoegsel:
 
 ```azurecli
@@ -795,7 +795,7 @@ data:    Backend address pool id         : /subscriptions/guid/resourceGroups/my
 info:    network lb rule create command OK
 ```
 
-## <a name="create-a-load-balancer-health-probe"></a>Een load balancer health test maken
+## <a name="create-a-load-balancer-health-probe"></a>Een load balancer-statustest maken
 Een health test regelmatig controles op de virtuele machines die zich achter de load balancer om te controleren of ze zijn het functioneren en reageren op aanvragen, zoals is gedefinieerd. Als dat niet het geval is, moet u ze zijn verwijderd uit de bewerking om ervoor te zorgen dat gebruikers worden niet omgeleid naar deze. U kunt aangepaste controles voor de health-test, samen met intervallen en time-outwaarden definiëren. Zie voor meer informatie over statuscontroles [Load Balancer-tests](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het volgende voorbeeld wordt een TCP health aangeduid met de naam `myHealthProbe`:
 
 ```azurecli

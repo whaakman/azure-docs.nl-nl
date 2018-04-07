@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: babanisa
-ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepten in Azure Event raster
 
@@ -32,9 +32,11 @@ Uitgevers categoriseren gebeurtenissen in onderwerpen. Het onderwerp bevat een e
 
 Systeemonderwerpen zijn ingebouwde onderwerpen die worden geleverd door de Azure-services. Aangepaste onderwerpen zijn toepassing en onderwerpen van derden.
 
+Maak een aangepaste onderwerp voor elke categorie van gerelateerde gebeurtenissen bij het ontwerpen van uw toepassing. Neem bijvoorbeeld een toepassing die gebeurtenissen met betrekking tot het wijzigen van gebruikersaccounts en verwerken van bestellingen verzendt. Het lijkt onwaarschijnlijk dat een gebeurtenishandler wil beide soorten gebeurtenissen. Maak twee aangepaste onderwerpen en gebeurtenis-handlers abonneren op die het interesseert laten. Wanneer u zich abonneert op het aangepaste onderwerp, wordt de gebeurtenis-handler kunt filteren op gebeurtenistype.
+
 ## <a name="event-subscriptions"></a>Gebeurtenisabonnementen
 
-Een abonnement geïnstrueerd gebeurtenis raster op welke gebeurtenissen op een onderwerp een abonnee geïnteresseerd in ontvangst is.  Een abonnement bevat ook informatie over hoe gebeurtenissen moeten worden bezorgd bij de abonnee.
+Een abonnement geïnstrueerd gebeurtenis raster op welke gebeurtenissen op een onderwerp een abonnee geïnteresseerd in ontvangst is. Een abonnement bevat ook informatie over hoe gebeurtenissen moeten worden bezorgd bij de abonnee.
 
 ## <a name="event-handlers"></a>Gebeurtenis-handlers
 

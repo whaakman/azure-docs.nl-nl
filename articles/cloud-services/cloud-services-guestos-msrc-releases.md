@@ -12,16 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: c42986e4cdae1d5156863d92eb946220805f7b48
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5631fb8df6453cf7a1806947f0e29ab7fff7093e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-guest-os"></a>Azure Gast OS
 De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates toegepast op de Azure-Gastbesturingssysteemreleases. Zoeken in dit artikel om na te gaan als een bepaalde update van toepassing op het Gastbesturingssysteem dat u gebruikt. Updates altijd transporteren voor de betreffende [familie] [ family-explain] ze werden geïntroduceerd in.
+
+## <a name="march-guest-os"></a>Gastbesturingssysteem maart
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 18-03 | [4088787], [4088776] |Windows 10-beveiliging |5.17 |13 maart 2018 |
+| Rel 18-03 | [4088878], [4088880], [4088879] |Windows-beveiliging |2.72, 3.59, 4.52 |13 maart 2018 |
+| Rel 18-03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |13 maart 2018 |
+| Rel 18-03 | [4074595] |Flash |3.59, 4.52, 5.17 |13 maart 2018 |
+| N/A | [4074598] |Totalisering van de niet-beveiliging februari |2.72 |13 februari 2018 |
+| N/A | [4074593] |Totalisering van de niet-beveiliging februari |3.59 |13 februari 2018 |
+| N/A | [4074594] |Totalisering van de niet-beveiliging februari |4.52 |13 februari 2018 |
+| N/A | [4074837] |Update van de tijdzone |2.72, 3.59, 4.52 |13 februari 2018 |
+
 
 ## <a name="february-guest-os"></a>Februari Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -601,6 +614,17 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | N/A |[2999802] |Ononderbroken lijnen in plaats van stippellijn worden afgedrukt in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Lange aanmeldingstijd wanneer het gebruik van de opdracht AddPrinterConnection VBScript printers voor gebruikers worden toegewezen tijdens het aanmeldingsproces in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+[4088787]: http://support.microsoft.com/kb/4088787
+[4088776]: http://support.microsoft.com/kb/4088776 
+[4088878]: http://support.microsoft.com/kb/4088878
+[4088880]: http://support.microsoft.com/kb/4088880
+[4088879]: http://support.microsoft.com/kb/4088879
+[4089187]: http://support.microsoft.com/kb/4089187
+[4088785]: http://support.microsoft.com/kb/4088785
+[4074598]: http://support.microsoft.com/kb/4074598
+[4074593]: http://support.microsoft.com/kb/4074593
+[4074594]: http://support.microsoft.com/kb/4074594
+[4074837]: http://support.microsoft.com/kb/4074837
 
 [4074590]: http://support.microsoft.com/kb/4074590
 [4074588]: http://support.microsoft.com/kb/4074588 

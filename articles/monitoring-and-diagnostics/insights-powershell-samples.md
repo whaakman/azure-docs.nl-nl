@@ -3,7 +3,7 @@ title: Azure PowerShell Monitor snel starten-voorbeelden. | Microsoft Docs
 description: PowerShell gebruiken voor toegang tot Azure Monitor functies zoals automatisch schalen, waarschuwingen, webhooks en activiteitenlogboeken zoeken.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: c0761814-7148-4ab5-8c27-a2c9fa4cfef5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 5a08fd7d20dc78512315ab5d154ba95bd8e8494b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7b6da166ddd53162ca1177e925f00291ae78de2a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure PowerShell Monitor snel starten-voorbeelden
 In dit artikel worden steekproef van PowerShell-opdrachten kunt u toegang tot Azure Monitor functies.
@@ -338,7 +338,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 Veel Azure-services bieden extra logboeken en telemetrie die een of meer van de volgende kunt doen: 
  - worden geconfigureerd voor het opslaan van gegevens in uw Azure Storage-account
  - verzonden naar Event Hubs
- - verzonden naar een logboekanalyse OMS-werkruimte. 
+ - verzonden naar een werkruimte voor logboekanalyse. 
 
 De bewerking kan alleen worden uitgevoerd op het niveau van een resource. De storage-account of event hub moet aanwezig zijn in dezelfde regio bevinden als de doelresource waar de diagnostics-instelling is geconfigureerd.
 
@@ -377,7 +377,7 @@ Schakel diagnostische instelling voor Event Hubs
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
 ```
 
-Schakel diagnostische instelling voor logboekanalyse (OMS)
+Schakel de diagnostische instelling voor logboekanalyse
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true

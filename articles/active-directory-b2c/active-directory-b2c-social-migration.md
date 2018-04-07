@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: davidmu
-ms.openlocfilehash: 76ed4dac40872bf6db07b26c5805a4db62dc9dfc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 80889ac29b6d92f17fb9c9c693fa733085ce7f1c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Gebruikers met sociale identiteiten migreren
 Wanneer u van plan bent om uw identiteitsprovider migreren naar Azure AD B2C, kunt u wellicht ook gebruikers met sociale identiteiten migreren. In dit artikel wordt uitgelegd hoe u voor het migreren van bestaande sociale identiteiten accounts, zoals: Facebook, LinkedIn Microsoft en Google-accounts naar Azure AD B2C. In dit artikel geldt ook voor federatieve identiteiten, maar deze migraties minder gangbaar zijn.
@@ -43,7 +43,7 @@ Dit artikel is een vervolg van de gebruiker migratie artikel en legt de nadruk o
     ]
     ```
 
-* Afhankelijk van de id-provider de **sociale gebruikers-ID** is een unieke waarde voor een bepaalde gebruiker `per application` of ontwikkeling-account. Het Azure AD B2C-beleid configureren met dezelfde toepassings-ID die eerder door de provider van sociale is toegewezen. Of een andere toepassing `within the same development account`.
+* Afhankelijk van de id-provider de **sociale gebruikers-ID** is een unieke waarde voor een bepaalde gebruiker per toepassings- of -account. Het Azure AD B2C-beleid configureren met dezelfde toepassings-ID die eerder door de provider van sociale is toegewezen. Of een andere toepassing binnen hetzelfde account ontwikkeling.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Graph API gebruiken om gebruikers te migreren
 Maken van de Azure AD B2C-gebruikersaccount via [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Om te communiceren met de Graph API, moet u eerst een service-account met beheerdersbevoegdheden hebben. In Azure AD registreert u een toepassing en verificatie met Azure AD. De referenties van de toepassing zijn toepassings-ID en het Toepassingsgeheim. De toepassing fungeert als zichzelf niet als een gebruiker, de API van de grafiek aan te roepen. Volg de aanwijzingen in stap 1 van [gebruikersmigratie](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) artikel.

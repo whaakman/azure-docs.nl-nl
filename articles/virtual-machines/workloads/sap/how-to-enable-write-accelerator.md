@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 177bc05eea3aa05231c71a42950fa622b68afc53
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Azure schrijven Accelerator voor SAP-implementaties
 Azure schrijven Accelerator is een functionaliteit die is opgehaald uitgerold voor virtuele machines M-serie uitsluitend. De Accelerator voor het schrijven van Azure is niet beschikbaar bij alle andere VM-reeks in Azure, met uitzondering van de M-serie. Als de naam van de staat, is het doel van de functionaliteit voor het verbeteren van i/o-latentie van schrijfbewerkingen op basis van de Azure Premium-opslag. 
@@ -55,15 +55,16 @@ Er zijn limieten van Azure Premium Storage VHD's per virtuele machine die kan wo
 > Inschakelen van Azure schrijven versneller aan een bestaande Azure-schijf die geen deel uit van een volume build uit meerdere schijven met Windows-schijf of volume managers, opslagruimten Windows, Windows Scale-out bestandsserver (SOFS), Linux LVM of MDADM, is de werkbelasting toegang tot de Azure-schijf moet worden afgesloten. Databasetoepassingen met behulp van de schijf van Azure moeten worden afgesloten.
 
 > [!IMPORTANT]
-> Inschakelen van schrijven Accelerator voor Azure besturingssysteemschijf van de virtuele machine, wordt de virtuele machine opnieuw opgestart. 
+> Inschakelen van schrijven Accelerator voor virtuele machine van Azure-besturingssysteemschijf van de virtuele machine, wordt de virtuele machine opnieuw opgestart. 
 
 Azure schrijven Accelerator inschakelt voor schijven besturingssysteem niet nodig voor SAP zijn mag gerelateerde configuraties van virtuele machine
 
 ### <a name="restrictions-when-using-azure-write-accelerator"></a>Beperkingen bij het gebruik van Azure schrijven Accelerator
 Wanneer u Azure schrijven Accelerator voor een Azure-schijf/VHD, gelden de volgende beperkingen:
 
-- Schijfcache Premium moet worden ingesteld op 'None'. Alle andere gebruikersmoduscache modi worden niet ondersteund.
+- Schijfcache Premium moet worden ingesteld op 'None' of 'Alleen-lezen'. Alle andere gebruikersmoduscache modi worden niet ondersteund.
 - Momentopname op de schijf schrijft Accelerator ingeschakeld is nog niet ondersteund. Deze beperking blokkeert Azure Backup-Service de mogelijkheid om uit te voeren van een toepassing consistente momentopname te maken van alle schijven van de virtuele machine.
+- Alleen i/o-kleinere duurt het versnelde pad. In de werkbelasting situaties waarbij bulksgewijs is het ophalen van gegevens worden geladen of wanneer de buffers transactie logboek van de verschillende DBMS worden gevuld in een grotere mate voordat het ophalen van persistent worden gemaakt voor de opslag, kans op die zijn de i/o geschreven naar schijf neemt de versnelde pad niet.
 
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Schrijven Accelerator inschakelen op een specifieke schijf
@@ -290,7 +291,7 @@ De uitvoer kan eruitzien als:
 
 ```
 
-Volgende stap is het bijwerken van het JSON-bestand en Accelerator schrijven inschakelen op de schijf met de naam 'log1'. Dit kan worden gedaan door dit kenmerk in het JSON-bestand toe te voegen na de vermelding in de cache van de schijf. 
+Volgende stap is het bijwerken van het JSON-bestand en Accelerator schrijven inschakelen op de schijf met de naam 'log1'. Deze stap kunt u doen door dit kenmerk in het JSON-bestand toe te voegen na de vermelding in de cache van de schijf. 
 
 ```
         {

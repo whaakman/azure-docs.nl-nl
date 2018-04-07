@@ -2,9 +2,9 @@
 title: Uploaden van een aangepaste Linux-schijf met Azure CLI 2.0 | Microsoft Docs
 description: Maken en uploaden van een virtuele harde schijf (VHD) in Azure maken met het implementatiemodel van Resource Manager en Azure CLI 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 258c2a5bbce1f15c78690cb01dc9b66fef4bb8f5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5c5c9894127386a05da9825435cfe5ca07b01542
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Uploaden en Linux-VM te maken van aangepaste schijf met de Azure CLI 2.0
 In dit artikel laat zien hoe een virtuele harde schijf (VHD) uploaden naar Azure storage-account met de Azure CLI 2.0 en virtuele Linux-machines te maken van deze aangepaste schijf. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Deze functie kunt u installeren en configureren van een Linux-distro aan uw vereisten en gebruik vervolgens deze VHD snel virtuele Azure-machines (VM's) maken.
@@ -112,7 +112,7 @@ Azure biedt ondersteuning voor verschillende Linux-distributies (Zie [goedgekeur
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Andere - niet-goedgekeurde distributies](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
-Zie ook de  **[opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes)**  voor meer algemene tips voor het Linux-installatiekopieën voorbereiden voor Azure.
+Zie ook de ** [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) ** voor meer algemene tips voor het Linux-installatiekopieën voorbereiden voor Azure.
 
 > [!NOTE]
 > De [Azure-platform SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) is van toepassing op virtuele machines met Linux alleen als een van de aangebracht distributies wordt gebruikt met configuratiegegevens van de opgegeven onder ondersteunde versies' in [Linux op Azure-Endorsed distributies](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -128,7 +128,7 @@ Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in 
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Maken van een opslagaccount voor uw aangepaste schijf en virtuele machines met [az storage-account maken](/cli/azure/storage/account#az_storage_account_create). Geen VM's met niet-beheerde schijven die u vanuit uw aangepaste schijf moet zich in hetzelfde opslagaccount als deze schijf maken. 
 

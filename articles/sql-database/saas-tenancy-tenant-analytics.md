@@ -1,5 +1,5 @@
 ---
-title: "Uitvoeren van analyses van cross-tenant met behulp van geëxtraheerde gegevens | Microsoft Docs"
+title: Uitvoeren van analyses van cross-tenant met behulp van geëxtraheerde gegevens | Microsoft Docs
 description: Cross-tenant analytics query's met behulp van gegevens uit meerdere databases van Azure SQL Database hebt uitgepakt.
 keywords: zelfstudie sql-database
 services: sql-database
@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: ff57bd054f3ff28662d3fd2eb46dca02e74af69b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ec54e68ee1d0b09b5fb34a2a11c331cb0d478326
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Cross-tenant analytics met gegevens opgehaald
 
@@ -91,7 +91,7 @@ In de volgende stappen die u implementeert de store analytics, die is aangeroepe
     - Met SQL-database met kolom store, stelt **$DemoScenario** = **3**  
 3. Druk op **F5** de demoscript uit te voeren (die roept de *implementeren TenantAnalytics<XX>.ps1* script) die de tenant analytics store maakt. 
 
-Nu dat u hebt de toepassing is geïmplementeerd en ingevuld interessante gegevens van de tenant, [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) om verbinding te **tenants1-dpt -&lt;gebruiker&gt;**  en **catalogus-dpt -&lt;gebruiker&gt;**  servers met behulp van aanmelding = *developer*, wachtwoord =  *P@ssword1* . Zie de [inleidende zelfstudie](saas-dbpertenant-wingtip-app-overview.md) voor meer informatie.
+Nu dat u hebt de toepassing is geïmplementeerd en ingevuld interessante gegevens van de tenant, [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) om verbinding te **tenants1-dpt -&lt;gebruiker&gt;**  en **catalogus-dpt -&lt;gebruiker&gt;**  servers met behulp van aanmelding = *developer*, wachtwoord = *P@ssword1*. Zie de [inleidende zelfstudie](saas-dbpertenant-wingtip-app-overview.md) voor meer informatie.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -173,7 +173,7 @@ Verbinding maken met Power BI, en voor het importeren van de weergaven die u eer
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecteer **Database** Voer gebruikersnaam in het linkerdeelvenster = *developer*, en Voer wachtwoord =  *P@ssword1* . Klik op **Verbinden**.  
+5. Selecteer **Database** Voer gebruikersnaam in het linkerdeelvenster = *developer*, en Voer wachtwoord = *P@ssword1*. Klik op **Verbinden**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

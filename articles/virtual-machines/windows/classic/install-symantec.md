@@ -2,10 +2,10 @@
 title: Symantec Endpoint Protection installeren op een Windows virtuele machine in Azure | Microsoft Docs
 description: Informatie over het installeren en configureren van de uitbreiding van de beveiliging Symantec Endpoint Protection op een nieuwe of bestaande Azure virtuele machine gemaakt met het klassieke implementatiemodel.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 19dcebc7-da6b-4510-907b-d64088e81fa2
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: iainfou
-ms.openlocfilehash: 1603ebc7ee3c29277f30fbb802bdd8205b92d648
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd96cb975bfc30b2561a98a950a9dd3fc060fa54
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Symantec Endpoint Protection installeren en configureren op een Windows VM
 > [!IMPORTANT] 
@@ -64,7 +64,7 @@ Controleren of de uitbreiding van de beveiliging Symantec is geïnstalleerd en b
 2. Voor Windows Server 2008 R2, klikt u op **Start > Symantec Endpoint Protection**. Typ voor Windows Server 2012 of Windows Server 2012 R2, vanuit het startscherm **Symantec**, en klik vervolgens op **Symantec Endpoint Protection**.
 3. Van de **Status** tabblad van de **Status Symantec Endpoint Protection** venster updates toepassen of opnieuw opstarten indien nodig.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 [Hoe meld u aan bij een virtuele Machine met WindowsServer][Logon]
 
 [Azure VM-extensies en functies][Ext]

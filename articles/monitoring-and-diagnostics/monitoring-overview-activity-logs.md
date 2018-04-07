@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 6e373740d6b5af4b3b7d3dca8877c952d79f8b20
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitor abonnement activiteit met de Azure Activity Log
+
 De **Azure Activity Log** is een abonnementlogboek die biedt inzicht in het abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit omvat een bereik van gegevens van operationele gegevens van de Azure Resource Manager-updates op Service Health-gebeurtenissen. Het activiteitenlogboek heette vroeger 'Controlelogboeken' of 'Operationele Logs' sinds de beheercategorie rapporten besturingselement vlak gebeurtenissen voor uw abonnementen. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor een (PUT, POST, verwijderen schrijfbewerkingen) die zijn gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen. Het activiteitenlogboek bevat geen leesbewerkingen (GET) en bewerkingen voor resources die gebruikmaken van het klassieke / 'RDFE' model.
 
 ![Activiteit logboeken tegenover andere typen logboeken ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
@@ -37,9 +38,7 @@ Het activiteitenlogboek verschilt van [diagnostische logboeken](monitoring-overv
 U kunt gebeurtenissen ophalen uit uw activiteitenlogboek met de Azure portal, CLI, PowerShell-cmdlets en REST-API van Azure-Monitor.
 
 > [!NOTE]
-
->  [De nieuwere waarschuwingen)](monitoring-overview-unified-alerts.md) biedt een verbeterde ervaring bij het maken en beheren van de activiteit zich met regels voor waarschuwingen aanmelden.  [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
-
+>  [De nieuwere waarschuwingen](monitoring-overview-unified-alerts.md) biedt een verbeterde ervaring bij het maken en beheren van de activiteit zich met regels voor waarschuwingen aanmelden.  [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
 
 Bekijk de volgende video introductie van het activiteitenlogboek.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
@@ -103,7 +102,7 @@ Een **logboek profiel** bepaalt hoe uw activiteitenlogboek wordt geëxporteerd. 
 * Welke regio's (locaties) moeten worden geëxporteerd. Zorg ervoor dat 'global', zoals veel gebeurtenissen in het gebeurtenissenlogboek algemene gebeurtenissen zijn.
 * Hoe lang het activiteitenlogboek worden bewaard in een Opslagaccount.
     - Een bewaartermijn van nul dagen betekent logboeken permanent worden bewaard. Anders wordt mag de waarde een onbeperkt aantal dagen tussen 1 en 2147483647.
-    - Als bewaarbeleid worden ingesteld, maar Logboeken opslaan in een Opslagaccount is uitgeschakeld (bijvoorbeeld, als er alleen Event Hubs of OMS-opties zijn geselecteerd), is het bewaarbeleid hebben geen effect.
+    - Als bewaarbeleid worden ingesteld, maar Logboeken opslaan in een Opslagaccount is uitgeschakeld (bijvoorbeeld, als er alleen Event Hubs of Log Analytics-opties zijn geselecteerd), is het bewaarbeleid hebben geen effect.
     - Bewaarbeleid zijn toegepaste per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode beleid worden verwijderd. Bijvoorbeeld, als u had een bewaarbeleid van één dag, zou aan het begin van vandaag de dag de logboeken van de dag voordat gisteren worden verwijderd.
 
 U kunt een opslag-account of gebeurtenis hub naamruimte die zich niet in hetzelfde abonnement als een tekensetcodering Logboeken kunt gebruiken. De gebruiker die de instelling configureert, moet de juiste RBAC-toegang tot beide abonnementen hebben.
@@ -129,12 +128,15 @@ U kunt het activiteitenlogboek naar een Event Hub stream of opslaan in een Opsla
 4. Klik op **opslaan** deze instellingen op te slaan. De instellingen worden onmiddellijk toegepast op uw abonnement.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Logboek profielen met de PowerShell-Cmdlets voor Azure configureren
+
 #### <a name="get-existing-log-profile"></a>Bestaande profiel voor het logboek ophalen
+
 ```
 Get-AzureRmLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Een profiel van het logboek toevoegen
+
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
@@ -153,33 +155,32 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Logboek profielen met behulp van de platformoverschrijdende CLI van Azure configureren
+### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Logboek profielen met de Azure CLI 2.0 configureren
+
 #### <a name="get-existing-log-profile"></a>Bestaande profiel voor het logboek ophalen
+
+```azurecli
+az monitor log-profiles list
+az monitor log-profiles show --name <profile name>
 ```
-azure insights logprofile list
-```
-```
-azure insights logprofile get --name my_log_profile
-```
+
 De `name` eigenschap moet de naam van uw logboek-profiel.
 
 #### <a name="add-a-log-profile"></a>Een profiel van het logboek toevoegen
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+
+```azurecli
+az monitor log-profiles create --name <profile name> \
+    --locations <location1 location2 ...> \
+    --location <location> \
+    --categories <category1 category2 ...>
 ```
 
-| Eigenschap | Vereist | Beschrijving |
-| --- | --- | --- |
-| naam |Ja |Naam van uw logboek-profiel. |
-| storageId |Nee |Resource-ID van het Opslagaccount waarin het activiteitenlogboek moet worden opgeslagen. |
-| serviceBusRuleId |Nee |Service Bus regel-ID voor de Service Bus-naamruimte die u hebben van event hubs gemaakt wilt in. Is een tekenreeks met deze indeling: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Locaties |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. |
-| RetentionInDays |Ja |Aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
-| categorieën |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
+Zie voor de volledige documentatie voor het maken van een monitorprofiel voor een met de CLI de [CLI-opdrachten](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create)
 
 #### <a name="remove-a-log-profile"></a>Een logboek-profiel verwijderen
-```
-azure insights logprofile delete --name my_log_profile
+
+```azurecli
+az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

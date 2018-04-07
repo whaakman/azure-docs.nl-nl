@@ -6,90 +6,72 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/28/2018
+ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 00affc3d1c02c477826261aeac6e092934037e81
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>Voeg SSH toe aan de clusterknooppunten Azure Container Service (AKS)
 
 Soms moet u mogelijk toegang krijgen tot een Azure Container Service (AKS)-knooppunt voor onderhoud, logboekgegevens verzameld of andere bewerkingen voor het oplossen van problemen. Azure Container Service (AKS) knooppunten worden niet blootgesteld aan internet. Gebruik de stappen uiteengezet in dit document een SSH-verbinding maken met een AKS-knooppunt.
 
-## <a name="configure-ssh-access"></a>SSH-toegang configureren
+## <a name="get-aks-node-address"></a>AKS knooppuntadres ophalen
 
- Aan SSH in een specifiek knooppunt een schil wordt gemaakt met `hostNetwork` toegang. Een service wordt ook gemaakt voor schil toegang. Deze configuratie heeft bepaalde bevoegdheden, en moet worden verwijderd na gebruik.
+Het IP-adres van een AKS cluster knooppunt met behulp van de `az vm list-ip-addresses` opdracht. Naam van de resourcegroep met de naam van de resourcegroep AKS vervangen.
 
-Maak een bestand met de naam `aks-ssh.yaml` en kopieer dit manifest. Naam van het knooppunt bijwerken met de naam van het doelknooppunt AKS.
+```console
+$ az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: aks-ssh
-spec:
-  selector:
-    app: aks-ssh
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 22
-    targetPort: 22
----
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: aks-ssh
-  labels:
-    app: aks-ssh
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aks-ssh
-  template:
-    metadata:
-      labels:
-        app: aks-ssh
-    spec:
-      containers:
-      - name: alpine
-        image: alpine:latest
-        ports:
-        - containerPort: 22
-        command: ["/bin/sh", "-c", "--"]
-        args: ["while true; do sleep 30; done;"]
-      hostNetwork: true
-      nodeName: aks-nodepool1-42032720-0
+VirtualMachine            PrivateIPAddresses
+------------------------  --------------------
+aks-nodepool1-42032720-0  10.240.0.6
+aks-nodepool1-42032720-1  10.240.0.5
+aks-nodepool1-42032720-2  10.240.0.4
 ```
 
-Het manifest voor het maken van de schil en de service worden uitgevoerd.
+## <a name="create-ssh-connection"></a>SSH-verbinding maken
 
-```azurecli-interactive
-$ kubectl apply -f aks-ssh.yaml
+Voer de `debian` container installatiekopie en een terminalsessie gekoppeld. De container kan vervolgens worden gebruikt voor het maken van een SSH-sessie met een willekeurig knooppunt in het cluster AKS.
+
+```console
+kubectl run -it --rm aks-ssh --image=debian
 ```
 
-Het externe IP-adres van de zichtbare service ophalen. Het duurt een paar minuten voor de configuratie van IP-adressen te voltooien. 
+Een SSH-client installeren in de container.
 
-```azurecli-interactive
-$ kubectl get service
-
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
-kubernetes         ClusterIP      10.0.0.1      <none>          443/TCP        1d
-aks-ssh            LoadBalancer   10.0.51.173   13.92.154.191   22:31898/TCP   17m
+```console
+apt-get update && apt-get install openssh-client -y
 ```
 
-Maken van de ssh verbinding. 
+Open een tweede terminal en alle gehele product als u de naam van de zojuist gemaakte schil lijst.
 
-De standaardnaam van de gebruiker voor een cluster AKS is `azureuser`. Als dit account is gewijzigd tijdens het maken van een cluster, vervangen door de naam van de juiste admin-gebruiker. 
+```console
+$ kubectl get pods
 
-Als uw sleutel is niet op `~/ssh/id_rsa`, bieden de juiste locatie via de `ssh -i` argument.
+NAME                       READY     STATUS    RESTARTS   AGE
+aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
+```
 
-```azurecli-interactive
-$ ssh azureuser@13.92.154.191
+Kopieer uw SSH-sleutel naar de schil, de naam van de schil vervangen door de juiste waarde.
+
+```console
+kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+```
+
+Update de `id_rsa` zodat deze gebruiker alleen-lezen bestand.
+
+```console
+chmod 0600 id_rsa
+```
+
+Maak nu een SSH-verbinding naar het knooppunt AKS. De standaardnaam van de gebruiker voor een cluster AKS is `azureuser`. Als dit account is gewijzigd tijdens het maken van een cluster, vervangen door de naam van de juiste admin-gebruiker.
+
+```console
+$ ssh -i id_rsa azureuser@10.240.0.6
 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
@@ -114,8 +96,4 @@ azureuser@aks-nodepool1-42032720-0:~$
 
 ## <a name="remove-ssh-access"></a>SSH-toegang verwijderen
 
-Wanneer u klaar bent, de schil voor SSH-toegang en de service verwijderen.
-
-```azurecli-interactive
-kubectl delete -f aks-ssh.yaml
-```
+Wanneer u klaar bent, sluit u de SSH-sessie en vervolgens de interactieve container-sessie. Deze actie worden gebruikt voor SSH-toegang van het cluster AKS schil verwijderd.

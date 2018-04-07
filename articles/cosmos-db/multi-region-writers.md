@@ -2,10 +2,9 @@
 title: Meerdere hoofddatabase architecturen met Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over het ontwerpen van toepassingsarchitecturen met lokale lees- en schrijfbewerkingen over meerdere geografische regio's met Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +14,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 941af42561afbdf91cb3529fd51971ee88fafdbc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Meerdere master gerepliceerd globaal database architecturen met Azure Cosmos-DB
 Azure Cosmos DB ondersteunt klare [globale replicatie](distribute-data-globally.md), waarmee u gegevens naar meerdere regio's met lage latentie toegang overal in de werklast verdelen. Dit model wordt meestal gebruikt voor publisher/consumer werkbelastingen wanneer er een schrijver in één geografische regio en globaal gedistribueerde lezers in andere regio (lezen). 
@@ -166,7 +165,7 @@ Nu we kijken naar de belangrijkste gegevens toegangsmethoden we moet implementer
 ## <a id="Architecture"></a>Configuratie van Azure DB Cosmos-account
 Als u wilt garanderen lokale leest en schrijft, we moet partitie-alleen gegevens niet op partitie sleutel, maar ook op basis van het toegangspatroon geografische in regio's. Het model afhankelijk is van een account Azure Cosmos DB database geo-replicatie voor elke regio. Bijvoorbeeld, met twee gebieden is hier een instelling voor schrijfacties voor meerdere landen/regio:
 
-| Accountnaam | Regio schrijven | Lees de regio |
+| Accountnaam | Schrijfregio's | Leesregio |
 | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
@@ -197,7 +196,7 @@ Hier volgt een codefragment met het initialiseren van de clients in een DAL uitg
 
 Met de voorgaande setup kan de gegevenstoegangslaag doorsturen alle schrijfbewerkingen naar het lokale account op basis van waarop deze wordt geïmplementeerd. Leesbewerkingen worden uitgevoerd door bij het lezen van beide accounts voor de globale weergave van gegevens. Deze methode kan worden uitgebreid met zoveel regio's waar nodig. Dit is bijvoorbeeld een installatie met drie geografische regio's:
 
-| Accountnaam | Regio schrijven | Regio 1 lezen | Regio 2 lezen |
+| Accountnaam | Schrijfregio's | Regio 1 lezen | Regio 2 lezen |
 | --- | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |

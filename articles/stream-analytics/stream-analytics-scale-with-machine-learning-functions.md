@@ -1,27 +1,22 @@
 ---
-title: Taak schaling mogelijk met Azure Stream Analytics & AzureML functies | Microsoft Docs
-description: Meer informatie over het correct schalen Stream Analytics-taken (partitioneren, SU hoeveelheid en meer) bij gebruik van Azure Machine Learning-functies.
-keywords: ''
-documentationcenter: ''
+title: Machine Learning functions schalen in Azure Stream Analytics
+description: In dit artikel wordt beschreven hoe schalen Stream Analytics-taken die gebruikmaken van Machine Learning-functies, door te partitioneren en stroom eenheden configureren.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 015312ab95d6dd5615a5f5bc62d270d46b795ffa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Schalen van uw Stream Analytics-taak met Azure Machine Learning-functies
-Vaak is het eenvoudig instellen van een Stream Analytics-taak en voorbeeldgegevens doorlopen. Wat moeten we doen als we moet dezelfde taak uitvoeren met hogere gegevensvolume? Is vereist om te begrijpen hoe de Stream Analytics-taak zo configureren dat het schalen. In dit document richten we op de speciale aspecten van de Stream Analytics-taken met Machine Learning functions schalen. Zie het artikel voor meer informatie over het schalen van Stream Analytics-taken in het algemeen [taken schalen](stream-analytics-scale-jobs.md).
+Het is recht doorsturen een Stream Analytics-taak instellen en voorbeeldgegevens doorlopen. Wat moeten we doen als we moet dezelfde taak uitvoeren met hogere gegevensvolume? Is vereist om te begrijpen hoe de Stream Analytics-taak zo configureren dat het schalen. In dit document richten we op de speciale aspecten van de Stream Analytics-taken met Machine Learning functions schalen. Zie het artikel voor meer informatie over het schalen van Stream Analytics-taken in het algemeen [taken schalen](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Wat is een Azure Machine Learning-functie in Stream Analytics?
 Een Machine Learning-functie in Stream Analytics kan worden gebruikt als een reguliere functieaanroep in de Stream Analytics query language. De functieaanroepen zijn echter achter de scene daadwerkelijk Azure Machine Learning-webservice-aanvragen. Machine Learning-webservices ondersteuning voor 'batchverwerking' meerdere rijen die Mini batch in de dezelfde web service API-aanroep voor het verbeteren van de totale doorvoer wordt genoemd. Zie de volgende artikelen voor meer informatie; [Azure Machine Learning-functies in Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) en [Azure Machine Learning-webservices](../machine-learning/studio/consume-web-services.md).
@@ -111,7 +106,7 @@ Als u wilt geven een overzicht van de belangrijkste punten om te schalen van een
 2. De verdragen latentie voor de actieve Stream Analytics-taak (en dus de batchgrootte van de Machine Learning web service-aanvragen)
 3. De ingerichte Stream Analytics SUs en het aantal aanvragen van Machine Learning web service (de extra functie-gerelateerde kosten)
 
-Een voorbeeld is een volledig gepartitioneerde Stream Analytics query gebruikt. Als een complexere query nodig is de [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) is een zeer waardevolle resource voor aanvullende hulp van de Stream Analytics-team.
+Een voorbeeld is een volledig gepartitioneerde Stream Analytics query gebruikt. Als een complexere query nodig is de [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) is een zeer waardevolle resource voor aanvullende hulp van de Stream Analytics-team.
 
 ## <a name="next-steps"></a>Volgende stappen
 Voor meer informatie over Stream Analytics, Zie:

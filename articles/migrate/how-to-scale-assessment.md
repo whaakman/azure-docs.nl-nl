@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -29,9 +29,9 @@ Plan uw detecties en beoordelingen op basis van de volgende beperkingen:
 
 | **Entiteit** | **Limiet voor computer** |
 | ---------- | ----------------- |
-| Project    | 1,500              | 
-| Detectie  | 1,500              |
-| Evaluatie | 1,500               |
+| Project    | 1,500             |
+| Detectie  | 1,500             |
+| Evaluatie | 1,500             |
 
 <!-- 
 - If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
@@ -40,12 +40,12 @@ Plan uw detecties en beoordelingen op basis van de volgende beperkingen:
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
     - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
--->
+      -->
 
 ## <a name="plan-multiple-discoveries"></a>Meerdere detecties plannen
 
 De dezelfde collector voor het migreren van Azure kunt u meerdere detecties op een of meer projecten doen. Houd er rekening mee deze planningsoverwegingen:
- 
+
 - Wanneer u een detectie doen met behulp van de collector Azure migreren, kunt u het detectiebereik instellen naar een map van de vCenter-Server, datacenter, cluster of host.
 - Controleer hiervoor meer dan één detectie in vCenter-Server die de virtuele machines die u wilt detecteren in mappen, datacenters, clusters of hosts die ondersteuning bieden voor de beperking van 1500 machines.
 - We adviseren dat voor een evaluatie, u machines met afhankelijkheden binnen het hetzelfde project en de evaluatie. Zorg dat afhankelijke machines zich in dezelfde map, datacenter of cluster voor de beoordeling in vCenter-Server.
@@ -73,20 +73,30 @@ Als u meerdere projecten hebt, moet u voor het downloaden van het toestel collec
 2. In **machines ontdekken**, selecteer **downloaden**, het bestand eicellen wilt downloaden.
 3. In **project referenties kopiëren**, kopieert u de ID en sleutel voor het project. U hebt deze nodig tijdens de configuratie van collector.
 
-   
+
 ### <a name="verify-the-collector-appliance"></a>Het collector-apparaat verifiëren
 
 Controleer dat het bestand eicellen beveiligd is voordat u deze implementeert:
 
 1. Open op de machine waarop u het bestand hebt gedownload een opdrachtvenster voor beheerders.
+
 2. Gebruik de volgende opdracht om de hash voor het OVA-bestand te genereren:
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
    Gebruiksvoorbeeld: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+
 3. Zorg ervoor dat de gegenereerde hash overeenkomt met de volgende instellingen.
 
-    Voor eicellen versie 1.0.9.5
+    Voor eicellen versie 1.0.9.7
+
+    **Algoritme** | **Hash-waarde**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+
+    Voor OVA-versie 1.0.9.5
 
     **Algoritme** | **Hash-waarde**
     --- | ---
@@ -94,7 +104,7 @@ Controleer dat het bestand eicellen beveiligd is voordat u deze implementeert:
     SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
     SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
-    Voor eicellen versie 1.0.9.2
+    Voor OVA-versie 1.0.9.2
 
     **Algoritme** | **Hash-waarde**
     --- | ---
@@ -109,7 +119,7 @@ Controleer dat het bestand eicellen beveiligd is voordat u deze implementeert:
     MD5 | 71139e24a532ca67669260b3062c3dad
     SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
     SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
- 
+
     Voor OVA-versie 1.0.8.49
 
     **Algoritme** | **Hash-waarde**
@@ -136,11 +146,11 @@ Het gedownloade bestand importeren in de vCenter-Server:
 
 2. In de Wizard OVF sjabloon implementeren > **bron**, geef de locatie van het bestand eicellen.
 3. Geef in **Naam** en **Locatie** een beschrijvende naam op voor de collector-VM, en het inventarisobject waarin de virtuele machine wordt gehost.
-5. Geef in **Host/Cluster** de host of het cluster op waarop de collector-VM wordt uitgevoerd.
-7. Geef in de opslag de opslaglocatie voor de collector-VM op.
-8. Geef in **Schijfindeling** het schijftype en de schijfgrootte op.
-9. Geef in **Netwerktoewijzing** het netwerk op waarmee de collector-VM verbinding maakt. Het netwerk moet een internetverbinding naar metagegevens wilt verzenden naar Azure. 
-10. Controleer en Bevestig de instellingen en selecteer vervolgens **voltooien**.
+4. Geef in **Host/Cluster** de host of het cluster op waarop de collector-VM wordt uitgevoerd.
+5. Geef in de opslag de opslaglocatie voor de collector-VM op.
+6. Geef in **Schijfindeling** het schijftype en de schijfgrootte op.
+7. Geef in **Netwerktoewijzing** het netwerk op waarmee de collector-VM verbinding maakt. Het netwerk moet een internetverbinding naar metagegevens wilt verzenden naar Azure. 
+8. Controleer en Bevestig de instellingen en selecteer vervolgens **voltooien**.
 
 ## <a name="identify-the-id-and-key-for-each-project"></a>Identificeren van de ID en sleutel voor elk project
 
@@ -157,16 +167,16 @@ U wordt aangeraden dat u algemene optimale (3) voor het niveau van de statistiek
 
 De volgende tabel bevat ook de resultaten van de beoordeling die worden beïnvloed als een bepaald item is niet verzameld.
 
-|Prestatiemeteritems                                  |Niveau    |Per apparaat niveau  |Evaluatie-impact                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |N.v.t.                |VM-grootte en de kosten van aanbevolen                    |
-|Mem.Usage.Average                        | 1       |N.v.t.                |VM-grootte en de kosten van aanbevolen                    |
-|virtualDisk.read.average                 | 2       |2                 |Schijfgrootte opslagkosten en VM-grootte         |
-|virtualDisk.write.average                | 2       |2                 |Schijfgrootte opslagkosten en VM-grootte         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Schijfgrootte opslagkosten en VM-grootte         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Schijfgrootte opslagkosten en VM-grootte         |
-|net.received.average                     | 2       |3                 |VM-grootte en het netwerk kosten                        |
-|NET.transmitted.Average                  | 2       |3                 |VM-grootte en het netwerk kosten                        |
+| Prestatiemeteritems                                 | Niveau | Per apparaat niveau | Evaluatie-impact                    |
+| --------------------------------------- | ----- | ---------------- | ------------------------------------ |
+| cpu.usage.average                       | 1     | N.v.t.               | VM-grootte en de kosten van aanbevolen         |
+| Mem.Usage.Average                       | 1     | N.v.t.               | VM-grootte en de kosten van aanbevolen         |
+| virtualDisk.read.average                | 2     | 2                | Schijfgrootte opslagkosten en VM-grootte |
+| virtualDisk.write.average               | 2     | 2                | Schijfgrootte opslagkosten en VM-grootte |
+| virtualDisk.numberReadAveraged.average  | 1     | 3                | Schijfgrootte opslagkosten en VM-grootte |
+| virtualDisk.numberWriteAveraged.average | 1     | 3                | Schijfgrootte opslagkosten en VM-grootte |
+| net.received.average                    | 2     | 3                | VM-grootte en het netwerk kosten             |
+| NET.transmitted.Average                 | 2     | 3                | VM-grootte en het netwerk kosten             |
 
 > [!WARNING]
 > Als u een hoger niveau van de statistieken zojuist hebt geïnstalleerd, zal deze duren per dag voor het genereren van de prestatiemeteritems. Dus is het raadzaam dat u de detectie na één dag uitvoert.
@@ -175,28 +185,28 @@ De volgende tabel bevat ook de resultaten van de beoordeling die worden beïnvlo
 
 Voor elke detectie dat u wilt uitvoeren, moet u de collector voor het detecteren van virtuele machines in het vereiste bereik uitvoeren. Voer de detecties een na de andere. Gelijktijdige detecties worden niet ondersteund moet, en elke detectieregel een ander bereik.
 
-1. Klik in de vSphere Client-console met de rechtermuisknop op de VM > **Console openen**.
-2. Geef de voorkeursinstellingen voor de taal, de tijdzone en wachtwoorden op voor het apparaat.
-3. Selecteer op het bureaublad de **uitvoeren collector** snelkoppeling.
-4. Open in de collector Azure migreren **vereisten instellen** en vervolgens:
+1.  Klik in de vSphere Client-console met de rechtermuisknop op de VM > **Console openen**.
+2.  Geef de voorkeursinstellingen voor de taal, de tijdzone en wachtwoorden op voor het apparaat.
+3.  Selecteer op het bureaublad de **uitvoeren collector** snelkoppeling.
+4.  Open in de collector Azure migreren **vereisten instellen** en vervolgens:
 
-   a. Accepteer de licentievoorwaarden en lees de informatie van derden.
+    a. Accepteer de licentievoorwaarden en lees de informatie van derden.
 
-   De collector controleert of de virtuele machine toegang heeft tot internet.
-   
-   b. Als de virtuele machine toegang heeft tot internet via een proxyserver, selecteert u **Proxy-instellingen**, en geef de proxy-adres en poort voor luisteren. Geef referenties op als de proxy verificatie nodig heeft.
+    De collector controleert of de virtuele machine toegang heeft tot internet.
 
-   De collector controleert of de collector-service wordt uitgevoerd. De service wordt standaard geïnstalleerd op de collector-VM.
+    b. Als de virtuele machine toegang heeft tot internet via een proxyserver, selecteert u **Proxy-instellingen**, en geef de proxy-adres en poort voor luisteren. Geef referenties op als de proxy verificatie nodig heeft.
 
-   c. Download en installeer de VMware PowerCLI.
+    De collector controleert of de collector-service wordt uitgevoerd. De service wordt standaard geïnstalleerd op de collector-VM.
 
-5. Doe het volgende in **vCenter Server-details opgeven**:
+    c. Download en installeer de VMware PowerCLI.
+
+5.  Doe het volgende in **vCenter Server-details opgeven**:
     - Geef de FQDN-naam of IP-adres van de vCenter-Server.
     - In **gebruikersnaam** en **wachtwoord**, geef de alleen-lezen accountreferenties die door de collector wordt gebruikt voor het detecteren van virtuele machines in de vCenter-Server.
     - In **Selecteer bereik**, selecteert u een bereik voor detectie van de virtuele machine. De collector kan alleen virtuele machines binnen het opgegeven bereik worden gedetecteerd. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1000 virtuele machines bevatten. 
 
-6. In **Geef migratieproject**, geeft u de ID en sleutel voor het project. Als u deze niet kopiëren, opent u de Azure-portal van de collector VM. Op het project **overzicht** pagina **Machines detecteren** en kopieer de waarden.  
-7. In **verzameling voortgang**, het detectieproces bewaken en controleren van metagegevens verzameld van de virtuele machines zijn binnen het bereik. De collector geeft aan hoe lang de detectie ongeveer zal duren.
+6.  In **Geef migratieproject**, geeft u de ID en sleutel voor het project. Als u deze niet kopiëren, opent u de Azure-portal van de collector VM. Op het project **overzicht** pagina **Machines detecteren** en kopieer de waarden.  
+7.  In **verzameling voortgang**, het detectieproces bewaken en controleren van metagegevens verzameld van de virtuele machines zijn binnen het bereik. De collector geeft aan hoe lang de detectie ongeveer zal duren.
 
 
 ### <a name="verify-vms-in-the-portal"></a>VM's verifiëren in de portal

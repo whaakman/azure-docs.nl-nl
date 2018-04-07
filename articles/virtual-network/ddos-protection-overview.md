@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb19baae1bc03633b7646fd2255ca910532595c5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Overzicht van Azure Standard van DDoS-bescherming
 
@@ -30,7 +30,7 @@ Azure DDoS-bescherming, gecombineerd met aanbevolen procedures voor de toepassin
 - **Azure DDoS-bescherming Basic**: automatisch ingeschakeld als onderdeel van de Azure-platform, zonder extra kosten. Controle- en realtime risicobeperking altijd op verkeer van algemene op netwerkniveau aanvallen biedt de dezelfde beveiliging door de Microsoft online services gebruikt. De volledige omvang van wereldwijd netwerk van Azure kan worden gebruikt voor de distributie en het verkleinen van aanvallen verkeer tussen regio's. Beveiliging is beschikbaar voor IPv4 en IPv6 Azure [openbare IP-adressen](virtual-network-public-ip-address.md).
 - **Azure DDoS-bescherming standaard** biedt mogelijkheden voor extra risicobeperking afgestemd specifiek op Azure Virtual Network-resources. Het is heel eenvoudig om in te schakelen, en vereist geen wijzigingen in de toepassing. Beleid voor gegevensbeveiliging zijn via specifiek verkeer bewaken en machine learning-algoritmen en toegepast op het openbare IP-adressen die zijn gekoppeld aan resources die zijn geïmplementeerd in virtuele netwerken, zoals Azure Load Balancer, Azure Application Gateway en Azure afgestemd Service Fabric-exemplaren. Realtime telemetrie is beschikbaar via Azure Monitor weergaven tijdens een aanval en voor de geschiedenis. Toepassing laag goed kunnen worden toegevoegd via [Application Gateway Web Application Firewall](https://azure.microsoft.com/services/application-gateway). Beveiliging is beschikbaar voor IPv4 Azure [openbare IP-adressen](virtual-network-public-ip-address.md). 
 
-![Azure DDoS-bescherming-standaard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
+![Azure DDoS Protection Standard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
 > [!IMPORTANT]
 > Azure DDoS-bescherming standaard is momenteel preview. Beveiliging is opgegeven voor een Azure-resource met een Azure openbare IP-adres die zijn gekoppeld, zoals virtuele machines en netwerktaakverdelers Toepassingsgateways. U moet [registreren](http://aka.ms/ddosprotection) voor de service voordat u DDoS-bescherming Standard voor uw abonnement inschakelen kunt. Na de registratie het team van Azure DDoS contact met u opneemt en helpt u bij de ingeschakelde. DDoS-bescherming standaard is beschikbaar in de VS-Oost, VS-Oost 2, VS-West, alleen de regio West-Centraal VS, Noord-Europa, West-Europa, Japan-West, Japan-Oost, Azië Oost en Zuidoost-Azië. Tijdens de preview, er zijn niet in rekening gebracht voor het gebruik van de service.
@@ -65,7 +65,7 @@ DDoS-bescherming standaard functies:
 - **Laag 3 aan de beveiliging van laag 7:** biedt volledige stack DDoS-beveiliging wordt gebruikt in combinatie met een application gateway.
 - **Uitgebreide risicobeperking scale:** gedurende 60 aanval verschillende typen kunnen worden opgevangen met globale capaciteit, om u te beschermen tegen de grootste bekende DDoS-aanvallen. 
 - **Aanvallen van metrische gegevens:** samengevat metrische gegevens van elke aanval zijn toegankelijk via de Azure-Monitor.
-- **Aanval waarschuwingen:** waarschuwingen kunnen worden geconfigureerd op het starten en stoppen van een aanval en over de duur van de aanval met ingebouwde aanval metrische gegevens. Waarschuwingen integreren in uw operationele software, zoals de Microsoft Operations Management Suite, Splunk, Azure Storage, e-mailadres en de Azure-portal.
+- **Aanval waarschuwingen:** waarschuwingen kunnen worden geconfigureerd op het starten en stoppen van een aanval en over de duur van de aanval met ingebouwde aanval metrische gegevens. Waarschuwingen integreren in uw operationele software, zoals Microsoft Azure Log Analytics, Splunk, Azure Storage, e-mailadres en de Azure-portal.
 - **Kosten garantie:** overdracht van gegevens en toepassing scale-out servicevergoedingen voor gedocumenteerde DDoS-aanvallen.
 
 ## <a name="ddos-protection-standard-mitigation"></a>DDoS-bescherming standaard risicobeperking

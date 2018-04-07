@@ -2,10 +2,10 @@
 title: HPC Pack cluster voor Excel- en SOA | Microsoft Docs
 description: Aan de slag grootschalige workloads voor Excel- en SOA-uitgevoerd op een HPC Pack-cluster in Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,hpc-pack
 ms.assetid: cb6a9abe-caf3-44da-b911-849a50f6cfb3
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 63babd94fdab15217cfb0757e4cd6efe458a628d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Excel- en SOA-belastingen uitgevoerd op een HPC Pack-cluster in Azure aan de slag
 In dit artikel laat zien hoe een Microsoft HPC Pack 2012 R2-cluster op Azure virtuele machines implementeren met behulp van een Azure quickstart-sjabloon of desgewenst een Azure PowerShell-script voor implementatie. Virtuele machine in Azure Marketplace-installatiekopieën die zijn ontworpen voor Microsoft Excel of een service oriented architecture (SOA) werkbelastingen HPC Pack maakt gebruik van het cluster. Het cluster kunt u vanuit een on-premises clientcomputer Excel HPC en SOA-services uitvoeren. De Excel-HPC-services bevatten Excel-werkmap offloading en de gebruiker gedefinieerde functies van Excel of de UDF's.
@@ -59,7 +59,7 @@ Gebruik een Azure quickstart-sjabloon voor het snel implementeren van een cluste
    
    a. Op de **Parameters** pagina Typ of wijzig de waarden voor de sjabloonparameters. (Klik op het pictogram naast elke instelling voor help-informatie). Voorbeeldwaarden weergegeven in het volgende scherm. In dit voorbeeld wordt een cluster met de naam *hpc01* in de *hpc.local* domein die bestaan uit een hoofdknooppunt en 2 rekenknooppunten. De rekenknooppunten worden van de installatiekopie van een HPC Pack VM met Microsoft Excel gemaakt.
    
-   ![Geef parameters][parameters-new-portal]
+   ![Parameters invoeren][parameters-new-portal]
    
    > [!NOTE]
    > Het hoofdknooppunt VM automatisch wordt gemaakt van de [nieuwste Marketplace-installatiekopie](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) van HPC Pack 2012 R2 op Windows Server 2012 R2. Momenteel worden de installatiekopie is gebaseerd op HPC Pack 2012 R2 Update 3.

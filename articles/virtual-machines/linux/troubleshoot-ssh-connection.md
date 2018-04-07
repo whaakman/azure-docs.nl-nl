@@ -3,10 +3,10 @@ title: Problemen met SSH-verbinding naar een Azure-virtuele machine | Microsoft 
 description: Klik hier voor meer informatie over het oplossen van problemen zoals 'SSH-verbinding is mislukt' of 'SSH-verbinding geweigerd' voor een virtuele machine van Azure waarop Linux wordt uitgevoerd.
 keywords: SSH verbinding geweigerd, ssh fout, azure ssh, SSH-verbinding is mislukt
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 176477105e1f660b0bd22d95142b744ef17044ee
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Problemen met SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd
 Er zijn diverse redenen dat u op problemen Secure Shell (SSH), SSH verbindingsfouten stuit, of SSH wordt geweigerd wanneer u probeert verbinding maken met virtuele Linux-machine (VM). Dit artikel helpt u bij het vinden en los de problemen. U kunt de Azure-portal, Azure CLI of uitbreiding van de VM-toegang voor Linux kunt oplossen van problemen met de verbinding.
@@ -68,6 +68,14 @@ Selecteer als eerste stap `Reset configuration only` van de **modus** Vervolgkeu
 Als u de referenties van een bestaande gebruiker herstellen, selecteert u `Reset SSH public key` of `Reset password` van de **modus** vervolgkeuzelijst zoals in de vorige schermafbeelding. Geef de gebruikersnaam en een SSH-sleutel of het nieuwe wachtwoord en klik op de **opnieuw** knop.
 
 U kunt ook een gebruiker met sudo-machtigingen op de virtuele machine vanaf dit menu maken. Voer een nieuwe gebruikersnaam en het bijbehorende wachtwoord of de SSH-sleutel en klik vervolgens op de **opnieuw** knop.
+
+### <a name="check-security-rules"></a>Beveiligingsregels voor verbindingen controleren
+
+Gebruik [IP-stroom controleren](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) om te bevestigen dat als een regel in een netwerkbeveiligingsgroep verkeer naar of van een virtuele machine wordt geblokkeerd. U kunt ook een effectieve beveiligingsmethode groep regels om ervoor te zorgen inkomende 'toestaan' NSG bekijken regel bestaat en is geplaatst voor SSH-poort (standaard 22). Zie voor meer informatie [effectieve beveiligingsregels gebruiken om op te lossen VM verkeer stroom](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+
+### <a name="check-routing"></a>Controleer de routering
+
+Gebruik van netwerk-Watcher [volgende hop](../../network-watcher/network-watcher-check-next-hop-portal.md) mogelijkheid om te bevestigen dat een route is niet zo wordt voorkomen verkeer dat worden gerouteerd naar of vanuit een virtuele machine. U kunt ook effectieve routes om te zien alle effectieve routes voor een netwerkinterface bekijken. Zie voor meer informatie [effectieve routes gebruiken om op te lossen VM verkeer stroom](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="use-the-azure-cli-20"></a>De Azure CLI 2.0 gebruiken
 Als u nog niet gedaan hebt, installeert u de nieuwste [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/reference-index#az_login).

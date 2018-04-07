@@ -2,12 +2,12 @@
 title: Downloaden van een VHD Linux van Azure | Microsoft Docs
 description: Download een Linux-VHD met behulp van de Azure CLI en de Azure-portal.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 20af28dd4caa6ee5487b9a2ed83715b9b16fad48
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d177e8de7ace571c57a0b8b39c8834fb5b115365
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Downloaden van een VHD Linux van Azure
 
@@ -35,10 +35,10 @@ Een VHD kan niet worden gedownload vanuit Azure als deze is gekoppeld aan een ac
 
 De VHD gebruiken als een installatiekopie van een andere virtuele machines maken, voert u deze stappen uit:
 
-1. SSH, de accountnaam en het openbare IP-adres van de virtuele machine verbinding maken met het en inrichting ervan ongedaan maakt het gebruik. De + parameter van de gebruiker de laatste ingerichte gebruiker-account, worden ook verwijderd. Als u de referenties in voor de VM zijn bakken, laat u uit dit + parameter user. Het volgende voorbeeld verwijdert u de laatste ingerichte gebruikersaccount:
+1. SSH, de accountnaam en het openbare IP-adres van de virtuele machine verbinding maken met het en inrichting ervan ongedaan maakt het gebruik. U vindt het openbare IP-adres met [az netwerk openbare ip-weergeven](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). De + parameter van de gebruiker de laatste ingerichte gebruiker-account, worden ook verwijderd. Als u de referenties in voor de VM zijn bakken, laat u uit dit + parameter user. Het volgende voorbeeld verwijdert u de laatste ingerichte gebruikersaccount:
 
     ```bash
-    ssh azureuser@40.118.249.235
+    ssh azureuser@<publicIpAddress>
     sudo waagent -deprovision+user -force
     exit 
     ```

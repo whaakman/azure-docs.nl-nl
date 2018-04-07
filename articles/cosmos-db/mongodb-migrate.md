@@ -4,9 +4,8 @@ description: Informatie over het gebruik van mongoimport en mongorestore voor he
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,22 +15,22 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Import MongoDB-gegevens 
 
-Als u wilt migreren van gegevens van MongoDB naar een Cosmos-DB Azure-account voor gebruik met de API voor MongoDB, moet u het volgende doen:
+Als u gegevens wilt migreren van MongoDB naar een Azure Cosmos DB-account voor gebruik met de API voor MongoDB, moet u:
 
 * Download een *mongoimport.exe* of *mongorestore.exe* van de [MongoDB-Downloadcentrum](https://www.mongodb.com/download-center).
-* Ophalen van uw [-API voor MongoDB-verbindingsreeks](connect-mongodb-account.md).
+* De [API voor de MongoDB-verbindingsreeks](connect-mongodb-account.md) ophalen.
 
 Als u gegevens uit MongoDB importeert en plannen voor gebruik met de Azure-Cosmos-database, moet u de [hulpprogramma voor gegevensmigratie](import-data.md) om gegevens te importeren.
 
-Deze zelfstudie bevat de volgende taken:
+Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
 > * Bij het ophalen van de verbindingsreeks
@@ -110,7 +109,7 @@ Voorbeeld:
     
 3. Bepaal de latentie van uw computer naar de cloudservice van Azure DB die Cosmos:
     
-    a. Uitgebreide logboekregistratie in de MongoDB-Shell inschakelen met behulp van deze opdracht:```setVerboseShell(true)```
+    a. Uitgebreide logboekregistratie in de MongoDB-Shell inschakelen met behulp van deze opdracht: ```setVerboseShell(true)```
     
     b. Een eenvoudige query uitgevoerd voor de database: ```db.coll.find().limit(1)```. U ontvangt een antwoord zoals deze:
 
@@ -118,7 +117,7 @@ Voorbeeld:
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. De ingevoegde document vóór de migratie om ervoor te zorgen dat er geen dubbele documenten zijn verwijderen. Met deze opdracht kunt u documenten:```db.coll.remove({})```
+4. De ingevoegde document vóór de migratie om ervoor te zorgen dat er geen dubbele documenten zijn verwijderen. Met deze opdracht kunt u documenten: ```db.coll.remove({})```
 
 5. De geschatte berekenen *batchSize* en *numInsertionWorkers* waarden:
 

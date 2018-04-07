@@ -5,7 +5,7 @@ keywords: Extern bureaublad-fout, verbinding met extern bureaublad-fout, kan gee
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: danis
-ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 60c54850c1ca5de0e9bda4b48688ba297874e48e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Extern bureaublad-verbindingen met een virtuele machine van Azure oplossen
 De Remote Desktop Protocol (RDP)-verbinding met uw op basis van Windows Azure virtuele machine (VM) kan verschillende oorzaken hebben, zodat u geen toegang tot uw virtuele machine mislukken. Het probleem is met de extern bureaublad-service op de virtuele machine, de netwerkverbinding of de extern bureaublad-client op de hostcomputer. In dit artikel begeleidt u bij een aantal veelgebruikte methoden voor RDP-verbindingsproblemen oplossen. 
@@ -94,6 +94,10 @@ Probeer opnieuw verbinding te maken met uw virtuele machine na elke stap voor pr
     ![De virtuele machine in de Azure portal implementeren](./media/troubleshoot-rdp-connection/redeploy-vm.png)
    
     Nadat deze is voltooid, kortstondige schijfgegevens niet verloren en dynamische IP-adressen die gekoppeld aan de virtuele machine zijn worden bijgewerkt.
+
+9. **Controleer de routering**. Gebruik van netwerk-Watcher [volgende hop](../../network-watcher/network-watcher-check-next-hop-portal.md) mogelijkheid om te bevestigen dat een route is niet zo wordt voorkomen verkeer dat worden gerouteerd naar of vanuit een virtuele machine. U kunt ook effectieve routes om te zien alle effectieve routes voor een netwerkinterface bekijken. Zie voor meer informatie [effectieve routes gebruiken om op te lossen VM verkeer stroom](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+
+10. Zorg ervoor dat alle lokale firewall of de firewall op uw computer uitgaand 3389 TCP-verkeer naar Azure toestaat.
 
 Als u nog steeds er RDP problemen zijn, kunt u [opent u een ondersteuningsaanvraag](https://azure.microsoft.com/support/options/) of lezen [meer gedetailleerde probleemoplossing concepten en stappen RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -180,6 +184,10 @@ Probeer opnieuw verbinding te maken met uw virtuele machine na elke stap voor pr
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
+6. **Controleer de routering**. Gebruik van netwerk-Watcher [volgende hop](../../network-watcher/network-watcher-check-next-hop-portal.md) mogelijkheid om te bevestigen dat een route is niet zo wordt voorkomen verkeer dat worden gerouteerd naar of vanuit een virtuele machine. U kunt ook effectieve routes om te zien alle effectieve routes voor een netwerkinterface bekijken. Zie voor meer informatie [effectieve routes gebruiken om op te lossen VM verkeer stroom](../../virtual-network/virtual-network-routes-troubleshoot-powershell.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+
+7. Zorg ervoor dat alle lokale firewall of de firewall op uw computer uitgaand 3389 TCP-verkeer naar Azure toestaat.
+
 Als u nog steeds er RDP problemen zijn, kunt u [opent u een ondersteuningsaanvraag](https://azure.microsoft.com/support/options/) of lezen [meer gedetailleerde probleemoplossing concepten en stappen RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-vms-created-using-the-classic-deployment-model"></a>Problemen met virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel
@@ -217,6 +225,8 @@ Probeer opnieuw verbinding te maken met de virtuele machine na elke stap.
     Selecteer uw virtuele machine in de Azure portal en klik op de **overzicht** tabblad. Klik op de **opnieuw** knop:
    
     ![Opnieuw opstarten van de virtuele machine in de Azure-portal](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
+
+7. Zorg ervoor dat alle lokale firewall of de firewall op uw computer uitgaand 3389 TCP-verkeer naar Azure toestaat.
 
 Als u nog steeds er RDP problemen zijn, kunt u [opent u een ondersteuningsaanvraag](https://azure.microsoft.com/support/options/) of lezen [meer gedetailleerde probleemoplossing concepten en stappen RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

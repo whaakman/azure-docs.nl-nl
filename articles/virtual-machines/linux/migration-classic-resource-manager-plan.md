@@ -2,10 +2,10 @@
 title: Planning voor de migratie van IaaS-middelen van klassiek naar Azure Resource Manager | Microsoft Docs
 description: Migratie van IaaS-middelen van klassiek naar Azure Resource Manager plannen
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migratie van IaaS-middelen van klassiek naar Azure Resource Manager plannen
 Hoewel Azure Resource Manager veel mogelijkheden biedt, is het essentieel dat u van plan bent om uw migratie reis naar zeker dat u besturingssysteemupgrades soepel verlopen. Tijd besteedt over het plannen, zorgt u ervoor dat u geen problemen ondervindt tijdens het uitvoeren van de migratieactiviteiten worden bewaakt. 
@@ -117,7 +117,7 @@ De volgende zijn problemen ontdekt in veel van de grotere migraties. Dit is geen
     - Load Balancers
     - Openbare IP-adressen
     - Statische openbare IP-adressen
-    - Cores
+    - Kerngeheugens
     - Netwerkbeveiligingsgroepen
     - Routetabellen
 
@@ -195,7 +195,7 @@ Worden doelgericht op welke services u nu wilt inschakelen in Azure Resource Man
 - [Azure Resource Manager-sjablonen voor de implementatie van eenvoudiger en meer gecontroleerde](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Labels](../../azure-resource-manager/resource-group-using-tags.md).
 - [Controle van de activiteit](../../azure-resource-manager/resource-group-audit.md)
-- [Azure-beleid](../../azure-policy/azure-policy-introduction.md)
+- [Azure Policies](../../azure-policy/azure-policy-introduction.md)
 
 ### <a name="pitfalls-to-avoid"></a>Valkuilen om te voorkomen
 

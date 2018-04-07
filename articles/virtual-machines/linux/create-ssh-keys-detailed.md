@@ -2,12 +2,12 @@
 title: Gedetailleerde stappen om in Azure een SSH-sleutelpaar te maken voor virtuele Linux-machines | Microsoft Docs
 description: Informatie over extra stappen om in Azure een openbaar en persoonlijk SSH-sleutelpaar voor virtuele Linux-machines te maken, samen met specifieke certificaten voor verschillende gebruiksvoorbeelden.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.openlocfilehash: 1308812287fa4484e244c47497a7aef7aa994b14
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 20d36f5e377f2d5af588319cee2be1808571f905
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Gedetailleerd stappenplan voor het maken van een SSH-sleutelpaar en extra certificaten voor een virtuele Linux-machine in Azure
 Met een SSH-sleutelpaar kunt u virtuele machines in Azure maken die voor verificatie standaard gebruikmaken van SSH-sleutels, waardoor aanmelding met een wachtwoord niet meer nodig is. Wachtwoorden kunnen worden geraden en stellen uw virtuele machines bloot aan voortdurende aanvalspogingen om uw wachtwoord te raden. Virtuele machines die zijn gemaakt met de Azure CLI- of Resource Manager-sjablonen, kunnen uw openbare SSH-sleutel opnemen als onderdeel van de implementatie, waardoor configuratie na implementatie niet meer nodig is voor het uitschakelen van aanmelding met een wachtwoord voor SSH. Dit artikel vindt gedetailleerde stappen en aanvullende voorbeelden gegeven van certificaten genereren, zoals voor gebruik met de virtuele Linux-machines. Als u snel een SSH-sleutelpaar wilt maken en gebruiken, raadpleegt u [Een openbaar en persoonlijk SSH-sleutelpaar maken voor Linux-VM's in Azure](mac-create-ssh-keys.md).
@@ -55,7 +55,7 @@ ssh-keygen \
 
 `ssh-keygen` = het programma dat wordt gebruikt voor het maken van de sleutels
 
-`-t rsa`= type sleutel maken die de [RSA-indeling](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) 
+`-t rsa` = type sleutel maken die de [RSA-indeling](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) 
  `-b 2048` = aantal bits van de sleutel
 
 `-C "azureuser@myserver"` = een opmerking die wordt toegevoegd aan het einde van het openbare sleutelbestand om het gemakkelijk te identificeren.  Normaal gesproken bestaat de opmerking uit een e-mailadres, maar u kunt ook iets anders gebruiken als dat beter aansluit bij uw infrastructuur.

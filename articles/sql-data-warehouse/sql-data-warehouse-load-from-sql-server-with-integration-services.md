@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: e2c252e9-0828-47c2-a808-e3bea46c134a
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 03/30/2017
 ms.author: cakarst;douglasl;barbkess
 ms.openlocfilehash: 6c9cebdd715b6997d0633bc725a3945ba9e0c357
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/07/2018
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-ssis"></a>Laden van gegevens uit SQL Server in Azure SQL Data Warehouse (SSIS)
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ SQL Server Integration Services (SSIS) is een flexibele set hulpprogramma's waar
 ## <a name="before-you-start"></a>Voordat u begint
 Voor deze zelfstudie hebt u het volgende nodig:
 
-1. **SQL Server integratieservices (SSIS)**. SSIS is een onderdeel van SQL Server en een evaluatieversie of een gelicentieerde versie van SQL Server vereist. Als u een evaluatieversie van SQL Server 2016 Preview, Zie [SQL Server-evaluaties][SQL Server Evaluations].
+1. **SQL Server Integration Services (SSIS)**. SSIS is een onderdeel van SQL Server en een evaluatieversie of een gelicentieerde versie van SQL Server vereist. Als u een evaluatieversie van SQL Server 2016 Preview, Zie [SQL Server-evaluaties][SQL Server Evaluations].
 2. **Visual Studio**. Als u de gratis Visual Studio Community Edition, Zie [Visual Studio Community][Visual Studio Community].
 3. **SQL Server Data Tools voor Visual Studio (SSDT)**. Als u SQL Server Data Tools voor Visual Studio, Zie [Download SQL Server Data Tools (SSDT)][Download SQL Server Data Tools (SSDT)].
 4. **Voorbeeldgegevens**. Deze zelfstudie wordt opgeslagen in SQL Server in de AdventureWorks voorbeelddatabase als de brongegevens voorbeeldgegevens worden geladen in SQL Data Warehouse. Als u de AdventureWorks voorbeelddatabase, Zie [AdventureWorks 2014 voorbeeld Databases][AdventureWorks 2014 Sample Databases].

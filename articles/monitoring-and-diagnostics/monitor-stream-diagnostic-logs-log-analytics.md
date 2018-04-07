@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 517ce3547f471dd1b40c79b2f087b02ad7f51b85
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 82011126375a3c5016e110aac9ce6bc1b2d59cdf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Azure diagnostische logboeken met Log Analytics
-**[Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime met Azure Log Analytics via de portal, PowerShell-cmdlets of Azure CLI.
+
+**[Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)**  in bijna realtime met Azure Log Analytics via de portal, PowerShell-cmdlets of Azure CLI 2.0 kan worden gestreamd.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Wat u kunt doen met diagnostische gegevens geregistreerd in Log Analytics
 
@@ -33,9 +34,17 @@ Azure Log Analytics is een flexibele logboek zoeken en analytics hulpprogramma w
 * **Geavanceerde analyses** - toepassing van machine learning en overeenkomende algoritmen om u te identificeren mogelijke problemen die door uw logboeken getoond patroon.
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Streaming van diagnostische logboeken met logboekanalyse inschakelen
+
 U kunt inschakelen, streamen van diagnostische logboeken programmatisch via de portal of met behulp van de [Monitor REST-API's van Azure](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings). In beide gevallen moet u een diagnostische instelling maken in die u opgeeft een werkruimte voor logboekanalyse en de logboek-categorieën en metrische gegevens die u wilt verzenden naar deze werkruimte. Een diagnose **logboek categorie** is een type-log dat een resource kan bieden.
 
 De werkruimte voor logboekanalyse heeft geen zich in hetzelfde abonnement als de bron logboeken verzenden zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
+
+> [!NOTE]
+> Verzenden van multidimensionale metrische gegevens via de diagnostische instellingen is momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte één dimensionale metrische gegevens, getotaliseerd over dimensiewaarden.
+>
+> *Bijvoorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een niveau van de wachtrij. Echter, wanneer geëxporteerd via diagnostische instellingen voor die de metrische gegevens worden weergegeven als alle binnenkomende berichten in alle wachtrijen in de Event Hub.
+>
+>
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Diagnostische logboeken met behulp van de portal
 1. In de portal, gaat u naar Azure Monitor en klikt u op **diagnostische instellingen**
@@ -53,7 +62,7 @@ De werkruimte voor logboekanalyse heeft geen zich in hetzelfde abonnement als de
    ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
 3. Geef een naam van de instelling en schakel het selectievakje voor **verzenden met logboekanalyse**, selecteer vervolgens een werkruimte voor logboekanalyse.
-   
+
    ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. Klik op **Opslaan**.
@@ -69,19 +78,31 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resour
 
 Houd er rekening mee dat de eigenschap workspaceID duurt de volledige Azure-resource-ID van de werkruimte niet uit de werkruimte-ID/sleutel die wordt weergegeven in de Log Analytics-portal voordat.
 
-### <a name="via-azure-cli"></a>Via Azure CLI
-Om in te schakelen streaming via de [Azure CLI](insights-cli-samples.md), kunt u de `insights diagnostic set` opdracht als volgt:
+### <a name="via-azure-cli-20"></a>Via Azure CLI 2.0
+
+Om in te schakelen streaming via de [Azure CLI 2.0](insights-cli-samples.md), kunt u de [az monitor diagnose-instellingen maken](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) opdracht.
 
 ```azurecli
-azure insights diagnostic set --resourceId <resourceID> --workspaceId <workspace resource ID> --categories <list of categories> --enabled true
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --workspace <log analytics name or object ID> \
+    --resource <target resource object ID> \
+    --resource-group <log analytics workspace resource group> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true
+    }
+    ]'
 ```
 
-Houd er rekening mee dat de eigenschap workspaceId duurt de volledige Azure-resource-ID van de werkruimte niet uit de werkruimte-ID/sleutel die wordt weergegeven in de Log Analytics-portal voordat.
+U kunt extra categorieën toevoegen aan de diagnostische logboeken door woordenlijsten toe te voegen aan de JSON-matrix doorgegeven als de `--logs` parameter.
+
+De `--resource-group` -argument is alleen vereist als `--workspace` is niet een object-ID.
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Hoe ik de gegevens opvragen in Log Analytics?
 
 U kunt de logboeken met diagnostische gegevens als onderdeel van het beheersysteem voor logboek onder de tabel AzureDiagnostics query in de blade logboek zoeken in de portal of Advanced Analytics ervaring als onderdeel van logboekanalyse. Er zijn ook [verschillende oplossingen voor Azure-resources](../log-analytics/log-analytics-add-solutions.md) u kunt installeren als u onmiddellijk inzicht in de logboekgegevens die u verzendt naar logboekanalyse.
 
-
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Meer informatie over Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)

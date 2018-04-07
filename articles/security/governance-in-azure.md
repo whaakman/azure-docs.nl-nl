@@ -6,7 +6,7 @@ documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="governance-in-azure"></a>Beheeracties in Azure
+# <a name="governance-in-azure"></a>Governance in Azure
 
 We weten dat beveiliging taak in de cloud en hoe belangrijk is dat u tijdig en informatie over Azure-beveiliging vinden. Een van de beste redenen voor het gebruik van Azure voor uw toepassingen en services is om te profiteren van de breed scala aan mogelijkheden en hulpprogramma's voor beveiliging. Deze hulpprogramma's en mogelijkheden te maken het mogelijk om veilige oplossingen maken op de beveiligde Azure-platform.
 
@@ -133,7 +133,7 @@ Deze hiërarchie bepaalt het volgende:
 
   - Limieten
 
-  - Virtual Network
+  - Virtueel netwerk
 
 - Gekoppeld aan 1 AAD (1 AAD worden gekoppeld aan veel abonnementen)
 
@@ -199,7 +199,7 @@ In 2014 geïntroduceerd Azure Resource Manager, dat het concept van een resource
 
 Resource Manager kunt u resources in zinvolle groepen voor beheer, facturerings- of natuurlijke affiniteit plaatsen. Zoals eerder vermeld, wordt Azure heeft twee implementatiemodellen. In de eerdere [model Klassiek](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model), de basiseenheid voor beheer van het abonnement is. Was het moeilijk om op te splitsen resources binnen een abonnement, wat geleid tot het maken van een groot aantal abonnementen heeft. Met het Resource Manager-model hebt gezien de introductie van resourcegroepen.
 
-Een resourcegroep is een container met verwante resources voor een Azure-oplossing. [De resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kunnen zijn voor alle resources voor de oplossing of alleen de resources die u wilt beheren als groep. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is.
+Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. [De resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kunnen zijn voor alle resources voor de oplossing of alleen de resources die u wilt beheren als groep. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is.
 
 Ga voor aanbevelingen over sjablonen naar [Aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 
@@ -379,7 +379,7 @@ Bewaking, logboekregistratie en controle bieden een basis voor het bijhouden en 
 
 Azure-beveiliging Governance van AD DS-groepsbeleidsobjecten waarmee alle de beheerders Windows-interfaces, zoals het delen van bestanden. Voer voor beheerwerkstations controle-, bewakings- en logboekregistratieprocessen uit. Houd toegang en gebruik van alle beheerders en ontwikkelaars bij.
 
-### <a name="azure-security-center"></a>Azure security center
+### <a name="azure-security-center"></a>Azure Security Center
 
 De [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) biedt een centrale weergave van de beveiligingsstatus van resources in de abonnementen en aanbevelingen die helpen te voorkomen dat resources waarmee is geknoeid. Ze kan meer gedetailleerd beleid (bijvoorbeeld toepassen beleid aan specifieke resourcegroepen waarmee bedrijven hun houding het risico dat ze adresseert aanpassen) inschakelen.
 
@@ -410,33 +410,33 @@ Azure Security Center bewaakt de volgende Azure-resources:
 
 - Partneroplossingen die zijn geïntegreerd met uw Azure-abonnement zoals web application firewall op virtuele machines en klik op [App Service-omgeving](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
 
-### <a name="operations-management-suite"></a>Operations Management Suite
+### <a name="log-analytics"></a>Log Analytics
 
-Informatiebeveiliging OMS software ontwikkelings- en service van het team en [governance programma](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) ondersteunt de zakelijke vereisten en voldoet aan regelgeving zoals beschreven op [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) en [Microsoft Trust Center naleving](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Hoe OMS beveiligingsvereisten tot stand brengen, identificeert beveiligingsmechanismen beheert en bewaakt de risico's worden er ook beschreven. Jaarlijks, wij controleren beleidsregels, standaarden, procedures en richtlijnen.
+Log Analytics software ontwikkelings- en service van het team informatiebeveiliging en [governance programma](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) ondersteunt de zakelijke vereisten en voldoet aan regelgeving zoals beschreven op [Microsoft Azure vertrouwen Center](https://azure.microsoft.com/support/trust-center/) en [Microsoft Trust Center naleving](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Hoe logboekanalyse tot stand brengen beveiligingsvereisten, identificeert beveiligingsmechanismen beheert en bewaakt de risico's worden er ook beschreven. Jaarlijks, wij controleren beleidsregels, standaarden, procedures en richtlijnen.
 
-Elk teamlid OMS-ontwikkeling ontvangt beveiligingstraining formele toepassing. We gebruiken een versiebeheersysteem intern voor softwareontwikkeling. Elk software-project wordt beveiligd door het versiebeheersysteem.
+Elk teamlid Log Analytics-ontwikkeling ontvangt beveiligingstraining formele toepassing. We gebruiken een versiebeheersysteem intern voor softwareontwikkeling. Elk software-project wordt beveiligd door het versiebeheersysteem.
 
-Microsoft heeft een beveiliging en naleving team dat verantwoordelijk en alle services in Microsoft evalueert. De vaststelling van informatie van het team maken en ze niet zijn gekoppeld aan de technische afdelingen die OMS ontwikkelen. De beveiliging verantwoordelijken hebben hun eigen Managementketen en uitvoering van een onafhankelijke beoordelingen van producten en services om te controleren of de beveiliging en naleving.
+Microsoft heeft een beveiliging en naleving team dat verantwoordelijk en alle services in Microsoft evalueert. De vaststelling van informatie van het team maken en ze niet zijn gekoppeld aan de technische afdelingen die Log Analytics te ontwikkelen. De beveiliging verantwoordelijken hebben hun eigen Managementketen en uitvoering van een onafhankelijke beoordelingen van producten en services om te controleren of de beveiliging en naleving.
 
-Operations Management Suite (ook wel bekend als OMS) is een verzameling beheerservices die volledig op de cloud zijn gericht. In plaats van te implementeren en beheren van lokale bronnen, worden OMS onderdelen volledig gehost in Azure. De benodigde configuratie is minimaal en u kunt alles letterlijk binnen een paar minuten in werking zetten.
+Azure biedt een verzameling van management-services die zijn ontworpen in de cloud vanaf het begin. In plaats van te implementeren en beheren van lokale bronnen, worden deze onderdelen volledig gehost in Azure. De benodigde configuratie is minimaal en u kunt alles letterlijk binnen een paar minuten in werking zetten.
 
 ![Operations Manager-Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-Hoewel OMS-services worden uitgevoerd in de cloud, betekent dat niet dat ze uw on-premises omgeving niet effectief kunnen beheren.
+Omdat Log Analytics-services worden uitgevoerd in de cloud betekent niet dat ze niet effectief kunnen beheren van uw on-premises omgeving.
 
 Het plaatsen van een agent op elke Windows of Linux-computer in uw datacenter, en worden gegevens verzonden met logboekanalyse waar deze samen met alle andere gegevens verzameld uit de cloud of op de lokale services kan worden geanalyseerd. Azure Backup en Azure Site Recovery gebruikmaken van de cloud voor back-up en hoge beschikbaarheid voor op de lokale bronnen gebruiken.
 
 Runbooks in de cloud hebben doorgaans geen toegang tot uw on-premises resources, maar u kunt ook een agent installeren op een of meer computers die vervolgens runbooks hosten in uw datacenter. Wanneer u een runbook start, kunt u eenvoudig aangeven of u het wilt uitvoeren in de cloud of op een lokale werkrol.
 
-De kernfunctionaliteit van OMS wordt geleverd door een reeks services die in Azure worden uitgevoerd. Elke service biedt een specifieke beheerfunctie. U kunt services combineren om verschillende beheerscenario's te bewerkstelligen.
+De kernfunctionaliteit van logboekanalyse wordt verstrekt door een set services die worden uitgevoerd in Azure. Elke service biedt een specifieke beheerfunctie. U kunt services combineren om verschillende beheerscenario's te bewerkstelligen.
 
 ![Operations Manager-Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Azure-bewerking manager biedt de functionaliteiten door oplossingen voor het beheer. [Oplossingen voor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) voorverpakte sets van logica die een beheerscenario gebruik te maken van een of meer OMS-services te implementeren.
+Azure-bewerking manager biedt de functionaliteiten door oplossingen voor het beheer. [Oplossingen voor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) voorverpakte sets van logica die een beheerscenario gebruik te maken van een of meer management-services te implementeren.
 
 ![Azure-bewerking beheren](./media/governance-in-azure/security-governance-in-azure-fig10.png)
 
-Er zijn verschillende oplossingen beschikbaar van Microsoft en partners die u gemakkelijk kunt toevoegen aan uw Azure-abonnement om de waarde van uw investering in OMS te vergroten.
+Er zijn verschillende oplossingen beschikbaar van Microsoft en partners dat u eenvoudig aan uw Azure-abonnement toevoegen kunt te verhogen van de waarde van uw investering in logboekanalyse.
 
 Als partner kunt u uw eigen oplossingen voor de ondersteuning van uw toepassingen en services en ze te bieden aan gebruikers via de snel starten-sjablonen of Azure Marketplace.
 
@@ -455,7 +455,7 @@ Waarschuwingen zijn beschikbaar via andere services, waaronder:
 >[!Note]
 > Zie [meldingen instellen in Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) en [beschikbaarheid en reactiesnelheid van een website bewaken](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Log Analytics (Operations Management Suite): De routering van de activiteit en de logboeken met diagnostische gegevens met logboekanalyse is ingeschakeld. Operations Management Suite kunt metrische gegevens, het logboek en overige Waarschuwingstypen.
+- Log Analytics: De routering van de activiteit en de logboeken met diagnostische gegevens met logboekanalyse en metrische gegevens, het logboek en overige Waarschuwingstypen staat.
 
 >[!Note]
 > Zie voor meer informatie, waarschuwingen in [logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).

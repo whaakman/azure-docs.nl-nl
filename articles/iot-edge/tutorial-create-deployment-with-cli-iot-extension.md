@@ -2,28 +2,28 @@
 title: Modules op rand van de IoT-apparaten met IoT-extensie voor Azure CLI 2.0 implementeren | Microsoft Docs
 description: Modules implementeren naar een IoT-randapparaat met IoT-extensie voor Azure CLI 2.0
 services: iot-edge
-keywords: 
+keywords: ''
 author: chrissie926
 manager: timlt
 ms.author: menchi
 ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: ''
 ms.reviewer: kgremban
-ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1f71fdfb7090dce24ba73f1fa01e287c52b065f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Modules implementeren naar een IoT-randapparaat met IoT-extensie voor Azure CLI 2.0
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) is een open source cross-platform-opdrachtregelprogramma voor het beheren van Azure-resources, zoals IoT rand. Azure CLI 2.0 is beschikbaar op Windows, Linux en Mac OS.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) is een open-source, cross-platform opdrachtregelprogramma voor het beheren van Azure-resources, zoals IoT Edge. Azure CLI 2.0 is beschikbaar voor Windows, Linux en Mac OS.
 
-Azure CLI 2.0 kunt u voor het beheren van resources, apparaat inrichting service-exemplaren en gekoppelde hubs gebruiksklaar Azure IoT Hub. De nieuwe IoT-extensie verrijkt Azure CLI 2.0 met functies zoals Apparaatbeheer en de mogelijkheid om volledige IoT rand.
+Met Azure CLI 2.0 kunt u Azure IoT Hub-resources, service-exemplaren voor apparaatinrichting en gebruiksklare gekoppelde hubs beheren. De nieuwe IoT-extensie verrijkt Azure CLI 2.0 met functies zoals Apparaatbeheer en de mogelijkheid om volledige IoT rand.
 
-In deze zelfstudie maakt stappen u eerst de voor het instellen van Azure CLI 2.0 en de IoT-extensie. Vervolgens leert u hoe modules implementeren op een IoT-randapparaat met behulp van de beschikbare CLI-opdrachten.
+In dit artikel leert instellen u Azure CLI 2.0 en de extensie IoT. Vervolgens leert u hoe modules implementeren op een IoT-randapparaat met behulp van de beschikbare CLI-opdrachten.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -31,7 +31,7 @@ In deze zelfstudie maakt stappen u eerst de voor het instellen van Azure CLI 2.0
 
 * [Python 2.7 x of Python 3.x](https://www.python.org/downloads/).
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) in uw omgeving. Uw versie van Azure CLI 2.0 moet ten minste 2.0.24 of hoger. Gebruik `az –-version` om te valideren. Deze versie ondersteunt az extensie opdrachten en maakt u kennis met de opdracht talent framework. Een eenvoudige manier om te installeren op Windows is downloaden en installeren de [MSI](https://aka.ms/InstallAzureCliWindows).
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) in uw omgeving. Uw versie van Azure CLI 2.0 moet minimaal versie 2.0.24 of hoger zijn. Gebruik `az –-version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen. Een eenvoudige manier om Azure CLI 2.0 te installeren in Windows is de [MSI](https://aka.ms/InstallAzureCliWindows) te downloaden en installeren.
 
 * [De IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension):
    1. Voer `az extension add --name azure-cli-iot-ext` uit. 

@@ -2,7 +2,7 @@
 title: Azure activiteitenlogboeken om te controleren bronnen weergeven | Microsoft Docs
 description: Gebruik de activiteitenlogboeken gebruikersacties controleren en fouten. Toont PowerShell voor Azure Portal, Azure CLI en REST.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -12,15 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Activiteitenlogboeken bekijken om te controleren van de acties op resources
+
 Via activiteitenlogboeken, kunt u bepalen:
 
 * welke bewerkingen zijn uitgevoerd op de resources in uw abonnement
@@ -38,6 +39,7 @@ Activiteitenlogboeken worden bewaard gedurende 90 dagen. U kunt een query voor e
 U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, PowerShell, Azure CLI, inzicht REST API of [Insights .NET-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Portal
+
 1. De om activiteitenlogboeken te raadplegen via de portal, selecteer **Monitor**.
    
     ![Selecteer activiteitenlogboeken](./media/resource-group-audit/select-monitor.png)
@@ -68,6 +70,7 @@ U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, Pow
     ![de bewerking weergeven](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
+
 1. Uitvoeren voor het logboekvermeldingen ophalen, de **Get-AzureRmLog** opdracht. U opgeven extra parameters om te filteren op de lijst met items. Als u een begin- en -tijd niet opgeeft, worden vermeldingen voor het afgelopen uur geretourneerd. Als u bijvoorbeeld voor het ophalen van de bewerkingen voor een resourcegroep in het afgelopen uur uitgevoerd:
 
   ```powershell
@@ -136,17 +139,20 @@ U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, Pow
 
 
 ## <a name="azure-cli"></a>Azure-CLI
-* Voor het ophalen van logboekvermeldingen die u uitvoert het **azure-groep logboek weergeven** opdracht.
+
+Uitvoeren voor het logboekvermeldingen ophalen, de [az monitor activiteitenlogboek lijst](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) opdracht.
 
   ```azurecli
-  azure group log show ExampleGroup --json
+  az monitor activity-log list --resource-group <group name>
   ```
 
 
 ## <a name="rest-api"></a>REST-API
+
 De REST-bewerkingen voor het werken met het activiteitenlogboek deel uitmaken van de [Insights REST-API](https://msdn.microsoft.com/library/azure/dn931943.aspx). Zie voor het ophalen van de activiteit logboekgebeurtenissen [lijst van de management-gebeurtenissen in een abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Azure activiteitenlogboeken kunnen worden gebruikt met Power BI om meer inzicht over de acties in uw abonnement te krijgen. Zie [weergeven en analyseren van Azure activiteitenlogboeken in Power BI en meer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Zie voor meer informatie over het instellen van beveiligingsbeleid [toegangsbeheer op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md).
 * Zie voor meer informatie over de opdrachten voor het weergeven van implementatiebewerkingen, [implementatiebewerkingen weergeven](resource-manager-deployment-operations.md).

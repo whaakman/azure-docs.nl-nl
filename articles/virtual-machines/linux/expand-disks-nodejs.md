@@ -2,11 +2,11 @@
 title: OS-schijf op Linux-VM met de Azure CLI 1.0 uitbreiden | Microsoft Docs
 description: Meer informatie over het uitbreiden van de virtuele schijf van besturingssysteem (OS) op een Linux-VM met de Azure CLI 1.0 en de Resource Manager-implementatiemodel
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f81054727bb1f0e8ffa752783e866a72d573589d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>OS-schijf op een Linux-VM met de Azure CLI met Azure CLI 1.0 uitbreiden
 Grootte van de virtuele harde schijf voor het besturingssysteem (OS) is doorgaans 30 GB op een Linux virtuele machine (VM) in Azure. U kunt [gegevensschijven toevoegen](add-disk.md) te voorzien in extra opslagruimte, maar u kunnen ook desgewenst de OS-schijf wilt uitbreiden. Dit artikel wordt uitgelegd hoe het uitbreiden van de besturingssysteemschijf voor een Linux-VM met niet-beheerde schijven met de Azure CLI 1.0.
@@ -47,7 +47,7 @@ In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw 
     ```
 
     > [!NOTE]
-    > `azure vm stop`Geeft de rekenresources niet vrij. Gebruik om rekenresources release `azure vm deallocate`. De virtuele machine moet ongedaan als u de virtuele harde schijf wilt uitbreiden.
+    > `azure vm stop` Geeft de rekenresources niet vrij. Gebruik om rekenresources release `azure vm deallocate`. De virtuele machine moet ongedaan als u de virtuele harde schijf wilt uitbreiden.
 
 2. Bijwerken van de grootte van de niet-beheerde OS schijf met behulp van de `azure vm set` opdracht. Het volgende voorbeeld wordt de virtuele machine met de naam bijgewerkt *myVM* in de resourcegroep met de naam *myResourceGroup* worden *50* GB:
 

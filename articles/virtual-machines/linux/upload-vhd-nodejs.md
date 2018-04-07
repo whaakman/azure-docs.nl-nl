@@ -2,9 +2,9 @@
 title: Uploaden van een aangepaste installatiekopie Linux met Azure CLI 1.0 | Microsoft Docs
 description: Maken en uploaden van een virtuele harde schijf (VHD) naar Azure met een aangepaste Linux-installatiekopie met behulp van het implementatiemodel van Resource Manager en de Azure CLI 1.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eb0cae2b70e0cbb9a4fb5fcab3a58d566d0f4d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Uploaden en een Linux-VM uit aangepaste installatiekopie maken met behulp van de Azure CLI 1.0
 In dit artikel laat zien hoe een virtuele harde schijf (VHD) uploaden naar Azure met behulp van het Resource Manager-implementatiemodel en virtuele Linux-machines van deze aangepaste installatiekopie maken. Deze functie kunt u installeren en configureren van een Linux-distro aan uw vereisten en gebruik vervolgens deze VHD snel virtuele Azure-machines (VM's) maken.
@@ -88,7 +88,7 @@ Het doelopslagaccount moet hetzelfde zijn als waarnaar u de virtuele schijf geü
 ## <a name="requirements"></a>Vereisten
 De volgende stappen uit te voeren, hebt u het volgende nodig:
 
-* **Linux-besturingssysteem is geïnstalleerd in een .vhd-bestand** -installeren van een [door Azure goedgekeurde Linux-distributie](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (of Raadpleeg [informatie voor niet-goedgekeurde distributies](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) naar een virtuele schijf in de VHD-indeling. Er bestaan meerdere hulpprogramma's om een virtuele machine en de VHD te maken:
+* **Linux-besturingssysteem is geïnstalleerd in een .vhd-bestand** -installeren van een [door Azure goedgekeurde Linux-distributie](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (of Raadpleeg [informatie voor niet-goedgekeurde distributies](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) naar een virtuele schijf in de VHD-indeling . Er bestaan meerdere hulpprogramma's om een virtuele machine en de VHD te maken:
   * Installeer en configureer [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) of [KVM](http://www.linux-kvm.org/page/RunningKVM), zorg ervoor dat de VHD gebruiken als uw afbeeldingsindeling. Indien nodig, kunt u [converteren van een installatiekopie van een](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) met `qemu-img convert`.
   * U kunt ook de Hyper-V [op Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) of [op Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -114,7 +114,7 @@ In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw 
 ## <a name="prepare-the-image-to-be-uploaded"></a>Voorbereiden van de afbeelding die moet worden geüpload
 Azure biedt ondersteuning voor verschillende Linux-distributies (Zie [goedgekeurde distributies](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). De volgende artikelen helpt u bij het voorbereiden van de verschillende Linux-distributies die worden ondersteund op Azure:
 
-* **[Op basis van centOS distributies](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[CentOS-based Distributions](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -122,7 +122,7 @@ Azure biedt ondersteuning voor verschillende Linux-distributies (Zie [goedgekeur
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Andere - niet-goedgekeurde distributies](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
-Zie ook de  **[opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes)**  voor meer algemene tips voor het Linux-installatiekopieën voorbereiden voor Azure.
+Zie ook de **[opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes)** voor meer algemene tips voor het Linux-installatiekopieën voorbereiden voor Azure.
 
 > [!NOTE]
 > De [Azure-platform SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) is van toepassing op virtuele machines met Linux alleen als een van de aangebracht distributies wordt gebruikt met configuratiegegevens van de opgegeven onder ondersteunde versies' in [Linux op Azure-Endorsed distributies](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -137,7 +137,7 @@ Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in 
 azure group create myResourceGroup --location "WestUS"
 ```
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 Virtuele machines worden opgeslagen als pagina-blobs binnen een opslagaccount. Lees meer over [hier Azure blob-opslag](../../storage/common/storage-introduction.md#blob-storage). U maken een opslagaccount voor uw aangepaste schijfimage en virtuele machines. Alle virtuele machines die u van uw aangepaste schijfimage maakt moeten zich in hetzelfde opslagaccount als installatiekopie.
 
 Het volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount` in de resourcegroep die eerder hebt gemaakt:

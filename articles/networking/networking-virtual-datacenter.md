@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Virtuele Microsoft Azure-Datacenter: Een netwerk-perspectief
 **Microsoft Azure**: sneller, geld besparen, integreren lokale apps en gegevens
@@ -259,9 +259,9 @@ In een vDC is het zeer belangrijk voor het bijhouden van de logboeken van de nsg
 
 Alle logboeken kunnen worden opgeslagen in Azure Storage-Accounts voor controle, statische analyses of back-updoeleinden. Wanneer u de logboeken worden opgeslagen in Azure storage-account, kunnen klanten verschillende soorten frameworks gebruiken als u wilt ophalen, voorbereiding, analyseren en visualiseren van deze gegevens om te rapporteren van de status en gezondheid van cloudresources.
 
-Grote ondernemingen moeten al een standaard framework voor het bewaken van on-premises systemen hebt aangeschaft, en dat framework voor het integreren van logboeken die worden gegenereerd door cloudimplementaties kunnen uitbreiden. Voor organisaties die u wilt behouden van de logboekregistratie in de cloud, [Microsoft Operations Management Suite (OMS)] [ OMS] is een uitstekende keuze. Aangezien OMS wordt geïmplementeerd als een cloudservice, kunt u er al snel mee aan de slag, en dat met minimale investeringen in infrastructuurservices. OMS kan ook worden geïntegreerd met System Center-onderdelen, zoals System Center Operations Manager uit te breiden van uw bestaande investeringen management in de cloud.
+Grote ondernemingen moeten al een standaard framework voor het bewaken van on-premises systemen hebt aangeschaft, en dat framework voor het integreren van logboeken die worden gegenereerd door cloudimplementaties kunnen uitbreiden. Voor organisaties die u wilt behouden van de logboekregistratie in de cloud, [logboekanalyse] [ LogAnalytics] is een uitstekende keuze. Aangezien logboekanalyse is geïmplementeerd als een cloudservice, kunt u laten actief en werkend snel met minimale investering in infrastructuurservices. Log Analytics kan ook worden geïntegreerd met System Center-onderdelen, zoals System Center Operations Manager uit te breiden van uw bestaande investeringen management in de cloud.
 
-OMS Log analytics is een onderdeel van de OMS-framework voor het verzamelen, correleren, zoeken en reageren op logboek en prestaties gegevens die zijn gegenereerd door de besturingssystemen, toepassingen, onderdelen van cloud-infrastructuur. Dit biedt klanten realtime operationeel inzicht geïntegreerd zoeken en aangepaste dashboards gebruiken voor het analyseren van alle records tussen uw werkbelastingen in een vDC.
+Log Analytics is een service in Azure die u helpt bij het verzamelen, correleren, zoeken en reageren op logboek en prestaties gegevens die zijn gegenereerd door de besturingssystemen, toepassingen en onderdelen van cloud-infrastructuur. Dit biedt klanten realtime operationeel inzicht geïntegreerd zoeken en aangepaste dashboards gebruiken voor het analyseren van alle records tussen uw werkbelastingen in een vDC.
 
 #### <a name="component-type-workloads"></a>Onderdeeltype: werkbelastingen
 Onderdelen van de werkbelasting zijn waarin de werkelijke toepassingen en services zich bevinden. Het is ook waar ontwikkelteams toepassing te besteden aan de meeste van de tijd.
@@ -332,7 +332,7 @@ De volgende functies zijn in dit document besproken. Klik op de koppelingen voor
 |Network-functies|Taakverdeling|Connectiviteit|
 |[Virtuele netwerken in Azure][VNet]</br>[Netwerkbeveiligingsgroepen][NSG]</br>[NSG Logs][NSGLog]</br>[De gebruiker gedefinieerde routering][UDR]</br>[Virtuele netwerkapparaten][NVA]</br>[Openbare IP-adressen][PIP]|[Azure Load Balancer (N3) ][ALB]</br>[Toepassingsgateway (N7) ][AppGW]</br>[Web Application Firewall][WAF]</br>[Azure Traffic Manager][TM] |[VNet-Peering][VNetPeering]</br>[Virtueel particulier netwerk][VPN]</br>[ExpressRoute][ExR]
 |Identiteit</br>|Bewaking</br>|Beste praktijken</br>|
-|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Role Base Access besturingselementen][RBAC]</br>[Standaardrollen AAD][Roles] |[Activiteitenlogboeken][ActLog]</br>[Diagnostische logboeken][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Aanbevolen procedures voor perimeter-netwerken][DMZ]</br>[Beheer van abonnementen][SubMgmt]</br>[Beheer van resourcegroep][RGMgmt]</br>[Limieten voor Azure-abonnement][Limits] |
+|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Role Base Access besturingselementen][RBAC]</br>[Standaardrollen AAD][Roles] |[Activiteitenlogboeken][ActLog]</br>[Diagnostische logboeken][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[Aanbevolen procedures voor perimeter-netwerken][DMZ]</br>[Beheer van abonnementen][SubMgmt]</br>[Beheer van resourcegroep][RGMgmt]</br>[Limieten voor Azure-abonnement][Limits] |
 |Andere Azure-Services|
 |[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
@@ -379,7 +379,7 @@ De volgende functies zijn in dit document besproken. Klik op de koppelingen voor
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

@@ -4,7 +4,7 @@ description: Een zelfstudie waarmee u maakt een online database en C#-consoletoe
 services: cosmos-db
 documentationcenter: .net
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: ''
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 3fb14a2ae6e820c289e7000a4876efe4b4a3b89c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ad6b8889b1d98993eadeb531b7e63771a848719b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Aan de slag met de SQL-API en .NET Core
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ In de Azure portal, gaat u naar uw Azure DB die Cosmos-account en klik vervolgen
 
 Kopieer in de portal de URI en plak deze in `<your endpoint URI>` in het bestand program.cs. Kopieer vervolgens de PRIMAIRE SLEUTEL van de portal en plak deze in `<your key>`. Als u gebruikmaakt van de Azure Cosmos DB-emulator, gebruikt u `https://localhost:8081` als eindpunt. Gebruik daarnaast de goed gedefinieerde autorisatiesleutel uit [Ontwikkelen met behulp van de Azure Cosmos DB-emulator](local-emulator.md). Zorg ervoor dat u de < and > verwijdert, maar laat de dubbele aanhalingstekens rond het eindpunt en de sleutel staan.
 
-![Schermopname van de Azure portal gebruikt door de NoSQL-zelfstudie om een C#-consoletoepassing te maken. Toont een Cosmos-DB Azure-account met de hub actief gemarkeerd, de knop sleutels gemarkeerd op de pagina Azure DB die Cosmos-account en waarden URI, primaire sleutel en secundaire sleutel gemarkeerd op de pagina sleutels][keys]
+![Schermopname van Azure Portal die voor de NoSQL-zelfstudie wordt gebruikt om een C#-consoletoepassing te maken. Toont een Cosmos-DB Azure-account met de hub actief gemarkeerd, de knop sleutels gemarkeerd op de pagina Azure DB die Cosmos-account en waarden URI, primaire sleutel en secundaire sleutel gemarkeerd op de pagina sleutels][keys]
 
 Voor de toepassing Getting started maken we om te beginnen een nieuw exemplaar van **DocumentClient**.
 

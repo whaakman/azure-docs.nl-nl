@@ -4,8 +4,7 @@ description: Azure Cosmos DB wijzigen feed ondersteuning gebruiken voor het bijh
 keywords: Feed wijzigen
 services: cosmos-db
 author: rafats
-manager: jhubbard
-editor: mimig
+manager: kfile
 documentationcenter: ''
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
@@ -15,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 16f339540767246ef82bce020aacf9846c8d2e0b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8cc4d8110db0a650b8355f96fee490093826ac30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Werken met de ondersteuning in Azure Cosmos DB feed wijziging
 
@@ -190,7 +189,7 @@ Houd er rekening mee dat als er twee zonder server Azure funtions bewaking van d
 Vier belangrijke onderdelen van de implementatie van de Feed Processor van wijziging: de bewaakte verzameling, de verzameling van de lease, de processor-host en de consumenten. 
 
 > [!WARNING]
-> Maken van een verzameling heeft gevolgen, zoals u bij het reserveren van doorvoer voor de toepassing om te communiceren met Azure Cosmos DB. Voor meer informatie raadpleegt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> Het maken van een verzameling heeft gevolgen voor de prijs, omdat u doorvoer reserveert voor de toepassing om te communiceren met Azure Cosmos DB. Voor meer informatie raadpleegt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/)
 > 
 > 
 

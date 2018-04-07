@@ -1,24 +1,19 @@
 ---
-title: Power BI-dashboard op Azure Stream Analytics | Microsoft Docs
-description: Gebruik een realtime streaming Power BI-dashboard business intelligence verzamelen en analyseren van grote hoeveelheden gegevens uit een Stream Analytics-taak.
-keywords: dashboard met analytische, realtime dashboard
+title: Power BI-dashboard integratie met Azure Stream Analytics
+description: In dit artikel wordt beschreven hoe een realtime Power BI-dashboard gebruiken om gegevens buiten een Azure Stream Analytics-taak te visualiseren.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/27/2017
 ms.author: jeanb
-ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/27/2017
+ms.openlocfilehash: 15b8548e8b5b6ff8d2f5722d2a4031f8e52d044b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics en Power BI: een realtime analytics-dashboard voor het streamen van gegevens
 Azure Stream Analytics kunt u profiteren van een van de toonaangevende hulpprogramma's voor bedrijfsinformatie, [Microsoft Power BI](https://powerbi.com/). In dit artikel leert u hoe hulpprogramma's voor bedrijfsinformatie te maken met behulp van Power BI als uitvoer voor uw Azure Stream Analytics-taken. U leert ook hoe maken en gebruiken van een realtime dashboard.
@@ -249,7 +244,7 @@ Als een taak wordt gestart nadat het token is verlopen, een fout optreedt en de 
 Nadat de autorisatie is vernieuwd met Power BI, verschijnt een groen waarschuwing in het gebied autorisatie om weer te geven dat het probleem is opgelost.
 
 ## <a name="get-help"></a>Help opvragen
-Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

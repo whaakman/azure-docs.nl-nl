@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 84a3834416c7d93ecb4f51fea9c7baed8af85db0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5b2335ee2584af07ed23ce87be92a869f3a07ba1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Wijzigingen in de prijzen voor Azure-netwerk Prestatiemeter
 
-We hebben geluisterd naar u en onlangs hebt toegevoegd een [prijzen van nieuwe ervaring](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), bewaking voor verschillende services in Azure.
+We hebben is luisteren naar uw feedback en onlangs hebt toegevoegd een [prijzen van nieuwe ervaring](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), bewaking voor verschillende services in Azure.
 
 Dit document worden de prijscategorie wijzigingen die betrekking hebben op Azure vastgelegd [netwerk Prestatiemeter](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM), in een gemakkelijk te lezen van de vraag en antwoord-indeling.
 
@@ -32,11 +32,11 @@ Prestatiemeter netwerk bestaat uit drie onderdelen:
 * [Monitor voor eindpunt](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor) en
 * [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-De onderstaande sectie wordt uitgelegd van de prijscategorie wijzigingen voor Prestatiemeter en ExpressRoute-Monitor de Monitor voor Service-eindpunt.
+De onderstaande sectie wordt uitgelegd dat de prijscategorie wijzigingen voor de bovenstaande onderdelen.
 
 ## <a name="performance-monitor-pm"></a>Prestatiemeter (PM)
 
-**Hoe was gebruik van de Prestatiemeter in rekening gebracht in het oude schema?**
+**Hoe was gebruik van de Prestatiemeter in rekening gebracht in het oude model?**
 
 De facturering voor NPM is gebaseerd op het gebruik/verbruik uit twee onderdelen:
 * Knooppunten: Alle synthetische transacties zijn afkomstig en eindigen op de knooppunten. Knooppunten zijn ook agents of MMA (Microsoft Management Agents) genoemd.
@@ -121,3 +121,8 @@ Een verbinding is een test van bereikbaarheid naar één eindpunt (service-URL o
 
 - Raadpleeg de [verbinding bewaking](https://azure.microsoft.com/pricing/details/network-watcher/) sectie voor de kosten van de bewaking van een eindpunt voor de hele maand.
 - De kosten voor gegevens is beschikbaar op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) voor logboekanalyse.  (Sectie: gegevensopname).
+
+## <a name="references"></a>Verwijzingen
+
+- [Meld u Analytics prijzen Veelgestelde vragen over](https://azure.microsoft.com/pricing/details/log-analytics/) -Veelgestelde vragen over de de sectie bevat informatie over de gratis laag, per knooppunt prijscategorie, enzovoort.
+

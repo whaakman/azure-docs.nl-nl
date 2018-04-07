@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
 
@@ -110,7 +110,7 @@ Gebruik voor het maken van het project zonder een lokale Git-opslagplaats de `--
 
 In versie 2.x van de Azure Functions-runtime, moet u expliciet registreren de [binding extensies](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) die u in de functie-app gebruiken. 
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
 Zie voor meer informatie [Azure Functions triggers en bindingen concepten](functions-triggers-bindings.md#register-binding-extensions).
 
@@ -215,7 +215,7 @@ func host start
 | **`--nodeDebugPort -n`** | De poort voor het foutopsporingsprogramma knooppunt moet worden gebruikt. Standaard: Een waarde van launch.json of 5858. |
 | **`--debugLevel -d`** | Het traceerniveau van de console (uit verbose,-info, waarschuwing of fout). Standaard: Info.|
 | **`--timeout -t`** | De time-out voor de host functies om te starten, in seconden. Standaardwaarde: 20 seconden.|
-| **`--useHttps`** | Binden aan https://localhost: {poort} in plaats van op http://localhost: {poort}. Deze optie maakt standaard een vertrouwd certificaat op uw computer.|
+| **`--useHttps`** | Binden aan https://localhost:{port} in plaats van naar http://localhost:{port}. Deze optie maakt standaard een vertrouwd certificaat op uw computer.|
 | **`--pause-on-error`** | Onderbreken om extra gegevens voordat het proces wordt afgesloten. Dit is handig bij het starten van Azure Functions kernonderdelen van een integrated development environment (IDE).|
 
 Wanneer de host functies wordt gestart, levert dit de URL van de HTTP-geactiveerde functies:

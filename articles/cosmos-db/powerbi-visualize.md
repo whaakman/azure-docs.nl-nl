@@ -3,9 +3,8 @@ title: Power BI-zelfstudie voor Azure DB die Cosmos-connector | Microsoft Docs
 description: Gebruik deze zelfstudie Power BI importeren JSON, begrijpelijke manier mee rapporten maken en gegevens visualiseren met behulp van de Azure DB die Cosmos en Power BI-connector.
 keywords: Power bi zelfstudie, visualiseren van gegevens, power bi-connector
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: mimig
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: mimig
-ms.openlocfilehash: 74be3e5b25401a7811c1af23a0a7e2887f9055c1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: sngun
+ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Power BI-zelfstudie voor Azure Cosmos DB: gegevens visualiseren met behulp van de Power BI-connector
 [PowerBI.com](https://powerbi.microsoft.com/) is een onlineservice waar u kunt maken en delen van dashboards en rapporten met gegevens die belangrijk voor u en uw organisatie.  Power BI Desktop is een speciale rapport ontwerpgereedschap waarmee u gegevens ophalen uit verschillende gegevensbronnen, samen te voegen en de gegevens transformeren krachtige rapporten en visualisaties maken en publiceren van de rapporten naar Power BI.  Met de meest recente versie van Power BI Desktop, kunt u nu verbinding met uw Azure DB die Cosmos-account via de Azure DB die Cosmos-connector voor Power BI.   

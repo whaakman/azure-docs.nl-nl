@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 0339dc2ecc93fb9ec260ede9d3f2e9b7b1419b08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 Azure SQL database auditing houdt databasegebeurtenissen en schrijft die deze naar een auditlogboek Meld u bij uw Azure storage-account. Ook controleren:
@@ -66,12 +66,12 @@ De volgende sectie beschrijft de configuratie van controlebeleid met de Azure po
     <a id="auditing-screenshot"></a> ![Navigatiedeelvenster][1]
 3. Als u liever een controlebeleid server instellen, kunt u de **serverinstellingen weergeven** koppeling in de databaseblade voor controle. U kunt vervolgens weergeven of wijzigen van de server controle-instellingen. Controlebeleid van de server van toepassing op alle bestaande en nieuwe databases op deze server.
 
-    ![Navigatiedeelvenster][2]
+    ![Navigatievenster][2]
 4. Als u liever blob controle inschakelen op het databaseniveau van de voor **controle**, selecteer **ON**, en voor **type controle**, selecteer **Blob**.
 
     Als server auditingfunctie voor blobs is ingeschakeld, wordt de controle van de database geconfigureerd bestaan naast de blob-controle-server.
 
-    ![Navigatiedeelvenster][3]
+    ![Navigatievenster][3]
 5. Openen van de **Audit logboeken opslag** blade, selecteer **opslaggroep**. Selecteer de Azure-opslagaccount waarin de logboeken worden opgeslagen en selecteer vervolgens de bewaarperiode. De oude logboeken worden verwijderd. Klik vervolgens op **OK**.
    >[!TIP]
    >Als u de meest buiten de controle rapporten sjablonen, gebruikt u hetzelfde opslagaccount voor alle gecontroleerde databases.
@@ -96,14 +96,14 @@ Er zijn verschillende methoden die u gebruiken kunt om blob controlelogboeken we
 
 * Gebruik de [Azure-portal](https://portal.azure.com).  Open de betreffende database. Aan de bovenkant van de database **controle en detectie van bedreigingen** blade, klikt u op **weergave controlelogboeken**.
 
-    ![Navigatiedeelvenster][7]
+    ![Navigatievenster][7]
 
     Een **controleren records** blade wordt geopend, waarin u zult kunnen de logboeken weergeven.
 
     - U kunt specifieke datums weergeven door te klikken op **Filter** boven aan de **controleren records** blade.
     - U kunt schakelen tussen controlerecords die zijn gemaakt met een server beleid of database beleid audit.
 
-       ![Navigatiedeelvenster][8]
+       ![Navigatievenster][8]
 
 * Gebruik de systeemfunctie **sys.fn_get_audit_file** (T-SQL) te retourneren van de logboekgegevens audit in tabelvorm. Zie voor meer informatie over het gebruik van deze functie de [sys.fn_get_audit_file documentatie](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
@@ -111,14 +111,14 @@ Er zijn verschillende methoden die u gebruiken kunt om blob controlelogboeken we
 * Gebruik **controlebestanden samenvoegen** in SQL Server Management Studio (SSMS 17 vanaf):
     1. Selecteer in het menu SSMS **bestand** > **Open** > **controlebestanden samenvoegen**.
 
-        ![Navigatiedeelvenster][9]
+        ![Navigatievenster][9]
     2. De **controlebestanden toevoegen** dialoogvenster wordt geopend. Selecteer een van de **toevoegen** opties te kiezen of auditbestanden van een lokale schijf samen, of ze importeren uit Azure Storage. U moet uw Azure Storage details en de accountsleutel opgeven.
 
     3. Nadat alle bestanden samenvoegen zijn toegevoegd, klikt u op **OK** de samenvoegen uit te voeren.
 
     4. Het samengevoegde bestand wordt geopend in SSMS, waar u kunt weergeven en analyseren, evenals exporteren naar een xel-bestand of de CSV-bestand of een tabel.
 
-* Gebruik de [toepassing synchroniseren](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) die we hebben gemaakt. Het wordt uitgevoerd in Azure en maakt gebruik van Operations Management Suite (OMS) logboekanalyse openbare API's voor de push-SQL-controlelogboeken in OMS. De synchronisatie-toepassing duwt SQL controlelogboeken in OMS Log Analytics voor consumptie via het dashboard OMS-logboekanalyse.
+* Gebruik de [toepassing synchroniseren](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) die we hebben gemaakt. Het wordt uitgevoerd in Azure en maakt gebruik van logboekanalyse openbare API's voor het pushen van controlelogboeken voor SQL in logboekanalyse. De synchronisatie-toepassing duwt SQL controlelogboeken in Log Analytics voor consumptie via het dashboard logboekanalyse.
 
 * Power BI gebruiken. U kunt weergeven en analyseren van gegevens van de audit log in Power BI. Meer informatie over [Power BI en toegang tot een sjabloon downloaden](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
@@ -158,10 +158,10 @@ In productie bent u waarschijnlijk uw opslagsleutels periodiek te vernieuwen. Bi
 
 1. Open de **opslaggroep** blade. In de **toegangssleutel voor opslag** de optie **secundaire**, en klik op **OK**. Klik vervolgens op **opslaan** aan de bovenkant van de controlemogelijkheden configuratie-blade.
 
-    ![Navigatiedeelvenster][5]
+    ![Navigatievenster][5]
 2. Ga naar de blade van de configuratie van opslag en opnieuw genereren van de primaire toegangssleutel.
 
-    ![Navigatiedeelvenster][6]
+    ![Navigatievenster][6]
 3. Ga terug naar de blade controle configuratie schakelt de toegangssleutel voor opslag van secundaire op primaire en klik vervolgens op **OK**. Klik vervolgens op **opslaan** aan de bovenkant van de controlemogelijkheden configuratie-blade.
 4. Ga terug naar de blade van de configuratie van opslag en opnieuw genereren van de secundaire toegangssleutel (in voorbereiding op de volgende sleutel vernieuwingscyclus).
 

@@ -1,5 +1,5 @@
 ---
-title: Lange bewaartermijn van de back-up & ARS kluis - Azure SQL Database | Microsoft Docs
+title: Back-up op lange termijn bewaren van Azure SQL Database beheren | Microsoft Docs
 description: Meer informatie over het automatische back-ups opslaan in de SQL Azure-opslag en deze herstellen
 services: sql-database
 author: anosov1960
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 80dd58a9c0267975c9e4df74c77d60ac861a1fdb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 29bfc914dd5c1f4c8b5405ff0e7202b767d032b8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configure-and-restore-backups-from-azure-sql-database-long-term-backup-retention-using-azure-sql-storage"></a>En back-ups terugzetten van back-up op lange termijn retentie van Azure SQL Database worden met behulp van Azure SQL-opslag configureren
+# <a name="manage-azure-sql-database-long-term-backup-retention"></a>Back-up op lange termijn bewaren van Azure SQL Database beheren
 
 U kunt Azure SQL database met een [lange bewaartermijn van de back-](sql-database-long-term-retention.md) beleid (LTR) voor het bewaren van automatisch back-ups in Azure blob-opslag voor maximaal tien jaar. U kunt een database met behulp van deze back-ups met de Azure-portal of PowerShell vervolgens herstellen.
 
@@ -112,6 +112,12 @@ $ltrPolicies = Get-AzureRmSqlDatabase -ResourceGroupName Default-SQL-WestCentral
 
 # Get the LTR policy of a specific database 
 $ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
+```
+### <a name="clear-an-ltr-policy"></a>Een beleid LTR wissen
+Dit voorbeeld ziet u hoe u een beleid LTR uit een database
+
+```powershell
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
 ```
 
 ### <a name="view-ltr-backups"></a>LTR back-ups weergeven

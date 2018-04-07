@@ -1,24 +1,19 @@
 ---
-title: Gebruik Azure Stream Analytics-hulpprogramma's voor Visual Studio | Microsoft Docs
-description: Zelfstudie voor de Azure Stream Analytics-Tools voor Visual Studio aan de slag
-keywords: Visual studio
-documentationcenter: ''
+title: Azure Stream Analytics-hulpprogramma's voor Visual Studio gebruiken
+description: Dit artikel wordt beschreven hoe u aan de slag met Azure Stream Analytics Tools voor Visual Studio.
 services: stream-analytics
 author: su-jie
-manager: ryanw
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: 23c4d058a1b045b0d66d8526a94e22774e6e6519
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/05/2018
+ms.openlocfilehash: eaaee36a2f4dd5a313f8871cea5fd885812fe351
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Azure Stream Analytics-hulpprogramma's voor Visual Studio gebruiken
 Azure Stream Analytics-hulpprogramma's voor Visual Studio zijn nu algemeen beschikbaar. Deze hulpprogramma's inschakelen van een rijkere ervaring voor gebruikers van de Stream Analytics oplossen, evenals een complexe query's schrijven en zelfs schrijven lokaal query's. U kunt ook een Stream Analytics-taak exporteren naar een Visual Studio-project.

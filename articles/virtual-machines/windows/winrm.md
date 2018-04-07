@@ -2,10 +2,10 @@
 title: WinRM toegang instellen voor een virtuele machine in Azure | Microsoft Docs
 description: Het instellen van WinRM-toegang voor gebruik met Azure een virtuele machine gemaakt in het Resource Manager-implementatiemodel.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9718e85b-d360-4621-90b8-0b0b84a21208
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 2d6533462400bc1d93d0d3b0227769784e2658a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fa82dd4a85ff2e62848df0fdc6006922005a84b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>WinRM toegang instellen voor virtuele Machines in Azure Resource Manager
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM in de Azure Service Management vs Azure Resource Manager
@@ -88,7 +88,7 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
 De Microsoft.Compute-resourceprovider moet een URL naar het geheim in de Sleutelkluis tijdens het inrichten van de virtuele machine. Hierdoor kunnen de Microsoft.Compute-resourceprovider voor het downloaden van het geheim en de equivalente certificaat maken op de virtuele machine.
 
 > [!NOTE]
-> De URL van het geheim moet de versie ook bevatten. Een voorbeeld-URL ziet eruit als hieronder https://contosovault.vault.azure.net:443/geheimen/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> De URL van het geheim moet de versie ook bevatten. Een voorbeeld-URL ziet eruit als hieronder https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 > 
 > 
 
@@ -157,7 +157,7 @@ Voordat u verbinding kunt maken met de virtuele machine moet u controleren of mo
     Enable-PSRemoting -Force
 
 > [!NOTE]
-> Mogelijk moet u controleren of dat de WinRM-service wordt uitgevoerd als de bovenstaande niet werkt. U kunt doen dat met`Get-Service WinRM`
+> Mogelijk moet u controleren of dat de WinRM-service wordt uitgevoerd als de bovenstaande niet werkt. U kunt doen dat met `Get-Service WinRM`
 > 
 > 
 

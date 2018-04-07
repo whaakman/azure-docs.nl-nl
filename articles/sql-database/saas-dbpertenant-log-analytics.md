@@ -1,6 +1,6 @@
 ---
 title: Log Analytics gebruiken met een SQL-Database multitenant-app | Microsoft Docs
-description: Instellen en gebruiken van logboekanalyse (Operations Management Suite) met een multitenant SaaS van Azure SQL Database-app
+description: Instellen en Log Analytics gebruiken met een multitenant SaaS van Azure SQL Database-app
 keywords: zelfstudie sql-database
 services: sql-database
 author: stevestein
@@ -8,23 +8,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 38a849ca5f4a767a4b9d9b9b86549e89a8217a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="set-up-and-use-log-analytics-operations-management-suite-with-a-multitenant-sql-database-saas-app"></a>Instellen en gebruiken van logboekanalyse (Operations Management Suite) met een multitenant SaaS van SQL Database-app
+# <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Instellen en Log Analytics gebruiken met een multitenant SaaS van SQL Database-app
 
-In deze zelfstudie maakt u instellen en gebruiken van Azure-logboekanalyse ([Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)) voor het bewaken van elastische pools en databases. Deze zelfstudie bouwt voort op de [prestaties bewaking en beheer zelfstudie](saas-dbpertenant-performance-monitoring.md). Er wordt weergegeven hoe Log Analytics gebruiken voor het verbeteren van de bewaking en waarschuwingen die zijn opgegeven in de Azure-portal. Log Analytics ondersteunt bewaking duizenden elastische pools en honderden of duizenden databases. Log Analytics biedt een enkel bewakingsoplossing, die bewaking van andere toepassingen en Azure-services over meerdere Azure-abonnementen kunt integreren.
+In deze zelfstudie maakt u instellen en gebruiken van Azure [logboekanalyse](/azure/log-analytics/log-analytics-overview) elastische pools en databases bewaken. Deze zelfstudie bouwt voort op de [prestaties bewaking en beheer zelfstudie](saas-dbpertenant-performance-monitoring.md). Er wordt weergegeven hoe Log Analytics gebruiken voor het verbeteren van de bewaking en waarschuwingen die zijn opgegeven in de Azure-portal. Log Analytics ondersteunt bewaking duizenden elastische pools en honderden of duizenden databases. Log Analytics biedt een enkel bewakingsoplossing, die bewaking van andere toepassingen en Azure-services over meerdere Azure-abonnementen kunt integreren.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Installeren en configureren van logboekanalyse (Operations Management Suite).
+> * Installeren en configureren van logboekanalyse.
 > * Log Analytics gebruiken voor het bewaken van toepassingen en databases.
 
 U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt voldaan:
@@ -34,11 +34,11 @@ U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt vold
 
 Zie de [prestaties bewaking en beheer zelfstudie](saas-dbpertenant-performance-monitoring.md) voor een beschrijving van de SaaS-scenario's en gebruikspatronen en invloed op de vereisten voor een oplossing voor controle.
 
-## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite"></a>Bewaken en beheren van de database en de elastische pool prestaties met logboekanalyse of Operations Management Suite
+## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics"></a>Bewaken en beheren van de database en de elastische pool-prestaties met Log Analytics
 
 Bewaking en waarschuwingen is beschikbaar op de databases en opslaggroepen in de Azure-portal voor Azure SQL Database. Deze ingebouwde bewaking en waarschuwingen is handig, maar het is ook resource-specifieke. Dit betekent dat het minder goed geschikt als u wilt bewaken van grote installaties of voorzien in een uniform overzicht resources en abonnementen.
 
-U kunt Log Analytics voor scenario's met hoog volume gebruiken voor bewaking en waarschuwingen. Log Analytics is een afzonderlijke Azure-service waarmee analytics via diagnostische logboeken en telemetrie die worden verzameld in een werkruimte mogelijk veel services. Log Analytics biedt een ingebouwde query taal en gegevens visualisatie hulpprogramma's waarmee operationele gegevensanalyse. De SQL-Analytics-oplossing biedt verschillende vooraf gedefinieerde elastische pool en database bewaken en waarschuwen weergaven en query's. Operations Management Suite biedt ook een aangepaste weergave-ontwerper.
+U kunt Log Analytics voor scenario's met hoog volume gebruiken voor bewaking en waarschuwingen. Log Analytics is een afzonderlijke Azure-service waarmee analytics via diagnostische logboeken en telemetrie die worden verzameld in een werkruimte mogelijk veel services. Log Analytics biedt een ingebouwde query taal en gegevens visualisatie hulpprogramma's waarmee operationele gegevensanalyse. De SQL-Analytics-oplossing biedt verschillende vooraf gedefinieerde elastische pool en database bewaken en waarschuwen weergaven en query's. Log Analytics biedt ook een aangepaste weergave-ontwerper.
 
 Log Analytics-werkruimten en -analyse oplossingen openen in de Azure-portal en in de Operations Management Suite. De Azure-portal is het nieuwe toegangspunt, maar mogelijk achter in bepaalde gebieden van de Operations Management Suite-portal.
 
@@ -129,9 +129,9 @@ Open in deze oefening Log Analytics en de Operations Management Suite-portal om 
 
 U kunt de logboek- en meetwaarde op die gegevens in de werkruimte verder verkennen in de Operations Management Suite-portal. 
 
-Bewaking en waarschuwingen in Log Analytics en Operations Management Suite zijn gebaseerd op query's over de gegevens in de werkruimte, in tegenstelling tot de waarschuwingen voor elke resource in de Azure-portal gedefinieerd. Door waarschuwingen op query's als uitgangspunt, kunt u één waarschuwing die er ongeveer via alle databases in plaats van definiërende één per database uitziet definiëren. Query's zijn alleen beperkt door de gegevens die beschikbaar zijn in de werkruimte.
+Bewaking en waarschuwingen in logboekanalyse zijn gebaseerd op query's over de gegevens in de werkruimte, in tegenstelling tot de waarschuwingen voor elke resource in de Azure-portal gedefinieerd. Door waarschuwingen op query's als uitgangspunt, kunt u één waarschuwing die er ongeveer via alle databases in plaats van definiërende één per database uitziet definiëren. Query's zijn alleen beperkt door de gegevens die beschikbaar zijn in de werkruimte.
 
-Zie voor meer informatie over het gebruik van Operations Management Suite wilt opvragen en waarschuwingen instellen [werken met regels voor waarschuwingen in logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Zie voor meer informatie over het gebruik van logboekanalyse doorzoeken en waarschuwingen instellen [werken met regels voor waarschuwingen in logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 Log Analytics voor SQL-Database kosten op basis van het gegevensvolume in de werkruimte. In deze zelfstudie maakt u gemaakt een gratis werkruimte die is beperkt tot 500 MB per dag. Nadat deze limiet is bereikt, wordt niet meer gegevens toegevoegd aan de werkruimte.
 
@@ -141,7 +141,7 @@ Log Analytics voor SQL-Database kosten op basis van het gegevensvolume in de wer
 In deze zelfstudie hebt u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Installeren en configureren van logboekanalyse (Operations Management Suite).
+> * Installeren en configureren van logboekanalyse.
 > * Log Analytics gebruiken voor het bewaken van toepassingen en databases.
 
 Probeer de [Tenant analytics zelfstudie](saas-dbpertenant-log-analytics.md).
@@ -150,4 +150,3 @@ Probeer de [Tenant analytics zelfstudie](saas-dbpertenant-log-analytics.md).
 
 * [Aanvullende zelfstudies die zijn gebaseerd op de implementatie van de eerste Wingtip Tickets SaaS-toepassing van de database per tenant](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
-* [Operations Management Suite](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)

@@ -1,28 +1,23 @@
 ---
-title: Azure Functions uitvoeren met Azure Stream Analytics-taken | Microsoft Docs
-description: Informatie over het configureren van Azure Functions als uitvoerlocatie aan Stream Analytics-taken.
-keywords: gegevens uitvoert, streamen van gegevens van Azure-functie
-documentationcenter: 
+title: Azure Functions uitvoeren vanaf Azure Stream Analytics-taken
+description: In dit artikel wordt beschreven hoe het configureren van Azure Functions als uitvoerlocatie in Stream Analytics-taken voor de werkbelasting van de gebeurtenis-station.
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 manager: kfile
-ms.assetid: 
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: sngun
-ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren met Azure Stream Analytics-taken 
+# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren vanaf Azure Stream Analytics-taken 
 
-U kunt Azure Functions uitvoeren met Azure Stream Analytics door functies te configureren als een van de PUT uitvoer naar de Stream Analytics-taak. Functies is een gebeurtenisafhankelijke, compute-on-demand-ervaring waarmee u de code die wordt geactiveerd door gebeurtenissen in Azure of services van derden implementeren. Deze mogelijkheid van functies om te reageren op triggers wordt het een natuurlijke uitvoer voor Stream Analytics-taken.
+U kunt Azure Functions uitvoeren vanaf Azure Stream Analytics door functies te configureren als een van de PUT uitvoer naar de Stream Analytics-taak. Functies zijn een gebeurtenisafhankelijke, compute-on-demand-ervaring waarmee u de code die wordt geactiveerd door gebeurtenissen in Azure of services van derden implementeren. Deze mogelijkheid van functies om te reageren op triggers wordt het een natuurlijke uitvoer voor Stream Analytics-taken.
 
 Stream Analytics roept functies via HTTP-triggers. De uitvoeradapter van de functies kan gebruikers verbinding maken functies met Stream Analytics, zodat de gebeurtenissen kunnen worden geactiveerd op basis van de Stream Analytics query's. 
 

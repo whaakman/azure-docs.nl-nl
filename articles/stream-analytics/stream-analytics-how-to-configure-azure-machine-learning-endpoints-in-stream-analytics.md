@@ -1,24 +1,19 @@
 ---
-title: Gebruik van Azure Machine Learning-eindpunten in Stream Analytics | Microsoft Docs
-description: Taal van de machine door de gebruiker gedefinieerde functies in Stream Analytics
-keywords: ''
-documentationcenter: ''
+title: Machine Learning-eindpunten in Azure Stream Analytics gebruiken
+description: In dit artikel wordt beschreven hoe Machine taal door de gebruiker gedefinieerde functies gebruiken in Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: a7d76d6015f8e9f08d3493b1c1e237858c341592
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: bdc6041258e4a5ecf602d19c0d912918f86af313
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Machine Learning-integratie in Stream Analytics
 Stream Analytics ondersteunt de gebruiker gedefinieerde functies met Azure Machine Learning-eindpunten roepen. REST-API-ondersteuning voor deze functie wordt beschreven in de [REST-API voor Stream Analytics-bibliotheek](https://msdn.microsoft.com/library/azure/dn835031.aspx). In dit artikel biedt extra informatie die nodig zijn voor een succesvolle implementatie van deze mogelijkheid in Stream Analytics. Een zelfstudie is ook geplaatst en is beschikbaar [hier](stream-analytics-machine-learning-integration-tutorial.md).

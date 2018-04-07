@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -70,7 +70,7 @@ De **modus** bepaalt welke resourcetypen wordt geëvalueerd voor een beleid. De 
 * `all`: resourcegroepen en alle brontypen evalueren 
 * `indexed`: alleen evalueren brontypen die ondersteuning bieden voor labels en locatie
 
-We raden u aan **modus** naar `all` in de meeste gevallen. Alle beleidsdefinities gemaakt via de portal de `all` modus. Als u PowerShell of Azure CLI gebruiken, moet u opgeven de **modus** parameter handmatig.
+We raden u aan **modus** naar `all` in de meeste gevallen. Alle beleidsdefinities gemaakt via de portal de `all` modus. Als u PowerShell of Azure CLI gebruiken, moet u opgeven de **modus** parameter handmatig. Als de beleidsdefinitie geen bevat een **modus** waarde wordt standaard ingesteld op `indexed` voor achterwaartse compatibiliteit.
 
 `indexed` moet worden gebruikt wanneer u beleidsregels maken die wordt afgedwongen tags of locaties. Dit is niet vereist, maar kan resources die geen ondersteuning bieden voor tags en locaties niet worden weergegeven als niet-compatibel in de nalevingsresultaten van de. De enige uitzondering hierop vormt **resourcegroepen**. Beleidsregels die u probeert om af te dwingen locatie of labels van een resourcegroep moeten ingesteld **modus** naar `all` en specifiek doel van de `Microsoft.Resources/subscriptions/resourceGroup` type. Zie voor een voorbeeld [afdwingen resource group-tags](scripts/enforce-tag-rg.md).
 
@@ -102,6 +102,8 @@ U kunt gebruiken in de van metagegevenseigenschap **strongType** om te voorzien 
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 In de beleidsregel verwijzen naar parameters met de volgende syntaxis:
 

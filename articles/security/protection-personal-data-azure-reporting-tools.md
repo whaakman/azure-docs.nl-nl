@@ -6,7 +6,7 @@ documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc859f3aa34531133b7a21e36591b011c63d511c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Beveiliging voor documenten van persoonlijke gegevens met Azure-hulpprogramma's voor rapportage
 
@@ -95,13 +95,13 @@ Analyseprogramma's in logboekanalyse zoals logboek zoekopdrachten, weergaven en 
 
 #### <a name="how-do-i-use-log-analytics"></a>Hoe gebruik ik Log Analytics
 
-Log Analytics is toegankelijk via de OMS-portal of de Azure-portal, via elke webbrowser. Log Analytics ondersteunt een querytaal voor het snel ophalen en samenvoegen van gegevens in de opslagplaats. U kunt maken en opslaan van logboekbestanden zoekopdrachten rechtstreeks om gegevens te analyseren in de portal.
+Log Analytics is toegankelijk via de OMS-portal of de Azure-portal, via elke webbrowser. Log Analytics bevat een querytaal om snel te ophalen en samenvoegen van gegevens in de werkruimte voor logboekanalyse. U kunt maken en opslaan van logboekbestanden zoekopdrachten rechtstreeks om gegevens te analyseren in de portal.
 
 Voor het maken van een werkruimte voor logboekanalyse in de Azure portal, het volgende doen:
 
 1. Selecteer **logboekanalyse** uit de lijst met services in de Marketplace.
 
-2. Selecteer **maken,** Geef de naam van de OMS-werkruimte, selecteert u uw abonnement, resourcegroep, locatie en prijscategorie.
+2. Selecteer **maken,** Geef de naam van de werkruimte voor logboekanalyse, selecteert u uw abonnement, resourcegroep, locatie en prijscategorie.
 
 3. Klik op **OK** om een lijst met uw werkruimten weer te geven.
 

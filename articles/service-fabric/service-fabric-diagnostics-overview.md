@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: b7bd5ce879e5119417a24879c875915245f9070b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 03fa2862bbce39ac9ee6b7da02bd93b02b05f216
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Controle en diagnostische gegevens voor Azure Service Fabric
 
@@ -68,7 +68,7 @@ Het Service Fabric-platform omvat een statusmodel, wat zorgt voor extensible de 
 
 ![SFX health dashboard](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-Naast de meest recente statusrapporten in SFX ziet, is elk rapport ook beschikbaar als een gebeurtenis. Health-gebeurtenissen kunnen worden verzameld via het operationele kanaal (Zie [gebeurtenis aggregatie met Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)), en opgeslagen in OMS Log Analytics voor waarschuwingen en gegevensquery's in de toekomst. Dit helpt u problemen die mogelijk van invloed op de beschikbaarheid van uw toepassing, zodat het is raadzaam dat u waarschuwingen voor scenario's juiste fouten (aangepaste waarschuwingen via OMS instellen) detecteren.
+Naast de meest recente statusrapporten in SFX ziet, is elk rapport ook beschikbaar als een gebeurtenis. Health-gebeurtenissen kunnen worden verzameld via het operationele kanaal (Zie [gebeurtenis aggregatie met Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)), en opgeslagen in Log Analytics voor waarschuwingen en gegevensquery's in de toekomst. Dit helpt u problemen die mogelijk van invloed op de beschikbaarheid van uw toepassing, zodat het is raadzaam dat u waarschuwingen voor scenario's juiste fouten (aangepaste waarschuwingen via Log Analytics instellen) detecteren.
 
 ## <a name="other-logging-solutions"></a>Andere oplossingen voor logboekregistratie
 

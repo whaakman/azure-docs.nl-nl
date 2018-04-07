@@ -1,12 +1,12 @@
 ---
 title: Wijzigen van een beschikbaarheidsset VMs | Microsoft Docs
 description: Informatie over het wijzigen van de beschikbaarheidsset voor uw virtuele machines met behulp van Azure PowerShell en het Resource Manager-implementatiemodel.
-keywords: 
+keywords: ''
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 44c90f90-bc9a-4260-a36f-5465e2a1ef94
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
-ms.openlocfilehash: c10c947b6fc0737a7b9fba6b7f3efcae1f96638b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 938614d7427f691dcacbafa324694a9a7f37d3ca
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Wijzig de beschikbaarheidsset voor een virtuele machine van Windows
 De volgende stappen beschrijven het wijzigen van de beschikbaarheidsset van een virtuele machine met Azure PowerShell. Een virtuele machine kan alleen worden toegevoegd aan een beschikbaarheidsset wanneer deze wordt gemaakt. Wijzigen van de beschikbaarheid instellen, moet u verwijderen en opnieuw maken van de virtuele machine. 
@@ -47,7 +47,7 @@ De volgende stappen beschrijven het wijzigen van de beschikbaarheidsset van een 
     $vm.NetworkProfile.NetworkInterfaces[0].Id
     ```
    
-    Profiel van de Besturingssysteemschijf
+    OS Disk Profile
    
     ```powershell
     $vm.StorageProfile.OsDisk.OsType

@@ -4,7 +4,7 @@ description: Een route gebaseerde VPN-Gateway met de Azure portal gebruiken om s
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2d6133e974e24c8c4f769995d8245b30a29a3983
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 550f655f6eac5a114636978255578eb3753e0d4b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Maken van een route gebaseerde VPN-gateway met de Azure portal
 
@@ -42,7 +42,7 @@ De stappen in dit artikel maakt u een VNet, een subnet, een gatewaysubnet en een
   - **Subnet**: Frontend
   - **-Adresbereik**: 10.1.0.0/24
 
-  ![Pagina Virtueel netwerk maken](./media/create-routebased-vpn-gateway-portal/vnet1.png "Pagina Virtueel netwerk maken")
+  ![Pagina Virtueel netwerk maken](./media/create-routebased-vpn-gateway-portal/create-virtual-network.png "Pagina Virtueel netwerk maken")
 5. Na het invoeren van de waarden, selecteer **vastmaken aan dashboard** gemakkelijker te vinden van uw VNet op het dashboard en klik vervolgens op **maken**. Wanneer u op **maken**, ziet u een tegel op uw dashboard die overeenkomt met de voortgang van uw VNet. De tegel wordt gewijzigd wanneer het VNet wordt gemaakt.
 
 ## <a name="gwsubnet"></a>Een gatewaysubnet toevoegen
@@ -53,17 +53,17 @@ Het gatewaysubnet bevat de gereserveerde IP-adressen die gebruikmaken van de ser
 2. Klik op de pagina virtuele netwerk op **subnetten** uit te breiden **VNet1 - subnetten** pagina.
 3. Klik op **+ gatewaysubnet** boven openen de **subnet toevoegen** pagina.
 
-  ![Het gatewaysubnet toevoegen](./media/create-routebased-vpn-gateway-portal/gateway_subnet.png "Het gatewaysubnet toevoegen")
+  ![Het gatewaysubnet toevoegen](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Het gatewaysubnet toevoegen")
 4. De **naam** voor uw subnet wordt automatisch gevuld met de vereiste waarde 'GatewaySubnet'. Aanpassen automatisch gevuld **-adresbereik** in overeenstemming met de volgende waarden:
 
   **-Adresbereik (CIDR-blok)**: 10.1.255.0/27
 
-  ![Het gatewaysubnet toevoegen](./media/create-routebased-vpn-gateway-portal/add_gw_subnet.png "Het gatewaysubnet toevoegen")
+  ![Het gatewaysubnet toevoegen](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Het gatewaysubnet toevoegen")
 5. Klik op om het gatewaysubnet **OK** aan de onderkant van de pagina.
 
 ## <a name="gwvalues"></a>Gateway-instellingen configureren
 
-1. Aan de linkerkant van de portal-pagina, klikt u op **+ maken van een resource** en 'Virtuele netwerkgateway' typt in het zoekvak. Zoek in **Resultaten** naar **Virtuele netwerkgateway** en klik hierop.
+1. Aan de linkerkant van de portal-pagina, klikt u op **+ maken van een resource** en het type 'Virtuele netwerkgateway' in het zoekvak, vervolgens drukt u op **Enter**. Zoek in **Resultaten** naar **Virtuele netwerkgateway** en klik hierop.
 2. Klik onder aan de pagina virtuele-netwerkgateway op **maken** openen de **virtuele netwerkgateway aanmaken** pagina.
 3. Vul op de pagina **Virtuele netwerkgateway maken** de waarden in voor de gateway van het virtuele netwerk.
 
@@ -74,7 +74,7 @@ Het gatewaysubnet bevat de gereserveerde IP-adressen die gebruikmaken van de ser
   - **Locatie**: VS-Oost
   - **Virtueel netwerk**: klik op **virtueel netwerk kiezen een virtueel netwerk** openen de **Kies een virtueel netwerk** pagina. Selecteer **VNet1**.
 
-  ![Gateway-instellingen configureren](./media/create-routebased-vpn-gateway-portal/configure_gw.png "gateway-instellingen configureren")
+  ![Gateway-instellingen configureren](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "gateway-instellingen configureren")
 
 ## <a name="pip"></a>Een openbaar IP-adres maken
 
@@ -82,21 +82,21 @@ Een VPN-gateway moet een dynamisch toegewezen openbare IP-adres hebben. Wanneer 
 
 1. Selecteer **IP-configuratie van eerste IP-configuratie maken gateway** om aan te vragen van een openbaar IP-adres.
 
-  ![Eerste IP-configuratie](./media/create-routebased-vpn-gateway-portal/ip.png "eerste IP-configuratie")
+  ![Eerste IP-configuratie](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "eerste IP-configuratie")
 2. Op de **het openbare IP-pagina kiezen**, klikt u op **+ nieuw** openen de **openbare IP-adres maken** pagina.
 3. Configureer de instellingen met de volgende waarden:
 
-  - **Name**: **VNet1GWPIP**
+  - **Naam**: **VNet1GWIP**
   - **SKU**: **Basic**
 
-  ![Openbaar IP maken](./media/create-routebased-vpn-gateway-portal/gw_ip.png "PIP maken")
+  ![Openbaar IP maken](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "PIP maken")
 4. Klik op **OK** onder aan deze pagina uw wijzigingen op te slaan.
 
 ## <a name="creategw"></a>De VPN-gateway maken
 
 1. Controleer de instellingen op de **virtuele netwerkgateway aanmaken** pagina. Waarden aanpassen indien nodig.
 
-  ![VPN-gateway maken](./media/create-routebased-vpn-gateway-portal/create_gw.png "maken VPN-gateway")
+  ![VPN-gateway maken](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "maken VPN-gateway")
 2. Klik op **maken** aan de onderkant van de pagina.
 
 Nadat u op **maken**, de instellingen worden gevalideerd en de **implementeren van virtuele netwerkgateway** tegel wordt weergegeven op het dashboard. Een VPN-gateway kan tot 45 minuten duren. U moet mogelijk uw portal-pagina vernieuwen om de voltooide status te kunnen zien.
@@ -105,17 +105,17 @@ Nadat u op **maken**, de instellingen worden gevalideerd en de **implementeren v
 
 1. Nadat de gateway is gemaakt, gaat u naar VNet1 in de portal. De VPN-gateway wordt weergegeven op de pagina overzicht als aangesloten apparaat.
 
-  ![Verbonden apparaten](./media/create-routebased-vpn-gateway-portal/connected_devices.png "verbonden apparaten")
+  ![Verbonden apparaten](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "verbonden apparaten")
 
 2. Klik in de lijst met apparaten op **VNet1GW** voor meer informatie.
 
-  ![Weergave VPN-gateway](./media/create-routebased-vpn-gateway-portal/view_gw2.png "weergave VPN-gateway")
+  ![Weergave VPN-gateway](./media/create-routebased-vpn-gateway-portal/view-gateway.png "weergave VPN-gateway")
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zodra de gateway is klaar met het maken, kunt u een verbinding tussen uw virtuele netwerk en een andere VNet. Of maak een verbinding tussen uw virtuele netwerk en een on-premises locatie.
 
 > [!div class="nextstepaction"]
-> [Maak een site-naar-site-verbinding](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> [maken van een punt-naar-site-verbinding](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> [geen verbinding maken met een andere VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> [Maak een site-naar-site-verbinding](vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br><br>
+> [Maak een punt-naar-site-verbinding](vpn-gateway-howto-point-to-site-resource-manager-portal.md)<br><br>
+> [Maak een verbinding met een andere VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

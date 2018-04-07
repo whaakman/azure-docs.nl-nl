@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 79c5d70d201b54e7ca1c8d421a5f0dc5e6b53bcd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d981ffc9a0053ed8bf2d49f386f7c1c82d50c907
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Het maken van een virtuele Linux-machine in Azure met meerdere netwerk netwerkinterfacekaarten
 U kunt een virtuele machine (VM) maken in Azure met meerdere virtuele netwerkinterfaces (NIC's) is gekoppeld. Een veelvoorkomend scenario is om verschillende subnetten voor front-end en back-end-verbinding of een netwerk dat is toegewezen aan een oplossing met bewaking of back-up. Dit artikel wordt uitgelegd hoe een virtuele machine maken met meerdere NIC's gekoppeld en hoe toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig.
@@ -100,6 +100,8 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
+Routeringstabellen toevoegen aan het gastbesturingssysteem via de stappen in [het gastbesturingssysteem configureren voor meerdere NIC's](#configure-guest-os-for- multiple-nics).
+
 ## <a name="add-a-nic-to-a-vm"></a>Een NIC toevoegen aan een virtuele machine
 De vorige stappen kunt u een virtuele machine met meerdere NIC's gemaakt. U kunt ook NIC's toevoegen aan een bestaande virtuele machine met de Azure CLI 2.0. Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig. Indien nodig, kunt u [vergroten of verkleinen van een virtuele machine](change-vm-size.md).
 
@@ -135,6 +137,8 @@ Start de virtuele machine met [az vm start](/cli/azure/vm#az_vm_start):
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
+
+Routeringstabellen toevoegen aan het gastbesturingssysteem via de stappen in [het gastbesturingssysteem configureren voor meerdere NIC's](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Een NIC van een virtuele machine verwijderen
 Als u wilt verwijderen een NIC van een bestaande virtuele machine, met de virtuele machine eerst ongedaan [az vm ongedaan](/cli/azure/vm#az_vm_deallocate). Het volgende voorbeeld de virtuele machine met de naam deallocates *myVM*:
@@ -179,6 +183,7 @@ U kunt ook een `copyIndex()` toe te voegen vervolgens een nummer aan de naam van
 
 U kunt een compleet voorbeeld van lezen [meerdere NIC's met behulp van Resource Manager-sjablonen maken](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+Routeringstabellen toevoegen aan het gastbesturingssysteem via de stappen in [het gastbesturingssysteem configureren voor meerdere NIC's](#configure-guest-os-for- multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configureren van Gast OS voor meerdere NIC 's
 Wanneer u meerdere NIC's aan een Linux-VM toevoegt, moet u routeringsregels maken. Met deze regels kunt de virtuele machine te verzenden en ontvangen van verkeer dat tot een specifieke NIC. behoort Anders wordt het verkeer dat hoort bij *eth1*, niet bijvoorbeeld correct worden verwerkt door de gedefinieerde standaardroute.

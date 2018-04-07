@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Beveiliging Frame: Cryptografie | Oplossingen 
 | Product/Service | Artikel |
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/05/2018
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
-| **Stappen** | <p>Producten moeten goedgekeurde genereren van willekeurige nummer gebruiken. Pseudo-willekeurige functies zoals de rand C runtime-functie, de .NET Framework-klasse System.Random of systeemfuncties zoals GetTickCount moeten daarom nooit worden gebruikt in deze code toebehoort. Gebruik van het dubbele elliptische algoritme willekeurige getallen generator (DUAL_EC_DRBG) is niet toegestaan</p><ul><li>**CNG -** BCryptGenRandom (gebruik van de aanbevolen, tenzij de aanroeper mogelijk worden uitgevoerd op een groter dan 0 [dat wil zeggen, PASSIVE_LEVEL] IRQL BCRYPT_USE_SYSTEM_PREFERRED_RNG-vlag)</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64-** RtlGenRandom (nieuwe implementaties moeten gebruiken BCryptGenRandom of CryptGenRandom) * rand_s * SystemPrng (voor kernelmodus)</li><li>**. NET -** RNGCryptoServiceProvider of RNGCng</li><li>**Windows Store-Apps -** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom of. GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+) -** int SecRandomCopyBytes (willekeurige SecRandomRef size_t telling, uint8_t *bytes)</li><li>** Apple OS X (< 10.7)-** gebruik/dev/willekeurige voor het ophalen van willekeurige getallen</li><li>**Java(including Google Android Java code) -** java.security.SecureRandom-klasse. Voor Android 4.3 (geleiproducten Bean) ontwikkelaars moeten Volg de aanbevolen oplossing Android en hun toepassingen initialiseren expliciet de PRNG met entropie van /dev/urandom of /dev/random bijwerken</li></ul>|
+| **Stappen** | <p>Producten moeten goedgekeurde genereren van willekeurige nummer gebruiken. Pseudo-willekeurige functies zoals de rand C runtime-functie, de .NET Framework-klasse System.Random of systeemfuncties zoals GetTickCount moeten daarom nooit worden gebruikt in deze code toebehoort. Gebruik van het dubbele elliptische algoritme willekeurige getallen generator (DUAL_EC_DRBG) is niet toegestaan</p><ul><li>**CNG -** BCryptGenRandom (gebruik van de aanbevolen, tenzij de aanroeper mogelijk worden uitgevoerd op een groter dan 0 [dat wil zeggen, PASSIVE_LEVEL] IRQL BCRYPT_USE_SYSTEM_PREFERRED_RNG-vlag)</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64-** RtlGenRandom (nieuwe implementaties moeten gebruiken BCryptGenRandom of CryptGenRandom) * rand_s * SystemPrng (voor kernelmodus)</li><li>**. NET -** RNGCryptoServiceProvider of RNGCng</li><li>**Windows Store-Apps -** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom of. GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+) -** int SecRandomCopyBytes (willekeurige SecRandomRef size_t telling, uint8_t \*bytes)</li><li>**Apple OS X (< 10.7)-** gebruik/dev/willekeurige voor het ophalen van willekeurige getallen</li><li>**Java(including Google Android Java code) -** java.security.SecureRandom-klasse. Voor Android 4.3 (geleiproducten Bean) ontwikkelaars moeten Volg de aanbevolen oplossing Android en hun toepassingen initialiseren expliciet de PRNG met entropie van /dev/urandom of /dev/random bijwerken</li></ul>|
 
 ## <a id="stream-ciphers"></a>Gebruik geen symmetrische stroom coderingen
 

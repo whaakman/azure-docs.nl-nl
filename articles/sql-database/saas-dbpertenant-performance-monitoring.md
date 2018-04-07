@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f76a9f0aa5e68e729c67dad52f6dae4e01fdb56a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Bewaken en beheren van de prestaties van Azure SQL-databases en opslaggroepen in een multitenant SaaS-app
 
@@ -54,7 +54,7 @@ Groepen en de databases in groepen, moeten worden gecontroleerd om te controlere
 
 [Azure Portal](https://portal.azure.com) biedt ingebouwde functionaliteit voor bewaking en waarschuwingen voor de meeste resources. Voor SQL Database zijn bewaking en waarschuwingen beschikbaar voor databases en pools. Deze ingebouwde bewaking en waarschuwingen is resource-specifieke, zodat dit is handig voor kleine hoeveelheden van resources, maar is niet erg handig als u werkt met veel resources.
 
-Voor grote hoeveelheden scenario's waarin u met veel resources werkt, [logboekanalyse (OMS)](saas-dbpertenant-log-analytics.md) kan worden gebruikt. Dit is een afzonderlijke Azure-service die in analyse via verzonden diagnostische logboeken en telemetrie verzameld in een log analytics-werkruimte voorziet. Log Analytics telemetriegegevens kan verzamelen van veel services en worden gebruikt om te vragen en waarschuwingen instellen.
+Voor grote hoeveelheden scenario's waarin u met veel resources werkt, [logboekanalyse](saas-dbpertenant-log-analytics.md) kan worden gebruikt. Dit is een afzonderlijke Azure-service die in analyse via verzonden diagnostische logboeken en telemetrie verzameld in een log analytics-werkruimte voorziet. Log Analytics telemetriegegevens kan verzamelen van veel services en worden gebruikt om te vragen en waarschuwingen instellen.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>De toepassingsscripts Wingtip Tickets SaaS Database Per Tenant ophalen
 

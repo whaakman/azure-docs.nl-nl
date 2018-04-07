@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: fe0ef5c81b1ef6bef298e65cde3649c9464089d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 Maken, verwijderen en beheren van toepassingen en die van toepassing.
@@ -46,7 +46,7 @@ Maken, verwijderen en beheren van toepassingen en die van toepassing.
 | upgrade hervatten  | Hervat een upgrade van een toepassing in het Service Fabric-cluster.|
 | upgrade-rollback| Start het terugdraaien van de momenteel continu upgrade van een toepassing in het Service Fabric-cluster.|
 | upgrade-status  | Hiermee wordt informatie opgehaald voor de meest recente upgrade uitgevoerd voor deze toepassing.|
-| Uploaden       | Een Service Fabric-toepassing-pakket kopiëren naar de image store.|
+| uploaden       | Een Service Fabric-toepassing-pakket kopiëren naar de image store.|
 
 ## <a name="sfctl-application-create"></a>sfctl toepassing maken
 Hiermee maakt een Service Fabric-toepassing met behulp van de opgegeven beschrijving.
@@ -143,7 +143,7 @@ Retourneert de Health-status van de service fabric-toepassing. Het antwoord rapp
 | --debug                                 | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                               | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                             | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
-| --query                                 | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie.|
+| --query                                 | JMESPath queryreeks. Zie voor meer informatie http://jmespath.org/.|
 | --uitgebreide                               | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="sfctl-application-info"></a>toepassingsgegevens sfctl
@@ -166,7 +166,7 @@ Retourneert de gegevens over de toepassing die is gemaakt of die momenteel wordt
 | --debug                      | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                    | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                  | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.             Standaard: json.|
-| --query                      | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie.|
+| --query                      | JMESPath queryreeks. Zie voor meer informatie http://jmespath.org/.|
 | --uitgebreide                    | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="sfctl-application-list"></a>lijst met sfctl-toepassingen
@@ -212,7 +212,7 @@ Retourneert de load-informatie over de toepassing die is gemaakt of die momentee
 |--debug                    | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
     --help -h                  | Deze help-bericht en afsluiten weergeven.|
     --uitvoer -o                | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
-    --query                    | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie.|
+    --query                    | JMESPath queryreeks. Zie voor meer informatie http://jmespath.org/.|
     --uitgebreide                  | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="sfctl-application-manifest"></a>sfctl-toepassingsmanifest
@@ -235,15 +235,13 @@ Het manifest met een beschrijving van een toepassingstype opgehaald. Het antwoor
 | --debug                           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                         | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                       | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.                  Standaard: json.|
-| --query                           | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie.|
+| --query                           | JMESPath queryreeks. Zie voor meer informatie http://jmespath.org/.|
 | --uitgebreide                         | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="sfctl-application-provision"></a>sfctl toepassing inrichten
 Bepalingen of registers typt u een Service Fabric-toepassing met het cluster met behulp van het pakket SFPKG in de externe opslag of het gebruik van het toepassingspakket in de image store.
 
-Voorziet in een type Service Fabric-toepassing met het cluster. Dit is vereist voordat de nieuwe toepassingen kunnen worden gemaakt. De inrichtingsbewerking kan worden uitgevoerd op het toepassingspakket dat is opgegeven met de relativePathInImageStore, of met behulp van de URI van de externe SFPKG. Tenzij--externe-provision is ingesteld, verwacht deze opdracht installatiekopieopslag
-
-inrichten.
+Voorziet in een type Service Fabric-toepassing met het cluster. Dit is vereist voordat de nieuwe toepassingen kunnen worden gemaakt. De inrichtingsbewerking kan worden uitgevoerd op het toepassingspakket dat is opgegeven met de relativePathInImageStore, of met behulp van de URI van de externe SFPKG. Tenzij--externe-provision is ingesteld, levert deze opdracht het toepassingspakket van de image store.
         
 
 
@@ -266,7 +264,7 @@ inrichten.
 | --debug                              | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                            | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                          | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
-| --query                              | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie.|
+| --query                              | JMESPath queryreeks. Zie voor meer informatie http://jmespath.org/.|
 | --uitgebreide                            | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="sfctl-application-type"></a>toepassingstype sfctl
@@ -317,7 +315,7 @@ Verwijdert of heft de registratie van een Service Fabric-toepassingstype uit het
 | --debug                           | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                         | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o                       | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.                  Standaard: json.|
-| --query                           | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie.|
+| --query                           | JMESPath queryreeks. Zie voor meer informatie http://jmespath.org/.|
 | --uitgebreide                         | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="sfctl-application-upgrade"></a>upgrade van de toepassing sfctl
@@ -377,7 +375,7 @@ Bezig met uploaden voor elk bestand eventueel weergeven in het pakket. Uploaden 
 | --debug       | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h     | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o   | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
-| --query       | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie.|
+| --query       | JMESPath queryreeks. Zie voor meer informatie http://jmespath.org/.|
 | --uitgebreide     | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="next-steps"></a>Volgende stappen

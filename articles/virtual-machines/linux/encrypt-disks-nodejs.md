@@ -2,12 +2,12 @@
 title: Schijven op een Linux-VM met de Azure CLI 1.0 versleutelen | Microsoft Docs
 description: Het coderen van schijven op een Linux-VM met de Azure CLI 1.0 en de Resource Manager-implementatiemodel
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/06/2017
 ms.author: iainfou
-ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1704ba37b1d2acc595cb0c354b22bfcf1c57036
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10"></a>Versleutelen van schijven op een Linux-VM met behulp van de Azure CLI 1.0
 Voor de uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtuele schijven in Azure worden versleuteld in rust. Schijven worden versleuteld met behulp van de cryptografische sleutels die worden beveiligd in een Azure Sleutelkluis. U kunt het gebruik ervan controleren en beheren van deze cryptografische sleutels. Dit artikel wordt uitgelegd hoe u voor het versleutelen van virtuele schijven op een Linux-VM met de Azure CLI 1.0 en de Resource Manager-implementatiemodel.
@@ -239,7 +239,7 @@ azure vm show-disk-encryption-status --resource-group myResourceGroup --name myV
 ```
 
 
-## <a name="encrypt-virtual-disks"></a>Versleutelen van virtuele schijven
+## <a name="encrypt-virtual-disks"></a>Virtuele schijven versleutelen
 Als u wilt coderen nu de virtuele schijven, brengt u samen de eerdere onderdelen:
 
 1. Geef de Azure Active Directory-toepassing en het wachtwoord.

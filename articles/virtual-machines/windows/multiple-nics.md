@@ -2,10 +2,10 @@
 title: Maken en beheren van Windows-virtuele machines in Azure met meerdere NIC's | Microsoft Docs
 description: Informatie over het maken en beheren van een Windows-VM met meerdere NIC's gekoppeld met behulp van Azure PowerShell of de Resource Manager-sjablonen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0f19ed89e49b34ff4b8abf5d22e7d59b89fd6d72
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Maken en beheren van een virtuele Windows-machine met meerdere NIC 's
 Virtuele machines (VM's) in Azure, kunnen meerdere virtuele netwerkinterfacekaarten (NIC's) gekoppeld aan deze hebben. Een veelvoorkomend scenario is om verschillende subnetten voor front-end en back-end-verbinding of een netwerk dat is toegewezen aan een oplossing met bewaking of back-up. Dit artikel wordt uitgelegd hoe u een virtuele machine met meerdere NIC's die zijn gekoppeld aan het maken. U leert ook hoe toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig.
@@ -116,11 +116,13 @@ Nu beginnen met het bouwen van uw VM-configuratie. Elk VM-grootte heeft een limi
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Maak ten slotte uw virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+5. Maken van uw virtuele machine met [nieuwe-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
+
+6. Routes voor secundaire NIC's toevoegen aan het besturingssysteem door de stappen in [configureren van het besturingssysteem voor meerdere NIC's](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Een NIC naar een bestaande virtuele machine toevoegen
 Als een virtuele NIC toevoegen aan een bestaande virtuele machine, u de VM ongedaan virtuele NIC toevoegen en start u de virtuele machine. Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig. Indien nodig, kunt u [vergroten of verkleinen van een virtuele machine](resize-vm.md).
@@ -175,6 +177,8 @@ Als een virtuele NIC toevoegen aan een bestaande virtuele machine, u de VM onged
     ```powershell
     Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
+
+5. Routes voor secundaire NIC's toevoegen aan het besturingssysteem door de stappen in [configureren van het besturingssysteem voor meerdere NIC's](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Een NIC van een bestaande virtuele machine verwijderen
 Als u wilt verwijderen van een virtuele NIC van een bestaande virtuele machine, toewijzing van de virtuele machine, verwijdert u de virtuele NIC en start de virtuele machine.
@@ -232,6 +236,8 @@ U kunt ook `copyIndex()` naar een nummer toevoegen aan de naam van een resource.
 ```
 
 U kunt een compleet voorbeeld van lezen [meerdere NIC's maken met Resource Manager-sjablonen](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+Routes voor secundaire NIC's toevoegen aan het besturingssysteem door de stappen in [configureren van het besturingssysteem voor meerdere NIC's](#configure-guest-os-for-multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configureren van Gast OS voor meerdere NIC 's
 

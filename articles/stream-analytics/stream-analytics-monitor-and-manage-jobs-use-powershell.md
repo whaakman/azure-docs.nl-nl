@@ -1,24 +1,19 @@
 ---
-title: Bewaken en beheren van de Stream Analytics-taken met PowerShell | Microsoft Docs
-description: Informatie over het gebruik van Azure PowerShell-cmdlets en om te controleren en beheren van de Stream Analytics-taken.
-keywords: Azure powershell, azure powershell-cmdlets, powershell-opdracht powershell-scripts
+title: Bewaken en beheren van Azure Stream Analytics-taken met behulp van PowerShell
+description: Dit artikel wordt beschreven hoe u Azure PowerShell-cmdlets en om te controleren en beheren van Azure Stream Analytics-taken.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 1dcb6f8fe9f2f26ea0bd6970134b0bec67a50aa5
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: ed47141c46259007227ed391c1e114932153de38
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Bewaken en beheren van de Stream Analytics-taken met Azure PowerShell-cmdlets
 Informatie over het controleren en beheren van resources in de Stream Analytics met Azure PowerShell-cmdlets en powershell-scripts die basic Stream Analytics-taken uitvoeren.
@@ -449,7 +444,7 @@ Azure PowerShell 1.0:
 Deze opdracht PowerShell tests de verbindingsstatus van de uitvoer van de uitvoer in StreamingJob.  
 
 ## <a name="get-support"></a>Ondersteuning krijgen
-Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
+Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

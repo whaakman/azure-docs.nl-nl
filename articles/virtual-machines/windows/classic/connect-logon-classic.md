@@ -2,9 +2,9 @@
 title: Meld u aan bij een klassieke virtuele machine in Azure | Microsoft Docs
 description: De Azure portal gebruiken om aan te melden met een Windows-virtuele machine gemaakt met het klassieke implementatiemodel.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: c35bfeaa81f89dc5a636d67ed9a2a930d689c54a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Aanmelden bij een virtuele Windows-machine via de Azure-portal
 In de Azure-portal, gebruikt u de **Connect** om te beginnen een extern bureaublad-sessie en meld u aan bij een virtuele machine van Windows.
@@ -60,10 +60,10 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 ## <a name="next-steps"></a>Volgende stappen
 * Als de **Connect** knop is niet actief of er andere problemen met de extern bureaublad-verbinding, probeert u de configuratie opnieuw ingesteld. Klik op **externe toegang opnieuw instellen** vanuit het dashboard van de virtuele machine.
 
-    ![Opnieuw instellen van externe toegang](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
+    ![Reset-remote-access](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
 
 * Probeer de fabrieksinstellingen voor problemen met het wachtwoord. Klik op **wachtwoord opnieuw instellen** aan de linkerkant van de virtuele machine dashboard onder **ondersteuning + probleemoplossing**.
 
-    ![Wachtwoord opnieuw instellen](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
+    ![Reset-password](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
 
 Als deze tips werken niet of niet wat u nodig hebt, gaat u naar [problemen met extern bureaublad-verbindingen naar een op basis van Windows Azure virtuele Machine](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Dit artikel leidt u door het opsporen en oplossen van veelvoorkomende problemen.

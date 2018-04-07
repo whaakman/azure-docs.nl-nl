@@ -1,31 +1,25 @@
 ---
-title: Stream Analytics-taken te verhogen doorvoer schalen | Microsoft Docs
-description: Informatie over het configureren van invoer partities, definitie van de query te verfijnen en het instellen van taak streaming-eenheden schalen Stream Analytics-taken.
-keywords: gegevens streaming afstemmen analytics streaming gegevensverwerking,
+title: Omhoog en buiten schalen in Azure Stream Analytics-taken
+description: In dit artikel wordt beschreven hoe een Stream Analytics-taak schalen door invoergegevens partitioneren, het afstemmen van de query en het instellen van de taak streaming-eenheden.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Azure Stream Analytics-taken voor een betere doorvoer schalen
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Een Azure Stream Analytics-taak voor een betere doorvoer schalen
 In dit artikel leest u hoe af te stemmen een Stream Analytics query voor een betere doorvoer voor Streaming Analytics-taken. U kunt de volgende handleiding voor het schalen van uw taak voor het verwerken van de hogere belasting en te profiteren van meer systeembronnen (zoals meer bandbreedte, meer CPU-bronnen, meer geheugen).
 Als een vereiste moet u mogelijk de volgende artikelen te lezen:
 -   [Streaming-eenheden begrijpen en aanpassen](stream-analytics-streaming-unit-consumption.md)
 -   [Worden taken maken](stream-analytics-parallelization.md)
-
 
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Voorbeeld 1: uw query is inherent volledig worden meerdere partities invoer
 Als uw query inherent volledig worden meerdere invoer partities is, kunt u de volgende stappen uit:
@@ -40,7 +34,6 @@ Als uw query inherent volledig worden meerdere invoer partities is, kunt u de vo
 >[!Note]
 > Kies het juiste aantal Streaming-eenheden: omdat de Stream Analytics maakt een verwerkingsknooppunt voor elke 6 SU toegevoegd, is het beste het aantal knooppunten een deler van het aantal invoer partities, zodat de partities kunnen gelijkmatig worden verdeeld over de knooppunten.
 > U hebt bijvoorbeeld uw 6 gemeten SU taak kunt bereiken 4 MB/s verwerken frequentie en het aantal invoer partitie is 4. U kunt kiezen uit te voeren van uw werk met 12 SU als u de verwerkingssnelheid van ongeveer 8 MB/s of 24 SU naar het bereiken van 16 MB/s. Vervolgens kunt u bepalen wanneer SU getal voor de taak op welke waarde als een functie van de snelheid van de invoer verhogen.
-
 
 
 ## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Voorbeeld 2 - als de query niet perfect parallelle.
@@ -150,7 +143,7 @@ En de volgende grafiek ziet een visualisatie van de relatie tussen SUs en doorvo
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Help opvragen
-Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

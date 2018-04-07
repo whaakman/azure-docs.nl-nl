@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 563d82076721a669069ba3e36df84a050188813c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Inleiding tot een multitenant SaaS-app die gebruikmaakt van het patroon database per tenant met SQL Database
 
@@ -43,7 +43,7 @@ Nadat u de app hebt geïmplementeerd, gebruik de volgende zelfstudies die zijn g
 |[Implementeren en Verken de Wingtip SaaS-toepassing](saas-dbpertenant-get-started-deploy.md)|  Implementeer en Verken de Wingtip SaaS-toepassing met uw Azure-abonnement. |
 |[Inrichten en catalogus tenants](saas-dbpertenant-provision-and-catalog.md)| Informatie over hoe de toepassing verbinding maakt met tenants met behulp van een catalogusdatabase, en hoe tenants in de catalogus worden toegewezen aan hun gegevens. |
 |[Bewaken en beheren van prestaties](saas-dbpertenant-performance-monitoring.md)| Informatie over het gebruik van de controlemogelijkheden van SQL-Database en stel meldingen wanneer drempelwaarden worden overschreden. |
-|[Monitor met Azure-logboekanalyse (Operations Management Suite)](saas-dbpertenant-log-analytics.md) | Informatie over het gebruik [logboekanalyse](../log-analytics/log-analytics-overview.md) voor het bewaken van grote hoeveelheden resources tussen meerdere pools. |
+|[Monitor met Azure Log Analytics](saas-dbpertenant-log-analytics.md) | Informatie over het gebruik [logboekanalyse](../log-analytics/log-analytics-overview.md) voor het bewaken van grote hoeveelheden resources tussen meerdere pools. |
 |[Herstellen van een enkele tenant](saas-dbpertenant-restore-single-tenant.md)| Ontdek hoe u een tenant-database naar een eerder tijdstip herstellen. Ook informatie over het om een parallelle database en de bestaande tenant-database online blijft te herstellen. |
 |[Tenant-databaseschema beheren](saas-tenancy-schema-management.md)| Informatie over het schema en het bijwerken van referentiegegevens voor alle databases van de tenant. |
 |[Cross-tenant gedistribueerde query's uitvoeren](saas-tenancy-cross-tenant-reporting.md) | Maken van een ad-hoc analytics-database en realtime gedistribueerde query's uitvoeren op alle tenants.  |

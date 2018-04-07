@@ -2,10 +2,10 @@
 title: MATLAB clusters op virtuele machines | Microsoft Docs
 description: Microsoft Azure virtuele machines gebruiken voor het maken van clusters MATLAB gedistribueerde Computing Server als u wilt uw rekenintensieve parallelle MATLAB workloads uitvoeren
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mscurrell
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: 177f8a61487130e718e3e6cfb779b17a3ed8ed69
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 695833fb12c0c7a130e98fe9b3bdfa502672ab29
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Server voor MATLAB gedistribueerde Computing clusters maken op Azure Virtual machines
 Gebruik Microsoft Azure virtuele machines te maken van een of meer MATLAB gedistribueerde Computing serverclusters als u wilt uw rekenintensieve parallelle MATLAB workloads uitvoeren. Uw Server voor MATLAB gedistribueerde Computing-software installeren op een virtuele machine wilt gebruiken als een basisinstallatiekopie en een snelstartsjabloon met de Azure- of Azure PowerShell-script (beschikbaar op [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) te implementeren en beheren van het cluster. Verbinding met het cluster aan uw werkbelastingen uitvoeren na de implementatie.

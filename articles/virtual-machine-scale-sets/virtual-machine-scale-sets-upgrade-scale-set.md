@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: cbd5b57d0cde3743c7ef70437f702536c27ac999
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Wijzigen van een virtuele-machineschaalset
 Gedurende de levenscyclus van uw toepassingen, kunt u wellicht wijzigen of bijwerken van uw virtuele-machineschaalset. Deze updates kunnen bevatten informatie over het bijwerken van de configuratie van de schaalaanpassingsset of wijzig de configuratie van de toepassing. Dit artikel wordt beschreven hoe u een bestaande schaal ingesteld met de REST-API's, Azure PowerShell of Azure CLI 2.0 wijzigt.
@@ -367,7 +367,7 @@ Bepaalde wijzigingen kunnen worden toegepast op een specifieke virtuele machines
 ## <a name="scenarios"></a>Scenario's
 
 ### <a name="application-updates"></a>Updates voor toepassingen
-Als een toepassing wordt geïmplementeerd op een schaal via uitbreidingen ingesteld, wordt een update van configuratie voor de uitbreiding in de toepassing bijwerken in overeenstemming met het Upgradebeleid. Bijvoorbeeld, als u een nieuwe versie van een script uit te voeren in een aangepaste Scriptextensie hebt, kunt u bijwerken de *fileUris* eigenschap verwijzen naar het nieuwe script. In sommige gevallen wilt u wellicht een update afdwingen, zelfs als de configuratie voor de uitbreiding is ongewijzigd ten opzichte (bijvoorbeeld, u bijgewerkt het script zonder een wijziging in de URI van het script). In dergelijke gevallen kunt u de *forceUpdateTag* om af te dwingen een update. Deze eigenschap wordt niet door de Azure-platform worden geïnterpreteerd. Als u de waarde wijzigt, is er geen invloed op hoe de uitbreiding wordt uitgevoerd. Een wijziging is gewoon zorgt ervoor dat de uitbreiding opnieuw uit te voeren. Voor meer informatie over de *forceUpdateTag*, Zie de [REST-API-documentatie voor uitbreidingen](/rest/api/compute/virtualmachineextensions/createorupdate).
+Als een toepassing wordt geïmplementeerd op een schaal via uitbreidingen ingesteld, wordt een update van configuratie voor de uitbreiding in de toepassing bijwerken in overeenstemming met het Upgradebeleid. Bijvoorbeeld, als u een nieuwe versie van een script uit te voeren in een aangepaste Scriptextensie hebt, kunt u bijwerken de *fileUris* eigenschap verwijzen naar het nieuwe script. In sommige gevallen wilt u wellicht een update afdwingen, zelfs als de configuratie voor de uitbreiding is ongewijzigd ten opzichte (bijvoorbeeld, u bijgewerkt het script zonder een wijziging in de URI van het script). In dergelijke gevallen kunt u de *forceUpdateTag* om af te dwingen een update. Deze eigenschap wordt niet door de Azure-platform worden geïnterpreteerd. Als u de waarde wijzigt, is er geen invloed op hoe de uitbreiding wordt uitgevoerd. Een wijziging is gewoon zorgt ervoor dat de uitbreiding opnieuw uit te voeren. Voor meer informatie over de *forceUpdateTag*, Zie de [REST-API-documentatie voor uitbreidingen](/rest/api/compute/virtualmachineextensions/createorupdate). Houd er rekening mee dat de *forceUpdateTag* met alle extensies, niet alleen de extensie voor aangepaste scripts kunnen worden gebruikt.
 
 Het is ook gebruikelijk dat toepassingen worden geïmplementeerd via een aangepaste installatiekopie. Dit scenario wordt beschreven in de volgende sectie.
 

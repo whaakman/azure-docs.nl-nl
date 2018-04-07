@@ -1,35 +1,30 @@
 ---
-title: Stream Analytics Visual Studio-hulpprogramma's gebruiken voor het instellen van het continue integratie en implementatie-proces | Microsoft Docs
-description: Zelfstudie voor het gebruik van Stream Analytics Visual Studio-hulpprogramma's voor het instellen van een continu proces voor de integratie en implementatie
-keywords: visual studio, NuGet, DevOps, CI/CD
-documentationcenter: ''
+title: Continu integreren en ontwikkelen met Stream Analytics-hulpprogramma 's
+description: Dit artikel wordt beschreven hoe u Visual Studio tools voor Azure Stream Analytics gebruikt voor het instellen van een continue integratie en het implementatieproces.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 9/27/2017
 ms.author: sujie
-ms.openlocfilehash: 14bb15f19b517b55281959f0de970e3f5e0d360b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 9/27/2017
+ms.openlocfilehash: e4e831c602255df66f4c86ffa17336f51d2b52f7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>Stream Analytics Visual Studio-hulpprogramma's gebruiken voor het instellen van een continu proces voor de integratie en implementatie
-In deze zelfstudie leert u hoe u de Azure Stream Analytics Visual Studio-hulpprogramma's voor het instellen van een continue integratie en implementatieproces.
+# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Continu integreren en ontwikkelen met Stream Analytics-hulpprogramma 's
+Dit artikel wordt beschreven hoe u met de Azure Stream Analytics-tools voor Visual Studio gebruiken voor het instellen van een continu proces voor de integratie en implementatie.
 
-De meest recente versie (2.3.0000.0 of hoger) van [Stream Analytics-tools voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) voegt ondersteuning toe voor MSBuild.
+Gebruik versie 2.3.0000.0 of hoger van [Stream Analytics-tools voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) ondersteuning voor MSBuild krijgen.
 
-Er is ook een nieuw uitgebrachte NuGet-pakket [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Het biedt de MSBuild, lokale uitvoering en implementatiehulpmiddelen die ondersteuning bieden voor het continue proces voor de integratie en implementatie van Stream Analytics Visual Studio-projecten. 
+Een NuGet-pakket beschikbaar is: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Het biedt de MSBuild, lokale uitvoering en implementatiehulpmiddelen die ondersteuning bieden voor het continue proces voor de integratie en implementatie van Stream Analytics Visual Studio-projecten. 
 > [!NOTE] 
 Het NuGet-pakket kan alleen met de 2.3.0000.0 of hoger dan de versie van Stream Analytics-hulpprogramma's voor Visual Studio worden gebruikt. Als u gemaakt in eerdere versies van Visual Studio tools projecten hebt, alleen openen met de 2.3.0000.0 of hoger dan versie en opslaan. Vervolgens wordt de nieuwe mogelijkheden zijn ingeschakeld. 
 
-Meer informatie over het gebruik van de [Stream Analytics-tools voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Zie voor meer informatie [Stream Analytics-tools voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>MSBuild
 Als de standaard Visual Studio MSBuild-ervaring als u wilt maken van een project hebt u twee opties. U kunt met de rechtermuisknop op het project en kies vervolgens **bouwen**. U kunt ook gebruiken **MSBuild** in het NuGet-pakket vanaf de opdrachtregel.

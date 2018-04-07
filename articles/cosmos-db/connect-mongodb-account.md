@@ -4,9 +4,8 @@ description: Ontdek hoe u uw MongoDB-app verbinden met een Azure DB die Cosmos-a
 keywords: mongodb-verbindingsreeks
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: anhoh
-ms.openlocfilehash: 41c0b360b54f9a9dcd2458ce5bdc05911c4f73a5
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: dfdcb458d0f81c0ddb9399ee8b89a52c4cbc6270
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Verbinding maken met een toepassing MongoDB bij Azure Cosmos-DB
 Ontdek hoe u uw MongoDB-app verbinden met een Azure DB die Cosmos-account met behulp van een verbindingsreeks voor MongoDB. U kunt vervolgens een Azure DB die Cosmos-database als het archief voor uw app MongoDB. 
@@ -43,7 +42,7 @@ Deze zelfstudie biedt twee manieren verbindingsreeksgegevens ophalen:
 
     ![De blade snel starten](./media/connect-mongodb-account/QuickStartBlade.png)
 
-## <a id="GetCustomConnection"></a>De verbindingsreeks MongoDB om aan te passen ophalen
+## <a id="GetCustomConnection"></a> De verbindingsreeks MongoDB om aan te passen ophalen
 1. In een internetbrowser, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com).
 2. In de **Azure Cosmos DB** blade, selecteert u de API voor MongoDB-account. 
 3. Klik in het linkerdeelvenster van de accountblade **verbindingsreeks**. 

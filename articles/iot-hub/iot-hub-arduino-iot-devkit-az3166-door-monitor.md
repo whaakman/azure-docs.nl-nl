@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: e0882a6c87454498d0d1370ee244bfffc137aafb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ba02e877fe7152d759085e3d25090459cd2459fc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="door-monitor"></a>Klep van Monitor          
 
@@ -44,7 +44,7 @@ Voltooid de [Getting Started Guide]({{"/docs/get-started/" | absolute_url }}) na
 
 Een actief Azure-abonnement. Als u geen abonnement hebt, kunt u via een van de volgende manieren registreren:
 
-* Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azureinfo.microsoft.com/us-freetrial.html).
+* Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azure.microsoft.com/en-us/free/).
 * Claim uw [Azure-tegoeden](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) als u een MSDN- of Visual Studio-abonnee bent.
 
 ## <a name="deploy-sendgrid-service-in-azure"></a>SendGrid-service in Azure implementeren

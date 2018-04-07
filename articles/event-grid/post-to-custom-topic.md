@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 43dcdf9ab0fee5f7e61ecdc42aaf40430e272d92
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Voor Azure Event raster naar aangepaste onderwerp boeken
 
@@ -91,8 +91,34 @@ Bijvoorbeeld, is een geldige gebeurtenisnaam gegevensschema:
 }]
 ```
 
+## <a name="response"></a>Antwoord
+
+Na het boeken naar het eindpunt onderwerp ontvangen reactie. Het antwoord is een standaard HTTP-responscode. Sommige algemene antwoorden zijn:
+
+|Resultaat  |Antwoord  |
+|---------|---------|
+|Geslaagd  | 200 OK  |
+|Onjuiste eindpunt | 404 – Niet gevonden |
+|Ongeldige toegangstoets | 401-niet toegestaan |
+|Gebeurtenisgegevens hebben onjuiste indeling | 400 onjuiste aanvraag |
+
+Voor fouten heeft de hoofdtekst van het bericht de volgende indeling:
+
+```json
+{
+    "error": {
+        "code": "<HTTP status code>",
+        "message": "<description>",
+        "details": [{
+            "code": "<HTTP status code>",
+            "message": "<description>"
+    }]
+  }
+}
+```
+
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot routering aangepaste gebeurtenissen, [maken en route aangepaste gebeurtenissen met de Azure CLI en gebeurtenis raster](custom-event-quickstart.md) of [maken en route aangepaste gebeurtenissen met Azure PowerShell en gebeurtenis raster](custom-event-quickstart-powershell.md).
+* Zie voor meer informatie over het controleren van de gebeurtenis leveringen [Monitor gebeurtenis raster berichtbezorging](monitor-event-delivery.md).
 * Zie voor meer informatie over de verificatiesleutel [gebeurtenis raster beveiligings- en verificatie](security-authentication.md).
 * Zie voor meer informatie over het maken van een abonnement op Azure gebeurtenis raster [gebeurtenis raster abonnement schema](subscription-creation-schema.md).

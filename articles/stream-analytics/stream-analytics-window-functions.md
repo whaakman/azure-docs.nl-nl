@@ -1,24 +1,19 @@
 ---
-title: Inleiding tot Stream Analytics-vensterfuncties | Microsoft Docs
-description: Meer informatie over de drie functies venster in Stream Analytics (tumbling, hopping, Verschuivend).
-keywords: venster Verschuivend venster venster hopping tumbling
-documentationcenter: ''
+title: Inleiding tot Azure Stream Analytics windowing functies
+description: Dit artikel worden de drie windowing functies (tumbling, hopping, Verschuivend) die worden gebruikt in Azure Stream Analytics-taken.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: c6f5dbe49cb60e3c7b2bc6562acf2d7fd79096ec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Inleiding tot Stream Analytics-vensterfuncties
 In veel realtime streaming-scenario's, is het nodig zijn voor het uitvoeren van bewerkingen alleen op de gegevens in de tijdelijke windows. Systeemeigen ondersteuning voor windowing functies is een belangrijke functie van Azure Stream Analytics die de wijzer op de productiviteit van ontwikkelaars verplaatst in taken voor de verwerking van complexe stroom ontwerpen. Stream Analytics biedt ontwikkelaars kunnen gebruiken [ **Tumbling**](https://msdn.microsoft.com/library/dn835055.aspx), [ **Hopping** ](https://msdn.microsoft.com/library/dn835041.aspx) en [ **schuifregelaar** ](https://msdn.microsoft.com/library/dn835051.aspx) windows tijdelijke bewerkingen op het streamen van gegevens uit te voeren. Hierbij moet worden opgemerkt dat alle [venster](https://msdn.microsoft.com/library/dn835019.aspx) uitvoerresultaten voor bewerkingen op de **end** van het venster. De uitvoer van het venster worden één keer de gebeurtenis op basis van de statistische functie gebruikt. De gebeurtenis heeft de tijdstempel van het einde van het venster en alle functies van het venster met een vaste lengte zijn gedefinieerd. Ten slotte is het belangrijk te weten dat alle functies van het venster moeten worden gebruikt een [ **GROUP BY** ](https://msdn.microsoft.com/library/dn835023.aspx) component.
@@ -41,7 +36,7 @@ Verschuivende vensterfuncties, in tegenstelling tot Tumbling of windows, Hopping
 ![Stream Analytics-vensterfuncties Verschuivend intro](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## <a name="getting-help-with-window-functions"></a>Help opvragen bij vensterfuncties
-Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

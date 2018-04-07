@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 80f427d5acb884be1752f470e2a9d9d04eee5518
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f1e1c2aa447e35ea483665cc33e4eb6af7a41f51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Diagnostische instellingen voor automatisch inschakelen bij het maken van de resource met een Resource Manager-sjabloon
 In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een bron wanneer deze wordt gemaakt. Hiermee kunt u op automatisch starten streaming uw diagnostische logboeken en metrische gegevens naar Event Hubs in een Opslagaccount wilt archiveren, of ze worden verzonden naar logboekanalyse wanneer een bron wordt gemaakt.
@@ -40,7 +40,7 @@ We bieden hieronder een voorbeeld van het JSON-bestand voor sjabloon die u wilt 
 ## <a name="non-compute-resource-template"></a>Niet-Compute resource-sjabloon
 Voor niet-rekenresources moet u twee dingen doen:
 
-1. Voeg parameters toe aan de parameters-blob voor de opslagaccountnaam, de event hub autorisatie regel-ID en/of de OMS-logboekanalyse werkruimte-ID (archivering van diagnostische logboeken in een opslagaccount, streamen van logboeken naar Event Hubs en/of Logboeken verzenden naar logboek inschakelen Analytics).
+1. Parameters toevoegen aan de parameters-blob voor de naam van het opslagaccount, de event hub autorisatie regel-ID en/of de logboekanalyse werkruimte-ID (waardoor archivering van diagnostische logboeken in een opslagaccount, streamen van logboeken naar Event Hubs en/of Logboeken verzenden met logboekanalyse).
    
     ```json
     "settingName": {

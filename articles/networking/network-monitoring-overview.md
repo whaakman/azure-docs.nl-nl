@@ -4,10 +4,10 @@ description: Overzicht van oplossingen, inclusief NPM, voor het beheren van netw
 services: monitoring-and-diagnostics
 documentationcenter: na
 author: agummadi
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-monitoring-solutions"></a>Oplossingen voor netwerkbeheer 
 
@@ -60,9 +60,11 @@ NPM voor ExpressRoute biedt uitgebreide ExpressRoute bewakingsmogelijkheden voor
 
 * Automatische detectie van ER circuits die zijn gekoppeld aan uw abonnement
 * Detectie van de netwerktopologie van on-premises voor uw cloudtoepassingen
-* Capaciteitsplanning, analyse van gebruik
+* Capaciteitsplanning, analyse van gebruik, bandbreedtegebruik per virtueel netwerk
 * Bewaking en waarschuwingen op de primaire en secundaire paden
 * Vermindering van de verbinding met de VNets detecteren
+
+![Geo-kaart weer verkeer tussen regio 's](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
@@ -116,7 +118,6 @@ Gebouwd voor DNS-beheerders, deze oplossing verzamelt, analyseert en correleert 
 Verwante koppelingen:
 * [Blogbericht](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [documentatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="next-steps"></a>Volgende stappen
+## <a name="miscellaneous"></a>Diversen
 
-* [Prestatiemeter netwerk configureren](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [Netwerkprestatiemeter configureren voor ExpressRoute](../expressroute/how-to-npm.md)
+* [Nieuwe prijzen](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

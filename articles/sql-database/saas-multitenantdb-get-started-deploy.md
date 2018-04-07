@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementeren en een shard multitenant-toepassing die gebruikmaakt van Azure SQL Database verkennen
 
@@ -57,7 +57,7 @@ U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt vold
 
 In de stappen van deze sectie bieden u een *gebruiker* waarde die wordt gebruikt om ervoor te zorgen resourcenamen globaal uniek zijn en een naam voor de *resourcegroep* waarin alle resources die zijn gemaakt door een implementatie van de app. Voor een persoon met de naam *Anne Finley*, het is raadzaam:
 - *Gebruiker:* **af1***(haar initialen, plus een cijfer. Gebruik een andere waarde (bijvoorbeeld af2) als u een tweede keer de app implementeren.)*
-- *Resourcegroep:* **wingtip-dpt-af1** *(wingtip dpt geeft aan dat dit is de app database per tenant. De naam van gebruiker af1 voegen correleert naam van de resourcegroep met de namen van de resources die deze bevat.)*
+- *Resourcegroep:* **wingtip-mt-af1** *(wingtip mt geeft aan dat dit is de shard multitenant-app. De naam van gebruiker af1 voegen correleert naam van de resourcegroep met de namen van de resources die deze bevat.)*
 
 Kies nu uw namen en schrijf ze op. 
 
@@ -123,7 +123,7 @@ Elke locatie vast Hiermee haalt u een aangepaste web-app lijst met hun gebeurten
 Een centraal **gebeurtenissen Hub** webpagina bevat een lijst met koppelingen voor de tenants in uw specifieke implementatie. Gebruik de volgende stappen om de **gebeurtenissen Hub** webpagina en een afzonderlijke web-app:
 
 1. Open de **gebeurtenissen Hub** in uw webbrowser:
-    - http://events.Wingtip-MT.&lt;gebruiker&gt;. trafficmanager.net &nbsp; *(Vervang &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)*
+    - http://events.wingtip-mt. &lt;gebruiker&gt;. trafficmanager.net &nbsp; *(Vervang &lt;gebruiker&gt; met de waarde van de gebruiker van uw implementatie.)*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 

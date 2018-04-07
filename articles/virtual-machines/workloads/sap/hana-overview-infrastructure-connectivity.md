@@ -2,10 +2,10 @@
 title: Infrastructuur en de verbinding met SAP HANA in Azure (grote exemplaren) | Microsoft Docs
 description: Infrastructuur van de verbinding is vereist voor het gebruik van SAP HANA in Azure (grote exemplaren) configureren.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastructuur voor SAP HANA (grote exemplaren) en de verbindingen van Azure 
 
@@ -49,9 +49,9 @@ Nadat de aankoop van SAP HANA in Azure (grote exemplaren) tussen u en Microsoft 
 - Gegevens voor elk systeem HANA grote exemplaren:
   - Gewenste hostnaam - in het ideale geval met de volledig gekwalificeerde domeinnaam.
   - Gewenste IP-adres voor de eenheid HANA grote exemplaar buiten het bereik van de groep met IP-adres - Houd er rekening mee dat de eerste 30 IP-adressen in het bereik van de groep met IP-adressen zijn gereserveerd voor intern gebruik binnen grote HANA-exemplaren
-  - De naam van de SAP HANA SID voor het SAP HANA-exemplaar (vereist voor het maken van de benodigde SAP HANA-gerelateerde schijfvolumes). De HANA SID is vereist voor het maken van de machtigingen voor <sidadm> op de NFS-volumes die zijn ophalen gekoppeld aan de eenheid HANA grote exemplaar. Dit wordt ook gebruikt als een van de onderdelen van de naam van de volumes op schijven die gekoppeld ophalen. Als u meer dan één HANA-exemplaar op de eenheid uitvoeren wilt, moet u voor een lijst met meerdere HANA SID's. Elke Hiermee haalt u een afzonderlijke set van volumes die zijn toegewezen.
-  - De groeps-id die de hana sidadm gebruiker in de Linux-besturingssysteem heeft is vereist voor het maken van de benodigde SAP HANA-gerelateerde schijfvolumes. De SAP HANA-installatie wordt de groep sapsys meestal gemaakt met een groeps-id 1001. De gebruiker hana sidadm maakt deel uit van de groep
-  - De gebruikersnaam die de gebruiker hana sidadm in de Linux-besturingssysteem heeft is vereist voor het maken van de benodigde SAP HANA-gerelateerde schijfvolumes. Als u meerdere exemplaren van HANA op de eenheid uitvoert, moet u de lijst alle de <sid>adm-gebruikers 
+  - De naam van de SAP HANA SID voor het SAP HANA-exemplaar (vereist voor het maken van de benodigde SAP HANA-gerelateerde schijfvolumes). De HANA SID is vereist voor het maken van de machtigingen voor sidadm op de NFS-volumes die zijn opgehaald gekoppeld aan de eenheid HANA grote exemplaar. Dit wordt ook gebruikt als een van de onderdelen van de naam van de volumes op schijven die gekoppeld ophalen. Als u meer dan één HANA-exemplaar op de eenheid uitvoeren wilt, moet u voor een lijst met meerdere HANA SID's. Elke Hiermee haalt u een afzonderlijke set van volumes die zijn toegewezen.
+  - De groeps-id die de gebruiker sidadm in de Linux-besturingssysteem heeft is vereist voor het maken van de benodigde SAP HANA-gerelateerde schijfvolumes. De SAP HANA-installatie wordt de groep sapsys meestal gemaakt met een groeps-id 1001. De gebruiker sidadm maakt deel uit van de groep
+  - De gebruikersnaam die de gebruiker sidadm in de Linux-besturingssysteem heeft is vereist voor het maken van de benodigde SAP HANA-gerelateerde schijfvolumes. Als u meerdere exemplaren van HANA op de eenheid uitvoert, moet u de lijst alle de <sid>adm-gebruikers 
 - Azure-abonnement-ID voor het Azure-abonnement aan welke SAP HANA op Azure HANA grote exemplaren gaat rechtstreeks zijn aangesloten. Dit abonnement-ID verwijst naar de Azure-abonnement, die wordt in rekening gebracht met de eenheid HANA grote exemplaar.
 
 Nadat u de informatie opgeeft, wordt Microsoft richt SAP HANA in Azure (grote exemplaren) en retourneert de informatie nodig uw Azure VNets koppelen aan HANA grote exemplaren en de toegang tot de eenheden HANA grote exemplaar.
@@ -182,7 +182,7 @@ Als er al een gateway bestaat, controleert u of het een ExpressRoute-gateway of 
 
 - Gebruik ofwel de (nieuw) [Azure-portal](https://portal.azure.com/), of PowerShell voor het maken van een ExpressRoute VPN-gateway is verbonden met uw VNet.
   - Als u de Azure-portal gebruikt, voegt u een nieuwe **virtuele netwerkgateway** en selecteer vervolgens **ExpressRoute** als het Gatewaytype.
-  - Als u in plaats daarvan PowerShell kiest, eerst downloaden en gebruiken van de meest recente [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) om te controleren of een optimale ervaring. De volgende opdrachten maken een ExpressRoute-gateway. De tekst wordt voorafgegaan door een  _$_  zijn door de gebruiker gedefinieerde variabelen die moeten worden bijgewerkt met de specifieke informatie.
+  - Als u in plaats daarvan PowerShell kiest, eerst downloaden en gebruiken van de meest recente [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) om te controleren of een optimale ervaring. De volgende opdrachten maken een ExpressRoute-gateway. De tekst wordt voorafgegaan door een _$_ zijn door de gebruiker gedefinieerde variabelen die moeten worden bijgewerkt met de specifieke informatie.
 
 ```PowerShell
 # These Values should already exist, update to match your environment

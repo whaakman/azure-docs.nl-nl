@@ -2,23 +2,23 @@
 title: Beheerde Service-identiteit (MSI) voor Azure Active Directory
 description: Een overzicht van beheerde Service-identiteit voor Azure-resources.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: 2d711d4fa48a1d10d4c37b9591a66e5b746f1ca7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Managed Service-identiteit (MSI) voor Azure-resources
 
@@ -38,7 +38,7 @@ Hier volgt een voorbeeld van hoe de Service-identiteit beheerd met Azure Virtual
 2. Azure Resource Manager maakt een Service-Principal in Azure AD om weer te geven van de identiteit van de virtuele machine. De Service-Principal gemaakt in de Azure AD-tenant die wordt vertrouwd door dit abonnement.
 3. Azure Resource Manager configureert de details van de Service-Principal in de VM-extensie van de MSI van de virtuele machine.  Deze stap omvat het configureren van client-ID en certificaat dat wordt gebruikt door de uitbreiding toegangstokens ophalen uit Azure AD.
 4. Nu dat de identiteit van de virtuele machine van de Service-Principal bekend is, is het kan dat deze toegang tot Azure-resources worden verleend.  Bijvoorbeeld, als uw code aan te roepen Azure Resource Manager, wilt u toewijzen van de VM-Service-Principal de juiste rol met behulp van op rollen gebaseerde toegangsbeheer (RBAC) in Azure AD.  Als uw code aan te roepen Sleutelkluis, kunt u uw code toegang tot het specifiek geheim of de sleutel in de Sleutelkluis wilt verlenen.
-5. Uw code die wordt uitgevoerd op de virtuele machine vraagt een token van een lokaal eindpunt dat wordt gehost door de MSI-VM-extensie: oauth2-http://localhost:50342-token.  De resourceparameter geeft u de service die het token wordt verzonden. Bijvoorbeeld, als u wilt dat uw code te verifiëren voor Azure Resource Manager, gebruikt u resource = https://management.azure.com/.
+5. Uw code die wordt uitgevoerd op de virtuele machine vraagt een token van een lokaal eindpunt dat wordt gehost door de MSI-VM-extensie: http://localhost:50342/oauth2/token.  De resourceparameter geeft u de service die het token wordt verzonden. Bijvoorbeeld, als u wilt dat uw code te verifiëren voor Azure Resource Manager, gebruikt u resource =https://management.azure.com/.
 6. De VM-extensie MSI maakt gebruik van de geconfigureerde client-ID en certificaat voor het aanvragen van een toegangstoken van Azure AD.  Azure AD retourneert een toegangstoken JSON Web Token (JWT).
 7. Uw code verzendt het toegangstoken op een aanroep van een service die Azure AD-verificatie ondersteunt.
 
@@ -62,7 +62,7 @@ Probeer een Service-identiteit beheerd-zelfstudie voor meer informatie over de e
 |                    | [Toegang tot Azure Storage via SAS met een virtuele Linux-machine beheerde Service-identiteit](tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Toegang tot een niet-Azure AD-resource met een Linux VM beheerde Service-identiteit en Azure Sleutelkluis](tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Beheerde Service-identiteit gebruiken met Azure App Service- of Azure-functies](/azure/app-service/app-service-managed-service-identity) |
-| Azure-functie     | [Beheerde Service-identiteit gebruiken met Azure App Service- of Azure-functies](/azure/app-service/app-service-managed-service-identity) |
+| Azure Functions    | [Beheerde Service-identiteit gebruiken met Azure App Service- of Azure-functies](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Beheerde Service-identiteit gebruiken met Azure Servicebus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure Event Hubs   | [Beheerde Service-identiteit gebruiken met Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
 
@@ -78,8 +78,10 @@ De volgende Azure-services ondersteuning bieden voor Service-identiteiten beheer
 | ------- | ------ | ---- | --------- | ----------- |
 | Azure Virtual Machines | Preview | September 2017 | [Azure Portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure-CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager-sjablonen](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
 | Azure App Service | Preview | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-sjabloon](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Functions | Preview | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-sjabloon](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Functions<sup>1</sup> | Preview | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-sjabloon](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | Preview | November 2017 | [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
+
+<sup>1</sup> azure Functions ondersteunt gebruikerscode voor het gebruik van een identiteit, maar triggers en bindingen mogelijk nog steeds verbindingsreeksen.
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Azure-services die ondersteuning voor Azure AD-verificatie
 

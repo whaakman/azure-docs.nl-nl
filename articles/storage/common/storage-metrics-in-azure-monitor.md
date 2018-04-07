@@ -6,7 +6,7 @@ documentationcenter: na
 author: fhryo-msft
 manager: cbrooks
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: d30a99044e335723e5d2c4bbd71fab7e4fd51145
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8e9f9c0cbe044b2aa459898f2d3900db10d200a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Storage in de Azure-Monitor (preview)
 
@@ -28,7 +28,7 @@ Azure biedt een uniforme gebruikersinterfaces voor het bewaken van alle andere A
 
 ## <a name="access-metrics"></a>Toegang tot metrische gegevens
 
-Azure biedt verschillende manieren met toegang tot metrische gegevens. U kunt krijgen van de [Azure-portal](https://portal.azure.com), de Azure-Monitor API's (REST en .net) en analyse-oplossingen zoals bewerking Management Suite en Event Hub. Zie voor meer informatie [Azure Monitor metrische gegevens](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure biedt verschillende manieren met toegang tot metrische gegevens. U kunt krijgen van de [Azure-portal](https://portal.azure.com), de Azure-Monitor API's (REST en .net) en analyse-oplossingen zoals Log Analytics en Event Hub. Zie voor meer informatie [Azure Monitor metrische gegevens](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot de meest recente 30 dagen aan gegevens. Als u gegevens wilt behouden voor een langere periode nodig hebt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in de Azure-Monitor.
 
@@ -141,7 +141,7 @@ Het volgende antwoord bevat metrische waarden in de JSON-indeling:
 
 ## <a name="billing-for-metrics"></a>Facturering voor metrische gegevens
 
-Met metrische gegevens in de Azure-Monitor is die momenteel beschikbaar is. Echter, als u aanvullende oplossingen voor het opnemen van metrische gegevens gebruikt, u mogelijk worden gefactureerd door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als archiveren van metrische gegevens aan een Azure Storage-account. Of u kunt door opnieuw Management Suite (OMS) worden gefactureerd als stream van metrische gegevens aan OMS voor geavanceerde analyse.
+Met metrische gegevens in de Azure-Monitor is die momenteel beschikbaar is. Echter, als u aanvullende oplossingen voor het opnemen van metrische gegevens gebruikt, u mogelijk worden gefactureerd door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als archiveren van metrische gegevens aan een Azure Storage-account. Of u wordt gefactureerd door logboekanalyse als stream van metrische gegevens voor logboekanalyse voor geavanceerde analyse.
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Understanding resource-ID voor de services in Azure Storage
 
@@ -165,16 +165,16 @@ Hieronder ziet u de indeling voor het opgeven van de Resource-ID voor een opslag
 
 Hieronder ziet u de indeling voor het opgeven van de Resource-ID voor elk van de storage-services.
 
-* Resource-ID van BLOB-service`
+* Resource-ID van BLOB-service `
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
 `
-* Resource-ID van tabel-service`
+* Resource-ID van tabel-service `
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
 `
-* Wachtrij-service resource-ID`
+* Wachtrij-service resource-ID `
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
-* Resource-ID File-service`
+* Resource-ID File-service `
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 `
 
@@ -194,13 +194,13 @@ Azure Storage biedt de volgende capaciteit metrische gegevens in de Azure-Monito
 
 ### <a name="account-level"></a>Niveau
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
 | UsedCapacity | De hoeveelheid opslagruimte die wordt gebruikt door de storage-account. Voor standard-opslag-accounts is de som van de capaciteit die wordt gebruikt door de blob-, tabel-, bestands- en wachtrij. Voor premium storage-accounts en Blob storage-accounts is dit hetzelfde is als BlobCapacity. <br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
 
 ### <a name="blob-storage"></a>Blob Storage
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
 | BlobCapacity | Het totaal van Blob storage gebruikt in het opslagaccount. <br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: gemiddelde <br/> Voorbeeld van een waarde: 1024 <br/> Dimensie: BlobType ([definitie](#metrics-dimensions)) |
 | BlobCount    | Het aantal blob-objecten die zijn opgeslagen in het opslagaccount. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: gemiddelde <br/> Voorbeeld van een waarde: 1024 <br/> Dimensie: BlobType ([definitie](#metrics-dimensions)) |
@@ -208,7 +208,7 @@ Azure Storage biedt de volgende capaciteit metrische gegevens in de Azure-Monito
 
 ### <a name="table-storage"></a>Table Storage
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
 | TableCapacity | De hoeveelheid Table storage gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
 | TableCount   | Het aantal tabellen in het opslagaccount. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
@@ -216,7 +216,7 @@ Azure Storage biedt de volgende capaciteit metrische gegevens in de Azure-Monito
 
 ### <a name="queue-storage"></a>Queue Storage
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
 | QueueCapacity | De hoeveelheid Queue storage gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
 | QueueCount   | Het aantal wachtrijen in het opslagaccount. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
@@ -224,7 +224,7 @@ Azure Storage biedt de volgende capaciteit metrische gegevens in de Azure-Monito
 
 ### <a name="file-storage"></a>File Storage
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
 | FileCapacity | De hoeveelheid opslag van bestanden die worden gebruikt door de storage-account. <br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
 | FileCount   | Het aantal bestanden in de storage-account. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
@@ -236,25 +236,25 @@ Transactie metrische gegevens worden verzonden van Azure-opslag naar Azure Monit
 
 Azure Storage biedt de volgende transactie metrische gegevens in de Azure-Monitor.
 
-| Metrische naam | Beschrijving |
+| Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-| Transacties | Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen als aanvragen die fouten heeft geproduceerd. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Toepasselijke dimensies: ResponseType, GeoType, ApiName ([definitie](#metrics-dimensions))<br/> Voorbeeld van een waarde: 1024 |
-| Binnenkomend | De hoeveelheid inkomende gegevens. Dit is inclusief de inkomende gegevens via een externe client in Azure Storage, evenals een inkomend binnen Azure. <br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Toepasselijke dimensies: GeoType, ApiName ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
-| Uitgaande | De hoeveelheid uitgaande gegevens. Dit is inclusief uitgaande van een externe client in Azure Storage, evenals een uitgaande binnen Azure. Dit nummer is daardoor niet factureerbare uitgaande doorgevoerd. <br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Toepasselijke dimensies: GeoType, ApiName ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
-| SuccessServerLatency | De gemiddelde tijd die wordt gebruikt voor het verwerken van de aanvraag is gelukt door Azure Storage. Deze waarde is niet de netwerklatentie die is opgegeven in SuccessE2ELatency opgenomen. <br/><br/> Eenheid: milliseconden <br/> Samenvoegingstype: gemiddelde <br/> Toepasselijke dimensies: GeoType, ApiName ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
-| SuccessE2ELatency | De gemiddelde end-to-end-latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage te lezen van de aanvraag, antwoord verzenden en ontvangen van de bevestiging van het antwoord. <br/><br/> Eenheid: milliseconden <br/> Samenvoegingstype: gemiddelde <br/> Toepasselijke dimensies: GeoType, ApiName ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
+| Transacties | Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen, evenals aanvragen waarbij fouten zijn opgetreden. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Toepasselijke dimensies: ResponseType, GeoType, ApiName ([definitie](#metrics-dimensions))<br/> Voorbeeld van een waarde: 1024 |
+| Binnenkomend | De hoeveelheid inkomende gegevens. Hieronder vallen de inkomende gegevens van een externe client in Azure Storage evenals de inkomende gegevens binnen Azure. <br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Toepasselijke dimensies: GeoType, ApiName ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
+| Uitgaand verkeer | De hoeveelheid uitgaande gegevens. Hieronder vallen de uitgaande gegevens van een externe client in Azure Storage evenals de uitgaande gegevens binnen Azure. Daarom geeft deze hoeveelheid niet de factureerbare uitgaande gegevens weer. <br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: totaal <br/> Toepasselijke dimensies: GeoType, ApiName ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
+| SuccessServerLatency | De gemiddelde tijd die nodig is om een aanvraag door Azure Storage te verwerken. Deze waarde bevat niet de netwerklatentie die is opgegeven in SuccessE2ELatency. <br/><br/> Eenheid: milliseconden <br/> Samenvoegingstype: gemiddelde <br/> Toepasselijke dimensies: GeoType, ApiName ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
+| SuccessE2ELatency | De gemiddelde end-to-end-latentie van geslaagde aanvragen aan een opslagservice of de opgegeven API-bewerking. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage die nodig is om de aanvraag te lezen, het antwoord te verzenden en bevestiging van het antwoord te ontvangen. <br/><br/> Eenheid: milliseconden <br/> Samenvoegingstype: gemiddelde <br/> Toepasselijke dimensies: GeoType, ApiName ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 1024 |
 | Beschikbaarheid | Het percentage van de beschikbaarheid van de storage-service of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door te nemen van de waarde van de totale factureerbare aanvragen en deze te delen door het aantal van toepassing aanvragen, met inbegrip van aanvragen die geproduceerd onverwachte fouten. Alle onverwachte fouten leiden tot beperkte beschikbaarheid voor de storage-service of de opgegeven API-bewerking. <br/><br/> Eenheid: procent <br/> Samenvoegingstype: gemiddelde <br/> Toepasselijke dimensies: GeoType, ApiName ([definitie](#metrics-dimensions)) <br/> Voorbeeld van een waarde: 99,99 |
 
 ## <a name="metrics-dimensions"></a>Metrische gegevens dimensies
 
 Azure Storage ondersteunt volgende dimensies voor metrische gegevens in Azure-Monitor.
 
-| De dimensienaam van de | Beschrijving |
+| Dimensienaam | Beschrijving |
 | ------------------- | ----------------- |
 | BlobType | Het type van de blob voor alleen Blob metrische gegevens. De ondersteunde waarden zijn **BlockBlob** en **PageBlob**. Toevoeg-Blob is opgenomen in BlockBlob. |
 | ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder andere: <br/><br/> <li>ServerOtherError: Alle andere serverzijde fouten behalve beschreven die zijn </li> <li> ServerBusyError: Geverifieerde aanvraag die een HTTP 503-statuscode geretourneerd. (Nog niet ondersteund) </li> <li> ServerTimeoutError: Time-out geverifieerde aanvraag die een HTTP 500-statuscode geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> ThrottlingError: De som van de clientzijde en serverzijde bandbreedteregeling fout (deze wordt verwijderd zodra ServerBusyError en ClientThrottlingError worden ondersteund) </li> <li> AuthorizationError: Geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot gegevens of een Autorisatiefout. </li> <li> NetworkError: Geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op wanneer een client een verbinding voor de vervaldatum van de time-out voor de voortijdig wordt gesloten. </li> <li>  ClientThrottlingError: Clientzijde bandbreedteregeling fout (nog niet ondersteund) </li> <li> ClientTimeoutError: Time-out geverifieerde aanvraag die een HTTP 500-statuscode geretourneerd. Als de client netwerktime-out- of time-out van de aanvraag is ingesteld op een lagere waarde dan werd verwacht door de storage-service, is een time-out van de verwachte. Anders wordt deze gerapporteerd als een ServerTimeoutError. </li> <li> ClientOtherError: Beschreven die zijn met uitzondering van alle andere client-side '-fouten. </li> <li> Voltooid: Aanvraag is gelukt|
 | GeoType | De transactie uit cluster primair of secundair. De beschikbare waarden zijn primair en secundair. Dit geldt voor leestoegang geografisch redundante Storage(RA-GRS) bij het lezen van objecten van secundaire tenant. |
-| apiName | De naam van de bewerking. Bijvoorbeeld: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Zie voor alle namen van de bewerking, [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
+| ApiName | De naam van de bewerking. Bijvoorbeeld: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Zie voor alle namen van de bewerking, [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
 Voor de metrische gegevens ondersteunende dimensies moet u de dimensiewaarde om te zien van de bijbehorende waarden van de metrische gegevens op te geven. Als u bijvoorbeeld **transacties** waarde voor geslaagde antwoorden die u wilt filteren de **ResponseType** dimensie met **geslaagd**. Of als u bekijkt **BlobCount** waarde voor blok-Blob, moet u voor het filteren van de **BlobType** dimensie met **BlockBlob**.
 

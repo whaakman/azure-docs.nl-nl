@@ -5,8 +5,7 @@ keywords: Database-triggers, opgeslagen procedure, opgeslagen procedure, databas
 services: cosmos-db
 documentationcenter: ''
 author: aliuy
-manager: jhubbard
-editor: mimig
+manager: kfile
 ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 328cf016c98575ecd0fa7be023b48e670211babf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 25ae6bde2ca89b2f944a8879c746dcedcf798ec2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure DB Cosmos programmeren-server: opgeslagen procedures, databasetriggers en UDF's
 
-Meer informatie over hoe Azure Cosmos DB taal geïntegreerd, transactionele uitvoering van JavaScript kan ontwikkelaars van schrijven **opgeslagen procedures**, **triggers**, en **gebruiker gedefinieerde functies (UDF's)**  systeemeigen in een [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Deze integratie van Javascript kunt u toepassingslogica van het database-programma dat kan worden verzonden en rechtstreeks uitgevoerd op de database-opslag-partities schrijven. 
+Meer informatie over hoe Azure Cosmos DB taal geïntegreerd, transactionele uitvoering van JavaScript kan ontwikkelaars van schrijven **opgeslagen procedures**, **triggers**, en **gebruiker gedefinieerde functies (UDF's) ** systeemeigen in een [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Deze integratie van Javascript kunt u toepassingslogica van het database-programma dat kan worden verzonden en rechtstreeks uitgevoerd op de database-opslag-partities schrijven. 
 
 Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij Andrew Liu een inleiding tot Azure Cosmos DB serverzijde database-programmeermodel bevat. 
 

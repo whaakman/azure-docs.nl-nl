@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 03/28/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 18d5f4131718021de82328719e0538db759dde9c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Ontwerpen extraheren, laden en transformeren (ELT) voor Azure SQL datawarehouse
 
@@ -47,8 +47,9 @@ PolyBase is een technologie die toegang heeft tot gegevens buiten de database vi
 Om gegevens te laden met PolyBase, kunt u een van deze opties laden.
 
 - [PolyBase met T-SQL](load-data-from-azure-blob-storage-using-polybase.md) goed werkt wanneer uw gegevens in Azure Blob storage of Azure Data Lake Store is. Biedt u de meeste controle over het laadproces, maar vereist dat u objecten van de externe gegevens definiëren. De andere methoden Definieer deze objecten achter de schermen als u brontabellen aan doeltabellen toewijzen.  U kunt Azure Data Factory, SSIS of Azure functions gebruiken voor de organisatie van T-SQL-belastingen. 
-- [PolyBase met SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md) goed werkt wanneer de brongegevens is in SQL Server, SQL Server on-premises of in de cloud. SSIS definieert de bron naar doel Tabeltoewijzingen, en ook stuurt de belasting. Als u al SSIS-pakketten hebt, kunt u de pakketten werkt met de nieuwe datawarehouse doel wijzigen. 
-- [PolyBase met Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) orchestration hulpprogramma.  Definieert een pijplijn en taken plant. 
+- [PolyBase met SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) goed werkt wanneer de brongegevens is in SQL Server, SQL Server on-premises of in de cloud. SSIS definieert de bron naar doel Tabeltoewijzingen, en ook stuurt de belasting. Als u al SSIS-pakketten hebt, kunt u de pakketten werkt met de nieuwe datawarehouse doel wijzigen. 
+- [PolyBase met Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) orchestration hulpprogramma.  Definieert een pijplijn en taken plant. U kunt de ADF JSON-gegevens parseren en laden in SQL Data Warehouse.
+- [PolyBase met Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) gegevens van Azure Data Lake Store overzet naar SQL Data Warehouse. U kunt Azure DataBricks JSON-gegevens parseren en laden van de gegevens naar SQL Data Warehouse. 
 
 ### <a name="polybase-external-file-formats"></a>PolyBase externe bestandsindelingen
 

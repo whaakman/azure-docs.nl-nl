@@ -2,9 +2,9 @@
 title: Maken en beheren van een virtuele Machine van Azure met C# | Microsoft Docs
 description: C# en Azure Resource Manager gebruiken voor het implementeren van een virtuele machine en de ondersteunende bronnen.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 5d9021c2f65b70e36d5ea82992c9fb9d2d6d394a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43dcc8e5d9756807a3e005d629e84469a2e6eb04
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Maken en beheren van Windows-machines in Azure met C# #
 
@@ -73,7 +73,7 @@ Voordat u deze stap, zorg ervoor dat u toegang tot hebben een [Active Directory-
     graphURL=https://graph.windows.net/
     ```
 
-    Vervang  **&lt;abonnement-id&gt;**  met uw abonnements-id  **&lt;toepassing-id&gt;**  met de toepassings-id van het Active Directory  **&lt;verificatiesleutel&gt;**  voor de Toepassingssleutel, en  **&lt;tenant-id&gt;**  met tenant-id.
+    Vervang **&lt;abonnement-id&gt;** met uw abonnements-id **&lt;toepassing-id&gt;** met de toepassings-id van het Active Directory **&lt;verificatiesleutel&gt;** voor de Toepassingssleutel, en **&lt;tenant-id&gt;** met tenant-id.
 
 3. Sla het bestand azureauth.properties. 
 4. Stelt de omgevingsvariabele in Windows met de naam AZURE_AUTH_LOCATION met het volledige pad naar het bestand met autorisatieregels die u hebt gemaakt. De volgende PowerShell-opdracht kan bijvoorbeeld worden gebruikt:
@@ -239,7 +239,7 @@ azure.VirtualMachines.Define("myVM")
 
 ## <a name="perform-management-tasks"></a>Beheertaken uitvoeren
 
-Tijdens de levenscyclus van een virtuele machine, kan u wilt uitvoeren van beheertaken, zoals starten, stoppen of een virtuele machine wordt verwijderd. Bovendien wilt u maken code om herhaalde of complexe taken te automatiseren.
+Tijdens de levenscyclus van een virtuele machine wilt u mogelijk beheertaken uitvoeren, zoals het starten, stoppen of verwijderen van een virtuele machine. Bovendien wilt u maken code om herhaalde of complexe taken te automatiseren.
 
 Wanneer u iets te doen met de virtuele machine, moet u een exemplaar van het:
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: c2e11d89f35915ef0a0c1e1f544b0be8df0473de
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Het uitbreiden van waarschuwingen (kopiëren) van OMS in Azure
-Vanaf **23 April 2018**, alle klanten die gebruikmaken van waarschuwingen die zijn geconfigureerd in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), zal worden uitgebreid in Azure. Waarschuwingen die zijn uitgebreid naar Azure gedragen zich hetzelfde als in OMS. Mogelijkheden voor bewaking, blijven behouden. Waarschuwingen die zijn gemaakt in OMS naar Azure uitbreiden biedt veel voordelen. Zie voor meer informatie over de voordelen en het proces voor het verlengen van waarschuwingen van OMS naar Azure [waarschuwingen van OMS uitbreiden naar Azure](monitoring-alerts-extend.md).
+Vanaf **14 mei 2018**, alle klanten die gebruikmaken van waarschuwingen die zijn geconfigureerd in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), zal worden uitgebreid in Azure. Waarschuwingen die zijn uitgebreid naar Azure gedragen zich hetzelfde als in OMS. Mogelijkheden voor bewaking, blijven behouden. Waarschuwingen die zijn gemaakt in OMS naar Azure uitbreiden biedt veel voordelen. Zie voor meer informatie over de voordelen en het proces voor het verlengen van waarschuwingen van OMS naar Azure [waarschuwingen van OMS uitbreiden naar Azure](monitoring-alerts-extend.md).
 
 Klanten willen verplaatsen hun waarschuwingen direct van OMS naar Azure kunt doen met behulp van een van de opties die zijn vermeld.
 
@@ -157,8 +157,87 @@ Als het bericht geslaagd is, wordt er een 200 OK antwoord samen met geretourneer
 ```
 Die aangeeft dat de waarschuwingen zijn uitgebreid in Azure, zoals aangegeven door versie 2. Deze versie wordt alleen gebruikt voor controle of waarschuwingen zijn uitgebreid in Azure en geen invloed in gebruik met hebben [Log Analytics-API van zoekservice](../log-analytics/log-analytics-api-alerts.md). Zodra de waarschuwingen worden uitgebreid naar Azure is, alle e-mailadressen die zijn opgegeven tijdens GET een rapport met details van de wijzigingen gedaan worden verzonden.
 
+En ten slotte, als de waarschuwingen in de werkruimte opgegeven zijn al gepland om te worden uitgebreid naar Azure - het antwoord op POST 403-verboden. Eventuele foutberichten te bekijken of te begrijpen als uitbreiden proces is vastgelopen, gebruiker, een GET-aanroep en fout-bericht kan doen als een wordt geretourneerd, samen met samenvatting.
 
-En ten slotte, als de waarschuwingen in de werkruimte opgegeven al zijn gepland om te worden uitgebreid naar Azure - het antwoord op POST 403-verboden.
+```json
+{
+    "version": 1,
+    "message": "OMS was unable to extend your alerts into Azure, Error: The subscription is not registered to use the namespace 'microsoft.insights'. OMS will schedule extending your alerts, once remediation steps illustrated in the troubleshooting guide are done.",
+    "recipients": [
+       "john.doe@email.com",
+       "jane.doe@email.com"
+     ],
+    "migrationSummary": {
+        "alertsCount": 2,
+        "actionGroupsCount": 2,
+        "alerts": [
+            {
+                "alertName": "DemoAlert_1",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_1"
+            },
+            {
+                "alertName": "DemoAlert_2",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_2"
+            }
+        ],
+        "actionGroups": [
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                "actions": {
+                    "emailIds": [
+                        "JohnDoe@mail.com"
+                    ],
+                    "webhookActions": [
+                        {
+                            "name": "Webhook_1",
+                            "serviceUri": "http://test.com"
+                        }
+                    ],
+                    "itsmAction": {}
+                }
+            },
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                 "actions": {
+                    "emailIds": [
+                        "test1@mail.com",
+                          "test2@mail.com"
+                    ],
+                    "webhookActions": [],
+                    "itsmAction": {
+                        "connectionId": "<Guid>",
+                        "templateInfo":"{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{\\\"contact_type\\\":\\\"email\\\",\\\"impact\\\":\\\"3\\\",\\\"urgency\\\":\\\"2\\\",\\\"category\\\":\\\"request\\\",\\\"subcategory\\\":\\\"password\\\"}\",\"CreateOneWIPerCI\":false}"
+                    }
+                }
+            }
+        ]
+    }
+}              
+
+```
+
+## <a name="troubleshooting"></a>Problemen oplossen 
+Tijdens het proces van waarschuwingen van OMS uit te breiden naar Azure, kunnen er incidentele problemen die voorkomt dat het systeem maken nodig [actiegroepen](monitoring-action-groups.md). In dergelijke gevallen wordt een foutbericht wordt weergegeven in OMS-portal via banner in waarschuwing sectie en GET-aanroep gedaan API.
+
+Hieronder vindt u de herstelstappen uit voor elke fout:
+1. **Fout: Het abonnement is niet geregistreerd voor het gebruik van de naamruimte 'microsoft.insights'**: ![OMS waarschuwingsinstellingen portalpagina met registratie van foutbericht](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
+
+    a. Het abonnement is gekoppeld aan de OMS-werkruimte - is niet geregistreerd voor het gebruik van de functionaliteit van de Azure-Monitor (microsoft.insights); Als gevolg van welke OMS kan niet worden waarschuwingen in Azure Monitor & waarschuwingen uitbreiden.
+    
+    b. Om op te lossen, microsoft.insights (Azure monitor & waarschuwingen) gebruiken in uw abonnement met behulp van Powershell, Azure CLI of Azure-portal te registreren. Bekijk voor meer informatie het artikel op [het oplossen van fouten op registratie resourceprovider](../azure-resource-manager/resource-manager-register-provider-errors.md)
+    
+    c. Als opgelost volgens de stappen die worden weergegeven in het artikel, wordt OMS uw waarschuwingen in Azure uitbreiden in de volgende dag geplande run; zonder de noodzaak van een actie of een inleiding.
+2. **Fout: Bereik vergrendeling is aanwezig op abonnement/resourcegroep voor schrijfbewerkingen**: ![OMS waarschuwingsinstellingen portalpagina met ScopeLock foutbericht](./media/monitor-alerts-extend/ErrorScopeLock.png)
+
+    a. Wanneer bereik vergrendelen is ingeschakeld, beperken van de nieuwe wijzigingen van abonnement of resourcegroep met de werkruimte voor logboekanalyse (OMS); het systeem is niet waarschuwingen (kopiëren) in Azure uitbreiden en benodigde Actiegroepen maken.
+    
+    b. Om op te lossen, verwijdert u de *ReadOnly* vergrendeling op uw abonnement of de resource-groep die de werkruimte bevat; met Azure-portal, Powershell, Azure CLI of API. Bekijk voor meer informatie het artikel op [vergrendeling Resourcegebruik](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Als opgelost volgens de stappen die worden weergegeven in het artikel, wordt OMS uw waarschuwingen in Azure uitbreiden in de volgende dag geplande run; zonder de noodzaak van een actie of een inleiding.
 
 
 ## <a name="next-steps"></a>Volgende stappen

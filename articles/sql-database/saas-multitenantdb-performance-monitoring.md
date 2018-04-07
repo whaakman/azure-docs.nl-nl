@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 43bac88a7ab6320c5fdcc9dc0fb6b5209bdbcaa3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Bewaken en beheren van de prestaties van shard multitenant Azure SQL database in een multitenant SaaS-app
 
@@ -49,7 +49,7 @@ Het beheren van de databaseprestaties bestaat uit het verzamelen en analyseren v
 
 [Azure Portal](https://portal.azure.com) biedt ingebouwde functionaliteit voor bewaking en waarschuwingen voor de meeste resources. Bewaking en waarschuwingen is beschikbaar voor databases voor SQL-Database. Deze ingebouwde bewaking en waarschuwingen is resource-specifieke, zodat het is gemakkelijk te gebruiken voor een klein aantal resources, maar is niet handig bij het werken met veel resources.
 
-Voor grote hoeveelheden scenario's waarin u met veel resources werkt, [logboekanalyse (OMS)](https://azure.microsoft.com/services/log-analytics/) kan worden gebruikt. Dit is een afzonderlijke Azure-service die in analyse via verzonden diagnostische logboeken en telemetrie verzameld in een log analytics-werkruimte voorziet. Log Analytics telemetriegegevens kan verzamelen van veel services en worden gebruikt om te vragen en waarschuwingen instellen.
+Voor grote hoeveelheden scenario's waarin u met veel resources werkt, [logboekanalyse](https://azure.microsoft.com/services/log-analytics/) kan worden gebruikt. Dit is een afzonderlijke Azure-service die in analyse via verzonden diagnostische logboeken en telemetrie verzameld in een log analytics-werkruimte voorziet. Log Analytics telemetriegegevens kan verzamelen van veel services en worden gebruikt om te vragen en waarschuwingen instellen.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ophalen van de broncode van de Database Wingtip Tickets SaaS-multitenant-toepassing en scripts
 

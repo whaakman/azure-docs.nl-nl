@@ -1,9 +1,9 @@
 ---
-title: Azure CLI-1.0 Monitor snel starten-voorbeelden. | Microsoft Docs
-description: CLI-1.0 Voorbeeldopdrachten voor Monitor van de Azure-functies. Monitor voor Azure is een Microsoft Azure-service zodat u kunt het verzenden van meldingen van waarschuwingen, aanroepen van web-URL's op basis van waarden van de geconfigureerde telemetriegegevens, en voor automatisch schalen Cloudservices, virtuele Machines en Web-Apps.
+title: Azure CLI-2.0 Monitor snel starten-voorbeelden. | Microsoft Docs
+description: CLI 2.0 Voorbeeldopdrachten voor Monitor van de Azure-functies. Monitor voor Azure is een Microsoft Azure-service zodat u kunt het verzenden van meldingen van waarschuwingen, aanroepen van web-URL's op basis van waarden van de geconfigureerde telemetriegegevens, en voor automatisch schalen Cloudservices, virtuele Machines en Web-Apps.
 author: kamathashwin
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 1653aa81-0ee6-4622-9c65-d4801ed9006f
@@ -12,192 +12,204 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 04/04/2018
 ms.author: ashwink
-ms.openlocfilehash: ec4512500dc3c77a40d2ebd1e6b460d5bb005811
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e429ba460a97daed4a7bdf71895fe24c1619a645
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Azure Monitor platformoverschrijdende CLI 1.0 snel starten-voorbeelden
+# <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure CLI-2.0 Monitor snel starten-voorbeelden
 Dit artikel ziet u voorbeelden opdrachtregelinterface (CLI)-opdrachten kunt u toegang tot Azure Monitor functies. Monitor voor Azure kunt u voor automatisch schalen Cloud Services, virtuele Machines en Web-Apps en voor het verzenden van meldingen van waarschuwingen of web-URL's op basis van waarden van de geconfigureerde telemetriegegevens aanroepen.
 
-> [!NOTE]
-> Monitor voor Azure is de nieuwe naam voor wat 'Azure Insights' is aangeroepen tot 25 september 2016. Echter bevatten de naamruimten en dus de onderstaande opdrachten nog steeds de 'inzichten'.
-> 
-> 
-
 ## <a name="prerequisites"></a>Vereisten
-Als u nog niet de Azure CLI hebt geïnstalleerd, raadpleegt u [Azure CLI installeren](../cli-install-nodejs.md). Als u niet bekend met Azure CLI bent, vindt u meer over op het [gebruik van de Azure CLI voor Mac, Linux en Windows Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
-In Windows, installeert u npm uit de [Node.js website](https://nodejs.org/). Nadat u de installatie voltooid met behulp van CMD.exe met bevoegdheden als Administrator uitvoeren, voert u het volgende vanuit de map waarin de npm is geïnstalleerd:
-
-```console
-npm install azure-cli --global
-```
-
-Vervolgens gaat u naar een map of de locatie u wilt en typt u bij de opdrachtregel:
-
-```console
-azure help
-```
+Als u nog niet hebt geïnstalleerd op de Azure CLI, volg de instructies voor [2.0 Azure CLI installeren](/cli/azure/install-azure-cli). U kunt ook [Azure Cloud Shell](/azure/cloud-shell) uit te voeren van de CLI als een interactieve ervaring in uw browser. 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 De eerste stap is het aanmelden bij uw Azure-account.
 
-```console
-azure login
+```azurecli
+az login
 ```
 
-Wanneer u deze opdracht uitvoert, beschikt u over aanmelden via de instructies op het scherm. Hierna ziet u uw Account, TenantId en standaard abonnements-id. Alle opdrachten werkt in de context van uw standaardabonnement.
+Wanneer u deze opdracht uitvoert, beschikt u over aanmelden via de instructies op het scherm. Alle opdrachten werkt in de context van uw standaardabonnement.
 
 U kunt de details van uw huidige abonnement gebruiken de volgende opdracht.
 
-```console
-azure account show
+```azurecli
+az account show
 ```
 
 Gebruik de volgende opdracht om te werken context wijzigen naar een ander abonnement.
 
-```console
-azure account set "subscription ID or subscription name"
-```
-
-Azure Resource Manager en Azure-Monitor als opdrachten wilt gebruiken, moet u zich in de modus Azure Resource Manager.
-
-```console
-azure config mode arm
+```azurecli
+az account set -s <Subscription ID or name>
 ```
 
 Een lijst met alle ondersteunde Azure-Monitor opdrachten wilt weergeven, door het volgende te doen.
 
-```console
-azure insights
+```azurecli
+az monitor -h
 ```
 
 ## <a name="view-activity-log-for-a-subscription"></a>Activiteitenlogboek weergeven voor een abonnement
+
 Een lijst van de activiteit logboekgebeurtenissen wilt weergeven, door het volgende te doen.
 
-```console
-azure insights logs list [options]
+```azurecli
+az monitor activity-log list
 ```
 
 Probeer de volgende stappen om alle beschikbare opties weer te geven.
 
-```console
-azure insights logs list -help
+```azurecli
+az monitor activity-log list -h
 ```
 
 Hier volgt een voorbeeld in de logboeken van de lijst door een resourceGroup
 
-```console
-azure insights logs list --resourceGroup "myrg1"
+```azurecli
+az monitor activity-log list --resource-group <group name>
 ```
 
 Voorbeeld van Logboeken van de lijst door de oproepende functie
 
-```console
-azure insights logs list --caller "myname@company.com"
+```azurecli
+az monitor activity-log list --caller myname@company.com
 ```
 
-Voorbeeld van Logboeken van de lijst door de oproepende functie op een resourcetype binnen een begin- en datum
+Voorbeeld van Logboeken van de lijst door de oproepende functie op een resourcetype binnen een bepaald datumbereik
 
-```console
-azure insights logs list --resourceProvider "Microsoft.Web" --caller "myname@company.com" --startTime 2016-03-08T00:00:00Z --endTime 2016-03-16T00:00:00Z
+```azurecli
+az monitor activity-log list --resource-provider Microsoft.Web \
+    --caller myname@company.com \
+    --start-time 2016-03-08T00:00:00Z \
+    --end-time 2016-03-16T00:00:00Z
 ```
 
 ## <a name="work-with-alerts"></a>Werken met waarschuwingen
+
 Gebruik de informatie in de sectie kunt u werken met waarschuwingen.
 
 ### <a name="get-alert-rules-in-a-resource-group"></a>Waarschuwingsregels in een resourcegroep ophalen
-```console
-azure insights alerts rule list abhingrgtest123
-azure insights alerts rule list abhingrgtest123 --ruleName andy0323
+
+```azurecli
+az monitor activity-log alert list --resource-group <group name>
+az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
 ### <a name="create-a-metric-alert-rule"></a>Een metriek waarschuwingsregel maken
-```console
-azure insights alerts actions email create --customEmails foo@microsoft.com
-azure insights alerts actions webhook create https://someuri.com
-azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
-```
 
-### <a name="create-webtest-alert-rule"></a>Waarschuwingsregel voor webtest maken
-```console
-azure insights alerts rule webtest set leowebtestr1-webtestr1 eastus Default-Web-WestUS PT5M 1 GSMT_AvRaw /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourcegroups/Default-Web-WestUS/providers/microsoft.insights/webtests/leowebtestr1-webtestr1
+```azurecli
+az monitor alert create --name <alert name> --resource-group <group name> \
+    --action email <email1 email2 ...> \
+    --action webhook <URI> \
+    --target <target object ID> \
+    --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
 ### <a name="delete-an-alert-rule"></a>Een waarschuwingsregel verwijderen
-```console
-azure insights alerts rule delete abhingrgtest123 andy0323
+
+```azurecli
+az monitor alert delete --name <alert name> --resource-group <group name>
 ```
 
 ## <a name="log-profiles"></a>Logboek-profielen
+
 Gebruik de informatie in deze sectie om te werken met profielen voor logboekbestanden.
 
 ### <a name="get-a-log-profile"></a>Een profiel voor een logboek ophalen
-```console
-azure insights logprofile list
-azure insights logprofile get -n default
-```
 
-
-### <a name="add-a-log-profile-without-retention"></a>Een profiel logboek zonder bewaren toevoegen
-```console
-azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
-```
-
-### <a name="remove-a-log-profile"></a>Een logboek-profiel verwijderen
-```console
-azure insights logprofile delete --name default
+```azurecli
+az monitor log-profiles list
+az monitor log-profiles show --name <profile name>
 ```
 
 ### <a name="add-a-log-profile-with-retention"></a>Een profiel van het logboek met bewaren toevoegen
-```console
-azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
+
+```azurecli
+az monitor log-profiles create --name <profile name> --location <location of profile> \
+    --locations <locations to monitor activity in: location1 location2 ...> \
+    --categories <categoryName1 categoryName2 ...> \
+    --days <# days to retain> \
+    --enabled true \
+    --storage-account-id <storage account ID to store the logs in>
 ```
 
 ### <a name="add-a-log-profile-with-retention-and-eventhub"></a>Een profiel van het logboek met bewaren en EventHub toevoegen
-```console
-azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --serviceBusRuleId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/testshoeboxeastus/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
+
+```azurecli
+az monitor log-profiles create --name <profile name> --location <location of profile> \
+    --locations <locations to monitor activity in: location1 location2 ...> \
+    --categories <categoryName1 categoryName2 ...> \
+    --days <# days to retain> \
+    --enabled true
+    --storage-account-id <storage account ID to store the logs in>
+    --service-bus-rule-id <service bus rule ID to stream to>
 ```
 
+### <a name="remove-a-log-profile"></a>Een logboek-profiel verwijderen
+
+```azurecli
+az monitor log-profiles delete --name <profile name>
+```
 
 ## <a name="diagnostics"></a>Diagnostiek
+
 Gebruik de informatie in deze sectie om te werken met diagnostische instellingen.
 
 ### <a name="get-a-diagnostic-setting"></a>Een diagnostische instelling ophalen
-```console
-azure insights diagnostic get --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp
+
+```azurecli
+az monitor diagnostic-settings list --resource <target resource ID>
 ```
 
-### <a name="disable-a-diagnostic-setting"></a>Een diagnostische instelling uitschakelen
-```console
-azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled false
+### <a name="create-a-diagnostic-log-setting"></a>Een instelling diagnostische logboeken maken 
+
+```azurecli
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --storage-account <storage account ID> \
+    --resource <target resource object ID> \
+    --logs '[
+    {
+        "category": <category name>,
+        "enabled": true,
+        "retentionPolicy": {
+            "days": <# days to retain>,
+            "enabled": true
+        }
+    }]'
 ```
 
-### <a name="enable-a-diagnostic-setting-without-retention"></a>Een diagnostische instelling zonder bewaren inschakelen
-```console
-azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled true
-```
+### <a name="delete-a-diagnostic-setting"></a>Een diagnostische instelling niet verwijderen
 
+```azurecli
+az monitor diagnostic-settings delete --name <diagnostic name> \
+    --resource <target resource ID>
+```
 
 ## <a name="autoscale"></a>Automatisch schalen
+
 Gebruik de informatie in deze sectie om te werken met instellingen voor automatisch schalen. U moet deze voorbeelden wijzigen.
 
 ### <a name="get-autoscale-settings-for-a-resource-group"></a>Instellingen voor automatisch schalen voor een resourcegroep
-```console
-azure insights autoscale setting list montest2
+
+```azurecli
+az monitor autoscale list --resource-group <group name>
 ```
 
 ### <a name="get-autoscale-settings-by-name-in-a-resource-group"></a>Instellingen voor automatisch schalen die u op naam in een resourcegroep
-```console
-azure insights autoscale setting list montest2 -n setting2
+
+```azurecli
+az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-
 ### <a name="set-auotoscale-settings"></a>Instellingen voor het auotoscale
-```console
-azure insights autoscale setting set montest2 -n setting2 --settingSpec
+
+```azurecli
+az monitor autoscale create --name <settings name> --resource-group <group name> \
+    --count <# instances> \
+    --resource <target resource ID>
 ```

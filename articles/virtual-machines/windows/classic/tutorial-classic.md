@@ -2,10 +2,10 @@
 title: Een virtuele machine maken in de Azure portal | Microsoft Docs
 description: Maak een virtuele Windows-machine in de Azure portal.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: 1871f823-ebd7-4eff-9a22-8e2411555595
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 99a67821ab926983205e2327c428e854d20a0cf5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5fd2128ff436d3211f41c7dfdcc4c2b8aabd0eb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Maak een virtuele machine waarop Windows wordt uitgevoerd in de Azure portal
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ In deze sectie leest u hoe u de **Dashboard** in de Azure portal om te selectere
 
 U kunt ook maken met virtuele machines met [uw eigen installatiekopieën](createupload-vhd.md). Zie voor meer informatie over deze en andere methoden, [verschillende manieren voor het maken van een virtuele Windows-machine](../../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a id="createvirtualmachine"></a>Maak de virtuele machine
+## <a id="createvirtualmachine"> </a>Maak de virtuele machine
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## <a name="next-steps"></a>Volgende stappen

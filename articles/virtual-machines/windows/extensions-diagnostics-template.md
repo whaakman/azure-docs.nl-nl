@@ -2,10 +2,10 @@
 title: Controle en diagnostische gegevens toevoegen aan een virtuele machine van Azure | Microsoft Docs
 description: Gebruik een Azure Resource Manager-sjabloon maken van een nieuwe virtuele machine voor Windows Azure diagnostics-extensie.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: sbtron
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e205352ebf4eaf89627c268d78b69bb2d49c3f3e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e54060769f19546ad3ccb8c52df928eeebf03776
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Controle en diagnostische gegevens met een virtuele machine van Windows en Azure Resource Manager-sjablonen gebruiken
 De extensie voor diagnostische gegevens van Azure bieden de mogelijkheden voor controle en diagnostische gegevens op een op basis van Windows Azure virtuele machine. U kunt deze mogelijkheden op de virtuele machine inschakelen door de uitbreiding als onderdeel van de Azure Resource Manager-sjabloon. Zie [Azure Resource Manager-sjablonen ontwerpen met VM-extensies](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) voor meer informatie over het toevoegen van elke extensie als onderdeel van een sjabloon voor virtuele machines. Dit artikel wordt beschreven hoe u de extensie Azure Diagnostics kunt toevoegen aan een sjabloon voor virtuele machines van windows.  

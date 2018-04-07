@@ -2,9 +2,9 @@
 title: Het label van een virtuele machine van Windows-resource in Azure | Microsoft Docs
 description: Meer informatie over virtuele Windows-machine gemaakt in Azure met het implementatiemodel van Resource Manager-tagging
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 5f00c4265cea3db02dbb09a7f81be636a3fdd3d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5044bda855b6ac88eb5784f257686bf8a1838222
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Het label van een virtuele Windows-machine in Azure
 In dit artikel beschrijft de verschillende manieren voor het taggen van een virtuele Windows-machine in Azure via het Resource Manager-implementatiemodel. Labels zijn de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks op een resource of een resourcegroep kunnen worden geplaatst. Azure ondersteunt momenteel maximaal 15 tags per resource en resourcegroep. Labels kunnen worden geplaatst op een bron op het moment van maken of toegevoegd aan een bestaande resource. Houd er rekening mee dat de labels voor resources die zijn gemaakt via het Resource Manager-implementatiemodel alleen worden ondersteund. Als u wilt voor het taggen van een virtuele Linux-machine, Zie [hoe het labelen van een virtuele Linux-machine in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -63,7 +63,7 @@ De tweede opdracht geeft de labels voor de opgegeven variabele.
         Value        Production
         Name        Environment
 
-De derde opdracht voegt een extra tag voor de *$tags* variabele. Let op het gebruik van de  **+=**  toe te voegen van de nieuwe sleutel-waardepaar voor de *$tags* lijst.
+De derde opdracht voegt een extra tag voor de *$tags* variabele. Let op het gebruik van de **+=** toe te voegen van de nieuwe sleutel-waardepaar voor de *$tags* lijst.
 
         PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 356c1343443b33e565c65ef0693b8d8455ff1d1b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Waarschuwingen (kopiëren) van OMS-portal in Azure uitbreiden
 De portal Operations Management Suite (OMS) bevat alleen logboekanalyse waarschuwingen.  De nieuwe waarschuwingen is nu geïntegreerd ervaring voor de waarschuwingen over verschillende services en onderdelen in Microsoft Azure. De nieuwe ervaring beschikbaar als **waarschuwingen** onder Azure Monitor in de Azure portal bevat activiteit logboek waarschuwingen, metrische waarschuwingen en logboek waarschuwingen voor logboekanalyse en Application Insights. 
@@ -30,12 +30,13 @@ Naast het voordeel dat is samengevoegd in dat u niet hoeft te navigeren buiten h
 
 - In tegenstelling tot in de OMS-portal, waarbij alleen 250 waarschuwingen kunnen worden gemaakt en weergegeven; in Azure waarschuwingen is deze beperking niet aanwezig
 - Van waarschuwingen van Azure, worden uw Waarschuwingstypen beheerd, opgesomd en weergegeven; niet alleen logboekanalyse waarschuwingen, zoals het geval met OMS-portal
-- Waarschuwingen van Azure gebruikmaken [actiegroepen](monitoring-action-groups.md), waarmee u kunt het hebben van meer dan één actie op voor elke waarschuwing inclusief SMS, telefoongesprek, Automation-Runbook, Webhook, ITSM Connector en meer. Terwijl Log Analytics-waarschuwingen zijn beperkt in zowel het nummer ook als acties mogelijk type
+- Toegang tot gebruikers alleen bewaking en waarschuwingen, met behulp van [Azure Monitor rol](monitoring-roles-permissions-security.md)
+- Waarschuwingen van Azure gebruikmaken [actiegroepen](monitoring-action-groups.md), waarmee u kunt het hebben van meer dan één actie op voor elke waarschuwing inclusief SMS, telefoongesprek, Automation-Runbook, Webhook, ITSM Connector en meer. 
 
 ## <a name="process-of-extending-your-alerts"></a>Proces voor het verlengen van uw waarschuwingen
 Het proces van waarschuwingen van OMS-portal uit te breiden naar Azure, biedt **niet** waarbij de meldingsdefinitie, een query of een configuratie op een manier wordt gewijzigd. De enige wijziging vereist is in Azure worden alle acties zoals het e-mailmeldingen worden webhook-aanroep automation-runbook wordt uitgevoerd of verbinding te maken met het hulpprogramma ITSM gedaan via de actie-groep. Daarom als groep passende maatregelen gekoppeld aan uw waarschuwing zijn - zal ze worden uitgebreid in Azure.
 
-Omdat het proces voor het uitbreiden van niet-destructieve en niet interruptive, Microsoft waarschuwingen automatisch gemaakt in de OMS-portal voor waarschuwingen van Azure - vanaf wordt uitbreiden **23 April 2018**. Vanaf deze dag begint Microsoft te plannen van de waarschuwingen uit te breiden naar Azure geleidelijk alle waarschuwingen aanwezig is in de OMS-portal beheerd via Azure portal. 
+Omdat het proces voor het uitbreiden van niet-destructieve en niet interruptive, Microsoft waarschuwingen automatisch gemaakt in de OMS-portal voor waarschuwingen van Azure - vanaf wordt uitbreiden **14 mei 2018**. Vanaf deze dag begint Microsoft te plannen van de waarschuwingen uit te breiden naar Azure geleidelijk alle waarschuwingen aanwezig is in de OMS-portal beheerd via Azure portal. 
 
 Wanneer de waarschuwingen in een werkruimte voor logboekanalyse ophalen gepland voor de uit te breiden naar Azure, ze blijven werken en wordt **niet** inbreuk op een manier de bewaking. Bij het plannen, uw waarschuwingen mogelijk niet beschikbaar voor het bewerken van wijziging/tijdelijk. maar nieuwe waarschuwingen van Azure worden gemaakt in deze korte tijd kunnen worden voortgezet. In deze korte periode, als u geen bewerken of maken van waarschuwing van OMS-portal doet, hebben gebruikers de optie om door te gaan naar de Azure Log Analytics of Azure-waarschuwingen.
 
@@ -55,7 +56,12 @@ Zoals gezegd, wordt waarschuwingen die zijn gemaakt in Microsoft bewerking Manag
 
  ![Waarschuwingen voor vermeldingen na wordt uitgebreid naar Azure OMS-Portal](./media/monitor-alerts-extend/PostExtendList.png)
 
-Voor een bewerking van waarschuwingen, zoals bewerken of maken in de OMS-portal uitgevoerd gebruikers transparant omgeleid naar Azure-waarschuwingen. Waarschuwing blijven maken van de bestaande [Log Analytics-API](../log-analytics/log-analytics-api-alerts.md) als eerdere, met slechts kleine wijziging is dat de nadat er waarschuwingen worden uitgebreid naar Azure - actiegroepen moet worden gekoppeld in de planning.
+Voor een bewerking van waarschuwingen, zoals bewerken of maken in de OMS-portal uitgevoerd gebruikers transparant omgeleid naar Azure-waarschuwingen. 
+
+> [!NOTE]
+> Wanneer gebruikers transparant naar Azure, op elk toevoegen gaat of bewerken van de actie op een waarschuwing in de OMS - Zorg ervoor dat gebruikers juist zijn toegewezen met de juiste [machtigingen voor het gebruik van Azure bewaken en waarschuwingen](monitoring-roles-permissions-security.md)
+
+Waarschuwing blijven maken van de bestaande [Log Analytics-API](../log-analytics/log-analytics-api-alerts.md) als eerdere, met slechts kleine wijziging is dat de nadat er waarschuwingen worden uitgebreid naar Azure - actiegroepen moet worden gekoppeld in de planning.
 
 ## <a name="next-steps"></a>Volgende stappen
 

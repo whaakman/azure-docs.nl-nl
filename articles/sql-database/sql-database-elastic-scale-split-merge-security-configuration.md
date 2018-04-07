@@ -8,13 +8,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c07ba1e74daace546bae4f4209842312136914a3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 694c1755b5263d48fdfa5cad3c0b13e42bfb8522
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="split-merge-security-configuration"></a>Gesplitste samenvoegen Beveiligingsconfiguratie
 Als u wilt de splitsing/Merge-service gebruikt, moet u correct beveiliging configureren. De service maakt deel uit van de functie van de elastische Schaalfunctionaliteit van Microsoft Azure SQL Database. Zie voor meer informatie [elastische Scale splitsen en Merge-zelfstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -111,7 +111,7 @@ De standaardconfiguratie weigert alle toegang tot het HTTP-eindpunt. Dit is de a
 De standaardconfiguratie kunt alle toegang tot het HTTPS-eindpunt. Deze instelling kan verder worden beperkt.
 
 ### <a name="changing-the-configuration"></a>Wijzigen van de configuratie
-De groep toegangscontroleregels die gelden voor- en eindpunt zijn geconfigureerd in de  **<EndpointAcls>**  sectie het **serviceconfiguratiebestand**.
+De groep toegangscontroleregels die gelden voor- en eindpunt zijn geconfigureerd in de **<EndpointAcls>** sectie het **serviceconfiguratiebestand**.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
@@ -429,7 +429,7 @@ In de Wizard Certificaat importeren:
 9. Klik op **OK** op alle vensters van het dialoogvenster.
 
 ## <a name="upload-certificate"></a>Certificaat uploaden
-In de [Azure-portal](https://portal.azure.com/)
+In [Azure Portal](https://portal.azure.com/)
 
 1. Selecteer **Cloudservices**.
 2. Selecteer de cloudservice.

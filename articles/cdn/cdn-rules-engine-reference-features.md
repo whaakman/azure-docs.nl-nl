@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies in de engine Azure CDN-regels
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
@@ -28,7 +28,6 @@ Het derde deel van een regel is de functie. Een functie bepaalt het type actie d
 ## <a name="access-features"></a>Access-functies
 
 Deze functies zijn ontworpen om toegang tot inhoud beheren.
-
 
 Naam | Doel
 -----|--------
@@ -312,7 +311,7 @@ Verwijderen| Deze optie zorgt ervoor dat een `Cache-Control` header is niet opge
 
 Belangrijke informatie:
 
-- Geef een of meer query tekenreeks parameter namen. Deliminate elke parameternaam met een spatie.
+- Geef een of meer query tekenreeks parameternamen en scheid elke parameternaam met een spatie.
 - Deze functie bepaalt of queryreeksparameters worden opgenomen of van de cache-sleutel uitgesloten. Aanvullende informatie is beschikbaar voor elke optie in de volgende tabel.
 
 Type|Beschrijving
@@ -325,6 +324,9 @@ Type|Beschrijving
 De regelengine voor kunt u voor het aanpassen van de manier waarop de query opslaan in cache is geïmplementeerd. U kunt bijvoorbeeld opgeven dat query opslaan in cache alleen op bepaalde locaties of bestandstypen wordt uitgevoerd.
 
 Als u wilt de queryreeks van 'no-cache' cachegedrag op de pagina queryreeks Caching dupliceren, maakt u een regel met een URL-Query jokertekens overeen voorwaarde en een Bypass-Cache-functie. Stel de overeenkomst jokerteken voor URL-Query op een sterretje (*).
+
+>[!IMPORTANT] 
+> Als het token autorisatie voor elk willekeurig pad voor dit account is ingeschakeld, is standaard cachemodus alleen de modus die kan worden gebruikt voor het opslaan van de query-tekenreeks. Zie [Cachegedrag in Azure CDN bepalen met queryreeksen](cdn-query-string-premium.md) voor meer informatie.
 
 #### <a name="sample-scenarios"></a>Voorbeeldscenario 's
 
@@ -1054,10 +1056,12 @@ Uitgeschakeld| Hiermee herstelt u het standaardgedrag. De standaardinstelling is
 ### <a name="token-auth-denial-code"></a>Token Auth DOS-Code
 **Doel:** bepaalt het type van de reactie die wordt geretourneerd voor een gebruiker wanneer een aanvraag wordt geweigerd vanwege verificatie op basis van tokens.
 
-De beschikbare reactiecodes worden hieronder vermeld.
+Token Auth DOS-Code kan niet worden gebruikt met de voorwaarde van een altijd overeen. Gebruik in plaats daarvan de **afhandeling van aangepaste DOS** sectie de **Token Auth** pagina van de **beheren** portal. Zie voor meer informatie [beveiligen van Azure CDN activa met tokenverificatie](cdn-token-auth.md).
+
+De beschikbare reactiecodes worden vermeld in de volgende tabel.
 
 Antwoordcode|De naam van de reactie|Beschrijving
-----------------|-----------|--------
+-------------|-------------|--------
 301|Permanent verplaatst|Deze statuscode wordt niet-geautoriseerde gebruikers omgeleid naar de URL die is opgegeven in de locatie-header.
 302|Gevonden|Deze statuscode wordt niet-geautoriseerde gebruikers omgeleid naar de URL die is opgegeven in de locatie-header. Deze statuscode is de standaardmethode voor de branche van de uitvoering van een omleiding.
 307|Tijdelijke omleiding|Deze statuscode wordt niet-geautoriseerde gebruikers omgeleid naar de URL die is opgegeven in de locatie-header.

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collector-appliance"></a>Collector toestel
 
@@ -53,7 +53,7 @@ Het toestel collector moet worden verbonden met internet om de informatie van de
 1. U kunt de Collector als u beschikt over een rechtstreekse internetverbinding wilt configureren.
 2. U kunt de Collector verbinding maakt via een proxyserver configureren.
     * Als de proxyserver verificatie vereist, kunt u de gebruikersnaam en wachtwoord opgeven in de verbindingsinstellingen.
-    * De IP-adres/FQDN-naam van de proxyserver moet van het formulier http://IPaddress of http://FQDN. Alleen http-proxy wordt ondersteund.
+    * De IP-adres/FQDN-naam van de proxyserver moet de vorm http://IPaddress of http://FQDN. Alleen http-proxy wordt ondersteund.
 
 > [!NOTE]
 > HTTPS gebaseerde proxy-servers worden niet ondersteund door de collector.
@@ -126,7 +126,7 @@ Wanneer een verbinding met de vCenter-, kunt u een scope om te detecteren. Als u
 
 1. Het bereik mag een datacenter, een map of een ESXi-host. 
 2. U kunt slechts één scope op een tijdstip selecteren. Als u wilt meer virtuele machines selecteren, kunt u één detectie voltooid en opnieuw opstarten van het detectieproces met een nieuwe scope.
-3. U kunt alleen een bereik dat is selecteren *minder dan 1000 virtuele machines*. Als u een bereik dat meer dan 1000 virtuele machines is selecteert, moet u het bereik splitsen in kleinere eenheden door mappen te maken. Vervolgens moet u uitvoeren onafhankelijk van de kleinere mappen.
+3. U kunt alleen een bereik dat is selecteren *minder dan 1500 virtuele machines*.
 
 ## <a name="specify-migration-project"></a>Geef-migratie
 
@@ -197,6 +197,16 @@ U kunt de Collector upgraden naar de nieuwste versie zonder dat de eicellen nogm
 5. Met de rechtermuisknop op Setup.ps1 en klikt u op uitvoeren met PowerShell en volg de instructies op het scherm om de update te installeren.
 
 ### <a name="list-of-updates"></a>Lijst met updates
+
+#### <a name="upgrade-to-version-1097"></a>Upgrade uitvoeren naar versie 1.0.9.7
+
+Voor een Upgrade naar versie 1.0.9.7 downloaden [pakket](https://aka.ms/migrate/col/upgrade_9_7)
+
+**Algoritme** | **Hash-waarde**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### <a name="upgrade-to-version-1095"></a>Upgrade uitvoeren naar versie 1.0.9.5
 

@@ -2,11 +2,11 @@
 title: Maak een Linux-VM in Azure met meerdere NIC's | Microsoft Docs
 description: Informatie over het maken van een Linux-VM met meerdere NIC's gekoppeld met behulp van de Azure CLI of Resource Manager-sjablonen.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 93a32ae7ec0cf73825791e8c8bc3d388cf999ece
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 20e3a65c28e95849822d81076b6780e05a2aebbf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Een virtuele Linux-machine maken met meerdere NIC's met behulp van de Azure CLI 1.0
 U kunt een virtuele machine (VM) maken in Azure met meerdere virtuele netwerkinterfaces (NIC's) is gekoppeld. Een veelvoorkomend scenario is om verschillende subnetten voor front-end en back-end-verbinding of een netwerk dat is toegewezen aan een oplossing met bewaking of back-up. In dit artikel biedt een snelle opdrachten voor het maken van een virtuele machine met meerdere NIC's die zijn gekoppeld. Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig.
@@ -43,7 +43,7 @@ azure config mode arm
 
 In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. Voorbeeld parameternamen opgenomen *myResourceGroup*, *mystorageaccount*, en *myVM*.
 
-Maak eerst een resourcegroep. Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *eastus* locatie:
+Maak eerst een resourcegroep. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 azure group create myResourceGroup --location eastus
@@ -143,6 +143,8 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
+Wanneer u meerdere NIC's aan een Linux-VM toevoegt, moet u routeringsregels maken. Met deze regels kunt de virtuele machine te verzenden en ontvangen van verkeer dat tot een specifieke NIC. behoort Worden anders wordt verkeer dat tot eth1 behoort, bijvoorbeeld, kan niet verwerkt correct door de gedefinieerde standaardroute. U kunt dit routering probleem, Zie [configureren gastbesturingssysteem voor meerdere NIC's](multiple-nics.md#configure-guest-os-for-multiple-nics).
+
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Meerdere NIC's met behulp van Resource Manager-sjablonen maken
 Azure Resource Manager-sjablonen gebruiken declaratieve JSON-bestanden voor het definiëren van uw omgeving. U vindt een [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager-sjablonen kunnen u meerdere exemplaren van een bron tijdens implementatie, zoals het maken van meerdere NIC's maken. U gebruikt *kopie* om op te geven van het aantal exemplaren te maken:
 
@@ -162,6 +164,8 @@ U kunt ook een `copyIndex()` toe te voegen vervolgens een nummer aan de naam van
 ```
 
 U kunt een compleet voorbeeld van lezen [meerdere NIC's met behulp van Resource Manager-sjablonen maken](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+Wanneer u meerdere NIC's aan een Linux-VM toevoegt, moet u routeringsregels maken. Met deze regels kunt de virtuele machine te verzenden en ontvangen van verkeer dat tot een specifieke NIC. behoort Worden anders wordt verkeer dat tot eth1 behoort, bijvoorbeeld, kan niet verwerkt correct door de gedefinieerde standaardroute. U kunt dit routering probleem, Zie [configureren gastbesturingssysteem voor meerdere NIC's](multiple-nics.md#configure-guest-os-for-multiple-nics).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zorg ervoor dat u Lees [Linux VM-grootten](sizes.md) bij het maken van een virtuele machine met meerdere NIC's. Let op het maximum aantal NIC's die ondersteuning biedt voor elke VM-grootte. 

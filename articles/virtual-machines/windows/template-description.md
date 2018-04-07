@@ -2,10 +2,10 @@
 title: Virtuele machines in een Azure Resource Manager-sjabloon | Microsoft Azure
 description: Meer informatie over hoe de bron van de virtuele machine in een Azure Resource Manager-sjabloon is gedefinieerd.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.openlocfilehash: 9c0039987ec28601c9338d2b94633c38c31e01f8
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 43cd6322bb03b5c781a890c3280247cbb2d118f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuele machines in een Azure Resource Manager-sjabloon
 
@@ -278,10 +278,10 @@ Deze eigenschap wilt instellen, moet de netwerkinterface bestaan. Daarom moet u 
 
 Verschillende profiel elementen worden gebruikt bij het definiëren van de bron van een virtuele machine. Sommige zijn vereist en sommige zijn optioneel. Bijvoorbeeld, het hardwareProfile, osProfile storageProfile en Schaalaanpassingsset elementen zijn vereist, maar de diagnosticsProfile is optioneel. Deze profielen definiëren instellingen zoals:
    
-- [grootte](sizes.md)
+- [Grootte](sizes.md)
 - [naam](/architecture/best-practices/naming-conventions) en referenties
 - schijf en [besturingssysteeminstellingen](cli-ps-findimage.md)
-- [netwerkinterface](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- [Netwerkinterface](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - Diagnostische gegevens over opstarten
 
 ## <a name="disks-and-images"></a>Schijven en installatiekopieën

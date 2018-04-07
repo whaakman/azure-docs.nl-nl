@@ -1,26 +1,21 @@
 ---
-title: Stream Analytics Visual Studio-hulpprogramma's gebruiken voor het instellen van het continue integratie en implementatie-proces | Microsoft Docs
-description: Zelfstudie voor het ontwikkelen van Stream Analytics-tools voor Visual Studio ontwerpen, fouten opsporen en het maken van de rand van Stream Analytics-taken.
-keywords: met Visual studio, NuGet, DevOps, Stream analytics-taken rand
-documentationcenter: ''
+title: Edge-taken in Azure Stream Analytics-tools voor Visual Studio
+description: In dit artikel wordt beschreven hoe auteur, fouten opsporen en het maken van uw Stream Analytics rand taken met de Stream Analytics-tools voor Visual Studio.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/13/2018
 ms.author: sujie
-ms.openlocfilehash: c6e1d0693035ef343e20cee4b09f0669e089afee
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/13/2018
+ms.openlocfilehash: ec916ea2104df9d694aad2462df7ca5a487017f2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="develop-stream-analytics-edge-jobs-by-using-visual-studio-tools"></a>Rand van Stream Analytics-taken ontwikkelen met behulp van Visual Studio-hulpprogramma 's
+# <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Ontwikkelen met Visual Studio tools rand van Stream Analytics-taken
 
 In deze zelfstudie leert u hoe u met Stream Analytics-tools voor Visual Studio ontwerpen en maken van de rand van Stream Analytics-taken fouten opsporen in. Nadat u maken en testen van de taak, kunt u gaan naar de Azure portal om te implementeren op uw apparaten. 
 

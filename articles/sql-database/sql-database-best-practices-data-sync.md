@@ -2,17 +2,17 @@
 title: Aanbevolen procedures voor het synchroniseren van Azure SQL gegevens (Preview) | Microsoft Docs
 description: Meer informatie over aanbevolen procedures voor het configureren en synchroniseren van Azure SQL gegevens (Preview) wordt uitgevoerd.
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 1c8ad4b318d52b5cb6af284b3304cfa7ad35522b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>Aanbevolen procedures voor het synchroniseren van de SQL-gegevens (Preview) 
 
@@ -20,7 +20,7 @@ In dit artikel beschrijft aanbevolen procedures voor Azure SQL-gegevenssynchroni
 
 Zie voor een overzicht van het synchroniseren van de SQL-gegevens (Preview) [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)](sql-database-sync-data.md).
 
-## <a name="security-and-reliability"></a>Beveiliging en betrouwbaarheid
+## <a name="security-and-reliability"></a> Beveiliging en betrouwbaarheid
 
 ### <a name="client-agent"></a>Clientagent
 
@@ -45,7 +45,7 @@ Azure SQL Database ondersteunt slechts één set referenties. Houd rekening met 
 
 ## <a name="setup"></a>Instellen
 
-### <a name="database-considerations-and-constraints"></a>Database-overwegingen en beperkingen
+### <a name="database-considerations-and-constraints"></a> Database-overwegingen en beperkingen
 
 #### <a name="sql-database-instance-size"></a>De grootte van de SQL-Database-exemplaar
 
@@ -54,7 +54,7 @@ Wanneer u een nieuw exemplaar van SQL-Database maakt, de maximale grootte zo ins
 > [!IMPORTANT]
 > Synchroniseren van de SQL-gegevens (Preview) slaat aanvullende metagegevens met elke database. Zorg ervoor dat u rekening houden met deze metagegevens wanneer u de benodigde ruimte berekenen. De hoeveelheid toegevoegd overhead is gerelateerd aan de breedte van de tabellen (bijvoorbeeld smalle tabellen meer overhead vereist) en de hoeveelheid verkeer.
 
-### <a name="table-considerations-and-constraints"></a>Tabel overwegingen en beperkingen
+### <a name="table-considerations-and-constraints"></a> Tabel overwegingen en beperkingen
 
 #### <a name="selecting-tables"></a>Tabellen selecteren
 
@@ -66,7 +66,7 @@ Elke tabel in een groep voor synchronisatie moet een primaire sleutel hebben. Ee
 
 Voordat u SQL synchroniseren van gegevens (Preview) in productie, test u de prestaties van de initiële en lopende synchronisatie.
 
-### <a name="provisioning-destination-databases"></a>Bestemming databases inrichten
+### <a name="provisioning-destination-databases"></a> Bestemming databases inrichten
 
 Synchroniseren van de SQL-gegevens (Preview) Preview biedt basisfuncties voor database autoprovisioning.
 
@@ -90,7 +90,7 @@ Synchroniseren van de SQL-gegevens (Preview) heeft de volgende beperkingen op au
 -   Het synchroniseren van de SQL-gegevens (Preview) autoprovisioning functionaliteit alleen gebruiken wanneer u probeert de service uit.  
 -   Voor de productie inrichten schema van de database.
 
-### <a name="locate-hub"></a>Waar u de database hub
+### <a name="locate-hub"></a> Waar u de database hub
 
 #### <a name="enterprise-to-cloud-scenario"></a>Enterprise-naar-cloud-scenario
 
@@ -107,7 +107,7 @@ De voorgaande richtlijnen toepassen op complexe sync configuraties, zoals system
 
 ## <a name="sync"></a>Sync
 
-### <a name="avoid-a-slow-and-costly-initial-synchronization"></a>Vermijd langzaam en kostbaar initiële synchronisatie
+### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Vermijd langzaam en kostbaar initiële synchronisatie
 
 In deze sectie bespreken we de eerste synchronisatie uit een groep voor synchronisatie. Informatie over het voorkomen dat er een initiële synchronisatie van duurt langer en wordt duurder dan nodig.
 
@@ -121,13 +121,13 @@ Als de databases bevinden zich in verschillende datacenters, moet elke rij reize
 
 Indien mogelijk kunt u beginnen met gegevens in slechts één van de databases van de groep voor synchronisatie.
 
-### <a name="design-to-avoid-synchronization-loops"></a>Ontwerp te vermijden van lussen synchronisatie
+### <a name="design-to-avoid-synchronization-loops"></a> Ontwerp te vermijden van lussen synchronisatie
 
 Een synchronisatie-lus treedt op wanneer er circulaire verwijzingen in een groep voor synchronisatie zijn. In dit scenario, elke wijziging in één database is dit leiden tot eindeloze en circulair gerepliceerd via de databases in de groep voor synchronisatie.   
 
 Zorg ervoor dat u synchronisatie dat lussen worden voorkomen, omdat ze mindere prestaties tot en kosten aanzienlijk verhogen.
 
-### <a name="handling-changes-that-fail-to-propagate"></a>Wijzigingen die niet worden doorgegeven
+### <a name="handling-changes-that-fail-to-propagate"></a> Wijzigingen die niet worden doorgegeven
 
 #### <a name="reasons-that-changes-fail-to-propagate"></a>Redenen die wijzigingen niet doorgeven
 
@@ -153,7 +153,7 @@ Controleren van de synchronisatie en de database de status regelmatig via de por
 
 ## <a name="maintenance"></a>Onderhoud
 
-### <a name="avoid-out-of-date-databases-and-sync-groups"></a>Verouderde databases vermijden en groepen synchroniseren
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Verouderde databases vermijden en groepen synchroniseren
 
 Een groep voor synchronisatie of een database in een groep voor synchronisatie kunt verouderd raken. Wanneer de status van een groep voor synchronisatie is **verouderd**, deze niet meer werkt. Wanneer de status van een database is **verouderd**, mogelijk gegevens verloren gegaan. Het is raadzaam om te voorkomen dat dit scenario in plaats van probeert te herstellen uit.
 
@@ -178,7 +178,7 @@ Om te voorkomen dat een verouderd synchronisatiegroepen:
 -   Werk de refererende sleutel waarden zodanig dat de waarden die zijn opgenomen in de mislukte rijen.
 -   De gegevenswaarden in de mislukte rij bijwerken zodat ze compatibel met het schema of refererende sleutels in de doeldatabase zijn.
 
-### <a name="avoid-deprovisioning-issues"></a>Opheffen van inrichting problemen voorkomen
+### <a name="avoid-deprovisioning-issues"></a> Opheffen van inrichting problemen voorkomen
 
 In sommige gevallen kan de registratie van een database met een clientagent mogelijk synchronisatie mislukken.
 
@@ -199,7 +199,7 @@ Herstellen van dit scenario:
 2. De database weer in elke groep voor synchronisatie die u hebt verwijderd uit toevoegen.  
 3. Implementeer een groep voor elke betrokken synchronisatie (deze actie voorziet in de database).  
 
-### <a name="modifying-your-sync-group"></a>Wijzigen van een groep voor synchronisatie
+### <a name="modifying-your-sync-group"></a> Wijzigen van een groep voor synchronisatie
 
 Niet proberen te verwijderen van een database van een groep voor synchronisatie en bewerk vervolgens de groep voor synchronisatie zonder eerste implementatie een van de wijzigingen.
 
@@ -212,11 +212,11 @@ Zie voor meer informatie over het synchroniseren van de SQL-gegevens (Preview):
 
 -   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)](sql-database-sync-data.md)
 -   [Instellen van Azure SQL-gegevenssynchronisatie (Preview)](sql-database-get-started-sql-data-sync.md)
--   [Monitor voor Azure SQL synchroniseren van gegevens (Preview) met OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Monitor voor Azure SQL synchroniseren van gegevens (Preview) met logboekanalyse](sql-database-sync-monitor-oms.md)
 -   [Problemen oplossen met Azure SQL-gegevenssynchronisatie (Preview)](sql-database-troubleshoot-data-sync.md)  
 -   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens (Preview) te configureren:  
     -   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md)  
-    -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL Database en een lokale SQL Server-database.](scripts/sql-database-sync-data-between-azure-onprem.md)  
+    -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [Het synchroniseren van de SQL-gegevens (Preview) REST-API-documentatie downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Zie voor meer informatie over SQL-Database:
