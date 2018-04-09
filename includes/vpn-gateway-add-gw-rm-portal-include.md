@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c5952422bb4faec196a5a54b9f18cf9700988aad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 655f0b625d9f1b7c7ad216e9276da62d8454380f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 1. Klik in de portal aan de linkerkant op **+** en typ in het zoekvak: 'virtuele netwerkgateway'. Klik op het zoekresultaat **Gateway van het virtuele netwerk**. Klik onder aan de pagina **Virtuele netwerkgateway** op **Maken** om de pagina **Virtuele netwerkgateway maken** te openen.
 2. Vul op de pagina **Virtuele netwerkgateway maken** de waarden in voor uw virtuele netwerkgateway.
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/23/2018
     - Klik eerst op **IP-configuratie van gateway maken** om de pagina Openbaar IP-adres kiezen te openen. Klik daarna op **+Nieuw** om de pagina Openbaar IP-adres maken te openen.
     - Geef bij **Naam** een naam op voor uw openbare IP-adres. Laat SKU staan op **Basic**, tenzij er een specifieke reden is om deze instelling te wijzigen. Klik vervolgens op **OK** onderaan deze pagina om de wijzigingen op te slaan.
 
-      ![Openbaar IP maken](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "PIP maken")
+      ![Openbaar IP maken](./media/vpn-gateway-add-gw-rm-portal-include/gwip.png "PIP maken")
 
 4. Controleer de instellingen. Als u wilt dat uw gateway op het dashboard wordt weergegeven, kunt u onderaan de pagina **Vastmaken aan dashboard** selecteren. 
 5. Klik op **Maken** om de VPN-gateway aan te maken. De instellingen worden gevalideerd en op het dashboard wordt de tegel 'De gateway van het virtuele netwerk implementeren' weergegeven. Het aanmaken van een gateway kan tot 45 minuten duren. U moet mogelijk uw portal-pagina vernieuwen om de voltooide status te kunnen zien.

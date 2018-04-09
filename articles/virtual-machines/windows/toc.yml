@@ -342,13 +342,20 @@
         - name: Azure-extensie voor logboekverzamelaar
           href: log-collector-extension.md
         - name: Azure-extensie voor diagnostische gegevens
-          href: ps-extensions-diagnostics.md
+          href: extensions-diagnostics.md
+          items:
+            - name: Extensieschema
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
+            - name: Inschakelen met PowerShell
+              href: ps-extensions-diagnostics.md
+            - name: Inschakelen met sjablonen
+              href: extensions-diagnostics-template.md
+            - name: Problemen oplossen
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
         - name: VM-extensies exporteren
           href: extensions-export-templates.md
         - name: Problemen met extensies oplossen
           href: extensions-troubleshoot.md
-        - name: Extensie voor bewaking en diagnose
-          href: extensions-diagnostics-template.md
         - name: Network Watcher-agent
           href: extensions-nwa.md
         - name: Installatie van extensie beperken

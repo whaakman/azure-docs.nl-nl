@@ -6,8 +6,6 @@ items:
     items:
       - name: Over Azure Cosmos DB
         href: introduction.md
-      - name: Documentatie-experiment
-        href: experiment.md
   - name: Snelstartgidsen
     expanded: true
     items:
@@ -164,7 +162,7 @@ items:
       - name: Beveiliging
         href: database-security.md
       - name: TCO
-        href: 'https://aka.ms/documentdb-tco-paper'
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Gebruiksvoorbeelden
         href: use-cases.md
         items:
@@ -184,13 +182,15 @@ items:
               - name: SQL-queryprestaties
                 href: sql-api-sql-query-metrics.md
               - name: SQL-testomgeving
-                href: 'https://www.documentdb.com/sql/demo'
+                href: 'https://aka.ms/cosmos-db-playground'
               - name: Partitionering
                 href: sql-api-partition-data.md
               - name: 'Opgeslagen procedures, triggers en UDF''s'
                 href: programming.md
               - name: Prestaties testen
                 href: performance-testing.md
+              - name: Tips voor betere prestaties voor Async Java
+                href: performance-tips-async-java.md
               - name: Tips voor betere prestaties voor .NET
                 href: performance-tips.md
               - name: Tips voor betere prestaties voor Java
@@ -378,17 +378,17 @@ items:
           - name: Toepassingslogboeken bijhouden met Logische apps
             href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
           - name: Verbinden aan Azure Functions
-            href: ../azure-functions/functions-bindings-documentdb.md
+            href: ../azure-functions/functions-bindings-cosmosdb.md
           - name: Integreren met Azure Search
-            href: ../search/search-howto-index-documentdb.md
+            href: ../search/search-howto-index-cosmosdb.md
           - name: Gegevens verplaatsen met Azure Data Factory
             href: ../data-factory/connector-azure-cosmos-db.md
           - name: Realtime gegevens analyseren met Azure Stream Analytics
-            href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+            href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
           - name: Een gewijzigde HL7 FHIR-record ophalen met Logic Apps
             href: change-feed-hl7-fhir-logic-apps.md
           - name: Sensorgegevens in realtime verwerken
-            href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+            href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
           - name: Uw gegevens visualiseren met Power BI
             href: powerbi-visualize.md
           - name: Het ODBC-stuurprogramma gebruiken voor gegevensvisualisatie

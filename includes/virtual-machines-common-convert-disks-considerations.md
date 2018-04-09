@@ -3,6 +3,8 @@
 
 * De conversie kan niet ongedaan worden gemaakt. 
 
+* Houd er rekening mee dat elke worden gebruikers met de [Virtual Machine Contributor](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) rol kan niet worden de VM-grootte wijzigen (zoals ze vooraf conversie kunnen). Dit is omdat de virtuele machines met beheerde schijven moeten de gebruiker gemachtigd is Microsoft.Compute/disks/write op de OS-schijven.
+
 * Test de conversie. Migreer de test-VM voordat u de migratie in de productieomgeving uitvoert.
 
 * Tijdens de conversie moet u de toewijzing van de VM ongedaan maken. De VM ontvangt een nieuw IP-adres wanneer deze na de conversie wordt opgestart. Indien vereist kunt u [een statisch IP-adres toewijzen](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) aan de VM.

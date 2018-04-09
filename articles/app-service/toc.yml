@@ -139,6 +139,8 @@
               href: app-service-mobile-how-to-configure-microsoft-authentication.md
             - name: Verifiëren met Twitter
               href: app-service-mobile-how-to-configure-twitter-authentication.md
+        - name: AuthN/authZ aanpassen
+          href: app-service-authentication-how-to.md
         - name: Een beheerde service-identiteit gebruiken
           href: app-service-managed-service-identity.md
         - name: Een SSL-certificaat in de toepassingscode gebruiken

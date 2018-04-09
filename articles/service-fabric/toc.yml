@@ -249,12 +249,12 @@
               href: service-fabric-reliable-services-diagnostics.md
             - name: Reliable Actors-gebeurtenissen
               href: service-fabric-reliable-actors-diagnostics.md
-            - name: Metrische gegevens voor prestaties
-              href: service-fabric-diagnostics-event-generation-perf.md
             - name: Externe toegang tot service bewaken
               href: service-fabric-reliable-serviceremoting-diagnostics.md
         - name: Toepassingslogboeken
           href: service-fabric-diagnostics-event-generation-app.md
+        - name: Metrische gegevens voor prestaties
+          href: service-fabric-diagnostics-event-generation-perf.md
         - name: Overzicht van het statusmodel
           href: service-fabric-health-introduction.md
         - name: Statusgebeurtenissen rapporteren
@@ -433,6 +433,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Aanbevolen procedures
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
+        - name: Een gemigreerde app herstructureren
+          href: /azure/architecture/service-fabric/refactor-migrated-app
     - name: Toepassingslevenscyclus beheren
       items:
         - name: Toepassingspakket maken

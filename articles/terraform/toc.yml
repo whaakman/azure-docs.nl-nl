@@ -15,6 +15,8 @@
       maintainContext: true
 - name: Zelfstudies
   items:
+    - name: Terraform- en Azure-implementatiesites voor providers
+      href: terraform-slot-walkthru.md
     - name: Een virtuele Terraform-machine met ingeschakelde MSI maken
       href: terraform-vm-msi.md
     - name: Een VM-cluster maken met Terraform-modules

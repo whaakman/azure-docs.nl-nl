@@ -155,14 +155,10 @@
           href: backup-client-automation.md
     - name: Azure SQL Database
       items:
-        - name: Langetermijnretentie van back-ups configureren
-          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Back-ups in een Recovery Services-kluis weergeven
-          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Back-ups herstellen vanuit een langetermijnretentie
-          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Langetermijnback-ups van Azure SQL verwijderen
-          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: SQL Database-back-ups configureren en herstellen - SQL-opslag
+          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: SQL Database-back-ups configureren en herstellen - Recovery Services-kluis
+          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
     - name: Windows Server
       items:
         - name: Back-ups maken van Windows Server-bestanden en -mappen

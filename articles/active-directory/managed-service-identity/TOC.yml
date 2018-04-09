@@ -37,37 +37,49 @@
           href: how-to-use-vm-sign-in.md
         - name: Gebruiken met Azure SDK's
           href: how-to-use-vm-sdk.md
-    - name: Een VM MSI gebruiken voor toegang tot Azure Data Lake Store
+    - name: Een beheerde VM-/VMSS-identiteit gebruiken in Windows
       items:
-        - name: Vanaf een Windows-VM
+        - name: Toegang tot Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
-        - name: Vanaf een Linux-VM
-          href: tutorial-linux-vm-access-datalake.md
-    - name: Een VM MSI gebruiken voor toegang tot Azure Resource Manager
-      items:
-        - name: Vanaf een Windows-VM
+        - name: Toegang tot Azure Resource Manager
           href: tutorial-windows-vm-access-arm.md
-        - name: Vanaf een Linux-VM
-          href: tutorial-linux-vm-access-arm.md
-    - name: Een VM MSI gebruiken voor toegang tot Azure SQL
-      items:
-        - name: Vanaf een Windows-VM
+        - name: Toegang tot Azure SQL
           href: tutorial-windows-vm-access-sql.md
-    - name: Een VM MSI gebruiken voor toegang tot Azure Storage
-      items:
-        - name: Vanaf een Windows-VM met behulp van een toegangssleutel
+        - name: Toegang tot Azure Storage met behulp van een toegangssleutel
           href: tutorial-windows-vm-access-storage.md
-        - name: Vanaf een Windows-VM met behulp van SAS
+        - name: Toegang tot Azure Storage met behulp van SAS
           href: tutorial-windows-vm-access-storage-sas.md
-        - name: Vanaf een Linux-VM met behulp van een toegangssleutel
-          href: tutorial-linux-vm-access-storage.md
-        - name: Vanaf een Linux-VM met behulp van SAS
-          href: tutorial-linux-vm-access-storage-sas.md
-    - name: Een VM MSI gebruiken voor toegang tot Azure Key Vault
-      items:
-        - name: Vanaf een Windows-VM
+        - name: Toegang tot Azure Key Vault
           href: tutorial-windows-vm-access-nonaad.md
-        - name: Vanaf een Linux-VM
+    - name: Een beheerde VM-/VMSS-identiteit gebruiken in Linux
+      items:
+        - name: Toegang tot Azure Data Lake Store
+          href: tutorial-linux-vm-access-datalake.md
+        - name: Toegang tot Azure Resource Manager
+          href: tutorial-linux-vm-access-arm.md
+        - name: Toegang tot Azure Storage met behulp van een toegangssleutel
+          href: tutorial-linux-vm-access-storage.md
+        - name: Toegang tot Azure Storage met behulp van SAS
+          href: tutorial-linux-vm-access-storage-sas.md
+        - name: Toegang tot Azure Key Vault
           href: tutorial-linux-vm-access-nonaad.md
     - name: Veelgestelde vragen en bekende problemen
       href: known-issues.md
+    - name: Naslaginformatie
+      items:
+        - name: CLI
+          href: /cli/azure/identity
+        - name: PowerShell
+          href: '/powershell/module/azurerm.managedserviceidentity#managed_service_identity'
+        - name: .NET
+          href: '/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet'
+        - name: Java
+          href: 'https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines'
+        - name: Python
+          href: /python/api/azure.mgmt.msi
+        - name: Ruby
+          href: 'https://rubygems.org/gems/azure_mgmt_msi'
+        - name: Node.js
+          href: /javascript/api/ms-rest-azure
+        - name: Aan de slag
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi'
