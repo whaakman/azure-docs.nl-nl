@@ -6,7 +6,7 @@ documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-network-security"></a>Azure-netwerkbeveiliging
 
@@ -193,7 +193,7 @@ U kunt uw on-premises netwerk verbinden met een VNet met elke combinatie van de 
 
 -   Punt-naar-site VPN (P2S VPN)
 
--   Site-naar-Site VPN (S2S VPN)
+-   Site-to-Site VPN (S2S VPN)
 
 -   ExpressRoute
 
@@ -214,7 +214,7 @@ Punt-naar-Site-verbindingen zijn handig als u wilt verbinding maken met uw VNet 
 
 Voor P2S-verbindingen hebt u geen VPN-apparaat of een openbaar IP-adres nodig. U brengt de VPN-verbinding tot stand vanaf de clientcomputer. P2S wordt daarom niet aanbevolen manier verbinding maken met Azure geval u een permanente verbinding van veel on-premises apparaten en computers met uw Azure-netwerk moet.
 
-![Site-naar-Site VPN](media/azure-network-security/azure-network-security-fig-6.png)
+![Site-to-Site VPN](media/azure-network-security/azure-network-security-fig-6.png)
 
 > [!Note]
 > Zie voor meer informatie over punt-naar-Site-verbindingen de [punt-naar-Site VA v Q](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal).
@@ -363,7 +363,7 @@ Azure-netwerk beveiligingsapparaten VNet beveiligings- en netwerkfuncties te ver
 
 -   Active Directory
 
--   Multifactor-verificatie
+-   Meervoudige verificatie
 
 #### <a name="application-gateway"></a>Toepassingsgateway
 
@@ -392,7 +392,7 @@ Bovendien Application Gateway WAF helpt u bij het bewaken van webtoepassingen te
 
 Het opgemaakte JSON-logboek gaat u rechtstreeks naar de storage-account van de klant. U hebt volledige controle over deze logboeken en uw eigen bewaarbeleidsregels kunt toepassen.
 
-U kunt ook deze logboeken opnemen in uw eigen analytics-systeem met [Azure Log integratie](https://aka.ms/AzLog). WAF Logboeken ook worden geïntegreerd met [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite) zodat u de logboekanalyse OMS kunt geavanceerde fijnmazig query's uitvoeren.
+U kunt ook deze logboeken opnemen in uw eigen analytics-systeem met [Azure Log integratie](https://aka.ms/AzLog). WAF Logboeken ook worden geïntegreerd met [logboekanalyse](../log-analytics/log-analytics-overview.md) zodat u Log Analytics gebruiken kunt om geavanceerde fijnmazig query's uitvoeren.
 
 #### <a name="azure-web-application-firewall-waf"></a>Azure-web application firewall (WAF)
 
@@ -580,7 +580,7 @@ Netwerk-Watcher biedt een [diagnostische logboeken](https://docs.microsoft.com/a
 
 De volgende functies zijn beschikbaar voor bewaking van niveau resource:
 
-#### <a name="audit-log"></a>Controlelogboek
+#### <a name="audit-log"></a>Auditlogboek
 
 Bewerkingen die worden uitgevoerd als onderdeel van de configuratie van netwerken worden geregistreerd. Deze controlelogboeken essentieel zijn voor verschillende conformiteit tot stand brengen. Deze logboeken kunnen worden weergegeven in de Azure-portal of opgehaald met behulp van Microsoft-hulpprogramma's zoals Power BI of hulpprogramma's van derden. Controlelogboeken zijn beschikbaar via de portal, PowerShell, CLI en Rest-API.
 
@@ -606,7 +606,7 @@ Netwerk-Watcher biedt dat een diagnostische logboeken weergeven. Deze weergave b
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Meld u Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is een service in [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) die wordt bewaakt uw cloud en on-premises omgevingen voor het onderhouden van de beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
+[Meld u Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is een service in Azure die wordt bewaakt uw cloud en on-premises omgevingen voor het onderhouden van de beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
 
 Log Analytics biedt de volgende oplossingen voor het bewaken van uw netwerken:
 
