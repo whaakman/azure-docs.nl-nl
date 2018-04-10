@@ -122,6 +122,8 @@
           href: author-visually.md
         - name: Continue integratie en implementatie
           href: continuous-integration-deployment.md
+        - name: Iteratieve ontwikkeling en foutopsporing
+          href: iterative-development-debugging.md
     - name: Gegevens kopiëren
       items:
         - name: Gegevens kopiëren met de kopieeractiviteit
