@@ -1,120 +1,169 @@
 ---
-title: Apparaat instellen voor de Azure IoT Hub apparaat inrichtingsservice | Microsoft Docs
-description: Apparaat in te richten via de IoT Hub apparaat inrichten van Service tijdens het proces productie apparaat instellen
+title: Apparaat instellen voor Azure IoT Hub Device Provisioning Service
+description: Apparaat instellen om in te richten via IoT Hub Device Provisioning Service tijdens het fabriceren van het apparaat
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: c885e4d5d747d913eaf0b7137b240950e920e7ff
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Een apparaat om in te richten via de Azure IoT Hub apparaat inrichtingsservice instellen
+# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Een apparaat instellen om in te richten met behulp van IoT Hub Device Provisioning Service
 
-In de vorige zelfstudie hebt u geleerd hoe u de Azure IoT Hub apparaat inrichtingsservice instellen voor het automatisch inrichten van uw apparaten naar uw IoT-hub. Deze zelfstudie bevat richtlijnen voor het instellen van uw apparaat tijdens de productie, zodat u de Service voor het inrichten van apparaten voor uw apparaat op basis configureren kunt van de [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security), en het apparaat kunt verbinding maken met uw mobiele apparaten inrichten service wanneer deze voor de eerste keer wordt opgestart. Deze zelfstudie worden de processen:
+In de vorige zelfstudie hebt u geleerd hoe u Azure IoT Hub Device Provisioning Service kunt instellen om apparaten automatisch in te richten in uw IoT-hub. In deze zelfstudie ziet u hoe u uw apparaat kunt instellen tijdens het fabriceren van het apparaat, en ervoor zorgt dat het automatisch kan worden ingericht met IoT Hub. Uw apparaat wordt ingericht op basis van het bijbehorende [Attestation-mechanisme](concepts-device.md#attestation-mechanism) na de eerste keer opstarten en verbinden met de inrichtingsservice. In deze zelfstudie worden de volgende processen besproken:
 
 > [!div class="checklist"]
-> * Selecteer een Hardware Security Module
-> * Apparaat inrichten Client SDK bouwen voor de geselecteerde HSM
-> * Pak de artefacten beveiliging
-> * De configuratie van de inrichtingsservice apparaat op het apparaat instellen
+> * Platformspecifieke SDK van de Device Provisioning Service-client bouwen
+> * De beveiligingsartefacten extraheren
+> * De software voor apparaatregistratie maken
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u doorgaat, maakt u uw apparaat inrichtingsservice-exemplaar en een iothub met behulp van de instructies die worden vermeld in de zelfstudie [cloud voor mobiele apparaten inrichten instellen](./tutorial-set-up-cloud.md).
+Voordat u doorgaat, maakt u een Device Provisioning Service-instantie en een IoT-hub, met behulp van de instructies in de vorige zelfstudie [1 - Cloudresources instellen](./tutorial-set-up-cloud.md).
 
+In deze zelfstudie wordt gebruikgemaakt van de [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c)-opslagplaats (Azure IoT SDK’s en bibliotheken voor C), die de SDK van de Device Provisioning Service-client voor C bevat. De SDK biedt momenteel ondersteuning voor TPM en X.509 voor apparaten die worden uitgevoerd in Windows- of Ubuntu-implementaties. Deze zelfstudie is gebaseerd op het gebruik van een Windows-ontwikkelclient. Er wordt vanuit gegaan dat u de basisprincipes van het werken met Visual Studio 2017 onder de knie hebt. 
 
-## <a name="select-a-hardware-security-module"></a>Selecteer een Hardware Security Module
+Als u niet bekend bent met het proces van automatische inrichting, bekijkt u de [Concepten voor automatische inrichting](concepts-auto-provisioning.md) voordat u verdergaat. 
 
-De [apparaat inrichtingsservice client SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) biedt ondersteuning voor twee soorten Hardware Security Modules (of HSM's): 
+## <a name="build-a-platform-specific-version-of-the-sdk"></a>Een platformspecifieke versie van de SDK bouwen
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
-    - TPM is een vastgestelde norm voor de meeste Windows-apparaat-platforms, evenals enkele op basis van Linux/Ubuntu-apparaten. U kunt deze HSM als een fabrikant kiezen als u een van deze besturingssystemen uitvoeren op uw apparaten hebt, en als u zoekt een vastgestelde norm voor HSM's. U kunt alleen op elk apparaat afzonderlijk dat de Service voor het inrichten van apparaten inschrijven met TPM-chips. Voor ontwikkelingsdoeleinden, kunt u de simulator TPM op uw ontwikkelcomputer Windows of Linux.
+De SDK van de Device Provisioning Service-client helpt u bij het implementeren van de software voor apparaatregistratie. Maar voordat u deze kunt gebruiken, moet u een versie van de SDK bouwen die specifiek is voor uw ontwikkelclientplatform en attestation- mechanisme. In deze zelfstudie bouwt u een SDK die gebruikmaakt van Visual Studio 2017 op een Windows-ontwikkelplatform, voor een ondersteund type attestation:
 
-- [X.509](https://cryptography.io/en/latest/x509/) op basis van hardware security modules. 
-    - HSM's op basis van X.509 zijn relatief nieuwere chips, met werken op dit moment geen voortgang binnen Microsoft oproerbeheersing of OPDELEN chips die het X.509-certificaten te implementeren. U kunt uitvoeren met X.509-chips bulkinschrijving in de portal. Het ondersteunt ook bepaalde niet - Windows-besturingssystemen zoals embedOS. De client-SDK van de inrichtingsservice apparaat ondersteunt ontwikkeling hiertoe een X.509-apparaatsimulator. 
+1. Installeer de vereiste hulpprogramma’s en kloon de GitHub-opslagplaats die de Client SDK voor C voor de inrichtingsservice bevat:
 
-Als een fabrikant van apparaten die u wilt selecteren van hardware security modules/chips die zijn gebaseerd op een van de voorgaande typen. Andere typen van HSM's zijn momenteel niet ondersteund in de inrichtingsservice apparaat-client-SDK.   
+   a. Op uw computer moet Visual Studio 2015 of [Visual Studio 2017](https://www.visualstudio.com/vs/) zijn geïnstalleerd. De workload ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) (Bureaubladontwikkeling met C++) moet zijn ingeschakeld voor uw installatie van Visual Studio.
 
+   b. Download en installeer het [CMake-bouwsysteem](https://cmake.org/download/). Het is belangrijk dat Visual Studio met 'Desktop development with C++'-werkbelasting (Bureaubladontwikkeling met C++) op de computer wordt geïnstalleerd **vóór** de CMake-installatie.
 
-## <a name="build-device-provisioning-client-sdk-for-the-selected-hsm"></a>Apparaat inrichten Client SDK bouwen voor de geselecteerde HSM
+   c. Zorg ervoor dat `git` op de computer wordt geïnstalleerd en toegevoegd aan de omgevingsvariabelen die voor het opdrachtvenster toegankelijk zijn. Zie [Hulpprogramma’s voor de Git-client van Software Freedom Conservancy](https://git-scm.com/download/) voor de nieuwste hulpprogramma’s voor `git`, inclusief **Git Bash**, een opdrachtregel Bash-shell voor interactie met de lokale Git-opslagplaats. 
 
-De Client SDK apparaat inrichten-Service helpt bij het implementeren van het geselecteerde beveiligingsmechanisme in software. De volgende stappen laten zien hoe de SDK wilt gebruiken voor de geselecteerde HSM-chip:
+   d. Open Git Bash en kloon de ‘Azure IoT SDKs and libraries for C’-opslagplaats (Azure IoT SDK’s en bibliotheken voor C). Het kan enige tijd duren voordat de kloonopdracht is voltooid, omdat ook verschillende afhankelijke submodules worden gedownload:
+    
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-1. Als u hebt gevolgd de [Quick Start voor het gesimuleerde apparaat maken](./quick-create-simulated-device.md), hebt u de installatie gereed voor het bouwen van de SDK. Als dit niet het geval is, volgt u de eerste vier stappen in het gedeelte [voorbereiden van de ontwikkelomgeving](./quick-create-simulated-device.md#setupdevbox). Deze stappen kloon van de GitHub-opslagplaats voor de Client SDK apparaat inrichten-Service, evenals installeren de `cmake` hulpprogramma bouwen. 
+   e. Een nieuwe `cmake`-submap maken in de submap van de nieuwe opslagplaats:
 
-1. De SDK bouwen voor het type HSM die u hebt geselecteerd voor uw apparaat met een van de volgende opdrachten op de opdrachtprompt:
-    - Voor TPM-apparaten:
+   ```cmd/sh
+   mkdir azure-iot-sdk-c/cmake
+   ``` 
+
+2. Ga vanuit de Git Bash-opdrachtprompt naar de `cmake`-submap van de azure-iot-sdk-c-opslagplaats:
+
+   ```cmd/sh
+   cd azure-iot-sdk-c/cmake
+   ```
+
+3. Bouw de SDK voor het ontwikkelplatform en een van de ondersteunde attestation-mechanismen met behulp van een van de volgende opdrachten (let op: eindigt op twee puntjes). Na het voltooien wordt de `/cmake`-submap met CMake uitgebreid met inhoud die specifiek is voor uw apparaat:
+    - Voor apparaten die gebruikmaken van een fysieke TPM/HSM, of een gesimuleerd X.509-certificaat voor attestation:
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
         ```
 
-    - Voor de TPM-simulator:
+    - Voor apparaten die gebruikmaken van de TPM-simulator voor attestation:
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
-    - Voor x.509-apparaten en simulator:
-        ```cmd/sh
-        cmake -Duse_prov_client:BOOL=ON ..
-        ```
-
-1. De SDK biedt standaardondersteuning voor apparaten met Windows of Ubuntu implementaties voor TPM en x.509-HSM's. Voor deze HSM's ondersteund, gaat u verder naar het gedeelte [uitpakken van de beveiliging artefacten](#extractsecurity) hieronder. 
+Nu bent u klaar om de SDK te gebruiken om de registratiecode voor het apparaat te bouwen. 
  
-## <a name="support-custom-tpm-and-x509-devices"></a>Ondersteuning voor aangepaste TPM en x.509-apparaten
+<a id="extractsecurity"></a> 
 
-De Client SDK apparaat inrichten-systeem biedt geen standaardondersteuning voor TPM en X.509-apparaten waarop Windows of Ubuntu niet wordt uitgevoerd. Voor dergelijke apparaten moet u de aangepaste code schrijven voor uw specifieke HSM-chip, zoals wordt weergegeven in de volgende stappen uit:
+## <a name="extract-the-security-artifacts"></a>De beveiligingsartefacten extraheren 
 
-### <a name="develop-your-custom-repository"></a>Uw aangepaste opslagplaats ontwikkelen
+De volgende stap is het extraheren van de beveiligingsartefacten voor het attestation-mechanisme dat wordt gebruikt op het apparaat. 
 
-1. Ontwikkel een bibliotheek voor toegang tot uw HSM. Dit project moet voor het produceren van een statische bibliotheek voor de apparaten inrichten SDK gebruiken.
-1. De functies die zijn gedefinieerd in de volgende headerbestand moet worden geïmplementeerd in de bibliotheek: een. Voor aangepaste TPM implementeren in gedefinieerde functies [aangepaste HSM document](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
-    b. Aangepaste X.509 implementeren in gedefinieerde functies [aangepaste HSM document](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
+### <a name="physical-device"></a>Fysiek apparaat 
 
-### <a name="integrate-with-the-device-provisioning-service-client"></a>Integreren met het apparaat voor het inrichten van Client-Service
+Als u de SDK hebt gebouwd om attestation te gebruiken vanaf een fysieke TPM/HSM :
 
-Zodra uw bibliotheek met succes is gebaseerd op een eigen, kunt u de IoThub C-SDK verplaatsen en op basis van uw bibliotheek koppelen:
+- Voor een TPM-apparaat moet u bij de TPM-chipfabrikant de bijbehorende **Goedkeuringssleutel** achterhalen. U kunt een unieke **Registratie-id** voor het TPM-apparaat afleiden door de goedkeuringssleutel te hashen.  
 
-1. De aangepaste HSM GitHub-opslagplaats, het bibliotheekpad en de naam ervan in de volgende cmake opdracht opgeven:
-    ```cmd/sh
-    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
+- Voor een X.509-apparaat moet u de certificaten verkrijgen die zijn verleend aan uw apparaat/apparaten: eindentiteitcertificaten voor afzonderlijke apparaatinschrijvingen, en hoofdcertificaten voor groepsinschrijvingen van apparaten. 
+
+### <a name="simulated-device"></a>Gesimuleerd apparaat
+
+Als u de SDK hebt gebouwd om attestation te gebruiken vanaf een gesimuleerd TPM-certificaat of een gesimuleerd X.509-certificaat:
+
+- Voor een gesimuleerd TPM-apparaat:
+   1. Ga in een afzonderlijke/nieuwe opdrachtprompt naar de `azure-iot-sdk-c`-submap en voer de TPM-simulator uit. Deze luistert via een socket op poorten 2321 en 2322. Sluit dit opdrachtvenster niet. De simulator moet actief blijven tot het einde van de volgende snelstart. 
+
+      Voer vanuit de `azure-iot-sdk-c`-submap de volgende opdracht uit om de simulator te starten:
+
+      ```cmd/sh
+      .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+      ```
+
+   2. Open in Visual Studio de oplossing die is gegenereerd in de *cmake*-map met de naam `azure_iot_sdks.sln`, en bouw deze met behulp van de opdracht Build solution in het menu Build.
+
+   3. In het deelvenster *Solution Explorer* van Visual Studio gaat u naar de map **Inrichten\_Extra**. Klik met de rechtermuisknop op het **tpm_device_provision**-project en selecteer **Set as Startup Project**. 
+
+   4. Voer de oplossing uit met behulp van een van de twee opdrachten Start in het menu Debug. In het uitvoervenster worden de voor apparaatinschrijving en -registratie vereiste **_Registratie-id_** en **_Goedkeuringssleutel_** van de TPM-simulator weergegeven. Kopieer deze waarden voor later gebruik. U kunt dit venster (met de registratie-id en goedkeuringssleutel) sluiten, maar laat het venster voor de TPM-simulator uit stap 1 geopend.
+
+- Voor een gesimuleerd X.509-apparaat:
+  1. Open in Visual Studio de oplossing die is gegenereerd in de *cmake*-map met de naam `azure_iot_sdks.sln`, en bouw deze met behulp van de opdracht Build solution in het menu Build.
+
+  2. In het deelvenster *Solution Explorer* van Visual Studio gaat u naar de map **Inrichten\_Extra**. Klik met de rechtermuisknop op het**dice\_device\_enrollment**-project en selecteer **Set as Startup Project**. 
+  
+  3. Voer de oplossing uit met behulp van een van de twee opdrachten Start in het menu Debug. Voer in het uitvoervenster **i** in voor individuele registratie wanneer hierom wordt gevraagd. In het uitvoervenster wordt een lokaal gegenereerd X.509-certificaat weergegeven voor uw gesimuleerde apparaat. Kopieer de uitvoer naar Klembord vanaf *-----BEGIN CERTIFICATE-----* tot en met de eerste *-----END CERTIFICATE-----*, en zorg ervoor dat deze beide regels ook zijn opgenomen. U hebt alleen het eerste certificaat uit het uitvoervenster nodig.
+ 
+  4. Maak een bestand met de naam **_X509testcert.pem_**, open het in een teksteditor naar keuze en kopieer de inhoud van het Klembord naar dit bestand. Sla het bestand op. U gebruikt dit bestand later voor apparaatinschrijving. Wanneer de registratiesoftware wordt uitgevoerd, maakt deze gebruik van hetzelfde certificaat tijdens de automatische inrichting.    
+
+Deze beveiligingsartefacten zijn vereist tijdens de inschrijving van het apparaat voor Device Provisioning Service. De inrichtingsservice wacht tot het apparaat op enig moment later is opgestart en verbonden met de service. Als het apparaat voor de eerste keer wordt opgestart, communiceert de Client SDK-logica met de chip (of simulator) om de beveiligingsartefacten te extraheren uit het apparaat, en wordt de registratie bij Device Provisioning Service geverifieerd. 
+
+## <a name="create-the-device-registration-software"></a>De software voor apparaatregistratie maken
+
+De laatste stap is het schrijven van een registratietoepassing die gebruikmaakt van de SDK van de Device Provisioning Service-client om het apparaat te registreren bij de IoT Hub-service. 
+
+> [!NOTE]
+> Voor deze stap wordt ervan uitgegaan dat u een gesimuleerd apparaat gebruikt, gerealiseerd door het uitvoeren van een SDK-voorbeeldtoepassing voor registratie vanuit uw werkstation. Dezelfde concepten zijn echter van toepassing als u een registratietoepassing bouwt die moet worden geïmplementeerd op een fysiek apparaat. 
+
+1. Selecteer in Azure Portal de blade **Overzicht** voor Device Provisioning Service en kopieer de waarde bij **_Id-bereik_**. Het *Id-bereik* wordt gegenereerd met de service en is gegarandeerd uniek. Het is onveranderbaar en wordt gebruikt als een unieke identificatie van de registratie-id's.
+
+    ![DPS-eindpuntgegevens uit de portalblade extraheren](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+
+2. In *Solution Explorer* van Visual Studio op uw computer gaat u naar de map **Inrichten\_Voorbeelden**. Selecteer het voorbeeldproject met de naam **prov\_dev\_client\_sample** en open het bronbestand **prov\_dev\_client\_sample.c**.
+
+3. Wijs de waarde _Id-bereik_ die u hebt verkregen in stap 1, toe aan de variabele `id_scope` (verwijder de haakjes links/`[` en rechts/`]`): 
+
+    ```c
+    static const char* global_prov_uri = "global.azure-devices-provisioning.net";
+    static const char* id_scope = "[ID Scope]";
     ```
-   
-1. De SDK openen in visual studio en bouw het. 
 
-    - Het buildproces wordt Compileer de SDK-bibliotheek.
-    - De SDK probeert te koppelen op basis van de aangepaste HSM die is gedefinieerd in de opdracht cmake.
+    Ter informatie, de variabele `global_prov_uri`, waarmee de IoT Hub API voor clientregistratie `IoTHubClient_LL_CreateFromDeviceAuth` verbinding kan maken met de toegewezen Device Provisioning Service-instantie.
 
-1. Voer de `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` voorbeeld om te controleren of als uw HSM correct is geïmplementeerd.
+4. In de functie **main()** in hetzelfde bestand, voegt u een opmerking toe aan of verwijdert u een opmerking bij de variabele `hsm_type` die overeenkomt met het attestation-mechanisme dat wordt gebruikt voor de registratiesoftware van het apparaat (TPM of X.509): 
 
-<a id="extractsecurity"></a>
-## <a name="extract-the-security-artifacts"></a>Pak de artefacten beveiliging
+    ```c
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    ```
 
-De volgende stap is om op te halen van de artefacten beveiliging voor de HSM op uw apparaat.
+5. Sla de wijzigingen op en bouw het voorbeeld **prov\_dev\_client\_sample** opnieuw door Build solution te selecteren in het menu Build. 
 
-1. Voor een TPM-apparaat, moet u weten de **goedkeuringssleutel** gekoppeld aan van de TPM-chipfabrikant. U kunt een unieke afleiden **registratie-ID** voor uw apparaat TPM door de goedkeuringssleutel hashing. 
-2. Voor een X.509-apparaat moet u de uitgegeven aan uw apparaten - eindentiteitscertificaten voor afzonderlijke apparaatinschrijvingen tijdens basiscertificaten voor groep inschrijvingen van apparaten certificaten verkrijgen.
+6. Klik met de rechtermuisknop op het project **prov\_dev\_client\_sample** project onder de map **Provision\_Samples**, en selecteer **Set as Startup Project**. Voer de voorbeeldtoepassing nog NIET uit.
 
-Deze beveiliging artefacten zijn vereist voor het inschrijven van uw apparaten met de Service voor het inrichten van apparaat. De inrichting-service wordt er gewacht totdat een van deze apparaten starten en verbinding maken met het op een later tijdstip in de tijd. Zie [apparaatinschrijvingen beheren](how-to-manage-enrollments.md) voor informatie over het gebruik van deze artefacten beveiliging voor het maken van inschrijvingen. 
+> [!IMPORTANT]
+> Start het apparaat nog niet! U moet het proces voltooien door het apparaat eerst in te schrijven bij Device Provisioning Service, voordat u het apparaat start. In de sectie Volgende stappen hieronder vindt u het volgende artikel.
 
-Wanneer uw apparaat voor het eerst wordt opgestart, wordt de SDK-client communiceert met uw chip uitpakken van de beveiliging artefacten van het apparaat en controleert of de registratie bij uw service apparaten inrichten. 
+### <a name="sdk-apis-used-during-registration-for-reference-only"></a>SDK API's die worden gebruikt tijdens de registratie (alleen ter informatie)
 
-
-## <a name="set-up-the-device-provisioning-service-configuration-on-the-device"></a>De configuratie van de inrichtingsservice apparaat op het apparaat instellen
-
-De laatste stap op het apparaat van de productie-proces is het schrijven van een toepassing die gebruikmaakt van de inrichtingsservice apparaat-client-SDK kunt u het apparaat te registreren met de service. Deze SDK biedt de volgende API's voor uw toepassingen te gebruiken:
+Ter informatie, de SDK biedt de volgende API's die de toepassing kan gebruiken tijdens de registratie. Deze API’s helpen om het apparaat te verbinden met en te registreren bij Device Provisioning Service wanneer het wordt gestart. Het apparaat ontvangt vervolgens de informatie die is vereist om een verbinding tot stand te brengen met de IoT Hub-instantie:
 
 ```C
-// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service.  
 PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
 
 // Disposes of resources allocated by the provisioning Client.
@@ -130,70 +179,25 @@ void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
 PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-Houd er rekening mee te initialiseren van de variabelen `uri` en `id_scope` zoals vermeld in de [simuleren eerste opstartvolgorde voor de apparaat-sectie van dit snel starten](./quick-create-simulated-device.md#firstbootsequence), voordat u ze gebruikt. De registratie van mobiele apparaten inrichten client API `Prov_Device_LL_Create` maakt verbinding met de globale apparaat inrichtingsservice. De *bereik-ID* wordt gegenereerd door de service en wordt gegarandeerd dat uniekheid. Het is onveranderbaar en die wordt gebruikt om de registratie-id's uniek te identificeren. De `iothub_uri` kunt u de registratie van de IoT Hub client API `IoTHubClient_LL_CreateFromDeviceAuth` om te verbinden met de juiste IoT-hub. 
-
-
-Deze API's kunnen uw apparaat verbinding maakt en registreren bij de Service voor het inrichten van apparaten wanneer deze wordt opgestart, de informatie over uw IoT-hub en maak verbinding met het. Het bestand `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c` laat zien hoe deze API's gebruiken. In het algemeen moet u het volgende framework voor de clientregistratie van de te maken:
-
-```C
-static const char* global_uri = "global.azure-devices-provisioning.net";
-static const char* id_scope = "[ID scope for your provisioning service]";
-...
-static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
-{
-    USER_DEFINED_INFO* user_info = (USER_DEFINED_INFO *)user_context;
-    ...
-    user_info. reg_complete = 1;
-}
-static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_context)
-{
-}
-int main()
-{
-    ...
-    SECURE_DEVICE_TYPE hsm_type;
-    hsm_type = SECURE_DEVICE_TYPE_TPM;
-    //hsm_type = SECURE_DEVICE_TYPE_X509;
-    prov_dev_security_init(hsm_type); // initialize your HSM 
-
-    prov_transport = Prov_Device_HTTP_Protocol;
-    
-    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
-
-    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
-        do {
-        // The register_callback is called when registration is complete or fails
-            Prov_Client_LL_DoWork(handle);
-        } while (user_info.reg_complete == 0);
-    }
-    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
-    ...
-    iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
-    ...
-}
-```
-
-U kunt de inrichtingsservice apparaat registratie-clienttoepassing met behulp van een gesimuleerd apparaat aanvankelijk met behulp van een test-service-instellingen verfijnen. Als uw toepassing in de testomgeving werkt, kunt u samenstellen voor uw specifieke apparaat en het uitvoerbare bestand kopiëren naar de installatiekopie van uw apparaat. Het apparaat niet worden gestart, maar u moet [registreren van het apparaat met de Service voor het inrichten van apparaten](./tutorial-provision-device-to-hub.md#enrolldevice) vóór het starten van het apparaat. Zie de volgende stappen hieronder voor meer informatie over dit proces. 
+Mogelijk moet u ook de Device Provisioning Service-clientoepassing voor registratie verfijnen, aanvankelijk met behulp van een gesimuleerd apparaat, en een testservice-installatie. Als de toepassing werkt in de testomgeving, kunt u het bouwen voor uw specifieke apparaat en het uitvoerbare bestand kopiëren naar de installatiekopie van het apparaat. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Op dit punt wordt u mogelijk hebt ingesteld de services voor mobiele apparaten inrichten en IoT-Hub in de portal. Als u wilt afbreken van het apparaat setup inrichting en/of met behulp van een van deze services uit te stellen, wordt u aangeraden afgesloten om te vermijden onnodige kosten.
+Op dit punt worden Device Provisioning Service en IoT Hub mogelijk uitgevoerd in de portal. Als u de installatie van apparaatinrichting wilt afbreken, en/of de afronding van deze reeks zelfstudies wilt uitstellen, raden we u aan ze uit te schakelen om onnodige kosten te vermijden.
 
 1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer uw Device Provisioning Service. Klik bovenaan de blade **Alle resources** op **Verwijderen**.  
-1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer vervolgens uw IoT-hub. Klik bovenaan de blade **Alle resources** op **Verwijderen**.  
-
+2. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer vervolgens uw IoT-hub. Klik bovenaan de blade **Alle resources** op **Verwijderen**.  
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Selecteer een Hardware Security Module
-> * Apparaat inrichten Client SDK bouwen voor de geselecteerde HSM
-> * Pak de artefacten beveiliging
-> * De configuratie van de inrichtingsservice apparaat op het apparaat instellen
+> * Platformspecifieke SDK van de Device Provisioning Service-client bouwen
+> * De beveiligingsartefacten extraheren
+> * De software voor apparaatregistratie maken
 
-Ga naar de volgende zelfstudie voor informatie over het inrichten van het apparaat naar uw IoT-hub door naar de Azure IoT Hub apparaat inrichtingsservice voor het inrichten van automatische inschrijving.
+Ga verder met de volgende zelfstudie voor informatie over het inrichten van het apparaat in de IoT-hub door het te registreren bij Azure IoT Hub Device Provisioning Service voor automatische inrichting.
 
 > [!div class="nextstepaction"]
-> [Inrichten van het apparaat naar uw IoT-hub](tutorial-provision-device-to-hub.md)
+> [Het apparaat inrichten in de IoT-hub](tutorial-provision-device-to-hub.md)
 

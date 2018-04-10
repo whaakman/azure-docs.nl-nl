@@ -1,33 +1,33 @@
 ---
-title: 'Quickstart: uw eerste Azure Container Instances-container maken met behulp van Azure Portal'
-description: In deze snelstart gebruikt u de Azure-portal om een container in Azure Container Instances te implementeren
+title: 'Snelstart: uw eerste Azure Container Instances-container maken met behulp van Azure Portal'
+description: In deze snelstart gebruikt u Azure Portal om een container in Azure Container Instances te implementeren
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 04/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cb0c8c5f5730ae1f7a2e9b38c3ef3e04ee8cde67
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snelstart: Uw eerste container maken in Azure Container Instances
 
-Met Azure Container Instances kunt u eenvoudig containers maken en beheren in Azure. In deze quickstart maakt u een container in Azure en geeft u deze op internet weer via een openbaar IP-adres. Dit doet u met behulp van Azure Portal. Na slechts een paar muisklikken ziet u het volgende in de browser:
+Met Azure Container Instances kunt u eenvoudig containers maken en beheren in Azure. In deze snelstart maakt u een container in Azure en geeft u deze op internet weer via een openbaar IP-adres. Dit doet u met behulp van Azure Portal. Na slechts een paar muisklikken ziet u het volgende in de browser:
 
 ![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-portal-07]
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij de Azure-portal op http://portal.azure.com.
+Meld u aan bij Azure Portal op http://portal.azure.com.
 
 ## <a name="create-a-container-instance"></a>Een containerinstantie maken
 
-Selecteer **Een nieuwe resource maken** > **Containers** > **Azure Container Instances (preview)**.
+Selecteer **Een nieuwe resource maken** > **Containers** > **Azure Container Instances**.
 
 ![Begin met het maken van een nieuwe containerinstantie in Azure Portal][aci-portal-01]
 
@@ -39,7 +39,7 @@ Voer de waarden voor de volgende tekstvakken in: **Containernaam**, **Containeri
 
 ![Basisinstellingen configureren voor een nieuwe containerinstantie in Azure Portal][aci-portal-03]
 
-U kunt zowel Windows- als Linux-containers maken in Azure Container Instances. In deze quickstart laten we de standaardinstelling van **Linux** staan, aangezien we in de vorige stap een Linux-container (`microsoft/aci-helloworld`) hebben opgegeven.
+U kunt zowel Windows- als Linux-containers maken in Azure Container Instances. In deze snelstart laten we de standaardinstelling van **Linux** staan, aangezien we in de vorige stap een Linux-container (`microsoft/aci-helloworld`) hebben opgegeven.
 
 Laat voor de overige instellingen in **Configuratie** de standaardwaarden staan. Klik vervolgens op **OK** om de configuratie te valideren.
 
@@ -64,15 +64,15 @@ Zodra de container de status **Actief** heeft, gaat u naar het IP-adres dat u in
 ## <a name="delete-the-container"></a>De container verwijderen
 Wanneer u klaar bent met de container, selecteert u de containergroep **mycontainer-myc1** en klikt u vervolgens op **Verwijderen**.
 
-![De containerinstantie verwijderen in de Azure-portal][aci-portal-09]
+![De containerinstantie verwijderen in Azure Portal][aci-portal-09]
 
 Dit start een bevestigingsdialoogvenster, selecteer **Ja** wanneer hierom wordt gevraagd.
 
-![Een containerinstantie in de Azure-portal verwijderen][aci-portal-10]
+![Een containerinstantie in Azure Portal verwijderen][aci-portal-10]
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
-[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
+<!--[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png-->
 [aci-portal-03]: ./media/container-instances-quickstart-portal/qs-portal-03.png
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
@@ -84,7 +84,7 @@ Dit start een bevestigingsdialoogvenster, selecteer **Ja** wanneer hierom wordt 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbare Docker Hub-opslagplaats. Als u zelf een container wilt bouwen en deze wilt implementeren in Azure Container Instances met behulp van Azure Container Registry, gaat u verder met de zelfstudie voor Azure Container Instances.
+In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbare Docker Hub-opslagplaats. Als u zelf een container wilt bouwen en deze wilt implementeren in Azure Container Instances met behulp van Azure Container Registry, gaat u verder met de zelfstudie voor Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)

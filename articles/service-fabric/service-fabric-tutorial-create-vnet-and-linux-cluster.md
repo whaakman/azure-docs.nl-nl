@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e6cbc8c3c7e1a9ebe9684efb0fa6ffa0717240ea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 63d5ae371b4852be96f764b91ec44f1befbd469b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Zelfstudie: een Linux Service Fabric-cluster implementeren in een virtueel Azure-netwerk
 Deze zelfstudie is deel één van een serie. U leert hoe u een Linux Service Fabric-cluster in een [virtueel Azure-netwerk (VNET)](../virtual-network/virtual-networks-overview.md) en een [netwerkbeveiligingsgroep (NSG)](../virtual-network/virtual-networks-nsg.md) implementeert met behulp van Azure CLI en een sjabloon. Wanneer u klaar bent, wordt er in de cloud een cluster uitgevoerd waarin u toepassingen kunt implementeren. Als u met behulp van PowerShell een Windows-cluster wilt maken, raadpleegt u [Een Service Fabric Windows-cluster in een Azure-netwerk implementeren](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -63,7 +63,7 @@ Het clustercertificaat moet:
 
 Azure Key Vault wordt gebruikt om certificaten voor Service Fabric-clusters in Azure te beheren.  Wanneer een cluster in Azure is geïmplementeerd, is de Azure-resourceprovider verantwoordelijk voor het maken van Service Fabric-clusters die certificaten ophalen uit Key Vault en installeren op de cluster-VM's.
 
-In deze zelfstudie wordt een cluster met vijf knooppunten van één knooppunttype geïmplementeerd. Voor een implementatie van een productiecluster is [capaciteitsplanning](service-fabric-cluster-capacity.md) echter van groot belang. Hier volgen enkele aandachtspunten voor dat proces.
+In deze zelfstudie wordt een cluster met vijf knooppunten geïmplementeerd op één knooppunttype. Voor een implementatie van een productiecluster is [capaciteitsplanning](service-fabric-cluster-capacity.md) echter van groot belang. Hier volgen enkele aandachtspunten voor dat proces.
 
 - Het aantal knooppunten en knooppunttypen dat uw cluster nodig heeft 
 - De eigenschappen van elk knooppunttype (bijvoorbeeld grootte, primair knooppunt, internetverbinding en het aantal VM's)

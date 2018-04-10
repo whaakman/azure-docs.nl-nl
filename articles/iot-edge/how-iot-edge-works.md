@@ -2,28 +2,31 @@
 title: Wat is Azure IoT Edge | Microsoft Docs
 description: Overzicht van de service Azure IoT Edge
 services: iot-Edge
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
 editor: chipalost
-ms.assetid: 
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: 
-ms.openlocfilehash: 5f69041572729d1458a22a855128639056d61586
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: 9071caedd9ab3b63527c2c0bdab38db2efadb17c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Wat is Azure IoT Edge - preview
 
 Azure IoT Edge verplaatst cloud-analyse en aangepaste bedrijfslogica naar apparaten, zodat uw organisatie zich kan richten op zakelijke inzichten in plaats van gegevensbeheer. Stel uw oplossing in staat om echt te schalen door uw IoT-software te configureren, dit op apparaten te implementeren via standaardcontainers en toezicht op alles te houden vanuit de cloud.
+
+>[!NOTE]
+>Azure IoT Edge is alleen beschikbaar in de prijscategorie Standard van IoT Hub. Raadpleeg [How to choose the right IoT Hub tier](../iot-hub/iot-hub-scaling.md) (De juiste IoT Hub-prijscategorie kiezen) voor meer informatie over de Basic- en Standard-prijscategorieën.
 
 Analyses stimuleren bedrijfswaarde in IoT-oplossingen, maar niet alle analyses hoeven zich in de cloud te bevinden. Als u wilt dat een apparaat zo snel mogelijk op noodsituaties reageert, kunt u anomaliedetectie uitvoeren op het apparaat zelf. Op dezelfde manier kunt u bandbreedtekosten verlagen en de overdracht van terabytes van onbewerkte gegevens voorkomen door lokaal gegevensopschoning en aggregatie uit te voeren. Verzend de inzichten vervolgens naar de cloud. 
 

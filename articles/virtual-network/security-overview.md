@@ -5,8 +5,8 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 950c64ea1ea2edc072650a9f63a6d21ad369c496
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="network-security"></a>Netwerkbeveiliging
 
@@ -48,7 +48,7 @@ Een netwerkbeveiligingsgroep bevat nul regels of zoveel regels als u wilt binnen
 
 |Eigenschap  |Uitleg  |
 |---------|---------|
-|Name|Een unieke naam binnen de netwerkbeveiligingsgroep.|
+|Naam|Een unieke naam binnen de netwerkbeveiligingsgroep.|
 |Prioriteit | Een getal tussen 100 en 4096. Regels worden verwerkt in volgorde van prioriteit, waarbij lagere getallen worden verwerkt vóór hogere getallen omdat lagere getallen een hogere prioriteit hebben. Zodra het verkeer overeenkomt met een regel, wordt de verwerking beëindigd. Daardoor worden regels met een lagere prioriteit (een hoger getal) die dezelfde kenmerken hebben als regels met een hogere prioriteit, niet verwerkt.|
 |Bron of doel| Alle IP-adressen of een individueel IP-adres, CIDR-blok (zoals 10.0.0.0/24), servicetag of toepassingsbeveiligingsgroep. Meer informatie over [servicetags](#service-tags) en [toepassingbeveiligingsgroepen](#application-security-groups). Als u een bereik, servicetag of toepassingsbeveiligingsgroep opgeeft, hoeft u minder beveiligingsregels te maken. De mogelijkheid om in een regel meerdere afzonderlijke IP-adressen en -bereiken op te geven (u kunt niet meerdere servicetags of toepassingsgroepen opgeven) wordt aangeduid met de term 'uitgebreide beveiligingsregels'. Meer informatie over [uitgebreide beveiligingsregels](#augmented-security-rules). Uitgebreide beveiligingsregels kunnen alleen worden gemaakt in netwerkbeveiligingsgroepen die zijn gemaakt via het Resource Manager-implementatiemodel. U kunt niet meerdere IP-adressen en IP-adresbereiken opgeven in netwerkbeveiligingsgroepen die zijn gemaakt via het klassieke implementatiemodel.|
 |Protocol     | TCP, UDP of Alle, dat TCP, UDP en ICMP omvat. U kunt niet alleen ICMP opgeven, dus als u ICMP vereist, moet u Alle gebruiken. |
@@ -141,7 +141,7 @@ Als u andere regels maakt en daarbij andere toepassingsbeveiligingsgroepen opgee
  
 Voor meer informatie over limieten bij het maken van toepassingsbeveiligingsgroepen en het opgeven ervan in regels raadpleegt u [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Toepassingsbeveiligingsgroepen zijn beschikbaar in de preview-versie. Functies in de preview-versie hoeven niet dezelfde mate van beschikbaarheid en betrouwbaarheid te hebben als functies in de algemene versie. Voordat u toepassingsbeveiligingsgroepen gebruikt, moet u zich registreren voor het gebruik ervan door de stappen 1-5 in de Azure- of PowerShell-secties van [Een netwerkbeveiligingsgroep met toepassingsbeveiligingsgroepen maken](create-network-security-group-preview.md) uit te voeren. Toepassingsbeveiligingsgroepen hebben de volgende beperkingen:
+Toepassingsbeveiligingsgroepen hebben de volgende beperkingen:
 
 -   Alle netwerkinterfaces binnen een toepassingsbeveiligingsgroep moeten zich in hetzelfde virtuele netwerk bevinden. U kunt geen netwerkinterfaces van verschillende virtuele netwerken toevoegen aan dezelfde toepassingsbeveiligingsgroep. Het virtuele netwerk waarin de eerste netwerkinterface die is toegewezen aan de toepassingsbeveiligingsgroep zich bevindt, definieert het virtuele netwerk waarin alle volgende toegewezen netwerkinterfaces aanwezig moeten zijn.
 - Als u toepassingsbeveiligingsgroepen als bron en doel in een beveiligingsregel opgeeft, moeten de netwerkinterfaces in beide beveiligingsgroepen toepassing zich in hetzelfde virtuele netwerk bevinden. Als ASG1 bijvoorbeeld netwerkinterfaces van VNet1 bevat en ASG2 netwerkinterfaces van VNet2, kunt u ASG1 niet toewijzen als de bron en ASG2 als het doel in een regel. Alle netwerkinterfaces moeten aanwezig zijn in VNet1.
@@ -157,7 +157,7 @@ Toepassingsbeveiligingsgroepen zijn beschikbaar in de preview-versie. Functies i
   Als u uw Azure-abonnement vóór 15 november 2017 hebt gemaakt, kunt u naast de mogelijkheid om gebruik te maken van SMTP-relayservices ook rechtstreeks e-mail verzenden via TCP-poort 25. Als u uw abonnement na 15 november 2017 hebt gemaakt kunt u mogelijk geen e-mail rechtstreeks via poort 25 verzenden. Hoe uitgaande communicatie via poort 25 verloopt, hangt als volgt samen met het type abonnement dat u hebt:
 
      - **Enterprise Overeenkomst**: communicatie via poort 25 is toegestaan. U kunt uitgaande e-mail rechtstreeks vanaf virtuele machines naar externe e-mailproviders verzenden, zonder dat daar beperkingen voor gelden op grond van het Azure-platform. 
-     - **Betalen naar gebruik:** communicatie via uitgaande poort 25 is voor alle resources geblokkeerd. Als u e-mail vanaf een virtuele machine rechtstreeks naar de externe e-mailproviders wilt verzenden (niet via een geverifieerde SMTP-relay), kunt u een aanvraag indienen om de beperking op te heffen. Het is aan Microsoft om te bepalen of aanvragen worden gecontroleerd en goedgekeurd, en worden alleen toegekend nadat er controles ter voorkoming van fraude zijn uitgevoerd. Als u een aanvraag wilt indienen, opent u een ondersteuningsaanvraag met het probleemtype *Technisch*, *Virtuele netwerkverbinding*, *Kan geen e-mail verzenden (SMTP/poort 25)*. Vermeld in uw ondersteuningsaanvraag informatie zoals waarom uw abonnement e-mail rechtstreeks naar e-mailproviders moet kunnen verzenden in plaats van via een geverifieerde SMTP-relay. Als de aanvraag voor uw abonnement wordt toegekend, kunnen alleen de virtuele machines die na de toekenningsdatum zijn gemaakt poort 25 voor uitgaande communicatie gebruiken.
+     - **Betalen naar gebruik:** communicatie via uitgaande poort 25 is voor alle resources geblokkeerd. Als u e-mail vanaf een virtuele machine rechtstreeks naar de externe e-mailproviders wilt verzenden (niet via een geverifieerde SMTP-relay), kunt u een aanvraag indienen om de beperking op te heffen. Het is aan Microsoft om te bepalen of aanvragen worden gecontroleerd en goedgekeurd, en aanvragen worden alleen toegekend nadat er controles ter voorkoming van fraude zijn uitgevoerd. Als u een aanvraag wilt indienen, opent u een ondersteuningsaanvraag met het probleemtype *Technisch*, *Virtuele netwerkverbinding*, *Kan geen e-mail verzenden (SMTP/poort 25)*. Vermeld in uw ondersteuningsaanvraag informatie zoals waarom uw abonnement e-mail rechtstreeks naar e-mailproviders moet kunnen verzenden in plaats van via een geverifieerde SMTP-relay. Als de aanvraag voor uw abonnement wordt toegekend, kunnen alleen de virtuele machines die na de toekenningsdatum zijn gemaakt poort 25 voor uitgaande communicatie gebruiken.
      - **Cloudserviceprovider (CSP), MSDN, Azure Pass, Azure in Open, Education, BizSpark en gratis proefabonnementen**: uitgaande communicatie via poort 25 voor alle resources geblokkeerd. Er kunnen geen aanvragen worden ingediend voor het opheffen van de beperking, omdat zulke aanvragen niet worden toegekend. Als u e-mail moet verzenden vanaf uw virtuele machine, moet u een SMTP-relayservice gebruiken.
 
   Als u in Azure e-mail kunt verzenden via poort 25, garandeert Microsoft niet dat e-mailproviders inkomende e-mail vanaf uw virtuele machine accepteren. Als een specifieke provider e-mail van uw virtuele machine weigert, moet u samen met de provider alle eventuele problemen met de aflevering van berichten of met de spamfilter oplossen, of u moet een geverifieerde SMTP-relayservice gebruiken. 
@@ -165,5 +165,4 @@ Toepassingsbeveiligingsgroepen zijn beschikbaar in de preview-versie. Functies i
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Voltooi de zelfstudie [Een netwerkbeveiligingsgroep maken](virtual-networks-create-nsg-arm-pportal.md)
-* Voltooi de zelfstudie [Een netwerkbeveiligingsgroep met toepassingsbeveiligingsgroepen maken](create-network-security-group-preview.md)
+* Meer informatie over [Een netwerkbeveiligingsgroep maken](tutorial-filter-network-traffic.md).

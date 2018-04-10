@@ -1,4 +1,4 @@
-1. Klik op **Een resource maken** in de linkerbovenhoek van Azure Portal. Selecteer vervolgens **Compute** > **Functie-app**. 
+1. Selecteer de knop **Nieuw** in de linkerbovenhoek van Azure Portal. Selecteer vervolgens **Compute** > **Functie-app**. 
 
     ![Een functie-app maken in Azure Portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -16,8 +16,14 @@
     | **Locatie** | West-Europa | Kies een [regio](https://azure.microsoft.com/regions/) in de buurt of in de buurt van andere services die door uw functie worden gebruikt. |
     | **[Opslagaccount](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Wereldwijd unieke naam |  Naam van het nieuwe opslagaccount dat door uw functie-app wordt gebruikt. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten. U kunt ook een bestaand account gebruiken. |
 
-1. Klik op **Maken** om de nieuwe functie-app in te richten en te implementeren. U kunt de status van de implementatie controleren door op het meldingspictogram rechtsboven in de hoek van de portal te klikken. 
+3. Selecteer **Maken** om de functie-app in te richten en te implementeren. 
+
+4. Selecteer het meldingspictogram in de rechterbovenhoek van de portal en zoek het bericht **Implementatie voltooid**. 
 
     ![Instellingen voor nieuwe functie-apps definiëren](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-    Als u op **Naar de resource gaan** klikt, komt u uit bij uw nieuwe functie-app.
+4. Selecteer **Naar de resource gaan** om uw nieuwe functie-app te bekijken.
+
+>[!TIP]
+>Als u problemen ondervindt bij het vinden van de functie-app in de portal, [voegt u functie-apps toe aan uw favorieten in Azure Portal](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite).   
+

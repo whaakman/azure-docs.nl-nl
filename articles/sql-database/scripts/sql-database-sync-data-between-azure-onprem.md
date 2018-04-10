@@ -1,13 +1,13 @@
 ---
-title: PowerShell-voorbeeld-synchronisatie tussen de SQL-Database en SQL Server lokaal | Microsoft Docs
-description: Azure PowerShell-voorbeeldscript om te synchroniseren tussen een Azure SQL Database en een lokale SQL Server-database.
+title: PowerShell-voorbeeldsynchronisatie tussen SQL Database en SQL Server on-premises | Microsoft Docs
+description: Azure PowerShell-voorbeeldscript om te synchroniseren tussen een Azure SQL-database en een on-premises SQL Server-database
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,23 +17,23 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: a29c8c7fbd583b45849be6fcab046c578dbbb98a
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 31be6bc80b147e106066c064903c6eb9e1900e12
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell gebruiken om te synchroniseren tussen een SQL-Database en een lokale SQL Server-database.
+# <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell gebruiken om te synchroniseren tussen een SQL-database en een on-premises SQL Server-database
 
-In dit voorbeeld PowerShell configureert synchroniseren van gegevens te synchroniseren tussen een Azure SQL Database en een lokale SQL Server-database. 
+Met dit PowerShell-voorbeeld wordt Data Sync (preview) geconfigureerd voor synchroniseren tussen een Azure SQL-database en een on-premises SQL Server-database. 
 
-Dit voorbeeld is de Azure PowerShell-moduleversie 4.2 of hoger vereist. Voer `Get-Module -ListAvailable AzureRM` de geïnstalleerde versie vinden. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Voor dit voorbeeld is versie 4.2 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Voer `Login-AzureRmAccount` geen verbinding maken met Azure.
+Voer `Login-AzureRmAccount` uit om een verbinding op te zetten met Azure.
 
-Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie (Preview)](../sql-database-sync-data.md).
+Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync (Preview)](../sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
 
-## <a name="sample-script"></a>Voorbeeld van een script
+## <a name="sample-script"></a>Voorbeeldscript
 
 ```powershell
 # prerequisites: 
@@ -360,50 +360,50 @@ else
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Nadat u hebt het voorbeeldscript uitvoeren, kunt u de volgende opdracht om het verwijderen van de resourcegroep en alle resources die zijn gekoppeld uitvoeren.
+Na het uitvoeren van het voorbeeldscript kunt u de volgende opdracht uitvoeren om de resourcegroep en alle bijbehorende resources te verwijderen.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
 Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 ```
 
-## <a name="script-explanation"></a>Script uitleg
+## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de opdracht specifieke documentatie bij.
+In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel is een koppeling naar opdracht-specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Nieuwe AzureRmSqlSyncAgent](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  Hiermee maakt u een nieuwe Sync-Agent |
-| [Nieuwe AzureRmSqlSyncAgentKey](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  Genereert de sleutel van de agent die is gekoppeld aan de agent voor synchronisatie |
-| [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  Lees de informatie voor de synchronisatie-Agent |
-| [Nieuwe AzureRmSqlSyncMember](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  Een nieuw lid toevoegen aan de groep voor synchronisatie |
-| [Update AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  Hiermee vernieuwt de informatie over het databaseschema |
-| [Get-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  De database-schema-informatie ophalen |
-| [Update AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  Updates van de groep voor synchronisatie |
-| [Start AzureRmSqlSyncGroupSync](/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | Een synchronisatie wordt geactiveerd |
-| [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  Controleert het synchronisatie-logboek |
+| [New-AzureRmSqlSyncAgent](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  Hiermee maakt u een nieuwe synchronisatieagent |
+| [New-AzureRmSqlSyncAgentKey](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  Hiermee genereert u de agentsleutel die is gekoppeld aan de synchronisatieagent |
+| [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  Hiermee vraagt u alle gegevens op voor de synchronisatieagent |
+| [New-AzureRmSqlSyncMember](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  Hiermee voegt u een nieuw lid toe aan de synchronisatiegroep |
+| [Update-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  Hiermee vernieuwt u de gegevens van het databaseschema |
+| [Get-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  Hiermee vraagt u de gegevens van het databaseschema op |
+| [Update-AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  Hiermee werkt u de synchronisatiegroep bij |
+| [Start-AzureRmSqlSyncGroupSync](/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | Hiermee activeert u een synchronisatie |
+| [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  Hiermee controleert u het synchronisatielogboek |
 |||
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure PowerShell [documentatie van Azure PowerShell](/powershell/azure/overview).
+Raadpleeg de [documentatie over Azure PowerShell](/powershell/azure/overview) voor meer informatie over Azure PowerShell.
 
-Voorbeelden van aanvullende SQL Database PowerShell-script kunnen worden gevonden in [Azure SQL Database PowerShell-scripts](../sql-database-powershell-samples.md).
+Aanvullende voorbeelden van SQL Database PowerShell-scripts vindt u in [Azure SQL Database PowerShell-scripts](../sql-database-powershell-samples.md).
 
-Zie voor meer informatie over het synchroniseren van de SQL-gegevens:
+Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
 
--   [Synchronisatie van gegevens over meerdere cloud en on-premises databases met synchroniseren van Azure SQL-gegevens](../sql-database-sync-data.md)
--   [Synchroniseren van Azure SQL-gegevens instellen](../sql-database-get-started-sql-data-sync.md)
--   [Aanbevolen procedures voor het synchroniseren van Azure SQL-gegevens](../sql-database-best-practices-data-sync.md)
--   [Monitor Azure SQL-gegevens synchroniseren met OMS Log Analytics](../sql-database-sync-monitor-oms.md)
--   [Problemen oplossen met het synchroniseren van Azure SQL-gegevens](../sql-database-troubleshoot-data-sync.md)
+-   [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync (Preview)](../sql-database-sync-data.md)
+-   [Azure SQL Data Sync instellen](../sql-database-get-started-sql-data-sync.md)
+-   [Aanbevolen procedures voor Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
+-   [Azure SQL Data Sync controleren met OMS Log Analytics](../sql-database-sync-monitor-oms.md)
+-   [Problemen oplossen met Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 
--   Voer de PowerShell-voorbeelden die laten hoe u zien voor het synchroniseren van de SQL-gegevens configureren:
-    -   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](sql-database-sync-data-between-sql-databases.md)
+-   Voer PowerShell-voorbeelden uit die laten zien hoe u SQL Data Sync configureert:
+    -   [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](sql-database-sync-data-between-sql-databases.md)
 
--   [De SQL-gegevens synchroniseren REST-API-documentatie downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [De documentatie over de REST-API van SQL Data Sync downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-Zie voor meer informatie over SQL-Database:
+Zie de volgende onderwerpen voor meer informatie over SQL Database:
 
--   [Overzicht van de SQL-Database](../sql-database-technical-overview.md)
--   [Database-levenscyclusbeheer](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Wat is de Azure SQL Database-service?](../sql-database-technical-overview.md)
+-   [Database Lifecycle Management (DLM)](https://msdn.microsoft.com/library/jj907294.aspx)

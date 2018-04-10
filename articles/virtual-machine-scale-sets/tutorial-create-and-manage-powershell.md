@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f1b987d00fad4931f9ad39b39101cc474c2a1e3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 54f63ec4cddf64110eadf25fff60167238f9f9a6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Zelfstudie - Een schaalset met virtuele Azure-machines maken met Azure PowerShell
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. Gedurende de levenscyclus van een schaalset voor virtuele machines moet u mogelijk een of meer beheertaken uitvoeren. In deze zelfstudie leert u het volgende:
@@ -45,7 +45,6 @@ Een Azure-resourcegroep is een logische container waarin Azure-resources worden 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
-
 De naam van de resourcegroep moet worden opgegeven als u ergens in deze zelfstudie een schaalset maakt of wijzigt.
 
 
@@ -83,10 +82,10 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 In de volgende voorbeelduitvoer ziet u dat de schaalset twee VM-exemplaren bevat:
 
 ```powershell
-ResourceGroupName         Name Location          Sku InstanceID ProvisioningState
------------------         ---- --------          --- ---------- -----------------
-MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS2          0         Succeeded
-MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS2          1         Succeeded
+ResourceGroupName         Name Location             Sku InstanceID ProvisioningState
+-----------------         ---- --------             --- ---------- -----------------
+MYRESOURCEGROUP   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUP   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
 Als u extra informatie wilt weergeven over een specifiek VM-exemplaar, voegt u de parameter `-InstanceId` toe aan [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). In het volgende voorbeeld wordt informatie opgevraagd over het VM-exemplaar *1*:
@@ -235,7 +234,7 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-Toen u aan het begin van de zelfstudie een schaalset hebt gemaakt, werd er een standaard-VM-SKU van *Standard_D1_v2* opgegeven voor de VM-exemplaren. U kunt een andere grootte voor het VM-exemplaar opgeven op basis van de uitvoer van [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). In het volgende voorbeeld wordt een schaalset gemaakt met de parameter `-VmSize` om een VM-exemplaargrootte op te geven van *Standard_F1*. Aangezien het enkele minuten duurt om alle schaalsetresources en VM-exemplaren te maken en te configureren, hoeft u de volgende schaalset niet te implementeren:
+Toen u aan het begin van de zelfstudie een schaalset hebt gemaakt, werd er een standaard-VM-SKU van *Standard_DS1_v2* opgegeven voor de VM-exemplaren. U kunt een andere grootte voor het VM-exemplaar opgeven op basis van de uitvoer van [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize). In het volgende voorbeeld wordt een schaalset gemaakt met de parameter `-VmSize` om een VM-exemplaargrootte op te geven van *Standard_F1*. Aangezien het enkele minuten duurt om alle schaalsetresources en VM-exemplaren te maken en te configureren, hoeft u de volgende schaalset niet te implementeren:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `

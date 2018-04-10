@@ -5,19 +5,19 @@ services: azure-policy
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2018
+ms.date: 03/30/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 1ff1240073e25bf406e7da6b79135264376a5b3f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 356521c0d1771906e41c816d523d687fe8902acd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Een beleidstoewijzing maken om niet-compatibele resources te identificeren in uw Azure-omgeving met Azure CLI
 
-De eerste stap in het begrijpen van naleving in Azure is het identificeren van de status van uw resources. In deze quickstart gaat u een beleidstoewijzing maken voor het identificeren van virtuele machines die geen beheerde schijven gebruiken.
+De eerste stap in het begrijpen van naleving in Azure is het identificeren van de status van uw resources. In deze snelstart gaat u een beleidstoewijzing maken voor het identificeren van virtuele machines die geen beheerde schijven gebruiken.
 
 Als u dit proces helemaal hebt doorlopen, kunt u virtuele machines identificeren die geen beheerde schijven gebruiken. Ze zijn *niet-compatibel* met de beleidstoewijzing.
 
@@ -27,13 +27,21 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Voor deze quickstart moet u versie 2.0.4 of hoger van Azure CLI uitvoeren om de CLI lokaal te installeren en te gebruiken. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Voor deze snelstart moet u versie 2.0.4 of hoger van Azure CLI uitvoeren om de CLI lokaal te installeren en te gebruiken. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
+## <a name="prerequisites"></a>Vereisten
+
+Registreer de resourceprovider Policy Insights met behulp van Azure CLI. Als u de resourceprovider registreert, controleer dan of uw abonnement ermee werkt. Als u een resourceprovider wilt registreren, moet u toestemming hebben om de registreeractie voor de resourceprovider uit te voeren. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Voer de volgende opdracht uit om de resourceprovider te registreren:
+
+```
+az provider register –-namespace 'Microsoft.PolicyInsights
+```
+Zie [Resourceproviders en -typen](../azure-resource-manager/resource-manager-supported-services.md) voor meer informatie over het registreren en weergeven van resourceproviders.
 
 
 ## <a name="create-a-policy-assignment"></a>Een beleidstoewijzing maken
 
-In deze quickstart maakt u een beleidstoewijzing en wijst u de definitie Virtuele machines zonder beheerde schijven controleren toe. Deze beleidsdefinitie identificeert resources die niet voldoen aan de voorwaarden die zijn vastgelegd in de beleidsdefinitie.
+In deze snelstart maakt u een beleidstoewijzing en wijst u de definitie Virtuele machines zonder beheerde schijven controleren toe. Deze beleidsdefinitie identificeert resources die niet voldoen aan de voorwaarden die zijn vastgelegd in de beleidsdefinitie.
 
 Voer de volgende opdracht uit om een beleidstoewijzing te maken:
 
@@ -97,11 +105,11 @@ De resultaten zien er ongeveer als volgt uit:
 
 ```
 
-De resultaten zijn vergelijkbaar met wat in de weergave van de Azure-portal meestal wordt vermeld onder **Niet-compatibele resources**.
+De resultaten zijn vergelijkbaar met wat in de weergave van Azure Portal meestal wordt vermeld onder **Niet-compatibele resources**.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere handleidingen in deze verzameling zijn op deze quickstart gebaseerd. Als u verder wilt gaan met volgende zelfstudies, verwijder dan niet de resources die u in deze quickstart hebt gemaakt. Als u niet van plan bent om verder te gaan, verwijdert u de toewijzing die u hebt gemaakt. Voer daarvoor de volgende opdracht uit:
+Andere handleidingen in deze verzameling zijn op deze snelstart gebaseerd. Als u verder wilt gaan met volgende zelfstudies, verwijder dan niet de resources die u in deze snelstart hebt gemaakt. Als u niet van plan bent om verder te gaan, verwijdert u de toewijzing die u hebt gemaakt. Voer daarvoor de volgende opdracht uit:
 
 ```azurecli
 az policy assignment delete –name Audit Virtual Machines without Managed Disks Assignment --scope /subscriptions/ <subscriptionID> / <resourceGroupName>
@@ -109,7 +117,7 @@ az policy assignment delete –name Audit Virtual Machines without Managed Disks
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u een beleidsdefinitie toegewezen om niet-compatibele resources in uw Azure-omgeving te identificeren.
+In deze snelstart hebt u een beleidsdefinitie toegewezen om niet-compatibele resources in uw Azure-omgeving te identificeren.
 
 Voor meer informatie over het toewijzen van beleid en hoe u ervoor zorgt dat resources die u in de **toekomst** gaat maken compatibel zijn, gaat u verder met de zelfstudie voor:
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7331c3385f70de7d13895fc88d1d8630af4e9b05
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
 
@@ -47,10 +47,10 @@ U hebt de volgende zaken nodig:
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. De Application Insights-SDK voor Java toevoegen aan uw project
 *Kies de juiste methode voor uw project.*
 
-#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Als u Eclipse gebruikt om een Maven- of Dynamic Web-project te maken...
+#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project"></a>Als u Eclipse gebruikt om een Dynamic Web-project te maken...
 Gebruik de [invoegtoepassing Application Insights-SDK voor Java][eclipse].
 
-#### <a name="if-youre-using-maven"></a>Als u Maven gebruikt...
+#### <a name="if-youre-using-maven-a-namemaven-setup-"></a>Als u Maven gebruikt... <a name="maven-setup" />
 Als uw project al is ingesteld om voor de build Maven te gebruiken, voegt u de volgende code in uw pom.xml-bestand in.
 
 Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te downloaden.
@@ -75,15 +75,15 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
     </dependencies>
 ```
 
-* *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `<version>2.0.n</version>`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in onze [Maven-artefacten](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `<version>2.0.n</version>`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in de [Maven-artefacten](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Moet u bijwerken naar een nieuwe SDK?* Vernieuw de afhankelijkheden van uw project.
 
-#### <a name="if-youre-using-gradle"></a>Als u Gradle gebruikt...
+#### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Als u Gradle gebruikt... <a name="gradle-setup" />
 Als uw project al is ingesteld om voor de build Gradle te gebruiken, voegt u de volgende code in uw build.gradle-bestand in.
 
 Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te downloaden.
 
-```JSON
+```gradle
 
     repositories {
       mavenCentral()
@@ -95,27 +95,24 @@ Vervolgens vernieuwt u de projectafhankelijkheden om de binaire bestanden te dow
     }
 ```
 
-* *Validatiefouten in build of controlesom? Probeer een specifieke versie te gebruiken, bijvoorbeeld:* `version:'2.0.n'`. *U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
-* *Bijwerken naar een nieuwe SDK*
-  * Vernieuw de afhankelijkheden van uw project.
+* *Validatiefouten in build of controlesom?* Probeer een specifieke versie te gebruiken, bijvoorbeeld: `version:'2.0.n'`. U vindt de nieuwste versie in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) of in de [Maven-artefacten](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Bijwerken naar een nieuwe SDK* Vernieuw de afhankelijkheden van uw project.
 
-#### <a name="otherwise-"></a>Of...
-Voeg de SDK handmatig toe:
-
-1. Download de [Application Insights-SDK voor Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
-2. Pak het zip-bestand uit en voeg de binaire bestanden toe aan uw project.
+#### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Als u afhankelijkheden handmatig beheert...
+Download de [nieuwste versie](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) en kopieer de vereiste bestanden in uw project, waarbij eventuele vorige versies worden vervangen.
 
 ### <a name="questions"></a>Vragen...
-* *Wat is de relatie tussen de `-core`- en `-web`-onderdelen in het zip-bestand?*
-
+* *Wat is de relatie tussen de `-core`- en `-web`-onderdelen?*
   * `applicationinsights-core` biedt u de bare-API. U hebt dit onderdeel altijd nodig.
   * `applicationinsights-web` biedt u metrische gegevens waarin het aantal HTTP-aanvragen en -reactietijden worden bijhouden. U kunt dit onderdeel weglaten als u deze telemetrie niet automatisch wilt verzamelen. Bijvoorbeeld omdat u deze zelf wilt schrijven.
-* *De SDK bijwerken wanneer er wijzigingen worden gepubliceerd*
+  
+* *Hoe moet ik de SDK bijwerken naar de nieuwste versie?*
+  * Als u Gradle of Maven gebruikt...
+    * Werk het build-bestand bij om de laatste versie op te geven of gebruik de jokertekensyntaxis van Maven of Gradle om de nieuwste versie automatisch op te nemen. Vernieuw vervolgens de afhankelijkheden van uw project. U ziet de jokertekensyntaxis voor [Gradle](#gradle-setup) of [Maven](#maven-setup) in de bovenstaande voorbeelden.
+  * Als u afhankelijkheden handmatig beheert...
+    * Download de meest recente [Application Insights-SDK voor Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) en vervang de oude versie. De wijzigingen worden beschreven in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-  * Download de meest recente [Application Insights-SDK voor Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) en vervang de oude versie.
-  * De wijzigingen worden beschreven in de [SDK-releaseopmerkingen](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
-
-## <a name="3-add-an-application-insights-xml-file"></a>3. Een Application Insights-.xml-bestand toevoegen
+## <a name="3-add-an-applicationinsightsxml-file"></a>3. Een bestand ApplicationInsights.xml toevoegen
 Voeg ApplicationInsights.xml toe aan de resourcesmap in uw project of plaats het in het implementatieklassepad van uw project. Kopieer de volgende XML-code naar het bestand.
 
 Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
@@ -127,12 +124,10 @@ Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
 
 
       <!-- The key from the portal: -->
-
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
 
       <!-- HTTP request component (not required for bare API) -->
-
       <TelemetryModules>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
@@ -153,11 +148,11 @@ Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
     </ApplicationInsights>
 ```
 
+Het configuratiebestand kan ook worden ondergebracht op een locatie die voor uw toepassing toegankelijk is.  Met systeemeigenschap `-Dapplicationinsights.configurationDirectory` wordt de map opgegeven die ApplicationInsights.xml bevat. Bijvoorbeeld: een configuratiebestand in `E:\myconfigs\appinsights\ApplicationInsights.xml` wordt geconfigureerd met eigenschap `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * De instrumentatiesleutel wordt samen met alle telemetrie-items verzonden en instrueert Application Insights om deze in de resource weer te geven.
 * Het onderdeel voor de HTTP-aanvraag is optioneel. Het verzendt automatisch telemetrie over aanvragen en reactietijden naar de portal.
 * Correlatie tussen gebeurtenissen is een aanvulling op het onderdeel voor de HTTP-aanvraag. Deze aanvulling wijst een id toe aan elke aanvraag die door de server wordt ontvangen en voegt deze id als de eigenschap 'Operation.Id' toe aan elk telemetrie-item. Op deze manier kunt u correlaties zichtbaar maken tussen de telemetrie die aan elke aanvraag is gekoppeld. Dit doet u door een filter in te stellen in [Diagnostische gegevens doorzoeken][diagnostic].
-* De Application Insights-sleutel kan vanuit de Azure Portal dynamisch worden doorgegeven als een systeemeigenschap (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Als er geen eigenschap is gedefinieerd, wordt gecontroleerd op omgevingsvariabelen (APPLICATION_INSIGHTS_IKEY) in de Azure App-instellingen. Als beide eigenschappen niet zijn gedefinieerd, wordt de standaardwaarde van InstrumentationKey uit ApplicationInsights.xml gebruikt. Met deze reeks kunt u verschillende instrumentatiesleutels voor verschillende omgevingen dynamisch beheren.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Andere manieren om de instrumentatiesleutel in te stellen
 De Application Insights-SDK zoekt in deze volgorde naar de sleutel:
@@ -219,7 +214,7 @@ Voeg dit item toe aan het Struts-configuratiebestand (meestal struts.xml of stru
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(Als u interceptors hebt gedefinieerd in een standaardstack, kan de interceptor gewoon worden toegevoegd aan die stack.)
+Als u interceptors hebt gedefinieerd in een standaardstack, kan de interceptor worden toegevoegd aan die stack.
 
 ## <a name="5-run-your-application"></a>5. Uw toepassing uitvoeren
 Voer uw app uit in de foutopsporingsmodus op uw ontwikkelcomputer of publiceer de app op uw server.

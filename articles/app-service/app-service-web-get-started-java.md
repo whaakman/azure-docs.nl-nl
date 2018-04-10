@@ -4,7 +4,7 @@ description: In dit artikel leest u hoe u door het implementeren van een eenvoud
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: routlaw
+manager: mbaldwin
 editor: ''
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,20 +12,25 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/08/2017
+ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e63f8706e28a5d34cc9774cbaecde31415a4b48e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Uw eerste Java-web-app in Azure maken
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze Quickstart leert u hoe u een Java-web-app implementeert in App Service met behulp van de [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/).
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze snelstart leert u hoe u een Java-web-app implementeert in App Service met behulp van de [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/).
 
-Wanneer u deze quickstart hebt voltooid en uw toepassing in een webbrowser bekijkt, ziet uw toepassing er ongeveer als volgt uit:
+> [!NOTE]
+>
+> De stappen in deze snelstart laten zien hoe u de Eclipse IDE kunt gebruiken voor het publiceren van een Java-web-app naar App Service. U kunt de IntelliJ IDEA Ultimate Edition of Community Edition gebruiken. Zie [Create a Hello World web app for Azure using IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) (Een Hallo wereld-web-app voor Azure maken met IntelliJ) voor meer informatie.
+>
+
+Wanneer u deze snelstart hebt voltooid en uw toepassing in een webbrowser bekijkt, ziet uw toepassing er ongeveer als volgt uit:
 
 !['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -33,10 +38,15 @@ Wanneer u deze quickstart hebt voltooid en uw toepassing in een webbrowser bekij
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze onderdelen moeten zijn geïnstalleerd om deze Quickstart te kunnen voltooien:
+Deze onderdelen moeten zijn geïnstalleerd om deze snelstart te kunnen voltooien:
 
-* De gratis <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE voor Java EE-ontwikkelaars</a>. Deze Quickstart maakt gebruik van Eclipse Neon.
+* De gratis <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE voor Java EE-ontwikkelaars</a>. Deze snelstart maakt gebruik van Eclipse Neon.
 * De <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit voor Eclipse</a>.
+
+> [!NOTE]
+>
+> U moet zich aanmelden bij uw Azure-account met de Azure-toolkit voor Eclipse om de stappen in deze snelstart te voltooien. Om dit te doen, raadpleegt u [Azure Sign In Instructions for the Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions) (Azure-aanmeldinstructies voor de Azure-toolkit voor Eclipse).
+>
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Een dynamisch webproject maken in Eclipse
 
@@ -74,15 +84,20 @@ Vervang in het bestand index.jsp het element `<body></body>` door de volgende co
 
 Sla de wijzigingen op.
 
+> [!NOTE]
+>
+> Als er een fout optreedt op regel 1 die naar een ontbrekende Java Servlet -klasse verwijst, kunt u deze negeren.
+> 
+> ![Onschadelijke Java Servlet-fout](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
+>
+
 ## <a name="publish-the-web-app-to-azure"></a>De web-app publiceren in Azure
 
 Klik in Projectverkenner met de rechtermuisknop op het project en selecteer vervolgens **Azure** > **Publiceren als Azure Web App**.
 
 ![Het contextmenu Publiceren als Azure Web App](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-Laat in het dialoogvenster **Azure-aanmelding** de optie **Interactief** ingeschakeld en selecteer **Aanmelden**.
-
-Volg de instructies om u aan te melden.
+Als u het dialoogvenster voor **aanmelden bij Azure** te zien krijgt, moet u de stappen in het artikel [Azure Sign In Instructions for the Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions) (Azure-aanmeldinstructies voor de Azure-toolkit voor Eclipse) volgen om uw referenties in te voeren.
 
 ### <a name="deploy-web-app-dialog-box"></a>Het dialoogvenster Web-app implementeren
 
@@ -100,8 +115,8 @@ Het dialoogvenster **App Service** wordt weergegeven met standaardwaarden. De nu
 
 In het dialoogvenster **App Service maken**:
 
-* Gebruik de gegenereerde naam voor de web-app. Deze naam moet uniek zijn binnen Azure. De naam is onderdeel van het URL-adres voor de web-app. Als de web-app bijvoorbeeld de naam **MyJavaWebApp** heeft, is de URL *myjavawebapp.azurewebsites.net*.
-* Gebruik standaard-webcontainer.
+* Geef een unieke naam op voor uw web-app of behoud de gegenereerde naam. Deze naam moet uniek zijn binnen Azure. De naam is onderdeel van het URL-adres voor de web-app. Als de web-app bijvoorbeeld de naam **MyJavaWebApp** heeft, is de URL *myjavawebapp.azurewebsites.net*.
+* Gebruik de standaard webcontainer voor deze snelstart.
 * Selecteer een Azure-abonnement.
 * Op het tabblad **App Service-plan**:
 
@@ -185,9 +200,9 @@ Selecteer **Resourcegroepen** in het linkermenu.
 
 ![Portalnavigatie naar resourcegroepen](media/app-service-web-get-started-java/rg.png)
 
-Selecteer de resourcegroep. De pagina bevat de resources die u in deze Quickstart hebt gemaakt.
+Selecteer de resourcegroep. De pagina bevat de resources die u in deze snelstart hebt gemaakt.
 
-![Resourcegroep myResourceGroup](media/app-service-web-get-started-java/rg2.png)
+![Resourcegroep](media/app-service-web-get-started-java/rg2.png)
 
 Selecteer de web-app (**webapp 170602193915** in de voorgaande afbeelding).
 

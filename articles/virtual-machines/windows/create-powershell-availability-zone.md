@@ -4,29 +4,29 @@ description: Een virtuele Windows-machine maken in een beschikbaarheidszone met 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/27/2018
 ms.author: danlep
-ms.custom: 
-ms.openlocfilehash: ada47536dbd736386a4efc76249f4ff3a1cfd527
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.custom: ''
+ms.openlocfilehash: 4b6ae95d9b8f7cc4924ea89a743cf9878c7dd79a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Een virtuele Windows-machine maken in een beschikbaarheidszone met PowerShell
 
 In dit artikel wordt beschreven hoe u Azure PowerShell gebruikt om in een Azure-beschikbaarheidszone een virtuele Azure-machine te maken waarop Windows Server 2016 wordt uitgevoerd. Een [beschikbaarheidszone](../../availability-zones/az-overview.md) is een fysiek afgescheiden zone in een Azure-regio. Gebruik beschikbaarheidszones om uw apps en gegevens te beschermen tegen het onwaarschijnlijke risico van een storing of het verloren gaan van een heel datacenter.
 
-[!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
+Als u een beschikbaarheidszone wilt gebruiken, maakt u een virtuele machine in een [ondersteunde Azure-regio](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
 Zorg ervoor dat u de nieuwste Azure PowerShell-module hebt geïnstalleerd. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
@@ -50,7 +50,7 @@ Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("eastus2")};
 De uitvoer is vergelijkbaar met het volgende verkorte voorbeeld, waarin de beschikbaarheidszones worden weergegeven waarin elke VM-grootte beschikbaar is:
 
 ```powershell
-ResourceType                Name  Location      Zones
+ResourceType                Name  Location      Zones   [...]
 ------------                ----  --------      -----
 virtualMachines  Standard_DS1_v2   eastus2  {1, 2, 3}
 virtualMachines  Standard_DS2_v2   eastus2  {1, 2, 3}
@@ -68,16 +68,16 @@ virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Maak een Azure-resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In dit voorbeeld wordt er een resourcegroep met de naam *MyResourceGroup* gemaakt in de *eastus2*. VS Oost 2 is een van de Azure-regio's die ondersteuning biedt voor beschikbaarheidszones in preview.
+Maak een Azure-resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In dit voorbeeld wordt er een resourcegroep met de naam *MyResourceGroup* gemaakt in de *eastus2*. 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location eastus2
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS2
 ```
 
 ## <a name="create-networking-resources"></a>Netwerkresources maken
 
 ### <a name="create-a-virtual-network-subnet-and-a-public-ip-address"></a>Een virtueel netwerk, subnet en openbaar IP-adres maken 
-Deze resources worden gebruikt voor netwerkconnectiviteit met de virtuele machine en om verbinding met internet te maken. Maak het IP-adres in een beschikbaarheidszone, *2* in dit voorbeeld. Als u de virtuele machine wilt maken in een beschikbaarheidszone (weergegeven in een latere stap), moet u dezelfde zone opgeven die is gebruikt voor het maken van het IP-adres.
+Deze resources worden gebruikt voor netwerkconnectiviteit met de virtuele machine en om verbinding met internet te maken. Maak het IP-adres in een beschikbaarheidszone, *2* in dit voorbeeld. In een latere stap maakt u de VM in dezelfde zone die is gebruikt voor het maken van het IP-adres.
 
 ```powershell
 # Create a subnet configuration
@@ -85,7 +85,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPre
 
 # Create a virtual network
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus2 `
-    -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+    -Name myVNet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address in an availability zone and specify a DNS name
 $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus2 -Zone 2 `
@@ -122,7 +122,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGrou
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Maak een virtuele-machineconfiguratie. Deze configuratie bevat de instellingen die worden gebruikt bij het implementeren van de virtuele machine, zoals een installatiekopie van de virtuele machine, de grootte en de verificatieconfiguratie. De grootte *Standard_DS1_v2* in dit voorbeeld wordt ondersteund in de preview van beschikbaarheidszones. In deze configuratie wordt ook de beschikbaarheidszone opgegeven die u hebt ingesteld bij het maken van het IP-adres. Als deze stap wordt uitgevoerd, wordt u gevraagd referenties op te geven. De waarden die u invoert, worden geconfigureerd als de gebruikersnaam en het wachtwoord voor de virtuele machine.
+Maak een virtuele-machineconfiguratie. Deze configuratie bevat de instellingen die worden gebruikt bij het implementeren van de virtuele machine, zoals een installatiekopie van de virtuele machine, de grootte en de verificatieconfiguratie. De grootte *Standard_DS1_v2* in dit voorbeeld wordt ondersteund in beschikbaarheidszones. In deze configuratie wordt ook de beschikbaarheidszone opgegeven die u hebt ingesteld bij het maken van het IP-adres. Als deze stap wordt uitgevoerd, wordt u gevraagd referenties op te geven. De waarden die u invoert, worden geconfigureerd als de gebruikersnaam en het wachtwoord voor de virtuele machine.
 
 ```powershell
 # Define a credential object
@@ -141,9 +141,9 @@ Maak de virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
 ```
 
-## <a name="zone-for-ip-address-and-managed-disk"></a>Zone voor IP-adres en beheerde schijf
+## <a name="confirm-zone-for-managed-disk"></a>Zone voor beheerde schijf bevestigen
 
-U hebt de resource van het IP-adres van de virtuele machine gemaakt in dezelfde beschikbaarheidszone als de virtuele machine. De resource van de beheerde schijf voor de virtuele machine wordt ook in dezelfde beschikbaarheidszone gemaakt. U kunt dit controleren met [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk):
+U hebt de resource van het IP-adres van de virtuele machine gemaakt in dezelfde beschikbaarheidszone als de virtuele machine. De resource van de beheerde schijf voor de VM wordt in dezelfde beschikbaarheidszone gemaakt. U kunt dit controleren met [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk):
 
 ```powershell
 Get-AzureRmDisk -ResourceGroupName myResourceGroup
@@ -154,9 +154,9 @@ In de uitvoer ziet u dat de beheerde schijf zich in dezelfde beschikbaarheidszon
 ```powershell
 ResourceGroupName  : myResourceGroup
 AccountType        : PremiumLRS
-OwnerId            : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
+OwnerId            : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.
                      Compute/virtualMachines/myVM
-ManagedBy          : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
+ManagedBy          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx//resourceGroups/myResourceGroup/providers/Microsoft.
                      Compute/virtualMachines/myVM
 Sku                : Microsoft.Azure.Management.Compute.Models.DiskSku
 Zones              : {2}
@@ -166,7 +166,7 @@ CreationData       : Microsoft.Azure.Management.Compute.Models.CreationData
 DiskSizeGB         : 127
 EncryptionSettings :
 ProvisioningState  : Succeeded
-Id                 : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
+Id                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.
                      Compute/disks/myVM_OsDisk_1_bd921920bb0a4650becfc2d830000000
 Name               : myVM_OsDisk_1_bd921920bb0a4650becfc2d830000000
 Type               : Microsoft.Compute/disks
@@ -175,8 +175,6 @@ Tags               : {}
 ```
 
 
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u een virtuele machine maakt in een beschikbaarheidszone. Meer informatie over [regio's en beschikbaarheid](regions-and-availability.md) voor virtuele Azure-machines.
+In dit artikel hebt u geleerd hoe u een VM maakt in een beschikbaarheidszone. Meer informatie over [regio's en beschikbaarheid](regions-and-availability.md) voor virtuele Azure-machines.

@@ -10,20 +10,20 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ce72c1a68c1dbe5cede33dd42adc1b002a81326e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6226fea5001d19a6f0e1f6700d90ea2b9481d43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uw toepassingsgegevens maximaal beschikbaar maken met Azure-opslag
 
-Deze zelfstudie is deel één van een serie. Hier ziet u hoe u uw toepassingsgegevens maximaal beschikbaar maakt in Azure. Wanneer u klaar bent, hebt u een consoletoepassing die een blob ophaalt en uploadt naar een [geografisch redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage) opslagaccount met leestoegang (RA-GRS). RA-GRS werkt door transacties te repliceren van de primaire naar de secundaire regio. Dit replicatieproces zorgt ervoor dat de gegevens in de secundaire regio uiteindelijk consistent zijn. De toepassing gebruikt het [Circuitonderbrekers](/azure/architecture/patterns/circuit-breaker)patroon om te bepalen met welk eindpunt verbinding moet worden gemaakt. De toepassing schakelt over naar het secundaire eindpunt wanneer er een fout wordt gesimuleerd.
+Deze zelfstudie is deel één van een serie. Hier ziet u hoe u uw toepassingsgegevens maximaal beschikbaar maakt in Azure. Wanneer u klaar bent, hebt u een consoletoepassing die een blob ophaalt en uploadt naar een [geografisch redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) opslagaccount met leestoegang (RA-GRS). RA-GRS werkt door transacties te repliceren van de primaire naar de secundaire regio. Dit replicatieproces zorgt ervoor dat de gegevens in de secundaire regio uiteindelijk consistent zijn. De toepassing gebruikt het [Circuitonderbrekers](/azure/architecture/patterns/circuit-breaker)patroon om te bepalen met welk eindpunt verbinding moet worden gemaakt. De toepassing schakelt over naar het secundaire eindpunt wanneer er een fout wordt gesimuleerd.
 
 In deel 1 van de reeks leert u het volgende:
 
 > [!div class="checklist"]
-> * Een opslagaccount maken
+> * Create a storage account
 > * Het voorbeeld downloaden
 > * De verbindingsreeks instellen
 > * De consoletoepassing uitvoeren
@@ -54,7 +54,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Een opslagaccount biedt een unieke naamruimte voor het opslaan en openen van uw Azure Storage-gegevensobjecten.
 
@@ -241,7 +241,7 @@ def response_callback(response):
 In deel één van de serie hebt u geleerd hoe u een toepassing maximaal beschikbaar maakt met RA-GRS-opslagaccounts. U hebt bijvoorbeeld het volgende geleerd:
 
 > [!div class="checklist"]
-> * Een opslagaccount maken
+> * Create a storage account
 > * Het voorbeeld downloaden
 > * De verbindingsreeks instellen
 > * De consoletoepassing uitvoeren

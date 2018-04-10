@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 34fdf45094fae8e751d6b3e5c57d5b4df2e78200
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -38,9 +38,9 @@ Elke route bevat een adresvoorvoegsel en het volgende hoptype. Wanneer uitgaand 
 |-------|---------                                               |---------      |
 |Standaard|Uniek voor het virtuele netwerk                           |Virtueel netwerk|
 |Standaard|0.0.0.0/0                                               |Internet       |
-|Standaard|10.0.0.0/8                                              |Geen           |
-|Standaard|172.16.0.0/12                                           |Geen           |
-|Standaard|192.168.0.0/16                                          |Geen           |
+|Standaard|10.0.0.0/8                                              |None           |
+|Standaard|172.16.0.0/12                                           |None           |
+|Standaard|192.168.0.0/16                                          |None           |
 |Standaard|100.64.0.0/10                                           |Geen           |
 
 De 'volgende hoptypen' in de bovenstaande tabel bepalen hoe Azure verkeer routeert dat bestemd is voor het vermelde adresvoorvoegsel. Hieronder worden de 'volgende hoptypen' toegelicht:
@@ -102,7 +102,7 @@ U kunt de onderstaande 'volgende hoptypen' opgeven wanneer u een door de gebruik
 
 **'Volgende hoptypen' in Azure-hulpprogramma's**
 
-De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen' is verschillend voor de Azure-portal en voor opdrachtregelprogramma's, evenals voor het implementatiemodel Azure Resource Manager en het klassieke implementatiemodel. De onderstaande tabel bevat de namen die worden gebruikt om te verwijzen naar elk 'volgend hoptype' in de verschillende hulpprogramma's en [implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
+De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen' is verschillend voor Azure Portal en voor opdrachtregelprogramma's, evenals voor het implementatiemodel Azure Resource Manager en het klassieke implementatiemodel. De onderstaande tabel bevat de namen die worden gebruikt om te verwijzen naar elk 'volgend hoptype' in de verschillende hulpprogramma's en [implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
 |Volgend hoptype                   |Azure CLI 2.0 en PowerShell (Resource Manager) |Azure CLI 1.0 en PowerShell (klassiek)|
 |-------------                   |---------                                       |-----|
@@ -130,9 +130,11 @@ Als er uitgaand verkeer wordt verzonden vanuit een subnet, selecteert Azure een 
 Als meerdere routes hetzelfde adresvoorvoegsel bevatten, selecteert Azure het routetype op basis van de volgende prioriteit:
 
 1. Door de gebruiker gedefinieerde route
-2. Een systeemroute met het hoptype *Virtueel netwerk*, *VNet-peering* of *VirtualNetworkServiceEndpoint*.
 2. BGP-route
-3. Een systeemroute met een ander hoptype dan *Virtueel netwerk*, *VNet-peering* of *VirtualNetworkServiceEndpoint*.
+3. Systeemroute
+
+> [!NOTE]
+> Systeemroutes voor verkeer dat is gerelateerd aan virtuele netwerken, peerings voor virtuele netwerken of service-eindpunten voor virtuele netwerken zijn voorkeursroutes, zelfs als BGP-routes specifieker zijn.
 
 Een routetabel bevat bijvoorbeeld de volgende routes:
 
@@ -209,7 +211,7 @@ De routetabel voor *Subnet1* in de afbeelding bevat de volgende routes:
 |4   |Standaard|Ongeldig|10.1.0.0/16         |VNet-peering           |                   |              |
 |5   |Standaard|Ongeldig|10.2.0.0/16         |VNet-peering           |                   |              |
 |6   |Gebruiker   |Actief |10.1.0.0/16         |None                   |                   |ToVNet2-1-Drop|
-|7   |Gebruiker   |Actief |10.2.0.0/16         |Geen                   |                   |ToVNet2-2-Drop|
+|7   |Gebruiker   |Actief |10.2.0.0/16         |None                   |                   |ToVNet2-2-Drop|
 |8   |Standaard|Ongeldig|10.10.0.0/16        |Gateway van een virtueel netwerk|[X.X.X.X]          |              |
 |9   |Gebruiker   |Actief |10.10.0.0/16        |Virtueel apparaat      |10.0.100.4         |To-On-Prem    |
 |10  |Standaard|Actief |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
@@ -244,14 +246,14 @@ De routetabel voor *Subnet2* in de afbeelding bevat de volgende routes:
 |Standaard |Actief |0.0.0.0/0           |Internet                  |                   |
 |Standaard |Actief |10.0.0.0/8          |Geen                      |                   |
 |Standaard |Actief |100.64.0.0/10       |None                      |                   |
-|Standaard |Actief |172.16.0.0/12       |Geen                      |                   |
+|Standaard |Actief |172.16.0.0/12       |None                      |                   |
 |Standaard |Actief |192.168.0.0/16      |Geen                      |                   |
 
 De routetabel voor *Subnet2* bevat alle standaardroutes van Azure, plus de optionele routes Virtual network peering en VPN Gateway. Azure heeft de optionele routes toegevoegd aan alle subnetten in het virtuele netwerk op het moment dat de gateway en peering werden toegevoegd aan het virtuele netwerk. Azure heeft de routes voor de adresvoorvoegsels 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 en 100.64.0.0/10 verwijderd uit de routetabel van *Subnet1* op het moment dat de door de gebruiker gedefinieerde route voor het adresvoorvoegsel 0.0.0.0/0 werd toegevoegd aan *Subnet1*.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Maken van een gebruiker gedefinieerde route - Azure-portal](tutorial-create-route-table-portal.md)
+- [Maken van een gebruiker gedefinieerde route - Azure Portal](tutorial-create-route-table-portal.md)
 - [Het configureren van BGP op Azure VPN-Gateways met behulp van PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [BGP gebruiken met ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Alle routes weergeven voor een subnet](virtual-network-routes-troubleshoot-portal.md). Een door de gebruiker gedefinieerde routetabel bevat alleen door de gebruiker gedefinieerde routes, niet de standaard- en BGP-routes voor een subnet. Als u alle routes weergeeft, ziet u de standaardroutes, de BGP-routes en de door de gebruiker gedefinieerde routes voor het subnet waarin een netwerkinterface zich bevindt.

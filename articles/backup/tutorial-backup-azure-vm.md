@@ -1,13 +1,13 @@
 ---
-title: Maak een back-up van virtuele machines in Azure op schaal Azure | Microsoft Docs
-description: Deze zelfstudie gegevens back-ups van meerdere virtuele machines van Azure naar een Recovery Services-kluis.
+title: Back-up op schaal maken van Azure-VM's | Microsoft Docs
+description: In deze zelfstudie wordt uitgebreid ingegaan op het maken van back-ups van virtuele machines van Azure voor een Recovery Services-kluis.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: back-up van virtuele machine. back-up van virtuele machine; back-up en herstel na noodgevallen
-ms.assetid: 
+editor: ''
+keywords: back-up van virtuele machine; back-up maken van virtuele machine; back-up en herstel na noodgeval
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -16,37 +16,37 @@ ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 01609c00c6f0585eff4843932b9eb7a090a59c19
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Back-up van Azure virtuele machines in Azure op schaal
+# <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Back-up op schaal maken van virtuele machines van Azure
 
-Deze zelfstudie wordt het back-up van virtuele machines van Azure naar een Recovery Services-kluis. Het merendeel van het werk voor een back-ups van virtuele machines is de voorbereiding. Voordat u kunt back-up (of beveiligen) op een virtuele machine, moet u de [vereisten](backup-azure-arm-vms-prepare.md) voorbereiden van uw omgeving voor het beveiligen van uw virtuele machines. 
+In deze zelfstudie wordt uitgebreid ingegaan hoe u back-ups maakt van virtuele machines van Azure voor een Recovery Services-kluis. Het meeste werk bij het maken van back-ups van virtuele machines bestaat uit de voorbereiding. Voordat u een back-up kunt maken van een virtuele machine (of als u deze wilt beveiligen) moet u de [vereisten](backup-azure-arm-vms-prepare.md) voltooien voor het voorbereiden van uw omgeving voor het beveiligen van uw VM's. 
 
 > [!IMPORTANT]
-> Deze zelfstudie wordt ervan uitgegaan dat u al een resourcegroep en Azure een virtuele machine hebt gemaakt.
+> In deze zelfstudie wordt ervan uitgegaan dat u al een resourcegroep en een virtuele machine van Azure hebt gemaakt.
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
-Een [Recovery Services-kluis](backup-azure-recovery-services-vault-overview.md) is een container met de herstelpunten voor de items die back-up wordt gemaakt. Een Recovery Services-kluis is een Azure-resource die kan worden geïmplementeerd en beheerd als onderdeel van een Azure-resourcegroep. In deze zelfstudie maakt u een Recovery Services-kluis in dezelfde resourcegroep bevinden als de virtuele machine wordt beveiligd.
+Een [Recovery Services-kluis](backup-azure-recovery-services-vault-overview.md) is een container met de herstelpunten voor de items waarvan u een back-up wilt maken. Een Recovery Services-kluis is een Azure-resource die kan worden geïmplementeerd en beheerd als onderdeel van een Azure-resourcegroep. In deze zelfstudie kunt u een Recovery Services-kluis maken in dezelfde resourcegroep als de virtuele machine die wordt beveiligd.
 
 
-De eerste keer dat u Azure Backup gebruiken, moet u de Azure Recovery Service provider registreren bij uw abonnement. Als u de provider bij uw abonnement al hebt geregistreerd, gaat u naar de volgende stap.
+De eerste keer dat u Azure Backup gebruikt, moet u de Azure Recovery Service-provider voor uw abonnement registreren. Als u de provider al voor uw abonnement hebt geregistreerd, gaat u naar de volgende stap.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 ```
 
-Maak een Recovery Services-kluis met **New-AzureRmRecoveryServicesVault**. Zorg ervoor dat de naam van een resourcegroep en locatie die wordt gebruikt bij het configureren van de virtuele machine die u back wilt-up opgeven. 
+Maak een Recovery Services-kluis met **New-AzureRmRecoveryServicesVault**. Geef de naam van de resourcegroep op en de locatie die u gebruikt bij het configureren van de virtuele machine waarvan u een back-up wilt maken. 
 
 ```powershell
 New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-Veel Azure Backup-cmdlets moet de Recovery Services-kluis-object als invoer. Daarom is het handig zijn voor het opslaan van het back-up Recovery Services-kluis-object in een variabele. Gebruik vervolgens **Set AzureRmRecoveryServicesBackupProperties** om in te stellen de **- BackupStorageRedundancy** optie naar [geografisch redundante opslag (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). 
+Voor veel Azure Backup-cmdlets is het object Recovery Services-kluis als invoer vereist. Daarom is het handiger het object Backup Recovery Services-kluis in een variabele op te slaan. Gebruik vervolgens **Set-AzureRmRecoveryServicesBackupProperties** om de optie **-BackupStorageRedundancy** in te stellen op [geografisch redundante opslag (GRS)](../storage/common/storage-redundancy-grs.md). 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault
@@ -55,15 +55,15 @@ Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedund
 
 ## <a name="back-up-azure-virtual-machines"></a>Back-ups maken van virtuele Azure-machines
 
-Voordat u de eerste back-up uitvoeren kunt, moet u de context van de kluis instellen. De context van de kluis is het type gegevens dat is beveiligd in de kluis. Als u een Recovery Services-kluis maakt, beschikt u over de standaardbeveiliging en bewaarbeleid. Het standaardbeleid voor beveiliging een back-uptaak elke dag op de opgegeven tijd wordt geactiveerd. Het bewaarbeleid standaard wordt het dagelijkse herstelpunt voor 30 dagen bewaard. Accepteer het standaardbeleid voor deze zelfstudie. 
+Stel de context van de kluis in voordat u de initiële back-up gaat uitvoeren. De context van de kluis is het type gegevens dat in de kluis wordt beveiligd. Als u een Recovery Services-kluis maakt, gaat deze gepaard met standaardbeleid voor beveiliging en retentie. Volgens het standaardbeveiligingsbeleid wordt elke dag op een bepaald tijdstip een back-uptaak getriggerd. Volgens het standaardbewaarbeleid wordt het dagelijkse herstelpunt gedurende dertig dagen bewaard. Accepteer het standaardbeleid voor deze zelfstudie. 
 
-Gebruik  **[Set AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**  om in te stellen de context van de kluis. Zodra de kluis context is ingesteld, wordt het toegepast op alle latere cmdlets. 
+Gebruik **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** om de context van de kluis in te stellen. Zodra deze is ingesteld, is deze op alle navolgende cmdlets van toepassing. 
 
 ```powershell
 Get-AzureRmRecoveryServicesVault -Name myRSVault | Set-AzureRmRecoveryServicesVaultContext
 ```
 
-Gebruik  **[back-up AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)**  voor het activeren van de back-uptaak. De back-uptaak maakt een herstelpunt. Als dit de eerste back-up, is het herstelpunt dat een volledige back-up. Volgende back-ups maken van een incrementele kopie.
+Gebruik **[Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** om de back-uptaak te triggeren. Met de back-uptaak wordt een herstelpunt gemaakt. Als het om de initiële back-up gaat, bestaat het herstelpunt uit de volledige back-up. Navolgende back-ups bestaan uit kopieën met een toevoeging.
 
 ```powershell
 $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered -FriendlyName "V2VM"
@@ -71,9 +71,9 @@ $item = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer -Worklo
 $job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
 ```
 
-## <a name="delete-the-recovery-services-vault"></a>Verwijder de Recovery Services-kluis
+## <a name="delete-the-recovery-services-vault"></a>Recovery Services-kluis verwijderen
 
-Als u wilt verwijderen een Recovery Services-kluis, moet u eerst verwijderen van herstelpunten in de kluis en vervolgens Hef de registratie van de kluis. De volgende opdrachten worden deze stappen in detail beschreven. 
+Als u een Recovery Services-kluis wilt verwijderen, moet u eerst herstelpunten in de kluis verwijderen en vervolgens de registratie van de kluis ongedaan maken. Met de volgende opdrachten worden deze stappen in detail uiteengezet. 
 
 
 ```powershell
@@ -84,12 +84,12 @@ Unregister-AzureRmRecoveryServicesBackupContainer -Container $namedContainer
 Remove-AzureRmRecoveryServicesVault -Vault $vault1
 ```
 
-## <a name="troubleshooting-errors"></a>Het oplossen van problemen
-Als u problemen tijdens het back-ups maken van uw virtuele machine, Zie de [Back-up van virtuele machines in Azure probleemoplossing artikel](backup-azure-vms-troubleshoot.md) voor hulp.
+## <a name="troubleshooting-errors"></a>Fouten oplossen
+Zie [Problemen oplossen met back-ups van virtuele Azure-machines](backup-azure-vms-troubleshoot.md) als er tijdens het maken van back-ups van virtuele machines fouten optreden.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u uw virtuele machines hebt beveiligd, gaat u naar de volgende artikelen voor meer informatie over beheertaken en het herstellen van virtuele machines vanaf een herstelpunt.
+U hebt uw virtuele machines beveiligd. Zie de volgende artikelen voor informatie over beheertaken en hoe u virtuele machines vanuit een herstelpunt kunt herstellen.
 
-* Zie het wijzigen van de back-upbeleid [gebruik AzureRM.RecoveryServices.Backup-cmdlets voor back-up van virtuele machines](backup-azure-vms-automation.md#create-a-protection-policy).
+* Zie [AzureRM.RecoveryServices.Backup-cmdlets gebruiken om back-ups te maken van virtuele machines](backup-azure-vms-automation.md#create-a-protection-policy) om het back-upbeleid te wijzigen.
 * [Uw virtuele machines beheren en controleren](backup-azure-manage-vms.md)
 * [Virtuele machines herstellen](backup-azure-arm-restore-vms.md)

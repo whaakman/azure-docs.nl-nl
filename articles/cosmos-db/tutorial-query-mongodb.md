@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/16/2018
+ms.date: 03/29/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f47d250bbe6689e19dda5042b335ff1812a790d4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Zelfstudie: Query's uitvoeren in Azure Cosmos DB met behulp van de MongoDB-API
 
@@ -30,6 +30,10 @@ Dit artikel behandelt de volgende taken:
 
 > [!div class="checklist"]
 > * Gegevens opvragen met behulp van MongoDB
+
+U kunt aan de slag door deze video over het uitvoeren van query's in MongoDB met Azure programmamanager Andy Hoh van Cosmos DB te bekijken:
+
+>[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
 
 ## <a name="sample-document"></a>Voorbeelddocument
 
@@ -300,7 +304,7 @@ De volgende query retourneert alle gezinnen waar de grootte van de array childre
 
 **Results**
 
-Er worden geen resultaten geretourneerd, omdat er niet meer dan 2 kinderen zijn. Alleen wanneer de parameter 2 is slaagt deze query en wordt het volledige document geretourneerd.
+Er worden geen resultaten geretourneerd als er geen gezinnen zijn met meer dan twee kinderen. Alleen wanneer de parameter 2 is slaagt deze query en wordt het volledige document geretourneerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

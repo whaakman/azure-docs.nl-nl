@@ -2,7 +2,7 @@
 title: Eerste Azure Resource Manager-sjabloon maken | Microsoft Docs
 description: Een stapsgewijze handleiding voor het maken van uw eerste Azure Resource Manager-sjabloon. U leert hoe u de sjabloonverwijzing voor een opslagaccount gebruikt om een sjabloon te maken.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -10,14 +10,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2017
+ms.date: 03/30/2018
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adf7d6ad04b9c341eac2172e09da3cb1f044aa62
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Uw eerste Azure Resource Manager-sjabloon maken en implementeren
 In dit onderwerp worden de stappen beschreven voor het maken van uw eerste Azure Resource Manager-sjabloon. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie [Overzicht van Azure Resource Manager](resource-group-overview.md) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen. Zie [Een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md) als u een sjabloon voor bestaande resources wilt maken.
@@ -26,8 +26,9 @@ U hebt een JSON-editor nodig om sjablonen te maken en reviseren. [Visual Studio 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Visual Studio Code. U kunt VS Code, indien nodig, installeren via [https://code.visualstudio.com/](https://code.visualstudio.com/).
+* Visual Studio Code. Installeer deze zo nodig vanuit [https://code.visualstudio.com/](https://code.visualstudio.com/).
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+* [Azure PowerShell](/powershell/azure/install-azurerm-ps) of [Azure CLI](/cli/azure/install-azure-cli) zijn lokaal geïnstalleerd. Voor deze zelfstudie hebt u een lokale installatie nodig omdat uw sjabloon als een lokaal bestand wordt opgeslagen. Als u Cloud Shell wilt gebruiken, moet u [de sjabloon in een opslagaccount laden](resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell).
 
 ## <a name="create-template"></a>Sjabloon maken
 
@@ -92,24 +93,6 @@ U kunt deze sjabloon nu implementeren. U kunt PowerShell of Azure CLI gebruiken 
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
-
-Wanneer de implementatie is voltooid, bevindt het opslagaccount zich in de resourcegroep.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
-
-Gebruik de volgende opdrachten voor Azure CLI:
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-```
-
-PowerShell is momenteel als voorbeeld beschikbaar in Cloud Shell. Gebruik de volgende opdrachten voor PowerShell:
-
-```powershell
-New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
-```
 
 Wanneer de implementatie is voltooid, bevindt het opslagaccount zich in de resourcegroep.
 
@@ -244,12 +227,6 @@ Gebruik voor Azure CLI:
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-Upload voor Cloud Shell de gewijzigde sjabloon naar de bestandsshare. Overschrijf het bestaande bestand. Gebruik vervolgens deze opdracht:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
-```
-
 ## <a name="use-autocomplete"></a>Automatisch aanvullen gebruiken
 
 Uw werk op de sjabloon bestond tot nu toe alleen uit het kopiëren en plakken van JSON uit dit artikel. Bij het ontwikkelen van uw eigen sjablonen moet u echter eigenschappen en waarden zoeken en opgeven die beschikbaar zijn voor het resourcetype. VS Code leest het schema voor het resourcetype en stelt eigenschappen en waarden voor. Om te functie voor automatisch aanvullen te bekijken, gaat u naar het eigenschapselement van uw sjabloon en voegt u een nieuwe regel toe. Typ een aanhalingsteken. VS Code stelt onmiddellijk namen voor die beschikbaar zijn in het eigenschapselement.
@@ -377,12 +354,6 @@ Gebruik voor Azure CLI:
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
-```
-
-Upload voor Cloud Shell de gewijzigde sjabloon naar de bestandsshare. Overschrijf het bestaande bestand. Gebruik vervolgens deze opdracht:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen

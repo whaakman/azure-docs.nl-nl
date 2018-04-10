@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: c2a52a387860de640e290746b25c164090819654
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Zelfstudie: Verificatie van gebruikers met Azure Active Directory B2C in een ASP.NET-web-app
 
@@ -66,7 +66,7 @@ Noteer de **client-id voor de toepassing**. Met de id wordt de app uniek aangedu
 
 ### <a name="create-a-client-password"></a>Een wachtwoord voor de client maken
 
-Azure AD B2C maakt voor [clienttoepassingen](../active-directory/develop/active-directory-dev-glossary.md#client-application) gebruik van OAuth2-autorisatie. Web-apps zijn [vertrouwelijke clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) en vereisen een clientgeheim (wachtwoord). De client-id voor de toepassing en het clientgeheim worden gebruikt wanneer de web-app een verificatie uitvoert met Azure Active Directory. 
+Azure AD B2C maakt voor [clienttoepassingen](../active-directory/develop/active-directory-dev-glossary.md#client-application) gebruik van OAuth2-autorisatie. Web-apps zijn [vertrouwelijke clients](../active-directory/develop/active-directory-dev-glossary.md#web-client) en vereisen een client-ID of app-ID en een clientgeheim, clientwachtwoord of app-sleutel.
 
 1. Selecteer de pagina Sleutels voor de geregistreerde web-app en klik op **Sleutel genereren**.
 
@@ -150,7 +150,7 @@ Er bevinden zich twee projecten in de voorbeeldoplossing:
 
 **Voorbeeld-web-API-app (TaskService):** een web-API die ondersteuning biedt voor het maken, lezen, bijwerken en verwijderen van takenlijstfunctionaliteit. De web-API wordt beveiligd door Azure AD B2C en wordt aangeroepen door de web-app.
 
-U moet wijzigingen aanbrengen aan de app om de app-registratie in uw tenant te kunnen gebruiken. U moet ook de beleidsregels configureren die u hebt gemaakt. De voorbeeld-web-app definieert de configuratiewaarden als app-instellingen in het bestand Web.config. De app-instellingen wijzigen:
+U moet instellen dat de app de app-registratie in uw tenant gebruikt. Dit omvat de client-ID of app-ID en het clientwachtwoord of de app-sleutel. U moet ook de beleidsregels configureren die u hebt gemaakt. De voorbeeld-web-app definieert de configuratiewaarden als app-instellingen in het bestand Web.config. De app-instellingen wijzigen:
 
 1. Open de oplossing **B2C-WebAPI-DotNet** in Visual Studio.
 
@@ -161,7 +161,7 @@ U moet wijzigingen aanbrengen aan de app om de app-registratie in uw tenant te k
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="Client password (client secret)" />
+    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
 3. Werk de beleidsinstellingen bij met de naam die is gegenereerd toen u uw beleid maakte.
 

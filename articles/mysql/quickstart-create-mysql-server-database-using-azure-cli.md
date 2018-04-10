@@ -1,6 +1,6 @@
 ---
 title: 'Snelstart: een Azure Database for MySQL-server maken - Azure CLI'
-description: In deze Quick Start wordt beschreven hoe u Azure CLI gebruikt om een Azure-database voor MySQL-server in een Azure-resourcegroep te maken.
+description: In deze snelstart wordt beschreven hoe u Azure CLI gebruikt om een Azure-database voor MySQL-server in een Azure-resourcegroep te maken.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,16 +9,16 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: a4ae31e133cb275a8b795d53e73e0e83bb64b045
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 96cf7409d4fbaa7c9c633ebd5aabbb15f30c9a5c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Een Azure-database voor MySQL-server maken met behulp van Azure CLI
-In deze Quick Start wordt beschreven hoe u Azure CLI gebruikt om binnen ongeveer vijf minuten een Azure-database voor MySQL-server in een Azure-resourcegroep te maken. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts.
+In deze snelstart wordt beschreven hoe u Azure CLI gebruikt om binnen ongeveer vijf minuten een Azure-database voor MySQL-server in een Azure-resourcegroep te maken. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -56,11 +56,11 @@ Het geretourneerde JSON-script moet het volgende bevatten:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.4"
+    "version": "0.0.5"
 }
 ```
 
-Als versie 0.0.4 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
+Als versie 0.0.5 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -89,7 +89,7 @@ Het toestaan van alle IP-adressen is niet veilig. Dit voorbeeld wordt gemakshalv
 
 
 ## <a name="configure-ssl-settings"></a>SSL-instellingen configureren
-Standaard worden SSL-verbindingen tussen uw server en clienttoepassingen afgedwongen. Deze standaardinstelling zorgt voor beveiliging van gegevens 'in beweging' door de gegevensstroom via internet te versleutelen. Om deze Quickstart makkelijker te maken, schakelen we SSL-verbindingen uit voor uw server. Dit wordt afgeraden voor productieservers. Zie [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (SSL-connectiviteit in uw toepassing configureren om veilig verbinding te maken met Azure-database voor MySQL) voor meer informatie.
+Standaard worden SSL-verbindingen tussen uw server en clienttoepassingen afgedwongen. Deze standaardinstelling zorgt voor beveiliging van gegevens 'in beweging' door de gegevensstroom via internet te versleutelen. Om deze snelstart makkelijker te maken, schakelen we SSL-verbindingen uit voor uw server. Dit wordt afgeraden voor productieservers. Zie [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (SSL-connectiviteit in uw toepassing configureren om veilig verbinding te maken met Azure-database voor MySQL) voor meer informatie.
 
 In het volgende voorbeeld wordt het afdwingen van SSL op uw MySQL-server uitgeschakeld.
  
@@ -214,7 +214,7 @@ Klik op **Verbinding testen** om te controleren of alle parameters juist zijn ge
 U kunt nu op de verbinding klikken om verbinding te maken met de server.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u deze resources niet voor een andere Quickstart of zelfstudie nodig hebt, kunt u ze verwijderen met de volgende opdracht: 
+Als u deze resources niet voor een andere snelstart of zelfstudie nodig hebt, kunt u ze verwijderen met de volgende opdracht: 
 
 ```azurecli-interactive
 az group delete --name myresourcegroup

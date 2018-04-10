@@ -1,27 +1,27 @@
 ---
 title: Gegevensgebruik analyseren in Log Analytics | Microsoft Docs
-description: Gebruik het dashboard Gebruik van Log Analytics om weer te geven hoeveel gegevens worden verzonden naar de Log Analytics-service en waarom grote hoeveelheden gegevens worden verzonden.
+description: Gebruik het dashboard Gebruik en geschatte kosten in Log Analytics om te evalueren hoeveel gegevens naar Log Analytics worden verzonden en te identificeren wat onvoorziene stijgingen zou kunnen veroorzaken.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2018
+ms.date: 03/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
-Log Analytics bevat informatie over de hoeveelheid gegevens die is verzameld, welke systemen de gegevens hebben verzonden en de verschillende typen gegevens die zijn verzonden.  Gebruik het dashboard **Gebruik van Log Analytics** om de hoeveelheid gegevens te zien die wordt verzonden naar de Log Analytics-service. Het dashboard laat zien hoeveel gegevens worden verzameld door elke oplossing en hoeveel gegevens uw computers verzenden.
+Log Analytics bevat informatie over de hoeveelheid gegevens die is verzameld, vanuit welke bronnen de gegevens zijn verzonden, en de verschillende typen gegevens die zijn verzonden.  Gebruik het **Log Analytics-gebruiksdashboard** om het gegevensgebruik te controleren en analyseren. Het dashboard laat zien hoeveel gegevens worden verzameld door elke oplossing en hoeveel gegevens uw computers verzenden.
 
 ## <a name="understand-the-usage-dashboard"></a>Inzicht in het dashboard met gebruiksgegevens
 Het **Log Analytics-gebruiksdashboard** bevat de volgende informatie:
@@ -41,20 +41,17 @@ Het **Log Analytics-gebruiksdashboard** bevat de volgende informatie:
     - Benodigde tijd voor het verzamelen en indexeren van gegevens  
 - Lijst met query's
 
-![gebruiksdashboard](./media/log-analytics-usage/usage-dashboard01.png)
+![Gebruiks- en kostendashboard](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+)
 
 ### <a name="to-work-with-usage-data"></a>Werken met gebruiksgegevens
-1. Meld u met uw Azure-abonnement aan bij [Azure Portal](https://portal.azure.com) als u dit nog niet hebt gedaan.
-2. Klik op **Alle services** en typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Log Analytics**.  
-    ![Azure-hub](./media/log-analytics-usage/hub.png)
-3. Op het **Log Analytics**-dashboard wordt een lijst met uw werkruimten weergegeven. Selecteer een werkruimte.
-4. Klik op het dashboard *Werkruimte* op **Log Analytics-gebruik**.
-5. Klik op het **Log Analytics-gebruiksdashboard** op **Tijd: afgelopen 24 uur** om het tijdsinterval te wijzigen.  
-    ![tijdsinterval](./media/log-analytics-usage/time.png)
-6. Bekijk de blades voor de gebruikscategorie waarin gebieden worden weergegeven waarin u bent geïnteresseerd. Kies een blade en klik vervolgens op een item op de blade om meer details weer te geven in [Zoeken in logboeken](log-analytics-log-searches.md).  
-    ![voorbeeld van blade voor gegevensgebruik](./media/log-analytics-usage/blade.png)
-7. Bekijk op het dashboard Zoeken in logboeken de resultaten die zijn geretourneerd na de zoekopdracht.  
-    ![voorbeeld van gebruik van zoeken in logboeken](./media/log-analytics-usage/usage-log-search.png)
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.<br><br> ![Azure Portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Selecteer een werkruimte in de lijst met Log Analytics-werkruimten.
+4. Selecteer **Gebruik en geschatte kosten** in de lijst in het linkerdeelvenster.
+5. Op het dashboard **Gebruik en geschatte kosten** kunt u het tijdsbereik wijzigen door **Tijd: afgelopen 24 uur** te selecteren en het tijdsinterval te wijzigen.<br><br> ![tijdsinterval](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
+6. Bekijk de blades voor de gebruikscategorie waarin gebieden worden weergegeven waarin u bent geïnteresseerd. Kies een blade en klik vervolgens op een item op de blade om meer details weer te geven in [Zoeken in logboeken](log-analytics-log-searches.md).<br><br> ![voorbeeld van kpi voor gegevensgebruik](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+7. Bekijk op het dashboard Zoeken in logboeken de resultaten die zijn geretourneerd na de zoekopdracht.<br><br> ![voorbeeld van gebruik van zoeken in logboeken](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Een waarschuwing instellen wanneer de gegevensverzameling groter is dan verwacht
 In deze sectie wordt beschreven hoe u een waarschuwing instelt als:

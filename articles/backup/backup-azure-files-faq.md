@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 850d4d1e2ef6a13fcd8a072e6da210d558c7769b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8093275ec9e9cce6d9a765bf1bfc434fecdb6ea7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Vragen over het maken back-ups van Azure-bestanden
 In dit artikel vindt u antwoorden op veelgestelde vragen over het maken back-ups van Azure-bestanden. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -29,8 +29,14 @@ Tijdens de preview-fase worden niet alle typen opslagaccounts ondersteund bij he
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>Waarom zie ik een aantal van mijn Azure-bestandsshares in het opslagaccount niet als ik mijn back-up configureer? <br/>
 Controleer of de Azure-bestandsshare al in dezelfde Recovery Services-kluis wordt beveiligd en of de bestandsshare onlangs wellicht is verwijderd.
 
-### <a name="why-cant-i-protect-file-shares-connected-to-a-sync-group-in-azure-file-sync-br"></a>Waarom kan ik bestandsshares die met een synchronisatiegroep in Azure File Sync zijn verbonden, niet beveiligen? <br/>
-De beveiliging van Azure-bestandsshares die zijn verbonden met synchronisatiegroepen, is alleen als beperkte preview beschikbaar. Schrijf naar [ AskAzureBackupTeam@microsoft.com ](email:askazurebackupteam@microsoft.com) en vermeld uw abonnements-ID om toegang aan te vragen. 
+### <a name="can-i-protect-file-shares-connected-to-a-sync-group-in-azure-files-sync-br"></a>Kan ik bestandsshares die met een synchronisatiegroep in Azure File Sync zijn verbonden beveiligen? <br/>
+Ja. De beveiliging van Azure-bestandsshares die zijn verbonden met synchronisatiegroepen is ingeschakeld en maakt onderdeel uit van een openbare preview.
+
+### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Ik wilde een back-up van bestandsshares maken, en ik klikte op een opslagaccount om de bestandsshares daarin te detecteren. Ik heb ze echter niet beveiligt. Hoe kan ik deze bestandsshares met een andere kluis beveiligen?
+Als u een back-up gaat maken en het opslagaccount selecteert waarin u bestandsshares wit detecteren, wordt het opslagaccount geregistreerd bij de kluis waarin dit wordt gedaan. Als u de bestandsshares wilt beveiligen met een andere kluis, moet u de [registratie ongedaan maken](troubleshoot-azure-files.md#configuring-backup) van het betreffende opslagaccount voor deze kluis.
+
+### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>Kan ik de kluis waarnaar ik back-ups van mijn bestandsshares maak wijzigen?
+Ja. U moet echter wel de [beveiliging stoppen](backup-azure-files.md#stop-protecting-an-azure-file-share) vanuit de gekoppelde kluis, de [registratie ongedaan maken](troubleshoot-azure-files.md#configuring-backup) van dit opslagaccount, en het account vervolgens met een andere kluis beveiligen.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>In welke geografische gebieden kan ik back-ups maken van Azure-bestandsshares? <br/>
 Het maken van back-ups van Azure-bestandsshares is momenteel in de preview-fase en is alleen beschikbaar in de volgende geografische gebieden: 
@@ -43,7 +49,11 @@ Het maken van back-ups van Azure-bestandsshares is momenteel in de preview-fase 
 -   Oost-Australië (AE) 
 -   VS - oost (EUS)
 -   VS - oost 2 (EUS2)
+- Japan - oost (JPE)
+- Japan - west (JPW)
 -   India - centraal (INC) 
+- India - zuid (INS)
+- Korea - zuid (KRS)
 -   VS - noord centraal (NCUS) 
 -   Noord-Europa (NE) 
 -   VS - zuid-centraal (SCUS) 
@@ -55,10 +65,13 @@ Het maken van back-ups van Azure-bestandsshares is momenteel in de preview-fase 
 -   VS - west-centraal (WCUS)
 -   VS - west 2 (WUS 2)
 
-Schrijf naar [ AskAzureBackupTeam@microsoft.com ](email:askazurebackupteam@microsoft.com) als u deze functie wilt gebruiken in een specifiek geografisch gebied dat hierboven niet wordt vermeld.
+Schrijf naar [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) als u deze functie wilt gebruiken in een specifiek geografisch gebied dat hierboven niet wordt vermeld.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>Hoeveel Azure-bestandsshares kan ik beveiligen in een kluis?<br/>
-Met de preview-versie kunt u Azure-bestandsshares van maximaal 25 opslagaccounts per kluis beveiligen. U kunt ook tot 200 Azure-bestandsshares in een enkele kluis beveiligen. 
+Met de preview-versie kunt u Azure-bestandsshares van maximaal 25 opslagaccounts per kluis beveiligen. U kunt ook tot 200 Azure-bestandsshares in een enkele kluis beveiligen.
+
+### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Kan ik twee verschillende bestandsshares van hetzelfde opslagaccount in verschillende kluizen beveiligen?
+Nee. Alle bestandsshares in een opslagaccount kunnen alleen in dezelfde kluis worden beveiligd.
 
 ## <a name="backup"></a>Back-up maken
 
@@ -71,7 +84,7 @@ Het maken van back-ups van Azure-bestandsshares biedt geen ondersteuning voor op
 ## <a name="restore"></a>Herstellen
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share-br"></a>Kan ik gegevens herstellen vanuit een verwijderde Azure-bestandsshare? <br/>
-Wanneer een Azure-bestandsshare is verwijderd, krijgt u de lijst met back-ups te zien die ook worden verwijderd, en wordt u gevraagd dit te bevestigen. Een verwijderde Azure-bestandsshare kan niet worden hersteld.
+Wanneer een Azure-bestandsshare wordt verwijderd, krijgt u de lijst met back-ups te zien die ook worden verwijderd, en wordt u gevraagd dit te bevestigen. Een verwijderde Azure-bestandsshare kan niet worden hersteld.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>Kan ik gegevens herstellen vanuit back-ups als ik ben gestopt met de beveiliging van een Azure-bestandsshare? <br/>
 Ja. Als u **Back-upgegevens behouden** hebt gekozen toen u met de beveiliging stopte, kunt u vanaf alle bestaande herstelpunten iets terugzetten.
@@ -85,7 +98,7 @@ Alle momentopnamen die zijn gemaakt met Azure Backup, zijn toegankelijk via Mome
 Bij het maken van back-ups voor Azure-bestandsshares, kunt u gebruikmaken van de mogelijkheid uw dagelijkse back-ups 120 dagen te bewaren.
 
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>Wat gebeurt er wanneer ik het back-upbeleid voor een Azure-bestandsshare wijzig? <br/>
-Wanneer er op een of meer bestandsshares een nieuw beleid wordt toegepast, worden het schema en de retentie van het nieuwe beleid gevolgd. Als de retentie is uitgebreid, worden de bestaande herstelpunten gemarkeerd voor bewaring conform het nieuwe beleid. Als de retentie is beperkt, worden de bestaande herstelpunten gemarkeerd voor verwijdering in de eerstvolgende opschoontaak, en worden ze vervolgens verwijderd.
+Wanneer er op een of meer bestandsshares een nieuw beleid wordt toegepast, worden het schema en de retentie van het nieuwe beleid gevolgd. Als de retentie is uitgebreid, worden de bestaande herstelpunten gemarkeerd voor bewaring conform het nieuwe beleid. Als de retentie wordt beperkt, worden de bestaande herstelpunten gemarkeerd voor verwijdering in de eerstvolgende opschoontaak, waarna ze worden verwijderd.
 
 ## <a name="see-also"></a>Zie ook
 Deze informatie heeft alleen betrekking op het maken van back-ups van Azure-bestanden. Voor meer informatie over andere gebieden van Azure Backup, wordt u aangeraden een aantal van een van deze overige veelgestelde vragen over het maken van back-ups te raadplegen:

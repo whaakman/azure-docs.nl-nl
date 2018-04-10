@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 18a8065bba8a4a0ec2025d6b9134fe9fab21eb5f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Inleiding tot Microsoft Azure Storage
 
@@ -143,35 +143,11 @@ Zie [Versleuteling aan clientzijde met .NET voor Microsoft Azure Storage](storag
 
 ## <a name="replication"></a>Replicatie
 
-Om ervoor te zorgen dat uw gegevens duurzaam zijn, heeft Azure Storage de mogelijkheid om meerdere kopieën van uw gegevens te onderhouden (en beheren). Dit wordt replicatie genoemd, en soms redundantie. Als u uw opslagaccount gaat instellen, selecteert u een type replicatie. In de meeste gevallen kan deze instelling worden gewijzigd nadat het opslagaccount is ingesteld.
+Om ervoor te zorgen dat uw gegevens duurzaam zijn, worden in Azure Storage meerdere kopieën van uw gegevens gerepliceerd. Als u uw opslagaccount gaat instellen, selecteert u een type replicatie. In de meeste gevallen kan deze instelling worden gewijzigd nadat het opslagaccount is gemaakt. 
 
-**Lokaal redundante opslag (LRS)**
-
-Lokaal redundante opslag (LRS) is zodanig ontworpen dat ten minste 99,999999999% (11 9's) duurzaamheid van objecten in een bepaald jaar wordt geboden. Dit betekent dat er meerdere kopieën van uw gegevens worden beheerd door Azure Storage in het datacenter dat is opgegeven tijdens de configuratie van het opslagaccount. Wanneer wijzigingen worden vastgelegd, worden alle kopieën bijgewerkt en wordt pas daarna de bewerking als voltooid gezien. Dit betekent dat de replica's altijd zijn gesynchroniseerd. Bovendien zijn de kopieën opgeslagen in afzonderlijke foutdomeinen en upgrade-domeinen, wat inhoudt dat de gegevens zelfs beschikbaar zijn als een opslagknooppunt met uw gegevens uitvalt of offline wordt gezet om te worden bijgewerkt.
-
-**Zone-redundante opslag (ZRS) (Preview)**
-
-Zone-redundante opslag (ZRS) is ontworpen om de ontwikkeling van maximaal beschikbare toepassingen te vereenvoudigen. ZRS biedt duurzaamheid voor opslagobjecten van ten minste 99,9999999999% (12 9’s) gedurende een bepaald jaar. ZRS repliceert uw gegevens synchroon tussen meerdere beschikbaarheidszones. Denk aan ZRS voor scenario's zoals transactionele toepassingen waar uitvaltijd niet acceptabel is. ZRS maakt het klanten mogelijk om gegevens te lezen en te schrijven, zelfs als een enkele zone niet beschikbaar of onherstelbaar is. Bijvoegingen en updates van gegevens worden synchroon gemaakt en zijn zeer consistent.    
-
-De vorige ZRS-mogelijkheid wordt nu aangeduid als ZRS Classic. ZRS Classic-accounts zijn alleen beschikbaar voor blok-blobs in V1-opslagaccounts voor algemeen gebruik. ZRS Classic repliceert gegevens asynchroon in datacenters binnen een tot twee regio's. Een replica is mogelijk niet beschikbaar tenzij Microsoft failover naar de secundaire initieert. Een klassiek ZRS-account kan niet worden geconverteerd naar of van LRS of GRS en heeft geen metrische gegevens of logboek-functionaliteit.
-
-**Geografisch redundante opslag (GRS)**
-
-Geografisch redundante opslag (GRS) is ontworpen om 99,99999999999999% (16 negens) duurzaamheid van objecten over een bepaald jaar te bieden door de lokale kopieën van uw gegevens in een primaire regio te behouden, plus een andere set met kopieën van uw gegevens in een secundaire regio, op honderden kilometers afstand van de primaire regio. Als er een storing optreedt in de primaire regio, wordt er door Azure Storage een failover uitgevoerd naar de secundaire regio.
-
-**Geografisch redundante opslag met leestoegang (RA-GRS)**
-
-Geografisch redundante opslag met leestoegang is exact hetzelfde als GRS, met als enige verschil dat u leestoegang krijgt tot de gegevens op de secundaire locatie. Als het primaire datacenter tijdelijk niet beschikbaar is, kunt u de gegevens blijven lezen vanaf de secundaire locatie. Dit kan zeer nuttig zijn. U kunt voor een webtoepassing dan bijvoorbeeld instellen dat die moet overschakelen naar de modus Alleen-lezen en verwijzen naar de secundaire kopie, zodat er nog enige toegang mogelijk is, zelfs als updates niet beschikbaar zijn.
-
-> [!IMPORTANT]
-> U kunt wijzigen hoe uw gegevens worden gerepliceerd nadat uw opslagaccount is gemaakt. Er worden echter mogelijk eenmalig extra kosten in rekening gebracht voor de gegevensoverdracht als u overschakelt van LRS naar GRS of RA-GRS.
->
-
-Zie [Azure Storage-replicatie](storage-redundancy.md) voor meer informatie over replicatie-opties.
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 Zie [Wat te doen in het geval van een Azure Storage-storing](storage-disaster-recovery-guidance.md) voor informatie over herstel na noodgevallen.
-
-Zie [Maximaal beschikbare toepassingen met RA-GRS ontwerpen](storage-designing-ha-apps-with-ragrs.md) voor een voorbeeld van het inzetten van RA-GRS-opslag om hoge beschikbaarheid te garanderen.
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Gegevens overbrengen van en naar Azure Storage
 

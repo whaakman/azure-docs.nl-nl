@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 44c10ebc0238c34b4bee4cb75107bdf4ef5bec32
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0c1c9364d6d7071e0aa454889417eeec3807f406
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Zelfstudie: een Azure Database for MySQL ontwerpen met Azure CLI
 
@@ -65,11 +65,11 @@ Het geretourneerde JSON-script moet het volgende bevatten:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.4"
+    "version": "0.0.5"
 }
 ```
 
-Als versie 0.0.4 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
+Als versie 0.0.5 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -83,7 +83,7 @@ In het volgende voorbeeld wordt een Azure-database voor MySQL-server gemaakt die
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
 > [!IMPORTANT]
-> De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze quickstart. Onthoud of noteer deze informatie voor later gebruik.
+> De beheerdersaanmelding bij de server en het wachtwoord die u hier opgeeft, zijn vereist voor aanmelding bij de server en de bijbehorende databases verderop in deze snelstart. Onthoud of noteer deze informatie voor later gebruik.
 
 
 ## <a name="configure-firewall-rule"></a>Firewallregel configureren

@@ -2,10 +2,10 @@
 title: In Azure API Management gepubliceerde API's bewaken | Microsoft Docs
 description: Volg de stappen in deze zelfstudie voor informatie over het bewaken van uw API in Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 93cbcf91af4ecf9425ed43ade400a0c82cea72d8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-published-apis"></a>Gepubliceerde API's bewaken
 
@@ -40,33 +40,10 @@ In de volgende video kunt u zien hoe u API Management kunt bewaken met Azure Mon
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
++ Lees de volgende snelstart: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 + Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
-## <a name="diagnostic-logs"></a>Activiteitenlogboeken bekijken
-
-Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd voor uw API Management-services. Met activiteitenlogboeken kunt u het 'wat, wie en wanneer' bepalen voor schrijfbewerkingen (PUT, POST, DELETE) die voor uw API Management-services worden uitgevoerd. 
-
-> [!NOTE]
-> Activiteitenlogboeken bevatten geen lees-bewerkingen (GET) of bewerkingen die zijn uitgevoerd in Azure Portal of met behulp van de oorspronkelijke beheer-API's.
-
-U kunt activiteitenlogboeken in uw API Management-service openen. U kunt alle logboeken van al uw Azure-resources in Azure Monitor openen. 
-
-Activiteitenlogboeken weergeven:
-
-1. Selecteer uw exemplaar van de APIM-service.
-2. Klik op **Activiteitenlogboek**.
-
-## <a name="view-diagnostic-logs"></a>Diagnoselogboeken weergeven
-
-Diagnoselogboeken bieden uitgebreide informatie over bewerkingen en fouten die belangrijk zijn voor zowel controles als het oplossen van problemen. Diagnoselogboeken verschillen van activiteitenlogboeken. Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw Azure-resources. Diagnoselogboeken bieden inzicht in bewerkingen die door de resources zelf zijn uitgevoerd.
-
-Diagnostische logboeken openen:
-
-1. Selecteer uw exemplaar van de APIM-service.
-2. Klik op **Diagnoselogboek**.
 
 ## <a name="view-metrics-of-your-apis"></a>Metrische gegevens van uw API's weergeven
 
@@ -109,6 +86,118 @@ Waarschuwingen configureren:
     > De waarschuwingsregel kan bij activering tevens een webhook of een logische Azure-app aanroepen.
 
     ![waarschuwing-instellingen](./media/api-management-azure-monitor/set-up-alert.png)
+
+## <a name="activity-logs"></a>Activiteitenlogboeken
+
+Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd voor uw API Management-services. Met activiteitenlogboeken kunt u het 'wat, wie en wanneer' bepalen voor schrijfbewerkingen (PUT, POST, DELETE) die voor uw API Management-services worden uitgevoerd. 
+
+> [!NOTE]
+> Activiteitenlogboeken bevatten geen lees-bewerkingen (GET) of bewerkingen die zijn uitgevoerd in Azure Portal of met behulp van de oorspronkelijke beheer-API's.
+
+U kunt activiteitenlogboeken in uw API Management-service openen. U kunt alle logboeken van al uw Azure-resources in Azure Monitor openen. 
+
+Activiteitenlogboeken weergeven:
+
+1. Selecteer uw exemplaar van de APIM-service.
+2. Klik op **Activiteitenlogboek**.
+
+## <a name="diagnostic-logs"></a>Diagnostische logboeken
+
+Diagnoselogboeken bieden uitgebreide informatie over bewerkingen en fouten die belangrijk zijn voor zowel controles als het oplossen van problemen. Diagnoselogboeken verschillen van activiteitenlogboeken. Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd op uw Azure-resources. Diagnoselogboeken bieden inzicht in bewerkingen die door de resources zelf zijn uitgevoerd.
+
+Diagnostische logboeken configureren:
+
+1. Selecteer uw exemplaar van de APIM-service.
+2. Klik op **Diagnoselogboek**.
+3. Klik op **Diagnostische gegevens inschakelen**. U kunt diagnostische logboeken samen met metrische gegevens naar een opslagaccount archiveren, ze naar een Event Hub streamen of ze naar Log Analytics verzenden. 
+
+API Management biedt momenteel diagnostische logboeken (ingedeeld in batches per uur) over afzonderlijke API-aanvragen waarbij elk item het volgende schema heeft:
+
+```json
+{  
+    "isRequestSuccess" : "",
+    "time": "",   
+    "operationName": "",      
+    "category": "",   
+    "durationMs": ,   
+    "callerIpAddress": "",   
+    "correlationId": "",   
+    "location": "",      
+    "httpStatusCodeCategory": "",      
+    "resourceId": "",      
+    "properties": {   
+        "method": "", 
+        "url": "", 
+        "clientProtocol": "", 
+        "responseCode": , 
+        "backendMethod": "", 
+        "backendUrl": "", 
+        "backendResponseCode": ,
+        "backendProtocol": "",  
+        "requestSize": , 
+        "responseSize": , 
+        "cache": "", 
+        "cacheTime": "", 
+        "backendTime": , 
+        "clientTime": , 
+        "apiId": "",
+        "operationId": "", 
+        "productId": "", 
+        "userId": "", 
+        "apimSubscriptionId": "", 
+        "backendId": "",
+        "lastError": { 
+            "elapsed" : "", 
+            "source" : "", 
+            "scope" : "", 
+            "section" : "" ,
+            "reason" : "", 
+            "message" : ""
+        } 
+    }      
+}  
+```
+
+| Eigenschap  | Type | Beschrijving |
+| ------------- | ------------- | ------------- |
+| isRequestSuccess | booleaans | Waar als de HTTP-aanvraag is voltooid met een antwoordstatuscode binnen 2xx tot 3xx |
+| tijd | date-time | Tijdstempel van ontvangst van de HTTP-aanvraag door de gateway |
+| operationName | tekenreeks | Constante waarde 'Microsoft.ApiManagement/GatewayLogs' |
+| category | tekenreeks | Constante waarde 'GatewayLogs' |
+| durationMs | geheel getal | Aantal milliseconden vanaf het moment dat de gateway de aanvraag ontving tot het moment dat het antwoord volledig werd verzonden |
+| callerIpAddress | tekenreeks | IP-adres van de onmiddellijke gatewayaanroeper (kan een tussenschakel zijn) |
+| correlationId | tekenreeks | Unieke HTTP-aanvraag-ID die is toegewezen door API Management |
+| location | tekenreeks | Naam van de Azure-regio waar de gateway die de aanvraag heeft verwerkt zicht bevond |
+| httpStatusCodeCategory | tekenreeks | Categorie van de HTTP-antwoordstatuscode: geslaagd (301 of minder of 304 of 307), niet geautoriseerd (401, 403, 429), fout (400, tussen 500 en 600), anders |
+| resourceId | tekenreeks | ID van de API Management-resource /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| properties | object | Eigenschappen van de huidige aanvraag |
+| method | tekenreeks | HTTP-methode van de inkomende aanvraag |
+| url | tekenreeks | URL van de binnenkomende aanvraag |
+| clientProtocol | tekenreeks | HTTP-protocolversie van de inkomende aanvraag |
+| responseCode | geheel getal | Statuscode van het HTTP-antwoord dat is verzonden naar een client |
+| backendMethod | tekenreeks | HTTP-methode van de aanvraag die is verzonden naar een back-end |
+| backendUrl | tekenreeks | URL van de aanvraag die is verzonden naar een back-end |
+| backendResponseCode | geheel getal | Code van het HTTP-antwoord dat is ontvangen van een back-end |
+| backendProtocol | tekenreeks | HTTP-protocolversie van de aanvraag die is verzonden naar een back-end | 
+| requestSize | geheel getal | Aantal bytes dat van een client is ontvangen tijdens de verwerking van aanvragen | 
+| responseSize | geheel getal | Aantal bytes dat naar een client is verzonden tijdens de verwerking van aanvragen | 
+| cache | tekenreeks | Status van de betrokkenheid van de API Management-cache bij het verwerken van aanvragen (dat wil zeggen, treffer, misser, geen) | 
+| cacheTime | geheel getal | Aantal milliseconden dat in totaal is besteed aan IO van de API Management-cache (verbinding maken, bytes verzenden en ontvangen) | 
+| backendTime | geheel getal | Aantal milliseconden dat in totaal is besteed aan IO van de back-end (verbinding maken, bytes verzenden en ontvangen) | 
+| clientTime | geheel getal | Aantal milliseconden dat in totaal is besteed aan IO van de client (verbinding maken, bytes verzenden en ontvangen) | 
+| apiId | tekenreeks | ID van de API-entiteit voor de huidige aanvraag | 
+| operationId | tekenreeks | ID van de bewerkingsentiteit voor de huidige aanvraag | 
+| productId | tekenreeks | ID van de productentiteit voor de huidige aanvraag | 
+| userId | tekenreeks | ID van de gebruikersentiteit voor de huidige aanvraag | 
+| apimSubscriptionId | tekenreeks | ID van de abonnemententiteit voor de huidige aanvraag | 
+| backendId | tekenreeks | ID van de back-end-entiteit voor de huidige aanvraag | 
+| LastError | object | Laatste fout bij de aanvraagverwerking | 
+| elapsed | geheel getal | Het aantal milliseconden tussen het moment dat de gateway de aanvraag ontving tot het moment dat de fout optrad | 
+| source | tekenreeks | Naam van de interne handler voor beleid of verwerking die de fout heeft veroorzaakt | 
+| scope | tekenreeks | Bereik van het beleidsdocument met het beleid dat de fout heeft veroorzaakt | 
+| section | tekenreeks | Gedeelte van het beleidsdocument met het beleid dat de fout heeft veroorzaakt | 
+| reason | tekenreeks | Reden voor de fout | 
+| message | tekenreeks | Foutbericht | 
 
 ## <a name="next-steps"></a>Volgende stappen
 

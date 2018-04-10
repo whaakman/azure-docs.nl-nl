@@ -5,16 +5,16 @@ services: iot-edge
 keywords: ''
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
+ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a43ae8f28fc32b61fb5db985ffae98f093293798
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3d7dd0986878c747f92afc712301453bc8772ef2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Een Azure-functie als een IoT Edge-module implementeren - preview
 U kunt Azure Functions gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. In deze zelfstudie doorloopt u het maken en implementeren van een Azure-functie waarmee sensorgegevens worden gefilterd op het gesimuleerde IoT Edge-apparaat dat u hebt gemaakt in de zelfstudie Azure IoT-Edge implementeren op een gesimuleerd apparaat in [Windows][lnk-tutorial1-win]of [Linux][lnk-tutorial1-lin]. In deze zelfstudie leert u het volgende:     
@@ -30,7 +30,7 @@ De Azure-functie die u in deze zelfstudie maakt, filtert de temperatuurgegevens 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Het Azure IoT Edge-apparaat dat hebt gemaakt in de quickstart of de vorige zelfstudie.
+* Het Azure IoT Edge-apparaat dat hebt gemaakt in de snelstart of de vorige zelfstudie.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [De extensie C# voor Visual Studio Code (van OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
@@ -58,10 +58,10 @@ De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van V
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Function
     ```
-2. Maak een project voor de nieuwe module. Met de volgende opdracht maakt u de projectmap, **FilterFunction**, in de huidige werkmap:
+2. Maak een project voor de nieuwe module. Met de volgende opdracht maakt u de projectmap, **FilterFunction**, met de containeropslagplaats. De tweede parameter moet een indeling vergelijkbaar met `<your container registry name>.azurecr.io` hebben als u Azure Container Registry gebruikt. Voer de volgende opdracht in de huidige werkmap in:
 
     ```cmd/sh
-    dotnet new aziotedgefunction -n FilterFunction
+    dotnet new aziotedgefunction -n FilterFunction -r <your container registry address>/filterfunction
     ```
 
 3. Selecteer **File** > **Open Folder**, blader naar de map **FilterFunction** en open het project in VS Code.
@@ -127,24 +127,19 @@ De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van V
 
 11. Sla het bestand op.
 
-## <a name="publish-a-docker-image"></a>Een Docker-installatiekopie publiceren
+## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Een Docker-installatiekopie maken en deze publiceren naar het register
 
-1. Bouw de Docker-installatiekopie.
-    1. Vouw in VS Code Explorer de map **Docker** uit. Vouw vervolgens de map voor uw containerplatform uit, **linux-x64** of **windows-nano**. 
-    2. Klik met de rechtermuisknop op het bestand **Dockerfile** en klik op **Build IoT Edge module Docker image**. 
-    3. Navigeer naar de projectmap **FilterFunction** en klik op **Select Folder as EXE_DIR**. 
-    4. Typ in het pop-uptekstvak boven aan het VS Code-venster de naam van de installatiekopie. Bijvoorbeeld: `<your container registry address>/filterfunction:latest`. Het registeradres van de container is hetzelfde als de aanmeldingsserver die u hebt gekopieerd uit het register. Dit moet in deze vorm zijn: `<your container registry name>.azurecr.io`.
- 
-4. Meld u aan bij Docker. Voer de volgende opdracht in de geïntegreerde terminal in: 
-
+1. Meld u aan bij Docker door de volgende opdracht in de geïntegreerde VS Code-terminal in te voeren: 
+     
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
    Ga naar de [Azure Portal] https://portal.azure.com) om de gebruikersnaam, het wachtwoord en de aanmeldingsserver op te zoeken die in deze opdracht moeten worden gebruikt. Klik vanuit **Alle resources** op de tegel voor uw Azure-containerregister om de eigenschappen te openen en klik vervolgens op **Toegangssleutels**. Kopieer de waarden in de velden **Gebruikersnaam**, **Wachtwoord** en **Aanmeldingsserver**. 
 
-3. Push de installatiekopie naar uw Docker-opslagplaats. Selecteer **View** > **Command Palette...** en zoek naar **Edge: Push IoT Edge module Docker image**.
-4. Typ in het pop-uptekstvak dezelfde installatiekopienaam die u hebt gebruikt in stap 1.d.
+2. Klik in VS Code explorer met de rechtermuisknop op het bestand **module.json** en klik op **Build and Push IoT Edge module Docker image** (Docker-installatiekopie voor IoT Edge-module maken en pushen). Selecteer in de vervolgkeuzelijst bovenaan het venster VS Code uw containerplatform: **amd64** voor een Linux-container of **windows-amd64** voor een Windows-container. VS Code plaatst vervolgens uw functiecodes in een container en pusht deze naar het containerregister dat u hebt opgegeven.
+
+
+3. U kunt het volledige adres van de containerinstallatiekopie, inclusief tag, in de geïntegreerde terminal van VS Code krijgen. Bekijk het `module.json`-bestand als u meer wilt weten over de build- en push-definitie.
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Registerreferenties toevoegen aan uw Edge-apparaat
 Voeg de referenties voor uw register toe aan de Edge-runtime op de computer waarop u het Edge-apparaat uitvoert. Dit geeft de runtime toegang voor het ophalen van de container. 
@@ -174,7 +169,7 @@ Voeg de referenties voor uw register toe aan de Edge-runtime op de computer waar
 1. Voeg de **filterFunction**-module toe.
     1. Selecteer opnieuw **IoT Edge-module toevoegen**.
     2. Voer in het veld **Naam** `filterFunction` in.
-    3. Voer in het veld **URI installatiekopie** het adres van uw installatiekopie in, bijvoorbeeld `<your container registry address>/filtermodule:0.0.1-amd64`. Het volledige adres van de installatiekopie vindt u in de vorige sectie.
+    3. Voer in het veld **URI installatiekopie** het adres van uw installatiekopie in, bijvoorbeeld `<your container registry address>/filterfunction:0.0.1-amd64`. Het volledige adres van de installatiekopie vindt u in de vorige sectie.
     74. Klik op **Opslaan**.
 2. Klik op **Volgende**.
 3. Kopieer in de stap **Routes opgeven** de onderstaande JSON in het tekstvak. Met de eerste route worden berichten van de temperatuursensor naar de filtermodule getransporteerd via het eindpunt 'input1'. Met de tweede route worden berichten van de filtermodule naar IoT Hub getransporteerd. In deze route is `$upstream` een speciale bestemming die Edge Hub opdracht geeft berichten te verzenden naar IoT Hub. 
@@ -198,11 +193,11 @@ Ga als volgt te werk om het apparaat te controleren op cloudberichten die vanaf 
 1. Configureer de Azure IoT Toolkit-extensie met de verbindingsreeks voor uw IoT Hub: 
     1. Navigeer in Azure Portal naar uw IoT Hub en selecteer **Beleid voor gedeelde toegang**. 
     2. Selecteer **iothubowner** en kopieer de waarde van **Verbindingsreeks - primaire sleutel**.
-    1. Klik in de VS Code Explorer op **IOT HUB DEVICES** en klik vervolgens op **...** . 
-    1. Selecteer **Set IoT Hub Connection String** en voer de verbindingsreeks van de Iot Hub in het pop-upvenster in. 
+    3. Klik in de VS Code Explorer op **IOT HUB DEVICES** en klik vervolgens op **...** . 
+    4. Selecteer **Set IoT Hub Connection String** en voer de verbindingsreeks van de Iot Hub in het pop-upvenster in. 
 
-1. Om gegevens die binnenkomen in de IoT Hub te controleren, selecteert u **View** > **Command Palette...** en zoekt u naar **IoT: Start monitoring D2C message**. 
-2. Als u wilt stoppen met het controleren van gegevens, gebruikt u de opdracht **IoT: Stop monitoring D2C message** in de Command Palette. 
+2. Om gegevens die binnenkomen in de IoT Hub te controleren, selecteert u **View** > **Command Palette...** en zoekt u naar **IoT: Start monitoring D2C message**. 
+3. Als u wilt stoppen met het controleren van gegevens, gebruikt u de opdracht **IoT: Stop monitoring D2C message** in de Command Palette. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -2,7 +2,7 @@
 title: De Azure AD Connect Health-agent installeren | Microsoft Docs
 description: Dit is de Azure AD Connect Health-pagina waarop wordt beschreven hoe u de agent voor AD FS en Sync installeert.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 5a0dadb86b6bdcbf8fc9ba38d09a2bfc9f8ec341
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>De Azure AD Connect Health-agent installeren
 In dit document wordt beschreven hoe u de Azure AD Connect Health-agents installeert en configureert. U kunt de agents [hier](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent) downloaden.
@@ -136,7 +136,7 @@ Als u de functie Gebruiksanalyse wilt gebruiken om gegevens te verzamelen en te 
 9. Schakel de selectievakjes bij **Succesvolle controles en Mislukte controles** in en klik op **OK**. Deze moeten standaard zijn ingeschakeld.
 10. Open een PowerShell-venster en voer de volgende opdracht uit: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Het basiscontroleniveau is standaard ingeschakeld. Meer informatie over de [AD FS-controleverbetering in Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
+Het basiscontroleniveau is standaard ingeschakeld. Meer informatie over de [AD FS-controleverbetering in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>De AD FS-auditlogboeken zoeken
@@ -144,6 +144,8 @@ Het basiscontroleniveau is standaard ingeschakeld. Meer informatie over de [AD F
 2. Ga naar de Windows-logboeken en selecteer **Beveiliging**.
 3. Klik rechts op **Huidige logboeken filteren**.
 4. Selecteer onder Gebeurtenisbron **AD FS-controle**.
+
+    En snelle [opmerking over veelgestelde vragen](active-directory-aadconnect-health-faq.md#operations-questions) voor auditlogboeken.
 
 ![AD FS-auditlogboeken](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Azure-activiteitenlogboeken verzamelen in Log Analytics voor meerdere abonnementen
 
@@ -128,7 +128,7 @@ Voor het ophalen van de naam en verbindingsreeks van de event hub volgt u de sta
 
    |Instelling | Beschrijving  |
    |:---|:---|
-   | Name           | Unieke naam voor de logische app. |
+   | Naam           | Unieke naam voor de logische app. |
    | Abonnement   | Selecteer het Azure-abonnement dat de logische app gaat bevatten. |
    | Resourcegroep | Selecteer een bestaande Azure-resourcegroep of maak een nieuwe voor de logische app. |
    | Locatie       | Selecteer de regio van het datacenter voor het implementeren van uw logische app. |
@@ -324,9 +324,9 @@ Klik op de naam van de stap om de stap uit te vouwen en gedetailleerde informati
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Stap 5: Azure-activiteitenlogboek weergeven in Log Analytics
 De laatste stap bestaat uit het controleren van de Log Analytics-werkruimte om ervoor te zorgen dat gegevens worden verzameld zoals verwacht.
 
-1. Selecteer in Azure Portal de optie **Log Analytics**.
-2. Selecteer uw werkruimte en vervolgens de tegel **Zoeken in logboeken**.
-3. Typ in de zoekquerybalk `AzureActivity_CL` en klik op de zoekknop. Als u uw aangepaste logboek niet *AzureActivity* hebt genoemd, typt u de naam die u hebt gekozen en voegt u `_CL` toe.
+1. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+2. Selecteer de werkruimte in de lijst met Log Analytics-werkruimten.
+3.  Klik op de tegel **Zoeken in logboeken**. In het deelvenster Zoeken in logboeken typt u `AzureActivity_CL` in het queryveld en drukt u op Enter of klikt u op de zoekknop rechts van het queryveld. Als u uw aangepaste logboek niet *AzureActivity* hebt genoemd, typt u de naam die u hebt gekozen en voegt u `_CL` toe.
 
 >[!NOTE]
 > De eerste keer dat een nieuw aangepast logboek naar Log Analytics wordt verzonden, kan het een uur duren voordat het aangepaste logboek doorzoekbaar is.
