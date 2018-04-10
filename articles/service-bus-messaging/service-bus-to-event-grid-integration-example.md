@@ -210,7 +210,7 @@ Verbind als volgt een logische app met Azure Service Bus en Azure Event Grid:
     ![16][]
 
 5. Sla de logische app op en verzend een bericht naar uw Service Bus-onderwerp, zoals vermeld in de sectie Vereisten.  
-    Bekijk hoe de logische app wordt uitgevoerd. Als u meer gegevens voor het uitvoeren wilt bekijken, selecteert u **Overzicht** en bekijkt u de gegevens onder  **	Geschiedenis van uitvoeringen**.
+    Bekijk hoe de logische app wordt uitgevoerd. Als u meer gegevens voor het uitvoeren wilt bekijken, selecteert u **Overzicht** en bekijkt u de gegevens onder **Geschiedenis van uitvoeringen**.
 
     ![17][]
 
