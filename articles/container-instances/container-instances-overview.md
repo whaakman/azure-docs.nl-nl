@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/23/2018
+ms.date: 03/29/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d6e0637974d8076fc610d7154ad507f4e7af0cfa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e10d4046f543fbcc479421f4ca8f10221abc806f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -25,6 +25,10 @@ Azure Container Instances is een ideale oplossing voor elk scenario dat kan werk
 
 Containers bieden aanzienlijke opstartvoordelen ten opzichte van virtuele machines. Met Azure Container Instances kunnen containers in Azure in enkele seconden worden gestart, zonder dat u VM’s hoeft in te richten en te beheren.
 
+## <a name="public-ip-connectivity-and-dns-name"></a>Openbare IP-verbinding en DNS-naam
+
+Met Azure Container Instances kunt u uw containers direct weergeven op internet met een IP-adres en een volledig gekwalificeerde domeinnaam. Wanneer u een containerexemplaar maakt, kunt u een aangepast DNS-naamlabel opgeven, zodat uw toepassing bereikbaar is via *aangepastlabel*.*azureregio*.azurecontainer.io.
+
 ## <a name="hypervisor-level-security"></a>Beveiliging op hypervisorniveau
 
 In het verleden boden containers toepassingsafhankelijke isolatie en resourcebesturing, maar werden ze niet voldoende veilig beschouwd voor onveilig multitenant gebruik. Met Azure Container Instances is uw toepassing gegarandeerd even geïsoleerd in een container als deze op een VM zou zijn.
@@ -32,10 +36,6 @@ In het verleden boden containers toepassingsafhankelijke isolatie en resourcebes
 ## <a name="custom-sizes"></a>Aangepaste grootten
 
 Containers zijn meestal geoptimaliseerd voor het uitvoeren van één toepassing, maar de exacte behoeften van deze toepassingen kunnen aanzienlijk verschillen. Azure Container Instances biedt een optimaal gebruik door exacte specificaties van CPU-kernen en -geheugen toe te staan. U betaalt op basis van wat u nodig hebt en wordt per seconde gefactureerd, zodat u uw uitgaven kunt verfijnen op basis van werkelijke behoefte.
-
-## <a name="public-ip-connectivity"></a>Openbare IP-verbinding
-
-Met Azure Container Instances kunt u uw containers direct weergeven op internet met een openbaar IP-adres en een DNS-naamlabel. In de toekomst gaan we onze netwerkmogelijkheden uitbreiden met integratie met virtuele netwerken, load balancers en andere basisonderdelen van de Azure-netwerkinfrastructuur.
 
 ## <a name="persistent-storage"></a>Permanente opslag
 
@@ -53,4 +53,7 @@ Azure Container Instances biedt ondersteuning voor planning van [meerdere contai
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Probeer met behulp van onze [snelstartgids](container-instances-quickstart.md) een container te implementeren naar Azure met een enkele opdracht.
+Probeer met behulp van onze snelstart een container te implementeren in Azure met een enkele opdracht:
+
+> [!div class="nextstepaction"]
+> [Snelstart voor Azure Container Instances](container-instances-quickstart.md)

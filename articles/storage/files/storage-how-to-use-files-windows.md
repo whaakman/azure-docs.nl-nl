@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Een Azure-bestandsshare koppelen en de share openen in Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows en Windows Server. In dit artikel ziet u drie verschillende manieren om een Azure-bestandsshare in Windows te koppelen: met de File Explorer-gebruikersinterface, via PowerShell en via de opdrachtprompt. 
@@ -86,7 +86,7 @@ Nadat de referenties zijn opgeslagen, hoeft u deze niet langer op te geven als u
     
     ![Een schermafbeelding van de vervolgkeuzelijst 'Netwerkverbinding maken'](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Kopieer het UNC-pad van het deelvenster 'Verbinding maken' in Azure Portal**: een gedetailleerde beschrijving van het zoeken van deze informatie vindt u [hier](storage-how-to-use-files-portal.md#connect-to-file-share).
+3. **Kopieer het UNC-pad in het deelvenster 'Verbinding maken' in Azure Portal.** 
 
     ![Het UNC-pad in het deelvenster Verbinding maken van Azure Files](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 

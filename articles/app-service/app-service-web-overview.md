@@ -15,15 +15,15 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: e789d3c6e10399491eb055b850a590ae10aacd11
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 85a3898145f7aea5d3f668caeafb62286006230d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="web-apps-overview"></a>Overzicht van Web Apps
 
-*Azure App Service Web Apps* (of kortweg Web Apps) is een service voor het hosten van webtoepassingen, REST-API's en mobiele back-ends. U kunt er in uw favoriete taal programmeren, of het nu .NET, .NET Core, Java, Ruby, Node.js, PHP of Python is. U kunt eenvoudig apps uitvoeren en schalen op virtuele Windows- of Linux-machines (zie [App Service op Linux](containers/app-service-linux-intro.md)). 
+*Azure App Service Web Apps* (of kortweg Web Apps) is een service voor het hosten van webtoepassingen, REST-API's en mobiele back-ends. U kunt er in uw favoriete taal programmeren, of het nu .NET, .NET Core, Java, Ruby, Node.js, PHP of Python is. Toepassingen kunnen eenvoudig worden uitgevoerd en geschaald in op Windows gebaseerde omgevingen. Voor op Linux gebaseerde omgevingen bekijkt u [App Service in Linux](containers/app-service-linux-intro.md). 
 
 Web Apps voegen niet alleen de kracht van Microsoft Azure aan uw toepassing toe, zoals beveiliging, taakverdeling, automatisch schalen en geautomatiseerd beheer. U kunt ook profiteren van de DevOps-mogelijkheden, zoals continue implementatie van VSTS, GitHub, Docker Hub en andere bronnen, pakketbeheer, faseringsomgevingen, aangepast domein en SSL-certificaten. 
 

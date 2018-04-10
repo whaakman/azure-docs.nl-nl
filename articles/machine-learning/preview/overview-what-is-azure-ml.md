@@ -1,6 +1,6 @@
 ---
 title: Wat is Azure Machine Learning? | Microsoft Docs
-description: Overzicht van Azure Machine Learning Experimenten en Modelbeheer, een geïntegreerde end-to-end gegevenswetenschapoplossing voor professionele gegevenswetenschappers waarmee ze geavanceerde analyseapplicaties kunnen ontwikkelen, ermee kunnen experimenteren en ze op cloudschaal kunnen implementeren.
+description: Verklaart de basisconcepten van machine learning in de cloud, beschrijft waarvoor u dit kunt gebruiken en definieert termen voor machine learning. Overzicht van Azure Machine Learning, een geïntegreerde end-to-end gegevenswetenschapoplossing die professionele gegevenswetenschappers in staat stelt geavanceerde analyseapplicaties te ontwikkelen, hiermee te experimenteren en deze op cloudschaal te implementeren.
 services: machine-learning
 author: mwinkle
 ms.author: mwinkle
@@ -9,14 +9,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: e5716e3fc519c48aaea3ec17939d11008a1b1fd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8a92f42ecee926042e9e0662f6b0bd9438024248
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="what-is-azure-machine-learning"></a>Wat is Azure Machine Learning?
+# <a name="what-is-machine-learning"></a>Wat is machine learning?
 
+Machine learning is een techniek van gegevenswetenschap die computers in staat stelt om op basis van bestaande gegevens, toekomstig gedrag, resultaten en trends te voorspellen. Met behulp van machine learning kunnen computers leren zonder dat ze expliciet worden geprogrammeerd.
+
+Prognoses of voorspellingen op basis van machine learning kunnen apps en apparaten slimmer maken. Wanneer u online winkelt, helpt machine learning op basis van wat u eerder hebt gekocht, bij het aanraden van andere producten waarvoor u mogelijk belangstelling hebt. Wanneer uw creditcard wordt gebruikt, vergelijkt machine learning de transactie met een database van transacties om fraude te detecteren. Wanneer uw robotstoftzuiger een kamer stofzuigt, helpt machine learning bij het besluiten wanneer de taak klaar is.
+
+## <a name="what-is-azure-machine-learning"></a>Wat is Azure Machine Learning?
 Azure Machine Learning is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse. Hiermee kunt gegevenswetenschappers gegevens voorbereiden, experimenten ontwikkelen en modellen implementeren op cloudschaal.
 
 De belangrijkste onderdelen van Azure Machine Learning zijn:
@@ -29,6 +34,7 @@ De belangrijkste onderdelen van Azure Machine Learning zijn:
 Samen helpen deze toepassingen en services het ontwikkelen en implementeren van uw gegevenswetenschapsprojecten aanzienlijk versnellen. 
 
 ![Concepten voor Azure Machine Learning](media/overview-what-is-azure-ml/aml-concepts.png)
+
 
 ## <a name="open-source-compatible"></a>Compatibel met open source
 

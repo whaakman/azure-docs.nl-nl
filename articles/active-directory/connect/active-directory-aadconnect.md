@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 6f0b5cd7b981cddeda7e5630967f5f8dba18bb98
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: febe055348efb49ea1e6bc670333f435de654cfc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Uw on-premises directory's integreren met Azure Active Directory
 Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD. In dit onderwerp wordt de planning, implementatie en bewerking besproken. Het is een verzameling van koppelingen naar de onderwerpen die betrekking hebben op dit gebied.
@@ -88,7 +88,7 @@ Azure AD Connect wordt geleverd met verschillende functies die u in of uit kunt 
 
 [Filteren](active-directory-aadconnectsync-configure-filtering.md) wordt gebruikt wanneer u wilt beperken welke objecten worden gesynchroniseerd naar Azure AD. Alle gebruikers, contactpersonen, groepen en Windows 10-computers worden standaard gesynchroniseerd. U kunt de filtering wijzigen op basis van domeinen, OE’s of kenmerken.
 
-[Wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) synchroniseert de wachtwoordhash in Active Directory naar Azure AD. De eindgebruiker kan hetzelfde wachtwoord zowel on-premises als in de cloud gebruiken, maar deze slechts op één locatie beheren. Aangezien het wachtwoord gebruikmaakt van uw on-premises Active Directory als de instantie, kunt u ook uw eigen wachtwoordbeleid gebruiken.
+[Synchronisatie van wachtwoord-hash](active-directory-aadconnectsync-implement-password-hash-synchronization.md) synchroniseert de wachtwoord-hash in Active Directory naar Azure AD. De eindgebruiker kan hetzelfde wachtwoord zowel on-premises als in de cloud gebruiken, maar deze slechts op één locatie beheren. Aangezien het wachtwoord gebruikmaakt van uw on-premises Active Directory als de instantie, kunt u ook uw eigen wachtwoordbeleid gebruiken.
 
 Met [Wachtwoord terugschrijven](../active-directory-passwords-getting-started.md) kunnen uw gebruikers hun wachtwoorden wijzigen en resetten in de cloud en uw lokale wachtwoordbeleid toepassen.
 
@@ -102,7 +102,7 @@ De functie [Onopzettelijk verwijderen voorkomen](active-directory-aadconnectsync
 |Onderwerp |Koppeling|  
 | --- | --- |
 |Filtering configureren | [Azure AD Connect-synchronisatie: filtering configureren](active-directory-aadconnectsync-configure-filtering.md)|
-|Wachtwoordsynchronisatie | [Azure AD Connect-synchronisatie: wachtwoordsynchronisatie implementeren](active-directory-aadconnectsync-implement-password-synchronization.md)|
+|Synchronisatie van wachtwoord-hashes | [Azure AD Connect-synchronisatie: synchronisatie van wachtwoord-hash implementeren](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
 |Wachtwoord terugschrijven | [Aan de slag met wachtwoordbeheer](../active-directory-passwords-getting-started.md)|
 |Apparaat terugschrijven | [Apparaat terugschrijven inschakelen in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |Onopzettelijke verwijderingen voorkomen | [Azure AD Connect-synchronisatie: onopzettelijke verwijderingen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
