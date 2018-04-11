@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 03/27/2018
 ms.author: alehall
-ms.openlocfilehash: 889284d9c53f902b7a8443c4622e1c3015630ae0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 87984859d1f0562149e6700642f7f0a1361d624e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Zelfstudie: Sentimentanalyse voor streaming-gegevens met behulp van Azure Databricks
 
@@ -113,7 +113,7 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
 Als u een stream van tweets wilt ontvangen, moet u een toepassing in Twitter maken. Volg de stappen om een Twitter-toepassing te maken en de waarden vast te leggen die u nodig hebt om deze zelfstudie te voltooien.
 
-1. Ga vanuit een webbrowser naar [Twitter Application Management](http://twitter.com/app) en selecteer **Create New App**.
+1. Ga vanuit een webbrowser naar [Twitter Application Management](https://apps.twitter.com/) en selecteer **Create New App**.
 
     ![Twitter-toepassing maken](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Twitter-toepassing maken")
 
