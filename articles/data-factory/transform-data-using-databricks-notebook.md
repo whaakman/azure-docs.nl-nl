@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/12/2018
+ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 7a90906f0bb41b0ced368e9010e0c8a4981f038c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: edd3bbb5d47753890328ae86b15dc938dfcf7eb7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>De Databricks Notebook-activiteit uitvoeren in Azure Data Factory op een Databricks-notebook
 
@@ -61,7 +61,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
     
     - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.
 
-    Voor sommige van de stappen in deze snelstart wordt ervan uitgegaan dat u voor de resourcegroep de naam **ADFTutorialResourceGroup** gebruikt. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) voor meer informatie.
+    Voor sommige van de stappen in deze snelstartgids wordt ervan uitgegaan dat u voor de resourcegroep de naam **ADFTutorialResourceGroup** gebruikt. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) voor meer informatie.
 
 1.  Selecteer **V2 (Preview)** voor **Versie**.
 
