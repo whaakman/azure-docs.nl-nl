@@ -1,8 +1,8 @@
 ---
 title: Aangepaste rollen maken voor Azure RBAC | Microsoft Docs
-description: "Informatie over het definiëren van aangepaste rollen met op rollen gebaseerd toegangsbeheer voor nauwkeurigere identiteitsbeheer in uw Azure-abonnement."
+description: Informatie over het definiëren van aangepaste rollen met op rollen gebaseerd toegangsbeheer voor nauwkeurigere identiteitsbeheer in uw Azure-abonnement.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2871ff5eea8fb99040dfab2593d1640d79f51092
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer
 Maak een aangepaste rol in gebaseerd toegangsbeheer (RBAC) als geen van de ingebouwde rollen aan de behoeften van uw specifieke toegang. Aangepaste rollen kunnen worden gemaakt met [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure-opdrachtregelinterface](role-based-access-control-manage-access-azure-cli.md) (CLI) en de [REST-API](role-based-access-control-manage-access-rest.md). Net als de ingebouwde rollen kunt u aangepaste rollen toewijzen aan gebruikers, groepen en toepassingen bij het abonnement, resourcegroep en resource bereiken. Aangepaste rollen worden opgeslagen in een Azure AD-tenant en kunnen worden gedeeld door abonnementen.
@@ -59,11 +59,11 @@ Het volgende voorbeeld ziet u een aangepaste rol voor het controleren en opnieuw
 ## <a name="actions"></a>Acties
 De **acties** eigenschap van een aangepaste rol geeft u de Azure-bewerkingen waarvoor de rol toegang verleent. Er is een verzameling van bewerking tekenreeksen waarmee beveiligbare bewerkingen van de Azure-resourceproviders. Voer de bewerking tekenreeksen de indeling van `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Bewerking tekenreeksen met jokertekens (\*) toegang verlenen tot alle bewerkingen die overeenkomen met de tekenreeks voor de bewerking. Bijvoorbeeld:
 
-* `*/read`verleent toegang tot leesbewerkingen voor alle resourcetypen van alle Azure-resourceproviders.
-* `Microsoft.Compute/*`verleent toegang tot alle bewerkingen voor alle resourcetypen in de Microsoft.Compute-resourceprovider.
-* `Microsoft.Network/*/read`verleent toegang tot leesbewerkingen voor alle resourcetypen in de Microsoft.Network-resourceprovider van Azure.
-* `Microsoft.Compute/virtualMachines/*`verleent toegang tot alle bewerkingen van virtuele machines en het onderliggende resourcetypen.
-* `Microsoft.Web/sites/restart/Action`verleent toegang tot websites starten.
+* `*/read` verleent toegang tot leesbewerkingen voor alle resourcetypen van alle Azure-resourceproviders.
+* `Microsoft.Compute/*` verleent toegang tot alle bewerkingen voor alle resourcetypen in de Microsoft.Compute-resourceprovider.
+* `Microsoft.Network/*/read` verleent toegang tot leesbewerkingen voor alle resourcetypen in de Microsoft.Network-resourceprovider van Azure.
+* `Microsoft.Compute/virtualMachines/*` verleent toegang tot alle bewerkingen van virtuele machines en het onderliggende resourcetypen.
+* `Microsoft.Web/sites/restart/Action` verleent toegang tot websites starten.
 
 Gebruik `Get-AzureRmProviderOperation` (in PowerShell) of `azure provider operations show` (in de Azure CLI) aan de bewerkingen na opvragen van de Azure-resourceproviders. U kunt deze opdrachten om te controleren of een tekenreeks bewerking geldig is en uit te breiden jokertekens bewerking tekenreeksen.
 
@@ -73,7 +73,7 @@ Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Ope
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
 
-![Schermafbeelding van de PowerShell - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+![PowerShell screenshot - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
 ```azurecli
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'

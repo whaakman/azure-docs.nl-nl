@@ -2,7 +2,7 @@
 title: Toegang tot rapportage - Azure RBAC | Microsoft Docs
 description: Genereer een rapport met een lijst met alle wijzigingen in de toegang tot uw Azure-abonnementen met toegangsbeheer op basis van rollen gedurende de afgelopen 90 dagen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 169ed8dd6d14d8d9d0fd49ad7306b1d4fb2c4d90
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Een access-rapport maken voor toegangsbeheer op basis van rollen
 Elk gewenst moment iemand verleent of trekt u toegang binnen uw abonnementen, worden de wijzigingen geregistreerd in Azure gebeurtenissen. U kunt toegang tot Geschiedenisrapporten om te zien alle wijzigingen voor de afgelopen negentig dagen maken.
@@ -32,7 +32,7 @@ Wanneer u deze opdracht aanroept, kunt u opgeven welke eigenschap van de toewijz
 | Eigenschap | Beschrijving |
 | --- | --- |
 | **Actie** |Hiermee wordt aangegeven of toegang is toegekend of ingetrokken |
-| **Aanroeper** |De eigenaar die verantwoordelijk is voor de wijziging toegang |
+| **aanroeper** |De eigenaar die verantwoordelijk is voor de wijziging toegang |
 | **PrincipalId** | De unieke id van de gebruiker, groep of toepassing die de rol is toegewezen |
 | **PrincipalName** |De naam van de gebruiker, groep of toepassing |
 | **PrincipalType** |Hiermee wordt aangegeven of de toewijzing voor een gebruiker, groep of toepassing is |

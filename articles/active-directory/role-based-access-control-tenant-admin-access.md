@@ -2,7 +2,7 @@
 title: Tenantbeheerder toegangsrechten - Azure AD uitbreiden | Microsoft Docs
 description: Dit onderwerp beschrijft de ingebouwde rollen voor op rollen gebaseerde toegangsbeheer (RBAC).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: rqureshi
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 10/30/2017
 ms.author: rolyon
 ms.openlocfilehash: dff3a26201507f974d52de3fe6dcb23945cd900f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Toegangsrechten uitbreiden als een tenantbeheerder met toegangsbeheer op basis van rollen
 
@@ -45,7 +45,7 @@ Deze functie is belangrijk omdat hiermee de tenantbeheerder om te zien van de ab
 ![Azure AD-beheercentrum - eigenschappen - globale beheerder kunt Azure-abonnement - schermafbeelding beheren](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
 ## <a name="view-role-assignments-at-the--scope-using-powershell"></a>Roltoewijzingen bij het "/" bereik met behulp van PowerShell weergeven
-Om weer te geven de **beheerder voor gebruikerstoegang** toewijzing in de  **/**  bereik, gebruikt u de `Get-AzureRmRoleAssignment` PowerShell-cmdlet.
+Om weer te geven de **beheerder voor gebruikerstoegang** toewijzing in de **/** bereik, gebruikt u de `Get-AzureRmRoleAssignment` PowerShell-cmdlet.
     
 ```powershell
 Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}

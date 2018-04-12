@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: rolyon
 ms.openlocfilehash: 0b8c8823c6d21df96dcfd926db1855169f1570e4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager Resource Provider-bewerkingen
 
@@ -32,7 +32,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/domainServices/delete|Hiermee verwijdert u Domain Services.|
 |/domainServices/read|Leest Domain Services.|
 |/domainServices/write|Schrijven van domeinservices|
-|/Locations/operationresults/Read|Lees de status van een asynchrone bewerking.|
+|/locations/operationresults/read|Lees de status van een asynchrone bewerking.|
 |Bewerkingen/leestijd|De gelokaliseerde beschrijving voor de bewerking, die moet worden weergegeven voor de gebruiker.|
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
@@ -43,8 +43,8 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/diagnosticsettings/Read|Lezen van een diagnostische instelling|
 |diagnosticsettings/schrijven|Schrijven van een diagnostische instelling|
 |/diagnosticsettingscategories/Read|Lezen van een diagnostische instelling categorieën|
-|/tenants/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/tenants/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/tenants/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/tenants/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
 |/tenants/providers/Microsoft.Insights/logDefinitions/read|De beschikbare logboeken opgehaald voor tenants|
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
@@ -57,13 +57,13 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/ services/actie|Een service-exemplaar in de tenant wordt bijgewerkt.|
 |/Services/Alerts/Read|Leest de waarschuwingen voor een service.|
 |/Services/Alerts/Read|Leest de waarschuwingen voor een service.|
-|/Services/DELETE|Hiermee verwijdert u een service-exemplaar in de tenant.|
+|/services/delete|Hiermee verwijdert u een service-exemplaar in de tenant.|
 |/Services/Read|Leest de service-exemplaren in de tenant.|
 |/Services/servicemembers/Action|Maakt een exemplaar van de service lid in de service.|
 |/Services/servicemembers/Alerts/Read|Leest de waarschuwingen voor een lid van de service.|
 |/services/servicemembers/delete|Hiermee verwijdert u een exemplaar van de service lid in de service.|
 |/Services/servicemembers/Read|Het lid service-exemplaar in de service worden gelezen.|
-|/ services/schrijven|Maakt een service-exemplaar in de tenant.|
+|/services/write|Maakt een service-exemplaar in de tenant.|
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
@@ -98,20 +98,20 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/Locations/checkNameAvailability/Action|Controleert dat de opgegeven Analysis Server naam geldig is en niet in gebruik.|
-|/Locations/operationresults/Read|Haalt de informatie van het resultaat van de opgegeven bewerking.|
+|/locations/operationresults/read|Haalt de informatie van het resultaat van de opgegeven bewerking.|
 |/Locations/operationstatuses/Read|Haalt de informatie van de status van de opgegeven bewerking.|
 |/Operations/Read|De informatie van bewerkingen opgehaald|
 |registratie-/ actie|Resourceprovider van Analysis Services wordt geregistreerd.|
-|/servers/DELETE|Hiermee verwijdert u de Analysis-Server.|
-|/servers/listGatewayStatus/Action|Lijst van de status van de gateway die is gekoppeld aan de server.|
-|/servers/providers/Microsoft.Insights/diagnosticSettings/Read|De diagnostische instelling voor Analysis-Server opgehaald|
-|/servers/providers/Microsoft.Insights/diagnosticSettings/Write|Maken of bijwerken van de diagnostische instelling voor Analysis-Server|
-|/servers/providers/Microsoft.Insights/logDefinitions/Read|De beschikbare logboeken opgehaald voor servers|
-|/servers/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor Analysis-Server|
+|/servers/delete|Hiermee verwijdert u de Analysis-Server.|
+|/servers/listGatewayStatus/action|Lijst van de status van de gateway die is gekoppeld aan de server.|
+|/servers/providers/Microsoft.Insights/diagnosticSettings/read|De diagnostische instelling voor Analysis-Server opgehaald|
+|/servers/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van de diagnostische instelling voor Analysis-Server|
+|/servers/providers/Microsoft.Insights/logDefinitions/read|De beschikbare logboeken opgehaald voor servers|
+|/servers/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor Analysis-Server|
 |/servers/Read|Haalt de informatie van de opgegeven Analysis-Server.|
 |/servers/Resume/Action|De Analysis-Server hervat.|
 |/servers/skus/Read|Beschikbare SKU-informatie voor de server ophalen|
-|/servers/Suspend/Action|Onderbreekt de Analysis-Server.|
+|/servers/suspend/action|Onderbreekt de Analysis-Server.|
 |servers/schrijven|Maken of bijwerken van de opgegeven Analysis-Server.|
 |/skus/Read|Haalt de informatie van SKU 's|
 
@@ -119,30 +119,30 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/checkNameAvailability/Read|Controleert of de opgegeven servicenaam is beschikbaar|
+|/checkNameAvailability/read|Controleert of de opgegeven servicenaam is beschikbaar|
 |/Operations/Read|Leesbewerkingen voor alle API beschikbaar voor Microsoft.ApiManagement resource|
 |registratie-/ actie|Abonnement voor Microsoft.ApiManagement resourceprovider registreren|
 |/Reports/Read|Rapporten kunnen samenvoegen met perioden, geografische regio, ontwikkelaars, producten, API's, bewerkingen, abonnement en byRequest ophalen.|
 |/service/apis/delete|Verwijder de bestaande API|
-|/Service/APIs/Diagnostics/DELETE|Bestaande diagnostische verwijderen|
-|/Service/APIs/Diagnostics/loggers/DELETE|Toewijzing van een logboek met een diagnostische instelling verwijderen|
+|/service/apis/diagnostics/delete|Bestaande diagnostische verwijderen|
+|/service/apis/diagnostics/loggers/delete|Toewijzing van een logboek met een diagnostische instelling verwijderen|
 |/Service/APIs/Diagnostics/loggers/Read|Lijst met bestaande diagnostische voorkomen|
 |/Service/APIs/Diagnostics/loggers/Write|Berichtenlogboek toewijzen aan een diagnostische instelling|
 |/Service/APIs/Diagnostics/Read|Lijst met diagnostische gegevens of Get-details van diagnose|
 |/Service/APIs/Diagnostics/Write|Nieuwe diagnostische toevoegen of bijwerken van bestaande diagnostische gegevens|
-|/Service/APIs/Operations/DELETE|Verwijder de bestaande API-bewerking|
-|/Service/APIs/Operations/Policies/DELETE|Verwijder voor beleidsconfiguratie van beleid voor API-bewerking|
+|/service/apis/operations/delete|Verwijder de bestaande API-bewerking|
+|/service/apis/operations/policies/delete|Verwijder voor beleidsconfiguratie van beleid voor API-bewerking|
 |/Service/APIs/Operations/Policies/Read|Beleid voor API-bewerking of configuratiedetails Get-beleid voor API-bewerking ophalen|
 |/Service/APIs/Operations/Policies/Write|Configuratiedetails van beleid voor API-bewerking instellen|
-|/Service/APIs/Operations/Policy/DELETE|Voor beleidsconfiguratie van de bewerking verwijderen|
+|/service/apis/operations/policy/delete|Voor beleidsconfiguratie van de bewerking verwijderen|
 |/Service/APIs/Operations/Policy/Read|Configuratiedetails van beleid voor bewerking ophalen|
 |/Service/APIs/Operations/Policy/Write|Configuratiedetails van beleid voor opnieuw instellen|
 |/Service/APIs/Operations/Read|Ophalen van lijst met bewerkingen voor bestaande API of details van API-bewerking ophalen|
-|/Service/APIs/Operations/tags/DELETE|Koppeling van de bestaande code met bestaande bewerking verwijderen|
+|/service/apis/operations/tags/delete|Koppeling van de bestaande code met bestaande bewerking verwijderen|
 |/Service/APIs/Operations/tags/Read|Ophalen van de labels die zijn gekoppeld aan de details van de bewerking of Tag ophalen|
-|/Service/APIs/Operations/tags/Write|Bestaande code te koppelen aan bestaande bewerking|
-|/Service/APIs/Operations/Write|Nieuwe API-bewerkingen voor het maken of bijwerken van bestaande API-bewerking|
-|/Service/APIs/operationsByTags/Read|Lijst met koppelingen bewerking/label|
+|/service/apis/operations/tags/write|Bestaande code te koppelen aan bestaande bewerking|
+|/service/apis/operations/write|Nieuwe API-bewerkingen voor het maken of bijwerken van bestaande API-bewerking|
+|/service/apis/operationsByTags/read|Lijst met koppelingen bewerking/label|
 |/service/apis/policies/delete|Configuratie van beleid uit de API-beleid verwijderen|
 |/Service/APIs/Policies/Read|Beleidsregels voor configuratiedetails API of Get-beleid voor API niet ophalen|
 |/Service/APIs/Policies/Write|Configuratiedetails van beleid voor API instellen|
@@ -151,10 +151,10 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Service/APIs/Policy/Write|Configuratiedetails van beleid voor API instellen|
 |/Service/APIs/Products/Read|Ophalen van alle producten die de API deel uitmaakt van|
 |/Service/APIs/Read|Lijst met alle geregistreerde API's of Get details van de API|
-|/Service/APIs/releases/DELETE|Hiermee verwijdert u alle versies van de API of verwijder API-versie|
+|/service/apis/releases/delete|Hiermee verwijdert u alle versies van de API of verwijder API-versie|
 |/Service/APIs/releases/Read|Get-versies voor een API of Get-details van de API reelase|
 |/Service/APIs/releases/Write|Nieuwe API-versie maken of bijwerken van bestaande API-versie|
-|/Service/APIs/Revisions/DELETE|Hiermee verwijdert u alle versies van een API|
+|/service/apis/revisions/delete|Hiermee verwijdert u alle versies van een API|
 |/Service/APIs/Revisions/Read|Ophalen van revisies die horen bij een API|
 |/Service/APIs/schemas/DELETE|Hiermee verwijdert u het bestaande Schema|
 |/Service/APIs/schemas/document/Read|Het document met een beschrijving van het Schema ophalen|
@@ -164,36 +164,36 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/service/apis/tagDescriptions/delete|Beschrijving van de Tag verwijderen van de API|
 |/Service/APIs/tagDescriptions/Read|Beschrijvingen van de labels in het bereik van de API of Tag ophalen beschrijving opvragen in het bereik van de API|
 |/service/apis/tagDescriptions/write|De beschrijving van de Tag maken/wijzigen in het bereik van de API|
-|/Service/APIs/tags/DELETE|Verwijder bestaande API/Tag-koppeling|
+|/service/apis/tags/delete|Verwijder bestaande API/Tag-koppeling|
 |/Service/APIs/tags/Read|Alle API/Tag-koppeling voor de API of Get-details van de API/Tag koppeling ophalen|
 |/Service/APIs/tags/Write|Nieuwe API/Tag koppeling toevoegen|
 |/Service/APIs/Write|Nieuwe API maken of bijwerken van bestaande API-details|
 |/service/apisByTags/read|Lijst met API/Tag koppelingen|
-|/Service/API-Version-sets/DELETE|Verwijder de bestaande VersionSet|
+|/service/api-version-sets/delete|Verwijder de bestaande VersionSet|
 |/Service/API-Version-sets/Read|Lijst met versie groepsentiteiten of details van een VersionSet opgehaald|
 |/Service/API-Version-sets/Versions/Read|Lijst met versie entiteiten ophalen|
 |/Service/API-Version-sets/Write|Nieuwe VersionSet maken of bijwerken van bestaande VersionSet details|
 |/Service/applynetworkconfigurationupdates/Action|De Microsoft.ApiManagement resources voor uitvoering in het virtuele netwerk kiest bijgewerkte netwerkinstellingen-updates.|
 |/service/authorizationServers/delete|Verwijderen van bestaande autorisatie-server|
-|/Service/authorizationServers/Read|Ophalen van lijst met autorisatieservers of details van de autorisatie-server ophalen|
+|/service/authorizationServers/read|Ophalen van lijst met autorisatieservers of details van de autorisatie-server ophalen|
 |/service/authorizationServers/write|Een nieuwe autorisatie-server of de details van de Update van een bestaande autorisatie-server maken|
 |/Service/backends/DELETE|Verwijder de bestaande back-end|
 |/Service/backends/Read|Ophalen van lijst met back-ends of details van back-end ophalen|
 |/Service/backends/Reconnect/Action|Een aanvraag voor opnieuw verbinden maken|
 |/Service/backends/Write|Een nieuwe back-end toevoegen of bijwerken van bestaande back-end-details|
 |/Service/Backup/Action|Back-API Management-Service aan de opgegeven container in een gebruiker opgegeven storage-account|
-|/Service/Certificates/DELETE|Verwijder bestaande certificaat|
+|/service/certificates/delete|Verwijder bestaande certificaat|
 |/Service/Certificates/Read|Ophalen van lijst met certificaten of details van een certificaat ophalen|
 |/Service/Certificates/Write|Nieuw certificaat toevoegen|
 |/service/delete|Verwijderen van exemplaar van API Management-Service|
-|/Service/Diagnostics/DELETE|Bestaande diagnostische verwijderen|
-|/Service/Diagnostics/loggers/DELETE|Toewijzing van een logboek met een diagnostische instelling verwijderen|
+|/service/diagnostics/delete|Bestaande diagnostische verwijderen|
+|/service/diagnostics/loggers/delete|Toewijzing van een logboek met een diagnostische instelling verwijderen|
 |/Service/Diagnostics/loggers/Read|Lijst met bestaande diagnostische voorkomen|
 |/Service/Diagnostics/loggers/Write|Berichtenlogboek toewijzen aan een diagnostische instelling|
 |/Service/Diagnostics/Read|Lijst met diagnostische gegevens of Get-details van diagnose|
 |/Service/Diagnostics/Write|Nieuwe diagnostische toevoegen of bijwerken van bestaande diagnostische gegevens|
 |/service/getssotoken/action|Opgehaald SSO-token dat kan worden gebruikt om aan te melden bij API Management-Service Legacy-portal als beheerder|
-|/service/groups/delete|Verwijder bestaande groep|
+|/Service/Groups/DELETE|Verwijder bestaande groep|
 |/Service/Groups/Read|Lijst met groepen of informatie opgehaald van een groep|
 |/Service/Groups/Users/DELETE|Bestaande gebruiker verwijderen uit bestaande groep|
 |/Service/Groups/Users/Read|Lijst van de groepsgebruikers ophalen|
@@ -205,28 +205,28 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Service/Locations/networkstatus/Read|Hiermee haalt de netwerk-toegangsstatus van bronnen waarop de service is afhankelijk in de locatie.|
 |/service/loggers/delete|Bestaande Berichtenlogboek verwijderen|
 |/Service/loggers/Read|Ophalen van lijst met voorkomen of details van berichtenlogboek ophalen|
-|/service/loggers/write|Nieuwe berichtenlogboek toevoegen of bestaande berichtenlogboek details bijwerken|
+|/Service/loggers/Write|Nieuwe berichtenlogboek toevoegen of bestaande berichtenlogboek details bijwerken|
 |/Service/managedeployments/Action|SKU/eenheden toevoegen of verwijderen van regionale implementaties van API Management-Service wijzigen|
-|/Service/networkstatus/Read|Hiermee haalt u de netwerk-toegangsstatus van bronnen waarop de service is afhankelijk.|
+|/service/networkstatus/read|Hiermee haalt u de netwerk-toegangsstatus van bronnen waarop de service is afhankelijk.|
 |/Service/Notifications/Action|Wordt een melding verzonden naar een opgegeven gebruiker|
 |/Service/Notifications/Read|Alle meldingen van API Management-uitgever of ophalen van API Management publisher opgehaald details van melding|
 |/service/notifications/recipientEmails/delete|Hiermee verwijdert u het die bestaande e-mailadres gekoppeld aan een melding|
-|/Service/Notifications/recipientEmails/Read|E-mailontvangers die zijn gekoppeld aan API Management Publisher melding ophalen|
-|/service/notifications/recipientEmails/write|Maken van nieuwe e-mailontvanger van de kennisgeving|
+|/service/notifications/recipientEmails/read|E-mailontvangers die zijn gekoppeld aan API Management Publisher melding ophalen|
+|/Service/Notifications/recipientEmails/Write|Maken van nieuwe e-mailontvanger van de kennisgeving|
 |/service/notifications/recipientUsers/delete|Hiermee verwijdert u de gebruiker die is gekoppeld aan de ontvangers van meldingen|
-|/Service/Notifications/recipientUsers/Read|Ontvanger gebruikers die zijn gekoppeld aan de melding ophalen|
+|/service/notifications/recipientUsers/read|Ontvanger gebruikers die zijn gekoppeld aan de melding ophalen|
 |/service/notifications/recipientUsers/write|Gebruiker toevoegen aan de ontvangers van meldingen|
-|/service/notifications/write|Maken of Update API Management publisher meldingen|
+|/Service/Notifications/Write|Maken of Update API Management publisher meldingen|
 |/service/openidConnectProviders/delete|Bestaande OpenID Connect Provider verwijderen|
-|/service/openidConnectProviders/read|Lijst met providers OpenID Connect of details van OpenID Connect-Provider opvragen|
+|/Service/openidConnectProviders/Read|Lijst met providers OpenID Connect of details van OpenID Connect-Provider opvragen|
 |/service/openidConnectProviders/write|Een nieuwe OpenID Connect-Provider of Update details van een bestaande OpenID Connect-Provider maken|
 |/Service/operationresults/Read|Huidige status van een langdurige bewerking opgehaald|
 |/service/policies/delete|Configuratie van beleid uit Tenant beleid verwijderen|
 |/Service/Policies/Read|Beleidsregels voor Tenant of Get policy-configuratiegegevens voor de Tenant niet ophalen|
-|/service/policies/write|Configuratiedetails van beleid instellen voor Tenant|
+|/Service/Policies/Write|Configuratiedetails van beleid instellen voor Tenant|
 |/service/policySnippets/read|Alle beleid codefragmenten ophalen|
 |/Service/portalsettings/Read|Aanmelden bij instellingen voor de Portal of Get-instellingen voor de Portal aanmelden of ophalen van delegatie voor de Portal-instellingen niet ophalen|
-|/Service/portalsettings/Write|Instellingen voor aanmelden of Update aanmelden instellingen of Update aanmelden instellingen of Update aanmelden instellingen of Update Overdrachtinstellingen of Update Overdrachtinstellingen bijwerken|
+|/service/portalsettings/write|Instellingen voor aanmelden of Update aanmelden instellingen of Update aanmelden instellingen of Update aanmelden instellingen of Update Overdrachtinstellingen of Update Overdrachtinstellingen bijwerken|
 |/service/products/apis/delete|Bestaande API verwijderen uit bestaande product|
 |/Service/Products/APIs/Read|Lijst met API's toegevoegd aan bestaande product ophalen|
 |/Service/Products/APIs/Write|Bestaande API toevoegen aan bestaande product|
@@ -234,7 +234,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/service/products/groups/delete|Koppeling van bestaande developer-groep met bestaande product verwijderen|
 |/Service/Products/Groups/Read|Lijst met groepen van ontwikkelaars die zijn gekoppeld aan het product verkrijgen|
 |/Service/Products/Groups/Write|Bestaande developer-groep koppelen aan bestaande product|
-|/service/products/policies/delete|Configuratie van beleid vanaf de Product-beleid verwijderen|
+|/Service/Products/Policies/DELETE|Configuratie van beleid vanaf de Product-beleid verwijderen|
 |/Service/Products/Policies/Read|Beleidsregels voor het Product of Get policy-configuratiegegevens voor Product niet ophalen|
 |/Service/Products/Policies/Write|Configuratiedetails van beleid instellen voor het Product|
 |/Service/Products/Policy/DELETE|Configuratie van beleid verwijderen uit bestaande product|
@@ -246,17 +246,17 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Service/Products/tags/Read|Ophalen van de labels die zijn gekoppeld aan de details van de Product- of Tag ophalen|
 |/Service/Products/tags/Write|Bestaand label koppelen aan bestaande Product|
 |/Service/Products/Write|Nieuw product maken of bijwerken van bestaande Productgegevens|
-|/Service/Properties/DELETE|Hiermee verwijdert u het bestaande eigenschap|
+|/service/properties/delete|Hiermee verwijdert u het bestaande eigenschap|
 |/Service/Properties/Read|Lijst van alle eigenschappen opgehaald of details van de opgegeven eigenschap opgehaald|
 |/Service/Properties/Write|Een nieuwe eigenschap maken of bijwerken van waarde voor de opgegeven eigenschap|
-|/service/providers/Microsoft.Insights/diagnosticSettings/Read|De diagnostische instelling voor API Management-service opgehaald|
-|/service/providers/Microsoft.Insights/diagnosticSettings/Write|Maken of bijwerken van de diagnostische instelling voor API Management-service|
-|/service/providers/Microsoft.Insights/logDefinitions/Read|De beschikbare logboeken opgehaald voor API Management-service|
-|/service/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor API Management-service|
+|/service/providers/Microsoft.Insights/diagnosticSettings/read|De diagnostische instelling voor API Management-service opgehaald|
+|/service/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van de diagnostische instelling voor API Management-service|
+|/service/providers/Microsoft.Insights/logDefinitions/read|De beschikbare logboeken opgehaald voor API Management-service|
+|/service/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor API Management-service|
 |/Service/Quotas/Periods/Read|De itemwaarde quotum voor periode ophalen|
 |/Service/Quotas/Periods/Write|Huidige waarde van het prestatiemeteritem quotum instellen|
-|/service/quotas/read|Ophalen van waarden voor quotum|
-|/service/quotas/write|Huidige waarde van het prestatiemeteritem quotum instellen|
+|/Service/Quotas/Read|Ophalen van waarden voor quotum|
+|/Service/Quotas/Write|Huidige waarde van het prestatiemeteritem quotum instellen|
 |/Service/Read|Lezen van metagegevens voor een exemplaar van API Management-Service|
 |/Service/Reports/Read|Rapport samenvoegen met perioden of Get-rapport samenvoegen met geografische regio of Get-rapport geaggregeerd door ontwikkelaars ophalen. of rapport samenvoegen met producten ophalen. of rapport samenvoegen met API's of Get rapport samenvoegen met de bewerkingen of Get-rapport samengevoegd per abonnement ophalen. of rapportagegegevens van aanvragen|
 |/Service/Restore/Action|API Management-Service van de opgegeven container in het opgegeven opslagaccount van een gebruiker herstellen|
@@ -265,25 +265,25 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Service/Subscriptions/regeneratePrimaryKey/Action|Abonnement primaire sleutel opnieuw genereren|
 |/Service/Subscriptions/regenerateSecondaryKey/Action|Abonnement secundaire sleutel opnieuw genereren|
 |/Service/Subscriptions/Write|Een bestaande gebruiker aan een bestaand product abonneren of bijwerken van bestaande abonnementsgegevens. Deze bewerking kan worden gebruikt voor het abonnement te verlengen|
-|/Service/tagResources/Read|Lijst van labels met gekoppelde Resources ophalen|
+|/service/tagResources/read|Lijst van labels met gekoppelde Resources ophalen|
 |/service/tags/delete|Bestaande code verwijderen|
 |/service/tags/Read|Lijst met Tags of details van label ophalen|
 |/service/tags/Write|Nieuw label toevoegen of bijwerken van bestaande label details|
-|/Service/templates/DELETE|Standaard API Management e-mailsjabloon opnieuw instellen|
+|/service/templates/delete|Standaard API Management e-mailsjabloon opnieuw instellen|
 |/Service/templates/Read|Alle e-mailsjablonen of opgehaald API Management-e-mailbericht Sjabloondetails opgehaald|
 |/Service/templates/Write|Maken of bijwerken van API Management-e-mailsjabloon of API Management Updates-e-mailsjabloon|
-|/Service/tenant/DELETE|Configuratie van beleid voor de tenant verwijderen|
+|/service/tenant/delete|Configuratie van beleid voor de tenant verwijderen|
 |/Service/tenant/Deploy/Action|Voert een taak voor implementatie om de wijzigingen van de vertakking opgegeven git toepassen op de configuratie in de database.|
-|/Service/tenant/operationResults/Read|Ophalen van lijst met Bewerkingsresultaten of resultaat van een specifieke bewerking ophalen|
+|/service/tenant/operationResults/read|Ophalen van lijst met Bewerkingsresultaten of resultaat van een specifieke bewerking ophalen|
 |/Service/tenant/Read|Configuratie van beleid voor de of Get-tenant toegang informatie details ophalen|
 |/Service/tenant/regeneratePrimaryKey/Action|Primaire sleutel opnieuw genereren|
 |/Service/tenant/regenerateSecondaryKey/Action|Secundaire toegangssleutel opnieuw genereren|
 |/Service/tenant/Save/Action|Hiermee maakt u doorvoeren met configuratie-momentopname voor de opgegeven vertakking in de opslagplaats|
 |/Service/tenant/syncState/Read|Status van laatste git-synchronisatie ophalen|
 |/Service/tenant/Validate/Action|Wijzigingen van de vertakking opgegeven git valideert|
-|/service/tenant/write|Stel de beleidsconfiguratie van voor de tenant of Update tenant toegangsgegevens informatie|
+|/Service/tenant/Write|Stel de beleidsconfiguratie van voor de tenant of Update tenant toegangsgegevens informatie|
 |/Service/updatecertificate/Action|SSL-certificaat uploaden voor een API Management-Service|
-|/Service/updatehostname/Action|Setup, bijwerken of verwijderen van aangepaste domeinnamen voor een API Management-Service|
+|/service/updatehostname/action|Setup, bijwerken of verwijderen van aangepaste domeinnamen voor een API Management-Service|
 |/Service/Users/Action|Een nieuwe gebruiker registreren|
 |/Service/Users/Applications/Attachments/DELETE|Hiermee verwijdert u een bijlage|
 |/Service/Users/Applications/Attachments/Read|Toepassing bijlagen of opgehaald bijlage opgehaald|
@@ -292,14 +292,14 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Service/Users/Applications/Read|Lijst van alle gebruikerstoepassingen of toepassingsgegevens opgehaald API Management|
 |/Service/Users/Applications/Write|Registreert een toepassing op toepassingsgegevens van API Management of Updates|
 |/Service/Users/DELETE|Gebruikersaccount verwijderen|
-|/Service/Users/generateSsoUrl/Action|URL SSO genereren. De URL kan worden gebruikt voor toegang tot de beheerportal|
+|/service/users/generateSsoUrl/action|URL SSO genereren. De URL kan worden gebruikt voor toegang tot de beheerportal|
 |/Service/Users/Groups/Read|Ophalen van lijst met gebruikersgroepen|
 |/Service/Users/Keys/Read|Lijst met gebruikerssleutels|
 |/Service/Users/Read|Een lijst met geregistreerde gebruikers of accountdetails van de van een gebruiker ophalen|
 |/Service/Users/Subscriptions/Read|Lijst met gebruikersabonnementen ophalen|
 |/Service/Users/token/Action|Token toegangstoken ophalen voor een gebruiker|
 |/Service/Users/Write|Een nieuwe gebruiker of de details van de Update-account van een bestaande gebruiker registreren|
-|/service/write|Maak een nieuw exemplaar van API Management-Service|
+|/ service/schrijven|Maak een nieuw exemplaar van API Management-Service|
 |/ unregister/actie|Abonnement voor Microsoft.ApiManagement resourceprovider van de registratie ongedaan maken|
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
@@ -311,7 +311,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/classicAdministrators/Read|Hiermee worden de beheerders voor het abonnement ingelezen.|
 |classicAdministrators/schrijven|Hiermee wordt de beheerder gewijzigd of aan een abonnement toegevoegd.|
 |/ elevateAccess/actie|Hiermee wordt oproepende functie de rechten van Administrator voor gebruikerstoegang gegeven voor het tenantbereik|
-|/locks/DELETE|De vergrendelingen bij het opgegeven bereik worden verwijderd.|
+|/locks/delete|De vergrendelingen bij het opgegeven bereik worden verwijderd.|
 |/locks/Read|De vergrendelingen bij het opgegeven bereik worden opgehaald.|
 |vergrendelingen/schrijven|Hiermee worden vergrendelingen toegevoegd bij het opgegeven bereik.|
 |/permissions/Read|Hiermee worden alle machtigingen van de beller voor een bepaald bereik weergegeven in een lijst.|
@@ -322,13 +322,13 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/policyDefinitions/Read|Informatie ophalen over een beleidsdefinitie.|
 |/policyDefinitions/write|Een aangepaste beleidsdefinitie maken.|
 |/policySetDefinitions/delete|Een beleidssetdefinitie verwijderen.|
-|/policySetDefinitions/read|Informatie ophalen over een beleidssetdefinitie.|
+|/policySetDefinitions/Read|Informatie ophalen over een beleidssetdefinitie.|
 |/policySetDefinitions/write|Een aangepaste beleidssetdefinitie maken.|
 |/providerOperations/Read|Bewerkingen ophalen voor alle resourceproviders die kunnen worden gebruikt in roldefinities.|
-|/roleAssignments/DELETE|Een roltoewijzing bij het opgegeven bereik verwijderen.|
+|/roleAssignments/delete|Een roltoewijzing bij het opgegeven bereik verwijderen.|
 |/roleAssignments/Read|Informatie ophalen over een roltoewijzing.|
 |roleAssignments/schrijven|Een roltoewijzing bij het opgegeven bereik maken.|
-|/roleDefinitions/DELETE|De opgegeven aangepaste roldefinitie verwijderen.|
+|/roleDefinitions/delete|De opgegeven aangepaste roldefinitie verwijderen.|
 |/roleDefinitions/Read|Informatie ophalen over een roldefinitie.|
 |roleDefinitions/schrijven|Een aangepaste roldefinitie maken of bijwerken met opgegeven machtigingen of toewijsbare bereiken.|
 
@@ -339,17 +339,17 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/automationAccounts/agentRegistrationInformation/read|Registratie-informatie voor een Azure Automation DSC lezen|
 |/automationAccounts/agentRegistrationInformation/regenerateKey/action|Schrijft een aanvraag voor het genereren van sleutels voor Azure Automation DSC|
 |/automationAccounts/certificates/delete|Een Azure Automation-certificaatactivum verwijderen|
-|/automationAccounts/Certificates/Read|Een Azure Automation-certificaatasset opgehaald|
+|/automationAccounts/certificates/read|Een Azure Automation-certificaatasset opgehaald|
 |/automationAccounts/certificates/write|Maken of bijwerken van een Azure Automation-certificaatactivum|
 |/automationAccounts/compilationjobs/read|Een Azure Automation DSC van compilatie leest|
 |/automationAccounts/compilationjobs/write|Een Azure Automation DSC van compilatie schrijft|
 |/automationAccounts/configurations/delete|Hiermee verwijdert u een Azure Automation DSC-inhoud|
 |/automationAccounts/configurations/getCount/action|Leest de telling van de inhoud van een Azure Automation DSC|
 |/automationAccounts/configurations/read|Hiermee wordt de inhoud van een Azure Automation DSC opgehaald|
-|/automationAccounts/configurations/write|Schrijft een Azure Automation DSC-inhoud|
+|/automationAccounts/Configurations/Write|Schrijft een Azure Automation DSC-inhoud|
 |/automationAccounts/connections/delete|Hiermee wordt een Azure Automation verbindingstype-asset verwijderd|
-|/automationAccounts/Connections/Read|Een Azure Automation-verbindingsasset opgehaald|
-|/automationAccounts/connections/write|Maken of bijwerken van een Azure Automation-verbindingsasset|
+|/automationAccounts/connections/read|Een Azure Automation-verbindingsasset opgehaald|
+|/automationAccounts/Connections/Write|Maken of bijwerken van een Azure Automation-verbindingsasset|
 |/automationAccounts/connectionTypes/delete|Hiermee wordt een Azure Automation verbindingstype-asset verwijderd|
 |/automationAccounts/connectionTypes/read|Een Azure Automation verbindingstype-asset opgehaald|
 |/automationAccounts/connectionTypes/write|Hiermee maakt u een Azure Automation verbindingstype-asset|
@@ -357,16 +357,16 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/automationAccounts/credentials/read|Een Azure Automation-referentieasset opgehaald|
 |/automationAccounts/credentials/write|Maken of bijwerken van een Azure Automation-referentieasset|
 |/automationAccounts/delete|Hiermee verwijdert u een Azure Automation-account|
-|/automationAccounts/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/automationAccounts/diagnosticSettings/write|Hiermee stelt u de diagnostische instelling voor de resource|
+|/automationAccounts/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/automationAccounts/diagnosticSettings/Write|Hiermee stelt u de diagnostische instelling voor de resource|
 |/automationAccounts/hybridRunbookWorkerGroups/delete|Resources voor de Hybrid Runbook Worker worden verwijderd|
 |/automationAccounts/hybridRunbookWorkerGroups/read|Resources voor de Hybrid Runbook Worker gelezen|
 |/automationAccounts/jobs/output/action|De uitvoer van een taak opgehaald|
 |/automationAccounts/jobs/output/action|De uitvoer van een taak opgehaald|
 |/automationAccounts/jobs/read|Een Azure Automation-taak opgehaald|
 |/automationAccounts/jobs/read|Een Azure Automation-taak opgehaald|
-|/automationAccounts/Jobs/Resume/Action|Een Azure Automation-taak hervatten|
-|/automationAccounts/Jobs/Resume/Action|Een Azure Automation-taak hervatten|
+|/automationAccounts/jobs/resume/action|Een Azure Automation-taak hervatten|
+|/automationAccounts/jobs/resume/action|Een Azure Automation-taak hervatten|
 |/automationAccounts/jobs/runbookContent/action|De inhoud van het Azure Automation-runbook opgehaald op het moment van de taak wordt uitgevoerd|
 |/automationAccounts/jobs/runbookContent/action|De inhoud van het Azure Automation-runbook opgehaald op het moment van de taak wordt uitgevoerd|
 |/automationAccounts/jobs/stop/action|Hiermee wordt een Azure Automation-taak gestopt|
@@ -378,25 +378,25 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/automationAccounts/jobs/write|Hiermee maakt u een Azure Automation-taak|
 |/automationAccounts/jobs/write|Hiermee maakt u een Azure Automation-taak|
 |/automationAccounts/jobSchedules/delete|Hiermee wordt een Azure Automation-taakschema verwijderd|
-|/automationAccounts/jobSchedules/Read|Een Azure Automation-taakschema opgehaald|
+|/automationAccounts/jobSchedules/read|Een Azure Automation-taakschema opgehaald|
 |/automationAccounts/jobSchedules/write|Hiermee maakt u een Azure Automation-taakschema|
 |/automationAccounts/linkedWorkspace/read|De werkruimte die is gekoppeld aan het automation-account opgehaald|
 |/automationAccounts/logDefinitions/read|De beschikbare logboeken opgehaald voor het automation-account|
 |/automationAccounts/modules/Activities/Read|Azure Automatiseringsactiviteiten opgehaald|
-|/automationAccounts/modules/DELETE|Hiermee verwijdert u een Azure Automation-module|
-|/automationAccounts/modules/Read|Een Azure Automation-module opgehaald|
+|/automationAccounts/modules/delete|Hiermee verwijdert u een Azure Automation-module|
+|/automationAccounts/modules/read|Een Azure Automation-module opgehaald|
 |/automationAccounts/modules/Write|Maken of bijwerken van een Azure Automation-module|
 |/automationAccounts/nodeConfigurations/delete|Hiermee verwijdert u een Azure Automation DSC-knooppuntconfiguratie|
 |/automationAccounts/nodeConfigurations/read|Hiermee wordt een Azure Automation DSC-knooppuntconfiguratie gelezen|
 |/automationAccounts/nodeConfigurations/readContent/action|Leest configuratie-inhoud voor een Azure Automation DSC-knooppunt|
 |/automationAccounts/nodeConfigurations/write|Een Azure Automation DSC-knooppuntconfiguratie schrijft|
 |/automationAccounts/nodes/delete|Hiermee verwijdert u Azure Automation DSC-knooppunten|
-|/automationAccounts/nodes/Read|Azure Automation DSC-knooppunten leest|
+|/automationAccounts/nodes/read|Azure Automation DSC-knooppunten leest|
 |/automationAccounts/nodes/Reports/Read|Azure Automation DSC rapport contentss leest|
 |/automationAccounts/nodes/Reports/Read|Leest Azure Automation DSC-rapporten|
 |/automationAccounts/objectDataTypes/fields/read|Azure Automation TypeFields opgehaald|
-|/automationAccounts/providers/Microsoft.Insights/metricDefinitions/Read|Automation metrische definities opgehaald|
-|/automationAccounts/Read|Hiermee ontvangt u een Azure Automation-account|
+|/automationAccounts/providers/Microsoft.Insights/metricDefinitions/read|Automation metrische definities opgehaald|
+|/automationAccounts/read|Hiermee ontvangt u een Azure Automation-account|
 |/automationAccounts/runbooks/delete|Hiermee verwijdert u een Azure Automation-runbook|
 |/automationAccounts/runbooks/draft/publish/action|Een Azure Automation-runbookconcept gepubliceerd|
 |/automationAccounts/runbooks/draft/read|Een Azure Automation-runbookconcept opgehaald|
@@ -412,18 +412,18 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/automationAccounts/runbooks/readContent/action|De inhoud van een Azure Automation-runbook opgehaald|
 |/automationAccounts/runbooks/write|Maken of bijwerken van een Azure Automation-runbook|
 |/automationAccounts/schedules/delete|Hiermee wordt een Azure Automation-planningsasset verwijderd|
-|/automationAccounts/Schedules/Read|Een Azure Automation-planningsasset opgehaald|
-|/automationAccounts/Schedules/Write|Maken of bijwerken van een Azure Automation-planningsasset|
-|/automationAccounts/statistics/Read|Azure Automation-statistieken opgehaald|
-|/automationAccounts/usages/Read|Gebruik Azure Automation opgehaald|
-|/automationAccounts/Variables/DELETE|Hiermee wordt een variabel Azure Automation-asset verwijderd|
+|/automationAccounts/schedules/read|Een Azure Automation-planningsasset opgehaald|
+|/automationAccounts/schedules/write|Maken of bijwerken van een Azure Automation-planningsasset|
+|/automationAccounts/statistics/read|Azure Automation-statistieken opgehaald|
+|/automationAccounts/usages/read|Gebruik Azure Automation opgehaald|
+|/automationAccounts/variables/delete|Hiermee wordt een variabel Azure Automation-asset verwijderd|
 |/automationAccounts/Variables/Read|Hiermee wordt een variabel Azure Automation-asset gelezen|
 |/automationAccounts/Variables/Write|Maken of bijwerken van een Azure Automation-variabelenactivum|
 |/automationAccounts/watchers/streams/read|Een Azure Automation-taakstroom voor watcher opgehaald|
 |/automationAccounts/webhooks/delete|Hiermee wordt een Azure Automation-webhook verwijderd |
 |/automationAccounts/webhooks/generateUri/action|Een URI voor een Azure Automation-webhook gegenereerd|
-|/automationAccounts/webhooks/Read|Hiermee wordt een Azure Automation-webhook gelezen|
-|/automationAccounts/webhooks/write|Maken of bijwerken van een Azure Automation-webhook|
+|/automationAccounts/webhooks/read|Hiermee wordt een Azure Automation-webhook gelezen|
+|/automationAccounts/webhooks/Write|Maken of bijwerken van een Azure Automation-webhook|
 |/automationAccounts/write|Maken of bijwerken van een Azure Automation-account|
 |/automationAccounts/write|Maken of bijwerken van een Azure Automation-account|
 
@@ -433,7 +433,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/b2cDirectories/delete|B2C-mapresource verwijderen|
 |/b2cDirectories/Read|B2C-mapresource weergeven|
-|/b2cDirectories/write|B2C-mapresource maken of bijwerken|
+|b2cDirectories/schrijven|B2C-mapresource maken of bijwerken|
 |/Operations/Read|Alle API-bewerkingen lezen die beschikbaar zijn voor de resourceprovider Microsoft.AzureActiveDirectory|
 |registratie-/ actie|Abonnement voor de resourceprovider Microsoft.AzureActiveDirectory registreren|
 
@@ -444,11 +444,11 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |Bewerkingen/leestijd|De eigenschappen van een resource provider-bewerking opgehaald|
 |registratie-/ actie|Abonnement registreert bij de resourceprovider Microsoft.AzureStack|
 |/registrations/customerSubscriptions/delete|Hiermee verwijdert u een abonnement van de klant Azure Stack|
-|/registrations/customerSubscriptions/read|De eigenschappen van een Azure-abonnement Stack klant opgehaald|
-|/registrations/customerSubscriptions/write|Maken of bijwerken van een Azure-Stack klant-abonnement|
+|/Registrations/customerSubscriptions/Read|De eigenschappen van een Azure-abonnement Stack klant opgehaald|
+|/Registrations/customerSubscriptions/Write|Maken of bijwerken van een Azure-Stack klant-abonnement|
 |/Registrations/DELETE|Hiermee verwijdert u een Azure-Stack-registratie|
 |/registrations/getActivationKey/action|De nieuwste Azure-Stack activeringssleutel opgehaald|
-|/Registrations/Products/listDetails/Action|Details voor een Azure-Stack Marketplace-product uitgebreid opgehaald|
+|/registrations/products/listDetails/action|Details voor een Azure-Stack Marketplace-product uitgebreid opgehaald|
 |/Registrations/Products/Read|Haalt u de eigenschappen van een Azure-Stack Marketplace-product|
 |/Registrations/Read|De eigenschappen van een Azure-Stack-registratie opgehaald|
 |registraties/schrijven|Maken of bijwerken van een Azure-Stack-registratie|
@@ -457,36 +457,36 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/batchAccounts/applications/delete|Een toepassing verwijderen|
+|/batchAccounts/Applications/DELETE|Een toepassing verwijderen|
 |/batchAccounts/Applications/Read|Een lijst met toepassingen of haalt u de eigenschappen van een toepassing|
-|/batchAccounts/Applications/Versions/Activate/Action|Hiermee activeert u een toepassingspakket|
-|/batchAccounts/Applications/Versions/DELETE|Hiermee verwijdert u een toepassingspakket|
+|/batchAccounts/applications/versions/activate/action|Hiermee activeert u een toepassingspakket|
+|/batchAccounts/applications/versions/delete|Hiermee verwijdert u een toepassingspakket|
 |/batchAccounts/Applications/Versions/Read|De eigenschappen van een toepassingspakket opgehaald|
 |/batchAccounts/Applications/Versions/Write|Een nieuw pakket maken of bijwerken van een bestaand toepassingspakket|
 |/batchAccounts/Applications/Write|Een nieuwe toepassing maken of bijwerken van een bestaande toepassing|
 |/batchAccounts/certificateOperationResults/read|De resultaten van een langdurige certificaatbewerking op een Batch-account opgehaald|
-|/batchAccounts/Certificates/cancelDelete/Action|Hiermee annuleert u het verwijderen van een certificaat op een Batch-account is mislukt|
+|/batchAccounts/certificates/cancelDelete/action|Hiermee annuleert u het verwijderen van een certificaat op een Batch-account is mislukt|
 |/batchAccounts/certificates/delete|Hiermee verwijdert u een certificaat van een Batch-account|
 |/batchAccounts/Certificates/Read|De eigenschappen van een certificaat opgehaald of ingesteld vindt u certificaten in een Batch-account|
 |/batchAccounts/Certificates/Write|Maakt een nieuw certificaat op een Batch-account of een bestaand certificaat updates|
 |/batchAccounts/delete|Hiermee verwijdert u een Batch-account|
 |/batchAccounts/listkeys/action|Een lijst met sleutels voor een Batch-account toegang tot|
-|/batchAccounts/operationResults/Read|De resultaten van een langdurige bewerking van de Batch-account opgehaald|
+|/batchAccounts/operationResults/read|De resultaten van een langdurige bewerking van de Batch-account opgehaald|
 |/batchAccounts/poolOperationResults/read|De resultaten van een langdurige bewerking van de groep van toepassingen in een Batch-account opgehaald|
 |/batchAccounts/pools/delete|Een groep verwijdert uit een Batch-account|
 |/batchAccounts/pools/disableAutoscale/action|Schakelt automatisch schalen voor een Batch-pool-account|
 |/batchAccounts/Pools/Read|Een lijst met toepassingen op een Batch-account of haalt u de eigenschappen van een groep|
-|/batchAccounts/Pools/stopResize/Action|Stopt een lopende vergroten of verkleinen van de bewerking op een Batch-pool-account|
-|/batchAccounts/Pools/upgradeOs/Action|Upgrades van het besturingssysteem van een Batch-pool-account|
+|/batchAccounts/pools/stopResize/action|Stopt een lopende vergroten of verkleinen van de bewerking op een Batch-pool-account|
+|/batchAccounts/pools/upgradeOs/action|Upgrades van het besturingssysteem van een Batch-pool-account|
 |/batchAccounts/Pools/Write|Maakt een nieuwe pool voor een batchaccount of een bestaande toepassingen bijwerken|
-|/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
-|/batchAccounts/providers/Microsoft.Insights/logDefinitions/Read|De beschikbare logboeken opgehaald voor de Batch-service|
-|/batchAccounts/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor de Batch-service|
-|/batchAccounts/read|Een lijst met Batch-accounts of haalt u de eigenschappen van een Batch-account|
-|/batchAccounts/regeneratekeys/action|Opnieuw toegangssleutels voor een Batch-account|
+|/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/batchAccounts/providers/Microsoft.Insights/logDefinitions/read|De beschikbare logboeken opgehaald voor de Batch-service|
+|/batchAccounts/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor de Batch-service|
+|/batchAccounts/Read|Een lijst met Batch-accounts of haalt u de eigenschappen van een Batch-account|
+|/batchAccounts/regeneratekeys/Action|Opnieuw toegangssleutels voor een Batch-account|
 |/batchAccounts/syncAutoStorageKeys/action|Toegangssleutels voor het opslagaccount automatisch is geconfigureerd voor een Batch-account wordt gesynchroniseerd|
-|/batchAccounts/write|Een nieuwe Batch-account maken of bijwerken van een bestaande Batch-account|
+|batchAccounts/schrijven|Een nieuwe Batch-account maken of bijwerken van een bestaande Batch-account|
 |/Locations/checkNameAvailability/Action|Controleert of de accountnaam geldig en niet in gebruik is.|
 |/Locations/Quotas/Read|Batch-quota van het opgegeven abonnement bij de opgegeven Azure-regio worden opgehaald|
 |registratie-/ actie|Het abonnement voor de Batch-Resourceprovider geregistreerd en wordt het maken van de Batch-accounts|
@@ -498,25 +498,25 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/clusters/DELETE|Hiermee verwijdert u een Batch AI-cluster|
 |/clusters/Read|Een lijst met Batch AI clusters of haalt u de eigenschappen van een Batch AI-cluster|
-|/clusters/remoteLoginInformation/Action|Een lijst met extern-aanmeldingsgegevens voor een Batch AI-cluster|
+|/clusters/remoteLoginInformation/action|Een lijst met extern-aanmeldingsgegevens voor een Batch AI-cluster|
 |clusters/schrijven|Een nieuw Batch AI-cluster maken of bijwerken van een bestaand Batch AI-cluster|
-|/fileservers/DELETE|Hiermee verwijdert u een Batch AI-bestandsserver|
+|/fileservers/delete|Hiermee verwijdert u een Batch AI-bestandsserver|
 |/fileservers/Read|Een lijst met Batch AI bestandsservers of haalt u de eigenschappen van een Batch AI-bestandsserver|
 |/fileservers/Resume/Action|Een Batch AI-bestandsserver wordt hervat|
 |/fileservers/Suspend/Action|Een Batch AI-bestandsserver wordt onderbroken|
 |bestandsservers/schrijven|Een nieuwe Batch AI-bestandsserver maken of bijwerken van een bestaande Batch AI-bestandsserver|
 |/jobs/delete|Hiermee verwijdert u een Batch AI-taak|
 |/jobs/Read|Een lijst met taken in Batch AI of haalt u de eigenschappen van een Batch AI-taak|
-|/jobs/remoteLoginInformation/Action|Een lijst met extern-aanmeldingsgegevens voor een Batch AI-taak|
+|/jobs/remoteLoginInformation/action|Een lijst met extern-aanmeldingsgegevens voor een Batch AI-taak|
 |/jobs/Terminate/Action|Een taak met Batch AI beëindigd|
-|/jobs/write|Een nieuwe Batch AI-taak maken of bijwerken van een bestaande Batch AI-taak|
+|taken/schrijven|Een nieuwe Batch AI-taak maken of bijwerken van een bestaande Batch AI-taak|
 |registratie-/ actie|Het abonnement voor de Batch AI-Resourceprovider geregistreerd en wordt het maken van Batch AI-resources|
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 | Bewerking | Beschrijving |
 |---|---|
-|/billingPeriods/read|Een lijst met beschikbare facturering punten|
+|/billingPeriods/Read|Een lijst met beschikbare facturering punten|
 |/Invoices/Read|Een lijst met beschikbare facturen|
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
@@ -524,11 +524,11 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/mapApis/Delete|Verwijderbewerking|
-|/mapApis/listSecrets/Action|Lijst met geheimen weergeven|
-|/mapApis/listSingleSignOnToken/action|Verificatietoken voor eenmalige aanmelding voor de resource lezen|
+|/mapApis/listSecrets/action|Lijst met geheimen weergeven|
+|/mapApis/listSingleSignOnToken/Action|Verificatietoken voor eenmalige aanmelding voor de resource lezen|
 |/mapApis/Read|Leesbewerking|
 |/mapApis/regenerateKey/Action|De sleutel opnieuw genereren|
-|/ mapApis/schrijven|Schrijfbewerking|
+|/mapApis/Write|Schrijfbewerking|
 |Bewerkingen/leestijd|Beschrijving van de bewerking.|
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
@@ -539,19 +539,19 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Operations/Read|Hier worden de bewerkingen die 'Microsoft.Cache' provider ondersteunt.|
 |/redis/delete|Volledige Redis-cache verwijderen|
 |/redis/export/Action|Redis-gegevens exporteren naar vooraf ingestelde opslag-blobs in een opgegeven indeling|
-|/redis/firewallRules/DELETE|IP-firewallregels voor een Redis Cache verwijderen|
-|/redis/firewallRules/Read|De IP-firewallregels voor een Redis Cache ophalen|
+|/redis/firewallRules/delete|IP-firewallregels voor een Redis Cache verwijderen|
+|/redis/firewallRules/read|De IP-firewallregels voor een Redis Cache ophalen|
 |/redis/firewallRules/Write|De IP-firewallregels voor een Redis Cache bewerken|
-|/redis/forceReboot/Action|Een cache-instantie geforceerd opnieuw opstarten met mogelijk gegevensverlies.|
+|/redis/forceReboot/action|Een cache-instantie geforceerd opnieuw opstarten met mogelijk gegevensverlies.|
 |/redis/import/Action|Gegevens met een opgegeven indeling in Redis importeren vanuit meerdere blobs|
 |/redis/linkedservers/delete|Gekoppelde server uit een Redis-cache verwijderen|
-|/redis/linkedservers/Read|Gekoppelde servers die zijn gekoppeld aan een Redis-cache ophalen.|
-|/redis/linkedservers/Write|Gekoppelde server aan een Redis-cache toevoegen|
-|/redis/listKeys/Action|De waarde van de toegangssleutels voor Redis-cache weergeven in de beheerportal|
+|/redis/linkedservers/read|Gekoppelde servers die zijn gekoppeld aan een Redis-cache ophalen.|
+|/redis/linkedservers/write|Gekoppelde server aan een Redis-cache toevoegen|
+|/redis/listKeys/action|De waarde van de toegangssleutels voor Redis-cache weergeven in de beheerportal|
 |/redis/listUpgradeNotifications/read|De nieuwste upgrademeldingen weergeven voor de cachetenant.|
-|/redis/Locations/operationresults/Read|Haalt het resultaat van een long waarvoor de koptekst 'Location' eerder werd geretourneerd naar de client opnieuw uitgevoerd|
+|/redis/locations/operationresults/read|Haalt het resultaat van een long waarvoor de koptekst 'Location' eerder werd geretourneerd naar de client opnieuw uitgevoerd|
 |/redis/metricDefinitions/Read|Hiermee worden de beschikbare metrische gegevens voor een Redis-cache opgehaald|
-|/redis/patchSchedules/delete|Het schema voor het toepassen van patches voor een Redis Cache verwijderen|
+|/redis/patchSchedules/DELETE|Het schema voor het toepassen van patches voor een Redis Cache verwijderen|
 |/redis/patchSchedules/Read|Hiermee wordt het schema voor het toepassen van patches voor een Redis Cache opgehaald|
 |/redis/patchSchedules/Write|Het schema voor het toepassen van patches voor een Redis Cache aanpassen|
 |/redis/Read|De instellingen en configuratie van Redis-cache weergeven in de beheerportal|
@@ -586,72 +586,72 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/edgenodes/delete||
 |/edgenodes/Read||
 |edgenodes/schrijven||
-|/operationresults/DELETE||
-|/operationresults/profileresults/CheckResourceUsage/Action||
-|/operationresults/profileresults/DELETE||
-|/operationresults/profileresults/endpointresults/CheckResourceUsage/Action||
-|/operationresults/profileresults/endpointresults/customdomainresults/DELETE||
-|/ operationresults/profileresults/endpointresults/customdomainresults/DisableCustomHttps/actie||
-|/ operationresults/profileresults/endpointresults/customdomainresults/EnableCustomHttps/actie||
-|/operationresults/profileresults/endpointresults/customdomainresults/Read||
-|/operationresults/profileresults/endpointresults/customdomainresults/Write||
-|/operationresults/profileresults/endpointresults/DELETE||
-|/operationresults/profileresults/endpointresults/Load/Action||
-|/operationresults/profileresults/endpointresults/originresults/DELETE||
-|/operationresults/profileresults/endpointresults/originresults/Read||
-|/operationresults/profileresults/endpointresults/originresults/Write||
-|/operationresults/profileresults/endpointresults/Purge/Action||
-|/operationresults/profileresults/endpointresults/Read||
+|/operationresults/delete||
+|/operationresults/profileresults/CheckResourceUsage/action||
+|/operationresults/profileresults/delete||
+|/operationresults/profileresults/endpointresults/CheckResourceUsage/action||
+|/operationresults/profileresults/endpointresults/customdomainresults/delete||
+|/operationresults/profileresults/endpointresults/customdomainresults/ DisableCustomHttps/action||
+|/operationresults/profileresults/endpointresults/customdomainresults/ EnableCustomHttps/action||
+|/operationresults/profileresults/endpointresults/customdomainresults/read||
+|/operationresults/profileresults/endpointresults/customdomainresults/write||
+|/operationresults/profileresults/endpointresults/delete||
+|/operationresults/profileresults/endpointresults/Load/action||
+|/operationresults/profileresults/endpointresults/originresults/delete||
+|/operationresults/profileresults/endpointresults/originresults/read||
+|/operationresults/profileresults/endpointresults/originresults/write||
+|/operationresults/profileresults/endpointresults/Purge/action||
+|/operationresults/profileresults/endpointresults/read||
 |/operationresults/profileresults/endpointresults/start/Action||
-|/operationresults/profileresults/endpointresults/Stop/Action||
-|/operationresults/profileresults/endpointresults/ValidateCustomDomain/Action||
-|/operationresults/profileresults/endpointresults/Write||
-|/operationresults/profileresults/GenerateSsoUri/Action||
-|/operationresults/profileresults/GetSupportedOptimizationTypes/Action||
+|/operationresults/profileresults/endpointresults/Stop/action||
+|/operationresults/profileresults/endpointresults/ValidateCustomDomain/action||
+|/operationresults/profileresults/endpointresults/write||
+|/operationresults/profileresults/GenerateSsoUri/action||
+|/operationresults/profileresults/GetSupportedOptimizationTypes/action||
 |/operationresults/profileresults/Read||
 |/operationresults/profileresults/Write||
 |/operationresults/Read||
 |operationresults/schrijven||
 |/Operations/Read||
-|/profiles/CheckResourceUsage/action||
-|/profiles/delete||
+|/Profiles/CheckResourceUsage/Action||
+|/Profiles/DELETE||
 |/Profiles/endpoints/CheckResourceUsage/Action||
-|/Profiles/endpoints/customdomains/DELETE||
-|/Profiles/endpoints/customdomains/DisableCustomHttps/Action||
-|/Profiles/endpoints/customdomains/EnableCustomHttps/Action||
+|/profiles/endpoints/customdomains/delete||
+|/profiles/endpoints/customdomains/DisableCustomHttps/action||
+|/profiles/endpoints/customdomains/EnableCustomHttps/action||
 |/Profiles/endpoints/customdomains/Read||
 |/Profiles/endpoints/customdomains/Write||
 |/Profiles/endpoints/DELETE||
 |/Profiles/endpoints/Load/Action||
-|/Profiles/endpoints/origins/DELETE||
+|/profiles/endpoints/origins/delete||
 |/Profiles/endpoints/origins/Read||
 |/Profiles/endpoints/origins/Write||
-|/Profiles/endpoints/providers/Microsoft.Insights/diagnosticSettings/Read|De diagnostische instellingen voor de resource opgehaald|
-|/Profiles/endpoints/providers/Microsoft.Insights/diagnosticSettings/Write|Maken of bijwerken van de diagnostische instellingen voor de bron|
-|/Profiles/endpoints/providers/Microsoft.Insights/logDefinitions/Read|De beschikbare logboeken opgehaald voor Microsoft.Cdn|
+|/profiles/endpoints/providers/Microsoft.Insights/diagnosticSettings/read|De diagnostische instellingen voor de resource opgehaald|
+|/profiles/endpoints/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van de diagnostische instellingen voor de bron|
+|/profiles/endpoints/providers/Microsoft.Insights/logDefinitions/read|De beschikbare logboeken opgehaald voor Microsoft.Cdn|
 |/Profiles/endpoints/Purge/Action||
 |/Profiles/endpoints/Read||
 |/Profiles/endpoints/start/Action||
 |/Profiles/endpoints/Stop/Action||
-|/Profiles/endpoints/ValidateCustomDomain/Action||
+|/profiles/endpoints/ValidateCustomDomain/action||
 |/Profiles/endpoints/Write||
 |/Profiles/GenerateSsoUri/Action||
 |/profiles/GetSupportedOptimizationTypes/action||
 |/Profiles/Read||
 |profielen/schrijven||
 |registratie-/ actie|Hiermee wordt het abonnement voor de CDN-resourceprovider geregistreerd en wordt het maken van CDN-profielen mogelijk.|
-|/ ValidateProbe/actie||
+|/ValidateProbe/action||
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 | Bewerking | Beschrijving |
 |---|---|
-|/certificateOrders/Certificates/DELETE|Een bestaand certificaat verwijderen|
-|/certificateOrders/certificates/Read|De lijst met certificaten ophalen|
-|/certificateOrders/certificates/Write|Toevoegen van een nieuw certificaat of een bestaande bijgewerkt|
-|/ certificateOrders/verwijderen|Een bestaande AppServiceCertificate verwijderen|
+|/certificateOrders/certificates/Delete|Een bestaand certificaat verwijderen|
+|/certificateOrders/Certificates/Read|De lijst met certificaten ophalen|
+|/certificateOrders/Certificates/Write|Toevoegen van een nieuw certificaat of een bestaande bijgewerkt|
+|/certificateOrders/Delete|Een bestaande AppServiceCertificate verwijderen|
 |/certificateOrders/Operations/Read|Lijst van alle bewerkingen van het app service-certificaat is geregistreerd|
-|/certificateOrders/Read|De lijst met CertificateOrders ophalen|
+|/ certificateOrders/lezen|De lijst met CertificateOrders ophalen|
 |/certificateOrders/reissue/Action|Geef een bestaande certificateorder|
 |/certificateOrders/renew/Action|Een bestaande certificateorder vernieuwen|
 |/certificateOrders/resendEmail/Action|Certificaat-e-mail opnieuw verzenden|
@@ -660,20 +660,20 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/certificateOrders/retrieveCertificateActions/Action|De lijst met acties certificaat ophalen|
 |/certificateOrders/retrieveEmailHistory/Action|Geschiedenis van de e-certificaat ophalen|
 |/certificateOrders/verifyDomainOwnership/Action|Domeineigendom controleren|
-|/certificateOrders/Write|Een nieuwe certificateOrder toevoegen of een bestaande bijgewerkt|
+|/ certificateOrders/schrijven|Een nieuwe certificateOrder toevoegen of een bestaande bijgewerkt|
 |/provisionGlobalAppServicePrincipalInUserTenant/Action|Service-principal voor service-principal voor app inrichten|
 |registratie-/ actie|Registreer de provider van Microsoft-Certificates resource voor het abonnement|
-|/ validateCertificateRegistrationInformation/actie|Aankoop certificaatobject valideren zonder deze te verzenden|
+|/validateCertificateRegistrationInformation/Action|Aankoop certificaatobject valideren zonder deze te verzenden|
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 | Bewerking | Beschrijving |
 |---|---|
 |/Capabilities/Read|Hiermee worden de mogelijkheden weergegeven|
-|/ checkDomainNameAvailability/actie|Hiermee wordt gecontroleerd of een bepaald domeinnaam beschikbaar is.|
-|/domainNames/active/write|Hiermee wordt de naam ingesteld van het actieve domein.|
+|/checkDomainNameAvailability/action|Hiermee wordt gecontroleerd of een bepaald domeinnaam beschikbaar is.|
+|/domainNames/Active/Write|Hiermee wordt de naam ingesteld van het actieve domein.|
 |/domainNames/availabilitySets/read|De beschikbaarheidsset voor de resource wordt weergegeven.|
-|/domainNames/Capabilities/Read|Geeft de mogelijkheden voor domeinnaamgeving weer|
+|/domainNames/capabilities/read|Geeft de mogelijkheden voor domeinnaamgeving weer|
 |/domainNames/delete|De domeinnamen voor resources verwijderen.|
 |/domainNames/extensions/delete|De domeinnaamextensies verwijderen.|
 |/domainNames/Extensions/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de domeinnaamextensies gelezen.|
@@ -685,71 +685,71 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/domainNames/internalLoadBalancers/write|Hiermee wordt een nieuwe interne taakverdeling gemaakt.|
 |/domainNames/loadBalancedEndpointSets/operationStatuses/read|Hiermee wordt de bewerkingsstatus van de eindpuntsets voor de taakverdeling van de domeinnamen gelezen.|
 |/domainNames/loadBalancedEndpointSets/read|Hiermee worden de eindpuntsets van de taakverdeling weergegeven|
-|/domainNames/read|De domeinnamen voor resources retourneren.|
+|/domainNames/Read|De domeinnamen voor resources retourneren.|
 |/domainNames/serviceCertificates/delete|De gebruikte servicecertificaten verwijderen.|
-|/domainNames/serviceCertificates/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de servicecertificaten van domeinnamen gelezen.|
-|/domainNames/serviceCertificates/read|Hiermee worden de gebruikte servicecertificaten geretourneerd.|
+|/domainNames/serviceCertificates/operationStatuses/read|Hiermee wordt de bewerkingsstatus van de servicecertificaten van domeinnamen gelezen.|
+|/domainNames/serviceCertificates/Read|Hiermee worden de gebruikte servicecertificaten geretourneerd.|
 |/domainNames/serviceCertificates/write|Hiermee worden de gebruikte servicecertificaten toegevoegd of gewijzigd.|
 |/domainNames/slots/delete|Hiermee wordt een bepaald implementatiesleuf verwijderd.|
 |/domainNames/slots/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de domeinnaamsleuven gelezen.|
 |/domainNames/slots/Read|Hiermee worden de implementatiesleuven weergegeven.|
-|/domainNames/slots/roles/extensionReferences/DELETE|De extensieverwijzing voor de implementatiesite verwijderen.|
+|/domainNames/slots/roles/extensionReferences/delete|De extensieverwijzing voor de implementatiesite verwijderen.|
 |/domainNames/slots/roles/extensionReferences/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de extensieverwijzing van de rollen voor domeinnaamsleuven gelezen.|
 |/domainNames/slots/roles/extensionReferences/Read|Hiermee kunt u de extensieverwijzing voor de implementatiesiterol retourneren.|
 |/domainNames/slots/roles/extensionReferences/Write|Hiermee kunt u de extensieverwijzing voor de implementatiesiterol toevoegen of aanpassen.|
-|/domainNames/slots/roles/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee worden de diagnostische instellingen opgehaald.|
-|/domainNames/slots/roles/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee worden diagnostische instellingen toegevoegd of gewijzigd.|
-|/domainNames/slots/roles/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden de metrische definities opgehaald.|
+|/domainNames/slots/roles/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee worden de diagnostische instellingen opgehaald.|
+|/domainNames/slots/roles/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee worden diagnostische instellingen toegevoegd of gewijzigd.|
+|/domainNames/slots/roles/providers/Microsoft.Insights/metricDefinitions/read|Hiermee worden de metrische definities opgehaald.|
 |/domainNames/slots/roles/Read|Hiermee wordt de rol van de implementatiesleuf opgehaald.|
-|/domainNames/slots/roles/roleInstances/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van rolinstanties van rollen voor domeinnaamsleuven gelezen.|
+|/domainNames/slots/roles/roleInstances/operationStatuses/read|Hiermee wordt de bewerkingsstatus van rolinstanties van rollen voor domeinnaamsleuven gelezen.|
 |/domainNames/slots/roles/roleInstances/Read|Hiermee wordt het rolexemplaar opgehaald.|
-|/domainNames/slots/roles/roleInstances/rebuild/Action|Hiermee wordt de rolinstantie herbouwd.|
-|/domainNames/slots/roles/roleInstances/reimage/Action|Hiermee wordt de installatiekopie van het rolexemplaar opnieuw toegepast.|
+|/domainNames/slots/roles/roleInstances/rebuild/action|Hiermee wordt de rolinstantie herbouwd.|
+|/domainNames/slots/roles/roleInstances/reimage/action|Hiermee wordt de installatiekopie van het rolexemplaar opnieuw toegepast.|
 |/domainNames/slots/roles/roleInstances/restart/Action|Hiermee worden rolinstanties opnieuw gestart.|
 |/domainNames/slots/start/Action|Hiermee wordt een implementatiesleuf gestart.|
-|/domainNames/slots/state/start/write|Hiermee wordt de status van de implementatiesleuf gewijzigd naar Gestopt.|
-|/domainNames/slots/state/stop/write|Hiermee wordt de status van de implementatiesleuf gewijzigd naar Gestart.|
+|/domainNames/slots/State/start/Write|Hiermee wordt de status van de implementatiesleuf gewijzigd naar Gestopt.|
+|/domainNames/slots/State/Stop/Write|Hiermee wordt de status van de implementatiesleuf gewijzigd naar Gestart.|
 |/domainNames/slots/Stop/Action|Hiermee wordt de implementatiesleuf tijdelijk stopgezet.|
 |/domainNames/slots/upgradeDomain/write|Hiermee wordt stap voor stap een domeinupgrade uitgevoerd.|
-|/domainNames/slots/write|Hiermee wordt de implementatie gemaakt of bijgewerkt.|
+|/domainNames/slots/Write|Hiermee wordt de implementatie gemaakt of bijgewerkt.|
 |/domainNames/swap/Action|Hiermee wordt de staging-site gewisseld naar de productiesite.|
-|/domainNames/write|Hiermee worden de domeinnamen voor resources toegevoegd of gewijzigd.|
-|/ moveSubscriptionResources/actie|Verplaats alle klassieke resources naar een ander abonnement.|
-|/operatingSystemFamilies/Read|Hiermee wordt een lijst met de gastbesturingssysteemfamilies gemaakt die beschikbaar zijn in Microsoft Azure. Ook worden de besturingssysteemversies weergegeven die beschikbaar zijn voor elke serie.|
+|domainNames/schrijven|Hiermee worden de domeinnamen voor resources toegevoegd of gewijzigd.|
+|/moveSubscriptionResources/action|Verplaats alle klassieke resources naar een ander abonnement.|
+|/operatingSystemFamilies/read|Hiermee wordt een lijst met de gastbesturingssysteemfamilies gemaakt die beschikbaar zijn in Microsoft Azure. Ook worden de besturingssysteemversies weergegeven die beschikbaar zijn voor elke serie.|
 |/operatingSystems/read|Hiermee wordt een lijst van de versies van gastbesturingssystemen gemaakt die momenteel beschikbaar zijn in Microsoft Azure.|
-|/quotas/read|Hiermee worden de quota voor het abonnement opgehaald.|
+|/Quotas/Read|Hiermee worden de quota voor het abonnement opgehaald.|
 |registratie-/ actie|Registreren bij klassieke berekening|
-|/resourceTypes/skus/read|Haalt de SKU-lijst op voor ondersteunde resourcetypen.|
-|/ validateSubscriptionMoveAvailability/actie|De beschikbaarheid van het abonnement voor de klassieke verplaatsingsbewerking valideren.|
+|/resourceTypes/skus/Read|Haalt de SKU-lijst op voor ondersteunde resourcetypen.|
+|/validateSubscriptionMoveAvailability/action|De beschikbaarheid van het abonnement voor de klassieke verplaatsingsbewerking valideren.|
 |/virtualMachines/associatedNetworkSecurityGroups/delete|Hiermee wordt de netwerkbeveiligingsgroep verwijderd die aan de virtuele machine is gekoppeld.|
 |/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/read|Hiermee wordt de bewerkingsstatus van virtuele machines die zijn gekoppeld aan netwerkbeveiligingsgroepen gelezen.|
 |/virtualMachines/associatedNetworkSecurityGroups/read|Hiermee wordt de netwerkbeveiligingsgroep opgehaald die aan de virtuele machine is gekoppeld.|
 |/virtualMachines/associatedNetworkSecurityGroups/write|Hiermee wordt een netwerkbeveiligingsgroep toegevoegd die aan de virtuele machine is gekoppeld.|
-|/virtualMachines/asyncOperations/Read|Hiermee worden de mogelijk asynchrone bewerkingen opgehaald|
-|/virtualMachines/attachDisk/Action|Hiermee wordt een gegevensschijf gekoppeld aan een virtuele machine.|
-|/virtualMachines/DELETE|Hiermee worden virtuele machines verwijderd.|
-|/virtualMachines/detachDisk/Action|Hiermee wordt een gegevensschijf losgekoppeld van een virtuele machine.|
+|/virtualMachines/asyncOperations/read|Hiermee worden de mogelijk asynchrone bewerkingen opgehaald|
+|/virtualMachines/attachDisk/action|Hiermee wordt een gegevensschijf gekoppeld aan een virtuele machine.|
+|/virtualMachines/delete|Hiermee worden virtuele machines verwijderd.|
+|/virtualMachines/detachDisk/action|Hiermee wordt een gegevensschijf losgekoppeld van een virtuele machine.|
 |/virtualMachines/Disks/Read|Hiermee wordt een lijst met gegevensschijven opgehaald|
-|/virtualMachines/downloadRemoteDesktopConnectionFile/Action|Hiermee wordt het RDP-bestand voor de virtuele machine gedownload.|
-|/virtualMachines/Extensions/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van extensies van virtuele machines gelezen.|
-|/virtualMachines/Extensions/Read|Hiermee wordt de extensie van de virtuele machine opgehaald.|
-|/virtualMachines/Extensions/Write|Hiermee wordt de extensie voor de virtuele machine ingesteld.|
+|/virtualMachines/downloadRemoteDesktopConnectionFile/action|Hiermee wordt het RDP-bestand voor de virtuele machine gedownload.|
+|/virtualMachines/extensions/operationStatuses/read|Hiermee wordt de bewerkingsstatus van extensies van virtuele machines gelezen.|
+|/virtualMachines/extensions/read|Hiermee wordt de extensie van de virtuele machine opgehaald.|
+|/virtualMachines/extensions/write|Hiermee wordt de extensie voor de virtuele machine ingesteld.|
 |/virtualMachines/metrics/Read|Hiermee worden de metrische gegevens opgehaald.|
 |/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/delete|Hiermee wordt de netwerkbeveiligingsgroep verwijderd die aan de netwerkinterface is gekoppeld.|
-|virtuele machines/networkInterfaces/associatedNetworkSecurityGroups/operationStatuses leestijd|Hiermee wordt de bewerkingsstatus van virtuele machines die zijn gekoppeld aan netwerkbeveiligingsgroepen gelezen.|
+|/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/ operationStatuses/read|Hiermee wordt de bewerkingsstatus van virtuele machines die zijn gekoppeld aan netwerkbeveiligingsgroepen gelezen.|
 |/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/read|Hiermee wordt de netwerkbeveiligingsgroep opgehaald die aan de netwerkinterface is gekoppeld.|
 |/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/write|Hiermee wordt een netwerkbeveiligingsgroep toegevoegd die aan de netwerkinterface is gekoppeld.|
-|/virtualMachines/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van virtuele machines gelezen.|
-|/virtualMachines/performMaintenance/Action|Hiermee wordt onderhoud van de virtuele machine uitgevoerd.|
-|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee worden de diagnostische instellingen opgehaald.|
-|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee worden diagnostische instellingen toegevoegd of gewijzigd.|
-|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden de metrische definities opgehaald.|
-|/virtualMachines/Read|Hiermee wordt een lijst met virtuele machines opgehaald.|
-|/virtualMachines/redeploy/Action|Hiermee wordt de virtuele machine opnieuw geïmplementeerd.|
-|/virtualMachines/restart/Action|Hiermee worden virtuele machines opnieuw gestart.|
-|/virtualMachines/Shutdown/Action|Hiermee wordt de virtuele machine afgesloten.|
+|/virtualMachines/operationStatuses/read|Hiermee wordt de bewerkingsstatus van virtuele machines gelezen.|
+|/virtualMachines/performMaintenance/action|Hiermee wordt onderhoud van de virtuele machine uitgevoerd.|
+|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee worden de diagnostische instellingen opgehaald.|
+|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee worden diagnostische instellingen toegevoegd of gewijzigd.|
+|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read|Hiermee worden de metrische definities opgehaald.|
+|/virtualMachines/read|Hiermee wordt een lijst met virtuele machines opgehaald.|
+|/virtualMachines/redeploy/action|Hiermee wordt de virtuele machine opnieuw geïmplementeerd.|
+|/virtualMachines/restart/action|Hiermee worden virtuele machines opnieuw gestart.|
+|/virtualMachines/shutdown/action|Hiermee wordt de virtuele machine afgesloten.|
 |/virtualMachines/start/Action|Hiermee wordt de virtuele machine gestart.|
-|/virtualMachines/Stop/Action|Hiermee wordt de virtuele machine gestopt.|
+|/virtualMachines/stop/action|Hiermee wordt de virtuele machine gestopt.|
 |virtuele machines/schrijven|Hiermee worden virtuele machines toegevoegd of gewijzigd.|
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
@@ -758,29 +758,29 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/gatewaySupportedDevices/Read|De lijst met ondersteunde apparaten wordt opgehaald.|
 |/networkSecurityGroups/delete|Hiermee wordt de netwerkbeveiligingsgroep verwijderd.|
-|/networkSecurityGroups/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de netwerkbeveiligingsgroep gelezen.|
+|/networkSecurityGroups/operationStatuses/read|Hiermee wordt de bewerkingsstatus van de netwerkbeveiligingsgroep gelezen.|
 |/networkSecurityGroups/read|Hiermee wordt de netwerkbeveiligingsgroep opgehaald.|
 |/networkSecurityGroups/securityRules/delete|Hiermee wordt de beveiligingsregel verwijderd.|
 |/networkSecurityGroups/securityRules/operationStatuses/read|Hiermee wordt de bewerkingsstatus van de beveiligingsregels voor de netwerkbeveiligingsgroep gelezen.|
 |/networkSecurityGroups/securityRules/read|Hiermee wordt de beveiligingsregel opgehaald.|
 |/networkSecurityGroups/securityRules/write|Hiermee wordt een beveiligingsregel toegevoegd of bijgewerkt.|
 |/networkSecurityGroups/write|Hiermee wordt een nieuwe netwerkbeveiligingsgroep toegevoegd.|
-|/quotas/read|Hiermee worden de quota voor het abonnement opgehaald.|
+|/Quotas/Read|Hiermee worden de quota voor het abonnement opgehaald.|
 |registratie-/ actie|Registreren bij klassiek netwerk|
 |/reservedIps/delete|Hiermee wordt een gereserveerd IP verwijderd.|
 |/reservedIps/join/Action|Deelnemen aan een gereserveerde IP|
-|/reservedIps/link/Action|Een gereserveerde IP koppelen|
-|/reservedIps/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de gereserveerde IP's gelezen.|
-|/reservedIps/Read|Hiermee worden de gereserveerde IP's opgehaald.|
-|reservedip/schrijven|Een nieuw gereserveerd IP toevoegen|
-|/virtualNetworks/Capabilities/Read|Hiermee worden de mogelijkheden weergegeven|
-|/virtualNetworks/checkIPAddressAvailability/Action|Hiermee wordt de beschikbaarheid van een bepaald IP-adres in een virtueel netwerk gecontroleerd.|
+|/reservedIps/link/action|Een gereserveerde IP koppelen|
+|/reservedIps/operationStatuses/read|Hiermee wordt de bewerkingsstatus van de gereserveerde IP's gelezen.|
+|/reservedIps/read|Hiermee worden de gereserveerde IP's opgehaald.|
+|/reservedIps/write|Een nieuw gereserveerd IP toevoegen|
+|/virtualNetworks/capabilities/read|Hiermee worden de mogelijkheden weergegeven|
+|/virtualNetworks/checkIPAddressAvailability/action|Hiermee wordt de beschikbaarheid van een bepaald IP-adres in een virtueel netwerk gecontroleerd.|
 |/virtualNetworks/delete|Hiermee wordt het virtuele netwerk verwijderd.|
 |/virtualNetworks/gateways/clientRevokedCertificates/delete|Hiermee wordt de intrekking van een clientcertificaat ongedaan gemaakt.|
 |/virtualNetworks/gateways/clientRevokedCertificates/read|De ingetrokken clientcertificaten lezen.|
 |/virtualNetworks/gateways/clientRevokedCertificates/write|Hiermee wordt een clientcertificaat ingetrokken.|
 |/virtualNetworks/gateways/clientRootCertificates/delete|Hiermee wordt het clientcertificaat voor de gateway van het virtuele netwerk verwijderd.|
-|/virtualNetworks/gateways/clientRootCertificates/Download/Action|Hiermee wordt een certificaat gedownload op basis van miniatuur.|
+|/virtualNetworks/gateways/clientRootCertificates/download/action|Hiermee wordt een certificaat gedownload op basis van miniatuur.|
 |/virtualNetworks/gateways/clientRootCertificates/listPackage/action|Het certificaatpakket van de virtuele netwerkgateway wordt weergegeven.|
 |/virtualNetworks/gateways/clientRootCertificates/read|Clienthoofdcertificaten zoeken.|
 |/virtualNetworks/gateways/clientRootCertificates/write|Hiermee wordt een nieuw clienthoofdcertificaat geüpload.|
@@ -790,18 +790,18 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/virtualNetworks/gateways/connections/test/action|Hiermee wordt een gatewayverbinding tussen sites getest.|
 |/virtualNetworks/gateways/delete|De gateway van het virtuele netwerk wordt verwijderd.|
 |/virtualNetworks/gateways/downloadDeviceConfigurationScript/action|Het configuratiescript voor het apparaat wordt gedownload.|
-|/virtualNetworks/gateways/downloadDiagnostics/Action|Hiermee worden de diagnotische gegevens van de gateway gedownload.|
-|/virtualNetworks/gateways/listCircuitServiceKey/Action|Hiermee wordt de circuitservicesleutel opgehaald.|
+|/virtualNetworks/gateways/downloadDiagnostics/action|Hiermee worden de diagnotische gegevens van de gateway gedownload.|
+|/virtualNetworks/gateways/listCircuitServiceKey/action|Hiermee wordt de circuitservicesleutel opgehaald.|
 |/virtualNetworks/gateways/listPackage/action|Het gatewaypakket voor het virtuele netwerk wordt weergegeven.|
-|/virtualNetworks/gateways/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de virtuele netwerkgateways gelezen.|
-|/virtualNetworks/gateways/packages/read|Het gatewaypakket voor het virtuele netwerk wordt opgehaald.|
+|/virtualNetworks/gateways/operationStatuses/read|Hiermee wordt de bewerkingsstatus van de virtuele netwerkgateways gelezen.|
+|/virtualNetworks/gateways/Packages/Read|Het gatewaypakket voor het virtuele netwerk wordt opgehaald.|
 |/virtualNetworks/gateways/read|De gateways voor het virtuele netwerk worden opgehaald.|
 |/virtualNetworks/gateways/startDiagnostics/action|Hiermee wordt de diagnostische test voor de gateway van het virtuele netwerk gestart.|
 |/virtualNetworks/gateways/stopDiagnostics/action|Hiermee wordt de diagnostische test voor de gateway van het virtuele netwerk gestopt.|
 |/virtualNetworks/gateways/write|Een gateway voor het virtuele netwerk wordt toegevoegd.|
-|/virtualNetworks/join/Action|Hiermee wordt de deelname aan het virtuele netwerk uitgevoerd.|
-|/virtualNetworks/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de virtuele netwerken gelezen.|
-|/virtualNetworks/peer/Action|Hiermee wordt een virtueel netwerk via peercommunicatie gebruikt met een ander virtueel netwerk.|
+|/virtualNetworks/join/action|Hiermee wordt de deelname aan het virtuele netwerk uitgevoerd.|
+|/virtualNetworks/operationStatuses/read|Hiermee wordt de bewerkingsstatus van de virtuele netwerken gelezen.|
+|/virtualNetworks/peer/action|Hiermee wordt een virtueel netwerk via peercommunicatie gebruikt met een ander virtueel netwerk.|
 |/virtualNetworks/read|Het virtuele netwerk wordt opgehaald.|
 |/virtualNetworks/subnets/associatedNetworkSecurityGroups/delete|Hiermee wordt de netwerkbeveiligingsgroep verwijderd die aan het subnet is gekoppeld.|
 |/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read|Hiermee wordt de bewerkingsstatus van de netwerkbeveiligingsgroep die aan het subnet van het virtueel netwerk is gekoppeld gelezen.|
@@ -818,8 +818,8 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Disks/Read|Hiermee wordt de opslagaccountschijf geretourneerd.|
 |/images/Read|Hiermee wordt de afbeelding geretourneerd.|
 |/osImages/Read|De installatiekopie van het besturingssysteem herstellen.|
-|/publicImages/Read|Hiermee wordt de openbare installatiekopie voor de virtuele machine opgehaald.|
-|/quotas/read|Hiermee worden de quota voor het abonnement opgehaald.|
+|/publicImages/read|Hiermee wordt de openbare installatiekopie voor de virtuele machine opgehaald.|
+|/Quotas/Read|Hiermee worden de quota voor het abonnement opgehaald.|
 |registratie-/ actie|Registreren bij klassieke opslag|
 |/storageAccounts/delete|Hiermee wordt het opslagaccount verwijderd.|
 |/storageAccounts/disks/delete|Hiermee wordt een opgegeven opslagaccountschijf verwijderd.|
@@ -827,16 +827,16 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/storageAccounts/disks/read|Hiermee wordt de opslagaccountschijf geretourneerd.|
 |/storageAccounts/disks/write|Hiermee wordt een opslagaccountschijf toegevoegd.|
 |/storageAccounts/images/delete|Hiermee verwijdert u een installatiekopie van het opgegeven opslagaccount.|
-|/storageAccounts/images/read|Retourneert de installatiekopie van het opslagaccount.|
+|/storageAccounts/images/Read|Retourneert de installatiekopie van het opslagaccount.|
 |/storageAccounts/listKeys/action|Hiermee worden de toegangssleutels voor de opslagaccounts weergegeven.|
-|/storageAccounts/operationStatuses/read|Hiermee wordt de bewerkingsstatus voor de resource ingelezen.|
+|/storageAccounts/operationStatuses/Read|Hiermee wordt de bewerkingsstatus voor de resource ingelezen.|
 |/storageAccounts/osImages/delete|Hiermee wordt de betreffende installatiekopie van het besturingssysteem van een opslagaccount verwijderd.|
 |/storageAccounts/osImages/Read|Hiermee wordt de installatiekopie van het besturingssysteem van een opslagaccount hersteld.|
-|/storageAccounts/read|Opslagaccount met het opgegeven account wordt geretourneerd.|
-|/storageAccounts/regenerateKey/Action|De bestaande toegangssleutels voor het opslagaccount worden geregenereerd.|
+|/storageAccounts/Read|Opslagaccount met het opgegeven account wordt geretourneerd.|
+|/storageAccounts/regenerateKey/action|De bestaande toegangssleutels voor het opslagaccount worden geregenereerd.|
 |/storageAccounts/Services/diagnosticSettings/Read|Hiermee worden de diagnostische instellingen opgehaald.|
 |/storageAccounts/services/diagnosticSettings/write|Hiermee worden diagnostische instellingen toegevoegd of gewijzigd.|
-|/storageAccounts/services/metricDefinitions/read|Hiermee worden de metrische definities opgehaald.|
+|/storageAccounts/Services/metricDefinitions/Read|Hiermee worden de metrische definities opgehaald.|
 |/storageAccounts/Services/metrics/Read|Hiermee worden de metrische gegevens opgehaald.|
 |/storageAccounts/services/read|De beschikbare services ophalen.|
 |/storageAccounts/write|Hiermee wordt een nieuw opslagaccount toegevoegd.|
@@ -847,9 +847,9 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/accounts/DELETE|API-accounts verwijderen|
 |/accounts/listKeys/Action|Een lijst met sleutels maken|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald.|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt.|
-|/accounts/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden de beschikbare metrische gegevens opgehaald voor Cognitive Services.|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald.|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt.|
+|/accounts/providers/Microsoft.Insights/metricDefinitions/read|Hiermee worden de beschikbare metrische gegevens opgehaald voor Cognitive Services.|
 |/Accounts/read|Hiermee worden API-accounts gelezen.|
 |/accounts/regenerateKey/Action|Sleutel opnieuw genereren|
 |/accounts/skus/Read|Hiermee worden beschikbare SKU's voor een bestaande resource gelezen.|
@@ -865,15 +865,15 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |RateCard/leestijd|Retourneert bieden gegevens, metagegevens van de resource/meter en tarieven voor het opgegeven abonnement.|
-|/UsageAggregates/read|Haalt de Microsoft Azure verbruik door een abonnement. Het resultaat bevat statistische gegevens over het gebruik, abonnement en de resource verwante gegevens, op een bepaalde periode.|
+|UsageAggregates/leestijd|Haalt de Microsoft Azure verbruik door een abonnement. Het resultaat bevat statistische gegevens over het gebruik, abonnement en de resource verwante gegevens, op een bepaalde periode.|
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 | Bewerking | Beschrijving |
 |---|---|
 |/availabilitySets/delete|Hiermee wordt de beschikbaarheidsset verwijderd|
-|/availabilitySets/Read|Hiermee worden de eigenschappen van een beschikbaarheidsset opgehaald|
-|/availabilitySets/vmSizes/Read|Lijst met beschikbare grootten voor het maken of bijwerken van een virtuele machine in de beschikbaarheidsset weergeven|
+|/availabilitySets/read|Hiermee worden de eigenschappen van een beschikbaarheidsset opgehaald|
+|/availabilitySets/vmSizes/read|Lijst met beschikbare grootten voor het maken of bijwerken van een virtuele machine in de beschikbaarheidsset weergeven|
 |/availabilitySets/write|Hiermee wordt een nieuwe beschikbaarheidsset gemaakt of een bestaande bijgewerkt|
 |/disks/beginGetAccess/action|Hiermee wordt de SAS-URI van de schijf opgehaald voor blob-toegang|
 |/disks/delete|Hiermee wordt de schijf verwijderd|
@@ -884,27 +884,27 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/images/Read|Ga naar de eigenschappen van de installatiekopie|
 |installatiekopieën van/schrijven|Hiermee wordt een nieuwe installatiekopie gemaakt of een bestaande bijgewerkt|
 |/Locations/capsOperations/Read|De status van een asynchrone bewerking van Caps opgehaald|
-|/Locations/diskOperations/Read|Hiermee wordt de status van een asynchrone schijfbewerking opgehaald|
+|/locations/diskOperations/read|Hiermee wordt de status van een asynchrone schijfbewerking opgehaald|
 |/Locations/Operations/Read|Hiermee wordt de status van een asynchrone bewerking opgehaald|
 |/locations/publishers/artifacttypes/offers/read|De eigenschappen van een Platform installatiekopie bieden opgehaald|
 |/locations/publishers/artifacttypes/offers/skus/read|De eigenschappen van een installatiekopie Platform Sku ophalen|
 |/locations/publishers/artifacttypes/offers/skus/versions/read|De eigenschappen van een versie van de installatiekopie Platform opgehaald|
 |/locations/publishers/artifacttypes/types/read|De eigenschappen van een VMExtension Type opgehaald|
-|/Locations/Publishers/artifacttypes/types/Versions/Read|De eigenschappen van een versie VMExtension opgehaald|
-|/Locations/Publishers/Read|De eigenschappen van een uitgever opgehaald|
+|/locations/publishers/artifacttypes/types/versions/read|De eigenschappen van een versie VMExtension opgehaald|
+|/locations/publishers/read|De eigenschappen van een uitgever opgehaald|
 |/Locations/runCommands/Read|Hiermee wordt een lijst gemaakt van de beschikbare opdrachten op de locatie|
 |/Locations/usages/Read|Hiermee worden servicelimieten en huidige gebruikshoeveelheden opgehaald voor de rekenresources van het abonnement op een locatie|
-|/Locations/vmSizes/Read|Hiermee wordt een lijst weergegeven met de beschikbare grootten van virtuele machines op een locatie|
+|/locations/vmSizes/read|Hiermee wordt een lijst weergegeven met de beschikbare grootten van virtuele machines op een locatie|
 |/Operations/Read|Hiermee wordt een lijst met bewerkingen weergegeven die beschikbaar zijn op de Microsoft.Compute-resourceprovider|
 |registratie-/ actie|Hiermee wordt het abonnement bij de Microsoft.Compute-resourceprovider geregistreerd|
 |/restorePointCollections/delete|Hiermee worden de herstelpuntverzameling en de hierin opgenomen herstelpunten verwijderd|
-|/restorePointCollections/Read|Hiermee worden de eigenschappen van een herstelpuntverzameling opgehaald|
+|/restorePointCollections/read|Hiermee worden de eigenschappen van een herstelpuntverzameling opgehaald|
 |/restorePointCollections/restorePoints/delete|Hiermee wordt het herstelpunt verwijderd|
-|/restorePointCollections/restorePoints/Read|Hiermee worden de eigenschappen van een herstelpunt opgehaald|
+|/restorePointCollections/restorePoints/read|Hiermee worden de eigenschappen van een herstelpunt opgehaald|
 |/restorePointCollections/restorePoints/retrieveSasUris/action|Hiermee worden de eigenschappen van een herstelpunt en de URI's van de SAS-blob opgehaald|
-|/restorePointCollections/restorePoints/write|Hiermee wordt een nieuw herstelpunt gemaakt|
+|/restorePointCollections/restorePoints/Write|Hiermee wordt een nieuw herstelpunt gemaakt|
 |/restorePointCollections/write|Hiermee wordt een nieuwe herstelpuntverzameling gemaakt of een bestaande bijgewerkt|
-|/sharedVMImages/delete|Hiermee verwijdert u de SharedVMImage|
+|/sharedVMImages/DELETE|Hiermee verwijdert u de SharedVMImage|
 |/sharedVMImages/Read|De eigenschappen van een SharedVMImage opgehaald|
 |/sharedVMImages/Versions/DELETE|Een SharedVMImageVersion verwijderen|
 |/sharedVMImages/Versions/Read|De eigenschappen van een SharedVMImageVersion opgehaald|
@@ -912,71 +912,71 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sharedVMImages/Versions/Write|Een nieuwe SharedVMImageVersion maken of bijwerken van een bestaande|
 |sharedVMImages/schrijven|Hiermee maakt u een nieuwe SharedVMImage of een bestaande bijgewerkt|
 |/skus/Read|Hiermee haalt u de lijst van de Microsoft.Compute-SKU's beschikbaar voor uw abonnement|
-|/Snapshots/beginGetAccess/Action|De SAS-URI van de momentopname ophalen voor blob-toegang|
+|/snapshots/beginGetAccess/action|De SAS-URI van de momentopname ophalen voor blob-toegang|
 |/Snapshots/DELETE|Hiermee wordt een momentopname verwijderd|
-|/Snapshots/endGetAccess/Action|De SAS-URI van de momentopname intrekken|
+|/snapshots/endGetAccess/action|De SAS-URI van de momentopname intrekken|
 |/Snapshots/Read|Hiermee worden de eigenschappen van een momentopname opgehaald|
 |momentopnamen van/schrijven|Hiermee wordt een nieuwe momentopname gemaakt of een bestaande bijgewerkt|
-|/virtualMachines/Capture/Action|Hiermee wordt de virtuele machine vastgelegd via het kopiëren van virtuele harde schijven en wordt een sjabloon gegenereerd waarmee soortgelijke virtuele machines kunnen worden gemaakt|
+|/virtualMachines/capture/action|Hiermee wordt de virtuele machine vastgelegd via het kopiëren van virtuele harde schijven en wordt een sjabloon gegenereerd waarmee soortgelijke virtuele machines kunnen worden gemaakt|
 |/virtualMachines/convertToManagedDisks/action|Hiermee worden de op blobs gebaseerde schijven van de virtuele machine geconverteerd naar beheerde schijven|
-|/virtualMachines/deallocate/Action|Hiermee wordt de virtuele machine uitgeschakeld en worden de rekenresources vrijgegeven|
-|/virtualMachines/DELETE|Hiermee wordt de virtuele machine verwijderd|
-|/virtualMachines/Extensions/DELETE|Hiermee wordt de extensie van de virtuele machine verwijderd|
-|/virtualMachines/Extensions/Read|Hiermee worden de eigenschappen van de extensie van een virtuele machine opgehaald|
-|/virtualMachines/Extensions/Write|Hiermee wordt een nieuwe extensie van een virtuele machine gemaakt of een bestaande extensie bijgewerkt|
-|/virtualMachines/generalize/Action|Hiermee wordt de status van de virtuele machine ingesteld op Gegeneraliseerd en wordt de virtuele machine voorbereid voor vastleggen|
+|/virtualMachines/deallocate/action|Hiermee wordt de virtuele machine uitgeschakeld en worden de rekenresources vrijgegeven|
+|/virtualMachines/delete|Hiermee wordt de virtuele machine verwijderd|
+|/virtualMachines/extensions/delete|Hiermee wordt de extensie van de virtuele machine verwijderd|
+|/virtualMachines/extensions/read|Hiermee worden de eigenschappen van de extensie van een virtuele machine opgehaald|
+|/virtualMachines/extensions/write|Hiermee wordt een nieuwe extensie van een virtuele machine gemaakt of een bestaande extensie bijgewerkt|
+|/virtualMachines/generalize/action|Hiermee wordt de status van de virtuele machine ingesteld op Gegeneraliseerd en wordt de virtuele machine voorbereid voor vastleggen|
 |/virtualMachines/instanceView/Read|Hiermee wordt de gedetailleerde runtimestatus van de virtuele machine en bijbehorende resources opgehaald|
-|/virtualMachines/performMaintenance/Action|Hiermee wordt de onderhoudsbewerking uitgevoerd op de VM.|
-|/virtualMachines/powerOff/Action|Hiermee wordt de virtuele machine uitgeschakeld. Houd er rekening mee dat de virtuele machine wordt nog wel gefactureerd.|
-|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden de metrische definities van de virtuele machine gelezen|
-|/virtualMachines/Read|Hiermee worden de eigenschappen van een virtuele machine opgehaald|
-|/virtualMachines/redeploy/Action|Hiermee wordt de virtuele machine opnieuw geïmplementeerd|
-|/virtualMachines/reimage/Action|Hiermee wordt een installatiekopie teruggezet van de virtuele machine die een differentiërende schijf gebruikt.|
-|/virtualMachines/restart/Action|Hiermee wordt de virtuele machine opnieuw gestart|
-|/virtualMachines/runCommand/Action|Hiermee wordt een vooraf gedefinieerd script uitgevoerd op de virtuele machine|
+|/virtualMachines/performMaintenance/action|Hiermee wordt de onderhoudsbewerking uitgevoerd op de VM.|
+|/virtualMachines/powerOff/action|Hiermee wordt de virtuele machine uitgeschakeld. Houd er rekening mee dat de virtuele machine wordt nog wel gefactureerd.|
+|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read|Hiermee worden de metrische definities van de virtuele machine gelezen|
+|/virtualMachines/read|Hiermee worden de eigenschappen van een virtuele machine opgehaald|
+|/virtualMachines/redeploy/action|Hiermee wordt de virtuele machine opnieuw geïmplementeerd|
+|/virtualMachines/reimage/action|Hiermee wordt een installatiekopie teruggezet van de virtuele machine die een differentiërende schijf gebruikt.|
+|/virtualMachines/restart/action|Hiermee wordt de virtuele machine opnieuw gestart|
+|/virtualMachines/runCommand/action|Hiermee wordt een vooraf gedefinieerd script uitgevoerd op de virtuele machine|
 |/virtualMachines/start/Action|Hiermee wordt de virtuele machine gestart|
-|/virtualMachines/vmSizes/Read|Hiermee wordt een lijst weergegeven met de beschikbare grootten waarnaar de virtuele machine kan worden bijgewerkt|
+|/virtualMachines/vmSizes/read|Hiermee wordt een lijst weergegeven met de beschikbare grootten waarnaar de virtuele machine kan worden bijgewerkt|
 |virtuele machines/schrijven|Hiermee wordt een nieuwe virtuele machine gemaakt of een bestaande bijgewerkt|
-|/virtualMachineScaleSets/deallocate/Action|Hiermee worden de rekenresources voor de instanties van de virtuele-machineschaalset uitgeschakeld en vrijgegeven |
+|/virtualMachineScaleSets/deallocate/action|Hiermee worden de rekenresources voor de instanties van de virtuele-machineschaalset uitgeschakeld en vrijgegeven |
 |/virtualMachineScaleSets/delete|Hiermee wordt de virtuele-machineschaalset verwijderd|
-|/virtualMachineScaleSets/Delete/Action|Hiermee worden de instanties van de virtuele-machineschaalset verwijderd|
-|/virtualMachineScaleSets/Extensions/DELETE|Hiermee wordt de extensie van de virtuele-machineschaalset verwijderd|
-|/virtualMachineScaleSets/Extensions/Read|Hiermee worden de eigenschappen voor de extensie van een virtuele-machineschaalset opgehaald|
-|/virtualMachineScaleSets/Extensions/Write|Hiermee wordt een nieuwe extensie van de virtuele-machineschaalset gemaakt of een bestaande extensie bijgewerkt|
+|/virtualMachineScaleSets/delete/action|Hiermee worden de instanties van de virtuele-machineschaalset verwijderd|
+|/virtualMachineScaleSets/extensions/delete|Hiermee wordt de extensie van de virtuele-machineschaalset verwijderd|
+|/virtualMachineScaleSets/extensions/read|Hiermee worden de eigenschappen voor de extensie van een virtuele-machineschaalset opgehaald|
+|/virtualMachineScaleSets/extensions/write|Hiermee wordt een nieuwe extensie van de virtuele-machineschaalset gemaakt of een bestaande extensie bijgewerkt|
 |/virtualMachineScaleSets/forceRecoveryServiceFabricPlatformUpdateDomainWalk/action|Helpt u handmatig de domeinen van de update platform van een service fabric virtuele-Machineschaalset te voltooien van een update in behandeling is vastgelopen|
-|/virtualMachineScaleSets/instanceView/Read|Hiermee wordt de instantieweergave van de virtuele-machineschaalset opgehaald|
-|/virtualMachineScaleSets/manualUpgrade/Action|Hiermee worden instanties handmatig bijgewerkt naar het laatste model van de virtuele-machineschaalset|
+|/virtualMachineScaleSets/instanceView/read|Hiermee wordt de instantieweergave van de virtuele-machineschaalset opgehaald|
+|/virtualMachineScaleSets/manualUpgrade/action|Hiermee worden instanties handmatig bijgewerkt naar het laatste model van de virtuele-machineschaalset|
 |/virtualMachineScaleSets/networkInterfaces/read|Eigenschappen van alle netwerkinterfaces van een virtuele-Machineschaalset opgehaald|
-|/virtualMachineScaleSets/osUpgradeHistory/Read|De geschiedenis van upgrades voor het besturingssysteem voor een virtuele-Machineschaalset opgehaald|
-|/virtualMachineScaleSets/performMaintenance/Action|Gepland onderhoud uitgevoerd op de exemplaren van de virtuele-Machineschaalset|
-|/virtualMachineScaleSets/powerOff/Action|Hiermee worden de instanties van de virtuele-machineschaalset uitgeschakeld|
-|/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden de metrische definities van de virtuele-machineschaalset gelezen|
+|/virtualMachineScaleSets/osUpgradeHistory/read|De geschiedenis van upgrades voor het besturingssysteem voor een virtuele-Machineschaalset opgehaald|
+|/virtualMachineScaleSets/performMaintenance/action|Gepland onderhoud uitgevoerd op de exemplaren van de virtuele-Machineschaalset|
+|/virtualMachineScaleSets/powerOff/action|Hiermee worden de instanties van de virtuele-machineschaalset uitgeschakeld|
+|/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read|Hiermee worden de metrische definities van de virtuele-machineschaalset gelezen|
 |/virtualMachineScaleSets/publicIPAddresses/read|Eigenschappen van alle openbare IP-adressen van een virtuele-Machineschaalset opgehaald|
-|/virtualMachineScaleSets/Read|Hiermee worden de eigenschappen van de virtuele-machineschaalset opgehaald|
-|/virtualMachineScaleSets/redeploy/Action|De exemplaren van de virtuele-Machineschaalset opnieuw implementeren|
-|/virtualMachineScaleSets/reimage/Action|Hiermee worden installatiekopieën voor de instanties van de virtuele-machineschaalset teruggezet|
-|/virtualMachineScaleSets/restart/Action|Hiermee worden de instanties van de virtuele-machineschaalset opnieuw gestart|
-|/virtualMachineScaleSets/rollingUpgrades/Cancel/Action|Hiermee wordt de roulerende upgrade van een virtuele-machineschaalset geannuleerd|
-|/virtualMachineScaleSets/rollingUpgrades/Read|De meest recente status van de roulerende upgrade voor een virtuele-machineschaalset ophalen|
-|/virtualMachineScaleSets/Scale/Action|Controleer of een bestaande virtuele-machineschaalset kan in-/uitschalen naar een opgegeven aantal instanties|
+|/virtualMachineScaleSets/read|Hiermee worden de eigenschappen van de virtuele-machineschaalset opgehaald|
+|/virtualMachineScaleSets/redeploy/action|De exemplaren van de virtuele-Machineschaalset opnieuw implementeren|
+|/virtualMachineScaleSets/reimage/action|Hiermee worden installatiekopieën voor de instanties van de virtuele-machineschaalset teruggezet|
+|/virtualMachineScaleSets/restart/action|Hiermee worden de instanties van de virtuele-machineschaalset opnieuw gestart|
+|/virtualMachineScaleSets/rollingUpgrades/cancel/action|Hiermee wordt de roulerende upgrade van een virtuele-machineschaalset geannuleerd|
+|/virtualMachineScaleSets/rollingUpgrades/read|De meest recente status van de roulerende upgrade voor een virtuele-machineschaalset ophalen|
+|/virtualMachineScaleSets/scale/action|Controleer of een bestaande virtuele-machineschaalset kan in-/uitschalen naar een opgegeven aantal instanties|
 |/virtualMachineScaleSets/skus/read|Hiermee wordt een lijst weergegeven van de geldige SKU's voor een bestaande virtuele-machineschaalset|
-|/virtualMachineScaleSets/start/Action|Hiermee worden de instanties van de virtuele-machineschaalset gestart|
-|/virtualMachineScaleSets/virtualMachines/deallocate/Action|Hiermee worden de rekenresources voor een virtuele machine in een VM-schaalset uitgeschakeld en vrijgegeven|
-|/virtualMachineScaleSets/virtualMachines/DELETE|Een specifieke virtuele machine uit een VM-schaalset verwijderen.|
-|/virtualMachineScaleSets/virtualMachines/instanceView/Read|Hiermee wordt de instantieweergave van een virtuele machine in een VM-schaalset opgehaald.|
+|/virtualMachineScaleSets/start/action|Hiermee worden de instanties van de virtuele-machineschaalset gestart|
+|/virtualMachineScaleSets/virtualMachines/deallocate/action|Hiermee worden de rekenresources voor een virtuele machine in een VM-schaalset uitgeschakeld en vrijgegeven|
+|/virtualMachineScaleSets/virtualMachines/delete|Een specifieke virtuele machine uit een VM-schaalset verwijderen.|
+|/virtualMachineScaleSets/virtualMachines/instanceView/read|Hiermee wordt de instantieweergave van een virtuele machine in een VM-schaalset opgehaald.|
 |/virtualMachineScaleSets/virtualMachines/networkInterfaces/ ipConfigurations/publicIPAddresses/read|Eigenschappen van openbare IP-adres die zijn gemaakt met behulp van virtuele-Machineschaalset opgehaald. Virtuele-Machineschaalset kunt mag maximaal één openbare IP per ipconfiguration (privé-IP) maken|
 |/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipConfigurations/read|Eigenschappen van een of alle IP-configuraties van een netwerkinterface die is gemaakt met behulp van virtuele-Machineschaalset opgehaald. IP-configuraties vertegenwoordigen persoonlijke IP-adressen|
-|/virtualMachineScaleSets/virtualMachines/networkInterfaces/Read|Eigenschappen van een of alle netwerkinterfaces van een virtuele machine gemaakt met behulp van virtuele-Machineschaalset opgehaald|
-|/virtualMachineScaleSets/virtualMachines/performMaintenance/Action|Gepland onderhoud uitgevoerd op een exemplaar van de virtuele Machine in een virtuele-Machineschaalset|
-|/virtualMachineScaleSets/virtualMachines/powerOff/Action|Hiermee wordt de instantie van een specifieke virtuele machine in een VM-schaalset uitgeschakeld.|
-|/ virtualMachineScaleSets/virtuele machines/providers/Microsoft.Insights/metricDefinitions/read|Hiermee worden de metrische definities in de virtuele-machineschaalset gelezen|
-|/virtualMachineScaleSets/virtualMachines/Read|Hiermee worden de eigenschappen van een virtuele machine in een VM-schaalset opgehaald|
-|/virtualMachineScaleSets/virtualMachines/redeploy/Action|De instantie van een virtuele Machine in een virtuele-Machineschaalset redeploys|
-|/virtualMachineScaleSets/virtualMachines/reimage/Action|Hiermee wordt de installatiekopie van een instantie van een virtuele machine in een virtuele-machineschaalset teruggezet.|
-|/virtualMachineScaleSets/virtualMachines/restart/Action|Hiermee wordt de instantie van een specifieke virtuele machine in een VM-schaalset opnieuw gestart.|
-|/virtualMachineScaleSets/virtualMachines/start/Action|Hiermee wordt de instantie van een specifieke virtuele machine in een VM-schaalset gestart.|
-|/virtualMachineScaleSets/virtualMachines/Write|Hiermee worden de eigenschappen van een virtuele machine in een VM-schaalset bijgewerkt|
-|virtualMachineScaleSets/schrijven|Hiermee wordt een nieuwe virtuele-machineschaalset gemaakt of een bestaande bijgewerkt|
+|/virtualMachineScaleSets/virtualMachines/networkInterfaces/read|Eigenschappen van een of alle netwerkinterfaces van een virtuele machine gemaakt met behulp van virtuele-Machineschaalset opgehaald|
+|/virtualMachineScaleSets/virtualMachines/performMaintenance/action|Gepland onderhoud uitgevoerd op een exemplaar van de virtuele Machine in een virtuele-Machineschaalset|
+|/virtualMachineScaleSets/virtualMachines/powerOff/action|Hiermee wordt de instantie van een specifieke virtuele machine in een VM-schaalset uitgeschakeld.|
+|/virtualMachineScaleSets/virtualMachines/providers/ Microsoft.Insights/metricDefinitions/read|Hiermee worden de metrische definities in de virtuele-machineschaalset gelezen|
+|/virtualMachineScaleSets/virtualMachines/read|Hiermee worden de eigenschappen van een virtuele machine in een VM-schaalset opgehaald|
+|/virtualMachineScaleSets/virtualMachines/redeploy/action|De instantie van een virtuele Machine in een virtuele-Machineschaalset redeploys|
+|/virtualMachineScaleSets/virtualMachines/reimage/action|Hiermee wordt de installatiekopie van een instantie van een virtuele machine in een virtuele-machineschaalset teruggezet.|
+|/virtualMachineScaleSets/virtualMachines/restart/action|Hiermee wordt de instantie van een specifieke virtuele machine in een VM-schaalset opnieuw gestart.|
+|/virtualMachineScaleSets/virtualMachines/start/action|Hiermee wordt de instantie van een specifieke virtuele machine in een VM-schaalset gestart.|
+|/virtualMachineScaleSets/virtualMachines/write|Hiermee worden de eigenschappen van een virtuele machine in een VM-schaalset bijgewerkt|
+|/virtualMachineScaleSets/write|Hiermee wordt een nieuwe virtuele-machineschaalset gemaakt of een bestaande bijgewerkt|
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -988,8 +988,8 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/marketplaces/Read|Lijst van de gebruiksdetails van de marketplace-resource voor een scope voor abonnementen EA en WebDirect.|
 |/Operations/Read|Lijst van alle ondersteunde bewerkingen door Microsoft.Consumption resourceprovider.|
 |/pricesheets/Read|Een lijst met Pricesheets gegevens voor een abonnement of een beheergroep.|
-|/reservationDetails/Read|Lijst van de details van tapegebruik voor gereserveerde exemplaren door reservering volgorde of beheer van groepen. De gegevens details zijn per exemplaar per dag niveau.|
-|/reservationSummaries/Read|Lijst van het gebruik van de samenvatting voor gereserveerde exemplaren door reservering volgorde of beheer van groepen. De gegevens van de samenvatting bevindt zich op niveau van de maand of per dag.|
+|/reservationDetails/read|Lijst van de details van tapegebruik voor gereserveerde exemplaren door reservering volgorde of beheer van groepen. De gegevens details zijn per exemplaar per dag niveau.|
+|/reservationSummaries/read|Lijst van het gebruik van de samenvatting voor gereserveerde exemplaren door reservering volgorde of beheer van groepen. De gegevens van de samenvatting bevindt zich op niveau van de maand of per dag.|
 |/reservationTransactions/Read|Lijst van de transactiegeschiedenis voor gereserveerde exemplaren door beheergroepen.|
 |/terms/Read|Lijst van de voorwaarden voor een abonnement of een beheergroep.|
 |/usageDetails/read|Lijst van de gebruiksgegevens voor een scope voor abonnementen EA en WebDirect.|
@@ -998,11 +998,11 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/containerGroups/containers/Logs/Read|Logbestanden voor een specifieke container ophalen.|
+|/containerGroups/containers/logs/read|Logbestanden voor een specifieke container ophalen.|
 |/containerGroups/delete|De specifieke containergroep verwijderen.|
 |/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee haalt u de diagnostische instelling voor de containergroep.|
 |/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van de diagnostische instelling voor de containergroep.|
-|/containerGroups/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee haalt u de beschikbare metrische gegevens voor containergroep.|
+|/containerGroups/providers/Microsoft.Insights/metricDefinitions/read|Hiermee haalt u de beschikbare metrische gegevens voor containergroep.|
 |/containerGroups/Read|Alle containergroepen ophalen.|
 |/containerGroups/write|Een specifieke containergroep maken of bijwerken.|
 
@@ -1010,25 +1010,25 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/checkNameAvailability/Read|Controleert of de containernaam van het register beschikbaar voor gebruik is.|
-|/Locations/operationResults/Read|Een asynchrone bewerkingsresultaat opgehaald|
+|/checkNameAvailability/read|Controleert of de containernaam van het register beschikbaar voor gebruik is.|
+|/locations/operationResults/read|Een asynchrone bewerkingsresultaat opgehaald|
 |/Operations/Read|Een lijst met alle beschikbare Azure Container register REST-API-bewerkingen|
 |registratie-/ actie|Het abonnement voor de container register-resourceprovider geregistreerd en het maken van de container registers maakt.|
-|/registries/DELETE|Hiermee verwijdert u een container-register.|
+|/registries/delete|Hiermee verwijdert u een container-register.|
 |/registries/eventGridFilters/delete|Een raster gebeurtenisfilter verwijdert uit een container-register.|
 |/registries/eventGridFilters/read|De eigenschappen van de opgegeven gebeurtenis raster filter opgehaald of een lijst met alle gebeurtenis raster filters voor het register opgegeven container.|
 |/registries/eventGridFilters/write|Maken of bijwerken van een raster gebeurtenisfilter voor een container-registersleutel met de opgegeven parameters.|
-|/registries/listCredentials/Action|Hier worden de aanmeldingsreferenties voor het register opgegeven container.|
-|/registries/listUsages/Read|Bevat de quota voor gebruik voor het register opgegeven container.|
+|/registries/listCredentials/action|Hier worden de aanmeldingsreferenties voor het register opgegeven container.|
+|/registries/listUsages/read|Bevat de quota voor gebruik voor het register opgegeven container.|
 |/registries/operationStatuses/Read|De status van een register asynchrone bewerking opgehaald|
 |/registries/Read|De eigenschappen van het register opgegeven container opgehaald of een lijst met alle container registers onder de opgegeven resourcegroep of abonnement.|
-|/registries/regenerateCredential/Action|Genereert een van de aanmeldingsreferenties voor het register opgegeven container.|
+|/registries/regenerateCredential/action|Genereert een van de aanmeldingsreferenties voor het register opgegeven container.|
 |/registries/replications/DELETE|Hiermee verwijdert u een replicatie uit een container-register.|
 |/registries/replications/operationStatuses/Read|De status van een replicatie asynchrone bewerking opgehaald|
 |/registries/replications/Read|De eigenschappen van de opgegeven replicatie opgehaald of een lijst met alle replicaties voor het register opgegeven container.|
 |/registries/replications/Write|Maken of bijwerken van een replicatie voor een container-registersleutel met de opgegeven parameters.|
 |/registries/webhooks/DELETE|Hiermee wordt een webhook verwijderd uit het register van een container.|
-|/registries/webhooks/getCallbackConfig/action|Hiermee wordt de configuratie van de service-URI en aangepaste headers voor de webhook.|
+|/registries/webhooks/getCallbackConfig/Action|Hiermee wordt de configuratie van de service-URI en aangepaste headers voor de webhook.|
 |/registries/webhooks/listEvents/Action|Een lijst met recente gebeurtenissen voor de opgegeven webhook.|
 |/registries/webhooks/operationStatuses/Read|De status van een webhook asynchrone bewerking opgehaald|
 |/registries/webhooks/ping/Action|Een ping gebeurtenis moet worden verzonden naar de webhook.|
@@ -1049,12 +1049,12 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/Applications/DELETE|Verwijderbewerking|
-|/Applications/listSecrets/Action|Geheimen vermelden|
-|/applications/listSingleSignOnToken/action|Eenmalige aanmelding Tokens lezen|
+|/applications/listSecrets/action|Geheimen vermelden|
+|/Applications/listSingleSignOnToken/Action|Eenmalige aanmelding Tokens lezen|
 |/Applications/Read|Leesbewerking|
 |/ applications/schrijven|Schrijfbewerking|
 |/ applications/schrijven|Schrijfbewerking|
-|/ listCommunicationPreference/actie|Lijst communicatievoorkeur|
+|/listCommunicationPreference/action|Lijst communicatievoorkeur|
 |/Operations/Read|leesbewerkingen|
 |/updateCommunicationPreference/action|Communicatievoorkeur bijwerken|
 
@@ -1076,63 +1076,63 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/hubs/connectors/mappings/Activate/Action|Activeren van een toewijzing van Azure klant Insights-Connector|
 |/hubs/connectors/mappings/delete|Een toewijzing van Azure klant Insights-Connector verwijderen|
 |/hubs/connectors/mappings/Operations/Read|Het resultaat van een toewijzing van Azure klant Insights-Connector bewerking lezen|
-|/hubs/connectors/mappings/read|Lezen van een toewijzing van Azure klant Insights-Connector|
+|/hubs/connectors/mappings/Read|Lezen van een toewijzing van Azure klant Insights-Connector|
 |/hubs/connectors/mappings/Write|Maken of bijwerken van een toewijzing van Azure klant Insights-Connector|
 |/hubs/connectors/Operations/Read|Het resultaat van een klant Insights-Connector van Azure-bewerking lezen|
-|/hubs/connectors/read|Lezen van een Azure klant Insights-Connector|
+|/hubs/connectors/Read|Lezen van een Azure klant Insights-Connector|
 |/hubs/connectors/saveauthinfo/action|Maken of bijwerken van een Azure klant Insights-Connector verificatie informatie over de gatewayverbinding|
 |/hubs/connectors/update/Action|Bijwerken van een Azure klant Insights-Connector|
-|/hubs/connectors/write|Maken of bijwerken van een Azure klant Insights-Connector|
-|/hubs/crmmetadata/Action|Maken of bijwerken van alle Azure klant Insights Crm-metagegevens|
+|/hubs/connectors/Write|Maken of bijwerken van een Azure klant Insights-Connector|
+|/hubs/crmmetadata/action|Maken of bijwerken van alle Azure klant Insights Crm-metagegevens|
 |/hubs/crmmetadata/read|Alle Azure klant Insights Crm-metagegevens lezen|
 |/hubs/delete|Verwijderen van een Azure klant Insights Hub|
 |/hubs/gdpr/delete|Een Azure klant Insights Gdpr verwijderen|
 |/hubs/gdpr/read|Een Azure klant Insights Gdpr lezen|
-|/hubs/gdpr/write|Maken of bijwerken van een Azure klant Insights Gdpr|
-|/hubs/getbillingcredits/read|Azure klant Insights Hub facturering tegoed ophalen|
-|/hubs/getbillinghistory/Read|Azure klant Insights Hub facturering geschiedenis ophalen|
+|/hubs/gdpr/Write|Maken of bijwerken van een Azure klant Insights Gdpr|
+|/hubs/getbillingcredits/Read|Azure klant Insights Hub facturering tegoed ophalen|
+|/hubs/getbillinghistory/read|Azure klant Insights Hub facturering geschiedenis ophalen|
 |/hubs/images/delete|De installatiekopie van een Azure klant Insights verwijderen|
-|/hubs/images/read|Een Azure klant Insights afbeelding lezen|
-|/hubs/images/write|Maken of bijwerken van een Azure klant Insights-afbeelding|
-|/hubs/interactions/DELETE|Azure klant Insights interacties verwijderen|
+|/hubs/images/Read|Een Azure klant Insights afbeelding lezen|
+|/hubs/images/Write|Maken of bijwerken van een Azure klant Insights-afbeelding|
+|/hubs/interactions/delete|Azure klant Insights interacties verwijderen|
 |/hubs/interactions/Operations/Read|Het resultaat van een Azure klant Insights interactie bewerking lezen|
 |/hubs/interactions/Read|Elke klant Azure Insights interactie lezen|
 |/hubs/interactions/suggestrelationshiplinks/action|Relatie koppelingen aanbevelen voor Azure klant Insights interacties|
-|/hubs/interactions/write|Maken of bijwerken van elke klant Azure Insights interactie|
+|/hubs/interactions/Write|Maken of bijwerken van elke klant Azure Insights interactie|
 |/hubs/kpi/delete|Een Azure klant Insights Key Performance Indicator verwijderen|
-|/hubs/kpi/operations/read|Het resultaat van een Azure klant Insights Key Performance Indicators bewerking lezen|
+|/hubs/KPI/Operations/Read|Het resultaat van een Azure klant Insights Key Performance Indicators bewerking lezen|
 |/hubs/kpi/read|Een Azure klant Insights Key Performance Indicator lezen|
-|/hubs/kpi/reprocess/action|Een Azure klant Insights prestatie-indicatoren opnieuw verwerken|
-|/hubs/kpi/write|Maken of bijwerken van een Azure klant Insights Key Performance Indicator|
+|/hubs/KPI/Reprocess/Action|Een Azure klant Insights prestatie-indicatoren opnieuw verwerken|
+|/hubs/KPI/Write|Maken of bijwerken van een Azure klant Insights Key Performance Indicator|
 |/hubs/links/delete|Een Azure klant Insights koppelingen verwijderen|
-|/hubs/links/Operations/Read|Het resultaat van een Azure klant Insights koppelingen bewerking lezen|
+|/hubs/links/operations/read|Het resultaat van een Azure klant Insights koppelingen bewerking lezen|
 |/hubs/links/read|Azure klant Insights koppelingen lezen|
 |/hubs/links/Write|Maken of bijwerken van de klant Azure koppelingen|
-|/hubs/msemetadata/Action|Maken of bijwerken van alle metagegevens van de klant Azure Insights muis|
-|/hubs/msemetadata/Read|Azure klant Insights muis metagegevens lezen|
-|/hubs/operationresults/Read|Resultaat van de klant Azure Insights Hub-bewerking ophalen|
-|/hubs/predictions/delete|Een Azure klant Insights voorspellingen verwijderen|
+|/hubs/msemetadata/action|Maken of bijwerken van alle metagegevens van de klant Azure Insights muis|
+|/hubs/msemetadata/read|Azure klant Insights muis metagegevens lezen|
+|/hubs/operationresults/read|Resultaat van de klant Azure Insights Hub-bewerking ophalen|
+|/hubs/predictions/DELETE|Een Azure klant Insights voorspellingen verwijderen|
 |/hubs/predictions/Operations/Read|Het resultaat van een Azure klant Insights voorspellingen bewerking lezen|
 |/hubs/predictions/Read|Een Azure klant Insights voorspellingen lezen|
 |/hubs/predictions/Write|Maken of bijwerken van een Azure klant voorspellingen|
 |/hubs/predictivematchpolicies/delete|Een Azure klant Insights voorspellende overeen beleid verwijderen|
 |/hubs/predictivematchpolicies/Operations/Read|Het resultaat van een bewerking Azure klant Insights voorspellende overeen beleid lezen|
-|/hubs/predictivematchpolicies/read|Azure klant Insights voorspellende overeen beleid lezen|
+|/hubs/predictivematchpolicies/Read|Azure klant Insights voorspellende overeen beleid lezen|
 |/hubs/predictivematchpolicies/write|Een Azure klant Insights voorspellende overeen beleid maken of bijwerken|
 |/hubs/profiles/delete|Een Azure klant Insights-profiel verwijderen|
 |/hubs/Profiles/Operations/Read|Het resultaat van een Azure klant Insights profiel bewerking lezen|
-|/hubs/profiles/read|Een Azure klant Insights profiel lezen|
-|/hubs/profiles/write|Schrijven van een Azure klant Insights-profiel|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/hubs/Profiles/Read|Een Azure klant Insights profiel lezen|
+|/hubs/Profiles/Write|Schrijven van een Azure klant Insights-profiel|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
 |/hubs/providers/Microsoft.Insights/logDefinitions/read|De beschikbare logboeken opgehaald voor resource|
-|/hubs/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden de beschikbare metrische gegevens voor de resource opgehaald|
-|/hubs/read|Een Azure klant Insights Hub lezen|
-|/hubs/relationshiplinks/delete|Een Azure klant Insights relatie koppelingen verwijderen|
-|/hubs/relationshiplinks/Operations/Read|Het resultaat van een Azure klant Insights relatie koppelingen bewerking lezen|
-|/hubs/relationshiplinks/read|Alle koppelingen van Azure klant Insights relatie lezen|
-|/hubs/relationshiplinks/write|Maken of bijwerken van de klant Azure Insights relatie koppelingen|
-|/hubs/relationships/delete|Verwijder alle Azure klant Insights relaties|
+|/hubs/providers/Microsoft.Insights/metricDefinitions/read|Hiermee worden de beschikbare metrische gegevens voor de resource opgehaald|
+|/hubs/Read|Een Azure klant Insights Hub lezen|
+|/hubs/relationshiplinks/DELETE|Een Azure klant Insights relatie koppelingen verwijderen|
+|/hubs/relationshiplinks/operations/read|Het resultaat van een Azure klant Insights relatie koppelingen bewerking lezen|
+|/hubs/relationshiplinks/Read|Alle koppelingen van Azure klant Insights relatie lezen|
+|/hubs/relationshiplinks/Write|Maken of bijwerken van de klant Azure Insights relatie koppelingen|
+|/hubs/Relationships/DELETE|Verwijder alle Azure klant Insights relaties|
 |/hubs/Relationships/Operations/Read|Het resultaat van een Azure Insights relaties bewerking lezen|
 |/hubs/Relationships/Read|De relaties die Azure klant Insights lezen|
 |/hubs/Relationships/Write|Maken of bijwerken van de klant Azure Insights relaties|
@@ -1141,23 +1141,23 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/hubs/roleAssignments/Read|Lezen van een Azure klant Insights Rbac-toewijzing|
 |/hubs/roleAssignments/Write|Maken of bijwerken van een Azure klant Insights Rbac-toewijzing|
 |/hubs/roles/Read|Azure klant Insights Rbac rollen lezen|
-|/hubs/salesforcemetadata/Action|Maken of bijwerken van de klant Azure Insights SalesForce metagegevens|
+|/hubs/salesforcemetadata/action|Maken of bijwerken van de klant Azure Insights SalesForce metagegevens|
 |/hubs/salesforcemetadata/read|Alle metagegevens van de klant Azure Insights SalesForce lezen|
 |/hubs/segments/delete|Een Azure klantsegmenten Insights verwijderen|
-|/hubs/Segments/Dynamic/Action|Beheer alle Azure klant inzicht dynamische segmenten|
+|/hubs/segments/dynamic/action|Beheer alle Azure klant inzicht dynamische segmenten|
 |/hubs/Segments/Read|Een Azure klantsegmenten Insights lezen|
 |/hubs/Segments/static/Action|Beheer alle Azure klant inzicht statische segmenten|
 |/hubs/Segments/Write|Maken of bijwerken van een Azure klantsegmenten Insights|
 |/hubs/sqlconnectionstrings/delete|Een Azure klant Insights SqlConnectionStrings verwijderen|
-|/hubs/sqlconnectionstrings/read|Een Azure klant Insights SqlConnectionStrings lezen|
-|/hubs/sqlconnectionstrings/write|Maken of bijwerken van een Azure klant Insights SqlConnectionStrings|
-|/hubs/suggesttypeschema/action|Type Schema voorstellen genereren van voorbeeldgegevens|
-|/hubs/tenantmanagement/read|Een Azure klant Insights hub-instellingen beheren|
-|/hubs/Views/DELETE|Elke klant Azure Insights App weergave verwijderen|
+|/hubs/sqlconnectionstrings/Read|Een Azure klant Insights SqlConnectionStrings lezen|
+|/hubs/sqlconnectionstrings/Write|Maken of bijwerken van een Azure klant Insights SqlConnectionStrings|
+|/hubs/suggesttypeschema/Action|Type Schema voorstellen genereren van voorbeeldgegevens|
+|/hubs/tenantmanagement/Read|Een Azure klant Insights hub-instellingen beheren|
+|/hubs/views/delete|Elke klant Azure Insights App weergave verwijderen|
 |/hubs/Views/Read|Elke weergave Azure klant Insights-App lezen|
 |/hubs/Views/Write|Maken of bijwerken van een Azure klant Insights App weergeven|
-|/hubs/widgettypes/read|Geen typen Azure klant Insights App Widget lezen|
-|/hubs/write|Maken of bijwerken van een Azure klant Insights Hub|
+|/hubs/widgettypes/Read|Geen typen Azure klant Insights App Widget lezen|
+|hubs/schrijven|Maken of bijwerken van een Azure klant Insights Hub|
 |/Operations/Read|Azure klant Insights Api Metadatas lezen|
 |registratie-/ actie|Het abonnement voor de klant Insights-resourceprovider geregistreerd en wordt het maken van de klant Insights-resources|
 |/ unregister/actie|Heft de registratie van het abonnement voor de klant Insights-resourceprovider|
@@ -1166,7 +1166,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/Catalogs/DELETE|Hiermee verwijdert u de catalogus.|
+|/catalogs/delete|Hiermee verwijdert u de catalogus.|
 |/Catalogs/Read|Eigenschappen voor catalogi onder het abonnement of resourcegroep worden opgehaald.|
 |catalogussen/schrijven|Catalogus maken of bijwerken van de labels en eigenschappen voor de catalogus.|
 |/ checkNameAvailability/actie|Controleert de beschikbaarheid van de catalogus-naam voor de tenant.|
@@ -1178,13 +1178,13 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/datafactories/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/datafactories/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
-|/datafactories/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor datafactories|
-|/factories/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/factories/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
-|/factories/providers/Microsoft.Insights/logDefinitions/Read|De beschikbare logboeken opgehaald voor fabrieken|
-|/factories/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor fabrieken|
+|/datafactories/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/datafactories/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/datafactories/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor datafactories|
+|/factories/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/factories/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/factories/providers/Microsoft.Insights/logDefinitions/read|De beschikbare logboeken opgehaald voor fabrieken|
+|/factories/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor fabrieken|
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
@@ -1192,30 +1192,30 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/accounts/computePolicies/delete|Een compute-beleid verwijderen.|
 |/accounts/computePolicies/Read|Informatie ophalen over een compute-beleid.|
-|/accounts/computePolicies/Write|Maken of bijwerken van een compute-beleid.|
+|/accounts/computePolicies/write|Maken of bijwerken van een compute-beleid.|
 |/accounts/dataLakeStoreAccounts/delete|Ontkoppelen van een account DataLakeStore van een DataLakeAnalytics-account.|
 |/accounts/dataLakeStoreAccounts/read|Informatie ophalen over een gekoppelde DataLakeStore-account van een DataLakeAnalytics-account.|
 |/accounts/dataLakeStoreAccounts/write|Maken of bijwerken van een gekoppelde DataLakeStore-account van een DataLakeAnalytics-account.|
 |/accounts/DELETE|Een DataLakeAnalytics-account verwijderen.|
-|/accounts/firewallRules/DELETE|Een firewallregel verwijderen.|
+|/accounts/firewallRules/delete|Een firewallregel verwijderen.|
 |/accounts/firewallRules/Read|Informatie ophalen over een firewallregel.|
 |/accounts/firewallRules/Write|Maken of bijwerken van een firewallregel.|
 |/accounts/operationResults/Read|Resultaat van een bewerking van de account DataLakeAnalytics ophalen.|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/Read|De diagnostische instellingen voor het account DataLakeAnalytics ophalen.|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/Write|Maken of bijwerken van de diagnostische instellingen voor het account DataLakeAnalytics.|
-|/accounts/providers/Microsoft.Insights/logDefinitions/Read|De beschikbare logboeken voor het account DataLakeAnalytics niet ophalen.|
-|/accounts/providers/Microsoft.Insights/metricDefinitions/Read|De beschikbare metrische gegevens voor het account DataLakeAnalytics niet ophalen.|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/read|De diagnostische instellingen voor het account DataLakeAnalytics ophalen.|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van de diagnostische instellingen voor het account DataLakeAnalytics.|
+|/accounts/providers/Microsoft.Insights/logDefinitions/read|De beschikbare logboeken voor het account DataLakeAnalytics niet ophalen.|
+|/accounts/providers/Microsoft.Insights/metricDefinitions/read|De beschikbare metrische gegevens voor het account DataLakeAnalytics niet ophalen.|
 |/Accounts/read|Informatie ophalen over een bestaande DataLakeAnalytics-account.|
 |/accounts/storageAccounts/Containers/listSasTokens/action|Lijst met SAS-tokens voor storage-containers van een gekoppelde Storage-account van een DataLakeAnalytics-account.|
-|/accounts/storageAccounts/Containers/read|Containers van een gekoppelde Storage-account van een account DataLakeAnalytics ophalen.|
+|/accounts/storageAccounts/containers/Read|Containers van een gekoppelde Storage-account van een account DataLakeAnalytics ophalen.|
 |/accounts/storageAccounts/delete|Een opslagaccount van een account DataLakeAnalytics ontkoppelen.|
-|/accounts/storageAccounts/read|Informatie ophalen over een gekoppelde Storage-account van een DataLakeAnalytics-account.|
+|/accounts/storageAccounts/Read|Informatie ophalen over een gekoppelde Storage-account van een DataLakeAnalytics-account.|
 |/accounts/storageAccounts/write|Maken of bijwerken van een gekoppelde Storage-account van een DataLakeAnalytics-account.|
 |/accounts/TakeOwnerShip/Action|Machtigingen verlenen voor het annuleren van de taken die worden verzonden door andere gebruikers.|
 |accounts/schrijven|Maken of bijwerken van een DataLakeAnalytics-account.|
 |/Locations/capability/Read|Ophalen van informatie over de functionaliteit van een abonnement met betrekking tot DataLakeAnalytics gebruiken.|
 |/Locations/checkNameAvailability/Action|Controleer de beschikbaarheid van een accountnaam DataLakeAnalytics.|
-|/Locations/operationResults/Read|Resultaat van een bewerking van de account DataLakeAnalytics ophalen.|
+|/locations/operationResults/read|Resultaat van een bewerking van de account DataLakeAnalytics ophalen.|
 |/Operations/Read|Beschikbare bewerkingen van DataLakeAnalytics ophalen.|
 |registratie-/ actie|Abonnement op DataLakeAnalytics registreren.|
 
@@ -1225,23 +1225,23 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/accounts/DELETE|Een DataLakeStore-account verwijderen.|
 |/accounts/enableKeyVault/action|KeyVault inschakelen voor een account DataLakeStore.|
-|/accounts/firewallRules/DELETE|Een firewallregel verwijderen.|
+|/accounts/firewallRules/delete|Een firewallregel verwijderen.|
 |/accounts/firewallRules/Read|Informatie ophalen over een firewallregel.|
 |/accounts/firewallRules/Write|Maken of bijwerken van een firewallregel.|
 |/accounts/operationResults/Read|Resultaat van een bewerking van de account DataLakeStore ophalen.|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/Read|De diagnostische instellingen voor het account DataLakeStore ophalen.|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/Write|Maken of bijwerken van de diagnostische instellingen voor het account DataLakeStore.|
-|/accounts/providers/Microsoft.Insights/logDefinitions/Read|De beschikbare logboeken voor het account DataLakeStore niet ophalen.|
-|/accounts/providers/Microsoft.Insights/metricDefinitions/Read|De beschikbare metrische gegevens voor het account DataLakeStore niet ophalen.|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/read|De diagnostische instellingen voor het account DataLakeStore ophalen.|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van de diagnostische instellingen voor het account DataLakeStore.|
+|/accounts/providers/Microsoft.Insights/logDefinitions/read|De beschikbare logboeken voor het account DataLakeStore niet ophalen.|
+|/accounts/providers/Microsoft.Insights/metricDefinitions/read|De beschikbare metrische gegevens voor het account DataLakeStore niet ophalen.|
 |/Accounts/read|Informatie ophalen over een bestaande DataLakeStore-account.|
 |/accounts/SuperUser/Action|Supergebruiker op Data Lake Store als verleend met Microsoft.Authorization/roleAssignments/write verlenen.|
 |/accounts/trustedIdProviders/delete|Verwijderen van een vertrouwde id-provider.|
-|/accounts/trustedIdProviders/Read|Informatie ophalen over een vertrouwde id-provider.|
+|/accounts/trustedIdProviders/read|Informatie ophalen over een vertrouwde id-provider.|
 |/accounts/trustedIdProviders/write|Maken of bijwerken van een vertrouwde id-provider.|
 |accounts/schrijven|Maken of bijwerken van een DataLakeStore-account.|
 |/Locations/capability/Read|Ophalen van informatie over de functionaliteit van een abonnement met betrekking tot DataLakeStore gebruiken.|
 |/Locations/checkNameAvailability/Action|Controleer de beschikbaarheid van een accountnaam DataLakeStore.|
-|/Locations/operationResults/Read|Resultaat van een bewerking van de account DataLakeStore ophalen.|
+|/locations/operationResults/read|Resultaat van een bewerking van de account DataLakeStore ophalen.|
 |/Operations/Read|Beschikbare bewerkingen van DataLakeStore ophalen.|
 |registratie-/ actie|Abonnement op DataLakeStore registreren.|
 
@@ -1251,17 +1251,17 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/Locations/performanceTiers/Read|Retourneert de lijst met beschikbare Prestatielagen.|
 |/performanceTiers/Read|Retourneert de lijst met beschikbare Prestatielagen.|
-|/servers/DELETE|Hiermee verwijdert u een bestaande server.|
-|/servers/firewallRules/DELETE|Hiermee wordt een bestaande firewallregel verwijderd.|
-|/servers/firewallRules/Read|De lijst met firewall regels voor een server of haalt u de eigenschappen voor de opgegeven firewallregel retourneren.|
+|/servers/delete|Hiermee verwijdert u een bestaande server.|
+|/servers/firewallRules/delete|Hiermee wordt een bestaande firewallregel verwijderd.|
+|/servers/firewallRules/read|De lijst met firewall regels voor een server of haalt u de eigenschappen voor de opgegeven firewallregel retourneren.|
 |/servers/firewallRules/Write|Hiermee maakt een firewallregel met de opgegeven parameters of update een bestaande regel.|
-|/servers/providers/Microsoft.Insights/diagnosticSettings/Read|De disagnostic instelling voor de resource opgehaald|
-|/servers/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
-|/servers/providers/Microsoft.Insights/metricDefinitions/Read|Retourtypen van metrische gegevens die beschikbaar voor databases zijn|
+|/servers/providers/Microsoft.Insights/diagnosticSettings/read|De disagnostic instelling voor de resource opgehaald|
+|/servers/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/servers/providers/Microsoft.Insights/metricDefinitions/read|Retourtypen van metrische gegevens die beschikbaar voor databases zijn|
 |/servers/Read|Retourneert de lijst met servers of de eigenschappen voor de opgegeven server opgehaald.|
 |/servers/recoverableServers/read|Herstelbare gegevens van de MySQL-Server te retourneren|
 |/servers/virtualNetworkRules/delete|Hiermee verwijdert u een bestaande regel voor het virtuele netwerk|
-|/servers/virtualNetworkRules/Read|De lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de opgegeven virtuele netwerk regel retourneren.|
+|/servers/virtualNetworkRules/read|De lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de opgegeven virtuele netwerk regel retourneren.|
 |/servers/virtualNetworkRules/write|Een virtueel netwerk maken met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de regel voor de opgegeven virtuele netwerk.|
 |servers/schrijven|Hiermee maakt u een server met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de opgegeven server.|
 
@@ -1271,18 +1271,18 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/Locations/performanceTiers/Read|Retourneert de lijst met beschikbare Prestatielagen.|
 |/performanceTiers/Read|Retourneert de lijst met beschikbare Prestatielagen.|
-|/servers/DELETE|Hiermee verwijdert u een bestaande server.|
-|/servers/firewallRules/DELETE|Hiermee wordt een bestaande firewallregel verwijderd.|
-|/servers/firewallRules/Read|De lijst met firewall regels voor een server of haalt u de eigenschappen voor de opgegeven firewallregel retourneren.|
+|/servers/delete|Hiermee verwijdert u een bestaande server.|
+|/servers/firewallRules/delete|Hiermee wordt een bestaande firewallregel verwijderd.|
+|/servers/firewallRules/read|De lijst met firewall regels voor een server of haalt u de eigenschappen voor de opgegeven firewallregel retourneren.|
 |/servers/firewallRules/Write|Hiermee maakt een firewallregel met de opgegeven parameters of update een bestaande regel.|
-|/servers/providers/Microsoft.Insights/diagnosticSettings/Read|De disagnostic instelling voor de resource opgehaald|
-|/servers/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
-|/servers/providers/Microsoft.Insights/logDefinitions/Read|Retourtypen van logboeken die beschikbaar voor databases zijn|
-|/servers/providers/Microsoft.Insights/metricDefinitions/Read|Retourtypen van metrische gegevens die beschikbaar voor databases zijn|
+|/servers/providers/Microsoft.Insights/diagnosticSettings/read|De disagnostic instelling voor de resource opgehaald|
+|/servers/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/servers/providers/Microsoft.Insights/logDefinitions/read|Retourtypen van logboeken die beschikbaar voor databases zijn|
+|/servers/providers/Microsoft.Insights/metricDefinitions/read|Retourtypen van metrische gegevens die beschikbaar voor databases zijn|
 |/servers/Read|Retourneert de lijst met servers of de eigenschappen voor de opgegeven server opgehaald.|
 |/servers/recoverableServers/read|De herstelbare PostgreSQL-serverinformatie retourneren|
 |/servers/virtualNetworkRules/delete|Hiermee verwijdert u een bestaande regel voor het virtuele netwerk|
-|/servers/virtualNetworkRules/Read|De lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de opgegeven virtuele netwerk regel retourneren.|
+|/servers/virtualNetworkRules/read|De lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de opgegeven virtuele netwerk regel retourneren.|
 |/servers/virtualNetworkRules/write|Een virtueel netwerk maken met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de regel voor de opgegeven virtuele netwerk.|
 |servers/schrijven|Hiermee maakt u een server met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de opgegeven server.|
 
@@ -1292,8 +1292,8 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/ checkNameAvailability/actie|Controleer als IotHub naam beschikbaar is|
 |/checkProvisioningServiceNameAvailability/Action|Controleer als IotHub naam beschikbaar is|
-|ElasticPools/diagnosticSettings/leestijd|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/ ElasticPools/diagnosticSettings/schrijven|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/ElasticPools/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/ElasticPools/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
 |/elasticPools/iotHubTenants/Delete|Verwijder de IotHub-tenant-bron|
 |/ElasticPools/IotHubTenants/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
 |/ElasticPools/IotHubTenants/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
@@ -1314,12 +1314,12 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/elasticPools/iotHubTenants/routing/routes/$testnew/Action|Een bericht met een opgegeven test Route testen|
 |/elasticPools/iotHubTenants/routingEndpointsHealth/Read|Hiermee wordt de status van alle routering eindpunten voor een IotHub|
 |/elasticPools/iotHubTenants/Write|Maken of bijwerken van de bron van de tenant IotHub|
-|ElasticPools/metricDefinitions/leestijd|Hiermee wordt de beschikbare metrische gegevens voor de IotHub-service|
+|/ElasticPools/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor de IotHub-service|
 |/iotHubs/certificates/generateVerificationCode/Action|Verificatiecode genereren|
-|/iotHubs/Certificates/Verify/Action|Controleer de resource-certificaat|
+|/iotHubs/certificates/verify/Action|Controleer de resource-certificaat|
 |/iotHubs/Delete|IotHub-bron verwijderen|
-|/IotHubs/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/IotHubs/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|IotHubs/diagnosticSettings/leestijd|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/ IotHubs/diagnosticSettings/schrijven|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
 |/iotHubs/eventGridFilters/Delete|Hiermee verwijdert u het filter gebeurtenis raster|
 |/iotHubs/eventGridFilters/Read|Het filter gebeurtenis raster opgehaald|
 |/iotHubs/eventGridFilters/Write|Maken van nieuwe of bestaande gebeurtenis raster filter bijwerken|
@@ -1333,7 +1333,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/iotHubs/jobs/Read|Details van ingediend op gegeven IotHub taken ophalen|
 |/iotHubs/listkeys/Action|Alle IotHub-sleutels ophalen|
 |/IotHubs/logDefinitions/read|De beschikbare logboekdefinities voor de IotHub-Service opgehaald|
-|/IotHubs/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor de IotHub-service|
+|IotHubs/metricDefinitions/leestijd|Hiermee wordt de beschikbare metrische gegevens voor de IotHub-service|
 |/iotHubs/quotaMetrics/Read|Quotum metrische gegevens ophalen|
 |/iotHubs/Read|De IotHub-resources opgehaald|
 |/iotHubs/routing/$testall/Action|Een bericht met alle bestaande Routes testen|
@@ -1344,14 +1344,14 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/ operations/lezen|Alle bewerkingen van de ResourceProvider ophalen|
 |/provisioningServices/certificates/generateVerificationCode/Action|Verificatiecode genereren|
 |/provisioningServices/Certificates/Verify/Action|Controleer de resource-certificaat|
-|/ provisioningServices/verwijderen|IotDps bron verwijderen|
+|/provisioningServices/Delete|IotDps bron verwijderen|
 |/provisioningServices/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
 |/provisioningServices/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
 |/provisioningServices/listkeys/Action|Alle IotDps-sleutels ophalen|
-|/provisioningServices/logDefinitions/Read|De beschikbare logboekdefinities voor de inrichting Service opgehaald|
+|/provisioningServices/logDefinitions/read|De beschikbare logboekdefinities voor de inrichting Service opgehaald|
 |/provisioningServices/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor de inrichting-service|
 |/provisioningServices/ProvisioningServiceKeys/listkeys/Action|IotDps sleutels voor de naam van de sleutel ophalen|
-|/provisioningServices/Read|Ophalen van IotDps|
+|/ provisioningServices/lezen|Ophalen van IotDps|
 |/provisioningServices/skus/Read|Geldige IotDps Skus ophalen|
 |/ provisioningServices/schrijven|IotDps resource maken|
 |registratie-/ actie|Het abonnement voor de IotHub-resourceprovider registreren en wordt het maken van resources met IotHub|
@@ -1364,34 +1364,34 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/labCenters/delete|Lab centers verwijderen.|
 |/labCenters/Read|Lab centers lezen.|
-|/labCenters/write|Toevoegen of wijzigen van de testomgeving centers.|
-|/labs/artifactSources/armTemplates/read|Lezen van azure resource manager-sjablonen.|
-|/labs/artifactSources/artifacts/GenerateArmTemplate/action|Genereert een ARM-sjabloon voor het opgegeven artefact, uploadt de vereiste bestanden naar een opslagaccount en valideert het gegenereerde artefact.|
-|/labs/artifactSources/artifacts/read|Lezen van artefacten.|
+|labCenters/schrijven|Toevoegen of wijzigen van de testomgeving centers.|
+|/Labs/artifactSources/armTemplates/Read|Lezen van azure resource manager-sjablonen.|
+|/Labs/artifactSources/artifacts/GenerateArmTemplate/Action|Genereert een ARM-sjabloon voor het opgegeven artefact, uploadt de vereiste bestanden naar een opslagaccount en valideert het gegenereerde artefact.|
+|/Labs/artifactSources/artifacts/Read|Lezen van artefacten.|
 |/labs/artifactSources/delete|Verwijderen van artefacten gegevensbronnen.|
-|/labs/artifactSources/read|Artefacten bronnen lezen.|
+|/Labs/artifactSources/Read|Artefacten bronnen lezen.|
 |/labs/artifactSources/write|Toevoegen of wijzigen van artefacten bronnen.|
 |/labs/ClaimAnyVm/action|Een willekeurige claimable virtuele machine in de testomgeving claimen.|
 |/Labs/costs/Read|Kosten worden gelezen.|
 |/Labs/costs/Write|Toevoegen of wijzigen van de kosten.|
 |/Labs/CreateEnvironment/Action|Virtuele machines maken in een testomgeving.|
-|/Labs/customImages/DELETE|Verwijderen van aangepaste installatiekopieën.|
-|/Labs/customImages/Read|Lezen van aangepaste installatiekopieën.|
-|/Labs/customImages/Write|Toevoegen of wijzigen van aangepaste installatiekopieën.|
-|/labs/delete|Labs verwijderen.|
+|/labs/customImages/delete|Verwijderen van aangepaste installatiekopieën.|
+|/labs/customImages/read|Lezen van aangepaste installatiekopieën.|
+|/labs/customImages/write|Toevoegen of wijzigen van aangepaste installatiekopieën.|
+|/Labs/DELETE|Labs verwijderen.|
 |/labs/ExportResourceUsage/action|Het brongebruik lab exporteert naar een opslagaccount|
 |/Labs/Formulas/DELETE|Verwijder de formules.|
 |/Labs/Formulas/Read|Lees de formules.|
 |/Labs/Formulas/Write|Toevoegen of wijzigen van formules.|
-|/Labs/galleryImages/Read|Afbeeldingen worden gelezen.|
+|/labs/galleryImages/read|Afbeeldingen worden gelezen.|
 |/labs/GenerateUploadUri/action|Een URI genereren voor het aangepaste schijfkopieën uploaden naar een testomgeving.|
-|/Labs/ImportVirtualMachine/Action|Een virtuele machine in een andere testomgeving importeren.|
-|/Labs/ListVhds/Action|Lijst van installatiekopieën van de schijven beschikbaar zijn voor het maken van aangepaste installatiekopie.|
+|/labs/ImportVirtualMachine/action|Een virtuele machine in een andere testomgeving importeren.|
+|/labs/ListVhds/action|Lijst van installatiekopieën van de schijven beschikbaar zijn voor het maken van aangepaste installatiekopie.|
 |/labs/notificationChannels/delete|Notificationchannels verwijderen.|
 |/Labs/notificationChannels/Notify/Action|Melding verzonden naar opgegeven kanaal.|
 |/labs/notificationChannels/read|Notificationchannels lezen.|
 |/labs/notificationChannels/write|Toevoegen of wijzigen van notificationchannels.|
-|/Labs/policySets/EvaluatePolicies/Action|Lab beleid evalueert.|
+|/labs/policySets/EvaluatePolicies/action|Lab beleid evalueert.|
 |/labs/policySets/policies/delete|Beleid verwijderen.|
 |/Labs/policySets/Policies/Read|Lezen van beleid.|
 |/labs/policySets/policies/write|Toevoegen of wijzigen van beleid.|
@@ -1402,11 +1402,11 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Labs/Schedules/Read|Schema's worden gelezen.|
 |/Labs/Schedules/Write|Toevoegen of wijzigen van schema's.|
 |/labs/serviceRunners/delete|Service uitlopers verwijderen.|
-|/labs/serviceRunners/read|Service uitlopers lezen.|
+|/Labs/serviceRunners/Read|Service uitlopers lezen.|
 |/labs/serviceRunners/write|Toevoegen of wijzigen van de service uitlopers.|
 |/Labs/Users/DELETE|Gebruikersprofielen verwijderen.|
 |/Labs/Users/Disks/Attach/Action|Koppelen en maken van de lease van de schijf voor de virtuele machine.|
-|/labs/users/disks/delete|Schijven worden verwijderd.|
+|/Labs/Users/Disks/DELETE|Schijven worden verwijderd.|
 |/Labs/Users/Disks/detach/Action|Ontkoppel en de lease van de schijf die is gekoppeld aan de virtuele machine wordt verbroken.|
 |/Labs/Users/Disks/Read|Schijven worden gelezen.|
 |/Labs/Users/Disks/Write|Toevoegen of wijzigen van de schijven.|
@@ -1414,10 +1414,10 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Labs/Users/Environments/Read|Lezen omgevingen.|
 |/Labs/Users/Environments/Write|Toevoegen of wijzigen van omgevingen.|
 |/Labs/Users/Read|Gebruikersprofielen worden gelezen.|
-|/labs/users/secrets/delete|Geheimen verwijderen.|
+|/Labs/Users/secrets/DELETE|Geheimen verwijderen.|
 |/Labs/Users/secrets/Read|Lezen van geheimen.|
 |/Labs/Users/secrets/Write|Toevoegen of wijzigen van geheimen.|
-|/labs/users/serviceFabrics/delete|Verwijder de service fabrics.|
+|/Labs/Users/serviceFabrics/DELETE|Verwijder de service fabrics.|
 |/Labs/Users/serviceFabrics/ListApplicableSchedules/Action|Geeft een lijst van alle toepasselijke schema 's|
 |/Labs/Users/serviceFabrics/Read|Service-fabrics lezen.|
 |/Labs/Users/serviceFabrics/Schedules/DELETE|Verwijderen van schema's.|
@@ -1426,24 +1426,24 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Labs/Users/serviceFabrics/Schedules/Write|Toevoegen of wijzigen van schema's.|
 |/Labs/Users/serviceFabrics/start/Action|Start een service fabric.|
 |/Labs/Users/serviceFabrics/Stop/Action|Een service fabric stoppen|
-|/labs/users/serviceFabrics/write|Toevoegen of wijzigen van de service-fabrics.|
+|/Labs/Users/serviceFabrics/Write|Toevoegen of wijzigen van de service-fabrics.|
 |/Labs/Users/Write|Toevoegen of wijzigen van gebruikersprofielen.|
 |/Labs/virtualMachines/AddDataDisk/Action|Een nieuwe of bestaande gegevensschijf koppelen aan de virtuele machine.|
 |/Labs/virtualMachines/ApplyArtifacts/Action|Artefacten van toepassing op virtuele machine.|
-|/Labs/virtualMachines/claim/Action|Eigenaar worden van een bestaande virtuele machine|
-|/Labs/virtualMachines/DELETE|Verwijder de virtuele machines.|
-|/Labs/virtualMachines/DetachDataDisk/Action|Loskoppelen van de opgegeven schijf van de virtuele machine.|
-|/Labs/virtualMachines/ListApplicableSchedules/Action|Geeft een lijst van alle toepasselijke schema 's|
-|/Labs/virtualMachines/Read|Virtuele machines gelezen.|
+|/labs/virtualMachines/Claim/action|Eigenaar worden van een bestaande virtuele machine|
+|/labs/virtualMachines/delete|Verwijder de virtuele machines.|
+|/labs/virtualMachines/DetachDataDisk/action|Loskoppelen van de opgegeven schijf van de virtuele machine.|
+|/labs/virtualMachines/ListApplicableSchedules/action|Geeft een lijst van alle toepasselijke schema 's|
+|/labs/virtualMachines/read|Virtuele machines gelezen.|
 |/Labs/virtualMachines/restart/Action|Start opnieuw op een virtuele machine.|
-|/Labs/virtualMachines/Schedules/DELETE|Verwijderen van schema's.|
-|/Labs/virtualMachines/Schedules/Execute/Action|Een schema worden uitgevoerd.|
-|/Labs/virtualMachines/Schedules/Read|Schema's worden gelezen.|
-|/Labs/virtualMachines/Schedules/Write|Toevoegen of wijzigen van schema's.|
+|/labs/virtualMachines/schedules/delete|Verwijderen van schema's.|
+|/labs/virtualMachines/schedules/Execute/action|Een schema worden uitgevoerd.|
+|/labs/virtualMachines/schedules/read|Schema's worden gelezen.|
+|/labs/virtualMachines/schedules/write|Toevoegen of wijzigen van schema's.|
 |/Labs/virtualMachines/start/Action|Een virtuele machine start.|
-|/Labs/virtualMachines/Stop/Action|Een virtuele machine stoppen|
-|/Labs/virtualMachines/TransferDisks/Action|Het eigendom overdraagt van gegevensschijven van de virtuele machine aan uzelf|
-|/Labs/virtualMachines/UnClaim/Action|Release-eigendom van een bestaande virtuele machine|
+|/labs/virtualMachines/Stop/action|Een virtuele machine stoppen|
+|/labs/virtualMachines/TransferDisks/action|Het eigendom overdraagt van gegevensschijven van de virtuele machine aan uzelf|
+|/labs/virtualMachines/UnClaim/action|Release-eigendom van een bestaande virtuele machine|
 |/Labs/virtualMachines/Write|Hiermee worden virtuele machines toegevoegd of gewijzigd.|
 |/labs/virtualNetworks/delete|Verwijder de virtuele netwerken.|
 |/labs/virtualNetworks/read|Virtuele netwerken gelezen.|
@@ -1463,42 +1463,42 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/databaseAccountNames/read|Controleert of de naam van beschikbaarheid.|
 |/databaseAccounts/changeResourceGroup/action|Resourcegroep van een databaseaccount wijzigen|
-|/databaseAccounts/databases/Collections/metricDefinitions/Read|De verzameling leest metrische definities.|
+|/databaseAccounts/databases/collections/metricDefinitions/read|De verzameling leest metrische definities.|
 |/databaseAccounts/databases/Collections/metrics/Read|Hiermee wordt de verzameling metrische gegevens gelezen.|
 |/databaseAccounts/databases/collections/partitionKeyRangeId/metrics/read|Database-account partitie belangrijkste niveau metrische gegevens lezen|
 |/databaseAccounts/databases/Collections/Partitions/metrics/Read|Database-account partitie niveau metrische gegevens lezen|
-|/databaseAccounts/databases/Collections/Partitions/usages/Read|Databaseaccount partitie niveau gebruiksregels lezen|
+|/databaseAccounts/databases/collections/partitions/usages/read|Databaseaccount partitie niveau gebruiksregels lezen|
 |/databaseAccounts/databases/Collections/usages/Read|Leest het gebruik van de verzameling.|
 |/databaseAccounts/databases/metricDefinitions/Read|Metrische definities van de database gelezen|
 |/databaseAccounts/databases/metrics/Read|Hiermee wordt de database metrische gegevens gelezen.|
-|/databaseAccounts/databases/usages/read|Hiermee wordt het gebruik van de database gelezen.|
+|/databaseAccounts/databases/usages/Read|Hiermee wordt het gebruik van de database gelezen.|
 |/databaseAccounts/delete|Hiermee verwijdert u de database-accounts.|
 |/databaseAccounts/failoverPriorityChange/action|Failover prioriteiten van regio's van een databaseaccount wijzigen. Dit wordt gebruikt om handmatige failover uit te voeren|
 |/databaseAccounts/listConnectionStrings/action|De verbindingsreeksen niet ophalen voor een databaseaccount|
 |/databaseAccounts/listKeys/action|Lijst met sleutels van een databaseaccount|
 |/databaseAccounts/metricDefinitions/Read|Leest de database account metrische definities.|
 |/databaseAccounts/metrics/Read|Hiermee wordt de database-account metrische gegevens gelezen.|
-|/databaseAccounts/operationResults/Read|Status van de asynchrone bewerking lezen|
+|/databaseAccounts/operationResults/read|Status van de asynchrone bewerking lezen|
 |/databaseAccounts/Percentile/metrics/Read|Latentie metrische gegevens lezen|
 |/databaseAccounts/Percentile/sourceRegion/targetRegion/metrics/Read|Latentie metrische gegevens voor een specifieke bron en doel regio lezen|
 |/databaseAccounts/Percentile/targetRegion/metrics/Read|Latentie metrische gegevens voor een specifieke regio lezen|
-|/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
 |/databaseAccounts/providers/Microsoft.Insights/logDefinitions/read|Hiermee wordt de beschikbare logboek catageries voor databaseaccount|
-|/databaseAccounts/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor de database-Account|
+|/databaseAccounts/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor de database-Account|
 |/databaseAccounts/read|Een databaseaccount leest.|
 |/databaseAccounts/readonlykeys/action|Leest de database alleen-lezen sleutels.|
-|/databaseAccounts/readonlykeys/read|Leest de database alleen-lezen sleutels.|
+|/databaseAccounts/readonlykeys/Read|Leest de database alleen-lezen sleutels.|
 |/databaseAccounts/regenerateKey/action|Sleutels van een databaseaccount draaien|
 |/databaseAccounts/Region/databases/Collections/metrics/Read|Hiermee wordt de regionale verzameling metrische gegevens gelezen.|
 |/databaseAccounts/region/databases/collections/partitionKeyRangeId/metrics/read|Lezen van regionale database account partitie belangrijkste niveau metrische gegevens|
 |/databaseAccounts/Region/databases/Collections/Partitions/metrics/Read|Lezen van regionale database account partitie niveau metrische gegevens|
-|/databaseAccounts/Region/databases/Collections/Partitions/Read|Database-account partities in een verzameling lezen|
+|/databaseAccounts/region/databases/collections/partitions/read|Database-account partities in een verzameling lezen|
 |/databaseAccounts/Region/metrics/Read|Hiermee wordt de regio en database account metrische gegevens gelezen.|
-|/databaseAccounts/usages/read|Het gebruik van de account van de database gelezen.|
+|/databaseAccounts/usages/Read|Het gebruik van de account van de database gelezen.|
 |/databaseAccounts/write|Bijwerken van een database-accounts.|
 |/locations/deleteVirtualNetworkOrSubnets/action|Microsoft.DocumentDB waarschuwt dat VirtualNetwork of Subnet wordt verwijderd|
-|/operationResults/Read|Status van de asynchrone bewerking lezen|
+|/operationResults/read|Status van de asynchrone bewerking lezen|
 |/Operations/Read|Leesbewerkingen die beschikbaar zijn voor de Microsoft-DocumentDB |
 |registratie-/ actie| Registreer de provider van de resource Microsoft DocumentDB voor het abonnement|
 
@@ -1507,57 +1507,57 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/ checkDomainAvailability/actie|Controleer of een domein aanschaffen is|
-|/ domeinen/verwijderen|Een bestaand domein verwijdert.|
+|/domains/Delete|Een bestaand domein verwijdert.|
 |/Domains/domainownershipidentifiers/DELETE|Eigenaar-id verwijderen|
 |/Domains/domainownershipidentifiers/Read|Lijst met eigenaar-id 's|
 |/Domains/domainownershipidentifiers/Read|Eigenaar-id ophalen|
 |/Domains/domainownershipidentifiers/Write|Maken of bijwerken van id|
-|/Domains/operationresults/Read|De bewerking van een domein ophalen|
+|/domains/operationresults/Read|De bewerking van een domein ophalen|
 |/Domains/Operations/Read|Lijst van alle bewerkingen van het app service-domeinregistratie|
 |/ domeinen/lezen|De lijst met domeinen ophalen|
 |/ domeinen/lezen|Domein ophalen|
-|/domains/renew/Action|Vernieuwen van een bestaand domein.|
+|/Domains/renew/Action|Vernieuwen van een bestaand domein.|
 |/ domeinen/schrijven|Een nieuw domein toevoegen of een bestaande bijgewerkt|
 |/generateSsoRequest/Action|Genereren van een aanvraag voor het aanmelden bij domein control center.|
-|/ listDomainRecommendations/actie|Ophalen van de lijst domein aanbevelingen op basis van trefwoorden|
+|/listDomainRecommendations/Action|Ophalen van de lijst domein aanbevelingen op basis van trefwoorden|
 |registratie-/ actie|Registreer de provider van Microsoft Domains resource voor het abonnement|
 |/topLevelDomains/listAgreements/Action|Actie van de overeenkomst|
-|/ topLevelDomains/lezen|Toplevel domeinen ophalen|
-|/ topLevelDomains/lezen|Toplevel domein ophalen|
-|/ validateDomainRegistrationInformation/actie|Aankoop domeinobject valideren zonder deze te verzenden|
+|/topLevelDomains/Read|Toplevel domeinen ophalen|
+|/topLevelDomains/Read|Toplevel domein ophalen|
+|/validateDomainRegistrationInformation/Action|Aankoop domeinobject valideren zonder deze te verzenden|
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
 
 | Bewerking | Beschrijving |
 |---|---|
-|/lcsprojects/clouddeployments/Read|Microsoft Dynamics AX 2012 R3 Evaluation-implementaties in een Microsoft Dynamics Lifecycle Services-project die deel uitmaken van een gebruiker weergeven|
+|/lcsprojects/clouddeployments/read|Microsoft Dynamics AX 2012 R3 Evaluation-implementaties in een Microsoft Dynamics Lifecycle Services-project die deel uitmaken van een gebruiker weergeven|
 |/lcsprojects/clouddeployments/Write|Microsoft Dynamics AX 2012 R3 evaluatie-implementatie in een project Microsoft Dynamics levenscyclus van Services die deel uitmaken van een gebruiker maken. Implementaties kunnen worden beheerd vanaf de Azure-beheerportal|
 |/lcsprojects/connectors/Read|Lezen van connectors die deel uitmaken van een project Microsoft Dynamics levenscyclus van Services|
 |/lcsprojects/connectors/Write|Maken en bijwerken van connectors die deel uitmaken van een project Microsoft Dynamics levenscyclus van Services|
 |/lcsprojects/delete|Microsoft Dynamics Lifecycle Services-projecten die deel uitmaken van de gebruiker verwijderen|
 |/lcsprojects/Read|Microsoft Dynamics Lifecycle Services-projecten die deel uitmaken van een gebruiker weergeven|
-|/lcsprojects/write|Maken en bijwerken van de levenscyclus van Services van Microsoft Dynamics-projecten die deel uitmaken van de gebruiker. Alleen de naam en beschrijving van eigenschappen kunnen worden bijgewerkt. Het abonnement en de locatie die is gekoppeld aan het project kunnen niet worden bijgewerkt nadat het maken|
+|lcsprojects/schrijven|Maken en bijwerken van de levenscyclus van Services van Microsoft Dynamics-projecten die deel uitmaken van de gebruiker. Alleen de naam en beschrijving van eigenschappen kunnen worden bijgewerkt. Het abonnement en de locatie die is gekoppeld aan het project kunnen niet worden bijgewerkt nadat het maken|
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 | Bewerking | Beschrijving |
 |---|---|
-|/eventSubscriptions/DELETE|Een eventSubscription verwijderen|
+|/eventSubscriptions/delete|Een eventSubscription verwijderen|
 |/eventSubscriptions/getFullUrl/action|Volledige url in voor het gebeurtenisabonnement ophalen|
-|/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/Read|De diagnostische instelling voor abonnementen opgehaald|
-|/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/Write|Maken of bijwerken van de diagnostische instelling voor gebeurtenisabonnementen|
-|/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor eventSubscriptions|
+|/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read|De diagnostische instelling voor abonnementen opgehaald|
+|/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van de diagnostische instelling voor gebeurtenisabonnementen|
+|/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor eventSubscriptions|
 |/eventSubscriptions/Read|Een eventSubscription lezen|
 |eventSubscriptions/schrijven|Maken of bijwerken van een eventSubscription|
-|/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/Read|De diagnostische instelling voor onderwerpen opgehaald|
-|/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/Write|Maken of bijwerken van de diagnostische instelling voor onderwerpen|
-|/extensionTopics/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor onderwerpen|
+|/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read|De diagnostische instelling voor onderwerpen opgehaald|
+|/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van de diagnostische instelling voor onderwerpen|
+|/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor onderwerpen|
 |registratie-/ actie|Registreert de eventSubscription voor de resourceprovider EventGrid en wordt het maken van abonnementen gebeurtenis raster.|
 |/Topics/DELETE|Een onderwerp verwijderen|
-|/Topics/listKeys/Action|Lijst met sleutels voor het onderwerp|
-|/Topics/providers/Microsoft.Insights/diagnosticSettings/Read|De diagnostische instelling voor onderwerpen opgehaald|
-|/Topics/providers/Microsoft.Insights/diagnosticSettings/Write|Maken of bijwerken van de diagnostische instelling voor onderwerpen|
-|/Topics/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor onderwerpen|
+|/topics/listKeys/action|Lijst met sleutels voor het onderwerp|
+|/topics/providers/Microsoft.Insights/diagnosticSettings/read|De diagnostische instelling voor onderwerpen opgehaald|
+|/topics/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van de diagnostische instelling voor onderwerpen|
+|/topics/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor onderwerpen|
 |/Topics/Read|Een onderwerp lezen|
 |/Topics/regenerateKey/Action|Opnieuw genereren van de sleutel voor het onderwerp|
 |onderwerpen over/schrijven|Maken of bijwerken van een onderwerp|
@@ -1567,41 +1567,41 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/ checkNameAvailability/actie|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd.|
-|/ checkNamespaceAvailability/actie|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is afgeschaft. Gebruik in plaats hiervan CheckNameAvailabiltiy.|
-|/Namespaces/authorizationRules/Action|Updates Namespace-autorisatieregel. Deze API is depricated. Gebruik een PUT-aanroep in plaats daarvan de autorisatieregel Namespace bijwerken... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
-|/Namespaces/authorizationRules/DELETE|Namespace autorisatieregel verwijderen. De standaardregel Namespace autorisatie kan niet worden verwijderd. |
-|/Namespaces/authorizationRules/listkeys/Action|De verbindingstekenreeks naar de naamruimte ophalen|
+|/checkNamespaceAvailability/action|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is afgeschaft. Gebruik in plaats hiervan CheckNameAvailabiltiy.|
+|/namespaces/authorizationRules/action|Updates Namespace-autorisatieregel. Deze API is depricated. Gebruik een PUT-aanroep in plaats daarvan de autorisatieregel Namespace bijwerken... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
+|/namespaces/authorizationRules/delete|Namespace autorisatieregel verwijderen. De standaardregel Namespace autorisatie kan niet worden verwijderd. |
+|/namespaces/authorizationRules/listkeys/action|De verbindingstekenreeks naar de naamruimte ophalen|
 |/Namespaces/authorizationRules/Read|De lijst met beschrijvingen van verificatieregels voor naamruimten ophalen.|
-|/Namespaces/authorizationRules/regenerateKeys/Action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
+|/namespaces/authorizationRules/regenerateKeys/action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
 |/Namespaces/authorizationRules/Write|Een Namespace niveau autorisatieregels maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels, de primaire en secundaire sleutels kunnen worden bijgewerkt.|
-|/ naamruimten/verwijderen|De resource van een naamruimte verwijderen|
+|/namespaces/Delete|De resource van een naamruimte verwijderen|
 |/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action|De autorisatie regels sleutels voor de primaire naamruimte voor herstel na noodgevallen opgehaald|
-|/namespaces/disasterRecoveryConfigs/authorizationRules/read|Disaster Recovery primaire Namespace van autorisatieregels ophalen|
+|/Namespaces/disasterRecoveryConfigs/authorizationRules/Read|Disaster Recovery primaire Namespace van autorisatieregels ophalen|
 |/namespaces/disasterRecoveryConfigs/breakPairing/action|Schakelt Disaster Recovery uit en stopt het repliceren van wijzigingen van primaire naar secundaire naamruimten.|
-|/Namespaces/disasterrecoveryconfigs/checkNameAvailability/Action|Beschikbaarheid van de controles van naamruimtealias onder het betreffende abonnement.|
+|/namespaces/disasterrecoveryconfigs/checkNameAvailability/action|Beschikbaarheid van de controles van naamruimtealias onder het betreffende abonnement.|
 |/namespaces/disasterRecoveryConfigs/delete|Hiermee verwijdert u de configuratie van het herstel na noodgevallen die zijn gekoppeld aan de naamruimte. Deze bewerking kan alleen worden aangeroepen via de primaire naamruimte.|
 |/namespaces/disasterRecoveryConfigs/failover/action|Hiermee wordt een GEO DR-failover aangeroepen en wordt het naamruimtealias zo geconfigureerd dat verwezen wordt naar de secundaire naamruimte.|
 |/namespaces/disasterRecoveryConfigs/read|Hiermee wordt de Disaster Recovery-configuratie die bij de naamruimte hoort opgehaald.|
 |/namespaces/disasterRecoveryConfigs/write|Hiermee wordt de Disaster Recovery-configuratie die bij de naamruimte hoort gemaakt of bijgewerkt.|
-|/Namespaces/eventhubs/authorizationRules/Action|Bewerking voor het bijwerken van de EventHub. Deze bewerking wordt niet ondersteund op versie 2017-04-01-API. Autorisatieregels. Gebruik een PUT-aanroep autorisatieregel bijwerken.|
-|/Namespaces/eventhubs/authorizationRules/DELETE|Bewerking voor het verwijderen van EventHub-autorisatieregels|
-|/Namespaces/eventhubs/authorizationRules/listkeys/Action|De verbindingsreeks naar EventHub ophalen|
-|/Namespaces/eventhubs/authorizationRules/Read| Haal de lijst van EventHub-autorisatieregels|
-|/Namespaces/eventhubs/authorizationRules/regenerateKeys/Action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
+|/namespaces/eventhubs/authorizationRules/action|Bewerking voor het bijwerken van de EventHub. Deze bewerking wordt niet ondersteund op versie 2017-04-01-API. Autorisatieregels. Gebruik een PUT-aanroep autorisatieregel bijwerken.|
+|/namespaces/eventhubs/authorizationRules/delete|Bewerking voor het verwijderen van EventHub-autorisatieregels|
+|/namespaces/eventhubs/authorizationRules/listkeys/action|De verbindingsreeks naar EventHub ophalen|
+|/namespaces/eventhubs/authorizationRules/read| Haal de lijst van EventHub-autorisatieregels|
+|/namespaces/eventhubs/authorizationRules/regenerateKeys/action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
 |/Namespaces/eventhubs/authorizationRules/Write|Autorisatieregels EventHub maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels kunnen worden bijgewerkt.|
-|/Namespaces/eventHubs/consumergroups/DELETE|Bewerking ConsumerGroup bron verwijderen|
-|/Namespaces/eventHubs/consumergroups/Read|Lijst met beschrijvingen van de Resource ConsumerGroup ophalen|
-|/Namespaces/eventHubs/consumergroups/Write|Maken of bijwerken ConsumerGroup eigenschappen.|
-|/Namespaces/eventhubs/DELETE|Bewerking EventHub-bron verwijderen|
+|/namespaces/eventHubs/consumergroups/Delete|Bewerking ConsumerGroup bron verwijderen|
+|/namespaces/eventHubs/consumergroups/read|Lijst met beschrijvingen van de Resource ConsumerGroup ophalen|
+|/namespaces/eventHubs/consumergroups/write|Maken of bijwerken ConsumerGroup eigenschappen.|
+|/namespaces/eventhubs/Delete|Bewerking EventHub-bron verwijderen|
 |/Namespaces/eventhubs/Read|Lijst met beschrijvingen van EventHub-Resource|
 |/Namespaces/eventhubs/Write|Maken of bijwerken EventHub-eigenschappen.|
 |/Namespaces/messagingPlan/Read|Hiermee wordt de Messaging plannen voor een naamruimte. Deze API is afgeschaft. Eigenschappen beschikbaar via de MessagingPlan resource worden verplaatst naar een Namespace-resource in latere versies van de API (bovenliggend)... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
 |/Namespaces/messagingPlan/Write|De Messaging plannen voor een naamruimte-updates. Deze API is afgeschaft. Eigenschappen beschikbaar via de MessagingPlan resource worden verplaatst naar een Namespace-resource in latere versies van de API (bovenliggend)... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
-|/Namespaces/operationresults/Read|De status van de naamruimtebewerking ophalen|
-|/Namespaces/providers/Microsoft.Insights/diagnosticSettings/Read|Lijst met beschrijvingen van de Resource Namespace diagnostische instellingen|
-|/Namespaces/providers/Microsoft.Insights/diagnosticSettings/Write|Lijst met beschrijvingen van de Resource Namespace diagnostische instellingen|
-|/Namespaces/providers/Microsoft.Insights/logDefinitions/Read|Lijst met Namespace logboeken Resource beschrijvingen|
-|/Namespaces/providers/Microsoft.Insights/metricDefinitions/Read|Lijst met Namespace metrische Resource beschrijvingen|
+|/namespaces/operationresults/read|De status van de naamruimtebewerking ophalen|
+|/namespaces/providers/Microsoft.Insights/diagnosticSettings/read|Lijst met beschrijvingen van de Resource Namespace diagnostische instellingen|
+|/namespaces/providers/Microsoft.Insights/diagnosticSettings/write|Lijst met beschrijvingen van de Resource Namespace diagnostische instellingen|
+|/namespaces/providers/Microsoft.Insights/logDefinitions/read|Lijst met Namespace logboeken Resource beschrijvingen|
+|/namespaces/providers/Microsoft.Insights/metricDefinitions/read|Lijst met Namespace metrische Resource beschrijvingen|
 |/Namespaces/Read|De lijst met beschrijvingen van resources van naamruimten ophalen|
 |naamruimten/schrijven|Een Namespace-Resource maken en bijwerken van de eigenschappen ervan. Labels en capaciteit van de Namespace zijn de eigenschappen die kunnen worden bijgewerkt.|
 |/Operations/Read|Bewerkingen ophalen|
@@ -1627,9 +1627,9 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/clusters/Configurations/Action|Werk de configuratie van de HDInsight-Cluster|
 |/clusters/Configurations/Read|HDInsight-Cluster configuraties ophalen|
 |/clusters/DELETE|Een HDInsight-Cluster verwijderen|
-|/clusters/providers/Microsoft.Insights/diagnosticSettings/Read|De diagnostische instelling voor de HDInsight-Cluster van de resource opgehaald|
-|/clusters/providers/Microsoft.Insights/diagnosticSettings/Write|Maken of bijwerken van de diagnostische instelling voor de resource HDInsight-Cluster|
-|/clusters/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor HDInsight-Cluster|
+|/clusters/providers/Microsoft.Insights/diagnosticSettings/read|De diagnostische instelling voor de HDInsight-Cluster van de resource opgehaald|
+|/clusters/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van de diagnostische instelling voor de resource HDInsight-Cluster|
+|/clusters/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor HDInsight-Cluster|
 |/clusters/Read|Meer informatie over de HDInsight-Cluster|
 |/clusters/roles/Resize/Action|Een HDInsight-Cluster vergroten of verkleinen|
 |clusters/schrijven|Maken of bijwerken van HDInsight-Cluster|
@@ -1643,7 +1643,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/jobs/delete|Hiermee verwijdert u een bestaande taak.|
 |/jobs/listBitLockerKeys/action|Hiermee haalt u de BitLocker-sleutels voor de gespecificeerde taak.|
 |/jobs/Read|Hiermee wordt de eigenschappen voor de opgegeven taak of de lijst met taken geretourneerd.|
-|/jobs/write|Maakt een taak met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de gespecificeerde taak.|
+|taken/schrijven|Maakt een taak met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de gespecificeerde taak.|
 |/Locations/Read|Haalt u de eigenschappen voor de opgegeven locatie of de lijst met locaties geretourneerd.|
 |registratie-/ actie|Registreert het abonnement voor de resourceprovider voor importeren/exporteren en wordt het maken van de taken voor importeren/exporteren.|
 
@@ -1652,12 +1652,12 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/ActionGroups/Delete|Een actiegroep verwijderen|
-|/ActionGroups/Read|Een actiegroep lezen|
+|ActionGroups/leestijd|Een actiegroep lezen|
 |/ ActionGroups/schrijven|Een actiegroep schrijven|
-|/ ActivityLogAlerts/geactiveerd/actie|Waarschuwing voor een activiteitenlogboek geactiveerd|
+|/ActivityLogAlerts/Activated/Action|Waarschuwing voor een activiteitenlogboek geactiveerd|
 |/ActivityLogAlerts/Delete|Een waarschuwing voor een activiteitenlogboek verwijderen|
-|/ActivityLogAlerts/Read|Een waarschuwing voor een activiteitenlogboek lezen|
-|/ ActivityLogAlerts/schrijven|Een waarschuwing voor een activiteitenlogboek lezen|
+|ActivityLogAlerts/leestijd|Een waarschuwing voor een activiteitenlogboek lezen|
+|/ActivityLogAlerts/Write|Een waarschuwing voor een activiteitenlogboek lezen|
 |/ AlertRules/geactiveerd/actie|Waarschuwingsregel geactiveerd|
 |/ AlertRules/verwijderen|Configuratie van een waarschuwingsregel verwijderen|
 |AlertRules/incidenten/leestijd|Incidentconfiguratie van een waarschuwingsregel lezen|
@@ -1665,28 +1665,28 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/ AlertRules/opgelost/actie|Waarschuwingsregel opgelost|
 |/ AlertRules/beperkt/actie|De waarschuwingsregel wordt beperkt|
 |/ AlertRules/schrijven|Naar de configuratie van een waarschuwingsregel schrijven|
-|/ AutoscaleSettings/verwijderen|Configuratie-instelling voor automatisch schalen verwijderen|
+|/AutoscaleSettings/Delete|Configuratie-instelling voor automatisch schalen verwijderen|
 |/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Metrische definities lezen|
 |AutoscaleSettings/leestijd|Configuratie-instelling voor automatisch schalen lezen|
 |/ AutoscaleSettings/Scaledown/actie|Bewerking Omlaag schalen via automatisch schalen|
-|/ AutoscaleSettings/Scaleup/actie|Bewerking Omhoog schalen via automatisch schalen|
+|/AutoscaleSettings/Scaleup/Action|Bewerking Omhoog schalen via automatisch schalen|
 |/ AutoscaleSettings/schrijven|Naar een configuratie-instelling voor automatisch schalen schrijven|
-|Onderdelen, AnalyticsItems/verwijderen|Een Application Insights analytics-item verwijderen|
+|/Components/AnalyticsItems/Delete|Een Application Insights analytics-item verwijderen|
 |/Components/AnalyticsItems/Read|Lezen van een Application Insights analytics-item|
 |/Components/AnalyticsItems/Write|Schrijven van een Application Insights analytics-item|
 |/ Components/AnalyticsTables/actie|Actie voor Application Insights analytics tabel|
 |Onderdelen, AnalyticsTables/verwijderen|Verwijderen van een Application Insights tabel analytics schema|
-|/Components/AnalyticsTables/Read|Een Application Insights lezen tabel analytics schema|
+|Onderdelen/AnalyticsTables/leestijd|Een Application Insights lezen tabel analytics schema|
 |Onderdelen/AnalyticsTables/schrijftijd|Schrijven van een Application Insights tabel analytics schema|
-|/ Components/aantekeningen/verwijderen|Verwijderen van een aantekening Application Insights|
+|/Components/Annotations/Delete|Verwijderen van een aantekening Application Insights|
 |Onderdelen/aantekeningen/leestijd|Lezen van een aantekening Application Insights|
 |Onderdelen/aantekeningen/schrijftijd|Schrijven van een aantekening Application Insights|
-|/Components/Api/Read|Lezen van gegevens van Application Insights-onderdeel API|
-|/Components/ApiKeys/Action|Een Application Insights-API-sleutel te genereren|
-|/Components/ApiKeys/Delete|Verwijderen van een Application Insights-API-sleutel|
-|/Components/ApiKeys/Read|Lezen van een Application Insights-API-sleutel|
+|Onderdelen/Api/leestijd|Lezen van gegevens van Application Insights-onderdeel API|
+|/ Components/ApiKeys/actie|Een Application Insights-API-sleutel te genereren|
+|Onderdelen, ApiKeys/verwijderen|Verwijderen van een Application Insights-API-sleutel|
+|Onderdelen/ApiKeys/leestijd|Lezen van een Application Insights-API-sleutel|
 |/Components/BillingPlanForComponent/Read|Lezen van een abonnement voor Application Insights-onderdeel|
-|/Components/CurrentBillingFeatures/Read|Lezen van de huidige facturering functies voor Application Insights-onderdeel|
+|Onderdelen/CurrentBillingFeatures/leestijd|Lezen van de huidige facturering functies voor Application Insights-onderdeel|
 |Onderdelen/CurrentBillingFeatures/schrijftijd|Schrijven van huidige facturering functies voor Application Insights-onderdeel|
 |/Components/DefaultWorkItemConfig/Read|Een Application Insights ALM integratie standaardconfiguratie lezen|
 |Onderdelen, verwijderen|De configuratie van een Application Insights-onderdeel verwijderen|
@@ -1699,7 +1699,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |Onderdelen/Favorieten/leestijd|Lezen van een Application Insights-favoriet|
 |Onderdelen/Favorieten/schrijftijd|Schrijven van een Application Insights-favoriet|
 |Onderdelen/FeatureCapabilities/leestijd|Functiemogelijkheden lezen Application Insights-onderdeel|
-|/Components/GetAvailableBillingFeatures/Read|Lezen van Application Insights onderdeel beschikbare facturering functies|
+|Onderdelen/GetAvailableBillingFeatures/leestijd|Lezen van Application Insights onderdeel beschikbare facturering functies|
 |/Components/GetToken/Read|Lezen van een token Application Insights-onderdeel|
 |/Components/ListMigrationDate/Action|Get back abonnement migratiedatum|
 |/Components/ListMigrationDate/Read|Get back abonnement migratiedatum|
@@ -1707,7 +1707,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |Onderdelen/metrische gegevens/leestijd|Metrische gegevens lezen Application Insights-onderdeel|
 |/Components/MigrateToNewpricingModel/Action|Abonnement migreren naar nieuw prijsmodel|
 |/ Components / / actie verplaatsen|Een Application Insights-Component verplaatsen naar een andere resourcegroep of abonnement|
-|Onderdelen, MyAnalyticsItems/verwijderen|Een Application Insights persoonlijke analytics-item verwijderen|
+|/Components/MyAnalyticsItems/Delete|Een Application Insights persoonlijke analytics-item verwijderen|
 |/Components/MyAnalyticsItems/Read|Lezen van een Application Insights persoonlijke analytics-item|
 |/Components/MyAnalyticsItems/Write|Schrijven van een Application Insights persoonlijke analytics-item|
 |Onderdelen/mijn Favorieten/leestijd|Lezen van een persoonlijke Application Insights-favoriet|
@@ -1716,27 +1716,27 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Components/ProactiveDetectionConfigs/Read|Configuratie van de proactieve detectie lezen Application Insights|
 |/Components/ProactiveDetectionConfigs/Write|Configuratie van Application Insights proactieve detectie schrijven|
 |/Components/providers/Microsoft.Insights/MetricDefinitions/Read|Metrische definities lezen|
-|/Components/QuotaStatus/Read|Lezen van de quota van Application Insights Onderdeelstatus|
+|Onderdelen/QuotaStatus/leestijd|Lezen van de quota van Application Insights Onderdeelstatus|
 |Onderdelen/leestijd|De configuratie van een Application Insights-onderdeel lezen|
-|/Components/RollbackToLegacyPricingModel/Action|Terugdraaien abonnement op oudere model prijzen|
-|Onderdelen/SyntheticMonitorLocations/leestijd|Lezen van Application Insights webtest locaties|
+|/ Components/RollbackToLegacyPricingModel/actie|Terugdraaien abonnement op oudere model prijzen|
+|/Components/SyntheticMonitorLocations/Read|Lezen van Application Insights webtest locaties|
 |/Components/WorkItemConfigs/Delete|Verwijderen van de configuratie van een Application Insights ALM-integratie|
 |/Components/WorkItemConfigs/Read|Lezen van de configuratie van een Application Insights ALM-integratie|
-|/Components/WorkItemConfigs/Write|Schrijven van een Application Insights ALM integratie-configuratie|
+|Onderdelen/WorkItemConfigs/schrijftijd|Schrijven van een Application Insights ALM integratie-configuratie|
 |Onderdelen/schrijftijd|Schrijven naar de configuratie van een Application Insights-onderdeel|
-|/ DiagnosticSettings/verwijderen|Configuratie voor de diagnostische gegevens verwijderen|
+|/DiagnosticSettings/Delete|Configuratie voor de diagnostische gegevens verwijderen|
 |DiagnosticSettings/leestijd|Een configuratie voor de diagnostische instellingen lezen|
 |/ DiagnosticSettings/schrijven|Schrijven naar de configuratie voor de diagnostische instellingen|
 |EventCategories/leestijd|Een gebeurteniscategorie lezen|
 |/EventTypes/digestevents/Read|Samenvatting beheergebeurtenistype lezen|
 |/EventTypes/Values/Read|Waarden beheergebeurtenistype lezen|
-|/ ExtendedDiagnosticSettings/verwijderen|Configuratie voor de uitgebreide diagnostische instellingen verwijderen|
-|ExtendedDiagnosticSettings/leestijd|Configuratie voor de uitgebreide diagnostische instellingen lezen|
-|/ ExtendedDiagnosticSettings/schrijven|Configuratie voor de uitgebreide diagnostische instellingen schrijven|
+|/ExtendedDiagnosticSettings/Delete|Configuratie voor de uitgebreide diagnostische instellingen verwijderen|
+|/ExtendedDiagnosticSettings/Read|Configuratie voor de uitgebreide diagnostische instellingen lezen|
+|/ExtendedDiagnosticSettings/Write|Configuratie voor de uitgebreide diagnostische instellingen schrijven|
 |LogDefinitions/leestijd|Logboekdefinities lezen|
 |/LogProfiles/Delete|Configuratie voor logboekprofielen verwijderen|
-|/LogProfiles/Read|Logboekprofielen lezen|
-|/LogProfiles/Write|Schrijven naar een configuratie voor een logboekprofiel|
+|LogProfiles/leestijd|Logboekprofielen lezen|
+|/ LogProfiles/schrijven|Schrijven naar een configuratie voor een logboekprofiel|
 |/ MetricAlerts/verwijderen|Een waarschuwing voor metrische gegevens verwijderen|
 |MetricAlerts/leestijd|Een waarschuwing voor metrische gegevens lezen|
 |/ MetricAlerts/schrijven|Een waarschuwing voor metrische gegevens schrijven|
@@ -1748,8 +1748,8 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |Metrische gegevens/schrijftijd|Metrische gegevens schrijven|
 |Bewerkingen/leestijd|De bewerkingen lezen|
 |/ Registreren/actie|De Microsoft Insights-provider registeren|
-|/Tenants/Register/Action|Hiermee wordt de Microsoft Insights-provider geïnitialiseerd|
-|/Unregister/Action|De Microsoft Insights-provider registeren|
+|/ Tenants/registreren/actie|Hiermee wordt de Microsoft Insights-provider geïnitialiseerd|
+|/ Unregister/actie|De Microsoft Insights-provider registeren|
 |/ Webtests/verwijderen|Een configuratie voor een webtest verwijderen|
 |/Webtests/GetToken/Read|Lezen van het token van een webtest|
 |Webtests/MetricDefinitions/leestijd|Een webtest metrische definities lezen|
@@ -1761,26 +1761,26 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/checkNameAvailability/Read|Hiermee wordt gecontroleerd of de opgegeven sleutelkluisnaam geldig is en niet wordt gebruikt|
+|/checkNameAvailability/read|Hiermee wordt gecontroleerd of de opgegeven sleutelkluisnaam geldig is en niet wordt gebruikt|
 |/deletedVaults/read|De eigenschappen van voorlopig verwijderde sleutelkluizen weergeven|
 |/hsmPools/delete|Een HSM-groep verwijderen|
 |/hsmPools/joinVault/action|Deelnemen aan een sleutelkluis voor een HSM-groep|
 |/hsmPools/read|De eigenschappen van een HSM-groep weergeven|
 |/hsmPools/write|Een nieuwe HSM-groep maken of de eigenschappen van een bestaande HSM-groep bijwerken|
-|/Locations/deletedVaults/Purge/Action|Een voorlopig verwijderde sluitelkluis leegmaken|
-|/Locations/deletedVaults/Read|De eigenschappen van voorlopig verwijderde sleutelkluis weergeven|
+|/locations/deletedVaults/purge/action|Een voorlopig verwijderde sluitelkluis leegmaken|
+|/locations/deletedVaults/read|De eigenschappen van voorlopig verwijderde sleutelkluis weergeven|
 |/locations/deleteVirtualNetworkOrSubnets/action|Hiermee wordt aan Microsoft.KeyVault doorgegeven dat een virtueel netwerk of subnet wordt verwijderd|
-|/Locations/operationResults/Read|Het resultaat van een langdurige uitvoeringsbewerking controleren|
+|/locations/operationResults/read|Het resultaat van een langdurige uitvoeringsbewerking controleren|
 |/Operations/Read|Hiermee wordt een lijst met bewerkingen weergegeven die beschikbaar zijn op de Microsoft.KeyVault-resourceprovider|
 |registratie-/ actie|Hiermee wordt een abonnement geregistreerd|
 |/ unregister/actie|Hiermee wordt de registratie van een abonnement opgeheven|
-|/vaults/accessPolicies/Write|Een bestaand toegangsbeleid bijwerken door samenvoegen of vervangen, of een nieuw toegangsbeleid toevoegen aan een kluis.|
+|/vaults/accessPolicies/write|Een bestaand toegangsbeleid bijwerken door samenvoegen of vervangen, of een nieuw toegangsbeleid toevoegen aan een kluis.|
 |/vaults/DELETE|Een sleutelkluis verwijderen|
 |/vaults/Deploy/Action|Hiermee wordt toegang tot de geheimen in een sleutelkluis ingeschakeld tijdens het implementeren van Azure-resources|
 |/vaults/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
 |/vaults/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
-|/vaults/providers/Microsoft.Insights/logDefinitions/Read|Hiermee worden de beschikbare logboeken voor een sleutelkluis opgehaald|
-|/vaults/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden de beschikbare metrische gegevens voor een sleutelkluis opgehaald|
+|/vaults/providers/Microsoft.Insights/logDefinitions/read|Hiermee worden de beschikbare logboeken voor een sleutelkluis opgehaald|
+|/vaults/providers/Microsoft.Insights/metricDefinitions/read|Hiermee worden de beschikbare metrische gegevens voor een sleutelkluis opgehaald|
 |/vaults/Read|De eigenschappen van een sleutelkluis weergeven|
 |/vaults/secrets/Read|De eigenschappen van een geheim weergeven, maar niet de waarde|
 |/vaults/secrets/Write|Een nieuw geheim maken of de waarde van een bestaand geheim bijwerken|
@@ -1816,9 +1816,9 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/accounts/DELETE|Verwijderen van een locatie op basis van Services-Account.|
 |/accounts/listKeys/Action|Lijst met Services-Account van locatie op basis van sleutels|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/accounts/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
-|/accounts/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor de locatie op basis van serviceaccounts|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/accounts/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/accounts/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor de locatie op basis van serviceaccounts|
 |/Accounts/read|Ophalen van een locatie op basis van Services-Account.|
 |/accounts/regenerateKey/Action|Nieuwe locatie op basis van Services-Account primaire of secundaire sleutel genereren|
 |accounts/schrijven|Maken of bijwerken van een locatie op basis van Services-Account.|
@@ -1830,45 +1830,45 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/integrationAccounts/agreements/delete|Hiermee verwijdert u de overeenkomst in integratie-account.|
 |/integrationAccounts/agreements/listContentCallbackUrl/action|Hiermee wordt de URL van de callback voor inhoud van de overeenkomst in integratie-account.|
-|/integrationAccounts/agreements/Read|Leest de overeenkomst in integratie-account.|
+|/integrationAccounts/agreements/read|Leest de overeenkomst in integratie-account.|
 |/integrationAccounts/agreements/write|Maken of bijwerken van de overeenkomst in integratie-account.|
 |/integrationAccounts/assemblies/delete|Hiermee verwijdert u de assembly in integratie-account.|
 |/integrationAccounts/assemblies/listContentCallbackUrl/action|Hiermee wordt de callback-URL voor assembly-inhoud in integratie-account.|
-|/integrationAccounts/Assemblies/Read|Leest de assembly in integratie-account.|
+|/integrationAccounts/assemblies/read|Leest de assembly in integratie-account.|
 |/integrationAccounts/assemblies/write|Maken of bijwerken van de assembly in integratie-account.|
 |/integrationAccounts/batchConfigurations/delete|Hiermee verwijdert u de configuratie van de batch in integratie-account.|
 |/integrationAccounts/batchConfigurations/read|Hiermee wordt de configuratie van de batch in integratie account gelezen.|
 |/integrationAccounts/batchConfigurations/write|Maken of bijwerken van de configuratie van de batch in integratie-account.|
 |/integrationAccounts/certificates/delete|Hiermee verwijdert u het certificaat in integratie-account.|
-|/integrationAccounts/Certificates/Read|Het certificaat in het account van de integratie worden gelezen.|
+|/integrationAccounts/certificates/read|Het certificaat in het account van de integratie worden gelezen.|
 |/integrationAccounts/certificates/write|Maken of bijwerken van het certificaat in integratie-account.|
 |/integrationAccounts/delete|Hiermee verwijdert u de integratie-account.|
 |/integrationAccounts/listCallbackUrl/action|Hiermee wordt de URL van de callback voor integratie-account.|
 |/integrationAccounts/listKeyVaultKeys/action|Hiermee haalt de sleutels in de sleutelkluis.|
-|/integrationAccounts/logTrackingEvents/Action|Hiermee wordt de gebeurtenissen bijhouden in de integratie-account.|
+|/integrationAccounts/logTrackingEvents/action|Hiermee wordt de gebeurtenissen bijhouden in de integratie-account.|
 |/integrationAccounts/maps/delete|Hiermee verwijdert u de kaart in integratie-account.|
 |/integrationAccounts/maps/listContentCallbackUrl/action|Hiermee wordt de URL van de callback voor kaartinhoud in integratie-account.|
-|/integrationAccounts/Maps/Read|Leest de kaart in integratie-account.|
+|/integrationAccounts/maps/read|Leest de kaart in integratie-account.|
 |/integrationAccounts/maps/write|Maken of bijwerken van de kaart in integratie-account.|
 |/integrationAccounts/partners/delete|Hiermee verwijdert u de partner in integratie-account.|
 |/integrationAccounts/partners/listContentCallbackUrl/action|Hiermee wordt de URL van de callback voor Partnerinformatie in integratie-account.|
-|/integrationAccounts/partners/Read|Leest de vennoot in integratie-account.|
+|/integrationAccounts/partners/read|Leest de vennoot in integratie-account.|
 |/integrationAccounts/partners/write|Maken of bijwerken van de partner in integratie-account.|
 |/integrationAccounts/providers/Microsoft.Insights/logDefinitions/read|Hiermee worden de logboekdefinities van het integratieaccount gelezen.|
 |/integrationAccounts/read|Leest de integratie-account.|
-|/integrationAccounts/regenerateAccessKey/Action|Hiermee wordt de toegangssleutelgeheimen opnieuw gegenereerd.|
+|/integrationAccounts/regenerateAccessKey/action|Hiermee wordt de toegangssleutelgeheimen opnieuw gegenereerd.|
 |/integrationAccounts/schemas/delete|Hiermee verwijdert u het schema in integratie-account.|
 |/integrationAccounts/schemas/listContentCallbackUrl/action|Hiermee wordt de callback-URL voor schema-inhoud in integratie-account.|
 |/integrationAccounts/schemas/read|Leest het schema in integratie-account.|
 |/integrationAccounts/schemas/write|Maken of bijwerken van het schema in integratie-account.|
 |/integrationAccounts/sessions/delete|Hiermee verwijdert u de sessie in integratie-account.|
-|/integrationAccounts/Sessions/Read|Hiermee wordt de configuratie van de batch in integratie account gelezen.|
+|/integrationAccounts/sessions/read|Hiermee wordt de configuratie van de batch in integratie account gelezen.|
 |/integrationAccounts/sessions/write|Maken of bijwerken van de sessie in integratie-account.|
 |/integrationAccounts/write|Maken of bijwerken van de integratie-account.|
 |/Locations/workflows/Validate/Action|Hiermee wordt de werkstroom gevalideerd.|
 |/Operations/Read|Hiermee haalt u de bewerking.|
 |registratie-/ actie|Registreert de Microsoft.Logic resourceprovider voor een bepaald abonnement.|
-|/workflows/accessKeys/DELETE|Hiermee wordt de toegangssleutel verwijderd.|
+|/workflows/accessKeys/delete|Hiermee wordt de toegangssleutel verwijderd.|
 |/workflows/accessKeys/List/Action|Hiermee wordt een lijst met toegangssleutelgeheimen gemaakt.|
 |/workflows/accessKeys/Read|Hiermee wordt de toegangssleutel gelezen.|
 |/workflows/accessKeys/Regenerate/Action|Hiermee wordt de toegangssleutelgeheimen opnieuw gegenereerd.|
@@ -1876,22 +1876,22 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/workflows/DELETE|Hiermee wordt de werkstroom verwijderd.|
 |/workflows/Disable/Action|Hiermee wordt de werkstroom uitgeschakeld.|
 |/workflows/Enable/Action|Hiermee wordt de werkstroom ingeschakeld.|
-|/workflows/listCallbackUrl/Action|Hiermee wordt de URL voor terugbellen van de werkstroom opgehaald.|
-|/workflows/listSwagger/Action|Hiermee worden de swaggerdefinities van de werkstroom opgehaald.|
+|/workflows/listCallbackUrl/action|Hiermee wordt de URL voor terugbellen van de werkstroom opgehaald.|
+|/workflows/listSwagger/action|Hiermee worden de swaggerdefinities van de werkstroom opgehaald.|
 |/workflows/Move/Action|Hiermee wordt de werkstroom verplaatst van de bestaande abonnements-id, resourcegroep en/of naam naar een andere abonnements-id, resourcegroep en/of naam.|
-|/workflows/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee worden de diagnostische instellingen van de werkstroom gelezen.|
-|/workflows/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee worden de diagnostische instelling van de werkstroom gemaakt of bijgewerkt.|
-|/workflows/providers/Microsoft.Insights/logDefinitions/Read|Hiermee worden de logboekdefinities van de werkstroom gelezen.|
-|/workflows/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden de metrische definities van de werkstroom gelezen.|
+|/workflows/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee worden de diagnostische instellingen van de werkstroom gelezen.|
+|/workflows/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee worden de diagnostische instelling van de werkstroom gemaakt of bijgewerkt.|
+|/workflows/providers/Microsoft.Insights/logDefinitions/read|Hiermee worden de logboekdefinities van de werkstroom gelezen.|
+|/workflows/providers/Microsoft.Insights/metricDefinitions/read|Hiermee worden de metrische definities van de werkstroom gelezen.|
 |/workflows/Read|Hiermee wordt de werkstroom gelezen.|
 |/workflows/regenerateAccessKey/Action|Hiermee wordt de toegangssleutelgeheimen opnieuw gegenereerd.|
 |/workflows/Run/Action|Hiermee wordt de werkstroomuitvoering gestart.|
-|/workflows/runs/Actions/listExpressionTraces/Action|Hiermee worden de expressietraceringen voor de uitvoeringsactie van de werkstroom opgehaald.|
+|/workflows/runs/actions/listExpressionTraces/action|Hiermee worden de expressietraceringen voor de uitvoeringsactie van de werkstroom opgehaald.|
 |/workflows/runs/Actions/Read|Hiermee wordt de uitvoeringsactie van de werkstroom gelezen.|
-|/workflows/runs/Actions/repetitions/listExpressionTraces/Action|Hiermee haalt u de werkstroom actie herhaling expressie traceringen worden uitgevoerd.|
+|/workflows/runs/actions/repetitions/listExpressionTraces/action|Hiermee haalt u de werkstroom actie herhaling expressie traceringen worden uitgevoerd.|
 |/workflows/runs/Actions/repetitions/Read|Hiermee wordt de werkstroom actie herhaling gelezen.|
 |/workflows/runs/Actions/scoperepetitions/Read|Hiermee wordt de werkstroom actie bereik herhaling gelezen.|
-|/workflows/runs/Cancel/Action|Hiermee wordt de werkstroomuitvoering geannuleerd.|
+|/workflows/runs/cancel/action|Hiermee wordt de werkstroomuitvoering geannuleerd.|
 |/workflows/runs/Operations/Read|Hiermee wordt de bewerkingsstatus van de werkstroomuitvoering gelezen.|
 |werkstromen/wordt uitgevoerd/lezen|Hiermee wordt de werkstroomuitvoering gelezen.|
 |/workflows/Suspend/Action|Onderbreekt de werkstroom.|
@@ -1911,13 +1911,13 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/commitmentPlans/commitmentAssociations/Move/Action|Verplaatsen van een Machine Learning-streven Plan koppeling|
-|/commitmentPlans/commitmentAssociations/Read|Lezen van een Machine Learning-streven Plan koppeling|
-|/commitmentPlans/DELETE|Een Machine streven trainingsplan verwijderen|
+|/commitmentPlans/commitmentAssociations/move/action|Verplaatsen van een Machine Learning-streven Plan koppeling|
+|/commitmentPlans/commitmentAssociations/read|Lezen van een Machine Learning-streven Plan koppeling|
+|/commitmentPlans/delete|Een Machine streven trainingsplan verwijderen|
 |/commitmentPlans/join/Action|Lid worden van een Machine streven trainingsplan|
 |/commitmentPlans/Read|Een Machine streven trainingsplan lezen|
 |commitmentPlans/schrijven|Maken of bijwerken van een Machine Learning streven plannen|
-|/Locations/operationresults/Read|Resultaat van een Machine Learning-bewerking ophalen|
+|/locations/operationresults/read|Resultaat van een Machine Learning-bewerking ophalen|
 |/Locations/operationsstatus/Read|Status van een actieve Machine Learning-bewerking ophalen|
 |/Operations/Read|Machine Learning-bewerkingen ophalen|
 |registratie-/ actie|Het abonnement voor de machine learning web service resourceprovider registreert en wordt het maken van webservices.|
@@ -1929,18 +1929,18 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Workspaces/delete|Verwijderen van een Machine Learning-werkruimte|
 |/ Werkruimten/listworkspacekeys/actie|Lijst met sleutels voor een Machine Learning-werkruimte|
 |Werkruimten/leestijd|Lezen van een Machine Learning-werkruimte|
-|/ Werkruimten/resyncstoragekeys/actie|Sleutels van opslagaccount geconfigureerd voor een Machine Learning-werkruimte synchroniseren|
+|/Workspaces/resyncstoragekeys/action|Sleutels van opslagaccount geconfigureerd voor een Machine Learning-werkruimte synchroniseren|
 |/ Werkruimten/schrijven|Een Machine Learning-werkruimte gemaakt of bijgewerkt|
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 | Bewerking | Beschrijving |
 |---|---|
-|/operationalizationClusters/checkUpdate/Action|Controleer of er updates beschikbaar voor systeemservices voor het cluster uitoefening zijn|
-|/operationalizationClusters/DELETE|Hosting-account verwijderen|
-|/operationalizationClusters/listKeys/Action|Lijst met sleutels die zijn gekoppeld aan uitoefening cluster|
+|/operationalizationClusters/checkUpdate/action|Controleer of er updates beschikbaar voor systeemservices voor het cluster uitoefening zijn|
+|/operationalizationClusters/delete|Hosting-account verwijderen|
+|/operationalizationClusters/listKeys/action|Lijst met sleutels die zijn gekoppeld aan uitoefening cluster|
 |/operationalizationClusters/Read|Een hosting-account lezen|
-|/operationalizationClusters/updateSystem/Action|De systeemservices in een cluster uitoefening bijwerken|
+|/operationalizationClusters/updateSystem/action|De systeemservices in een cluster uitoefening bijwerken|
 |operationalizationClusters/schrijven|Hosting-account maken of bijwerken|
 |registratie-/ actie|Registreert de abonnements-ID voor de resourceprovider en wordt het maken van een machine learning rekenresources|
 
@@ -1957,10 +1957,10 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/userAssignedIdentities/Assign/Action|RBAC-actie voor het toewijzen van een bestaande gebruiker identiteit toegewezen aan een resource|
-|/userAssignedIdentities/DELETE|Hiermee verwijdert u een bestaande gebruiker toegewezen identiteit|
-|/userAssignedIdentities/Read|Een bestaande gebruiker toegewezen identiteit opgehaald|
-|userAssignedIdentities/schrijven|Een nieuwe gebruiker toegewezen identiteit maken of bijwerken van de labels van een bestaande gebruiker toegewezen identiteit|
+|/userAssignedIdentities/assign/action|RBAC-actie voor het toewijzen van een bestaande gebruiker identiteit toegewezen aan een resource|
+|/userAssignedIdentities/delete|Hiermee verwijdert u een bestaande gebruiker toegewezen identiteit|
+|/userAssignedIdentities/read|Een bestaande gebruiker toegewezen identiteit opgehaald|
+|/userAssignedIdentities/write|Een nieuwe gebruiker toegewezen identiteit maken of bijwerken van de labels van een bestaande gebruiker toegewezen identiteit|
 
 ## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
 
@@ -1993,19 +1993,19 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/ getEntities/actie|Lijst van alle entiteiten (beheergroepen, abonnementen, enz.) voor de geverifieerde gebruiker.|
 |/managementGroups/delete|Verwijder de beheergroep.|
 |/managementGroups/Read|Lijst met beheergroepen voor de geverifieerde gebruiker.|
-|/managementGroups/Subscriptions/DELETE|Abonnement van de beheergroep koppelt ongedaan.|
+|/managementGroups/subscriptions/delete|Abonnement van de beheergroep koppelt ongedaan.|
 |/managementGroups/Subscriptions/Write|Gekoppeld bestaande abonnement met de beheergroep.|
-|/managementGroups/write|Maken of bijwerken van een beheergroep.|
+|managementGroups/schrijven|Maken of bijwerken van een beheergroep.|
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 | Bewerking | Beschrijving |
 |---|---|
 |/ClassicDevServices/delete|Biedt een DELETE-bewerking op de bron van een klassieke dev-service.|
-|/ ClassicDevServices/listSecrets/actie|Hiermee haalt u een klassieke dev sleutels voor resource management service.|
+|/ClassicDevServices/listSecrets/action|Hiermee haalt u een klassieke dev sleutels voor resource management service.|
 |/ClassicDevServices/listSingleSignOnToken/action|Hiermee wordt de eenmalige aanmelding op URL voor een klassieke dev-service.|
-|ClassicDevServices/leestijd|Biedt een GET-bewerking voor een klassieke dev-service.|
-|/ ClassicDevServices/regenerateKey/actie|Genereert een klassieke dev service resource management-sleutels.|
+|/ClassicDevServices/read|Biedt een GET-bewerking voor een klassieke dev-service.|
+|/ClassicDevServices/regenerateKey/action|Genereert een klassieke dev service resource management-sleutels.|
 |Bewerkingen/leestijd|Leesbewerkingen voor alle resourcetypen.|
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
@@ -2016,7 +2016,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/agreements/Offers/plans/Read|Retourneren van een overeenkomst voor een bepaalde marketplace-item|
 |/agreements/Offers/plans/Sign/Action|Meld u aan een overeenkomst voor een bepaalde marketplace-item|
 |/agreements/Read|Retourneren van alle overeenkomsten onder opgegeven abonnement|
-|/offertypes/Publishers/Offers/plans/agreements/Read|Een overeenkomst voor een bepaalde marketplace-item voor virtuele machine ophalen|
+|/offertypes/publishers/offers/plans/agreements/read|Een overeenkomst voor een bepaalde marketplace-item voor virtuele machine ophalen|
 |/offertypes/publishers/offers/plans/agreements/write|Meld u aan of een overeenkomst voor een item van de virtuele machine opgegeven marketplace annuleren|
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
@@ -2025,11 +2025,11 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/ checknameavailability/actie|Controleert of de naam van een Media Services-account beschikbaar is|
 |/mediaservices/delete|Een Media Services-Account verwijderen|
-|/mediaservices/listKeys/Action|Lijst van de ACS-sleutels voor de Media Services-account|
+|/mediaservices/listKeys/action|Lijst van de ACS-sleutels voor de Media Services-account|
 |/mediaservices/Read|Een Media Services-Account lezen|
 |/mediaservices/regenerateKey/Action|Een Media Services ACS-sleutel opnieuw genereren|
 |/mediaservices/syncStorageKeys/action|Synchroniseren van de sleutels van de opslag voor een gekoppelde Azure Storage-account|
-|mediaservices/schrijven|Een Media Services-Account maken of bijwerken|
+|/mediaservices/write|Een Media Services-Account maken of bijwerken|
 |/Operations/Read|Een Media Services-Account lezen|
 |registratie-/ actie|Het abonnement voor de Media Services-resourceprovider geregistreerd en wordt het maken van Media Services-accounts|
 
@@ -2044,58 +2044,58 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/applicationGatewayAvailableSslOptions/predefinedPolicies/read|Application Gateway Ssl vooraf gedefinieerd beleid|
-|/applicationGatewayAvailableSslOptions/Read|Application Gateway beschikbare Ssl-opties|
+|/applicationGatewayAvailableSslOptions/read|Application Gateway beschikbare Ssl-opties|
 |/applicationGatewayAvailableWafRuleSets/read|Toepassingsgateway beschikbaar Waf regelsets opgehaald|
-|/applicationGateways/backendAddressPools/join/Action|Een application gateway back-end-adresgroep toevoegen|
+|/applicationGateways/backendAddressPools/join/action|Een application gateway back-end-adresgroep toevoegen|
 |/applicationGateways/backendhealth/Action|Een back-end toepassingsstatus van de gateway opgehaald|
 |/applicationGateways/delete|Een toepassingsgateway verwijderen|
 |/applicationGateways/effectiveNetworkSecurityGroups/action|Routetabel geconfigureerd op de toepassingsgateway ophalen|
 |/applicationGateways/effectiveRouteTable/action|Routetabel geconfigureerd op de toepassingsgateway ophalen|
-|/applicationGateways/providers/Microsoft.Insights/logDefinitions/Read|Hiermee worden de gebeurtenissen voor Application Gateway opgehaald|
-|/applicationGateways/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden de beschikbare metrische gegevens voor Application Gateway opgehaald|
-|/applicationGateways/Read|Een application gateway opgehaald|
+|/applicationGateways/providers/Microsoft.Insights/logDefinitions/read|Hiermee worden de gebeurtenissen voor Application Gateway opgehaald|
+|/applicationGateways/providers/Microsoft.Insights/metricDefinitions/read|Hiermee worden de beschikbare metrische gegevens voor Application Gateway opgehaald|
+|/applicationGateways/read|Een application gateway opgehaald|
 |/applicationGateways/setSecurityCenterConfiguration/action|Sets Application Gateway Security Center-configuratie|
 |/applicationGateways/start/Action|Een application gateway wordt gestart|
 |/applicationGateways/Stop/Action|Een application gateway wordt gestopt|
-|/applicationGateways/write|Een toepassingsgateway maken of bijwerken van een application gateway|
+|applicationGateways/schrijven|Een toepassingsgateway maken of bijwerken van een application gateway|
 |/applicationSecurityGroups/delete|Hiermee verwijdert u de beveiligingsgroep van een toepassing|
-|/applicationSecurityGroups/joinIpConfiguration/Action|Een IP-configuratie koppelt aan beveiligingsgroepen toepassing.|
+|/applicationSecurityGroups/joinIpConfiguration/action|Een IP-configuratie koppelt aan beveiligingsgroepen toepassing.|
 |/applicationSecurityGroups/joinNetworkSecurityRule/action|Een beveiligingsregel koppelt aan beveiligingsgroepen van toepassing.|
-|/applicationSecurityGroups/Read|Opgehaald van een toepassing beveiligingsgroep-ID.|
+|/applicationSecurityGroups/read|Opgehaald van een toepassing beveiligingsgroep-ID.|
 |/applicationSecurityGroups/write|Maakt u de beveiligingsgroep van een toepassing of updates van een bestaande beveiligingsgroep voor de toepassing.|
-|/bgpServiceCommunities/read|Bgp-Service-community's ophalen|
-|/ checkTrafficManagerNameAvailability/actie|Controleert de beschikbaarheid van een Traffic Manager ten opzichte van DNS-naam.|
+|/bgpServiceCommunities/Read|Bgp-Service-community's ophalen|
+|/checkTrafficManagerNameAvailability/action|Controleert de beschikbaarheid van een Traffic Manager ten opzichte van DNS-naam.|
 |/Connections/DELETE|Deletes VirtualNetworkGatewayConnection|
 |/Connections/Read|Gets VirtualNetworkGatewayConnection|
-|/Connections/sharedkey/Action|VirtualNetworkGatewayConnection SharedKey ophalen|
-|/Connections/sharedKey/Read|VirtualNetworkGatewayConnection SharedKey opgehaald|
+|/Connections/sharedkey/Action|Get VirtualNetworkGatewayConnection SharedKey|
+|/Connections/sharedKey/Read|Gets VirtualNetworkGatewayConnection SharedKey|
 |/Connections/sharedKey/Write|Maken of bijwerken van een bestaande VirtualNetworkGatewayConnection SharedKey|
-|/connections/vpndeviceconfigurationscript/read|VPN-apparaatconfiguratie van VirtualNetworkGatewayConnection opgehaald|
+|/Connections/vpndeviceconfigurationscript/Read|Gets Vpn Device Configuration of VirtualNetworkGatewayConnection|
 |verbindingen/schrijven|Maken of bijwerken van een bestaande VirtualNetworkGatewayConnection|
 |/ddosProtectionPlans/ddosProtectionPlanProxies/delete|Hiermee verwijdert u een Proxy DDoS-beveiliging plannen|
 |/ddosProtectionPlans/ddosProtectionPlanProxies/read|De definitie van een DDoS-beveiliging plannen Proxy ophalen|
 |/ddosProtectionPlans/ddosProtectionPlanProxies/write|Maakt een DDoS-Proxy voor het plannen van beveiliging of updates en bestaande DDoS-beveiliging plannen Proxy|
 |/ddosProtectionPlans/delete|Hiermee wordt een beveiligingsplan DDoS verwijderd|
-|/ddosProtectionPlans/join/Action|Lid wordt een beveiligingsplan DDoS|
-|/ddosProtectionPlans/Read|Een beveiligingsplan DDoS opgehaald|
-|ddosProtectionPlans/schrijven|Maakt een DDoS-beveiliging plannen of updates van een DDoS-beveiliging plannen |
+|/ddosProtectionPlans/join/action|Lid wordt een beveiligingsplan DDoS|
+|/ddosProtectionPlans/read|Een beveiligingsplan DDoS opgehaald|
+|/ddosProtectionPlans/write|Maakt een DDoS-beveiliging plannen of updates van een DDoS-beveiliging plannen |
 |/dnsoperationresults/Read|Resultaten van een DNS-bewerking opgehaald|
 |/dnsoperationstatuses/Read|Hiermee wordt de status van een DNS-bewerking opgehaald |
-|/dnszones/A/delete|Verwijder de recordset met een bepaalde naam en typt u "A" uit een DNS-zone.|
+|/dnszones/A/DELETE|Verwijder de recordset met een bepaalde naam en typt u "A" uit een DNS-zone.|
 |/dnszones/A/Read|De recordset van het type "A", in JSON-indeling verkrijgen. De recordset omvat een lijst met records, alsmede de TTL, labels en etag.|
-|/dnszones/A/write|Maken of bijwerken van een recordset van het type "A" binnen een DNS-zone. De opgegeven records vervangen de huidige records in de recordset.|
+|/dnszones/A/Write|Maken of bijwerken van een recordset van het type "A" binnen een DNS-zone. De opgegeven records vervangen de huidige records in de recordset.|
 |/dnszones/AAAA/delete|Verwijder de recordset met een bepaalde naam en typ 'AAAA' uit een DNS-zone.|
 |/dnszones/AAAA/read|De recordset van het type 'AAAA', in JSON-indeling ophalen. De recordset omvat een lijst met records, alsmede de TTL, labels en etag.|
 |/dnszones/AAAA/write|Maken of bijwerken van een recordset van het type 'AAAA' binnen een DNS-zone. De opgegeven records vervangen de huidige records in de recordset.|
 |/dnszones/All/Read|DNS-recordsets in verschillende typen opgehaald|
 |/dnszones/CAA/delete|Verwijder de recordset met een bepaalde naam en typ 'CAA' uit een DNS-zone.|
 |/dnszones/CAA/read|De recordset van het type 'CAA', in JSON-indeling ophalen. De recordset omvat de TTL, labels en etag.|
-|/dnszones/CAA/write|Maken of bijwerken van een recordset van het type 'CAA' binnen een DNS-zone. De opgegeven records vervangen de huidige records in de recordset.|
+|/dnszones/CAA/Write|Maken of bijwerken van een recordset van het type 'CAA' binnen een DNS-zone. De opgegeven records vervangen de huidige records in de recordset.|
 |/dnszones/CNAME/delete|Verwijder de recordset met een bepaalde naam en typ 'CNAME' uit een DNS-zone.|
 |/dnszones/CNAME/read|De recordset van het type 'CNAME', in JSON-indeling ophalen. De recordset omvat de TTL, labels en etag.|
 |/dnszones/CNAME/write|Maken of bijwerken van een recordset van het type 'CNAME' binnen een DNS-zone. De opgegeven records vervangen de huidige records in de recordset.|
 |/dnszones/delete|Verwijder de DNS-zone, in JSON-indeling. De zone-eigenschappen zijn labels, etag, numberOfRecordSets en maxNumberOfRecordSets.|
-|/dnszones/MX/delete|Verwijder de recordset met een bepaalde naam en typ 'MX' uit een DNS-zone.|
+|/dnszones/MX/DELETE|Verwijder de recordset met een bepaalde naam en typ 'MX' uit een DNS-zone.|
 |/dnszones/MX/Read|De recordset van het type 'MX', in JSON-indeling ophalen. De recordset omvat een lijst met records, alsmede de TTL, labels en etag.|
 |/dnszones/MX/Write|Maken of bijwerken van een recordset van het type 'MX' binnen een DNS-zone. De opgegeven records vervangen de huidige records in de recordset.|
 |/dnszones/NS/DELETE|Hiermee verwijdert u de DNS-recordset van het type NS|
@@ -2109,58 +2109,58 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/dnszones/PTR/write|Maken of bijwerken van een recordset van het type 'PTR' binnen een DNS-zone. De opgegeven records vervangen de huidige records in de recordset.|
 |/dnszones/Read|Ophalen van de DNS-zone, in JSON-indeling. De zone-eigenschappen zijn labels, etag, numberOfRecordSets en maxNumberOfRecordSets. Houd er rekening mee dat deze opdracht niet de recordsets in de zone ophaalt.|
 |/dnszones/recordsets/read|DNS-recordsets in verschillende typen opgehaald|
-|/dnszones/SOA/read|DNS-recordset van het type SOA opgehaald|
-|/dnszones/SOA/write|Maken of bijwerken van DNS-recordset van het type SOA|
+|/dnszones/SOA/Read|DNS-recordset van het type SOA opgehaald|
+|/dnszones/SOA/Write|Maken of bijwerken van DNS-recordset van het type SOA|
 |/dnszones/SRV/delete|Verwijder de recordset met een bepaalde naam en typ 'SRV' uit een DNS-zone.|
-|/dnszones/SRV/read|De recordset van het type 'SRV', in JSON-indeling ophalen. De recordset omvat een lijst met records, alsmede de TTL, labels en etag.|
+|/dnszones/SRV/Read|De recordset van het type 'SRV', in JSON-indeling ophalen. De recordset omvat een lijst met records, alsmede de TTL, labels en etag.|
 |/dnszones/SRV/write|Maken of bijwerken van de recordset van het type SRV|
 |/dnszones/TXT/delete|Verwijder de recordset met een bepaalde naam en typ 'TXT' uit een DNS-zone.|
 |/dnszones/TXT/read|De recordset van het type 'TXT', in JSON-indeling ophalen. De recordset omvat een lijst met records, alsmede de TTL, labels en etag.|
-|/dnszones/TXT/write|Maken of bijwerken van een recordset van het type 'TXT' binnen een DNS-zone. De opgegeven records vervangen de huidige records in de recordset.|
-|/dnszones/write|Maken of bijwerken van een DNS-zone binnen een resourcegroep.  Gebruikt voor het bijwerken van de labels van een DNS-zone-resource. Houd er rekening mee dat deze opdracht kan niet worden gebruikt om te maken of bijwerken van recordsets binnen de zone.|
-|/expressRouteCircuits/authorizations/DELETE|Hiermee verwijdert u een ExpressRouteCircuit-autorisatie|
-|/expressRouteCircuits/authorizations/Read|Een vergunning ExpressRouteCircuit opgehaald|
-|/expressRouteCircuits/authorizations/Write|Maken of bijwerken van een bestaande ExpressRouteCircuit-autorisatie|
+|/dnszones/txt/Write|Maken of bijwerken van een recordset van het type 'TXT' binnen een DNS-zone. De opgegeven records vervangen de huidige records in de recordset.|
+|dnszones/schrijven|Maken of bijwerken van een DNS-zone binnen een resourcegroep.  Gebruikt voor het bijwerken van de labels van een DNS-zone-resource. Houd er rekening mee dat deze opdracht kan niet worden gebruikt om te maken of bijwerken van recordsets binnen de zone.|
+|/expressRouteCircuits/authorizations/delete|Hiermee verwijdert u een ExpressRouteCircuit-autorisatie|
+|/expressRouteCircuits/authorizations/read|Een vergunning ExpressRouteCircuit opgehaald|
+|/expressRouteCircuits/authorizations/write|Maken of bijwerken van een bestaande ExpressRouteCircuit-autorisatie|
 |/expressRouteCircuits/delete|Een ExpressRouteCircuit verwijderen|
-|/expressRouteCircuits/peerings/arpTables/Action|Een ExpressRouteCircuit Peering ArpTable opgehaald|
-|/expressRouteCircuits/peerings/Connections/DELETE|Hiermee verwijdert u een verbinding ExpressRouteCircuit|
+|/expressRouteCircuits/peerings/arpTables/action|Een ExpressRouteCircuit Peering ArpTable opgehaald|
+|/expressRouteCircuits/peerings/connections/delete|Hiermee verwijdert u een verbinding ExpressRouteCircuit|
 |/expressRouteCircuits/peerings/Connections/Read|Een verbinding ExpressRouteCircuit opgehaald|
 |/expressRouteCircuits/peerings/Connections/Write|Maken of bijwerken van een bestaande ExpressRouteCircuit verbinding Resource|
-|/expressRouteCircuits/peerings/DELETE|Hiermee verwijdert u een ExpressRouteCircuit Peering|
-|/expressRouteCircuits/peerings/Read|Een ExpressRouteCircuit Peering opgehaald|
-|/expressRouteCircuits/peerings/routeTables/Action|Een ExpressRouteCircuit Peering migratiestatus opgehaald|
-|/expressRouteCircuits/peerings/routeTablesSummary/Action|Een overzicht van ExpressRouteCircuit Peering migratiestatus opgehaald|
-|/expressRouteCircuits/peerings/stats/Read|Een ExpressRouteCircuit Peering statistieken opgehaald|
-|/expressRouteCircuits/peerings/Write|Maken of bijwerken van een bestaande Peering ExpressRouteCircuit|
-|/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/Read|Diagnostische instellingen voor ExpressRoute-Circuits opgehaald|
-|/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/Write|Maken of bijwerken van diagnostische instellingen voor ExpressRoute-Circuits|
+|/expressRouteCircuits/peerings/delete|Hiermee verwijdert u een ExpressRouteCircuit Peering|
+|/expressRouteCircuits/peerings/read|Een ExpressRouteCircuit Peering opgehaald|
+|/expressRouteCircuits/peerings/routeTables/action|Een ExpressRouteCircuit Peering migratiestatus opgehaald|
+|/expressRouteCircuits/peerings/routeTablesSummary/action|Een overzicht van ExpressRouteCircuit Peering migratiestatus opgehaald|
+|/expressRouteCircuits/peerings/stats/read|Een ExpressRouteCircuit Peering statistieken opgehaald|
+|/expressRouteCircuits/peerings/write|Maken of bijwerken van een bestaande Peering ExpressRouteCircuit|
+|/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/read|Diagnostische instellingen voor ExpressRoute-Circuits opgehaald|
+|/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van diagnostische instellingen voor ExpressRoute-Circuits|
 |/expressRouteCircuits/providers/Microsoft.Insights/logDefinitions/read|Ophalen van de gebeurtenissen voor ExpressRoute-Circuits|
-|/expressRouteCircuits/providers/Microsoft.Insights/metricDefinitions/Read|De metrische definities voor ExpressRoute-Circuits opgehaald|
-|/expressRouteCircuits/Read|Een ExpressRouteCircuit ophalen|
-|/expressRouteCircuits/stats/Read|Een ExpressRouteCircuit Stat opgehaald|
-|expressRouteCircuits/schrijven|Maken of bijwerken van een bestaande ExpressRouteCircuit|
+|/expressRouteCircuits/providers/Microsoft.Insights/metricDefinitions/read|De metrische definities voor ExpressRoute-Circuits opgehaald|
+|/expressRouteCircuits/read|Een ExpressRouteCircuit ophalen|
+|/expressRouteCircuits/stats/read|Een ExpressRouteCircuit Stat opgehaald|
+|/expressRouteCircuits/write|Maken of bijwerken van een bestaande ExpressRouteCircuit|
 |/expressRouteCrossConnections/delete|Verwijderen van Express Route Cross-verbinding|
 |/expressRouteCrossConnections/join/action|Cross join een Express Route-verbinding|
-|/expressRouteCrossConnections/peerings/arpTables/Action|Een Express Route kruislings verbinding Peering Arp-tabel opgehaald|
-|/expressRouteCrossConnections/peerings/DELETE|Hiermee verwijdert u een Express Route kruislings verbinding Peering|
-|/expressRouteCrossConnections/peerings/Read|Een Route snelle Cross-verbinding Peering opgehaald|
-|/expressRouteCrossConnections/peerings/routeTables/Action|Een Express Route kruislings verbinding Peering routetabel opgehaald|
-|/expressRouteCrossConnections/peerings/routeTableSummary/Action|Een Express Route kruislings samenvattingstabel verbinding Peering Route opgehaald|
-|/expressRouteCrossConnections/peerings/stats/Read|Een Route snelle Cross-verbinding Peering statistieken opgehaald|
-|/expressRouteCrossConnections/peerings/Write|Maakt een Cross-verbinding Peering voor Express Route of een bestaande Cross verbinding Peering voor Express Route-Updates|
-|/expressRouteCrossConnections/Read|Ophalen van Express Route Cross-verbinding|
+|/expressRouteCrossConnections/peerings/arpTables/action|Een Express Route kruislings verbinding Peering Arp-tabel opgehaald|
+|/expressRouteCrossConnections/peerings/delete|Hiermee verwijdert u een Express Route kruislings verbinding Peering|
+|/expressRouteCrossConnections/peerings/read|Een Route snelle Cross-verbinding Peering opgehaald|
+|/expressRouteCrossConnections/peerings/routeTables/action|Een Express Route kruislings verbinding Peering routetabel opgehaald|
+|/expressRouteCrossConnections/peerings/routeTableSummary/action|Een Express Route kruislings samenvattingstabel verbinding Peering Route opgehaald|
+|/expressRouteCrossConnections/peerings/stats/read|Een Route snelle Cross-verbinding Peering statistieken opgehaald|
+|/expressRouteCrossConnections/peerings/write|Maakt een Cross-verbinding Peering voor Express Route of een bestaande Cross verbinding Peering voor Express Route-Updates|
+|/expressRouteCrossConnections/read|Ophalen van Express Route Cross-verbinding|
 |/expressRouteCrossConnections/write|Maken of bijwerken Cross Express Route-verbinding|
 |/expressRouteServiceProviders/read|Express Route-serviceproviders opgehaald|
-|/loadBalancers/backendAddressPools/join/Action|Lid wordt van een back-endadresgroep voor load balancer|
-|/loadBalancers/backendAddressPools/Read|Een definitie van het groep back-end-adres van load balancer ophalen|
+|/loadBalancers/backendAddressPools/join/action|Lid wordt van een back-endadresgroep voor load balancer|
+|/loadBalancers/backendAddressPools/read|Een definitie van het groep back-end-adres van load balancer ophalen|
 |/loadBalancers/delete|Hiermee verwijdert u een load balancer|
-|/loadBalancers/frontendIPConfigurations/read|Een definitie van load balancer frontend IP-configuratie ophalen|
+|/loadBalancers/frontendIPConfigurations/Read|Een definitie van load balancer frontend IP-configuratie ophalen|
 |/loadBalancers/inboundNatPools/join/action|Lid wordt van een load balancer binnenkomende nat-pool|
 |/loadBalancers/inboundNatPools/read|Een load balancer ophalen inkomende nat-pooldefinitie|
 |/loadBalancers/inboundNatRules/delete|Een binnenkomende nat-regel van load balancer verwijderen|
-|/loadBalancers/inboundNatRules/join/Action|Lid wordt van een load balancer binnenkomende nat-regel|
+|/loadBalancers/inboundNatRules/join/action|Lid wordt van een load balancer binnenkomende nat-regel|
 |/loadBalancers/inboundNatRules/read|Een load balancer ophalen inkomende nat-regel definiëren|
-|/loadBalancers/inboundNatRules/write|Een binnenkomende nat-regel van load balancer maken of bijwerken van een bestaande load balancer binnenkomende nat-regel|
+|/loadBalancers/inboundNatRules/Write|Een binnenkomende nat-regel van load balancer maken of bijwerken van een bestaande load balancer binnenkomende nat-regel|
 |/loadBalancers/loadBalancingRules/Read|Een load balancer load taakverdeling ophalen|
 |/loadBalancers/networkInterfaces/read|Verwijzingen naar alle netwerkinterfaces onder een load balancer ophalen|
 |/loadBalancers/outboundNatRules/read|Een definitie voor uitgaande nat-regel van load balancer opgehaald|
@@ -2171,25 +2171,25 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/loadBalancers/providers/Microsoft.Insights/logDefinitions/read|Hiermee worden de gebeurtenissen voor de Load Balancer opgehaald|
 |/loadBalancers/providers/Microsoft.Insights/metricDefinitions/read|De beschikbare metrische gegevens voor de Load Balancer opgehaald|
 |/loadBalancers/Read|De definitie van een load balancer ophalen|
-|/loadBalancers/virtualMachines/Read|Verwijzingen naar alle virtuele machines onder een load balancer ophalen|
+|/loadBalancers/virtualMachines/read|Verwijzingen naar alle virtuele machines onder een load balancer ophalen|
 |loadBalancers/schrijven|Een load balancer maken of bijwerken van een bestaande load balancer|
-|/localnetworkgateways/delete|Hiermee verwijdert u LocalNetworkGateway|
-|/localnetworkgateways/Read|LocalNetworkGateway opgehaald|
+|/localnetworkgateways/delete|Deletes LocalNetworkGateway|
+|/localnetworkgateways/read|Gets LocalNetworkGateway|
 |/localnetworkgateways/write|Maken of bijwerken van een bestaande LocalNetworkGateway|
-|/Locations/checkDnsNameAvailability/Read|Controleert of de DNS-label beschikbaar op de opgegeven locatie is|
-|/Locations/operationResults/Read|Het bewerkingsresultaat van een asynchrone post- of DELETE-bewerking opgehaald|
+|/locations/checkDnsNameAvailability/read|Controleert of de DNS-label beschikbaar op de opgegeven locatie is|
+|/locations/operationResults/read|Het bewerkingsresultaat van een asynchrone post- of DELETE-bewerking opgehaald|
 |/Locations/Operations/Read|Bewerkingsresource ophalen die de status van een asynchrone bewerking vertegenwoordigt|
 |/Locations/usages/Read|Meetgegevens voor softwaregebruik voor resources ophalen|
-|/Locations/virtualNetworkAvailableEndpointServices/Read|Een lijst met beschikbare virtuele netwerk eindpunt Services ophalen|
+|/locations/virtualNetworkAvailableEndpointServices/read|Een lijst met beschikbare virtuele netwerk eindpunt Services ophalen|
 |/networkInterfaces/delete|Hiermee verwijdert u een netwerkinterface|
-|/networkInterfaces/diagnosticIdentity/Read|Diagnostische identiteit van de Resource opgehaald|
+|/networkInterfaces/diagnosticIdentity/read|Diagnostische identiteit van de Resource opgehaald|
 |/networkInterfaces/effectiveNetworkSecurityGroups/action|Netwerkbeveiligingsgroepen geconfigureerde op Network Interface van de Vm ophalen|
 |/networkInterfaces/effectiveRouteTable/action|De routetabel is geconfigureerd op de netwerkinterface van de virtuele machine ophalen|
-|/networkInterfaces/ipconfigurations/Read|Hiermee haalt u de definitie van de IP-configuratie voor een netwerk-interface. |
-|/networkInterfaces/join/Action|Een virtuele Machine koppelt aan een netwerkinterface|
-|/networkInterfaces/loadBalancers/Read|Alle load balancers die de netwerkinterface deel van uitmaakt opgehaald|
-|/networkInterfaces/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden beschikbare metrische gegevens voor de netwerkinterface opgehaald|
-|/networkInterfaces/Read|Haalt de definitie van een netwerkinterface. |
+|/networkInterfaces/ipconfigurations/read|Hiermee haalt u de definitie van de IP-configuratie voor een netwerk-interface. |
+|/networkInterfaces/join/action|Een virtuele Machine koppelt aan een netwerkinterface|
+|/networkInterfaces/loadBalancers/read|Alle load balancers die de netwerkinterface deel van uitmaakt opgehaald|
+|/networkInterfaces/providers/Microsoft.Insights/metricDefinitions/read|Hiermee worden beschikbare metrische gegevens voor de netwerkinterface opgehaald|
+|/networkInterfaces/read|Haalt de definitie van een netwerkinterface. |
 |/networkInterfaces/write|Een netwerkinterface maken of bijwerken van een bestaande netwerkinterface. |
 |/networkSecurityGroups/defaultSecurityRules/read|Een standaardbeveiligingsregeldefinitie ophalen opgehaald|
 |/networkSecurityGroups/delete|Hiermee wordt een netwerkbeveiligingsgroep verwijderd|
@@ -2206,35 +2206,35 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/networkWatchers/azureReachabilityReport/action|Retourneert de score relatieve latentie voor internet serviceproviders van een opgegeven locatie en Azure-regio's.|
 |/networkWatchers/configureFlowLog/action|Hiermee configureert u stroom logboekregistratie voor een doelbron.|
 |/networkWatchers/connectionMonitors/delete|Hiermee verwijdert u een Monitor verbinding|
-|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings leestijd|De diagnostische instellingen van de Monitor-verbinding ophalen|
-|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings/schrijven|Maken of bijwerken van diagnostische instellingen voor de Monitor|
-|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ metricDefinitions leestijd|Hiermee wordt de beschikbare metrische gegevens voor verbinding Monitor|
+|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings/read|De diagnostische instellingen van de Monitor-verbinding ophalen|
+|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ diagnosticSettings/write|Maken of bijwerken van diagnostische instellingen voor de Monitor|
+|/networkWatchers/connectionMonitors/providers/Microsoft.Insights/ metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor verbinding Monitor|
 |/networkWatchers/connectionMonitors/query/action|Query-verbindingen tussen de opgegeven eindpunten controleren|
 |/networkWatchers/connectionMonitors/read|Details van de Monitor-verbinding ophalen|
 |/networkWatchers/connectionMonitors/start/action|Starten van de controle van de verbinding tussen de opgegeven eindpunten|
 |/networkWatchers/connectionMonitors/stop/action|Connectiviteit tussen de opgegeven eindpunten bewaking tijdelijk onderbreken en stoppen|
 |/networkWatchers/connectionMonitors/write|Hiermee maakt u een Monitor verbinding|
-|/networkWatchers/connectivityCheck/Action|Controleert of de mogelijkheid tot stand brengen van een directe TCP-verbinding van een virtuele machine naar een opgegeven eindpunt, met inbegrip van een andere virtuele machine of een willekeurige externe server.|
+|/networkWatchers/connectivityCheck/action|Controleert of de mogelijkheid tot stand brengen van een directe TCP-verbinding van een virtuele machine naar een opgegeven eindpunt, met inbegrip van een andere virtuele machine of een willekeurige externe server.|
 |/networkWatchers/delete|Hiermee verwijdert u een netwerk-watcher|
 |/networkWatchers/ipFlowVerify/action|Retourneert of het pakket wordt toegestaan of geweigerd of naar een specifieke bestemming.|
 |/networkWatchers/lenses/delete|Hiermee verwijdert u een Lens|
-|/networkWatchers/Lenses/query/Action|Bewaking van netwerkverkeer op een opgegeven eindpunt query|
-|/networkWatchers/Lenses/Read|Details van de Lens ophalen|
+|/networkWatchers/lenses/query/action|Bewaking van netwerkverkeer op een opgegeven eindpunt query|
+|/networkWatchers/lenses/read|Details van de Lens ophalen|
 |/networkWatchers/lenses/start/action|Controle van netwerkverkeer op een opgegeven eindpunt starten|
 |/networkWatchers/lenses/stop/action|Bewaking van netwerkverkeer op een opgegeven eindpunt tijdelijk onderbreken en stoppen|
 |/networkWatchers/lenses/write|Maakt een Lens|
 |/networkWatchers/nextHop/action|Het volgende hoptype retourneren en vervolgens hopen dat IP-adres voor een opgegeven doel- en IP-doeladres.|
 |/networkWatchers/packetCaptures/delete|Hiermee verwijdert u een pakketopname|
-|/networkWatchers/packetCaptures/queryStatus/Action|Hiermee haalt u informatie over eigenschappen en de status van een pakket vastleggen resource.|
-|/networkWatchers/packetCaptures/Read|De definitie voor het vastleggen van pakket ophalen|
+|/networkWatchers/packetCaptures/queryStatus/action|Hiermee haalt u informatie over eigenschappen en de status van een pakket vastleggen resource.|
+|/networkWatchers/packetCaptures/read|De definitie voor het vastleggen van pakket ophalen|
 |/networkWatchers/packetCaptures/stop/action|Stop de actieve opnamesessie van het pakket.|
 |/networkWatchers/packetCaptures/write|Maakt een pakketopname|
 |/networkWatchers/queryFlowLogStatus/action|Hiermee haalt u de status van logboekregistratie voor een bron-stroom.|
-|/networkWatchers/queryTroubleshootResult/Action|Het probleemoplossing resultaat van de eerder uitgevoerde of momenteel haalt voor probleemoplossing bewerking uitgevoerd.|
+|/networkWatchers/queryTroubleshootResult/action|Het probleemoplossing resultaat van de eerder uitgevoerde of momenteel haalt voor probleemoplossing bewerking uitgevoerd.|
 |/networkWatchers/read|Ophalen van de definitie van het netwerk-watcher|
 |/networkWatchers/securityGroupView/action|De geconfigureerde en effectieve netwerkbeveiligingsgroepen toegepast op een virtuele machine weergeven.|
-|/networkWatchers/Topology/Action|Hiermee haalt de weergave van resources en hun relaties in een netwerk-niveau in een resourcegroep.|
-|/networkWatchers/Troubleshoot/Action|Start het oplossen van een resource netwerken in Azure.|
+|/networkWatchers/topology/action|Hiermee haalt de weergave van resources en hun relaties in een netwerk-niveau in een resourcegroep.|
+|/networkWatchers/troubleshoot/action|Start het oplossen van een resource netwerken in Azure.|
 |/networkWatchers/write|Een netwerk-watcher maken of bijwerken van een bestaande netwerk-watcher|
 |/Operations/Read|Beschikbare bewerkingen ophalen|
 |/publicIPAddresses/delete|Hiermee verwijdert u een openbaar IP-adres.|
@@ -2243,34 +2243,34 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write|De diagnostische instellingen van het openbare IP-adres maken of bijwerken|
 |/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read|De logboekdefinities van openbare IP-adres ophalen|
 |/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read|De metrische definities van openbare IP-adres ophalen|
-|/publicIPAddresses/Read|De definitie van een openbaar IP-adres ophalen.|
-|publicIPAddresses/schrijven|Een openbaar IP-adres maken of bijwerken van een bestaand openbaar IP-adres. |
+|/publicIPAddresses/read|De definitie van een openbaar IP-adres ophalen.|
+|/publicIPAddresses/write|Een openbaar IP-adres maken of bijwerken van een bestaand openbaar IP-adres. |
 |registratie-/ actie|Registreert het abonnement|
 |/routeFilters/delete|Hiermee verwijdert u een route filterdefinitie|
-|/routeFilters/join/Action|Lid wordt van een routefilter|
-|/routeFilters/Read|De definitie van een route filter ophalen|
+|/routeFilters/join/action|Lid wordt van een routefilter|
+|/routeFilters/read|De definitie van een route filter ophalen|
 |/routeFilters/routeFilterRules/delete|Hiermee verwijdert u een route regel filterdefinitie|
-|/routeFilters/routeFilterRules/Read|De definitie van een route filter regel ophalen|
-|/routeFilters/routeFilterRules/Write|Een filterregel route maken of bijwerken van een bestaande route filterregel|
+|/routeFilters/routeFilterRules/read|De definitie van een route filter regel ophalen|
+|/routeFilters/routeFilterRules/write|Een filterregel route maken of bijwerken van een bestaande route filterregel|
 |/routeFilters/write|Een routefilter maken of bijwerken van een bestaand rotue-filter|
-|/routeTables/DELETE|Een routetabeldefinitie verwijderen|
+|/routeTables/delete|Een routetabeldefinitie verwijderen|
 |/routeTables/join/Action|Een routetabel joins|
 |/routeTables/Read|Een routetabeldefinitie opgehaald|
-|/routeTables/routes/DELETE|Hiermee verwijdert u de definitie van een route|
+|/routeTables/routes/delete|Hiermee verwijdert u de definitie van een route|
 |/routeTables/routes/Read|De definitie van een route ophalen|
 |/routeTables/routes/Write|Een route maken of een bestaande route bijwerken|
 |routeTables/schrijven|Een routetabel maken of een bestaande routetabel bijwerken|
 |/securegateways/applicationRuleCollections/delete|Hiermee verwijdert u een toepassing regelverzameling voor een veilige Gateway|
 |/securegateways/applicationRuleCollections/Read|Een toepassing regelverzameling ophalen voor een opgegeven Secure Gateway|
-|/securegateways/applicationRuleCollections/write|Maken of bijwerken van een toepassing regelverzameling voor een Gateway beveiligen|
+|/securegateways/applicationRuleCollections/Write|Maken of bijwerken van een toepassing regelverzameling voor een Gateway beveiligen|
 |/securegateways/delete|Beveiligde Gateway verwijderen|
 |/securegateways/networkRuleCollections/delete|Hiermee verwijdert u de verzameling van een regel voor een veilige Gateway|
-|/securegateways/networkRuleCollections/Read|De verzameling van een regel voor een opgegeven Secure Gateway ophalen|
+|/securegateways/networkRuleCollections/read|De verzameling van een regel voor een opgegeven Secure Gateway ophalen|
 |/securegateways/networkRuleCollections/write|Maken of bijwerken van de verzameling van een regel voor een Gateway beveiligen|
 |/securegateways/Read|Beveiligde Gateway verkrijgen|
 |securegateways/schrijven|Maken of bijwerken van een Gateway beveiligen|
 |/serviceEndpointPolicies/delete|Hiermee verwijdert u een Service-eindpunt-beleid|
-|/serviceEndpointPolicies/join/Action|Lid wordt van een Service-eindpunt-beleid|
+|/serviceEndpointPolicies/join/action|Lid wordt van een Service-eindpunt-beleid|
 |/serviceEndpointPolicies/joinSubnet/action|Een Subnet koppelt aan beleidsregels voor Service-eindpunt|
 |/serviceEndpointPolicies/read|Haalt een Beleidsbeschrijving voor Service-eindpunt|
 |/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/delete|Hiermee verwijdert u de beleidsdefinitie van een Service-eindpunt|
@@ -2300,34 +2300,34 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/trafficManagerUserMetricsKeys/write|Maakt een nieuw abonnement sleutel moet worden gebruikt voor de verzameling van Realtime metrische gegevens over gebruikers.|
 |/ unregister/actie|Heft de registratie van het abonnement|
 |/virtualHubs/delete|Hiermee verwijdert u een virtuele-Hub|
-|/virtualHubs/hubVirtualNetworkConnections/delete|Hiermee verwijdert u een HubVirtualNetworkConnection|
-|/virtualHubs/hubVirtualNetworkConnections/read|Een HubVirtualNetworkConnection ophalen|
+|/virtualHubs/hubVirtualNetworkConnections/delete|Deletes a HubVirtualNetworkConnection|
+|/virtualHubs/hubVirtualNetworkConnections/read|Get a HubVirtualNetworkConnection|
 |/virtualHubs/hubVirtualNetworkConnections/write|Maken of bijwerken van een HubVirtualNetworkConnection|
 |/virtualHubs/read|Ophalen van een virtuele-Hub|
-|/virtualHubs/write|Maken of bijwerken van een virtuele-Hub|
-|/virtualnetworkgateways/Connections/Read|Get VirtualNetworkGatewayConnection|
+|virtualHubs/schrijven|Maken of bijwerken van een virtuele-Hub|
+|/virtualnetworkgateways/connections/read|Get VirtualNetworkGatewayConnection|
 |/virtualNetworkGateways/delete|Hiermee verwijdert u een virtualNetworkGateway|
-|/virtualnetworkgateways/generatevpnclientpackage/Action|Een pakket voor virtualNetworkGateway genereren|
+|/virtualnetworkgateways/generatevpnclientpackage/action|Een pakket voor virtualNetworkGateway genereren|
 |/virtualnetworkgateways/generatevpnprofile/action|VpnProfile-pakket voor VirtualNetworkGateway genereren|
-|/virtualnetworkgateways/getadvertisedroutes/Action|Opgehaald virtualNetworkGateway aangekondigd routes|
-|/virtualnetworkgateways/getbgppeerstatus/Action|Haalt virtualNetworkGateway bgp-peer-status|
-|/virtualnetworkgateways/getlearnedroutes/Action|Virtualnetworkgateway geleerde routes opgehaald|
-|/virtualnetworkgateways/getvpnclientipsecparameters/Action|Het ophalen van Vpnclient Ipsec parameters voor VirtualNetworkGateway P2S-client.|
+|/virtualnetworkgateways/getadvertisedroutes/action|Opgehaald virtualNetworkGateway aangekondigd routes|
+|/virtualnetworkgateways/getbgppeerstatus/action|Haalt virtualNetworkGateway bgp-peer-status|
+|/virtualnetworkgateways/getlearnedroutes/action|Virtualnetworkgateway geleerde routes opgehaald|
+|/virtualnetworkgateways/getvpnclientipsecparameters/action|Het ophalen van Vpnclient Ipsec parameters voor VirtualNetworkGateway P2S-client.|
 |/virtualnetworkgateways/getvpnprofilepackageurl/action|De URL van het hulpprogramma voor het profiel van een vooraf gegenereerde vpn-clientpakket opgehaald|
 |/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read|De diagnostische instellingen van het virtuele netwerk Gateway opgehaald|
 |/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write|Maken of bijwerken van de diagnostische instellingen voor virtuele netwerkgateway deze bewerking wordt geleverd door de insights-resourceprovider.|
 |/virtualNetworkGateways/providers/Microsoft.Insights/logDefinitions/read|Hiermee haalt u de gebeurtenissen voor de virtuele netwerkgateway|
 |/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor de virtuele netwerkgateway|
-|/virtualNetworkGateways/read|Een VirtualNetworkGateway opgehaald|
-|/virtualnetworkgateways/reset/Action|Hiermee stelt u een virtualNetworkGateway|
-|/virtualnetworkgateways/setvpnclientipsecparameters/Action|Stel Vpnclient Ipsec-parameters voor VirtualNetworkGateway P2S-client.|
-|/virtualnetworkgateways/supportedvpndevices/Action|Een lijst met ondersteunde VPN-apparaten|
+|/virtualNetworkGateways/read|Gets a VirtualNetworkGateway|
+|/virtualnetworkgateways/reset/action|Hiermee stelt u een virtualNetworkGateway|
+|/virtualnetworkgateways/setvpnclientipsecparameters/action|Stel Vpnclient Ipsec-parameters voor VirtualNetworkGateway P2S-client.|
+|/virtualnetworkgateways/supportedvpndevices/action|Een lijst met ondersteunde VPN-apparaten|
 |/virtualNetworkGateways/write|Maken of bijwerken van een VirtualNetworkGateway|
-|/virtualNetworks/checkIpAddressAvailability/Read|Controleer of IP-adres beschikbaar op de opgegeven virtuele netwerk is|
+|/virtualNetworks/checkIpAddressAvailability/read|Controleer of IP-adres beschikbaar op de opgegeven virtuele netwerk is|
 |/virtualNetworks/customViews/get/action|Een virtueel netwerk aangepaste weergave-inhoud ophalen|
 |/virtualNetworks/customViews/read|Definitie van een aangepaste weergave van het virtuele netwerk ophalen|
 |/virtualNetworks/delete|Hiermee verwijdert u een virtueel netwerk|
-|/virtualNetworks/peer/Action|Een virtueel netwerk met een ander virtueel netwerk samenwerkt|
+|/virtualNetworks/peer/action|Een virtueel netwerk met een ander virtueel netwerk samenwerkt|
 |/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/read|De diagnostische instellingen van het virtuele netwerk ophalen|
 |/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/write|De diagnostische instellingen van het virtuele netwerk maken of bijwerken|
 |/virtualNetworks/providers/Microsoft.Insights/logDefinitions/read|De definities van de logboekbestanden van het virtuele netwerk ophalen|
@@ -2343,14 +2343,14 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/virtualNetworks/subnets/resourceNavigationLinks/delete|Hiermee verwijdert u een Resource navigatiekoppeling|
 |/virtualNetworks/subnets/resourceNavigationLinks/read|De definitie van de navigatiekoppeling Resource ophalen|
 |/virtualNetworks/subnets/resourceNavigationLinks/write|Een navigatie Resourcekoppeling maken of bijwerken van een bestaande Resource navigatie-koppeling|
-|/virtualNetworks/subnets/virtualMachines/Read|Verwijzingen naar alle virtuele machines ophalen in een virtueel netwerksubnet|
+|/virtualNetworks/subnets/virtualMachines/read|Verwijzingen naar alle virtuele machines ophalen in een virtueel netwerksubnet|
 |/virtualNetworks/subnets/write|Een virtueel netwerksubnet maken of bijwerken van een bestaand virtueel netwerksubnet|
 |/virtualNetworks/taggedTrafficConsumers/delete|Hiermee verwijdert u een label gegevensverkeer Consumer|
 |/virtualNetworks/taggedTrafficConsumers/read|De definitie gelabeld verkeer Consumer ophalen|
 |/virtualNetworks/taggedTrafficConsumers/validate/action|Valideert een label gegevensverkeer Consumer|
 |/virtualNetworks/taggedTrafficConsumers/write|Een Consumer verkeer gelabeld maken of bijwerken van een bestaande label gegevensverkeer Consumer|
 |/virtualNetworks/usages/read|Het gebruik van de IP voor elk subnet van het virtuele netwerk ophalen|
-|/virtualNetworks/virtualMachines/Read|Verwijzingen naar alle virtuele machines ophalen in een virtueel netwerk|
+|/virtualNetworks/virtualMachines/read|Verwijzingen naar alle virtuele machines ophalen in een virtueel netwerk|
 |/virtualNetworks/virtualNetworkPeerings/delete|Hiermee verwijdert u een virtueel netwerk peering|
 |/virtualNetworks/virtualNetworkPeerings/read|De definitie van een virtueel netwerk peering ophalen|
 |/virtualNetworks/virtualNetworkPeerings/write|Een virtueel netwerk peering of een bestaande virtuele netwerk-peering bijwerken|
@@ -2359,11 +2359,11 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/virtualNetworkTaps/join/action|Een virtueel netwerk-tap joins|
 |/virtualNetworkTaps/read|Tik op virtueel netwerk ophalen|
 |/virtualNetworkTaps/write|Maken of bijwerken van virtueel netwerk-Tap|
-|/virtualwans/DELETE|Verwijdert een virtuele Wan|
-|/virtualwans/Read|Get a virtuele Wan|
+|/virtualwans/delete|Verwijdert een virtuele Wan|
+|/virtualwans/read|Get a virtuele Wan|
 |/virtualWans/virtualHubProxies/delete|Hiermee verwijdert u een virtuele Hub-proxy|
-|/virtualWans/virtualHubProxies/Read|De definitie van een virtuele Hub proxy ophalen|
-|/virtualWans/virtualHubProxies/Write|Een proxy virtuele Hub maken of bijwerken van een virtuele Hub-proxy|
+|/virtualWans/virtualHubProxies/read|De definitie van een virtuele Hub proxy ophalen|
+|/virtualWans/virtualHubProxies/write|Een proxy virtuele Hub maken of bijwerken van een virtuele Hub-proxy|
 |/virtualwans/virtualHubs/read|Hiermee haalt u alle virtuele-Hubs die gekoppeld aan een virtuele Wan zijn.|
 |/virtualwans/vpnconfiguration/read|Een VPN-configuratie opgehaald|
 |/virtualWans/vpnSiteProxies/delete|Hiermee verwijdert u een VPN-Site-proxy|
@@ -2383,26 +2383,26 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/ CheckNamespaceAvailability/actie|Hiermee wordt gecontroleerd of de resourcenaam voor de naamruimte beschikbaar is binnen de NotificationHub-service.|
-|/ Naamruimten/authorizationRules/actie|De lijst met beschrijvingen van verificatieregels voor naamruimten ophalen.|
-|Naamruimten, authorizationRules/verwijderen|Namespace autorisatieregel verwijderen. De standaardregel Namespace autorisatie kan niet worden verwijderd. |
-|/ Naamruimten/authorizationRules/listkeys/actie|De verbindingstekenreeks naar de naamruimte ophalen|
+|/CheckNamespaceAvailability/action|Hiermee wordt gecontroleerd of de resourcenaam voor de naamruimte beschikbaar is binnen de NotificationHub-service.|
+|/Namespaces/authorizationRules/action|De lijst met beschrijvingen van verificatieregels voor naamruimten ophalen.|
+|/Namespaces/authorizationRules/delete|Namespace autorisatieregel verwijderen. De standaardregel Namespace autorisatie kan niet worden verwijderd. |
+|/Namespaces/authorizationRules/listkeys/action|De verbindingstekenreeks naar de naamruimte ophalen|
 |Naamruimten/authorizationRules/leestijd|De lijst met beschrijvingen van verificatieregels voor naamruimten ophalen.|
-|/ Naamruimten/authorizationRules/regenerateKeys/actie|De verificatieregel voor een naamruimte De primaire/secundaire sleutel opnieuw genereren, De sleutel opgeven die opnieuw moet worden gegenereerd|
+|/Namespaces/authorizationRules/regenerateKeys/action|De verificatieregel voor een naamruimte De primaire/secundaire sleutel opnieuw genereren, De sleutel opgeven die opnieuw moet worden gegenereerd|
 |Naamruimten/authorizationRules/schrijftijd|Een Namespace niveau autorisatieregels maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels, de primaire en secundaire sleutels kunnen worden bijgewerkt.|
-|/ Naamruimten/CheckNotificationHubAvailability/actie|Hiermee wordt gecontroleerd of de NotificationHub-naam beschikbaar is binnen een naamruimte.|
+|/Namespaces/CheckNotificationHubAvailability/action|Hiermee wordt gecontroleerd of de NotificationHub-naam beschikbaar is binnen een naamruimte.|
 |Naamruimten, verwijderen|De resource van een naamruimte verwijderen|
-|/ Naamruimten/NotificationHubs/authorizationRules/actie|De lijst met verificatieregels voor Notification Hub ophalen|
-|Naamruimten, NotificationHubs/authorizationRules/verwijderen|Verificatieregels voor Notification Hub verwijderen|
-|/ Naamruimten/NotificationHubs/authorizationRules/listkeys/actie|De verbindingsreeks naar de Notification Hub ophalen|
-|Naamruimten/NotificationHubs/authorizationRules/leestijd|De lijst met verificatieregels voor Notification Hub ophalen|
-|/ Naamruimten/NotificationHubs/authorizationRules/regenerateKeys/actie|De verificatieregel voor Notification Hub De primaire/secundaire sleutel opnieuw genereren, De sleutel opgeven die opnieuw moet worden gegenereerd|
-|Naamruimten/NotificationHubs/authorizationRules/schrijftijd|Notification Hub-autorisatieregels maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels, de primaire en secundaire sleutels kunnen worden bijgewerkt.|
+|/Namespaces/NotificationHubs/authorizationRules/action|De lijst met verificatieregels voor Notification Hub ophalen|
+|/Namespaces/NotificationHubs/authorizationRules/delete|Verificatieregels voor Notification Hub verwijderen|
+|/Namespaces/NotificationHubs/authorizationRules/listkeys/action|De verbindingsreeks naar de Notification Hub ophalen|
+|/Namespaces/NotificationHubs/authorizationRules/read|De lijst met verificatieregels voor Notification Hub ophalen|
+|/Namespaces/NotificationHubs/authorizationRules/regenerateKeys/action|De verificatieregel voor Notification Hub De primaire/secundaire sleutel opnieuw genereren, De sleutel opgeven die opnieuw moet worden gegenereerd|
+|/Namespaces/NotificationHubs/authorizationRules/write|Notification Hub-autorisatieregels maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels, de primaire en secundaire sleutels kunnen worden bijgewerkt.|
 |/Namespaces/NotificationHubs/debugSend/action|Een testpushmelding verzenden.|
-|Naamruimten, NotificationHubs/verwijderen|De resource voor Notification Hub verwijderen|
+|/Namespaces/NotificationHubs/Delete|De resource voor Notification Hub verwijderen|
 |/Namespaces/NotificationHubs/metricDefinitions/read|Lijst met Namespace metrische Resource beschrijvingen|
 |/Namespaces/NotificationHubs/pnsCredentials/action|Alle Notification Hub PNS referenties ophalen. Dit omvat, WNS, MPNS, APNS, GCM en Baidu-referenties|
-|Naamruimten/NotificationHubs/leestijd|De lijst met beschrijvingen van resources voor Notification Hub ophalen|
+|/Namespaces/NotificationHubs/read|De lijst met beschrijvingen van resources voor Notification Hub ophalen|
 |/Namespaces/NotificationHubs/write|Een Notification Hub maken en bijwerken van de eigenschappen ervan. De eigenschappen zijn hoofdzakelijk PNS-referenties. Autorisatieregels en TTL|
 |Naamruimten/leestijd|De lijst met beschrijvingen van resources van naamruimten ophalen|
 |Naamruimten/schrijftijd|Een Namespace-Resource maken en bijwerken van de eigenschappen ervan. Labels en capaciteit van de Namespace zijn de eigenschappen die kunnen worden bijgewerkt.|
@@ -2412,36 +2412,36 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/linkTargets/Read|Een lijst met bestaande accounts die niet gekoppeld aan een Azure-abonnement zijn. Als deze Azure-abonnement koppeling naar een werkruimte, gebruikt u een klant-id die is geretourneerd door deze bewerking in de eigenschap van de klant-id van de bewerking werkruimte maken.|
+|/linkTargets/read|Een lijst met bestaande accounts die niet gekoppeld aan een Azure-abonnement zijn. Als deze Azure-abonnement koppeling naar een werkruimte, gebruikt u een klant-id die is geretourneerd door deze bewerking in de eigenschap van de klant-id van de bewerking werkruimte maken.|
 |registratie-/ actie|Een abonnement op een resourceprovider registreren.|
 |/Workspaces/Analytics/query/Action|Zoeken met nieuwe-engine.|
 |/Workspaces/Analytics/query/schema/Read|Search schema V2 worden opgehaald.|
 |/Workspaces/API/query/Action|Zoeken met nieuwe-engine.|
 |/Workspaces/API/query/schema/Read|Search schema V2 worden opgehaald.|
 |/workspaces/configurationScopes/delete|Configuratiebereik verwijderen|
-|/Workspaces/configurationScopes/Read|Configuratiebereik ophalen|
+|/workspaces/configurationScopes/read|Configuratiebereik ophalen|
 |/workspaces/configurationScopes/write|Configuratiebereik instellen|
-|/Workspaces/Datasources/DELETE|Verwijder de gegevensbronnen onder een werkruimte.|
+|/workspaces/datasources/delete|Verwijder de gegevensbronnen onder een werkruimte.|
 |/Workspaces/Datasources/Read|Gegevensbronnen ophalen onder een werkruimte.|
 |/Workspaces/Datasources/Write|Gegevensbronnen onder een werkruimte maken of bijwerken.|
-|/Workspaces/DELETE|Hiermee verwijdert u een werkruimte. Als u de werkruimte is gekoppeld aan een bestaande werkruimte tijdens het maken worden de werkruimte die deze is gekoppeld aan niet verwijderd.|
+|/workspaces/delete|Hiermee verwijdert u een werkruimte. Als u de werkruimte is gekoppeld aan een bestaande werkruimte tijdens het maken worden de werkruimte die deze is gekoppeld aan niet verwijderd.|
 |/Workspaces/generateregistrationcertificate/Action|Genereert Registratiecertificaat voor de werkruimte. Dit certificaat wordt gebruikt voor Microsoft System Center Operation Manager verbinden met de werkruimte.|
 |/Workspaces/intelligencepacks/Disable/Action|Hiermee schakelt u een intelligence pack voor een bepaalde werkruimte.|
-|/Workspaces/intelligencepacks/Enable/Action|Hiermee kunt een intelligence pack voor een bepaalde werkruimte.|
+|/workspaces/intelligencepacks/enable/action|Hiermee kunt een intelligence pack voor een bepaalde werkruimte.|
 |/workspaces/intelligencepacks/read|Geeft een lijst van alle intelligence packs die zichtbaar zijn voor een bepaalde worksapce en ook wordt aangegeven of het pakket is ingeschakeld of uitgeschakeld voor die werkruimte.|
-|/Workspaces/linkedServices/DELETE|Delete gekoppelde services onder deze werkruimte.|
-|/Workspaces/linkedServices/Read|Ophalen van de gekoppelde services onder gegeven van de werkruimte.|
-|/Workspaces/linkedServices/Write|Services maken/bijwerken gekoppeld onder deze werkruimte.|
-|/Workspaces/listKeys/Action|Hiermee haalt u de lijst met sleutels voor de werkruimte. Deze sleutels worden gebruikt voor het verbinden van Microsoft Operational Insights-agents met de werkruimte.|
-|/Workspaces/listKeys/Read|Hiermee haalt u de lijst met sleutels voor de werkruimte. Deze sleutels worden gebruikt voor het verbinden van Microsoft Operational Insights-agents met de werkruimte.|
+|/workspaces/linkedServices/delete|Delete gekoppelde services onder deze werkruimte.|
+|/workspaces/linkedServices/read|Ophalen van de gekoppelde services onder gegeven van de werkruimte.|
+|/workspaces/linkedServices/write|Services maken/bijwerken gekoppeld onder deze werkruimte.|
+|/workspaces/listKeys/action|Hiermee haalt u de lijst met sleutels voor de werkruimte. Deze sleutels worden gebruikt voor het verbinden van Microsoft Operational Insights-agents met de werkruimte.|
+|/workspaces/listKeys/read|Hiermee haalt u de lijst met sleutels voor de werkruimte. Deze sleutels worden gebruikt voor het verbinden van Microsoft Operational Insights-agents met de werkruimte.|
 |/Workspaces/managementGroups/Read|Hiermee haalt de namen en de metagegevens voor System Center Operations Manager-beheergroepen die is verbonden met deze werkruimte.|
 |/Workspaces/metricDefinitions/Read|Metriek definities onder werkruimte ophalen|
 |/workspaces/notificationSettings/delete|Verwijderen van de gebruiker meldingsinstellingen voor de werkruimte.|
-|/Workspaces/notificationSettings/Read|Ophalen van de gebruiker meldingsinstellingen voor de werkruimte.|
+|/workspaces/notificationSettings/read|Ophalen van de gebruiker meldingsinstellingen voor de werkruimte.|
 |/workspaces/notificationSettings/write|Instellen van de gebruiker meldingsinstellingen voor de werkruimte.|
 |/Workspaces/Purge/Action|Opgegeven gegevens verwijderen uit de werkruimte|
 |/Workspaces/Read|Een bestaande werkruimte opgehaald|
-|/Workspaces/savedSearches/DELETE|Hiermee verwijdert u een opgeslagen zoekopdracht|
+|/workspaces/savedSearches/delete|Hiermee verwijdert u een opgeslagen zoekopdracht|
 |/Workspaces/savedSearches/Read|Een opgeslagen zoekopdracht opgehaald|
 |/Workspaces/savedSearches/Write|Hiermee maakt u een opgeslagen zoekopdracht|
 |/Workspaces/schema/Read|Hiermee haalt de search-schema voor de werkruimte.  Search schema bevat de blootgestelde velden en hun typen.|
@@ -2449,8 +2449,8 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Workspaces/sharedKeys/Action|Hiermee haalt u de gedeelde sleutels voor de werkruimte. Deze sleutels worden gebruikt voor het verbinden van Microsoft Operational Insights-agents met de werkruimte.|
 |/Workspaces/sharedKeys/Read|Hiermee haalt u de gedeelde sleutels voor de werkruimte. Deze sleutels worden gebruikt voor het verbinden van Microsoft Operational Insights-agents met de werkruimte.|
 |/workspaces/storageinsightconfigs/delete|Hiermee verwijdert u een configuratie van de opslag. Hiermee stopt u Microsoft Operational Insights van lezen van gegevens van het opslagaccount.|
-|/workspaces/storageinsightconfigs/read|Hiermee haalt u een configuratie van de opslag.|
-|/workspaces/storageinsightconfigs/write|Maakt een nieuwe opslagconfiguratie. Deze configuraties worden gebruikt voor het ophalen van gegevens uit een locatie in een bestaand opslagaccount.|
+|/Workspaces/storageinsightconfigs/Read|Hiermee haalt u een configuratie van de opslag.|
+|/Workspaces/storageinsightconfigs/Write|Maakt een nieuwe opslagconfiguratie. Deze configuraties worden gebruikt voor het ophalen van gegevens uit een locatie in een bestaand opslagaccount.|
 |/Workspaces/usages/Read|Hiermee haalt gebruiksgegevens voor een werkruimte met inbegrip van de hoeveelheid gegevens gelezen door de werkruimte.|
 |werkruimten/schrijven|Een nieuwe werkruimte of koppelingen naar een bestaande werkruimte wordt gemaakt door de klant-id van de bestaande werkruimte.|
 
@@ -2458,12 +2458,12 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/managementAssociations/DELETE|Verwijderen van bestaande Management-koppeling|
+|/managementAssociations/delete|Verwijderen van bestaande Management-koppeling|
 |/managementAssociations/Read|Ophalen van bestaande Management-koppeling|
-|managementAssociations/schrijven|Een nieuwe Management associatie maken|
+|/managementAssociations/write|Een nieuwe Management associatie maken|
 |/managementConfigurations/delete|Verwijderen van bestaande Management Configuratin|
 |/managementConfigurations/Read|Configuratie van bestaande Management ophalen|
-|/managementConfigurations/write|Maak een nieuwe configuratie voor beheer|
+|managementConfigurations/schrijven|Maak een nieuwe configuratie voor beheer|
 |registratie-/ actie|Een abonnement op een resourceprovider registreren.|
 |/Solutions/DELETE|Verwijderen van bestaande OMS-oplossing|
 |/Solutions/Read|Ophalen van OMS oplossing afgesloten|
@@ -2473,7 +2473,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/dashboards/delete|Het dashboard verwijderen uit het abonnement.|
+|/dashboards/DELETE|Het dashboard verwijderen uit het abonnement.|
 |/dashboards/Read|De dashboards voor het abonnement lezen.|
 |dashboards/schrijven|Dashboard toevoegen aan een abonnement of het dashboard wijzigen.|
 
@@ -2481,9 +2481,9 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/capacities/checkNameAvailability/Action|Controleert of Power BI-specifieke-capaciteit van de opgegeven naam geldig is en niet in gebruik.|
+|/capacities/checkNameAvailability/action|Controleert of Power BI-specifieke-capaciteit van de opgegeven naam geldig is en niet in gebruik.|
 |/capacities/DELETE|Hiermee verwijdert u de Power BI toegewezen capaciteit.|
-|/capacities/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor Power BI-specifieke capaciteit.|
+|/capacities/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor Power BI-specifieke capaciteit.|
 |/capacities/Read|Haalt de informatie van de opgegeven Power BI-specifieke capaciteit.|
 |capaciteit/schrijven|Maken of bijwerken van de opgegeven Power BI-specifieke capaciteit.|
 
@@ -2492,72 +2492,72 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/Locations/allocatedStamp/Read|GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service|
-|/Locations/allocateStamp/Action|AllocateStamp is een interne bewerking die wordt gebruikt door de service|
-|/Locations/backupPreValidateProtection/Action||
+|/locations/allocateStamp/action|AllocateStamp is een interne bewerking die wordt gebruikt door de service|
+|/locations/backupPreValidateProtection/action||
 |/Locations/backupStatus/Action|Controleer de Status van back-up voor de Recovery Services-kluizen|
-|/Locations/backupValidateFeatures/Action|Functies valideren|
+|/locations/backupValidateFeatures/action|Functies valideren|
 |/Operations/Read|Bewerking resulteert in de lijst met bewerkingen voor een Resource Provider|
 |registratie-/ actie|Registreert het abonnement voor de opgegeven Resource Provider|
 |/Vaults/backupconfig/read|Retourneert-configuratie voor Recovery Services-kluis.|
-|/Vaults/backupconfig/write|Configuratie van de updates voor Recovery Services-kluis.|
+|Kluizen/backupconfig/schrijftijd|Configuratie van de updates voor Recovery Services-kluis.|
 |Kluizen/backupEngines/leestijd|Hiermee worden alle servers voor back-upbeheer geretourneerd die in de kluis zijn geregistreerd.|
-|/Vaults/backupFabrics {fabricName} /protectionContainers/ {containerName} / items/leestijd|Alle items in een container ophalen|
+|/Vaults/backupFabrics/{fabricName}/protectionContainers/{containerName}/items/read|Alle items in een container ophalen|
 |/Vaults/backupFabrics/backupProtectionIntent/write|Maak een back-beveiliging wordt intentie|
-|Kluizen/backupFabrics/operationResults/leestijd|Retourneert de status van de bewerking|
-|Kluizen/backupFabrics/protectableContainers/leestijd|Alle beveiligbare containers ophalen|
+|/Vaults/backupFabrics/operationResults/read|Retourneert de status van de bewerking|
+|/Vaults/backupFabrics/protectableContainers/read|Alle beveiligbare containers ophalen|
 |/Vaults/backupFabrics/protectionContainers/inquire/action|Voer de query voor werkbelastingen binnen een container|
 |/Vaults/backupFabrics/protectionContainers/operationResults/read|Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op de beveiligde container.|
-|/ Kluizen/backupFabrics/protectionContainers/protectedItems/back-up/actie|Hiermee wordt een back-up van het beveiligde item gemaakt.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action|Hiermee wordt een back-up van het beveiligde item gemaakt.|
 |/Vaults/backupFabrics/protectionContainers/protectedItems/delete|Hiermee verwijdert u beveiligd Item|
-|Kluizen/backupFabrics/protectionContainers/protectedItems/operationResults/leestijd|Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op beveiligde items.|
-|Kluizen/backupFabrics/protectionContainers/protectedItems/operationsStatus/leestijd|Hiermee wordt de status geretourneerd van de bewerking die is uitgevoerd op beveiligde items.|
-|Kluizen/backupFabrics/protectionContainers/protectedItems/leestijd|Geeft de details van het artikel beveiligd object|
-|/ Kluizen/backupFabrics/protectionContainers/protectedItems/provisionInstantItemRecovery-recoveryPoints/actie|Inrichten Instant Item herstel voor beveiligde Item|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read|Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op beveiligde items.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read|Hiermee wordt de status geretourneerd van de bewerking die is uitgevoerd op beveiligde items.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/read|Geeft de details van het artikel beveiligd object|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/provisionInstantItemRecovery/action|Inrichten Instant Item herstel voor beveiligde Item|
 |/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read|Herstelpunten voor beveiligde items ophalen.|
-|/ Kluizen/backupFabrics/protectionContainers/protectedItems/recoveryPoints/herstelbewerking|Herstelpunten voor beveiligde items herstellen.|
-|/ Kluizen/backupFabrics/protectionContainers/protectedItems/revokeInstantItemRecovery-recoveryPoints/actie|Herstel op directe intrekken voor beveiligde Item|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/restore/action|Herstelpunten voor beveiligde items herstellen.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/ recoveryPoints/revokeInstantItemRecovery/action|Herstel op directe intrekken voor beveiligde Item|
 |/Vaults/backupFabrics/protectionContainers/protectedItems/write|Een back-up beveiligd Item maken|
-|Kluizen/backupFabrics/protectionContainers/leestijd|Retourneert alle geregistreerde containers|
+|/Vaults/backupFabrics/protectionContainers/read|Retourneert alle geregistreerde containers|
 |/Vaults/backupFabrics/protectionContainers/write|Hiermee maakt u een geregistreerde container|
-|/ Kluizen/backupFabrics/refreshContainers/actie|Hiermee vernieuwt u de lijst van de container|
+|/Vaults/backupFabrics/refreshContainers/action|Hiermee vernieuwt u de lijst van de container|
 |/ Kluizen/backupJobs / / actie voor annuleren|Annuleer de taak|
-|Kluizen/backupJobs/operationResults/leestijd|Hiermee wordt het resultaat van de taakbewerking geretourneerd.|
-|/Vaults/backupJobs/read|Retourneert alle objecten van de taak|
-|/ Kluizen/backupJobsExport/actie|Exporttaken|
-|Kluizen/backupJobsExport/operationResults/leestijd|Retourneert het resultaat van taak exportbewerking.|
+|/Vaults/backupJobs/operationResults/read|Hiermee wordt het resultaat van de taakbewerking geretourneerd.|
+|Kluizen/backupJobs/leestijd|Retourneert alle objecten van de taak|
+|/Vaults/backupJobsExport/action|Exporttaken|
+|/Vaults/backupJobsExport/operationResults/read|Retourneert het resultaat van taak exportbewerking.|
 |/Vaults/backupManagementMetaData/read|Hiermee worden de metagegevens van back-upbeheer voor een Recovery Services-kluis geretourneerd.|
 |/Vaults/backupOperationResults/read|Hiermee wordt het resultaat van de back-upbewerking voor een Recovery Services-kluis geretourneerd.|
-|Kluizen/backupOperations/leestijd|Back-upbewerking retourneert Status voor de Recovery Services-kluis.|
+|/Vaults/backupOperations/read|Back-upbewerking retourneert Status voor de Recovery Services-kluis.|
 |/Vaults/backupPolicies/delete|Een beveiligingsbeleid voor verwijderen|
-|Kluizen/backupPolicies/operationResults/leestijd|Hiermee worden de resultaten van de beleidsbewerking opgehaald.|
+|/Vaults/backupPolicies/operationResults/read|Hiermee worden de resultaten van de beleidsbewerking opgehaald.|
 |Kluizen/backupPolicies/operations/leestijd|Status van de beleidsbewerking ophalen.|
 |Kluizen/backupPolicies/leestijd|Retourneert alle beleidsregels voor beveiliging|
-|Kluizen/backupPolicies/schrijftijd|Hiermee maakt u het beveiligingsbeleid|
-|Kluizen/backupProtectableItems/leestijd|Hiermee wordt een lijst met alle beveiligbare items opgehaald.|
-|Kluizen/backupProtectedItems/leestijd|Hiermee wordt de lijst met alle beveiligde items geretourneerd.|
-|Kluizen/backupProtectionContainers/leestijd|Retourneert alle containers die horen bij het abonnement|
-|/ Kluizen/backupSecurityPIN/actie|Beveiliging PINCODE retourneert informatie voor Recovery Services-kluis.|
+|/Vaults/backupPolicies/write|Hiermee maakt u het beveiligingsbeleid|
+|/Vaults/backupProtectableItems/read|Hiermee wordt een lijst met alle beveiligbare items opgehaald.|
+|/Vaults/backupProtectedItems/read|Hiermee wordt de lijst met alle beveiligde items geretourneerd.|
+|/Vaults/backupProtectionContainers/read|Retourneert alle containers die horen bij het abonnement|
+|/Vaults/backupSecurityPIN/action|Beveiliging PINCODE retourneert informatie voor Recovery Services-kluis.|
 |/Vaults/backupstorageconfig/read|Retourneert opslagconfiguratie voor Recovery Services-kluis.|
 |/Vaults/backupstorageconfig/write|De opslagconfiguratie updates voor Recovery Services-kluis.|
-|Kluizen/backupUsageSummaries/leestijd|Samenvattingen retourneert voor beveiligde Items en beveiligde Servers voor een Recovery Services.|
+|/Vaults/backupUsageSummaries/read|Samenvattingen retourneert voor beveiligde Items en beveiligde Servers voor een Recovery Services.|
 |Kluizen/certificaten/schrijftijd|De bewerking Update Resource certificaat updates het referentiecertificaat van de resource/kluis.|
 |/Vaults/delete|De bewerking verwijderen kluis verwijdert de opgegeven Azure-resource van het type 'kluis'|
-|/ Kluizen/extendedInformation/verwijderen|Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt|
-|Kluizen/extendedInformation/leestijd|Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt|
+|/Vaults/extendedInformation/delete|Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt|
+|/Vaults/extendedInformation/read|Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt|
 |Kluizen/extendedInformation/schrijftijd|Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt|
 |/Vaults/monitoringAlerts/read|Hiermee haalt de waarschuwingen voor de Recovery services-kluis.|
-|/Vaults/monitoringAlerts/write|Oplossing voor de waarschuwing.|
+|Kluizen/monitoringAlerts/schrijftijd|Oplossing voor de waarschuwing.|
 |/Vaults/monitoringConfigurations/read|Hiermee haalt u de configuratie voor meldingen van Recovery services-kluis.|
 |/Vaults/monitoringConfigurations/write|Hiermee configureert u een e-mailmeldingen Recovery services-kluis.|
-|/Vaults/providers/Microsoft.Insights/diagnosticSettings/Read|Azure Backup diagnostische gegevens|
-|/Vaults/providers/Microsoft.Insights/diagnosticSettings/Write|Azure Backup diagnostische gegevens|
-|/Vaults/providers/Microsoft.Insights/logDefinitions/Read|Azure back-uplogboeken|
-|/Vaults/providers/Microsoft.Insights/metricDefinitions/Read|Azure Backup metrische gegevens|
-|Kluizen/leestijd|De bewerking kluis ophalen van een object dat de Azure-resource van het type 'kluis' opgehaald|
+|/Vaults/providers/Microsoft.Insights/diagnosticSettings/read|Azure Backup diagnostische gegevens|
+|/Vaults/providers/Microsoft.Insights/diagnosticSettings/write|Azure Backup diagnostische gegevens|
+|/Vaults/providers/Microsoft.Insights/logDefinitions/read|Azure back-uplogboeken|
+|/Vaults/providers/Microsoft.Insights/metricDefinitions/read|Azure Backup metrische gegevens|
+|/Vaults/read|De bewerking kluis ophalen van een object dat de Azure-resource van het type 'kluis' opgehaald|
 |/Vaults/registeredIdentities/delete|De Container registratie-bewerking kan worden gebruikt om de registratie van een container te.|
-|Kluizen/registeredIdentities/operationResults/leestijd|De bewerking ophalen resulteert de bewerking kan worden gebruikt ophalen de bewerkingsstatus van en het resultaat voor de bewerking asynchroon ingediende|
-|Kluizen/registeredIdentities/leestijd|De Containers ophalen bewerking kan worden gebruikt, krijgen de containers die zijn geregistreerd voor een resource.|
-|Kluizen/registeredIdentities/schrijftijd|De bewerking servicecontainer registreren kan worden gebruikt om te registreren van een container met Service voor herstel.|
+|/Vaults/registeredIdentities/operationResults/read|De bewerking ophalen resulteert de bewerking kan worden gebruikt ophalen de bewerkingsstatus van en het resultaat voor de bewerking asynchroon ingediende|
+|/Vaults/registeredIdentities/read|De Containers ophalen bewerking kan worden gebruikt, krijgen de containers die zijn geregistreerd voor een resource.|
+|/Vaults/registeredIdentities/write|De bewerking servicecontainer registreren kan worden gebruikt om te registreren van een container met Service voor herstel.|
 |/vaults/replicationAlertSettings/Read|Alle instellingen voor waarschuwingen lezen|
 |/vaults/replicationAlertSettings/Write|Alle waarschuwingsinstellingen maken of bijwerken|
 |/vaults/replicationEvents/Read|Alle gebeurtenissen lezen|
@@ -2565,7 +2565,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/vaults/replicationFabrics/DELETE|Verwijderen van eventuele Fabrics|
 |/vaults/replicationFabrics/deployProcessServerImage/action|Proces serverinstallatiekopie te implementeren|
 |/vaults/replicationFabrics/Read|Alle Fabrics lezen|
-|/vaults/replicationFabrics/reassociateGateway/Action|Gateway opnieuw koppelen|
+|/vaults/replicationFabrics/reassociateGateway/action|Gateway opnieuw koppelen|
 |/vaults/replicationFabrics/Remove/Action|Infrastructuur verwijderen|
 |/vaults/replicationFabrics/renewcertificate/Action|Certificaat vernieuwen voor de infrastructuur|
 |/vaults/replicationFabrics/replicationNetworks/read|Geen netwerken lezen|
@@ -2576,25 +2576,25 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/vaults/replicationFabrics/replicationProtectionContainers/read|Beveiliging-Containers gelezen|
 |/vaults/replicationFabrics/replicationProtectionContainers/remove/action|De Beveiligingscontainer verwijderen|
 |/ replicationFabrics-kluizen/replicationProtectionContainers/replicationProtectableItems leestijd|Alle beveiligbare objecten lezen|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/applyRecoveryPoint-replicationProtectedItems/actie|Herstelpunt toepassen|
-|kluizen/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/verwijderen|Verwijder alle beveiligde Items|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/failoverCommit-replicationProtectedItems/actie|Failover doorvoeren|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/plannedFailover-replicationProtectedItems/actie|Geplande Failover|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/replicationProtectedItems leestijd|Alle beveiligde Items lezen|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/recoveryPoints replicationProtectedItems leestijd|Replicatie herstelpunten lezen|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/replicationProtectedItems/verwijderen/actie|Het beveiligde Item verwijderen|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/repairReplication-replicationProtectedItems/actie|Reparatie replicatie|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/replicationProtectedItems, beveiligt/actie|Beveiligde Item opnieuw beveiligen|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/testFailover-replicationProtectedItems/actie|Failover testen|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/testFailoverCleanup-replicationProtectedItems/actie|Het opruimen van testfailover|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/unplannedFailover-replicationProtectedItems/actie|Failover|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/applyRecoveryPoint/action|Herstelpunt toepassen|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/delete|Verwijder alle beveiligde Items|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/failoverCommit/action|Failover doorvoeren|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/plannedFailover/action|Geplande Failover|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/read|Alle beveiligde Items lezen|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/recoveryPoints/read|Replicatie herstelpunten lezen|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/remove/action|Het beveiligde Item verwijderen|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/repairReplication/action|Reparatie replicatie|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/reProtect/action|Beveiligde Item opnieuw beveiligen|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/testFailover/action|Failover testen|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/testFailoverCleanup/action|Het opruimen van testfailover|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/unplannedFailover/action|Failover|
 |/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/updateMobilityService/action|Bijwerken van de Mobility-Service|
-|kluizen/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/schrijven|Maken of bijwerken van alle beveiligde Items|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectedItems/write|Maken of bijwerken van alle beveiligde Items|
 |kluizen/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/verwijderen|Alle toewijzingen van de Container beveiliging verwijderen|
 |/ replicationFabrics-kluizen/replicationProtectionContainers/replicationProtectionContainerMappings leestijd|Alle toewijzingen van de Container beveiliging lezen|
-|/ replicationFabrics-kluizen/replicationProtectionContainers/replicationProtectionContainerMappings/verwijderen/actie|Beveiliging Container toewijzing verwijderen|
+|/vaults/replicationFabrics/replicationProtectionContainers/ replicationProtectionContainerMappings/remove/action|Beveiliging Container toewijzing verwijderen|
 |kluizen/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/schrijven|Maken of bijwerken van alle toewijzingen van de Container beveiliging|
-|/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/Action|Switch Protection Container|
+|/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action|Switch Protection Container|
 |/vaults/replicationFabrics/replicationProtectionContainers/write|Maken of bijwerken van alle Containers beveiliging|
 |/vaults/replicationFabrics/replicationRecoveryServicesProviders/delete|Verwijderen van een Recovery Services-Providers|
 |/vaults/replicationFabrics/replicationRecoveryServicesProviders/read|Een Recovery Services-Providers lezen|
@@ -2605,7 +2605,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |kluizen/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/verwijderen|Alle toewijzingen van de classificatie opslag verwijderen|
 |/ replicationFabrics-kluizen/replicationStorageClassifications/replicationStorageClassificationMappings leestijd|Alle toewijzingen van de classificatie opslag lezen|
 |kluizen/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/schrijven|Maken of bijwerken van alle toewijzingen van de classificatie opslag|
-|/vaults/replicationFabrics/replicationvCenters/delete|Taken verwijderen|
+|/vaults/replicationFabrics/replicationvCenters/DELETE|Taken verwijderen|
 |/vaults/replicationFabrics/replicationvCenters/Read|Lezen van taken|
 |/vaults/replicationFabrics/replicationvCenters/Write|Alle taken maken of bijwerken|
 |/vaults/replicationFabrics/Write|Maken of bijwerken van een Fabrics|
@@ -2617,12 +2617,12 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/vaults/replicationPolicies/Read|Lezen van beleid|
 |/vaults/replicationPolicies/Write|Beleid maken of bijwerken|
 |/vaults/replicationRecoveryPlans/delete|Verwijderen van eventuele herstelplannen|
-|/vaults/replicationRecoveryPlans/failoverCommit/Action|Herstelplan-failover doorvoeren|
+|/vaults/replicationRecoveryPlans/failoverCommit/action|Herstelplan-failover doorvoeren|
 |/vaults/replicationRecoveryPlans/plannedFailover/Action|Plan voor herstel voor geplande Failover|
 |/vaults/replicationRecoveryPlans/Read|Alle herstelplannen lezen|
-|/vaults/replicationRecoveryPlans/reProtect/Action|Plan voor herstel opnieuw beveiligen|
-|/vaults/replicationRecoveryPlans/testFailover/Action|Test Failover herstelplan|
-|/vaults/replicationRecoveryPlans/testFailoverCleanup/Action|Test het opruimen van herstelplan|
+|/vaults/replicationRecoveryPlans/reProtect/action|Plan voor herstel opnieuw beveiligen|
+|/vaults/replicationRecoveryPlans/testFailover/action|Test Failover herstelplan|
+|/vaults/replicationRecoveryPlans/testFailoverCleanup/action|Test het opruimen van herstelplan|
 |/vaults/replicationRecoveryPlans/unplannedFailover/Action|Plan voor herstel van failover|
 |/vaults/replicationRecoveryPlans/Write|Maken of bijwerken van een herstelplannen|
 |/Vaults/tokenInfo/read|Retourneert token-informatie voor de Recovery Services-kluis.|
@@ -2636,18 +2636,18 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/ checkNameAvailability/actie|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd.|
-|/ checkNamespaceAvailability/actie|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is afgeschaft. Gebruik in plaats hiervan CheckNameAvailabiltiy.|
-|/Namespaces/authorizationRules/Action|Updates Namespace-autorisatieregel. Deze API is depricated. Gebruik een PUT-aanroep in plaats daarvan de autorisatieregel Namespace bijwerken... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
-|/Namespaces/authorizationRules/DELETE|Namespace autorisatieregel verwijderen. De standaardregel Namespace autorisatie kan niet worden verwijderd. |
-|/Namespaces/authorizationRules/listkeys/Action|De verbindingstekenreeks naar de naamruimte ophalen|
+|/checkNamespaceAvailability/action|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is afgeschaft. Gebruik in plaats hiervan CheckNameAvailabiltiy.|
+|/namespaces/authorizationRules/action|Updates Namespace-autorisatieregel. Deze API is depricated. Gebruik een PUT-aanroep in plaats daarvan de autorisatieregel Namespace bijwerken... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
+|/namespaces/authorizationRules/delete|Namespace autorisatieregel verwijderen. De standaardregel Namespace autorisatie kan niet worden verwijderd. |
+|/namespaces/authorizationRules/listkeys/action|De verbindingstekenreeks naar de naamruimte ophalen|
 |/Namespaces/authorizationRules/Read|De lijst met beschrijvingen van verificatieregels voor naamruimten ophalen.|
-|/Namespaces/authorizationRules/regenerateKeys/Action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
+|/namespaces/authorizationRules/regenerateKeys/action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
 |/Namespaces/authorizationRules/Write|Een Namespace niveau autorisatieregels maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels, de primaire en secundaire sleutels kunnen worden bijgewerkt.|
-|/ naamruimten/verwijderen|De resource van een naamruimte verwijderen|
+|/namespaces/Delete|De resource van een naamruimte verwijderen|
 |/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action|De autorisatie regels sleutels voor de primaire naamruimte voor herstel na noodgevallen opgehaald|
-|/namespaces/disasterRecoveryConfigs/authorizationRules/read|Disaster Recovery primaire Namespace van autorisatieregels ophalen|
+|/Namespaces/disasterRecoveryConfigs/authorizationRules/Read|Disaster Recovery primaire Namespace van autorisatieregels ophalen|
 |/namespaces/disasterRecoveryConfigs/breakPairing/action|Schakelt Disaster Recovery uit en stopt het repliceren van wijzigingen van primaire naar secundaire naamruimten.|
-|/Namespaces/disasterrecoveryconfigs/checkNameAvailability/Action|Beschikbaarheid van de controles van naamruimtealias onder het betreffende abonnement.|
+|/namespaces/disasterrecoveryconfigs/checkNameAvailability/action|Beschikbaarheid van de controles van naamruimtealias onder het betreffende abonnement.|
 |/namespaces/disasterRecoveryConfigs/delete|Hiermee verwijdert u de configuratie van het herstel na noodgevallen die zijn gekoppeld aan de naamruimte. Deze bewerking kan alleen worden aangeroepen via de primaire naamruimte.|
 |/namespaces/disasterRecoveryConfigs/failover/action|Hiermee wordt een GEO DR-failover aangeroepen en wordt het naamruimtealias zo geconfigureerd dat verwezen wordt naar de secundaire naamruimte.|
 |/namespaces/disasterRecoveryConfigs/read|Hiermee wordt de Disaster Recovery-configuratie die bij de naamruimte hoort opgehaald.|
@@ -2663,16 +2663,16 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Namespaces/HybridConnections/Write|Maken of bijwerken HybridConnection eigenschappen.|
 |/Namespaces/messagingPlan/Read|Hiermee wordt de Messaging plannen voor een naamruimte. Deze API is afgeschaft. Eigenschappen beschikbaar via de MessagingPlan resource worden verplaatst naar een Namespace-resource in latere versies van de API (bovenliggend)... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
 |/Namespaces/messagingPlan/Write|De Messaging plannen voor een naamruimte-updates. Deze API is afgeschaft. Eigenschappen beschikbaar via de MessagingPlan resource worden verplaatst naar een Namespace-resource in latere versies van de API (bovenliggend)... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
-|/Namespaces/operationresults/Read|De status van de naamruimtebewerking ophalen|
-|/Namespaces/providers/Microsoft.Insights/metricDefinitions/Read|Lijst met Namespace metrische Resource beschrijvingen|
+|/namespaces/operationresults/read|De status van de naamruimtebewerking ophalen|
+|/namespaces/providers/Microsoft.Insights/metricDefinitions/read|Lijst met Namespace metrische Resource beschrijvingen|
 |/Namespaces/Read|De lijst met beschrijvingen van resources van naamruimten ophalen|
 |/Namespaces/WcfRelays/authorizationRules/Action|De bewerking WcfRelay bijwerken. Deze bewerking wordt niet ondersteund op versie 2017-04-01-API. Autorisatieregels. Gebruik een PUT-aanroep autorisatieregel bijwerken.|
-|/Namespaces/WcfRelays/authorizationRules/DELETE|Bewerking WcfRelay autorisatieregels verwijderen|
+|/namespaces/WcfRelays/authorizationRules/delete|Bewerking WcfRelay autorisatieregels verwijderen|
 |/Namespaces/WcfRelays/authorizationRules/listkeys/Action|De verbindingsreeks naar WcfRelay ophalen|
 |/Namespaces/WcfRelays/authorizationRules/Read| De lijst met autorisatieregels WcfRelay ophalen|
 |/Namespaces/WcfRelays/authorizationRules/regeneratekeys/Action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
 |/Namespaces/WcfRelays/authorizationRules/Write|Autorisatieregels WcfRelay maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels kunnen worden bijgewerkt.|
-|/Namespaces/WcfRelays/DELETE|Bewerking WcfRelay bron verwijderen|
+|/namespaces/WcfRelays/Delete|Bewerking WcfRelay bron verwijderen|
 |/Namespaces/WcfRelays/Read|Lijst met beschrijvingen van de Resource WcfRelay ophalen|
 |/Namespaces/WcfRelays/Write|Maken of bijwerken WcfRelay eigenschappen.|
 |naamruimten/schrijven|Een Namespace-Resource maken en bijwerken van de eigenschappen ervan. Labels en capaciteit van de Namespace zijn de eigenschappen die kunnen worden bijgewerkt.|
@@ -2688,7 +2688,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |AvailabilityStatuses/leestijd|De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik|
 |/ healthevent/actie|Hiermee wordt de wijziging van de status voor de opgegeven resource aangeduid|
 |/healthevent/activated/Action|Hiermee wordt de wijziging van de status voor de opgegeven resource aangeduid|
-|/healthevent/InProgress/action|Hiermee wordt de wijziging van de status voor de opgegeven resource aangeduid|
+|/healthevent/InProgress/Action|Hiermee wordt de wijziging van de status voor de opgegeven resource aangeduid|
 |/healthevent/Pending/Action|Hiermee wordt de wijziging van de status voor de opgegeven resource aangeduid|
 |/healthevent/Resolved/Action|Hiermee wordt de wijziging van de status voor de opgegeven resource aangeduid|
 |/healthevent/Updated/Action|Hiermee wordt de wijziging van de status voor de opgegeven resource aangeduid|
@@ -2698,14 +2698,14 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/checkResourceName/action|Controleer of de resourcenaam geldig is.|
+|/ checkResourceName/actie|Controleer of de resourcenaam geldig is.|
 |/Deployments/Cancel/Action|Hiermee kunt u een implementatie annuleren.|
-|/Deployments/DELETE|Hiermee kunt u een implementatie verwijderen.|
+|/deployments/delete|Hiermee kunt u een implementatie verwijderen.|
 |/Deployments/Operations/Read|Hiermee kunt u implementatiebewerkingen ophalen of opnemen in een lijst.|
 |/Deployments/Read|Hiermee kunt u implementaties ophalen of opnemen in een lijst.|
 |/Deployments/Validate/Action|Hiermee kunt u een implementatie valideren.|
 |implementaties van/schrijven|Hiermee kunt u een implementatie maken of bijwerken.|
-|/links/DELETE|Hiermee kunt u een resourcekoppeling verwijderen.|
+|/links/delete|Hiermee kunt u een resourcekoppeling verwijderen.|
 |/links/Read|Hiermee kunt u resourcekoppelingen ophalen of opnemen in een lijst.|
 |koppelingen/schrijven|Hiermee kunt u een resourcekoppeling maken of bijwerken.|
 |/Marketplace/Purchase/Action|Hiermee worden een resource gekocht via de marketplace.|
@@ -2720,16 +2720,16 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Subscriptions/ResourceGroups/Deployments/operationstatuses/Read|Hiermee worden lijsten met statussen van implementatiebewerkingen opgehaald.|
 |/Subscriptions/ResourceGroups/Deployments/Read|Hiermee kunt u implementaties ophalen of opnemen in een lijst.|
 |/Subscriptions/ResourceGroups/Deployments/Write|Hiermee kunt u een implementatie maken of bijwerken.|
-|/Subscriptions/resourceGroups/moveResources/Action|Hiermee kunt u resources van een resourcegroep naar een andere resourcegroep verplaatsen.|
+|/subscriptions/resourceGroups/moveResources/action|Hiermee kunt u resources van een resourcegroep naar een andere resourcegroep verplaatsen.|
 |/Subscriptions/resourceGroups/Read|Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst.|
 |/Subscriptions/ResourceGroups/resources/Read|Hiermee worden de resources voor de resourcegroep opgehaald.|
-|/Subscriptions/resourceGroups/validateMoveResources/Action|Hiermee wordt de verplaatsing van resources van de ene naar de andere resourcegroep gevalideerd.|
-|/subscriptions/resourceGroups/write|Hiermee kunt u een resourcegroep maken of bijwerken.|
+|/subscriptions/resourceGroups/validateMoveResources/action|Hiermee wordt de verplaatsing van resources van de ene naar de andere resourcegroep gevalideerd.|
+|/Subscriptions/resourceGroups/Write|Hiermee kunt u een resourcegroep maken of bijwerken.|
 |/subscriptions/resources/Read|Hiermee kunt u de resources van een abonnement ophalen.|
-|/Subscriptions/tagNames/DELETE|Hiermee kunt u een abonnementslabel verwijderen.|
-|/Subscriptions/tagNames/Read|Hiermee kunt u abonnementslabels ophalen of opnemen in een lijst.|
-|/Subscriptions/tagNames/tagValues/DELETE|Hiermee kunt een abonnementslabelwaarde verwijderen.|
-|/Subscriptions/tagNames/tagValues/Read|Hiermee kunt u abonnementslabelwaarden ophalen of opnemen in een lijst.|
+|/subscriptions/tagNames/delete|Hiermee kunt u een abonnementslabel verwijderen.|
+|/subscriptions/tagNames/read|Hiermee kunt u abonnementslabels ophalen of opnemen in een lijst.|
+|/subscriptions/tagNames/tagValues/delete|Hiermee kunt een abonnementslabelwaarde verwijderen.|
+|/subscriptions/tagNames/tagValues/read|Hiermee kunt u abonnementslabelwaarden ophalen of opnemen in een lijst.|
 |/Subscriptions/tagNames/tagValues/Write|Hiermee kunt u een abonnementslabelwaarde toevoegen.|
 |/Subscriptions/tagNames/Write|Hiermee kunt u een abonnementslabel toevoegen.|
 |/tenants/Read|Hiermee kunt u de lijst met tenants ophalen.|
@@ -2745,7 +2745,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/jobcollections/jobs/generateLogicAppDefinition/action|Hiermee wordt een definitie voor een logische app gegenereerd op basis van een Scheduler-taak.|
 |/jobcollections/Jobs/jobhistories/Read|Hiermee haalt u de taakgeschiedenis op.|
 |/jobcollections/Jobs/Read|Hiermee haalt u een taak op.|
-|/jobcollections/Jobs/Run/Action|De taak wordt uitgevoerd.|
+|/jobcollections/jobs/run/action|De taak wordt uitgevoerd.|
 |/jobcollections/Jobs/Write|Hiermee maakt u een taak of werkt u er een bij.|
 |/jobcollections/Read|Taakverzameling ophalen|
 |taakverzamelingen/schrijven|Hiermee maakt u een taakverzameling of werkt u er een bij.|
@@ -2756,16 +2756,16 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |---|---|
 |/ checkNameAvailability/actie|Controleert de beschikbaarheid van de naam van de service.|
 |registratie-/ actie|Het abonnement voor de resource zoekmachine registreert en wordt het maken van de search-services.|
-|/searchServices/createQueryKey/Action|Maakt de querysleutel.|
+|/searchServices/createQueryKey/action|Maakt de querysleutel.|
 |/searchServices/delete|Hiermee verwijdert u de search-service.|
 |/searchServices/diagnosticSettings/Read|De diganostic instelling opgehaald voor de resource lezen|
-|/searchServices/diagnosticSettings/Write|Maken of bijwerken van de instelling diganostic voor de bron|
+|/searchServices/diagnosticSettings/write|Maken of bijwerken van de instelling diganostic voor de bron|
 |/searchServices/listAdminKeys/action|De administratorsleutels leest.|
-|/searchServices/logDefinitions/Read|De beschikbare logboeken opgehaald voor de search-service|
+|/searchServices/logDefinitions/read|De beschikbare logboeken opgehaald voor de search-service|
 |/searchServices/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor de search-service|
-|/searchServices/queryKey/DELETE|Hiermee verwijdert u de querysleutel.|
+|/searchServices/queryKey/delete|Hiermee verwijdert u de querysleutel.|
 |/searchServices/queryKey/Read|De querysleutels worden gelezen.|
-|/searchServices/Read|Leest de search-service.|
+|/searchServices/read|Leest de search-service.|
 |/searchServices/regenerateAdminKey/action|De Administrator-code genereert.|
 |/searchServices/start/action|Start de search-service.|
 |/searchServices/stop/action|De search-service stopt.|
@@ -2783,7 +2783,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Locations/Alerts/Dismiss/Action|Een beveiligingswaarschuwing te sluiten|
 |/Locations/Alerts/Read|Alle beschikbare beveiligingswaarschuwingen opgehaald|
 |/locations/jitNetworkAccessPolicies/initiate/action|Initieert een netwerktoegangsbeleid just in time|
-|/Locations/jitNetworkAccessPolicies/Read|Het toegangsbeleid just in time netwerk opgehaald|
+|/locations/jitNetworkAccessPolicies/read|Het toegangsbeleid just in time netwerk opgehaald|
 |/locations/jitNetworkAccessPolicies/write|Hiermee maakt u een nieuw netwerk just-in-time-beleid of een bestaande bijgewerkt|
 |/Locations/Read|De locatie van beveiliging opgehaald|
 |/Locations/Tasks/Activate/Action|Een beveiligingsaanbeveling activeren|
@@ -2797,20 +2797,20 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/pricings/Read|De prijscategorie instellingen voor de scope opgehaald|
 |pricings/schrijven|De prijscategorie instellingen voor de scope-updates|
 |registratie-/ actie|Registreert het abonnement voor Azure Security Center|
-|/securityContacts/DELETE|Neem contact op met de beveiliging wordt verwijderd|
+|/securityContacts/delete|Neem contact op met de beveiliging wordt verwijderd|
 |/securityContacts/Read|Neem contact op met de beveiliging opgehaald|
 |securityContacts/schrijven|Neem contact op met de beveiliging werkt|
 |/securitySolutions/delete|Hiermee verwijdert u een beveiligingsoplossing|
 |/securitySolutions/Read|De beveiligingsoplossingen opgehaald|
-|/securitySolutions/write|Maakt een nieuwe beveiligingsoplossing of een bestaande bijgewerkt|
-|/securitySolutionsReferenceData/read|Referentiegegevens voor de beveiligingsoplossingen opgehaald|
+|securitySolutions/schrijven|Maakt een nieuwe beveiligingsoplossing of een bestaande bijgewerkt|
+|/securitySolutionsReferenceData/Read|Referentiegegevens voor de beveiligingsoplossingen opgehaald|
 |/securityStatuses/Read|De beveiliging van health-statussen voor Azure-resources opgehaald|
 |/securityStatusesSummaries/Read|De beveiliging van samenvattingen van de statussen voor de scope opgehaald|
 |/Tasks/Read|Alle beschikbare beveiligingsaanbevelingen opgehaald|
 |/webApplicationFirewalls/delete|Hiermee verwijdert u een web application firewall|
 |/webApplicationFirewalls/read|Het web application firewalls opgehaald|
 |/webApplicationFirewalls/write|Hiermee maakt u een nieuwe web application firewall of een bestaande bijgewerkt|
-|/workspaceSettings/Connect/Action|Wijzigen van de werkruimte-instellingen opnieuw verbinden|
+|/workspaceSettings/connect/action|Wijzigen van de werkruimte-instellingen opnieuw verbinden|
 |/workspaceSettings/delete|Hiermee verwijdert u de werkruimte-instellingen|
 |/workspaceSettings/Read|De werkruimte-instellingen opgehaald|
 |/workspaceSettings/write|De werkruimte-instellingen voor updates|
@@ -2820,18 +2820,18 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/ checkNameAvailability/actie|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd.|
-|/ checkNamespaceAvailability/actie|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is afgeschaft. Gebruik in plaats hiervan CheckNameAvailabiltiy.|
-|/Namespaces/authorizationRules/Action|Updates Namespace-autorisatieregel. Deze API is depricated. Gebruik een PUT-aanroep in plaats daarvan de autorisatieregel Namespace bijwerken... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
-|/Namespaces/authorizationRules/DELETE|Namespace autorisatieregel verwijderen. De standaardregel Namespace autorisatie kan niet worden verwijderd. |
-|/Namespaces/authorizationRules/listkeys/Action|De verbindingstekenreeks naar de naamruimte ophalen|
+|/checkNamespaceAvailability/action|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is afgeschaft. Gebruik in plaats hiervan CheckNameAvailabiltiy.|
+|/namespaces/authorizationRules/action|Updates Namespace-autorisatieregel. Deze API is depricated. Gebruik een PUT-aanroep in plaats daarvan de autorisatieregel Namespace bijwerken... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
+|/namespaces/authorizationRules/delete|Namespace autorisatieregel verwijderen. De standaardregel Namespace autorisatie kan niet worden verwijderd. |
+|/namespaces/authorizationRules/listkeys/action|De verbindingstekenreeks naar de naamruimte ophalen|
 |/Namespaces/authorizationRules/Read|De lijst met beschrijvingen van verificatieregels voor naamruimten ophalen.|
-|/Namespaces/authorizationRules/regenerateKeys/Action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
+|/namespaces/authorizationRules/regenerateKeys/action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
 |/Namespaces/authorizationRules/Write|Een Namespace niveau autorisatieregels maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels, de primaire en secundaire sleutels kunnen worden bijgewerkt.|
-|/ naamruimten/verwijderen|De resource van een naamruimte verwijderen|
+|/namespaces/Delete|De resource van een naamruimte verwijderen|
 |/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action|De autorisatie regels sleutels voor de primaire naamruimte voor herstel na noodgevallen opgehaald|
-|/namespaces/disasterRecoveryConfigs/authorizationRules/read|Disaster Recovery primaire Namespace van autorisatieregels ophalen|
+|/Namespaces/disasterRecoveryConfigs/authorizationRules/Read|Disaster Recovery primaire Namespace van autorisatieregels ophalen|
 |/namespaces/disasterRecoveryConfigs/breakPairing/action|Schakelt Disaster Recovery uit en stopt het repliceren van wijzigingen van primaire naar secundaire naamruimten.|
-|/Namespaces/disasterrecoveryconfigs/checkNameAvailability/Action|Beschikbaarheid van de controles van naamruimtealias onder het betreffende abonnement.|
+|/namespaces/disasterrecoveryconfigs/checkNameAvailability/action|Beschikbaarheid van de controles van naamruimtealias onder het betreffende abonnement.|
 |/namespaces/disasterRecoveryConfigs/delete|Hiermee verwijdert u de configuratie van het herstel na noodgevallen die zijn gekoppeld aan de naamruimte. Deze bewerking kan alleen worden aangeroepen via de primaire naamruimte.|
 |/namespaces/disasterRecoveryConfigs/failover/action|Hiermee wordt een GEO DR-failover aangeroepen en wordt het naamruimtealias zo geconfigureerd dat verwezen wordt naar de secundaire naamruimte.|
 |/namespaces/disasterRecoveryConfigs/read|Hiermee wordt de Disaster Recovery-configuratie die bij de naamruimte hoort opgehaald.|
@@ -2843,32 +2843,32 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Namespaces/messagingPlan/Read|Hiermee wordt de Messaging plannen voor een naamruimte. Deze API is afgeschaft. Eigenschappen beschikbaar via de MessagingPlan resource worden verplaatst naar een Namespace-resource in latere versies van de API (bovenliggend)... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
 |/Namespaces/messagingPlan/Write|De Messaging plannen voor een naamruimte-updates. Deze API is afgeschaft. Eigenschappen beschikbaar via de MessagingPlan resource worden verplaatst naar een Namespace-resource in latere versies van de API (bovenliggend)... Deze bewerking wordt niet ondersteund op versie 2017-04-01-API.|
 |/Namespaces/Migrate/Action|Bewerking voor migreren van de naamruimte|
-|/Namespaces/operationresults/Read|De status van de naamruimtebewerking ophalen|
-|/Namespaces/providers/Microsoft.Insights/diagnosticSettings/Read|Lijst met beschrijvingen van de Resource Namespace diagnostische instellingen|
-|/Namespaces/providers/Microsoft.Insights/diagnosticSettings/Write|Lijst met beschrijvingen van de Resource Namespace diagnostische instellingen|
-|/Namespaces/providers/Microsoft.Insights/logDefinitions/Read|Lijst met Namespace logboeken Resource beschrijvingen|
-|/Namespaces/providers/Microsoft.Insights/metricDefinitions/Read|Lijst met Namespace metrische Resource beschrijvingen|
-|/Namespaces/Queues/authorizationRules/Action|Bewerking voor het bijwerken van de wachtrij. Deze bewerking wordt niet ondersteund op versie 2017-04-01-API. Autorisatieregels. Gebruik een PUT-aanroep autorisatieregel bijwerken.|
-|/Namespaces/Queues/authorizationRules/DELETE|Bewerking autorisatieregels wachtrij verwijderen|
-|/Namespaces/Queues/authorizationRules/listkeys/Action|De verbindingsreeks naar wachtrij ophalen|
-|/Namespaces/Queues/authorizationRules/Read| De lijst met autorisatieregels wachtrij ophalen|
-|/Namespaces/Queues/authorizationRules/regenerateKeys/Action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
-|/Namespaces/Queues/authorizationRules/Write|Autorisatieregels wachtrij maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels kunnen worden bijgewerkt.|
-|/Namespaces/Queues/DELETE|Bewerking bron van de wachtrij verwijderen|
+|/namespaces/operationresults/read|De status van de naamruimtebewerking ophalen|
+|/namespaces/providers/Microsoft.Insights/diagnosticSettings/read|Lijst met beschrijvingen van de Resource Namespace diagnostische instellingen|
+|/namespaces/providers/Microsoft.Insights/diagnosticSettings/write|Lijst met beschrijvingen van de Resource Namespace diagnostische instellingen|
+|/namespaces/providers/Microsoft.Insights/logDefinitions/read|Lijst met Namespace logboeken Resource beschrijvingen|
+|/namespaces/providers/Microsoft.Insights/metricDefinitions/read|Lijst met Namespace metrische Resource beschrijvingen|
+|/namespaces/queues/authorizationRules/action|Bewerking voor het bijwerken van de wachtrij. Deze bewerking wordt niet ondersteund op versie 2017-04-01-API. Autorisatieregels. Gebruik een PUT-aanroep autorisatieregel bijwerken.|
+|/namespaces/queues/authorizationRules/delete|Bewerking autorisatieregels wachtrij verwijderen|
+|/namespaces/queues/authorizationRules/listkeys/action|De verbindingsreeks naar wachtrij ophalen|
+|/namespaces/queues/authorizationRules/read| De lijst met autorisatieregels wachtrij ophalen|
+|/namespaces/queues/authorizationRules/regenerateKeys/action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
+|/namespaces/queues/authorizationRules/write|Autorisatieregels wachtrij maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels kunnen worden bijgewerkt.|
+|/namespaces/queues/Delete|Bewerking bron van de wachtrij verwijderen|
 |/Namespaces/Queues/Read|Lijst met beschrijvingen van de wachtrij-Resource|
 |/Namespaces/Queues/Write|Maken of wachtrijeigenschappen Update.|
 |/Namespaces/Read|De lijst met beschrijvingen van resources van naamruimten ophalen|
-|/Namespaces/Topics/authorizationRules/Action|Bewerking voor het bijwerken van onderwerp. Deze bewerking wordt niet ondersteund op versie 2017-04-01-API. Autorisatieregels. Gebruik een PUT-aanroep autorisatieregel bijwerken.|
-|/Namespaces/Topics/authorizationRules/DELETE|Bewerking verificatieregels onderwerp verwijderen|
-|/Namespaces/Topics/authorizationRules/listkeys/Action|De verbindingsreeks naar onderwerp ophalen|
+|/namespaces/topics/authorizationRules/action|Bewerking voor het bijwerken van onderwerp. Deze bewerking wordt niet ondersteund op versie 2017-04-01-API. Autorisatieregels. Gebruik een PUT-aanroep autorisatieregel bijwerken.|
+|/namespaces/topics/authorizationRules/delete|Bewerking verificatieregels onderwerp verwijderen|
+|/namespaces/topics/authorizationRules/listkeys/action|De verbindingsreeks naar onderwerp ophalen|
 |/Namespaces/Topics/authorizationRules/Read| De lijst met verificatieregels onderwerp ophalen|
-|/Namespaces/Topics/authorizationRules/regenerateKeys/Action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
+|/namespaces/topics/authorizationRules/regenerateKeys/action|De primaire of secundaire sleutel voor de resource opnieuw genereren|
 |/Namespaces/Topics/authorizationRules/Write|Verificatieregels onderwerp maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels kunnen worden bijgewerkt.|
 |/Namespaces/Topics/DELETE|Bewerking onderwerp bron verwijderen|
 |/Namespaces/Topics/Read|Lijst met beschrijvingen van de Resource onderwerp|
-|/Namespaces/Topics/Subscriptions/DELETE|Bewerking TopicSubscription bron verwijderen|
+|/namespaces/topics/subscriptions/Delete|Bewerking TopicSubscription bron verwijderen|
 |/Namespaces/Topics/Subscriptions/Read|Lijst met beschrijvingen van de Resource TopicSubscription ophalen|
-|/Namespaces/Topics/Subscriptions/Rules/DELETE|Bewerking bron van de regel verwijderen|
+|/namespaces/topics/subscriptions/rules/Delete|Bewerking bron van de regel verwijderen|
 |/Namespaces/Topics/Subscriptions/Rules/Read|Lijst met beschrijvingen van de Resource regel|
 |/Namespaces/Topics/Subscriptions/Rules/Write|Maken of de eigenschappen van de regel voor het bijwerken.|
 |/Namespaces/Topics/Subscriptions/Write|Maken of bijwerken TopicSubscription eigenschappen.|
@@ -2893,7 +2893,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/clusters/Applications/Services/statuses/Read|Een servicestatus lezen|
 |/clusters/Applications/Services/Write|Een service maken of bijwerken|
 |/clusters/Applications/Write|Een toepassing maken of bijwerken|
-|/clusters/applicationTypes/DELETE|Een toepassingstype verwijderen|
+|/clusters/applicationTypes/delete|Een toepassingstype verwijderen|
 |/clusters/applicationTypes/Read|Een toepassingstype lezen|
 |/clusters/applicationTypes/Versions/DELETE|Een versie van een toepassingstype verwijderen|
 |/clusters/applicationTypes/Versions/Read|Een versie van een toepassingstype lezen|
@@ -2906,7 +2906,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |clusters/schrijven|Een cluster maken of bijwerken|
 |/Locations/clusterVersions/Read|Een clusterversie lezen|
 |/Locations/Environments/clusterVersions/Read|Een clusterversie voor een specifieke omgeving lezen|
-|/Locations/operationresults/Read|Bewerkingsresultaten lezen|
+|/locations/operationresults/read|Bewerkingsresultaten lezen|
 |/Locations/Operations/Read|Bewerkingen op locatie lezen|
 |/Operations/Read|Beschikbare bewerkingen lezen|
 |registratie-/ actie|Een actie registreren|
@@ -2915,7 +2915,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|/applicationDefinitions/DELETE|Hiermee wordt een toepassingsdefinitie verwijderd.|
+|/applicationDefinitions/delete|Hiermee wordt een toepassingsdefinitie verwijderd.|
 |/applicationDefinitions/Read|Hiermee wordt een lijst met toepassingsdefinities opgehaald.|
 |applicationDefinitions/schrijven|Hiermee wordt een toepassingsdefinitie toegevoegd of gewijzigd.|
 |/Applications/DELETE|Hiermee verwijdert u een toepassing.|
@@ -2933,30 +2933,30 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/locations/auditingSettingsOperationResults/read|Resultaat van de server blob controle beleid Set-bewerking ophalen|
 |/Locations/Capabilities/Read|Hiermee haalt u de mogelijkheden voor dit abonnement in een bepaalde locatie|
 |/locations/databaseAzureAsyncOperation/read|Hiermee haalt u de status van een databasebewerking.|
-|/Locations/databaseOperationResults/Read|Hiermee haalt u de status van een databasebewerking.|
-|/Locations/deletedServerAsyncOperation/Read|Opgehaald in uitvoering bewerkingen op verwijderde server|
-|/Locations/deletedServerOperationResults/Read|Opgehaald in uitvoering bewerkingen op verwijderde server|
-|/Locations/deletedServers/Read|De lijst met verwijderde servers of haalt de eigenschappen voor de opgegeven server verwijderde retourneren.|
+|/locations/databaseOperationResults/read|Hiermee haalt u de status van een databasebewerking.|
+|/locations/deletedServerAsyncOperation/read|Opgehaald in uitvoering bewerkingen op verwijderde server|
+|/locations/deletedServerOperationResults/read|Opgehaald in uitvoering bewerkingen op verwijderde server|
+|/locations/deletedServers/read|De lijst met verwijderde servers of haalt de eigenschappen voor de opgegeven server verwijderde retourneren.|
 |/Locations/deletedServers/recover/Action|Een verwijderde server herstellen|
 |/locations/deleteVirtualNetworkOrSubnets/action|Verwijdert virtuele netwerk regels die zijn gekoppeld aan een virtueel netwerk of subnet|
 |/locations/elasticPoolAzureAsyncOperation/read|De azure asynchrone bewerking voor een elastische pool asynchrone bewerking opgehaald|
-|/Locations/elasticPoolOperationResults/Read|Hiermee wordt het resultaat van een bewerking voor de elastische groep opgehaald.|
+|/locations/elasticPoolOperationResults/read|Hiermee wordt het resultaat van een bewerking voor de elastische groep opgehaald.|
 |/locations/extendedAuditingSettingsAzureAsyncOperation/read|Resultaat van de uitgebreide server blob controle beleid Set-bewerking ophalen|
 |/locations/extendedAuditingSettingsOperationResults/read|Resultaat van de uitgebreide server blob controle beleid Set-bewerking ophalen|
 |/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action|Beheerde database restore-bewerking is voltooid|
 |/locations/managedTransparentDataEncryptionAzureAsyncOperation/read|Opgehaald in uitvoering bewerkingen op beheerde database transparante gegevensversleuteling|
 |/locations/managedTransparentDataEncryptionOperationResults/read|Opgehaald in uitvoering bewerkingen op beheerde database transparante gegevensversleuteling|
 |/Locations/Read|De beschikbare locaties voor een bepaald abonnement opgehaald|
-|/Locations/syncAgentOperationResults/Read|Resultaat van de synchronisatie-agent resource bewerking ophalen|
-|/Locations/syncDatabaseIds/Read|De synchronisatie-database-id's voor een bepaalde regio en een abonnement ophalen|
-|/Locations/syncGroupOperationResults/Read|Resultaat van de synchronisatie groep resource-bewerking ophalen|
-|/Locations/syncMemberOperationResults/Read|Resultaat van de synchronisatie lid resource bewerking ophalen|
+|/locations/syncAgentOperationResults/read|Resultaat van de synchronisatie-agent resource bewerking ophalen|
+|/locations/syncDatabaseIds/read|De synchronisatie-database-id's voor een bepaalde regio en een abonnement ophalen|
+|/locations/syncGroupOperationResults/read|Resultaat van de synchronisatie groep resource-bewerking ophalen|
+|/locations/syncMemberOperationResults/read|Resultaat van de synchronisatie lid resource bewerking ophalen|
 |/Locations/usages/Read|Hiermee wordt een verzameling van de meetgegevens voor softwaregebruik voor dit abonnement op een locatie|
 |/locations/virtualNetworkRulesAzureAsyncOperation/read|Retourneert de gegevens van de opgegeven virtuele netwerk regels azure asynchrone bewerking |
-|/Locations/virtualNetworkRulesOperationResults/Read|Retourneert de gegevens van de opgegeven virtuele netwerk regels bewerking |
-|/managedInstances/Administrators/DELETE|Hiermee verwijdert u een bestaande beheerder van beheerde exemplaar.|
-|/managedInstances/Administrators/Read|Hiermee wordt een lijst met beheerde exemplaar beheerders opgehaald.|
-|/managedInstances/Administrators/Write|Maken of bijwerken van de administrator beheerde exemplaar met de opgegeven parameters.|
+|/locations/virtualNetworkRulesOperationResults/read|Retourneert de gegevens van de opgegeven virtuele netwerk regels bewerking |
+|/managedInstances/administrators/delete|Hiermee verwijdert u een bestaande beheerder van beheerde exemplaar.|
+|/managedInstances/administrators/read|Hiermee wordt een lijst met beheerde exemplaar beheerders opgehaald.|
+|/managedInstances/administrators/write|Maken of bijwerken van de administrator beheerde exemplaar met de opgegeven parameters.|
 |/managedInstances/databases/delete|Hiermee verwijdert u een bestaande beheerde database|
 |/managedInstances/databases/read|Beheerde database opgehaald bestaande|
 |/managedInstances/databases/securityAlertPolicies/read|Ophalen van gegevens van de afwijkingsdetectie van de database threat geconfigureerd op een bepaalde beheerde database|
@@ -2964,28 +2964,28 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/managedInstances/databases/securityEvents/Read|Haalt de beheerde database beveiligingsgebeurtenissen|
 |/managedInstances/databases/transparentDataEncryption/read|Ophalen van gegevens van de database met transparante gegevensversleuteling op een bepaalde beheerde database|
 |/managedInstances/databases/transparentDataEncryption/write|De database met transparante gegevensversleuteling voor een bepaalde beheerde database wijzigen|
-|/managedInstances/databases/Write|Een nieuwe database maken of bijwerken van een bestaande database.|
+|/managedInstances/databases/write|Een nieuwe database maken of bijwerken van een bestaande database.|
 |/managedInstances/delete|Hiermee verwijdert u een bestaand exemplaar van de beheerde.|
 |/managedInstances/metricDefinitions/Read|Beheerde exemplaar metrische definities ophalen|
 |/managedInstances/metrics/Read|Ophalen van beheerde exemplaar metrische gegevens|
-|/managedInstances/Read|De lijst met beheerde-exemplaren of haalt de eigenschappen voor het opgegeven exemplaar van de beheerde retourneren.|
+|/managedInstances/read|De lijst met beheerde-exemplaren of haalt de eigenschappen voor het opgegeven exemplaar van de beheerde retourneren.|
 |/managedInstances/securityAlertPolicies/read|Ophalen van gegevens van de afwijkingsdetectie van de beheerde server threat geconfigureerd op een bepaalde beheerde server|
 |/managedInstances/securityAlertPolicies/write|Het beleid voor detectie van bedreigingen beheerde server voor een bepaalde beheerde server wijzigen|
 |managedInstances/schrijven|Hiermee maakt u een beheerde exemplaar met de opgegeven parameters of bijwerken van de eigenschappen of labels voor het opgegeven exemplaar van de beheerde.|
 |/Operations/Read|Beschikbare REST-bewerkingen opgehaald|
 |registratie-/ actie|Registreert het abonnement voor de resourceprovider voor Microsoft SQL-Database en wordt het maken van Microsoft SQL-Databases.|
-|/servers/administratorOperationResults/Read|Opgehaald in uitvoering bewerkingen op de server-beheerders|
-|/servers/Administrators/DELETE|Verwijderen van server-beheerder|
-|/servers/Administrators/Read|Administrator-servergegevens ophalen|
+|/servers/administratorOperationResults/read|Opgehaald in uitvoering bewerkingen op de server-beheerders|
+|/servers/administrators/delete|Verwijderen van server-beheerder|
+|/servers/administrators/read|Administrator-servergegevens ophalen|
 |/servers/Administrators/Write|Maken of bijwerken van de serverbeheerder|
-|/servers/Advisors/Read|Retourneert de lijst met adviseurs beschikbaar voor de server|
-|/servers/Advisors/recommendedActions/Read|Retourneert de lijst met aanbevolen acties van opgegeven advisor voor de server|
-|/servers/Advisors/recommendedActions/Write|De aanbevolen actie toepassen op de server|
-|/servers/Advisors/Write|Updates execute automatisch-status van een advisor op serverniveau.|
-|/servers/auditingPolicies/Read|Ophalen van gegevens van de tabel met standaardtijden server controlebeleid geconfigureerd op een bepaalde server|
-|/servers/auditingPolicies/Write|Controle van wijzigingen in de standaard server tabel voor een bepaalde server|
-|/servers/auditingSettings/operationResults/Read|Resultaat van de server blob controle beleid Set-bewerking ophalen|
-|/servers/auditingSettings/Read|Ophalen van gegevens van de server blob controlebeleid geconfigureerd op een bepaalde server|
+|/servers/advisors/read|Retourneert de lijst met adviseurs beschikbaar voor de server|
+|/servers/advisors/recommendedActions/read|Retourneert de lijst met aanbevolen acties van opgegeven advisor voor de server|
+|/servers/advisors/recommendedActions/write|De aanbevolen actie toepassen op de server|
+|/servers/advisors/write|Updates execute automatisch-status van een advisor op serverniveau.|
+|/servers/auditingPolicies/read|Ophalen van gegevens van de tabel met standaardtijden server controlebeleid geconfigureerd op een bepaalde server|
+|/servers/auditingPolicies/write|Controle van wijzigingen in de standaard server tabel voor een bepaalde server|
+|/servers/auditingSettings/operationResults/read|Resultaat van de server blob controle beleid Set-bewerking ophalen|
+|/servers/auditingSettings/read|Ophalen van gegevens van de server blob controlebeleid geconfigureerd op een bepaalde server|
 |/servers/auditingSettings/write|De server blob-controle voor een bepaalde server wijzigen|
 |/servers/automaticTuning/Read|Retourneert automatische afstemming van instellingen voor de server|
 |/servers/automaticTuning/Write|Prestatieafstemming instellingen voor de server voor automatische updates en bijgewerkte instellingen retourneert|
@@ -2993,35 +2993,35 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/servers/backupLongTermRetentionVaults/read|Deze bewerking wordt gebruikt voor het ophalen van een back-up langdurig bewaren kluis. Gegevens over de kluis geregistreerd met deze server worden geretourneerd|
 |/servers/backupLongTermRetentionVaults/write|Deze bewerking wordt gebruikt voor het registreren van een back-up langdurig bewaren kluis naar een server|
 |/servers/communicationLinks/delete|Hiermee verwijdert u een bestaande koppeling van de server-communicatie.|
-|/servers/communicationLinks/Read|De lijst met communicatiekoppelingen van de opgegeven server retourneren.|
+|/servers/communicationLinks/read|De lijst met communicatiekoppelingen van de opgegeven server retourneren.|
 |/servers/communicationLinks/write|Maken of bijwerken van een server communicatiekanaal.|
-|/servers/connectionPolicies/Read|De lijst met beleidsregels voor server-verbinding van een opgegeven server retourneren.|
+|/servers/connectionPolicies/read|De lijst met beleidsregels voor server-verbinding van een opgegeven server retourneren.|
 |/servers/connectionPolicies/write|Maken of bijwerken van een beleid van server-verbinding.|
-|/servers/databases/Advisors/Read|Retourneert de lijst met adviseurs die beschikbaar zijn voor de database|
-|/servers/databases/Advisors/recommendedActions/Read|Retourneert de lijst met aanbevolen acties van de opgegeven advisor voor de database|
-|/servers/databases/Advisors/recommendedActions/Write|De aanbevolen actie toepassen op de database|
+|/servers/databases/advisors/read|Retourneert de lijst met adviseurs die beschikbaar zijn voor de database|
+|/servers/databases/advisors/recommendedActions/read|Retourneert de lijst met aanbevolen acties van de opgegeven advisor voor de database|
+|/servers/databases/advisors/recommendedActions/write|De aanbevolen actie toepassen op de database|
 |/servers/databases/Advisors/Write|Update automatisch-execute status van een advisor op databaseniveau.|
-|/servers/databases/auditingPolicies/Read|Ophalen van gegevens van de tabel controlebeleid geconfigureerd op een bepaalde database|
-|/servers/databases/auditingPolicies/Write|De tabel controlebeleid voor een bepaalde database wijzigen|
-|/servers/databases/auditingSettings/Read|Ophalen van gegevens van de blob-controlebeleid geconfigureerd op een bepaalde database|
-|/servers/databases/auditingSettings/Write|De blob controlebeleid voor een bepaalde database wijzigen|
-|/servers/databases/auditRecords/Read|De database blob-controlerecords ophalen|
+|/servers/databases/auditingPolicies/read|Ophalen van gegevens van de tabel controlebeleid geconfigureerd op een bepaalde database|
+|/servers/databases/auditingPolicies/write|De tabel controlebeleid voor een bepaalde database wijzigen|
+|/servers/databases/auditingSettings/read|Ophalen van gegevens van de blob-controlebeleid geconfigureerd op een bepaalde database|
+|/servers/databases/auditingSettings/write|De blob controlebeleid voor een bepaalde database wijzigen|
+|/servers/databases/auditRecords/read|De database blob-controlerecords ophalen|
 |/servers/databases/automaticTuning/Read|Retourneert automatische afstemming van instellingen voor een database|
 |/servers/databases/automaticTuning/Write|Instellingen voor automatische afstemmen voor een database-updates en bijgewerkte instellingen retourneert|
 |/servers/databases/azureAsyncOperation/read|Hiermee haalt u de status van een databasebewerking.|
 |/servers/databases/backupLongTermRetentionPolicies/read|De lijst met back-beleid voor archivering van een opgegeven database geretourneerd.|
 |/servers/databases/backupLongTermRetentionPolicies/write|Maken of bijwerken van een database archiveringsbeleid voor de back-up.|
-|/servers/databases/connectionPolicies/Read|Ophalen van gegevens van het verbindingsbeleid is geconfigureerd op een bepaalde database|
-|/servers/databases/connectionPolicies/write|Verbindingsbeleid voor een bepaalde database wijzigen|
+|/servers/databases/connectionPolicies/read|Ophalen van gegevens van het verbindingsbeleid is geconfigureerd op een bepaalde database|
+|/servers/databases/connectionPolicies/Write|Verbindingsbeleid voor een bepaalde database wijzigen|
 |/servers/databases/dataMaskingPolicies/read|De lijst van databasegegevens maskeren beleidsregels retourneren.|
 |/servers/databases/dataMaskingPolicies/rules/delete|Gegevensmaskering beleidsregel voor een bepaalde database verwijderen|
-|/servers/databases/dataMaskingPolicies/Rules/Read|Ophalen van gegevens van de gegevens die zijn geconfigureerd op een bepaalde database beleidsregel maskeren|
-|/servers/databases/dataMaskingPolicies/Rules/Write|Gegevensmaskering beleidsregel voor een bepaalde database wijzigen|
+|/servers/databases/dataMaskingPolicies/rules/read|Ophalen van gegevens van de gegevens die zijn geconfigureerd op een bepaalde database beleidsregel maskeren|
+|/servers/databases/dataMaskingPolicies/rules/write|Gegevensmaskering beleidsregel voor een bepaalde database wijzigen|
 |/servers/databases/dataMaskingPolicies/write|Beleid voor een bepaalde database gegevensmaskering wijzigen|
-|/servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/read|Retourneert de gegevens van de gedistribueerde query-stap van de datawarehouse-query voor de ID voor de geselecteerde stap|
-|/servers/databases/dataWarehouseQueries/Read|Retourneert het datawarehouse distributie query-gegevens voor geselecteerde query-ID|
+|/servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/Read|Retourneert de gegevens van de gedistribueerde query-stap van de datawarehouse-query voor de ID voor de geselecteerde stap|
+|/servers/databases/dataWarehouseQueries/read|Retourneert het datawarehouse distributie query-gegevens voor geselecteerde query-ID|
 |/servers/databases/dataWarehouseUserActivities/read|Haalt de gebruikersactiviteiten van een exemplaar van SQL Data Warehouse waaronder query's uitgevoerd en onderbroken|
-|/servers/databases/DELETE|Hiermee verwijdert u een bestaande database.|
+|/servers/databases/delete|Hiermee verwijdert u een bestaande database.|
 |/servers/databases/export/Action|Exporteren van Azure SQL Database|
 |/servers/databases/extendedAuditingSettings/read|Ophalen van gegevens van de uitgebreide blob controlebeleid geconfigureerd op een bepaalde database|
 |/servers/databases/extendedAuditingSettings/write|De uitgebreide blob controlebeleid voor een bepaalde database wijzigen|
@@ -3033,14 +3033,14 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/servers/databases/metricDefinitions/Read|Retourtypen van metrische gegevens die beschikbaar voor databases zijn|
 |/servers/databases/metrics/Read|Metrische gegevens voor de databases terug|
 |/servers/databases/Move/Action|Wijzig de naam van Azure SQL Database|
-|/servers/databases/operationResults/Read|Hiermee haalt u de status van een databasebewerking.|
-|/servers/databases/Operations/Cancel/Action|Hiermee annuleert Azure SQL Database in behandeling zijnde asynchrone bewerking die nog niet is voltooid.|
+|/servers/databases/operationResults/read|Hiermee haalt u de status van een databasebewerking.|
+|/servers/databases/operations/cancel/action|Hiermee annuleert Azure SQL Database in behandeling zijnde asynchrone bewerking die nog niet is voltooid.|
 |/servers/databases/Operations/Read|De lijst met bewerkingen die worden uitgevoerd op de database terug|
-|/servers/databases/pause/Action|Onderbreken Azure SQL Datawarehouse-Database|
-|/servers/databases/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/servers/databases/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
-|/servers/databases/providers/Microsoft.Insights/logDefinitions/Read|De beschikbare logboeken opgehaald voor databases|
-|/servers/databases/providers/Microsoft.Insights/metricDefinitions/Read|Retourtypen van metrische gegevens die beschikbaar voor databases zijn|
+|/servers/databases/pause/Action|Pause Azure SQL Datawarehouse Database|
+|/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/servers/databases/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/servers/databases/providers/Microsoft.Insights/logDefinitions/read|De beschikbare logboeken opgehaald voor databases|
+|/servers/databases/providers/Microsoft.Insights/metricDefinitions/read|Retourtypen van metrische gegevens die beschikbaar voor databases zijn|
 |/servers/databases/queryStore/queryTexts/Read|Retourneert de verzameling van query teksten die overeenkomen met de opgegeven parameters.|
 |/servers/databases/queryStore/Read|Retourneert de huidige waarden van de Query Store-instellingen voor de database.|
 |/servers/databases/queryStore/Write|Query Store-instelling voor de database-updates|
@@ -3048,63 +3048,63 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/servers/databases/replicationLinks/delete|Beëindigen van de replicatierelatie geforceerd en met mogelijk gegevensverlies|
 |/servers/databases/replicationLinks/failover/Action|Failover na het synchroniseren van alle wijzigingen van de primaire waardoor deze database in de replicatie-relationship\u0027s primaire en het aanbrengen van de externe primaire naar een secundair|
 |/servers/databases/replicationLinks/forceFailoverAllowDataLoss/action|Failover onmiddellijk met mogelijk gegevensverlies, waardoor deze database in de replicatie-relationship\u0027s primaire en het aanbrengen van de externe primaire naar een secundair|
-|/servers/databases/replicationLinks/Read|Geretourneerde gegevens over koppelingen voor databasereplicatie tot stand gebracht voor een bepaalde database|
-|/servers/databases/replicationLinks/Unlink/Action|Beëindigen van de replicatierelatie geforceerd of na het synchroniseren met de partner|
-|/servers/databases/replicationLinks/updateReplicationMode/Action|Replicatiemodus voor koppeling naar de modus voor synchroon of asynchroon bijwerken|
-|/servers/databases/restorePoints/Action|Hiermee wordt een nieuw herstelpunt gemaakt|
-|/servers/databases/restorePoints/Read|Retourneert de herstelpunten voor de database.|
+|/servers/databases/replicationLinks/read|Geretourneerde gegevens over koppelingen voor databasereplicatie tot stand gebracht voor een bepaalde database|
+|/servers/databases/replicationLinks/unlink/action|Beëindigen van de replicatierelatie geforceerd of na het synchroniseren met de partner|
+|/servers/databases/replicationLinks/updateReplicationMode/action|Replicatiemodus voor koppeling naar de modus voor synchroon of asynchroon bijwerken|
+|/servers/databases/restorePoints/action|Hiermee wordt een nieuw herstelpunt gemaakt|
+|/servers/databases/restorePoints/read|Retourneert de herstelpunten voor de database.|
 |/servers/databases/Resume/Action|Azure SQL Datawarehouse-Database hervatten|
 |/servers/databases/schemas/Read|Ophalen van lijst met schema's van een database|
 |/servers/databases/schemas/Tables/Columns/Read|Ophalen van lijst met kolommen van een tabel|
-|/servers/databases/schemas/Tables/Columns/sensitivityLabels/DELETE|Het gevoeligheidslabel van een bepaalde kolom verwijderen|
-|/servers/databases/schemas/Tables/Columns/sensitivityLabels/Read|Het gevoeligheidslabel van een bepaalde kolom ophalen|
-|/servers/databases/schemas/Tables/Columns/sensitivityLabels/Write|Maken of bijwerken van het gevoeligheidslabel van een bepaalde kolom|
+|/servers/databases/schemas/tables/columns/sensitivityLabels/delete|Het gevoeligheidslabel van een bepaalde kolom verwijderen|
+|/servers/databases/schemas/tables/columns/sensitivityLabels/read|Het gevoeligheidslabel van een bepaalde kolom ophalen|
+|/servers/databases/schemas/tables/columns/sensitivityLabels/write|Maken of bijwerken van het gevoeligheidslabel van een bepaalde kolom|
 |/servers/databases/schemas/Tables/Read|Ophalen van lijst met tabellen van een database|
-|/servers/databases/schemas/Tables/recommendedIndexes/Read|Lijst met indexaanbevelingen voor een database ophalen|
+|/servers/databases/schemas/tables/recommendedIndexes/read|Lijst met indexaanbevelingen voor een database ophalen|
 |/servers/databases/schemas/Tables/recommendedIndexes/Write|Indexaanbeveling toepassen|
-|/servers/databases/securityAlertPolicies/read|Ophalen van gegevens van de threat beleid geconfigureerd op een bepaalde database|
+|/servers/databases/securityAlertPolicies/Read|Ophalen van gegevens van de threat beleid geconfigureerd op een bepaalde database|
 |/servers/databases/securityAlertPolicies/write|Het beleid van de detectie van bedreigingen voor een bepaalde database wijzigen|
-|/servers/databases/securityMetrics/read|Hiermee wordt een verzameling van database beveiliging metrische gegevens|
-|/servers/databases/sensitivityLabels/Read|Lijst gevoeligheidslabels van een bepaalde database|
+|/servers/databases/securityMetrics/Read|Hiermee wordt een verzameling van database beveiliging metrische gegevens|
+|/servers/databases/sensitivityLabels/read|Lijst gevoeligheidslabels van een bepaalde database|
 |/servers/databases/serviceTierAdvisors/read|Database schalen omhoog of omlaag wordt voorgesteld geretourneerd op basis van statistieken van de query kan worden uitgevoerd op de prestaties verbeteren of kosten|
-|/servers/databases/syncGroups/cancelSync/Action|Synchronisatie groepssynchronisatie annuleren|
+|/servers/databases/syncGroups/cancelSync/action|Synchronisatie groepssynchronisatie annuleren|
 |/servers/databases/syncGroups/delete|Hiermee verwijdert u een bestaande groep voor synchronisatie.|
 |/servers/databases/syncGroups/hubSchemas/read|De lijst met synchronisatie hub databaseschema retourneren|
-|/servers/databases/syncGroups/Logs/Read|De lijst met synchronisatielogboeken groep retourneren|
+|/servers/databases/syncGroups/logs/read|De lijst met synchronisatielogboeken groep retourneren|
 |/servers/databases/syncGroups/Read|De lijst met synchronisatie groepen of haalt u de eigenschappen voor de groep voor synchronisatie opgegeven retourneren.|
 |/servers/databases/syncGroups/refreshHubSchema/action|Synchronisatie hub databaseschema vernieuwen|
 |/servers/databases/syncGroups/refreshHubSchemaOperationResults/read|Resultaat van de synchronisatiebewerking hub schema vernieuwen ophalen|
 |/servers/databases/syncGroups/syncMembers/delete|Hiermee verwijdert u een bestaand lid van de synchronisatie.|
 |/servers/databases/syncGroups/syncMembers/Read|De lijst met leden van de synchronisatie of haalt de eigenschappen voor een lid van de opgegeven synchronisatie retourneren.|
-|/servers/databases/syncGroups/syncMembers/refreshSchema/action|Synchronisatie lid schema vernieuwen|
+|/servers/databases/syncGroups/syncMembers/refreshSchema/Action|Synchronisatie lid schema vernieuwen|
 |/servers/databases/syncGroups/syncMembers/refreshSchemaOperationResults/read|Resultaat van de synchronisatiebewerking lid schema vernieuwen ophalen|
 |/servers/databases/syncGroups/syncMembers/schemas/Read|De lijst met synchronisatie lid databaseschema retourneren|
-|/servers/databases/syncGroups/syncMembers/write|Een lid van de synchronisatie maakt met de opgegeven parameters of bijwerken van de eigenschappen voor de opgegeven synchronisatie-lid.|
+|/servers/databases/syncGroups/syncMembers/Write|Een lid van de synchronisatie maakt met de opgegeven parameters of bijwerken van de eigenschappen voor de opgegeven synchronisatie-lid.|
 |/servers/databases/syncGroups/triggerSync/action|Groepssynchronisatie voor trigger sync|
-|/servers/databases/syncGroups/Write|Hiermee maakt u een groep voor synchronisatie met de opgegeven parameters of bijwerken van de eigenschappen voor de groep voor synchronisatie opgegeven.|
-|/servers/databases/topQueries/queryText/Action|Retourneert de Transact-SQL-tekst voor de geselecteerde query-ID|
-|/servers/databases/topQueries/Read|Retourneert geaggregeerd runtime-statistieken voor de geselecteerde query in de geselecteerde tijdsperiode|
-|/servers/databases/topQueries/statistics/Read|Retourneert geaggregeerd runtime-statistieken voor de geselecteerde query in de geselecteerde tijdsperiode|
-|/servers/databases/transparentDataEncryption/operationResults/Read|Opgehaald in uitvoering bewerkingen op transparante gegevensversleuteling|
+|/servers/databases/syncGroups/write|Hiermee maakt u een groep voor synchronisatie met de opgegeven parameters of bijwerken van de eigenschappen voor de groep voor synchronisatie opgegeven.|
+|/servers/databases/topQueries/queryText/action|Retourneert de Transact-SQL-tekst voor de geselecteerde query-ID|
+|/servers/databases/topQueries/read|Retourneert geaggregeerd runtime-statistieken voor de geselecteerde query in de geselecteerde tijdsperiode|
+|/servers/databases/topQueries/statistics/read|Retourneert geaggregeerd runtime-statistieken voor de geselecteerde query in de geselecteerde tijdsperiode|
+|/servers/databases/transparentDataEncryption/operationResults/read|Opgehaald in uitvoering bewerkingen op transparante gegevensversleuteling|
 |/servers/databases/transparentDataEncryption/read|Status en details van transparent data encryption beveiligingsfunctie voor een bepaalde database ophalen|
 |/servers/databases/transparentDataEncryption/write|Transparent data encryption status wijzigen|
-|/servers/databases/upgradeDataWarehouse/Action|Azure SQL Datawarehouse-Database bijwerken|
+|/servers/databases/upgradeDataWarehouse/action|Azure SQL Datawarehouse-Database bijwerken|
 |/servers/databases/usages/Read|Hiermee haalt u de informatie van Azure SQL Database vormen van gebruik|
-|/servers/databases/vulnerabilityAssessments/DELETE|De controle op beveiligingslekken voor een bepaalde database verwijderen|
+|/servers/databases/vulnerabilityAssessments/delete|De controle op beveiligingslekken voor een bepaalde database verwijderen|
 |/servers/databases/vulnerabilityAssessments/Read|Ophalen van gegevens van de controle op beveiligingslekken geconfigureerd op een bepaalde database|
-|/servers/databases/vulnerabilityAssessments/Rules/baselines/DELETE|De basislijn vulnerability assessment regel voor een bepaalde database verwijderen|
-|/servers/databases/vulnerabilityAssessments/Rules/baselines/Read|Ophalen van de basislijn vulnerability assessment regel voor een bepaalde database|
+|/servers/databases/vulnerabilityAssessments/rules/baselines/delete|De basislijn vulnerability assessment regel voor een bepaalde database verwijderen|
+|/servers/databases/vulnerabilityAssessments/rules/baselines/read|Ophalen van de basislijn vulnerability assessment regel voor een bepaalde database|
 |/servers/databases/vulnerabilityAssessments/Rules/baselines/Write|De basislijn vulnerability assessment regel voor een bepaalde database wijzigen|
 |/servers/databases/vulnerabilityAssessments/scans/Action|Database-scan voor beoordeling van beveiligingsproblemen worden uitgevoerd.|
 |/servers/databases/vulnerabilityAssessments/scans/export/Action|Een bestaand scan resultaat niet converteren naar een menselijke leesbare indeling. Als al er niets gebeurt|
 |/servers/databases/vulnerabilityAssessments/scans/Read|De lijst met database vulnerability assessment scan records geretourneerd of ophalen van de scan-record voor de opgegeven scan-ID.|
 |/servers/databases/vulnerabilityAssessments/Write|De controle op beveiligingslekken voor een bepaalde database wijzigen|
-|/servers/databases/vulnerabilityAssessmentScans/Action|Database-scan voor beoordeling van beveiligingsproblemen worden uitgevoerd.|
-|/servers/databases/vulnerabilityAssessmentScans/operationResults/Read|Het resultaat van de database vulnerability assessment scan Execute-bewerking ophalen|
-|/servers/databases/vulnerabilityAssessmentSettings/Read|Ophalen van gegevens van de controle op beveiligingslekken geconfigureerd op een bepaalde database|
-|/servers/databases/vulnerabilityAssessmentSettings/Write|De controle op beveiligingslekken voor een bepaalde database wijzigen|
+|/servers/databases/vulnerabilityAssessmentScans/action|Database-scan voor beoordeling van beveiligingsproblemen worden uitgevoerd.|
+|/servers/databases/vulnerabilityAssessmentScans/operationResults/read|Het resultaat van de database vulnerability assessment scan Execute-bewerking ophalen|
+|/servers/databases/vulnerabilityAssessmentSettings/read|Ophalen van gegevens van de controle op beveiligingslekken geconfigureerd op een bepaalde database|
+|/servers/databases/vulnerabilityAssessmentSettings/write|De controle op beveiligingslekken voor een bepaalde database wijzigen|
 |/servers/databases/Write|Maakt een database met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de opgegeven database.|
-|/servers/DELETE|Hiermee verwijdert u een bestaande server.|
+|/servers/delete|Hiermee verwijdert u een bestaande server.|
 |/servers/disasterRecoveryConfiguration/delete|Hiermee verwijdert u een bestaande noodherstelconfiguraties voor een bepaalde server|
 |/servers/disasterRecoveryConfiguration/failover/action|Failover een DisasterRecoveryConfiguration|
 |/servers/disasterRecoveryConfiguration/forceFailoverAllowDataLoss/action|Een DisasterRecoveryConfiguration een failover|
@@ -3112,60 +3112,60 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/servers/disasterRecoveryConfiguration/write|Wijziging noodherstelconfiguratie op de server|
 |/servers/elasticPoolEstimates/read|Retourneert de lijst van de elastische groep schattingen al is gemaakt voor deze server|
 |/servers/elasticPoolEstimates/write|Hiermee maakt u nieuwe elastische pool schatting voor de lijst met databases die zijn opgegeven|
-|/servers/elasticPools/Advisors/Read|Retourneert de lijst met adviseurs die beschikbaar zijn voor de elastische groep|
-|/servers/elasticPools/Advisors/recommendedActions/Read|Retourneert de lijst met aanbevolen acties van opgegeven advisor voor de elastische groep|
+|/servers/elasticPools/advisors/read|Retourneert de lijst met adviseurs die beschikbaar zijn voor de elastische groep|
+|/servers/elasticPools/advisors/recommendedActions/read|Retourneert de lijst met aanbevolen acties van opgegeven advisor voor de elastische groep|
 |/servers/elasticPools/advisors/recommendedActions/write|De aanbevolen actie toepassen op de elastische groep|
 |/servers/elasticPools/advisors/write|Update automatisch-execute status van een advisor op niveau van de elastische groep.|
 |/servers/elasticPools/databases/read|Een lijst met databases ophalen voor een elastische pool|
 |/servers/elasticPools/delete|Verwijderen van de huidige elastische pool|
-|/servers/elasticPools/elasticPoolActivity/Read|Ophalen van activiteiten en meer informatie over een bepaalde elastische databasegroep|
+|/servers/elasticPools/elasticPoolActivity/read|Ophalen van activiteiten en meer informatie over een bepaalde elastische databasegroep|
 |/servers/elasticPools/elasticPoolDatabaseActivity/read|Ophalen van activiteiten en meer informatie over een bepaalde database die deel uitmaakt van een pool voor elastische database|
-|/servers/elasticPools/metricDefinitions/Read|Retourtypen van metrische gegevens die beschikbaar voor pools voor elastische databases zijn|
-|/servers/elasticPools/metrics/Read|Retourneren van metrische gegevens voor pools voor elastische databases|
-|/servers/elasticPools/Operations/Cancel/Action|Azure SQL elastische pool in behandeling zijnde asynchrone bewerking die nog niet is voltooid, wordt geannuleerd.|
-|/servers/elasticPools/Operations/Read|Retourneren van de lijst met bewerkingen die worden uitgevoerd op de elastische groep|
-|/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
-|/servers/elasticPools/providers/Microsoft.Insights/metricDefinitions/Read|Retourtypen van metrische gegevens die beschikbaar voor pools voor elastische databases zijn|
-|/servers/elasticPools/Read|Details van de elastische pool op een bepaalde server ophalen|
+|/servers/elasticPools/metricDefinitions/read|Retourtypen van metrische gegevens die beschikbaar voor pools voor elastische databases zijn|
+|/servers/elasticPools/metrics/read|Retourneren van metrische gegevens voor pools voor elastische databases|
+|/servers/elasticPools/operations/cancel/action|Azure SQL elastische pool in behandeling zijnde asynchrone bewerking die nog niet is voltooid, wordt geannuleerd.|
+|/servers/elasticPools/operations/read|Retourneren van de lijst met bewerkingen die worden uitgevoerd op de elastische groep|
+|/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/servers/elasticPools/providers/Microsoft.Insights/metricDefinitions/read|Retourtypen van metrische gegevens die beschikbaar voor pools voor elastische databases zijn|
+|/servers/elasticPools/read|Details van de elastische pool op een bepaalde server ophalen|
 |/servers/elasticPools/skus/read|Hiermee wordt een verzameling van SKU's beschikbaar voor deze elastische groep|
 |/servers/elasticPools/write|Maak een nieuwe eigenschappen of wijzigen van de huidige elastische pool|
 |/servers/encryptionProtector/read|Retourneert een lijst met server versleuteling beveiligingen of haalt u de eigenschappen voor de opgegeven server versleuteling beveiliging.|
 |/servers/encryptionProtector/write|De eigenschappen voor de opgegeven Server versleuteling beveiligingstoepassing bijwerken.|
-|/servers/extendedAuditingSettings/Read|Ophalen van gegevens van de uitgebreide server blob controlebeleid geconfigureerd op een bepaalde server|
+|/servers/extendedAuditingSettings/read|Ophalen van gegevens van de uitgebreide server blob controlebeleid geconfigureerd op een bepaalde server|
 |/servers/extendedAuditingSettings/write|De uitgebreide server blob-controle voor een bepaalde server wijzigen|
 |/servers/failoverGroups/delete|Hiermee verwijdert u een bestaande groep voor failover.|
-|/servers/failoverGroups/failover/Action|Geplande failover worden uitgevoerd in een bestaande groep voor failover.|
+|/servers/failoverGroups/failover/action|Geplande failover worden uitgevoerd in een bestaande groep voor failover.|
 |/servers/failoverGroups/forceFailoverAllowDataLoss/action|Geforceerde failover worden uitgevoerd in een bestaande groep voor failover.|
-|/servers/failoverGroups/Read|Retourneert de lijst met failover groepen of haalt u de eigenschappen voor de opgegeven failover-groep.|
+|/servers/failoverGroups/read|Retourneert de lijst met failover groepen of haalt u de eigenschappen voor de opgegeven failover-groep.|
 |/servers/failoverGroups/write|Hiermee maakt u een failover-groep met de opgegeven parameters of updates van de eigenschappen of labels voor de opgegeven failover-groep.|
-|/servers/firewallRules/DELETE|Hiermee verwijdert u een bestaande firewallregel voor de server.|
-|/servers/firewallRules/Read|De lijst met serverfirewall regels of haalt u de eigenschappen voor de opgegeven server firewallregel retourneren.|
+|/servers/firewallRules/delete|Hiermee verwijdert u een bestaande firewallregel voor de server.|
+|/servers/firewallRules/read|De lijst met serverfirewall regels of haalt u de eigenschappen voor de opgegeven server firewallregel retourneren.|
 |/servers/firewallRules/Write|Een serverfirewallregel maakt met de opgegeven parameters bijwerken van de eigenschappen voor de opgegeven regel of alle bestaande regels worden overschreven met de nieuwe server firewall (s).|
 |/servers/import/Action|Een nieuwe database op de server maken en implementeren van schema en de gegevens uit een DacPac-pakket|
 |/servers/importExportOperationResults/read|Bewerkingen voor opgehaald in uitvoering voor importeren/exporteren|
 |/servers/keys/delete|Hiermee verwijdert u een bestaande serversleutel.|
 |/servers/Keys/Read|De lijst van server-codes of haalt u de eigenschappen voor de sleutel van de opgegeven server retourneren.|
-|/servers/keys/write|Maakt een sleutel met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de sleutel van de opgegeven server.|
-|/servers/operationResults/Read|Opgehaald in uitvoering serverbewerkingen|
-|/servers/providers/Microsoft.Insights/metricDefinitions/Read|Retourtypen van metrische gegevens die beschikbaar voor servers zijn|
+|/servers/Keys/Write|Maakt een sleutel met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de sleutel van de opgegeven server.|
+|/servers/operationResults/read|Opgehaald in uitvoering serverbewerkingen|
+|/servers/providers/Microsoft.Insights/metricDefinitions/read|Retourtypen van metrische gegevens die beschikbaar voor servers zijn|
 |/servers/Read|Retourneert de lijst met servers of de eigenschappen voor de opgegeven server opgehaald.|
-|/servers/recommendedElasticPools/databases/Read|Metrische gegevens voor aanbevolen elastische databases voor een bepaalde server ophalen|
-|/servers/recommendedElasticPools/Read|Aanbevelingen voor pools voor elastische databases kosten verlagen of verbeteren de prestaties op basis van Resourcegebruik historica ophalen|
-|/servers/recoverableDatabases/Read|Deze bewerking wordt gebruikt voor herstel na noodgevallen van live-database voor de database herstellen naar laatst bekende goede back-up. Deze retourneert informatie over de laatste goede back-up, maar doesn\u0027t daadwerkelijk de database herstellen.|
-|/servers/restorableDroppedDatabases/Read|Een lijst met databases die zijn verwijderd op een bepaalde server die binnen het bewaarbeleid ophalen.|
-|/servers/securityAlertPolicies/operationResults/Read|Resultaten van de server threat detectie beleid write-bewerking ophalen|
-|/servers/securityAlertPolicies/read|Ophalen van gegevens van het beleid server threat detectie is geconfigureerd op een bepaalde server|
+|/servers/recommendedElasticPools/databases/read|Metrische gegevens voor aanbevolen elastische databases voor een bepaalde server ophalen|
+|/servers/recommendedElasticPools/read|Aanbevelingen voor pools voor elastische databases kosten verlagen of verbeteren de prestaties op basis van Resourcegebruik historica ophalen|
+|/servers/recoverableDatabases/read|Deze bewerking wordt gebruikt voor herstel na noodgevallen van live-database voor de database herstellen naar laatst bekende goede back-up. Deze retourneert informatie over de laatste goede back-up, maar doesn\u0027t daadwerkelijk de database herstellen.|
+|/servers/restorableDroppedDatabases/read|Een lijst met databases die zijn verwijderd op een bepaalde server die binnen het bewaarbeleid ophalen.|
+|/servers/securityAlertPolicies/operationResults/read|Resultaten van de server threat detectie beleid write-bewerking ophalen|
+|/servers/securityAlertPolicies/Read|Ophalen van gegevens van het beleid server threat detectie is geconfigureerd op een bepaalde server|
 |/servers/securityAlertPolicies/write|Het beleid van server threat detectie voor een bepaalde server wijzigen|
-|/servers/serviceObjectives/read|Lijst met serviceniveaudoelstellingen (ook wel bekend als prestatielagen) beschikbaar is op een bepaalde server ophalen|
+|/servers/serviceObjectives/Read|Lijst met serviceniveaudoelstellingen (ook wel bekend als prestatielagen) beschikbaar is op een bepaalde server ophalen|
 |/servers/syncAgents/delete|Hiermee verwijdert u een bestaande sync-agent.|
-|/servers/syncAgents/generateKey/Action|Sync-agent registratie sleutel genereren|
-|/servers/syncAgents/linkedDatabases/Read|Retourneren van de lijst met databases synchroniseren-agent die zijn gekoppeld|
-|/servers/syncAgents/Read|Retourneert de lijst met synchronisatie agents of haalt de eigenschappen voor de opgegeven synchronisatie-agent.|
+|/servers/syncAgents/generateKey/action|Sync-agent registratie sleutel genereren|
+|/servers/syncAgents/linkedDatabases/read|Retourneren van de lijst met databases synchroniseren-agent die zijn gekoppeld|
+|/servers/syncAgents/read|Retourneert de lijst met synchronisatie agents of haalt de eigenschappen voor de opgegeven synchronisatie-agent.|
 |/servers/syncAgents/write|Hiermee maakt u een synchronisatie-agent met de opgegeven parameters of bijwerken van de eigenschappen voor de opgegeven synchronisatie-agent.|
 |/servers/usages/Read|DTU-quotum voor server en de huidige DTU consuption geretourneerd door alle databases in de server|
 |/servers/virtualNetworkRules/delete|Hiermee verwijdert u een bestaande regel voor het virtuele netwerk|
-|/servers/virtualNetworkRules/Read|De lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de opgegeven virtuele netwerk regel retourneren.|
+|/servers/virtualNetworkRules/read|De lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de opgegeven virtuele netwerk regel retourneren.|
 |/servers/virtualNetworkRules/write|Een virtueel netwerk maken met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de regel voor de opgegeven virtuele netwerk.|
 |servers/schrijven|Hiermee maakt u een server met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de opgegeven server.|
 |/ unregister/actie|Heft de registratie van het abonnement voor de resourceprovider voor Microsoft SQL-Database en wordt het maken van Microsoft SQL-Databases.|
@@ -3185,21 +3185,21 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/storageAccounts/blobServices/containers/delete|Hiermee wordt het resultaat van het verwijderen van een container geretourneerd|
 |/storageAccounts/blobServices/containers/immutabilityPolicies/delete|Beleid voor onveranderbaarheid van blobcontainer verwijderen|
 |/storageAccounts/blobServices/containers/immutabilityPolicies/extend/action|Beleid voor onveranderbaarheid van blobcontainer uitbreiden|
-|/storageAccounts/blobServices/containers/immutabilityPolicies/LOCK/Action|Beleid voor onveranderbaarheid van blobcontainer vergrendelen|
+|/storageAccounts/blobServices/containers/immutabilityPolicies/lock/action|Beleid voor onveranderbaarheid van blobcontainer vergrendelen|
 |/storageAccounts/blobServices/containers/immutabilityPolicies/read|Beleid voor onveranderbaarheid van blobcontainer ophalen|
 |/storageAccounts/blobServices/containers/immutabilityPolicies/write|Beleid voor onveranderbaarheid van blobcontainer plaatsen|
 |/storageAccounts/blobServices/containers/read|Hiermee wordt een container of een lijst containers geretourneerd|
 |/storageAccounts/blobServices/containers/setLegalHold/action|Juridische bewaring voor blobcontainer instellen|
 |/storageAccounts/blobServices/containers/write|Hiermee wordt het resultaat van het plaatsen of in lease geven van de blobcontainer geretourneerd|
-|/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald.|
-|/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt.|
+|/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald.|
+|/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt.|
 |/storageAccounts/blobServices/providers/Microsoft.Insights/metricDefinitions/read|Vraag een lijst met definities voor metrische Microsoft-opslaggegevens op.|
 |/storageAccounts/blobServices/read|Hiermee worden de eigenschappen van de Blob service of statistieken geretourneerd|
 |/storageAccounts/blobServices/write|Hiermee wordt het resultaat van de eigenschappen voor het plaatsen van de blobcontainer geretourneerd|
 |/storageAccounts/delete|Hiermee verwijdert u een bestaand opslagaccount.|
-|/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald.|
-|/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt.|
-|/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/Read|Vraag een lijst met definities voor metrische Microsoft-opslaggegevens op.|
+|/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald.|
+|/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt.|
+|/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read|Vraag een lijst met definities voor metrische Microsoft-opslaggegevens op.|
 |/storageAccounts/listAccountSas/action|Hiermee wordt het SAS-token van het account geretourneerd voor het opgegeven opslagaccount.|
 |/storageAccounts/listkeys/action|Hiermee retourneert u de toegangssleutels voor het opgegeven opslagaccount.|
 |/storageAccounts/listServiceSas/action|Hiermee wordt het SAS-token van de service geretourneerd voor het opgegeven opslagaccount.|
@@ -3209,15 +3209,15 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt.|
 |/storageAccounts/queueServices/providers/Microsoft.Insights/metricDefinitions/read|Vraag een lijst met definities voor metrische Microsoft-opslaggegevens op.|
 |/storageAccounts/queueServices/queues/delete|Hiermee wordt het resultaat van een wachtrij verwijderen geretourneerd|
-|/storageAccounts/queueServices/queues/read|Hiermee wordt een wachtrij of een lijst met wachtrijen geretourneerd.|
+|/storageAccounts/queueServices/Queues/Read|Hiermee wordt een wachtrij of een lijst met wachtrijen geretourneerd.|
 |/storageAccounts/queueServices/queues/write|Hiermee wordt het resultaat van het schrijven van een wachtrij geretourneerd|
 |/storageAccounts/queueServices/read|Hiermee worden de eigenschappen of statistieken van de Queue-service geretourneerd.|
 |/storageAccounts/queueServices/write|Hiermee wordt het resultaat van het instellen van de eigenschappen van de Queue-service geretourneerd|
-|/storageAccounts/read|Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount.|
+|/storageAccounts/Read|Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount.|
 |/storageAccounts/regeneratekey/action|Hiermee genereert u de toegangssleutels voor het opgegeven opslagaccount opnieuw.|
 |/storageAccounts/services/diagnosticSettings/write|Diagnostische instellingen van opslagaccount maken/bijwerken.|
-|/ storageAccounts/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald.|
-|/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald.|
+|/storageAccounts/storageAccounts/queueServices/providers/ Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald.|
+|/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald.|
 |/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt.|
 |/storageAccounts/tableServices/providers/Microsoft.Insights/metricDefinitions/read|Vraag een lijst met definities voor metrische Microsoft-opslaggegevens op.|
 |/storageAccounts/write|Hiermee maakt u een opslagaccount met de opgegeven parameters, werkt u de eigenschappen of labels bij of voegt u een aangepast domein toe aan het opgegeven opslagaccount.|
@@ -3228,7 +3228,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/storageSyncServices/delete|Verwijderen van alle opslag-Synchronisatieservices|
-|/storageSyncServices/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor synchronisatie van opslagservices|
+|/storageSyncServices/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor synchronisatie van opslagservices|
 |/storageSyncServices/read|Lezen van alle opslag-Synchronisatieservices|
 |/storageSyncServices/registeredServers/delete|Verwijder alle geregistreerde Server|
 |/storageSyncServices/registeredServers/read|Lees alle geregistreerde Server|
@@ -3264,31 +3264,31 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/managers/bandwidthSettings/write|Een nieuwe maken of bijwerken van de bandbreedte-instellingen (alleen 8000-serie)|
 |Managers/certificaten/schrijftijd|De bewerking Update Resource certificaat updates het referentiecertificaat van de resource/kluis.|
 |/managers/clearAlerts/Action|Schakel alle waarschuwingen die zijn gekoppeld aan de Apparaatbeheer.|
-|/managers/cloudApplianceConfigurations/Read|Lijst met het toestel Cloud ondersteunde configuraties|
+|/managers/cloudApplianceConfigurations/read|Lijst met het toestel Cloud ondersteunde configuraties|
 |/managers/configureDevice/Action|Hiermee configureert u een apparaat|
-|/managers/delete|Hiermee verwijdert u de Managers voor apparaatregistratie|
-|/Managers/delete|De bewerking verwijderen kluis verwijdert de opgegeven Azure-resource van het type 'kluis'|
+|/managers/DELETE|Hiermee verwijdert u de Managers voor apparaatregistratie|
+|/ Managers/verwijderen|De bewerking verwijderen kluis verwijdert de opgegeven Azure-resource van het type 'kluis'|
 |/managers/Devices/alertSettings/Read|Geeft een lijst of opgehaald van de instellingen voor waarschuwingen|
 |/managers/Devices/alertSettings/Write|Maken of bijwerken van de instellingen voor waarschuwingen|
 |/managers/Devices/backupPolicies/Backup/Action|Een handmatige back-up op aanvraag maken back-up van alle volumes die zijn beveiligd door het beleid te nemen.|
-|/managers/devices/backupPolicies/delete|Hiermee verwijdert u een beleid in een bestaande back-up (alleen 8000-serie)|
-|/managers/devices/backupPolicies/read|Lijst met de back-up beleidsregels (alleen 8000 serie)|
-|/managers/devices/backupPolicies/schedules/delete|Hiermee verwijdert u een bestaande planningen|
+|/managers/Devices/backupPolicies/DELETE|Hiermee verwijdert u een beleid in een bestaande back-up (alleen 8000-serie)|
+|/managers/Devices/backupPolicies/Read|Lijst met de back-up beleidsregels (alleen 8000 serie)|
+|/managers/Devices/backupPolicies/Schedules/DELETE|Hiermee verwijdert u een bestaande planningen|
 |/managers/Devices/backupPolicies/Schedules/Read|Lijst van de planning|
 |/managers/Devices/backupPolicies/Schedules/Write|Maakt een nieuw of bijgewerkt schema 's|
-|/managers/devices/backupPolicies/write|Maakt een nieuw of bijgewerkt beleid van de back-up (alleen 8000-serie)|
+|/managers/Devices/backupPolicies/Write|Maakt een nieuw of bijgewerkt beleid van de back-up (alleen 8000-serie)|
 |/managers/Devices/backups/DELETE|Hiermee verwijdert u de back-upset|
 |/managers/Devices/backups/Elements/Clone/Action|Klonen van een share of het volume met behulp van een back-element.|
 |/managers/Devices/backups/Read|Geeft een lijst of back-upset opgehaald|
 |/managers/Devices/backups/Restore/Action|Alle volumes terugzetten vanaf een back-upset.|
 |/managers/devices/backupScheduleGroups/delete|Hiermee verwijdert u de back-upschema-groepen|
 |/managers/Devices/backupScheduleGroups/Read|Geeft een lijst of de back-up schemagroepen opgehaald|
-|/managers/devices/backupScheduleGroups/write|De back-up schemagroepen maken of bijwerken|
-|/managers/Devices/chapSettings/DELETE|Hiermee verwijdert u de Chap-instellingen|
+|/managers/Devices/backupScheduleGroups/Write|De back-up schemagroepen maken of bijwerken|
+|/managers/devices/chapSettings/delete|Hiermee verwijdert u de Chap-instellingen|
 |/managers/Devices/chapSettings/Read|Geeft een lijst of ontvangt de Chap-instellingen|
 |/managers/Devices/chapSettings/Write|De Chap-instellingen maken of bijwerken|
 |/managers/Devices/Deactivate/Action|Een apparaat wordt gedeactiveerd.|
-|/managers/devices/delete|Hiermee verwijdert u de apparaten|
+|/managers/Devices/DELETE|Hiermee verwijdert u de apparaten|
 |/managers/Devices/Download/Action|Download updates voor een apparaat.|
 |/managers/Devices/failover/Action|Failover van het apparaat.|
 |/managers/Devices/fileservers/Backup/Action|Duren back-up van een bestandsserver.|
@@ -3305,74 +3305,74 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/managers/devices/hardwareComponentGroups/changeControllerPowerState/action|Controller voedingsstatus van hardware-onderdeelgroepen wijzigen|
 |/managers/devices/hardwareComponentGroups/read|Lijst van de Hardware-onderdeelgroepen|
 |/managers/Devices/Install/Action|Updates installeren op een apparaat.|
-|/managers/Devices/installUpdates/Action|Updates zijn geïnstalleerd op de apparaten|
+|/managers/devices/installUpdates/action|Updates zijn geïnstalleerd op de apparaten|
 |/managers/Devices/iscsiservers/Backup/Action|Duren back-up van een iSCSI-server.|
-|/managers/devices/iscsiservers/delete|Hiermee verwijdert u de iSCSI-Servers|
-|/managers/devices/iscsiservers/disks/delete|Hiermee verwijdert u de schijven|
+|/managers/Devices/iscsiservers/DELETE|Hiermee verwijdert u de iSCSI-Servers|
+|/managers/Devices/iscsiservers/Disks/DELETE|Hiermee verwijdert u de schijven|
 |/managers/Devices/iscsiservers/Disks/metrics/Read|Geeft een lijst of opgehaald van de metrische gegevens|
 |/managers/Devices/iscsiservers/Disks/metricsDefinitions/Read|Geeft een lijst of de definities van de metrische gegevens opgehaald|
 |/managers/Devices/iscsiservers/Disks/Read|Geeft een lijst of de schijven opgehaald|
-|/managers/devices/iscsiservers/disks/write|Maken of bijwerken van de schijven|
+|/managers/Devices/iscsiservers/Disks/Write|Maken of bijwerken van de schijven|
 |/managers/Devices/iscsiservers/metrics/Read|Geeft een lijst of opgehaald van de metrische gegevens|
 |/managers/Devices/iscsiservers/metricsDefinitions/Read|Geeft een lijst of de definities van de metrische gegevens opgehaald|
 |/managers/Devices/iscsiservers/Read|Geeft een lijst of opgehaald van de iSCSI-Servers|
 |/managers/Devices/iscsiservers/Write|Maken of bijwerken van de iSCSI-Servers|
 |/managers/Devices/Jobs/Cancel/Action|Een actieve taak annuleren|
 |/managers/Devices/Jobs/Read|Geeft een lijst of de taken opgehaald|
-|/managers/Devices/listFailoverSets/Action|Hiermee stelt u de failover voor een bestaand apparaat een lijst.|
-|/managers/Devices/listFailoverTargets/Action|Doelen voor de failover van de apparaten|
+|/managers/devices/listFailoverSets/action|Hiermee stelt u de failover voor een bestaand apparaat een lijst.|
+|/managers/devices/listFailoverTargets/action|Doelen voor de failover van de apparaten|
 |/managers/Devices/metrics/Read|Geeft een lijst of opgehaald van de metrische gegevens|
 |/managers/Devices/metricsDefinitions/Read|Geeft een lijst of de definities van de metrische gegevens opgehaald|
-|/managers/Devices/migrationSourceConfigurations/confirmMigration/Action|Bevestigt een succesvolle migratie en het doorvoeren.|
+|/managers/devices/migrationSourceConfigurations/confirmMigration/action|Bevestigt een succesvolle migratie en het doorvoeren.|
 |/managers/devices/migrationSourceConfigurations/fetchConfirmMigrationStatus/action|Haal de status van het bevestigen van de migratie.|
 |/managers/devices/migrationSourceConfigurations/fetchMigrationEstimate/action|De status van de migratietaak schatting ophalen.|
 |/managers/devices/migrationSourceConfigurations/fetchMigrationStatus/action|Haal de status van de migratie.|
-|/managers/Devices/migrationSourceConfigurations/import/Action|Importeren van de bron-configuraties voor migratie|
-|/managers/Devices/migrationSourceConfigurations/startMigration/Action|Begint met de migratie met behulp van de bron-configuraties|
+|/managers/devices/migrationSourceConfigurations/import/action|Importeren van de bron-configuraties voor migratie|
+|/managers/devices/migrationSourceConfigurations/startMigration/action|Begint met de migratie met behulp van de bron-configuraties|
 |/managers/devices/migrationSourceConfigurations/startMigrationEstimate/action|Een taak voor een schatting van de duur van het migratieproces start.|
-|/managers/devices/networkSettings/read|Geeft een lijst of de netwerkinstellingen opgehaald|
-|/managers/devices/networkSettings/write|Een nieuwe maken of bijwerken van netwerkinstellingen|
+|/managers/Devices/networkSettings/Read|Geeft een lijst of de netwerkinstellingen opgehaald|
+|/managers/Devices/networkSettings/Write|Een nieuwe maken of bijwerken van netwerkinstellingen|
 |/managers/devices/publicEncryptionKey/action|Openbare versleutelingssleutel lijst van Apparaatbeheer|
-|/managers/Devices/publishSupportPackage/Action|Publiceer ondersteuningspakket van een apparaat voor het oplossen van Microsoft Support.|
+|/managers/devices/publishSupportPackage/action|Publiceer ondersteuningspakket van een apparaat voor het oplossen van Microsoft Support.|
 |/managers/Devices/Read|Geeft een lijst of de apparaten opgehaald|
-|/managers/Devices/scanForUpdates/Action|Zoeken naar updates in een apparaat.|
+|/managers/devices/scanForUpdates/action|Zoeken naar updates in een apparaat.|
 |/managers/Devices/securitySettings/Read|Lijst van de beveiligingsinstellingen|
-|/managers/Devices/securitySettings/syncRemoteManagementCertificate/Action|Het certificaat voor extern beheer voor een apparaat worden gesynchroniseerd.|
+|/managers/devices/securitySettings/syncRemoteManagementCertificate/action|Het certificaat voor extern beheer voor een apparaat worden gesynchroniseerd.|
 |/managers/Devices/securitySettings/update/Action|Werk de beveiligingsinstellingen.|
-|/managers/devices/securitySettings/write|Maakt een nieuw of bijgewerkt beveiligingsinstellingen|
+|/managers/Devices/securitySettings/Write|Maakt een nieuw of bijgewerkt beveiligingsinstellingen|
 |/managers/devices/sendTestAlertEmail/action|Waarschuwing testbericht verzenden naar geconfigureerde e-mailontvangers.|
-|/managers/Devices/timeSettings/Read|Geeft een lijst of de instellingen opgehaald|
-|/managers/Devices/timeSettings/Write|Maakt een nieuw of bijgewerkt tijdinstellingen|
+|/managers/devices/timeSettings/read|Geeft een lijst of de instellingen opgehaald|
+|/managers/devices/timeSettings/write|Maakt een nieuw of bijgewerkt tijdinstellingen|
 |/managers/Devices/updateSummary/Read|Geeft een lijst of een overzicht van de Update wordt opgehaald|
 |/managers/devices/volumeContainers/delete|Hiermee verwijdert u een bestaande Volumecontainers (alleen 8000-serie)|
 |/managers/devices/volumeContainers/listEncryptionKeys/action|De versleutelingssleutels lijst van Volumecontainers|
 |/managers/Devices/volumeContainers/metrics/Read|Lijst van de metrische gegevens|
-|/managers/devices/volumeContainers/metricsDefinitions/read|De definities van de metrische gegevens weergeven|
+|/managers/Devices/volumeContainers/metricsDefinitions/Read|De definities van de metrische gegevens weergeven|
 |/managers/Devices/volumeContainers/Read|Lijst van de Volumecontainers (alleen 8000 serie)|
 |/managers/devices/volumeContainers/rolloverEncryptionKey/action|De versleutelingssleutels rollover van Volumecontainers|
 |/managers/devices/volumeContainers/volumes/delete|Hiermee verwijdert u een bestaande Volumes|
 |/managers/Devices/volumeContainers/volumes/metrics/Read|Lijst van de metrische gegevens|
 |/managers/Devices/volumeContainers/volumes/metricsDefinitions/Read|De definities van de metrische gegevens weergeven|
 |/managers/Devices/volumeContainers/volumes/Read|Lijst van de Volumes|
-|/managers/devices/volumeContainers/volumes/write|Een nieuwe maken of bijwerken van Volumes|
+|/managers/Devices/volumeContainers/volumes/Write|Een nieuwe maken of bijwerken van Volumes|
 |/managers/devices/volumeContainers/write|Maakt een nieuw of bijgewerkt Volumecontainers (alleen 8000-serie)|
 |/managers/Devices/Write|Maken of bijwerken van de apparaten|
 |/managers/encryptionSettings/read|Geeft een lijst of de instellingen voor codering opgehaald|
-|Managers, extendedInformation/verwijderen|Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt|
+|/Managers/extendedInformation/delete|Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt|
 |Managers/extendedInformation/leestijd|Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt|
 |Managers/extendedInformation/schrijftijd|Met de bewerking Uitgebreide informatie ophalen wordt de uitgebreide informatie opgehaald van een object dat de Azure-resource van het type ?vault? vertegenwoordigt|
 |/managers/getActivationKey/action|Activeringscode voor Apparaatbeheer niet ophalen.|
-|/managers/getEncryptionKey/Action|Download coderingssleutel voor Apparaatbeheer.|
+|/managers/getEncryptionKey/action|Download coderingssleutel voor Apparaatbeheer.|
 |/managers/listActivationKey/action|Hiermee haalt u de activeringssleutel van de StorSimple-Apparaatbeheer.|
-|/managers/listPrivateEncryptionKey/Action|Persoonlijke sleutel voor een StorSimple-Apparaatbeheer opgehaald.|
+|/managers/listPrivateEncryptionKey/action|Persoonlijke sleutel voor een StorSimple-Apparaatbeheer opgehaald.|
 |/managers/listPublicEncryptionKey/action|Lijst met codering met openbare sleutels van een StorSimple-Apparaatbeheer.|
 |/managers/metrics/Read|Geeft een lijst of opgehaald van de metrische gegevens|
 |/managers/metricsDefinitions/Read|Geeft een lijst of de definities van de metrische gegevens opgehaald|
-|/managers/provisionCloudAppliance/Action|Maak een nieuw toestel in de cloud.|
+|/managers/provisionCloudAppliance/action|Maak een nieuw toestel in de cloud.|
 |/managers/Read|Geeft een lijst of de apparaat-Managers opgehaald|
 |Managers/leestijd|De bewerking kluis ophalen van een object dat de Azure-resource van het type 'kluis' opgehaald|
-|/managers/regenarateRegistationCertificate/action|Registratiecertificaat opnieuw genereren voor de managers voor apparaatregistratie.|
-|/managers/regenerateActivationKey/action|Activeringscode genereren voor Apparaatbeheer.|
+|/managers/regenarateRegistationCertificate/Action|Registratiecertificaat opnieuw genereren voor de managers voor apparaatregistratie.|
+|/managers/regenerateActivationKey/Action|Activeringscode genereren voor Apparaatbeheer.|
 |/managers/storageAccountCredentials/delete|Hiermee verwijdert u de Opslagaccountreferenties|
 |/managers/storageAccountCredentials/listAccessKey/action|Toegangstoetsen lijst van Opslagaccountreferenties|
 |/managers/storageAccountCredentials/read|Geeft een lijst of de Opslagaccountreferenties opgehaald|
@@ -3381,7 +3381,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/managers/storageDomains/read|Geeft een lijst of de opslag domeinen opgehaald|
 |/managers/storageDomains/write|Maken of bijwerken van de opslag-domeinen|
 |managers/schrijven|Maken of bijwerken van de Managers voor apparaatregistratie|
-|/Managers/write|Met de bewerking Kluis maken wordt een Azure-resource van het type vault gemaakt.|
+|Managers/schrijftijd|Met de bewerking Kluis maken wordt een Azure-resource van het type vault gemaakt.|
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
@@ -3390,34 +3390,34 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Locations/Quotas/Read|Quotum lezen Stream Analytics-abonnement|
 |/ operations/lezen|Lees Stream Analytics-bewerkingen|
 |/ Registreren/actie|Abonnement met Stream Analytics Resource Provider registreren|
-|/ streamingjobs/verwijderen|Verwijderen van de Stream Analytics-taak|
-|/streamingjobs/Functions/DELETE|Verwijderen van de Stream Analytics-functie|
-|/streamingjobs/Functions/operationresults/Read|Resultaat van de bewerking voor de functie voor Stream Analytics-taak lezen|
+|/streamingjobs/Delete|Verwijderen van de Stream Analytics-taak|
+|/streamingjobs/functions/Delete|Verwijderen van de Stream Analytics-functie|
+|/streamingjobs/functions/operationresults/Read|Resultaat van de bewerking voor de functie voor Stream Analytics-taak lezen|
 |/streamingjobs/Functions/Read|Functie Read Stream Analytics-taak|
 |/streamingjobs/Functions/RetrieveDefaultDefinition/Action|Default-definitie van een functie van Stream Analytics-taak ophalen|
 |/streamingjobs/Functions/test/Action|Test Stream Analytics-functie|
 |/streamingjobs/Functions/Write|Stream Analytics-taakfunctie schrijven|
-|/streamingjobs/inputs/DELETE|Stream Analytics-taak invoer verwijderen|
+|/streamingjobs/inputs/Delete|Stream Analytics-taak invoer verwijderen|
 |/streamingjobs/inputs/operationresults/Read|Resultaat van de bewerking voor invoer van Stream Analytics-taak lezen|
 |/streamingjobs/inputs/Read|Invoer lezen Stream Analytics-taak|
-|/streamingjobs/inputs/sample/Action|Voorbeeldinvoer Stream Analytics-taak|
-|/streamingjobs/inputs/Test/action|Test Stream Analytics Job Input|
+|/streamingjobs/inputs/Sample/action|Voorbeeldinvoer Stream Analytics-taak|
+|/streamingjobs/inputs/Test/action|Test Stream Analytics-taak invoer|
 |/streamingjobs/inputs/Write|Stream Analytics-taak invoer schrijven|
 |/streamingjobs/metricdefinitions/Read|Metrische definities lezen|
 |/streamingjobs/operationresults/Read|Resultaat van de bewerking voor Stream Analytics-taak lezen|
-|/streamingjobs/outputs/DELETE|Stream Analytics-Taakuitvoer verwijderen|
+|/streamingjobs/outputs/Delete|Stream Analytics-Taakuitvoer verwijderen|
 |/streamingjobs/outputs/operationresults/Read|Resultaat van de bewerking voor Stream Analytics-Taakuitvoer lezen|
 |/streamingjobs/outputs/Read|Lees Stream Analytics-Taakuitvoer|
-|/streamingjobs/outputs/test/Action|Testuitvoer Stream Analytics-taak|
+|/streamingjobs/outputs/Test/action|Testuitvoer Stream Analytics-taak|
 |/streamingjobs/outputs/Write|Stream Analytics-Taakuitvoer schrijven|
-|/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/Read|Lees de diagnostische instelling.|
-|/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/Write|Diagnostische instelling schrijven.|
-|/streamingjobs/providers/Microsoft.Insights/logDefinitions/Read|De beschikbare logboeken opgehaald voor streamingjobs|
-|/streamingjobs/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor streamingjobs|
+|/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/read|Lees de diagnostische instelling.|
+|/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/write|Diagnostische instelling schrijven.|
+|/streamingjobs/providers/Microsoft.Insights/logDefinitions/read|De beschikbare logboeken opgehaald voor streamingjobs|
+|/streamingjobs/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor streamingjobs|
 |/streamingjobs/Read|Stream Analytics-taak lezen|
-|/streamingjobs/start/Action|Stream Analytics-taak starten|
-|/streamingjobs/Stop/Action|Stream Analytics-taak stoppen|
-|/streamingjobs/Transformations/DELETE|Stream Analytics-taak transformatie verwijderen|
+|/streamingjobs/Start/action|Start Stream Analytics Job|
+|/streamingjobs/Stop/Action|Stop Stream Analytics Job|
+|/streamingjobs/transformations/Delete|Stream Analytics-taak transformatie verwijderen|
 |/streamingjobs/Transformations/Read|Transformatie lezen Stream Analytics-taak|
 |/streamingjobs/Transformations/Write|Stream Analytics-taak transformatie schrijven|
 |/ streamingjobs/schrijven|Write Stream Analytics Job|
@@ -3426,7 +3426,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 
 | Bewerking | Beschrijving |
 |---|---|
-|SubscriptionDefinitions/leestijd|De definitie van een Azure-abonnement in een beheergroep worden opgehaald.|
+|/SubscriptionDefinitions/read|De definitie van een Azure-abonnement in een beheergroep worden opgehaald.|
 |/ SubscriptionDefinitions/schrijven|De definitie van een Azure-abonnement maken|
 
 ## <a name="microsoftsupport"></a>Microsoft.Support
@@ -3447,13 +3447,13 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/Environments/DELETE|Hiermee verwijdert u de omgeving.|
 |/Environments/eventsources/DELETE|Hiermee verwijdert u de gegevensbron.|
 |/Environments/eventsources/eventsources/providers/Microsoft.Insights/ diagnosticSettings/schrijven|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
-|/Environments/eventsources/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/Environments/eventsources/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor eventsources|
+|/environments/eventsources/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/environments/eventsources/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor eventsources|
 |/Environments/eventsources/Read|De eigenschappen van een gebeurtenisbron opgehaald.|
 |/Environments/eventsources/Write|Maakt een nieuwe gebeurtenisbron voor een omgeving, of een bestaande gebeurtenisbron bijgewerkt.|
-|/Environments/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/Environments/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
-|/Environments/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor omgevingen|
+|/environments/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/environments/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/environments/providers/Microsoft.Insights/metricDefinitions/read|Hiermee wordt de beschikbare metrische gegevens voor omgevingen|
 |/Environments/Read|De eigenschappen van een omgeving opgehaald.|
 |/Environments/referencedatasets/DELETE|Hiermee verwijdert u de referentie-gegevensset.|
 |/Environments/referencedatasets/Read|De eigenschappen van een gegevensset verwijzing opgehaald.|
@@ -3467,22 +3467,22 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 | Bewerking | Beschrijving |
 |---|---|
 |/apimanagementaccounts/apiacls/Read|Api Management Accounts Apiacls ophalen.|
-|/apimanagementaccounts/APIs/apiacls/DELETE|Api Management Accounts API's Apiacls verwijderen.|
+|/apimanagementaccounts/apis/apiacls/delete|Api Management Accounts API's Apiacls verwijderen.|
 |/apimanagementaccounts/APIs/apiacls/Read|Api Management Accounts API's Apiacls ophalen.|
 |/apimanagementaccounts/APIs/apiacls/Write|Api Management Accounts API's Apiacls bijwerken.|
 |/apimanagementaccounts/APIs/connectionacls/Read|Api Management Accounts API's Connectionacls ophalen.|
 |/apimanagementaccounts/APIs/Connections/confirmconsentcode/Action|Controleer of u toestemming Code Api Management Accounts API's verbindingen.|
-|/apimanagementaccounts/APIs/Connections/connectionacls/DELETE|Api Management Accounts API's verbindingen Connectionacls verwijderen.|
+|/apimanagementaccounts/apis/connections/connectionacls/delete|Api Management Accounts API's verbindingen Connectionacls verwijderen.|
 |/apimanagementaccounts/APIs/Connections/connectionacls/Read|Api Management Accounts API's verbindingen Connectionacls ophalen.|
 |/apimanagementaccounts/APIs/Connections/connectionacls/Write|Api Management Accounts API's verbindingen Connectionacls bijwerken.|
-|/apimanagementaccounts/APIs/Connections/DELETE|Api Management Accounts API's verbindingen verwijderen.|
-|/apimanagementaccounts/APIs/Connections/getconsentlinks/Action|Toestemming koppelingen voor verbindingen van Api Management Accounts API's niet ophalen.|
+|/apimanagementaccounts/apis/connections/delete|Api Management Accounts API's verbindingen verwijderen.|
+|/apimanagementaccounts/apis/connections/getconsentlinks/action|Toestemming koppelingen voor verbindingen van Api Management Accounts API's niet ophalen.|
 |/apimanagementaccounts/APIs/Connections/listconnectionkeys/Action|Lijst verbinding sleutels Api Management Accounts API's verbindingen.|
 |/apimanagementaccounts/APIs/Connections/listsecrets/Action|Lijst met geheimen Api Management Accounts API's verbindingen.|
 |/apimanagementaccounts/APIs/Connections/Read|Api Management Accounts API's verbindingen ophalen.|
 |/apimanagementaccounts/APIs/Connections/Write|Api Management Accounts API's verbindingen worden bijgewerkt.|
-|/apimanagementaccounts/APIs/DELETE|Api Management-API's Accounts verwijderen.|
-|/apimanagementaccounts/APIs/localizeddefinitions/DELETE|Verwijderen van Api Management-API's Accounts gelokaliseerd definities.|
+|/apimanagementaccounts/apis/delete|Api Management-API's Accounts verwijderen.|
+|/apimanagementaccounts/apis/localizeddefinitions/delete|Verwijderen van Api Management-API's Accounts gelokaliseerd definities.|
 |/apimanagementaccounts/APIs/localizeddefinitions/Read|Ophalen van Api Management-API's Accounts gelokaliseerd definities.|
 |/apimanagementaccounts/APIs/localizeddefinitions/Write|Update Api Management Accounts-API's gelokaliseerd definities.|
 |/apimanagementaccounts/APIs/Read|Api Management-API's Accounts worden opgehaald.|
@@ -3495,13 +3495,13 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |certificaten/schrijven|Voeg een nieuw certificaat of een bestaande bijgewerkt.|
 |/checknameavailability/Read|Controleer of de resourcenaam van de beschikbaar is.|
 |/classicmobileservices/Read|Klassieke mobiele Services krijgen.|
-|/ connectionGateways/verwijderen|Hiermee verwijdert u een Gateway verbinding.|
-|/connectionGateways/Join/Action|Een Gateway verbinding koppelt.|
+|/connectionGateways/Delete|Hiermee verwijdert u een Gateway verbinding.|
+|/connectionGateways/join/Action|Een Gateway verbinding koppelt.|
 |/connectiongateways/liststatus/Action|Lijst met Status verbinding Gateways.|
 |/connectionGateways/ListStatus/Action|Hiermee wordt de status van een Gateway-verbinding.|
 |/connectionGateways/Move/Action|Hiermee verplaatst u een Gateway verbinding.|
-|/connectionGateways/Read|De lijst van Gateways verbinding ophalen.|
-|/connectionGateways/Write|Maken of bijwerken van een Gateway-verbinding.|
+|/ connectionGateways/lezen|De lijst van Gateways verbinding ophalen.|
+|/ connectionGateways/schrijven|Maken of bijwerken van een Gateway-verbinding.|
 |/Connections/confirmconsentcode/Action|Controleer de verbindingen toestemming Code.|
 |/ verbindingen/verwijderen|Hiermee verwijdert u een verbinding.|
 |/Connections/join/Action|Lid van een verbinding.|
@@ -3515,13 +3515,13 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/customApis/listWsdlInterfaces/Action|Geeft een lijst van WSDL-interfaces voor een aangepaste API.|
 |/customApis/Move/Action|Hiermee verplaatst u een aangepaste API gebruiken.|
 |/customApis/Read|De lijst met aangepaste API ophalen.|
-|/ customApis/schrijven|Maken of bijwerken van een aangepaste API.|
+|/customApis/Write|Maken of bijwerken van een aangepaste API.|
 |/deploymentlocations/Read|Implementatie locaties ophalen.|
 |/ geoRegions/lezen|De lijst met Geo regions ophalen.|
 |/hostingenvironments/capacities/Read|Hosting-omgevingen capaciteiten ophalen.|
 |/ hostingEnvironments/verwijderen|Een App-serviceomgeving verwijderen|
 |/hostingenvironments/Diagnostics/Read|Hosting-omgevingen diagnostische gegevens ophalen.|
-|/hostingenvironments/inboundnetworkdependenciesendpoints/Read|De netwerkeindpunten van alle inkomende afhankelijkheden ophalen.|
+|/hostingenvironments/inboundnetworkdependenciesendpoints/read|De netwerkeindpunten van alle inkomende afhankelijkheden ophalen.|
 |/hostingenvironments/metricdefinitions/Read|Hosting-omgevingen metrische definities ophalen.|
 |/hostingenvironments/multirolepools/metricdefinitions/Read|Hosting-omgevingen MultiRole Pools metrische definities ophalen.|
 |/hostingenvironments/multirolepools/metrics/Read|Hosting-omgevingen MultiRole Pools metrische gegevens ophalen.|
@@ -3531,9 +3531,9 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/hostingenvironments/multirolepools/usages/Read|Hosting-omgevingen MultiRole Pools gebruik ophalen.|
 |/hostingEnvironments/multiRolePools/Write|Een nieuwe FrontEnd-toepassingen in een App Service-omgeving maken of bijwerken van een bestaande|
 |/hostingenvironments/Operations/Read|Hosting-omgevingen bewerkingen ophalen.|
-|/hostingenvironments/outboundnetworkdependenciesendpoints/Read|De netwerkeindpunten van alle uitgaande afhankelijkheden ophalen.|
-|/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/hostingenvironments/outboundnetworkdependenciesendpoints/read|De netwerkeindpunten van alle uitgaande afhankelijkheden ophalen.|
+|/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
 |/ hostingEnvironments/lezen|De eigenschappen van een App-serviceomgeving opgehaald|
 |/hostingEnvironments/reboot/Action|Start opnieuw op alle machines in een App-serviceomgeving|
 |/hostingenvironments/Resume/Action|Hervat de hostomgevingen.|
@@ -3554,47 +3554,47 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/isusernameavailable/Read|Controleer of de gebruikersnaam beschikbaar is.|
 |/listSitesAssignedToHostName/Read|Namen van sites die zijn toegewezen aan de hostnaam ophalen.|
 |/Locations/apioperations/Read|Locaties API-bewerkingen ophalen.|
-|/Locations/connectiongatewayinstallations/Read|Locaties verbinding Gateway installaties worden opgehaald.|
-|/Locations/extractapidefinitionfromwsdl/Action|Pak de Api-definitie van WSDL voor locaties.|
-|/Locations/listwsdlinterfaces/Action|Lijst met WSDL-Interfaces voor locaties.|
+|/locations/connectiongatewayinstallations/read|Locaties verbinding Gateway installaties worden opgehaald.|
+|/locations/extractapidefinitionfromwsdl/action|Pak de Api-definitie van WSDL voor locaties.|
+|/locations/listwsdlinterfaces/action|Lijst met WSDL-Interfaces voor locaties.|
 |/Locations/managedapis/apioperations/Read|Locaties Managed API-bewerkingen ophalen.|
 |/Locations/managedapis/join/Action|Een beheerde API koppelt.|
 |/Locations/managedapis/Read|Locaties beheerde API's worden opgehaald.|
 |/Operations/Read|Bewerkingen ophalen.|
 |/publishingusers/Read|Publiceren van gebruikers ophalen.|
-|publishingusers/schrijven|Bijwerken van de gebruikers te publiceren.|
+|/publishingusers/write|Bijwerken van de gebruikers te publiceren.|
 |/ aanbevelingen/lezen|De lijst met aanbevelingen voor abonnementen ophalen.|
 |registratie-/ actie|De registerbronprovider Microsoft.Web voor het abonnement.|
 |/resourcehealthmetadata/Read|Bron Health-metagegevens worden opgehaald.|
-|/serverfarms/Capabilities/Read|Mogelijkheden van App Service-abonnementen ophalen.|
+|/serverfarms/capabilities/read|Mogelijkheden van App Service-abonnementen ophalen.|
 |/ serverfarms/verwijderen|Verwijder een bestaande App Service-Plan|
-|/serverfarms/firstpartyapps/Settings/DELETE|App Service-abonnementen eerste partijen Apps instellingen verwijderd.|
-|/serverfarms/firstpartyapps/Settings/Read|App Service-abonnementen eerste partijen Apps-instellingen ophalen.|
+|/serverfarms/firstpartyapps/settings/delete|App Service-abonnementen eerste partijen Apps instellingen verwijderd.|
+|/serverfarms/firstpartyapps/settings/read|App Service-abonnementen eerste partijen Apps-instellingen ophalen.|
 |/serverfarms/firstpartyapps/settings/write|App Service-abonnementen eerste partijen Apps instellingen worden bijgewerkt.|
 |/serverfarms/hybridconnectionnamespaces/relays/delete|App Service-abonnementen hybride verbinding naamruimten Relays verwijderen.|
 |/serverfarms/hybridconnectionnamespaces/relays/read|App Service-abonnementen hybride verbinding naamruimten Relays ophalen.|
-|/serverfarms/hybridconnectionnamespaces/relays/sites/read|App Service-plannen voor hybride verbinding naamruimten Relays WebApps ophalen.|
-|/serverfarms/hybridconnectionplanlimits/read|Ophalen van App Service-abonnementen hybride verbindingslimieten-Plan.|
+|/serverfarms/hybridconnectionnamespaces/relays/sites/Read|App Service-plannen voor hybride verbinding naamruimten Relays WebApps ophalen.|
+|/serverfarms/hybridconnectionplanlimits/Read|Ophalen van App Service-abonnementen hybride verbindingslimieten-Plan.|
 |/serverfarms/hybridconnectionrelays/read|App Service-abonnementen hybride verbinding Relays ophalen.|
 |/serverfarms/metricdefinitions/Read|App Service-abonnementen metrische definities worden opgehaald.|
 |/serverfarms/metrics/Read|App Service-abonnementen metrische gegevens worden opgehaald.|
-|/serverfarms/operationresults/Read|App Service-abonnementen Bewerkingsresultaten krijgt.|
-|/serverfarms/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/serverfarms/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/serverfarms/operationresults/read|App Service-abonnementen Bewerkingsresultaten krijgt.|
+|/serverfarms/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/serverfarms/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
 |/serverfarms/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor het App Service-Plan|
 |/ serverfarms/lezen|Opvragen van de eigenschappen voor een App Service-Plan|
 |/serverfarms/restartSites/Action|Start opnieuw op alle Web-Apps in een App Service-Plan|
 |/serverfarms/sites/Read|Web-Apps van App Service-abonnementen ophalen.|
-|/serverfarms/skus/read|App Service-abonnementen SKU's worden opgehaald.|
+|/serverfarms/skus/Read|App Service-abonnementen SKU's worden opgehaald.|
 |/serverfarms/usages/Read|Het gebruik van App Service-abonnementen ophalen.|
-|/serverfarms/virtualnetworkconnections/gateways/Write|App Service-abonnementen virtueel netwerk verbindingen Gateways bijwerken.|
-|/serverfarms/virtualnetworkconnections/Read|App Service-abonnementen virtuele netwerkverbindingen worden opgehaald.|
-|/serverfarms/virtualnetworkconnections/routes/DELETE|App Service-abonnementen virtueel netwerk verbindingen Routes verwijderen.|
-|/serverfarms/virtualnetworkconnections/routes/Read|App Service-abonnementen virtueel netwerk verbindingen Routes worden opgehaald.|
-|/serverfarms/virtualnetworkconnections/routes/Write|App Service-abonnementen virtueel netwerk verbindingen Routes bijwerken.|
+|/serverfarms/virtualnetworkconnections/gateways/write|App Service-abonnementen virtueel netwerk verbindingen Gateways bijwerken.|
+|/serverfarms/virtualnetworkconnections/read|App Service-abonnementen virtuele netwerkverbindingen worden opgehaald.|
+|/serverfarms/virtualnetworkconnections/routes/delete|App Service-abonnementen virtueel netwerk verbindingen Routes verwijderen.|
+|/serverfarms/virtualnetworkconnections/routes/read|App Service-abonnementen virtueel netwerk verbindingen Routes worden opgehaald.|
+|/serverfarms/virtualnetworkconnections/routes/write|App Service-abonnementen virtueel netwerk verbindingen Routes bijwerken.|
 |/serverfarms/workers/reboot/Action|Start opnieuw op App Service-abonnementen werknemers.|
 |/ serverfarms/schrijven|Maak een nieuwe App Service-abonnement of een bestaande bijgewerkt|
-|/sites/analyzecustomhostname/Read|Analyseer de aangepaste hostnaam.|
+|/sites/analyzecustomhostname/read|Analyseer de aangepaste hostnaam.|
 |/sites/applySlotConfig/Action|Web-app sleuf configuratie van doel-sleuf in de huidige web-app toe te passen|
 |/sites/Backup/Action|Een nieuwe web-app back-up maken|
 |/ sites/back-up/lezen|Back-up van Web Apps ophalen.|
@@ -3604,13 +3604,13 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sites/backups/Read|De eigenschappen van back-up van een web-app|
 |/sites/backups/Restore/Action|Terugzetten van back-ups van Web-Apps.|
 |/sites/config/delete|Webconfiguratie Apps verwijderen.|
-|/sites/config/list/Action|Web-App gevoelige beveiligingsinstellingen, zoals het publiceren van referenties, app-instellingen en verbindingsreeksen weergeven|
+|/sites/config/List/Action|Web-App gevoelige beveiligingsinstellingen, zoals het publiceren van referenties, app-instellingen en verbindingsreeksen weergeven|
 |/sites/config/Read|Ophalen van configuratie-instellingen voor Web-App|
 |/sites/config/Write|Configuratie-instellingen voor Web-App bijwerken|
 |/sites/continuouswebjobs/delete|Web-Apps doorlopende webtaken verwijderen.|
-|/sites/continuouswebjobs/Read|Web-Apps doorlopende webtaken worden opgehaald.|
-|/sites/continuouswebjobs/start/Action|Web-Apps doorlopende webtaken starten.|
-|/sites/continuouswebjobs/Stop/Action|Web-Apps doorlopende webtaken stoppen.|
+|/sites/continuouswebjobs/read|Web-Apps doorlopende webtaken worden opgehaald.|
+|/sites/continuouswebjobs/start/action|Web-Apps doorlopende webtaken starten.|
+|/sites/continuouswebjobs/stop/action|Web-Apps doorlopende webtaken stoppen.|
 |/ sites/verwijderen|Een bestaande Web-App verwijderen|
 |/sites/Deployments/DELETE|Implementaties van Web-Apps verwijderd.|
 |/sites/Deployments/log/Read|Web-Apps implementaties logboek ophalen.|
@@ -3618,7 +3618,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sites/Deployments/Write|Update-implementaties van Web-Apps.|
 |/sites/Diagnostics/analyses/Execute/Action|Web-Apps Diagnostics analyse uitvoeren.|
 |/sites/Diagnostics/analyses/Read|Analyse van Web Apps diagnostische gegevens worden opgehaald.|
-|/sites/diagnostics/aspnetcore/read|Diagnostische gegevens van Web-Apps voor ASP.NET Core app worden opgehaald.|
+|/sites/Diagnostics/aspnetcore/Read|Diagnostische gegevens van Web-Apps voor ASP.NET Core app worden opgehaald.|
 |/sites/Diagnostics/autoheal/Read|Web-Apps Diagnostics Autoheal ophalen.|
 |/sites/Diagnostics/Deployment/Read|Implementatie van Web Apps diagnostische gegevens ophalen.|
 |/sites/Diagnostics/Deployments/Read|Implementaties van Web Apps diagnostische gegevens worden opgehaald.|
@@ -3641,7 +3641,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sites/Diagnostics/workeravailability/Read|Web-Apps Diagnostics Workeravailability ophalen.|
 |/sites/Diagnostics/workerprocessrecycle/Read|Recyclen van Web Apps Diagnostics Worker proces worden opgehaald.|
 |/sites/domainownershipidentifiers/Read|Web-Apps domein eigenaar-id's worden opgehaald.|
-|/sites/domainownershipidentifiers/write|Web-Apps domein eigenaar-id's worden bijgewerkt.|
+|/sites/domainownershipidentifiers/Write|Web-Apps domein eigenaar-id's worden bijgewerkt.|
 |/sites/Functions/Action|Functies van Web-Apps.|
 |/sites/Functions/DELETE|Functies voor Web-Apps verwijderen.|
 |/sites/Functions/listsecrets/Action|Lijst met geheimen Web Apps functies.|
@@ -3649,31 +3649,31 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sites/Functions/Read|Functies voor Web-Apps worden opgehaald.|
 |/sites/Functions/token/Read|Get-Web-Apps functies Token.|
 |/sites/Functions/Write|Bijwerken van Web Apps functies.|
-|/sites/hostnamebindings/DELETE|Hostnaambindings voor Web-Apps verwijderen.|
+|/sites/hostnamebindings/delete|Hostnaambindings voor Web-Apps verwijderen.|
 |/sites/hostnamebindings/Read|Web-Apps Hostnaambindings ophalen.|
 |/sites/hostnamebindings/Write|Web-Apps Hostnaambindings bijwerken.|
-|/sites/hybridconnection/delete|Web-Apps hybride verbinding verwijderen.|
-|/sites/hybridconnection/read|Verbinding voor Web-Apps hybride ophalen.|
-|/sites/hybridconnection/write|Web-Apps hybride verbinding bijwerken.|
-|/sites/hybridconnectionnamespaces/relays/DELETE|Web-Apps hybride verbinding naamruimten Relays verwijderen.|
+|/sites/hybridconnection/DELETE|Web-Apps hybride verbinding verwijderen.|
+|/sites/hybridconnection/Read|Verbinding voor Web-Apps hybride ophalen.|
+|/sites/hybridconnection/Write|Web-Apps hybride verbinding bijwerken.|
+|/sites/hybridconnectionnamespaces/relays/delete|Web-Apps hybride verbinding naamruimten Relays verwijderen.|
 |/sites/hybridconnectionnamespaces/relays/listkeys/Action|Lijst met sleutels Web Apps hybride verbinding naamruimten Relays.|
 |/sites/hybridconnectionnamespaces/relays/Read|Web-Apps hybride verbinding naamruimten Relays ophalen.|
-|/sites/hybridconnectionnamespaces/relays/write|Web-Apps hybride verbinding naamruimten Relays bijwerken.|
-|/sites/hybridconnectionrelays/read|Web-Apps hybride verbinding Relays ophalen.|
-|/sites/Instances/Deployments/DELETE|Web-Apps exemplaren implementaties verwijderd.|
+|/sites/hybridconnectionnamespaces/relays/Write|Web-Apps hybride verbinding naamruimten Relays bijwerken.|
+|/sites/hybridconnectionrelays/Read|Web-Apps hybride verbinding Relays ophalen.|
+|/sites/instances/deployments/delete|Web-Apps exemplaren implementaties verwijderd.|
 |/sites/Instances/Deployments/Read|Implementaties van Web Apps instanties worden opgehaald.|
 |/sites/Instances/Extensions/log/Read|Web-Apps exemplaren extensies logboek ophalen.|
 |/sites/Instances/Extensions/Read|Web-Apps exemplaren extensies worden opgehaald.|
 |/sites/Instances/processes/DELETE|Web-Apps exemplaren processen verwijderen.|
 |/sites/Instances/processes/Read|Web-Apps exemplaren processen worden opgehaald.|
 |/sites/Instances/Read|Web-Apps instanties worden opgehaald.|
-|/sites/listsyncfunctiontriggerstatus/action|Lijst met synchronisatie functie Trigger Status Web-Apps.|
+|/sites/listsyncfunctiontriggerstatus/Action|Lijst met synchronisatie functie Trigger Status Web-Apps.|
 |/sites/metricdefinitions/Read|Web-Apps metriek definities worden opgehaald.|
 |/sites/metrics/Read|Web-Apps metrische gegevens worden opgehaald.|
 |/sites/metricsdefinitions/Read|Web Apps metrische definities worden opgehaald.|
 |/sites/migratemysql/Action|MySql-Web-Apps worden gemigreerd.|
 |/sites/migratemysql/Read|Ophalen van Web Apps MySql migreren.|
-|/sites/networktrace/Action|Netwerk Trace Web-Apps.|
+|/sites/networktrace/action|Netwerk Trace Web-Apps.|
 |/sites/NewPassword/Action|NieuwWachtwoord Web-Apps.|
 |/sites/operationresults/Read|Web-Apps Bewerkingsresultaten krijgt.|
 |/sites/Operations/Read|Bewerkingen voor Web-Apps ophalen.|
@@ -3682,15 +3682,15 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sites/premieraddons/Read|Web Apps Premier invoegtoepassingen ophalen.|
 |/sites/premieraddons/Write|Bijwerken van Web Apps Premier invoegtoepassingen.|
 |/sites/processes/Read|Web-Apps processen worden opgehaald.|
-|/sites/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/sites/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/sites/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/sites/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
 |/sites/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor Web-App|
 |/sites/publiccertificates/delete|Web-Apps openbare certificaten verwijderen.|
 |/sites/publiccertificates/Read|Web-Apps openbare certificaten ophalen.|
 |/sites/publiccertificates/Write|Web-Apps openbare certificaten bijwerken.|
-|/sites/Publish/Action|Een Web-App publiceren|
-|/sites/PublishXml/Action|Ophalen van de xml van profiel voor een Web-App publiceren|
-|/sites/PublishXml/Read|Web-Apps publiceren XML ophalen.|
+|/sites/publish/Action|Een Web-App publiceren|
+|/sites/publishxml/Action|Ophalen van de xml van profiel voor een Web-App publiceren|
+|/sites/publishxml/read|Web-Apps publiceren XML ophalen.|
 |/ sites/lezen|De eigenschappen van een Web-App opgehaald|
 |/sites/recommendationhistory/Read|Web-Apps aanbeveling geschiedenis ophalen.|
 |/sites/Recommendations/Disable/Action|Web-Apps aanbevelingen uitschakelen.|
@@ -3701,10 +3701,10 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sites/restart/Action|Een Web-App starten|
 |/sites/Restore/Read|Terugzetten van de Web-Apps worden opgehaald.|
 |/sites/Restore/Write|Herstellen van Web-Apps.|
-|/sites/siteextensions/DELETE|Verwijderen van Web Apps Site-uitbreidingen.|
+|/sites/siteextensions/delete|Verwijderen van Web Apps Site-uitbreidingen.|
 |/sites/siteextensions/Read|Web-Apps-Site-uitbreidingen worden opgehaald.|
 |/sites/siteextensions/Write|Web-Apps-Site-uitbreidingen worden bijgewerkt.|
-|/sites/slots/analyzecustomhostname/Read|Ophalen van Web Apps sleuven analyseren aangepaste hostnaam.|
+|/sites/slots/analyzecustomhostname/read|Ophalen van Web Apps sleuven analyseren aangepaste hostnaam.|
 |/sites/slots/applySlotConfig/Action|Web-app siteconfiguratie van doel sleuf naar de huidige sleuf toepassen.|
 |/sites/slots/Backup/Action|Nieuwe Web-Appsite back-up maken.|
 |/sites/slots/Backup/Read|Back-up-sleuven voor Web-Apps worden opgehaald.|
@@ -3714,7 +3714,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sites/slots/backups/Read|De eigenschappen van een web-appsites back-up|
 |/sites/slots/backups/Restore/Action|Web-Apps sleuven back-ups herstellen.|
 |/sites/slots/config/delete|Webconfiguratie Apps sleuven verwijderen.|
-|/sites/slots/config/list/Action|Web-Appsite van gevoelige beveiligingsinstellingen, zoals het publiceren van referenties, app-instellingen en verbindingsreeksen weergeven|
+|/sites/slots/config/List/Action|Web-Appsite van gevoelige beveiligingsinstellingen, zoals het publiceren van referenties, app-instellingen en verbindingsreeksen weergeven|
 |/sites/slots/config/Read|Web-Appsite van configuratie-instellingen ophalen|
 |/sites/slots/config/Write|Web-Appsite van configuratie-instellingen bijwerken|
 |/sites/slots/continuouswebjobs/delete|Web-Apps sleuven doorlopende webtaken verwijderen.|
@@ -3728,12 +3728,12 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sites/slots/Deployments/Write|Update-implementaties van Web Apps sleuven.|
 |/sites/slots/Diagnostics/analyses/Execute/Action|Web-Apps sleuven Diagnostics analyse uitvoeren.|
 |/sites/slots/Diagnostics/analyses/Read|Analyse van Web Apps sleuven diagnostische gegevens worden opgehaald.|
-|/sites/slots/diagnostics/aspnetcore/read|Web-Apps sleuven diagnostische gegevens voor ASP.NET Core app worden opgehaald.|
+|/sites/slots/Diagnostics/aspnetcore/Read|Web-Apps sleuven diagnostische gegevens voor ASP.NET Core app worden opgehaald.|
 |/sites/slots/Diagnostics/autoheal/Read|Web-Apps sleuven Diagnostics Autoheal ophalen.|
 |/sites/slots/Diagnostics/Deployment/Read|Implementatie van Web Apps sleuven diagnostische gegevens ophalen.|
 |/sites/slots/Diagnostics/Deployments/Read|Implementaties van Web Apps sleuven diagnostische gegevens worden opgehaald.|
 |/sites/slots/diagnostics/detectors/execute/Action|Voer Web Apps sleuven diagnostische gegevens uit.|
-|/sites/slots/diagnostics/detectors/read|Detectie van Web Apps sleuven diagnostische gegevens worden opgehaald.|
+|/sites/slots/Diagnostics/detectors/Read|Detectie van Web Apps sleuven diagnostische gegevens worden opgehaald.|
 |/sites/slots/Diagnostics/frebanalysis/Read|Web-Apps sleuven Diagnostics FREB analyse worden opgehaald.|
 |/sites/slots/Diagnostics/loganalyzer/Read|Web-Apps sleuven Diagnostics logboek Analyzer ophalen.|
 |/sites/slots/Diagnostics/Read|Web-Apps sleuven diagnostische gegevens worden opgehaald.|
@@ -3750,15 +3750,15 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sites/slots/Diagnostics/workeravailability/Read|Web-Apps sleuven Diagnostics Workeravailability ophalen.|
 |/sites/slots/Diagnostics/workerprocessrecycle/Read|Recyclen van Web Apps sleuven Diagnostics Worker proces worden opgehaald.|
 |/sites/slots/domainownershipidentifiers/Read|Web-Apps sleuven domein eigenaar-id's worden opgehaald.|
-|/sites/slots/hostnamebindings/DELETE|Web-Apps sleuven Hostnaambindings verwijderen.|
+|/sites/slots/hostnamebindings/delete|Web-Apps sleuven Hostnaambindings verwijderen.|
 |/sites/slots/hostnamebindings/Read|Web-Apps sleuven Hostnaambindings ophalen.|
 |/sites/slots/hostnamebindings/Write|Web-Apps sleuven Hostnaambindings bijwerken.|
-|/sites/slots/hybridconnection/delete|Sleuven hybride verbinding voor Web-Apps verwijderen.|
-|/sites/slots/hybridconnection/read|Hybride verbinding voor Web-Apps sleuven ophalen.|
-|/sites/slots/hybridconnection/write|Hybride verbinding voor Web-Apps sleuven bijwerken.|
+|/sites/slots/hybridconnection/DELETE|Sleuven hybride verbinding voor Web-Apps verwijderen.|
+|/sites/slots/hybridconnection/Read|Hybride verbinding voor Web-Apps sleuven ophalen.|
+|/sites/slots/hybridconnection/Write|Hybride verbinding voor Web-Apps sleuven bijwerken.|
 |/sites/slots/hybridconnectionnamespaces/relays/delete|Web-Apps sleuven hybride verbinding naamruimten Relays verwijderen.|
-|/sites/slots/hybridconnectionnamespaces/relays/write|Web-Apps sleuven hybride verbinding naamruimten Relays bijwerken.|
-|/sites/slots/hybridconnectionrelays/read|Web-Apps sleuven hybride verbinding Relays ophalen.|
+|/sites/slots/hybridconnectionnamespaces/relays/Write|Web-Apps sleuven hybride verbinding naamruimten Relays bijwerken.|
+|/sites/slots/hybridconnectionrelays/Read|Web-Apps sleuven hybride verbinding Relays ophalen.|
 |/sites/slots/Instances/Deployments/Read|Implementaties van Web Apps sleuven instanties worden opgehaald.|
 |/sites/slots/Instances/processes/DELETE|Web-Apps sleuven exemplaren processen verwijderen.|
 |/sites/slots/Instances/processes/Read|Web-Apps sleuven exemplaren processen worden opgehaald.|
@@ -3775,11 +3775,11 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sites/slots/premieraddons/delete|Web Apps sleuven Premier invoegtoepassingen verwijderen.|
 |/sites/slots/premieraddons/Read|Web Apps sleuven Premier invoegtoepassingen ophalen.|
 |/sites/slots/premieraddons/Write|Bijwerken van Web Apps sleuven Premier invoegtoepassingen.|
-|/sites/slots/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
+|/sites/slots/providers/Microsoft.Insights/diagnosticSettings/read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
 |/sites/slots/providers/Microsoft.Insights/diagnosticSettings/write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
 |/sites/slots/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee wordt de beschikbare metrische gegevens voor Web-Appsite|
 |/sites/slots/publiccertificates/Read|Web-Apps sleuven openbare certificaten ophalen.|
-|/sites/slots/publiccertificates/write|Maken of bijwerken van Web Apps sleuven openbare certificaten.|
+|/sites/slots/publiccertificates/Write|Maken of bijwerken van Web Apps sleuven openbare certificaten.|
 |/sites/slots/publish/Action|Een Web-Appsite publiceren|
 |/sites/slots/publishxml/Action|Profiel xml publiceren voor Web-Appsite ophalen|
 |/sites/slots/Read|De eigenschappen van een Web-App implementatiesleuf opgehaald|
@@ -3788,47 +3788,47 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sites/slots/restart/Action|Een Web-Appsite starten|
 |/sites/slots/Restore/Read|Web-Apps sleuven terugzetten ophalen.|
 |/sites/slots/Restore/Write|Web-Apps sleuven herstellen.|
-|/sites/slots/siteextensions/DELETE|Verwijderen van Web Apps sleuven Site-uitbreidingen.|
+|/sites/slots/siteextensions/delete|Verwijderen van Web Apps sleuven Site-uitbreidingen.|
 |/sites/slots/siteextensions/Read|Web-Apps sleuven Site-uitbreidingen worden opgehaald.|
 |/sites/slots/siteextensions/Write|Web-Apps sleuven Site-uitbreidingen worden bijgewerkt.|
 |/sites/slots/slotsdiffs/Action|Verschillen in de configuratie tussen web-app en sleuven ophalen|
 |/sites/slots/slotsswap/Action|Implementatie Web-appsites wisselen|
 |/sites/slots/Snapshots/Read|Momentopnamen van Web Apps sleuven ophalen.|
-|/sites/slots/sourcecontrols/DELETE|Instellingen voor Web-Appsite van bronbeheer configuratie verwijderen|
+|/sites/slots/sourcecontrols/Delete|Instellingen voor Web-Appsite van bronbeheer configuratie verwijderen|
 |/sites/slots/sourcecontrols/Read|Configuratie-instellingen voor Web-Appsite van broncodebeheer ophalen|
 |/sites/slots/sourcecontrols/Write|Instellingen voor Web-Appsite van bronbeheer configuratie bijwerken|
 |/sites/slots/start/Action|Een Web-Appsite starten|
 |/sites/slots/Stop/Action|Een Web-Appsite stoppen|
-|/sites/slots/Sync/Action|Synchronisatie Web Apps sleuven.|
+|/sites/slots/sync/action|Synchronisatie Web Apps sleuven.|
 |/sites/slots/triggeredwebjobs/delete|Web-Apps sleuven Triggered webtaken verwijderen.|
 |/sites/slots/triggeredwebjobs/read|Web-Apps sleuven Triggered webtaken worden opgehaald.|
 |/sites/slots/triggeredwebjobs/run/action|Web-Apps sleuven Triggered webtaken worden uitgevoerd.|
 |/sites/slots/usages/Read|Het gebruik van Web Apps sleuven ophalen.|
-|/sites/slots/virtualnetworkconnections/DELETE|Web-Apps sleuven virtuele netwerkverbindingen verwijderen.|
+|/sites/slots/virtualnetworkconnections/delete|Web-Apps sleuven virtuele netwerkverbindingen verwijderen.|
 |/sites/slots/virtualnetworkconnections/gateways/write|Web-Apps sleuven virtueel netwerk verbindingen Gateways bijwerken.|
-|/sites/slots/virtualnetworkconnections/Read|Web-Apps sleuven virtuele netwerkverbindingen worden opgehaald.|
+|/sites/slots/virtualnetworkconnections/read|Web-Apps sleuven virtuele netwerkverbindingen worden opgehaald.|
 |/sites/slots/virtualnetworkconnections/Write|Web-Apps sleuven virtuele netwerkverbindingen worden bijgewerkt.|
 |/sites/slots/webjobs/Read|Web-Apps sleuven webtaken worden opgehaald.|
 |/sites/slots/Write|Een nieuwe Web-Appsite maken of bijwerken van een bestaande|
 |/sites/slotsdiffs/Action|Verschillen in de configuratie tussen web-app en sleuven ophalen|
 |/sites/slotsswap/Action|Implementatie Web-appsites wisselen|
 |/sites/Snapshots/Read|Momentopnamen van de Web-Apps ophalen.|
-|/sites/sourcecontrols/DELETE|Instellingen voor Web-App bronbeheer configuratie verwijderen|
+|/sites/sourcecontrols/Delete|Instellingen voor Web-App bronbeheer configuratie verwijderen|
 |/sites/sourcecontrols/Read|Broncodebeheer voor Web-App-configuratie-instellingen ophalen|
 |/sites/sourcecontrols/Write|Instellingen voor Web-App bronbeheer configuratie bijwerken|
 |/sites/start/Action|Een Web-App starten|
 |/sites/Stop/Action|Een Web-App stoppen|
 |/sites/Sync/Action|Synchronisatie van Web-Apps.|
-|/sites/syncfunctiontriggers/action|Synchronisatie functie Triggers voor Web-Apps.|
+|/sites/syncfunctiontriggers/Action|Synchronisatie functie Triggers voor Web-Apps.|
 |/sites/triggeredwebjobs/delete|Web-Apps Triggered webtaken verwijderen.|
 |/sites/triggeredwebjobs/history/read|Web Apps Triggered webtaken geschiedenis ophalen.|
 |/sites/triggeredwebjobs/read|Web-Apps Triggered webtaken worden opgehaald.|
 |/sites/triggeredwebjobs/run/action|Geactiveerde WebJobs voor Web-Apps worden uitgevoerd.|
 |/sites/usages/Read|Het gebruik van Web Apps ophalen.|
-|/sites/virtualnetworkconnections/DELETE|Verwijder virtuele netwerkverbindingen van Web Apps.|
-|/sites/virtualnetworkconnections/gateways/Read|Web-Apps virtuele verbindingen netwerkgateways ophalen.|
-|/sites/virtualnetworkconnections/gateways/Write|Web-Apps virtueel netwerk verbindingen Gateways bijwerken.|
-|/sites/virtualnetworkconnections/Read|Web-Apps virtuele netwerkverbindingen worden opgehaald.|
+|/sites/virtualnetworkconnections/delete|Verwijder virtuele netwerkverbindingen van Web Apps.|
+|/sites/virtualnetworkconnections/gateways/read|Web-Apps virtuele verbindingen netwerkgateways ophalen.|
+|/sites/virtualnetworkconnections/gateways/write|Web-Apps virtueel netwerk verbindingen Gateways bijwerken.|
+|/sites/virtualnetworkconnections/read|Web-Apps virtuele netwerkverbindingen worden opgehaald.|
 |/sites/virtualnetworkconnections/Write|Web-Apps virtuele netwerkverbindingen worden bijgewerkt.|
 |/sites/webjobs/read|Web-Apps webtaken worden opgehaald.|
 |/ sites/schrijven|Een nieuwe Web-App maken of bijwerken van een bestaande|
@@ -3837,14 +3837,14 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/sourcecontrols/write|Besturingselementen voor gegevensbronnen bijwerken.|
 |/ unregister/actie|Hef de registratie Microsoft.Web resourceprovider voor het abonnement.|
 |valideren/actie|Valideren.|
-|/verifyhostingenvironmentvnet/action|Controleer of de Hosting-omgeving Vnet.|
+|/ verifyhostingenvironmentvnet/actie|Controleer of de Hosting-omgeving Vnet.|
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 | Bewerking | Beschrijving |
 |---|---|
 |/Components/Read|Bewerkingen bronnen lezen|
-|/healthInstances/Read|Bewerkingen bronnen lezen|
+|/healthInstances/read|Bewerkingen bronnen lezen|
 |Bewerkingen/leestijd|Bewerkingen bronnen lezen|
 |/workloads/delete|Hiermee verwijdert u een resource werkbelasting|
 |/workloads/Read|Een resource werkbelasting leest|

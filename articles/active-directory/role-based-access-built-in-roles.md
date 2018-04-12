@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
 ms.openlocfilehash: 4d9df6743d84310b7db70034d1e84dd3591b3c21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure
 Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt over de volgende ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services. U kunt de definities van de ingebouwde rollen niet wijzigen. U kunt echter maken [aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md) aanpassen aan de specifieke behoeften van uw organisatie.
@@ -40,25 +40,25 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 | Ingebouwde rol | Beschrijving |
 | --- | --- |
 | [Owner](#owner) | Hiermee beheert u alles, inclusief de toegang tot resources. |
-| [Contributor](#contributor) | Hiermee beheert u alles, behalve de toegang tot resources. |
-| [Reader](#reader) | Hiermee geeft u alles weer, maar kunt u niet wijzigingen aanbrengen. |
+| [Inzender](#contributor) | Hiermee beheert u alles, behalve de toegang tot resources. |
+| [lezer](#reader) | Hiermee geeft u alles weer, maar kunt u niet wijzigingen aanbrengen. |
 | [API Management-Service Inzender](#api-management-service-contributor) | Kan de service en de API's beheren |
 | [Rol Operator API Management-Service](#api-management-service-operator-role) | Kan de service beheren, maar niet de API's |
 | [Rol van API Management-Service lezer](#api-management-service-reader-role) | Alleen-lezentoegang tot de service en API's |
 | [Application Insights-Onderdeelinzender](#application-insights-component-contributor) | Kan onderdelen van Application Insights beheren |
 | [Application Insights momentopname-foutopsporingsprogramma](#application-insights-snapshot-debugger) | Hiermee geeft u de gebruiker de machtiging om de functies van Application Insights Snapshot Debugger te gebruiken |
 | [Automation-taak Operator](#automation-job-operator) | Taken maken en beheren met Automation-runbooks. |
-| [Automation-Operator](#automation-operator) | Operators voor Automation kunnen taken starten, stoppen, onderbreken en hervatten |
-| [Automation-Runbook-Operator](#automation-runbook-operator) | Runbook-eigenschappen lezen: hiermee kunnen taken van de runbook worden gemaakt. |
+| [Automation Operator](#automation-operator) | Operators voor Automation kunnen taken starten, stoppen, onderbreken en hervatten |
+| [Automation Runbook Operator](#automation-runbook-operator) | Runbook-eigenschappen lezen: hiermee kunnen taken van de runbook worden gemaakt. |
 | [De eigenaar van de Azure Stack-registratie](#azure-stack-registration-owner) | Hiermee kunt u Azure Stack-registraties beheren. |
 | [Back-up Inzender](#backup-contributor) | Hiermee kunt u de back-upservice beheren, maar u kunt geen kluizen maken of anderen toegang verlenen |
 | [Back-upoperator](#backup-operator) | Hiermee kunt u back-upservices beheren, met uitzondering van het verwijderen van back-ups, het maken van kluizen en het verlenen van toegang aan anderen |
 | [Back-lezer](#backup-reader) | Kan de back-upservices weergeven, maar kan geen wijzigingen aanbrengen |
 | [Lezer facturering](#billing-reader) | Hiermee wordt leestoegang gegeven tot factureringsgegevens |
-| [BizTalk Inzender](#biztalk-contributor) | Hiermee beheert u BizTalk-services, maar kunt u niet de toegang tot de services beheren. |
+| [BizTalk Contributor](#biztalk-contributor) | Hiermee beheert u BizTalk-services, maar kunt u niet de toegang tot de services beheren. |
 | [CDN-eindpunt Inzender](#cdn-endpoint-contributor) | Kan CDN-eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
 | [CDN-eindpunt lezer](#cdn-endpoint-reader) | Kan CDN-eindpunten weergeven, maak kan geen wijzigingen aanbrengen. |
-| [CDN Profile Contributor](#cdn-profile-contributor) | Kan CDN-profielen en de bijbehorende eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
+| [CDN-profiel Inzender](#cdn-profile-contributor) | Kan CDN-profielen en de bijbehorende eindpunten beheren, maar kan geen toegang verlenen aan andere gebruikers. |
 | [CDN-profiel lezer](#cdn-profile-reader) | Kan CDN-profielen en de bijbehorende eindpunten weergeven, maak kan geen wijzigingen aanbrengen. |
 | [Inzender voor klassieke netwerken](#classic-network-contributor) | Hiermee beheert u klassieke netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
 | [Klassieke Storage Account Inzender](#classic-storage-account-contributor) | Hiermee kunt u klassieke opslagaccounts beheren, maar niet de toegang. |
@@ -68,14 +68,14 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 | [De rol van de lezer-Account cosmos DB](#cosmos-db-account-reader-role) | Gegevens van Azure DB die Cosmos-account kan worden gelezen. Zie [DocumentDB-Account Inzender](#documentdb-account-contributor) voor het beheren van Azure DB die Cosmos-accounts. |
 | [Data Factory Inzender](#data-factory-contributor) | Data factory's en de onderliggende resources hierin maken en beheren. |
 | [Data Lake Analytics-ontwikkelaars](#data-lake-analytics-developer) | Hiermee kunt u uw eigen taken indienen, controleren en beheren, maar geen Data Lake Analytics-accounts maken of verwijderen. |
-| [DevTest Labs User](#devtest-labs-user) | Hiermee kunt u verbinding maken met virtuele machines in Azure DevTest Labs en de virtuele machines starten, opnieuw starten en afsluiten. |
+| [DevTest Labs gebruiker](#devtest-labs-user) | Hiermee kunt u verbinding maken met virtuele machines in Azure DevTest Labs en de virtuele machines starten, opnieuw starten en afsluiten. |
 | [DNS-Zone Inzender](#dns-zone-contributor) | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
 | [DocumentDB-Account Inzender](#documentdb-account-contributor) | Kan Azure Cosmos DB accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
 | [Intelligente systemen Account Inzender](#intelligent-systems-account-contributor) | Hiermee beheert u Intelligent Systems-accounts, maar kunt u niet de toegang tot de accounts beheren. |
-| [Sleutelkluis Inzender](#key-vault-contributor) | Hiermee kunt u sleutelkluizen beheren, maar niet de toegang hiertoe. |
-| [Lab Creator](#lab-creator) | Hiermee kunt u maken, beheren en verwijderen van uw beheerde labs in uw Azure Lab-Accounts. |
+| [Key Vault Contributor](#key-vault-contributor) | Hiermee kunt u sleutelkluizen beheren, maar niet de toegang hiertoe. |
+| [De maker van het Lab](#lab-creator) | Hiermee kunt u maken, beheren en verwijderen van uw beheerde labs in uw Azure Lab-Accounts. |
 | [Log Analytics Inzender](#log-analytics-contributor) | Log Analytics Inzender kunnen alle bewakingsgegevens lezen en bewerken van controle-instellingen. Controle-instellingen bewerken bevat de VM-extensie toevoegen aan virtuele machines; lezen van toegangscodes voor opslag om te kunnen verzamelen van Logboeken van Azure Storage; configureren maken en configureren van Automation-accounts; toevoegen van oplossingen; en het configureren van Azure diagnostics op alle Azure-resources. |
-| [Log Analytics Reader](#log-analytics-reader) | De lezer van Log Analytics kan alle controlegegevens weergeven en doorzoeken en de controle-instellingen weergeven, inclusief het weergeven van de configuratie van Azure Diagnostics op alle Azure-resources. |
+| [Log Analytics lezer](#log-analytics-reader) | De lezer van Log Analytics kan alle controlegegevens weergeven en doorzoeken en de controle-instellingen weergeven, inclusief het weergeven van de configuratie van Azure Diagnostics op alle Azure-resources. |
 | [Logic App Inzender](#logic-app-contributor) | Hiermee kunt u logische apps beheren, maar niet de toegang hiertoe. |
 | [Logic App-Operator](#logic-app-operator) | Hiermee kunt u logische apps lezen, inschakelen en uitschakelen. |
 | [Beheerde identiteit Inzender](#managed-identity-contributor) | Maken, lezen, bijwerken en verwijderen van de gebruiker toegewezen identiteit |
@@ -84,7 +84,7 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 | [Bewaking van de lezer](#monitoring-reader) | Alle bewakingsgegevens (metrische gegevens, Logboeken, enz.) kunnen worden gelezen. Zie ook [aan de slag met rollen, machtigingen en -beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Inzender voor netwerken](#network-contributor) | Hiermee beheert u netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
 | [Nieuwe Relic APM-Account Inzender](#new-relic-apm-account-contributor) | Hiermee beheert u New Relic Application Performance Management-accounts en -toepassingen, maar kunt u niet de toegang tot de accounts en toepassingen beheren. |
-| [Redis-Cache Inzender](#redis-cache-contributor) | Hiermee beheert u exemplaren van Redis-cache, maar kunt u niet de toegang tot de exemplaren beheren. |
+| [Redis Cache Contributor](#redis-cache-contributor) | Hiermee beheert u exemplaren van Redis-cache, maar kunt u niet de toegang tot de exemplaren beheren. |
 | [Scheduler-taak verzamelingen Inzender](#scheduler-job-collections-contributor) | Hiermee beheert u Scheduler-taakverzamelingen, maar kunt u niet de toegang tot de verzamelingen beheren. |
 | [Search Service Inzender](#search-service-contributor) | Hiermee beheert u Search-services, maar kunt u niet de toegang tot de services beheren. |
 | [De beheerder beveiliging](#security-admin) | In Security Center alleen: kunt weergeven beveiligingsbeleid, beveiliging statussen weergeven, bewerken beveiligingsbeleid, waarschuwingen weergeven en aanbevelingen, negeren van waarschuwingen en aanbevelingen |
@@ -327,14 +327,14 @@ Hiermee kunt u back-upservices beheren, met uitzondering van het verwijderen van
 | Microsoft.Authorization/*/read | Lezen van rollen en roltoewijzingen |
 | Microsoft.Network/virtualNetworks/read | De definitie van het virtuele netwerk ophalen |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Retourneert de status van de bewerking |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ operationResults leestijd | Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op de beveiligde container. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ back-up-protectedItems/actie | Hiermee wordt een back-up van het beveiligde item gemaakt. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems operationResults/leestijd | Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op beveiligde items. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems operationsStatus/leestijd | Hiermee wordt de status geretourneerd van de bewerking die is uitgevoerd op beveiligde items. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems leestijd | Geeft de details van het artikel beveiligd object |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems recoveryPoints/leestijd | Herstelpunten voor beveiligde items ophalen. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints / / herstelbewerking | Herstelpunten voor beveiligde items herstellen. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/schrijven | Een back-up beveiligd Item maken |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ operationResults/read | Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op de beveiligde container. |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/backup/action | Hiermee wordt een back-up van het beveiligde item gemaakt. |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/operationResults/read | Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op beveiligde items. |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/operationsStatus/read | Hiermee wordt de status geretourneerd van de bewerking die is uitgevoerd op beveiligde items. |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/read | Geeft de details van het artikel beveiligd object |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/read | Herstelpunten voor beveiligde items ophalen. |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/restore/action | Herstelpunten voor beveiligde items herstellen. |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/write | Een back-up beveiligd Item maken |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retourneert alle geregistreerde containers |
 | Microsoft.RecoveryServices/Vaults/backupJobs/* | Maken en beheren van back-uptaken |
 | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Annuleer de taak |
@@ -361,8 +361,8 @@ Hiermee kunt u back-upservices beheren, met uitzondering van het verwijderen van
 | Microsoft.Resources/deployments/* | Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 | Microsoft.Storage/storageAccounts/read | Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/provisionInstantItemRecovery, actie | Inrichten Instant Item herstel voor beveiligde Item |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/revokeInstantItemRecovery, actie | Herstel op directe intrekken voor beveiligde Item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Inrichten Instant Item herstel voor beveiligde Item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Herstel op directe intrekken voor beveiligde Item |
 | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hiermee haalt de waarschuwingen voor de Recovery services-kluis. |
@@ -380,10 +380,10 @@ Kan de back-upservices weergeven, maar kan geen wijzigingen aanbrengen
 | --- | --- |
 | Microsoft.Authorization/*/read | Lezen van rollen en roltoewijzingen |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Retourneert de status van de bewerking |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ operationResults leestijd | Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op de beveiligde container. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems operationResults/leestijd | Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op beveiligde items. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems operationsStatus/leestijd | Hiermee wordt de status geretourneerd van de bewerking die is uitgevoerd op beveiligde items. |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems leestijd | Geeft de details van het artikel beveiligd object |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ operationResults/read | Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op de beveiligde container. |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/operationResults/read | Hiermee wordt het resultaat opgehaald van de bewerking die is uitgevoerd op beveiligde items. |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/operationsStatus/read | Hiermee wordt de status geretourneerd van de bewerking die is uitgevoerd op beveiligde items. |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/read | Geeft de details van het artikel beveiligd object |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Retourneert alle geregistreerde containers |
 | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Hiermee wordt het resultaat van de taakbewerking geretourneerd. |
 | Microsoft.RecoveryServices/Vaults/backupJobs/read | Retourneert alle objecten van de taak |
@@ -405,7 +405,7 @@ Kan de back-upservices weergeven, maar kan geen wijzigingen aanbrengen
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hiermee haalt de waarschuwingen voor de Recovery services-kluis. |
 | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
 | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/read |  |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems recoveryPoints/leestijd | Herstelpunten voor beveiligde items ophalen. |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/recoveryPoints/read | Herstelpunten voor beveiligde items ophalen. |
 | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retourneert het resultaat van taak exportbewerking. |
 | Microsoft.RecoveryServices/Vaults/usages/read | Hiermee worden de gebruiksgegevens voor een Recovery Services-kluis geretourneerd. |
 
@@ -1033,7 +1033,7 @@ Hiermee kunt u failover en fallback uitvoeren, maar geen andere beheerbewerkinge
 | Microsoft.RecoveryServices/vaults/replicationFabrics/reassociateGateway/action | Gateway opnieuw koppelen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Certificaat vernieuwen voor de infrastructuur |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Geen netwerken lezen |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Alle Netwerktoewijzingen lezen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks replicationNetworkMappings/leestijd | Alle Netwerktoewijzingen lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Beveiliging-Containers gelezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Alle beveiligbare objecten lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Herstelpunt toepassen |
@@ -1049,9 +1049,9 @@ Hiermee kunt u failover en fallback uitvoeren, maar geen andere beheerbewerkinge
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Bijwerken van de Mobility-Service |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Alle toewijzingen van de Container beveiliging lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders leestijd | Een Recovery Services-Providers lezen |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ refreshProvider-replicationRecoveryServicesProviders/actie | Vernieuw de Provider |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Alle Opslagclassificaties lezen |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Alle toewijzingen van de classificatie opslag lezen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/action | Vernieuw de Provider |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications leestijd | Alle Opslagclassificaties lezen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications replicationStorageClassificationMappings/leestijd | Alle toewijzingen van de classificatie opslag lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Lezen van taken |
 | Microsoft.RecoveryServices/vaults/replicationJobs/* | Maken en beheren van replicatietaken |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Lezen van beleid |
@@ -1092,15 +1092,15 @@ Hiermee kunt u de Site Recovery-status weergeven maar geen andere beheerbewerkin
 | Microsoft.RecoveryServices/vaults/replicationEvents/read | Alle gebeurtenissen lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Alle Fabrics lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Geen netwerken lezen |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Alle Netwerktoewijzingen lezen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks replicationNetworkMappings/leestijd | Alle Netwerktoewijzingen lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Beveiliging-Containers gelezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Alle beveiligbare objecten lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read | Alle beveiligde Items lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Replicatie herstelpunten lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Alle toewijzingen van de Container beveiliging lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders leestijd | Een Recovery Services-Providers lezen |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Alle Opslagclassificaties lezen |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Alle toewijzingen van de classificatie opslag lezen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications leestijd | Alle Opslagclassificaties lezen |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications replicationStorageClassificationMappings/leestijd | Alle toewijzingen van de classificatie opslag lezen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Lezen van taken |
 | Microsoft.RecoveryServices/vaults/replicationJobs/read | Lezen van taken |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Lezen van beleid |
@@ -1301,9 +1301,9 @@ Kunt u virtuele machines, maar niet de toegang tot, en niet het virtuele netwerk
 | Microsoft.Network/virtualNetworks/read | De definitie van het virtuele netwerk ophalen |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Lid wordt van een virtueel netwerk |
 | Microsoft.RecoveryServices/locations/* |  |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems / * / lezen |  |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems leestijd | Geeft de details van het artikel beveiligd object |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/schrijven | Een back-up beveiligd Item maken |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/*/read |  |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/read | Geeft de details van het artikel beveiligd object |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/ protectedItems/write | Een back-up beveiligd Item maken |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Maak een back-beveiliging wordt intentie |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Retourneert alle beleidsregels voor beveiliging |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Hiermee maakt u het beveiligingsbeleid |

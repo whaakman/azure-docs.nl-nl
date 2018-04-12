@@ -2,7 +2,7 @@
 title: Op rollen gebaseerde toegangsbeheer (RBAC) met Azure PowerShell beheren | Microsoft Docs
 description: Het beheren van RBAC met Azure PowerShell, met inbegrip van de aanbieding rollen, rollen toewijzen en het verwijderen van roltoewijzingen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
@@ -15,10 +15,10 @@ ms.date: 07/12/2017
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.openlocfilehash: 5e7e01502a173cb93216c77dd43f61094fd88148
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Toegangsbeheer op basis van rollen beheren met Azure PowerShell
 > [!div class="op_single_selector"]
@@ -101,28 +101,28 @@ Voor het verlenen van toegang tot een toepassing bij het abonnementsbereik gebru
 
     New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
 
-![RBAC PowerShell - nieuwe AzureRmRoleAssignment - schermafbeelding](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
+![RBAC PowerShell - New-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
 ### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Een rol toewijzen aan een gebruiker op het groepsbereik resource
 Om toegang te verlenen aan een gebruiker op het groepsbereik resource, gebruiken:
 
     New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 
-![RBAC PowerShell - nieuwe AzureRmRoleAssignment - schermafbeelding](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
+![RBAC PowerShell - New-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
 
 ### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Een rol toewijzen aan een groep in het bereik van de resource
 Om toegang te verlenen aan een groep voor de resource-scope, gebruiken:
 
     New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 
-![RBAC PowerShell - nieuwe AzureRmRoleAssignment - schermafbeelding](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
+![RBAC PowerShell - New-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
 ## <a name="remove-access"></a>Toegang verwijderen
 Toegang voor gebruikers, groepen en toepassingen, gebruik verwijderen:
 
     Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
 
-![RBAC PowerShell-Remove AzureRmRoleAssignment - schermafbeelding](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
+![RBAC PowerShell - Remove-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>Een aangepaste beveiligingsrol maken
 Gebruik voor het maken van een aangepaste rol de ```New-AzureRmRoleDefinition``` opdracht. Er zijn twee methoden voor het structureren van de rol, met behulp van PSRoleDefinitionObject of een JSON-sjabloon. 
@@ -259,7 +259,7 @@ Get-AzureRmRoleDefinition "Virtual Machine Operator"
 Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinition
 ```
 
-![RBAC PowerShell - Remove-AzureRmRoleDefinition - schermafbeelding](./media/role-based-access-control-manage-access-powershell/4-remove-azurermroledefinition.png)
+![RBAC PowerShell - Remove-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/4-remove-azurermroledefinition.png)
 
 ## <a name="list-custom-roles"></a>Lijst met aangepaste rollen
 Als de functies die beschikbaar voor toewijzing op een scope zijn wilt weergeven, gebruikt de `Get-AzureRmRoleDefinition` opdracht.

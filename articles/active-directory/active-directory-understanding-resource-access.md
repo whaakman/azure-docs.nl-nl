@@ -2,7 +2,7 @@
 title: Informatie over toegang tot bronnen in Azure | Microsoft Docs
 description: In dit onderwerp worden enkele concepten uitgelegd over abonnementbeheerders met toegang tot bronnen in de volledige Azure-portal controleren
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
@@ -15,10 +15,10 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.custom: it-pro;
 ms.openlocfilehash: 621ebec898e5b345556832097b12ca9b54506e7c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="understanding-resource-access-in-azure"></a>Wat is de toegang tot bronnen in Azure?
 
@@ -28,7 +28,7 @@ Toegangsbeheer in Azure wordt gestart vanuit het oogpunt van facturering van. De
 
 Abonnementen hebben ook een koppeling naar een map. De map definieert een set van gebruikers. Deze kunnen gebruikers van werk of school dat de map gemaakt of ze kunnen externe gastgebruikers. Abonnementen zijn toegankelijk voor een subset van de directorygebruikers die zijn toegewezen als Service-beheerder (SA) of Medebeheerder (CA); de enige uitzondering hierop is dat, omwille van de oudere Microsoft-accounts (voorheen Windows Live ID) kunnen worden toegewezen als SA of CA zonder aanwezig in de map.
 
-<br><br>![Toegangsbeheer in Azure][2]
+<br><br>![Access Control in Azure][2]
 
 Functionaliteit binnen de Azure-portal kunt SA's dat u bent aangemeld met een Microsoft-Account te wijzigen van de map die aan een abonnement gekoppeld is. Deze bewerking heeft gevolgen voor het toegangsbeheer van het abonnement.
 

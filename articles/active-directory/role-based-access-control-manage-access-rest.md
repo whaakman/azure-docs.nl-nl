@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: na
 author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
 ms.workload: multiple
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Op rollen gebaseerde toegangsbeheer met de REST-API beheren
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
-   * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Vervang *{api-versie}* met 2015-07-01.
 3. Vervang *{filter}* met de voorwaarde die u wilt toepassen om de rol toewijzingslijst te filteren:
 
@@ -94,7 +94,7 @@ Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
-   * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Vervang *{toewijzing-rol-id}* met de id van de GUID van de roltoewijzing.
 3. Vervang *{api-versie}* met 2015-07-01.
 
@@ -135,7 +135,7 @@ Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1   
-   * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Vervang *{toewijzing-rol-id}* met een nieuwe GUID die de GUID-id van de nieuwe roltoewijzing wordt.
 3. Vervang *{api-versie}* met 2015-07-01.
 
@@ -193,7 +193,7 @@ Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
-   * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Vervang *{toewijzing-rol-id}* met de roltoewijzings-id GUID.
 3. Vervang *{api-versie}* met 2015-07-01.
 
@@ -317,7 +317,7 @@ Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
-   * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Vervang *{rol-definitie-id}* met de id van de GUID van de functiedefinitie.
 3. Vervang *{api-versie}* met 2015-07-01.
 
@@ -397,7 +397,7 @@ Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
-   * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Vervang *{rol-definitie-id}* met een nieuwe GUID die de GUID-id van de nieuwe aangepaste rol wordt.
 3. Vervang *{api-versie}* met 2015-07-01.
 
@@ -439,10 +439,10 @@ Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
 | naam |Ja |Tekenreeks |GUID-id van de aangepaste rol. |
 | properties.roleName |Ja |Tekenreeks |Weergavenaam van de aangepaste rol. Maximale grootte 128 tekens. |
 | Properties.Description |Nee |Tekenreeks |Beschrijving van de aangepaste rol. Maximale grootte 1024 tekens. |
-| properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
-| Properties.permissions.Actions |Ja |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen die zijn verleend door de aangepaste rol. |
-| properties.permissions.notActions |Nee |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen moeten worden uitgesloten van de bewerkingen die zijn verleend door de aangepaste rol. |
-| properties.assignableScopes |Ja |String] |Een matrix van bereiken waarin de aangepaste rol kan worden gebruikt. |
+| Properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
+| Properties.permissions.Actions |Ja |String[] |Een matrix van tekenreeksen voor actie geven de bewerkingen die zijn verleend door de aangepaste rol. |
+| properties.permissions.notActions |Nee |String[] |Een matrix van tekenreeksen voor actie geven de bewerkingen moeten worden uitgesloten van de bewerkingen die zijn verleend door de aangepaste rol. |
+| properties.assignableScopes |Ja |String[] |Een matrix van bereiken waarin de aangepaste rol kan worden gebruikt. |
 
 ### <a name="response"></a>Antwoord
 Statuscode: 201
@@ -500,7 +500,7 @@ Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
-   * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Vervang *{rol-definitie-id}* met de GUID-id van de aangepaste rol.
 3. Vervang *{api-versie}* met 2015-07-01.
 
@@ -542,10 +542,10 @@ Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
 | naam |Ja |Tekenreeks |GUID-id van de aangepaste rol. |
 | properties.roleName |Ja |Tekenreeks |Weergavenaam van de aangepaste rol die is bijgewerkt. |
 | Properties.Description |Nee |Tekenreeks |Beschrijving van de aangepaste rol die is bijgewerkt. |
-| properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
-| Properties.permissions.Actions |Ja |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen waarvoor de bijgewerkte aangepaste rol die toegang verleent. |
-| properties.permissions.notActions |Nee |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen moeten worden uitgesloten van de bewerkingen die de bijgewerkte aangepaste rol toekent. |
-| properties.assignableScopes |Ja |String] |Een matrix van bereiken waarin de bijgewerkte aangepaste rol kan worden gebruikt. |
+| Properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
+| Properties.permissions.Actions |Ja |String[] |Een matrix van tekenreeksen voor actie geven de bewerkingen waarvoor de bijgewerkte aangepaste rol die toegang verleent. |
+| properties.permissions.notActions |Nee |String[] |Een matrix van tekenreeksen voor actie geven de bewerkingen moeten worden uitgesloten van de bewerkingen die de bijgewerkte aangepaste rol toekent. |
+| properties.assignableScopes |Ja |String[] |Een matrix van bereiken waarin de bijgewerkte aangepaste rol kan worden gebruikt. |
 
 ### <a name="response"></a>Antwoord
 Statuscode: 201
@@ -603,7 +603,7 @@ Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
-   * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Vervang *{rol-definitie-id}* met de GUID roldefinitie-id van de aangepaste rol.
 3. Vervang *{api-versie}* met 2015-07-01.
 

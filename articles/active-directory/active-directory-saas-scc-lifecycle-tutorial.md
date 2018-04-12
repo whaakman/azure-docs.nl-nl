@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Zelfstudie: Azure Active Directory-integratie met SCC levenscyclus
 Het doel van deze zelfstudie is om de integratie van Azure en SCC LifeCycle weer te geven.  
@@ -58,7 +58,7 @@ Het doel van deze sectie is het inschakelen van de integratie van toepassingen v
     ![Een toepassing toevoegen van gallerry](./media/active-directory-saas-scc-lifecycle-tutorial/IC749322.png "een toepassing van gallerry toevoegen")
 6. In de **zoekvak**, type **SCC LifeCycle**.
    
-    ![Application Gallery](./media/active-directory-saas-scc-lifecycle-tutorial/IC794121.png "Application Gallery")
+    ![Toepassingsgalerie](./media/active-directory-saas-scc-lifecycle-tutorial/IC794121.png "-Toepassingsgalerie")
 7. Selecteer in het deelvenster met resultaten **SCC LifeCycle**, en klik vervolgens op **Complete** de toepassing toevoegen.
    
     ![De levenscyclus van SCC](./media/active-directory-saas-scc-lifecycle-tutorial/IC795082.png "SCC levenscyclus")
@@ -75,7 +75,7 @@ Het doel van deze sectie is het overzicht van het inschakelen van gebruikers wor
 2. Op de **hoe wilt u dat gebruikers zich aanmelden op voor de levenscyclus van SCC** pagina **Microsoft Azure AD Single Sign-On**, en klik vervolgens op **volgende**.
    
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "eenmalige aanmelding configureren")
-3. Op de **App-URL configureren** pagina in de **aanmelding op URL** textbox, typ de URL gebruikt door uw gebruikers aanmelden bij uw SCC LifeCycle-toepassing met het volgende patroon volgen ' *https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx* ', en klik vervolgens op **volgende**.
+3. Op de **App-URL configureren** pagina in de **aanmelding op URL** textbox, typ de URL gebruikt door uw gebruikers aanmelden bij uw SCC LifeCycle-toepassing met het volgende patroon volgen '*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*', en klik vervolgens op **volgende**.
    
     ![App-URL configureren](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "App-URL configureren")
 4. Op de **eenmalige aanmelding configureren op de levenscyclus van SCC** pagina, klikt u op **metagegevens downloaden**, en sla het bestand met metagegevens lokaal op uw computer.
@@ -114,7 +114,7 @@ Als u wilt testen van uw configuratie, moet u de Azure AD-gebruikers verlenen di
     ![Gebruikers toewijzen](./media/active-directory-saas-scc-lifecycle-tutorial/IC794126.png "gebruikers toewijzen")
 3. Selecteer uw testgebruiker, klik op **toewijzen**, en klik vervolgens op **Ja** om te bevestigen dat de toewijzing.
    
-    ![Yes](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "Yes")
+    ![Ja](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "Ja")
 
 Als u testen van uw instellingen voor eenmalige aanmelding wilt, opent u het toegangsvenster. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
