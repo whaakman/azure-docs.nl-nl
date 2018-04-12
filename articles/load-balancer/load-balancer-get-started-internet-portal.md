@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1b7901542a699e74f65527bf734133f73acb0bea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c646b0b1ab0ec62cffb4f7cf7474b48c68dfabb4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-public-basic-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Een openbare Basic load balancer maken om taken van VM's te verdelen via Azure Portal
 
@@ -38,8 +38,8 @@ In deze sectie maakt u een openbare Basic load balancer met behulp van de portal
 1. Klik linksboven in het scherm op **Een resource maken** > **Netwerken** > **Load balancer**.
 2. Voer op de pagina **Een load balancer maken** deze waarden in voor de load balancer:
     - *myLoadBalancer* als naam van de load balancer.
-    - **Openbaar** als het type load balancer. 
-     - *myPublicIP* als het openbare IP-adres dat u moet maken met de SKU **Basic** en **Toewijzing** ingesteld als **Dynamisch**.
+    - **Openbaar** als het type load balancer.
+    - *myPublicIP* als het openbare IP-adres dat u moet maken met de SKU **Basic** en **Toewijzing** ingesteld als **Dynamisch**.
     - *myResourceGroupLB* als naam van de nieuwe resourcegroep die u maakt.
 3. Klik op **Maken** om de load balancer te maken.
    
@@ -95,15 +95,15 @@ In deze sectie maakt u NSG-regels om inkomende verbindingen via HTTP en RDP toe 
 4. Klik op **OK**.
  
  ![Een virtueel netwerk maken](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
-5. Herhaal stap 2t/m 4 om nog een regel te maken (*myRDPRule*) om een binnenkomende RDP-verbinding toe te staan via poort 3389 met de volgende waarden:
+5. Herhaal stap 2 t/m 4 om nog een regel te maken (*myRDPRule*) om een binnenkomende RDP-verbinding toe te staan via poort 3389 met de volgende waarden:
     - *Service Tag* bij **Bron**.
     - *Internet* bij **Bronservicetag**
-    - *3389*: voor **Poortbereiken van doel**
+    - *3389* bij **Poortbereiken van doel**
     - *TCP* bij **Protocol**
     - *Allow* bij **Actie**
-    - *200*: voor **Prioriteit**
-    - *myRDPRule*: voor naam
-    - *Allow RDP*: voor beschrijving
+    - *200* bij **Prioriteit**
+    - *myRDPRule* als naam
+    - *Allow RDP* als beschrijving
 
    
 
@@ -167,7 +167,7 @@ Een load balancer-regel wordt gebruikt om de verdeling van het verkeer over de V
 1. Klik in het linkermenu op **Alle resources** en vervolgens in de lijst met resources op **myLoadBalancer**.
 2. Klik onder **Instellingen** op **Taakverdelingsregels** en vervolgens op **Toevoegen**.
 3. Gebruik deze waarden om de taakverdelingsregel te configureren:
-    - *myHTTPRule*: voor de naam van de taakverdelingsregel.
+    - *myHTTPRule* als naam van de taakverdelingsregel.
     - **TCP** als protocoltype.
     - *80* als poortnummer.
     - *80* als back-endpoort.

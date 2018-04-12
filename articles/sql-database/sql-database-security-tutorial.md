@@ -2,25 +2,18 @@
 title: Uw Azure SQL-database beveiligen | Microsoft Docs
 description: Lees hier alles over technieken en functies voor het beveiligen van uw Azure SQL-database.
 services: sql-database
-documentationcenter: ''
 author: DRediske
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 06/28/2017
+ms.date: 04/01/2018
 ms.author: daredis
-ms.openlocfilehash: 678f3ae09a57cbbbb486d256f81f0f58563b482c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d2f5ce387a1e9b36fd1625210f42525a272c270
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Uw Azure SQL-database beveiligen
 
@@ -32,10 +25,10 @@ U hoeft slechts een paar eenvoudige stappen uit te voeren om de beveiliging van 
 > * Firewallregels op serverniveau instellen voor uw server in Azure Portal
 > * Firewallregels op databaseniveau instellen voor uw database met SSMS
 > * Verbinding maken met uw database met behulp van een beveiligde verbindingsreeks
-> * Gebruikerstoegang beheren
-> * Uw gegevens beschermen met versleuteling
-> * Controle inschakelen voor SQL Database
-> * Bedreigingsdetectie inschakelen voor SQL Database
+> * Gebruikerstoegang beheert
+> * Uw gegevens beschermt met versleuteling
+> * Controle inschakelt voor SQL Database
+> * Bedreigingsdetectie inschakelt voor SQL Database
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 

@@ -2,18 +2,17 @@
 title: Een back-up maken van Azure-bestanden in Azure
 description: In dit artikel wordt uitgelegd hoe u een back-up maakt van uw Azure-bestandsshares en deze herstelt. Ook wordt er uitleg gegeven over beheertaken.
 services: backup
-keywords: Voeg geen sleutelwoorden toe en bewerk ze niet zonder overleg met uw SEO-expert.
 author: markgalioto
 ms.author: markgal
 ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 3eab85aa4f7fde190a93239fc396cb9c04c2396c
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 440cee4309fad0a22d8964982f3aad2178397124
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="back-up-azure-file-shares"></a>Een back-up maken van Azure-bestandsshares
 In dit artikel wordt uitgelegd hoe u met Azure Portal back-ups kunt maken van [Azure-bestandsshares](../storage/files/storage-files-introduction.md) en deze kunt herstellen.
@@ -32,7 +31,7 @@ Voordat u een back-up van een Azure-bestandsshare probeert te maken, moet u naga
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Beperkingen voor het maken van back-ups van Azure-bestandsshares in de preview-versie
 Back-up voor Azure-bestandsshares is in preview. In de preview-versie gelden de volgende beperkingen:
-- U kunt Azure-bestandsshares niet beveiligen in opslagaccounts met replicatie via [zone-redundante opslag (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) of [geografisch redundante opslag met leestoegang (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
+- U kunt Azure-bestandsshares niet beveiligen in opslagaccounts met replicatie via [zone-redundante opslag (ZRS)](../storage/common/storage-redundancy-zrs.md) of [geografisch redundante opslag met leestoegang (RA-GRS)](../storage/common/storage-redundancy-grs.md).
 - U kunt Azure-bestandsshares niet beveiligen in opslagaccounts waarvoor virtuele netwerken zijn ingeschakeld.
 - Er is geen PowerShell of CLI beschikbaar voor het beveiligen van Azure Files.
 - Het maximumaantal geplande back-ups per dag is één.

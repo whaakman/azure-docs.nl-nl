@@ -1,11 +1,11 @@
 ---
-title: "Gegevens laden in Azure SQL Data Warehouse – Data Factory | Microsoft Docs"
+title: Gegevens laden in Azure SQL Data Warehouse – Data Factory | Microsoft Docs
 description: Deze zelfstudie gegevens laadt in Azure SQL Data Warehouse met behulp van Azure Data Factory en maakt gebruik van een SQL Server-database als de gegevensbron.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-sql-data-warehouse;azure-data-factory
 ms.service: sql-data-warehouse
 ms.workload: data-management
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Gegevens laden in SQL Data Warehouse met Data Factory
 
@@ -97,7 +97,7 @@ U kunt nu de Data Factory over de lokale SQL Server-database van waaruit u gegev
 
 U kunt Data Factory nu informatie over de bestemming.
 
-1. De verbindingsinformatie voor SQL Data Warehouse wordt automatisch ingevuld. Voer het wachtwoord voor de gebruikersnaam. en klik op **volgende**.
+1. De verbindingsinformatie voor SQL Data Warehouse wordt automatisch ingevuld. Voer het wachtwoord voor de gebruikersnaam in. en klik op **volgende**.
 
     ![Doel configureren](media/sql-data-warehouse-load-with-data-factory/configure-destination.png)
 

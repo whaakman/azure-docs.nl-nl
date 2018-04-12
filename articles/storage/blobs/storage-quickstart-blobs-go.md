@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 5572eaafa49200be0b2a8156dbc96bffd48be925
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b288c764c3a6b5821f913170f8f9c88e5cc86956
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Quickstart: blobs downloaden, uploaden en vermelden met behulp van Go
 
@@ -39,6 +39,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart
 ```
 
 Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond. Om het Go-voorbeeld voor Blob-opslag te openen, zoekt u het bestand storage-quickstart.go op.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>De opslagverbindingsreeks configureren
 Deze oplossing vereist dat uw opslagaccountnaam en -sleutel veilig zijn opgeslagen in omgevingsvariabelen die lokaal op de computer staan waarop u het voorbeeld uitvoert. Volg afhankelijk van uw besturingssysteem een van de onderstaande voorbeelden voor het maken van de omgevingsvariabelen.

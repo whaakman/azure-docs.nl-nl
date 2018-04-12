@@ -1,10 +1,10 @@
 ---
-title: Azure-snelstart - Een VM PowerShell maken | Microsoft Docs
+title: Azure Quick Start - Een VM PowerShell maken | Microsoft Docs
 description: Ontdek snel hoe u virtuele Linux-machines maakt met PowerShell
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1d477bfe42cebbc35db4fd40aa5bc3de4829c49b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: afb0b40ad23fa8ec5468f10027710294b5e67aab
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Een virtuele Linux-machine maken met PowerShell
 
-De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze snelstart vindt u informatie over het gebruik van de Azure PowerShell-module om een virtuele machine te implementeren waarop Ubuntu Server wordt uitgevoerd. Zodra de server is geïmplementeerd, wordt een SSH-verbinding gemaakt en een NGINX-webserver geïnstalleerd.
+De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze Quick Start vindt u informatie over het gebruik van de Azure PowerShell-module om een virtuele machine te implementeren waarop Ubuntu Server wordt uitgevoerd. Zodra de server is geïmplementeerd, wordt een SSH-verbinding gemaakt en een NGINX-webserver geïnstalleerd.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze snelstart is moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Voor deze Quick Start is moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 Tot slot moet er een openbare SSH-sleutel met de naam *id_rsa.pub* worden opgeslagen in de map *.ssh* van uw Windows-gebruikersprofiel. Zie [SSH-sleutels maken voor Azure](ssh-from-windows.md) voor gedetailleerde informatie over het maken en gebruiken van SSH-sleutels.
 

@@ -4,7 +4,7 @@ description: Meer informatie over de beveiliging van uw virtuele Linux-machine i
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6b791b2e1dbaffc90145c325dea7a85bd8abd98c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 41fb802dd8f5dd7bec2c481f3719f304b0c8d0ac
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>De beveiliging van virtuele machines bewaken met behulp van Azure Security Center
 
@@ -28,9 +28,9 @@ Met Azure Security Center kunt u meer inzicht krijgen in de beveiliging van uw A
  
 > [!div class="checklist"]
 > * Gegevensverzameling instellen
-> * Beveiligingsbeleid instellen
-> * Problemen met de configuratiestatus weergeven en oplossen
-> * Gedetecteerde bedreigingen controleren  
+> * Beveiligingsbeleid kunt instellen
+> * Problemen met de configuratiestatus kunt weergeven en oplossen
+> * Gedetecteerde bedreigingen kunt controleren  
 
 ## <a name="security-center-overview"></a>Overzicht van Security Center
 
@@ -44,7 +44,7 @@ Security Center biedt niet alleen gegevensdetectie maar ook aanbevelingen voor g
 
 ![Aanbevelingen](./media/tutorial-azure-security/recommendations.png)
 
-## <a name="set-up-data-collection"></a>Gegevensverzameling instellen
+## <a name="set-up-data-collection"></a>Gegevensverzameling kunt instellen
 
 Voordat u VM-beveiligingsconfiguraties kunt inzien, moet u eerst gegevensverzameling instellen in Security Center. Dit omvat het inschakelen van gegevensverzameling en het maken van een Azure-opslagaccount voor het opslaan van verzamelde gegevens. 
 

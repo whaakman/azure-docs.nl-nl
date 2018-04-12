@@ -5,27 +5,26 @@ services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2017
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6345fe89a3bf25041621213274ea0c3081848d99
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Gegevens weergeven of analyseren die zijn verzameld met Zoeken in logboeken van Log Analytics
 
 In Log Analytics kunt u logboekzoekopdrachten gebruiken door query's samen te stellen voor het analyseren van de verzamelde gegevens. U kunt hierbij gebruikmaken van bestaande dashboards die u kunt aanpassen met grafische weergaven van uw beste zoekopdrachten.  Nu u het verzamelen van operationele gegevens uit uw Azure VM's en activiteitenlogboeken hebt gedefinieerd, leert u in deze zelfstudie het volgende:
 
 > [!div class="checklist"]
-> * Uw Azure Log Analytics-resource upgraden naar de nieuwe querytaal 
 > * Een eenvoudige zoekopdracht naar gebeurtenisgegevens uitvoeren en functies gebruiken om de resultaten te filteren en te wijzigen 
 > * Meer informatie over het werken met prestatiegegevens
 
@@ -36,21 +35,13 @@ Het maken en bewerken van query's kan, naast interactief werken met de geretourn
 In deze zelfstudie werken we met Zoeken in logboeken in Azure Portal. 
 
 ## <a name="log-in-to-azure-portal"></a>Aanmelden bij Azure Portal
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="open-the-log-search-portal"></a>De portal Zoeken in logboeken openen 
 Open eerst de portal Zoeken in logboeken.   
 
 1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
-2. Selecteer in het deelvenster voor abonnementen van Log Analytics een werkruimte en selecteer vervolgens de tegel **Zoeken in logboeken**.<br> ![De knop Zoeken in logboeken](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
-
-De banner aan de bovenkant van uw Log Analytics-resourcepagina in de portal nodigt u uit om een upgrade uit te voeren.<br> ![Melding voor Log Analytics-upgrade in Azure Portal](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
-
-Door Log Analytics is onlangs een nieuwe querytaal geïntroduceerd die het eenvoudiger maakt om query’s samen te stellen, gegevens uit verschillende bronnen met elkaar te vergelijken en analyses uit te voeren om snel trends of problemen te signaleren.
-
-Upgraden is eenvoudig.  Start het proces door te klikken op de banner met de tekst **Meer informatie en upgraden**.  Lees de aanvullende informatie over de upgrade op de pagina met informatie over de upgrade en klik vervolgens op **Nu upgrade uitvoeren**.
-
-Dit proces duurt enkele minuten en gedurende deze tijd kunt u de voortgang bijhouden onder **Meldingen** in het menu. Hier kunt u meer lezen over de [voordelen van de nieuwe querytaal](log-analytics-log-search-upgrade.md#why-the-new-language).
+2. Selecteer in het deelvenster voor abonnementen van Log Analytics een werkruimte en selecteer vervolgens de tegel **Zoeken in logboeken**.<br><br> ![De knop Zoeken in logboeken](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
 
 ## <a name="create-a-simple-search"></a>Een eenvoudige zoekopdracht maken
 De snelste manier om gegevens op te halen om mee te werken, is met een eenvoudige query waarmee alle records in de tabel worden opgehaald.  Als u een Windows- of Linux-client hebt verbonden met uw werkruimte, hebt u gegevens in de gebeurtenis- (Windows) of Syslog-tabel (Linux).
