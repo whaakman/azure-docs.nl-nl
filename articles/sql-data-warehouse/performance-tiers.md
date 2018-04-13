@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Azure SQL Data Warehouse prestatielagen (Preview)
 SQL Data Warehouse biedt twee prestatielagen die zijn geoptimaliseerd voor analytische workloads. Dit artikel wordt uitgelegd van de concepten van prestatielagen bij het kiezen van de meest geschikte prestatielaag voor uw workload. 
@@ -71,7 +71,7 @@ Het niveau van de service voor het optimaliseren voor elasticiteit prestaties la
 | DW1000        | 32                     | 10            | 6                              | 4,000                            | 240                                |
 | DW1200        | 32                     | 12            | 5                              | 4,800                            | 288                                |
 | DW1500        | 32                     | 15            | 4                              | 6,000                            | 360                                |
-| DW2000 ZIJN        | 32                     | 20            | 3                              | 8,000                            | 480                                |
+| DW2000        | 32                     | 20            | 3                              | 8,000                            | 480                                |
 | DW3000        | 32                     | 30            | 2                              | 12,000                           | 720                                |
 | DW6000        | 32                     | 60            | 1                              | 24,000                           | 1440                               |
 
@@ -165,7 +165,7 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 | DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
 | DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
 | DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
-| DW2000 ZIJN        | 32                         |  80                         | 1       | 16       | 32      |  64      |
+| DW2000        | 32                         |  80                         | 1       | 16       | 32      |  64      |
 | DW3000        | 32                         | 120                         | 1       | 16       | 32      |  64      |
 | DW6000        | 32                         | 240                         | 1       | 32       | 64      | 128      |
 
@@ -182,7 +182,7 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 | DW1000        | 32                         |  40                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1200        | 32                         |  48                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500        | 32                         |  60                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW2000 ZIJN        | 32                         |  80                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
+| DW2000        | 32                         |  80                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW3000        | 32                         | 120                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW6000        | 32                         | 240                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
