@@ -2,7 +2,7 @@
 title: Schakel Microsoft Windows Hello voor bedrijven in uw organisatie | Microsoft Docs
 description: Implementatie-instructies voor het Microsoft Passport inschakelen in uw organisatie.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 keywords: Microsoft Passport configureren, Microsoft Windows Hello voor bedrijven-implementatie
 author: MarkusVi
 manager: mtillman
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Schakel Microsoft Windows Hello voor bedrijven in uw organisatie
 Na [domein Windows 10-apparaten verbinding te maken met Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), doet u het volgende om in te schakelen Microsoft Windows Hello voor bedrijven in uw organisatie:

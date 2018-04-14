@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 03/15/2018
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 3b43bc17b7f9cf80a9520c5c573be3a48d82e4e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Uw datawarehouse migreren naar premium-opslag
 Azure SQL Data Warehouse onlangs geïntroduceerd [premium-opslag voor groter prestaties, voorspelbaarheid][premium storage for greater performance predictability]. Bestaande datawarehouses momenteel op standaardopslag kunnen nu worden gemigreerd naar de premium-opslag. U kunt profiteren van de automatische migratie van of als u liever om te beheren wanneer voor het migreren van (dit heeft betrekking op enige downtime), kunt u de migratie zelf doen.
@@ -51,7 +51,7 @@ Standaard gaan we uw database voor u tussen 18:00 uur en 6:00 uur in uw regio lo
 Microsoft neemt de volgende stappen uit om de migratie (deze hoeven niet alle betrokkenheid van uw kant) te voltooien. Stel in dit voorbeeld of uw bestaande datawarehouse op een standard-opslag is momenteel met de naam 'MyDW'.
 
 1. Microsoft wijzigt de naam 'MyDW' naar 'MyDW_DO_NOT_USE_ [tijdstempel]'.
-2. Microsoft pauses “MyDW_DO_NOT_USE_[Timestamp].” Gedurende deze tijd is een back-up gemaakt. Mogelijk ziet u meerdere onderbroken en hervat als er problemen ondervindt tijdens dit proces.
+2. Microsoft pauzeert 'MyDW_DO_NOT_USE_ [tijdstempel]'. Gedurende deze tijd is een back-up gemaakt. Mogelijk ziet u meerdere onderbroken en hervat als er problemen ondervindt tijdens dit proces.
 3. Microsoft maakt een nieuw datawarehouse met de naam 'MyDW' op premium-opslag van de back-up gemaakt in stap 2. 'MyDW' worden niet weergegeven tot na het herstellen voltooid is.
 4. Nadat het herstel voltooid is 'MyDW' retourneert met dezelfde magazijn eenheden en status (onderbroken of actieve) is dat deze vóór de migratie.
 5. Nadat de migratie voltooid is, verwijdert Microsoft 'MyDW_DO_NOT_USE_ [tijdstempel]'.
