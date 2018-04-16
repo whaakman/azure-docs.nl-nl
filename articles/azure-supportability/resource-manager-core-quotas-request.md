@@ -3,15 +3,15 @@ title: Azure Resource Manager vCPU quotum verhogen aanvragen | Microsoft Docs
 description: Azure Resource Manager vCPU quotum verhogen aanvragen
 author: ganganarayanan
 ms.author: gangan
-ms.date: 3/15/2018
+ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: a42fa8e4e8dae140db4fcc8977bda335455b97a1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Resource Manager vCPU quotum verhogen aanvragen
 
@@ -19,27 +19,26 @@ Resource Manager vCPU quota worden afgedwongen op het regioniveau en de SKU-fami
 Meer informatie over hoe quota's worden toegepast op de [Azure-abonnement en Servicelimieten](http://aka.ms/quotalimits) pagina.
 Voor meer informatie over de SKU-Families, kunt u kosten en prestaties vergelijken op de [prijzen van virtuele Machines](http://aka.ms/pricingcompute) pagina.
 
-Als u een verhoging aanvragen, maakt een ondersteuningsaanvraag quotum voor vcpu's in de Azure portal [ https://portal.azure.com ](https://portal.azure.com).
+Als u een verhoging aanvragen, maakt een ondersteuningsaanvraag quotum voor vcpu's in de Azure portal [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
 > Meer informatie over hoe [Maak een ondersteuningsaanvraag](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) in de Azure portal
 
-1. Selecteer **abonnementen**.
+1. Selecteer type probleem als 'Target' en quotumtype als 'Kernen' op de pagina nieuwe ondersteuning aanvraag.
 
-   ![Abonnementen](./media/resource-manager-core-quotas-request/subscriptions.png)
+    ![De blade grondbeginselen quotum](./media/resource-manager-core-quotas-request/Basics-blade.png)
 
-2. Selecteer het abonnement waarvoor u een grotere quota.
+2. Selecteer implementatiemodel als 'Resource Manager' en selecteer een locatie.
 
-   ![Abonnement selecteren](./media/resource-manager-core-quotas-request/select-subscription.png)
+    ![Quota voor probleem-blade](./media/resource-manager-core-quotas-request/Problem-step.png)
 
-3. Selecteer **gebruik + quota**
+3. Selecteer de SKU-Families waarvoor verhogen.
 
-   ![Informatie over het gebruik en quota's selecteren](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+    ![SKU-serie geselecteerd](./media/resource-manager-core-quotas-request/SKU-selected.png)
 
-4. Selecteer in de rechterbovenhoek **verhoging aanvragen**.
+4. Voer de nieuwe beperkingen die u wilt dat op het abonnement.
 
-   ![Verhoging aanvragen](./media/resource-manager-core-quotas-request/request-increase.png)
+    ![Nieuwe quotumaanvraag SKU](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
 
-5. Selecteer **kernen** als het type aanhalingsteken. 
-
-   ![Formulier invullen](./media/resource-manager-core-quotas-request/forms.png)
+- Een regel verwijderen, schakelt u de SKU van de SKU-familie dropdown of klik op het pictogram 'x' negeren.
+Na het invoeren van de gewenste quota voor elke SKU-serie, klikt u op 'Volgende' op de pagina probleem stap om door te gaan met het maken van de aanvraag voor ondersteuning.

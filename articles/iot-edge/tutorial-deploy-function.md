@@ -6,15 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3d7dd0986878c747f92afc712301453bc8772ef2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f1c6b5cd07752c6b29234a365b3298d76b639b3a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Een Azure-functie als een IoT Edge-module implementeren - preview
 U kunt Azure Functions gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. In deze zelfstudie doorloopt u het maken en implementeren van een Azure-functie waarmee sensorgegevens worden gefilterd op het gesimuleerde IoT Edge-apparaat dat u hebt gemaakt in de zelfstudie Azure IoT-Edge implementeren op een gesimuleerd apparaat in [Windows][lnk-tutorial1-win]of [Linux][lnk-tutorial1-lin]. In deze zelfstudie leert u het volgende:     
@@ -30,7 +30,7 @@ De Azure-functie die u in deze zelfstudie maakt, filtert de temperatuurgegevens 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Het Azure IoT Edge-apparaat dat hebt gemaakt in de snelstart of de vorige zelfstudie.
+* Het Azure IoT Edge-apparaat dat hebt gemaakt in de quickstart of de vorige zelfstudie.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [De extensie C# voor Visual Studio Code (van OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
@@ -95,8 +95,7 @@ De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van V
                 // Copy the properties of the original message into the new Message object
                 foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    filteredMessage.Properties.Add(prop.Key, prop.Value);                }
                 // Add a new property to the message to indicate it is an alert
                 filteredMessage.Properties.Add("MessageType", "Alert");
                 // Send the message        
@@ -136,10 +135,13 @@ De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van V
    ```
    Ga naar de [Azure Portal] https://portal.azure.com) om de gebruikersnaam, het wachtwoord en de aanmeldingsserver op te zoeken die in deze opdracht moeten worden gebruikt. Klik vanuit **Alle resources** op de tegel voor uw Azure-containerregister om de eigenschappen te openen en klik vervolgens op **Toegangssleutels**. Kopieer de waarden in de velden **Gebruikersnaam**, **Wachtwoord** en **Aanmeldingsserver**. 
 
-2. Klik in VS Code explorer met de rechtermuisknop op het bestand **module.json** en klik op **Build and Push IoT Edge module Docker image** (Docker-installatiekopie voor IoT Edge-module maken en pushen). Selecteer in de vervolgkeuzelijst bovenaan het venster VS Code uw containerplatform: **amd64** voor een Linux-container of **windows-amd64** voor een Windows-container. VS Code plaatst vervolgens uw functiecodes in een container en pusht deze naar het containerregister dat u hebt opgegeven.
+2. Open **module.json**. U kunt de `"version"` ook bijwerken naar bijvoorbeeld **"1.0"**. U ziet ook de naam van de opslagplaats die u hebt opgegeven in de `-r`-parameter van `dotnet new aziotedgefunction`.
 
+3. Sla het bestand **module.json** op.
 
-3. U kunt het volledige adres van de containerinstallatiekopie, inclusief tag, in de geïntegreerde terminal van VS Code krijgen. Bekijk het `module.json`-bestand als u meer wilt weten over de build- en push-definitie.
+4. Klik in VS Code explorer met de rechtermuisknop op het bestand **module.json** en klik op **Build and Push IoT Edge module Docker image** (Docker-installatiekopie voor IoT Edge-module maken en pushen). Selecteer in de vervolgkeuzelijst bovenaan het venster VS Code uw containerplatform: **amd64** voor een Linux-container of **windows-amd64** voor een Windows-container. VS Code plaatst vervolgens uw functiecodes in een container en pusht deze naar het containerregister dat u hebt opgegeven.
+
+5. U kunt het volledige adres van de containerinstallatiekopie, inclusief tag, in de geïntegreerde terminal van VS Code krijgen. Bekijk het `module.json`-bestand als u meer wilt weten over de build- en push-definitie.
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Registerreferenties toevoegen aan uw Edge-apparaat
 Voeg de referenties voor uw register toe aan de Edge-runtime op de computer waarop u het Edge-apparaat uitvoert. Dit geeft de runtime toegang voor het ophalen van de container. 
