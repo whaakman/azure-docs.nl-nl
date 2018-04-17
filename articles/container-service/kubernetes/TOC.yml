@@ -23,7 +23,7 @@
       href: container-service-tutorial-kubernetes-scale.md
     - name: 6 - Een toepassing bijwerken
       href: container-service-tutorial-kubernetes-app-update.md
-    - name: 7 - Bewaken met OMS
+    - name: 7 - Bewaken met Log Analytics
       href: container-service-tutorial-kubernetes-monitor.md
 - name: Concepten
   items:
@@ -45,7 +45,7 @@
       href: container-service-scale.md
     - name: Controleren
       items:
-        - name: Bewaken met OMS
+        - name: Bewaken met Log Analytics
           href: container-service-kubernetes-oms.md
         - name: Bewaken met Datadog
           href: container-service-kubernetes-datadog.md

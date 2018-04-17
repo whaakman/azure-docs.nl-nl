@@ -25,6 +25,8 @@
       href: frequently-asked-questions-genomics.md
     - name: Releasegeschiedenis van versie
       href: version-release-history-genomics.md
+    - name: Bedrijfscontinuïteit
+      href: business-continuity-genomics.md
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: Prijzen

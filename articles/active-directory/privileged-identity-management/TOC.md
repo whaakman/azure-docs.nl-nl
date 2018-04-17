@@ -55,7 +55,7 @@
 
 # Verwant
 ## [Azure Active Directory](/azure/active-directory/)
-## [Op rollen gebaseerd toegangsbeheer](../role-based-access-control-what-is.md)
+## [Op rollen gebaseerd toegangsbeheer](../../role-based-access-control/overview.md)
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

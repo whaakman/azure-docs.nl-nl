@@ -16,7 +16,7 @@
 ## Beheren
 ### [Hoog contrast inschakelen of het thema wijzigen](azure-portal-change-theme-high-contrast.md)
 ### [De portal gebruiken om resources te beheren](../azure-resource-manager/resource-group-portal.md)
-### [Toegang beheren met op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-configure.md)
+### [Toegang beheren met op rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md)
 ### [Dashboards delen met op rollen gebaseerd toegangsbeheer](azure-portal-dashboard-share-access.md)
 ### [Tags gebruiken om resources te organiseren](../azure-resource-manager/resource-group-using-tags.md)
 ### [Uw resources schalen](../monitoring-and-diagnostics/insights-how-to-scale.md)

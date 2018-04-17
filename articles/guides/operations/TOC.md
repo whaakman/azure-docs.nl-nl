@@ -24,7 +24,7 @@
 ###[Sjablonen implementeren met behulp van Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Beveiliging (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Roltoewijzingen gebruiken om resources te beheren](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[Roltoewijzingen gebruiken om resources te beheren](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Virtuele machines](azure-operations-guide.md#azure-virtual-machines)
 ### [VM-grootten voor Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
