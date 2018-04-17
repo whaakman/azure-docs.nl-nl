@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Bevoegde toegang voor hybride en cloud-implementaties beveiligen in Azure AD
 
@@ -154,9 +154,9 @@ Als u dit nog niet hebt gedaan, maakt u afzonderlijke accounts voor gebruikers v
 
 Zorg dat alle gebruikers zijn aangemeld bij hun beheerdersaccounts en hun wachtwoord is gewijzigd ten minste eenmaal in de afgelopen 90 dagen. Controleer ook die gedeelde accounts in welke meerdere gebruikers het wachtwoord weten hun wachtwoord onlangs gewijzigd heeft gehad.
 
-#### <a name="turn-on-password-synchronization"></a>Wachtwoordsynchronisatie inschakelen
+#### <a name="turn-on-password-hash-synchronization"></a>Synchronisatie van wachtwoordhash inschakelen
 
-Wachtwoordsynchronisatie is een functie die wordt gebruikt om te synchroniseren-hashes van gebruiker wachtwoord-hashes van een lokale Active Directory-exemplaar naar een cloud-gebaseerde Azure AD-exemplaar. Zelfs dat als u besluit Federatie met Active Directory Federation Services (AD FS) of een andere id-providers gebruiken, kunt u eventueel instellen Wachtwoordsynchronisatie als een back-up in geval uw on-premises infrastructuur zoals AD of AD FS-servers mislukt of niet tijdelijk niet beschikbaar. Hierdoor kunnen gebruikers zich aanmelden bij de service met behulp van het wachtwoord dat ze gebruiken om aan te melden bij hun on-premises AD-exemplaar. Bovendien kan de beveiliging van de identiteit voor het detecteren van gestolen referenties door de wachtwoord-hashes te vergelijken met mogelijk onveilig bekend als een gebruiker is gebruikt, hun hetzelfde e-mailadres en wachtwoord van andere services die niet is verbonden met Azure AD-wachtwoorden.  Zie voor meer informatie [hash Wachtwoordsynchronisatie met Azure AD Connect-synchronisatie implementeren](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
+Synchronisatie van wachtwoordhash is een functie die wordt gebruikt om te synchroniseren-hashes van gebruiker wachtwoord-hashes van een lokale Active Directory-exemplaar naar een cloud-gebaseerde Azure AD-exemplaar. Zelfs dat als u besluit Federatie met Active Directory Federation Services (AD FS) of een andere id-providers gebruiken, kunt u eventueel instellen van synchronisatie van wachtwoordhash als een back-up in geval uw on-premises infrastructuur zoals AD of AD FS-servers mislukt of niet tijdelijk niet beschikbaar. Hierdoor kunnen gebruikers zich aanmelden bij de service met behulp van het wachtwoord dat ze gebruiken om aan te melden bij hun on-premises AD-exemplaar. Bovendien kan de beveiliging van de identiteit voor het detecteren van gestolen referenties door de wachtwoord-hashes te vergelijken met mogelijk onveilig bekend als een gebruiker is gebruikt, hun hetzelfde e-mailadres en wachtwoord van andere services die niet is verbonden met Azure AD-wachtwoorden.  Zie voor meer informatie [hash Wachtwoordsynchronisatie met Azure AD Connect-synchronisatie implementeren](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Multi-factor authentication (MFA) voor gebruikers in alle bevoorrechte rollen, evenals blootgestelde gebruikers vereisen
 
@@ -282,11 +282,11 @@ De [Azure Security Center](../security-center/security-center-intro.md) biedt ge
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Inventariseer uw beschermde accounts binnen de gehoste virtuele Machines
 
-In de meeste gevallen moet u geen gebruikers onbeperkte machtigingen geven voor alle Azure-abonnementen of resources. Azure AD-beheerdersrollen kunt u taken scheiden binnen uw organisatie en de hoeveelheid toegang verlenen aan gebruikers die toegang moeten specifieke taken uitvoeren. Bijvoorbeeld, Azure AD-beheerdersrollen gebruiken zodat een beheerder alleen virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren. Zie voor meer informatie [aan de slag met toegangsbeheer op basis van rollen in Azure portal](role-based-access-control-what-is.md).
+In de meeste gevallen moet u geen gebruikers onbeperkte machtigingen geven voor alle Azure-abonnementen of resources. Azure AD-beheerdersrollen kunt u taken scheiden binnen uw organisatie en de hoeveelheid toegang verlenen aan gebruikers die toegang moeten specifieke taken uitvoeren. Bijvoorbeeld, Azure AD-beheerdersrollen gebruiken zodat een beheerder alleen virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren. Zie voor meer informatie [aan de slag met toegangsbeheer op basis van rollen in Azure portal](../role-based-access-control/overview.md).
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>PIM voor Azure AD-beheerdersrollen implementeren
 
-Privileged identity Management gebruiken met Azure AD-beheerdersrollen, beheren en controleren van toegang tot Azure-resources. Met behulp van PIM beschermt bevoegde accounts tegen cyberbeveiliging aanvallen door de blootstellingstijd van bevoegdheden te verlagen en vergroot de zichtbaarheid van het gebruik door middel van rapporten en waarschuwingen. Zie voor meer informatie [RBAC beheren van toegang tot Azure-resources met Privileged Identity Management](pim-azure-resource.md).
+Privileged identity Management gebruiken met Azure AD-beheerdersrollen, beheren en controleren van toegang tot Azure-resources. Met behulp van PIM beschermt bevoegde accounts tegen cyberbeveiliging aanvallen door de blootstellingstijd van bevoegdheden te verlagen en vergroot de zichtbaarheid van het gebruik door middel van rapporten en waarschuwingen. Zie voor meer informatie [RBAC beheren van toegang tot Azure-resources met Privileged Identity Management](../role-based-access-control/pim-azure-resource.md).
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Azure-logboekanalyse integraties gebruiken om te verzenden relevante Azure logboeken naar uw SIEM-systemen 
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Concept gebruiken met Azure Containerservice (AKS)
 
@@ -33,10 +33,10 @@ Tot slot moet u [Docker](https://www.docker.com).
 
 ## <a name="install-draft"></a>Concept installeren
 
-De CLI concept is een client die wordt uitgevoerd op uw ontwikkelsysteem, en kunt dat u snel code implementeren in een cluster met Kubernetes. 
+De CLI concept is een client die wordt uitgevoerd op uw ontwikkelsysteem, en kunt dat u snel code implementeren in een cluster met Kubernetes.
 
-> [!NOTE] 
-> Als concept voorafgaand aan versie 0,12 is geïnstalleerd, moet u eerst concept verwijderen uit uw cluster met `helm delete --purge draft` en verwijder vervolgens de lokale configuratie door te voeren `rm -rf ~/.draft`. U kunt uitvoeren als u van Mac OS gebruikmaakt, `brew upgrade draft`.
+> [!NOTE]
+> Als concept voorafgaand aan versie 0,12 is geïnstalleerd, moet u eerst concept verwijderen uit uw cluster met `helm delete --purge draft` en verwijder vervolgens de lokale configuratie door te voeren `rm -rf ~/.draft`. Als u van Mac OS gebruikmaakt, voert u `brew upgrade draft`.
 
 Het concept CLI installeren op een Mac-gebruik `brew`. Zie voor aanvullende installatie-opties, wordt de [concept installeren handleiding][install-draft].
 
@@ -71,9 +71,9 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 Nu dat er een vertrouwensrelatie tussen AKS en ACR is, wordt in de volgende stappen uit het gebruik van ACR van het cluster AKS inschakelen.
 1. Stel de configuratie van het concept `registry` waarde door het uitvoeren van `draft config set registry <registry name>.azurecr.io`, waarbij _&lt;naam van routeringsregister&lt;_ is de naam van uw ACR-register.
-2. Meld u aan bij het register ACR door het uitvoeren van `az acr login -n <registry name>`. 
+2. Meld u aan bij het register ACR door het uitvoeren van `az acr login -n <registry name>`.
 
-Omdat u bent nu aangemeld op lokaal ACR en u een vertrouwensrelatie met AKS en ACR hebt gemaakt, zijn geen wachtwoorden of geheimen naar push of pull van ACR in AKS vereist. De verificatie vindt op het niveau van Azure Resource Manager met Azure Active Directory. 
+Omdat u bent nu aangemeld op lokaal ACR en u een vertrouwensrelatie met AKS en ACR hebt gemaakt, zijn geen wachtwoorden of geheimen naar push of pull van ACR in AKS vereist. De verificatie vindt op het niveau van Azure Resource Manager met Azure Active Directory.
 
 ## <a name="run-an-application"></a>Een toepassing uitvoeren
 
@@ -143,7 +143,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-U kunt nu uw toepassing testen door te bladeren naar http://localhost:46143 (voor het voorgaande voorbeeld; de poort mogelijk andere). Wanneer u klaar bent met het gebruik van de toepassing testen `Control+C` stoppen van de proxyverbinding.
+Nu uw toepassing testen door te bladeren naar http://localhost:46143 (voor het voorgaande voorbeeld; de poort mogelijk andere). Wanneer u klaar bent met het gebruik van de toepassing testen `Control+C` stoppen van de proxyverbinding.
 
 > [!NOTE]
 > U kunt ook de `draft up --auto-connect` opdracht voor het bouwen en implementeren van uw toepassing en direct verbinding maken met de eerste actieve container te maken van de herhaling sneller bladeren.

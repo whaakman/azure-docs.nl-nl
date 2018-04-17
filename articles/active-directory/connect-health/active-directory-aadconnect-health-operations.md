@@ -1,8 +1,8 @@
 ---
 title: Azure Active Directory Connect Health-bewerkingen
-description: "Dit artikel wordt beschreven aanvullende bewerkingen die kunnen worden uitgevoerd nadat u Azure AD Connect Health hebt geïmplementeerd."
+description: Dit artikel wordt beschreven aanvullende bewerkingen die kunnen worden uitgevoerd nadat u Azure AD Connect Health hebt geïmplementeerd.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health-bewerkingen
 Dit onderwerp beschrijft de verschillende bewerkingen die u uitvoeren kunt met behulp van Azure Active Directory (Azure AD) Connect Health.
@@ -91,9 +91,9 @@ Wanneer u een service-exemplaar wilt verwijderen, rekening met het volgende:
 4. Klik op **Verwijderen**.
    <br><br>
 
-[//]: # (Start of RBAC section)
+[//]: # (Begin van RBAC-sectie)
 ## <a name="manage-access-with-role-based-access-control"></a>Toegang beheren met toegangsbeheer op basis van rollen
-[Op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control-configure.md) voor Azure AD Connect Health toegang tot gebruikers en groepen dan globale beheerders biedt. RBAC toegewezen rollen voor de beoogde gebruikers en groepen en biedt een mechanisme om te beperken van de globale beheerders binnen uw directory.
+[Op rollen gebaseerde toegangsbeheer (RBAC)](../../role-based-access-control/role-assignments-portal.md) voor Azure AD Connect Health toegang tot gebruikers en groepen dan globale beheerders biedt. RBAC toegewezen rollen voor de beoogde gebruikers en groepen en biedt een mechanisme om te beperken van de globale beheerders binnen uw directory.
 
 ### <a name="roles"></a>Rollen
 Azure AD Connect Health ondersteunt de volgende ingebouwde rollen:
@@ -153,7 +153,7 @@ Nu de vermelde gebruikers en groepen toegang hebben, volgens hun rollen.
 U kunt een gebruiker of groep toegevoegd aan Azure AD Connect Health RBAC verwijderen. Gewoon met de rechtermuisknop op de gebruiker of groep en selecteer **verwijderen**.<br>
 ![Schermopname van Azure AD Connect Health RBAC gebruikers venster verwijderen die zijn gemarkeerd](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
-[//]: # (End of RBAC section)
+[//]: # (Einde van RBAC-sectie)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure AD Connect Health (Engelstalig)](active-directory-aadconnect-health.md)

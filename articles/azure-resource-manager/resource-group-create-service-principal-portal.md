@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 264befc6c60b87d41658b4da763e477fbb7e3f8c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Portal gebruiken voor het maken van een Azure Active Directory-toepassing en service-principal die toegang bronnen tot
 
@@ -36,7 +36,7 @@ Als u dit artikel, moet u voldoende rechten hebt voor een toepassing registreren
 
 1. Selecteer **Azure Active Directory**.
 
-   ![Selecteer azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+   ![azure active directory selecteren](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
 1. Selecteer in Azure Active Directory, **gebruikersinstellingen**.
 
@@ -46,13 +46,13 @@ Als u dit artikel, moet u voldoende rechten hebt voor een toepassing registreren
 
    ![app-registraties weergeven](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Als de app-registraties instelling is ingesteld op **Nee**, alleen de beheerder gebruikers apps kunnen registreren. Controleer of uw account een beheerder voor de Azure AD-tenant. Selecteer **overzicht** en bekijk uw gebruikersgegevens. Als uw account is toegewezen aan de gebruikersrol, maar de registratie van app-instelling (van de vorige stap) beperkt tot beheergebruikers is, vraag uw beheerder op een toewijzen aan een administrator-rol of waarmee gebruikers om apps te registreren.
+1. Als de app-registraties instelling is ingesteld op **Nee**, alleen [globale beheerders](../active-directory/active-directory-assign-admin-roles-azure-portal.md) apps kunt registreren. Controleer of uw account een beheerder voor de Azure AD-tenant. Selecteer **overzicht** en bekijk uw gebruikersgegevens. Als uw account is toegewezen aan de gebruikersrol, maar de registratie van app-instelling (van de vorige stap) beperkt tot beheergebruikers is, vraag uw beheerder op een toewijzen aan de rol globale beheerder of waarmee gebruikers om apps te registreren.
 
    ![gebruiker zoeken](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
 ### <a name="check-azure-subscription-permissions"></a>Controleer de machtigingen van de Azure-abonnement
 
-In uw Azure-abonnement, uw account moet hebben `Microsoft.Authorization/*/Write` toegang tot een AD-app aan een rol toewijzen. Deze actie wordt verleend via de [eigenaar](../active-directory/role-based-access-built-in-roles.md#owner) rol of [beheerder voor gebruikerstoegang](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) rol. Als uw account is toegewezen aan de **Inzender** rol, u hebt niet de juiste machtiging. U ontvangt een fout opgetreden bij een poging de service-principal toewijzen aan een rol.
+In uw Azure-abonnement, uw account moet hebben `Microsoft.Authorization/*/Write` toegang tot een AD-app aan een rol toewijzen. Deze actie wordt verleend via de [eigenaar](../role-based-access-control/built-in-roles.md#owner) rol of [beheerder voor gebruikerstoegang](../role-based-access-control/built-in-roles.md#user-access-administrator) rol. Als uw account is toegewezen aan de **Inzender** rol, u hebt niet de juiste machtiging. U ontvangt een fout opgetreden bij een poging de service-principal toewijzen aan een rol.
 
 Uw abonnement om machtigingen te controleren:
 
@@ -73,69 +73,69 @@ Uw abonnement om machtigingen te controleren:
 1. Aanmelden bij uw Azure-Account via de [Azure-portal](https://portal.azure.com).
 1. Selecteer **Azure Active Directory**.
 
-   ![Selecteer azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+   ![azure active directory selecteren](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-1. Selecteer **App registraties**.
+1. Selecteer **App-registraties**.
 
-   ![Selecteer de app-registraties](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
+   ![app-registraties selecteren](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
 
-1. Selecteer **registratie van de nieuwe toepassing**.
+1. Selecteer **Nieuwe toepassing registreren**.
 
-   ![app toevoegen](./media/resource-group-create-service-principal-portal/select-add-app.png)
+   ![toepassing toevoegen](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Geef een naam en de URL voor de toepassing. Selecteer **Web-app / API** voor het type van de toepassing die u wilt maken. U kunt geen referenties voor maken een [systeemeigen toepassing](../active-directory/active-directory-application-proxy-native-client.md); daarom type werkt niet voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **maken**.
+1. Geef een naam en URL voor de toepassing op. Selecteer **Web-app/API** voor het type toepassing dat u wilt maken. U kunt geen referenties voor maken een [systeemeigen toepassing](../active-directory/active-directory-application-proxy-native-client.md); daarom type werkt niet voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **maken**.
 
-   ![de naam van toepassing](./media/resource-group-create-service-principal-portal/create-app.png)
+   ![toepassing een naam geven](./media/resource-group-create-service-principal-portal/create-app.png)
 
 U kunt uw toepassing hebt gemaakt.
 
 ## <a name="get-application-id-and-authentication-key"></a>Ophalen van de sleutel-ID en verificatie van toepassing
 
-Wanneer u programmatisch zich aanmeldt, moet u de ID voor uw toepassing en een verificatiesleutel. Als u deze waarden, gebruikt u de volgende stappen uit:
+Wanneer u zich programmatisch aanmeldt, hebt u de id voor uw toepassing en een verificatiesleutel nodig. U kunt deze waarden als volgt ophalen:
 
-1. Van **App registraties** in Azure Active Directory, selecteer uw toepassing.
+1. Selecteer uw toepassing bij **App-registraties** in Azure Active Directory.
 
    ![toepassing selecteren](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. Kopieer de **toepassings-ID** en op te slaan in uw toepassingscode. Sommige [voorbeeldtoepassingen](#log-in-as-the-application) verwijzen naar deze waarde als de client-ID.
+1. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode. Sommige [voorbeeldtoepassingen](#log-in-as-the-application) verwijzen naar deze waarde als de client-id.
 
-   ![Client-ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
+   ![client-id](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 
-1. Selecteer voor het genereren van een verificatiesleutel **instellingen**.
+1. Selecteer **Instellingen** om een verificatiesleutel te genereren.
 
    ![instellingen selecteren](./media/resource-group-create-service-principal-portal/select-settings.png)
 
-1. Selecteer voor het genereren van een verificatiesleutel **sleutels**.
+1. Selecteer **Sleutels** om een verificatiesleutel te genereren.
 
-   ![Selecteer sleutels](./media/resource-group-create-service-principal-portal/select-keys.png)
+   ![sleutels selecteren](./media/resource-group-create-service-principal-portal/select-keys.png)
 
-1. Geef een beschrijving van de sleutel en een duur voor de sleutel. Wanneer u klaar bent, selecteer **opslaan**.
+1. Geef een beschrijving van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
 
    ![sleutel opslaan](./media/resource-group-create-service-principal-portal/save-key.png)
 
-   Na het opslaan van de sleutel, wordt de waarde van de sleutel weergegeven. Deze waarde niet kopiëren omdat u niet kan ophalen van de sleutel later. U kunt de sleutelwaarde opgeven met de toepassings-ID aan te melden als de toepassing. Slaat de waarde van de sleutel waar uw toepassing deze kan worden opgehaald.
+   Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopieer deze waarde, want u kunt de sleutel later niet meer ophalen. U geeft de sleutelwaarde samen met de toepassings-id op om u aan te melden met de toepassing. Sla de sleutelwaarde op waar uw toepassing deze kan ophalen.
 
-   ![sleutel wordt opgeslagen](./media/resource-group-create-service-principal-portal/copy-key.png)
+   ![opgeslagen sleutel](./media/resource-group-create-service-principal-portal/copy-key.png)
 
-## <a name="get-tenant-id"></a>Tenant-ID ophalen
+## <a name="get-tenant-id"></a>Tenant-id ophalen
 
-Wanneer u programmatisch zich aanmeldt, moet u de tenant-ID met de verificatieaanvraag doorgeven.
+Wanneer u zich programmatisch aanmeldt, moet u de tenant-id samen met uw verificatieaanvraag doorgeven.
 
 1. Selecteer **Azure Active Directory**.
 
-   ![Selecteer azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
+   ![azure active directory selecteren](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-1. Als u de tenant-ID, selecteer **eigenschappen** voor uw Azure AD-tenant.
+1. Haal de tenant-id op door **Eigenschappen** voor uw Azure AD-tenant te selecteren.
 
    ![Azure AD-eigenschappen selecteren](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
-1. Kopieer de **map-ID**. Deze waarde is uw tenant-ID.
+1. Kopieer de **Directory-id**. Deze waarde is uw tenant-id.
 
-   ![Tenant-ID](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
+   ![tenant-id](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
 ## <a name="assign-application-to-role"></a>Toepassing toewijzen aan rol
 
-Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol vertegenwoordigt de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md).
+Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol vertegenwoordigt de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](../role-based-access-control/built-in-roles.md).
 
 U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. Machtigingen worden overgenomen op lagere niveaus van het bereik. Bijvoorbeeld, een toepassing met de rol Lezer voor een resourcegroep toe te voegen dat kan de resourcegroep en alle resources die deze bevat gelezen.
 
@@ -167,5 +167,5 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
 
 ## <a name="next-steps"></a>Volgende stappen
 * Als u een multitenant-toepassing instelt, Zie [Ontwikkelaarshandleiding voor autorisatie met de Azure Resource Manager-API](resource-manager-api-authentication.md).
-* Zie voor meer informatie over het opgeven van beveiligingsbeleid [toegangsbeheer op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md).  
-* Zie voor een lijst met beschikbare acties die kunnen worden verleend of geweigerd voor gebruikers, [Resourceprovider van Azure Resource Manager operations](../active-directory/role-based-access-control-resource-provider-operations.md).
+* Zie voor meer informatie over het opgeven van beveiligingsbeleid [toegangsbeheer op basis van rollen in Azure](../role-based-access-control/role-assignments-portal.md).  
+* Zie voor een lijst met beschikbare acties die kunnen worden verleend of geweigerd voor gebruikers, [Resourceprovider van Azure Resource Manager operations](../role-based-access-control/resource-provider-operations.md).

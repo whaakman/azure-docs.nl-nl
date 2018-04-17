@@ -2,7 +2,7 @@
 title: Hadoop Pig gebruiken met extern bureaublad in HDInsight - Azure | Microsoft Docs
 description: Informatie over het gebruik van de opdracht Pig Pig Latin-instructies uitgevoerd vanaf een extern bureaublad-verbinding met een Hadoop op basis van Windows-cluster in HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: e034a286-de0f-465f-8bf1-3d085ca6abed
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8b5e8e7f400a4494549c997e969a46ca90eb0ba5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8d403e46f7460dff92cc418b829cc5510efd982
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Pig-taken uitvoeren vanaf een extern bureaublad-verbinding
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -64,7 +62,7 @@ Extern bureaublad inschakelen voor het HDInsight-cluster en vervolgens verbindin
 
     <table>
     <tr>
-    <th>Instructie</th><th>Wat het doet</th>
+    <th>Verklaring</th><th>Wat het doet</th>
     </tr>
     <tr>
     <td>FILTEREDLEVELS = FILTER TOEPASSINGSNIVEAU LOGLEVEL niet null is.</td><td>Hiermee verwijdert u de rijen met een null-waarde voor het logboekniveau en slaat de resultaten in FILTEREDLEVELS.</td>
@@ -79,7 +77,7 @@ Extern bureaublad inschakelen voor het HDInsight-cluster en vervolgens verbindin
     <td>RESULTAAT = volgorde FREQUENTIES door aantal desc;</td><td>Hiermee worden de logboekniveaus gerangschikt op het aantal (aflopend) en opgeslagen in het resultaat</td>
     </tr>
     </table>
-6.U kunt ook de resultaten van een transformatie opslaan met behulp van de `STORE` instructie. Bijvoorbeeld de volgende opdracht slaat de `RESULT` naar de **/example/data/pigout** map in de standaard storage-container voor uw cluster:
+6. U kunt ook de resultaten van een transformatie opslaan met behulp van de `STORE` instructie. Bijvoorbeeld de volgende opdracht slaat de `RESULT` naar de **/example/data/pigout** map in de standaard storage-container voor uw cluster:
 
         STORE RESULT into 'wasb:///example/data/pigout'
 

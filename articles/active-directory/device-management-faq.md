@@ -2,7 +2,7 @@
 title: Veelgestelde vragen over Azure Active Directory device management | Microsoft Docs
 description: Azure Active Directory Apparaatbeheer Veelgestelde vragen over.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0ef5b84820cfcaf86f526ddd0565463e12b96331
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4358b57284721642957d56ad8cfeea2b0f53fd89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Veelgestelde vragen over Azure Active Directory device management
 
@@ -41,47 +41,44 @@ ms.lasthandoff: 01/16/2018
 
 **V: ik het apparaat onlangs geregistreerd. Waarom zie ik het apparaat niet onder Mijn gebruikersgegevens in de Azure portal?**
 
-**A:** Windows 10-apparaten die lid van een domein met automatische apparaatregistratie zijn worden niet weergegeven onder de gebruikersgegevens.
+**A:** Windows 10-apparaten die zijn hybride die lid zijn van Azure AD, worden niet weergegeven onder de apparaten van gebruikers.
 U moet PowerShell gebruiken voor alle apparaten. 
 
-Alleen de volgende apparaten worden vermeld in de gegevens van de gebruiker:
+Alleen de volgende apparaten worden vermeld in de apparaten van gebruikers:
 
-- Alle persoonlijke apparaten die niet lid enterprise 
-- Alle niet - Windows 10 / Windows Server 2016 
+- Alle persoonlijke apparaten die niet hybride Azure AD zijn toegevoegd. 
+- Alle niet - Windows 10 / apparaten met Windows Server 2016.
 - Alle niet-Windows-apparaten 
 
 ---
 
 **V: Waarom kan ik de apparaten die zijn geregistreerd bij Azure Active Directory in de Azure portal niet zien?** 
 
-**A:** er is momenteel geen manier om te zien alle geregistreerde apparaten in de Azure-portal. Azure PowerShell kunt u alle apparaten zoeken. Zie voor meer informatie de [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+**A:** nu ziet u ze in Azure AD-Directory -> alle apparaten menu. U kunt ook Azure PowerShell gebruiken om te zoeken naar alle apparaten. Zie voor meer informatie de [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 --- 
 
 **V: hoe weet wat de status van het apparaat registratie van de client is?**
 
-**A:** afhankelijk van de status van het apparaat registratie:
+**A:** voor Windows 10 en Windows Server 2016 of hoger, voert u dsregcmd.exe/status.
 
-- Wat het apparaat is
-- Hoe het is geregistreerd 
-- Gerelateerde details. 
- 
+Voor eerdere versies van het besturingssysteem, voert u '%programFiles%\Microsoft werkplek Join\autoworkplace.exe'
 
 ---
 
 **V: Waarom is een apparaat ik hebt verwijderd in de Azure portal of met Windows PowerShell nog steeds vermeld als geregistreerd?**
 
-**A:** dit is standaard. Het apparaat geen toegang tot bronnen in de cloud. Als u wilt dat het apparaat te verwijderen en opnieuw te registreren, moet een handmatige actie moet worden uitgevoerd op het apparaat. 
+**A:** dit is standaard. Het apparaat geen toegang tot bronnen in de cloud. Als u wilt opnieuw opnieuw te registreren, moet een handmatige actie moet worden uitgevoerd op het apparaat. 
 
-Voor Windows 10 en Windows Server 2016 met on-premises AD-domein:
+Schakel de join-status van Windows 10 en Windows Server 2016 die on-premises AD-domein:
 
 1.  Open de opdrachtprompt als beheerder.
 
-2.  Type`dsregcmd.exe /debug /leave`
+2.  type `dsregcmd.exe /debug /leave`
 
-3.  Meld u af en meld u aan voor het activeren van de geplande taak die het apparaat opnieuw wordt geregistreerd. 
+3.  Meld u af en meld u aan voor het activeren van de geplande taak die het apparaat wordt geregistreerd met Azure AD opnieuw. 
 
-Voor andere Windows-platforms die zich on-premises AD-domein:
+Voor eerdere Windows-besturingssysteem versies die zich on-premises AD-domein:
 
 1.  Open de opdrachtprompt als beheerder.
 2.  Typ `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
@@ -93,13 +90,13 @@ Voor andere Windows-platforms die zich on-premises AD-domein:
 
 **A:**
 
--   Voor Windows 10 en Windows Server 2016 als ze herhaalde pogingen tot het loskoppelen van en opnieuw aanmelden voor hetzelfde apparaat, kunnen er dubbele vermeldingen. 
+-   Voor Windows 10 en Windows Server 2016, als er herhaalde pogingen tot het loskoppelen van en opnieuw aanmelden voor hetzelfde apparaat, kunnen er dubbele vermeldingen. 
 
 -   Als u toevoegen werk of School-Account hebt gebruikt, wordt elke windows-gebruiker die voegen werk- of Schoolaccount gebruikt een nieuwe apparaatrecord maken met dezelfde naam van het apparaat.
 
--   Andere Windows-platforms die zich on-premises AD-domein met behulp van automatische registratie maakt een nieuwe record van apparaat met dezelfde naam voor elke domeingebruiker die zich bij het apparaat aanmeldt. 
+-   Voor eerdere Windows-besturingssysteem versies die zich on-premises maakt AD-domein met behulp van automatische registratie een nieuwe apparaatrecord met dezelfde naam voor elke domeingebruiker die zich bij het apparaat aanmeldt. 
 
--   Een AADJ-machine die is gewist, opnieuw geïnstalleerd en opnieuw toegevoegd met dezelfde naam wordt weergegeven als een andere record met dezelfde naam van het apparaat.
+-   Een gekoppelde Azure AD-computer die is gewist, opnieuw geïnstalleerd en opnieuw toegevoegd met dezelfde naam wordt weergegeven als een andere record met dezelfde naam van het apparaat.
 
 ---
 
@@ -108,21 +105,21 @@ Voor andere Windows-platforms die zich on-premises AD-domein:
 **A:** kan duren tot een uur voor een intrekken moet worden toegepast.
 
 >[!Note] 
->Verloren apparaten, wordt u aangeraden het apparaat om ervoor te zorgen dat gebruikers geen toegang het apparaat tot wissen. Zie voor meer informatie [apparaten inschrijven voor beheer in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>U wordt aangeraden wissen van het apparaat om ervoor te zorgen dat gebruikers geen toegang de bronnen tot voor ingeschreven apparaten. Zie voor meer informatie [apparaten inschrijven voor beheer in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
 
 **V: Waarom kunnen mijn gebruikers zien 'U geen toegang vanaf hier'?**
 
-**A:** als u bepaalde regels voor voorwaardelijke toegang om ervoor te zorgen, de status van een specifiek apparaat hebt geconfigureerd en het apparaat niet aan de criteria voldoet, gebruikers worden geblokkeerd en dit bericht wordt weergegeven. De regels evalueren en zorg ervoor dat het apparaat kunnen voldoen aan de criteria om te voorkomen dat dit bericht.
+**A:** als u bepaalde regels voor voorwaardelijke toegang om ervoor te zorgen, de status van een specifiek apparaat hebt geconfigureerd en het apparaat niet aan de criteria voldoet, gebruikers worden geblokkeerd en dit bericht wordt weergegeven. De beleidsregels voor voorwaardelijke toegang evalueren en zorg ervoor dat het apparaat kunnen voldoen aan de criteria om te voorkomen dat dit bericht.
 
 ---
 
 
 **V: ik Zie apparaatrecord onder de gebruikersgegevens in de Azure portal en de status kunt zien, zoals die is geregistreerd op de client. Kan dat ik een correct instellen voor het gebruik van voorwaardelijke toegang?**
 
-**A:** de record van apparaat (deviceID) en de status op de Azure-portal moeten overeenkomen met de client en voldoen aan de evaluatiecriteria van een voor voorwaardelijke toegang. Zie voor meer informatie [aan de slag met Azure Active Directory-apparaatregistratie](active-directory-device-registration.md).
+**A:** de apparaatstatus join, weergegeven door de apparaat-id, moet overeenkomen met die op Azure AD en voldoen aan de evaluatiecriteria van een voor voorwaardelijke toegang. Zie voor meer informatie [aan de slag met Azure Active Directory-apparaatregistratie](active-directory-device-registration.md).
 
 ---
 
@@ -140,9 +137,9 @@ Voor andere Windows-platforms die zich on-premises AD-domein:
 
 ---
 
-**V: Waarom zie ik de "... Oops is een fout opgetreden!" dialoogvenster wanneer ik probeer mijn PC toevoegen?**
+**V: Waarom zie ik de "... Oops is een fout opgetreden!" dialoogvenster wanneer ik probeer doen van Azure AD join mijn computer?**
 
-**A:** dit is een resultaat van het instellen van Azure Active Directory-inschrijving met Intune. Zie voor meer informatie [Windows Apparaatbeheer instellen](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**A:** dit is een resultaat van het instellen van Azure Active Directory-inschrijving met Intune. Controleer of de gebruiker probeert Azure AD join over de juiste Intune-licentie toegewezen. Zie voor meer informatie [Windows Apparaatbeheer instellen](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 

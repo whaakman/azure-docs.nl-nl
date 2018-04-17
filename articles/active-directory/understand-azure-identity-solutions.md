@@ -1,23 +1,23 @@
 ---
 title: Azure Identity begrijpen | Microsoft Docs
 description: Haal een basiskennis van Microsoft Azure identiteit oplossing voorwaarden, concepten en aanbevelingen voor u het beste identiteit governance beslissing neemt voor uw organisatie.
-keywords: 
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure-identiteitsoplossingen begrijpen
 Microsoft Azure Active Directory (Azure AD) is een identiteits- en toegangsbeheer cloud beheeroplossing die directoryservices en identiteit governance Toepassingsbeheer toegang biedt. Azure AD snel [kunt van eenmalige aanmelding (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) naar 1. 000 de met vooraf geïntegreerde commerciële en aangepaste apps in de [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/). Veel van deze apps die u waarschijnlijk al, zoals Office 365, Salesforce.com vak, ServiceNow en Workday gebruikt.
@@ -37,12 +37,12 @@ Voordat u op een Azure identity-oplossing voor uw organisatie kunt, moet u een b
 |Azure-abonnement |Abonnementen worden gebruikt om te betalen voor Azure-cloudservices en zijn meestal gekoppeld aan een creditcard. U kunt meerdere abonnementen hebt, maar het kan lastig zijn om resources tussen abonnementen te delen.|
 |Azure-tenant | Een Azure AD-tenant is representatief is voor één organisatie. Er is een toegewijde, vertrouwde instantie van Azure AD dat automatisch wordt gemaakt wanneer een organisatie zich registreert voor een Microsoft cloud service-abonnement zoals Azure, Intune of Office 365. Tenants kunnen toegang krijgen tot services in een specifieke omgeving (één tenant) of in een gedeelde omgeving met andere organisaties (multitenant).|
 |Azure AD-map | Elke Azure-tenant is een toegewijde, vertrouwde Azure AD-adreslijst met gebruikers, groepen en toepassingen van de tenant. Deze wordt gebruikt voor het uitvoeren van de identiteit en toegang tot beheerfuncties voor tenantbronnen. Omdat een unieke Azure AD-directory wordt automatisch ingericht voor uw organisatie te vertegenwoordigen wanneer u zich aanmeldt voor een Microsoft-cloudservice zoals Azure, Microsoft Intune of Office 365, soms ziet u de voorwaarden *tenant*, *Azure AD*, en *Azure AD-directory* door elkaar gebruikt. |
-|Aangepast domein | Wanneer u eerst zich aanmeldt voor een Microsoft cloud service-abonnement, uw tenant (organisatie) gebruikt een *. onmicrosoft.com* domeinnaam. Echter, de meeste organisaties hebben een of meer domeinnamen die worden gebruikt voor het bedrijf en die eindgebruikers gebruiken voor toegang tot bedrijfsbronnen. U kunt uw aangepaste domeinnaam toevoegen aan Azure AD, zodat de domeinnaam bekend aan uw gebruikers, zoals is  *alice@contoso.com*  in plaats van  *alice@contoso.onmicrosoft.com* . |
+|Aangepast domein | Wanneer u eerst zich aanmeldt voor een Microsoft cloud service-abonnement, uw tenant (organisatie) gebruikt een *. onmicrosoft.com* domeinnaam. Echter, de meeste organisaties hebben een of meer domeinnamen die worden gebruikt voor het bedrijf en die eindgebruikers gebruiken voor toegang tot bedrijfsbronnen. U kunt uw aangepaste domeinnaam toevoegen aan Azure AD, zodat de domeinnaam bekend aan uw gebruikers, zoals is *alice@contoso.com* in plaats van *alice@contoso.onmicrosoft.com*. |
 |Azure AD-account | Dit zijn de identiteiten die zijn gemaakt met behulp van Azure AD of een andere Microsoft-cloudservice, zoals Office 365. Ze zijn opgeslagen in Azure AD en toegankelijk is voor een van de organisatie cloud service-abonnementen. |
 |Azure-abonnementbeheerder| De accountbeheerder is de persoon die zich heeft aangemeld of het Azure-abonnement hebt aangeschaft. Ze kunnen gebruiken de [Accountcentrum](https://account.azure.com/Subscriptions) voor het uitvoeren van verschillende beheertaken, zoals het maken van abonnementen abonnementen annuleren, de facturering voor een abonnement te wijzigen of wijzigen van de servicebeheerder. |
 |Globale beheerder van Azure AD | Azure AD met globale beheerders hebben volledige toegang tot alle beheerfuncties van Azure AD. De persoon die zich voor een Microsoft cloud service-abonnement automatisch aanmeldt wordt een globale beheerder standaard. U kunt meer dan één globale beheerder hebben, maar alleen globale beheerders kunnen toewijzen van [andere beheerdersrollen](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) voor gebruikers. |
 |Microsoft-account | Microsoft-accounts (gemaakt door u voor persoonlijk gebruik) bieden toegang tot Microsoft-producten voor consumenten gerichte en in de cloud-services, zoals Outlook (Hotmail), OneDrive, Xbox LIVE of Office 365. Deze identiteiten worden gemaakt en opgeslagen in het Microsoft-account klantidentiteitssysteem uitgevoerd door Microsoft.|
-|Werk-of schoolaccounts | Werk- of schoolaccount accounts (uitgegeven door een beheerder voor gebruik van zakelijke/academic) bieden toegang tot enterprise zakelijke Microsoft cloudservices, zoals Azure, Intune of Office 365.|
+|Werk- of schoolaccounts | Werk- of schoolaccount accounts (uitgegeven door een beheerder voor gebruik van zakelijke/academic) bieden toegang tot enterprise zakelijke Microsoft cloudservices, zoals Azure, Intune of Office 365.|
 
 
 ## <a name="concepts-to-understand"></a>Concepten om te begrijpen
@@ -53,7 +53,7 @@ Nu dat u de voorwaarden basic Azure identity weet, moet u meer informatie over d
 |-----|-----|
 |[Hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |Elke Azure-abonnement heeft een vertrouwensrelatie met een Azure AD-directory voor het verifiëren van gebruikers, services en apparaten. *Meerdere abonnementen kunnen dezelfde Azure AD-directory vertrouwen, maar een abonnement vertrouwt slechts één Azure AD-directory*. Er is een vertrouwensrelatie met dit in tegenstelling tot de relatie die een abonnement heeft met andere Azure-resources (websites, databases, enzovoort), die meer op onderliggende resources van een abonnement lijken. Als u een abonnement is verlopen, klikt u vervolgens toegang tot resources die zijn gekoppeld aan het abonnement, met uitzondering van Azure AD ook geblokkeerd. De Azure AD-directory blijft echter in Azure, zodat u kunt een ander abonnement aan die directory koppelen en doorgaan om tenant resources te beheren.|
 |[Hoe Azure AD werkt licentieverlening](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | Wanneer u kopen of Enterprise Mobility Suite, Azure AD Premium of Azure AD Basic activeren, wordt uw directory bijgewerkt met het abonnement, met inbegrip van de geldigheidsperiode en vooruitbetaalde licenties. Zodra het abonnement actief is, kunt u de service worden beheerd door globale beheerders van Azure AD en gebruikt door gebruikers met een licentie. Uw abonnementsgegevens, waaronder het aantal licenties toegewezen of beschikbaar is, is beschikbaar in de Azure-portal van de **Azure Active Directory** > **licenties** blade. Dit is ook de beste plaats voor het beheren van uw licentietoewijzingen.|
-|[Toegangsbeheer op basis van rollen in de Azure-portal](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|Azure op rollen gebaseerde toegangsbeheer (RBAC) biedt Geavanceerd toegangsbeheer voor Azure-resources. Te veel machtigingen kunnen blootstellen account en een kwaadwillende personen. Te weinig machtigingen betekent dat werknemers hun werk efficiënt kunnen niet ophalen. Met RBAC kunt u kunt bieden werknemers de exacte machtigingen ze nodig hebben op basis van drie elementaire functies die van toepassing op alle brongroepen: eigenaar, bijdrager, reader. U kunt ook maken met maximaal 2.000 van uw eigen [aangepaste RBAC-rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) om te voldoen aan uw specifieke behoeften. |
+|[Toegangsbeheer op basis van rollen in de Azure-portal](https://docs.microsoft.com/azure/role-based-access-control/overview)|Azure op rollen gebaseerde toegangsbeheer (RBAC) biedt Geavanceerd toegangsbeheer voor Azure-resources. Te veel machtigingen kunnen blootstellen account en een kwaadwillende personen. Te weinig machtigingen betekent dat werknemers hun werk efficiënt kunnen niet ophalen. Met RBAC kunt u kunt bieden werknemers de exacte machtigingen ze nodig hebben op basis van drie elementaire functies die van toepassing op alle brongroepen: eigenaar, bijdrager, reader. U kunt ook maken met maximaal 2.000 van uw eigen [aangepaste RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) om te voldoen aan uw specifieke behoeften. |
 |[Hybride identiteit](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)|Hybride identiteit wordt bereikt door uw lokale Windows Server Active Directory (AD DS) te integreren met Azure AD via [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). Hiermee kunt u een algemene identiteit bieden voor uw gebruikers voor Office 365, Azure, en lokale apps of SaaS-toepassingen die zijn geïntegreerd met Azure AD. Met hybride identiteit, moet u effectief uw on-premises omgeving naar de cloud voor identiteits- en toegangsbeheer uitbreiden.|
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Het verschil tussen Windows Server AD DS en Azure AD

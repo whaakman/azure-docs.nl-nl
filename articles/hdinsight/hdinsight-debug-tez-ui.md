@@ -2,27 +2,25 @@
 title: Tez-gebruikersinterface gebruiken met HDInsight op basis van Windows - Azure | Microsoft Docs
 description: Informatie over het gebruik van de UI Tez fouten opsporen in Tez-taken in HDInsight HDInsight op basis van Windows.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: a55bccb9-7c32-4ff2-b654-213a2354bd5c
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32f6a12544c05dbf4ac65dd386cd9dea18ca79b3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4201fb76ef9b0e711fd48972db86c356d72e6671
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>De UI Tez gebruiken om op te sporen Tez-taken in HDInsight op basis van Windows
-De UI Tez is een webpagina die kunnen worden gebruikt om te begrijpen en foutopsporing van taken die Tez als de engine voor het uitvoeren op Windows gebaseerde HDInsight-clusters gebruiken. De UI Tez kunt u de taak als een grafiek van verbonden items visualiseren, Inzoomen op elk item en statistieken en logboekregistratie informatie ophalen.
+De UI Tez kan worden gebruikt om op te sporen Hive-taken die Tez als de engine voor het uitvoeren gebruiken. De UI Tez visualiseren de taak, zoals een grafiek van verbonden items kunt inzoomen op elk item en statistieken en logboekregistratie informatie ophalen.
 
 > [!IMPORTANT]
 > De stappen in dit document moet een HDInsight-cluster dat gebruik maakt van Windows. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -37,25 +35,25 @@ De UI Tez is een webpagina die kunnen worden gebruikt om te begrijpen en foutops
 * Een extern bureaublad op basis van Windows-client.
 
 ## <a name="understanding-tez"></a>Understanding Tez
-Tez is een uitbreidbaar framework voor gegevensverwerking in Hadoop. deze groter snelheden dan traditionele MapReduce-verwerking biedt. Voor Windows gebaseerde HDInsight-clusters is een optionele-engine die u voor Hive inschakelen kunt met behulp van de volgende opdracht als onderdeel van uw Hive-query:
+Tez is een uitbreidbaar framework voor gegevensverwerking in Hadoop en biedt meer snelheden dan traditionele MapReduce-verwerking. U kunt Tez inschakelen door de volgende tekst als onderdeel van een Hive-query:
 
     set hive.execution.engine=tez;
 
-Wanneer het werk is verzonden naar Tez, wordt een omgeleid acyclische grafiek (DAG) die worden beschreven de volgorde van de uitvoering van de acties die vereist zijn voor de taak gemaakt. Afzonderlijke acties hoekpunten worden genoemd, en een onderdeel van de algehele taak uitvoeren. De werkelijke uitvoering van het werk dat is beschreven door een hoekpunt een taak wordt aangeroepen en kan worden verdeeld over meerdere knooppunten in het cluster.
+Tez maakt een omgeleid acyclische grafiek (DAG) die worden beschreven de volgorde van de uitvoering van de acties die vereist zijn voor de taak. Afzonderlijke acties hoekpunten worden genoemd, en een onderdeel van de algehele taak uitvoeren. De werkelijke uitvoering van het werk dat is beschreven door een hoekpunt een taak wordt aangeroepen en kan worden verdeeld over meerdere knooppunten in het cluster.
 
 ### <a name="understanding-the-tez-ui"></a>Inzicht in de gebruikersinterface Tez
-De UI Tez is dat een webpagina biedt informatie over de processen die worden uitgevoerd of hebben eerder is uitgevoerd met behulp van Tez. Hiermee kunt u bekijken van de DAG die worden gegenereerd door de Tez, hoe is verdeeld over de clusters, prestatiemeteritems gebruikt, zoals geheugen die wordt gebruikt door taken en hoekpunten en informatie over de fout. Dit kan nuttige informatie in de volgende scenario's bieden:
+De UI Tez is dat een webpagina bevat informatie over de processen die gebruikmaken van Tez. Dit kan nuttige informatie in de volgende scenario's bieden:
 
 * Bewaking van langlopende verwerkt, wordt de voortgang van de kaart weergeven en taken te verminderen.
 * Analyse van historische gegevens voor de geslaagde of mislukte processen voor meer informatie over hoe de verwerking kan worden verbeterd of waarom is mislukt.
 
 ## <a name="generate-a-dag"></a>Genereren van een DAG
-De UI Tez bevat alleen gegevens als een taak die is gebruikt de Tez-engine wordt uitgevoerd of is uitgevoerd in het verleden. Eenvoudige Hive-query's kunnen doorgaans worden opgelost zonder Tez, maar complexe query's filteren, groeperen, rangschikken, joins, enz. meestal Tez is vereist.
+De UI Tez bevat gegevens als een taak die is gebruikt de Tez-engine wordt uitgevoerd of is uitgevoerd in het verleden. Eenvoudige Hive-query's kunnen doorgaans worden opgelost zonder Tez. Complexe query's die u wilt filteren, groeperen, rangschikken, joins, enz. vereisen Tez.
 
-Gebruik de volgende stappen uitvoeren van een Hive-query die wordt uitgevoerd met behulp van Tez.
+Gebruik de volgende stappen uitvoeren van een Hive-query die gebruikmaakt van Tez.
 
 1. Navigeer in een webbrowser naar https://CLUSTERNAME.azurehdinsight.net, waarbij **CLUSTERNAME** is de naam van uw HDInsight-cluster.
-2. Selecteer in het menu aan de bovenkant van de pagina de **Hive-Editor**. Hiermee wordt een pagina met de volgende voorbeeldquery weergegeven.
+2. Selecteer in het menu aan de bovenkant van de pagina de **Hive-Editor**. U ziet nu een pagina met de volgende voorbeeldquery.
 
         Select * from hivesampletable
 
@@ -75,7 +73,7 @@ Gebruik de volgende stappen uitvoeren van een Hive-query die wordt uitgevoerd me
 >
 >
 
-1. Van de [Azure-portal](https://portal.azure.com), selecteer uw HDInsight-cluster. Vanaf de bovenkant van de HDInsight-blade, selecteer de **extern bureaublad** pictogram. Hiermee wordt de blade voor extern bureaublad weergegeven
+1. Van de [Azure-portal](https://portal.azure.com), selecteer uw HDInsight-cluster. Vanaf de bovenkant van de HDInsight-blade, selecteer de **extern bureaublad** pictogram. Deze koppeling geeft de extern bureaublad-blade
 
     ![Pictogram voor extern bureaublad](./media/hdinsight-debug-tez-ui/remotedesktopicon.png)
 2. Selecteer in de blade extern bureaublad **Connect** verbinding maken met het hoofdknooppunt van het cluster. Wanneer u wordt gevraagd, gebruikt u de cluster extern bureaublad-gebruikersnaam en wachtwoord om de verbinding te verifiëren.
@@ -88,14 +86,14 @@ Gebruik de volgende stappen uitvoeren van een Hive-query die wordt uitgevoerd me
    >
 3. Eenmaal zijn verbonden, opent u Internet Explorer op het externe bureaublad, selecteert u het pictogram tandwielpictogram in de rechterbovenhoek van de browser en selecteer vervolgens **instellingen voor de Compatibiliteitsweergave**.
 4. Van de onderkant van **instellingen voor de Compatibiliteitsweergave**, schakel het selectievakje voor **intranetsites worden weergegeven in de Compatibiliteitsweergave** en **gebruik Microsoft hardware compatibility List**, en Selecteer vervolgens **sluiten**.
-5. Ga in Internet Explorer naar tezui-http://headnodehost:8188 / #/. Hiermee wordt de Tez UI weergegeven
+5. Ga in Internet Explorer naar http://headnodehost:8188/tezui/#/. Hier worden de UI Tez
 
     ![Tez-gebruikersinterface](./media/hdinsight-debug-tez-ui/tezui.png)
 
-    Wanneer de Tez UI wordt geladen, ziet u een lijst van dag's die momenteel worden uitgevoerd, of zijn uitgevoerd op het cluster. De standaardweergave omvat de Dag Name, -Id, Submitter, Status, begintijd, eindtijd, duur, toepassings-ID en wachtrij. Meer kolommen kunnen worden toegevoegd aan de rechterkant van de pagina met behulp van het pictogram tandwielpictogram.
+    Als de Tez UI wordt geladen, ziet u een lijst van dag's die momenteel worden uitgevoerd, of zijn uitgevoerd op het cluster. De standaardweergave omvat de DAG Name, -Id, Submitter, Status, begintijd, eindtijd, duur, toepassings-ID en wachtrij. Meer kolommen kunnen worden toegevoegd aan de rechterkant van de pagina met behulp van het pictogram tandwielpictogram.
 
-    Als u slechts één vermelding hebt, zal zijn voor de query die u in de vorige sectie hebt uitgevoerd. Als u meerdere vermeldingen hebt, kunt u zoeken door te voeren zoekcriteria in de velden van de dag's vervolgens bereikt **Enter**.
-6. Selecteer de **Dag Name** voor de meest recente DAG-vermelding. Hiermee wordt informatie over de DAG, evenals de optie voor het downloaden van een zip van JSON-bestanden die informatie over de DAG bevatten weergegeven.
+    Als u slechts één vermelding hebt, is het voor de query die u in de vorige sectie hebt uitgevoerd. Als u meerdere vermeldingen hebt, kunt u zoeken door te voeren zoekcriteria in de velden van de dag's vervolgens bereikt **Enter**.
+6. Selecteer de **Dag Name** voor de meest recente DAG-vermelding. Deze koppeling geeft informatie over de DAG, evenals de optie voor het downloaden van een zip van JSON-bestanden die informatie over de DAG bevatten.
 
     ![Details van de DAG](./media/hdinsight-debug-tez-ui/dagdetails.png)
 7. Boven de **DAG Details** zijn enkele koppelingen die kan worden gebruikt om informatie weer over de DAG.
@@ -111,7 +109,7 @@ Gebruik de volgende stappen uitvoeren van een Hive-query die wordt uitgevoerd me
      >
      >
 
-     Als er een fout is opgetreden met de taak, wordt de status mislukt, met koppelingen naar informatie over de mislukte taak weergegeven in de Details van de DAG. Diagnostische gegevens weergegeven onder de details van de DAG.
+     Als er een fout opgetreden met de taak is, wordt in de Details van de DAG een status mislukt, met koppelingen naar informatie over de mislukte taak weergegeven. Diagnostische gegevens wordt onder de details van de DAG worden weergegeven.
 8. Selecteer **grafische weergave**. U ziet nu een grafische weergave van de DAG. U kunt de muis plaatsen op elke hoekpunt in de weergave om informatie daarover weer te geven.
 
     ![Grafische weergave](./media/hdinsight-debug-tez-ui/dagdiagram.png)
@@ -134,9 +132,9 @@ Gebruik de volgende stappen uitvoeren van een Hive-query die wordt uitgevoerd me
       > Als met de vorige menu, kunt u de kolom weergeven voor taken, taak pogingen, en bronnen & Sinks__ koppelingen naar meer informatie voor elk item weergeven schuiven.
       >
       >
-11. Selecteer **taken**, en selecteer vervolgens het item met de naam **00_000000**. Hiermee wordt weergegeven **taakdetails** voor deze taak. In dit scherm kunt u weergeven **taak tellers** en **taak pogingen**.
+11. Selecteer **taken**, en selecteer vervolgens het item met de naam **00_000000**. Deze koppeling weergegeven **taakdetails** voor deze taak. In dit scherm kunt u weergeven **taak tellers** en **taak pogingen**.
 
-    ![Taakdetails](./media/hdinsight-debug-tez-ui/taskdetails.png)
+    ![Taakgegevens](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 U hebt geleerd hoe u de weergave Tez, meer informatie over [met behulp van Hive in HDInsight](hadoop/hdinsight-use-hive.md).

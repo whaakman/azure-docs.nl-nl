@@ -5,7 +5,7 @@ services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
 ms.service: devtest-lab
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 133a2978ce2b359366d3c5d0639b613977a723fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Veelgestelde vragen over Azure DevTest Labs
 Vind antwoorden op enkele veelgestelde vragen over Azure DevTest Labs.
@@ -55,7 +55,7 @@ DevTest Labs is een gratis service. Labs maken en configureren van beleid, sjabl
 
 **Beveiliging**
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Wat zijn de verschillende beveiligingsniveaus in DevTest Labs?
-Beveiligingstoegang wordt bepaald door [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-built-in-roles.md). Voor meer informatie over de werking van toegang, is het nuttig om informatie over de verschillen tussen een machtiging, een rol en een bereik, zoals gedefinieerd door RBAC.
+Beveiligingstoegang wordt bepaald door [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/built-in-roles.md). Voor meer informatie over de werking van toegang, is het nuttig om informatie over de verschillen tussen een machtiging, een rol en een bereik, zoals gedefinieerd door RBAC.
 
 * **Machtiging**: een machtiging is een gedefinieerde toegang tot een specifieke actie. Een machtiging kan bijvoorbeeld leestoegang tot alle virtuele machines.
 * **Rol**: een rol is een reeks machtigingen die kunnen worden gegroepeerd en toegewezen aan een gebruiker. Bijvoorbeeld, heeft een gebruiker met de rol van een abonnement eigenaar toegang tot alle bronnen binnen een abonnement.

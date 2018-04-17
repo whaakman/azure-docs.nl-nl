@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -51,7 +51,7 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen:
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken beoordelingen         |
-|Windows Server 2008 R2 SP1 en hoger     |.NET framework 4.5 en WMF 5.0 of hoger nodig voor Windows Server 2008 R2 SP1        |
+|Windows Server 2008 R2 SP1 en hoger     |Windows PowerShell 4.0 of hoger is vereist ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([downloaden WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) wordt aanbevolen voor een hogere mate van betrouwbaarheid.         |
 |CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
@@ -207,8 +207,8 @@ De volgende tabel bevat een voorbeeld-logboek zoekt bijwerkrecords die door deze
 | Query’s uitvoeren | Beschrijving |
 | --- | --- |
 |Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;Computer, titel, KBID, classificatie, PublishedDate project |Alle computers met ontbrekende updates<br>Voeg een van de volgende opties om te beperken van het besturingssysteem:<br>Besturingssysteemtype = 'Windows'<br>Besturingssysteemtype == 'Linux' |
-| Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;waar Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Ontbrekende updates voor een specifieke computer (vervang de waarde door de naam van uw eigen computer)|
-| Gebeurtenis<br>&#124;waar EventLevelName == "error" en elke Computer in ((Update &#124; waar (classificatie == 'Beveiligingsupdates' of classificatie == 'Essentiële Updates')<br>&#124;waar UpdateState == 'Vereist' en een optionele == false <br>&#124; distinct Computer)) |Foutgebeurtenissen voor machines met ontbrekende essentiële of beveiligingsupdates |
+| Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;waar Computer == "ContosoVM1.contoso.com"<br>&#124;Computer, titel, KBID, Product, PublishedDate project |Ontbrekende updates voor een specifieke computer (vervang de waarde door de naam van uw eigen computer)|
+| Gebeurtenis<br>&#124;waar EventLevelName == "error" en elke Computer in ((Update &#124; waar (classificatie == 'Beveiligingsupdates' of classificatie == 'Essentiële Updates')<br>&#124;waar UpdateState == 'Vereist' en een optionele == false <br>&#124;afzonderlijke Computer)) |Foutgebeurtenissen voor machines met ontbrekende essentiële of beveiligingsupdates |
 | Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;afzonderlijke titel |Afzonderlijke ontbrekende updates op alle computers |
 | UpdateRunProgress<br>&#124;waar InstallationStatus == "is mislukt" <br>&#124;overzicht van AggregatedValue count() door de Computer, de titel, UpdateRunName = |Computers met updates die niet in een update-uitvoering<br>Voeg een van de volgende opties om te beperken van het besturingssysteem:<br>Besturingssysteemtype = 'Windows'<br>Besturingssysteemtype == 'Linux' |
 | Update<br>&#124;waar besturingssysteemtype == 'Linux'<br>&#124;waar UpdateState! = 'Niet nodig' en (classificatie == 'Essentiële Updates' of de indeling 'Beveiligingsupdates' ==)<br>&#124;overzicht van AggregatedValue = count() door Computer |Lijst met alle Linux machines, die een pakketupdate beschikbaar hebben, welke essentiële of beveiligingsupdates beveiligingslek adressen | 

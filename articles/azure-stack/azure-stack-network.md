@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6438c353d84510ee918df120e6d54df0607c89d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-connectivity"></a>Netwerkverbinding
 Dit artikel bevat informatie over de infrastructuur Azure netwerkstack kunt u het beste Azure Stack integreren in uw bestaande netwerkomgeving bepalen. 
@@ -40,7 +40,7 @@ De volgende tabel ziet u de logische netwerken en bijbehorende IPv4-subnet berei
 
 | Logisch netwerk | Beschrijving | Grootte | 
 | -------- | ------------- | ------------ | 
-| Openbare VIP | Openbare IP-adressen voor een kleine set van Stack Azure-services, met de rest gebruikt door virtuele machines van tenants. 32-adressen binnen dit netwerk maakt gebruik van de Azure-Stack-infrastructuur. Als u van plan bent gebruik van App Service en de SQL-resourceproviders, worden 7 meer adressen gebruikt. | / 26 (62 hosts) - /22 (1022 hosts)<br><br>Aanbevolen = /24 (254 hosts) | 
+| Openbare VIP | Een totaal van 32 adressen met dit netwerk maakt gebruik van Azure-Stack. Acht openbare IP-adressen worden gebruikt voor een klein aantal Stack Azure-services en de rest wordt gebruikt door virtuele machines van tenants. Als u van plan bent gebruik van App Service en de SQL-resourceproviders, worden 7 meer adressen gebruikt. | / 26 (62 hosts) - /22 (1022 hosts)<br><br>Aanbevolen = /24 (254 hosts) | 
 | Switch-infrastructuur | Point-to-Point IP-adressen voor de routering, toegewezen switch beheerinterfaces en loopback-adressen toegewezen aan de switch. | /26 | 
 | Infrastructuur | Gebruikt voor interne Azure Stack-onderdelen communiceren. | /24 |
 | Privé | Gebruikt voor het opslagnetwerk en persoonlijke VIP's. | /24 | 
@@ -70,7 +70,7 @@ Dit/24 netwerk is toegewezen aan interne Azure Stack-onderdelen zodat ze kunnen 
 Dit/27 netwerk is de kleine variëren van het Azure-Stack subnet eerder vermeld, vereist geen openbare IP-adressen, maar hoeft toegang tot internet via een NAT of een transparentproxy. Dit netwerk voor de Emergency Recovery-Console (ERCS) worden toegewezen, de ERCS VM is internettoegang vereist tijdens de registratie in Azure en tijdens de back-ups van de infrastructuur. De VM ERCS moet routeerbaar zijn met uw beheernetwerk voor het oplossen van problemen.
 
 ### <a name="public-vip-network"></a>Openbare VIP-netwerk
-Het openbare VIP-netwerk is toegewezen aan de netwerkcontroller in Azure-Stack. Het is niet een logisch netwerk op de switch. De SLB maakt gebruik van de groep met adressen en wijst/32 voor bedrijfstoepassingen huurder netwerken. Deze 32 IP-adressen zijn op de switch-routeringstabel geadverteerd als een beschikbare route via BGP. Dit netwerk bevat de externe toegankelijk of openbare IP-adressen. De infrastructuur van Azure-Stack maakt gebruik van ten minste 8 adressen van deze openbare VIP-netwerk terwijl de rest wordt gebruikt door de tenant-VM's. De netwerkgrootte op dit subnet kan variëren van een minimum van /26 (64-hosts) tot maximaal /22 (1022 hosts), is het raadzaam dat u van plan bent voor een/24 netwerk.
+Het openbare VIP-netwerk is toegewezen aan de netwerkcontroller in Azure-Stack. Het is niet een logisch netwerk op de switch. De SLB maakt gebruik van de groep met adressen en wijst/32 voor bedrijfstoepassingen huurder netwerken. Deze 32 IP-adressen zijn op de switch-routeringstabel geadverteerd als een beschikbare route via BGP. Dit netwerk bevat de externe toegankelijk of openbare IP-adressen. De Azure-Stack-infrastructuur gebruikt 8 adressen van deze openbare VIP-netwerk terwijl de rest wordt gebruikt door de tenant-VM's. De netwerkgrootte op dit subnet kan variëren van een minimum van /26 (64-hosts) tot maximaal /22 (1022 hosts), is het raadzaam dat u van plan bent voor een/24 netwerk.
 
 ### <a name="switch-infrastructure-network"></a>Switch-infrastructuurnetwerk
 Dit/26 netwerk is het subnet met subnetten van het point-to-point routeerbare IP-/ 30 (2 host IP van) en de loopbacks die zijn toegewezen/32 subnetten voor in-band overschakelen beheer- en BGP-router-ID. Dit bereik van IP-adressen moeten routeerbaar extern van de Azure-Stack-oplossing voor uw datacenter, ze kunnen persoonlijke of openbare IP-adressen zijn.

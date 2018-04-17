@@ -3,9 +3,9 @@ title: Bijhouden van aangepaste schema's voor het bewaken van B2B - Azure Logic 
 description: Bijhouden van aangepaste schema's voor het bewaken van B2B-berichten van transacties in uw Azure-integratie-Account maken.
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.service: logic-apps
 ms.workload: integration
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b71a4938dde2a71f1ce29403af7aa9101358d64c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94de6afcf3f9f95a3cb45207ef43e1d33b728d99
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Bijhouden voor het bewaken van de volledige werkstroom, end-to-end inschakelen
 Er is ingebouwde bijhouden dat u voor de verschillende onderdelen van uw business-to-business-werkstroom, zoals bijhouden AS2 of X12 berichten inschakelen kunt. Wanneer u werkstromen maakt die bevat een logische app, BizTalk Server, SQL Server of een andere laag en vervolgens kunt u aangepaste bijhouden die legt gebeurtenissen vanaf het begin tot het einde van de werkstroom vast inschakelen. 
 
 Dit onderwerp bevat aangepaste code die u in de lagen buiten uw logische app kunt gebruiken. 
 
-## <a name="custom-tracking-schema"></a>Bijhouden van aangepaste schema
+## <a name="custom-tracking-schema"></a>Aangepaste volgschema's
 ````java
 
         {
@@ -76,7 +76,7 @@ Dit onderwerp bevat aangepaste code die u in de lagen buiten uw logische app kun
 | eventLevel |   | Niveau van de gebeurtenis. (Verplicht) |
 | eventTime |   | Tijd van de gebeurtenis, in UTC-notatie jjjj-MM-DDTHH:MM:SS.00000Z. (Verplicht) |
 | recordType |   | Type van de record bijhouden. De waarde is toegestaan **aangepaste**. (Verplicht) |
-| Record |   | Aangepaste recordtype. Toegestane indeling is JToken. (Verplicht) |
+| record |   | Aangepaste recordtype. Toegestane indeling is JToken. (Verplicht) |
 
 ## <a name="b2b-protocol-tracking-schemas"></a>Schema's voor bijhouden van B2B-protocol
 Zie voor informatie over B2B-protocol voor het bijhouden van schema's:
@@ -85,5 +85,5 @@ Zie voor informatie over B2B-protocol voor het bijhouden van schema's:
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [B2B-berichten controleren](logic-apps-monitor-b2b-message.md).   
-* Meer informatie over [B2B-berichten in de Operations Management Suite-portal traceren](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Meer informatie over [bijhouden B2B-berichten in logboekanalyse](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * Meer informatie over de [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).

@@ -2,10 +2,10 @@
 title: Azure AD integreren met apps aan de slag | Microsoft Docs
 description: Dit artikel is een introductiehandleiding voor het integreren van Azure Active Directory (AD) met on-premises toepassingen en cloud-toepassingen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: bf8ef28b49a3a12772965e7ebc85539c1a86e10f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dd118dbda9b7b0bee27bf9c97627bb8269e2d9b4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Azure Active Directory integreren met toepassingen aan de slag
 ## <a name="overview"></a>Overzicht
@@ -51,7 +51,7 @@ Voordat u naar toepassingen integreren met Azure AD in gaan, is het belangrijk t
 * Wilt u de databases van de gebruiker of groep opschonen vóór de integratie van?  (Dit is een vraag heel belangrijk. Garbagecollection in garbagecollection uit.)
 
 ### <a name="access-management-inventory"></a>Access management-inventarisatie
-* Hoe beheert u momenteel gebruikerstoegang tot toepassingen? Die moet worden gewijzigd?  Hebt u andere manieren om toegang te beheren, zoals met beschouwd als [RBAC](role-based-access-control-configure.md) bijvoorbeeld?
+* Hoe beheert u momenteel gebruikerstoegang tot toepassingen? Die moet worden gewijzigd?  Hebt u andere manieren om toegang te beheren, zoals met beschouwd als [RBAC](../role-based-access-control/role-assignments-portal.md) bijvoorbeeld?
 * Wie heeft toegang tot wat?
 
 Misschien niet hebt u al deze vragen worden beantwoord vooraf, maar dat is geen probleem.  Deze handleiding kunt u enkele van deze vragen te beantwoorden en sommige gefundeerde beslissingen te nemen.

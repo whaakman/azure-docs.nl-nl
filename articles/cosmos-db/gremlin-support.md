@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b13e31be58502d670b11dace1f646b0632a2f039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c3d80fcaa38d0f1d7fa1770879ca9b40642bb796
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Ondersteuning van Azure DB-Gremlin Cosmos-grafiek
 Biedt ondersteuning voor Azure Cosmos DB [van Apache Tinkerpop](http://tinkerpop.apache.org) graph traversal taal, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), namelijk een Graph-API voor het maken van de grafiek entiteiten en grafiek querybewerkingen uitvoert. U kunt de taal Gremlin grafiek entiteiten (hoekpunten en randen) maken, aanpassen van eigenschappen binnen deze entiteiten, uitvoeren van query's en traversals en entiteiten te verwijderen. 
@@ -83,7 +83,7 @@ De volgende tabel bevat de TinkerPop-functies die worden geïmplementeerd door A
 | Hoekpunt functies | Ondersteunt RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Ondersteunt het maken, wijzigen en verwijderen van hoekpunten |
 | Hoekpunt eigenschap functies | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Ondersteunt het maken, wijzigen en verwijderen van hoekpunt eigenschappen |
 | Edge-functies | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Ondersteunt het maken, wijzigen en verwijderen van randen |
-| Rand eigenschap functies | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Ondersteunt het maken, wijzigen en verwijderen van eigenschappen van rand |
+| Rand eigenschap functies | Eigenschappen van BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Ondersteunt het maken, wijzigen en verwijderen van eigenschappen van rand |
 
 ## <a name="gremlin-wire-format-graphson"></a>Gremlin draadindeling: GraphSON
 
@@ -133,7 +133,7 @@ De eigenschappen die worden gebruikt door GraphSON voor hoekpunten zijn als volg
 | Eigenschap | Beschrijving |
 | --- | --- |
 | id | De ID voor het hoekpunt. Moet uniek zijn (in combinatie met de waarde van _partition indien van toepassing) |
-| label | Het label van het hoekpunt. Dit is optioneel en gebruikt voor het beschrijven van het entiteitstype. |
+| Label | Het label van het hoekpunt. Dit is optioneel en gebruikt voor het beschrijven van het entiteitstype. |
 | type | Gebruikt om te onderscheiden van de hoekpunten van documenten voor niet-grafiek |
 | properties | De eigenschappenverzameling van de gebruiker gedefinieerde eigenschappen die zijn gekoppeld aan het hoekpunt. Elke eigenschap kan meerdere waarden hebben. |
 | _partition (configureren) | De partitiesleutel van het hoekpunt. Kan worden gebruikt voor scale-out grafieken met meerdere servers |
@@ -144,8 +144,8 @@ En de rand bevat de volgende informatie om te helpen bij navigatie naar andere o
 | Eigenschap | Beschrijving |
 | --- | --- |
 | id | De ID voor de rand. Moet uniek zijn (in combinatie met de waarde van _partition indien van toepassing) |
-| label | Het label van de rand. Deze eigenschap is optioneel en gebruikt voor het beschrijven van het relatietype. |
-| inV | Dit document bevat een lijst met in hoekpunten voor een edge. Het opslaan van de informatie Aangrenzing met de rand kunt u snel de uitvoering van traversals. Hoekpunten worden gegroepeerd op basis van hun labels. |
+| Label | Het label van de rand. Deze eigenschap is optioneel en gebruikt voor het beschrijven van het relatietype. |
+| Geïnventariseerde | Dit document bevat een lijst met in hoekpunten voor een edge. Het opslaan van de informatie Aangrenzing met de rand kunt u snel de uitvoering van traversals. Hoekpunten worden gegroepeerd op basis van hun labels. |
 | properties | De eigenschappenverzameling van de gebruiker gedefinieerde eigenschappen die zijn gekoppeld aan de rand. Elke eigenschap kan meerdere waarden hebben. |
 
 Elke eigenschap kunnen meerdere waarden binnen een matrix worden opgeslagen. 
@@ -153,12 +153,6 @@ Elke eigenschap kunnen meerdere waarden binnen een matrix worden opgeslagen.
 | Eigenschap | Beschrijving |
 | --- | --- |
 | waarde | De waarde van de eigenschap
-
-## <a name="gremlin-partitioning"></a>Gremlin partitioneren
-
-In Azure Cosmos DB grafieken worden opgeslagen in de containers die kunnen worden geschaald onafhankelijk in termen van opslag en doorvoer (uitgedrukt in genormaliseerde aanvragen per seconde). Elke container moet Definieer een optioneel, maar aanbevolen partitie-sleuteleigenschap die de grens van een logische partitie voor de bijbehorende gegevens bepaalt. Elke hoekpunt/rand moet een hebben een `id` eigenschap die uniek is voor entiteiten in die waarde voor de partitiesleutel. De gegevens worden behandeld in [partitioneren in Azure Cosmos DB](partition-data.md).
-
-Gremlin bewerkingen werken naadloos tussen grafiekgegevens die meerdere partities in Azure Cosmos DB omvatten. Het wordt echter aanbevolen een partitiesleutel voor uw grafieken dat vaak wordt gebruikt als een filter in query's veel afzonderlijke waarden heeft, en vergelijkbare frequentie van toegang tot deze waarden kiezen. 
 
 ## <a name="gremlin-steps"></a>Gremlin stappen
 Nu we bekijken de Gremlin stappen ondersteund door Azure Cosmos DB. Zie voor een volledig overzicht van Gremlin, [TinkerPop verwijzing](http://tinkerpop.apache.org/docs/current/reference).

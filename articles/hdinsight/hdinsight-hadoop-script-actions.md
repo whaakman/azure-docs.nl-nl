@@ -9,18 +9,16 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ac2a087bb0a9d8cac15dfea2448a9c42cee4a1f4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 98040f10eb15245f36eb0b365dcdf0f5ba7f107a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Scripts voor HDInsight Windows gebaseerde clusters scriptactie ontwikkelen
 Informatie over het scriptactie om scripts te schrijven voor HDInsight. Zie voor meer informatie over het gebruik van de scriptactie scripts [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md). Zie voor hetzelfde artikel geschreven voor Linux gebaseerde HDInsight-clusters, [scriptactie ontwikkelen scripts voor HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -141,7 +139,7 @@ Hier volgen de methoden die worden geleverd door dit script:
 | Help-methode | Beschrijving |
 | --- | --- |
 | **Save-HDIFile** |Downloaden van een bestand van de opgegeven id URI (Uniform Resource) naar een locatie op de lokale schijf die is gekoppeld aan de virtuele machine van Azure-knooppunt dat is toegewezen aan het cluster. |
-| **Expand-HDIZippedFile** |Een ZIP-bestand uitpakken. |
+| **Vouw HDIZippedFile** |Een ZIP-bestand uitpakken. |
 | **Invoke-HDICmdScript** |Een script uitvoeren vanaf cmd.exe. |
 | **Write-HDILog** |Uitvoer van het aangepaste script gebruikt voor de scriptactie van een schrijven. |
 | **Get-Services** |Ophalen van een lijst met services die worden uitgevoerd op de computer waarop het script wordt uitgevoerd. |
@@ -178,7 +176,7 @@ Wanneer u een aangepast script voor een HDInsight-cluster ontwikkelt, zijn er en
 
     HDInsight heeft een actief / passief-architectuur voor hoge beschikbaarheid, waarin een hoofdknooppunt in de actieve modus is (waarbij de HDInsight-services worden uitgevoerd) en het hoofdknooppunt in standby-modus (in welke HDInsight services niet worden uitgevoerd) is. De knooppunten overschakelen actieve en passieve modus als de HDInsight-services worden onderbroken. Als een scriptactie wordt gebruikt om services te installeren op beide head knooppunten voor hoge beschikbaarheid, houd er rekening mee dat het mechanisme voor HDInsight failover kan niet automatisch een failover deze services gebruiker geïnstalleerd. Services op hoofdknooppunten HDInsight die naar verwachting maximaal beschikbaar te zijn dus door de gebruiker geïnstalleerd moeten hebben hun eigen mechanisme voor failover als deze in de modus actief / passief of in de actieve-actieve modus.
 
-    Een HDInsight-scriptactie-opdracht wordt uitgevoerd op beide hoofdknooppunten wanneer de functie head-knooppunt is opgegeven als een waarde in de *ClusterRoleCollection* parameter. Wanneer u een aangepast script ontwerpt, zorg er dus dat uw script hoogte van deze installatie is. U moet niet uitvoeren op problemen waar dezelfde services zijn geïnstalleerd en gestart op zowel de hoofdknooppunten en ze met elkaar concurreren. Let op dat gegevens niet verloren tijdens teruggezet, zodat software is geïnstalleerd via een scriptactie te netwerkfouten dergelijke gebeurtenissen. Toepassingen moeten worden ontworpen voor gebruik met maximaal beschikbare gegevens die wordt gedistribueerd over veel knooppunten. Houd er rekening mee dat wel 1/5 van de knooppunten in een cluster met een installatiekopie op hetzelfde moment kunnen worden hersteld.
+    Een HDInsight-scriptactie-opdracht wordt uitgevoerd op beide hoofdknooppunten wanneer de functie head-knooppunt is opgegeven als een waarde in de *ClusterRoleCollection* parameter. Wanneer u een aangepast script ontwerpt, zorg er dus dat uw script hoogte van deze installatie is. U moet niet uitvoeren op problemen waar dezelfde services zijn geïnstalleerd en gestart op zowel de hoofdknooppunten en ze met elkaar concurreren. Let op dat gegevens niet verloren tijdens teruggezet, zodat software is geïnstalleerd via een scriptactie te netwerkfouten dergelijke gebeurtenissen. Toepassingen moeten worden ontworpen voor gebruik met maximaal beschikbare gegevens die wordt gedistribueerd over veel knooppunten. Maximaal 1/5 van de knooppunten in een cluster kunnen een installatiekopie worden hersteld op hetzelfde moment.
 * De aangepaste onderdelen voor het gebruik van Azure Blob-opslag configureren
 
     De aangepaste onderdelen die u op de clusterknooppunten installeert wellicht een standaardconfiguratie Hadoop Distributed File System (HDFS) opslag gebruiken. U kunt de configuratie voor het gebruik van Azure Blob storage in plaats daarvan moet wijzigen. Terugzetten van een cluster de installatiekopie, het bestandssysteem HDFS opgehaald geformatteerd en verliest u gegevens die is opgeslagen. Azure Blob storage in plaats daarvan zorgt ervoor dat uw gegevens worden bewaard.
@@ -192,14 +190,14 @@ Vaak in script actie ontwikkeling, u denkt dat de noodzaak om in te stellen van 
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Deze instructie stelt de omgevingsvariabele **MDS_RUNNER_CUSTOM_CLUSTER** op de waarde 'true' en ook het bereik van deze variabele op alle computers worden ingesteld. Soms is het belangrijk dat de omgevingsvariabelen worden ingesteld op het juiste bereik – computer of gebruiker. Raadpleeg [hier] [ 1] voor meer informatie over het instellen van omgevingsvariabelen.
+Deze instructie stelt de omgevingsvariabele **MDS_RUNNER_CUSTOM_CLUSTER** op de waarde 'true' en ook het bereik van deze variabele op alle computers worden ingesteld. Het is belangrijk dat de omgevingsvariabelen worden ingesteld op het juiste bereik – computer of gebruiker. Raadpleeg [hier] [ 1] voor meer informatie over het instellen van omgevingsvariabelen.
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Toegang tot locaties waar de aangepaste scripts worden opgeslagen
-Scripts die worden gebruikt voor het aanpassen van een cluster moeten ofwel niet in het standaardopslagaccount voor het cluster of in een openbare alleen-lezen container op andere storage-account. Als uw script toegang heeft tot resources die zich ergens anders bevindt deze zich in een openbaar toegankelijke moeten (ten minste openbare alleen-lezen). U wilt bijvoorbeeld toegang tot een bestand en sla deze met de SaveFile HDI-opdracht.
+Scripts die worden gebruikt voor het aanpassen van een cluster moeten ofwel niet in het standaardopslagaccount voor het cluster of in een openbare alleen-lezen container op andere storage-account. Als uw script toegang heeft tot resources die zich ergens anders moeten de resources openbaar leesbaar zijn. U wilt bijvoorbeeld toegang tot een bestand en sla deze met de SaveFile HDI-opdracht.
 
     Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
-In dit voorbeeld moet u ervoor zorgen dat de 'somecontainer' in 'somestorageaccount' van de storage-account-container openbaar toegankelijk is. Anders wordt het script een 'Niet gevonden'-uitzondering genereert en mislukken.
+In dit voorbeeld moet u ervoor zorgen dat de container `somecontainer` in opslagaccount `somestorageaccount` openbaar toegankelijk is. Anders wordt het script een 'Niet gevonden'-uitzondering genereert en mislukken.
 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Parameters doorgeven aan de cmdlet Add-AzureRmHDInsightScriptAction
 Meerdere parameters doorgeven aan de cmdlet Add-AzureRmHDInsightScriptAction, moet u de indeling van de tekenreekswaarde bevat van alle parameters voor het script. Bijvoorbeeld:
@@ -238,9 +236,9 @@ Hier volgen de stappen die we bij de voorbereiding voor het implementeren van de
 
 1. Plaats de bestanden die de aangepaste scripts op een locatie die toegankelijk is voor de clusterknooppunten tijdens de implementatie bevatten. Dit is de standaard of extra opslagaccounts die zijn opgegeven op het moment van implementatie van het cluster of een andere openbaar toegankelijke storage-container.
 2. Controles in scripts om ervoor te zorgen dat ze idempotently, uitvoeren zodat het script kan meerdere keren worden uitgevoerd op hetzelfde knooppunt toevoegen.
-3. Gebruik de **Write-Output** Azure PowerShell-cmdlet om af te drukken voor STDOUT en STDERR. Gebruik geen **Write-Host**.
-4. Gebruik een tijdelijke map, zoals $env: TEMP te houden van het gedownloade bestand gebruikt door de scripts en vervolgens opschonen van nadat scripts hebt uitgevoerd.
-5. Aangepaste software alleen op D:\ of C:\apps installeren. Andere locaties op het station C: mag niet worden gebruikt als deze gereserveerd zijn. Houd er rekening mee dat bestanden op het station C: buiten de map C:\apps installeren leiden setup kopieerfouten tijdens reimages van het knooppunt tot kan.
+3. Gebruik de `Write-Output` Azure PowerShell-cmdlet om af te drukken voor STDOUT en STDERR. Gebruik geen `Write-Host`.
+4. Gebruik een map met tijdelijke bestanden, zoals `$env:TEMP`, zodat het gedownloade bestand gebruikt door de scripts houden en vervolgens opschonen van nadat scripts hebt uitgevoerd.
+5. Aangepaste software alleen op D:\ of C:\apps installeren. Andere locaties op het station C: mag niet worden gebruikt als deze gereserveerd zijn. Bestanden op het station C: buiten de map C:\apps installeren, kan dit leiden tot setup kopieerfouten tijdens reimages van het knooppunt.
 6. In het geval dat instellingen voor OS-niveau of configuratiebestanden voor Hadoop-service zijn gewijzigd, kunt u HDInsight-services opnieuw starten zodat ze kunnen alle instellingen OS-niveau, zoals de omgevingsvariabelen instellen in de scripts ophalen.
 
 ## <a name="debug-custom-scripts"></a>Fouten opsporen in aangepaste scripts

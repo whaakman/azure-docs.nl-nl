@@ -1,11 +1,11 @@
 ---
 title: Aanmelden voor Azure met Office 365-account | Microsoft Docs
 description: Informatie over het maken van een Azure-abonnement met een Office 365-account
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: JiangChen79
 manager: adpick
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: 129cdf7a-2165-483d-83e4-8f11f0fa7f8b
 ms.service: billing
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: c81d7fa793388612ec4d76d79a2f30f209b9cf42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e9f90127bce0502147572c5ac6bd65e47dbe8c35
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Aanmelden voor een Azure-abonnement met uw Office 365-account
-Als u een Office 365-abonnement hebt, kunt u uw Office 365-account voor het maken van een Azure-abonnement. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met uw Office 365-gebruikersnaam en wachtwoord. Als u wilt instellen van virtuele machines of andere Azure-services gebruiken, moet u zich aanmelden voor een Azure-abonnement. U kunt uw Azure-abonnement met anderen delen en [toegangsbeheer op basis van rollen voor het beheren van toegang tot uw Azure-abonnement en resources gebruiken](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)
+Als u een Office 365-abonnement hebt, kunt u uw Office 365-account voor het maken van een Azure-abonnement. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met uw Office 365-gebruikersnaam en wachtwoord. Als u wilt instellen van virtuele machines of andere Azure-services gebruiken, moet u zich aanmelden voor een Azure-abonnement. U kunt uw Azure-abonnement met anderen delen en [toegangsbeheer op basis van rollen voor het beheren van toegang tot uw Azure-abonnement en resources gebruiken](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 Als u al een Office 365-account en een Azure-abonnement hebt, raadpleegt u [koppelen van een Office 365-tenant met een Azure-abonnement](billing-add-office-365-tenant-to-azure-subscription.md).
 
@@ -39,7 +39,7 @@ Tijd besparen en account komst voorkomen door het aanmelden voor Azure met uw Of
 
     ![Schermafbeelding van het aanmeldingsformulier hebt ingevuld.](./media/billing-use-existing-office-365-account-azure-subscription/billing-azure-sign-up-fill-information.png)
 
-- Als u wilt dat andere personen in uw organisatie met de Azure-abonnement toevoegen, Zie [aan de slag met toegangsbeheer in Azure portal](../active-directory/role-based-access-control-what-is.md). 
+- Als u wilt dat andere personen in uw organisatie met de Azure-abonnement toevoegen, Zie [aan de slag met toegangsbeheer in Azure portal](../role-based-access-control/overview.md). 
 
 ## <a id="more-about-subs">Meer informatie over Azure en Office 365-abonnementen</a>
 Office 365 en Azure kunt u de Azure AD-service gebruiken voor het beheren van gebruikers en -abonnementen. De Azure-map is vergelijkbaar met een container waarin u gebruikers en -abonnementen kunt groeperen. Voor het gebruik van dezelfde gebruikersaccounts voor uw Azure en Office 365-abonnementen, moet u ervoor zorgen dat de Azure-abonnementen zijn gemaakt in dezelfde map als het Office 365-abonnementen. Houd de volgende punten:

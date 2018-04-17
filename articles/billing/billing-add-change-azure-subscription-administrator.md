@@ -1,11 +1,11 @@
 ---
 title: Toevoegen of wijzigen van de Azure-abonnement beheerdersrollen | Microsoft Docs
 description: Hierin wordt beschreven hoe u Azure Medebeheerder, servicebeheerder en accountbeheerder toevoegen of wijzigen
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
 ms.service: billing
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ecee98e9b74613a4176d20d231b32e4cb99a721e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Toevoegen of wijzigen van de beheerders van Azure-abonnement
 
-Beheerders van de klassieke Azure-abonnement en Azure [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-what-is.md) zijn de twee systemen voor het beheren van toegang tot Azure-resources:
+Beheerders van de klassieke Azure-abonnement en Azure [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/overview.md) zijn de twee systemen voor het beheren van toegang tot Azure-resources:
 
 * Klassieke abonnement beheerdersrollen basic toegangsbeheer bieden en zijn accountbeheerder servicebeheerder en Medebeheerders.
     * Wanneer u zich voor een nieuwe Azure-abonnement aanmeldt, wordt uw account standaard ingesteld als de accountbeheerder en de servicebeheerder.
@@ -41,10 +41,12 @@ Als u wilt toevoegen iemand als beheerder voor het beheer van de service Azure-a
 
 1. Ga naar [ **abonnementen** in Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Selecteer het abonnement dat u toegang wilt geven.
-3. Selecteer **toegangsbeheer (IAM)** in het menu.
-4. In de **rol** de optie **eigenaar**. 
-5. In de **toewijzen van toegang tot** de optie **Azure AD-gebruiker, groep of toepassing**. 
-6. In de **Selecteer** typt u het e-mailadres van de gebruiker die u wilt toevoegen als eigenaar. Selecteer de gebruiker en selecteer vervolgens **opslaan**.
+3. Selecteer **toevoegen**  
+   (Als de knop toevoegen weergegeven wordt, u bent niet gemachtigd om toe te voegen machtigingen.)
+4. Selecteer **toegangsbeheer (IAM)** in het menu.
+5. In de **rol** de optie **eigenaar**. 
+6. In de **toewijzen van toegang tot** de optie **Azure AD-gebruiker, groep of toepassing**. 
+7. In de **Selecteer** typt u het e-mailadres van de gebruiker die u wilt toevoegen als eigenaar. Selecteer de gebruiker en selecteer vervolgens **opslaan**.
 
     ![Schermafbeelding van de rol van eigenaar geselecteerd](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -111,7 +113,7 @@ De accountbeheerder is de gebruiker die in eerste instantie aangemeld voor het A
  Accountbeheerder servicebeheerder en medebeheerder zijn de drie soorten beheerdersrollen klassieke abonnement in Azure. Het account dat wordt gebruikt om u te registreren voor Azure wordt automatisch ingesteld als de accountbeheerder en de servicebeheerder. Aanvullende Medebeheerders kunnen vervolgens worden toegevoegd. De volgende tabel beschrijft de exacte verschillen tussen deze drie beheerdersrollen. 
 
 > [!TIP]
-> Voor een betere controle en beheer van fijnmazig toegang, wordt u aangeraden Azure rollen gebaseerd toegangsbeheer (RBAC), waarmee gebruikers worden toegevoegd aan meerdere rollen. Zie voor meer informatie, [toegangsbeheer op basis van een functie van Azure Active Directory](../active-directory/role-based-access-control-what-is.md).
+> Voor een betere controle en beheer van fijnmazig toegang, wordt u aangeraden Azure rollen gebaseerd toegangsbeheer (RBAC), waarmee gebruikers worden toegevoegd aan meerdere rollen. Zie voor meer informatie, [toegangsbeheer op basis van een functie van Azure Active Directory](../role-based-access-control/overview.md).
 
 | Klassiek abonnement beheerder | Limiet | Beschrijving |
 | --- | --- | --- |
@@ -121,7 +123,7 @@ De accountbeheerder is de gebruiker die in eerste instantie aangemeld voor het A
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>Meer informatie over toegangsbeheer voor resource en Active Directory
 
-* Zie voor meer informatie over hoe de toegang tot bronnen in Microsoft Azure wordt beheerd, [informatie over toegang tot bronnen in Azure](../active-directory/active-directory-understanding-resource-access.md).
+* Zie voor meer informatie over hoe de toegang tot bronnen in Microsoft Azure wordt beheerd, [informatie over toegang tot bronnen in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 * Zie voor meer informatie over Azure Active Directory, [hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) en [beheerdersrollen toewijzen in Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.

@@ -10,13 +10,13 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9adecca35524962402d46169c531d135d0772bbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>De correlatie telemetrie in Application Insights
 
@@ -58,7 +58,7 @@ In de resultaat-weergave opmerking dat alle telemetrie-items de hoofdmap delen `
 | pageView   | Vooraf gedefinieerde pagina                |              | STYz               | STYz         |
 | afhankelijkheid | GET-/Home/voorraad           | qJSXU        | STYz               | STYz         |
 | Aanvraag    | GET-startpagina/voorraad            | KqKwlrSt9PA= | qJSXU              | STYz         |
-| afhankelijkheid | /Api/stock/value ophalen      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
+| afhankelijkheid | /Api/stock/value ophalen      | bBrf2L7mm2g = | KqKwlrSt9PA=       | STYz         |
 
 Nu wanneer de aanroep `GET /api/stock/value` aangebracht in een externe service die u wilt weten van de identiteit van die server. U kunt instellen `dependency.target` veld op de juiste wijze. Wanneer de externe service biedt geen ondersteuning voor het controle - `target` is ingesteld op de hostnaam van de service, zoals `stock-prices-api.com`. Echter als die service zichzelf identificeert door te retourneren van een vooraf gedefinieerde HTTP-header - `target` bevat van de service-identiteit waarmee Application Insights gedistribueerde trace verder door het uitvoeren van query's telemetrie van die service. 
 
@@ -103,6 +103,31 @@ ASP.NET Core 2.0 ondersteunt extractie van Http-Headers en de nieuwe activiteit 
 Er is een nieuwe Http-Module [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) voor het klassieke ASP.NET. Deze module implementeert telemetrie correlatie met DiagnosticsSource. Deze activiteit op basis van binnenkomende aanvraagheaders wordt gestart. Deze correleert ook telemetrie van de verschillende stadia van aanvraagverwerking. Ook voor gevallen wanneer elke fase van de verwerking van IIS wordt uitgevoerd op een andere beheren threads.
 
 Application Insights-SDK versie `2.4.0-beta1` DiagnosticsSource en activiteit voor het verzamelen van telemetriegegevens en deze koppelen aan de huidige activiteit worden gebruikt. 
+
+<a name="java-correlation"></a>
+## <a name="telemetry-correlation-in-the-java-sdk"></a>De correlatie telemetrie in de SDK voor Java
+De [Application Insights-SDK voor Java](app-insights-java-get-started.md) ondersteunt automatische correlatie van telemetrie vanaf versie `2.0.0`. Wordt automatisch gevuld `operation_id` voor alle telemetrie (traceringen, uitzonderingen, aangepaste gebeurtenissen, enzovoort) binnen het bereik van een aanvraag wordt uitgegeven. Ook zorgt het voor het doorgeven van de correlatie-headers (hierboven) voor de service naar service aanroepen via HTTP als de [Java SDK agent](app-insights-java-agent.md) is geconfigureerd. Opmerking: alleen aanroepen via de Apache HTTP-Client worden ondersteund voor de correlatie-functie. Als u Spring Rest-sjabloon of Feign, kunnen zowel worden gebruikt met Apache HTTP-Client achter de schermen.
+
+Doorgifte van automatische context tussen een messaging-technologieën (zoals Kafka, RabbitMQ, Azure Service Bus) wordt momenteel niet ondersteund. Het is echter mogelijk, handmatig programmeert dergelijke scenario's met behulp van de `trackDependency` en `trackRequest` -API's waarbij een afhankelijkheidstelemetrie staat voor een bericht wordt in de wachtrij door een producent en de aanvraag voor een bericht dat wordt verwerkt door een consumer. In dit geval beide `operation_id` en `operation_parentId` moeten worden doorgevoerd in de eigenschappen van het bericht.
+
+<a name="java-role-name"></a>
+### <a name="role-name"></a>Naam van rol
+Tijd tot tijd kunt u aanpassen hoe namen van onderdelen worden weergegeven in de [toepassingstoewijzing](app-insights-app-map.md). Om dit te doen, kunt u handmatig instellen de `cloud_roleName` op een van de volgende manieren:
+
+Via een telemetrie initialisatiefunctie (alle telemetrie-items zijn met tags)
+```Java
+public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
+
+    @Override
+    protected void onInitializeTelemetry(Telemetry telemetry) {
+        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
+    }
+  }
+```
+Via de [contextklasse apparaat](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (alleen deze telemetrie-item is met tags)
+```Java
+telemetry.getContext().getDevice().setRoleName("My Component Name");
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

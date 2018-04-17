@@ -1,25 +1,18 @@
 ---
 title: Gegevensbronnen die worden ondersteund in Azure Analysis Services | Microsoft Docs
 description: Beschrijft de gegevensbronnen die worden ondersteund voor gegevensmodellen in Azure Analysis Services.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 16bf333fe18c912db7cb81e74fce29960b0728d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.reviewer: minewiskan
+ms.openlocfilehash: 3b60a5b96d7b8a0c48aacc916b1ba933dcd83705
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Gegevensbronnen die worden ondersteund in Azure Analysis Services
 
@@ -31,10 +24,10 @@ Gegevensbronnen en weergegeven in de gegevens opvragen of de Wizard importeren i
 |---------|---------|---------|
 |Azure SQL Database     |   Ja      |    Ja      |
 |Azure SQL Data Warehouse     |   Ja      |   Ja       |
-|Azure Blob Storage*     |   Ja       |    Nee      |
+|Azure Blob Storage *     |   Ja       |    Nee      |
 |Azure Table Storage *    |   Ja       |    Nee      |
 |Azure Cosmos DB*     |  Ja        |  Nee        |
-|Azure Data Lake Store*     |   Ja       |    Nee      |
+|Azure Data Lake Store *     |   Ja       |    Nee      |
 |Azure HDInsight HDFS*     |     Ja     |   Nee       |
 |Azure HDInsight Spark *     |   Ja       |   Nee       |
 ||||
@@ -53,7 +46,7 @@ Verbinding maken met lokale gegevensbronnen uit en AS Azure-server moet een On-p
 |Gegevensbron | In het geheugen-provider | DirectQuery-provider |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB-Provider voor SQL Server, .NET Framework Data Provider voor SQL Server | .NET framework Data Provider voor SQL Server |
-| SQL Server Data Warehouse |SQL Server Native Client 11.0, Microsoft OLE DB-Provider voor SQL Server, .NET Framework Data Provider voor SQL Server | .NET framework Data Provider voor SQL Server |
+| SQL Server-datawarehouse |SQL Server Native Client 11.0, Microsoft OLE DB-Provider voor SQL Server, .NET Framework Data Provider voor SQL Server | .NET framework Data Provider voor SQL Server |
 | Oracle |Microsoft OLE DB-Provider voor Oracle, Oracle-gegevensprovider voor .NET |Oracle-gegevensprovider voor .NET | |
 | Teradata |OLE DB-Provider voor Teradata, Teradata-gegevensprovider voor .NET |Teradata-gegevensprovider voor .NET | |
 | | | |
@@ -63,12 +56,12 @@ Verbinding maken met lokale gegevensbronnen uit en AS Azure-server moet een On-p
 |Gegevensbron  |  
 |---------|---------|
 |Access-Database     |  
-|Active Directory*     |  
+|Active Directory *     |  
 |Analysis Services     |  
 |Analytics Platform System     |  
 |Dynamics CRM *     |  
 |Excel-werkmap     |  
-|Exchange*     |  
+|Exchange *     |  
 |Map *     | 
 |JSON-document *     |  
 |Regels uit binair *     | 
@@ -77,7 +70,7 @@ Verbinding maken met lokale gegevensbronnen uit en AS Azure-server moet een On-p
 |ODBC-query     | 
 |OLE DB     |   
 |Postgre SQL Database *    | 
-|SAP HANA*    |  
+|SAP HANA *    |  
 |SAP Business Warehouse *    |  
 |SharePoint*     |   
 |Sybase-database     |  

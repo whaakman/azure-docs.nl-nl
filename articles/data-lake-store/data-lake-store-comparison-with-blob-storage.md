@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: acdd829785c44f6683c356c135587be183cce392
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d394c856b2f27446ab28c44fe4fed2dfd59ae62f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Vergelijking van Azure Data Lake Store en Azure Blob-opslag
 De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data Lake Store en Azure Blob Storage langs een aantal belangrijke aspecten van big data-verwerking. Azure Blob Storage is een algemeen, schaalbare object store, die is ontworpen voor een groot aantal scenario's voor opslag. Azure Data Lake Store is een verwerkingsservice voor grote hoeveelheden-opslagplaats die is geoptimaliseerd voor big data-analyses werkbelastingen.
@@ -30,15 +30,15 @@ De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data
 | Belangrijkste concepten |Data Lake Store-account bevat mappen, die gegevens die zijn opgeslagen als bestanden op zijn beurt bevat |Storage-account heeft containers die op zijn beurt de gegevens in de vorm van BLOB's heeft |
 | structuur |Hiërarchisch bestandssysteem |Objectarchief met platte naamruimte |
 | API |REST-API via HTTPS |REST-API via HTTP/HTTPS |
-| API-serverzijde |[WebHDFS compatibele REST-API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| API-serverzijde |[WebHDFS compatibele REST-API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST-API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Hadoop File System-Client |Ja |Ja |
 | Gegevensbewerkingen - verificatie |Op basis van [identiteiten met Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Op basis van gedeelde geheimen - [toegangssleutels van Account](../storage/common/storage-create-storage-account.md#manage-your-storage-account) en [gedeelde handtekening toegangstoetsen](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Gegevensbewerkingen - verificatieprotocol |OAuth 2.0. Aanroepen moeten een geldige JWT (JSON Web Token) uitgegeven door Azure Active Directory bevatten |Hash-based Message Authentication Code (HMAC). Aanroepen moeten een Base64-gecodeerd SHA-256-hash bevatten over een deel van de HTTP-aanvraag. |
 | Gegevensbewerkingen - autorisatie |POSIX-toegangsbeheerlijsten (ACL's).  ACL's op basis van Azure Active Directory-identiteit kunnen worden ingesteld op het niveau van bestanden en mappen. |Gebruiken voor autorisatie van account-niveau – [toegangssleutels van Account](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Gebruik voor het account, container of blob-autorisatie - [handtekeningsleutels voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Gegevensbewerkingen - controle |Beschikbaar. Zie [hier](data-lake-store-diagnostic-logs.md) voor meer informatie. |Beschikbaar |
 | Van Versleutelingsgegevens in rust |<ul><li>Transparant, serverzijde</li> <ul><li>Met service beheerd sleutels</li><li>Met de klant beheerde sleutels in Azure KeyVault</li></ul></ul> |<ul><li>Transparant, serverzijde</li> <ul><li>Met service beheerd sleutels</li><li>Met de klant beheerde sleutels in Azure KeyVault (preview)</li></ul><li>Clientversleuteling</li></ul> |
-| Beheertaken uit te voeren (bijvoorbeeld-Account maken) |[Toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md) (RBAC) opgegeven door de Azure voor accountbeheer |[Toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md) (RBAC) opgegeven door de Azure voor accountbeheer |
-| SDK's voor ontwikkelaars |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
+| Beheertaken uit te voeren (bijvoorbeeld-Account maken) |[Toegangsbeheer op basis van rollen](../role-based-access-control/overview.md) (RBAC) opgegeven door de Azure voor accountbeheer |[Toegangsbeheer op basis van rollen](../role-based-access-control/overview.md) (RBAC) opgegeven door de Azure voor accountbeheer |
+| SDK's voor ontwikkelaars |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, C++, Ruby, PHP, Ga, Android, iOS |
 | Prestaties van de Workload Analytics |Geoptimaliseerde prestaties voor parallelle analytics werkbelastingen. Hoge doorvoer en IOPS. |Geoptimaliseerde prestaties voor parallelle analytics werkbelastingen. |
 | Maximale grootte |Er zijn geen limieten op account grootten, grootte of aantal bestanden |Specifieke limieten beschreven [hier](../storage/common/storage-scalability-targets.md). Grotere account contact opnemen met de beschikbare beperkt [Azure-ondersteuning](https://azure.microsoft.com/support/faq/) |
 | Geografische redundantie |Lokaal redundante (meerdere kopieën van gegevens in een Azure-regio) |Lokaal redundant (LRS) zone redundant (ZRS), globaal redundante (GRS), leestoegang globaal redundante (RA-GRS). Zie [hier](../storage/common/storage-redundancy.md) voor meer informatie |

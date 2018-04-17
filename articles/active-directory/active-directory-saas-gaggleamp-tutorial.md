@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: ffa6a3d6cc1377277591de63c7224b23796b53d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f68fdd84acd95ccd2a400e02303247f246d876b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Zelfstudie: Azure Active Directory-integratie met GaggleAMP
 
@@ -44,7 +44,7 @@ Voor het configureren van Azure AD-integratie met GaggleAMP, moet u de volgende 
 Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -106,44 +106,48 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_samlbase.png)
 
-3. Op de **GaggleAMP domein en de URL's** sectie, voert u de volgende stappen uit:
+3. Op de **GaggleAMP domein en de URL's** sectie, voert u de volgende stappen uit als u wilt configureren, de toepassing in **IDP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url.png)
 
-     In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.gaggleamp.com`
+     In de **id** textbox, typ de URL: `https://accounts.gaggleamp.com/auth/saml/callback`
 
-    > [!NOTE] 
-    > De waarde is geen echte. Werk de waarde met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [GaggleAMP Client ondersteuningsteam](mailto:sales@gaggleamp.com) de waarde op te halen. 
+4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url1.png)
+
+     In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://gaggleamp.com/i/<customerid>`
+
+    > [!NOTE]
+    > De waarde van de aanmeldings-URL is geen echte. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [GaggleAMP Client ondersteuningsteam](mailto:sales@gaggleamp.com) deze waarde op te halen.
  
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_certificate.png) 
 
-5. Klik op **opslaan** knop.
+6. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_400.png)
 
-6. Op de **GaggleAMP configuratie** sectie, klikt u op **configureren GaggleAMP** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+7. Op de **GaggleAMP configuratie** sectie, klikt u op **configureren GaggleAMP** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_configure.png) 
 
-7. In een ander browserexemplaar, Ga naar de SAML SSO-pagina voor u door de Gaggle ondersteuningsteam gemaakt (bijvoorbeeld: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+8. In een ander browserexemplaar, Ga naar de SAML SSO-pagina voor u door de Gaggle ondersteuningsteam gemaakt (bijvoorbeeld: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
-8. Op uw **SAML SSO** pagina, voert u de volgende stappen uit:  
+9. Op uw **SAML SSO** pagina, voert u de volgende stappen uit:  
    
-    ![GaggleAMP voor eenmalige aanmelding](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png) 
- 
-    a. In de **identiteit Provider verlener** textbox, plak de waarde van **URL-verlener** die u hebt gekopieerd vanuit Azure-portal. 
- 
-    b. In de **identiteit Provider één aanmeldings-URL** textbox, plak de waarde van **Single Sign-On Service-URL** die u hebt gekopieerd vanuit Azure-portal. 
+    ![GaggleAMP voor eenmalige aanmelding](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
-    c. Klik op **opslaan**      
-
-    d. Verzenden van de **certificaat (Base64)** -certificaat voor uw [GaggleAMP ondersteuningsteam](mailto:sales@gaggleamp.com).
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. Selecteer **andere** formulier de **identiteitsprovider** vervolgkeuzemenu.
+    
+    b. In de **identiteit Provider verlener** textbox, plak de waarde van **URL-verlener** die u hebt gekopieerd vanuit Azure-portal.
+    
+    c. In de **identiteit Provider één aanmeldings-URL** textbox, plak de waarde van **Single Sign-On Service-URL** die u hebt gekopieerd vanuit Azure-portal.
+    
+    d. Open uw gedownloade **Certificate(Base64)** bestand in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **X.509-certificaat** textbox.
+    
+    e. Klik op **Opslaan**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -218,12 +222,10 @@ Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behu
 
 Als u op de tegel GaggleAMP in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing GaggleAMP.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
@@ -238,4 +240,3 @@ Als u op de tegel GaggleAMP in het deelvenster toegang, u moet ophalen automatis
 [201]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_203.png
-

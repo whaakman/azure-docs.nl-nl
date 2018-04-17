@@ -2,24 +2,22 @@
 title: Extra Azure storage-accounts toevoegen aan HDInsight | Microsoft Docs
 description: Informatie over het toevoegen van extra Azure storage-accounts aan een bestaand HDInsight-cluster.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 569a41dfdbf2f9d911e67f283f413130ba7e1f79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Extra opslagaccounts toevoegen aan HDInsight
 
@@ -100,7 +98,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Stel `$PASSWORD` op het accountwachtwoord van de cluster-aanmelding (admin). Stel `$CLUSTERNAME` op de naam van het HDInsight-cluster. Stel `$STORAGEACCOUNTNAME` op de naam van het opslagaccount.
 >
-> In dit voorbeeld wordt [curl (http://curl.haxx.se/)](http://curl.haxx.se/) en [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) op te halen en JSON-gegevens parseren.
+> In dit voorbeeld wordt [curl (http://curl.haxx.se/) ](http://curl.haxx.se/) en [jq (https://stedolan.github.io/jq/) ](https://stedolan.github.io/jq/) op te halen en JSON-gegevens parseren.
 
 Wanneer u deze opdracht gebruikt, vervangen __CLUSTERNAME__ met de naam van het HDInsight-cluster. Vervang __wachtwoord__ met het aanmeldingswachtwoord HTTP voor het cluster. Vervang __STORAGEACCOUNT__ met de naam van het opslagaccount met behulp van de scriptactie toegevoegd. Met deze opdracht geretourneerde informatie lijkt op de volgende tekst:
 

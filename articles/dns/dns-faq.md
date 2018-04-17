@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2017
 ms.author: kumud
-ms.openlocfilehash: f07f914ccf8ea6df216e3f571e38d7628b2d7fb6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0eb39ced1d88d2e0b6128493304f112f9c685fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-dns-faq"></a>Veelgestelde vragen over Azure DNS
 
@@ -46,6 +46,7 @@ Zie voor meer informatie de [Azure DNS-SLA pagina](https://azure.microsoft.com/s
 ### <a name="what-is-a-dns-zone-is-it-the-same-as-a-dns-domain"></a>Wat is een DNS-zone? Is dat hetzelfde als een DNS-domein? 
 
 Een domein is een unieke naam in het domain name system, bijvoorbeeld 'contoso.com'.
+
 
 Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Het domein 'contoso.com' kan bijvoorbeeld meerdere DNS-records, zoals 'mail.contoso.com' (voor een e-mailserver) en 'www.contoso.com' (voor een website) bevatten. Deze records zou worden gehost in de DNS-zone 'contoso.com'.
 
@@ -90,6 +91,14 @@ Zoneoverdracht is een functie die wordt bijgehouden in Azure DNS achterstand. U 
 Nee. URL-omleiding services zijn niet daadwerkelijk een DNS-service - ze op het niveau van HTTP in plaats van het niveau van de DNS-werkt. Sommige providers DNS te bundelen van een URL omleiden service als onderdeel van hun algehele aanbieding. Dit wordt momenteel niet ondersteund door Azure DNS.
 
 Functie Omleidings-URL wordt op Azure DNS achterstand bijgehouden. U kunt de site feedback [registreren van de ondersteuning voor deze functie](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>Ondersteunt Azure DNS uitgebreide ASCII codering (8-bits) voor TXT-Recordset
+
+Ja. Azure DNS ondersteunt de uitgebreide ASCII-tekencodering set voor TXT-Recordsets als u de nieuwste versie van de REST-API's van Azure, SDK's, PowerShell en CLI (versies ouder zijn dan 10-01-2017 of SDK 2.1 komen geen ondersteuning voor de uitgebreide ASCII-set) gebruikt. Als de gebruiker een tekenreeks als waarde voor een TXT-record die heeft bijvoorbeeld de uitgebreide ASCII-teken \128 (bijvoorbeeld: 'abcd\128efgh'), Azure DNS gebruikt de bytewaarde van dit teken (dit is 128) in de interne weergave. Op het moment van DNS-omzetting ook deze bytewaarde geretourneerd in het antwoord. Let ook op dat "abc" en "\097\098\099" uitwisselbaar zijn wat betreft resolutie is. 
+
+We houden [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone bestand master indeling escape regels voor TXT-records. Bijvoorbeeld: ' \' nu daadwerkelijk verlaat u alles per de RFC. Als u 'A\B' als de TXT-recordwaarde opgeeft, worden weergegeven en los als NET "AB". Als u toch de TXT-record 'A\B' met een resolutie hebben, moet u als escape voor de '\" opnieuw eenledige Geef als ' A\\B '. 
+
+Houd er rekening mee dat deze ondersteuning momenteel niet beschikbaar voor TXT-records die zijn gemaakt op basis van de Azure-Portal is. 
 
 ## <a name="using-azure-dns"></a>Met behulp van Azure DNS
 
@@ -169,7 +178,7 @@ Nee. Persoonlijke Zones worden gebruikt in combinatie met virtuele netwerken en 
 Ja. Klanten kunnen maximaal 10 resolutie virtuele netwerken koppelen aan een enkele persoonlijke zone.
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Een virtueel netwerk dat bij een ander abonnement hoort kan worden toegevoegd als een virtueel netwerk voor omzetting naar een privé-Zone? 
-Ja, zolang de gebruiker heeft de machtiging voor Write-bewerking op zowel de virtuele netwerken als de persoonlijke DNS-zone. Houd er rekening mee dat de machtiging schrijven kan worden toegewezen aan meerdere RBAC-rollen. De klassieke netwerk Inzender RBAC-rol heeft bijvoorbeeld schrijfmachtigingen in voor virtuele netwerken. Zie voor meer informatie over RBAC-rollen [rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-what-is.md)
+Ja, zolang de gebruiker heeft de machtiging voor Write-bewerking op zowel de virtuele netwerken als de persoonlijke DNS-zone. Houd er rekening mee dat de machtiging schrijven kan worden toegewezen aan meerdere RBAC-rollen. De klassieke netwerk Inzender RBAC-rol heeft bijvoorbeeld schrijfmachtigingen in voor virtuele netwerken. Zie voor meer informatie over RBAC-rollen [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md)
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>DNS-records automatisch worden geregistreerd virtuele machine in een persoonlijke zone worden automatisch verwijderd wanneer de virtuele machines worden verwijderd door de klant?
 Ja. Als u een virtuele machine binnen een virtueel netwerk voor inschrijving verwijdert, worden er automatisch de DNS-records die zijn geregistreerd in de zone omdat deze een virtueel netwerk registratie ze verwijderd. 

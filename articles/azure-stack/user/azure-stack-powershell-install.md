@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 04/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7bf2d9b999db738007f75d72a8818ca0eb6f34ba
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 70a2118ef0e26043f9f6a9cceb9d4a533d343556
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installeer PowerShell voor Azure Stack  
 
@@ -55,8 +55,7 @@ De volgende secties beschrijven de stappen voor het installeren van PowerShell v
 
 Azure Stack compatibel AzureRM-modules zijn geïnstalleerd via de API-versie profielen. Azure Stack vereist de **2017-03-09-profiel** profiel API-versie die beschikbaar is door de module AzureRM.Bootstrapper installeren. Raadpleeg voor meer informatie over profielen voor API-versie en de cmdlets die is geleverd door ze naar de [API-versie Profielbeheer](azure-stack-version-profiles-powershell.md). Naast de modules AzureRM, moet u ook de Azure-Stack-specifieke PowerShell-modules installeren. Voer het volgende PowerShell-script voor deze modules installeren op uw ontwikkelwerkstation:
 
-> [!IMPORTANT]  
-> De versie van de PowerShell-module AzureRM 1.2.11 wordt geleverd met een lijst met wijzigingen op te splitsen. Upgrade van de 1.2.10 versie, Zie de Migratiehandleiding voor op [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
+
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -83,9 +82,6 @@ Bevestig de installatie door de volgende opdracht uitvoeren:
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Installeer PowerShell in een niet-verbonden of een gedeeltelijk verbonden scenario (met beperkte verbinding met internet)
 
 In een scenario met en zonder gedeeltelijk verbinding moet u eerst de PowerShell-modules voor een machine die verbinding heeft met internet te downloaden en deze vervolgens overbrengen naar de Azure-Stack Development Kit voor installatie.
-
-> [!IMPORTANT]
-> De versie van de PowerShell-module AzureRM 1.2.11 wordt geleverd met een lijst met wijzigingen op te splitsen. Upgrade van de 1.2.10 versie, Zie de Migratiehandleiding voor op [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
 
 1. Meld u bij een computer waarop u beschikt over een internetverbinding en gebruik het volgende script downloaden de AzureRM en AzureStack pakketten naar de lokale computer:
 

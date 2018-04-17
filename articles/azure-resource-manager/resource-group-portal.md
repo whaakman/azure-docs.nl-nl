@@ -2,7 +2,7 @@
 title: Azure-portal gebruiken voor het beheren van Azure-resources | Microsoft Docs
 description: Azure portal en Azure Resource Manager gebruiken voor het beheren van uw resources. Toont het werken met dashboards voor het bewaken van resources.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 61cfd9e9d955b6a722bc88542b872a4a3edf5a36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>Azure-resources via de portal beheren
 
@@ -26,7 +26,7 @@ Dit artikel laat zien hoe u de [Azure-portal](https://portal.azure.com) met [Azu
 
 ## <a name="manage-resource-groups"></a>Resourcegroepen beheren
 
-Een resourcegroep is een container met verwante resources voor een Azure-oplossing. De resourcegroep kan alle resources voor de oplossing bevatten of enkel de resources die u als groep wilt beheren. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is. In het algemeen resources die dezelfde levenscyclus naar dezelfde resourcegroep delen, zodat u kunt eenvoudig implementeren, bijwerken en ze als een groep verwijderen toevoegen. 
+Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. De resourcegroep kan alle resources voor de oplossing bevatten of enkel de resources die u als groep wilt beheren. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is. In het algemeen resources die dezelfde levenscyclus naar dezelfde resourcegroep delen, zodat u kunt eenvoudig implementeren, bijwerken en ze als een groep verwijderen toevoegen. 
 
 De resourcegroep slaat metagegevens op over de resources. Dat is de reden waarom u moet aangeven waar die metagegevens moeten worden opgeslagen als u een locatie voor de resourcegroep opgeeft. In verband met nalevingsvereisten moet u er mogelijk voor zorgen dat uw gegevens worden opgeslagen in een bepaalde regio.
 
@@ -127,6 +127,6 @@ Verwijderen van een resourcegroep, worden alle resources daarin verwijderd. U ku
 * Voor activiteitenlogboeken, Zie [bewerkingen met Resource Manager controleren](resource-group-audit.md).
 * Zie voor meer informatie over een implementatie, [implementatiebewerkingen weergeven](resource-manager-deployment-operations.md).
 * Zie voor het implementeren van resources via de portal [implementeren van resources met Resource Manager-sjablonen en Azure-portal](resource-group-template-deploy-portal.md).
-* Zie voor het beheren van toegang tot bronnen [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../active-directory/role-based-access-control-configure.md).
+* Zie voor het beheren van toegang tot bronnen [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md).
 * Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](resource-manager-subscription-governance.md).
 

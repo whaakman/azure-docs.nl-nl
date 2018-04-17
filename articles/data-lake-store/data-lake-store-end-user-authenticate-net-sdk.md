@@ -2,7 +2,7 @@
 title: 'Verificatie van de eindgebruiker: .NET SDK met Data Lake Store met Azure Active Directory | Microsoft Docs'
 description: Meer informatie over het bereiken van de eindgebruiker verificatie met Data Lake Store met Azure Active Directory met .NET SDK
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 524b00c9fac8b874576cb756c1c8ee39e15e9882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Verificatie van de eindgebruiker met Data Lake Store met .NET SDK
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ In dit artikel leert u hoe u met de .NET SDK eindgebruiker Authentication uitvoe
    4. Sluit de **NuGet Package Manager**.
 
 6. Open **Program.cs**
-7. Het gebruik van replease instructies met de volgende regels:
+7. Vervang de met behulp van instructies met de volgende regels:
 
     ```csharp
     using System;

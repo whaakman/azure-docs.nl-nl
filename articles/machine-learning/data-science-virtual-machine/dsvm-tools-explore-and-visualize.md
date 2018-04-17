@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: a89c51ae5b4b0c9d58aed04515042ed8b08dcce6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: df29d0a55317d06d656d8444c6bd7754c6c955eb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Gegevens te verkennen en visualisatie's op de gegevens wetenschappelijke virtuele Machine
 
@@ -33,7 +33,7 @@ Een belangrijke stap in de gegevenswetenschap is het begrijpen van de gegevens. 
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?      |  Geïnstalleerd in `/dsvm/tools/drill*` ingesloten alleen in modus   |
 | Doorgaans worden gebruikt      |  Gegevensverkenning in situ zonder ETL. Querytabellen verschillende bronnen en indelingen includign CSV, JSON, relationele, Hadoop     |
 | Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad  <br/> [Aan de slag met inzoomen in 10 minuten](https://drill.apache.org/docs/drill-in-10-minutes/)  |
-| Bijbehorende hulpprogramma's op de DSVM      |   Rattle, Weka, SQL Server Management Studio      |
+| Bijbehorende hulpprogramma's op de DSVM      |   Rammelaar, Weka, SQL Server Management Studio      |
 
 ## <a name="weka"></a>Weka
 |    |           |
@@ -43,7 +43,7 @@ Een belangrijke stap in de gegevenswetenschap is het begrijpen van de gegevens. 
 | Doorgaans worden gebruikt      | Algemene ML hulpprogramma     |
 | Hoe gebruik / uitvoeren?      | Op Windows, zoeken naar Weka in het Menu Start. Op Linux, meld u aan met X2Go en vervolgens gaat u naar toepassingen-ontwikkeling > -> Weka. |
 | Koppelingen naar voorbeelden      | [Voorbeelden van weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Bijbehorende hulpprogramma's op de DSVM      |LightGBM, Rattle, Xgboost   |
+| Bijbehorende hulpprogramma's op de DSVM      |LightGBM, ratel, Xgboost   |
 
 ## <a name="rattle"></a>Rammelaar
 |    |           |
@@ -52,10 +52,10 @@ Een belangrijke stap in de gegevenswetenschap is het begrijpen van de gegevens. 
 | Ondersteunde DSVM edities     | Windows, Linux     |
 | Doorgaans worden gebruikt      | Algemene UI gegevensanalyse hulpprogramma voor R    |
 | Hoe gebruik / uitvoeren?      | UI-hulpprogramma. In Windows, start een opdrachtprompt, voert u R binnen R uitvoeren `rattle()`. Op Linux, verbinding maken met X2Go, een terminal starten, uitvoeren van R binnen R uitvoeren `rattle()`. |
-| Koppelingen naar voorbeelden      | [Rattle](https://togaware.com/onepager/) |
+| Koppelingen naar voorbeelden      | [Rammelaar](https://togaware.com/onepager/) |
 | Bijbehorende hulpprogramma's op de DSVM      |LightGBM, Weka, Xgboost   |
 
-## <a name="powerbi-desktop"></a>PowerBI Desktop 
+## <a name="powerbi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Interactieve gegevensvisualisatie en BI-hulpprogramma    |

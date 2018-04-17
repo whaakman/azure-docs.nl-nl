@@ -2,25 +2,23 @@
 title: Installatie gepubliceerde toepassing - Datameer - Azure HDInsight | Microsoft Docs
 description: Installeren en gebruiken van de toepassing Datameer van derden Hadoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8a898b4f82cf2d7e05e8c3895e5eddd8cf02b173
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 5008056ae2274d058706649f286b91b71feadc27
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---datameer"></a>Gepubliceerde toepassing - Datameer installeren
 
@@ -62,7 +60,7 @@ De volgende stappen ziet een demonstratie "Hallo wereld".
 
 1. [Het voorbeeld CSV downloaden](https://datameer.box.com/s/wzzw27za3agic4yjj8zrn6vfrph0ppnf).
 
-2. Klik op de  **+**  boven op het dashboard Datameer ondertekenen en op **bestand laden**.
+2. Klik op de **+** boven op het dashboard Datameer ondertekenen en op **bestand laden**.
 
     ![Bestand uploaden](./media/hdinsight-apps-install-datameer/upload.png)
 
@@ -74,7 +72,7 @@ De volgende stappen ziet een demonstratie "Hallo wereld".
 
     ![Opslaan](./media/hdinsight-apps-install-datameer/save.png)
 
-5. Klik op de  **+**  zodra er meer en selecteer **werkmap** om een nieuwe werkmap voor de gegevens te maken.
+5. Klik op de **+** zodra er meer en selecteer **werkmap** om een nieuwe werkmap voor de gegevens te maken.
 
     ![Werkmap toevoegen](./media/hdinsight-apps-install-datameer/add-workbook.png)
 
@@ -96,7 +94,7 @@ De volgende stappen ziet een demonstratie "Hallo wereld".
 
     ![Werkmap opslaan](./media/hdinsight-apps-install-datameer/save-workbook.png)
 
-11. Datameer biedt krachtige hulpprogramma's. Maak een Infographic voor weergave van gegevens. Selecteer de  **+**  ondertekenen boven op het dashboard en selecteer vervolgens **Infographic**.
+11. Datameer biedt krachtige hulpprogramma's. Maak een Infographic voor weergave van gegevens. Selecteer de **+** ondertekenen boven op het dashboard en selecteer vervolgens **Infographic**.
 
     ![Infographic toevoegen](./media/hdinsight-apps-install-datameer/infographic-button.png)
 

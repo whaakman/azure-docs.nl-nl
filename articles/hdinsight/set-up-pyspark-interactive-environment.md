@@ -3,24 +3,22 @@ title: Azure HDInsight-hulpprogramma's - PySpark interactieve omgeving instellen
 description: Informatie over het gebruik van Azure HDInsight Tools voor Visual Studio Code maken en verzenden van query's en scripts.
 Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 5a64023df813262c461b9d772b722ebd613369ed
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 4ab7b95861fcd1ff75f8ac84e4f00aedb6e526f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>De interactieve PySpark-omgeving instellen voor Visual Studio Code
 
@@ -111,4 +109,4 @@ Als u **python 3.x**, moet u de opdracht **pip3** voor de volgende stappen uit:
 * [Externe pakketten gebruiken met Jupyter-notebooks](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter op uw computer installeren en verbinding maken met een HDInsight Spark-cluster](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight](hdinsight-connect-hive-zeppelin.md)
+* [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight ](hdinsight-connect-hive-zeppelin.md)

@@ -2,7 +2,7 @@
 title: Maken en de Azure portal dashboards delen | Microsoft Docs
 description: In dit artikel wordt uitgelegd hoe maken en bewerken van dashboards in de Azure portal.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: sewatson
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 7f90c882285170bac34bfe020831d3ac04010a11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5a5ae944b5f0059ee78a2171a9688902aaf6db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Maken en delen van dashboards in de Azure portal
 U kunt meerdere dashboards maken en ze delen met anderen die toegang tot uw Azure-abonnementen hebben.  In dit artikel gaat met de grondbeginselen van het maken, bewerken, publiceren en beheren van toegang tot dashboards.
@@ -75,7 +75,7 @@ Wanneer u een dashboard maakt, is het persoonlijke standaard, wat betekent dat u
 
 ![dashboard delen](./media/azure-portal-dashboards/share-dashboard.png)
 
-U wordt gevraagd een abonnement en resourcegroep voor uw dashboard worden gepubliceerd om te kiezen. Als u wilt integreren naadloos dashboards in het ecosysteem, hebben we geïmplementeerd gedeelde dashboards als Azure-resources (zodat u niet delen door een e-mailadres in te voeren).  Toegang tot de gegevens worden weergegeven door de meeste van de tegels in de portal vallen [Azure Toegangsbeheerrol](../active-directory/role-based-access-control-configure.md). Gedeelde dashboards zijn vanuit een access control-perspectief niet anders als een virtuele machine of een opslagaccount.  
+U wordt gevraagd een abonnement en resourcegroep voor uw dashboard worden gepubliceerd om te kiezen. Als u wilt integreren naadloos dashboards in het ecosysteem, hebben we geïmplementeerd gedeelde dashboards als Azure-resources (zodat u niet delen door een e-mailadres in te voeren).  Toegang tot de gegevens worden weergegeven door de meeste van de tegels in de portal vallen [Azure Toegangsbeheerrol](../role-based-access-control/role-assignments-portal.md). Gedeelde dashboards zijn vanuit een access control-perspectief niet anders als een virtuele machine of een opslagaccount.  
 
 Stel dat u hebt een Azure-abonnement en leden van uw team zijn toegewezen de functies van **eigenaar**, **Inzender**, of **lezer** van het abonnement.  Gebruikers die eigenaar of inzenders kunnen weergeven, weergeven, maken, wijzigen of verwijderen van dashboards binnen dat abonnement.  Gebruikers die lezers zijn kunnen lijst en weergave dashboards, maar kunnen niet worden gewijzigd of verwijderd.  Gebruikers met leestoegang hebben, kunnen lokale wijzigingen aanbrengen in een gedeelde dashboard, maar niet kunnen deze wijzigingen publiceren naar de server.  Ze kunnen nog wel een persoonlijke kopie van het dashboard voor eigen gebruik.  Afzonderlijke tegels op het dashboard afdwingen als altijd hun eigen regels voor toegang op basis van de resources die ze met overeenkomen.  
 

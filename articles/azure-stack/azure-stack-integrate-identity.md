@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Stack datacenter integratie van Azure - identiteit
 U kunt Azure-Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure-Stack implementeert, moet u de keuze maken. Implementatie met behulp van AD FS ook aangeduid als Azure-Stack in de modus zonder verbinding implementeert.
@@ -108,7 +108,7 @@ Grafiek-service in Azure-Stack maakt gebruik van de volgende protocollen en poor
 |---------|---------|---------|
 |LDAP|389|TCP EN UDP|
 |LDAP SSL|636|TCP|
-|LDAP GC|3268|TCP|
+|GLOBALE CATALOGUS LDAP|3268|TCP|
 |LDAP GC SSL|3269|TCP|
 
 ## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Instellen van integratie met AD FS federatiemetagegevens downloaden
@@ -246,13 +246,13 @@ Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
 
 3. Als u wilt de relying party trust toevoegen, de volgende Windows PowerShell-opdracht worden uitgevoerd op uw exemplaar van AD FS of een Farmlid. Zorg ervoor dat het eindpunt van de AD FS worden bijgewerkt en verwijzen naar het bestand is gemaakt in stap 1.
 
-   **For AD FS 2016**
+   **Voor AD FS 2016**
 
    ```powershell
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
    ```
 
-   **For AD FS 2012/2012 R2**
+   **Voor AD FS 2012/2012 R2**
 
    ```powershell
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
@@ -262,6 +262,9 @@ Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
    > U moet de AD FS MMC-module gebruiken voor het configureren van de autorisatieregels voor uitgifte bij gebruik van Windows Server 2012 of 2012 R2 AD FS.
 
 4. Wanneer u Internet Explorer of Edge-browser gebruikt voor toegang tot Azure-Stack, moet u token bindingen negeren. Anders worden de aanmeldingspogingen mislukken. Op uw exemplaar van AD FS of een Farmlid, moet u de volgende opdracht uitvoeren:
+
+   > [!note]  
+   > Deze stap is niet van toepassing wanneer u Windows Server 2012 of 2012 R2 AD FS. Het is veilig voor deze opdracht overslaan en doorgaan met de integratie.
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true

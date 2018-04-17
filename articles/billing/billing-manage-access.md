@@ -1,11 +1,11 @@
 ---
 title: Toegang tot Azure-facturering rollen beheren | Microsoft Docs
-description: 
-services: 
-documentationcenter: 
+description: ''
+services: ''
+documentationcenter: ''
 author: vikramdesai01
 manager: vikdesai
-editor: 
+editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
 ms.service: billing
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ded7904c6cb855994d92e68c4a1af64ccdb2c3a0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Toegang tot factureringsgegevens voor Azure met behulp van op rollen gebaseerde toegangsbeheer beheren
 
-U kunt de toegang voor Azure factureringsgegevens voor leden van uw team verlenen door een van de volgende gebruikersrollen toewijzen aan uw abonnement: accountbeheerder, servicebeheerder medebeheerder, eigenaar, bijdrager, lezer en facturering Reader. Ze zou hebben toegang tot factureringsgegevens in de [Azure-portal](https://portal.azure.com/), en ze kunnen gebruiken de [facturering API's](billing-usage-rate-card-overview.md) programmatisch ophalen facturen (eenmaal heeft gekozen-in) en informatie over het gebruik. Voor meer informatie over wie rollen kunt toewijzen, en welke rollen kan wat te doen, Zie [rollen in Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
+U kunt de toegang voor Azure factureringsgegevens voor leden van uw team verlenen door een van de volgende gebruikersrollen toewijzen aan uw abonnement: accountbeheerder, servicebeheerder medebeheerder, eigenaar, bijdrager, lezer en facturering Reader. Ze zou hebben toegang tot factureringsgegevens in de [Azure-portal](https://portal.azure.com/), en ze kunnen gebruiken de [facturering API's](billing-usage-rate-card-overview.md) programmatisch ophalen facturen (eenmaal heeft gekozen-in) en informatie over het gebruik. Voor meer informatie over wie rollen kunt toewijzen, en welke rollen kan wat te doen, Zie [rollen in Azure RBAC](../role-based-access-control/built-in-roles.md).
 
-## <a name="opt-in"></a>Deze extra gebruikers toegang krijgen tot facturen
+## <a name="opt-in"></a> Deze extra gebruikers toegang krijgen tot facturen
 
 De accountbeheerder moet aanmelden met behulp van de [Azure-portal](https://portal.azure.com/) toegang toestaan tot facturen voor andere gebruikers en via de API.
 

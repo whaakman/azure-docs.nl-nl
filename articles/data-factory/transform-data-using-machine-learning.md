@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: bd72fd957948e77df6ffb0b310c590132c663235
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8d87facdf1724ddbcb3bb6d7c189d8ff41d44973
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Maak voorspellende pijplijnen met behulp van Azure Machine Learning en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/23/2018
 
 1. **Maken van een trainingsexperiment**. U kunt deze stap doen met behulp van de Azure ML Studio. De ML studio is een gezamenlijke visual ontwikkelingsomgeving waarmee u trainen en te testen van een predictive analytics-model met trainingsgegevens.
 2. **Converteren naar een Voorspellend experiment**. Nadat uw model is getraind met bestaande gegevens en u bent klaar om te gebruiken voor het beoordelen van nieuwe gegevens, kunt u voorbereiden en uw experiment voor score berekenen stroomlijnen.
-3. **Als een webservice implementeren**. U kunt uw scoreprofiel experiment publiceren als een Azure-web-service. U kunt gegevens verzenden naar uw model via deze web service-eindpunt en ontvangen resultaat voorspellingen van het model.  
+3. **Als een webservice implementeren**. U kunt uw scoreprofiel experiment publiceren als een Azure-web-service. U kunt gegevens verzenden naar uw model via deze web service-eindpunt en resultaat voorspellingen ontvangen uit het model.  
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Machine Learning-Batchuitvoeringsactiviteit in V1](v1/data-factory-azure-ml-batch-execution-activity.md).
@@ -51,7 +51,9 @@ U maakt een **Azure Machine Learning** gekoppelde service een Azure Machine Lear
 
 ```JSON
 {
+    "type" : "linkedServices",
     "name": "AzureMLLinkedService",
+    "apiVersion" : "2017-09-01-preview",
     "properties": {
         "type": "AzureML",
         "typeProperties": {

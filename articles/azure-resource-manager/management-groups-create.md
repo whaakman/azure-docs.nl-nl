@@ -3,8 +3,8 @@ title: Beheergroepen te organiseren Azure-resources maken | Microsoft Docs
 description: Informatie over het maken van Azure beheergroepen voor het beheren van meerdere resources.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: ae91ad29b867ad4ab00831ee40102bcec2fc890c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 48af0bd566f8250e47e03ae45c8ba1c06e5a6792
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Beheergroepen voor bronorganisatie en -beheer maken
-Beheergroepen zijn containers waarmee u toegang, beleid en naleving in meerdere abonnementen beheren. Maken van deze containers voor het bouwen van een effectiever en efficiënter-hiërarchie die kan worden gebruikt met [Azure beleid](../azure-policy/azure-policy-introduction.md) en [toegangsbeheer voor op basis van Azure-functie](../active-directory/role-based-access-control-what-is.md). Zie voor meer informatie over beheergroepen [ordenen van uw resources met Azure-beheergroepen ](management-groups-overview.md). 
+Beheergroepen zijn containers waarmee u toegang, beleid en naleving in meerdere abonnementen beheren. Maken van deze containers voor het bouwen van een effectiever en efficiënter-hiërarchie die kan worden gebruikt met [Azure beleid](../azure-policy/azure-policy-introduction.md) en [toegangsbeheer voor op basis van Azure-functie](../role-based-access-control/overview.md). Zie voor meer informatie over beheergroepen [ordenen van uw resources met Azure-beheergroepen ](management-groups-overview.md). 
 
 De functie management group is beschikbaar in een openbare preview. Aan de slag met beheer van groepen, meld u aan bij de [Azure-portal](https://portal.azure.com) of kunt u [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), of de [REST-API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) naar beheergroepen maken.   
 

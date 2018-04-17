@@ -3,8 +3,7 @@ title: 'Azure Cosmos DB: Naslaginformatie SQL-syntaxis query | Microsoft Docs'
 description: Documentatie voor de taal van Azure Cosmos DB SQL-query.
 services: cosmos-db
 author: LalithaMV
-manager: jhubbard
-editor: mimig
+manager: kfile
 documentationcenter: ''
 ms.assetid: ''
 ms.service: cosmos-db
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 012fa27fdebebf1c86a324c49c53d665a15a91c2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 83ee1d37dd6d79ce26ae95cd1486298f0210f661
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Naslaginformatie over Azure Cosmos DB SQL-syntaxis
 
@@ -93,7 +92,7 @@ SELECT <select_specification>
   
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
  `<select_specification>`  
   
@@ -161,7 +160,7 @@ FROM <from_specification>
      | <collection_expression> '[' "property_name" | array_index ']'  
 ```  
   
-**Arguments**  
+**Argumenten**  
   
 `<from_source>`  
   
@@ -308,7 +307,7 @@ Bekijk de volgende FROM-component: `<from_source1> JOIN <from_source2> JOIN ... 
   
     (`input_alias1, input_alias2, input_alias3`):  
   
-    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200),  (C, 4, 300) ,  (C, 5, 300)  
+    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), C, 4, 300, (C, 5, 300)  
   
 > [!NOTE]
 > Dit resulteerde in vectorproduct tussen `<from_source2>` en `<from_source3>` omdat beide zijn gericht op hetzelfde `<from_source1>`.  Dit resulteerde in 4 (2 x 2) tuples met waarde A, 0 tuples met waarde B (1 x 0) en 2 (2 x 1) tuples met waarde C.  
@@ -328,7 +327,7 @@ WHERE <filter_condition>
   
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `<filter_condition>`  
   
@@ -354,7 +353,7 @@ ORDER BY <sort_specification>
   
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `<sort_specification>`  
   
@@ -414,7 +413,7 @@ ORDER BY <sort_specification>
   
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `<constant>`  
   
@@ -483,9 +482,9 @@ ORDER BY <sort_specification>
 |**Categorie**|**Details**|  
 |-|-|  
 |**Rekenkundige bewerking**|Operator input(s) (s) worden verwacht. Uitvoer is ook een getal. Als een van de invoerwaarden **niet-gedefinieerde** of type dan het aantal vervolgens het resultaat is **niet-gedefinieerde**.|  
-|**bitwise**|Operator verwacht input(s) worden 32-bits geheel getal met teken (s). Uitvoer is ook een 32-bits geheel getal.<br /><br /> Een niet-integerwaarde worden afgerond. Positieve waarde wordt afgerond, negatieve getallen naar boven afgerond.<br /><br /> Een willekeurige waarde die buiten het bereik voor 32-bits geheel getal wordt geconverteerd, door middel van de laatste 32-bits van de twee van bits.<br /><br /> Als een van de invoerwaarden **niet-gedefinieerde** of andere dan getal, typ dan is het resultaat **niet-gedefinieerde**.<br /><br /> **Opmerking:** het bovenstaande gedrag is compatibel met JavaScript bitsgewijze operator gedrag.|  
-|**logical**|Operator input(s) Boolean(s) worden verwacht. Uitvoer is ook een Booleaanse waarde.<br />Als een van de invoerwaarden **niet-gedefinieerde** of typ dan Boolean, wordt het resultaat **niet-gedefinieerde**.|  
-|**comparison**|Operator verwacht input(s) hetzelfde type en niet worden gedefinieerd. Uitvoer is een Booleaanse waarde.<br /><br /> Als een van de invoerwaarden **niet-gedefinieerde** of de invoerwaarden hebben verschillende typen en vervolgens het resultaat is **niet-gedefinieerde**.<br /><br /> Zie **volgorde van waarden voor vergelijking** tabel voor waarde ordening details.|  
+|**Bitsgewijs**|Operator verwacht input(s) worden 32-bits geheel getal met teken (s). Uitvoer is ook een 32-bits geheel getal.<br /><br /> Een niet-integerwaarde worden afgerond. Positieve waarde wordt afgerond, negatieve getallen naar boven afgerond.<br /><br /> Een willekeurige waarde die buiten het bereik voor 32-bits geheel getal wordt geconverteerd, door middel van de laatste 32-bits van de twee van bits.<br /><br /> Als een van de invoerwaarden **niet-gedefinieerde** of andere dan getal, typ dan is het resultaat **niet-gedefinieerde**.<br /><br /> **Opmerking:** het bovenstaande gedrag is compatibel met JavaScript bitsgewijze operator gedrag.|  
+|**Logische**|Operator input(s) Boolean(s) worden verwacht. Uitvoer is ook een Booleaanse waarde.<br />Als een van de invoerwaarden **niet-gedefinieerde** of typ dan Boolean, wordt het resultaat **niet-gedefinieerde**.|  
+|**Vergelijking**|Operator verwacht input(s) hetzelfde type en niet worden gedefinieerd. Uitvoer is een Booleaanse waarde.<br /><br /> Als een van de invoerwaarden **niet-gedefinieerde** of de invoerwaarden hebben verschillende typen en vervolgens het resultaat is **niet-gedefinieerde**.<br /><br /> Zie **volgorde van waarden voor vergelijking** tabel voor waarde ordening details.|  
 |**Tekenreeks**|Operator input(s) meer worden verwacht. Uitvoer is ook een tekenreeks.<br />Als een van de invoerwaarden **niet-gedefinieerde** of andere dan tekenreeks typen en vervolgens het resultaat is **niet-gedefinieerde**.|  
   
  **Unaire operators:**  
@@ -493,17 +492,17 @@ ORDER BY <sort_specification>
 |**Naam**|**Operator**|**Details**|  
 |-|-|-|  
 |**Rekenkundige bewerking**|+<br /><br /> -|Retourneert de waarde.<br /><br /> Bitsgewijze onderhandeling. De numerieke waarde retourneert genegeerde.|  
-|**bitwise**|~|Toepassingsgroepen de aanvulling. Retourneert een reeks een numerieke waarde.|  
-|**Logical**|**NOT**|Negatie. Retourneert genegeerde Booleaanse waarde.|  
+|**Bitsgewijs**|~|Toepassingsgroepen de aanvulling. Retourneert een reeks een numerieke waarde.|  
+|**Logical**|**NIET**|Negatie. Retourneert genegeerde Booleaanse waarde.|  
   
  **Binaire operators:**  
   
 |**Naam**|**Operator**|**Details**|  
 |-|-|-|  
 |**Rekenkundige bewerking**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Toevoeging.<br /><br /> Aftrekken.<br /><br /> Vermenigvuldigen.<br /><br /> Deling.<br /><br /> Modulatie.|  
-|**bitwise**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bitsgewijze OR.<br /><br /> Bitsgewijze AND.<br /><br /> Bitsgewijze XOR.<br /><br /> Verschuiving naar links.<br /><br /> Rechts verplaatsen.<br /><br /> Nul opvulling rechts verplaatsen.|  
-|**logical**|**EN**<br /><br /> **OR**|Logische verbinding. Retourneert **true** als beide argumenten zijn **true**, retourneert **false** anders.<br /><br /> Logische verbinding. Retourneert **true** als beide argumenten zijn **true**, retourneert **false** anders.|  
-|**comparison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Is gelijk aan. Retourneert **true** als argumenten gelijk zijn, retourneert **false** anders.<br /><br /> Niet gelijk aan. Retourneert **true** als argumenten niet gelijk zijn, retourneert **false** anders.<br /><br /> Groter dan. Retourneert **true** als eerste argument groter dan het tweede is, retourneren **false** anders.<br /><br /> Groter dan of gelijk zijn aan. Retourneert **true** als eerste argument groter dan of gelijk aan het tweede is, geretourneerd **false** anders.<br /><br /> Minder dan. Retourneert **true** als eerste argument kleiner is dan de tweede één terugkeer **false** anders.<br /><br /> Kleiner dan of gelijk zijn aan. Retourneert **true** als eerste argument kleiner dan of gelijk zijn aan de tweede waarde is retourneren **false** anders.<br /><br /> Coalesce. Het tweede argument retourneert als het eerste argument is een **niet-gedefinieerde** waarde.|  
+|**Bitsgewijs**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bitsgewijze OR.<br /><br /> Bitsgewijze AND.<br /><br /> Bitsgewijze XOR.<br /><br /> Verschuiving naar links.<br /><br /> Rechts verplaatsen.<br /><br /> Nul opvulling rechts verplaatsen.|  
+|**Logische**|**EN**<br /><br /> **OR**|Logische verbinding. Retourneert **true** als beide argumenten zijn **true**, retourneert **false** anders.<br /><br /> Logische verbinding. Retourneert **true** als beide argumenten zijn **true**, retourneert **false** anders.|  
+|**Vergelijking**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Is gelijk aan. Retourneert **true** als argumenten gelijk zijn, retourneert **false** anders.<br /><br /> Niet gelijk aan. Retourneert **true** als argumenten niet gelijk zijn, retourneert **false** anders.<br /><br /> Groter dan. Retourneert **true** als eerste argument groter dan het tweede is, retourneren **false** anders.<br /><br /> Groter dan of gelijk zijn aan. Retourneert **true** als eerste argument groter dan of gelijk aan het tweede is, geretourneerd **false** anders.<br /><br /> Minder dan. Retourneert **true** als eerste argument kleiner is dan de tweede één terugkeer **false** anders.<br /><br /> Kleiner dan of gelijk zijn aan. Retourneert **true** als eerste argument kleiner dan of gelijk zijn aan de tweede waarde is retourneren **false** anders.<br /><br /> Coalesce. Het tweede argument retourneert als het eerste argument is een **niet-gedefinieerde** waarde.|  
 |**Tekenreeks**|**&#124;&#124;**|Samenvoeging. Retourneert een samenvoeging van beide argumenten.|  
   
  **Ternair operators:**  
@@ -519,7 +518,7 @@ ORDER BY <sort_specification>
 |**Null**|Eén waarde: **null**|  
 |**Aantal**|Natuurlijke reëel getal.<br /><br /> Negatieve oneindige waarde is kleiner dan andere numerieke waarde.<br /><br /> Positieve oneindige waarde is groter dan andere numerieke waarde. **NaN** waarde kan niet worden vergeleken. Vergelijken met **NaN** leidt ertoe dat **niet-gedefinieerde** waarde.|  
 |**Tekenreeks**|Lexicographical volgorde.|  
-|**Array**|Er is geen ordening, maar billijke.|  
+|**matrix**|Er is geen ordening, maar billijke.|  
 |**Object**|Er is geen ordening, maar billijke.|  
   
  **Opmerkingen**  
@@ -545,10 +544,10 @@ ORDER BY <sort_specification>
 |-|-|  
 |**Niet-gedefinieerd**|Eén waarde: **niet gedefinieerd**|  
 |**Null**|Eén waarde: **null**|  
-|**Boolean**|Waarden: **false**, **true**.|  
+|**Booleaanse waarde**|Waarden: **false**, **true**.|  
 |**Aantal**|Een getal met dubbele precisie drijvende komma IEEE-norm 754.|  
 |**Tekenreeks**|Een reeks van nul of meer Unicode-tekens. Tekenreeksen moeten worden ingesloten in enkele of dubbele aanhalingstekens.|  
-|**Array**|Een reeks van nul of meer elementen. Elk element is een waarde van elk gegevenstype scalaire, behalve Undefined.|  
+|**matrix**|Een reeks van nul of meer elementen. Elk element is een waarde van elk gegevenstype scalaire, behalve Undefined.|  
 |**Object**|Een niet-geordende reeks nul of meer naam/waarde-paren. De naam van een Unicode-tekenreeks is, de waarde kan zijn van elk gegevenstype scalaire, behalve **Undefined**.|  
   
  **Syntaxis**  
@@ -581,7 +580,7 @@ ORDER BY <sort_specification>
   
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 1.  `<undefined_constant>; undefined`  
   
@@ -629,14 +628,14 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|enkel aanhalingsteken (')|U+0027|  
 |\\"|aanhalingsteken (")|U+0022|  
-|\\\|omgekeerde schuine streep (\\)|U+005C|  
+|\\\|omgekeerde schuine streep (\\)|U + 005C|  
 |\\/|schuine streep (/)|U+002F|  
 |\b|BACKSPACE|U+0008|  
 |\f|formulier feed|U + 000C|  
-|\n|nieuwe regel|U+000A|  
-|\r|regelterugloop|U+000D|  
+|\n|nieuwe regel|U + 000A|  
+|\r|regelterugloop|U + 000D|  
 |\t|tab|U+0009|  
-|\uXXXX|Een Unicode-teken is gedefinieerd door 4 hexadecimale cijfers.|U+XXXX|  
+|\uXXXX|Een Unicode-teken is gedefinieerd door 4 hexadecimale cijfers.|U + XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a> Richtlijnen voor query-prestaties  
  Om een query voor het efficiënt voor een grote verzameling worden uitgevoerd, moet deze filters die kunnen worden geleverd via een of meer indexen gebruiken.  
@@ -669,10 +668,10 @@ ORDER BY <sort_specification>
     |-|-|    
     |HOOFDLETTERS|Niet-hoofdlettergevoelige trefwoorden.|  
     |kleine letters|Trefwoorden hoofdlettergevoelig.|  
-    |\<nonterminal>|Niet-eindigende, die is gedefinieerd afzonderlijk.|  
+    |\<nonterminal >|Niet-eindigende, die is gedefinieerd afzonderlijk.|  
     |\<nonterminal >:: =|De definitie van de syntaxis van de nonterminal.|  
     |other_terminal|Terminal (token) in de woorden in detail beschreven.|  
-    |identifier|Identifier. Kan de volgende tekens bevatten: a-z A-Z 0-9 _First teken mag niet een cijfer.|  
+    |ID|ID. Kan de volgende tekens bevatten: a-z A-Z 0-9 _First teken mag niet een cijfer.|  
     |'tekenreeks'|Tekenreeks tussen aanhalingstekens. Hiermee kunt een geldige tekenreeks. Zie de beschrijving van een string_literal.|  
     |"symbool"|Letterlijke symbool die deel uitmaakt van de syntaxis.|  
     |&#124;(verticale balk)|Alternatieven voor de syntaxis van de items. U kunt slechts één van de items die zijn opgegeven.|  
@@ -699,8 +698,8 @@ ORDER BY <sort_specification>
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
 |[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[MAXIMUM](#bk_ceiling)|  
 |[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
-|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
-|[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
+|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOGBOEK](#bk_log)|  
+|[LOG10](#bk_log10)|[PI](#bk_pi)|[ENERGIEBEHEER](#bk_power)|  
 |[RADIANS](#bk_radians)|[AFRONDEN](#bk_round)|[SIN](#bk_sin)|  
 |[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
@@ -714,7 +713,7 @@ ORDER BY <sort_specification>
 ABS (<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -747,7 +746,7 @@ SELECT ABS(-1), ABS(0), ABS(1)
 ACOS(<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -780,7 +779,7 @@ SELECT ACOS(-1)
 ASIN(<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -804,7 +803,7 @@ SELECT ASIN(-1)
 [{"$1": -1.5707963267948966}]  
 ```  
   
-####  <a name="bk_atan"></a> ATAN  
+####  <a name="bk_atan"></a> BOOGTAN  
  Retourneert de hoek in radialen, waarvan de tangens de opgegeven numerieke expressie is. Dit wordt ook arctangens genoemd.  
   
  **Syntaxis**  
@@ -813,7 +812,7 @@ SELECT ASIN(-1)
 ATAN(<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -846,7 +845,7 @@ SELECT ATAN(-45.01)
 ATN2(<numeric_expression>, <numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -879,7 +878,7 @@ SELECT ATN2(35.175643, 129.44)
 CEILING (<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -912,7 +911,7 @@ SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)
 COS(<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -945,7 +944,7 @@ SELECT COS(14.78)
 COT(<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -969,7 +968,7 @@ SELECT COT(124.1332)
 [{"$1": -0.040311998371148884}]  
 ```  
   
-####  <a name="bk_degrees"></a> DEGREES  
+####  <a name="bk_degrees"></a> GRADEN  
  Retourneert de overeenkomstige hoek in graden voor een hoek aangeduid in radialen.  
   
  **Syntaxis**  
@@ -978,7 +977,7 @@ SELECT COT(124.1332)
 DEGREES (<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1011,7 +1010,7 @@ SELECT DEGREES(PI()/2)
 FLOOR (<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1044,7 +1043,7 @@ SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)
 EXP (<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1088,7 +1087,7 @@ SELECT EXP(LOG(20)), LOG(EXP(20))
 [{$1: 19.999999999999996, $2: 20}]  
 ```  
   
-####  <a name="bk_log"></a> LOG  
+####  <a name="bk_log"></a> LOGBOEK  
  Retourneert de natuurlijke logaritme van de opgegeven numerieke expressie.  
   
  **Syntaxis**  
@@ -1097,7 +1096,7 @@ SELECT EXP(LOG(20)), LOG(EXP(20))
 LOG (<numeric_expression> [, <base>])  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1154,7 +1153,7 @@ SELECT EXP(LOG(10))
 LOG10 (<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1191,7 +1190,7 @@ SELECT LOG10(100)
 PI ()  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1224,7 +1223,7 @@ SELECT PI()
 POWER (<numeric_expression>, <y>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1252,7 +1251,7 @@ SELECT POWER(2, 3), POWER(2.5, 3)
 [{$1: 8, $2: 15.625}]  
 ```  
   
-####  <a name="bk_radians"></a> RADIANS  
+####  <a name="bk_radians"></a> RADIALEN  
  Retourneert radialen wanneer een numerieke expressie, in graden wordt ingevoerd.  
   
  **Syntaxis**  
@@ -1261,7 +1260,7 @@ SELECT POWER(2, 3), POWER(2.5, 3)
 RADIANS (<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1300,7 +1299,7 @@ SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIAN
 ROUND(<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1333,7 +1332,7 @@ SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)
 SIGN(<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1366,7 +1365,7 @@ SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)
 SIN(<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1399,7 +1398,7 @@ SELECT SIN(45.175643)
 SQRT(<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1423,7 +1422,7 @@ SELECT SQRT(1), SQRT(2.0), SQRT(3)
 [{$1: 1, $2: 1.4142135623730952, $3: 1.7320508075688772}]  
 ```  
   
-####  <a name="bk_square"></a> SQUARE  
+####  <a name="bk_square"></a> VIERKANTE  
  Retourneert het kwadraat van de numerieke waarde die is opgegeven.  
   
  **Syntaxis**  
@@ -1432,7 +1431,7 @@ SELECT SQRT(1), SQRT(2.0), SQRT(3)
 SQUARE(<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1465,7 +1464,7 @@ SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)
 TAN (<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1489,7 +1488,7 @@ SELECT TAN(PI()/2);
 [{"$1": 16331239353195370 }]  
 ```  
   
-####  <a name="bk_trunc"></a> TRUNC  
+####  <a name="bk_trunc"></a> GEHEEL  
  Retourneert een numerieke waarde, afgekapt tot het dichtstbijzijnde gehele getal.  
   
  **Syntaxis**  
@@ -1498,7 +1497,7 @@ SELECT TAN(PI()/2);
 TRUNC(<numeric_expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `numeric_expression`  
   
@@ -1540,7 +1539,7 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 IS_ARRAY(<expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `expression`  
   
@@ -1580,7 +1579,7 @@ SELECT
 IS_BOOL(<expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `expression`  
   
@@ -1620,7 +1619,7 @@ SELECT
 IS_DEFINED(<expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `expression`  
   
@@ -1656,7 +1655,7 @@ SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)
 IS_NULL(<expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `expression`  
   
@@ -1696,7 +1695,7 @@ SELECT
 IS_NUMBER(<expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `expression`  
   
@@ -1736,7 +1735,7 @@ SELECT
 IS_OBJECT(<expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `expression`  
   
@@ -1776,7 +1775,7 @@ SELECT
 IS_PRIMITIVE(<expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `expression`  
   
@@ -1816,7 +1815,7 @@ SELECT
 IS_STRING(<expression>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `expression`  
   
@@ -1854,10 +1853,10 @@ SELECT
 |-|-|-|  
 |[CONCAT](#bk_concat)|[BEVAT](#bk_contains)|[ENDSWITH](#bk_endswith)|  
 |[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTE](#bk_length)|  
-|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
+|[LAGERE](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICEREN](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
-|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[UPPER](#bk_upper)|||  
+|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[DE SUBTEKENREEKS](#bk_substring)|  
+|[BOVENSTE](#bk_upper)|||  
   
 ####  <a name="bk_concat"></a> CONCAT  
  Retourneert een tekenreeks die het resultaat van het samenvoegen van twee of meer tekenreekswaarden.  
@@ -1868,7 +1867,7 @@ SELECT
 CONCAT(<str_expr>, <str_expr> [, <str_expr>])  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -1901,7 +1900,7 @@ SELECT CONCAT("abc", "def")
 CONTAINS(<str_expr>, <str_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -1934,7 +1933,7 @@ SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")
 ENDSWITH(<str_expr>, <str_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -1967,7 +1966,7 @@ SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")
 INDEX_OF(<str_expr>, <str_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2000,7 +1999,7 @@ SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")
 LEFT(<str_expr>, <num_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2037,7 +2036,7 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
 LENGTH(<str_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2070,7 +2069,7 @@ SELECT LENGTH("abc")
 LOWER(<str_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2104,7 +2103,7 @@ SELECT LOWER("Abc")
 LTRIM(<str_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2137,7 +2136,7 @@ SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")
 REPLACE(<str_expr>, <str_expr>, <str_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2170,7 +2169,7 @@ SELECT REPLACE("This is a Test", "Test", "desk")
 REPLICATE(<str_expr>, <num_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2198,7 +2197,7 @@ SELECT REPLICATE("a", 3)
 [{"$1": "aaa"}]  
 ```  
   
-####  <a name="bk_reverse"></a> REVERSE  
+####  <a name="bk_reverse"></a> OMKEREN  
  Retourneert de omgekeerde volgorde van een string-waarde.  
   
  **Syntaxis**  
@@ -2207,7 +2206,7 @@ SELECT REPLICATE("a", 3)
 REVERSE(<str_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2231,7 +2230,7 @@ SELECT REVERSE("Abc")
 [{"$1": "cbA"}]  
 ```  
   
-####  <a name="bk_right"></a> RIGHT  
+####  <a name="bk_right"></a> RECHTS  
  Retourneert de juiste deel van een tekenreeks zijn met het opgegeven aantal tekens.  
   
  **Syntaxis**  
@@ -2240,7 +2239,7 @@ SELECT REVERSE("Abc")
 RIGHT(<str_expr>, <num_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2277,7 +2276,7 @@ SELECT RIGHT("abc", 1), RIGHT("abc", 2)
 RTRIM(<str_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2310,7 +2309,7 @@ SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")
 STARTSWITH(<str_expr>, <str_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2343,7 +2342,7 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2380,7 +2379,7 @@ SELECT SUBSTRING("abc", 1, 1)
 UPPER(<str_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `str_expr`  
   
@@ -2421,7 +2420,7 @@ SELECT UPPER("Abc")
 ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `arr_expr`  
   
@@ -2454,7 +2453,7 @@ Retourneert een Booleaanse waarde die aangeeft of de matrix bevat met de opgegev
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `arr_expr`  
   
@@ -2516,7 +2515,7 @@ SELECT
 ARRAY_LENGTH(<arr_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `arr_expr`  
   
@@ -2549,7 +2548,7 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `arr_expr`  
   
@@ -2599,7 +2598,7 @@ SELECT
 ST_DISTANCE (<spatial_expr>, <spatial_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `spatial_expr`  
   
@@ -2636,7 +2635,7 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 ST_WITHIN (<spatial_expr>, <spatial_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `spatial_expr`  
   
@@ -2678,7 +2677,7 @@ WHERE ST_WITHIN(f.location, {
 ST_INTERSECTS (<spatial_expr>, <spatial_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `spatial_expr`  
   
@@ -2720,7 +2719,7 @@ WHERE ST_INTERSECTS(a.location, {
 ST_ISVALID(<spatial_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `spatial_expr`  
   
@@ -2757,7 +2756,7 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 ST_ISVALID(<spatial_expr>)  
 ```  
   
- **Arguments**  
+ **Argumenten**  
   
 -   `spatial_expr`  
   

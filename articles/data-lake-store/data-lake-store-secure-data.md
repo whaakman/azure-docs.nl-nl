@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4d926ee08da593e590aa77a2ca09d8d1e1f6bb46
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5d91d8d00a37422dcead195354447d602b801f9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>De beveiliging van gegevens die zijn opgeslagen in Azure Data Lake Store
 Gegevens beveiligen in Azure Data Lake Store is een benadering drie stappen.  Beide rollen gebaseerd toegangsbeheer (RBAC) en toegangsbeheerlijsten (ACL's) moeten worden ingesteld op volledig toegang tot gegevens voor gebruikers en beveiligingsgroepen in te schakelen.
 
-1. Begint met het maken van beveiligingsgroepen in Azure Active Directory (AAD). Deze beveiligingsgroepen worden gebruikt voor het implementeren van op rollen gebaseerde toegangsbeheer (RBAC) in Azure-portal. Zie voor meer informatie [toegangsbeheer op basis van rollen in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+1. Begint met het maken van beveiligingsgroepen in Azure Active Directory (AAD). Deze beveiligingsgroepen worden gebruikt voor het implementeren van op rollen gebaseerde toegangsbeheer (RBAC) in Azure-portal. Zie voor meer informatie [toegangsbeheer op basis van rollen in Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
 2. De AAD-beveiligingsgroepen toewijzen aan het Azure Data Lake Store-account. Controleert de toegang voor het Data Lake Store-account van de portal en beheerbewerkingen zijn van de portal of API's.
 3. De AAD-beveiligingsgroepen toewijzen als toegang toegangsbeheerlijsten (ACL's) op het Data Lake Store-bestandssysteem.
 4. Bovendien kunt u ook een IP-adresbereik instellen voor clients die toegang de gegevens in Data Lake Store tot.

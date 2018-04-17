@@ -3,8 +3,8 @@ title: Voorbeelden voor Azure Cosmos DB SQL API Python | Microsoft Docs
 description: Python-voorbeelden op github voor algemene taken in Azure Cosmos DB, inclusief CRUD-bewerkingen niet vinden.
 keywords: Python-voorbeelden
 services: cosmos-db
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 documentationcenter: python
 ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
 ms.service: cosmos-db
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: mimig
-ms.openlocfilehash: ce9a7d071575b30e0150b23291292bddd0c65f1f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 84b12ff3812803e3c1cb3b10cc939176303f1709
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python-voorbeelden
 
@@ -89,7 +89,7 @@ De [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/sam
 | --- | --- |
 | [Gebruik indexeren handmatig (in plaats van automatisch)](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L245-L246) |[IndexingPolicy.Automatic](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Opgegeven document paden uitsluiten van de index](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L294-L367) |[IndexingPolicy.ExcludedPaths](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
-| [Uitsluiten van een document van de index](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L204-L210) |[documents.IndexingDirective.Exclude](http://azure.github.io/azure-documentdb-python/_modules/pydocumentdb/documents.html#IndexingDirective) |
+| [Uitsluiten van een document van de index](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L204-L210) |[documenten. IndexingDirective.Exclude](http://azure.github.io/azure-documentdb-python/_modules/pydocumentdb/documents.html#IndexingDirective) |
 | [Modus instellen voor indexering](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L533) |[documenten. IndexingMode](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.documents.html#IndexingMode) |
 | [Gebruik bereik indexen op tekenreeksen](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L440-L456) |[IndexingPolicy.IncludedPaths](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Uitvoeren van een index transformatie](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L514-L559) |[document_client.ReplaceCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#ReplaceCollection) |

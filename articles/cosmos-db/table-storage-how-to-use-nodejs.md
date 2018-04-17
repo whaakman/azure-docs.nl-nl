@@ -3,36 +3,43 @@ title: Het gebruik van Azure Table storage of Azure Cosmos DB van Node.js | Micr
 description: Gestructureerde gegevens opslaan in de cloud met Azure Table storage of Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/23/2018
-ms.author: mimig
-ms.openlocfilehash: fc6e3ca079b4d1edefa82e06dbe63b393ab2fbb3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: 3f1908a6c2d129da44e0719b2cf69cf09baef356
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Hoe Azure Table storage gebruiken met Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Overzicht
-Dit artikel laat zien hoe u veelvoorkomende scenario's met Azure Storage, Table-service of Azure Comsos DB in een Node.js-toepassing uitvoert.
+Dit artikel laat zien hoe u veelvoorkomende scenario's met Azure Storage, Table-service of Azure Cosmos DB in een Node.js-toepassing uitvoert.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>Een Azure-service-account maken
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
+
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Een tabel-API van Azure Cosmos DB-account maken
+
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="configure-your-application-to-access-azure-storage"></a>Uw toepassing configureren voor toegang tot Azure Storage
-Voor het gebruik van Azure Storage, moet u de Azure-opslag-SDK voor Node.js, waaronder een set van gemak bibliotheken die met de REST van de Storage-services communiceren.
+Voor het gebruik van Azure Storage of Azure Cosmos DB, moet u de Azure-opslag-SDK voor Node.js, waaronder een set van gemak bibliotheken die met de REST van de Storage-services communiceren.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Knooppunt Package Manager (NPM) gebruiken voor het installeren van het pakket
 1. Een opdrachtregelinterface gebruiken zoals **PowerShell** (Windows), **Terminal** (Mac) of **Bash** (Unix) en navigeer naar de map waar u uw toepassing hebt gemaakt.

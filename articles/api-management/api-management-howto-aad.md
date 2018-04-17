@@ -3,9 +3,9 @@ title: Ontwikkelaarsaccounts autoriseren met behulp van Azure Active Directory -
 description: Informatie over het autoriseren van gebruikers met behulp van Azure Active Directory in API Management.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d89257cba70fb82d56fb1beef8a8efe66a8af02d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Ontwikkelaarsaccounts autoriseren met behulp van Azure Active Directory in Azure API Management
 
@@ -55,14 +55,14 @@ In dit artikel laat zien hoe toegang inschakelen voor de portal voor ontwikkelaa
 13. Type **active**. De **Azure Active Directory** deelvenster wordt weergegeven.
 14. Selecteer **Azure Active Directory**.
 15. Onder **beheren**, selecteer **App registraties**.
-16. Selecteer **registratie van de nieuwe toepassing**.
+16. Selecteer **Nieuwe toepassing registreren**.
 
     ![De selecties voor het maken van een nieuwe app-registratie](./media/api-management-howto-aad/api-management-with-aad002.png)
 
     De **maken** deelvenster wordt weergegeven aan de rechterkant. Dat is waar u de Azure AD app relevante informatie invoeren.
 17. Voer een naam voor de toepassing.
 18. Selecteer voor het toepassingstype **Web-app/API**.
-19. Voer de URL aanmeldingspagina van uw ontwikkelaarsportal voor de URL aanmelden. In dit voorbeeld is de URL van de aanmeldingspagina https://apimwithaad.portal.azure-api.net/signin.
+19. Voer de URL aanmeldingspagina van uw ontwikkelaarsportal voor de URL aanmelden. In dit voorbeeld wordt de URL van de aanmeldingspagina is https://apimwithaad.portal.azure-api.net/signin.
 20. Selecteer **maken** om de toepassing te maken.
 21. Als u uw app zoekt, selecteert u **App registraties** en zoeken op naam.
 

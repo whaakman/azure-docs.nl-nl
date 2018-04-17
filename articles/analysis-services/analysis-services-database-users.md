@@ -1,25 +1,18 @@
 ---
 title: Databaserollen en gebruikers in Azure Analysis Services beheren | Microsoft Docs
 description: Informatie over het beheren van functies van de database en gebruikers op een Analysis Services-server in Azure.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 38bad0641d97028b435e05458d597bda378a8363
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 3c35fb1ee70544b8b01bbadaf72ee38145179b27
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-database-roles-and-users"></a>Databaserollen en gebruikers beheren
 
@@ -51,8 +44,8 @@ Wanneer een model in tabelvorm-project maakt, kunt u rollen maken en toevoegen v
     |**Geen**|Leden kunnen het modelschema niet wijzigen en kunnen geen gegevens opvragen.|  
     |**Lezen**|Leden kunnen een query over gegevens (op basis van rijfilters), maar kunnen het modelschema niet wijzigen.|  
     |**Lees- en**|Leden kunnen vragen gegevens (op basis van rijniveau filters) en voer proces en proces alle bewerkingen, maar kunnen het modelschema niet wijzigen.|  
-    |**Process**|Leden kunnen proces en proces alle bewerkingen uitvoeren. Kan het modelschema niet wijzigen en kunnen geen gegevens opvragen.|  
-    |**Administrator**|Leden kunnen het modelschema wijzigen en alle gegevens opvragen.|   
+    |**Proces**|Leden kunnen proces en proces alle bewerkingen uitvoeren. Kan het modelschema niet wijzigen en kunnen geen gegevens opvragen.|  
+    |**Beheerder**|Leden kunnen het modelschema wijzigen en alle gegevens opvragen.|   
   
 5.  Als de rol zijn maken heeft lees- of de machtigingen lezen en proces, kunt u rijfilters toevoegen met behulp van een DAX-formule. Klik op de **rijfilters** tabblad en vervolgens een tabel selecteren en klik vervolgens op de **DAX-Filter** veld en typ vervolgens een DAX-formule.
   
@@ -123,7 +116,7 @@ De [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) module biedt ta
   
 |Cmdlet|Beschrijving|
 |------------|-----------------| 
-|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Een lid toevoegen aan een databaserol.| 
+|[Voeg RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Een lid toevoegen aan een databaserol.| 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Een lid verwijderen uit een databaserol.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Een script TMSL uitvoeren.|
 
@@ -138,9 +131,9 @@ Rijfilters toepassen op de opgegeven rijen en de gerelateerde rijen. Wanneer een
   
 |Tabel|DAX-expressie|  
 |-----------|--------------------|  
-|Regio|=Region[Country]=”USA”|  
-|ProductCategory|=ProductCategory[Name]=”Bicycles”|  
-|Transacties|=Transactions[Year]=2016|  
+|Regio|= Regio [Country] = "VS"|  
+|ProductCategory|= ProductCategory [Name] = "Fietsen"|  
+|Transacties|= Transacties [jaar] = 2016|  
   
  Het uiteindelijke resultaat is leden gegevensrijen waar de klant is in de Verenigde Staten, de productcategorie voor fietsen en het jaar voor 2016 kunnen opvragen. Gebruikers kunnen geen transacties buiten de Verenigde Staten, transacties die niet fietsen of transacties niet 2016 tenzij ze deel uitmaken van een andere functie die deze machtigingen verleent opvragen.
   

@@ -2,11 +2,11 @@
 title: Probleemoplossing voor Azure Cloud Shell | Microsoft Docs
 description: Azure-Cloud-Shell probleemoplossing
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendMSFT
 manager: angelc
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 52ee832b643af573d8236b266df17d36e485ead2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7ab344f77ef88ffdc2ff1976d97b0b9aa86aa3fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Het oplossen van problemen & beperkingen van Azure Cloud Shell
 
@@ -131,7 +131,7 @@ Cloud-Shell is bedoeld voor interactieve gebruiksvoorbeelden. Als gevolg hiervan
 
 Machtigingen zijn ingesteld als gewone gebruikers zonder toegang tot sudo. Elke installatie buiten uw `$Home` directory is niet persistent.
 
-### <a name="editing-bashrc"></a>Editing .bashrc
+### <a name="editing-bashrc"></a>.Bashrc bewerken
 
 Waarschuwing nemen bij het bewerken van .bashrc, in dat geval kan leiden tot onverwachte fouten in de Cloud-Shell.
 
@@ -148,3 +148,29 @@ Met PowerShell-cmdlets, kunnen gebruikers niet maken onder het Azure-station. Wa
 ### <a name="gui-applications-are-not-supported"></a>GUI-toepassingen worden niet ondersteund
 
 Als de gebruiker wordt uitgevoerd een opdracht die u een Windows-dialoogvenster zoals maakt `Connect-AzureAD` of `Login-AzureRMAccount`, een foutbericht zoals ziet: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+## <a name="gdpr-compliance-for-cloud-shell"></a>Naleving voor Cloud-Shell GDPR
+
+Azure Cloud-Shell hecht waarde aan uw persoonlijke gegevens, de gegevens vastgelegd en opgeslagen door de Azure-Cloud-Shell-service worden gebruikt voor standaardwaarden voor uw ervaring zoals onlangs gebruikte shell, aanbevolen tekengrootte, aanbevolen lettertype, en details bestandsshare die back-clouddrive. Moet u wilt exporteren of verwijder deze gegevens, hebben we de volgende instructies opgenomen.
+
+### <a name="export"></a>Exporteren
+Om **exporteren** de gebruikersinstellingen Cloud Shell zoals u slaat de voorkeur shell, tekengrootte en voer de volgende opdrachten lettertype.
+
+1. Bash in de Cloud-Shell starten
+2. Voer de volgende opdrachten uit:
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
+```
+
+### <a name="delete"></a>Verwijderen
+Om **verwijderen** uw gebruikersinstellingen Cloud Shell zoals u slaat de voorkeur shell, tekengrootte en voer de volgende opdrachten lettertype. De volgende keer start van Cloud-Shell wordt u gevraagd te vrijgeven een bestandsshare opnieuw. 
+
+De Azure bestanden delen worden niet verwijderd als u uw gebruikersinstellingen verwijdert gaat u naar de Azure-bestanden om deze actie te voltooien.
+
+1. Bash in de Cloud-Shell starten
+2. Voer de volgende opdrachten uit:
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
+```

@@ -3,22 +3,21 @@ title: Het gebruik van Azure Table storage of Azure DB tabel Cosmos-API met Java
 description: Sla gestructureerde gegevens op in de cloud met Azure Table Storage, een oplossing voor NoSQL-gegevensopslag.
 services: cosmos-db
 documentationcenter: java
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 45145189-e67f-4ca6-b15d-43af7bfd3f97
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/20/2018
-ms.author: mimig
-ms.openlocfilehash: b11faf56ac700399fc411c7feb9910ada355e952
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: 4ac25fd9e1d7233546b34da89eb1bcaf37f6f38b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Het gebruik van Azure Table storage of Azure DB tabel Cosmos-API met Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -31,9 +30,14 @@ Dit artikel wordt beschreven hoe u veelvoorkomende scenario's met behulp van de 
 > Een SDK is beschikbaar voor ontwikkelaars die werken met Azure Storage op Android-apparaten. Zie voor meer informatie de [Azure-opslag-SDK voor Android][Azure Storage SDK for Android].
 >
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>Een Azure-service-account maken
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Een tabel-API van Azure Cosmos DB-account maken
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-java-application"></a>Een Java-toepassing maken
 In deze handleiding gebruikt u opslagfuncties die u in een Java-toepassing uitvoeren kunt lokaal of in de code die wordt uitgevoerd in een Webrol of worker-rol in Azure.
@@ -596,7 +600,7 @@ catch (Exception e)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
 * [Azure-opslag-SDK voor Java][Azure Storage SDK for Java]
 * [naslaginformatie over Azure Storage Client SDK][naslaginformatie over Azure Storage Client SDK]
-* [Azure Storage REST API][Azure Storage REST API]
+* [REST API van Azure Storage][Azure Storage REST API]
 * [Azure Storage-teamblog][Azure Storage Team Blog]
 
 Voor meer informatie gaat u naar [Azure voor Java-ontwikkelaars](/java/azure).

@@ -2,24 +2,24 @@
 title: Beheerdersrollen toewijzen in Azure Active Directory | Microsoft Docs
 description: Een beheerdersrol kunt gebruikers toevoegen, beheerdersrollen toewijzen, wachtwoorden opnieuw instellen, Gebruikerslicenties beheren of domeinen beheren. Een gebruiker aan wie een beheerdersrol is toegewezen, heeft dezelfde machtigingen in voor alle cloudservices waarop uw organisatie is geabonneerd.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8ba4787852902f194deb3eee27ff9f0fc28fa5aa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 88cd8fd99b61a8332d443e4969e30eac39916d66
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -140,7 +140,7 @@ Weergave Azure AD-aanmeldingspagina rapporten en controlelogboeken<br>Gegevens v
 ### <a name="security-reader"></a>Beveiligingslezer
 | in | Kan doen |
 | --- | --- |
-| Identity Protection Center |Alle beveiligingsrapporten en informatie over de instellingen voor beveiligingsfuncties lezen<ul><li>Anti-spam<li>Versleuteling<li>Preventie van gegevensverlies<li>Anti-malware<li>Geavanceerde threat protection<li>Anti-phishing<li>Mailflow regels |
+| Identity Protection Center |Alle beveiligingsrapporten en informatie over de instellingen voor beveiligingsfuncties lezen<ul><li>Anti-spam<li>Versleuteling<li>Preventie van gegevensverlies<li>Anti-malware<li>Geavanceerde threat protection<li>Antiphishing-<li>Mailflow regels |
 | Privileged Identity Management |<p>Alleen-lezen toegang tot alle informatie zichtbaar is in Azure AD PIM: beleidsregels en rapporten voor Azure AD-roltoewijzingen beveiliging controleert en in de toekomst leestoegang heeft tot gegevens en rapporten voor scenario's naast de roltoewijzing Azure AD.<p>**Kan geen** aanmelden voor Azure AD PIM of wijzigingen aanbrengt. In de PIM-portal of via PowerShell kan iemand met deze rol aanvullende functies (bijvoorbeeld globale beheerder of beheerder met bevoorrechte rol) activeren als de gebruiker geschikt is voor deze. |
 | <p>Monitor voor Office 365-servicestatus</p><p>Office 365-beveiliging en naleving Center</p> |<ul><li>Lees- en waarschuwingen beheren<li>Lezen van beveiligingsbeleid<li>Lezen dreigingen en Cloud App Discovery quarantaine in zoeken en onderzoeken<li>Alle rapporten lezen |
 
@@ -189,7 +189,7 @@ De volgende rollen moeten niet worden gebruikt. Ze zijn gedeprecieerd en wordt v
 ## <a name="next-steps"></a>Volgende stappen
 
 * Als u meer wilt weten over het wijzigen van de beheerders van een Azure-abonnement, ziet u [Azure-beheerdersrollen toevoegen of wijzigen](../billing-add-change-azure-subscription-administrator.md)
-* Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](active-directory-understanding-resource-access.md)
+* Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Zie voor meer informatie over hoe Azure Active Directory is gekoppeld aan uw Azure-abonnement, [hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gebruikers beheren](active-directory-create-users.md)
 * [Wachtwoorden beheren](active-directory-manage-passwords.md)

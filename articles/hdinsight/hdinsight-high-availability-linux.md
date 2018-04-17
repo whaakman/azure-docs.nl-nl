@@ -11,17 +11,15 @@ keywords: hoge beschikbaarheid voor hadoop
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 556aedf5ce822d681caf1373ed7d51999bd439b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 974ed70fbda88dfcb775e021474583f7afb0576b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Hadoop-clusters in HDInsight
 
@@ -110,7 +108,7 @@ U kunt verbinding maken met knooppunten die niet rechtstreeks toegankelijk zijn 
 
 Gebruik de Ambari-Webgebruikersinterface of de Ambari REST-API te controleren van de status van services die worden uitgevoerd op de hoofdknooppunten.
 
-### <a name="ambari-web-ui"></a>Ambari Web UI
+### <a name="ambari-web-ui"></a>Ambari-webgebruikersinterface
 
 De Ambari-Webgebruikersinterface kunnen worden weergegeven op https://CLUSTERNAME.azurehdinsight.net. Vervang **CLUSTERNAME** door de naam van uw cluster. Als u wordt gevraagd, voert u de referenties van de HTTP-gebruiker voor uw cluster. De standaardnaam van de HTTP-gebruiker is **admin** en het wachtwoord het wachtwoord die u hebt ingevoerd bij het maken van het cluster.
 

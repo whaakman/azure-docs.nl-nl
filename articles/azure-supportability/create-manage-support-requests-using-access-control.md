@@ -7,15 +7,15 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c3557d54b9fb3fd0173eec1e327050ac7cc80fc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure op rollen gebaseerde toegangsbeheer (RBAC) om toegangsrechten te maken en beheren van aanvragen voor ondersteuning
 
-[Op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) kunt Geavanceerd toegangsbeheer voor Azure.
+[Op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) kunt Geavanceerd toegangsbeheer voor Azure.
 Ondersteuning voor het maken van de aanvraag in de Azure portal [portal.azure.com](https://portal.azure.com), maakt gebruik van Azure RBAC-model om te definiëren die kunt maken en beheren van aanvragen voor ondersteuning.
 Toegang wordt verleend door de juiste RBAC-rol toewijzen aan gebruikers, groepen en toepassingen op een bepaalde scope, kan dit een abonnement, resourcegroep of een resource.
 

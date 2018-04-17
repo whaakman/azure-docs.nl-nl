@@ -2,26 +2,24 @@
 title: Een data analytics pipeline - Azure operationeel | Microsoft Docs
 description: Instellen en uitvoeren van een voorbeeld van de gegevens-pijplijn die wordt geactiveerd door nieuwe gegevens en beknopte resultaten oplevert.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 7a439c9d25a470a2474b427f6b20addb6ff3b0c7
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 7ac1ed0db15d91ef8af009c879c3634148826286
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="operationalize-a-data-analytics-pipeline"></a>Een pijplijn van gegevens analytics operationeel maken
+# <a name="operationalize-a-data-analytics-pipeline"></a>Een pijplijn voor gegevensanalyse operationeel maken
 
 *Gegevenspijplijnen* rela‑ veel gegevens analytics-oplossingen. Zoals de naam al aangeeft, een pijplijn gegevens wordt in de onbewerkte gegevens, schoongemaakt en verwijdert deze zo nodig en vervolgens voert berekeningen of aggregaties voordat verwerkte gegevens op te slaan. Verwerkte gegevens wordt gebruikt door clients, rapporten of API's. Een pijplijn gegevens moet herhaalbare resultaten opgeven of volgens een planning of wanneer deze worden geactiveerd door nieuwe gegevens.
 
@@ -137,7 +135,7 @@ Uw Azure SQL Database is nu klaar.
 
        ![Instellingen voor HDInsight-Metastore](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
-12. Selecteer **volgende**.
+12. Selecteer **Volgende**.
 13. Op de **samenvatting** deelvenster **maken** voor het implementeren van uw cluster.
 
 ### <a name="verify-ssh-tunneling-setup"></a>Controleer of de SSH-tunneling setup
@@ -181,7 +179,7 @@ U kunt het bestand kopiëren met SCP in uw `bash` sessie-shell.
 
 De voorbeeldgegevens is nu beschikbaar. De pijplijn vereist echter twee Hive-tabellen voor verwerking, één voor de binnenkomende gegevens (`rawFlights`) en één voor de samengevatte gegevens (`flights`). Deze tabellen als volgt in Ambari maken.
 
-1. Meld u aan bij Ambari door te navigeren naar [http://headnodehost:8080](http://headnodehost:8080).
+1. Meld u aan bij Ambari door te navigeren naar [ http://headnodehost:8080 ](http://headnodehost:8080).
 2. Selecteer in de lijst met services **Hive**.
 
     ![Hive in Ambari selecteren](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

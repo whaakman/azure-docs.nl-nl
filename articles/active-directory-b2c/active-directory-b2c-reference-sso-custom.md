@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 3d378d188d9acec06f37ca91e3c67e82fb31fc08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: Eenmalige aanmelding (SSO) sessiebeheer
 
@@ -47,6 +47,9 @@ Als de naam bepaalt, wordt deze provider geen effect. Deze provider kan worden g
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
 Deze provider kan worden gebruikt voor het opslaan van claims in een sessie. Deze provider is doorgaans waarnaar wordt verwezen in een technische profiel voor het beheer van lokale accounts. 
+
+> [!NOTE]
+> Wanneer u de DefaultSSOSessionProvider voor het opslaan van claims in een sessie gebruikt, moet u ervoor zorgen dat claims die moeten worden geretourneerd naar de toepassing of gebruikt door de voorwaarden in de volgende stappen zijn opgeslagen in de sessie of uitgebreid door een leesbewerking van het gebruikersprofiel voor in de map. Dit zorgt ervoor dat de verificatie-reis niet op ontbrekende claims uitvoeren.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">

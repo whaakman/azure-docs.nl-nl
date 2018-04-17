@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: efe4b3a1a63fa1986682a2fdde1a20221dc5d93a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b91b1f902b2d769823067ea66bf7d00bd17a5160
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Een Azure Container Service-cluster met logboekanalyse bewaken
 
@@ -30,8 +30,8 @@ U kunt testen, hebt u de `az` hulpprogramma is geïnstalleerd door te voeren:
 $ az --version
 ```
 
-Als u hebt de `az` hulpprogramma is geïnstalleerd, er zijn instructies [hier](https://github.com/azure/azure-cli#installation).  
-U kunt ook gebruiken [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), die de `az` Azure cli en `kubectl` hulpprogramma's voor u hebt geïnstalleerd.  
+Als u hebt de `az` hulpprogramma is geïnstalleerd, er zijn instructies [hier](https://github.com/azure/azure-cli#installation).
+U kunt ook gebruiken [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), die de `az` Azure cli en `kubectl` hulpprogramma's voor u hebt geïnstalleerd.
 
 U kunt testen, hebt u de `kubectl` hulpprogramma is geïnstalleerd door te voeren:
 
@@ -67,40 +67,40 @@ Raadpleeg voor meer informatie over Container oplossing de [Container oplossing 
 ## <a name="installing-log-analytics-on-kubernetes"></a>Log Analytics installeren op Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Uw werkruimte-ID en sleutel ophalen
-Neem contact op met de service het-agent moet worden geconfigureerd met een werkruimte-id en een werkruimtesleutel voor de OMS. Ophalen van de werkruimte-id en de sleutel die u wilt maken van een account bij <https://mms.microsoft.com>.
-Volg de stappen om een account te maken. Wanneer u klaar bent voor het maken van het account moet u eerst uw id en -sleutel door te klikken op **instellingen**, klikt u vervolgens **verbonden bronnen**, en vervolgens **Linux-Servers**, zoals hieronder weergegeven.
+Neem contact op met de service het-agent moet worden geconfigureerd met een werkruimte-ID en een werkruimtesleutel voor de logboekanalyse. Ophalen van de werkruimte-ID en de sleutel die u wilt maken van een account bij <https://mms.microsoft.com>.
+Volg de stappen om een account te maken. Wanneer u klaar bent voor het maken van het account moet u eerst uw ID en -sleutel door te klikken op **instellingen**, klikt u vervolgens **verbonden bronnen**, en vervolgens **Linux-Servers**, zoals hieronder weergegeven.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-### <a name="install-the-oms-agent-using-a-daemonset"></a>Installeer de OMS-agent met behulp van een DaemonSet
+### <a name="install-the-log-analytics-agent-using-a-daemonset"></a>De logboekanalyse agent installeert met een DaemonSet
 DaemonSets worden gebruikt door Kubernetes één exemplaar van een container uitvoeren op elke host in het cluster.
 Ze zijn ideaal voor bewaking agenten uit te voeren.
 
-Hier volgt de [DaemonSet YAML bestand](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Sla het op een bestand met de naam `oms-daemonset.yaml` en vervang de waarden van de tijdelijke aanduiding voor `WSID` en `KEY` met uw werkruimte-id en sleutel in het bestand.
+Hier volgt de [DaemonSet YAML bestand](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Sla het op een bestand met de naam `oms-daemonset.yaml` en vervang de waarden van de tijdelijke aanduiding voor `WSID` en `KEY` met uw werkruimte-ID en sleutel in het bestand.
 
-Wanneer u uw werkruimte-ID en sleutel aan de configuratie van de DaemonSet hebt toegevoegd, kunt u de OMS-agent installeren op uw cluster met de `kubectl` opdrachtregelprogramma:
+Nadat u hebt uw werkruimte-ID en sleutel toegevoegd aan de configuratie DaemonSet, kunt u de Log Analytics-agent installeren op uw cluster met de `kubectl` opdrachtregelprogramma:
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
 
-### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Installatie van de OMS-agent met behulp van een geheim Kubernetes
+### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Installatie van de Log Analytics-agent met behulp van een geheim Kubernetes
 U kunt Kubernetes geheim ter bescherming van uw Log Analytics-werkruimte-ID en sleutel gebruiken als onderdeel van DaemonSet YAML-bestand.
 
- - Kopieer het script, geheime sjabloonbestand en het bestand DaemonSet YAML (van [opslagplaats](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) en zorg ervoor dat ze zich op dezelfde map. 
+ - Kopieer het script, geheime sjabloonbestand en het bestand DaemonSet YAML (van [opslagplaats](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) en zorg ervoor dat ze zich op dezelfde map.
       - geheim script - geheim gen.sh genereren
       - geheime sjabloon - geheim template.yaml
    - Bestand DaemonSet YAML - omsagent-ds-secrets.yaml
- - Voer het script uit. Het script vraagt naar het Log Analytics-werkruimte-ID en de primaire sleutel. Plaats die en het script maakt een geheime yaml-bestand zodat u deze kunt uitvoeren.   
+ - Voer het script uit. Het script vraagt naar het Log Analytics-werkruimte-ID en de primaire sleutel. Plaats die en het script maakt een geheime yaml-bestand zodat u deze kunt uitvoeren.
    ```
-   #> sudo bash ./secret-gen.sh 
+   #> sudo bash ./secret-gen.sh
    ```
 
    - Geheimen schil maken door het volgende: ``` kubectl create -f omsagentsecret.yaml ```
- 
-   - Als u wilt controleren, voert u de volgende: 
 
-   ``` 
+   - Als u wilt controleren, voert u de volgende:
+
+   ```
    root@ubuntu16-13db:~# kubectl get secrets
    NAME                  TYPE                                  DATA      AGE
    default-token-gvl91   kubernetes.io/service-account-token   3         50d
@@ -116,10 +116,10 @@ U kunt Kubernetes geheim ter bescherming van uw Log Analytics-werkruimte-ID en s
    Data
    ====
    WSID:   36 bytes
-   KEY:    88 bytes 
+   KEY:    88 bytes
    ```
- 
+
   - Maken van uw omsagent daemon-set door te voeren ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Conclusie
-Dat is alles. Na een paar minuten, moet u mogelijk om gegevens naar uw OMS-dashboard te bekijken.
+Dat is alles. Na een paar minuten moet u het volgende kunnen om gegevens naar het Log Analytics-dashboard te bekijken.

@@ -2,7 +2,7 @@
 title: Faseringsomgevingen voor web-apps in Azure App Service instellen | Microsoft Docs
 description: Informatie over het gebruiken van voorbereide publiceren voor web-apps in Azure App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: a262ba335256878b03a9a2cce6f7ba6a3dae715c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
@@ -30,7 +30,7 @@ Wanneer u uw web-app, web-app op Linux-, mobiele back-end- en API-app implemente
 * Zorgt ervoor dat alle exemplaren van de sleuf zijn opgewarmd voordat gewisseld naar de productie implementeert eerst een app in een sleuf en deze in productie te wisselen. Hierdoor is er uitvaltijd wanneer u uw app implementeert. Het verkeer omleiden naadloze is en er zijn geen aanvragen worden verwijderd als gevolg van de wisseling bewerkingen. Deze volledige werkstroom kan worden geautomatiseerd door configureren [automatisch wisselen](#Auto-Swap) wanneer vooraf swap-validatie is niet nodig.
 * Als een wisseling heeft de sleuf met eerder voorbereide app de vorige productie-app. Als de gewisseld naar de productiesite wijzigingen zijn niet zoals u verwacht, kunt u de dezelfde swap onmiddellijk om uw "laatst bekende goede site" uitvoeren terug.
 
-Elke laag van App Service plan ondersteunt een verschillend aantal implementatiesites. Sleuven om erachter te komen het nummer van uw app-laag ondersteunt, Zie [prijzen van App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Elke laag van App Service plan ondersteunt een verschillend aantal implementatiesites. Sleuven om erachter te komen het nummer van uw app-laag ondersteunt, Zie [App Servicelimieten](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
 
 * Wanneer uw app meerdere sleuven heeft, kunt u de laag niet wijzigen.
 * Schalen is niet beschikbaar voor niet-productieve sleuven.

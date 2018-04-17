@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning-Model Management web service-verbruik | Microsoft Docs
-description: "Dit document beschrijft de stappen en -concepten betrokken bij geïmplementeerd met behulp van de model-management in Azure Machine Learning-webservices verbruiken."
+description: Dit document beschrijft de stappen en -concepten betrokken bij geïmplementeerd met behulp van de model-management in Azure Machine Learning-webservices verbruiken.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0976e2dca909781ade76c742cc99746e1123307d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="consuming-web-services"></a>Webservices verbruiken
 Wanneer u een model als een realtime-webservice implementeert, kunt u gegevens verzenden en voorspellingen ophalen vanaf verschillende platforms en toepassingen. De realtime-webservice wordt een REST-API voor het ophalen van voorspellingen. U kunt gegevens verzenden naar de webservice in de indeling van één of meerdere rij ophalen van een of meer voorspellingen tegelijk.
@@ -162,6 +162,6 @@ url = 'http://<service ip address>:80/api/v1/service/<service name>/score'
 api_key = 'your service key' 
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-resp = requests.post(url, data, headers=headers)
+resp = requests.post(url, body, headers=headers)
 resp.text
 ```

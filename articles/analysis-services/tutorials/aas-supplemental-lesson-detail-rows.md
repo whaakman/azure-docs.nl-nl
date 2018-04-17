@@ -1,25 +1,18 @@
 ---
 title: 'Azure Analysis Services-zelfstudie - Aanvullende les: Detailrijen | Microsoft Docs'
 description: In deze les wordt beschreven hoe u een detailrijenexpressie maakt in de zelfstudie over Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: 02e9edd966e64c0bfa32e2b80f4c26f797e58582
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Aanvullende les: Detailrijen
 
@@ -31,19 +24,19 @@ Geschatte tijd voor het voltooien van deze les: **10 minuten**
 Deze aanvullende les maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. U kunt de taken in deze aanvullende les pas uitvoeren nadat u alle voorgaande lessen hebt afgerond of het voorbeeldproject Adventure Works Internet Sales hebt voltooid.  
   
 ## <a name="whats-the-issue"></a>Wat is het probleem?
-Laten we eens kijken naar de details van onze meting InternetTotalSales, voordat we een detailrijenexpressie gaan toevoegen.
+Bekijk de details van de meting InternetTotalSales in voordat u een expressie van de rijen Detail toevoegt.
 
 1.  Klik in SSDT op het menu **Model** > **Analyze in Excel** om Excel te openen met een lege draaitabel.
   
-2.  Ga naar **Draaitabelvelden** en voeg de meting **InternetTotalSales** uit de tabel FactInternetSales toe aan **Waarden**, **CalendarYear** uit de tabel DimDate aan **Kolommen** en **EnglishCountryRegionName** aan **Rijen**. De draaitabel toont nu geaggregeerde resultaten van de meting InternetTotalSales per regio en per jaar. 
+2.  Ga naar **Draaitabelvelden** en voeg de meting **InternetTotalSales** uit de tabel FactInternetSales toe aan **Waarden**, **CalendarYear** uit de tabel DimDate aan **Kolommen** en **EnglishCountryRegionName** aan **Rijen**. De draaitabel biedt nu een cumulatieve resultaten van de meting InternetTotalSales door regio's en het jaar. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. Dubbelklik in de draaitabel op een geaggregeerde waarde voor een jaar en een regionaam. In dit voorbeeld hebben we gedubbelklikt op de waarde voor Australië en het jaar 2014. Er wordt een nieuw blad geopend met gegevens, maar dit zijn niet echt nuttige gegevens.
+3. Dubbelklik in de draaitabel op een geaggregeerde waarde voor een jaar en een regionaam. De waarde voor Australië en het jaar 2014. Er wordt een nieuw blad geopend met gegevens, maar dit zijn niet echt nuttige gegevens.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-Wat we graag willen zien is een tabel met kolommen en rijen met gegevens die bijdragen aan het geaggregeerde resultaat van onze meting InternetTotalSales. Dit kan door een detailrijenexpressie toe te voegen als een eigenschap van de meting.
+Dit is een tabel met kolommen en rijen gegevens bijdragen aan het samengevoegde resultaat van de meting InternetTotalSales. Hiertoe toevoegen de expressie voor een gedetailleerd rijen als een eigenschap van de meting.
 
 ## <a name="add-a-detail-rows-expression"></a>Een detailrijenexpressie maken
 
@@ -80,6 +73,8 @@ Wat we graag willen zien is een tabel met kolommen en rijen met gegevens die bij
 
   
 ## <a name="see-also"></a>Zie ook  
-[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx) (SELECTCOLUMNS, functie (DAX))  
-[Aanvullende les: Dynamische beveiliging](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[Aanvullende les: Onregelmatige hiërarchieën](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+
+[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  (SELECTCOLUMNS, functie (DAX))  
+[Aanvullende les - dynamische beveiliging](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Aanvullende les: Onregelmatige hiërarchieën](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
+ 

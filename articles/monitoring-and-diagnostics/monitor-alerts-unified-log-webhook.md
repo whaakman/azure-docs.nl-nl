@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2018
+ms.date: 04/09/2018
 ms.author: vinagara
-ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a786ac2e241657cc0020ecfe9438e3d1a5e4c5fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels logboek
 Wanneer een [waarschuwing is gemaakt in Azure ](monitor-alerts-unified-usage.md), hebt u de optie [configureren met de actiegroepen](monitoring-action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en de details over het configureren van de aangepaste JSON-indeling webhook.
@@ -61,15 +61,19 @@ Webhooks omvatten een URL en een nettolading opgemaakt in JSON is de gegevens na
 
 Bijvoorbeeld, kunt u opgeven de volgende aangepaste nettolading met een enkele parameter aangeroepen *tekst*.  De service die deze webhook aanroepen, zou deze parameter worden verwacht.
 
+```json
+
     {
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
-
+```
 De nettolading van dit voorbeeld zou worden omgezet naar ongeveer het volgende wanneer u naar de webhook verzonden.
 
+```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
+```
 
 Zorg ervoor dat zodanig zoekresultaten in een aangepaste nettolading **IncudeSearchResults** is ingesteld als eigenschap op het hoogste niveau in de json-nettolading. 
 
@@ -85,7 +89,8 @@ Beide voorbeelden hebben een dummy-nettolading met slechts twee kolommen en twee
 #### <a name="log-alert-for-azure-log-analytics"></a>Logboek-waarschuwing voor Azure-logboekanalyse
 Hieronder volgt een voorbeeld-nettolading voor een actie standaard webhook *zonder aangepaste Json-optie* wordt gebruikt voor log analytics gebaseerde waarschuwingen.
 
-    {
+```json
+{
     "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
     "AlertRuleName":"AcmeRule","SearchQuery":"search *",
     "SearchResult":
@@ -95,7 +100,7 @@ Hieronder volgt een voorbeeld-nettolading voor een actie standaard webhook *zond
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -104,7 +109,7 @@ Hieronder volgt een voorbeeld-nettolading voor een actie standaard webhook *zond
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -114,15 +119,14 @@ Hieronder volgt een voorbeeld-nettolading voor een actie standaard webhook *zond
     "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
     "Severity": "Warning"
-    }
-    
-
+ }
+ ```   
 
 #### <a name="log-alert-for-azure-application-insights"></a>Waarschuwing voor Azure Application Insights logboek
 Hieronder volgt een voorbeeld-nettolading voor een standaard webhook *zonder aangepaste Json-optie* als gebruikt voor application insights gebaseerde logboek-waarschuwingen.
     
-
-    {
+```json
+{
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
     "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
@@ -134,7 +138,7 @@ Hieronder volgt een voorbeeld-nettolading voor een standaard webhook *zonder aan
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -143,7 +147,7 @@ Hieronder volgt een voorbeeld-nettolading voor een standaard webhook *zonder aan
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -152,10 +156,11 @@ Hieronder volgt een voorbeeld-nettolading voor een standaard webhook *zonder aan
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error"
+    "Severity": "Error",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
-    }
+}
+```
 
 > [!NOTE]
 > Logboek van waarschuwingen voor Application Insights wordt momenteel openbare preview - de functionaliteit en gebruikerservaring kan worden gewijzigd.
@@ -163,14 +168,16 @@ Hieronder volgt een voorbeeld-nettolading voor een standaard webhook *zonder aan
 #### <a name="log-alert-with-custom-json-payload"></a>Meld u waarschuwing met aangepaste JSON-nettolading
 Bijvoorbeeld: voor het maken van een aangepaste nettolading met alleen de naam van de waarschuwing en de zoekresultaten, u kunt het volgende: 
 
+```json
     {
        "alertname":"#alertrulename",
        "IncludeSearchResults":true
     }
+```
 
 Hier volgt een voorbeeld-nettolading voor een aangepaste webhook-actie voor een logboek-waarschuwing.
     
-
+```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
@@ -180,7 +187,7 @@ Hier volgt een voorbeeld-nettolading voor een aangepaste webhook-actie voor een 
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -191,8 +198,7 @@ Hier volgt een voorbeeld-nettolading voor een aangepaste webhook-actie voor een 
                 ]
         }
     }
-
-
+```
 
 
 ## <a name="next-steps"></a>Volgende stappen

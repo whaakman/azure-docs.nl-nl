@@ -2,11 +2,11 @@
 title: De Azure Cosmos DB Emulator certificaten exporteren | Microsoft Docs
 description: Bij het ontwikkelen van in talen en runtimes die geen van de Windows-certificaatarchief gebruikmaken moet u exporteren en de SSL-certificaten te beheren. Dit bericht geeft stapsgewijze instructies.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
 author: voellm
-manager: jhubbard
-editor: 
+manager: kfile
+editor: ''
 ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 87d453cd544b3e913209f50e4e08b77282efab39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporteren van de certificaten Azure Cosmos DB Emulator voor gebruiken met Java, Python en Node.js
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 
 De Azure-Emulator Cosmos DB biedt een lokale omgeving waarin de service Azure Cosmos DB voor ontwikkelingsdoeleinden, met inbegrip van het gebruik van SSL-verbindingen. Dit artikel laat zien hoe u exporteert u het SSL-certificaat voor gebruik met talen en runtimes die niet worden geïntegreerd in de Windows-certificaatarchief zoals Java die gebruikmaakt van een eigen [certificaatarchief](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) en Python dat gebruikmaakt van [socket wrappers](https://docs.python.org/2/library/ssl.html) en Node.js dat gebruikmaakt van [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). U kunt meer lezen over de emulator in [de Emulator Azure Cosmos DB gebruiken voor ontwikkeling en tests](./local-emulator.md).
 
-Deze zelfstudie bevat de volgende taken:
+Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
 > * Certificaten draaien

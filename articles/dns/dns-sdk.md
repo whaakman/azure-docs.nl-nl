@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
-ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f6f10649670dac523289724603e2aecaf17fa67d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Maken van DNS-zones en -recordsets met de .NET SDK
 
@@ -29,7 +29,7 @@ Normaal gesproken wordt programmatische toegang tot Azure-resources verleend via
 
 1. Ga als volgt [deze instructies](../azure-resource-manager/resource-group-authenticate-service-principal.md) voor het maken van een service-principalaccount (het voorbeeldproject Azure DNS-SDK wordt ervan uitgegaan dat de verificatie op basis van wachtwoorden.)
 2. Een resourcegroep maken ([Hier ziet u hoe](../azure-resource-manager/resource-group-template-deploy-portal.md)).
-3. Gebruik Azure RBAC de principal-serviceaccount, DNS-Zone Inzender' om machtigingen te verlenen aan de resourcegroep ([Hier ziet u hoe](../active-directory/role-based-access-control-configure.md).)
+3. Gebruik Azure RBAC de principal-serviceaccount, DNS-Zone Inzender' om machtigingen te verlenen aan de resourcegroep ([Hier ziet u hoe](../role-based-access-control/role-assignments-portal.md).)
 4. Als het voorbeeldproject Azure DNS-SDK wordt gebruikt, bewerkt u het bestand 'program.cs' als volgt:
 
    * Voeg de juiste waarden voor de tenant-id, clientId (ook wel bekend als account-ID), geheim (service-principalaccount wachtwoord) en abonnements-id gebruikt in stap 1.

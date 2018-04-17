@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bd3618367f91fe043cc8412481b38a9c996a5275
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL-databases op Microsoft Azure-Stack gebruiken
 
@@ -81,7 +81,7 @@ U moet een (of meer) exemplaren van SQL Server maken en/of toegang tot de extern
 
     - Een enkele certificaatbestand kan in de map waarnaar wordt verwezen door de parameter DependencyFilesLocalPath bestaan.
 
-    - De bestandsnaam moet de speciale tekens niet bevatten.
+    - De bestandsnaam mag geen eventuele speciale tekens of spaties bevatten.
 
 
 5. Open een **nieuwe** (beheerdersrechten) PowerShell-console met verhoogde bevoegdheid en de wijzigingen in de map waar u de bestanden hebt uitgepakt. Een nieuw venster gebruiken om problemen die mogelijk worden veroorzaakt door onjuiste PowerShell-modules die al zijn geladen in het systeem te voorkomen.
@@ -158,7 +158,7 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of als 
 | **MaxRetryCount** | Het aantal keren dat u wilt opnieuw proberen aan elke als er een storing optreedt.| 2 |
 | **RetryDuration** | De time-interval tussen nieuwe pogingen, in seconden. | 120 |
 | **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources (Zie de volgende opmerkingen). | Nee |
-| **DebugMode** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
+| **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
 
 
 ## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Controleer of de implementatie met de Stack van Azure-portal
@@ -245,7 +245,7 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of als 
 | **MaxRetryCount** | Het aantal keren dat u wilt opnieuw proberen aan elke als er een storing optreedt.| 2 |
 | **RetryDuration** |De time-interval tussen nieuwe pogingen, in seconden. | 120 |
 | **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources (Zie de volgende opmerkingen). | Nee |
-| **DebugMode** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
+| **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
 
 
 ## <a name="collect-diagnostic-logs"></a>Diagnostische logboeken verzamelen
@@ -363,7 +363,7 @@ Als u wilt verwijderen van de resourceprovider, is het essentieel voor Verwijder
 6. Opnieuw uit het script voor implementatie met de volgende elementen:
     - De - parameter verwijderen
     - De Azure Resource Manager-eindpunten
-    - The DirectoryTenantID
+    - De DirectoryTenantID
     - De referenties voor de service administrator-account
 
 

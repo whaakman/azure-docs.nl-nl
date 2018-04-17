@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 1dfe319e708e6a4e815413da1a7bf635f4d0a53d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Zelfstudie: Azure Active Directory-integratie met Workday
 
@@ -108,15 +108,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Werkdag domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-workday-tutorial/tutorial_workday_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. In de **id** textbox, typ een URL:`http://www.workday.com`
+    b. In de **id** textbox, typ een URL: `http://www.workday.com`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap:
 
     ![Werkdag domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-workday-tutorial/tutorial_workday_url1.png)
 
-    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://impl.workday.com/<tenant>/login-saml.htmld`
+    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://impl.workday.com/<tenant>/login-saml.htmld`
      
     > [!NOTE] 
     > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met de werkelijke aanmeldings-URL en de antwoord-URL. Uw antwoord-URL bijvoorbeeld een subdomein moet hebben: www, wd2, wd3, wd3 impl, wd5, wd5 impl). Met behulp van ongeveer '*http://www.myworkday.com*' werkt, maar '*http://myworkday.com*' niet. Neem contact op met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) ophalen van deze waarden.  
@@ -153,7 +153,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     >[!NOTE]
     > De waarde van de omgeving-kenmerk is gekoppeld aan de waarde van de tenant-URL:  
-    >-Als de domeinnaam van de tenant-URL voor Workday wordt gestart met impl bijvoorbeeld: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), wordt de **omgeving** kenmerk moet worden ingesteld op implementatie.  
+    >-Als de domeinnaam van de tenant-URL voor Workday wordt gestart met impl bijvoorbeeld:  *https://impl.workday.com/ \<tenant\>/login-saml2.htmld*), wordt de **omgeving** kenmerk moet worden ingesteld aan de implementatie.  
     >-Als de domeinnaam met iets anders begint, moet u contact opnemen met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) ophalen van het overeenkomende **omgeving** waarde.
 
 11. In de **SAML Setup** sectie, voert u de volgende stappen uit:
@@ -172,9 +172,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
    
     b. In de Azure-portal op de **eenmalige aanmelding configureren** venster, Kopieer de **SAML entiteit-ID** waarde en plak deze in de **verlener** textbox.
 
-    ![SAML-id-Providers](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "SAML-id-Providers")
+    ![SAML-id-Providers](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML-id-Providers")
    
-    c. Selecteer **werkdag geïnitieerd afmelding inschakelen**.
+    c. Selecteer **inschakelen idp geïnitieerd afmelding**.
    
     d. In de Azure-portal op de **eenmalige aanmelding configureren** venster, Kopieer de **Sign-Out URL** waarde en plak deze in de **URL voor afmelden** textbox.
 
@@ -226,9 +226,6 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     d. Klik op **OK**. 
    
     ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -309,7 +306,6 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-workday-tutorial/tutorial_general_01.png
@@ -323,4 +319,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-workday-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workday-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workday-tutorial/tutorial_general_203.png
-

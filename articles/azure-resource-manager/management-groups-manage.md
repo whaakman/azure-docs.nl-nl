@@ -1,10 +1,10 @@
 ---
 title: Wijzigen, verwijderen of beheren van uw beheergroepen - Azure | Microsoft Docs
-description: "Informatie over het onderhouden en bijwerken van uw hiërarchie beheren."
+description: Informatie over het onderhouden en bijwerken van uw hiërarchie beheren.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 33797ddcd2a6ff083c5fb4b2fa7ddb8f9d6bd76c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cba3f9290aff1808133b9d7780e4169fa25a10b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen 
-Beheergroepen zijn containers waarmee u toegang, beleid en naleving in meerdere abonnementen beheren. U kunt wijzigen, verwijderen en beheren van deze containers om hiërarchieën die kunnen worden gebruikt met [Azure beleid](../azure-policy/azure-policy-introduction.md) en [Azure Access besturingselementen RBAC (Role Based)](../active-directory/role-based-access-control-what-is.md). Zie voor meer informatie over beheergroepen, [ordenen van uw resources met Azure-beheergroepen ](management-groups-overview.md).
+Beheergroepen zijn containers waarmee u toegang, beleid en naleving in meerdere abonnementen beheren. U kunt wijzigen, verwijderen en beheren van deze containers om hiërarchieën die kunnen worden gebruikt met [Azure beleid](../azure-policy/azure-policy-introduction.md) en [Azure Access besturingselementen RBAC (Role Based)](../role-based-access-control/overview.md). Zie voor meer informatie over beheergroepen, [ordenen van uw resources met Azure-beheergroepen ](management-groups-overview.md).
 
 De functie management group is beschikbaar in een openbare preview. Aan de slag met beheer van groepen, meld u aan bij de [Azure-portal](https://portal.azure.com) of kunt u [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), of de [REST-API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) naar uw beheergroepen beheren.
 
-Als u wijzigingen aan een beheergroep, moet u een eigenaar of bijdrager rol hebben op de beheergroep. Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../active-directory/role-based-access-control-what-is.md).
+Als u wijzigingen aan een beheergroep, moet u een eigenaar of bijdrager rol hebben op de beheergroep. Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../role-based-access-control/overview.md).
 
 ## <a name="change-the-name-of-a-management-group"></a>Wijzig de naam van een beheergroep 
 U kunt de naam van de beheergroep wijzigen met behulp van de portal, PowerShell of Azure CLI.
@@ -64,7 +64,7 @@ Als u wilt verwijderen van een beheergroep, moeten de volgende vereisten worden 
 1. Er zijn geen onderliggende beheergroepen of abonnementen onder de beheergroep. 
     - Zie voor het verplaatsen van een abonnement uit een beheergroep [abonnement verplaatsen naar een andere managemnt groep](#Move-subscriptions-in-the-hierarchy). 
     - Zie voor het verplaatsen van een beheergroep met een andere beheergroep, [beheergroepen verplaatsen in de hiërarchie](#Move-management-groups-in-the-hierarchy). 
-2. U hebt schrijfmachtigingen voor de groep eigenaar of bijdrager rol op de beheergroep. Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../active-directory/role-based-access-control-what-is.md).  
+2. U hebt schrijfmachtigingen voor de groep eigenaar of bijdrager rol op de beheergroep. Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>In de portal verwijderen
 
@@ -139,7 +139,7 @@ Voor het verplaatsen van het abonnement, zijn er enkele machtigingen die u moet 
 - 'Eigenaar'-rol op het onderliggende-abonnement.
 - De rol 'Eigenaar' of 'Inzender' op de nieuwe bovenliggende beheergroep. 
 - De rol 'Eigenaar' of 'Inzender' op de oude bovenliggende beheergroep.
-Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../active-directory/role-based-access-control-what-is.md). 
+Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../role-based-access-control/overview.md). 
 
 ### <a name="move-subscriptions-in-the-portal"></a>Verplaatsen van abonnementen in de portal
 

@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: c8804dce7dd8291b65f704ba36aaa1cd05eb4518
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8995689be7467553069e056347f6dec7378fd186
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Een Azure-SSIS-integratie runtime maken in Azure Data Factory
 Dit artikel bevat stappen voor het inrichten van een Azure-SSIS-integratie runtime in Azure Data Factory. Vervolgens kunt u SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) gebruiken om pakketten van SQL Server Integration Services (SSIS) te implementeren in deze runtime van Azure.
@@ -39,12 +39,12 @@ In dit artikel bevat verschillende manieren voor het leveren van een Azure-SSIS-
 
 Wanneer u een Azure-SSIS-IR maakt, is Data Factory maakt verbinding met uw Azure SQL Database voorbereiden van de catalogus SSIS-database (SSISDB). Het script configureert ook machtigingen en instellingen voor uw VNet, indien opgegeven, en verbindt de nieuwe instantie van de Azure SSIS Integration Runtime met het VNet.
 
-Wanneer u een exemplaar van een Azure-SSI-IR inricht, worden ook het Azure Feature Pack voor SSIS en de Access Redistributable geïnstalleerd. Deze onderdelen bieden connectiviteit met Excel- en Access-bestanden en met verschillende Azure-gegevensbronnen, naast de gegevensbronnen die worden ondersteund door de ingebouwde onderdelen. Onderdelen van derden voor SSIS kunnen op dit moment niet worden geïnstalleerd (met inbegrip van onderdelen van derden van Microsoft, zoals de Oracle- en Teradata-onderdelen van Attunity en de SAP BI-onderdelen).
+Wanneer u een exemplaar van een Azure-SSI-IR inricht, worden ook het Azure Feature Pack voor SSIS en de Access Redistributable geïnstalleerd. Deze onderdelen bieden connectiviteit met Excel- en Access-bestanden en met verschillende Azure-gegevensbronnen, naast de gegevensbronnen die worden ondersteund door de ingebouwde onderdelen. U kunt ook extra onderdelen installeren. Zie voor meer informatie [aangepaste installatie voor de integratie van Azure SSIS runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 - **Azure-abonnement**. Als u geen abonnement hebt, kunt u een [gratis proefaccount](http://azure.microsoft.com/pricing/free-trial/) maken.
-- **Azure SQL Database-server** of **beheerde exemplaar van SQL Server (Preview) (Private Preview uitgebreid)**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. Noteer de prijscategorie van uw Azure SQL-server. Zie voor een lijst met ondersteunde Prijscategorieën voor Azure SQL Database, [limieten voor SQL-Database](../sql-database/sql-database-resource-limits.md).
+- **Azure SQL Database-server** of **beheerde exemplaar van SQL Server (Preview)**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. Noteer de prijscategorie van uw Azure SQL-server. Zie voor een lijst met ondersteunde Prijscategorieën voor Azure SQL Database, [limieten voor SQL-Database](../sql-database/sql-database-resource-limits.md).
 
     Bevestig dat uw Azure SQL Database-server of beheerde exemplaar van SQL Server (Preview) beschikt niet over een catalogus SSIS (SSIDB database). Het inrichten van Azure-SSIS-IR biedt geen ondersteuning voor het gebruik van een bestaande SSIS-catalogus.
 - **Klassieke of Azure Resource Manager virtuele Network(VNet) (optioneel)**. U hebt een virtueel netwerk (VNet) in Azure nodig als ten minste aan een van de volgende voorwaarden wordt voldaan:
@@ -54,7 +54,7 @@ Wanneer u een exemplaar van een Azure-SSI-IR inricht, worden ook het Azure Featu
 
 > [!NOTE]
 > - U kunt een gegevensfactory van versie 2 maken in de volgende regio's: VS - oost, VS - oost 2, Zuidoost-Azië en West-Europa. 
-> - U kunt een Azure-SSIS-IR maken in de volgende regio's: VS - oost, VS - oost 2, VS - midden, Noord-Europa, West-Europa en Australië - oost.
+> - U kunt een Azure-SSIS-IR maken in de volgende gebieden: VS-Oost, VS-Oost 2, VS-midden, VS-West 2, Noord-Europa, West-Europa, VK Zuid en Australië-Oost.
 
 ## <a name="azure-portal"></a>Azure Portal
 In deze sectie maakt u de Azure portal, specifiek de Data Factory-gebruikersinterface gebruiken voor het maken van een Azure-SSIS-IR 
@@ -73,6 +73,7 @@ In deze sectie maakt u de Azure portal, specifiek de Data Factory-gebruikersinte
    De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamMyAzureSsisDataFactory) en probeert u het opnieuw. Zie het artikel [Data factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
        `Data factory name “MyAzureSsisDataFactory” is not available`
+
 3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
 4. Voer een van de volgende stappen uit voor de **Resourcegroep**:
      
@@ -170,8 +171,10 @@ $DataFactoryLocation = "EastUS"
 # Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
+# Azure-SSIS IR edition/license info: Standard or Enterprise 
+$AzureSSISEdition = "Standard" # Enterprise Edition supports advanced/premium features
 
-# You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, North Europe, West Europe, and Australia East.
+# You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
 # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D3_v2"
@@ -179,6 +182,9 @@ $AzureSSISNodeSize = "Standard_D3_v2"
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
+
+# Custom setup info
+$SetupScriptContainerSasUri = "" # OPTIONAL: SAS URI of blob container where your custom setup script and its associated files are stored
 
 # SSISDB info
 $SSISDBServerEndpoint = "[your Azure SQL Database server name.database.windows.net or your Azure SQL Managed Instance (Preview) server endpoint]"
@@ -278,10 +284,12 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -CatalogAdminCredential $serverCreds `
                                             -CatalogPricingTier $SSISDBPricingTier `
                                             -Description $AzureSSISDescription `
+                                            -Edition $AzureSSISEdition ` 
                                             -Location $AzureSSISLocation `
                                             -NodeSize $AzureSSISNodeSize `
                                             -NodeCount $AzureSSISNodeNumber `
-                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode
+                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                            -SetupScriptContainerSasUri $SetupScriptContainerSasUri
 ```
 
 U hoeft niet te waarden doorgeven voor VNetId en Subnet, tenzij u toegang tot lokale gegevens moet, dat wil zeggen, hebt u lokale gegevens bronnen/bestemmingen in uw SSIS-pakketten. U moet de waarde voor de parameter CatalogPricingTier doorgeven. Zie voor een lijst met ondersteunde Prijscategorieën voor Azure SQL Database, [limieten voor SQL-Database](../sql-database/sql-database-resource-limits.md).
@@ -298,10 +306,12 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -CatalogServerEndpoint $SSISDBServerEndpoint `
                                             -CatalogAdminCredential $serverCreds `
                                             -Description $AzureSSISDescription `
+                                            -Edition $AzureSSISEdition ` 
                                             -Location $AzureSSISLocation `
                                             -NodeSize $AzureSSISNodeSize `
                                             -NodeCount $AzureSSISNodeNumber `
                                             -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                            -SetupScriptContainerSasUri $SetupScriptContainerSasUri `
                                             -VnetId $VnetId `
                                             -Subnet $SubnetName
 ```
@@ -339,6 +349,9 @@ $DataFactoryLocation = "EastUS"
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "<Specify a name for your Azure-SSIS (IR)>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
+# Azure-SSIS IR edition/license info: Standard or Enterprise 
+$AzureSSISEdition = "Standard" # Enterprise Edition supports advanced/premium features
+
 $AzureSSISLocation = "EastUS" 
  # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
 $AzureSSISNodeSize = "Standard_D3_v2"
@@ -346,6 +359,9 @@ $AzureSSISNodeSize = "Standard_D3_v2"
 $AzureSSISNodeNumber = 2 
 # For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
+
+# Custom setup info
+$SetupScriptContainerSasUri = "" # OPTIONAL: SAS URI of blob container where your custom setup script and its associated files are stored
 
 # SSISDB info
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
@@ -389,10 +405,12 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
                                             -CatalogAdminCredential $serverCreds `
                                             -CatalogPricingTier $SSISDBPricingTier `
                                             -Description $AzureSSISDescription `
+                                            -Edition $AzureSSISEdition ` 
                                             -Location $AzureSSISLocation `
                                             -NodeSize $AzureSSISNodeSize `
                                             -NodeCount $AzureSSISNodeNumber `
-                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode
+                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                            -SetupScriptContainerSasUri $SetupScriptContainerSasUri
 
 write-host("##### Starting your Azure-SSIS integration runtime. This command takes 20 to 30 minutes to complete. #####")
 Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

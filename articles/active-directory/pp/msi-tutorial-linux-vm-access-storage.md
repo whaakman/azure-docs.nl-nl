@@ -2,7 +2,7 @@
 title: Een gebruiker toegewezen MSI op een Linux-VM te gebruiken voor toegang tot Azure Storage
 description: Een zelfstudie die u bij het proces helpt van het gebruik van een gebruiker toegewezen beheerde Service identiteit (MSI) op een Linux-VM voor toegang tot Azure Storage.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: arluca
@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5ae0e4e8149772d79190ee196cdd1c1bef344681
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dd82f1757d9c5a5fc8fb110cc36ec9f4bbd73e8a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Een gebruiker toegewezen beheerde Service identiteit (MSI) op een Linux-VM te gebruiken voor toegang tot Azure Storage
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Deze zelfstudie laat zien hoe maken en gebruiken van een gebruiker toegewezen beheerde Service identiteit (MSI) van een virtuele Linux-Machine en vervolgens gebruiken voor toegang tot Azure Storage. Procedures voor:
+Deze zelfstudie laat zien hoe maken en gebruiken van een gebruiker toegewezen beheerde Service identiteit (MSI) van een virtuele Linux-Machine en vervolgens gebruiken voor toegang tot Azure Storage. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Maak een beheerde Service-identiteit (MSI) toegewezen gebruiker
@@ -45,7 +45,7 @@ Als u wilt uitvoeren in de CLI scriptvoorbeelden in deze zelfstudie, hebt u twee
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Aanmelden bij de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-machine in een nieuwe resourcegroep maken
 
@@ -102,7 +102,7 @@ De gebruiker toegewezen MSI toewijzen aan uw Linux-VM met [az vm toewijzen-ident
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken 
+## <a name="create-a-storage-account"></a>Create a storage account 
 
 Als u dit niet al hebt, moet u nu een opslagaccount maken. U kunt ook deze stap overslaan en een bestaand opslagaccount gebruiken als u liever. 
 
@@ -189,7 +189,7 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
 4. Het toegangstoken nu gebruiken voor toegang tot Azure Storage, bijvoorbeeld lezen van de inhoud van het voorbeeldbestand die u eerder hebt geüpload naar de container. Vervang de waarden van `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, en `<FILE NAME>` met de waarden die u eerder hebt opgegeven en `<ACCESS TOKEN>` aan het token geretourneerd in de vorige stap.
 
    ```bash
-   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2017-11-09 -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME> -H "x-ms-version: 2017-11-09" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    Het antwoord bevat de inhoud van het bestand:

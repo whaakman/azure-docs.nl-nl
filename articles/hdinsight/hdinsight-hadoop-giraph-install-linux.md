@@ -2,7 +2,7 @@
 title: Installeren en gebruiken van Giraph op HDInsight (Hadoop) - Azure | Microsoft Docs
 description: Informatie over het installeren van Giraph op Linux gebaseerde HDInsight-clusters met behulp van scriptacties. Scriptacties kunnen u het cluster tijdens het maken, aanpassen door het wijzigen van de configuratie van het cluster of het installeren van hulpprogramma's en services.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 1f2ee45d5d3a4dbb53faf43f67989ea92488b92a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: dcfd37a40ce16a1574c21e3a6e9520cb2e773166
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Giraph installeren op HDInsight Hadoop-clusters en Giraph gebruiken voor het verwerken van grootschalige grafieken
 
@@ -42,16 +40,16 @@ Informatie over het installeren van Apache Giraph op een HDInsight-cluster. Het 
 > [!WARNING]
 > Onderdelen van het HDInsight-cluster worden volledig ondersteund: Microsoft Support helpt te isoleren en het oplossen van problemen met betrekking tot deze onderdelen.
 >
-> Aangepaste onderdelen, zoals Giraph, ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Microsoft Support kunt u mogelijk het oplossen van het probleem. Als dat niet het geval is, moet u contact opnemen met open-source community's waar grondige kennis van deze technologie kan worden gevonden. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [http://apache.org](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
+> Aangepaste onderdelen, zoals Giraph, ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Microsoft Support kunt u mogelijk het oplossen van het probleem. Als dat niet het geval is, moet u contact opnemen met open-source community's waar grondige kennis van deze technologie kan worden gevonden. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
 
 
 ## <a name="what-the-script-does"></a>Wat het script doet
 
 Dit script voert de volgende handelingen uit:
 
-* Giraph om te worden geïnstalleerd`/usr/hdp/current/giraph`
+* Giraph om te worden geïnstalleerd `/usr/hdp/current/giraph`
 
-* Kopieert de `giraph-examples.jar` bestand standaard storage (WASB) voor uw cluster:`/example/jars/giraph-examples.jar`
+* Kopieert de `giraph-examples.jar` bestand standaard storage (WASB) voor uw cluster: `/example/jars/giraph-examples.jar`
 
 ## <a name="install"></a>Giraph met behulp van scriptacties installeren
 
@@ -76,7 +74,7 @@ Deze sectie geeft instructies voor het gebruik van het voorbeeldscript tijdens h
 
    * **NAAM**: een beschrijvende naam voor de scriptactie.
 
-   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+   * **SCRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
    * **HEAD**: deze vermelding controleren
 

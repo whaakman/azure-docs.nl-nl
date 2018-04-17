@@ -2,25 +2,22 @@
 title: Diepgaand - geavanceerde analyses - Azure HDInsight | Microsoft Docs
 description: Meer informatie over hoe geavanceerde analyses algoritmen gebruikt voor het verwerken van big data.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 61a00c902be5cd3e37dabba09c15f9226e5e88b4
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: f121a1f95eed04bf8086c03a5d4406c092dc9445
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deep-dive---advanced-analytics"></a>Diepgaand - geavanceerde analyses
 
@@ -30,7 +27,7 @@ HDInsight biedt de mogelijkheid om op te halen inzicht van grote hoeveelheden ge
 
 ## <a name="advanced-analytics-process"></a>Geavanceerde analyses proces
 
-![Proces](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Verwerken](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
 
 Nadat u het zakelijke probleem hebt geïdentificeerd en hebt gestart met het verzamelen en verwerken van uw gegevens die u wilt maken van een model voor de vraag die u wilt voorspellen. Het model wordt een of meer machine learning-algoritmen gebruiken om het type van de voorspelling die het beste past bij de behoeften van uw bedrijf.  Het merendeel van uw gegevens moet worden gebruikt voor het trainen van het model met de rest gebruikt om te testen of deze evalueren. 
 

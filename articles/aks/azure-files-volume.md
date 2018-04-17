@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1def417f97a94fa0770b99606cd3a68189d1d51b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 04380e5e9e0f1f9b0c88fdba8d21b3e7e8e8a358
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="volumes-with-azure-files"></a>Volumes met Azure-bestanden
 
@@ -66,7 +66,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-file-share-as-volume"></a>Bestandsshare als een volume koppelen
 
-U kunt de share van uw Azure-bestanden in uw schil koppelen door het configureren van het volume in de specificatie. Maak een nieuw bestand met de naam `azure-files-pod.yaml` met de volgende inhoud. Update `aksshare` met de naam van de Azure-bestanden delen.
+Koppel uw Azure-bestanden delen in uw schil met het configureren van het volume in de specificatie. Maak een nieuw bestand met de naam `azure-files-pod.yaml` met de volgende inhoud. Update `aksshare` met de naam van de Azure-bestanden delen.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ Kubectl gebruik te maken van een schil.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-U hebt nu een actieve container met uw Azure-bestandsshare gekoppeld in de `/mnt/azure` directory. U kunt zien dat het volume dat is gekoppeld bij de inspectie van uw schil via `kubectl describe pod azure-files-pod`.
+U hebt nu een actieve container met uw Azure-bestandsshare gekoppeld in de `/mnt/azure` directory.  U kunt zien dat het volume dat is gekoppeld bij de inspectie van uw schil via `kubectl describe pod azure-files-pod`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

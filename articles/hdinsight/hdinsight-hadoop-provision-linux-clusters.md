@@ -3,7 +3,7 @@ title: Configuratie van een cluster voor Hadoop, Spark, HBase, Kafka of R Server
 description: Stel Hadoop, Kafka, Spark, HBase, R Server of Storm-clusters voor HDInsight vanuit een browser, de Azure CLI, Azure PowerShell, REST of SDK.
 keywords: setup van hadoop-cluster, kafka configuratie van een cluster, spark-cluster setup, wat is hadoop-cluster
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -12,16 +12,14 @@ ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 54c88b25911ddfa4ed9ecf6ea4b28278c2d9aac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Clusters in HDInsight met Hadoop, Spark en Kafka instellen
 
@@ -68,7 +66,7 @@ Volg de instructies op het scherm een basic clusterinstallatie doen. Details wor
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helpt u werkt met de resources in uw toepassing als een groep aangeduid als een Azure-resourcegroep. U kunt implementeren, bijwerken, bewaken of verwijderen van alle resources voor uw toepassing in een enkele, gecoördineerde bewerking.
 
-## <a name="cluster-types">Clustertypen en configuratie</a>
+## <a name="cluster-types"></a> Clustertypen en configuratie
 Azure HDInsight biedt momenteel de volgende clustertypen, elk met een reeks onderdelen voor bepaalde functies.
 
 > [!IMPORTANT]
@@ -84,7 +82,7 @@ Azure HDInsight biedt momenteel de volgende clustertypen, elk met een reeks onde
 | [Kafka](kafka/apache-kafka-introduction.md) | Een gedistribueerde streaming-platform die kan worden gebruikt voor het bouwen van realtime streaming gegevenspijplijnen en toepassingen |
 | [R Server](r-server/r-server-overview.md) |Diverse big data-statistieken, voorspellende modellen en machine learning-mogelijkheden |
 | [Spark](spark/apache-spark-overview.md) |In-memory verwerking, interactieve query's micro batch stroom verwerken |
-| [Storm](storm/apache-storm-overview.md) |Gebeurtenissen in realtime verwerken |
+| [storm](storm/apache-storm-overview.md) |Gebeurtenissen in realtime verwerken |
 
 
 ### <a name="hdinsight-version"></a>HDInsight-versie
@@ -228,7 +226,7 @@ Sommige systeemeigen Java-onderdelen, zoals Mahout en trapsgewijze, kunnen worde
 Soms wilt u de volgende configuratiebestanden tijdens het maakproces configureren:
 
 * clusterIdentity.xml
-* core-site.xml
+* Core-site.xml
 * gateway.XML
 * hbase-env.xml
 * hbase-site.xml

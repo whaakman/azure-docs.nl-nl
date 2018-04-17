@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -63,7 +61,7 @@ Wanneer u een HDInsight-cluster maakt, moet u een Azure-abonnement opgeven. Het 
     1. Meld u aan bij [Azure Portal](https://portal.azure.com).
     2. Klik op **abonnement** in het menu links. Het heeft pictogram van een gele sleutel. U ziet een lijst met abonnementen.
     3. Klik op het abonnement dat u gebruiken om clusters te maken. 
-    4. Klik op **mijn machtigingen**.  Het bevat uw [rol](../active-directory/role-based-access-control-what-is.md#built-in-roles) voor het abonnement. U moet ten minste Inzender toegang tot het HDInsight-cluster maken.
+    4. Klik op **mijn machtigingen**.  Het bevat uw [rol](../role-based-access-control/overview.md#built-in-roles) voor het abonnement. U moet ten minste Inzender toegang tot het HDInsight-cluster maken.
 
 - Een bestaande resourcegroep gebruiken:
 
@@ -89,7 +87,7 @@ Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistrati
 
     **Menu aan de linkerkant:**
     * **Activiteitenlogboeken**: weergeven en query activiteitenlogboeken.
-    * **Toegangsbeheer (IAM)**: roltoewijzingen gebruiken.  Zie [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../active-directory/role-based-access-control-configure.md).
+    * **Toegangsbeheer (IAM)**: roltoewijzingen gebruiken.  Zie [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md).
     * **Labels**: Hiermee kunt u instellen van sleutel-waardeparen voor het definiëren van een aangepaste taxonomie van uw cloud-services. Bijvoorbeeld, u kunt maken met een sleutel met de naam **project**, en gebruik vervolgens een overeenkomende waarde voor alle services die zijn gekoppeld aan een bepaald project.
     * **Diagnosticeren en oplossen van problemen met**: informatie over probleemoplossing weergeven.
     * **Hiermee vergrendelt u**: toevoegen van een vergrendeling om te voorkomen dat het cluster dat wordt gewijzigd of verwijderd.
@@ -237,7 +235,7 @@ Ambari bevat een intuïtieve, eenvoudig te gebruiken Hadoop management webgebrui
 
 1. De cluster-gebruikersnaam en wachtwoord invoeren.  De standaardgebruikersnaam cluster _admin_. Het Ambari web UI ziet eruit als:
 
-    ![HDInsight Hadoop Ambari Web UI](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+    ![Ambari-Webgebruikersinterface HDInsight Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
 
 Zie voor meer informatie [HDInsight-clusters beheren met behulp van de Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md).
 

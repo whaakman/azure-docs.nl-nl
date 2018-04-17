@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Een validatietest uitvoeren voor Azure-Stack
 
@@ -33,7 +33,8 @@ Wanneer u een probleem hebt, neem contact op met de klantondersteuning van Micro
 2. Neem contact op met Microsoft Customer Services Support.
 3. Voer **Test AzureStack** vanaf het bevoegde eindpunt.
     1. Toegang tot de bevoegde eindpunt. Zie voor instructies [met behulp van de bevoegde eindpunt in Azure-Stack](azure-stack-privileged-endpoint.md). 
-    2. Meld u aan als **AzureStack\CloudAdmin** op de host management.
+    2. Op de ASDK, meld u aan bij de host beheer als **AzureStack\CloudAdmin**.  
+    Op een geïntegreerd systeem moet u het IP-adres gebruiken voor het beschermde--eindpunt voor het beheer aan u geleverd door de leverancier van de OEM-hardware.
     3. Open PowerShell als beheerder.
     4. Uitvoeren: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. Uitvoeren: `Test-AzureStack`

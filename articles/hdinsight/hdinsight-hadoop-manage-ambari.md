@@ -11,16 +11,14 @@ ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 922dfd475f27f182d8958887087fc2f4945cc43a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8c58607e191d58d1cb6706569b909a4d709b14b3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>HDInsight-clusters beheren met behulp van de Ambari-Webgebruikersinterface
 
@@ -50,7 +48,7 @@ De Ambari-Webgebruikersinterface is beschikbaar op uw HDInsight-cluster op HTTPS
 
 Terwijl de Ambari voor uw cluster rechtstreeks via Internet toegankelijk is, worden sommige koppelingen van de Ambari-Webgebruikersinterface (zoals het de JobTracker) niet weergegeven op het internet. Voor toegang tot deze services, moet u een SSH-tunnel maken. Zie voor meer informatie [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="ambari-web-ui"></a>Ambari Web UI
+## <a name="ambari-web-ui"></a>Ambari-webgebruikersinterface
 
 > [!WARNING]
 > Niet alle functies van de Ambari-Webgebruikersinterface worden ondersteund op HDInsight. Zie voor meer informatie de [niet-ondersteunde bewerkingen](#unsupported-operations) gedeelte van dit document.

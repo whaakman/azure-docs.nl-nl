@@ -1,25 +1,18 @@
 ---
 title: 'Azure Analysis Services-zelfstudie - Les 4: Relaties maken | Microsoft Docs'
 description: In deze les wordt beschreven hoe u relaties maakt in de zelfstudie over Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: 694043454ba2564900416135e1f143bdeb63c202
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-relationships"></a>Relaties maken
 

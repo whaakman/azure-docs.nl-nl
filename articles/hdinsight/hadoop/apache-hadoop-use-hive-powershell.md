@@ -2,7 +2,7 @@
 title: Hadoop Hive gebruiken met PowerShell in HDInsight - Azure | Microsoft Docs
 description: PowerShell gebruiken voor het uitvoeren van Hive-query's in Hadoop op HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: cb795b7c-bcd0-497a-a7f0-8ed18ef49195
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: fbd5ad2aedf0c3022e702a63f8e3d12735b41313
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 044c901799ff7acae1e27602b84802f6b5f70f05
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-hive-queries-using-powershell"></a>Uitvoeren van Hive-query's met behulp van PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

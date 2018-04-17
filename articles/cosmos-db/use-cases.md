@@ -2,10 +2,8 @@
 title: Algemene gebruiksvoorbeelden en scenario's voor Azure Cosmos DB | Microsoft Docs
 description: 'Meer informatie over de bovenste vijf gebruiksvoorbeelden voor Azure Cosmos DB: gebruiker gegenereerde inhoud, logboekregistratie van gebeurtenissen, gegevens in de catalogus, gebruikersgegevens voorkeuren en Internet der dingen (IoT).'
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: 
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: mimig
-ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: c85aa1a010ea9ccac807d676fd69473de07abca9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Algemene gebruiksvoorbeelden voor Azure Cosmos-DB
 In dit artikel biedt een overzicht van enkele algemene gebruiksvoorbeelden voor Azure Cosmos DB.  De aanbevelingen in dit artikel fungeren als een beginpunt tijdens het ontwikkelen van uw toepassing met Cosmos-DB.   

@@ -1,6 +1,6 @@
 ---
 title: Identiteit voor Azure-app maken met PowerShell | Microsoft Docs
-description: "Hierin wordt beschreven hoe u met Azure PowerShell een Azure Active Directory-toepassing en service-principal maken en toegang tot resources via toegangsbeheer op basis van rollen. Er wordt weergegeven hoe toepassing met een certificaat te verifiëren."
+description: Hierin wordt beschreven hoe u met Azure PowerShell een Azure Active Directory-toepassing en service-principal maken en toegang tot resources via toegangsbeheer op basis van rollen. Er wordt weergegeven hoe toepassing met een certificaat te verifiëren.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 175d95c16484b90b13936c3be39b67749f0c3238
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3b14d148669457a47eecda11cf6a8c85b5361677
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell gebruiken voor het maken van een service-principal met een certificaat
 
@@ -40,7 +40,7 @@ De eenvoudigste manier om te controleren of uw account over de juiste machtiging
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Service-principal maken met een zelf-ondertekend certificaat
 
-Het volgende voorbeeld wordt een eenvoudig scenario behandeld. Hierbij [nieuw AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) een service-principal maken met een zelfondertekend certificaat en maakt gebruik van [New AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) om toe te wijzen de [Inzender](../active-directory/role-based-access-built-in-roles.md#contributor)role in de service-principal. De roltoewijzing is afgestemd op uw geselecteerde Azure-abonnement. Gebruik om te selecteren in een ander abonnement, [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Het volgende voorbeeld wordt een eenvoudig scenario behandeld. Hierbij [nieuw AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) een service-principal maken met een zelfondertekend certificaat en maakt gebruik van [New AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) om toe te wijzen de [Inzender](../role-based-access-control/built-in-roles.md#contributor)role in de service-principal. De roltoewijzing is afgestemd op uw geselecteerde Azure-abonnement. Gebruik om te selecteren in een ander abonnement, [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -170,7 +170,7 @@ Als u de toepassings-ID ophalen wilt, gebruikt:
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Service-principal maken met het certificaat van certificeringsinstantie
 
-Het volgende voorbeeld wordt een certificaat dat is uitgegeven door een certificeringsinstantie voor service-principal maken. De toewijzing is afgestemd op de opgegeven Azure-abonnement. Hiermee worden toegevoegd aan de service-principal de [Inzender](../active-directory/role-based-access-built-in-roles.md#contributor) rol. Als er een fout optreedt tijdens de roltoewijzing, het opnieuw probeert de toewijzing.
+Het volgende voorbeeld wordt een certificaat dat is uitgegeven door een certificeringsinstantie voor service-principal maken. De toewijzing is afgestemd op de opgegeven Azure-abonnement. Hiermee worden toegevoegd aan de service-principal de [Inzender](../role-based-access-control/built-in-roles.md#contributor) rol. Als er een fout optreedt tijdens de roltoewijzing, het opnieuw probeert de toewijzing.
 
 ```powershell
 Param (

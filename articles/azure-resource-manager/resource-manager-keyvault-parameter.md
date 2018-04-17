@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 04/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2643f79bb1e5e2603b1bd50b04c8ee3e7496f1f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Gebruik Azure Sleutelkluis beveiligde parameterwaarde worden doorgegeven tijdens de implementatie
 
 Wanneer u een beveiligde waarde (zoals een wachtwoord) als een parameter doorgeven tijdens de implementatie moet, kunt u de waarde van de ophalen een [Azure Key Vault](../key-vault/key-vault-whatis.md). De waarde wordt opgehaald door te verwijzen naar de sleutelkluis en geheim in de parameter-bestand. De waarde is nooit beschikbaar gemaakt, omdat u alleen verwijzen naar de sleutelkluis-ID. U hoeft niet de waarde handmatig invoeren voor het geheim telkens wanneer die u de resources implementeren. De sleutelkluis kan bestaan in een ander abonnement dan de resourcegroep die u implementeert. Wanneer u verwijst naar de sleutelkluis, omvatten u de abonnement-ID.
 
-Wanneer u de sleutelkluis maakt, stelt de *enabledForTemplateDeployment* eigenschap *true*. Deze waarde instelt op true, toestaan u toegang van Resource Manager-sjablonen tijdens de implementatie.
+Wanneer u de sleutelkluis maakt, stelt de *enabledForTemplateDeployment* eigenschap *true*. Deze waarde instelt op true, kunt u toegang van Resource Manager-sjablonen toestaan tijdens de implementatie.
 
 ## <a name="deploy-a-key-vault-and-secret"></a>Een sleutelkluis en geheim implementeren
 
@@ -62,7 +62,7 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 
 ## <a name="enable-access-to-the-secret"></a>Toegang tot het geheim inschakelen
 
-Of u een nieuwe sleutelkluis of een bestaande gebruikt, zorg ervoor dat de implementatie van de sjabloon gebruiker toegang het geheim tot. Het implementeren van een sjabloon die verwijst naar een geheim gebruiker moet beschikken over de `Microsoft.KeyVault/vaults/deploy/action` machtiging voor de sleutelkluis. De [eigenaar](../active-directory/role-based-access-built-in-roles.md#owner) en [Inzender](../active-directory/role-based-access-built-in-roles.md#contributor) beide rollen deze toegang verlenen.
+Of u een nieuwe sleutelkluis of een bestaande gebruikt, zorg ervoor dat de implementatie van de sjabloon gebruiker toegang het geheim tot. Het implementeren van een sjabloon die verwijst naar een geheim gebruiker moet beschikken over de `Microsoft.KeyVault/vaults/deploy/action` machtiging voor de sleutelkluis. De [eigenaar](../role-based-access-control/built-in-roles.md#owner) en [Inzender](../role-based-access-control/built-in-roles.md#contributor) beide rollen deze toegang verlenen.
 
 ## <a name="reference-a-secret-with-static-id"></a>Verwijst naar een geheim met statische-ID
 
@@ -131,6 +131,13 @@ Maak nu een parameterbestand voor de voorgaande sjabloon. Geef in het parameterb
 }
 ```
 
+Als u moet een versie van het geheim dan de huidige versie te gebruiken, gebruikt de `secretVersion` eigenschap.
+
+```json
+"secretName": "examplesecret",
+"secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
+```
+
 Nu de sjabloon implementeert en in het parameterbestand. U kunt de voorbeeldsjabloon vanuit GitHub, maar u moet een lokale parameterbestand gebruiken met de waarden die zijn ingesteld op uw omgeving.
 
 Gebruik voor Azure CLI:
@@ -157,7 +164,7 @@ New-AzureRmResourceGroupDeployment `
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>Verwijst naar een geheim met dynamische ID
 
-De vorige sectie hebt u geleerd hoe u een statisch resource-ID voor de sleutelkluis-geheim doorgeven. In sommige gevallen moet u echter verwijzen naar een sleutelkluis geheim dat varieert op basis van de huidige implementatie. In dat geval kunt u niet vastleggen de bron-ID in het parameterbestand. Helaas kan niet u dynamisch genereren de resource-ID in het parameterbestand Sjabloonexpressies zijn niet toegestaan in het parameterbestand.
+De vorige sectie hebt u geleerd hoe u een statisch resource-ID voor de sleutelkluis-geheim doorgeven. In sommige gevallen moet u echter verwijzen naar een sleutelkluis geheim dat varieert op basis van de huidige implementatie. In dit geval kunt u niet vastleggen de bron-ID in het parameterbestand. Helaas kan niet u dynamisch genereren de resource-ID in het parameterbestand Sjabloonexpressies zijn niet toegestaan in het parameterbestand.
 
 Als de resource-ID voor een geheim sleutelkluis dynamisch worden gegenereerd, moet u de resource die het geheim in een gekoppelde sjabloon moet verplaatsen. In de sjabloon bovenliggende u de gekoppelde sjabloon toevoegen en geeft u in een parameter die de dynamisch gegenereerde resource-id bevat. De volgende afbeelding toont hoe een parameter in de gekoppelde sjabloon verwijst naar het geheim.
 

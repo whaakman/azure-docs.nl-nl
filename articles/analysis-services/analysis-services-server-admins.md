@@ -1,25 +1,18 @@
 ---
 title: Beheerders van de server in Azure Analysis Services beheren | Microsoft Docs
 description: Informatie over het beheren van server-beheerders voor een Analysis Services-server in Azure.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: d90f1e3df8f5934d5c334ec72b5726f105842ca1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: def09f2853f761f3fefca80f341e6cc0557bac86
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-server-administrators"></a>Serverbeheerders beheren
 Serverbeheerders moet een geldige gebruiker of groep in de Azure Active Directory (Azure AD) voor de tenant waarin de server zich bevindt. U kunt **Analysis Services-beheerders** voor uw server in Azure portal of servereigenschappen in SSMS serverbeheerders beheren. 
@@ -41,5 +34,5 @@ Serverbeheerders moet een geldige gebruiker of groep in de Azure Active Director
 ## <a name="next-steps"></a>Volgende stappen 
 [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)  
 [Databaserollen en gebruikers beheren](analysis-services-database-users.md)  
-[Op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-what-is.md)  
+[Op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md)  
 

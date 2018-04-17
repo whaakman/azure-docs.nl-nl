@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Inleiding tot cloudcomputing en Microsoft Azure
 
@@ -323,7 +323,7 @@ Hier volgen een paar voorbeeld rollen die zijn ingebouwd in Azure:
 
 -   **Storage-account Inzender**: een gebruiker met deze rol storage-accounts kunt beheren, maar kan geen toegang tot de storage-accounts beheren.
 
-Zie voor meer informatie [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../../active-directory/role-based-access-control-configure.md).
+Zie voor meer informatie [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

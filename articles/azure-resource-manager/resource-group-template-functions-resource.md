@@ -6,7 +6,7 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -14,21 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f2ff44fc6644f3a4294f7b2c752a7f3ab05f351d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resource-functies voor Azure Resource Manager-sjablonen
 
 Resource Manager biedt de volgende functies voor het ophalen van waarden van de resource:
 
-* [listKeys en de lijst {Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [lijst *](#list)
 * [providers](#providers)
-* [verwijzing](#reference)
+* [Verwijzing](#reference)
 * [resourceGroup](#resourcegroup)
-* [resourceId](#resourceid)
+* [ResourceId](#resourceid)
 * [abonnement](#subscription)
 
 Als u de waarden van de parameters en variabelen en de huidige implementatie, Zie [implementatie waarde functies](resource-group-template-functions-deployment.md).
@@ -36,12 +38,14 @@ Als u de waarden van de parameters en variabelen en de huidige implementatie, Zi
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-and-listvalue"></a>listKeys en de lijst {Value}
+## <a name="listkeys-listsecrets-and-list"></a>listKeys, listSecrets en lijst *
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Retourneert de waarden voor elk resourcetype die ondersteuning biedt voor de bewerking van de lijst. Het meest voorkomende gebruik `listKeys`. 
+Retourneert de waarden voor elk resourcetype die ondersteuning biedt voor de bewerking van de lijst. Zijn de meest voorkomende vormen van gebruik `listKeys` en `listSecrets`. 
 
 ### <a name="parameters"></a>Parameters
 
@@ -654,10 +658,10 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| sameRGOutput | Tekenreeks | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| sameRGOutput | Tekenreeks | /Subscriptions/{Current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | Tekenreeks | /Subscriptions/{Current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | Tekenreeks | /Subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Tekenreeks | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| nestedResourceOutput | Tekenreeks | /Subscriptions/{Current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/servername/databases/databaseName |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 

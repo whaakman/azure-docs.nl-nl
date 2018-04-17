@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: ''
 keywords: Azure Cosmos DB Emulator
 author: David-Noble-at-work
-manager: jhubbard
+manager: kfile
 editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
 ms.author: danoble
-ms.openlocfilehash: e0d23a163f16763dd4764eb7857dec8076f4754c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 810e3e8af5295348ba73b4f7433e3203f47f4554
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokale ontwikkeling en testen
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/03/2018
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
+  <td>[Docker-Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Docker-bron</strong></td>
@@ -82,7 +82,7 @@ De Azure-Emulator Cosmos DB heeft de volgende hardware en software-vereisten:
 * Softwarevereisten
   * Windows Server 2012 R2, WindowsServer 2016 of Windows 10
 *   Minimale hardwarevereisten
-  * 2 GB RAM
+  * 2 GB RAM-GEHEUGEN
   * 10 GB beschikbare schijfruimte
 
 ## <a name="installation"></a>Installatie
@@ -180,7 +180,7 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
   <td><strong>Optie</strong></td>
   <td><strong>Beschrijving</strong></td>
   <td><strong>Opdracht</strong></td>
-  <td><strong>Arguments</strong></td>
+  <td><strong>Argumenten</strong></td>
 </tr>
 <tr>
   <td>[Geen argumenten]</td>
@@ -206,9 +206,9 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
   <td></td>
 </tr>
 <tr>
-  <td>DataPath</td>
+  <td>Gegevenspad</td>
   <td>Hiermee geeft u het pad waarin de gegevensbestanden worden opgeslagen. Standaard is % LocalAppdata%\CosmosDBEmulator.</td>
-  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
+  <td>CosmosDB.Emulator.exe /DataPath =&lt;gegevenspad&gt;</td>
   <td>&lt;gegevenspad&gt;: een toegankelijk pad</td>
 </tr>
 <tr>
@@ -250,7 +250,7 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
 <tr>
   <td>NoUI</td>
   <td>Worden de emulator gebruikersinterface niet weergegeven.</td>
-  <td>CosmosDB.Emulator.exe /NoUI</td>
+  <td>/ Noui CosmosDB.Emulator.exe</td>
   <td></td>
 </tr>
 <tr>

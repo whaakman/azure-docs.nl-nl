@@ -2,10 +2,10 @@
 title: Wat te doen in het geval van een Azure-service wordt onderbroken die gevolgen heeft voor Azure Sleutelkluis | Microsoft Docs
 description: Meer informatie over wat te doen in het geval van een onderbreking van de Azure-service die gevolgen heeft voor Azure Sleutelkluis.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: adamglick
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
 ms.service: key-vault
 ms.workload: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: sumedhb;aglick
-ms.openlocfilehash: 1f19c4bba2152eb021831dedda734fd54ee78d75
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: aglick
+ms.openlocfilehash: 11c2fe5d4b84f99c3b0e303d1abeea73442f57aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Sleutelkluis beschikbaarheid en redundantie
 Azure Sleutelkluis is uitgerust met meerdere lagen van redundantie om ervoor te zorgen dat uw sleutels en geheimen beschikbaar voor uw toepassing blijven zelfs als afzonderlijke onderdelen van de service is mislukt.
@@ -45,6 +45,6 @@ Er zijn enkele aanvullende opmerkingen voor Let op:
   * Uitpakken
   * Verifiëren
   * Ondertekenen
-  * Back-up
+  * Back-up maken
 * Na een failover terug mislukte is, alle aanvraagtypen (inclusief lezen *en* schrijfaanvragen) beschikbaar zijn.
 

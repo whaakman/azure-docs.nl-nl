@@ -2,27 +2,25 @@
 title: Beheren van Logboeken voor een HDInsight-cluster - Azure HDInsight | Microsoft Docs
 description: Bepaal de typen, grootten en bewaarbeleid voor logboekbestanden van HDInsight-activiteit.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: a161a5c639ff02e1e8a2ea987d9f913ff41c5618
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="manage-logs-for-an-hdinsight-cluster"></a>Logboeken voor een HDInsight-cluster beheren
+# <a name="manage-logs-for-an-hdinsight-cluster"></a>Logboeken beheren voor een HDInsight-cluster
 
 Een HDInsight-cluster produceert tal van logboekbestanden. Apache Hadoop en verwante services, zoals Apache Spark levert bijvoorbeeld uitvoeringslogboeken gedetailleerde taak. Beheer van logboekbestanden maakt deel uit van het onderhouden van een gezonde HDInsight-cluster. Er kan ook worden voorschriften voor het logboek archiveren.  Vanwege het aantal en grootte van logboekbestanden logboek opslag te optimaliseren en te archiveren helpt met kosten management-service.
 
@@ -179,8 +177,8 @@ U kunt de .NET SDK voor Hadoop Bekijk de logbestanden gegenereerd voor de Azure-
 
 Voor het beheren van de grootte en het aantal logboekbestanden bewaard, stelt u de volgende eigenschappen van de `RollingFileAppender`:
 
-* `maxFileSize`is de essentiële grootte van het bestand, waarboven het bestand wordt hersteld. De standaardwaarde is 10 MB.
-* `maxBackupIndex`Hiermee geeft u het aantal back-upbestanden worden gemaakt, standaard 1.
+* `maxFileSize` is de essentiële grootte van het bestand, waarboven het bestand wordt hersteld. De standaardwaarde is 10 MB.
+* `maxBackupIndex` Hiermee geeft u het aantal back-upbestanden worden gemaakt, standaard 1.
 
 ### <a name="other-log-management-techniques"></a>Andere technieken logboek-management
 

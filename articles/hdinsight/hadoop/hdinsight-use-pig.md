@@ -2,7 +2,7 @@
 title: Hadoop Pig gebruiken in HDInsight | Microsoft Docs
 description: Informatie over het Pig gebruiken met Hadoop op HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: acfeb52b-4b81-4a7d-af77-3e9908407404
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: ca68391db99d882887e41005928a30610c7cb930
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6d42a1e0edb038f6d4cc9c8149768bdb698cafc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Pig gebruiken met Hadoop in HDInsight
 
@@ -100,7 +98,7 @@ HDInsight kunt Pig Latin taken uitvoeren met behulp van een aantal methoden. Geb
 | **Gebruik deze** als u wilt dat... | ...an **interactieve** shell | ...**batch** verwerken | ...door dit **cluster-besturingssysteem** | ...from dit **client** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X of Windows |
-| [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
+| [CURL](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
 | [.NET-SDK voor Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux- of Windows |Windows (voor nu) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux- of Windows |Windows |
 
@@ -113,7 +111,7 @@ SQL Server Integration Services (SSIS) kunt u een Pig-taak uitvoert. Het Azure-f
 
 * [Azure HDInsight Pig-taak][pigtask]
 
-* [Azure Subscription Connection Manager][connectionmanager]
+* [Azure abonnement Verbindingsbeheer][connectionmanager]
 
 Meer informatie over het Azure Feature Pack voor SSIS [hier][ssispack].
 

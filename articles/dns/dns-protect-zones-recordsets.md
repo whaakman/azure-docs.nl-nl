@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2016
 ms.author: jonatul
-ms.openlocfilehash: 0b7040d6273b3a6b85cd55850d596807226b87fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a23f5fa296be6d883229d3810e0387224b6708ff
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Het beveiligen van DNS-zones en records
 
 DNS-zones en records zijn kritieke bronnen. Verwijderen van een DNS-zone of zelfs slechts één DNS-record kan leiden tot een onderbreking van deze totale service.  Het is daarom belangrijk dat kritieke DNS-zones en records zijn beschermd tegen onbevoegde of onbedoelde wijzigingen.
 
-Dit artikel wordt uitgelegd hoe Azure DNS kunt u uw DNS-zones en records tegen dergelijke wijzigingen beveiligen.  Twee krachtige beveiligingsfuncties door Azure Resource Manager worden toegepast: [toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md) en [resource vergrendelingen](../azure-resource-manager/resource-group-lock-resources.md).
+Dit artikel wordt uitgelegd hoe Azure DNS kunt u uw DNS-zones en records tegen dergelijke wijzigingen beveiligen.  Twee krachtige beveiligingsfuncties door Azure Resource Manager worden toegepast: [toegangsbeheer op basis van rollen](../role-based-access-control/overview.md) en [resource vergrendelingen](../azure-resource-manager/resource-group-lock-resources.md).
 
 ## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
-Azure op rollen gebaseerde toegangsbeheer (RBAC) kunt Geavanceerd toegangsbeheer voor Azure-gebruikers, groepen en bronnen. Met RBAC kunt verleent u nauwkeurig de mate van toegang dat gebruikers moeten uitvoeren van hun taken. Zie voor meer informatie over hoe RBAC helpt u bij het beheren van toegang [wat toegangsbeheer op basis van rollen is](../active-directory/role-based-access-control-what-is.md).
+Azure op rollen gebaseerde toegangsbeheer (RBAC) kunt Geavanceerd toegangsbeheer voor Azure-gebruikers, groepen en bronnen. Met RBAC kunt verleent u nauwkeurig de mate van toegang dat gebruikers moeten uitvoeren van hun taken. Zie voor meer informatie over hoe RBAC helpt u bij het beheren van toegang [wat toegangsbeheer op basis van rollen is](../role-based-access-control/overview.md).
 
 ### <a name="the-dns-zone-contributor-role"></a>De rol 'DNS-Zone Inzender'
 
@@ -35,18 +35,18 @@ De rol 'DNS-Zone Inzender' is een ingebouwde rol die is geleverd door Azure voor
 
 Stel bijvoorbeeld dat de resource-groep 'myzones' bevat vijf zones voor Contoso Corporation. De DNS-beheerder 'DNS-Zone Inzender' machtigingen verlenen aan die resourcegroep, kunt volledige controle over de DNS-zones. Dit voorkomt ook onnodige machtigingen verlenen bijvoorbeeld de DNS-beheerder niet maken of virtuele Machines stoppen.
 
-De eenvoudigste manier om RBAC machtigingen toewijzen is [via de Azure-portal](../active-directory/role-based-access-control-configure.md).  Open de blade Access control (IAM) voor de resourcegroep, klik op 'Add', en vervolgens selecteert u de rol 'DNS-Zone Inzender' en selecteer de vereiste gebruikers of groepen om machtigingen te verlenen.
+De eenvoudigste manier om RBAC machtigingen toewijzen is [via de Azure-portal](../role-based-access-control/role-assignments-portal.md).  Open de blade Access control (IAM) voor de resourcegroep, klik op 'Add', en vervolgens selecteert u de rol 'DNS-Zone Inzender' en selecteer de vereiste gebruikers of groepen om machtigingen te verlenen.
 
 ![Niveau van de resourcegroep RBAC via de Azure-portal](./media/dns-protect-zones-recordsets/rbac1.png)
 
-Machtigingen kunnen ook worden [verleend met behulp van Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Machtigingen kunnen ook worden [verleend met behulp van Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
 
-De equivalente-opdracht is ook [beschikbaar via de Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+De equivalente-opdracht is ook [beschikbaar via de Azure CLI](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
@@ -63,14 +63,14 @@ Zoneniveau RBAC machtigingen kunnen worden verleend via de Azure-portal.  Open d
 
 ![DNS-Zone niveau RBAC via de Azure-portal](./media/dns-protect-zones-recordsets/rbac2.png)
 
-Machtigingen kunnen ook worden [verleend met behulp van Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Machtigingen kunnen ook worden [verleend met behulp van Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
-De equivalente-opdracht is ook [beschikbaar via de Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+De equivalente-opdracht is ook [beschikbaar via de Azure CLI](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to a specific zone
@@ -85,14 +85,14 @@ Record-set RBAC machtigingen kunnen worden geconfigureerd via de Azure-portal me
 
 ![De recordset niveau RBAC via de Azure-portal](./media/dns-protect-zones-recordsets/rbac3.png)
 
-Record-set machtigingen op gebruikersniveau RBAC kunnen ook worden [verleend met behulp van Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Record-set machtigingen op gebruikersniveau RBAC kunnen ook worden [verleend met behulp van Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant permissions to a specific record set
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
-De equivalente-opdracht is ook [beschikbaar via de Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+De equivalente-opdracht is ook [beschikbaar via de Azure CLI](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant permissions to a specific record set
@@ -133,10 +133,10 @@ Het volgende voorbeeld ziet u een aangepaste roldefinitie voor het beheren van C
 
 De eigenschap Actions definieert de volgende DNS-specifieke machtigingen:
 
-* `Microsoft.Network/dnsZones/CNAME/*`Hiermee wordt volledige controle over de CNAME-records
-* `Microsoft.Network/dnsZones/read`Geeft het recht om te lezen van de DNS-zones, maar niet kunnen wijzigen, zodat u voor een overzicht van de zone waarin de CNAME wordt gemaakt.
+* `Microsoft.Network/dnsZones/CNAME/*` Hiermee wordt volledige controle over de CNAME-records
+* `Microsoft.Network/dnsZones/read` Geeft het recht om te lezen van de DNS-zones, maar niet kunnen wijzigen, zodat u voor een overzicht van de zone waarin de CNAME wordt gemaakt.
 
-De resterende acties worden gekopieerd van de [ingebouwde rol van inzender van DNS-Zone](../active-directory/role-based-access-built-in-roles.md#dns-zone-contributor).
+De resterende acties worden gekopieerd van de [ingebouwde rol van inzender van DNS-Zone](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 
 > [!NOTE]
 > Met behulp van een aangepaste RBAC-rol om te voorkomen dat recordsets verwijderen terwijl u nog steeds zodat ze kunnen worden bijgewerkt, is niet een doeltreffende controle. Deze voorkomt dat recordsets worden verwijderd, maar dit voorkomt niet dat deze wordt gewijzigd.  Toegestane wijzigingen omvatten het toevoegen en verwijderen van records uit de recordset, met inbegrip van alle records te laten een 'empty' Recordset verwijderen. Dit heeft hetzelfde effect als het verwijderen van de record is ingesteld op basis van een DNS-omzetting oogpunt.
@@ -157,9 +157,9 @@ azure role create -inputfile <file path>
 
 De rol kan vervolgens worden toegewezen op dezelfde manier als de ingebouwde rollen, zoals eerder in dit artikel wordt beschreven.
 
-Zie voor meer informatie over het maken, beheren en aangepaste rollen toewijzen [aangepaste rollen in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
+Zie voor meer informatie over het maken, beheren en aangepaste rollen toewijzen [aangepaste rollen in Azure RBAC](../role-based-access-control/custom-roles.md).
 
-## <a name="resource-locks"></a>Resource-vergrendelingen
+## <a name="resource-locks"></a>Resourcevergrendelingen
 
 Naast het RBAC, Azure Resource Manager biedt ondersteuning voor een ander type beveiligingscontrole, namelijk de mogelijkheid tot vergrendelingsbronnen ''. Waar RBAC regels kunnen u bepalen de acties van specifieke gebruikers en groepen resource vergrendelingen worden toegepast op de bron en gelden voor alle gebruikers en rollen. Zie voor meer informatie [Resources vergrendelen met Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 
@@ -219,6 +219,6 @@ Het is mogelijk gebruik van beide benaderingen - resource vergrendelingen en aan
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over het werken met RBAC [aan de slag met toegangsbeheer in Azure portal](../active-directory/role-based-access-control-what-is.md).
+* Zie voor meer informatie over het werken met RBAC [aan de slag met toegangsbeheer in Azure portal](../role-based-access-control/overview.md).
 * Zie voor meer informatie over het werken met resource vergrendelingen [resources met Azure Resource Manager vergrendelen](../azure-resource-manager/resource-group-lock-resources.md).
 

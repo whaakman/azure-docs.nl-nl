@@ -2,10 +2,10 @@
 title: 'Azure back-up: Back-ups van virtuele machines voorbereiden | Microsoft Docs'
 description: Zorg ervoor dat uw omgeving is voorbereid voor de back-ups van virtuele machines in Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: back-ups; een back-up;
 ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70c1553c166cc334f9db03c78139181c6f5c0553
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
@@ -55,7 +55,7 @@ Voordat u uw omgeving hebt voorbereid, zorg er dan voor dat deze beperkingen beg
 * Back-upgegevens bevat geen gekoppeld netwerkstations gekoppeld aan een virtuele machine.
 * Een bestaande virtuele machine kan tijdens het herstel niet worden vervangen. Als u probeert te herstellen van de virtuele machine wanneer de virtuele machine bestaat, mislukt de herstelbewerking opnieuw.
 * Regio-overschrijdende back-up en herstel worden niet ondersteund.
-* Een back-up en herstellen van virtuele machines met niet-beheerde schijven in opslagaccounts met netwerk regels toegepast, wordt niet ondersteund. 
+* Een back-up en herstellen van virtuele machines met niet-beheerde schijven in opslagaccounts met netwerk regels toegepast, wordt niet ondersteund voor klanten op de oude back-stack van virtuele machine. 
 * Tijdens het configureren van back up, zorg ervoor dat de **Firewalls en virtuele netwerken** Opslaginstellingen account toegang toestaan via alle netwerken.
 * U kunt back-ups van virtuele machines in alle openbare gebieden van Azure. (Zie de [controlelijst](https://azure.microsoft.com/regions/#services) van ondersteunde regio's.) Als de regio die u zoekt niet vandaag ondersteund wordt, wordt deze niet in de vervolgkeuzelijst weergegeven tijdens het maken van de kluis.
 * Herstellen van een domeincontroller wordt (DC) VM die deel uitmaakt van een multi-DC-configuratie alleen ondersteund door PowerShell. Zie voor meer informatie, [een multi-DC-domeincontroller terugzetten](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).

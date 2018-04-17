@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 6f141fc03b64d0ca922d003f6352b7751ab9967d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b8b0b8934b51080c3583281673183c1498c26417
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ontwikkelingsprogramma's op de gegevens wetenschappelijke virtuele Machine
 
@@ -53,7 +53,7 @@ De gegevens wetenschappelijke virtuele Machine (DSVM) biedt een productieve omge
 | Hoe gebruik / uitvoeren?      | Snelkoppeling op het bureaublad (`C:\Program Files\RStudio\bin\rstudio.exe`) in Windows, snelkoppeling op het bureaublad (`/usr/bin/rstudio`) op Linux      |
 | Bijbehorende hulpprogramma's op de DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 
-## <a name="rstudio--server"></a>RStudio  Server 
+## <a name="rstudio--server"></a>RStudio Server 
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Web-based IDE voor R    |
@@ -82,7 +82,7 @@ De gegevens wetenschappelijke virtuele Machine (DSVM) biedt een productieve omge
 
 
 
-## <a name="powerbi-desktop"></a>PowerBI Desktop 
+## <a name="powerbi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | Wat is het?   | Interactieve gegevensvisualisatie en BI-hulpprogramma    |

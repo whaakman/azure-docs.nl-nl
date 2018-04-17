@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bd11ec7c8a32792853e60b4bb14d4ed52f53f4a3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Activiteitenlogboeken bekijken om te controleren van de acties op resources
 
@@ -30,7 +30,7 @@ Via activiteitenlogboeken, kunt u bepalen:
 * De status van de bewerking
 * De bewerking van de waarden van andere eigenschappen die u kunnen helpen onderzoek
 
-Het activiteitenlogboek bevat alle schrijfbewerkingen (PUT, POST, verwijderen) uitgevoerd op uw resources. Dit omvat geen leesbewerkingen (GET). Zie voor een lijst van acties van de resource [Resourceprovider van Azure Resource Manager operations](../active-directory/role-based-access-control-resource-provider-operations.md). Kunt u de controlelogboeken vinden van een fout opgetreden bij het oplossen van of om te controleren hoe een gebruiker in uw organisatie een resource gewijzigd.
+Het activiteitenlogboek bevat alle schrijfbewerkingen (PUT, POST, verwijderen) uitgevoerd op uw resources. Dit omvat geen leesbewerkingen (GET). Zie voor een lijst van acties van de resource [Resourceprovider van Azure Resource Manager operations](../role-based-access-control/resource-provider-operations.md). Kunt u de controlelogboeken vinden van een fout opgetreden bij het oplossen van of om te controleren hoe een gebruiker in uw organisatie een resource gewijzigd.
 
 Activiteitenlogboeken worden bewaard gedurende 90 dagen. U kunt een query voor een reeks datums, zolang de begindatum niet meer dan 90 dagen in het verleden is.
 
@@ -154,8 +154,8 @@ De REST-bewerkingen voor het werken met het activiteitenlogboek deel uitmaken va
 ## <a name="next-steps"></a>Volgende stappen
 
 * Azure activiteitenlogboeken kunnen worden gebruikt met Power BI om meer inzicht over de acties in uw abonnement te krijgen. Zie [weergeven en analyseren van Azure activiteitenlogboeken in Power BI en meer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
-* Zie voor meer informatie over het instellen van beveiligingsbeleid [toegangsbeheer op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md).
+* Zie voor meer informatie over het instellen van beveiligingsbeleid [toegangsbeheer op basis van rollen in Azure](../role-based-access-control/role-assignments-portal.md).
 * Zie voor meer informatie over de opdrachten voor het weergeven van implementatiebewerkingen, [implementatiebewerkingen weergeven](resource-manager-deployment-operations.md).
 * Zie voor informatie over het voorkomen van een resource voor alle gebruikers zijn verwijderd, [resources met Azure Resource Manager vergrendelen](resource-group-lock-resources.md).
-* Zie de lijst met bewerkingen weergegeven die beschikbaar zijn voor elke provider van Microsoft Azure Resource Manager [Resourceprovider van Azure Resource Manager-bewerkingen](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
+* Zie de lijst met bewerkingen weergegeven die beschikbaar zijn voor elke provider van Microsoft Azure Resource Manager [Resourceprovider van Azure Resource Manager-bewerkingen](../role-based-access-control/resource-provider-operations.md)
 

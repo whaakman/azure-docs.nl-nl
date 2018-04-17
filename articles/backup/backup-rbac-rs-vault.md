@@ -2,10 +2,10 @@
 title: Back-ups met op rollen gebaseerd toegangsbeheer van Azure beheren | Microsoft Docs
 description: Gebruik toegangsbeheer op basis van rollen voor het beheren van toegang tot de back-beheerbewerkingen in Recovery Services-kluis.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 3bd46b97-4b29-47a5-b5ac-ac174dd36760
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/22/2017
 ms.author: trinadhk;markgal
-ms.openlocfilehash: b6e4c6761e1bd5c17c9c3428491113042d3b1d31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 442d998d8898dc40ee23ca541d35c340edf64dbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Toegangsbeheer op basis van rollen voor het beheren van herstelpunten voor Azure Backup gebruiken
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met RBAC kunt u taken scheiden binnen uw team en de hoeveelheid toegang verlenen aan gebruikers die ze nodig hebben voor het uitvoeren van hun taken.
@@ -26,13 +26,13 @@ Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegan
 > [!IMPORTANT]
 > Rollen die worden geleverd door Azure Backup zijn beperkt tot de acties die kunnen worden uitgevoerd in Azure-portal of PowerShell-cmdlets voor Recovery Services-kluis. Acties die worden uitgevoerd in Azure backup Agent Client-gebruikersinterface of System center Data Protection Manager UI of de gebruikersinterface van Azure Backup-Server aanwezig zijn buiten de controle van deze rollen.
 
-Azure Backup biedt 3 ingebouwde functies voor het beheren van de Backup-beheertaken uit te voeren. Meer informatie over [ingebouwde Azure RBAC-rollen](../active-directory/role-based-access-built-in-roles.md)
+Azure Backup biedt 3 ingebouwde functies voor het beheren van de Backup-beheertaken uit te voeren. Meer informatie over [ingebouwde Azure RBAC-rollen](../role-based-access-control/built-in-roles.md)
 
-* [Back-up Inzender](../active-directory/role-based-access-built-in-roles.md#backup-contributor) -deze rol heeft alle machtigingen maken en beheren van back-up, behalve de Recovery Services-kluis maken en toegang geven aan anderen. Denk aan deze rol als beheerder van back-management die elke back-management-bewerking kunt uitvoeren.
-* [Back-up Operator](../active-directory/role-based-access-built-in-roles.md#backup-operator) -deze rol machtigingen heeft voor alles Inzender behalve back-up en het beheer van back-upbeleid te verwijderen. Deze rol is gelijk aan Inzender, behalve het destructieve bewerkingen niet uitvoeren, zoals stop back-up met gegevens verwijderen of verwijder de registratie van lokale bronnen.
-* [Back-up lezer](../active-directory/role-based-access-built-in-roles.md#backup-reader) -deze rol machtigingen heeft voor het weergeven van alle back-beheertaken uit te voeren. Stel dat u deze functie worden de bewaking van een persoon.
+* [Back-up Inzender](../role-based-access-control/built-in-roles.md#backup-contributor) -deze rol heeft alle machtigingen maken en beheren van back-up, behalve de Recovery Services-kluis maken en toegang geven aan anderen. Denk aan deze rol als beheerder van back-management die elke back-management-bewerking kunt uitvoeren.
+* [Back-up Operator](../role-based-access-control/built-in-roles.md#backup-operator) -deze rol machtigingen heeft voor alles Inzender behalve back-up en het beheer van back-upbeleid te verwijderen. Deze rol is gelijk aan Inzender, behalve het destructieve bewerkingen niet uitvoeren, zoals stop back-up met gegevens verwijderen of verwijder de registratie van lokale bronnen.
+* [Back-up lezer](../role-based-access-control/built-in-roles.md#backup-reader) -deze rol machtigingen heeft voor het weergeven van alle back-beheertaken uit te voeren. Stel dat u deze functie worden de bewaking van een persoon.
 
-Als u op zoek bent om te definiëren van uw eigen rollen voor nog meer Zie hoe [aangepaste rollen maken](../active-directory/role-based-access-control-custom-roles.md) in Azure RBAC.
+Als u op zoek bent om te definiëren van uw eigen rollen voor nog meer Zie hoe [aangepaste rollen maken](../role-based-access-control/custom-roles.md) in Azure RBAC.
 
 
 
@@ -54,9 +54,9 @@ De volgende tabel worden de acties voor back-up en de bijbehorende minimale RBAC
 | Geregistreerde lokale Windows Server/client-/ SCDPM of Azure Backup-Server verwijderen | Back-up Inzender |
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-configure.md): aan de slag met RBAC in Azure portal.
+* [Op rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md): aan de slag met RBAC in Azure portal.
 * Meer informatie over het beheren van toegang met:
-  * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
-  * [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)
-  * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
-* [Probleemoplossing voor toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-troubleshooting.md): Profiteer van tips voor het oplossen van veelvoorkomende problemen.
+  * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+  * [Azure-CLI](../role-based-access-control/role-assignments-cli.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
+* [Probleemoplossing voor toegangsbeheer op basis van rollen](../role-based-access-control/troubleshooting.md): Profiteer van tips voor het oplossen van veelvoorkomende problemen.

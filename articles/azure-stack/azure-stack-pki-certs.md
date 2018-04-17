@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure-Stack Public Key Infrastructure-certificaatvereisten
+# <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack PKI-certificaatvereisten
 
 Azure-Stack is een infrastructuur voor openbare-netwerk met behulp van extern toegankelijke openbare IP-adressen die zijn toegewezen aan een klein aantal Stack Azure-services en mogelijk tenant-VM's. PKI-certificaten met de juiste DNS-namen voor deze eindpunten van de infrastructuur voor openbare Azure-Stack zijn vereist tijdens de implementatie van Azure-Stack. In dit artikel bevat informatie over:
 
@@ -65,15 +65,15 @@ Voor uw implementatie, het [regio] en [externalfqdn] waarden moeten overeenkomen
 
 | Implementatiemap | Vereiste certificaatonderwerp en de alternatieve namen voor onderwerp (SAN) | Bereik (per regio) | Subdomein naamruimte |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
-| Openbare-Portal | portal.&lt;region>.&lt;fqdn> | Portals | &lt;region>.&lt;fqdn> |
-| Beheerportal | adminportal.&lt;region>.&lt;fqdn> | Portals | &lt;region>.&lt;fqdn> |
-| Azure Resource Manager Public | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| Azure Resource Manager-beheerder | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Openbare-Portal | Portal. &lt;regio >. &lt;fqdn > | Portals | &lt;region>.&lt;fqdn> |
+| Beheerportal | adminportal. &lt;regio >. &lt;fqdn > | Portals | &lt;region>.&lt;fqdn> |
+| Openbare Azure Resource Manager | beheer. &lt;regio >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager-beheerder | adminmanagement. &lt;regio >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
-| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Table Storage | de tabel. &lt;regio >. &lt;fqdn > |
-| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
+| ACSTable | * .table. &lt;regio >. &lt;fqdn ><br>(Wildcard-SSL-certificaat) | Table Storage | de tabel. &lt;regio >. &lt;fqdn > |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Queue Storage | wachtrij. &lt;regio >. &lt;fqdn > |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Key Vault | kluis. &lt;regio >. &lt;fqdn > |
-| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) |  Internal Keyvault |  adminvault. &lt;regio >. &lt;fqdn > |
+| KeyVaultInternal | *.adminvault. &lt;regio >. &lt;fqdn ><br>(Wildcard-SSL-certificaat) |  Interne Keyvault |  adminvault. &lt;regio >. &lt;fqdn > |
 
 ### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Voor Azure-Stack-omgeving op Pre-1803 versies
 
@@ -81,11 +81,11 @@ Voor uw implementatie, het [regio] en [externalfqdn] waarden moeten overeenkomen
 |-----|-----|-----|-----|
 |Openbare-Portal|portal.*&lt;region>.&lt;fqdn>*|Portals|*&lt;region>.&lt;fqdn>*|
 |Beheerportal|adminportal.*&lt;region>.&lt;fqdn>*|Portals|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager Public|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
+|Openbare Azure Resource Manager|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
 |Azure Resource Manager-beheerder|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|Een multi-subdomein jokertekencertificaat met alternatieve namen voor:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
+|ACS<sup>1</sup>|Een multi-subdomein jokertekencertificaat met alternatieve namen voor:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>de tabel.  *&lt;regio >.&lt; FQDN-naam >*<br>queue.*&lt;region>.&lt;fqdn>*|
 |KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Wildcard-SSL-certificaat)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Wildcard-SSL-certificaat)|Internal Keyvault|adminvault.*&lt;region>.&lt;fqdn>*|
+|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Wildcard-SSL-certificaat)|Interne Keyvault|adminvault.  *&lt;regio >.&lt; FQDN-naam >*|
 |
 <sup>1</sup> drie jokertekens SAN's op één certificaat vereist dat de ACS-certificaat. Meerdere jokertekens SAN's op één certificaat kan niet worden ondersteund door alle openbare certificeringsinstanties. 
 

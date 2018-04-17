@@ -2,9 +2,8 @@
 title: Partitionering en horizontaal schalen in Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over hoe partitionering werkt in Azure Cosmos DB, partitie-sleutels en configureren met het partitioneren en het kiezen van de juiste partitiesleutel voor uw toepassing.
 services: cosmos-db
-author: arramac
+author: SnehaGunda
 manager: kfile
-editor: monicar
 documentationcenter: ''
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
@@ -12,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: arramac
+ms.date: 04/10/2018
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16b0ddd45c8e524798a453af7c731af28f5f5c2d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fcb33dff131106fd801b72a0bfaafd528d9f1af9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitie en schalen in Azure Cosmos-DB
 
@@ -99,8 +98,8 @@ Azure Cosmos DB is ontworpen voor voorspelbare prestaties. Wanneer u een contain
 ## <a name="work-with-the-azure-cosmos-db-apis"></a>Werken met de Azure Cosmos DB-API 's
 U kunt de Azure portal of Azure CLI gebruiken containers maken en op elk gewenst moment worden geschaald. Deze sectie wordt beschreven hoe containers maken en de sleuteldefinitie doorvoer en partitie opgeven in elk van de ondersteunde API's.
 
-### <a name="azure-cosmos-db-api"></a>Azure Cosmos DB API
-Het volgende voorbeeld laat zien hoe een container (verzameling) maken met behulp van de API van Azure Cosmos DB. 
+### <a name="sql-api"></a>SQL-API
+Het volgende voorbeeld laat zien hoe een container (verzameling) maken met behulp van de SQL-API van Azure Cosmos DB. 
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -124,6 +123,8 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
   UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
+
+Zie voor meer informatie [partitioneren in Azure Cosmos-database met behulp van de SQL-API](sql-api-partition-data.md).
 
 ### <a name="mongodb-api"></a>MongoDB-API
 U kunt een verzameling shard via uw favoriete hulpprogramma, stuurprogramma of SDK maken met de MongoDB-API. In dit voorbeeld gebruiken we de Mongo-Shell voor het maken van de verzameling.
@@ -186,7 +187,7 @@ U kunt verwijzen naar een edge met behulp van de partitiesleutel en de rijsleute
 g.E(['USA', 'I5'])
 ```
 
-Zie voor meer informatie [Gremlin ondersteuning voor Azure Cosmos DB](gremlin-support.md).
+Zie voor meer informatie [met behulp van een gepartitioneerde grafiek in Azure Cosmos DB](graph-partitioning.md).
 
 
 <a name="designing-for-partitioning"></a>

@@ -1,6 +1,6 @@
 ---
 title: Azure CDN regels engine functies | Microsoft Docs
-description: Documentatie bij Azure CDN regels overeen motor en onderdelen.
+description: Documentatie bij Azure CDN regels engine functies.
 services: cdn
 documentationcenter: ''
 author: Lichard
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/10/2018
 ms.author: rli
-ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fd670e3b01812b7fa8fc708a02d02210b598ac6a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies in de engine Azure CDN-regels
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
@@ -52,15 +52,15 @@ Naam | Doel
 [Cache-sleutel opnieuw schrijven](#cache-key-rewrite) | Herschrijft de cache-sleutel die is gekoppeld aan een aanvraag.
 [Voltooien van de opvulling van de Cache](#complete-cache-fill) | Hiermee bepaalt u wat er gebeurt wanneer een aanvraag resulteert in een gedeeltelijke Cachemisser op een pop-server.
 [Bestandstypen comprimeren](#compress-file-types) | Hiermee definieert u de bestandsindelingen voor de bestanden die zijn gecomprimeerd op de server.
-[Default Internal Max-Age](#default-internal-max-age) | Bepaalt het standaardinterval voor de maximale leeftijd voor pop-server naar de oorsprong server cache hervalidatie.
+[Standaard interne-maximumleeftijd](#default-internal-max-age) | Bepaalt het standaardinterval voor de maximale leeftijd voor pop-server naar de oorsprong server cache hervalidatie.
 [Koptekst behandeling verloopt](#expires-header-treatment) | Hiermee bepaalt u het genereren van `Expires` headers door een pop-server als de functie externe maximumleeftijd actief is.
-[External Max-Age](#external-max-age) | Bepaalt het maximumleeftijd interval voor de browser opnieuw valideren pop-server.
-[Force Internal Max-Age](#force-internal-max-age) | Bepaalt het maximumleeftijd interval voor POP naar de oorsprong server cache hervalidatie.
+[Externe maximumleeftijd](#external-max-age) | Bepaalt het maximumleeftijd interval voor de browser opnieuw valideren pop-server.
+[Interne maximumleeftijd forceren](#force-internal-max-age) | Bepaalt het maximumleeftijd interval voor POP naar de oorsprong server cache hervalidatie.
 [H.264-ondersteuning (http-progressief downloaden)](#h264-support-http-progressive-download) | Bepaalt de soorten H.264 bestandsindelingen die kunnen worden gebruikt om inhoud streamen.
 [EEr No-Cache-aanvraag](#honor-no-cache-request) | Hiermee wordt bepaald of een HTTP-client Nee-cache-aanvragen worden doorgestuurd naar de oorspronkelijke server.
 [Negeren oorsprong No-Cache](#ignore-origin-no-cache) | Hiermee wordt bepaald of de CDN bepaalde richtlijnen geleverd van een bronserver negeert.
 [Ongeldig bereiken negeren](#ignore-unsatisfiable-ranges) | Bepaalt de reactie die aan clients worden geretourneerd wanneer een aanvraag statuscode 416 aangevraagd bereik niet geldig genereert.
-[Internal Max-Stale](#internal-max-stale) | Bepaalt hoe lang voorbij de verlooptijd van de normale een activum in de cache kan worden geleverd vanuit een POP wanneer de pop-server niet kan valideren van de cache asset met de oorspronkelijke server.
+[Interne Max-verouderd](#internal-max-stale) | Bepaalt hoe lang voorbij de verlooptijd van de normale een activum in de cache kan worden geleverd vanuit een POP wanneer de pop-server niet kan valideren van de cache asset met de oorspronkelijke server.
 [Gedeeltelijke Cache delen](#partial-cache-sharing) | Hiermee wordt bepaald of een aanvraag deels in cache opgeslagen inhoud kan genereren.
 [De inhoud in cache prevalidate](#prevalidate-cached-content) | Hiermee wordt bepaald of de inhoud in cache in aanmerking komen voor vroege opnieuw te worden gevalideerd voordat de TTL verloopt.
 [Vernieuwen van nul bytes cachebestanden](#refresh-zero-byte-cache-files) | Hiermee wordt bepaald hoe van de client van een HTTP-aanvraag voor een asset 0-byte-cache wordt verwerkt door de POP's.
@@ -428,14 +428,32 @@ Een gedeeltelijke Cachemisser treedt meestal op nadat een gebruiker een download
 
 Houd de standaardconfiguratie voor het HTTP-grote platform, omdat deze de belasting van de bronserver voor uw klant wordt en verhoogt de snelheid waarmee uw klanten uw inhoud downloaden.
 
-Vanwege de manier die in cache van welke instellingen worden bijgehouden, deze functie kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst: rand Cname, Header letterlijke aanvragen, aanvragen Header jokertekens, URL Query letterlijke, en URL-Query.
-
 Waarde|Resultaat
 --|--
 Ingeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om af te dwingen de pop-server voor het initiëren van een op de achtergrond ophalen van de activa op de bronserver. Waarna de asset worden weergegeven in lokale cache van de pop-server.
 Uitgeschakeld|Hiermee voorkomt dat een pop-server uitvoeren van een op de achtergrond ophalen voor de asset. Het resultaat is een pop-server om aan te vragen deze op de bronserver klant zorgt ervoor dat de volgende aanvraag voor de activa van die regio.
 
 **Standaardgedrag:** ingeschakeld.
+
+#### <a name="compatibility"></a>Compatibiliteit
+Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
+- AS-nummer
+- IP-adres van client
+- Cookie-Parameter
+- Cookie Parameter Regex
+- Land
+- Apparaat
+- Rand Cname
+- Verwijzende domein
+- Aanvraag-Header Literal
+- Aanvraag-Header Regex
+- Aanvraag-Header jokertekens
+- Verzoekmethode
+- Aanvraag-schema
+- URL-Query Literal
+- URL-Query Regex
+- URL-Query jokertekens
+- URL-queryparameter
 
 [Terug naar boven](#azure-cdn-rules-engine-features)
 
@@ -452,7 +470,7 @@ Internet-mediatype|Beschrijving
 text/plain|Bestanden met tekst zonder opmaak
 text/html| HTML-bestanden
 text/css|Cascading stylesheets (CSS)
-application/x-javascript|Javascript
+x-toepassing-javascript|Javascript
 toepassing/javascript|Javascript
 Belangrijke informatie:
 
@@ -538,16 +556,28 @@ Belangrijke informatie:
     - Een geheel getal opgeven en vervolgens te klikken op de gewenste tijdseenheid (bijvoorbeeld seconden, minuten, uren, enzovoort). Deze waarde bepaalt het standaardinterval voor de interne maximumleeftijd.
 
 - Instellen van de tijdseenheid 'Uit' toewijst een interne maximumleeftijd standaardinterval van 7 dagen voor aanvragen die niet zijn toegewezen aan een indicatie van de maximale leeftijd in hun `Cache-Control` of `Expires` header.
-- Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
-    - Edge 
-    - CNAME
-    - Aanvraag-Header Literal
-    - Aanvraag-Header jokertekens
-    - Verzoekmethode
-    - URL-Query Literal
-    - URL-Query jokertekens
 
 **Standaardwaarde:** 7 dagen
+
+#### <a name="compatibility"></a>Compatibiliteit
+Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
+- AS-nummer
+- IP-adres van client
+- Cookie-Parameter
+- Cookie Parameter Regex
+- Land
+- Apparaat
+- Rand Cname
+- Verwijzende domein
+- Aanvraag-Header Literal
+- Aanvraag-Header Regex
+- Aanvraag-Header jokertekens
+- Verzoekmethode
+- Aanvraag-schema
+- URL-Query Literal
+- URL-Query Regex
+- URL-Query jokertekens
+- URL-queryparameter
 
 [Terug naar boven](#azure-cdn-rules-engine-features)
 
@@ -629,7 +659,7 @@ Uitgeschakeld|Geen zal aanvragen worden omgeleid.
 </br>
 
 ---
-### <a name="force-internal-max-age"></a>Force Internal Max-Age
+### <a name="force-internal-max-age"></a>Interne maximumleeftijd forceren
 **Doel:** bepaalt het maximumleeftijd interval voor POP naar oorsprong server cache opnieuw te worden gevalideerd. Met andere woorden, de hoeveelheid tijd dat wordt gewacht voordat een pop-server controleren kunt of een in cache asset overeenkomt met de asset die zijn opgeslagen op de bronserver.
 
 Belangrijke informatie:
@@ -642,16 +672,28 @@ Belangrijke informatie:
     - Een geheel getal opgeven en het selecteren van de gewenste tijdseenheid (bijvoorbeeld seconden, minuten, uren, enzovoort). Deze waarde bepaalt van de aanvraag maximumleeftijd interval.
 
 - Als de tijdseenheid 'Uit', wordt deze functie uitgeschakeld. Een interne maximumleeftijd interval wordt niet worden toegewezen aan de aangevraagde activa. Als de oorspronkelijke header geen instructies cache bevat, wordt de asset overeenkomstig de actieve instelling in de functie standaard interne-maximumleeftijd worden opgeslagen.
-- Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
-    - Edge 
-    - CNAME
-    - Aanvraag-Header Literal
-    - Aanvraag-Header jokertekens
-    - Verzoekmethode
-    - URL-Query Literal
-    - URL-Query jokertekens
 
 **Standaardgedrag:** uitschakelen
+
+#### <a name="compatibility"></a>Compatibiliteit
+Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
+- AS-nummer
+- IP-adres van client
+- Cookie-Parameter
+- Cookie Parameter Regex
+- Land
+- Apparaat
+- Rand Cname
+- Verwijzende domein
+- Aanvraag-Header Literal
+- Aanvraag-Header Regex
+- Aanvraag-Header jokertekens
+- Verzoekmethode
+- Aanvraag-schema
+- URL-Query Literal
+- URL-Query Regex
+- URL-Query jokertekens
+- URL-queryparameter
 
 [Terug naar boven](#azure-cdn-rules-engine-features)
 
@@ -707,16 +749,28 @@ Belangrijke informatie:
 - Deze functie configureren met het definiëren van een door spaties gescheiden lijst met statuscodes waarvoor de bovenstaande richtlijnen worden genegeerd.
 - Het aantal geldige statuscodes voor met deze functie: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, en 505.
 - Deze functie uitschakelen door deze op een lege waarde.
-- Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
-    - Edge 
-    - CNAME
-    - Aanvraag-Header Literal
-    - Aanvraag-Header jokertekens
-    - Verzoekmethode
-    - URL-Query Literal
-    - URL-Query jokertekens
 
 **Standaardgedrag:** het standaardgedrag is om te voldoen aan de bovenstaande richtlijnen.
+
+#### <a name="compatibility"></a>Compatibiliteit
+Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
+- AS-nummer
+- IP-adres van client
+- Cookie-Parameter
+- Cookie Parameter Regex
+- Land
+- Apparaat
+- Rand Cname
+- Verwijzende domein
+- Aanvraag-Header Literal
+- Aanvraag-Header Regex
+- Aanvraag-Header jokertekens
+- Verzoekmethode
+- Aanvraag-schema
+- URL-Query Literal
+- URL-Query Regex
+- URL-Query jokertekens
+- URL-queryparameter
 
 [Terug naar boven](#azure-cdn-rules-engine-features)
 
@@ -758,16 +812,28 @@ Belangrijke informatie:
     - Een geheel getal opgeven en vervolgens te klikken op de gewenste tijdseenheid (bijvoorbeeld seconden, minuten, uren, enzovoort). Deze waarde bepaalt de interne max-verouderde die worden toegepast.
 
 - Instellen van de tijdseenheid 'Uit', wordt deze functie uitschakelen. Een element in de cache kan niet buiten de normale verlooptijd worden geleverd.
-- Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
-    - Edge 
-    - CNAME
-    - Aanvraag-Header Literal
-    - Aanvraag-Header jokertekens
-    - Verzoekmethode
-    - URL-Query Literal
-    - URL-Query jokertekens
 
 **Standaardgedrag:** twee minuten
+
+#### <a name="compatibility"></a>Compatibiliteit
+Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
+- AS-nummer
+- IP-adres van client
+- Cookie-Parameter
+- Cookie Parameter Regex
+- Land
+- Apparaat
+- Rand Cname
+- Verwijzende domein
+- Aanvraag-Header Literal
+- Aanvraag-Header Regex
+- Aanvraag-Header jokertekens
+- Verzoekmethode
+- Aanvraag-schema
+- URL-Query Literal
+- URL-Query Regex
+- URL-Query jokertekens
+- URL-queryparameter
 
 [Terug naar boven](#azure-cdn-rules-engine-features)
 
@@ -872,9 +938,9 @@ Belangrijke informatie:
     - Accepteer codering
     - leeftijd
     - verbinding
-    - content-encoding
-    - content-length
-    - content-range
+    - codering van inhoud
+    - lengte van inhoud
+    - inhoud bereik
     - datum
     - server
     - aanhangwagen
@@ -1041,12 +1107,17 @@ Als verificatie op basis van het Token is ingeschakeld, wordt alleen aanvragen d
 
 De versleutelingssleutel die wordt gebruikt voor het versleutelen en ontsleutelen van token waarden wordt bepaald door de primaire sleutel en de sleutel van de back-up-opties op de pagina Token Auth. Houd er rekening mee dat versleutelingssleutels platform-specifieke.
 
+**Standaardgedrag:** uitgeschakeld.
+
+Deze functie heeft voorrang op de meeste functies met uitzondering van de functie voor het herschrijven van URL's.
+
 Waarde | Resultaat
 ------|---------
 Ingeschakeld | Beveiligt de gevraagde inhoud met verificatie op basis van tokens. Alleen aanvragen van clients die voorzien van een geldig token en voldoen aan de vereisten gehonoreerd. FTP-transacties zijn uitgesloten van verificatie op basis van tokens.
 Uitgeschakeld| Hiermee herstelt u het standaardgedrag. De standaardinstelling is dat de configuratie van verificatie op basis van tokens om te bepalen of een aanvraag worden beveiligd.
 
-**Standaardgedrag:** uitgeschakeld.
+#### <a name="compatibility"></a>Compatibiliteit
+Gebruik geen Token Auth met de voorwaarde van een altijd overeen. 
 
 [Terug naar boven](#azure-cdn-rules-engine-features)
 
@@ -1056,8 +1127,6 @@ Uitgeschakeld| Hiermee herstelt u het standaardgedrag. De standaardinstelling is
 ### <a name="token-auth-denial-code"></a>Token Auth DOS-Code
 **Doel:** bepaalt het type van de reactie die wordt geretourneerd voor een gebruiker wanneer een aanvraag wordt geweigerd vanwege verificatie op basis van tokens.
 
-Token Auth DOS-Code kan niet worden gebruikt met de voorwaarde van een altijd overeen. Gebruik in plaats daarvan de **afhandeling van aangepaste DOS** sectie de **Token Auth** pagina van de **beheren** portal. Zie voor meer informatie [beveiligen van Azure CDN activa met tokenverificatie](cdn-token-auth.md).
-
 De beschikbare reactiecodes worden vermeld in de volgende tabel.
 
 Antwoordcode|De naam van de reactie|Beschrijving
@@ -1066,8 +1135,11 @@ Antwoordcode|De naam van de reactie|Beschrijving
 302|Gevonden|Deze statuscode wordt niet-geautoriseerde gebruikers omgeleid naar de URL die is opgegeven in de locatie-header. Deze statuscode is de standaardmethode voor de branche van de uitvoering van een omleiding.
 307|Tijdelijke omleiding|Deze statuscode wordt niet-geautoriseerde gebruikers omgeleid naar de URL die is opgegeven in de locatie-header.
 401|Niet geautoriseerd|Deze statuscode combineren met de reactie WWW-Authenticate-header, kunt u een gebruiker voor de verificatie wordt gevraagd.
-403|Verboden|Dit is de standaard 403 verboden statusbericht dat een onbevoegde gebruiker ziet wanneer u probeert te krijgen tot beveiligde inhoud.
+403|Verboden|Dit bericht is de standaard 403 verboden statusbericht dat een onbevoegde gebruiker ziet wanneer u probeert te krijgen tot beveiligde inhoud.
 404|Het bestand is niet gevonden|Deze statuscode geeft aan dat de HTTP-client kan communiceren met de server is, maar de aangevraagde inhoud is niet gevonden.
+
+#### <a name="compatibility"></a>Compatibiliteit
+Gebruik geen Token autorisatiecode denial of met de voorwaarde van een altijd overeen. Gebruik in plaats daarvan de **afhandeling van aangepaste DOS** sectie de **Token Auth** pagina van de **beheren** portal. Zie voor meer informatie [beveiligen van Azure CDN activa met tokenverificatie](cdn-token-auth.md).
 
 #### <a name="url-redirection"></a>URL-omleiding
 
@@ -1152,11 +1224,11 @@ De configuratie van deze functie is vereist voor het instellen van de volgende o
 Optie|Beschrijving
 -|-
 Code|Selecteer de antwoordcode die wordt geretourneerd naar de aanvrager.
-Bron & patroon| Deze instellingen geven aan een aanvraag-URI-patroon waarmee het type van aanvragen die kunnen worden omgeleid. Alleen aanvragen waarvan de URL van de volgende criteria voldoet wordt omgeleid: <br/> <br/> **Bron (of een punt voor toegang tot inhoud):** selecteert u een relatief pad zijn dat een bronserver identificeert. Dit is de sectie '/XXXX/' en naam van uw eindpunt. <br/> **Bron (patroon):** een patroon dat aanvragen worden aangeduid met het relatieve pad moet worden gedefinieerd. Dit patroon van een reguliere expressie moet een pad dat begint direct na de eerder geselecteerde toegang tot inhoud wijst (Zie hierboven) definiëren. <br/> -Zorg ervoor dat de aanvraag-URI (dat wil zeggen, bron & patroon) eerder gedefinieerde criteria niet conflicteert met eventuele overeenkomst voorwaarden gedefinieerd voor deze functie. <br/> -Geef een patroon; Als u een lege waarde als het patroon, worden alle tekenreeksen worden vergeleken.
+Bron & patroon| Deze instellingen geven aan een aanvraag-URI-patroon waarmee het type van aanvragen die kunnen worden omgeleid. Alleen aanvragen waarvan de URL van de volgende criteria voldoet wordt omgeleid: <br/> <br/> **Bron (of een punt voor toegang tot inhoud):** selecteert u een relatief pad zijn dat een bronserver identificeert. Dit pad is de _/XXXX/_ sectie en de naam van uw eindpunt. <br/> **Bron (patroon):** een patroon dat aanvragen worden aangeduid met het relatieve pad moet worden gedefinieerd. Dit patroon van een reguliere expressie moet een pad dat begint direct na de eerder geselecteerde toegang tot inhoud wijst (Zie hierboven) definiëren. <br/> -Zorg ervoor dat de aanvraag-URI (dat wil zeggen, bron & patroon) eerder gedefinieerde criteria niet conflicteert met eventuele overeenkomst voorwaarden gedefinieerd voor deze functie. <br/> -Geef een patroon; Als u een lege waarde als het patroon, worden alle tekenreeksen worden vergeleken.
 Doel| Definieer de URL waarnaar de bovenstaande aanvragen worden omgeleid. <br/> Dynamisch maken gebruik van deze URL: <br/> -Een reguliere-expressiepatroon <br/>-HTTP variabelen <br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $_n_ waar _n_ identificeert een waarde door de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. <br/> 
 Het is raadzaam een absolute URL gebruiken. Het gebruik van een relatieve URL kan CDN URL's omleiden naar een ongeldig pad.
 
-**Sample Scenario**
+**Voorbeeldscenario**
 
 In dit voorbeeld wordt getoond hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http://marketing.azureedge.net/brochures
 
@@ -1177,7 +1249,7 @@ Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![](./media/
     - Voorbeeldscenario voor #3: 
         - Voorbeeld van een aanvraag (Edge CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
         - Aanvraag-URL (na omleiding): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
-- De variabele aanvragen schema (% {schema}) is gebruikt in de doel-optie. Dit zorgt ervoor dat het schema van de aanvraag ongewijzigd na omleiding blijft.
+- De variabele aanvraag schema (% {schema}) wordt gebruikt in de doel-optie, die zorgt ervoor dat het schema van de aanvraag ongewijzigd na omleiding blijft.
 - De URL-segmenten die zijn opgenomen in de aanvraag worden toegevoegd aan de nieuwe URL via "$1."
 
 [Terug naar boven](#azure-cdn-rules-engine-features)
@@ -1194,11 +1266,11 @@ Belangrijke informatie:
 
 Optie|Beschrijving
 -|-
- Bron & patroon | Deze instellingen geven aan een aanvraag-URI-patroon waarmee het type van aanvragen die opnieuw kunnen worden geschreven. Alleen aanvragen waarvan de URL van de volgende criteria voldoet herschreven: <br/>     - **Bron (of een punt voor toegang tot inhoud):** selecteert u een relatief pad zijn dat een bronserver identificeert. Dit is de sectie '/XXXX/' en naam van uw eindpunt. <br/> - **Bron (patroon):** een patroon dat aanvragen worden aangeduid met het relatieve pad moet worden gedefinieerd. Dit patroon van een reguliere expressie moet een pad dat begint direct na de eerder geselecteerde toegang tot inhoud wijst (Zie hierboven) definiëren. <br/> Controleer of dat de aanvraag-URI (dat wil zeggen, bron & patroon) eerder gedefinieerde criteria niet conflicteert met een van de overeenkomst voorwaarden gedefinieerd voor deze functie. Geef een patroon; Als u een lege waarde als het patroon, worden alle tekenreeksen worden vergeleken. 
+ Bron & patroon | Deze instellingen geven aan een aanvraag-URI-patroon waarmee het type van aanvragen die opnieuw kunnen worden geschreven. Alleen aanvragen waarvan de URL van de volgende criteria voldoet herschreven: <br/>     - **Bron (of een punt voor toegang tot inhoud):** selecteert u een relatief pad zijn dat een bronserver identificeert. Dit pad is de _/XXXX/_ sectie en de naam van uw eindpunt. <br/> - **Bron (patroon):** een patroon dat aanvragen worden aangeduid met het relatieve pad moet worden gedefinieerd. Dit patroon van een reguliere expressie moet een pad dat begint direct na de eerder geselecteerde toegang tot inhoud wijst (Zie hierboven) definiëren. <br/> Controleer of dat de aanvraag-URI (dat wil zeggen, bron & patroon) eerder gedefinieerde criteria niet conflicteert met een van de overeenkomst voorwaarden gedefinieerd voor deze functie. Geef een patroon; Als u een lege waarde als het patroon, worden alle tekenreeksen worden vergeleken. 
  Doel  |Definieer de relatieve URL waarnaar de bovenstaande aanvragen worden herschreven door: <br/>    1. Als u een punt voor toegang tot inhoud die een bronserver identificeert. <br/>    2. Het definiëren van een relatief pad met: <br/>        -Een reguliere-expressiepatroon <br/>        -HTTP variabelen <br/> <br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $_n_ waar _n_ identificeert een waarde door de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. 
- Deze functie kunt de POP's moeten worden herschreven van de URL zonder dat u een traditionele omleiding uitvoert. Dit betekent dat de aanvrager de dezelfde antwoordcode ontvangt alsof de herschreven URL hadden aangevraagd.
+ Deze functie kunt de POP's moeten worden herschreven van de URL zonder dat u een traditionele omleiding uitvoert. Dat wil zeggen, ontvangt de aanvrager de dezelfde antwoordcode alsof de herschreven URL hadden aangevraagd.
 
-**Sample Scenario 1**
+**Voorbeeldscenario 1**
 
 In dit voorbeeld wordt getoond hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http://marketing.azureedge.net/brochures/
 
@@ -1206,7 +1278,7 @@ In aanmerking komende aanvragen worden omgeleid naar deze base rand CNAME-URL: h
 
 Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
-**Sample Scenario 2**
+**Voorbeeldscenario 2**
 
 Dit voorbeeld wordt het omleiden van een edge CNAME URL uit hoofdletters in kleine letters reguliere expressies gebruiken.
 
@@ -1220,7 +1292,6 @@ Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![](./media/
 - De URL-segmenten die zijn opgenomen in de aanvraag worden toegevoegd aan de nieuwe URL via "$1."
 
 #### <a name="compatibility"></a>Compatibiliteit
-
 Deze functie bevat die overeenkomt met de criteria die moeten worden voldaan voordat deze kan worden toegepast op een aanvraag. Om te voorkomen dat een conflicterende vergelijkingscriterium instellen, moet aan deze functie is niet compatibel met de volgende voorwaarden van de overeenkomst:
 
 - AS-nummer

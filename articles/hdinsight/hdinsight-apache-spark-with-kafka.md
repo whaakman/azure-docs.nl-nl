@@ -3,24 +3,22 @@ title: Apache Spark-streaming met Kafka - Azure HDInsight | Microsoft Docs
 description: Informatie over het gebruik van Spark Apache Spark als stream gegevens van of naar Apache Kafka met DStreams. In dit voorbeeld kunt u gegevens met behulp van een Jupyter-notebook in Spark in HDInsight streamen.
 keywords: Voorbeeld van kafka, zookeeper kafka, spark streaming kafka, spark-streaming kafka-voorbeeld
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 8c9a901b8922bf349959438487c88e3df4f2ebea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a9463b5983b5f41683a5cfe416ca125bf2810062
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark-streaming (DStream) voorbeeld met Kafka in HDInsight
 
@@ -87,7 +85,7 @@ Zodra de resources zijn gemaakt, wordt een overzichtspagina weergegeven.
 
 ## <a name="use-the-notebooks"></a>De notebooks gebruiken
 
-De code voor het voorbeeld in dit document beschreven is beschikbaar op [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
+De code voor het voorbeeld in dit document beschreven is beschikbaar op [ https://github.com/Azure-Samples/hdinsight-spark-scala-kafka ](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
 
 Als u dit voorbeeld, volg de stappen in de `README.md`.
 

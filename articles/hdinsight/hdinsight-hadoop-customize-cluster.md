@@ -2,25 +2,23 @@
 title: Met behulp van scriptacties - Azure HDInsight-Clusters aanpassen | Microsoft Docs
 description: Informatie over het aanpassen van HDInsight-clusters met behulp van de scriptactie.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 3a63e216-4163-40c1-aa04-6b42fd0162ad
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec95b6d66c71b4278dd1e16807fcc75f5e8b1c36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5785fd6dc9b2c66913f7226a9c75246382c0485
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>HDInsight op basis van Windows-clusters met behulp van de scriptactie aanpassen
 **Actie script** kan worden gebruikt om aan te roepen [aangepaste scripts](hdinsight-hadoop-script-actions.md) tijdens het maken van het cluster voor het installeren van extra software op een cluster.
@@ -54,11 +52,11 @@ HDInsight biedt verschillende scripts voor het installeren van de volgende onder
 
 | Naam | Script |
 | --- | --- |
-| **Spark installeren** |https://hdiconfigactions.BLOB.Core.Windows.NET/sparkconfigactionv03/Spark-Installer-v03.ps1. Zie [installeert en gebruikt Spark in HDInsight-clusters][hdinsight-install-spark]. |
-| **R installeren** |https://hdiconfigactions.BLOB.Core.Windows.NET/rconfigactionv02/r-Installer-v02.ps1. Zie [installeert en gebruikt R op HDInsight-clusters][hdinsight-install-r]. |
-| **Solr installeren** |https://hdiconfigactions.BLOB.Core.Windows.NET/solrconfigactionv01/solr-Installer-v01.ps1. Zie [installeert en gebruikt Solr op HDInsight-clusters](hdinsight-hadoop-solr-install.md). |
-| - **Giraph installeren** |https://hdiconfigactions.BLOB.Core.Windows.NET/giraphconfigactionv01/giraph-Installer-v01.ps1. Zie [installeert en gebruikt Giraph op HDInsight-clusters](hdinsight-hadoop-giraph-install.md). |
-| **Vooraf laden Hive-bibliotheken** |https://hdiconfigactions.BLOB.Core.Windows.NET/setupcustomhivelibsv01/Setup-customhivelibs-v01.ps1. Zie [toevoegen Hive-bibliotheken op HDInsight-clusters](hdinsight-hadoop-add-hive-libraries.md) |
+| **Spark installeren** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Zie [installeert en gebruikt Spark in HDInsight-clusters][hdinsight-install-spark]. |
+| **R installeren** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Zie [installeert en gebruikt R op HDInsight-clusters][hdinsight-install-r]. |
+| **Solr installeren** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Zie [installeert en gebruikt Solr op HDInsight-clusters](hdinsight-hadoop-solr-install.md). |
+| - **Giraph installeren** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Zie [installeert en gebruikt Giraph op HDInsight-clusters](hdinsight-hadoop-giraph-install.md). |
+| **Vooraf laden Hive-bibliotheken** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Zie [toevoegen Hive-bibliotheken op HDInsight-clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## <a name="call-scripts-using-the-azure-portal"></a>Aanroep scripts met de Azure portal
 **Vanuit de Azure-portal**
@@ -297,7 +295,7 @@ Ingebouwde-onderdelen worden volledig ondersteund en Microsoft Support kunt opsp
 > [!WARNING]
 > Onderdelen van het HDInsight-cluster volledig worden ondersteund en Microsoft Support kunt opsporen en oplossen van problemen met betrekking tot deze onderdelen.
 >
-> Aangepaste onderdelen ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Dit kan leiden tot het oplossen van het probleem of vraag of u benaderen beschikbare kanalen voor de open-source technologieën waar grondige kennis van deze technologie kan worden gevonden. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [http://apache.org](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Aangepaste onderdelen ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Dit kan leiden tot het oplossen van het probleem of vraag of u benaderen beschikbare kanalen voor de open-source technologieën waar grondige kennis van deze technologie kan worden gevonden. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 >
 >
 

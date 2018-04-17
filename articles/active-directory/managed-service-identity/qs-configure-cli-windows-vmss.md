@@ -2,10 +2,10 @@
 title: Configureren van MSI op de schaal van een virtuele machine van Azure met Azure CLI instellen
 description: Stap door stapsgewijze instructies voor het configureren van een beheerde Service identiteit (MSI) op een Azure virtuele-Machineschaalset, met Azure CLI.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: d7a7b0c8b3f9bf0279282dbf1fed4fc8163d9170
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9cdf5225f2d87fffa2290e3edd09d4ae829aee21
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Een virtuele machine configureren schaalset beheerde Service identiteit (MSI) met Azure CLI
 
@@ -71,10 +71,10 @@ Als u het inschakelen van MSI op een bestaande virtuele machine van Azure-scale 
    az login
    ```
 
-2. Gebruik [az vmss toewijzen-identity](/cli/azure/vm/#az_vmss_assign_identity) met de `--assign-identity` -parameter voor het toevoegen van een MSI-bestand naar een bestaande virtuele machine:
+2. Gebruik [az vmss identiteit toewijzen](/cli/azure/vmss/identity/#az_vmss_identity_assign) opdracht een MSI-bestand toevoegen aan een bestaande virtuele machine:
 
    ```azurecli-interactive
-   az vmss assign-identity -g myResourceGroup -n myVMSS
+   az vmss identity assign -g myResourceGroup -n myVMSS
    ```
 
 ## <a name="remove-msi-from-an-azure-virtual-machine-scale-set"></a>MSI uit een Azure virtuele-machineschaalset verwijderen
@@ -87,10 +87,10 @@ Als u een virtuele-machineschaalset die een MSI-bestand niet meer nodig hebt:
    az login
    ```
 
-2. Gebruik de `--identities` overschakelen met [az vmss remove-identity](/cli/azure/vmss/#az_vmss_remove_identity) het MSI-bestand te verwijderen:
+2. Gebruik [az vmss identiteit verwijderen](/cli/azure/vmss/identity/#az_vmss_remove_identity) opdracht om te verwijderen van het MSI-bestand:
 
    ```azurecli-interactive
-   az vmss remove-identity -g myResourceGroup -n myVMSS --identities readerID writerID
+   az vmss identity remove -g myResourceGroup -n myVMSS --identities readerID writerID
    ```
 
 ## <a name="next-steps"></a>Volgende stappen

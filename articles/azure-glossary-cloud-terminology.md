@@ -6,7 +6,7 @@ services: na
 documentationcenter: na
 author: MonicaRush
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 953320734c1601c411144bd7a6496716a65e452e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Verklarende woordenlijst voor Microsoft Azure: een dictionary van cloud-terminologie op de Azure-platform
 
@@ -46,7 +46,7 @@ Zie [beheren van de beschikbaarheid van virtuele machines van Windows](virtual-m
 Twee [implementatiemodellen](resource-manager-deployment-model.md) gebruikt voor het implementeren van resources in Azure (het nieuwe model is Azure Resource Manager). Sommige Azure-services ondersteunt alleen het Resource Manager-implementatiemodel, sommige browsers ondersteunen het klassieke implementatiemodel en sommige ondersteunen beide. De documentatie voor elke Azure-service geeft aan welke modellen ondersteunen.
 
 ## <a name="cli"></a>Azure-opdrachtregelinterface (CLI)
-Een opdrachtregelinterface die kunnen worden gebruikt voor het beheren van Azure-services van Windows, Mac OS- en Linux.  Bepaalde services of functies van de service kunnen alleen via PowerShell of de CLI worden beheerd. See [Azure CLI 2.0](/cli/azure)
+Een opdrachtregelinterface die kunnen worden gebruikt voor het beheren van Azure-services van Windows, Mac OS- en Linux.  Bepaalde services of functies van de service kunnen alleen via PowerShell of de CLI worden beheerd. Zie [Azure CLI 2.0](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 Een opdrachtregelinterface voor het beheren van Azure-services via een opdrachtregel van Windows-pc's. Bepaalde services of functies van de service kunnen alleen via PowerShell of de CLI worden beheerd.
@@ -111,7 +111,7 @@ Zie [overzicht van Azure Resource Manager](azure-resource-manager/resource-group
 
 ## <a name="role"></a>rol
 Een methode voor het beheren van toegang die kan worden toegewezen aan gebruikers, groepen en services. Rollen zijn uitvoeren van acties zoals maken, beheren, en gelezen op Azure-resources.  
-Zie [RBAC: ingebouwde rollen](active-directory/role-based-access-built-in-roles.md)
+Zie [RBAC: ingebouwde rollen](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>serviceovereenkomst (SLA)
 De overeenkomst die worden beschreven van Microsoft verbintenissen voor bedrijfstijd en connectiviteit. Elke Azure-service heeft een specifieke SLA.  

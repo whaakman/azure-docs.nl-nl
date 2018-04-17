@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 78f447c96afe7955f115de4bbd28015cd231bb53
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ab118cd43f1e3e57627d940072e50405cd85ca58
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Permanente volumes met Azure-bestanden
 
-Een permanente volume vertegenwoordigt een onderdeel van de opslag die is ingericht voor gebruik in een cluster Kubernetes. Een permanente volume kan worden gebruikt door een of meer gehele product en worden dynamisch of statisch ingericht. In dit document worden dynamisch inrichten van een Azure-bestandsshare als een permanente volume Kubernetes in een cluster AKS. 
+Een permanente volume vertegenwoordigt een onderdeel van de opslag die is ingericht voor gebruik in een cluster Kubernetes. Een permanente volume kan worden gebruikt door een of meer gehele product en worden dynamisch of statisch ingericht. In dit document worden dynamisch inrichten van een Azure-bestandsshare als een permanente volume Kubernetes in een cluster AKS.
 
 Zie voor meer informatie over Kubernetes permanente volumes [Kubernetes permanente volumes][kubernetes-volumes].
 
 ## <a name="create-storage-account"></a>Een opslagaccount maken
 
-Bij het dynamisch inrichten van een Azure-bestandsshare als een volume Kubernetes, kan een opslagaccount worden gebruikt als deze is opgenomen in dezelfde resourcegroep bevinden als het cluster AKS. Maak een opslagaccount in dezelfde resourcegroep bevinden als het cluster AKS indien nodig. 
+Bij het dynamisch inrichten van een Azure-bestandsshare als een volume Kubernetes, kan een opslagaccount worden gebruikt als deze is opgenomen in dezelfde resourcegroep bevinden als het cluster AKS. Maak een opslagaccount in dezelfde resourcegroep bevinden als het cluster AKS indien nodig.
 
 Om de juiste resourcegroep hebt geïdentificeerd, gebruiken de [az groepslijst] [ az-group-list] opdracht.
 
@@ -40,7 +40,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Gebruik de [az storage-account maken] [ az-storage-account-create] opdracht voor het maken van het opslagaccount. 
+Gebruik de [az storage-account maken] [ az-storage-account-create] opdracht voor het maken van het opslagaccount.
 
 Het volgende voorbeeld bijwerken `--resource-group` met de naam van de resourcegroep en `--name` in een naam van uw keuze.
 
@@ -74,7 +74,7 @@ kubectl create -f azure-file-sc.yaml
 
 ## <a name="create-persistent-volume-claim"></a>Permanente volume claim maken
 
-Een claim permanente volume (PVC) maakt gebruik van het opslagobject klasse te richten op dynamische wijze een Azure-bestandsshare. 
+Een claim permanente volume (PVC) maakt gebruik van het opslagobject klasse te richten op dynamische wijze een Azure-bestandsshare.
 
 Het volgende manifest kan worden gebruikt voor het maken van een claim permanente volume `5GB` aan de grootte van `ReadWriteOnce` toegang.
 
@@ -132,22 +132,22 @@ Maken van de schil met de [kubectl maken] [ kubectl-create] opdracht.
 kubectl create -f azure-pvc-files.yaml
 ```
 
-U hebt nu een actieve schil met uw Azure-schijf gekoppeld in de `/mnt/azure` directory. U kunt zien dat het volume dat is gekoppeld bij de inspectie van uw schil via `kubectl describe pod mypod`.
+U hebt nu een actieve schil met uw Azure-schijf gekoppeld in de `/mnt/azure` directory. Deze configuratie kan worden weergegeven bij de inspectie van uw schil via `kubectl describe pod mypod`.
 
 ## <a name="mount-options"></a>Koppelingsopties
- 
+
 Standaardwaarden fileMode en dirMode verschillen tussen versies Kubernetes zoals beschreven in de volgende tabel.
- 
+
 | versie | waarde |
 | ---- | ---- |
-| v1.6.x, v1.7.x | 0777 |
+| V1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |
 | V1.8.6 of hoger | 0755 |
 | v1.9.0 | 0700 |
 | V1.9.1 of hoger | 0755 |
- 
+
 Als u een cluster van versie 1.8.5 of hoger, koppelpunt opties kunnen worden opgegeven op het opslagobject klasse. Het volgende voorbeeld wordt `0777`.
- 
+
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -162,7 +162,7 @@ mountOptions:
 parameters:
   skuName: Standard_LRS
 ```
- 
+
 Als u een cluster van versie 1.8.0 - 1.8.4, een beveiligingscontext kan worden opgegeven met de `runAsUser` waarde ingesteld op `0`. Zie voor meer informatie over schil beveiligingscontext [configureren van een beveiligingscontext][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -7,21 +7,19 @@ editor: cgronlun
 manager: asadk
 author: bprakash
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 35ded349e9ced6463ece876ca1fd92423d20c625
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 813b05c5be4378ea6e57cb0b14fd8110e2772998
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de onderdelen en versies die beschikbaar met HDInsight?
 
@@ -37,7 +35,7 @@ De onderdeel-versies die zijn gekoppeld aan de versies van HDInsight-cluster wor
 > [!NOTE]
 > De standaardversie voor het HDInsight-service kan zonder voorafgaande kennisgeving worden gewijzigd. Als u een afhankelijkheid versie, de HDInsight-versie opgeven wanneer u clusters met de .NET SDK met Azure PowerShell en Azure CLI maken.
 
-| Onderdeel | HDInsight 3.6 (standaard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
+| Onderdeel | HDInsight 3.6 (standaard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | 3.2 voor HDInsight | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop en YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -83,7 +81,7 @@ De volgende tabel geeft de versies van HDInsight die beschikbaar in de Azure Por
 | HDInsight-versie | HDP versie | VM OS | Releasedatum | Ondersteuning voor vervaldatum | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in de Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 april 2017 | | |Ja |Ja |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 september 2016 |5 september 2017 |31 mei 2018 |Ja |Ja |
+| HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 september 2016 |5 september 2017 |31 mei 2018 |Ja |Ja |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nee |
 
 > [!NOTE]
@@ -96,9 +94,9 @@ De volgende tabel bevat de versies van HDInsight die zijn **niet** beschikbaar i
 
 | HDInsight-versie | HDP versie | VM OS | Releasedatum | Ondersteuning voor vervaldatum | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in de Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 maart 2016 |29 december 2016 |9 januari 2018 |Ja |Nee |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nee |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 TNS of Windows Server 2012 R2 |18 februari 2015 |1 maart 2016 |1 april 2017 |Ja |Nee |
+| HDInsight 3.4 |2.4 HDP |Ubuntu 14.0.4 TNS |29 maart 2016 |29 december 2016 |9 januari 2018 |Ja |Nee |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 TNS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nee |
+| 3.2 voor HDInsight |HDP 2.2 |Ubuntu 12.04 TNS of Windows Server 2012 R2 |18 februari 2015 |1 maart 2016 |1 april 2017 |Ja |Nee |
 | HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 juni 2014 |18 mei 2015 |30 juni 2016 |Ja |Nee |
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Nee |
 | HDInsight 2.1 |1.3 HDP |Windows Server 2012 R2 |28 oktober 2013 |12 mei 2014 |31 mei 2015 |Ja |Nee |
@@ -109,7 +107,7 @@ De volgende tabel bevat de versies van HDInsight die zijn **niet** beschikbaar i
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Enterprise-beveiligingspakket voor HDInsight
 
-Azure HDInsight is een optioneel pakket die u op uw HDInsight-cluster als onderdeel van de cluster-werkstroom maken toevoegen kunt. Het beveiligingspakket Enterprise ondersteunt:
+Enterprise-Security is een optioneel pakket die u op uw HDInsight-cluster als onderdeel van de cluster-werkstroom maken toevoegen kunt. Het beveiligingspakket Enterprise ondersteunt:
 
 - Integratie met Active Directory voor verificatie.
 
@@ -251,11 +249,11 @@ De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voo
   | HEAD: standaard VM-grootte |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | HEAD: aanbevolen VM-grootten |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
   | Worker: standaard VM-grootte |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Werknemer: aanbevolen VM-grootten |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Werknemer: aanbevolen VM-grootten |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13 D14; Linux: D4, D12, D13 D14 |Windows: D12, D13 D14; Linux: D4, D12, D13 D14 |
   | ZooKeeper: standaard VM-grootte | |A2 | | A2 | | |
   | ZooKeeper: aanbevolen VM-grootten | |A2, A3, A4 | |A2, A3, A4 | | |
   | Rand: standaard VM-grootten | | | | | |Windows: D12; Linux: D4 |
-  | Rand: aanbevolen VM-grootten | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Rand: aanbevolen VM-grootten | | | | | |Windows: D12, D13 D14; Linux: D4, D12, D13 D14 |
 
 > [!NOTE]
 > - HEAD staat bekend als *Nimbus* type voor de Storm-cluster.

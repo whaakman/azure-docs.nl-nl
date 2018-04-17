@@ -1,25 +1,18 @@
 ---
 title: Azure analyseservices beheren | Microsoft Docs
 description: Informatie over het beheren van een Analysis Services-server in Azure.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 79491d0b-b00d-4e02-9ca7-adc99bc02fdb
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 0cad50788eeb4a31d1e3f6f7e6c038ba2a8d4d9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-analysis-services"></a>Analyseservices beheren
 Als u een Analysis Services-server hebt gemaakt in Azure, worden sommige administratie en beheer taken moet u meteen of later opnieuw uitvoeren op de weg. Voer bijvoorbeeld verwerking naar de gegevens vernieuwen, bepalen wie toegang de modellen op uw server of controleren van de status van uw server. Bepaalde beheertaken kunnen alleen worden uitgevoerd in Azure-portal anderen in SQL Server Management Studio (SSMS), en sommige taken kunnen worden uitgevoerd op een.
@@ -47,13 +40,18 @@ Als u de nieuwste functies en de meest vloeiende ervaring bij het verbinden met 
    
     ![Servernaam bepalen in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. In SSMS > **Objectverkenner**, klikt u op **Connect** > **Analysis Services**.
-3. In de **verbinding maken met Server** in het dialoogvenster Plakken in de naam van de server vervolgens in **verificatie**, kies een van de volgende verificatietypen:
-   
+3. In de **verbinding maken met Server** in het dialoogvenster Plakken in de naam van de server vervolgens in **verificatie**, kies een van de volgende verificatietypen:   
+    > [!NOTE]
+    > Verificatietype, **Active Directory - Universal met ondersteuning voor MFA**, wordt aanbevolen.
+
+    > [!NOTE]
+    > Als u zich aanmeldt met een Microsoft-Account, Live ID, Yanoo, Gmail, enz., laat u het wachtwoordveld leeg. U wordt gevraagd om een wachtwoord als u op verbinden klikt.
+
     **Windows-verificatie** om uw Windows-referenties voor domein\gebruikersnaam en het wachtwoord te gebruiken.
 
     **Active Directory-wachtwoordverificatie** om een organisatie-account te gebruiken. Bijvoorbeeld, wanneer verbinding maakt vanaf een niet-domein lid zijn van computer.
 
-    **Verificatie van Active Directory-universele** gebruiken [niet-interactieve of multi-factor authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory - Universal met ondersteuning voor MFA** gebruiken [niet-interactieve of multi-factor authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![Verbinding maken in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

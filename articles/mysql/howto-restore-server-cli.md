@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 322de1fb19461455a063d939ace3d5553ed1fc79
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5e8ac9da4df2428191e8a7e6402f2ac06e695503
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure-Database voor MySQL met de Azure CLI
 
@@ -52,7 +52,7 @@ Het geretourneerde JSON-script moet het volgende bevatten:
 }
 ```
 
-Als versie 0.0.5 wordt geretourneerd, voert u het volgende voor het bijwerken van de extensie: 
+Als versie 0.0.5 niet wordt geretourneerd, voert u het volgende script uit om de extensie bij te werken: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -114,6 +114,10 @@ Als u uw server voor geografisch redundante back-ups geconfigureerd, kan een nie
 
 Gebruik voor het maken van een server die geografisch redundante back-up met de Azure CLI `az mysql server georestore` opdracht.
 
+> [!NOTE]
+> Wanneer een server voor het eerst wordt gemaakt kunt deze mogelijk niet onmiddellijk beschikbaar voor de geo-herstel. Het duurt enkele uren voor de benodigde metagegevens worden ingevuld.
+>
+
 Voer de volgende opdracht op geo terugzetten van de server bij de Azure CLI-opdrachtprompt:
 
 ```azurecli-interactive
@@ -132,10 +136,10 @@ De `az mysql server georestore` opdracht requies de volgende parameters:
 | Instelling | Voorgestelde waarde | Beschrijving  |
 | --- | --- | --- |
 |resource-group| myResourceGroup | De naam van de resourcegroep de nieuwe server deel van uitmaakt.|
-|naam | mydemoserver-georestored | De naam van de nieuwe server. |
+|naam | mydemoserver georestored | De naam van de nieuwe server. |
 |source-server | mydemoserver | De naam van de bestaande server waarvan back-ups redundante geo worden gebruikt. |
 |location | eastus | De locatie van de nieuwe server. |
-|sku-name| GP_Gen4_8 | Deze parameter stelt de prijscategorie laag, compute genereren en aantal vCores van de nieuwe server. GP_Gen4_8 toegewezen aan een voor algemene doeleinden, Gen 4-server met 8 vCores.|
+|SKU-naam| GP_Gen4_8 | Deze parameter stelt de prijscategorie laag, compute genereren en aantal vCores van de nieuwe server. GP_Gen4_8 toegewezen aan een voor algemene doeleinden, Gen 4-server met 8 vCores.|
 
 
 >[!Important]

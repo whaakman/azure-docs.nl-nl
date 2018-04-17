@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
-ms.openlocfilehash: 858c8933565aeeb22dc1b685082dab2c6481737b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f56b651c40187e42361ac12f0cbf4e509385e0d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-the-container-image-used-for-azure-ml-models"></a>De container-installatiekopie die wordt gebruikt voor Azure ML modellen aanpassen
 
@@ -23,7 +23,7 @@ In dit artikel wordt beschreven hoe de installatiekopie van een container voor A
 ## <a name="how-to-customize-the-docker-image"></a>Het aanpassen van de Docker-afbeelding
 De Docker-installatiekopie die Azure ML implementeert met behulp van aanpassen:
 
-1. Een bestand depenencies.yml: voor het beheren van de afhankelijkheden die installeerbare van zijn [PyPi]( https://pypi.python.org/pypi), u kunt het bestand conda_dependencies.yml uit het project Workbench gebruiken of zelf. Dit is de aanbevolen aanpak voor het installeren van Python-afhankelijkheden die geïnstalleerd met pip zijn.
+1. Een `dependencies.yml` bestand: voor het beheren van de afhankelijkheden die installeerbare van zijn [PyPi]( https://pypi.python.org/pypi), kunt u de `conda_dependencies.yml` bestand van het project Workbench of maak uw eigen. Dit is de aanbevolen aanpak voor het installeren van Python-afhankelijkheden die geïnstalleerd met pip zijn.
 
    Voorbeeld van de CLI-opdracht:
    ```azurecli
@@ -47,7 +47,7 @@ De Docker-installatiekopie die Azure ML implementeert met behulp van aanpassen:
 
    Het bestand moet de installatiestappen Docker zoals een DockerFile bevatten. De volgende opdrachten zijn toegestaan in het bestand: 
 
-    RUN, ENV, ARG, LABEL, EXPOSE
+    UITVOERT, WEERGEVEN ENV, ARG, LABEL EN
 
    Voorbeeld van de CLI-opdracht:
    ```azurecli

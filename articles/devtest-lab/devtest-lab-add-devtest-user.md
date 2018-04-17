@@ -5,7 +5,7 @@ services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
 ms.service: devtest-lab
 ms.workload: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d0fdd8441143e2d2eb49399a10dc12d38fbf6823
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Eigenaars- en gebruikers toevoegen in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-Toegang in Azure DevTest Labs wordt beheerd door [gebaseerd toegangsbeheer (RBAC)](../active-directory/role-based-access-control-what-is.md). Met RBAC kunt kunt u taken scheiden binnen uw team in *rollen* waar u de hoeveelheid toegang nodig is voor gebruikers voor het uitvoeren van hun taken verlenen. Drie van deze RBAC-rollen zijn *eigenaar*, *DevTest Labs gebruiker*, en *Inzender*. In dit artikel leert u welke acties kunnen worden uitgevoerd in elk van de drie belangrijkste RBAC-rollen. Van daaruit u meer informatie over hoe u gebruikers toevoegen aan een lab - zowel via de portal en via een PowerShell-script en gebruikers toevoegen op het abonnementsniveau.
+Toegang in Azure DevTest Labs wordt beheerd door [gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md). Met RBAC kunt kunt u taken scheiden binnen uw team in *rollen* waar u de hoeveelheid toegang nodig is voor gebruikers voor het uitvoeren van hun taken verlenen. Drie van deze RBAC-rollen zijn *eigenaar*, *DevTest Labs gebruiker*, en *Inzender*. In dit artikel leert u welke acties kunnen worden uitgevoerd in elk van de drie belangrijkste RBAC-rollen. Van daaruit u meer informatie over hoe u gebruikers toevoegen aan een lab - zowel via de portal en via een PowerShell-script en gebruikers toevoegen op het abonnementsniveau.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>Acties die kunnen worden uitgevoerd in elke rol
 Er zijn drie belangrijkste rollen kunt u een gebruiker toewijzen:
@@ -36,7 +36,7 @@ Er zijn drie belangrijkste rollen kunt u een gebruiker toewijzen:
 
 De volgende tabel ziet u de acties die kunnen worden uitgevoerd door gebruikers in elk van deze rollen:
 
-| **Gebruikers met deze rol acties kunnen uitvoeren** | **DevTest Labs User** | **Owner** | **Contributor** |
+| **Gebruikers met deze rol acties kunnen uitvoeren** | **DevTest Labs gebruiker** | **Eigenaar** | **Inzender** |
 | --- | --- | --- | --- |
 | **Taken voor het testlab** | | | |
 | Gebruikers toevoegen aan een lab |Nee |Ja |Nee |

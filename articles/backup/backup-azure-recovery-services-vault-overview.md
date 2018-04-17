@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/15/2017
 ms.author: markgal;arunak;sogup
-ms.openlocfilehash: ad685744595ab86def8d226d7c2fb5455af98da4
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 2d25782ef73f8899587636b65ccd2d7870f89e6f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="recovery-services-vaults-overview"></a>Overzicht van Recovery Services-kluizen
 
@@ -35,7 +35,7 @@ Recovery Services-kluizen zijn gebaseerd op het Azure Resource Manager-model van
 
 - **Centrale bewaking voor uw hybride IT-omgeving**: met Recovery Services-kluizen, kunt u controleren niet alleen uw [Azure IaaS VM's](backup-azure-manage-vms.md) , maar ook uw [lokale activa](backup-azure-manage-windows-server.md#manage-backup-items) vanuit een centrale portal. [Meer informatie](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **Op rollen gebaseerde toegangsbeheer (RBAC)**: RBAC verfijnd toegangsbeheer management in Azure biedt. [Azure biedt diverse ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md), en de Azure Backup bevat drie [ingebouwde functies voor het beheren van herstelpunten](backup-rbac-rs-vault.md). Recovery Services-kluizen compatibel zijn met RBAC waarmee de beperkt back-up en herstel van toegang aan de gedefinieerde set van gebruikersrollen. [Meer informatie](backup-rbac-rs-vault.md)
+- **Op rollen gebaseerde toegangsbeheer (RBAC)**: RBAC verfijnd toegangsbeheer management in Azure biedt. [Azure biedt diverse ingebouwde rollen](../role-based-access-control/built-in-roles.md), en de Azure Backup bevat drie [ingebouwde functies voor het beheren van herstelpunten](backup-rbac-rs-vault.md). Recovery Services-kluizen compatibel zijn met RBAC waarmee de beperkt back-up en herstel van toegang aan de gedefinieerde set van gebruikersrollen. [Meer informatie](backup-rbac-rs-vault.md)
 
 - **Alle configuraties van Azure Virtual Machines beveiligen**: Recovery Services-kluizen beveiligen Resource Manager gebaseerde virtuele machines met inbegrip van Premium-schijven, schijven beheerd en virtuele machines versleuteld. Een back-upkluis upgraden naar een Recovery Services-kluis biedt u de mogelijkheid uw Service Manager-VM's bijwerken naar Resource Manager gebaseerde virtuele machines. Tijdens het upgraden van de kluis, kunt u uw herstelpunten op basis van Service Manager VM bewaren en configureer beveiliging voor de bijgewerkte (Resource Manager is ingeschakeld) virtuele machines. [Meer informatie](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 

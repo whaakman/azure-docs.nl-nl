@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 4d971d75424f85bb07c0be779b9dfedb1ef41c1e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5561ac0089225ae2d06e51a90fa2081e409ce41
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Een Azure Machine Learning-werkruimte beheren
 
@@ -49,7 +49,7 @@ Voor het beheren van de webservices die zijn gekoppeld aan deze werkruimte kunt 
 > [!NOTE]
 > Als u wilt implementeren of beheren van nieuwe webservices als u een rol Inzender of -beheerder voor het abonnement waarop de webservice is geïmplementeerd zijn toegewezen. Als u een andere gebruiker voor een machine learning-werkruimte uitnodigen, moet u ze toewijzen aan een rol Inzender of -beheerder voor het abonnement voordat ze kunnen implementeren of beheren van webservices. 
 > 
->Zie voor meer informatie over toegangsmachtigingen instellen [toegangstoewijzingen weergeven voor gebruikers en groepen in de Azure portal](../../active-directory/role-based-access-control-manage-assignments.md).
+>Zie voor meer informatie over toegangsmachtigingen instellen [toegangstoewijzingen weergeven voor gebruikers en groepen in de Azure portal](../../role-based-access-control/role-assignments-users.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [implementeren Machine Learning met Azure Resource Manager-sjablonen](deploy-with-resource-manager-template.md). 

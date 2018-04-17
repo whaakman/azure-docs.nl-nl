@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bac1e679aa46b280596ab09ba40da780c81cac5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8b5869e44e22fab1e996fcd58b4258849603a711
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup-cmdlets gebruiken om back-up van virtuele machines
 
@@ -132,7 +132,7 @@ De volgende stappen leiden u bij het maken van een Recovery Services-kluis. Een 
     ```
 
    > [!TIP]
-   > Veel Azure Backup-cmdlets moet de Recovery Services-kluis-object als invoer. Daarom is het handig zijn voor het opslaan van het back-up Recovery Services-kluis-object in een variabele.
+   > Voor veel Azure Backup-cmdlets is het object Recovery Services-kluis als invoer vereist. Daarom is het handiger het object Backup Recovery Services-kluis in een variabele op te slaan.
    >
    >
 
@@ -157,14 +157,14 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Gebruik een Recovery Services-kluis ter bescherming van uw virtuele machines. Als u de beveiliging wilt toepassen, stelt u de kluis context (het type van de gegevens die worden beveiligd in de kluis) en controleer of het beveiligingsbeleid. Het beveiligingsbeleid is de planning voor wanneer de back-uptaken uitgevoerd en hoe lang de momentopname van elke back-up wordt bewaard.
 
 ### <a name="set-vault-context"></a>Set kluis context
-Voordat u de beveiliging op een virtuele machine inschakelt, gebruikt u **[Set AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** om in te stellen de context van de kluis. Zodra de kluis context is ingesteld, wordt het toegepast op alle latere cmdlets. Het volgende voorbeeld wordt de context van de kluis voor de kluis *testvault*.
+Voordat u de beveiliging op een virtuele machine inschakelt, gebruikt u **[Set AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** om in te stellen de context van de kluis. Zodra deze is ingesteld, is deze op alle navolgende cmdlets van toepassing. Het volgende voorbeeld wordt de context van de kluis voor de kluis *testvault*.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault -Name "testvault" | Set-AzureRmRecoveryServicesVaultContext
 ```
 
 ### <a name="create-a-protection-policy"></a>Een beveiligingsbeleid maken
-Als u een Recovery Services-kluis maakt, beschikt u over de standaardbeveiliging en bewaarbeleid. Het standaardbeleid voor beveiliging een back-uptaak elke dag op de opgegeven tijd wordt geactiveerd. Het bewaarbeleid standaard wordt het dagelijkse herstelpunt voor 30 dagen bewaard. Het standaardbeleid kunt u snel uw virtuele machine te beveiligen en het beleid met andere informatie later bewerken.
+Als u een Recovery Services-kluis maakt, gaat deze gepaard met standaardbeleid voor beveiliging en retentie. Volgens het standaardbeveiligingsbeleid wordt elke dag op een bepaald tijdstip een back-uptaak getriggerd. Volgens het standaardbewaarbeleid wordt het dagelijkse herstelpunt gedurende dertig dagen bewaard. Het standaardbeleid kunt u snel uw virtuele machine te beveiligen en het beleid met andere informatie later bewerken.
 
 Gebruik **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)** om weer te geven van het beveiligingsbeleid in de kluis. U kunt deze cmdlet gebruiken om op te halen van een specifiek beleid of om weer te geven van de beleidsregels die zijn gekoppeld aan een type werkbelasting. Het volgende voorbeeld wordt een beleid voor het type werkbelasting, AzureVM.
 
@@ -362,7 +362,7 @@ Zodra u de schijven hebt hersteld, gaat u naar de volgende sectie voor de virtue
 Nadat u de schijven hebt teruggezet, volg deze stappen voor het maken en configureren van de virtuele machine van de schijf.
 
 > [!NOTE]
-> Als u wilt maken versleutelde virtuele machines van de herstelde schijven, uw Azure moet beschikt over bevoegdheid om de actie uitvoeren **Microsoft.KeyVault/vaults/deploy/action**. Als uw rol is niet gemachtigd dit, maakt u een aangepaste rol met deze actie. Zie voor meer informatie [aangepaste rollen in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
+> Als u wilt maken versleutelde virtuele machines van de herstelde schijven, uw Azure moet beschikt over bevoegdheid om de actie uitvoeren **Microsoft.KeyVault/vaults/deploy/action**. Als uw rol is niet gemachtigd dit, maakt u een aangepaste rol met deze actie. Zie voor meer informatie [aangepaste rollen in Azure RBAC](../role-based-access-control/custom-roles.md).
 >
 >
 

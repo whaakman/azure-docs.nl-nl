@@ -2,7 +2,7 @@
 title: Beheren van Azure-oplossingen met PowerShell | Microsoft Docs
 description: Azure PowerShell en Resource Manager gebruiken voor het beheren van uw resources.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9521a9be1d2bdc91836830dbb6471d2ffcb4daaf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Resources beheren met Azure PowerShell
 
@@ -51,9 +51,9 @@ De resourcegroep is momenteel leeg.
 
 In dit artikel door een virtuele machine en de bijbehorende virtuele netwerk op te implementeren. Voor het beheren van virtuele machine oplossingen, zijn er drie resourcespecifieke rollen die vaak nodig toegang bieden:
 
-* [Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Inzender voor netwerken](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage-Account Inzender](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage-Account Inzender](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 In plaats van de rollen toewijzen aan individuele gebruikers, is het vaak eenvoudiger [een Azure Active Directory-groep maken](../active-directory/active-directory-groups-create-azure-portal.md) voor gebruikers hoeven vergelijkbare acties te ondernemen. Vervolgens die groep toewijzen aan de juiste rol. Om te vereenvoudigen in dit artikel, moet u een Azure Active Directory-groep zonder leden maken. U kunt deze groep nog steeds toewijzen aan een rol voor een scope. 
 

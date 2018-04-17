@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Aanbevolen procedures voor het gebruik van Azure Data Lake Store
 In dit artikel leert u over aanbevolen procedures en overwegingen voor het werken met Azure Data Lake Store. Dit artikel bevat informatie over beveiliging, prestaties, tolerantie en bewaking voor Data Lake Store. Werken met echte big data in services zoals Azure HDInsight is voordat u Data Lake Store complex. Moest u gegevens verdelen over meerdere Blob storage-accounts zodat petabyte opslag en optimale prestaties op deze schaal kunnen worden gerealiseerd. Met Data Lake Store worden de meeste van de vaste limieten voor de grootte en de prestaties verwijderd. Er zijn echter nog steeds bepaalde overwegingen die van dit artikel behandelt zodat u de beste prestaties met Data Lake Store kunt ophalen. 
@@ -26,11 +26,13 @@ In dit artikel leert u over aanbevolen procedures en overwegingen voor het werke
 
 Azure Data Lake Store biedt POSIX toegang beheert en gedetailleerde controle voor Azure Active Directory (Azure AD) gebruikers, groepen en service-principals. Deze besturingselementen toegang kunnen worden ingesteld op de bestaande bestanden en mappen. De toegangscontrole kunnen ook worden gebruikt voor het maken van de standaardwaarden die kunnen worden toegepast op nieuwe bestanden of mappen. Als machtigingen zijn ingesteld op bestaande mappen en de onderliggende objecten, moeten de machtigingen doorgegeven recursief voor elk object. Als er veel bestanden, de machtigingen doorgeven lang duren kan. De tijd kan variëren tussen 30 tot 50 objecten per seconde is verwerkt. Plan daarom de structuur en gebruikersgroepen van de map op de juiste wijze aan. Anders kan dit onverwachte vertragingen en problemen veroorzaken wanneer u met uw gegevens werkt. 
 
-Stel dat u hebt een map met 100.000 onderliggende objecten. Als u de ondergrens van 30 objecten die per seconde is verwerkt, voor het bijwerken van de machtiging voor de hele map kunnen een uur duren. Meer informatie over Data Lake Store ACL's zijn beschikbaar op [toegangsbeheer in Azure Data Lake Store](data-lake-store-access-control.md). Voor verbeterde prestaties op ACL's recursief toewijst, kunt u de Azure Data Lake Command-Line Tool. Het hulpprogramma maakt meerdere threads en recursieve navigatie logica snel naar miljoenen bestanden toepassen ACL's. Het hulpprogramma is beschikbaar voor Linux en Windows, en de [documentatie](https://github.com/Azure/data-lake-adlstool) en [downloadt](http://aka.ms/adlstool-download) voor dit hulpprogramma u op GitHub vindt.
+Stel dat u hebt een map met 100.000 onderliggende objecten. Als u de ondergrens van 30 objecten die per seconde is verwerkt, voor het bijwerken van de machtiging voor de hele map kunnen een uur duren. Meer informatie over Data Lake Store ACL's zijn beschikbaar op [toegangsbeheer in Azure Data Lake Store](data-lake-store-access-control.md). Voor verbeterde prestaties op ACL's recursief toewijst, kunt u de Azure Data Lake Command-Line Tool. Het hulpprogramma maakt meerdere threads en recursieve navigatie logica snel naar miljoenen bestanden toepassen ACL's. Het hulpprogramma is beschikbaar voor Linux en Windows, en de [documentatie](https://github.com/Azure/data-lake-adlstool) en [downloadt](http://aka.ms/adlstool-download) voor dit hulpprogramma u op GitHub vindt. Deze dezelfde prestatieverbeteringen kunnen worden ingeschakeld door uw eigen hulpmiddelen die zijn geschreven met de Data Lake Store [.NET](data-lake-store-data-operations-net-sdk.md) en [Java](data-lake-store-get-started-java-sdk.md) SDK's.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Beveiligingsgroepen versus afzonderlijke gebruikers gebruiken 
 
-Als u werkt met big data in Data Lake Store, wordt waarschijnlijk een service-principal gebruikt voor het toestaan van services zoals Azure HDInsight werken met de gegevens. Echter, kunnen er gevallen waarin individuele gebruikers toegang tot de gegevens ook moeten. In dergelijke gevallen moet u Azure Active Directory-beveiligingsgroepen gebruiken in plaats van afzonderlijke gebruikers toewijzen aan mappen en bestanden. Wanneer een beveiligingsgroep is toegewezen machtigingen, gebruikers toevoegen of verwijderen uit de groep heeft geen updates nodig hebben naar Data Lake Store. 
+Als u werkt met big data in Data Lake Store, wordt waarschijnlijk een service-principal gebruikt voor het toestaan van services zoals Azure HDInsight werken met de gegevens. Echter, kunnen er gevallen waarin individuele gebruikers toegang tot de gegevens ook moeten. In dergelijke gevallen moet u Azure Active Directory [beveiligingsgroepen](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) in plaats van afzonderlijke gebruikers toewijzen aan mappen en bestanden. 
+
+Wanneer een beveiligingsgroep is toegewezen machtigingen, gebruikers toevoegen of verwijderen uit de groep heeft geen updates nodig hebben naar Data Lake Store. Dit zorgt er ook u niet langer zijn dan de limiet van [32 toegang en ACL's standaard](../azure-subscription-service-limits.md#data-lake-store-limits) (dit omvat de vier POSIX-stijl-ACL's die altijd gekoppeld aan elke bestanden en mappen zijn: [de gebruiker die eigenaar](data-lake-store-access-control.md#the-owning-user), [de eigenaar groep](data-lake-store-access-control.md#the-owning-group), [het masker](data-lake-store-access-control.md#the-mask-and-effective-permissions), en andere).
 
 ### <a name="security-for-groups"></a>Beveiliging voor groepen 
 

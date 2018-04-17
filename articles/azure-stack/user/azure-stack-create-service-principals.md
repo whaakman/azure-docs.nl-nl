@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3a22efa4ace8b779f51ca5036b7df536b8c39313
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 00bd606fc1b0d2c075789addd1b601becf7a011b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Toepassingen toegang bieden tot Azure-Stack
 
@@ -46,25 +46,25 @@ In deze sectie maakt maakt u een toepassing (service-principal) in Azure AD waar
 
 1. Aanmelden bij uw Azure-Account via de [Azure-portal](https://portal.azure.com).
 2. Selecteer **Azure Active Directory** > **App registraties** > **toevoegen**   
-3. Geef een naam en de URL voor de toepassing. Selecteer een **Web-app / API** of **systeemeigen** voor het type van de toepassing die u wilt maken. Na het instellen van de waarden, selecteer **maken**.
+3. Geef een naam en URL voor de toepassing op. Selecteer een **Web-app / API** of **systeemeigen** voor het type van de toepassing die u wilt maken. Na het instellen van de waarden, selecteer **maken**.
 
 U hebt een service-principal gemaakt voor uw toepassing.
 
 ### <a name="get-credentials"></a>Referenties ophalen
-Wanneer u programmatisch zich aanmeldt, kunt u de ID gebruiken voor uw toepassing en een verificatiesleutel. Als u deze waarden, gebruikt u de volgende stappen uit:
+Wanneer u programmatisch zich aanmeldt, kunt u de ID gebruiken voor uw toepassing en een verificatiesleutel. U kunt deze waarden als volgt ophalen:
 
 1. Van **App registraties** in Active Directory, selecteer uw toepassing.
 
-2. Kopieer de **toepassings-ID** en op te slaan in uw toepassingscode. De toepassingen in de [voorbeeldtoepassingen](#sample-applications) sectie verwijzen naar deze waarde als de client-id.
+2. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode. De toepassingen in de [voorbeeldtoepassingen](#sample-applications) sectie verwijzen naar deze waarde als de client-id.
 
      ![client-id](./media/azure-stack-create-service-principal/image12.png)
-3. Selecteer voor het genereren van een verificatiesleutel **sleutels**.
+3. Selecteer **Sleutels** om een verificatiesleutel te genereren.
 
-4. Geef een beschrijving van de sleutel en een duur voor de sleutel. Wanneer u klaar bent, selecteer **opslaan**.
+4. Geef een beschrijving van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
 
-Na het opslaan van de sleutel, wordt de waarde van de sleutel weergegeven. Deze waarde niet kopiëren omdat u niet kan ophalen van de sleutel later. U kunt de sleutelwaarde opgeven met de toepassings-ID aan te melden als de toepassing. Slaat de waarde van de sleutel waar uw toepassing deze kan worden opgehaald.
+Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopieer deze waarde, want u kunt de sleutel later niet meer ophalen. U kunt de sleutelwaarde opgeven met de toepassings-ID aan te melden als de toepassing. Sla de sleutelwaarde op waar uw toepassing deze kan ophalen.
 
-![sleutel wordt opgeslagen](./media/azure-stack-create-service-principal/image15.png)
+![opgeslagen sleutel](./media/azure-stack-create-service-principal/image15.png)
 
 
 Als u klaar is, gaat u verder met [uw toepassing een rol toewijst](azure-stack-create-service-principals.md#assign-role-to-service-principal).
@@ -113,7 +113,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## <a name="assign-role-to-service-principal"></a>De rol toewijzen aan de service-principal
-Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol vertegenwoordigt de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](../../active-directory/role-based-access-built-in-roles.md).
+Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol vertegenwoordigt de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](../../role-based-access-control/built-in-roles.md).
 
 U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. Machtigingen worden overgenomen op lagere niveaus van het bereik. Bijvoorbeeld, een toepassing met de rol Lezer voor een resourcegroep toe te voegen dat kan de resourcegroep en alle resources die deze bevat gelezen.
 

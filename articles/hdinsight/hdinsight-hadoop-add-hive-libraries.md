@@ -2,24 +2,22 @@
 title: Hive-bibliotheken toevoegen tijdens het maken van HDInsight-cluster - Azure | Microsoft Docs
 description: Informatie over het toevoegen van Hive-bibliotheken (jar-bestanden), met een HDInsight-cluster tijdens het maken van het cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2fd74b8d-c006-45c6-a9e2-72ff5d2d978a
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 434c7d24f55c20cc763df3b83429e039bb5e8541
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 71e2859085dc4a9f4fa327d88faff4fecf5108ef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aangepaste Hive-bibliotheken toevoegen bij het maken van uw HDInsight-cluster
 
@@ -56,7 +54,7 @@ Voor **Windows gebaseerde clusters**: [https://hdiconfigactions.blob.core.window
 
 * Het opslagaccount met de bibliotheek met jar-bestanden **moet** tijdens het maken worden gekoppeld aan het HDInsight-cluster. Dit moet het standaardopslagaccount of een account toegevoegd via __optionele configuratie__.
 
-* Het pad WASB naar de container moet worden opgegeven als een parameter voor de actie Script. Bijvoorbeeld, als de potten worden opgeslagen in een container met de naam **bibliotheken** op een opslagaccount met de naam **mystorage**, de parameter zou worden  **wasb://libs@mystorage.blob.core.windows.net/** .
+* Het pad WASB naar de container moet worden opgegeven als een parameter voor de actie Script. Bijvoorbeeld, als de potten worden opgeslagen in een container met de naam **bibliotheken** op een opslagaccount met de naam **mystorage**, de parameter zou worden **wasb://libs@mystorage.blob.core.windows.net/**.
 
   > [!NOTE]
   > Dit document wordt ervan uitgegaan dat u hebt al een opslagaccount, kan de blob-container gemaakt en de bestanden naar deze geüpload.
@@ -76,7 +74,7 @@ Voor **Windows gebaseerde clusters**: [https://hdiconfigactions.blob.core.window
 
    * **NAAM**: een beschrijvende naam voor de scriptactie.
 
-   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **SCRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
    * **HEAD**: Schakel deze optie.
 
@@ -84,7 +82,7 @@ Voor **Windows gebaseerde clusters**: [https://hdiconfigactions.blob.core.window
 
    * **ZOOKEEPER**: leeg laten.
 
-   * **PARAMETERS**: Geef het adres WASB op het account-container en opslag die de potten bevat. Bijvoorbeeld:  **wasb://libs@mystorage.blob.core.windows.net/** .
+   * **PARAMETERS**: Geef het adres WASB op het account-container en opslag die de potten bevat. Bijvoorbeeld: **wasb://libs@mystorage.blob.core.windows.net/**.
 
 3. Aan de onderkant van de **scriptacties**, gebruiken de **Selecteer** om op te slaan van de configuratie.
 

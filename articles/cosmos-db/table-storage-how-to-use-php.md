@@ -3,22 +3,21 @@ title: Het gebruik van Azure Storage, Table-service of Azure DB tabel Cosmos-API
 description: Informatie over het gebruik van de service-API van de tabel met PHP maken en verwijderen van een tabel, invoegen, verwijderen en opvragen van de tabel.
 services: cosmos-db
 documentationcenter: php
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mimig
-ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Het gebruik van Azure Storage, Table-service of Cosmos DB tabel API met PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -27,23 +26,18 @@ ms.lasthandoff: 04/06/2018
 ## <a name="overview"></a>Overzicht
 Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met behulp van de Azure Storage, Table-service en de API van Azure Cosmos DB tabel uitvoeren. De voorbeelden zijn geschreven in PHP en gebruik de [clientbibliotheek van Azure Storage tabel PHP][download]. De scenario's worden behandeld: **maken en het verwijderen van een tabel**, en **invoegen, verwijderen en het uitvoeren van query's entiteiten in een tabel**. Zie voor meer informatie over de Azure Table-service de [Vervolgstappen](#next-steps) sectie.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## <a name="create-an-azure-service-account"></a>Een Azure-service-account maken
 
-U kunt werken met tabellen met Azure Table storage of Azure Cosmos DB tabel-API. U kunt meer informatie over de verschillen tussen de services door te lezen [tabel de offerings](table-introduction.md#table-offerings). U moet maken van een account voor de service die u gaat gebruiken. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken
+### <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
 
-De eenvoudigste manier om uw eerste opslagaccount te maken is met behulp van de [Azure-portal](https://portal.azure.com). Zie [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) voor meer informatie.
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-U kunt ook een opslagaccount maken met behulp van [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) of [Azure CLI](../storage/common/storage-azure-cli.md).
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Een tabel-API van Azure Cosmos DB-account maken
 
-Als u liever niet te maken van een opslagaccount op dit moment, kunt u ook de Azure-opslagemulator gebruiken voor het uitvoeren en testen van uw code in een lokale omgeving. Zie [De Azure-opslagemulator gebruiken voor ontwikkeling en testen](../storage/common/storage-use-emulator.md) voor meer informatie.
-
-### <a name="create-an-azure-cosmos-db-account"></a>Maak een Azure Cosmos DB-account
-
-Zie voor instructies over het maken van een account voor Azure Cosmos DB [maken van een tabel-API-account](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-php-application"></a>Een PHP-toepassing maken
 
@@ -422,7 +416,7 @@ catch(ServiceException $e){
 }
 ```
 
-Voor controles gelijktijdigheid van taken, kunt u instellen de Etag voor een entiteit moet worden verwijderd met behulp van de **DeleteEntityOptions -> setEtag** methode en geven de **DeleteEntityOptions** object naar de ** deleteEntity** als een vierde parameter.
+Voor controles gelijktijdigheid van taken, kunt u instellen de Etag voor een entiteit moet worden verwijderd met behulp van de **DeleteEntityOptions -> setEtag** methode en geven de **DeleteEntityOptions** object naar de  **deleteEntity** als een vierde parameter.
 
 ## <a name="batch-table-operations"></a>Batchbewerkingen tabel
 De **TableRestProxy -> batch** methode kunt u meerdere bewerkingen uitvoeren in een enkele aanvraag. Het patroon hier omvat het toevoegen van bewerkingen voor **BatchRequest** object en vervolgens doorgegeven de **BatchRequest** object toe aan de **TableRestProxy -> batch** methode. Toevoegen van een bewerking voor een **BatchRequest** object, u een van de volgende methoden kunt aanroepen, kunt u meerdere keren:

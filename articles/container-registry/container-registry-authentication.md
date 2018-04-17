@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 349d4f8cba2967edcedb202979695d271283fa8b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Verificatie met een persoonlijke Docker-container register
 
@@ -31,11 +31,11 @@ Als u werkt met het register rechtstreeks, zoals afbeeldingen ophalen en opslaan
 az acr login --name <acrName>
 ```
 
-Wanneer u zich aanmeldt met `az acr login`, de CLI gebruikt het token dat wordt gemaakt wanneer u uitgevoerd `az login` naadloos verifiëren uw sessie met het register. Zodra u op deze manier hebt aangemeld, uw referenties zijn in de cache en volgende `docker` opdrachten vereisen geen gebruikersnaam of wachtwoord. Als uw token is verlopen, kunt u het vernieuwen met behulp van de `az acr login` opdracht opnieuw uit om te verifiëren. Met behulp van `az acr login` met Azure identiteiten biedt [toegangsgroepen op basis van](../active-directory/role-based-access-control-configure.md).
+Wanneer u zich aanmeldt met `az acr login`, de CLI gebruikt het token dat wordt gemaakt wanneer u uitgevoerd `az login` naadloos verifiëren uw sessie met het register. Zodra u op deze manier hebt aangemeld, uw referenties zijn in de cache en volgende `docker` opdrachten vereisen geen gebruikersnaam of wachtwoord. Als uw token is verlopen, kunt u het vernieuwen met behulp van de `az acr login` opdracht opnieuw uit om te verifiëren. Met behulp van `az acr login` met Azure identiteiten biedt [toegangsgroepen op basis van](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="service-principal"></a>Service-principal
 
-U kunt een [service-principal](../active-directory/develop/active-directory-application-objects.md) toe aan het register en uw toepassing of service kunt gebruiken voor headless-verificatie. Service-principals toestaan [toegangsgroepen op basis van](../active-directory/role-based-access-control-configure.md) met een register en u kunt meerdere service-principals toewijzen aan een register. Meerdere service-principals kunnen u verschillende toegangsmachtigingen voor verschillende toepassingen definiëren.
+U kunt een [service-principal](../active-directory/develop/active-directory-application-objects.md) toe aan het register en uw toepassing of service kunt gebruiken voor headless-verificatie. Service-principals toestaan [toegangsgroepen op basis van](../role-based-access-control/role-assignments-portal.md) met een register en u kunt meerdere service-principals toewijzen aan een register. Meerdere service-principals kunnen u verschillende toegangsmachtigingen voor verschillende toepassingen definiëren.
 
 De beschikbare rollen zijn:
 

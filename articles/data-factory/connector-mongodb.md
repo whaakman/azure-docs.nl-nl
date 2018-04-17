@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c1e5dbf60c247399b620a437da92a166990087e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d20ed753c2e53d6a7c117e0c00671ab05036b03
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Gegevens kopiëren van MongoDB met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ U kunt gegevens uit de MongoDB-database kopiëren naar een ondersteunde sink-geg
 
 In het bijzonder ondersteunt deze MongoDB-connector:
 
-- MongoDB **versie 2.4, 2.6, 3.0 en 3.2**.
+- MongoDB **versie 2.4, 2.6, 3.0, 3.2, 3.4 en 3.6**.
 - Kopiëren van gegevens met **Basic** of **anoniem** verificatie.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -63,6 +63,8 @@ De volgende eigenschappen worden ondersteund voor MongoDB gekoppelde service:
 | gebruikersnaam |Het gebruikersaccount voor toegang tot MongoDB. |Ja (als u basisverificatie wordt gebruikt). |
 | wachtwoord |Wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja (als u basisverificatie wordt gebruikt). |
 | authSource |De naam van de MongoDB-database die u wilt gebruiken om te controleren van uw referenties voor verificatie. |Nee. Standaard wordt het beheerdersaccount en de database die is opgegeven met behulp van de eigenschap databaseName gebruikt voor basisverificatie. |
+| enableSsl | Geeft aan of de verbindingen met de server zijn versleuteld met SSL. De standaardwaarde is ingesteld op false.  | Nee |
+| allowSelfSignedServerCert | Hiermee bepaalt u of zelfondertekende certificaten van de server. De standaardwaarde is ingesteld op false.  | Nee |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Self-hosted integratie Runtime of Azure integratie Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
 **Voorbeeld:**
@@ -116,7 +118,7 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren van MongoDB,
             "collectionName": "<Collection name>"
         }
     }
-
+}
 ```
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
@@ -229,7 +231,7 @@ De volgende tabellen tonen de virtuele tabellen waarbij de oorspronkelijke matri
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Korting |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0.2 |
-| 1111 |1 |124 |oven |1235 |0.2 |
+| 1111 |1 |124 |ingesteld |1235 |0.2 |
 | 2222 |0 |135 |koelkast |12543 |0.0 |
 
 **Tabel 'ExampleTable_Ratings':**

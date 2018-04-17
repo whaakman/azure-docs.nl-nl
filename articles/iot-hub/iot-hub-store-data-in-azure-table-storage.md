@@ -2,10 +2,10 @@
 title: IoT hub berichten opslaan in Azure gegevensopslag | Microsoft Docs
 description: Gebruik IoT Hub berichtroutering opslaan van uw IoT hub berichten naar uw Azure-blobopslag. De IoT hub berichten bevatten informatie, zoals sensorgegevens dat wordt verzonden door uw IoT-apparaat.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: IOT-gegevensopslag, gegevensopslag iot-temperatuursensor
 ms.assetid: 62fd14fd-aaaa-4b3d-8367-75c1111b6269
 ms.service: iot-hub
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
-ms.author: xshi
-ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 03111cd07364aa30f15ddcfdc196107d92d02e0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>IoT hub berichten met sensorgegevens naar uw Azure blob storage opslaan
 
@@ -61,7 +61,7 @@ U informatie over het maken van een Azure storage-account en een Azure-functie-a
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>Voorbereiden van uw IoT-hub om berichten te routeren naar opslag
 
-IoT Hub biedt systeemeigen ondersteuning voor routeren van berichten naar Azure-opslag als blobs.
+IoT Hub biedt systeemeigen ondersteuning voor routeren van berichten naar Azure-opslag als blobs. Voor meer informatie over de aangepaste eindpunten voor Azure IoT Hub, kunt u verwijzen naar [lijst met ingebouwde IoT-hubeindpunten](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints).
 
 ### <a name="add-storage-as-a-custom-endpoint"></a>Opslag toevoegen als een aangepaste eindpunt
 

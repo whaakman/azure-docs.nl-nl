@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3784cb6f713c5ce476ab980122ee6ec9fa3ebc59
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="performance-metrics"></a>Metrische gegevens voor prestaties
 
@@ -30,10 +30,10 @@ Voor de computers in uw cluster, kunt u het verzamelen van de volgende prestatie
 
 | Prestatiemeteritem-categorie | Naam van het meteritem |
 | --- | --- |
-| Fysieke schijf (per schijf) | Avg. Wachtrijlengte voor schijf lezen |
-| Fysieke schijf (per schijf) | Avg. Wachtrijlengte voor schijf schrijven |
-| Fysieke schijf (per schijf) | Avg. Leestijd schijf |
-| Fysieke schijf (per schijf) | Avg. Schrijftijd schijf |
+| Fysieke schijf (per schijf) | Gem. Wachtrijlengte voor schijf lezen |
+| Fysieke schijf (per schijf) | Gem. Wachtrijlengte voor schijf schrijven |
+| Fysieke schijf (per schijf) | Gem. Leestijd schijf |
+| Fysieke schijf (per schijf) | Gem. Schrijftijd schijf |
 | Fysieke schijf (per schijf) | Schijf lezen per seconde |
 | Fysieke schijf (per schijf) | Bytes gelezen op schijf/sec |
 | Fysieke schijf (per schijf) | Schijf schrijven per seconde |
@@ -75,7 +75,7 @@ Service Fabric genereert een aanzienlijke hoeveelheid aangepaste prestatiemeteri
 
 In de toepassingen die u implementeert met uw cluster, als u gebruikmaakt van Reliable Actors, het toevoegen van countes van `Service Fabric Actor` en `Service Fabric Actor Method` categorieën (Zie [Service Fabric betrouwbare actoren Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
 
-Als u Reliable Services gebruikt, hebben we op dezelfde manier `Service Fabric Service` en `Service Fabric Service Method` categorieën voor prestatiemeteritems die u moet verzamelen van prestatiemeteritems. 
+Als u de Service voor externe toegang gebruikt, hebben we op dezelfde manier `Service Fabric Service` en `Service Fabric Service Method` categorieën voor prestatiemeteritems die u moet verzamelen van prestatiemeteritems. 
 
 Als u betrouwbare verzamelingen gebruikt, raden wij aan toe te voegen de `Avg. Transaction ms/Commit` van de `Service Fabric Transactional Replicator` voor het verzamelen van de gemiddelde doorvoervertraging per transactie metriek.
 

@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9cdebd2fb7f650b042fa04f345ac440e0b41cb8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
 
-Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over toegangsbeheer voor Azure-resources. Met behulp van [RBAC](../active-directory/role-based-access-control-configure.md), kunt u taken scheiden binnen uw team en de hoeveelheid toegang verlenen aan gebruikers, groepen en toepassingen die ze nodig hebben om hun taken uitvoeren. Op rollen gebaseerde toegang kan worden verleend aan gebruikers via de Azure-portal, Azure-opdrachtregelprogramma's of Azure Management-API's.
+Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over toegangsbeheer voor Azure-resources. Met behulp van [RBAC](../role-based-access-control/role-assignments-portal.md), kunt u taken scheiden binnen uw team en de hoeveelheid toegang verlenen aan gebruikers, groepen en toepassingen die ze nodig hebben om hun taken uitvoeren. Op rollen gebaseerde toegang kan worden verleend aan gebruikers via de Azure-portal, Azure-opdrachtregelprogramma's of Azure Management-API's.
 
 ## <a name="roles-in-automation-accounts"></a>Rollen in Automation-accounts
 In Azure Automation wordt toegang verleend door de juiste RBAC-rol toe te wijzen aan gebruikers, groepen en toepassingen bij het Automation-accountbereik. Hieronder vindt u de ingebouwde rollen die worden ondersteund met een Automation-account:
@@ -307,7 +307,7 @@ Deze gebruiker heeft ook geen toegang tot de weergave van de webhooks die aan ee
 ![Geen toegang tot webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>RBAC configureren voor uw Automation-account met Azure PowerShell
-Op rollen gebaseerde toegang kan ook worden geconfigureerd voor een Automation-account met de volgende [Azure PowerShell-cmdlets](../active-directory/role-based-access-control-manage-access-powershell.md):
+Op rollen gebaseerde toegang kan ook worden geconfigureerd voor een Automation-account met de volgende [Azure PowerShell-cmdlets](../role-based-access-control/role-assignments-powershell.md):
 
 • Met [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) wordt een lijst weergegeven van alle RBAC-rollen die beschikbaar zijn in Azure Active Directory. U kunt deze opdracht samen met de eigenschap **Naam** gebruiken om alle acties die kunnen worden uitgevoerd door een specifieke rol weer te geven.
 
@@ -380,7 +380,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 Vervang in de voorgaande voorbeelden **Id aanmelden**, **abonnements-Id**, **Resourcegroepnaam**, en **Automation-accountnaam** met uw accountdetails. Kies **Ja** om te bevestigen voordat u verdergaat met het verwijderen van de roltoewijzing voor de gebruiker.   
 
 ## <a name="next-steps"></a>Volgende stappen
-* Raadpleeg [RBAC met Azure PowerShell beheren](../active-directory/role-based-access-control-manage-access-powershell.md) voor informatie over verschillende manieren om RBAC voor Azure Automation te configureren.
+* Raadpleeg [RBAC met Azure PowerShell beheren](../role-based-access-control/role-assignments-powershell.md) voor informatie over verschillende manieren om RBAC voor Azure Automation te configureren.
 * Zie [Een runbook starten](automation-starting-a-runbook.md) voor informatie over verschillende manieren om een runbook te starten.
 * Raadpleeg [Azure Automation-runbooktypen](automation-runbook-types.md) voor informatie over verschillende typen runbooks
 

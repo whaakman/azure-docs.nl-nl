@@ -1,24 +1,22 @@
 ---
 title: Configuraties van clusters met Ambari - Azure HDInsight optimaliseren | Microsoft Docs
 description: Gebruik de Ambari-webgebruikersinterface om te configureren en optimaliseren van HDInsight-clusters.
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f3c1edc767ab07bcdd8b09a0e40e291cbd1f3d9a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Ambari gebruiken om de configuraties van HDInsight-clusters optimaliseren
 
@@ -286,7 +284,7 @@ Extra aanbevelingen voor het optimaliseren van de engine voor het uitvoeren van 
 
 | Instelling | Aanbevolen | HDInsight-standaard |
 | -- | -- | -- |
-| `hive.mapjoin.hybridgrace.hashtable` | = True veiliger, tragere; False = sneller | onwaar |
+| `hive.mapjoin.hybridgrace.hashtable` | = True veiliger, tragere; False = sneller | false |
 | `tez.am.resource.memory.mb` | Bovengrens van 4 GB voor de meeste | Automatisch zijn afgestemd |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10.000 |
@@ -453,7 +451,7 @@ De grootte van de geheugenopslag is gedefinieerd door de `hbase.regionserver.glo
 
 Gebruik van de buffer geheugenopslag lokale toewijzing wordt bepaald door de eigenschap `hbase.hregion.memstore.mslab.enabled`. Wanneer dit is ingeschakeld (true) zo voorkomt u dat heapfragmentatie tijdens zware schrijfbewerking. De standaardwaarde is true.
  
-![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
+![hbase.hregion.memstore.mslab.Enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

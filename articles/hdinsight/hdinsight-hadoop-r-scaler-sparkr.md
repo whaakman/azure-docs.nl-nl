@@ -2,7 +2,7 @@
 title: ScaleR en SparkR gebruiken met Azure HDInsight | Microsoft Docs
 description: Gebruik ScaleR en SparkR met R Server en HDInsight
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -10,37 +10,37 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: b84c365defbaadbc83c86e6e387c15a63e0f17ce
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4306f265bf7f52f9bc307def2256dd62e94e004f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Een combinatie van ScaleR en SparkR in HDInsight
 
-In dit artikel laat zien hoe voorspellen aankomst vertragingen met behulp van een **ScaleR** logistic regressiemodel van gegevens op vertragingen en het weer samengevoegd met **SparkR**. Dit scenario laat zien dat de mogelijkheden van ScaleR voor gegevensmanipulatie op Spark gebruikt met Microsoft R Server voor analyses. De combinatie van deze technologieën kunt u de nieuwste mogelijkheden in gedistribueerde verwerking toepassen.
+Dit document wordt beschreven hoe voorspellen aankomst vertragingen met behulp van een **ScaleR** logistic regressiemodel. Het voorbeeld wordt met vertraging en het weer vluchtgegevens, gekoppeld door middel van **SparkR**.
 
 Hoewel beide pakketten worden uitgevoerd op de engine voor het uitvoeren van Hadoop Spark, hebben ze geen toegang tot gegevens in het geheugen delen als ze elk hun eigen respectieve Spark-sessies vereist. Totdat dit probleem is opgelost in een toekomstige versie van R Server, wordt de tijdelijke oplossing is het niet-overlappende Spark sessies onderhouden en voor het uitwisselen van gegevens door middel van tussenliggende bestanden. De volgende instructies weergeven dat deze vereisten eenvoudig zijn te bereiken.
 
-We gebruiken een voorbeeld dat hier in eerste instantie gedeeld in een Neem contact op lagen 2016 door Mario Inchiosa en Roni Burd die ook beschikbaar via de webinar [bouwen van een schaalbare Platform voor wetenschap met R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio). Het voorbeeld wordt SparkR bekende airlines aankomst vertraging gegevensset met de Weergegevens op vertrek en aankomst luchthavens koppelen. De gegevens die lid zijn van wordt vervolgens gebruikt als invoer voor een ScaleR logistic regression-model voor het voorspellen van vlucht aankomst vertraging.
+In dit voorbeeld is in eerste instantie in een Neem contact op lagen 2016 gedeeld door Mario Inchiosa en Roni Burd. U vindt deze bespreking op [bouwen van een schaalbare Platform voor wetenschap met R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
-De code we scenario oorspronkelijk is geschreven voor R Server op Spark uitgevoerd in een HDInsight-cluster in Azure. Maar het concept van een combinatie van het gebruik van SparkR en ScaleR in één script is ook geldig in de context van on-premises omgevingen. In de volgende we gaan ervan uit dat een tussenliggende niveau van de kennis van R en zijn de [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) bibliotheek van R Server. Wij ook gebruik van introduceren [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) tijdens het doorlopen van dit scenario.
+De code oorspronkelijk is geschreven voor R Server op Spark uitgevoerd in een HDInsight-cluster in Azure. Maar het concept van een combinatie van het gebruik van SparkR en ScaleR in één script is ook geldig in de context van on-premises omgevingen. 
+
+De stappen in dit document wordt ervan uitgegaan dat u een tussenliggende niveau van de kennis van R en zijn hebt de [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) bibliotheek van R Server. U hebt kennisgemaakt met [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) tijdens het doorlopen van dit scenario.
 
 ## <a name="the-airline-and-weather-datasets"></a>De gegevenssets luchtvaartmaatschappij en weer
 
-De **AirOnTime08to12CSV** airlines openbare gegevensset bevat informatie over vlucht komen en details voor alle commerciële vlucht binnen de Verenigde Staten, vanaf oktober 1987 tot en met December 2012. Dit is een grote gegevensset: Er zijn bijna 150 miljoen records in totaal. Er is iets minder 4 GB uitgepakt. Deze beschikbaar is via de [US government archieven](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Gemakkelijker, is beschikbaar als zipbestand (AirOnTimeCSV.zip) met een verzameling van 303 afzonderlijke maandelijkse CSV-bestanden van de [Revolution Analytics gegevensset opslagplaats](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/)
+De vluchtgegevens is beschikbaar via de [US government archieven](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Het is ook beschikbaar als een zip van [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Overzicht van de gevolgen van het weer op vertragingen, moeten we ook de Weergegevens op elk van de luchthavens. Deze gegevens kan worden gedownload als zip-bestanden in onbewerkte vorm per maand, vanuit de [nationale oceanische en het beheer van de opslagplaats](http://www.ncdc.noaa.gov/orders/qclcd/). Voor de doeleinden van dit voorbeeld we weergegevens van mei 2007 – December 2012 ophalen en de gegevensbestanden worden opgeslagen in elk van de 68 maandelijkse zips per uur gebruikt. De maandelijkse zip-bestanden bevatten ook een toewijzing (YYYYMMstation.txt) tussen het station weer ID (WBAN), de luchthaven dat deze gekoppeld (CallSign is) en de tijdzone van de luchthaven verschoven ten van UTC (tijdzone opzichte). Al deze informatie is nodig bij het samenvoegen met de luchtvaartmaatschappij vertraging en het weer gegevens.
+De weergegevens kan worden gedownload als zip-bestanden in onbewerkte vorm per maand, vanaf de [nationale oceanische en het beheer van de opslagplaats](http://www.ncdc.noaa.gov/orders/qclcd/). Download de gegevens voor mei 2007 – December 2012 voor dit voorbeeld. Gebruik van de gegevensbestanden per uur en `YYYYMMMstation.txt` bestand in elk van de zips. 
 
 ## <a name="setting-up-the-spark-environment"></a>De Spark-omgeving instellen
 
-De eerste stap is het instellen van de Spark-omgeving. We beginnen met het verwijst naar de map waarin de invoergegevens mappen, het maken van een Spark compute-context en het maken van een functie voor logboekregistratie voor informatief logboekregistratie in de console:
+De volgende code gebruiken voor het instellen van de Spark-omgeving:
 
 ```
 workDir        <- '~'  
@@ -85,7 +85,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Naast toevoegen we 'Spark_Home' aan het zoekpad voor R-pakketten zodat we SparkR gebruiken en geen SparkR-sessie starten:
+Vervolgens voegt u `Spark_Home` voor het zoekpad voor R-pakketten. Het zoekpad toe te voegen, kunt u SparkR gebruiken en een sessie SparkR initialiseren:
 
 ```
 #..setup for use of SparkR  
@@ -108,7 +108,7 @@ sqlContext <- sparkRSQL.init(sc)
 
 ## <a name="preparing-the-weather-data"></a>Voorbereiden van de weergegevens
 
-Voorbereiden van de weergegevens we deze aan de kolommen die nodig voor het modelleren zijn subset: 
+Als u de weergegevens, subset naar de kolommen die nodig zijn voor modellering: 
 
 - 'Zichtbaarheid'
 - 'DryBulbCelsius'
@@ -117,17 +117,9 @@ Voorbereiden van de weergegevens we deze aan de kolommen die nodig voor het mode
 - "Windsnelheid"
 - 'Altimeter'
 
-Vervolgens wordt een luchthaven-code die is gekoppeld aan het station weer toevoegen en de metingen van de lokale tijd converteren naar UTC.
+Vervolgens voegt u een luchthaven-code die is gekoppeld aan het station weer toe en de metingen van de lokale tijd converteren naar UTC.
 
-We beginnen met het maken van een bestand om de gegevens weer station (WBAN) worden toegewezen aan een luchthaven-code. We kunnen deze correlatie krijgen van het toewijzingsbestand opgenomen met de weergegevens. Via het toewijzen van de *CallSign* (bijvoorbeeld LAX) veld in het bestand van de gegevens weer naar *oorsprong* in de luchtvaartmaatschappij-gegevens. Echter we zojuist hebben plaatsgevonden om een andere toewijzing voorhanden dat is toegewezen *WBAN* naar *AirportID* (bijvoorbeeld 12892 voor LAX) en omvat *tijdzone* die is opgeslagen in een CSV bestand met de naam 'wban-naar-luchthaven-id-tz. CSV' die u kunt gebruiken. Bijvoorbeeld:
-
-| AirportID | WBAN | Tijdzone
-|-----------|------|---------
-| 10685 | 54831 | -6
-| 14871 | 24232 | -8
-| .. | .. | ..
-
-De volgende code wordt elk van de subsets aan de kolommen die we nodig, het toewijzingsbestand weer station worden samengevoegd, past u de datums en tijden van metingen UTC en hierna schrijft om een nieuwe versie van het bestand, de gegevensbestanden voor onbewerkte weer per uur:
+Beginnen met het maken van een bestand om de gegevens weer station (WBAN) worden toegewezen aan een luchthaven-code. De volgende code wordt elk van de subsets aan de kolommen die we nodig, het toewijzingsbestand weer station worden samengevoegd, past u de datums en tijden van metingen UTC en hierna schrijft om een nieuwe versie van het bestand, de gegevensbestanden voor onbewerkte weer per uur:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time

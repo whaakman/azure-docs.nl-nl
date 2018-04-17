@@ -2,25 +2,23 @@
 title: Installeren en gebruiken van Giraph op Hadoop-clusters in HDInsight - Azure | Microsoft Docs
 description: Informatie over het aanpassen van HDInsight-cluster met Giraph en het gebruik van Giraph.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 77a1d0e0-55de-4e61-98a0-060914fb7ca0
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0eb5c1f457380600463a370043f03e6d655a02c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df7c5e175ecfd2eca2b1db7eb4ab056bb1588dda
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Installeren en gebruiken van Giraph op Windows gebaseerde HDInsight-clusters
 
@@ -30,7 +28,7 @@ Informatie over het aanpassen van Windows gebaseerde HDInsight-cluster met Girap
 > De stappen in dit document wordt alleen werken met HDInsight op basis van Windows-clusters. HDInsight is alleen beschikbaar in Windows voor versies lager is dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over het installeren van Giraph op een Linux gebaseerde HDInsight-cluster [Giraph installeren op HDInsight Hadoop-clusters (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 
-U kunt Giraph installeren op elk type (Hadoop, Storm, HBase, Spark)-cluster in Azure HDInsight met behulp van *scriptactie*. Een voorbeeld van een script Giraph installeren op een HDInsight-cluster is beschikbaar via een alleen-lezen Azure storage-blob op [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Het voorbeeldscript werkt alleen met HDInsight-cluster versie 3.1. Zie voor meer informatie over de versies van HDInsight-cluster, [versies van HDInsight-cluster](hdinsight-component-versioning.md).
+U kunt Giraph installeren op elk type (Hadoop, Storm, HBase, Spark)-cluster in Azure HDInsight met behulp van *scriptactie*. Een voorbeeld van een script Giraph installeren op een HDInsight-cluster is beschikbaar via een alleen-lezen Azure storage-blob op [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Het voorbeeldscript werkt alleen met HDInsight-cluster versie 3.1. Zie voor meer informatie over de versies van HDInsight-cluster, [versies van HDInsight-cluster](hdinsight-component-versioning.md).
 
 **Verwante artikelen**
 
@@ -160,10 +158,10 @@ We gebruiken de SimpleShortestPathsComputation-voorbeeld ter illustratie van het
     ![Tekenen van objecten als cirkels met de kortste paden tussen getekend](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## <a name="install-giraph-using-aure-powershell"></a>Giraph met Aure PowerShell installeren
-Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Het voorbeeld laat zien hoe Spark met Azure PowerShell installeren. U moet aanpassen van het script te gebruiken [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Het voorbeeld laat zien hoe Spark met Azure PowerShell installeren. U moet aanpassen van het script te gebruiken [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="install-giraph-using-net-sdk"></a>Giraph met .NET SDK installeren
-Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Het voorbeeld laat zien hoe Spark met de .NET SDK installeren. U moet aanpassen van het script te gebruiken [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Het voorbeeld laat zien hoe Spark met de .NET SDK installeren. U moet aanpassen van het script te gebruiken [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="see-also"></a>Zie ook
 * [Giraph installeren op HDInsight Hadoop-clusters (Linux)](hdinsight-hadoop-giraph-install-linux.md)

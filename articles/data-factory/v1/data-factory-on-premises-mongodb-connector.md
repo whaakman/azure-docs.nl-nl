@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 086cc528e500a55bba73796e5fc7b17c561de8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0afdfb7b7d1f74d3df40b22bb97afc0f39bcc6d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Verplaatsen van gegevens van MongoDB met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ U kunt gegevens uit een on-premises MongoDB-gegevensopslag kopiëren naar een on
 ## <a name="prerequisites"></a>Vereisten
 Voor de Azure Data Factory-service kunnen verbinding maken met uw lokale MongoDB-database, moet u de volgende onderdelen installeren:
 
-- Ondersteunde MongoDB-versies zijn: 2.4, 2.6, 3.0 en 3.2.
+- Ondersteunde MongoDB-versies zijn: 2.4, 2.6, 3.0, 3.2, 3.4 en 3.6.
 - Data Management Gateway op dezelfde computer die als host fungeert voor de database of op een afzonderlijke computer om te voorkomen dat concurrentie voor resources met de database. Data Management Gateway is een software die on-premises gegevensbronnen met cloud-services op een manier veilig en beheerd verbindt. Zie [Data Management Gateway](data-factory-data-management-gateway.md) voor meer informatie over Data Management Gateway. Zie [gegevens verplaatsen van on-premises naar cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel voor stapsgewijze instructies over het instellen van de gateway een gegevens-pijplijn om gegevens te verplaatsen.
 
     Wanneer u de gateway installeert, installeert deze automatisch een Microsoft MongoDB ODBC-stuurprogramma waarmee verbinding met MongoDB.
@@ -347,7 +347,7 @@ Tabel 'ExampleTable_Invoices':
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Korting |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0.2 |
-| 1111 |1 |124 |oven |1235 |0.2 |
+| 1111 |1 |124 |ingesteld |1235 |0.2 |
 | 2222 |0 |135 |koelkast |12543 |0.0 |
 
 Tabel 'ExampleTable_Ratings':

@@ -5,21 +5,19 @@ keywords: HDInsight, HDFS, veelgestelde vragen over Azure, probleemoplossingsgid
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 4C33828F-2982-47F0-B858-C32FFF634D9E
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 7c9d555130d806728f9d3a82f49e81b18c1e5125
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e63dbf8feb941aef3d3c76439f55527da0388b85
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>HDFS oplossen met behulp van Azure HDInsight
 
@@ -31,7 +29,7 @@ Meer informatie over de meest voorkomende problemen en hun oplossingen bij het w
 
 Toegang tot de lokale HDFS vanaf de opdrachtregel en toepassingscode in plaats van met behulp van Azure Blob storage of Azure Data Lake Store uit binnen het HDInsight-cluster.   
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. Gebruik het volgende achter de opdrachtprompt `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` letterlijk, zoals in de volgende opdracht:
 
@@ -151,7 +149,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten. Het aantal knooppunten is lager dan of dicht bij de replicatie HDFS factor.
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen 
+### <a name="resolution-steps"></a>Oplossingen 
 
 1. Haal de status van HDFS op het HDInsight-cluster met behulp van de volgende opdrachten:
 

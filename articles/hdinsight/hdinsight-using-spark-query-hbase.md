@@ -2,26 +2,24 @@
 title: Spark te lezen en schrijven van gegevens van de HBase - Azure HDInsight gebruiken | Microsoft Docs
 description: De Spark HBase-Connector gebruiken om te lezen en schrijven van gegevens van een Spark-cluster naar een HBase-cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: ccbcd1d9cb45da7076d73f71a2ed692e71816650
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: acad1058cbff2099a67603cc547a19d6cac022be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="use-spark-to-read-and-write-hbase-data"></a>Spark gebruiken om te lezen en HBase-gegevens schrijven
+# <a name="use-spark-to-read-and-write-hbase-data"></a>Spark gebruiken om HBase-gegevens te lezen en te schrijven
 
 Apache HBase query wordt doorgaans uitgevoerd met de op laag niveau API (scans, opgehaald en puts) of met een SQL-syntaxis met Phoenix. Apache biedt ook de Spark HBase-Connector een handige is en alternatieve zodat om te vragen en gegevens die zijn opgeslagen door HBase te wijzigen.
 
@@ -249,4 +247,4 @@ In deze stap definieert u een catalogusobject dat het schema van Spark HBase wor
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Spark HBase Connector](https://github.com/hortonworks-spark/shc)
+* [Spark HBase-Connector](https://github.com/hortonworks-spark/shc)

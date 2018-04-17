@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Voorbeelden van de implementatie van Azure enterprise scaffold
 Dit onderwerp vindt u voorbeelden van hoe de aanbevelingen voor in een onderneming implementeren kunt een [Azure enterprise scaffold](resource-manager-subscription-governance.md). Een fictief bedrijf met de naam Contoso wordt gebruikt ter illustratie van best practices voor algemene scenario's.
@@ -56,10 +56,10 @@ Dave wijst de volgende rollen voor het abonnement:
 
 | Rol | Toegewezen aan | Beschrijving |
 | --- | --- | --- |
-| [Eigenaar](../active-directory/role-based-access-built-in-roles.md#owner) |ID van Contoso beheerde AD |Deze ID wordt beheerd met Just in Time (Just in time) toegang via de Contoso Identity Management-hulpprogramma en zorgt ervoor dat er volledig abonnement eigenaar toegang wordt gecontroleerd |
-| [Beveiligingsbeheer](../active-directory/role-based-access-built-in-roles.md#security-manager) |Gegevensbeveiliging en risicobeheer management afdeling |Deze rol kan gebruikers om te kijken naar het Azure Security Center en de status van de resources |
-| [Inzender voor netwerken](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Netwerkteam |Deze rol kan team van de Contoso netwerk voor het beheren van de Site naar Site VPN-verbinding en de virtuele netwerken |
-| *Aangepaste rol* |De eigenaar van de toepassing |Dave maakt een rol die de mogelijkheid om te wijzigen van resources binnen de resourcegroep verleent. Zie voor meer informatie [aangepaste rollen in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md) |
+| [Eigenaar](../role-based-access-control/built-in-roles.md#owner) |ID van Contoso beheerde AD |Deze ID wordt beheerd met Just in Time (Just in time) toegang via de Contoso Identity Management-hulpprogramma en zorgt ervoor dat er volledig abonnement eigenaar toegang wordt gecontroleerd |
+| [Security Manager](../role-based-access-control/built-in-roles.md#security-manager) |Gegevensbeveiliging en risicobeheer management afdeling |Deze rol kan gebruikers om te kijken naar het Azure Security Center en de status van de resources |
+| [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor) |Netwerkteam |Deze rol kan team van de Contoso netwerk voor het beheren van de Site naar Site VPN-verbinding en de virtuele netwerken |
+| *Aangepaste rol* |De eigenaar van de toepassing |Dave maakt een rol die de mogelijkheid om te wijzigen van resources binnen de resourcegroep verleent. Zie voor meer informatie [aangepaste rollen in Azure RBAC](../role-based-access-control/custom-roles.md) |
 
 ### <a name="policies"></a>Beleidsregels
 Dave gelden de volgende vereisten voor het beheren van resources in het abonnement:
@@ -86,7 +86,7 @@ Hij voegt de volgende [labels](resource-group-using-tags.md) aan de resourcegroe
 | Codenaam | Tagwaarde |
 | --- | --- |
 | ApplicationOwner |De naam van de persoon die deze toepassing beheert |
-| CostCenter |De kostenplaats van de groep die u voor de Azure-verbruik betaalt |
+| Kostenplaats |De kostenplaats van de groep die u voor de Azure-verbruik betaalt |
 | Business Unit |**ETS** (de business unit die is gekoppeld aan het abonnement) |
 
 ### <a name="core-network"></a>Basisnetwerk
@@ -94,13 +94,13 @@ Het Contoso ETS informatie gegevensbeveiliging en risicobeheer management-team o
 
 Hij maakt de volgende bronnen:
 
-| Brontype | Naam | Beschrijving |
+| Resourcetype | Naam | Beschrijving |
 | --- | --- | --- |
-| Virtual Network |interne-vnet |Met de BitBucket-toepassing gebruikt en met het bedrijfsnetwerk van Contoso is verbonden via ExpressRoute.  Een subnet (`bitbucket`) biedt de toepassing met een specifiek IP-adresruimte |
-| Virtual Network |externe-vnet |Beschikbaar voor toekomstige toepassingen waarvoor openbare eindpunten |
+| Virtueel netwerk |interne-vnet |Met de BitBucket-toepassing gebruikt en met het bedrijfsnetwerk van Contoso is verbonden via ExpressRoute.  Een subnet (`bitbucket`) biedt de toepassing met een specifiek IP-adresruimte |
+| Virtueel netwerk |externe-vnet |Beschikbaar voor toekomstige toepassingen waarvoor openbare eindpunten |
 | Netwerkbeveiligingsgroep |bitbucket nsg |Zorgt ervoor dat de kwetsbaarheid voor aanvallen van deze workload wordt geminimaliseerd doordat verbindingen alleen via poort 443 voor het subnet waar de toepassing woont (`bitbucket`) |
 
-### <a name="resource-locks"></a>Resource-vergrendelingen
+### <a name="resource-locks"></a>Resourcevergrendelingen
 Dave herkent dat de connectiviteit van het bedrijfsnetwerk van Contoso met het interne virtuele netwerk moet worden beveiligd tegen wayward script of per ongeluk verwijderen.
 
 Hij maakt de volgende [resource vergrendeling](resource-group-lock-resources.md):
@@ -164,18 +164,18 @@ Het Contoso ETS informatie gegevensbeveiliging en risicobeheer management-team o
 
 Voor de **ontwikkeling abonnement**, ze maken:
 
-| Brontype | Naam | Beschrijving |
+| Resourcetype | Naam | Beschrijving |
 | --- | --- | --- |
-| Virtual Network |interne-vnet |De ontwikkelomgeving Contoso loyaliteitskaart fungeert en is verbonden via ExpressRoute Contoso netwerk van bedrijf |
+| Virtueel netwerk |interne-vnet |De ontwikkelomgeving Contoso loyaliteitskaart fungeert en is verbonden via ExpressRoute Contoso netwerk van bedrijf |
 
 Voor de **productie abonnement**, ze maken:
 
-| Brontype | Naam | Beschrijving |
+| Resourcetype | Naam | Beschrijving |
 | --- | --- | --- |
-| Virtual Network |externe-vnet |Als host fungeert voor de toepassing loyaliteitskaart en niet rechtstreeks is verbonden met ExpressRoute van Contoso. Code wordt doorgeschoven, is via hun broncode-systeem rechtstreeks aan de PaaS-services |
+| Virtueel netwerk |externe-vnet |Als host fungeert voor de toepassing loyaliteitskaart en niet rechtstreeks is verbonden met ExpressRoute van Contoso. Code wordt doorgeschoven, is via hun broncode-systeem rechtstreeks aan de PaaS-services |
 | Netwerkbeveiligingsgroep |loyaltycard nsg |Zorgt ervoor dat de kwetsbaarheid voor aanvallen van deze workload door alleen in gebonden communicatie toe te staan op TCP 443 wordt geminimaliseerd.  Contoso is ook het onderzoeken van het gebruik van een Web Application Firewall voor extra beveiliging |
 
-### <a name="resource-locks"></a>Resource-vergrendelingen
+### <a name="resource-locks"></a>Resourcevergrendelingen
 Dave en Els verlenen en besluit toe te voegen van bronvergrendelingen op sommige van de belangrijkste resources in de omgeving om te voorkomen dat de onopzettelijke verwijderingen tijdens een onjuiste code push.
 
 Ze maken de volgende vergrendeling:

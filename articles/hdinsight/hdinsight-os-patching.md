@@ -2,24 +2,22 @@
 title: OS patches planning voor Linux gebaseerde HDInsight-clusters - Azure configureren | Microsoft Docs
 description: Informatie over het configureren van OS patches planning voor Linux gebaseerde HDInsight-clusters.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: asadk
 editor: bprakash
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42771b9ff0f177b6b31f626d1dd2d07046a53965
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="os-patching-for-hdinsight"></a>OS patches voor HDInsight 
 Als een beheerde Hadoop-service zorgt HDInsight voor het herstellen van het besturingssysteem van de onderliggende virtuele machines die worden gebruikt door HDInsight-clusters. Vanaf 1 augustus 2016, hebben we de toepassing van patches Gast OS-beleid voor Linux gebaseerde HDInsight-clusters (versie 3.4 of hoger) gewijzigd. Het doel van het nieuwe beleid is aanzienlijk minder opnieuw te worden opgestart vanwege patchen. Patch voor virtuele machines (VM's) blijven het nieuwe beleid op Linux-clusters elke maandag of donderdag begint bij 12: 00 A.M. UTC op een wijze gespreid over de knooppunten in een opgegeven cluster. Een bepaalde virtuele machine wordt echter alleen opnieuw opgestart als gevolg van Gast OS patches maximaal één keer elke 30 dagen. Bovendien de eerste herstart voor een nieuw cluster gebeurt niet eerder zijn dan 30 dagen na het maken van het cluster. Patches worden van kracht nadat de virtuele machines opnieuw worden opgestart.

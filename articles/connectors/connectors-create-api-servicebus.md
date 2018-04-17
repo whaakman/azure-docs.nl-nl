@@ -2,10 +2,10 @@
 title: Instellen voor Azure Logic Apps met Azure Service Bus-berichtenservice | Microsoft Docs
 description: Berichten verzenden en ontvangen met uw logische apps met behulp van Azure Service Bus
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 02/06/2018
 ms.author: ladocs
-ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5a4760e1e0f38fd81fd779786985f5753d77eab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Verzend en ontvang berichten met de Azure Service Bus-connector
 
@@ -65,12 +65,17 @@ Een [ *trigger* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) is ee
 
    ![Service Bus-trigger selecteren](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > Sommige retourneren een- of berichten, zoals activeert de *Service Bus - bij een of meer in een wachtrij (automatisch aanvullen berichten)* trigger.
+   > Wanneer deze triggers is gestart, deze retourneren tussen één en het aantal berichten dat is opgegeven door de trigger **bericht maximumaantal** eigenschap.
+
    1. Als u nog een verbinding met uw Service Bus-naamruimte hebt, wordt u gevraagd om deze verbinding nu te maken. Geef een naam op voor uw verbinding en selecteer de Service Bus-naamruimte die u wilt gebruiken.
 
       ![Service Bus-verbinding maken](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
       Of voer handmatig de verbindingsreeks de optie kiezen **Voer handmatig de verbindingsinformatie**. 
       Meer informatie over [het zoeken van de verbindingsreeks](#permissions-connection-string).
+      
 
    2. Het Service Bus-beleid wilt gebruiken en kiest u nu selecteren **maken**.
 
@@ -79,6 +84,11 @@ Een [ *trigger* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) is ee
 4. Selecteer de Service Bus-wachtrij gebruiken en het interval en frequentie voor het controleren van de wachtrij ingesteld.
 
    ![Selecteer de Service Bus-wachtrij en polling-interval instellen](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > De Service Bus-triggers **lange polling** triggers, wat betekent dat wanneer een trigger wordt gestart, de trigger alle berichten worden verwerkt en wordt er gewacht totdat meer berichten worden weergegeven in de wachtrij of onderwerp abonnement 30 seconden.
+   > Als u geen berichten worden ontvangen in 30 seconden, wordt de trigger uitvoeren overgeslagen. Anders, blijft de trigger berichten lezen, totdat het abonnement wachtrij of onderwerp leeg is.
+   > De volgende trigger poll is gebaseerd op het terugkeerpatroon die is opgegeven in de trigger-eigenschappen.
 
 5. Sla uw logische app op. Kies **Opslaan** op de werkbalk van de ontwerper.
 

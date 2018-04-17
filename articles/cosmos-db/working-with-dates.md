@@ -2,10 +2,9 @@
 title: Werken met datums in Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over het werken met datums in Azure Cosmos DB.
 services: cosmos-db
-author: arramac
-manager: jhubbard
-editor: mimig
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: e587772f-ce9f-498c-a017-a51e7265bb23
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: arramac
-ms.openlocfilehash: 1a54884196e5b4ff5b16425e902abeb8d82aa8f1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: a1f8b38725eb188b609fbdc8efa09ed5aaaf6ae5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Werken met datums in Azure Cosmos DB
 Azure Cosmos DB biedt schemaflexibiliteit en geavanceerde indexeermogelijkheden via een systeemeigen [JSON](http://www.json.org) gegevensmodel. Alle Azure DB die Cosmos-bronnen, zoals databases, verzamelingen, documenten en opgeslagen procedures worden gemodelleerd en opgeslagen als JSON-documenten. Als een vereiste voor draagbare wordt JSON (en Azure Cosmos DB) ondersteunt een kleine set basistypen: String, getal, Booleaanse waarde, Array, Object en Null. Echter JSON is flexibel en ontwikkelaars en frameworks voor complexe typen met behulp van deze primitieven en samenstellen van deze objecten of-matrices. 

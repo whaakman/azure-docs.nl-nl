@@ -2,10 +2,10 @@
 title: Upgrade Backup-kluis in Recovery Services-kluis van Azure Backup | Microsoft Docs
 description: Upgrade Backup-kluis in Recovery Services-kluis nieuwe functies zoals back-up van resourcemanager virtuele machines, verbeterde beveiliging, VMware VM-back- en back-up van systeemstatus voor Windows-Servers ophalen
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: 
+editor: ''
 keyword: backup vault; upgrade vault; recovery services vault
 ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Back-upkluis bijgewerkt naar een Recovery Services-kluis
 In dit artikel biedt een overzicht van welke Recovery Services-kluis biedt, veelgestelde vragen over het upgraden van bestaande back-up vault Recovery Services-kluis en stappen na de upgrade. Een Recovery Services-kluis is de Azure Resource Manager-equivalent van een back-upkluis met uw back-upgegevens. De gegevens zijn of doorgaans kopieën van gegevens of configuratie-informatie voor virtuele machines (VM's), werkbelastingen, servers of werkstations, lokaal of in Azure.
@@ -34,7 +34,7 @@ Recovery Services-kluizen zijn gebaseerd op het Azure Resource Manager-model van
 
 - **Centrale bewaking voor uw hybride IT-omgeving**: met Recovery Services-kluizen, kunt u controleren niet alleen uw [Azure IaaS VM's](backup-azure-manage-vms.md) , maar ook uw [lokale activa](backup-azure-manage-windows-server.md#manage-backup-items) vanuit een centrale portal. [Meer informatie](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **Op rollen gebaseerde toegangsbeheer (RBAC)**: RBAC verfijnd toegangsbeheer management in Azure biedt. [Azure biedt diverse ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md), en de Azure Backup bevat drie [ingebouwde functies voor het beheren van herstelpunten](backup-rbac-rs-vault.md). Recovery Services-kluizen compatibel zijn met RBAC waarmee de beperkt back-up en herstel van toegang aan de gedefinieerde set van gebruikersrollen. [Meer informatie](backup-rbac-rs-vault.md)
+- **Op rollen gebaseerde toegangsbeheer (RBAC)**: RBAC verfijnd toegangsbeheer management in Azure biedt. [Azure biedt diverse ingebouwde rollen](../role-based-access-control/built-in-roles.md), en de Azure Backup bevat drie [ingebouwde functies voor het beheren van herstelpunten](backup-rbac-rs-vault.md). Recovery Services-kluizen compatibel zijn met RBAC waarmee de beperkt back-up en herstel van toegang aan de gedefinieerde set van gebruikersrollen. [Meer informatie](backup-rbac-rs-vault.md)
 
 - **Alle configuraties van Azure Virtual Machines beveiligen**: Recovery Services-kluizen beveiligen Resource Manager gebaseerde virtuele machines met inbegrip van Premium-schijven, schijven beheerd en virtuele machines versleuteld. Een back-upkluis upgraden naar een Recovery Services-kluis biedt u de mogelijkheid uw Service Manager-VM's bijwerken naar Resource Manager gebaseerde virtuele machines. Tijdens het upgraden van de kluis, kunt u uw herstelpunten op basis van Service Manager VM bewaren en configureer beveiliging voor de bijgewerkte (Resource Manager is ingeschakeld) virtuele machines. [Meer informatie](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 

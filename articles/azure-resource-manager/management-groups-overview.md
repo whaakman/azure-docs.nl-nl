@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 31e71f153c7bbf76b0f06f8f17a74c43cc1b1c81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Breng uw resources met Azure-beheergroepen 
 
@@ -32,7 +32,7 @@ U kunt een flexibele structuur van beheergroepen en abonnementen uw om resources
 
 ![Structuur](media/management-groups/MG_overview.png)
 
-Als u een hiërarchie die worden gegroepeerd per afdelingen maakt, u zich kunt toewijzen [gebaseerd toegangsbeheer (RBAC)](../active-directory/role-based-access-control-what-is.md) rollen die *overnemen* aan de diensten onder de beheergroep. Met behulp van beheergroepen inkorten uw werkbelasting en vermindert het risico van fouten door slechts één keer de rol toewijzen. 
+Als u een hiërarchie die worden gegroepeerd per afdelingen maakt, u zich kunt toewijzen [gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) rollen die *overnemen* aan de diensten onder de beheergroep. Met behulp van beheergroepen inkorten uw werkbelasting en vermindert het risico van fouten door slechts één keer de rol toewijzen. 
 
 ### <a name="important-facts-about-management-groups"></a>Belangrijke informatie over beheergroepen
 - 10.000 beheergroepen kunnen worden ondersteund in een enkele map. 
@@ -55,7 +55,7 @@ Dit item wordt gewerkt en worden opgelost voordat beheergroepen worden vermeld a
 
 ## <a name="root-management-group-for-each-directory"></a>De beheergroep hoofdmap voor elke map
 
-Elke directory is een enkel op het hoogste niveau beheergroep met de naam van de beheergroep 'Root' opgegeven. Deze hoofdmap beheergroep is ingebouwd in de hiërarchie hebben alle beheergroepen en abonnementen vouw aan. Deze hoofdmap beheergroep kan globaal beleid en RBAC-toewijzingen moeten worden toegepast op het niveau van de directory. De [Directory-beheerder moet zelf de bevoegdheden](../active-directory/role-based-access-control-tenant-admin-access.md) in eerste instantie moet de eigenaar van deze groep hoofdmap. Nadat de beheerder de eigenaar van de groep is, kunnen ze RBAC-rol toewijzen aan andere directory-gebruikers of groepen voor het beheren van de hiërarchie.  
+Elke directory is een enkel op het hoogste niveau beheergroep met de naam van de beheergroep 'Root' opgegeven. Deze hoofdmap beheergroep is ingebouwd in de hiërarchie hebben alle beheergroepen en abonnementen vouw aan. Deze hoofdmap beheergroep kan globaal beleid en RBAC-toewijzingen moeten worden toegepast op het niveau van de directory. De [Directory-beheerder moet zelf de bevoegdheden](../role-based-access-control/elevate-access-global-admin.md) in eerste instantie moet de eigenaar van deze groep hoofdmap. Nadat de beheerder de eigenaar van de groep is, kunnen ze RBAC-rol toewijzen aan andere directory-gebruikers of groepen voor het beheren van de hiërarchie.  
 
 ### <a name="important-facts-about-the-root-management-group"></a>Belangrijke informatie over de Root management-groep
 - De naam en de ID van de root management-groep, krijgen de ID van Azure Active Directory standaard. De weergavenaam op die kan worden bijgewerkt op elk gewenst moment inschakelen andere binnen de Azure-portal. 
@@ -67,9 +67,9 @@ Elke directory is een enkel op het hoogste niveau beheergroep met de naam van de
   
 ## <a name="management-group-access"></a>Toegang van de beheergroep
 
-Biedt ondersteuning voor Azure beheergroepen [gebaseerd toegangsbeheer (RBAC)](../active-directory/role-based-access-control-what-is.md) voor alle toegang tot een resource en roldefinities. Deze machtigingen worden overgenomen voor de onderliggende resources die zijn opgenomen in de hiërarchie.   
+Biedt ondersteuning voor Azure beheergroepen [gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) voor alle toegang tot een resource en roldefinities. Deze machtigingen worden overgenomen voor de onderliggende resources die zijn opgenomen in de hiërarchie.   
 
-Tijdens een [ingebouwde RBAC-rol](../active-directory/role-based-access-control-what-is.md#built-in-roles) kunnen worden toegewezen aan een beheergroep zijn vier rollen die vaak worden gebruikt: 
+Tijdens een [ingebouwde RBAC-rol](../role-based-access-control/overview.md#built-in-roles) kunnen worden toegewezen aan een beheergroep zijn vier rollen die vaak worden gebruikt: 
 - **Eigenaar** heeft volledige toegang tot alle bronnen, waaronder het recht op toegang aan anderen delegeren. 
 - **Inzender** kunt maken en beheren van alle soorten Azure-resources, maar kan geen toegang tot de overige verlenen.
 - **Resource beleid Inzender** kunt maken en beheren van beleid in de map op de bronnen.     

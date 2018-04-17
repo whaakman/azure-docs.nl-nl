@@ -3,7 +3,7 @@ title: Partitionering en schalen in Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over hoe partitionering werkt in Azure Cosmos DB, partitie-sleutels en configureren met het partitioneren en het kiezen van de juiste partitiesleutel voor uw toepassing.
 services: cosmos-db
 author: rafats
-manager: jhubbard
+manager: kfile
 documentationcenter: ''
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
 ms.service: cosmos-db
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe78289938e752731ff2e830fb62ad210e12111e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 50be809df0938272a3e1d710b879ca3dd5de9428
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Partitioneren in Azure Cosmos-database met behulp van de SQL-API
 
@@ -60,7 +60,7 @@ In de SQL-API geeft u de definitie van de partitie sleutel in de vorm van een JS
             <td valign="top"><p>Komt overeen met de waarde van doc.properties.name waar doc is voor het item (de geneste eigenschap).</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>/id</p></td>
+            <td valign="top"><p>/ID</p></td>
             <td valign="top"><p>Komt overeen met de waarde van doc.id (sleutel-id en partitie zijn dezelfde eigenschap).</p></td>
         </tr>
         <tr>
@@ -144,7 +144,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Laten we het item door de partitiesleutel en -id niet lezen, bijwerken en als laatste stap, verwijdert u deze door partitiesleutel en -id. Opmerking dat gelezen gegevens een PartitionKey-waarde bevatten (die overeenkomt met de `x-ms-documentdb-partitionkey` aanvraag-header in de REST-API).
+Laten we het item door de partitiesleutel en -id niet lezen, bijwerken en als laatste stap, verwijdert u deze door partitiesleutel en -id. U ziet dat te lezen gegevens een PartitionKey-waarde bevatten (die overeenkomt met de `x-ms-documentdb-partitionkey`-aanvraagheader in de REST-API).
 
 ```csharp
 // Read document. Needs the partition key and the ID to be specified
@@ -169,7 +169,7 @@ await client.DeleteDocumentAsync(
 ```
 
 ### <a name="querying-partitioned-containers"></a>Gepartitioneerde containers doorzoeken
-Als u query's gegevens in gepartitioneerde containers, routeert Cosmos DB automatisch de query naar de partities die overeenkomt met de partitie sleutelwaarden die zijn opgegeven in het filter (wanneer aanwezig). Deze query wordt bijvoorbeeld doorgestuurd naar partitie met de partitiesleutel 'XMS-0001'.
+Als u query's gegevens in gepartitioneerde containers, routeert Cosmos DB automatisch de query naar de partities die overeenkomt met de partitie sleutelwaarden die zijn opgegeven in het filter (wanneer aanwezig). Deze query wordt bijvoorbeeld doorgestuurd naar de partitie met de partitiesleutel 'XMS-0001'.
 
 ```csharp
 // Query using partition key
@@ -178,7 +178,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
     
-De volgende query heeft geen een filter voor de partitiesleutel (DeviceId) en is fanned uit op alle partities waarop deze wordt uitgevoerd op basis van de index van de partitie. Opmerking die u hebt voor het opgeven van de EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` in de REST-API) om de SDK voor het uitvoeren van een query meerdere partities.
+De volgende query heeft geen een filter voor de partitiesleutel (DeviceId) en wordt verspreid over alle partities waarop deze wordt uitgevoerd op basis van de index van de partitie. U moet de EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` in de REST-API) opgeven om de SDK een query te laten uitvoeren op meerdere partities.
 
 ```csharp
 // Query across partition keys
@@ -191,7 +191,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 Biedt ondersteuning voor cosmos DB [statistische functies](sql-api-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` en `AVG` over gepartitioneerd containers met behulp van SQL wordt gestart met de SDK's 1.12.0 en hoger. Query's moeten een enkel samengestelde operator bevatten en moeten één waarde bevatten in de projectie.
 
 ### <a name="parallel-query-execution"></a>Parallelle queryuitvoering
-De Cosmos-DB SDK's 1.9.0 en hoger ondersteuning parallelle uitvoering queryopties, waarmee u kunt uitvoeren lage latentie query's voor gepartitioneerde verzamelingen, zelfs als ze nodig hebben om een groot aantal partities touch. De volgende query is bijvoorbeeld geconfigureerd voor meerdere partities parallel worden uitgevoerd.
+De Cosmos-DB SDK's 1.9.0 en hoger ondersteuning parallelle uitvoering queryopties, waarmee u kunt uitvoeren lage latentie query's voor gepartitioneerde verzamelingen, zelfs als ze nodig hebben om een groot aantal partities touch. De volgende query is bijvoorbeeld geconfigureerd voor parallelle uitvoering in meerdere partities.
 
 ```csharp
 // Cross-partition Order By Queries
@@ -202,12 +202,12 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .OrderBy(m => m.MetricValue);
 ```
     
-U kunt parallelle queryuitvoering beheren door het afstemmen van de volgende parameters:
+U kunt parallelle queryuitvoering beheren door de volgende parameters af te stemmen:
 
-* Door in te stellen `MaxDegreeOfParallelism`, u kunt de mate van parallelle uitvoering, dat wil zeggen, het maximum aantal gelijktijdige netwerkverbindingen op de container partities beheren. Als u deze instelt op-1, de mate van parallelle uitvoering wordt beheerd door de SDK. Als de `MaxDegreeOfParallelism` is niet opgegeven of is ingesteld op 0, wat de standaardwaarde is, zal er een netwerk met één verbinding met de partities van de container.
-* Door in te stellen `MaxBufferedItemCount`, kunt u handelt uit query latentie en client-side geheugengebruik. Als u deze parameter of stel deze optie in op-1, het aantal items in de buffer opgeslagen tijdens parallelle queryuitvoering wordt beheerd door de SDK.
+* Door in te stellen `MaxDegreeOfParallelism`, u kunt de mate van parallelle uitvoering, dat wil zeggen, het maximum aantal gelijktijdige netwerkverbindingen op de container partities beheren. Als u deze instelt op -1, wordt de mate van parallelle uitvoering beheerd door de SDK. Als de `MaxDegreeOfParallelism` is niet opgegeven of is ingesteld op 0, wat de standaardwaarde is, zal er een netwerk met één verbinding met de partities van de container.
+* Door `MaxBufferedItemCount` in te stellen, kunt u de querylatentie en het geheugengebruik aan clientzijde uitruilen. Als u deze parameter weglaat of op -1 instelt, wordt het aantal items dat in de buffer wordt opgeslagen tijdens parallelle queryuitvoering beheerd door de SDK.
 
-Gezien de dezelfde status van de verzameling, retourneert een parallelle query resultaten in dezelfde volgorde als in seriële uitvoering. Bij het uitvoeren van een query voor cross-partitie met sorteren (ORDER BY en/of boven) geeft de query parallel meerdere partities uit Azure Cosmos DB SDK en gedeeltelijk gesorteerde resulteert in de clientzijde levert geen resultaten globaal geordende worden samengevoegd.
+Gezien dezelfde status van de verzameling, retourneert een parallelle query resultaten in dezelfde volgorde als bij seriële uitvoering. Bij het uitvoeren van een query voor cross-partitie met sorteren (ORDER BY en/of boven) geeft de query parallel meerdere partities uit Azure Cosmos DB SDK en gedeeltelijk gesorteerde resulteert in de clientzijde levert geen resultaten globaal geordende worden samengevoegd.
 
 ### <a name="executing-stored-procedures"></a>Opgeslagen procedures uitvoeren
 U kunt ook atomische transacties tegen documenten met dezelfde apparaat-ID, zoals uitvoeren als u statistische functies of de meest recente toestand van een apparaat in één item onderhoudt. 

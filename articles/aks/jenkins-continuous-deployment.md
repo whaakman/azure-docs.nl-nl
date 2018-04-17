@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8238e0f55b88e4fa207357630aa4228250c33249
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b0adf5098b1be9f245b22c859dbb86a14335e435
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Continue implementatie met Jenkins en Azure Container Service
 
-Dit document wordt gedemonstreerd hoe een eenvoudige continue implementatiewerkstroom tussen Jenkins en een Azure Container Service (AKS)-cluster instellen. 
+Dit document wordt gedemonstreerd hoe een eenvoudige continue implementatiewerkstroom tussen Jenkins en een Azure Container Service (AKS)-cluster instellen.
 
 De voorbeeldwerkstroom bevat de volgende stappen uit:
 
@@ -41,7 +41,7 @@ U kunt de volgende items nodig om de stappen in dit artikel te voltooien.
 
 ## <a name="prepare-application"></a>Voorbereiden van de toepassing
 
-De stem van Azure-toepassing in dit hele document bevat een webinterface die wordt gehost in een of meer gehele product en een tweede schil Redis als host fungeert voor de tijdelijke opslag. 
+De stem van Azure-toepassing in dit hele document bevat een webinterface die wordt gehost in een of meer gehele product en een tweede schil Redis als host fungeert voor de tijdelijke opslag.
 
 Voordat de Jenkins / AKS integratie, voorbereiden en implementeren van de toepassing Azure stem met uw cluster AKS. Dit beschouwen als versie 1 van de toepassing.
 
@@ -94,7 +94,7 @@ Gebruik de [docker-tag] [ docker-tag] opdracht voor het taggen van de installati
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-De waarde ACR aanmelding server bijwerken met uw ACR server aanmeldingsnaam en push de `azure-vote-front` afbeelding in het register. 
+De waarde ACR aanmelding server bijwerken met uw ACR server aanmeldingsnaam en push de `azure-vote-front` afbeelding in het register.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:v1
@@ -118,7 +118,7 @@ Gebruik vervolgens de [kubectl maken] [ kubectl-create] opdracht de toepassing u
 kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
-Een [Kubernetes service] [ kubernetes-service] wordt gemaakt om de toepassing met het internet zichtbaar te maken. Dit proces kan enkele minuten duren. 
+Een [Kubernetes service] [ kubernetes-service] wordt gemaakt om de toepassing met het internet zichtbaar te maken. Dit proces kan enkele minuten duren.
 
 Gebruik de opdracht [kubectl get service][kubectl-get] met het argument `--watch` om de voortgang te controleren.
 
@@ -127,12 +127,12 @@ kubectl get service azure-vote-front --watch
 ```
 
 Eerst wordt het *externe IP-adres* voor de service *azure-vote-front* weergegeven als *in behandeling*.
-  
+
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Zodra het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een *IP-adres*, gebruikt u `control+c` om het controleproces van kubectl te stoppen. 
+Zodra het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een *IP-adres*, gebruikt u `control+c` om het controleproces van kubectl te stoppen.
 
 ```
 azure-vote-front   10.0.34.242   13.90.150.118   80:30676/TCP   2m
@@ -209,17 +209,17 @@ Klik op **OK** en terugkeren naar de Jenkins-beheerportal.
 
 Klik in het beheerportal Jenkins op **Nieuw Item**.
 
-Geef het project een naam, bijvoorbeeld `azure-vote`, selecteer **Freestyle Project**, en klik op **OK**. 
+Geef het project een naam, bijvoorbeeld `azure-vote`, selecteer **Freestyle Project**, en klik op **OK**.
 
 ![Jenkins project](media/aks-jenkins/jenkins-project.png)
 
 Onder **algemene**, selecteer **GitHub project** en voert u de URL naar uw fork van het Azure stem GitHub-project.
 
-![GitHub project](media/aks-jenkins/github-project.png)
+![GitHub-project](media/aks-jenkins/github-project.png)
 
-Onder **Source Code Management**, selecteer **Git**, voert u de URL naar uw fork van de Azure-stem GitHub-repo. 
+Onder **Source Code Management**, selecteer **Git**, voert u de URL naar uw fork van de Azure-stem GitHub-repo.
 
-Klik op voor de referenties en **toevoegen** > **Jenkins**. Onder **soort**, selecteer **geheime tekst** en voer uw [GitHub persoonlijke toegangstoken] [ git-access-token] als het geheim. 
+Klik op voor de referenties en **toevoegen** > **Jenkins**. Onder **soort**, selecteer **geheime tekst** en voer uw [GitHub persoonlijke toegangstoken] [ git-access-token] als het geheim.
 
 Selecteer **toevoegen** wanneer u klaar bent.
 
@@ -233,7 +233,7 @@ Onder **bouwen omgeving**, selecteer **gebruik geheime tekst of bestanden**.
 
 ![Jenkins build-omgeving](media/aks-jenkins/build-environment.png)
 
-Onder **bindingen**, selecteer **toevoegen** > **gebruikersnaam en wachtwoord (gescheiden)**. 
+Onder **bindingen**, selecteer **toevoegen** > **gebruikersnaam en wachtwoord (gescheiden)**.
 
 Voer `ACR_ID` voor de **Gebruikersnaamvariabele**, en `ACR_PASSWORD` voor de **Wachtwoordvariabele**.
 
@@ -263,13 +263,13 @@ Wanneer het voltooid, klikt u op **opslaan**.
 
 Test de build Jenkins voordat u verdergaat. Hiermee valideert u of de taak build correct is geconfigureerd, het juiste Kubernetes verificatie-bestand aanwezig is en dat de juiste ACR-referenties zijn opgegeven.
 
-Klik op **nu bouwen** in het menu links van het project. 
+Klik op **nu bouwen** in het menu links van het project.
 
 ![Jenkins testen build](media/aks-jenkins/test-build.png)
 
 Tijdens dit proces is de GitHub-opslagplaats naar de server van de build Jenkins gekloond. Een nieuwe container-installatiekopie is gemaakt en naar het register ACR gepusht. Ten slotte wordt de toepassing Azure stem is uitgevoerd op het cluster AKS bijgewerkt voor het gebruik van de nieuwe installatiekopie. Omdat er geen wijzigingen hebt aangebracht aan de toepassingscode, wordt de toepassing niet gewijzigd.
 
-Zodra het proces voltooid is, kunt u klikken op **bouwen #1** onder geschiedenis bouwen en selecteer **Console-uitvoer** voor een overzicht van alle uitvoer van de buildproces. De laatste regel zou moeten aangeven waarom een geslaagde build. 
+Zodra het proces voltooid is, klikt u op in **bouwen #1** onder geschiedenis bouwen en selecteer **Console-uitvoer** voor een overzicht van alle uitvoer van de buildproces. De laatste regel zou moeten aangeven waarom een geslaagde build.
 
 ## <a name="create-github-webhook"></a>Een GitHub-webhook maken
 
@@ -280,14 +280,14 @@ Gebruik vervolgens de opslagplaats van toepassing op de server van de build Jenk
 3. Kies **Service toevoegen**, voer `Jenkins (GitHub plugin)` in het filtervak en selecteer de invoegtoepassing.
 4. Voer voor de Jenkins hook URL, `http://<publicIp:8080>/github-webhook/` waar `publicIp` het IP-adres van de server Jenkins. Zorg ervoor dat u de schuine /.
 5. Selecteer toevoegen-service.
-  
+
 ![GitHub-webhook](media/aks-jenkins/webhook.png)
 
 ## <a name="test-cicd-process-end-to-end"></a>CI/CD-proces complete testen
 
-Open op uw ontwikkelcomputer van de gekloonde toepassing met een code-editor. 
+Open op uw ontwikkelcomputer van de gekloonde toepassing met een code-editor.
 
-Onder de **/azure-vote/azure-vote** directory, vindt u een bestand met de naam **config_file.cfg**. Werk de waarden stem in dit bestand op een andere waarde dan katten en honden. 
+Onder de **/azure-vote/azure-vote** directory, zoeken naar een bestand met de naam **config_file.cfg**. Werk de waarden stem in dit bestand op een andere waarde dan katten en honden.
 
 Het volgende voorbeeld toont en bijgewerkt **config_file.cfg** bestand.
 
@@ -299,7 +299,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Als u klaar Sla het bestand, de wijzigingen ook aanbrengen en deze naar uw fork van de GitHub-opslagplaats pushen... Zodra het doorvoeren is voltooid, activeert de GitHub webhook een nieuwe build Jenkins, die de installatiekopie van het container en de implementatie AKS-updates. De procedure voor het maken van de beheerconsole Jenkins bewaken. 
+Als u klaar Sla het bestand, de wijzigingen ook aanbrengen en deze naar uw fork van de GitHub-opslagplaats pushen... Zodra het doorvoeren is voltooid, activeert de GitHub webhook een nieuwe build Jenkins, die de installatiekopie van het container en de implementatie AKS-updates. De procedure voor het maken van de beheerconsole Jenkins bewaken.
 
 Zodra de build is voltooid, blader opnieuw naar het toepassingseindpunt van de op de wijzigingen bekijken.
 

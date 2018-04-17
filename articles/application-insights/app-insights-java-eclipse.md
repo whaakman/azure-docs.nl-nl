@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 616cbfed405454d2abbb6bb526166d2c72e4365d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Aan de slag met Application Insights met behulp van Java in Eclipse
 De Application Insights-SDK verzendt telemetrie van uw Java-webtoepassing, zodat u gebruik en prestaties kan analyseren. De Eclipse-invoegtoepassing voor Application Insights installeert automatisch de SDK in uw project, zodat u zich buiten de telemetrie vak, plus een API die u kunt aangepaste telemetrie schrijven.   
@@ -28,7 +28,7 @@ Op dit moment de invoegtoepassing werkt voor Maven-projecten en dynamische webpr
 
 U hebt het volgende nodig:
 
-* Oracle JRE 1.6 of hoger
+* 1.7 JRE of 1.8
 * Een abonnement op [Microsoft Azure](https://azure.microsoft.com/).
 * [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/downloads/), Indigo of hoger.
 * Windows 7 of hoger, of WindowsServer 2008 of hoger
@@ -39,7 +39,7 @@ U hoeft alleen te doen dit één keer per computer. Deze stap installeert een we
 1. Klik op Help, nieuwe Software installeren in Eclipse.
 
     ![Help, installeert u nieuwe Software](./media/app-insights-java-eclipse/0-plugin.png)
-2. De SDK is in http://dl.microsoft.com/eclipse onder Azure Toolkit.
+2. De SDK is in http://dl.microsoft.com/eclipse, onder Azure Toolkit.
 3. Schakel het selectievakje **Neem contact op met alle updatewebsites...**
 
     ![Voor Application Insights-SDK, schakelt u contact op met bijwerken alle sites](./media/app-insights-java-eclipse/1-plugin.png)

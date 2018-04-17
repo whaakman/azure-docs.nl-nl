@@ -8,17 +8,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 36e25d7e5f1e5c6e1cf72442b73ac081810d216a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a6bc79d0556299634a78c5232bbab4e20810172c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Permanente volumes met Azure-schijven
 
 Een permanente volume vertegenwoordigt een onderdeel van de opslag die is ingericht voor gebruik met Kubernetes gehele product. Een permanente volume kan worden gebruikt door een of meer gehele product en worden dynamisch of statisch ingericht. Zie voor meer informatie over Kubernetes permanente volumes [Kubernetes permanente volumes][kubernetes-volumes].
 
 Dit Documentdetails permanente volumes gebruiken met Azure-schijven in een Azure Container Service (AKS)-cluster.
+
+> [!NOTE]
+> Een Azure-schijf kan alleen worden gekoppeld met de modus toegangstype ReadWriteOnce waardoor beschikbaar is op slechts één AKS knooppunt. Als dat een permanente volume delen op meerdere knooppunten, overweeg dan [Azure Files][azure-files-pvc].
 
 ## <a name="built-in-storage-classes"></a>Ingebouwde Opslagklassen
 
@@ -40,7 +43,7 @@ Een claim permanente volume (PVC) wordt gebruikt voor het automatisch inrichten 
 
 Maak een bestand met de naam `azure-premimum.yaml`, en kopieer het volgende manifest.
 
-Let op dat de `managed-premium` opslagklasse is opgegeven in de aantekening en de claim vraagt een schijf `5GB` aan de grootte van `ReadWriteOnce` toegang. 
+Let op dat de `managed-premium` opslagklasse is opgegeven in de aantekening en de claim vraagt een schijf `5GB` aan de grootte van `ReadWriteOnce` toegang.
 
 ```yaml
 apiVersion: v1
@@ -63,12 +66,9 @@ Maken van de claim permanente volume met de [kubectl maken] [ kubectl-create] op
 kubectl create -f azure-premimum.yaml
 ```
 
-> [!NOTE]
-> Een Azure-schijf kan alleen worden gekoppeld met de modus toegangstype ReadWriteOnce waardoor beschikbaar is op slechts één AKS knooppunt. Als dat een permanente volume delen op meerdere knooppunten, overweeg dan [Azure Files][azure-files-pvc].
-
 ## <a name="using-the-persistent-volume"></a>Met behulp van de permanente volume
 
-Nadat de claim permanente volume is gemaakt en de schijf is ingericht, een schil kan worden gemaakt met toegang tot de schijf. Het volgende manifest maakt een schil die gebruikmaakt van de claim permanente volume `azure-managed-disk` koppelen van de Azure-schijf op de `/mnt/azure` pad. 
+Nadat de claim permanente volume is gemaakt en de schijf is ingericht, een schil kan worden gemaakt met toegang tot de schijf. Het volgende manifest maakt een schil die gebruikmaakt van de claim permanente volume `azure-managed-disk` koppelen van de Azure-schijf op de `/mnt/azure` pad.
 
 Maak een bestand met de naam `azure-pvc-disk.yaml`, en kopieer het volgende manifest.
 
@@ -96,7 +96,7 @@ Maken van de schil met de [kubectl maken] [ kubectl-create] opdracht.
 kubectl create -f azure-pvc-disk.yaml
 ```
 
-U hebt nu een actieve schil met uw Azure-schijf gekoppeld in de `/mnt/azure` directory. U kunt zien dat het volume dat is gekoppeld bij de inspectie van uw schil via `kubectl describe pod mypod`.
+U hebt nu een actieve schil met uw Azure-schijf gekoppeld in de `/mnt/azure` directory. Deze configuratie kan worden weergegeven bij de inspectie van uw schil via `kubectl describe pod mypod`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

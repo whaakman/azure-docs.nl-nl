@@ -2,10 +2,10 @@
 title: Rollen in Azure AD Privileged Identity Management | Microsoft Docs
 description: Meer informatie over welke functies worden gebruikt voor bevoegde identiteiten met de extensie Azure Privileged Identity Management.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 94a066c43d1b04161a46dac15e5b373d97cc063d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Andere administratieve rol in Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -67,7 +67,7 @@ Als u gebruikerstoegang geven een andere op PIM zelf beheren wilt, de functies d
 ## <a name="roles-not-managed-in-pim"></a>Functies die niet worden beheerd in PIM
 Rollen in Exchange Online of SharePoint Online, behalve die hierboven vermeld, worden niet weergegeven in Azure AD en dus zijn niet zichtbaar in PIM. Zie voor meer informatie over het wijzigen van fijnmazig roltoewijzingen in deze Office 365-services [machtigingen in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Azure-abonnementen en resourcegroepen worden ook niet weergegeven in Azure AD. Zie voor het beheren van Azure-abonnementen [toevoegen of wijzigen van de Azure-beheerdersrollen](../billing/billing-add-change-azure-subscription-administrator.md) en voor meer informatie over Azure RBAC Zie [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
+Azure-abonnementen en resourcegroepen worden ook niet weergegeven in Azure AD. Zie voor het beheren van Azure-abonnementen [toevoegen of wijzigen van de Azure-beheerdersrollen](../billing/billing-add-change-azure-subscription-administrator.md) en voor meer informatie over Azure RBAC Zie [rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

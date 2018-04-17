@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API importeren beperkingen en bekende problemen
 ## <a name="about-this-list"></a>Over deze lijst
@@ -38,12 +38,12 @@ Als u uw document Open API importeren fouten ontvangt, controleert u of u hebt d
 
 ## <a name="wsdl"> </a>WSDL
 WSDL-bestanden worden gebruikt voor het genereren van SOAP Pass Through-API's of fungeren als de back-end van een SOAP-REST-API.
-
-* **WSDL: import** -APIM biedt momenteel geen ondersteuning voor API's met behulp van dit kenmerk. Klanten moeten de geïmporteerde elementen samenvoegen in één document.
-* **Berichten met meerdere onderdelen** APIM biedt momenteel geen ondersteuning voor deze typen berichten.
-* **WCF-wsHttpBinding** SOAP-services die zijn gemaakt met Windows Communication Foundation basicHttpBinding moeten gebruiken - wsHttpBinding wordt niet ondersteund.
-* **MTOM** MTOM-Services <em>kan</em> werken. Op dit moment is geen officiële ondersteuning geboden.
-* **Recursie** typen die zijn gedefinieerd recursief (bijvoorbeeld verwijzen naar een matrix van zichzelf) worden niet ondersteund door APIM.
+* **SOAP-bindingen** -alleen SOAP-bindingen van style 'document' en 'literal' codering worden ondersteund. Er is geen ondersteuning voor 'rpc'-stijl of SOAP-codering.
+* **WSDL: import** -dit kenmerk wordt niet ondersteund. Klanten moeten de invoer samenvoegen in één document.
+* **Berichten met meerdere onderdelen** -typen berichten worden niet ondersteund.
+* **WCF-wsHttpBinding** -SOAP-services die zijn gemaakt met Windows Communication Foundation basicHttpBinding moeten gebruiken - wsHttpBinding wordt niet ondersteund.
+* **MTOM** - Services met behulp van MTOM <em>kan</em> werken. Op dit moment is geen officiële ondersteuning geboden.
+* **Recursie** -typen die zijn gedefinieerd recursief (bijvoorbeeld verwijzen naar een matrix van zichzelf) worden niet ondersteund door APIM.
 
 ## <a name="wadl"> </a>WADL
 Er zijn momenteel geen bekende problemen van WADL importeren.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 6a72cc1829b7b8a5c7c588543d0b5c91f9f36bf5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c41b2c297d8d89554950e8c77201ff5bedf743e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>Zelfstudie: Azure Active Directory-integratie met Elium
 
@@ -117,7 +117,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: ` https://<platform-domain>.elium.com/login/saml2/login`
      
     > [!NOTE] 
-    > Deze waarden zijn niet echt. U krijgt deze waarden uit de **SP metagegevensbestand** downloadbare op `https://<platform-domain>/login/saml2/metadata`, die verderop in deze zelfstudie wordt uitgelegd.
+    > Deze waarden zijn niet echt. U krijgt deze waarden uit de **SP metagegevensbestand** downloadbare op `https://<platform-domain>.elium.com/login/saml2/metadata`, die verderop in deze zelfstudie wordt uitgelegd.
 
 5. De toepassing Elium verwacht de SAML-asserties in een specifieke indeling waarvoor u aangepaste kenmerktoewijzingen toevoegen aan uw configuratie van SAML-token kenmerken. Configureer de volgende claims voor deze toepassing. U kunt beheren de waarden van deze kenmerken van de '**gebruikerskenmerken**' sectie op de pagina van de toepassing-integratie.
 
@@ -128,10 +128,10 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     | Naam kenmerk | Waarde kenmerk |   
     | ---------------| ----------------|
     | e-mail   |User.mail |
-    | first_name| user.givenname |
+    | first_name| User.givenName |
     | last_name| User.surname|
     | job_title| user.jobtitle|
-    | Bedrijf| user.companyname|
+    | Bedrijf| User.CompanyName|
     
     > [!NOTE]
     > Dit zijn de claims standaard. **Alleen de claim e-mailadres is vereist**. Claim is verplicht voor JIT inrichting ook alleen e-mailbericht. Andere aangepaste claims kunnen variëren van één klant platform naar een ander platform van de klant.

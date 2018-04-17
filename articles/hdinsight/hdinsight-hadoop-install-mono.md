@@ -2,24 +2,24 @@
 title: Installeren of bijwerken van Mono op HDInsight - Azure | Microsoft Docs
 description: Informatie over het gebruik van een specifieke versie van Mono met HDInsight-cluster. Mono wordt gebruikt voor het uitvoeren van .NET-toepassingen op Linux gebaseerde HDInsight-clusters.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.openlocfilehash: 555f82ec9351c8c3610ad99a95159cc47d2ee539
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 165f1d8175c7c7b58a5eec02a208b81fe73cb5f9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Installeren of bijwerken van Mono in HDInsight
 
@@ -31,7 +31,7 @@ Mono op HDInsight 3.4 en hoger is geïnstalleerd en wordt gebruikt voor het uitv
 
 Dit script accepteert de volgende parameter:
 
-* __Mono versienummer__: de versie van Mono te installeren. De versie moet beschikbaar zijn vanuit [https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/](https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/).
+* __Mono versienummer__: de versie van Mono te installeren. De versie moet beschikbaar zijn vanuit [ https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/ ](https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/).
 
 Het script wordt geïnstalleerd voor de volgende Mono-pakketten:
 
@@ -41,7 +41,7 @@ Het script wordt geïnstalleerd voor de volgende Mono-pakketten:
 
 ## <a name="the-script"></a>Het script
 
-__Script location__: [https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash](https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash)
+__Locatie script__: [https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash](https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash)
 
 __Vereisten__:
 

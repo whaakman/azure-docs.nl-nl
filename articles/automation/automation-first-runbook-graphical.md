@@ -6,14 +6,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 4f0db9a7381468216c6b9a6e46b4e8f0fe7db59f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ba721091c2eb0c67171a6d3106468a05f9be1f8f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="my-first-graphical-runbook"></a>Mijn eerste grafische runbook
 
@@ -87,7 +87,7 @@ Het runbook dat u hebt gemaakt, bevindt zich nog steeds in de modus Concept. Het
 
 1. Selecteer **publiceren** om het runbook te publiceren en vervolgens **Ja** wanneer u wordt gevraagd.
 1. Als u naar links schuift om weer te geven van het runbook in de **Runbooks** pagina bevat een **ontwerpstatus** van **gepubliceerde**.
-1. Schuif terug naar rechts om weer te geven van de pagina voor **MyFirstRunbook**.
+1. Schuif terug naar rechts om weer te geven van de pagina voor **MyFirstRunbook-Graphical**.
 
    Met de opties bovenaan kunnen we het runbook starten, plannen dat het op een bepaald moment in de toekomst start of een [webhook](automation-webhooks.md) maken zodat het kan worden gestart via een HTTP-aanroep.
 
@@ -96,7 +96,7 @@ Het runbook dat u hebt gemaakt, bevindt zich nog steeds in de modus Concept. Het
 1. Zodra voor het runbook de status *Voltooid* wordt weergegeven, klikt u op **Uitvoer**. De **uitvoer** pagina wordt geopend en ziet u de *Hallo wereld* in het deelvenster.
 1. Sluit de uitvoer-pagina.
 1. Klik op **alle logboeken** om de pagina Streams voor de runbooktaak te openen. U zou alleen *Hallo wereld* moeten zien in de uitvoerstroom, maar er kunnen ook andere stromen voor een runbooktaak worden weergegeven, zoals Uitgebreid en Fout als hiernaar wordt geschreven met het runbook.
-1. Sluit de pagina alle logboeken en de pagina van de taak om terug te keren naar de pagina MyFirstRunbook.
+1. De pagina alle logboeken en de pagina van de taak om terug te keren naar de MyFirstRunbook-Graphical pagina sluiten.
 1. Voor het weergeven van alle taken voor het runbook sluit de **taak** pagina en selecteer **taken** onder **RESOURCES**. Op deze blade worden alle taken weergegeven die met dit runbook zijn gemaakt. U zou slechts één weergegeven taak moeten zien, aangezien de taak slechts eenmaal is uitgevoerd.
 1. U kunt op deze taak klikken om hetzelfde taakvenster te openen dat u hebt bekeken toen u het runbook startte. Hiermee kunt u teruggaan in de tijd en de details bekijken van elke taak die voor een bepaald runbook is gemaakt.
 
@@ -111,18 +111,18 @@ U hebt het runbook getest en gepubliceerd, maar tot nu toe doet het nog niets nu
 
 ## <a name="add-authentication"></a>Verificatie toevoegen
 
-Nu u een variabele hebt die onze abonnements-id kan bevatten, kunt u uw runbook configureren voor verificatie met de Uitvoeren als-referenties waarnaar wordt verwezen in de [vereisten](#prerequisites). Dit doet u door de Uitvoeren als-verbinding voor Azure **Asset** en de cmdlet **Add-AzureRMAccount** toe te voegen aan het papier.
+Nu u een variabele hebt die onze abonnements-id kan bevatten, kunt u uw runbook configureren voor verificatie met de Uitvoeren als-referenties waarnaar wordt verwezen in de [vereisten](#prerequisites). U doet dit door de Azure uitvoeren als-verbinding toevoegen **Asset** en **Connect-AzureRmAccount** cmdlet toe aan het papier.
 
-1. Ga terug naar uw runbook en selecteer **bewerken** op de pagina MyFirstRunbook.
+1. Ga terug naar uw runbook en selecteer **bewerken** op de pagina MyFirstRunbook-Graphical.
 1. U hoeft niet de **Schrijf Hallo wereld naar uitvoer** voordoet, dus klik op de weglatingstekens (...) en selecteer **verwijderen**.
 1. Vouw in het besturingselement Bibliotheek **Assets**, **Verbindingen** uit en voeg **AzureRunAsConnection** toe aan het papier door **Toevoegen aan papier** te selecteren.
-1. Typ in het besturingselement Bibliotheek **Add-AzureRmAccount** in het zoektekstvak.
-1. Voeg **Add-AzureRmAccount** toe aan het papier.
-1. Beweeg de muisaanwijzer over **Uitvoeren als-verbinding ophalen** totdat een cirkel wordt weergegeven aan de onderkant van de vorm. Klik op de cirkel en sleep de pijl naar **Add-AzureRmAccount**. De pijl die u hebt gemaakt, is een *koppeling*. Het runbook wordt gestart met **Uitvoeren als-verbinding ophalen** en vervolgens wordt **Add-AzureRmAccount** uitgevoerd.<br> ![Koppeling tussen activiteiten maken](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
-1. Selecteer op het papier **Add-AzureRmAccount** en typ in het besturingselementvenster Configuratie **Aanmelden bij Azure** in het tekstvak **Label**.
+1. Typ in het besturingselement bibliotheek **Connect-AzureRmAccount** in het Zoektekstvak.
+1. Voeg **Connect-AzureRmAccount** toe aan het papier.
+1. Beweeg de muisaanwijzer over **Uitvoeren als-verbinding ophalen** totdat een cirkel wordt weergegeven aan de onderkant van de vorm. Klik op de cirkel en sleep de pijl naar **Connect-AzureRmAccount**. De pijl die u hebt gemaakt, is een *koppeling*. Het runbook begint met **uitvoeren als-verbinding ophalen** en voer vervolgens **Connect-AzureRmAccount**.<br> ![Koppeling tussen activiteiten maken](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
+1. Selecteer op het canvas **Connect-AzureRmAccount** en in het type configuratie besturingselement deelvenster **aanmelden bij Azure** in de **Label** textbox.
 1. Klik op **Parameters** en de pagina Parameterconfiguratie van activiteit wordt weergegeven.
-1. **Add-AzureRmAccount** bevat meerdere parametersets, dus moet u er een selecteren voordat u parameterwaarden kunt opgeven. Klik op **Parameterset** en selecteer vervolgens de parameterset **ServicePrincipalCertificate**.
-1. Als u de parameterset hebt geselecteerd, worden de parameters weergegeven op de pagina Parameterconfiguratie van activiteit. Klik op **APPLICATIONID**.<br> ![Parameters voor Azure RM-account toevoegen](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
+1. **Verbinding maken met AzureRmAccount** bevat meerdere parametersets, dus u een selecteren moet voordat u parameterwaarden kan opgeven. Klik op **Parameterset** en selecteer vervolgens de parameterset **ServicePrincipalCertificate**.
+1. Als u de parameterset hebt geselecteerd, worden de parameters weergegeven op de pagina Parameterconfiguratie van activiteit. Klik op **APPLICATIONID**.<br> ![Parameters voor Azure RM-account toevoegen](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
 1. Selecteer op de pagina parameterwaarde **uitvoer van activiteit** voor de **gegevensbron** en selecteer **uitvoeren als-verbinding ophalen** uit de lijst in de **pad naar veld** textbox type **ApplicationId**, en klik vervolgens op **OK**. U geeft de naam van de eigenschap voor het pad naar het veld op omdat de uitvoer van de activiteit een object met meerdere eigenschappen bevat.
 1. Klik op **CERTIFICATETHUMBPRINT**, en selecteer in de pagina parameterwaarde **uitvoer van activiteit** voor de **gegevensbron**. Selecteer **Uitvoeren als-verbinding ophalen** in de lijst, typ in het tekstvak **Pad naar veld** **CertificateThumbprint** en klik vervolgens op **OK**.
 1. Klik op **SERVICEPRINCIPAL**, en selecteer in de pagina parameterwaarde **ConstantValue** voor de **gegevensbron**, klik op de optie **True**, en klik vervolgens op **OK**.
@@ -135,6 +135,9 @@ Nu u een variabele hebt die onze abonnements-id kan bevatten, kunt u uw runbook 
 1. Als u de parameterset hebt geselecteerd, worden de parameters weergegeven op de pagina Parameterconfiguratie van activiteit. Klik op **SubscriptionID**.
 1. Selecteer op de pagina parameterwaarde **Variabelenactivum** voor de **gegevensbron** en selecteer **AzureSubscriptionId** uit de lijst en klik vervolgens op **OK** twee keer.
 1. Beweeg de muisaanwijzer over **Aanmelden bij Azure** totdat een cirkel wordt weergegeven aan de onderkant van de vorm. Klik op de cirkel en sleep de pijl naar **Abonnements-id opgeven**.
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount** is nu een alias voor **Connect-AzureRMAccount**. Wanneer de tapewisselaar te zoeken items, als er geen **Connect-AzureRMAccount**, kunt u **Add-AzureRMAccount**, of u kunt uw modules op uw Automation-Account bijwerken.
 
 Uw runbook zou er op dit punt als volgt moeten uitzien: <br>![Configuratie runbookverificatie](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
@@ -157,7 +160,7 @@ Uw runbook zou er op dit punt als volgt moeten uitzien: <br>![Configuratie runbo
 
 Met ons runbook wordt op dit moment de virtuele machine gestart in de resourcegroep die u hebt opgegeven in de cmdlet **Start-AzureRmVM**. Het runbook zou nuttiger zijn als we beide namen konden opgeven op het moment dat het runbook wordt gestart. U gaat daarom invoerparameters toevoegen aan het runbook om deze functionaliteit te bieden.
 
-1. Open de grafische editor door te klikken op **Bewerken** in het deelvenster **MyFirstRunbook**.
+1. Open de grafische editor door te klikken op **bewerken** op de **MyFirstRunbook-Graphical** deelvenster.
 1. Selecteer **invoer en uitvoer** en vervolgens **invoer toevoegen** om het deelvenster invoerparameter van Runbook te openen.
 1. Geef *VMName* op voor de **Naam**. Behoud *tekenreeks* voor het **type**, maar wijzig **Verplicht** in *Ja*. Klik op **OK**.
 1. Maak een tweede verplichte invoerparameter met de naam *ResourceGroupName* en klik vervolgens op **OK** om het venster **Invoer en uitvoer** te sluiten.<br> ![Invoerparameters voor runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
@@ -175,7 +178,7 @@ Met ons runbook wordt op dit moment de virtuele machine gestart in de resourcegr
 
 U gaat het runbook nu wijzigen zodat alleen wordt geprobeerd de virtuele machine te starten als deze nog niet is gestart. We doen dit door een cmdlet **Get-AzureRmVM** toe te voegen aan het runbook waarmee de exemplaarniveaustatus van de virtuele machine wordt opgehaald. We voegen vervolgens een PowerShell Workflow-codemodule genaamd **Status ophalen** toe met een PowerShell-codefragment om te bepalen of de status van de virtuele machine 'actief' of 'gestopt' is. Met een voorwaardelijke koppeling van de module **Status ophalen** wordt **Start-AzureRmVM** alleen uitgevoerd als de huidige uitvoeringsstatus 'gestopt' is. Ten slotte zorgt u dat een bericht wordt weergegeven waarin staat of de virtuele machine is gestart of niet, met de PowerShell-cmdlet Write-Output.
 
-1. Open **MyFirstRunbook** in de grafische editor.
+1. Open **MyFirstRunbook-Graphical** in de grafische editor.
 1. Verwijder de koppeling tussen **Abonnements-id opgeven** en **Start-AzureRmVM** door erop te klikken en vervolgens te drukken op de toets *Delete*.
 1. Typ in het besturingselement Bibliotheek **Get-AzureRm** in het zoektekstvak.
 1. Voeg **Get-AzureRmVM** toe aan het papier.

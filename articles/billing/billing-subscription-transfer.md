@@ -2,11 +2,11 @@
 title: Azure-abonnement eigendom overdragen aan een ander account | Microsoft Docs
 description: Hierin wordt beschreven hoe u een Azure-abonnement overbrengen naar een andere gebruiker en enkele veelgestelde vragen (FAQ) over het proces
 keywords: azure-abonnement, azure-overdracht abonnement overdraagt, azure-abonnement verplaatsen naar een ander abonnement eigenaar van de account, azure wijzigen, azure-abonnement overbrengen naar een ander account
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e81037aeb3a8aee4f70eaf33280b1dc0d483332
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Eigendom van een Azure-abonnement overdragen aan een ander account
 
@@ -29,7 +29,7 @@ Uw abonnement overbrengen naar een andere gebruiker in het midden van het Accoun
 
 > [!IMPORTANT]
 > 
-> Als u overdraagt van een abonnement op een nieuwe Azure AD-tenant, worden alle roltoewijzingen in [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-what-is.md) permanent worden verwijderd uit de bron-tenant en worden niet gemigreerd naar de doel-tenant.
+> Als u overdraagt van een abonnement op een nieuwe Azure AD-tenant, worden alle roltoewijzingen in [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/overview.md) permanent worden verwijderd uit de bron-tenant en worden niet gemigreerd naar de doel-tenant.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Het eigendom overdraagt van een Azure-abonnement
 
@@ -51,7 +51,7 @@ Uw abonnement overbrengen naar een andere gebruiker in het midden van het Accoun
 
    > [!IMPORTANT]
    > 
-   > Als u overdraagt van een abonnement op een nieuwe Azure AD-tenant, worden alle roltoewijzingen in [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-what-is.md) permanent worden verwijderd uit de bron-tenant en worden niet gemigreerd naar de doel-tenant.
+   > Als u overdraagt van een abonnement op een nieuwe Azure AD-tenant, worden alle roltoewijzingen in [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/overview.md) permanent worden verwijderd uit de bron-tenant en worden niet gemigreerd naar de doel-tenant.
 
    ![Dialoogvenster overdracht-abonnement](./media/billing-subscription-transfer/image2.PNG)
 
@@ -115,7 +115,7 @@ De accountbeheerder is de persoon die zich heeft aangemeld of het Azure-abonneme
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Alles overbrengen? Met inbegrip van resourcegroepen, virtuele machines, schijven en andere actieve services?
 
-Al uw resources, zoals virtuele machines, schijven en websites overdracht naar de nieuwe eigenaar. Echter [beheerdersrollen](billing-add-change-azure-subscription-administrator.md) en [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md) beleidsregels die u hebt ingesteld, worden niet overgedragen op andere mappen. Bovendien [app registraties](../active-directory//develop/active-directory-integrating-applications.md) en andere services tenantspecifieke langs niet overdragen.
+Al uw resources, zoals virtuele machines, schijven en websites overdracht naar de nieuwe eigenaar. Echter [beheerdersrollen](billing-add-change-azure-subscription-administrator.md) en [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md) beleidsregels die u hebt ingesteld, worden niet overgedragen op andere mappen. Bovendien [app registraties](../active-directory//develop/active-directory-integrating-applications.md) en andere services tenantspecifieke langs niet overdragen.
 
 ### <a id="no-button"></a> Waarom zie ik niet de knop 'Abonnement overdragen'?
 

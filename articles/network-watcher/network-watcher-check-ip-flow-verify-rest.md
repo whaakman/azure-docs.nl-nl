@@ -1,11 +1,11 @@
 ---
-title: "Controleer of verkeer verifiëren met Azure-netwerk-Watcher IP-flow - REST | Microsoft Docs"
+title: Controleer of verkeer verifiëren met Azure-netwerk-Watcher IP-flow - REST | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u kunt controleren als verkeer naar of van een virtuele machine wordt toegestaan of geweigerd
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3307a79f-03be-46a0-aaaf-b2079cb5f3b2
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3ccef9ef521b86ffc1eb6047174f4f9e5d9e4296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c3d38f776db63e777174b7dca8b09a0d19c387e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Controleer of het verkeer wordt toegestaan of geweigerd met IP-stroom controleren of een onderdeel van Azure-netwerk-Watcher
 
@@ -165,7 +165,7 @@ Het antwoord dat u terughalen vertelt u of het verkeer wordt toegestaan of gewei
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie als verkeer wordt geblokkeerd en mag geen [Netwerkbeveiligingsgroepen beheren](../virtual-network/virtual-network-manage-nsg-arm-portal.md) voor meer informatie over Netwerkbeveiligingsgroepen.
+Zie als verkeer wordt geblokkeerd en mag geen [Netwerkbeveiligingsgroepen beheren](../virtual-network/manage-network-security-group.md) voor meer informatie over Netwerkbeveiligingsgroepen.
 
 
 

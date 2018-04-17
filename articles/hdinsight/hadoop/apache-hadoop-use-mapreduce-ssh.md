@@ -2,25 +2,25 @@
 title: MapReduce en SSH-verbinding met Hadoop in HDInsight - Azure | Microsoft Docs
 description: Informatie over het SSH gebruiken met Hadoop op HDInsight MapReduce-taken uitvoeren.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlunb
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: 08c67168cde60c1b7551806da8542c98dcb82f55
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 67e1bf6cee04eda51f5dbfc51a95614347fc2b7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>MapReduce gebruiken met Hadoop op HDInsight met SSH
 
@@ -42,16 +42,16 @@ Informatie over het verzenden van MapReduce-taken van een Secure Shell (SSH) ver
 
 ## <a id="ssh"></a>Verbinding maken met SSH
 
-Verbinding maken met het cluster via SSH. Bijvoorbeeld de volgende opdracht maakt verbinding met een cluster met de naam **myhdinsight**:
+Verbinding maken met het cluster via SSH. Bijvoorbeeld de volgende opdracht maakt verbinding met een cluster met de naam **myhdinsight** als de **sshuser** account:
 
 ```bash
-ssh admin@myhdinsight-ssh.azurehdinsight.net
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **Als u een certificaatsleutel voor SSH-verificatie**, mogelijk moet u de locatie opgeven van de persoonlijke sleutel op uw clientsysteem, bijvoorbeeld:
 
 ```bash
-ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **Als u een wachtwoord voor de SSH-verificatie**, moet u het wachtwoord als u wordt gevraagd.

@@ -5,21 +5,19 @@ keywords: HDInsight, YARN Veelgestelde vragen over Azure, probleemoplossingsgids
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: F76786A9-99AB-4B85-9B15-CA03528FC4CD
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: fbcb4807aa7f6a3d6227cd630c77714c4d2834b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 338d678fb31a86046b8bc6424d0e8aac2de1a0c5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>YARN oplossen met behulp van Azure HDInsight
 
@@ -28,14 +26,14 @@ Meer informatie over de meest voorkomende problemen en hun oplossingen bij het w
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Hoe maak een nieuwe YARN-wachtrij op een cluster?
 
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen 
+### <a name="resolution-steps"></a>Oplossingen 
 
 Gebruik de volgende stappen in de Ambari een nieuwe YARN-wachtrij maken en vervolgens de capaciteit toewijzing tussen alle wachtrijen worden verdeeld. 
 
 In dit voorbeeld twee bestaande wachtrijen (**standaard** en **thriftsvr**) beide zijn gewijzigd van 50% capaciteit 25% capaciteit, waardoor de nieuwe wachtrij (spark) 50% capaciteit.
 | Wachtrij | Capaciteit | Maximale capaciteit |
 | --- | --- | --- | --- |
-| standaardinstelling | 25% | 50% |
+| standaard | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | Spark | 50% | 50% |
 
@@ -73,7 +71,7 @@ Deze wijzigingen zijn onmiddellijk voor de gebruikersinterface van YARN Schedule
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Hoe kan ik YARN-logboeken downloaden vanaf een cluster?
 
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen 
+### <a name="resolution-steps"></a>Oplossingen 
 
 1. Verbinding maken met het HDInsight-cluster met behulp van een client Secure Shell (SSH). Zie voor meer informatie [lezen van aanvullende](#additional-reading-2).
 

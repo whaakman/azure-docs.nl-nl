@@ -5,7 +5,7 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 2acbc47970acf0eb2aa1aea8535d7157bc73cbb6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ac5ce43d5ec992d8ec1bc5d7c787b1ca071eda98
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-10"></a>Problemen met de Gateway van virtueel netwerk en Azure-netwerk-Watcher Azure CLI 1.0-verbindingen
 
@@ -63,7 +63,7 @@ Zodra u de naam van de verbinding hebt, kunt u deze opdracht de resource-Id opha
 azure network vpn-connection show -g resourceGroupName -n connectionName
 ```
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Gegevens over de status van de resource resource probleemoplossing retourneert, Bovendien bespaart u logboeken naar een opslagaccount moeten worden gecontroleerd. In deze stap, maken we een opslagaccount, als een bestaand opslagaccount bestaat kunt u deze kunt gebruiken.
 
@@ -103,4 +103,4 @@ Zie voor instructies over het downloaden van bestanden van azure storage-account
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als de instellingen zijn gewijzigd die stop VPN-verbindingen, raadpleegt u [Netwerkbeveiligingsgroepen beheren](../virtual-network/virtual-network-manage-nsg-arm-portal.md) voor het opsporen van de groep en beveiliging netwerkbeveiligingsregels die betrokken zijn.
+Als de instellingen zijn gewijzigd die stop VPN-verbindingen, raadpleegt u [Netwerkbeveiligingsgroepen beheren](../virtual-network/manage-network-security-group.md) voor het opsporen van de groep en beveiliging netwerkbeveiligingsregels die betrokken zijn.

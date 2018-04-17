@@ -1,23 +1,21 @@
 ---
 title: HDInsight verbinden met uw on-premises netwerk - of Azure HDInsight | Microsoft Docs
 description: Informatie over het maken van een HDInsight-cluster in een Azure-netwerk en maak verbinding met uw lokale netwerk. Informatie over het configureren van naamomzetting tussen HDInsight en uw on-premises netwerk via een aangepaste DNS-server.
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea793af7fc4565c054675af7cbf88b74722690f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>HDInsight verbinden met uw on-premises-netwerk
 
@@ -74,7 +72,7 @@ Maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/down
 > * [Virtuele machine maken - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 > * [Maken van VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
-1. Van de [Azure-portal](https://portal.azure.com), selecteer  __+__ , __Compute__, en __Ubuntu Server 16.04 LTS__.
+1. Van de [Azure-portal](https://portal.azure.com), selecteer __+__, __Compute__, en __Ubuntu Server 16.04 LTS__.
 
     ![Een virtuele Ubuntu-machine maken](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
@@ -125,8 +123,8 @@ Maken van een Linux-VM die gebruikmaakt van de [binden](https://www.isc.org/down
     >
     > * [Azure-Cloud-Shell](../cloud-shell/quickstart.md)
     > * [Bash op Ubuntu op Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
-    > * [Git (https://git-scm.com/)](https://git-scm.com/)
-    > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+    > * [GIT (https://git-scm.com/)](https://git-scm.com/)
+    > * [OpenSSH)https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
 2. Gebruik de volgende opdrachten bij de SSH-sessie voor het installeren van Bind:
 
@@ -297,7 +295,7 @@ Gebruik de stappen in de [maken van een HDInsight-cluster met de Azure portal](.
 
 ## <a name="connecting-to-hdinsight"></a>Verbinding maken met HDInsight
 
-De meeste documentatie op HDInsight wordt ervan uitgegaan dat u toegang tot het cluster via internet hebt. Bijvoorbeeld, u verbinding kunt maken met het cluster op https://CLUSTERNAME.azurehdinsight.net. Dit adres wordt gebruikt voor de openbare-gateway niet beschikbaar is als u nsg's of udr's hebt gebruikt om toegang te beperken van het internet.
+De meeste documentatie op HDInsight wordt ervan uitgegaan dat u toegang tot het cluster via internet hebt. Bijvoorbeeld, dat u verbinding met het cluster kunt maken op https://CLUSTERNAME.azurehdinsight.net. Dit adres wordt gebruikt voor de openbare-gateway niet beschikbaar is als u nsg's of udr's hebt gebruikt om toegang te beperken van het internet.
 
 Sommige documentatie verwijst ook naar `headnodehost` bij het verbinden met het cluster van een SSH-sessie. Dit adres is alleen beschikbaar vanuit de knooppunten binnen een cluster, en kan niet worden gebruikt op clients via het virtuele netwerk is verbonden.
 

@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 6d214072bccb8b2b42828ee003dcf349985b4f43
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4bdbf48030dda18e6698a7731989ec2de2319b35
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="upgrade-to-vm-backup-stack-v2"></a>Een upgrade uitvoeren naar VM-back-up-stack V2
 De upgrade van de back-stack V2 virtuele machine (VM) biedt de volgende verbeteringen:
@@ -49,7 +49,9 @@ Standaard wordt momentopnamen worden bewaard gedurende zeven dagen. Hierdoor kan
 * Dit is een upgrade van één richting van de VM-back-stack. Ja, gaat alle toekomstige back-ups in deze stroom. Aangezien **is ingeschakeld op het abonnementsniveau van een, gaan alle virtuele machines op deze stroom**. Alle nieuwe functie toevoegingen wordt gebaseerd op de dezelfde stack. Mogelijkheid om te bepalen die dit beleid niveau in de toekomst wordt binnenkort versies. 
 * Virtuele machines met premium-schijven, tijdens de eerste back-up Zorg ervoor dat gelijk is aan de grootte van de virtuele machine opslagruimte beschikbaar in het opslagaccount is totdat de eerste back-up is voltooid. 
 * Omdat momentopnamen lokaal opgeslagen worden vergroten herstelpunt maken en terugzetten versnellen, ziet u de opslagkosten die overeenkomt met momentopnamen binnen de periode zeven dagen.
+* Incrementele momentopnamen worden opgeslagen als pagina-blobs. Alle de klanten die gebruikmaken van niet-beheerde schijven gefactureerd voor de zeven dagen momentopnamen opgeslagen in het account van de lokale opslag van de klant. Aan de hand van het actuele prijsmodel is er geen kosten voor klanten op beheerde schijven.
 * Als u een terugzetbewerking in momentopname herstelpunt voor een VM voor Premium doet, ziet u een locatie voor de tijdelijke opslag worden gebruikt terwijl de virtuele machine wordt gemaakt als onderdeel van het terugzetten. 
+* In geval van premium storage-accounts, wordt de momentopnamen die genomen werden voor direct herstellen beslaan 10 TB ruimte toegewezen in de premium-opslagaccount.
 
 ## <a name="how-to-upgrade"></a>Het bijwerken?
 ### <a name="the-azure-portal"></a>De Azure-portal

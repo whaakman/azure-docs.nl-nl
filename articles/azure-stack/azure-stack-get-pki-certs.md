@@ -1,6 +1,6 @@
 ---
 title: Genereren van certificaten voor de implementatie van Azure-Stack geïntegreerd systemen Azure Stack Public Key Infrastructure | Microsoft Docs
-description: Hierin wordt beschreven in de Azure-Stack PKI-certificaat implementatie processfor Azure Stack geïntegreerd-systemen.
+description: Beschrijving van het implementatieproces van Azure Stack PKI-certificaat voor Azure-Stack geïntegreerd systemen.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,67 +12,104 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/11/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: fc2ec96113310f54d32a67ea5fa31725600046c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fbf3c66979730a9162c56e8583f0a32977a0310d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="generate-pki-certificates-for-azure-stack-deployment"></a>PKI-certificaten voor de implementatie van Azure-Stack genereren
-Als u weet [PKI-certificaatvereisten](azure-stack-pki-certs.md) voor Azure-Stack-implementaties, moet u deze certificaten verkrijgen van de certificeringsinstantie (CA) van uw keuze. 
+# <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack certificaten ondertekening aanvraag genereren
 
-## <a name="request-certificates-using-an-inf-file"></a>Certificaten aanvragen met een INF-bestand
-Een manier om aanvragen van certificaten vanuit een openbare CA of een interne Certificeringsinstantie is via een INF-bestand. Het hulpprogramma Windows ingebouwde certreq.exe kunt u een INF-bestand opgeven van details over deze certificaat gebruiken voor het genereren van een voor aanvraagbestand zoals beschreven in deze sectie. 
+Azure-Stack gereedheid van de Registercontrole beschreven in dit artikel vindt u [van de PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Het hulpprogramma maakt ondertekening certificaataanvragen (CSR) geschikt is voor de implementatie van een Azure-Stack. Certificaten moeten worden aangevraagd, gegenereerd en gevalideerd met voldoende tijd voor het testen van vóór de implementatie. 
 
-### <a name="sample-inf-file"></a>INF-bestand 
-Het voorbeeld certificaat aanvraag INF-bestand kan worden gebruikt voor het maken van een bestand offline certificaataanvraag te verzenden naar een CA (intern of openbaar). Het INF-bestand bevat alle van de vereiste eindpunten (inclusief de optionele PaaS-services) in een enkel jokertekencertificaat. 
+Het hulpprogramma Azure Stack gereedheid Checker (AzsReadinessChecker) voert de volgende certificaataanvragen:
 
-Het INF-bestand van het voorbeeld wordt ervan uitgegaan dat regio is gelijk aan **sea** en de externe FQDN-waarde is **sea&#46;contoso&#46;com**. Wijzig deze waarden voor uw omgeving vóór het genereren van een. INF-bestand voor uw implementatie. 
+ - **Standaard-certificaataanvragen**  
+    Aanvraag volgens [PKI-certificaten genereren voor implementatie van de Azure-Stack](azure-stack-get-pki-certs.md). 
+ - **Aanvraagtype**  
+    Meerdere jokertekens SAN, meerdere domeincertificaten aanvragen certificaataanvragen één jokerteken.
+ - **Platform as a Service**  
+    Eventueel aanvragen platform as a service (PaaS) namen voor de certificaten die zijn opgegeven in [certificaatvereisten Azure Stack Public Key Infrastructure - optionele PaaS certificaten](azure-stack-pki-certs.md#optional-paas-certificates).
 
-    
-    [Version] 
-    Signature="$Windows NT$"
+## <a name="prerequisites"></a>Vereisten
 
-    [NewRequest] 
-    Subject = "C=US, O=Microsoft, L=Redmond, ST=Washington, CN=portal.sea.contoso.com"
+Uw systeem aan de volgende vereisten voldoen voordat u de CSR(s) voor PKI-certificaten voor de implementatie van een Azure-Stack genereert:
 
-    Exportable = TRUE                   ; Private key is not exportable 
-    KeyLength = 2048                    ; Common key sizes: 512, 1024, 2048, 4096, 8192, 16384 
-    KeySpec = 1                         ; AT_KEYEXCHANGE 
-    KeyUsage = 0xA0                     ; Digital Signature, Key Encipherment 
-    MachineKeySet = True                ; The key belongs to the local computer account 
-    ProviderName = "Microsoft RSA SChannel Cryptographic Provider" 
-    ProviderType = 12 
-    SMIME = FALSE 
-    RequestType = PKCS10
-    HashAlgorithm = SHA256
+ - Microsoft Azure-Stack gereedheid Checker
+ - Certificaat-kenmerken:
+    - Regionaam
+    - Externe volledig gekwalificeerde domeinnaam (FQDN)
+    - Onderwerp
+ - Windows 10 of Windows Server 2016
 
-    ; At least certreq.exe shipping with Windows Vista/Server 2008 is required to interpret the [Strings] and [Extensions] sections below
+## <a name="generate-certificate-signing-requests"></a>Aanvragen voor Certificaatondertekening genereren
 
-    [Strings] 
-    szOID_SUBJECT_ALT_NAME2 = "2.5.29.17" 
-    szOID_ENHANCED_KEY_USAGE = "2.5.29.37" 
-    szOID_PKIX_KP_SERVER_AUTH = "1.3.6.1.5.5.7.3.1" 
-    szOID_PKIX_KP_CLIENT_AUTH = "1.3.6.1.5.5.7.3.2"
+Volg deze stappen voor het voorbereiden en valideren van de Azure-Stack PKI-certificaten: 
 
-    [Extensions] 
-    %szOID_SUBJECT_ALT_NAME2% = "{text}dns=*.sea.contoso.com&dns=*.blob.sea.contoso.com&dns=*.queue.sea.contoso.com&dns=*.table.sea.contoso.com&dns=*.vault.sea.contoso.com&dns=*.adminvault.sea.contoso.com&dns=*.dbadapter.sea.contoso.com&dns=*.appservice.sea.contoso.com&dns=*.scm.appservice.sea.contoso.com&dns=api.appservice.sea.contoso.com&dns=ftp.appservice.sea.contoso.com&dns=sso.appservice.sea.contoso.com&dns=adminportal.sea.contoso.com&dns=management.sea.contoso.com&dns=adminmanagement.sea.contoso.com" 
-    %szOID_ENHANCED_KEY_USAGE% = "{text}%szOID_PKIX_KP_SERVER_AUTH%,%szOID_PKIX_KP_CLIENT_AUTH%"
+1.  AzsReadinessChecker installeren vanaf een PowerShell-prompt (5.1 of hoger), door de volgende cmdlet:
 
-    [RequestAttributes]
-    
+    ````PowerShell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker
+    ````
 
-## <a name="generate-and-submit-request-to-the-ca"></a>Genereren en indienen verzoek aan de Certificeringsinstantie
-De volgende werkstroom wordt beschreven hoe u kunt aanpassen en het INF-bestand eerder gegenereerd om aan te vragen van een certificaat van een CA te gebruiken:
+2.  Declareer de **onderwerp** als een geordende woordenlijst. Bijvoorbeeld: 
 
-1. **Bewerken en opslaan van INF-bestand**. Kopieer het voorbeeld opgeven en deze opslaan op een nieuw tekstbestand. De onderwerpnaam en externe FQDN vervangen door de waarden die overeenkomen met uw implementatie en het bestand opslaan als een. INF-bestand.
-2. **Genereren van een aanvraag met certreq**. Met behulp van een Windows-computer, start een opdrachtprompt als beheerder en voer de volgende opdracht om een (.req)-aanvraagbestand te genereren: `certreq -new <yourinffile>.inf <yourreqfilename>.req`.
-3. **Bij de Certificeringsinstantie indienen**. Verzenden van de. Vereist bestand is gegenereerd aan uw CA (kan worden intern of openbaar).
-4. **Importeren. CER**. De CA-retourneert een. CER-bestand. Importeren met behulp van dezelfde Windows-computer van waaruit u het aanvraagbestand gegenereerd, de. CER-bestand geretourneerd aan de computer/personal store. 
-5. **Exporteren en kopiëren. PFX naar implementatiemappen**. Het certificaat (met inbegrip van de persoonlijke sleutel) exporteren als een. PFX-bestand en kopieer de. PFX-bestand voor de implementatiemappen die worden beschreven [Azure Stack PKI implementatievereisten](azure-stack-pki-certs.md).
+    ````PowerShell  
+    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
+    ````
+    > [!note]  
+    > Als een algemene naam (CN) worden opgegeven. Dit zal worden overschreven door de eerste DNS-naam van de certificaataanvraag.
+
+3.  Declareer een uitvoermap die al bestaat:
+
+    ````PowerShell  
+    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    ````
+
+4. Declareren **regionaam** en een **externe FQDN** bedoeld voor de implementatie van Azure-Stack.
+
+    ```PowerShell  
+    $regionName = 'east'
+    $externalFQDN = 'azurestack.contoso.com'
+    ````
+
+    > [!note]  
+    > `<regionName>.<externalFQDN>` vormt de basis waarop alle externe DNS-namen in Azure-Stack zijn gemaakt, in dit voorbeeld, kunnen de portal zou `portal.east.azurestack.contoso.com`.
+
+5. Voor het genereren van een aanvraag wordt één certificaat met meerdere alternatieve onderwerpnamen waaronder die nodig zijn voor PaaS-services:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleSAN -OutputRequestPath $OutputDirectory -IncludePaaS
+    ````
+
+6. Voor het genereren van afzonderlijke Certificaatondertekening aanvragen voor elke DNS-naam zonder PaaS-services:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleSAN -OutputRequestPath $OutputDirectory
+    ````
+
+7. Controleer de uitvoer:
+
+    ````PowerShell  
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Request Generation
+
+    CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
+    oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
+    nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
+    Certreq.exe output: CertReq: Request Created
+
+    Finished Certificate Request Generation
+
+    AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
+
+8.  Verzenden van de **. Door de No** gegenereerde aan uw CA (intern of openbaar)-bestand.  De uitvoermap van **Start AzsReadinessChecker** bevat de CSR(s) in te dienen bij een certificeringsinstantie nodig.  Het bevat ook een onderliggende map met de INF-bestanden tijdens het genereren van certificaat aanvraag, als referentie gebruikt. Zorg dat uw CA-certificaten met behulp van de gegenereerde aanvraag die voldoen aan genereert de [PKI-vereisten voor Azure-Stack](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 [Bereid Azure Stack PKI-certificaten](azure-stack-prepare-pki-certs.md)

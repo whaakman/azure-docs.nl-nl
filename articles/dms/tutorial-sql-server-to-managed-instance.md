@@ -1,5 +1,5 @@
 ---
-title: Gebruik de Azure-Service voor het migreren van Database SQL-Server migreren naar Azure SQL Database-beheerd instantie | Microsoft Docs
+title: DMS gebruiken om te migreren naar Azure SQL Database-beheerd instantie | Microsoft Docs
 description: Informatie over het migreren van SQL Server on-premises naar Azure SQL Database-beheerde exemplaar met behulp van de Service Azure Database migratie.
 services: dms
 author: edmacauley
@@ -10,19 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/29/2018
-ms.openlocfilehash: 8abf3bae3a2274ed5514a5c621675b4c9ec27ae2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 04/10/2018
+ms.openlocfilehash: f78a68704f1670b4670384931a07d9651cd646e3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance"></a>SQL-Server migreren naar beheerde Azure SQL Database-instantie
-De Service Azure Database migratie kunt u de databases van een lokale SQL Server-instantie migreren naar Azure SQL Database. In deze zelfstudie maakt u de migratie de **Adventureworks2012** database van een lokaal exemplaar van SQL Server naar een Azure SQL Database met behulp van de Service Azure Database migratie.
+# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>SQL-Server migreren naar Azure SQL Database beheerd exemplaar met gebruikmaking van DMS
+U kunt de Azure-Service voor het migreren van Database voor het migreren van de databases van een lokale SQL Server-exemplaar naar een [beheerde exemplaar van Azure SQL Database](../sql-database/sql-database-managed-instance.md) vrijwel geen uitvaltijd. Zie voor aanvullende methoden waarvoor enige uitvaltijd, [SQL Server-exemplaar migratie naar Azure SQL Database-beheerd instantie](../sql-database/sql-database-managed-instance-migrate.md).
+
+In deze zelfstudie maakt u de migratie de **Adventureworks2012** database van een lokaal exemplaar van SQL Server naar een Azure SQL Database met behulp van de Service Azure Database migratie.
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
-> * Geen exemplaar maken van de Service Azure Database migratie.
+> * Maak een Azure-Database migratieservice-exemplaar.
 > * Maak een migratieproject met behulp van de Service Azure Database migratie.
 > * Voer de migratie uit.
 > * De migratie bewaken.
@@ -36,7 +38,7 @@ Voor deze zelfstudie hebt voltooid, moet u:
 - Open Windows Firewall zodat de Service Azure Database migratie voor toegang tot de bron van SQL Server, die standaard TCP-poort 1433.
 - Als u meerdere benoemde exemplaren van SQL Server met behulp van dynamische poorten worden uitgevoerd, kunt u desgewenst de SQL Browser-Service inschakelen en toegang tot de UDP-poort 1434 via uw firewalls toestaan, zodat de migratie van Azure databaseservice verbinding met een benoemd exemplaar op de bron maken kan -Server.
 - Als u van een firewallapparaat voor uw brondatabases gebruikmaakt, moet u mogelijk firewallregels zodat de Service Azure Database migratie voor toegang tot de bron-databases voor migratie, evenals bestanden via het SMB-poort 445 toevoegen.
-- Geen exemplaar maken van Azure SQL Database-beheerd instantie aan de hand van de details in het artikel [maken van een Azure SQL Database beheerd-exemplaar in de Azure portal](https://aka.ms/sqldbmi).
+- Maken van een Azure SQL Database beheerd-instantie aan de hand van de details in het artikel [maken van een Azure SQL Database beheerd-exemplaar in de Azure portal](https://aka.ms/sqldbmi).
 - Zorg ervoor dat de aanmeldingen gebruikt voor het verbinding maken met de bron van SQL Server en de doelinstantie van beheerde leden van de serverrol sysadmin.
 - Maak een netwerkshare die de migratie van Azure databaseservice gebruiken kunt voor back-up van de brondatabase.
 - Zorg ervoor dat het serviceaccount met een SQL Server-exemplaar van bron schrijfrechten heeft op de netwerkshare die u hebt gemaakt.
@@ -54,7 +56,7 @@ Voor deze zelfstudie hebt voltooid, moet u:
 1.  Zoekcriteria voor de migratie en rechts van **Microsoft.DataMigration**, selecteer **registreren**.
 ![de registerbronprovider](media\tutorial-sql-server-to-managed-instance\portal-register-resource-provider.png)    
 
-## <a name="create-an-instance"></a>Geen exemplaar maken
+## <a name="create-an-azure-database-migration-service-instance"></a>Azure-Database migratieservice-exemplaar maken
 
 1.  Selecteer in de Azure-portal **+ maken van een resource**, zoeken naar **Azure migratie databaseservice**, en selecteer vervolgens **Migratieservice voor Azure-Database** in de vervolgkeuzelijst een lijst.
 
@@ -145,3 +147,9 @@ Nadat de service is gemaakt, zoeken binnen de Azure-portal en open het.
 
     ![De migratie bewaken](media\tutorial-sql-server-to-managed-instance\dms-monitor-migration.png)
 
+## <a name="next-steps"></a>Volgende stappen
+
+- Zie voor een zelfstudie waarin u een database migreren naar een beheerde-exemplaar met de opdracht RESTORE T-SQL, [een back-up herstellen naar een exemplaar beheerd met behulp van de opdracht restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- Zie voor meer informatie over het importeren van een database uit een Bacpac-bestand [een Bacpac-bestand importeren in een nieuwe Azure SQL Database](../sql-database/sql-database-import.md).
+- Zie voor meer informatie over beheerde exemplaar [wat is er een exemplaar beheerd](../sql-database/sql-database-managed-instance.md).
+- Zie voor meer informatie over het aansluiten van apps op een beheerde exemplaar [verbinding maken met toepassingen](../sql-database/sql-database-managed-instance-connect-app.md).

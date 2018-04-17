@@ -1,25 +1,25 @@
 ---
-title: "Niet-verbonden Azure-implementatie beslissingen voor Azure-Stack geïntegreerd systemen | Microsoft Docs"
+title: Niet-verbonden Azure-implementatie beslissingen voor Azure-Stack geïntegreerd systemen | Microsoft Docs
 description: Implementatie planningsbeslissingen voor implementaties met meerdere knooppunten verbonden met een Azure-Stack Azure bepalen.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure-niet-verbonden implementatie planningsbeslissingen voor Azure-Stack geïntegreerd systemen
 Nadat u hebt besloten [hoe u Azure-Stack wordt integreren in uw cloudomgeving hybride](azure-stack-connection-models.md), kunt u uw Azure-Stack implementatie beslissingen voltooien.
@@ -45,7 +45,7 @@ Azure-Stack is ontworpen om te werken het beste wanneer verbonden met Azure, dus
 |Implementaties van virtuele machines met Docker-extensie Docker-opdrachten uit te voeren|Mensen met een handicap: Docker wordt gecontroleerd op de meest recente versie en deze controle mislukt.|
 |Documentatie-koppelingen in de Stack Azure Portal|Niet beschikbaar-koppelingen zoals geven Feedback, hulp nodig hebt, Quick Start, enzovoort die gebruikmaken van een Internet-URL, werken niet.|
 |Waarschuwing herstel/risicobeperking die verwijst naar een handleiding online herstel|Niet beschikbaar: elke waarschuwing herstel koppelingen die gebruikmaken van die een Internet-URL, werken niet.|
-|Marketplace-syndicatie de mogelijkheid om te selecteren en de galerie pakketten toevoegen rechtstreeks vanuit Azure Marketplace|Niet beschikbaar: deze functie is vereist voor de verbinding met Azure en Azure Active Directory-account.|
+|Marketplace-syndicatie de mogelijkheid om te selecteren en de galerie pakketten toevoegen rechtstreeks vanuit Azure Marketplace|Mensen met een handicap: wanneer u Azure-Stack implementeert in een niet-verbonden modus (zonder een verbinding met internet), kunt u items voor de marketplace niet downloaden met behulp van de Stack van Azure-portal. U kunt echter de [marketplace syndication hulpprogramma](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) voor het downloaden van de marketplace-items voor een machine die verbinding heeft met internet en deze vervolgens overbrengen naar uw Azure-Stack-omgeving.|
 |De implementatie van een Azure-Stack beheren met behulp van Azure Active Directory federation-accounts|Niet beschikbaar: deze functie is vereist voor de verbinding met Azure. AD FS met een lokaal exemplaar van Active Directory moet in plaats daarvan worden gebruikt.|
 |Resourceproviders zoals WebApps en SQL|Niet beschikbaar - Resourceproviders zoals WebApps en SQL toegang tot Internet nodig voor inhoud.|
 |Opdrachtregelinterface (CLI)|Mensen met een handicap: CLI heeft verminderde functionaliteit wat betreft verificatie en toewijzing van de principes van de Service.|
@@ -53,7 +53,7 @@ Azure-Stack is ontworpen om te werken het beste wanneer verbonden met Azure, dus
 |Visual Studio: AD FS|Functioneel – alleen Visual Studio Enterprise AD FS ondersteunt.
 Telemetrie|Niet-telemetriegegevens voor Azure-Stack als en eventuele van derden galerie-pakketten die afhankelijk van telemetriegegevens zijn beschikbaar.|
 |Certificaten|Niet beschikbaar-verbinding met Internet is vereist voor de certificaatintrekkingslijst (CRL) en Online Certificate Status Protocol (OSCP)-services in de context van HTTPS.|
-|Key-Vault|Mensen met een handicap: een algemene gebruiksvoorbeeld voor Sleutelkluis is om een toepassing lezen van geheimen tijdens runtime. Hiervoor moet de toepassing een service-principal in de map. In Azure Active Directory zijn gewone gebruikers (niet-beheerders) standaard toegestaan om toe te voegen, service-principals. In AD (met behulp van AD FS) zijn ze niet. Dit wordt een drempel in de end-to-end-ervaring geplaatst, omdat een moet altijd een directory-beheerder elke toepassing toevoegen via.| 
+|Sleutelkluis|Mensen met een handicap: een algemene gebruiksvoorbeeld voor Sleutelkluis is om een toepassing lezen van geheimen tijdens runtime. Hiervoor moet de toepassing een service-principal in de map. In Azure Active Directory zijn gewone gebruikers (niet-beheerders) standaard toegestaan om toe te voegen, service-principals. In AD (met behulp van AD FS) zijn ze niet. Dit wordt een drempel in de end-to-end-ervaring geplaatst, omdat een moet altijd een directory-beheerder elke toepassing toevoegen via.| 
 
 ## <a name="learn-more"></a>Meer informatie
 - Zie voor meer informatie over gebruiksvoorbeelden, kopen, partners en hardwareleveranciers OEM de [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) productpagina.

@@ -1,24 +1,18 @@
 ---
 title: Beheren van Azure analyseservices met PowerShell | Microsoft Docs
 description: Azure Analysis Services-beheer met PowerShell.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: reference
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 0e154c7789b38843cd3784daa8cf60d078bdc546
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: c7315835bca446c4cae592f4bdd58a733b203655
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Azure analyseservices met PowerShell beheren
 
@@ -29,7 +23,7 @@ Server-beheertaken zoals maken of verwijderen van een server, onderbreken of her
 ## <a name="permissions"></a>Machtigingen
 De meeste PowerShell taken moet dat u beheerdersbevoegdheden hebben op de Analysis Services-server die u beheert. Geplande taken van PowerShell zijn zonder toezicht bewerkingen. Het account dat de planner moet beheerdersbevoegdheden hebben op de Analysis Services-server. 
 
-Serverbewerkingen met behulp van cmdlets AzureRm, uw account of het scheduler-account moet ook deel uitmaken van de rol van eigenaar voor de resource in [gebaseerd toegangsbeheer (RBAC)](../active-directory/role-based-access-control-what-is.md). 
+Serverbewerkingen met behulp van cmdlets AzureRm, uw account of het scheduler-account moet ook deel uitmaken van de rol van eigenaar voor de resource in [gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="server-operations"></a>Bewerkingen van server 
 Azure Analysis Services-cmdlets zijn opgenomen in de [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) onderdeel module. Zie het installeren van de cmdlet-modules AzureRM [Azure Resource Manager-cmdlets](/powershell/azure/overview) in de PowerShell-galerie.
@@ -55,14 +49,14 @@ De SQL Server-module bevat cmdlets voor het beheer van taak-specifieke database,
   
 |Cmdlet|Beschrijving|
 |------------|-----------------| 
-|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Een lid toevoegen aan een databaserol.| 
+|[Voeg RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Een lid toevoegen aan een databaserol.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Back-up van een Analysis Services-database.|  
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Een lid verwijderen uit een databaserol.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Een script TMSL uitvoeren.|
 |[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Verwerken van een database.|  
-|[Invoke-ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Verwerken van een partitie.| 
-|[Invoke-ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Verwerken van een tabel.|  
-|[Merge-Partition](https://msdn.microsoft.com/library/hh479576.aspx)|Samenvoegen van een partitie.|  
+|[Aanroepen ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Verwerken van een partitie.| 
+|[Aanroepen ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Verwerken van een tabel.|  
+|[Samenvoegen partitie](https://msdn.microsoft.com/library/hh479576.aspx)|Samenvoegen van een partitie.|  
 |[Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Een Analysis Services-database herstellen.| 
   
 

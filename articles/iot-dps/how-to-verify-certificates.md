@@ -2,21 +2,21 @@
 title: Hoe u bewijs van bezit voor x.509-CA-certificaten met Azure IoT Hub apparaat inrichtingsservice doet | Microsoft Docs
 description: Het x.509-CA-certificaten met uw service DP's controleren
 services: iot-dps
-keywords: 
-author: JimacoMS
+keywords: ''
+author: bryanla
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 07fe5f975e59c10fcd716db6585e2ae0fefc90e4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dd54ca5a172bdb65b7781f2fb764b00f50e5df28
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Hoe u bewijs van bezit voor x.509-CA-certificaten met uw Service voor het inrichten van apparaat
 
@@ -70,7 +70,7 @@ Afhankelijk van de PowerShell en Bash-scripts die zijn opgegeven in de documenta
 
 1. De resulterende handtekening als een verificatiecertificaat naar uw provisioning-service in de portal uploaden. In **certificaatdetails** op de Azure-portal, gebruikt u de _Verkenner_ pictogram naast de **verificatiecertificaat .pem of .cer-bestand** veld voor het uploaden van de ondertekende verificatiecertificaat van uw systeem.
 
-2. Zodra het certificaat is geüpload, klikt u op **controleren**. De **STATUS** van uw certificaat wijzigingen aan  **_gecontroleerd_**  in de **certificaat Explorer** lijst. Klik op **vernieuwen** als deze wordt niet automatisch bijgewerkt.
+2. Zodra het certificaat is geüpload, klikt u op **controleren**. De **STATUS** van uw certificaat wijzigingen aan **_gecontroleerd_** in de **certificaat Explorer** lijst. Klik op **vernieuwen** als deze wordt niet automatisch bijgewerkt.
 
    ![Certificaatverificatie uploaden](./media/how-to-verify-certificates/upload-cert-verification.png)  
 

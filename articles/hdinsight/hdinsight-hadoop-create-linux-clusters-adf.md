@@ -2,7 +2,7 @@
 title: Op aanvraag met behulp van de Data Factory - Azure HDInsight Hadoop-clusters maken | Microsoft Docs
 description: Informatie over het maken van op aanvraag Hadoop-clusters in HDInsight met behulp van Azure Data Factory.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: spelluru
 manager: jhubbard
@@ -11,16 +11,14 @@ ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 213f1122dc9f616474005070ae3aefa45641fecc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Hadoop-clusters op aanvraag maken in HDInsight met behulp van Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -85,7 +83,7 @@ Om te vereenvoudigen de zelfstudie, kunt u één opslagaccount voor de drie doel
 
 1. Aanmelden bij Azure.
 2. Maak een Azure-resourcegroep.
-3. Maak een Azure Storage-account.
+3. Een Azure Storage-account maken.
 4. Een Blob-container in het opslagaccount maken
 5. Kopieer de volgende twee bestanden naar de Blob-container:
 

@@ -2,7 +2,7 @@
 title: Een rondleiding via Analytics in Azure Application Insights | Microsoft Docs
 description: Korte voorbeelden van alle belangrijke query's in Analytics, een krachtige zoekprogramma van Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f82e436e25d01bbfa09ec1e8a2efcdf0be8c006
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Een rondleiding van Analytics in Application Insights
 [Analytics](app-insights-analytics.md) is de functie krachtige zoeken van [Application Insights](app-insights-overview.md). Deze pagina's worden de Log Analytics query language beschreven.
@@ -69,7 +69,7 @@ Als u gegevens uit meerdere Application Insights-toepassingen wilt, gebruikt u d
 ```
 
 ## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) en [sorteren](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
-`take`is handig om een snel voorbeeld van een resultaat, maar er rijen uit de tabel wordt weergegeven in een willekeurige volgorde. Als u een geordende weergeven, gebruikt `top` (voor een voorbeeld) of `sort` (via de hele tabel).
+`take` is handig om een snel voorbeeld van een resultaat, maar er rijen uit de tabel wordt weergegeven in een willekeurige volgorde. Als u een geordende weergeven, gebruikt `top` (voor een voorbeeld) of `sort` (via de hele tabel).
 
 De eerste n rijen, geordend op een bepaalde kolom weergeven:
 
@@ -79,11 +79,11 @@ De eerste n rijen, geordend op een bepaalde kolom weergeven:
 ```
 
 * *Syntaxis:* hebben de meeste operators sleutelwoord parameters, zoals `by`.
-* `desc`aflopende volgorde = `asc` = oplopend.
+* `desc` aflopende volgorde = `asc` = oplopend.
 
 ![](./media/app-insights-analytics-tour/260.png)
 
-`top...`is een manier meer zodat de melding `sort ... | take...`. We kunnen schrijven:
+`top...` is een manier meer zodat de melding `sort ... | take...`. We kunnen schrijven:
 
 ```AIQL
 
@@ -146,7 +146,7 @@ Het tijdsbereik overschrijven door een query noemt schrijven `timestamp` in een 
 
 De functie voor het bereik is gelijk aan een component 'where' ingevoegd na elke vermelding van een van de brontabellen.
 
-`ago(3d)`betekent 'drie dagen geleden'. Andere tijdseenheden uren bevatten (`2h`, `2.5h`), minuten (`25m`), en seconden (`10s`).
+`ago(3d)` betekent 'drie dagen geleden'. Andere tijdseenheden uren bevatten (`2h`, `2.5h`), minuten (`25m`), en seconden (`10s`).
 
 Andere voorbeelden:
 
@@ -170,7 +170,7 @@ Andere voorbeelden:
 
 ```
 
-[Datums en tijden verwijzing](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
+[Datums en tijden verwijzing](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
 ## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): selecteren en de namen van kolommen berekenen
@@ -199,10 +199,10 @@ U kunt ook wijzigen van kolommen en definiëren van nieuwe:
 
 ![Resultaat](./media/app-insights-analytics-tour/270.png)
 
-* Kolomnamen kunnen spaties bevatten of symbolen als ze zijn tussen zoals deze: `['...']` of`["..."]`
-* `%`is de gebruikelijke modulo operator.
-* `1d`(die wordt een cijfer, en vervolgens een had') is een letterlijke timespan wat betekent dat één dag. Hier volgen enkele meer timespan literals: `12h`, `30m`, `10s`, `0.01s`.
-* `floor`(alias `bin`) Rondt een waarde naar beneden op het dichtstbijzijnde meervoud van de basiswaarde die u opgeeft. Dus `floor(aTime, 1s)` per keer naar beneden op het dichtstbijzijnde tweede afgerond.
+* Kolomnamen kunnen spaties bevatten of symbolen als ze zijn tussen zoals deze: `['...']` of `["..."]`
+* `%` is de gebruikelijke modulo operator.
+* `1d` (die wordt een cijfer, en vervolgens een had') is een letterlijke timespan wat betekent dat één dag. Hier volgen enkele meer timespan literals: `12h`, `30m`, `10s`, `0.01s`.
+* `floor` (alias `bin`) Rondt een waarde naar beneden op het dichtstbijzijnde meervoud van de basiswaarde die u opgeeft. Dus `floor(aTime, 1s)` per keer naar beneden op het dichtstbijzijnde tweede afgerond.
 
 Expressies kunnen bevatten de gebruikelijke operators (`+`, `-`,...), en er is een aantal handige functies.
 
@@ -231,7 +231,7 @@ Tijdstempels worden altijd in UTC. Dus als u bijvoorbeeld op de westkust ons Pac
 
 
 ## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[Overzicht van](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): cumulatieve groepen rijen
-`Summarize`van toepassing is een opgegeven *aggregatiefunctie* via Rijgroepen koppelen.
+`Summarize` van toepassing is een opgegeven *aggregatiefunctie* via Rijgroepen koppelen.
 
 Bijvoorbeeld, de tijd die uw web-app nodig is om te reageren op een aanvraag wordt aangegeven in het veld `duration`. De gemiddelde reactietijd voor alle aanvragen laten we zien:
 
@@ -241,13 +241,13 @@ Of we het resultaat kan verdelen in aanvragen van verschillende namen:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize`verzamelt de gegevenspunten in de stroom in groepen waarvan de `by` component evenveel evalueert. Elke waarde in de `by` - elke unieke naam van de bewerking in het bovenstaande voorbeeld - expressie resulteert in een rij in de resultaattabel.
+`Summarize` verzamelt de gegevenspunten in de stroom in groepen waarvan de `by` component evenveel evalueert. Elke waarde in de `by` - elke unieke naam van de bewerking in het bovenstaande voorbeeld - expressie resulteert in een rij in de resultaattabel.
 
 Of we kan resultaten groeperen op tijd van de dag:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-U ziet hoe we maken gebruik van de `bin` functie (aka `floor`). Als we zojuist gebruikt `by timestamp`, elke rij invoer in een eigen weinig groep zou eindigen. Voor een continue scalaire als tijden of cijfers die we hebben continue reeks opdelen in een beheersbare aantal discrete waarden. `bin`-Dit is slechts de bekend afronden omlaag `floor` werken - is de eenvoudigste manier om u te doen.
+U ziet hoe we maken gebruik van de `bin` functie (aka `floor`). Als we zojuist gebruikt `by timestamp`, elke rij invoer in een eigen weinig groep zou eindigen. Voor een continue scalaire als tijden of cijfers die we hebben continue reeks opdelen in een beheersbare aantal discrete waarden. `bin` -Dit is slechts de bekend afronden omlaag `floor` werken - is de eenvoudigste manier om u te doen.
 
 We kunnen dezelfde techniek gebruiken om te bereiken met tekenreeksen verminderen:
 
@@ -256,7 +256,7 @@ We kunnen dezelfde techniek gebruiken om te bereiken met tekenreeksen vermindere
 Merk op dat u kunt `name=` instellen van de naam van een resultaatkolom in de statistische expressies of de component by.
 
 ## <a name="counting-sampled-data"></a>Voorbeeldgegevens tellen
-`sum(itemCount)`is de aanbevolen aggregatie voor het tellen van gebeurtenissen. In veel gevallen itemCount == 1, zodat de functie gewoon het aantal rijen in de groep telt. Maar wanneer [steekproeven](app-insights-sampling.md) is uitgevoerd, alleen een fractie van de oorspronkelijke gebeurtenissen worden bewaard als gegevenspunten in Application Insights, zodat er zijn voor elk gegevenspunt u ziet, `itemCount` gebeurtenissen.
+`sum(itemCount)` is de aanbevolen aggregatie voor het tellen van gebeurtenissen. In veel gevallen itemCount == 1, zodat de functie gewoon het aantal rijen in de groep telt. Maar wanneer [steekproeven](app-insights-sampling.md) is uitgevoerd, alleen een fractie van de oorspronkelijke gebeurtenissen worden bewaard als gegevenspunten in Application Insights, zodat er zijn voor elk gegevenspunt u ziet, `itemCount` gebeurtenissen.
 
 Bijvoorbeeld, als steekproeven 75% van de oorspronkelijke gebeurtenissen en vervolgens de itemCount negeert == 4 in de terugkerende records - dat wil zeggen, voor elke record behouden, zijn er vier oorspronkelijke records.
 
@@ -661,7 +661,7 @@ Als u wilt zoeken in de HTTP-aanvragen dat uw app is in behandeling wanneer de u
 ![Uitzonderingen met aanvragen operation_Id koppelen](./media/app-insights-analytics-tour/analytics-exception-request.png)
 
 ### <a name="browser-timings-table"></a>Browser tijdsinstellingen tabel
-`browserTimings`toont de pagina laden gegevens verzameld in browsers van uw gebruikers.
+`browserTimings` toont de pagina laden gegevens verzameld in browsers van uw gebruikers.
 
 [Instellen van uw app voor clientzijde telemetrie](app-insights-javascript.md) om te zien van deze metrische gegevens.
 
@@ -672,7 +672,7 @@ De popularities van verschillende pagina's weergeven en tijden voor elke pagina 
 ![Laadtijden voor pagina's in Analytics](./media/app-insights-analytics-tour/analytics-page-load.png)
 
 ### <a name="availability-results-table"></a>Tabel met resultaten beschikbaarheid
-`availabilityResults`toont de resultaten van uw [webtests](app-insights-monitor-web-app-availability.md). Elke uitvoering van uw tests vanaf elke testlocatie wordt afzonderlijk gerapporteerd.
+`availabilityResults` toont de resultaten van uw [webtests](app-insights-monitor-web-app-availability.md). Elke uitvoering van uw tests vanaf elke testlocatie wordt afzonderlijk gerapporteerd.
 
 ![Laadtijden voor pagina's in Analytics](./media/app-insights-analytics-tour/analytics-availability.png)
 

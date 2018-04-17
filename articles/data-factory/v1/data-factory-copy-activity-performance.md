@@ -14,13 +14,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e8cb5df31a87f72c9947f78c25a41b74399b3727
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b54138c5197d1c5870eed6fd4782e47c6a8b0300
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Prestaties van de activiteit en prestatieafstemming handleiding kopiëren
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Versie 1 - Algemene beschikbaarheid](data-factory-copy-activity-performance.md)
+> * [Versie 2 - Preview](../copy-activity-performance.md)
+
 > [!NOTE]
 > Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [kopiëren van de prestaties van de activiteit en prestatieafstemming guide voor Data Factory versie 2](../copy-activity-performance.md).
 
@@ -59,7 +64,7 @@ Bevat onderstaande tabel als referentie, het nummer van de doorvoer kopiëren in
     <table>
     <tr>
         <td>CPU</td>
-        <td>32 cores 2.20 GHz Intel Xeon E5-2660 v2</td>
+        <td>32 cores 2,20 GHz Intel Xeon E5-2660 v2</td>
     </tr>
     <tr>
         <td>Geheugen</td>

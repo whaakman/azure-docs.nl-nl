@@ -1,11 +1,11 @@
 ---
 title: Wijziging Azure-abonnement aanbieding | Microsoft Docs
 description: Meer informatie over het wijzigen van uw Azure-abonnement en schakel over naar een andere aanbieding die met behulp van Azure-Accountcentrum
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
 ms.service: billing
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 12e5641093dd1bdc1546cc115283f48d5c134121
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Uw abonnement op Azure betalen naar gebruik voor een andere aanbieding wijzigen
 
@@ -31,7 +31,7 @@ Als een [betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/)
 
 | Vanaf | Handeling |
 | --- | --- |
-| Betalen per gebruik |[Betalen naar gebruik ontwikkelen en testen](https://azure.microsoft.com/offers/ms-azr-0023p/) |
+| Betalen per gebruik |[Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |
 | Betalen per gebruik |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
 | Betalen per gebruik |[Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) |
 | Betalen per gebruik |[MSDN-Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/) |
@@ -63,7 +63,7 @@ Als een [betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/)
 1. U kunt de naam van uw abonnement kunt wijzigen. Standaard wordt deze instellen op de nieuwe aanbiedingsnaam. Klik op **Switch bieden** om het proces te voltooien.
 
    ![Klik op de groene knop](./media/billing-how-to-switch-azure-offer/confirmpage.png)
-1. Voltooid Uw abonnement wordt nu overgeschakeld naar de nieuwe aanbieding.
+1. Gelukt! Uw abonnement wordt nu overgeschakeld naar de nieuwe aanbieding.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -105,7 +105,7 @@ Op de dag dat u wilt overschakelen, wordt een factuur gegenereerd voor alle open
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Kan ik migreren van betalen naar gebruik voor [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) of [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* Als u wilt migreren naar de CSP, Zie [Azure Pa's-als-u-Go Abonnementmigratie met CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Als u wilt migreren naar de CSP, Zie [Azure betalen naar gebruik Abonnementmigratie naar de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * Als u wilt migreren naar EA, hebt u uw registratie-beheerder uw account toevoegen aan de EA. Volg de instructies in de uitnodiging e-mail voor uw abonnementen verplaatst onder EA inschrijving hebt. Zie voor meer informatie, [koppelen van een bestaand Account](https://ea.azure.com/helpdocs/associateExistingAccount) in de portal EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Kan ik gegevens en services migreren naar een nieuw abonnement?

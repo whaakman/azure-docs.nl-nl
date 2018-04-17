@@ -3,22 +3,21 @@ title: Aan de slag met Azure Table storage met behulp van Python | Microsoft Doc
 description: Sla gestructureerde gegevens op in de cloud met Azure Table Storage, een oplossing voor NoSQL-gegevensopslag.
 services: cosmos-db
 documentationcenter: python
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/08/2018
-ms.author: mimig
-ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: c8f35656e9db07b596cd24ecb570fa0960f540b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Aan de slag met Azure Table storage met Python
 
@@ -45,22 +44,14 @@ U hebt het volgende nodig om deze zelfstudie te voltooien:
 - [Azure Cosmos DB tabel SDK voor Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Deze SDK maakt verbinding met Azure Table storage en de Azure-API voor tabel Cosmos DB.
 - [Azure Storage-account](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) of [Azure DB die Cosmos-account](https://azure.microsoft.com/en-us/try/cosmosdb/)
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>Een Azure-service-account maken
-
-U kunt werken met tabellen met Azure Table storage of Azure Cosmos DB. U kunt meer informatie over de verschillen tussen de services door te lezen [tabel de offerings](table-introduction.md#table-offerings). U moet maken van een account voor de service die u gaat gebruiken. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
-De eenvoudigste manier om uw eerste Azure-opslagaccount te maken, is via [Azure Portal](https://portal.azure.com). Zie [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) voor meer informatie.
-
-U kunt ook een Azure storage-account maken met behulp van [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) of [Azure CLI](../storage/common/storage-azure-cli.md).
-
-Als u op dit moment liever nog geen opslagaccount maakt, kunt u ook de Azure-opslagemulator gebruiken om de code in een lokale omgeving uit te voeren en te testen. Zie [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md) (De Azure-opslagemulator gebruiken voor het ontwikkelen en testen) voor meer informatie.
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Een tabel-API van Azure Cosmos DB-account maken
-
-Zie voor instructies over het maken van een account voor Azure Cosmos DB tabel API [maken van een tabel-API-account](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="install-the-azure-cosmos-db-table-sdk-for-python"></a>De tabel in Azure Cosmos DB SDK voor Python installeren
 

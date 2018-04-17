@@ -5,7 +5,7 @@ services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 5ca829f0-eb69-40a1-ae26-03a629db1d7e
 ms.service: devtest-lab
 ms.workload: na
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: v-craic
-ms.openlocfilehash: f92ad5e991bdb066bb9680b4865501076d43f450
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e42d371e1f5244b61dc30823db43fefe549b00d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Gebruikersmachtigingen toewijzen aan specifieke labbeleidsregels
 ## <a name="overview"></a>Overzicht
 In dit artikel laat zien hoe u PowerShell gebruikt om een bepaalde lab beleid gebruikersmachtigingen te verlenen. Op die manier kunnen machtigingen worden toegepast op basis van de behoeften van elke gebruiker. U wilt wijzigen van de beleidsinstellingen van de VM, maar niet de beleidsregels van de kosten voor een bepaalde gebruiker verlenen.
 
 ## <a name="policies-as-resources"></a>Beleid als resources
-Zoals beschreven in de [toegangsbeheer op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md) artikel RBAC kunt Geavanceerd toegangsbeheer van resources voor Azure. Met RBAC kunt u taken scheiden binnen uw team DevOps en de hoeveelheid toegang verlenen aan gebruikers die ze nodig hebben voor het uitvoeren van hun taken.
+Zoals beschreven in de [toegangsbeheer op basis van rollen in Azure](../role-based-access-control/role-assignments-portal.md) artikel RBAC kunt Geavanceerd toegangsbeheer van resources voor Azure. Met RBAC kunt u taken scheiden binnen uw team DevOps en de hoeveelheid toegang verlenen aan gebruikers die ze nodig hebben voor het uitvoeren van hun taken.
 
 In DevTest Labs is een beleid een resourcetype waarmee de actie RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Elk beleid lab is een resource in het beleid brontype en kan worden toegewezen als een bereik aan een RBAC-rol.
 
 Bijvoorbeeld, als u wilt machtigen gebruikers lezen/schrijven naar de **VM-grootten toegestaan** beleid, maakt u een aangepaste rol die geschikt is voor de **Microsoft.DevTestLab/labs/policySets/policies/*** actie, en vervolgens de juiste gebruikers toewijzen aan deze aangepaste rol in het bereik van **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-Zie voor meer informatie over aangepaste rollen in RBAC, de [aangepaste rollen toegangsbeheer](../active-directory/role-based-access-control-custom-roles.md).
+Zie voor meer informatie over aangepaste rollen in RBAC, de [aangepaste rollen toegangsbeheer](../role-based-access-control/custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>Maken van een aangepaste lab-functie met behulp van PowerShell
 Om te beginnen, moet u het volgende artikel, waarin wordt uitgelegd hoe u wilt installeren en configureren van de Azure PowerShell-cmdlets lezen: [ https://azure.microsoft.com/blog/azps-1-0-pre ](https://azure.microsoft.com/blog/azps-1-0-pre).

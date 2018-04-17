@@ -2,19 +2,19 @@
 title: Azure-abonnementen en accounts activeren | Microsoft Docs
 description: Toegang met Azure Resource Manager-API's voor nieuwe en bestaande accounts en oplossen van algemene problemen van het account.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure-abonnementen en accounts met Azure kosten Management activeren
 
@@ -29,7 +29,7 @@ Specifieke machtigingen nodig zijn om de procedures in dit artikel te voltooien.
 - Machtiging voor het registreren van de toepassing CloudynCollector bij uw Azure AD-tenant.
 - De mogelijkheid om de toepassing toewijzen aan een rol in uw Azure-abonnementen.
 
-Uw Azure-abonnementen uw accounts moeten hebben `Microsoft.Authorization/*/Write` toegang tot de toepassing CloudynCollector toewijzen. Deze actie wordt verleend via de [eigenaar](../active-directory/role-based-access-built-in-roles.md#owner) rol of [beheerder voor gebruikerstoegang](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) rol.
+Uw Azure-abonnementen uw accounts moeten hebben `Microsoft.Authorization/*/Write` toegang tot de toepassing CloudynCollector toewijzen. Deze actie wordt verleend via de [eigenaar](../role-based-access-control/built-in-roles.md#owner) rol of [beheerder voor gebruikerstoegang](../role-based-access-control/built-in-roles.md#user-access-administrator) rol.
 
 Als uw account is toegewezen aan de **Inzender** rol, u hebt niet voldoende machtiging voor het toewijzen van de toepassing. U ontvangt een fout opgetreden bij een poging de CloudynCollector toepassing toewijzen aan uw Azure-abonnement.
 
@@ -61,8 +61,8 @@ Wanneer u een account update een abonnement toevoegt, kunt u Azure kosten Manage
 2. Indien nodig, de Tenant-ID invoeren. Als u uw Tenant-ID niet weet, gebruikt u de volgende stappen uit te vinden:
     1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
     2. Selecteer in de Azure-portal **Azure Active Directory**.
-    3. Als u de tenant-ID, selecteer **eigenschappen** voor uw Azure AD-tenant.
-    4. Kopieer de map-ID-GUID. Deze waarde is uw tenant-ID.
+    3. Haal de tenant-id op door **Eigenschappen** voor uw Azure AD-tenant te selecteren.
+    4. Kopieer de map-ID-GUID. Deze waarde is uw tenant-id.
     Zie voor meer informatie [tenant-ID ophalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
 3. Indien nodig, selecteert u uw snelheid. Als u niet dat uw tarief-ID weet, gebruikt u de volgende stappen uit te vinden.
     1. In de rechterbovenhoek van de Azure portal uw gebruikersgegevens op en klik op **weergeven van mijn factuur**.

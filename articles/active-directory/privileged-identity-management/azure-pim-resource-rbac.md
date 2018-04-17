@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="pim-for-azure-resources"></a>PIM voor Azure-resources
 
@@ -43,7 +43,7 @@ Azure AD PIM kunt beheren de ingebouwde Azure Resource rollen, evenals aangepast
 - Beveiligingsbeheer en meer
 
 >[!NOTE]
-Gebruikers of leden van een groep die is toegewezen aan de eigenaar of beheerder voor gebruikerstoegang rollen en globale beheerders die beheer van abonnementen inschakelen in Azure AD zijn Resource-beheerders. Deze beheerders kunnen rollen toewijzen, serverfunctie-instellingen configureren en controleren via toegang tot PIM voor Azure-Resources. De lijst weergeven met [ingebouwde functies voor Azure-resources](../role-based-access-built-in-roles.md).
+Gebruikers of leden van een groep die is toegewezen aan de eigenaar of beheerder voor gebruikerstoegang rollen en globale beheerders die beheer van abonnementen inschakelen in Azure AD zijn Resource-beheerders. Deze beheerders kunnen rollen toewijzen, serverfunctie-instellingen configureren en controleren via toegang tot PIM voor Azure-Resources. De lijst weergeven met [ingebouwde functies voor Azure-resources](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="tasks"></a>Taken
 
@@ -193,6 +193,6 @@ Mijn rollen selecteren in het menu linkernavigatiegedeelte en kies de juiste rol
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Ingebouwde functies voor Azure-resources](../role-based-access-built-in-roles.md)
+- [Ingebouwde functies voor Azure-resources](../../role-based-access-control/built-in-roles.md)
 - Meer informatie over [hier Azure AD-rollen activeren](../active-directory-privileged-identity-management-how-to-activate-role.md)
 - [Werkstromen voor PIM goedkeuring](azure-ad-pim-approval-workflow.md)

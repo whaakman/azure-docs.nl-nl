@@ -2,7 +2,7 @@
 title: Migreren van HDInsight op basis van Windows naar Linux gebaseerde HDInsight - Azure | Microsoft Docs
 description: Informatie over het migreren van een HDInsight op basis van Windows-cluster naar een Linux gebaseerde HDInsight-cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6d4b537834b8a70f0015fc9c6316dae20af5dd5a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migreren van een HDInsight op basis van Windows-cluster naar een cluster op basis van Linux
 
@@ -200,7 +198,7 @@ De volgende tabel biedt richtlijnen voor het migreren van uw Hive-werkbelastinge
 
 | Op Windows gebaseerde ik gebruik... | Op Linux gebaseerde... |
 | --- | --- |
-| **Hive Editor** |[Weergave in de Ambari hive](hadoop/apache-hadoop-use-hive-ambari-view.md) |
+| **Hive-Editor** |[Weergave in de Ambari hive](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` inschakelen van Tez |Tez is de engine voor het uitvoeren van standaard voor op basis van Linux-clusters, zodat de set-instructie niet langer nodig is. |
 | C# gebruiker gedefinieerde functies | Zie voor informatie over het valideren van C#-onderdelen met HDInsight op basis van Linux, [migreren .NET-oplossingen voor HDInsight op basis van Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD-bestanden of scripts op de server die als onderdeel van een Hive-taak wordt aangeroepen |Bash-scripts gebruiken |
@@ -234,7 +232,7 @@ Als u een werkstroom die gebruikmaakt van een C#-toepassing hebt, valideren deze
 | Op Windows gebaseerde ik gebruik... | Op Linux gebaseerde... |
 | --- | --- |
 | Storm-Dashboard |Het Storm-Dashboard is niet beschikbaar. Zie [implementeren en beheren van Storm-topologieën op Linux gebaseerde HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) voor manieren om in te dienen topologieën |
-| Storm-gebruikersinterface |De Storm-gebruikersinterface is beschikbaar op https://CLUSTERNAME.azurehdinsight.NET/stormui |
+| Storm-gebruikersinterface |De Storm-gebruikersinterface is beschikbaar op https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio maken, implementeren en beheren van C# of hybride topologieën |Visual Studio kan worden gebruikt voor het maken, implementeren en beheren van C# (SCP.NET) of hybride topologieën op Linux gebaseerde Storm op HDInsight. Alleen kan worden gebruikt met clusters die zijn gemaakt na 28-10-2016. |
 
 ## <a name="hbase"></a>HBase

@@ -2,23 +2,23 @@
 title: Standaardmachtigingen voor gebruiker in Azure Active Directory vergelijken | Microsoft Docs
 description: Lid, guest, de eigenaar van de app en groepsmachtigingen eigenaar vergelijken
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Standaard-gebruikersmachtigingen in Azure Active Directory
 
@@ -77,6 +77,6 @@ Wanneer een gebruiker een groep maakt, worden ze automatisch toegevoegd als eige
 ## <a name="next-steps"></a>Volgende stappen
 
 * Als u meer wilt weten over het wijzigen van de beheerders van een Azure-abonnement, ziet u [Azure-beheerdersrollen toevoegen of wijzigen](../billing-add-change-azure-subscription-administrator.md)
-* Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](active-directory-understanding-resource-access.md)
+* Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Zie voor meer informatie over hoe Azure Active Directory is gekoppeld aan uw Azure-abonnement, [hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gebruikers beheren](active-directory-create-users.md)

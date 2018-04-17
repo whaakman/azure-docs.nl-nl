@@ -5,7 +5,7 @@ keywords: Hiërarchische model cosmosdb, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f0fc8a977a172a859d6691a5b587135caf14e03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Hiërarchisch bronmodel en basisconcepten voor Azure Cosmos DB
 
@@ -119,11 +119,11 @@ Alle resources zijn adresseerbare URI. De waarde van de **_self** eigenschap van
 | /dbs |Feed van databases onder een databaseaccount |
 | /dbs/{dbName} |Database met een id die overeenkomt met de waarde {dbName} |
 | /colls/ /DBS/ {dbName} |Feed van verzamelingen onder een database |
-| /dbs/{dbName}/colls/{collName} |De verzameling met een id die overeenkomt met de waarde {collName} |
+| /DBS/ {dbName} /colls/ {collName} |De verzameling met een id die overeenkomt met de waarde {collName} |
 | /DBS/ {dbName} /colls/ {collName} / docs |Feed van documenten in een verzameling |
-| /dbs/{dbName}/colls/{collName}/docs/{docId} |Document met een id die overeenkomt met de waarde {doc} |
-| /dbs/{dbName}/users/ |Feed gebruikers onder een database |
-| /dbs/{dbName}/users/{userId} |Gebruiker met een id die overeenkomt met de waarde {user} |
+| /DBS/ {dbName} /colls/ {collName} /docs/ {docId} |Document met een id die overeenkomt met de waarde {doc} |
+| /gebruikers/ /DBS/ {dbName} |Feed gebruikers onder een database |
+| /DBS/ {dbName} /gebruikers/ {userId} |Gebruiker met een id die overeenkomt met de waarde {user} |
 | /DBS/ {dbName} /gebruikers/ {userId} / machtigingen |Feed machtigingen onder een gebruikersaccount |
 | /DBS/ {dbName} /gebruikers/ {userId} /permissions/ {permissionId} |Machtiging met een id die overeenkomt met de waarde {machtiging} |
 

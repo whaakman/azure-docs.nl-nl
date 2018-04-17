@@ -2,7 +2,7 @@
 title: Azure HDInsight-toepassingen publiceren | Microsoft Docs
 description: Informatie over het maken van een HDInsight-toepassing en vervolgens publiceren in Azure Marketplace.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aef54782c200ad0be261959705b9b10cd0ebb064
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Een HDInsight-toepassing publiceren in Azure Marketplace
 U kunt een Azure HDInsight-toepassing installeren op een Linux gebaseerde HDInsight-cluster. Informatie over het publiceren van een HDInsight-toepassing in Azure Marketplace in dit artikel. Raadpleeg voor algemene informatie over publiceren in Azure Marketplace [een aanbieding publiceren in Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -99,8 +97,8 @@ Een HDInsight-toepassing publiceren:
 3. Voer een titel en selecteer vervolgens **maken van een nieuwe oplossingssjabloon**.
 4. Als u al uw organisatie nog niet hebt geregistreerd, selecteert u **ontwikkelaarscentrumaccount maken en deelnemen aan het Azure-programma**.  Zie voor meer informatie [een Microsoft Developer-account maken](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 5. Selecteer **aan de slag topologieën definiëren**. Een oplossingssjabloon is een 'ouder' alle bijbehorende topologieën. U kunt meerdere topologieën definiëren in één aanbieding of oplossing sjabloon. Wanneer een aanbieding wordt doorgegeven voor fasering, wordt deze doorgegeven met alle bijbehorende topologieën. 
-6. Voer een naam voor de topologie en selecteer vervolgens  **+** .
-7. Voer een nieuwe versie, en selecteer vervolgens  **+** .
+6. Voer een naam voor de topologie en selecteer vervolgens **+**.
+7. Voer een nieuwe versie, en selecteer vervolgens **+**.
 8. Upload het ZIP-bestand dat u hebt gemaakt wanneer u [verpakt van de toepassing](#package-application).  
 9. Selecteer **certificering aanvragen**. De Microsoft-certificeringsteam beoordeelt de bestanden en certificeert de topologie.
 

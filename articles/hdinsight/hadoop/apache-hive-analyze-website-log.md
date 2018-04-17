@@ -2,25 +2,23 @@
 title: Hive gebruiken met Hadoop voor websitelogboekanalyse - Azure HDInsight | Microsoft Docs
 description: Informatie over het gebruik van Hive met HDInsight websitelogboeken analyseren. U hebt een logboekbestand gebruiken als invoer in een tabel met HDInsight en HiveQL gebruiken voor het opvragen van de gegevens.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 6fb7b5c2-8df4-40b1-a9e2-6815080004f9
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5aabb69dc233dfd927c1d6cc1b131115e2d096d4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53a0560d3bc5a52069d5829b9c3bd353e0c37ef3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Hive gebruiken met HDInsight op basis van Windows logboeken van websites te analyseren
 Informatie over het HiveQL gebruiken met HDInsight voor het analyseren van Logboeken vanaf een website. Websitelogboekanalyse kan worden gebruikt om segmenteren van uw doelgroep op basis van soortgelijke activiteiten, demografische gegevens van bezoekers categoriseren en wilt weten de inhoud ze weergeven, de websites die ze afkomstig zijn van, enzovoort.
@@ -28,7 +26,7 @@ Informatie over het HiveQL gebruiken met HDInsight voor het analyseren van Logbo
 > [!IMPORTANT]
 > De stappen in dit document wordt alleen werken met HDInsight op basis van Windows-clusters. HDInsight is alleen beschikbaar in Windows voor versies lager is dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-In dit voorbeeld kunt u een HDInsight-cluster gebruiken voor het analyseren van de logboekbestanden van de website om inzicht te krijgen in de frequentie van bezoeken van externe websites in een dag naar de website. U ook een overzicht van website-fouten die de gebruikers ondervinden genereren. Procedures voor:
+In dit voorbeeld kunt u een HDInsight-cluster gebruiken voor het analyseren van de logboekbestanden van de website om inzicht te krijgen in de frequentie van bezoeken van externe websites in een dag naar de website. U ook een overzicht van website-fouten die de gebruikers ondervinden genereren. In deze zelfstudie leert u procedures om het volgende te doen:
 
 * Verbinding maken met een Azure Blob storage, bevat de logboekbestanden van de website.
 * HIVE-tabellen om op te vragen deze logboeken maken.

@@ -2,24 +2,22 @@
 title: Vlucht vertraging gegevens analyseren met Hadoop in HDInsight - Azure | Microsoft Docs
 description: Informatie over het gebruik van een Windows PowerShell-script voor het maken van een HDInsight-cluster, een Hive-taak uitvoert, voer een Sqoop en verwijdert het cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5da745901ec2fe57530e4d7fe38a055e0b8691ac
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6e42cfa666ad6b6523043f4412a321789adad9a1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Vertraging vluchtgegevens analyseren met behulp van Hive in HDInsight
 Hive biedt een methode voor Hadoop MapReduce-taken uitgevoerd via een SQL-achtige scripttaal genaamd  *[HiveQL][hadoop-hiveql]*, die naar samenvatten, opvragen en analyseren van grote hoeveelheden gegevens kunnen worden toegepast.
@@ -258,10 +256,10 @@ Uploaden van het gegevensbestand en de scriptbestanden HiveQL (Zie [bijlage B](#
     <table border="1">
     <tr><th>Naam</th><th>Waarde</th></tr>
     <tr><td>Filteren van jaar</td><td>2013 </td></tr>
-    <tr><td>Periode filteren</td><td>Januari</td></tr>
-    <tr><td>Velden</td><td>*Jaar*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *oorsprong*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*,  *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (alle andere velden wissen)</td></tr>
+    <tr><td>Periode filteren</td><td>januari</td></tr>
+    <tr><td>Velden</td><td>*Jaar*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Oorsprong*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (alle andere velden wissen)</td></tr>
     </table>
-3.Klik op **downloaden**.
+3. Klik op **downloaden**.
 4. Pak het bestand naar de **C:\Tutorials\FlightDelay\2013Data** map. Elk bestand is van een CSV-bestand en ongeveer 60GB groot is.
 5. Naam van het bestand op de naam van de maand waarin het gegevens voor bevat. Bijvoorbeeld: het bestand met de gegevens januari naam *January.csv*.
 6. Herhaal stappen 2 en 5 een bestand te downloaden voor elk van de 12 maanden in 2013. U moet minimaal één bestand worden uitgevoerd van de zelfstudie.
@@ -383,8 +381,10 @@ Zie voor een volledige lijst van de opdrachten HiveQL [Hive Data Definition Lang
     <tr><td>$storageAccountName</td><td>Het Azure Storage-account waar u het HiveQL-script om te uploaden.</td></tr>
     <tr><td>$blobContainerName</td><td>De Blob-container waar u het HiveQL-script om te uploaden.</td></tr>
     </table>
-2. Open Azure PowerShell ISE.
-3. Kopieer en plak het volgende script in het scriptvenster:
+    
+2. Open Azure PowerShell ISE.  
+
+3. Kopieer en plak het volgende script in het scriptvenster:  
 
     ```powershell
     [CmdletBinding()]
@@ -573,8 +573,10 @@ Zie voor een volledige lijst van de opdrachten HiveQL [Hive Data Definition Lang
     <tr><td>$sqlDatabaseLocation</td><td>Deze waarde wordt alleen gebruikt als u een nieuwe Azure-database-server maakt.</td></tr>
     <tr><td>$sqlDatabaseName</td><td>De SQL-database die wordt gebruikt voor het maken van de tabel AvgDelays voor de taak Sqoop. Leeg laat, wordt een database met de naam HDISqoop maken. De naam van de tabel voor de uitvoer van de taak Sqoop is AvgDelays. </td></tr>
     </table>
+    
 2. Open Azure PowerShell ISE.
-3. Kopieer en plak het volgende script in het scriptvenster:
+
+3. Kopieer en plak het volgende script in het scriptvenster:  
 
     ```powershell
     [CmdletBinding()]
@@ -699,7 +701,7 @@ Zie voor een volledige lijst van de opdrachten HiveQL [Hive Data Definition Lang
     ```
 
    > [!NOTE]
-   > Het script maakt gebruik van een representational state transfer (REST)-service, http://bot.whatismyipaddress.com, voor het ophalen van het externe IP-adres. Het IP-adres wordt gebruikt voor het maken van een firewallregel voor uw SQL database-server.
+   > Het script maakt gebruik van een representational state transfer (REST)-service http://bot.whatismyipaddress.com, voor het ophalen van het externe IP-adres. Het IP-adres wordt gebruikt voor het maken van een firewallregel voor uw SQL database-server.
 
     Hier volgen enkele variabelen die worden gebruikt in het script:
 

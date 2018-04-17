@@ -2,25 +2,25 @@
 title: Hadoop Pig gebruiken met HDInsight - Azure RUST | Microsoft Docs
 description: Informatie over het gebruik van REST Pig Latin taken uitvoeren op een Hadoop-cluster in Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: ed5e10d1-4f47-459c-a0d6-7ff967b468c4
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: c2c441d92607a017b4451cd8a06fb78a5e8e7135
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4883794261116abf4925e7e4e9a8df14626c7a71
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Pig-taken uitvoeren met Hadoop in HDInsight met behulp van REST
 
@@ -38,7 +38,7 @@ Informatie over het Pig Latin taken worden uitgevoerd door het maken van de REST
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-* [Curl](http://curl.haxx.se/)
+* [CURL](http://curl.haxx.se/)
 
 * [jq](http://stedolan.github.io/jq/)
 
@@ -76,7 +76,7 @@ Informatie over het Pig Latin taken worden uitgevoerd door het maken van de REST
 
     In deze opdracht worden de volgende parameters gebruikt:
 
-    * **-d**: omdat `-G` niet wordt gebruikt, de aanvraag wordt standaard ingesteld op de POST-methode. `-d`Hiermee geeft u de waarden die worden verzonden met de aanvraag.
+    * **-d**: omdat `-G` niet wordt gebruikt, de aanvraag wordt standaard ingesteld op de POST-methode. `-d` Hiermee geeft u de waarden die worden verzonden met de aanvraag.
 
     * **User.name**: de gebruiker die de opdracht wordt uitgevoerd
     * **uitvoeren van**: de Pig Latin-instructies uit te voeren

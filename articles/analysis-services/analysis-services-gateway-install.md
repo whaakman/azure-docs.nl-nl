@@ -1,25 +1,18 @@
 ---
 title: On-premises gegevensgateway installeren | Microsoft Docs
 description: Informatie over het installeren en configureren van een On-premises data gateway.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5a923d3b5fbb5e7afe5f2a922ba083608ff35fd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installeren en configureren van een lokale gegevensgateway
 Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Services-servers in dezelfde regio verbinding met on-premises gegevensbronnen maken. Zie voor meer informatie over de gateway, [On-premises gegevensgateway](analysis-services-gateway.md).
@@ -27,7 +20,7 @@ Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Service
 ## <a name="prerequisites"></a>Vereisten
 **Minimale vereisten:**
 
-* .NET 4.5 Framework
+* .NET 4.5 framework
 * 64-bits versie van Windows 7 / Windows Server 2008 R2 (of hoger)
 
 **Aanbevolen:**
@@ -44,7 +37,7 @@ Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Service
 * De gateway installeren op een computer waarop blijft op en gaat niet naar de slaapstand.
 * Installeer de gateway niet op een computer draadloos verbonden met uw netwerk. Prestaties kan afnemen.
 * Aanmelden bij Azure met een account in Azure AD voor dezelfde [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) als het abonnement registreert u de gateway in. Azure B2B (Gast) accounts worden niet ondersteund bij het installeren en registreren van een gateway.
-* De hier beschreven (unified)-gateway wordt niet ondersteund in Azure Government (Fairfax). Gebruik de specifieke On-premises gateway voor Azure Analysis Services. De speciale gateway biedt geen ondersteuning voor extra services, zoals Power BI en Power-Apps. Toegewijde gateway is van uw servers snel starten in de portal geïnstalleerd.
+* De hier beschreven (unified)-gateway wordt niet ondersteund in Azure Government, Duitse Azure en Azure voor China soevereine regio's. Gebruik **toegewezen On-premises gateway voor Azure Analysis Services**, geïnstalleerde van uw server **Quick Start** in de portal. 
 
 
 ## <a name="download"></a>Downloaden
@@ -65,7 +58,7 @@ Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Service
    > [!NOTE]
    > Als u zich met een domeinaccount aanmeldt, wordt het toegewezen aan uw organisatieaccount in Azure AD. Account van uw organisatie wordt gebruikt als beheerder van de gateway.
 
-## <a name="register"></a>Register
+## <a name="register"></a>registreren
 Om een gateway-resource maken in Azure, moet u het lokale exemplaar dat u hebt geïnstalleerd met de Gateway-Cloudservice registreren. 
 
 1.  Selecteer **registreren van een nieuwe gateway op deze computer**.
@@ -119,5 +112,5 @@ Nadat u hebt geïnstalleerd en uw gateway is geregistreerd, moet u een gateway-r
 Dat is alles. Als u wilt openen van poorten of problemen oplost, moet u uitchecken [On-premises gegevensgateway](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Manage Analysis Services](analysis-services-manage.md)   
+* [Analyseservices beheren](analysis-services-manage.md)   
 * [Gegevens ophalen uit Azure Analysis Services](analysis-services-connect.md)

@@ -2,7 +2,7 @@
 title: SSH-tunneling voor toegang tot Azure HDInsight gebruiken | Microsoft Docs
 description: Informatie over het gebruik van een SSH-tunnel te zoeken veilig webbronnen gehost op uw HDInsight op basis van Linux-knooppunten.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 05e06d6ed8c2a3bec0d12f81aae6f7022a56b942
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>SSH-Tunneling gebruiken voor toegang tot de Ambari-webgebruikersinterface, JobHistory, NameNode, Oozie en andere web-UI
 
@@ -75,7 +73,7 @@ Deze opdracht maakt u een verbinding die verkeer gerouteerd naar lokale poort 98
 * **2** -force SSH protocol versie 2 alleen proberen.
 * **q** -stille modus.
 * **T** -toewijzing van de pseudo-tty uitschakelen omdat u zojuist een poort doorstuurt.
-* **n**-Voorkomen dat het lezen van STDIN, omdat u zojuist een poort doorstuurt.
+* **n** -te voorkomen dat het lezen van STDIN, omdat u zojuist een poort doorstuurt.
 * **N** -een externe opdracht niet uitvoeren omdat u zojuist een poort doorstuurt.
 * **f** -op de achtergrond uitgevoerd.
 
@@ -115,16 +113,16 @@ Zodra de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876
    > [!NOTE]
    > Selecteren **externe DNS** wordt omgezet Domain Name System (DNS) aanvragen met behulp van het HDInsight-cluster. Deze instelling wordt omgezet DNS met het hoofdknooppunt van het cluster.
 
-2. Controleer of de tunnel werkt via een site, zoals [http://www.whatismyip.com/](http://www.whatismyip.com/). Het IP-adres geretourneerd moet één die wordt gebruikt door de Microsoft Azure-datacenter.
+2. Controleer of de tunnel werkt via een site, zoals [ http://www.whatismyip.com/ ](http://www.whatismyip.com/). Het IP-adres geretourneerd moet één die wordt gebruikt door de Microsoft Azure-datacenter.
 
 ## <a name="verify-with-ambari-web-ui"></a>Controleer met Ambari-webgebruikersinterface
 
 Zodra het cluster is ingesteld, gebruikt u de volgende stappen uit om te controleren of u toegang web service UI van het Ambari Web tot:
 
-1. Ga naar http://headnodehost:8080 in uw browser. De `headnodehost` adres tot het cluster en los naar de headnode die Ambari op wordt uitgevoerd via de tunnel wordt verzonden. Wanneer u wordt gevraagd, typt u de beheerdersgebruikersnaam (admin) en het wachtwoord voor uw cluster. U wordt mogelijk gevraagd een tweede maal door de Ambari-webgebruikersinterface. Als dit het geval is, voert u de gegevens opnieuw.
+1. Ga in uw browser naar http://headnodehost:8080. De `headnodehost` adres tot het cluster en los naar de headnode die Ambari op wordt uitgevoerd via de tunnel wordt verzonden. Wanneer u wordt gevraagd, typt u de beheerdersgebruikersnaam (admin) en het wachtwoord voor uw cluster. U wordt mogelijk gevraagd een tweede maal door de Ambari-webgebruikersinterface. Als dit het geval is, voert u de gegevens opnieuw.
 
    > [!NOTE]
-   > Wanneer u het adres http://headnodehost:8080 verbinding maken met het cluster, wordt u verbinding maakt via de tunnel. Communicatie wordt beveiligd met behulp van de SSH-tunnel in plaats van HTTPS. Als u wilt verbinden via internet met behulp van HTTPS, gebruiken https://CLUSTERNAME.azurehdinsight.net, waarbij **CLUSTERNAME** is de naam van het cluster.
+   > Wanneer u de http://headnodehost:8080 houden om de verbinding met het cluster, u verbinding maakt via de tunnel. Communicatie wordt beveiligd met behulp van de SSH-tunnel in plaats van HTTPS. Als u wilt verbinden via internet met behulp van HTTPS, gebruiken https://CLUSTERNAME.azurehdinsight.net, waarbij **CLUSTERNAME** is de naam van het cluster.
 
 2. Selecteer in de Ambari-Webgebruikersinterface HDFS uit de lijst aan de linkerkant van de pagina.
 

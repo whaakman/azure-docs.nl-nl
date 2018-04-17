@@ -3,7 +3,7 @@ title: Gebruik Azure Toolkit voor IntelliJ met Hortonworks Sandbox | Microsoft D
 description: Informatie over het gebruik van HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ met Hortonworks Sandbox.
 keywords: hadoop-hulpprogramma's, hive-query, intellij, hortonworks sandbox, azure toolkit voor intellij
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -12,16 +12,14 @@ ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 6bb29dc4e231bc859be620e56a606fbbfade102b
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c72fb17a53b9d373bbd141f76f01e6b029d1e8f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Gebruik van HDInsight Tools voor IntelliJ met Hortonworks Sandbox
 
@@ -64,7 +62,7 @@ In deze sectie maakt u een voorbeeldproject Scala via IntelliJ IDEA. In de volge
 
    ![Het dialoogvenster Nieuw Project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
-2. Selecteer **volgende**.
+2. Selecteer **Volgende**.
 3. In de volgende **nieuw Project** dialoogvenster Vervolledig de volgende stappen uit:
 
     1. In de **projectnaam** Voer de naam van het project.
@@ -79,7 +77,7 @@ In deze sectie maakt u een voorbeeldproject Scala via IntelliJ IDEA. In de volge
 5. Als de **Project** weergave nog niet is geopend, drukt u op **Alt + 1** om dit te openen.
 6. In **Projectverkenner**, vouwt u het project en selecteer vervolgens **src**.
 7. Met de rechtermuisknop op **src**, wijs **nieuw**, en selecteer vervolgens **Scala klasse**.
-8. In de **naam** Voer een naam. In de **soort** de optie **Object**. Selecteer **OK**.
+8. In de **naam** Voer een naam. In de **soort** de optie **Object**. Selecteer vervolgens **OK**.
 
     ![Het dialoogvenster Nieuwe Scala klasse maken](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-new-scala-class.png)
 
@@ -131,7 +129,7 @@ Om te koppelen aan een emulator:
 1. Open het project in IntelliJ.
 2. Op de **weergave** selecteert u **'s Windows**, en selecteer vervolgens **Azure Explorer**.
 3. Vouw **Azure**, met de rechtermuisknop op **HDInsight**, en selecteer vervolgens **koppelen van een Emulator**.
-4. In de **Link A nieuwe Emulator** dialoogvenster en voer het wachtwoord dat u hebt ingesteld voor het hoofdaccount van de Hortonworks Sandbox. Geef vervolgens waarden die overeenkomen met die in de volgende schermafbeelding. Selecteer **OK**. 
+4. In de **Link A nieuwe Emulator** dialoogvenster en voer het wachtwoord dat u hebt ingesteld voor het hoofdaccount van de Hortonworks Sandbox. Geef vervolgens waarden die overeenkomen met die in de volgende schermafbeelding. Selecteer vervolgens **OK**. 
 
    ![De koppeling in het dialoogvenster Nieuwe Emulator](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-link-an-emulator.png)
 
@@ -146,7 +144,7 @@ Nadat u hebt IntelliJ IDEA gekoppeld aan de emulator, kunt u uw project verzende
 Een project om een emulator te verzenden:
 
 1. In **Projectverkenner**, met de rechtermuisknop op het project en selecteer vervolgens **toepassing op HDInsight Spark indienen**.
-2. De volgende stappen uitvoeren:
+2. Voltooi de volgende stappen:
 
     1. In de **Spark-cluster (alleen voor Linux)** vervolgkeuzelijst, selecteert u uw lokale Hortonworks Sandbox.
     2. In de **Main klassenaam** vak Selecteer of typ de naam van de belangrijkste klasse. Voor deze zelfstudie is de naam **GroupByTest**.

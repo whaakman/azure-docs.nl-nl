@@ -3,8 +3,8 @@ title: Diagnostische logboekregistratie van Azure DB Cosmos | Microsoft Docs
 description: Met deze zelfstudie kunt u aan de slag met Azure Cosmos DB logboekregistratie.
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: cosmos-db
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: mimig
-ms.openlocfilehash: 3b7c9f1acd79a2f170ecead9dedd200ad37d9388
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 0b49a23de62385a8aa362680dde845512d9302fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Diagnostische logboekregistratie van Azure DB Cosmos
 
@@ -443,12 +443,12 @@ De volgende tabel beschrijft de inhoud van elke logboekvermelding.
 | Azure Storage-veld of eigenschap | Log Analytics-eigenschap | Beschrijving |
 | --- | --- | --- |
 | **Tijd** | **TimeGenerated** | De datum en tijd (UTC) wanneer de bewerking opgetreden. |
-| **resourceId** | **Resource** | Het account voor Azure Cosmos DB waarvoor logboeken zijn ingeschakeld.|
+| **ResourceId** | **Resource** | Het account voor Azure Cosmos DB waarvoor logboeken zijn ingeschakeld.|
 | **Categorie** | **Categorie** | Voor Azure DB die Cosmos-logboeken **DataPlaneRequests** is de enige beschikbare waarde. |
-| **operationName** | **OperationName** | De naam van de bewerking. Deze waarde kan een van de volgende bewerkingen zijn: maken, bijwerken, lezen, ReadFeed, verwijderen, vervangen, uitvoeren, SqlQuery, Query, JSQuery, Head, HeadFeed of Upsert.   |
+| **OperationName** | **OperationName** | De naam van de bewerking. Deze waarde kan een van de volgende bewerkingen zijn: maken, bijwerken, lezen, ReadFeed, verwijderen, vervangen, uitvoeren, SqlQuery, Query, JSQuery, Head, HeadFeed of Upsert.   |
 | **Eigenschappen** | N.v.t. | De inhoud van dit veld worden beschreven in de volgende rijen. |
 | **ActivityId** | **activityId_g** | De unieke GUID voor de geregistreerde bewerking. |
-| **userAgent** | **userAgent_s** | Een tekenreeks die opgeeft van de clientagent van de gebruiker die de aanvraag uitvoert. De indeling is {agent gebruikersnaam} / {version}.|
+| **UserAgent** | **userAgent_s** | Een tekenreeks die opgeeft van de clientagent van de gebruiker die de aanvraag uitvoert. De indeling is {agent gebruikersnaam} / {version}.|
 | **resourceType** | **ResourceType** | Het type van de toegang tot bronnen. Deze waarde kan een van de volgende resourcetypen zijn: Database, verzameling, Document, bijlage, gebruiker, machtiging, opgeslagen procedure, Trigger, UserDefinedFunction of aanbieding. |
 | **statusCode** | **statusCode_s** | De status van de reactie van de bewerking. |
 | **requestResourceId** | **ResourceId** | De resourceId die betrekking op de aanvraag hebben. De waarde kan verwijzen naar databaseRid, collectionRid of documentRid afhankelijk van de bewerking uitgevoerd.|

@@ -3,8 +3,8 @@ title: Enterprise kosten weergaven - Azure oplossen | Microsoft Docs
 description: Informatie over het oplossen van problemen die u met organisatie-kosten weergaven in de Azure-portal wellicht.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 527e12cdcc4eaebf98708c389dd21e8ac6ae4ac7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Enterprise kosten weergaven oplossen 
 
-Er zijn meerdere instellingen waardoor gebruikers binnen de inschrijving niet om te kunnen kosten weergeven in de enterprise-inschrijvingen.  Deze instellingen worden beheerd door de beheerder van de inschrijving of door de partner als de registratie is niet rechtstreeks met Microsoft hebt aangeschaft.  In dit artikel helpt u begrijpen wat de instellingen zijn en hoe ze invloed hebben op de inschrijving. Deze instellingen zijn onafhankelijk van de [Azure RBAC-rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
+Er zijn meerdere instellingen waardoor gebruikers binnen de inschrijving niet om te kunnen kosten weergeven in de enterprise-inschrijvingen.  Deze instellingen worden beheerd door de beheerder van de inschrijving of door de partner als de registratie is niet rechtstreeks met Microsoft hebt aangeschaft.  In dit artikel helpt u begrijpen wat de instellingen zijn en hoe ze invloed hebben op de inschrijving. Deze instellingen zijn onafhankelijk van de [Azure RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
 
 ## <a name="enabling-access-to-costs"></a>Toegang tot kosten inschakelen
@@ -44,4 +44,4 @@ Als u een foutbericht ontvangt 'dit activum is niet beschikbaar' wanneer een abo
 ![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Neem contact op met het beheren van het abonnement of management groepen om toegang te krijgen.  
-* Voor abonnementen, verwijzen naar [gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) document voor help waarop de rol is vereist.
+* Voor abonnementen, verwijzen naar [gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) document voor help waarop de rol is vereist.

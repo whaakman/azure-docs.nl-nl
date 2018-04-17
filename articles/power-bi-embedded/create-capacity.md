@@ -2,23 +2,23 @@
 title: Power BI Embedded capaciteit maken in de Azure portal | Microsoft Docs
 description: In dit artikel wordt uitgelegd hoe u een Power BI Embedded capaciteit maken in Microsoft Azure.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: maghan
+ms.openlocfilehash: 2fadfde13aee3aaf965c6ba30188544a8a075b9d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Power BI Embedded capaciteit in de Azure portal maken
 
@@ -33,7 +33,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 U hebt het volgende nodig om deze quickstart te voltooien:
 
 * **Azure-abonnement:** gaat u naar [gratis proefversie van Azure](https://azure.microsoft.com/free/) om een account te maken.
-* **Azure Active Directory:** uw abonnement moet worden gekoppeld aan een tenant van Azure Active Directory (AAD). En, ***moet u zijn aangemeld bij Azure met een account in deze tenant***. Microsoft-accounts worden niet ondersteund. Zie voor meer informatie, verificatie en gebruikersmachtigingen.
+* **Azure Active Directory:** uw abonnement moet worden gekoppeld aan een tenant van Azure Active Directory (AAD). En, ***moet u zijn aangemeld bij Azure met een account in deze tenant***. Microsoft-accounts worden niet ondersteund. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](../analysis-services/analysis-services-manage-users.md).
 * **Power BI-tenant:** ten minste één account in uw AAD-tenant moet zich hebben geregistreerd voor Power BI.
 * **Resourcegroep:** een resourcegroep die u al hebt gebruikt of [Maak een nieuwe](../azure-resource-manager/resource-group-overview.md).
 

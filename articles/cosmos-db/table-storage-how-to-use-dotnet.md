@@ -3,9 +3,8 @@ title: Aan de slag met Azure Table Storage met .NET | Microsoft Docs
 description: Sla gestructureerde gegevens op in de cloud met Azure Table Storage, een oplossing voor NoSQL-gegevensopslag.
 services: cosmos-db
 documentationcenter: .net
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: mimig
-ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: sngun
+ms.openlocfilehash: ff26ab122e920d6ca8dbf837a2229f8728a471ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Aan de slag met Azure Table Storage met .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -49,11 +48,8 @@ U hebt het volgende nodig om deze zelfstudie te voltooien:
 ### <a name="more-samples"></a>Meer voorbeelden
 Zie [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) (Aan de slag met Azure Table Storage in .NET) voor meer voorbeelden van het gebruik van Table Storage. U kunt de voorbeeldtoepassing downloaden en uitvoeren, of de code bekijken op GitHub.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>Een Azure-service-account maken
-
-U kunt werken met tabellen met Azure Table storage of Azure Cosmos DB. U kunt meer informatie over de verschillen tussen de services door te lezen [tabel de offerings](table-introduction.md#table-offerings). U moet maken van een account voor de service die u gaat gebruiken. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
 De eenvoudigste manier om uw eerste Azure-opslagaccount te maken, is via [Azure Portal](https://portal.azure.com). Zie [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) voor meer informatie.
@@ -63,8 +59,7 @@ U kunt ook een Azure-opslagaccount maken met behulp van [Azure PowerShell](../st
 Als u op dit moment liever nog geen opslagaccount maakt, kunt u ook de Azure-opslagemulator gebruiken om de code in een lokale omgeving uit te voeren en te testen. Zie [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md) (De Azure-opslagemulator gebruiken voor het ontwikkelen en testen) voor meer informatie.
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Een tabel-API van Azure Cosmos DB-account maken
-
-Zie voor instructies over het maken van een account voor Azure Cosmos DB tabel API [maken van een tabel-API-account](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="set-up-your-development-environment"></a>De ontwikkelomgeving instellen
 Vervolgens stelt u in Visual Studio uw ontwikkelomgeving in, zodat u de codevoorbeelden in deze handleiding kunt uitproberen.

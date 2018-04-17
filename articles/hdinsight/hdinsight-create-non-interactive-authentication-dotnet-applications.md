@@ -4,23 +4,21 @@ description: Informatie over het maken van niet-interactieve verificatie Microso
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b2b24747ce4ea8499c999c693f00fb09178d52b0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5672dae5600634b53cfbc8d677f6e1b8e3fa327d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Een niet-interactieve verificatie .NET HDInsight-toepassing maken
 U kunt uw Microsoft .NET Azure HDInsight-toepassing onder de identiteit van de toepassing (niet-interactieve) of onder de identiteit van de aangemelde gebruiker van de toepassing (interactief) uitvoeren. Dit artikel ziet u het maken van een niet-interactieve verificatie .NET-toepassing verbinding maken met Azure en beheren van HDInsight. Zie voor een voorbeeld van een interactieve toepassing [verbinding maken met Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -35,7 +33,7 @@ U moet van een niet-interactieve .NET-toepassing:
 * Een HDInsight-cluster. Zie de [zelfstudie aan de slag](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Een rol toewijzen aan de Azure AD-toepassing
-Toewijzen van uw Azure AD-toepassing een [rol](../active-directory/role-based-access-built-in-roles.md), dit om machtigingen te verlenen acties uit te voeren. U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. De machtigingen worden overgenomen op lagere niveaus van het bereik. (Bijvoorbeeld een toepassing met de rol Lezer voor een resourcegroep toe te voegen betekent dat de toepassing de resourcegroep en alle resources daarin kan lezen.) In deze zelfstudie stelt u het bereik op het niveau van de resourcegroep. Zie voor meer informatie [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../active-directory/role-based-access-control-configure.md).
+Toewijzen van uw Azure AD-toepassing een [rol](../role-based-access-control/built-in-roles.md), dit om machtigingen te verlenen acties uit te voeren. U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. De machtigingen worden overgenomen op lagere niveaus van het bereik. (Bijvoorbeeld een toepassing met de rol Lezer voor een resourcegroep toe te voegen betekent dat de toepassing de resourcegroep en alle resources daarin kan lezen.) In deze zelfstudie stelt u het bereik op het niveau van de resourcegroep. Zie voor meer informatie [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md).
 
 **De rol van eigenaar toevoegen aan de Azure AD-toepassing**
 
@@ -127,4 +125,4 @@ Toewijzen van uw Azure AD-toepassing een [rol](../active-directory/role-based-ac
 ## <a name="next-steps"></a>Volgende stappen
 * [Een Azure Active Directory-toepassing en service-principal maken in de Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 * Meer informatie over hoe [verifiëren van een service-principal met Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
-* Meer informatie over [Azure op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md).
+* Meer informatie over [Azure op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md).

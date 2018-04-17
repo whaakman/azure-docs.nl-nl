@@ -2,28 +2,26 @@
 title: Verzenden van taken van R-hulpprogramma's voor Visual Studio - Azure HDInsight | Microsoft Docs
 description: R-taken van uw lokale computer in de Visual Studio om een HDInsight-cluster te verzenden.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 1a82ba7790f739768156a8bee33a74d7130e24e1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c6f6e691ef4b317854aef1d7397d5fb840d25ff2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Verzenden van taken van R-hulpprogramma's voor Visual Studio
+# <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Taken verzenden vanuit R-hulpprogramma's voor Visual Studio
 
-[R-Tools voor Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) is een gratis, open source-uitbreiding voor de Community (gratis), Professional en Enterprise-edities van beide [Visual Studio 2017](https://www.visualstudio.com/downloads/), en [Visual Studio 2015 Update 3](http://go.microsoft.com/fwlink/?LinkId=691129) of hoger.
+[R-Tools voor Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) is een gratis, open source-uitbreiding voor de Community (gratis), Professional en Enterprise-edities van beide [Visual Studio 2017](https://www.visualstudio.com/downloads/), en [Visual Studio 2015 Update 3](http://go.microsoft.com/fwlink/?LinkId=691129)of hoger.
 
 RTVS uw R-werkstroom verbetert door het aanbieden van hulpprogramma's zoals de [R interactieve venster](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL) intellisense (codevoltooiing), [tekenen visualisatie](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) via R bibliotheken zoals ggplot2 en ggviz, [R code foutopsporing](https://docs.microsoft.com/visualstudio/rtvs/debugging), en meer.
 
@@ -31,7 +29,7 @@ RTVS uw R-werkstroom verbetert door het aanbieden van hulpprogramma's zoals de [
 
 1. Installeer [R-Tools voor Visual Studio](https://docs.microsoft.com/visualstudio/rtvs/installation).
 
-    ![Installing RTVS in Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
+    ![RTVS in Visual Studio 2017 installeren](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
 2. Selecteer de *wetenschappelijke gegevens en analytische toepassingen* werkbelasting, selecteer vervolgens de **R taalondersteuning**, **Runtime-ondersteuning voor het ontwikkelen van R**, en  **Microsoft R Client** opties.
 

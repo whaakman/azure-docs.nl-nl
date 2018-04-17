@@ -5,19 +5,19 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: a40fa94260b488e9c01ac09b22da8c0677d73968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3d54da43141dc2bdf34c9f71adc41dc7cf24ff10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Berichtroutes en aangepaste eindpunten gebruikt voor apparaat-naar-cloud-berichten
 
@@ -31,6 +31,8 @@ IoT-Hub kunt u voor het routeren van [apparaat-naar-cloudberichten] [ lnk-device
 | **Endpoint**  | De naam van het eindpunt waar IoT Hub verzendt berichten die overeenkomen met de voorwaarde. Eindpunten moet in dezelfde regio bevinden als de IoT-hub, anders u mogelijk in rekening gebracht voor de regio-overschrijdende schrijfbewerkingen. |
 
 Een enkel bericht mogelijk overeenkomt met de voorwaarde op meerdere regels voor het doorsturen, geval IoT Hub waarin het bericht naar het eindpunt dat is gekoppeld aan elke overeenkomende regel biedt. IoT Hub ook automatisch deduplicates levering van berichten, dus als een bericht overeenkomt met meerdere regels met hetzelfde doel hebben, ze alleen eenmaal naar deze bestemming geschreven worden.
+
+## <a name="endpoints-and-routing"></a>Eindpunten en routering
 
 Een IoT-hub is een standaard [ingebouwd eindpunt][lnk-built-in]. U kunt aangepaste eindpunten om berichten te routeren naar maken door andere services in uw abonnement koppelen aan de hub. IoT Hub ondersteunt momenteel Azure Storage-containers, Event Hubs, Service Bus-wachtrijen en Service Bus-onderwerpen als aangepaste eindpunten.
 
@@ -50,6 +52,12 @@ Zie voor meer informatie over het lezen van het aangepaste eindpunten:
 * Lezen van [Event Hubs][lnk-getstarted-eh].
 * Lezen van [Service Bus-wachtrijen][lnk-getstarted-queue].
 * Lezen van [Service Bus-onderwerpen][lnk-getstarted-topic].
+
+## <a name="latency"></a>Latentie
+
+Wanneer u voor apparaat-naar-cloud-telemetrieberichten met behulp van ingebouwde eindpunten routeren, wordt er een lichte toename van de end-to-end-latentie is na het maken van de eerste route.
+
+In de meeste gevallen is de gemiddelde toename in latentie minder dan een seconde. U kunt controleren de latentie met **d2c.endpoints.latency.builtIn.events** [IoT Hub metriek](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics). Maken of verwijderen van een route na het eerste heeft geen gevolgen voor de end-to-end-latentie.
 
 ### <a name="next-steps"></a>Volgende stappen
 

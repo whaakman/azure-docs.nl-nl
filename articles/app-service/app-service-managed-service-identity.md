@@ -4,33 +4,29 @@ description: Conceptuele verwijzing en setup-handleiding voor ondersteuning van 
 services: app-service
 author: mattchenderson
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a2aacc28a70a5150c1903a60c7a697409e2bbbe7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Het gebruik van Azure Managed Service-identiteit (openbare preview) in App Service en Azure Functions
 
 > [!NOTE] 
-> Beheerde Service-identiteit voor App Service en Azure Functions is momenteel in preview.
+> Beheerde Service-identiteit voor App Service en Azure Functions is momenteel in preview. App-Service op Linux- en Web-App voor Containers worden momenteel niet ondersteund.
 
 In dit onderwerp leest u hoe u de identiteit van een beheerde app voor toepassingen van App Service en Azure Functions maakt en het gebruik ervan voor toegang tot andere resources. Een beheerde service-identiteit van Azure Active Directory kan uw app eenvoudig toegang tot andere AAD beveiligde bronnen zoals Azure Sleutelkluis. De identiteit wordt beheerd door de Azure-platform en vereist niet dat u in te richten of geen geheimen draaien. Zie voor meer informatie over Service-identiteit beheerd, de [overzicht van de Service-identiteit beheerd](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Een app maken met een identiteit
 
 Een app maken met een identiteit, moet een extra eigenschap worden ingesteld voor de toepassing.
-
-> [!NOTE] 
-> Alleen de primaire site voor een site, ontvangt de identiteit. Beheerde service-identiteiten voor implementatie sleuven worden nog niet ondersteund.
-
 
 ### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
 
@@ -48,11 +44,11 @@ Als u een beheerde service-identiteit in de portal instelt, u eerst een toepassi
 
 ### <a name="using-the-azure-cli"></a>Azure CLI gebruiken
 
-Als u een beheerde service-identiteit met de Azure CLI instelt, moet u gebruiken de `az webapp assign-identity` opdracht op basis van een bestaande toepassing. Hebt u drie opties voor het uitvoeren van de voorbeelden in deze sectie:
+Als u een beheerde service-identiteit met de Azure CLI instelt, moet u gebruiken de `az webapp identity assign` opdracht op basis van een bestaande toepassing. Hebt u drie opties voor het uitvoeren van de voorbeelden in deze sectie:
 
 - Gebruik [Azure Cloud Shell](../cloud-shell/overview.md) vanuit de Azure-portal.
 - Gebruik de ingesloten Azure Cloud Shell via de 'Deze probeer' knop, zich in de rechterbovenhoek van elk codeblok hieronder.
-- [Installeer de nieuwste versie van CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 of hoger) als u liever een lokale CLI-console te gebruiken. 
+- [Installeer de nieuwste versie van CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 of hoger) als u liever een lokale CLI-console te gebruiken. 
 
 De volgende stappen wordt beschreven hoe u een web-app maken en toewijzen van een identiteit met behulp van de CLI:
 
@@ -65,14 +61,14 @@ De volgende stappen wordt beschreven hoe u een web-app maken en toewijzen van ee
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
-    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
-    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    az appservice plan create --name myPlan --resource-group myResourceGroup --sku S1
+    az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
     ```
 
-3. Voer de `assign-identity` opdracht voor het maken van de identiteit voor deze toepassing:
+3. Voer de `identity assign` opdracht voor het maken van de identiteit voor deze toepassing:
 
     ```azurecli-interactive
-    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Met behulp van een Azure Resource Manager-sjabloon

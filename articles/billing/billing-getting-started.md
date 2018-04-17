@@ -1,11 +1,11 @@
 ---
 title: Onverwachte kosten te voorkomen, facturerings - Azure beheren | Microsoft Docs
 description: Informatie over het voorkomen van onverwachte kosten op uw Azure-factuur. Gebruik bijhouden van de kosten en beheerfuncties voor een Microsoft Azure-abonnement.
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: tonguyen10
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: a13552e36b4c74b6d3165168c727dbcc8a00704e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Onverwachte kosten met Azure-facturering en kostenbeheer voorkomen
 
@@ -62,7 +62,7 @@ Factureringsmeldingen instellen voor het ophalen van e-mailberichten wanneer uw 
 
 Het is raadzaam de schatting van de kosten van de prijscategorie Rekenmachine gebruiken als uitgangspunt voor uw eerste waarschuwing.
 
-### <a name="spending-limit"></a>Controleer of u een bestedingslimiet hebt op
+### <a name="spending-limit"></a> Controleer of u een bestedingslimiet hebt op
 
 Als u een abonnement dat gebruikmaakt van tegoed hebt, is klikt u vervolgens de bestedingslimiet voor u standaard ingeschakeld. Op deze manier wanneer u uw tegoed hoeven te besteden aan uw creditcard niet ophalen in rekening gebracht. Zie de [volledige lijst met Azure biedt en de beschikbaarheid van uitgavenlimiet](https://azure.microsoft.com/support/legal/offer-details/).
 
@@ -76,7 +76,7 @@ Klik op de banner en volg de aanwijzingen voor de bestedingslimiet verwijderen. 
 
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Manieren om te controleren van uw kosten wanneer u Azure-services
 
-### <a name="tags"></a>Labels toevoegen aan uw resources voor het groeperen van je factureringsgegevens
+### <a name="tags"></a> Labels toevoegen aan uw resources voor het groeperen van je factureringsgegevens
 
 Voor ondersteunde services kunt u codes voor een groep factureringsgegevens. Bijvoorbeeld als u meerdere virtuele machines voor verschillende teams uitvoert, kunt klikt u vervolgens u labels te categoriseren kosten door kostenplaats (uur, marketing, financiën) of de omgeving (productie, vóór productie test). 
 
@@ -86,7 +86,7 @@ De labels in verschillende kosten reporting weergaven weergegeven. Bijvoorbeeld,
 
 Zie voor meer informatie [met labels om uw Azure-resources te organiseren](../azure-resource-manager/resource-group-using-tags.md).
 
-### <a name="costs"></a>Regelmatig controleren van de portal voor verdeling van de kosten en snelheid branden
+### <a name="costs"></a> Regelmatig controleren van de portal voor verdeling van de kosten en snelheid branden
 
 Nadat u uw services die worden uitgevoerd, moet u regelmatig controleren hoeveel ze u bent kosten. U kunt zien van de huidige uitgaven en snelheid branden in Azure-portal. 
 
@@ -138,7 +138,7 @@ Na het einde van de factureringscyclus binnenkort uw factuur beschikbaar. U kunt
 
 Onze facturering API gebruiken om op te halen programmatisch gebruiksgegevens. De API RateCard en de API-gebruik samen gebruiken om op te halen van het gebruik van uw gefactureerd. Zie voor meer informatie [inzicht in uw Microsoft Azure-brongebruik](billing-usage-rate-card-overview.md).
 
-## <a name="other-offers"></a>Aanvullende bronnen en bijzondere gevallen
+## <a name="other-offers"></a> Aanvullende bronnen en bijzondere gevallen
 
 ### <a name="ea-csp-and-sponsorship-customers"></a>EA CSP en managers klanten
 Neem contact op met uw accountmanager of Azure-partner aan de slag.
@@ -151,7 +151,7 @@ Neem contact op met uw accountmanager of Azure-partner aan de slag.
 
 Als u beheert IT voor een grote organisatie aangeraden lezen [Azure enterprise scaffold](../azure-resource-manager/resource-manager-subscription-governance.md) en de [enterprise IT witboek](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (download .pdf, alleen in het Engels).
 
-#### <a name="EA"></a>Preview Enterprise Agreement kosten weergaven in Azure Portal 
+#### <a name="EA"></a> Preview Enterprise Agreement kosten weergaven in Azure Portal 
 
 Enterprise kosten weergaven zijn momenteel in de openbare Preview. De items te weten:
 - Abonnement kosten zijn gebaseerd op informatie over het gebruik en geen rekening gehouden met vooruitbetaalde bedragen, gebruikskosten opgenomen hoeveelheden, aanpassingen en belastingen. De werkelijke kosten worden berekend op het niveau van de inschrijving. 
@@ -172,7 +172,7 @@ Als u de accountbeheerder bent, Ga naar de [abonnementen blade in de Azure porta
 
 ![Schermopname van uw rol in de weergave abonnementen in de Azure-portal](./media/billing-getting-started/sub-blade-view.PNG)
 
-Als u niet de accountbeheerder bent, moet iemand waarschijnlijk gestuurd gedeeltelijk toegang via [toegangsbeheer op basis van een functie van Azure Active Directory](../active-directory/role-based-access-control-configure.md) (RBAC). Voor het beheren van abonnementen en wijzig facturering info, [vinden van de accountbeheerder](billing-subscription-transfer.md#whoisaa) en vraag om de taken uitvoeren of [het abonnement aan u overdragen](billing-subscription-transfer.md).
+Als u niet de accountbeheerder bent, moet iemand waarschijnlijk gestuurd gedeeltelijk toegang via [toegangsbeheer op basis van een functie van Azure Active Directory](../role-based-access-control/role-assignments-portal.md) (RBAC). Voor het beheren van abonnementen en wijzig facturering info, [vinden van de accountbeheerder](billing-subscription-transfer.md#whoisaa) en vraag om de taken uitvoeren of [het abonnement aan u overdragen](billing-subscription-transfer.md).
 
 Als uw accountbeheerder niet meer met uw organisatie is en u moet voor het beheren van facturering, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning

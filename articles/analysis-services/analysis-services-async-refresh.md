@@ -1,25 +1,18 @@
 ---
 title: Asynchrone vernieuwen voor Azure Analysis Services-modellen | Microsoft Docs
 description: Informatie over het vernieuwen van asynchrone code met behulp van REST-API.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: minewiskan
+ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynchrone vernieuwen met de REST-API
 U kunt de gegevensvernieuwing asynchrone bewerkingen op uw Azure Analysis Services-modellen in tabelvorm uitvoeren met behulp van elke programmeertaal die REST-aanroepen ondersteunt. Dit omvat de synchronisatie van alleen-lezen-replica's voor query scale-out. 
@@ -107,7 +100,7 @@ Het opgeven van parameters is niet vereist. De standaardwaarde is toegepast.
 |Type     |  Enum       |  Het type verwerking moet worden uitgevoerd. De typen worden afgestemd op de TMSL [de opdracht refresh](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typen: volledige, clearValues, dataOnly, automatische berekening, toevoegen en defragmenteren.       |   Automatisch      |
 |CommitMode     |  Enum       |  Hiermee wordt bepaald of de objecten worden doorgevoerd in batches of alleen als u klaar. Modi omvatten: standaard transactionele, partialBatch.  |  transactionele       |
 |MaxParallelism     |   Int      |  Deze waarde bepaalt het maximum aantal threads waarop de verwerking van opdrachten parallel worden uitgevoerd. Deze waarde wordt uitgelijnd met de eigenschap MaxParallelism die kan worden ingesteld in de TMSL [opdracht sequentiëren](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) of andere methoden gebruiken.       | 10        |
-|RetryCount    |    Int     |   Geeft het aantal keren dat de bewerking zal opnieuw worden geprobeerd voordat deze is mislukt.      |     0    |
+|retryCount    |    Int     |   Geeft het aantal keren dat de bewerking zal opnieuw worden geprobeerd voordat deze is mislukt.      |     0    |
 |Objecten     |   Matrix      |   Een matrix met objecten die moeten worden verwerkt. Elk object bevat: "tabel" bij het verwerken van de gehele tabel of 'tabel' en 'partitie' bij het verwerken van een partitie. Als er geen objecten worden opgegeven, wordt het hele model wordt vernieuwd. |   Het gehele model verwerken      |
 
 CommitMode is gelijk aan partialBatch. Deze wordt gebruikt wanneer een initiële laden van grote gegevenssets dat doet, kan uren duren. Als tijdens het vernieuwen mislukt nadat het vastleggen van een of meer batches is, de doorgevoerd batches blijft toegewezen (dit wordt niet terugdraaien doorgevoerd partijen).

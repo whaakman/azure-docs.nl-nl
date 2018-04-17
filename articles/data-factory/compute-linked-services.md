@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: fe4a4962acce06a6448cef8d5c1af398e3965a33
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 806d0db3536a00dea4e421f847cf0f75bcfc218c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 Dit artikel wordt uitgelegd verschillende berekeningsomgevingen waarmee u kunt gegevens verwerken of transformatie. Het bevat ook informatie over verschillende configuraties (op aanvraag versus bring uw eigen) die door Data Factory worden ondersteund bij het configureren van de gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
@@ -25,11 +25,11 @@ De volgende tabel bevat een lijst van compute-omgevingen wordt ondersteund door 
 
 | Compute-omgeving                      | activities                               |
 | ---------------------------------------- | ---------------------------------------- |
-| [HDInsight-cluster op aanvraag](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
+| [HDInsight-cluster op aanvraag](#azure-hdinsight-on-demand-linked-service) of [uw eigen HDInsight-cluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop-Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service) | [Aangepaste](transform-data-using-dotnet-custom-activity.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-activiteiten: batchuitvoering en resources bijwerken](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Opgeslagen procedure](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL datawarehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Opgeslagen procedure](transform-data-using-stored-procedure.md) |
 
 >  
 
@@ -111,7 +111,7 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 | clusterNamePrefix           | Het voorvoegsel van de naam in de HDI-cluster, een tijdstempel wordt automatisch toegevoegd aan het einde van de naam van het cluster| Nee       |
 | sparkVersion                 | De versie van spark als het clustertype is 'Spark' | Nee       |
 | additionalLinkedServiceNames | Hiermee geeft u extra opslagaccounts voor het HDInsight gekoppelde service, zodat de Data Factory-service namens jou registreren kunt. Deze opslagaccounts moeten zich in dezelfde regio bevinden als het HDInsight-cluster wordt gemaakt in dezelfde regio als het opslagaccount dat is opgegeven door linkedServiceName. | Nee       |
-| osType                       | Type besturingssysteem. Toegestane waarden zijn: Linux- en Windows (voor HDInsight 3.3). De standaardwaarde is Linux. | Nee       |
+| besturingssysteemtype                       | Type besturingssysteem. Toegestane waarden zijn: Linux- en Windows (voor HDInsight 3.3). De standaardwaarde is Linux. | Nee       |
 | hcatalogLinkedServiceName    | De naam van de Azure SQL gekoppelde service die verwijzen naar de HCatalog-database. Het HDInsight-cluster op aanvraag wordt gemaakt met behulp van de Azure SQL database als de metastore. | Nee       |
 | connectVia                   | De Runtime-integratie moeten worden gebruikt voor het verzenden van de activiteiten bij deze gekoppelde HDInsight-service. Voor een gekoppelde HDInsight-service op aanvraag ondersteunt het alleen Azure-integratie Runtime. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Nee       |
 | clusterUserName                   | De gebruikersnaam voor toegang tot het cluster. | Nee       |
@@ -426,6 +426,65 @@ U maakt een **Azure Data Lake Analytics** gekoppelde service om te koppelen van 
 | tenant               | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Ja                                      |
 | connectVia           | De Runtime-integratie moeten worden gebruikt voor het verzenden van de activiteiten van deze gekoppelde service. U kunt Azure integratie Runtime of Self-hosted integratie-Runtime gebruiken. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Nee                                       |
 
+
+
+## <a name="azure-databricks-linked-service"></a>Azure Databricks gekoppelde service
+U kunt maken **gekoppelde service van Azure Databricks** Databricks werkruimte die u gebruiken wilt voor het uitvoeren van de workloads(notebooks) Databricks registreren.
+
+### <a name="example---using-new-job-cluster-in-databricks"></a>Voorbeeld: met behulp van de nieuwe taak cluster in Databricks
+
+```json
+{
+    "name": "AzureDatabricks_LS",
+    "properties": {
+        "type": "AzureDatabricks",
+        "typeProperties": {
+            "domain": "eastus.azuredatabricks.net",
+            "newClusterNodeType": "Standard_D3_v2",
+            "newClusterNumOfWorker": "1:10",
+            "newClusterVersion": "4.0.x-scala2.11",
+            "accessToken": {
+                "type": "SecureString",
+                "value": "dapif33c9c721144c3a790b35000b57f7124f"
+            }
+        }
+    }
+}
+
+```
+
+### <a name="example---using-existing-interactive-cluster-in-databricks"></a>Voorbeeld: met bestaande interactieve cluster in Databricks
+
+```json
+{
+    "name": " AzureDataBricksLinedService",
+    "properties": {
+      "type": " AzureDatabricks",
+      "typeProperties": {
+        "domain": "https://westeurope.azuredatabricks.net",
+        "accessToken": {
+            "type": "SecureString", 
+            "value": "dapif33c9c72344c3a790b35000b57f7124f"
+          },
+        "existingClusterId": "{clusterId}"
+        }
+}
+
+```
+
+### <a name="properties"></a>Eigenschappen
+
+| Eigenschap             | Beschrijving                              | Vereist                                 |
+| -------------------- | ---------------------------------------- | ---------------------------------------- |
+| naam                 | Naam van de gekoppelde Service               | Ja   |
+| type                 | De eigenschap type moet worden ingesteld op: **AzureDatabricks**. | Ja                                      |
+| domein               | De Azure-regio dienovereenkomstig op basis van de regio van de werkruimte Databricks opgeven. Voorbeeld: https://eastus.azuredatabricks.net | Ja                                 |
+| accessToken          | Toegangstoken is vereist voor de Data Factory om Azure Databricks te verifiëren. Toegangstoken moet worden gegenereerd vanuit de werkruimte databricks. Meer gedetailleerde stappen voor het vinden van het toegangstoken vindt [hier](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Ja                                       |
+| existingClusterId    | ID van een bestaand cluster naar alle taken uitvoeren op dit cluster. Dit moet een gemaakte interactieve-Cluster. Mogelijk moet u handmatig het cluster opnieuw opstarten als deze niet meer reageert. Databricks voorgesteld taken uitgevoerd op nieuwe clusters voor een grotere betrouwbaarheid. U vindt de Cluster-ID van een interactieve Cluster op Databricks werkruimte -> Clusters -> interactieve clusternaam-configuratie >-Tags >. [meer informatie](https://docs.databricks.com/user-guide/clusters/tags.html) | Nee 
+| newClusterVersion    | De Spark-versie van het cluster. Wordt er een taak cluster gemaakt in databricks. | Nee  |
+| newClusterNumOfWorker| Het aantal worker-knooppunten dat u dit cluster wilt opnemen. Een cluster heeft een Spark-stuurprogramma en num_workers Executor voor een totaal van num_workers + 1 Spark-knooppunten. Een tekenreeks Int32 geformatteerd, zoals "1" betekent numOfWorker is 1 of "1:10" betekent dat Automatische-schaal van 1 als min en 10 als max.  | Nee                |
+| newClusterNodeType   | Dit veld codeert via een enkele waarde, de beschikbare bronnen voor elk van de Spark-knooppunten in dit cluster. Bijvoorbeeld, de Spark knooppunten kunnen worden ingericht en geoptimaliseerd voor geheugen of compute-intensieve werkbelastingen dit veld is vereist voor het nieuwe cluster                | Nee               |
+| newClusterSparkConf  | een aantal optionele, door de gebruiker opgegeven Spark configuratie sleutel / waarde-paren. Gebruikers kunnen ook doorgeven in een tekenreeks van extra JVM-opties voor het stuurprogramma en de Executor via spark.driver.extraJavaOptions en spark.executor.extraJavaOptions respectievelijk. | Nee  |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Een gekoppelde Azure SQL Database-service

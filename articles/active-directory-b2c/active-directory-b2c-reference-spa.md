@@ -11,17 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: davidmu
-ms.openlocfilehash: ac0351ce220da5194d3a447e51185409b7368f21
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3347eac16e447091ffcaaf403e1291e2c7175a2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Single-page-app aanmelden met behulp van de impliciete OAuth 2.0-stroom
-
-> [!NOTE]
-> Deze functie is in preview.
-> 
 
 Veel moderne apps hebben een front-end app met één pagina die voornamelijk in JavaScript is geschreven. De app is vaak geschreven met behulp van een framework zoals AngularJS, Ember.js of Durandal. Apps van één pagina en andere JavaScript-apps die worden uitgevoerd in een browser voornamelijk hebt enkele aanvullende uitdagingen voor verificatie:
 
@@ -93,7 +89,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_type |Vereist |Moet bevatten `id_token` voor OpenID Connect aanmelden. Kan het ook het antwoordtype bevatten `token`. Als u `token`, uw app kunt onmiddellijk een toegangstoken van het eindpunt autoriseren ontvangen zonder het maken van een tweede aanvraag naar het geautoriseerde eindpunt.  Als u de `token` antwoordtype, de `scope` parameter moet een scope die welke resource aangeeft voor het uitgeven van het token voor bevatten. |
 | redirect_uri |Aanbevolen |De omleidings-URI van uw app, waarbij verificatie reacties kunnen worden verzonden en ontvangen door uw app. Deze moet exact overeenkomen met een van de omleidings-URI's die u hebt geregistreerd in de portal, behalve dat het URL-codering moet worden. |
 | response_mode |Aanbevolen |Hiermee geeft u de methode om te gebruiken voor het verzenden van het resulterende token terug naar uw app.  Gebruik voor impliciete stromen `fragment`. |
-| Bereik |Vereist |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD zowel de machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging voor het aanmelden van de gebruiker en gegevens over de gebruiker in de vorm van een ID-tokens verkrijgen. (Bespreken we dit later in het artikel.) De `offline_access` bereik is optioneel voor web-apps. Hiermee wordt aangegeven dat uw app een vernieuwingstoken voor de lange levensduur hebben toegang tot bronnen moet. |
+| scope |Vereist |Een door spaties gescheiden lijst met bereiken. Een waarde op één scope geeft u aan Azure AD zowel de machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging voor het aanmelden van de gebruiker en gegevens over de gebruiker in de vorm van een ID-tokens verkrijgen. (Bespreken we dit later in het artikel.) De `offline_access` bereik is optioneel voor web-apps. Hiermee wordt aangegeven dat uw app een vernieuwingstoken voor de lange levensduur hebben toegang tot bronnen moet. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Het kan zijn dat een tekenreeks van inhoud die u wilt gebruiken. Normaal gesproken wordt een willekeurig gegenereerde unieke waarde gebruikt, om aanvraagvervalsing op meerdere sites aanvallen te voorkomen. De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina die ze op waren. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag (gegenereerd door de app) die is opgenomen in het resulterende token ID als een claim. De app kunt vervolgens controleren of deze waarde om te beperken token replay-aanvallen. De waarde is meestal een willekeurige, unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
 | p |Vereist |Het beleid uit te voeren. Dit is de naam van een beleid dat is gemaakt in uw Azure AD B2C-tenant. De waarde van de beleid-naam moet beginnen met **b2c\_1\_**. Zie voor meer informatie [ingebouwde beleid van Azure AD B2C](active-directory-b2c-reference-policies.md). |
@@ -121,7 +117,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | access_token |Het toegangstoken dat de app wordt aangevraagd.  Het toegangstoken moet niet worden gedecodeerd of anders geïnspecteerd. Het kan worden behandeld als één tekenreeks. |
 | token_type |De waarde van het type token. Het enige type dat ondersteuning biedt voor Azure AD is Bearer. |
 | expires_in |De lengte van de tijd die het toegangstoken ongeldig (in seconden is). |
-| Bereik |De bereiken die de token geldig is. U kunt bereiken die in cache tokens gebruiken voor later gebruik. |
+| scope |De bereiken die de token geldig is. U kunt bereiken die in cache tokens gebruiken voor later gebruik. |
 | id_token |Het token ID die de app wordt aangevraagd. U kunt het token ID gebruiken om te controleren van de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. Zie voor meer informatie over het ID-tokens en de inhoud ervan, de [Azure AD B2C tokenverwijzing](active-directory-b2c-reference-tokens.md). |
 | state |Als een `state` parameter is opgenomen in de aanvraag dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of de `state` waarden in de aanvraag en antwoord identiek zijn. |
 
@@ -203,7 +199,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
 | response_type |Vereist |Moet bevatten `id_token` voor OpenID Connect aanmelden.  Het kan ook betekenen dat het antwoordtype `token`. Als u `token` hier uw app kan onmiddellijk ontvangen een toegangstoken van het eindpunt autoriseren, zonder dat een tweede aanvraag naar het geautoriseerde eindpunt. Als u de `token` antwoordtype, de `scope` parameter moet een scope die welke resource aangeeft voor het uitgeven van het token voor bevatten. |
 | redirect_uri |Aanbevolen |De omleidings-URI van uw app, waarbij verificatie reacties kunnen worden verzonden en ontvangen door uw app. Deze moet exact overeenkomen met een van de omleidings-URI's die u in de portal hebt geregistreerd, behalve dat het URL-codering moet worden. |
-| Bereik |Vereist |Een door spaties gescheiden lijst met bereiken.  Voor het ophalen van tokens, zijn alle scopes die u nodig voor de bedoelde bron hebt. |
+| scope |Vereist |Een door spaties gescheiden lijst met bereiken.  Voor het ophalen van tokens, zijn alle scopes die u nodig voor de bedoelde bron hebt. |
 | response_mode |Aanbevolen |Hiermee geeft u de methode die wordt gebruikt voor het verzenden van het resulterende token terug naar uw app.  Kan `query`, `form_post`, of `fragment`. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die in het token antwoord wordt geretourneerd.  Het kan zijn dat een tekenreeks van inhoud die u wilt gebruiken.  Normaal gesproken wordt een willekeurig gegenereerde unieke waarde gebruikt, om aanvraagvervalsing op meerdere sites aanvallen te voorkomen.  De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden. De pagina of de weergave moet de gebruiker is bijvoorbeeld op. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die is opgenomen in het resulterende token ID als een claim.  De app kunt vervolgens controleren of deze waarde om te beperken token replay-aanvallen. De waarde is meestal een willekeurige, unieke tekenreeks die aangeeft van de oorsprong van de aanvraag. |
@@ -231,7 +227,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type |Het type token wordt altijd Bearer zijn. |
 | state |Als een `state` parameter is opgenomen in de aanvraag dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of de `state` waarden in de aanvraag en antwoord identiek zijn. |
 | expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
-| Bereik |De bereiken die het toegangstoken is geldig voor. |
+| scope |De bereiken die het toegangstoken is geldig voor. |
 
 ### <a name="error-response"></a>Foutbericht
 Foutberichten kunnen ook worden verzonden naar de omleidings-URI zodat de app ze op de juiste wijze kan verwerken.  Voor `prompt=none`, een verwachte fout ziet er als volgt:

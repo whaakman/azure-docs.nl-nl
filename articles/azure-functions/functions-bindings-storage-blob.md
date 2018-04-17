@@ -15,17 +15,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eccaf205ae4705848b591442ca0fdb2aab44b9c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
 Dit artikel wordt uitgelegd hoe u werkt met Azure Blob storage bindingen in de Azure Functions. Azure Functions ondersteunt activeren, invoer en uitvoer van de bindingen voor blobs. Dit artikel bevat een sectie voor elke binding:
 
-* [Blob trigger](#trigger)
+* [BLOB-trigger](#trigger)
 * [BLOB-invoer binding](#input)
 * [BLOB-uitvoer binding](#output)
 
@@ -224,7 +224,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="trigger---usage"></a>Trigger - usage
+## <a name="trigger---usage"></a>Trigger - gebruik
 
 In C# en C# script, kunt u de volgende parametertypen voor de activerende blob:
 
@@ -285,7 +285,7 @@ Accolades in bestandsnamen zoekt, escape voor de accolades met behulp van twee a
 
 Als de naam van de blob *{20140101}-soundfile.mp3*, wordt de `name` variabele waarde in de functiecode *soundfile.mp3*. 
 
-## <a name="trigger---metadata"></a>Trigger - metadata
+## <a name="trigger---metadata"></a>Trigger - metagegevens
 
 De blob-trigger biedt verschillende eigenschappen voor metagegevens. Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies voor gegevensbinding in andere bindingen of als parameters in uw code. Deze waarden hebben dezelfde heeft als de [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) type.
 
@@ -430,7 +430,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-Het volgende voorbeeld ziet blob-invoer en uitvoer bindingen in een *function.json* bestands- en [JavaScript-code] (functies verwijzing node.md) die gebruikmaakt van de bindingen. De functie wordt een kopie van een blob. De functie wordt geactiveerd door een wachtrijbericht met de naam van de blob te kopiëren. De nieuwe blob heet *{originalblobname}-kopie*.
+Het volgende voorbeeld ziet blob-invoer en uitvoer bindingen in een *function.json* bestand en [JavaScript-code](functions-reference-node.md) die gebruikmaakt van de bindingen. De functie wordt een kopie van een blob. De functie wordt geactiveerd door een wachtrijbericht met de naam van de blob te kopiëren. De nieuwe blob heet *{originalblobname}-kopie*.
 
 In de *function.json* -bestand, de `queueTrigger` metagegevenseigenschap wordt gebruikt om op te geven van de blob-naam in de `path` eigenschappen:
 

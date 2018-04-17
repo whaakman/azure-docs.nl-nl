@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: e765c5b0240eb1b0311210dc466d1bc0a43ae58f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cac7ba6f538a8efbd09b27888bd5f1059c2290bd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van een bestandssysteem met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,11 @@ De volgende eigenschappen worden ondersteund voor bestand system gekoppelde serv
 
 | Scenario | 'host' in de definitie van de gekoppelde service | "mappad" in de definitie van gegevensset |
 |:--- |:--- |:--- |
-| Lokale map op de machine van de Runtime-integratie: <br/><br/>Voorbeelden: D:\\ \* of D:\folder\subfolder\\* |D:\\\\ |. \\ \\ of de map\\\\submap |
-| Externe gedeelde map: <br/><br/>Voorbeelden: \\ \\MijnServer\\delen\\ \* of \\ \\MijnServer\\delen\\map\\submap\\* |\\\\\\\\myserver\\\\share |. \\ \\ of de map\\\\submap |
+| Lokale map op de machine van de Runtime-integratie: <br/><br/>Voorbeelden: D:\\ \* of D:\folder\subfolder\\* |In JSON: `D:\\`<br/>Op de gebruikersinterface: `D:\` |In JSON: `.\\` of `folder\\subfolder`<br>Op UI: `.\` of `folder\subfolder` |
+| Externe gedeelde map: <br/><br/>Voorbeelden: \\ \\MijnServer\\delen\\ \* of \\ \\MijnServer\\delen\\map\\submap\\* |In JSON: `\\\\myserver\\share`<br/>Op de gebruikersinterface: `\\myserver\share` |In JSON: `.\\` of `folder\\subfolder`<br/>Op UI: `.\` of `folder\subfolder` |
+
+>[!NOTE]
+>Bij het ontwerpen van via de gebruikersinterface, u hoeft niet te backslashes invoer (`\\`) opgeven voor zoals u via JSON doen escape, één backslash.
 
 **Voorbeeld:**
 

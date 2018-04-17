@@ -2,7 +2,7 @@
 title: Toepassingen integreren met Azure Active Directory
 description: Informatie over het toevoegen, bijwerken of verwijderen van een toepassing in Azure Active Directory (Azure AD).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: PatAltimore
 manager: mtillman
 editor: mbaldwin
@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Toepassingen integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -47,7 +47,7 @@ Alle toepassingen die gebruikmaken van de mogelijkheden van Azure AD wil moet ee
     - Selecteer 'Native' voor [clienttoepassingen](active-directory-dev-glossary.md#client-application) die lokaal worden geïnstalleerd op een apparaat. Deze instelling wordt gebruikt voor OAuth publiek [systeemeigen clients](active-directory-dev-glossary.md#native-client).
     - Selecteer ' Web-app / API ' voor [clienttoepassingen](active-directory-dev-glossary.md#client-application) en [resource/API toepassingen](active-directory-dev-glossary.md#resource-server) die zijn geïnstalleerd op een beveiligde server. Deze instelling wordt gebruikt voor OAuth vertrouwelijke [web-clients](active-directory-dev-glossary.md#web-client) en openbare [clients op basis van gebruikers-agent](active-directory-dev-glossary.md#user-agent-based-client). Een client en de resource/API kan ook worden weergegeven door dezelfde toepassing.
   - **Aanmeldings-URL:** voor ' Web-app / API ' toepassingen, geef de basis-URL van uw app. Bijvoorbeeld: `http://localhost:31544` mogelijk de URL voor een web-app op uw lokale computer uitgevoerd. Gebruikers aan te melden bij een webtoepassing voor de client deze URL gebruikt. 
-  - **Omleidings-URI:** voor 'Systeemeigen' toepassingen, geeft u de URI die wordt gebruikt door Azure AD om te retourneren van reacties token. Voer een waarde die specifiek voor uw toepassing, bijvoorbeeld`http://MyFirstAADApp`
+  - **Omleidings-URI:** voor 'Systeemeigen' toepassingen, geeft u de URI die wordt gebruikt door Azure AD om te retourneren van reacties token. Voer een waarde die specifiek voor uw toepassing, bijvoorbeeld `http://MyFirstAADApp`
 
    ![Een nieuwe toepassing registreren - maken](./media/active-directory-integrating-applications/add-app-registration-create.png)
 
@@ -101,7 +101,7 @@ De volgende stappen ziet u hoe de toestemming ondervinden werkt voor de ontwikke
   > Verlenen expliciete toestemming geven met behulp van de **machtiging verlenen** knop momenteel vereist is voor één pagina toepassingen (SPA) die gebruikmaken van ADAL.js. Anders mislukt de toepassing wanneer het toegangstoken is aangevraagd.   
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Een clienttoepassing voor toegang tot web-API's configureren
-Om een web/vertrouwelijk clienttoepassing kunnen deelnemen aan een machtiging grant-stroom die verificatie vereist (en verkrijgen van een toegangstoken), moet deze beveiligde referenties maken. De standaardmethode voor verificatie wordt ondersteund door de Azure-portal is de Client-ID + geheime sleutel. Deze sectie bevat informatie over de benodigde referenties op te geven de geheime sleutel van de client configuratiestappen.
+Om een web/vertrouwelijk clienttoepassing kunnen deelnemen aan een machtiging grant-stroom die verificatie vereist (en verkrijgen van een toegangstoken), moet deze beveiligde referenties maken. De standaardmethode voor verificatie wordt ondersteund door de Azure-portal is de Client-ID + geheime sleutel. Deze sectie bevat de configuratiestappen vereist voor het bieden van de geheime sleutel met de referenties van de client.
 
 Bovendien voordat een client toegang heeft tot een web-API die worden weergegeven door een resource-toepassing (zoals Microsoft Graph API), het framework toestemming zorgt ervoor dat de client verkrijgt de machtiging grant vereist, op basis van de machtigingen die zijn aangevraagd. Standaard kunnen alle toepassingen machtigingen kiezen uit 'Windows Azure Active Directory' (Graph API) en 'Windows Azure Service Management-API'. De [Graph API 'aanmelden en gebruikersprofiel lezen' machtiging](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) wordt ook standaard geselecteerd. Als de client wordt geregistreerd in een tenant met accounts die zijn geabonneerd op Office 365, zijn machtigingen voor SharePoint en Exchange Online en Web-API's beschikbaar voor selectie. U kunt kiezen uit [twee soorten machtigingen](active-directory-dev-glossary.md#permissions) voor elke web-API gewenste:
 
@@ -129,7 +129,7 @@ Bovendien voordat een client toegang heeft tot een web-API die worden weergegeve
 
 5. Machtigingen voor toegang tot bronnen API's van de client toevoegen
   - Klik op de **Required Permissions** sectie op de **instellingen** pagina. 
-  - Klik op de **toevoegen** knop.
+  - Klik op de knop **Toevoegen**.
   - Klik op **selecteert u een API** selecteren van het type bronnen die u verzamelen wilt uit.
   - Blader door de lijst met beschikbare API's of gebruik het zoekvak te selecteren in de beschikbare resource toepassingen in uw directory waarin een web-API. Klik op de resource die u geïnteresseerd bent in en klik vervolgens op **Selecteer**.
   - U hebt uitgevoerd om de **toegang inschakelen** pagina. Selecteer de toepassing worden machtigingen en/of gedelegeerde machtigingen die uw toepassing moet bij het openen van de API.
@@ -162,7 +162,7 @@ De volgende sectie leest u hoe toegangsbereiken, door het wijzigen van de resour
 
 4. Gaat u naar de pagina belangrijkste registratie van de toepassing, die wordt geopend de **instellingen** pagina voor de toepassing. Overschakelen naar de **bewerken manifest** pagina door te klikken op **Manifest** van de registratiepagina van de toepassing. Een web gebaseerde manifest-editor wordt geopend, zodat u **bewerken** het manifest van de portal. Desgewenst kunt u **downloaden** en lokaal bewerken en vervolgens gebruik **uploaden** toe te passen aan uw toepassing.
 
-5. In dit voorbeeld, geven we een nieuwe scope aangeroepen `Employees.Read.All` op onze resource/API door toe te voegen aan het volgende JSON-element de `oauth2Permissions` verzameling. De bestaande `user_impersonation` bereik wordt standaard opgegeven tijdens de registratie. `user_impersonation`Hiermee kunt een clienttoepassing om toestemming voor toegang tot de bron, onder de identiteit van de aangemelde gebruiker te vragen. Zorg ervoor dat de komma toe te voegen na de bestaande `user_impersonation` bereik van element en de waarden van de eigenschappen aan de behoeften van uw resource wijzigen. 
+5. In dit voorbeeld, geven we een nieuwe scope aangeroepen `Employees.Read.All` op onze resource/API door toe te voegen aan het volgende JSON-element de `oauth2Permissions` verzameling. De bestaande `user_impersonation` bereik wordt standaard opgegeven tijdens de registratie. `user_impersonation` Hiermee kunt een clienttoepassing om toestemming voor toegang tot de bron, onder de identiteit van de aangemelde gebruiker te vragen. Zorg ervoor dat de komma toe te voegen na de bestaande `user_impersonation` bereik van element en de waarden van de eigenschappen aan de behoeften van uw resource wijzigen. 
 
   ```json
   {
@@ -233,7 +233,7 @@ Maken van een multitenant toepassing vereist beide wijzigingen van de registrati
 Als u een toepassing die u beschikbaar wilt maken voor uw klanten of partners buiten uw organisatie schrijft, moet u het bijwerken van de definitie van de toepassing in de Azure portal.
 
 > [!IMPORTANT]
-> Azure AD is vereist voor de App ID URI van multitenant-toepassingen voor globaal uniek zijn. De App ID URI is een van de manieren waarop die een toepassing in protocolberichten wordt geïdentificeerd. Voor een toepassing voor één tenant is het voldoende voor de URI van de App-ID moet uniek zijn binnen deze tenant. Voor een toepassing met meerdere tenants moet het wereldwijd uniek zodat Azure AD de toepassing op alle huurders kan vinden. Globale uniekheid wordt afgedwongen door de App ID URI in een hostnaam die overeenkomt met een geverifieerde domein voor de Azure AD-tenant. Bijvoorbeeld, als de naam van uw tenant contoso.onmicrosoft.com is zou vervolgens een geldige App ID URI zijn https://contoso.onmicrosoft.com/myapp. Als uw tenant een geverifieerd domein contoso.com heeft, zou klikt u vervolgens een geldig App ID URI ook zijn https://contoso.com/myapp. Als de App ID URI niet dit patroon volgen, instellen van een toepassing als multitenant is mislukt.
+> Azure AD is vereist voor de App ID URI van multitenant-toepassingen voor globaal uniek zijn. De App ID URI is een van de manieren waarop die een toepassing in protocolberichten wordt geïdentificeerd. Voor een toepassing voor één tenant is het voldoende voor de URI van de App-ID moet uniek zijn binnen deze tenant. Voor een toepassing met meerdere tenants moet het wereldwijd uniek zodat Azure AD de toepassing op alle huurders kan vinden. Globale uniekheid wordt afgedwongen door de App ID URI in een hostnaam die overeenkomt met een geverifieerde domein voor de Azure AD-tenant. Bijvoorbeeld, als de naam van uw tenant contoso.onmicrosoft.com en vervolgens een geldig is App-ID-URI zou zijn https://contoso.onmicrosoft.com/myapp. Als uw tenant een geverifieerd domein contoso.com heeft, moet een geldige App ID URI zou ook https://contoso.com/myapp. Als de App ID URI niet dit patroon volgen, instellen van een toepassing als multitenant is mislukt.
 > 
 
 Externe gebruikers toegang tot uw toepassing geven: 

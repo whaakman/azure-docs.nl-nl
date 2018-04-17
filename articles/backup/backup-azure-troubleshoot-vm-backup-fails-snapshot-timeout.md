@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 194b8237ce1bff6ac18878bc7eca6e0d3891aa33
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup-fout oplossen: problemen met de agent of de extensie
 
@@ -29,7 +29,8 @@ Dit artikel bevat stappen voor probleemoplossing waarmee u kunnen Azure Backup f
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM-agent kan niet communiceren met Azure Backup
 
-Foutbericht weergegeven: 'VM-Agent kan niet communiceren met Azure Backup'
+Foutbericht weergegeven: 'VM-Agent kan niet communiceren met Azure Backup'<br>
+Foutcode: 'UserErrorGuestAgentStatusUnavailable'
 
 Nadat u registreren en plannen van een virtuele machine voor de Backup-service, initieert back-up van de taak door de communicatie met de VM-agent de momentopname van een punt in tijd. Een van de volgende voorwaarden kan voorkomen dat de momentopname wordt geactiveerd. Wanneer een momentopname is niet geactiveerd, mislukken de back-up. De volgende stappen voor probleemoplossing in de volgorde en probeer de bewerking vervolgens opnieuw:
 
@@ -41,7 +42,8 @@ Nadat u registreren en plannen van een virtuele machine voor de Backup-service, 
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Momentopname-bewerking is mislukt omdat de virtuele machine niet is verbonden met het netwerk
 
-Foutbericht weergegeven: 'Een momentopname van de bewerking is mislukt omdat er geen verbinding met het netwerk op de virtuele machine'
+Foutbericht weergegeven: 'Een momentopname van de bewerking is mislukt omdat er geen verbinding met het netwerk op de virtuele machine'<br>
+Foutcode: 'ExtensionSnapshotFailedNoNetwork'
 
 Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan voorkomen dat de momentopname wordt geactiveerd. Als de momentopname is niet geactiveerd, optreden een back-upfouten. De volgende stappen voor probleemoplossing in de volgorde en probeer de bewerking vervolgens opnieuw:    
 **1 oorzaak: [de virtuele machine heeft geen toegang tot internet](#the-vm-has-no-internet-access)**  
@@ -50,7 +52,8 @@ Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-ser
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot extensie mislukt
 
-Foutbericht weergegeven: 'VMSnapshot extensie bewerking is mislukt'
+Foutbericht weergegeven: 'VMSnapshot extensie bewerking is mislukt'<br>
+Foutcode: 'ExtentionOperationFailed'
 
 Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan voorkomen dat de momentopname wordt geactiveerd. Als de momentopname is niet geactiveerd, optreden een back-upfouten. De volgende stappen voor probleemoplossing in de volgorde en probeer de bewerking vervolgens opnieuw:  
 **1 oorzaak: [de status van de momentopname kan niet worden opgehaald, of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -60,7 +63,7 @@ Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-ser
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Back-up is mislukt omdat de VM-agent reageert niet
 
-Fout messagae: 'Kan niet aan de bewerking niet uitvoeren omdat de VM-Agent niet reageert'
+Foutbericht weergegeven: 'Kan niet aan de bewerking niet uitvoeren omdat de VM-Agent niet reageert'
 
 Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan voorkomen dat de momentopname wordt geactiveerd. Als de momentopname is niet geactiveerd, optreden een back-upfouten. De volgende stappen voor probleemoplossing in de volgorde en probeer de bewerking vervolgens opnieuw:  
 **1 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar het niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -177,6 +180,8 @@ De extensie verwijderen:
 3. Selecteer **extensies**.
 4. Selecteer **Vmsnapshot extensie**.
 5. Selecteer **verwijderen**.
+
+Voor Linux VM, als de extensie VMSnapshot niet in de Azure-portal weergegeven wordt [bijwerken van de Azure Linux Agent](../virtual-machines/linux/update-agent.md), en voer vervolgens de back-up. 
 
 Uitvoeren van deze stappen zorgt ervoor dat de extensie opnieuw worden geïnstalleerd tijdens de volgende back-up.
 

@@ -2,10 +2,10 @@
 title: CLI 2.0 gebruikt in een Azure AD-app maken en configureren voor toegang tot Azure Media Services-API | Microsoft Docs
 description: Dit onderwerp leest hoe u met CLI 2.0 een Azure AD-app maken en configureren voor toegang tot API voor Azure Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 205e554fa42b1c28ed78add3e84c046855875872
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b640455b151d0e5d4701b8c076ee1a587b92f5b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>CLI 2.0 gebruiken ter een AAD-app maken en configureren voor toegang tot Azure Media Services-API
 
@@ -61,7 +61,7 @@ Bijvoorbeeld, wordt een van de volgende niveaus:
 
 Zie voor meer informatie [een Azure-service-principal maken met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
-Zie ook [Manage Role-Based toegangsbeheer met de Azure-opdrachtregelinterface](../active-directory/role-based-access-control-manage-access-azure-cli.md). 
+Zie ook [Manage Role-Based toegangsbeheer met de Azure-opdrachtregelinterface](../role-based-access-control/role-assignments-cli.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

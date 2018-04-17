@@ -1,12 +1,12 @@
 ---
 title: Get gestart handleiding voor ontwikkelaars die in Azure | Microsoft Docs
-description: "Dit onderwerp bevat essentiële informatie voor ontwikkelaars die aan de slag met het Microsoft Azure-platform voor hun ontwikkelingsbehoeften."
-services: 
-cloud: 
-documentationcenter: 
+description: Dit onderwerp bevat essentiële informatie voor ontwikkelaars die aan de slag met het Microsoft Azure-platform voor hun ontwikkelingsbehoeften.
+services: ''
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: erikre
-ms.assetid: 
+ms.assetid: ''
 ms.service: na
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b1cda302636d8bd4d0f14536f186c7b4951c09c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -295,7 +295,7 @@ Als u toegang tot Azure-resources toestaat, maar het is altijd een best practice
 
     >**Wanneer gebruikt u**: wanneer u Geavanceerd toegangsbeheer voor gebruikers en groepen nodig.
 
-    >**Aan de slag**: Zie voor meer informatie, [aan de slag met toegangsbeheer in Azure portal](../../active-directory/role-based-access-control-what-is.md).
+    >**Aan de slag**: Zie voor meer informatie, [aan de slag met toegangsbeheer in Azure portal](../../role-based-access-control/overview.md).
 
 -   **Service-principals**: naast toegang verlenen tot principals die gebruikers en groepen, kunt u dezelfde toegang verlenen aan een service-principal.
 

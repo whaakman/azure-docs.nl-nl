@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 2de5e8bc8880fea5e7f57c88590e32a9fbb60ac6
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: db8718b60cdd934e3301479489f21fe45f5578cd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Naslaginformatie over Azure Machine Learning-Model gegevens verzameling API
 
@@ -48,7 +48,7 @@ In het score-bestand dat wordt gebruikt voor uitoefening data collector-module e
 ## <a name="model-data-collector-instantiation"></a>Model data collector instantiëring
 Een nieuwe instantie van een ModelDataCollector:
 
-dc = ModelDataCollector(model_name, identifier='default', feature_names=None, model_management_account_id='unknown', webservice_name='unknown', model_id='unknown', model_version='unknown')
+    dc = ModelDataCollector(model_name, identifier='default', feature_names=None, model_management_account_id='unknown', webservice_name='unknown', model_id='unknown', model_version='unknown')
 
 Zie de details van klasse en de Parameter:
 
@@ -63,7 +63,7 @@ Zie de details van klasse en de Parameter:
 | Naam | Type | Beschrijving |
 |-------------|------------|-------------------------|
 | model_name | tekenreeks | de naam van het model voor welke gegevens worden verzameld |
-| identifier | tekenreeks | de locatie in de code die deze gegevens, dat wil zeggen identificeert 'RawInput' of 'Prediction' |
+| ID | tekenreeks | de locatie in de code die deze gegevens, dat wil zeggen identificeert 'RawInput' of 'Prediction' |
 | feature_names | lijst met tekenreeksen | een lijst met onderdelen die de csv-koptekst als opgegeven geworden |
 | model_management_account_id | tekenreeks | de id voor het account van de model-beheerserver waarop dit model is opgeslagen. Dit wordt automatisch gevuld wanneer modellen zijn geoperationaliseerd via AML |
 | webservice_name | tekenreeks | de naam van de webservice waarnaar dit model wordt geïmplementeerd. Dit wordt automatisch gevuld wanneer modellen zijn geoperationaliseerd via AML |

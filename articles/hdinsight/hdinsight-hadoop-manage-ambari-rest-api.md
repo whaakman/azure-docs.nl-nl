@@ -2,7 +2,7 @@
 title: Bewaken en beheren van Hadoop met Ambari REST-API - Azure HDInsight | Microsoft Docs
 description: Informatie over het Ambari gebruiken om te controleren en beheren in Azure HDInsight Hadoop-clusters. In dit document leert u hoe u de Ambari REST-API die deel uitmaakt van een HDInsight-clusters.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 2400530f-92b3-47b7-aa48-875f028765ff
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 44066a3b4d5bebc67b089bebc2f3c11d33c77000
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6d82e67e546c8c2079d1feced6e10954fe67a83d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>HDInsight-clusters beheren met behulp van de Ambari REST-API
 
@@ -82,7 +80,7 @@ curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$C
 > De Bash-voorbeelden in dit document moeten de volgende veronderstellingen:
 >
 > * De aanmeldingsnaam voor het cluster is de standaardwaarde van `admin`.
-> * `$CLUSTERNAME`bevat de naam van het cluster. U kunt deze waarde instellen door gebruik te maken`set CLUSTERNAME='clustername'`
+> * `$CLUSTERNAME` bevat de naam van het cluster. U kunt deze waarde instellen door gebruik te maken `set CLUSTERNAME='clustername'`
 > * Wanneer u wordt gevraagd, typt u het wachtwoord voor de cluster-aanmelding (admin).
 
 ```powershell
@@ -94,8 +92,8 @@ $resp.Content
 > [!IMPORTANT]
 > De PowerShell-voorbeelden in dit document moeten de volgende veronderstellingen:
 >
-> * `$creds`is een referentieobject dat de beheerderaanmelding en het wachtwoord voor het cluster bevat. U kunt deze waarde instellen met behulp van `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` en de referenties opgeeft wanneer u wordt gevraagd.
-> * `$clusterName`is een tekenreeks met de naam van het cluster. U kunt deze waarde instellen met behulp van `$clusterName="clustername"`.
+> * `$creds` is een referentieobject dat de beheerderaanmelding en het wachtwoord voor het cluster bevat. U kunt deze waarde instellen met behulp van `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` en de referenties opgeeft wanneer u wordt gevraagd.
+> * `$clusterName` is een tekenreeks met de naam van het cluster. U kunt deze waarde instellen met behulp van `$clusterName="clustername"`.
 
 Beide voorbeelden retourneren een JSON-document dat met de informatie is vergelijkbaar met het volgende voorbeeld begint:
 
@@ -259,9 +257,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
 
-* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Deze waarde geeft aan dat het cluster een Azure Storage-account wordt gebruikt voor standaard-opslag. De `ACCOUNTNAME` waarde is de naam van het opslagaccount. De `CONTAINER` gedeelte is de naam van de blob-container in het opslagaccount. De container is de hoofdmap van de HDFS-compatibele opslagruimte voor het cluster.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` -Deze waarde geeft aan dat het cluster een Azure Storage-account wordt gebruikt voor standaard-opslag. De `ACCOUNTNAME` waarde is de naam van het opslagaccount. De `CONTAINER` gedeelte is de naam van de blob-container in het opslagaccount. De container is de hoofdmap van de HDFS-compatibele opslagruimte voor het cluster.
 
-* `adl://home`-Deze waarde geeft aan dat het cluster een Azure Data Lake Store wordt gebruikt voor standaard-opslag.
+* `adl://home` -Deze waarde geeft aan dat het cluster een Azure Data Lake Store wordt gebruikt voor standaard-opslag.
 
     De naam te zoeken Data Lake Store-account, gebruik de volgende voorbeelden:
 

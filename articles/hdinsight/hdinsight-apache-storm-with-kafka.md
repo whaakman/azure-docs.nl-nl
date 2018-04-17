@@ -1,8 +1,8 @@
 ---
 title: Apache Kafka gebruiken met Storm op HDInsight - Azure | Microsoft Docs
-description: "Apache Kafka wordt geïnstalleerd met Apache Storm op HDInsight. Informatie over het schrijven naar Kafka en gelezen, met behulp van de KafkaBolt en KafkaSpout-onderdelen die zijn opgegeven met Storm. Ook informatie over het gebruik van het framework lichtstroom te definiëren en het verzenden van Storm-topologieën."
+description: Apache Kafka wordt geïnstalleerd met Apache Storm op HDInsight. Informatie over het schrijven naar Kafka en gelezen, met behulp van de KafkaBolt en KafkaSpout-onderdelen die zijn opgegeven met Storm. Ook informatie over het gebruik van het framework lichtstroom te definiëren en het verzenden van Storm-topologieën.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c74e46f37319a9d1eb0ea1587087e24312de451
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: be62705ce0217235b75ec5ad220ad6f32dfd3c10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Apache Kafka met Storm op HDInsight gebruiken
 
@@ -32,7 +30,7 @@ Informatie over het gebruik van Apache Storm om te lezen van en schrijven naar A
 
 ## <a name="get-the-code"></a>Code ophalen
 
-De code voor het voorbeeld in dit document gebruikt is beschikbaar op [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
+De code voor het voorbeeld in dit document gebruikt is beschikbaar op [ https://github.com/Azure-Samples/hdinsight-storm-java-kafka ](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
 
 Als u wilt compileren dit project, moet u de volgende configuratie voor uw ontwikkelomgeving:
 
@@ -119,7 +117,7 @@ Dit project bevat twee topologieën:
 * **KafkaReader**: gedefinieerd door de **reader.yaml** bestand, deze topologie leest de gegevens uit met behulp van de opgegeven met Apache Storm KafkaSpout Kafka en vervolgens de gegevens geregistreerd in stdout.
 
     Deze topologie wordt de Storm-HdfsBolt gebruikt om gegevens te schrijven naar de opslag van de standaard voor het Storm-cluster.
-### <a name="flux"></a>Flux
+### <a name="flux"></a>Lichtstroom
 
 De topologieën worden gedefinieerd met [lichtstroom](https://storm.apache.org/releases/1.1.2/flux.html). Lichtstroom werd geïntroduceerd in 0.10.x Storm en kunt u de topologieconfiguratie van de code te scheiden. De topologie is voor de topologieën die gebruikmaken van het framework lichtstroom, gedefinieerd in een YAML-bestand. Het YAML-bestand kan worden opgenomen als onderdeel van de topologie. Het kan ook een zelfstandig bestand gebruikt wanneer u de topologie indienen zijn. Lichtstroom ondersteunt ook het vervangen van de variabelen tijdens runtime, die wordt gebruikt in dit voorbeeld.
 
@@ -131,11 +129,11 @@ De volgende parameters zijn ingesteld tijdens de uitvoering voor deze topologie�
 
 * `${kafka.zookeeper.hosts}`: De hosts die Zookeeper op in het cluster Kafka wordt uitgevoerd.
 
-Zie voor meer informatie over topologieën lichtstroom [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+Zie voor meer informatie over topologieën lichtstroom [ https://storm.apache.org/releases/1.1.2/flux.html ](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Download en compileren van het project
 
-1. Download het project uit op uw ontwikkelomgeving [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), open een opdrachtregel en wijzig de locatie die u het project hebt gedownload.
+1. Download het project uit op uw ontwikkelomgeving [ https://github.com/Azure-Samples/hdinsight-storm-java-kafka ](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), open een opdrachtregel en wijzig de locatie die u het project hebt gedownload.
 
 2. Van de **hdinsight, storm, java, kafka** directory, de volgende opdracht gebruiken om te compileren van het project en maken van een pakket voor implementatie:
 

@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure-functies, functies, verbruik plan, app service-abonnement, verwerking van gebeurtenissen, webhooks, dynamische compute, zonder server-architectuur
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions schalen en die als host fungeert
 
@@ -74,7 +74,7 @@ Als u van plan bent voor het uitvoeren van JavaScript-functies op een App Servic
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
-###AlwaysOn
+### AlwaysOn
 
 Als u op een App Service-plan uitvoert, moet u inschakelen de **altijd op** instellen zodat uw app in de functie correct wordt uitgevoerd. Op een App Service-abonnement gaat de runtime van functions inactief na een paar minuten van inactiviteit, zodat alleen HTTP-triggers '' uw functies ontwaken wordt. Dit is vergelijkbaar met hoe WebJobs moet Always On ingesteld hebben. 
 
@@ -86,7 +86,7 @@ Een functie-app vereist op een plan verbruik of een App Service-abonnement en ee
 
 <!-- JH: Does using a PRemium Storage account improve perf? -->
 
-Zie voor meer informatie over opslagaccounttypen, [introductie van de Azure Storage-services](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
+Zie voor meer informatie over opslagaccounttypen, [introductie van de Azure Storage-services](../storage/common/storage-introduction.md#azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Hoe werkt dit plan verbruik
 

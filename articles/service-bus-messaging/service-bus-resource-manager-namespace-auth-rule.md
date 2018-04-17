@@ -5,20 +5,20 @@ services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7f1443a0-5fa8-4d90-8637-1a977ef0b1f0
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: sethm;shvija
-ms.openlocfilehash: 384a2fce4bf338ffc4ab6690980c12ad7ff34a6e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 04/11/2018
+ms.author: sethm
+ms.openlocfilehash: e29045f43f5b80ffc66d7b10bac39f3d8d03ae3c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Een Service Bus-autorisatieregel voor de naamruimte en de wachtrij met een Azure Resource Manager-sjabloon maken
 
@@ -107,8 +107,7 @@ Maakt een standaard Service Bus-naamruimte van het type **Messaging**, en een Se
             "location": "[variables('location')]",
             "kind": "Messaging",
             "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
+                "name": "Standard",
             },
             "resources": [
                 {
@@ -157,7 +156,7 @@ Maakt een standaard Service Bus-naamruimte van het type **Messaging**, en een Se
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 ```azurecli
 azure config mode arm
 

@@ -3,24 +3,22 @@ title: HUE met Hadoop op HDInsight Linux gebaseerde clusters - Azure | Microsoft
 description: Informatie over het Hue installeren op HDInsight-clusters en -tunneling gebruiken voor het routeren van de aanvragen met Hue. Hue opslag bladeren en het uitvoeren van Hive of Pig gebruiken.
 keywords: HUE hadoop
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 829f309fa66bc548b9f74cca8112c244cc88775e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installeren en gebruiken van Hue op HDInsight Hadoop-clusters
 
@@ -32,7 +30,7 @@ Informatie over het Hue installeren op HDInsight-clusters en -tunneling gebruike
 ## <a name="what-is-hue"></a>Wat is Hue?
 HUE is een set van webtoepassingen die worden gebruikt om te communiceren met een Hadoop-cluster. U kunt Hue gebruiken om te bladeren, de opslag die is gekoppeld aan een Hadoop-cluster (in het geval van HDInsight-clusters WASB), uitvoeren van Hive-taken en Pig-scripts, enzovoort. De volgende onderdelen zijn beschikbaar bij Hue-installaties op een HDInsight Hadoop-cluster.
 
-* Beeswax Hive Editor
+* Bijenwas Hive-Editor
 * Pig
 * Metastore manager
 * Oozie
@@ -100,7 +98,7 @@ SSH-Tunneling is de enige manier om op het cluster toegang kunnen krijgen tot Hu
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Dit is de hostnaam van de primaire headnode waar de Hue-website zich bevindt.
-4. Gebruik de browser de Hue-portal op http://HOSTNAME:8888 openen. HOSTNAME vervangen door de naam die u hebt verkregen in de vorige stap.
+4. Gebruik de browser om te openen van de Hue-portal op http://HOSTNAME:8888. HOSTNAME vervangen door de naam die u hebt verkregen in de vorige stap.
 
    > [!NOTE]
    > Wanneer u zich voor het eerst aanmeldt, wordt u gevraagd om een account voor aanmelding bij de Hue-portal te maken. De referenties die u hier opgeeft, worden beperkt tot de portal en niet zijn gerelateerd aan de beheerder of de SSH-gebruikersreferenties die u hebt opgegeven tijdens het inrichten van het cluster.

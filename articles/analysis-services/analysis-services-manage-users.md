@@ -1,25 +1,18 @@
 ---
 title: Verificatie en gebruikersmachtigingen in Azure Analysis Services | Microsoft Docs
 description: Meer informatie over verificatie en gebruikersmachtigingen in Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Verificatie en gebruikersmachtigingen
 Azure Analysis Services gebruikt Azure Active Directory (Azure AD) voor identity management- en gebruikersverificatie. Een willekeurige gebruiker maken, beheren of verbinding maken met een Azure Analysis Services server moet een geldige gebruikers-id een [Azure AD-tenant](../active-directory/active-directory-administer.md) in hetzelfde abonnement.
@@ -69,7 +62,7 @@ Excel-gebruikers kunnen verbinding maken met een server met behulp van een Windo
 
 ![Toegangsbeheer in Azure-portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Rollen op dit niveau van toepassing op gebruikers of de accounts die u nodig hebt voor het uitvoeren van taken die kunnen worden uitgevoerd in de portal of met behulp van Azure Resource Manager-sjablonen. Zie voor meer informatie, [toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md). 
+Rollen op dit niveau van toepassing op gebruikers of de accounts die u nodig hebt voor het uitvoeren van taken die kunnen worden uitgevoerd in de portal of met behulp van Azure Resource Manager-sjablonen. Zie voor meer informatie, [toegangsbeheer op basis van rollen](../role-based-access-control/overview.md). 
 
 
 ## <a name="database-roles"></a>Databaserollen
@@ -85,4 +78,4 @@ Rollen op dit niveau van toepassing op gebruikers of de accounts die u nodig heb
 [Toegang tot resources beheren met Azure Active Directory-groepen](../active-directory/active-directory-manage-groups.md)   
 [Databaserollen en gebruikers beheren](analysis-services-database-users.md)  
 [Serverbeheerders beheren](analysis-services-server-admins.md)  
-[Op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-what-is.md)  
+[Op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md)  

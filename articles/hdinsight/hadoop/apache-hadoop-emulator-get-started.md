@@ -6,22 +6,20 @@ editor: cgronlun
 manager: jhubbard
 services: hdinsight
 author: nitinme
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: d7df18a80470beb8dc25cf6add6b7a61f45dcfe7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0b4daa8c832d40457b19ffe4aee1a365796b2435
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Aan de slag met een sandbox met Hadoop, een emulator op een virtuele machine
 
@@ -59,7 +57,7 @@ Vouw het archief voor het downloaden van een oudere versie sandbox voor HDP:
 1. Van de **aan de slag** stap van de Hortonworks Sandbox pagina **weergave geavanceerde opties**. Gebruik de informatie op deze pagina aanmelden bij de sandbox via SSH. Gebruik de naam en wachtwoord opgegeven.
    
    > [!NOTE]
-   > Als u een SSH-client is geïnstalleerd niet hebt, kunt u het web gebaseerde SSH op aangeboden door de virtuele machine op **http://localhost:4200 /**.
+   > Als u een SSH-client is geïnstalleerd niet hebt, kunt u het web gebaseerde SSH op aangeboden door de virtuele machine op **http://localhost:4200/**.
    > 
    
     De eerste keer dat u verbinding maken via SSH, wordt u gevraagd het wachtwoord voor het root-account te wijzigen. Voer een nieuw wachtwoord dat u gebruiken wanneer u zich aanmeldt via SSH.

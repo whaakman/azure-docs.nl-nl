@@ -5,21 +5,19 @@ keywords: HDInsight, Hive, veelgestelde vragen over Azure, probleemoplossingsgid
 services: Azure HDInsight
 documentationcenter: na
 author: dharmeshkakadia
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 15B8D0F3-F2D3-4746-BDCB-C72944AA9252
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d397552285466dc038fe580a084e2d1d0d69bfe2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Hive oplossen met behulp van Azure HDInsight
 
@@ -29,7 +27,7 @@ Meer informatie over de bovenste vragen en hun oplossingen bij het werken met Ap
 ## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hoe ik een Hive-metastore exporteren en importeren op een ander cluster?
 
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. Verbinding maken met het HDInsight-cluster met behulp van een client Secure Shell (SSH). Zie voor meer informatie [lezen van aanvullende](#additional-reading-end).
 
@@ -56,7 +54,7 @@ De code in de stappen voor het oplossen wordt ervan uitgegaan dat gegevenspaden 
 
 ## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Hoe ga ik Hive logboeken naar op een cluster?
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. Verbinding maken met het HDInsight-cluster via SSH. Zie voor meer informatie **lezen van aanvullende**.
 
@@ -85,7 +83,7 @@ De code in de stappen voor het oplossen wordt ervan uitgegaan dat gegevenspaden 
 
 ## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Hoe ik de Hive-shell met specifieke configuraties die op een cluster starten?
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. Geef een sleutel-waardepaar configuratie wanneer u de Hive-shell start. Zie voor meer informatie [lezen van aanvullende](#additional-reading-end).
 
@@ -113,7 +111,7 @@ De code in de stappen voor het oplossen wordt ervan uitgegaan dat gegevenspaden 
 ## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hoe analyseer ik Tez DAG gegevens op een cluster kritiek pad
 
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
  
 1. Voor het analyseren van een Apache Tez gerichte acyclische grafiek (DAG) in een cluster kritieke grafiek, verbinding maken met de HDInsight-cluster via SSH. Zie voor meer informatie [lezen van aanvullende](#additional-reading-end).
 
@@ -153,7 +151,7 @@ De code in de stappen voor het oplossen wordt ervan uitgegaan dat gegevenspaden 
 ## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Hoe kan ik Tez DAG gegevens downloaden vanaf een cluster?
 
 
-#### <a name="resolution-steps"></a>Stappen voor het oplossen
+#### <a name="resolution-steps"></a>Oplossingen
 
 Er zijn twee manieren om de DAG van de Tez-gegevens te verzamelen:
 

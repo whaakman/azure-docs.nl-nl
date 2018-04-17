@@ -2,7 +2,7 @@
 title: Hadoop Hive gebruiken in de Query-Console in HDInsight - Azure | Microsoft Docs
 description: Informatie over het gebruik van de Query webgebaseerde Console Hive-query's uitvoeren op een HDInsight Hadoop-cluster vanuit de browser.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5ae074b0-f55e-472d-94a7-005b0e79f779
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: d6032b8a1e3d338b046c958804102aeb9efcf4ab
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04a6ad67fec4145d8f9164743b08f9e105778091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Uitvoeren van Hive-query's met de Query-Console
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -38,7 +36,7 @@ Voor het voltooien van de stappen in dit artikel, moet u het volgende.
 * Een HDInsight Hadoop op basis van Windows-cluster
 * Een moderne webbrowser
 
-## <a id="run"></a>Uitvoeren van Hive-query's met de Query-Console
+## <a id="run"></a> Uitvoeren van Hive-query's met de Query-Console
 1. Open een webbrowser en navigeer naar **https://CLUSTERNAME.azurehdinsight.net**, waarbij **CLUSTERNAME** is de naam van uw HDInsight-cluster. Als u wordt gevraagd, voert u de gebruikersnaam en wachtwoord die u hebt gebruikt toen u het cluster hebt gemaakt.
 2. Selecteer in de koppelingen aan de bovenkant van de pagina **Hive-Editor**. U ziet nu een formulier dat kan worden gebruikt voor het invoeren van de HiveQL-instructies die u wilt uitvoeren in het HDInsight-cluster.
 

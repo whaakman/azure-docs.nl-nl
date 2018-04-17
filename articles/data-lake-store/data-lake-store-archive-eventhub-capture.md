@@ -2,7 +2,7 @@
 title: Vastleggen van gegevens uit Event Hubs in Azure Data Lake Store | Microsoft Docs
 description: Azure Data Lake Store gebruiken voor het vastleggen van gegevens uit Event Hubs
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9f91acf8c26fdec0c8d128f598f218cff091c7aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Azure Data Lake Store gebruiken voor het vastleggen van gegevens uit Event Hubs
 
@@ -27,7 +27,7 @@ Informatie over het gebruik van Azure Data Lake Store voor het vastleggen van ge
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Een Azure Data Lake Store-account**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md).
+* **Een Azure Data Lake Store-account**. Zie [Aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md) voor instructies over hoe u zo’n account maakt.
 
 *  **Een naamruimte Event Hubs**. Zie voor instructies [maken van een naamruimte Event Hubs](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Zorg ervoor dat de Data Lake Store-account en de naamruimte van Event Hubs zijn in dezelfde Azure-abonnement.
 
@@ -58,9 +58,12 @@ In deze sectie maakt u een map in het account waarbij u wilt vastleggen van de g
 
     c. Onder **machtigingen toewijzen**, klikt u op **Selecteer machtigingen**. Stel **machtigingen** naar **uitvoeren**. Stel **toevoegen aan** naar **deze map en alle onderliggende**. Stel **toevoegen als** naar **een machtigingsvermelding toegang en een standaard machtigingsvermelding**.
 
-    ![Machtigingen voor Data Lake Store-basis toe te wijzen](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "toegangsrechten voor de hoofdmap van de Data Lake Store")
+> [!IMPORTANT]
+> Dit is een eenvoudige manier om te controleren of de toegang tot de doelmap bij het maken van een nieuwe maphiërarchie voor het vastleggen van gegevens die zijn ontvangen door Azure Event Hubs.  Machtigingen op alle onderliggende objecten van een map van het hoogste niveau toe te voegen met veel onderliggende bestanden en mappen kan echter een lange tijd duren.  Als de hoofdmap een groot aantal bestanden en mappen bevat, mogelijk sneller om toe te voegen **Execute** machtigingen voor `Microsoft.EventHubs` afzonderlijk op elke map in het pad naar de map van de uiteindelijke bestemming. 
 
-    Klik op **OK**.
+    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+
+    Click **OK**.
 
 4. Wijs machtigingen voor de map in Data Lake Store-account waar u wilt vastleggen van gegevens.
 
@@ -86,11 +89,11 @@ In deze sectie maakt u een Event Hub in een Event Hubs-naamruimte. U ook configu
 
 2. Van de **overzicht** deelvenster van de naamruimte van Event Hubs, klikt u op **+ Event Hub**.
 
-    ![Create Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Create Event Hub")
+    ![Event Hub maken](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Event Hub maken")
 
 3. Geef de volgende waarden voor het configureren van Event Hubs voor het vastleggen van gegevens naar Data Lake Store.
 
-    ![Create Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Create Event Hub")
+    ![Event Hub maken](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Event Hub maken")
 
     a. Geef een naam voor de Event Hub.
     

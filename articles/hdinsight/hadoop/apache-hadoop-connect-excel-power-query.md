@@ -2,7 +2,7 @@
 title: Excel en Hadoop koppelen met Power Query - Azure HDInsight | Microsoft Docs
 description: Informatie over het profiteren van business intelligence-onderdelen en het gebruik van Power Query voor Excel voor toegang tot gegevens die zijn opgeslagen in Hadoop op HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -10,17 +10,15 @@ editor: cgronlun
 ms.assetid: 01ad2f90-7520-44d9-8c16-4d936faaff9b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 21dfaa9b4d2bb59cb2e84006ad58fcb6ce3f81b4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 0afb1259465189034a69ab7197cdea6fc0f517a3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Excel en Hadoop koppelen met Power Query
 Een belangrijke functie van de Microsoft big data-oplossing is de integratie van Microsoft business intelligence (BI)-onderdelen met Hadoop-clusters in Azure HDInsight. Een voorbeeld van een primaire is de mogelijkheid Excel verbindt met de Azure Storage-account met de gegevens die zijn gekoppeld aan de Hadoop-cluster met behulp van de Microsoft Power Query voor Excel-invoegtoepassing. Dit artikel begeleidt u bij het instellen en gebruiken van Power Query query uitvoeren op gegevens die zijn gekoppeld aan een beheerd met HDInsight Hadoop-cluster.
@@ -69,7 +67,7 @@ De Power Query-invoegtoepassing voor Excel kunt u eenvoudig gegevens importeren 
     ![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
 8. Als u wilt, kunt u de kolomnamen van de wijzigen. Wanneer u klaar bent, klikt u op **sluit & laden**.  De gegevens zijn geladen met uw werkmap:
    
-    ![HDI.PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]
+    ![HDI. PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe gebruik Power Query om gegevens te halen uit HDInsight in Excel. Op deze manier kunt u gegevens ophalen uit HDInsight in Azure SQL Database. Het is ook mogelijk om gegevens te uploaden naar HDInsight. Zie voor meer informatie de volgende artikelen:

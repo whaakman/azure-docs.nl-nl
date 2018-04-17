@@ -2,24 +2,22 @@
 title: Twitter gegevens analyseren met Hadoop in HDInsight - Azure | Microsoft Docs
 description: Informatie over het gebruik van Hive om gegevens met Hadoop in HDInsight vinden van de frequentie van de informatie over het gebruik van een bepaald woord Twitter te analyseren.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: a5f97dfa084291cefde9bf27b5639926de1bc80e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1d3f00658c836eaba41b7ab3d1c065991a2c12a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Twitter-gegevens met Hive in HDInsight analyseren
 Sociale websites zijn een van de belangrijke drijvende kracht voor big data acceptatie. Openbare API's die worden geleverd door sites zoals Twitter zijn nuttig gegevensbron voor het analyseren en kennis van populaire trends.
@@ -77,7 +75,7 @@ De eerste stap bij het gebruik van OAuth is een nieuwe toepassing maken op de si
 
 **Een Twitter-toepassing maken**
 
-1. Aanmelden bij [https://apps.twitter.com/](https://apps.twitter.com/). Klik op de **nu aanmelden** koppelen als u een Twitter-account niet hebt.
+1. Aanmelden bij [ https://apps.twitter.com/ ](https://apps.twitter.com/). Klik op de **nu aanmelden** koppelen als u een Twitter-account niet hebt.
 2. Klik op **nieuwe App maken**.
 3. Voer **naam**, **beschrijving**, **Website**. U kunt maken van een URL op voor de **Website** veld. De volgende tabel ziet u enkele voorbeeldwaarden te gebruiken:
 

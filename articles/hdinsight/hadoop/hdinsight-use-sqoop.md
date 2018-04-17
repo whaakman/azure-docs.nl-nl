@@ -4,23 +4,21 @@ description: Informatie over het gebruik van Azure PowerShell vanaf een werkstat
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2c9d708144ee10a7f55a6ffff33925e865ecd415
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Sqoop gebruiken met Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -97,8 +95,8 @@ Als u liever Azure PowerShell gebruiken voor het maken van het cluster en de SQL
         |Naam|Waarde|
         |----|-----|
         | Naam van het standaardopslagaccount | &lt;CluterName > opslaan |
-        | Azure SQL database-servernaam | &lt;ClusterName>dbserver |
-        | Naam van een Azure SQL-database | &lt;ClusterName>db |
+        | Azure SQL database-servernaam | &lt;ClusterName > dbserver |
+        | Naam van een Azure SQL-database | &lt;ClusterName > db |
      
 3. Selecteer **ik ga akkoord met de voorwaarden en bepalingen bovengenoemde**.
 4. Klik op **Kopen**. U ziet een nieuwe tegel met de titel implementatie indienen voor sjabloonimplementatie. Het duurt ongeveer 20 minuten om het cluster en de SQL-database te maken.

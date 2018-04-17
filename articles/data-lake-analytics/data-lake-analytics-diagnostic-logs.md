@@ -2,10 +2,10 @@
 title: Diagnostische logboeken bekijken voor Azure Data Lake Analytics | Microsoft Docs
 description: 'Begrijpen hoe instellen en toegang tot diagnoselogboeken voor Azure Data Lake analytics '
 services: data-lake-analytics
-documentationcenter: 
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.service: data-lake-analytics
 ms.devlang: na
@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/12/2018
-ms.author: larryfr
-ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: efec1e00e9c2da519028f7e6ff094a0f0876df79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Toegang tot diagnoselogboeken voor Azure Data Lake Analytics
 
@@ -149,9 +148,9 @@ Hier volgt een voorbeeldvermelding voor het in het logboek voor aanvraag JSON-in
 | HttpMethod |Tekenreeks |De HTTP-methode gebruikt voor het opnieuw. Bijvoorbeeld, ophalen. |
 | Pad |Tekenreeks |Het pad van de bewerking is uitgevoerd op |
 | RequestContentLength |int |De lengte van de inhoud van de HTTP-aanvraag |
-| ClientRequestId |Tekenreeks |De id die is uniek voor deze aanvraag |
+| clientRequestId |Tekenreeks |De id die is uniek voor deze aanvraag |
 | StartTime |Tekenreeks |Het tijdstip waarop de server de aanvraag ontvangen |
-| EndTime |Tekenreeks |Het tijdstip waarop de server een antwoord verzonden |
+| Eindtijd |Tekenreeks |Het tijdstip waarop de server een antwoord verzonden |
 
 ### <a name="audit-logs"></a>Controlelogboeken
 
@@ -207,7 +206,7 @@ Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. E
 | JobRunTime |Tekenreeks |De runtime gebruikt voor het verwerken van de taak |
 | SubmitTime |Tekenreeks |De tijd (in UTC) dat de taak is verzonden |
 | StartTime |Tekenreeks |De tijd dat de taak is gestart na het indienen (in UTC) |
-| EndTime |Tekenreeks |De tijd dat de taak is beëindigd |
+| Eindtijd |Tekenreeks |De tijd dat de taak is beëindigd |
 | Parallelle uitvoering |Tekenreeks |Het aantal aangevraagde voor deze taak tijdens het indienen van Data Lake Analytics-eenheden |
 
 > [!NOTE]
@@ -215,7 +214,7 @@ Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. E
 
 ## <a name="process-the-log-data"></a>De logboekgegevens verwerken
 
-Een voorbeeld van een biedt Azure Data Lake Analytics voor het verwerken en analyseren van de logboekgegevens. U vindt het voorbeeld op [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+Een voorbeeld van een biedt Azure Data Lake Analytics voor het verwerken en analyseren van de logboekgegevens. U vindt het voorbeeld op [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md)

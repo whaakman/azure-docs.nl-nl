@@ -3,9 +3,8 @@ title: Ontwerphandleiding voor Azure Storage-tabel | Microsoft Docs
 description: Ontwerp schaalbare en zodat tabellen in de Azure-tabelopslag
 services: cosmos-db
 documentationcenter: na
-author: mimig1
-manager: tadb
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: cosmos-db
 ms.devlang: na
@@ -13,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/03/2017
-ms.author: mimig
-ms.openlocfilehash: fadb81e16a6c641ca15efb4f910a51de4fe7c997
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: sngun
+ms.openlocfilehash: 667fef855238b2524c05bbc2f137d466c0e56de8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Het ontwerpen van schaalbare en de zodat tabellen
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -51,10 +50,10 @@ Het volgende voorbeeld ziet een eenvoudige tabelontwerp voor het opslaan van ent
 <td>
 <table>
 <tr>
-<th>FirstName</th>
+<th>Voornaam</th>
 <th>LastName</th>
 <th>Leeftijd</th>
-<th>E-mail</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Jan</td>
@@ -71,14 +70,14 @@ Het volgende voorbeeld ziet een eenvoudige tabelontwerp voor het opslaan van ent
 <td>
 <table>
 <tr>
-<th>FirstName</th>
+<th>Voornaam</th>
 <th>LastName</th>
 <th>Leeftijd</th>
-<th>E-mail</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>jun</td>
-<td>Cao</td>
+<td>CaO</td>
 <td>47</td>
 <td>junc@contoso.com</td>
 </tr>
@@ -108,10 +107,10 @@ Het volgende voorbeeld ziet een eenvoudige tabelontwerp voor het opslaan van ent
 <td>
 <table>
 <tr>
-<th>FirstName</th>
+<th>Voornaam</th>
 <th>LastName</th>
 <th>Leeftijd</th>
-<th>E-mail</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -206,7 +205,7 @@ De volgende voorbeelden wordt ervan uitgegaan dat de tabelservice werknemer enti
 | --- | --- |
 | **PartitionKey** (naam van de afdeling) |Tekenreeks |
 | **RowKey** (werknemer-Id) |Tekenreeks |
-| **FirstName** |Tekenreeks |
+| **Voornaam** |Tekenreeks |
 | **LastName** |Tekenreeks |
 | **leeftijd** |Geheel getal |
 | **EmailAddress** |Tekenreeks |
@@ -627,7 +626,7 @@ Beschouw de volgende punten als u besluit hoe u dit patroon wilt implementeren:
 
 * Deze oplossing vereist ten minste twee query's naar het overeenkomende entiteiten ophalen: een query uitvoeren op de index-entiteiten voor de lijst van **RowKey** waarden en query's voor het ophalen van elke entiteit in de lijst.  
 * Gezien het feit dat een afzonderlijke entiteit een maximale grootte van 1 MB heeft, optie #2 en de optie #3 in de oplossing wordt ervan uitgegaan dat de lijst met werknemer-id's voor een bepaalde achternaam nooit groter dan 1 MB is. Als de lijst met werknemer-id's kunnen niet groter zijn dan 1 MB groot is, gebruik van optie #1 en opslaan van de indexgegevens in de blob-opslag.  
-* Als u de optie #2 gebruikt moet (met EGTs om af te handelen toevoegen en verwijderen van werknemers en het wijzigen van de achternaam van een werknemer) u nagaan of het volume van transacties worden de limieten voor schaalbaarheid in een bepaalde partitie benaderen. Als dit het geval is, moet u rekening houden met een uiteindelijk consistent oplossing (optie &#1; of optie #3) die gebruikmaakt van wachtrijen om de updateaanvragen te verwerken en kunt u uw index entiteiten opslaan op een afzonderlijke partitie van de werknemer entiteiten.  
+* Als u de optie #2 gebruikt moet (met EGTs om af te handelen toevoegen en verwijderen van werknemers en het wijzigen van de achternaam van een werknemer) u nagaan of het volume van transacties worden de limieten voor schaalbaarheid in een bepaalde partitie benaderen. Als dit het geval is, moet u rekening houden met een uiteindelijk consistent oplossing (optie 1 # of optie #3) die gebruikmaakt van wachtrijen om de updateaanvragen te verwerken en kunt u uw index entiteiten opslaan op een afzonderlijke partitie van de werknemer entiteiten.  
 * Optie #2 in deze oplossing wordt ervan uitgegaan dat u wilt zoeken op achternaam binnen een afdeling: bijvoorbeeld, u wilt ophalen van een lijst met werknemers met een achternaam Jones van de verkoopafdeling. Als u zoeken naar alle werknemers met een achternaam Jones over de hele organisatie wilt, optie #1 of optie #3 gebruiken.
 * U kunt een oplossing op basis van wachtrijen die zorgt voor uiteindelijke consistentie implementeren (Zie de [uiteindelijk consistent transacties patroon](#eventually-consistent-transactions-pattern) voor meer informatie).  
 
@@ -1087,7 +1086,7 @@ Rekening mee dat uitzonderingen die worden gegenereerd wanneer de Opslagclientbi
 
 U moet ook overwegen hoe uw ontwerp is van invloed op hoe de clienttoepassing gelijktijdigheid van taken en updatebewerkingen verwerkt.  
 
-#### <a name="managing-concurrency"></a>Gelijktijdigheid van taken beheren
+#### <a name="managing-concurrency"></a>Gelijktijdigheid beheren
 Standaard implementeert de tabelservice optimistische gelijktijdigheid controleert op het niveau van afzonderlijke entiteiten voor **invoegen**, **samenvoegen**, en **verwijderen** bewerkingen, hoewel het mogelijk voor een client om af te dwingen van de tabelservice voor het overslaan van deze controles. Zie voor meer informatie over hoe de tabelservice gelijktijdigheid beheert [gelijktijdigheid beheren in Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
 
 #### <a name="merge-or-replace"></a>Samenvoegen of vervangen
@@ -1117,10 +1116,10 @@ De tabel-service is een *schema minder* tabel archief dat betekent dat één tab
 <td>
 <table>
 <tr>
-<th>FirstName</th>
+<th>Voornaam</th>
 <th>LastName</th>
 <th>Leeftijd</th>
-<th>E-mail</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1137,10 +1136,10 @@ De tabel-service is een *schema minder* tabel archief dat betekent dat één tab
 <td>
 <table>
 <tr>
-<th>FirstName</th>
+<th>Voornaam</th>
 <th>LastName</th>
 <th>Leeftijd</th>
-<th>E-mail</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1174,10 +1173,10 @@ De tabel-service is een *schema minder* tabel archief dat betekent dat één tab
 <td>
 <table>
 <tr>
-<th>FirstName</th>
+<th>Voornaam</th>
 <th>LastName</th>
 <th>Leeftijd</th>
-<th>E-mail</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1210,10 +1209,10 @@ Denk eraan dat elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **
 <table>
 <tr>
 <th>EntityType</th>
-<th>FirstName</th>
+<th>Voornaam</th>
 <th>LastName</th>
 <th>Leeftijd</th>
-<th>E-mail</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Werknemer</td>
@@ -1232,10 +1231,10 @@ Denk eraan dat elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **
 <table>
 <tr>
 <th>EntityType</th>
-<th>FirstName</th>
+<th>Voornaam</th>
 <th>LastName</th>
 <th>Leeftijd</th>
-<th>E-mail</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Werknemer</td>
@@ -1273,10 +1272,10 @@ Denk eraan dat elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **
 <table>
 <tr>
 <th>EntityType</th>
-<th>FirstName</th>
+<th>Voornaam</th>
 <th>LastName</th>
 <th>Leeftijd</th>
-<th>E-mail</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Werknemer</td>

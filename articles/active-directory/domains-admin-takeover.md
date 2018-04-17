@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde directory overnemen als administrator in Azure Active Directory
 Dit artikel wordt beschreven op twee manieren overnemen van een DNS-domeinnaam in een niet-beheerde map in Azure Active Directory (Azure AD). Wanneer een self-service gebruiker zich voor een cloudservice die gebruikmaakt van Azure AD aanmeldt, worden ze toegevoegd aan een niet-beheerde Azure AD-directory op basis van hun e-maildomein. Zie voor meer informatie over self-service of "een" aanmelden voor een service [wat is er toepassing met selfserviceregistratie voor Azure Active Directory?]()
@@ -83,14 +83,12 @@ Wanneer u verifiëren dat de domeinnaam, wordt Azure AD verwijdert u de domeinna
 - Gebruikers
 - Abonnementen
 - Toewijzen van licenties
- 
-De [ **ForceTakeover** optie](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) voor extern beheer van domain name overname wordt ondersteund voor slechts twee services, Power BI en Azure RMS.
 
 ### <a name="support-for-external-admin-takeover"></a>Ondersteuning voor extern beheer overname
 Extern beheer overname wordt ondersteund door de volgende online services:
 
 - Power BI
-- Azure Rights Management-Service (RMS)
+- Azure Rights Management
 - Exchange Online
 
 De ondersteunde serviceplannen zijn onder andere:
@@ -99,18 +97,25 @@ De ondersteunde serviceplannen zijn onder andere:
 - Power BI Pro
 - Gratis PowerApps
 - Gratis PowerFlow
-- Basic van Azure Rights Management-Service (RMS)
-- Azure Rights Management Service Enterprise (RMS)
+- RMS voor personen
 - Microsoft Stream
 - Dynamics 365 gratis proefversie
 
-Exernal admin overname wordt niet ondersteund voor elke service met de service-abonnementen met SharePoint, OneDrive of Skype voor bedrijven; bijvoorbeeld via een gratis Office-abonnement of de basis-SKU van Office.
+Overname van extern beheer wordt niet ondersteund voor elke service met de service-abonnementen met SharePoint, OneDrive of Skype voor bedrijven; bijvoorbeeld via een gratis Office-abonnement of de basis-SKU van Office. U kunt eventueel de [ **ForceTakeover** optie](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) voor het verwijderen van de domeinnaam van de niet-beheerde tenant en het controleren op de gewenste tenant. Deze optie ForceTakeover wordt niet verplaatst via gebruikers of toegang tot het abonnement behouden. Met deze optie wordt alleen in plaats daarvan de domeinnaam. 
+
+#### <a name="more-information-about-rms-for-individuals"></a>Meer informatie over RMS voor personen
+
+Voor [RMS voor personen](/information-protection/understand-explore/rms-for-individuals), wanneer het niet-beheerde tenant bevindt zich in dezelfde regio bevinden als de tenant dat u eigenaar bent, de automatisch gemaakte [tenantsleutel voor Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) en [standaard beveiliging sjablonen](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) verder met de naam van het domein worden verplaatst. 
+
+De sleutel en sjablonen worden niet verplaatst via wanneer het niet-beheerde tenant bevindt zich in een andere regio. Bijvoorbeeld, is het niet-beheerde tenant in Europa en de tenant die van jou is in Noord-Amerika. 
+
+Hoewel RMS voor personen is ontworpen ter ondersteuning van Azure AD-verificatie om te openen van beveiligde inhoud, niet het voorkomen dat gebruikers ook het beschermen van inhoud. Als gebruikers inhoud met de RMS voor personen-abonnement beveiligen en de sleutel en de sjablonen niet via verplaatst zijn, wordt die inhoud niet meer toegankelijk nadat de overname van het domein.    
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD PowerShell-cmdlets voor de optie ForceTakeover
 U kunt deze cmdlets gebruikt in zien [PowerShell-voorbeeld](#powershell-example).
 
 
-cmdlet | Gebruik 
+Cmdlet | Gebruik 
 ------- | -------
 `connect-msolservice` | Wanneer u wordt gevraagd, moet u zich aanmelden bij uw beheerde tenant.
 `get-msoldomain` | Toont uw domeinnamen gekoppeld aan de huidige tenant.
@@ -118,7 +123,7 @@ cmdlet | Gebruik
 `get-msoldomain` | De domeinnaam is nu opgenomen in de lijst van domeinnamen die zijn gekoppeld aan uw beheerde tenant, maar wordt vermeld als **Unverified**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Bevat de informatie in de nieuwe DNS TXT-record voor het domein plaatsen (MS = xxxxx). Verificatie mogelijk niet plaatsvinden onmiddellijk omdat het duurt enige tijd voor de TXT-record te kunnen doorvoeren, dus wacht een paar minuten voordat de **- ForceTakeover** optie. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Als uw domeinnaam is nog niet geverifieerd, kunt u doorgaan met de **- ForceTakeover** optie. Wordt gecontroleerd of de TXT-record is gemaakt en het proces overname serversysteemstatus.<li>De **- ForceTakeover** optie moet worden toegevoegd aan de cmdlet, alleen wanneer het forceren van een overname extern beheer, zoals wanneer het niet-beheerde tenant heeft voor Office 365-services de overname blokkeren.
-`get-msoldomain` | Nu ziet u de lijst met de naam van het domein als **geverifieerde**.
+`get-msoldomain` | De lijst met domeinen wordt nu weergegeven als de naam van het domein **geverifieerde**.
 
 ### <a name="powershell-example"></a>PowerShell-voorbeeld
 

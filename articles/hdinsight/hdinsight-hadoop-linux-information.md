@@ -2,7 +2,7 @@
 title: Tips voor het gebruik van Hadoop op Linux gebaseerde HDInsight - Azure | Microsoft Docs
 description: Implementatie van tips voor het gebruik van HDInsight (Hadoop) op basis van Linux-clusters op een vertrouwde Linux-omgeving uitgevoerd in de Azure-cloud.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3ad7aa01200bf2bf4a63a380b2b883983c8622d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight in Linux
 
@@ -61,7 +59,7 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
 
 ## <a name="remote-access-to-services"></a>Externe toegang tot services
 
-* **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
+* **Ambari (web)** -https://&lt;clustername >. azurehdinsight.net
 
     Verifiëren met behulp van de cluster-beheerder en het wachtwoord en vervolgens weer aanmelden bij Ambari.
 
@@ -72,14 +70,14 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
     >
     > U kunt de volledige functionaliteit van de Ambari-webgebruikersinterface, gebruiken een SSH-tunnel naar de proxy-webverkeer met het hoofdknooppunt van het cluster. Zie [SSH-Tunneling gebruiken voor toegang tot de Ambari-webgebruikersinterface, ResourceManager JobHistory, NameNode, Oozie en andere web-UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
+* **Ambari (REST)** -https://&lt;clustername >.azurehdinsight.net/ambari
 
     > [!NOTE]
     > Verifiëren met behulp van de cluster-beheerder en het wachtwoord.
     >
     > Verificatie is tekst zonder opmaak - altijd gebruik van HTTPS om ervoor te zorgen dat de verbinding beveiligd is.
 
-* **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
+* **WebHCat (Templeton)** -https://&lt;clustername >.azurehdinsight.net/templeton
 
     > [!NOTE]
     > Verifiëren met behulp van de cluster-beheerder en het wachtwoord.
@@ -196,7 +194,7 @@ Als u __Azure Data Lake Store__, Zie de volgende koppelingen voor dat u toegang 
 * [Webbrowser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
 * [Azure CLI 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
-* [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
+* [WebHDFS REST-API](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Data Lake Tools voor Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
@@ -231,7 +229,7 @@ De verschillende clustertypen worden beïnvloed door de schaal als volgt:
 
     * **Storm-gebruikersinterface**: Gebruik de volgende stappen een topologie met behulp van de Storm-gebruikersinterface opnieuw verdelen.
 
-        1. Open **https://CLUSTERNAME.azurehdinsight.NET/stormui** in uw webbrowser, waarbij CLUSTERNAME de naam van uw Storm-cluster is. Als u wordt gevraagd, voert u de HDInsight-cluster (admin) beheerdersnaam en het wachtwoord die u hebt opgegeven bij het maken van het cluster.
+        1. Open **https://CLUSTERNAME.azurehdinsight.net/stormui** in uw webbrowser, waarbij CLUSTERNAME de naam van uw Storm-cluster is. Als u wordt gevraagd, voert u de HDInsight-cluster (admin) beheerdersnaam en het wachtwoord die u hebt opgegeven bij het maken van het cluster.
         2. Selecteer de topologie die u wilt opnieuw verdelen en selecteer vervolgens de **opnieuw verdelen** knop. Voer de wachttijd voordat de bewerking deel opnieuw wordt uitgevoerd.
 
 * **Kafka**: U moet partitie replica's opnieuw verdelen na het schalen van bewerkingen. Zie voor meer informatie de [hoge beschikbaarheid van gegevens met Kafka op HDInsight](./kafka/apache-kafka-high-availability.md) document.
@@ -273,7 +271,7 @@ Upload de versie die u nodig hebt en deze gebruiken in uw taken voor het gebruik
 > [!WARNING]
 > Onderdelen van het HDInsight-cluster worden volledig ondersteund en Microsoft Support kunt opsporen en oplossen van problemen met betrekking tot deze onderdelen.
 >
-> Aangepaste onderdelen ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Dit kan leiden tot het oplossen van het probleem of vraag of u benaderen beschikbare kanalen voor de open-source technologieën waar grondige kennis van deze technologie kan worden gevonden. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [http://apache.org](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Aangepaste onderdelen ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Dit kan leiden tot het oplossen van het probleem of vraag of u benaderen beschikbare kanalen voor de open-source technologieën waar grondige kennis van deze technologie kan worden gevonden. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [ http://apache.org ](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

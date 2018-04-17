@@ -1,31 +1,29 @@
 ---
 title: Gebruik van meerdere HDInsight-clusters met een Azure Data Lake Store-account - Azure | Microsoft Docs
-description: "Informatie over het gebruik van meer dan een HDInsight-cluster met één Data Lake Store-account"
+description: Informatie over het gebruik van meer dan een HDInsight-cluster met één Data Lake Store-account
 keywords: hdinsight-opslag, hdfs, gestructureerde gegevens, ongestructureerde gegevens, data lake store
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Meerdere HDInsight-clusters met een Azure Data Lake Store-account gebruiken
 
 Beginnen met HDInsight versie 3.5, kunt u HDInsight-clusters maken met Azure Data Lake Store-accounts als het bestandssysteem standaard.
-Data Lake Store biedt onbeperkte opslag die het maakt niet alleen voor het hosten van grote hoeveelheden gegevens; ideaal ondersteuning maar ook voor het hosten van meerdere HDInsight-clusters die share één Data Lake Store-Account. Voor instructionson hoe een HDInsight-cluster maken met Data Lake Store omdat de opslaggroep raadpleegt [HDInsight-clusters maken met Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Data Lake Store biedt onbeperkte opslag die het maakt niet alleen voor het hosten van grote hoeveelheden gegevens; ideaal ondersteuning maar ook voor het hosten van meerdere HDInsight-clusters die share één Data Lake Store-Account. Zie voor instructies over het maken van een HDInsight-cluster met Data Lake Store als de opslag [HDInsight-clusters maken met Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 Dit artikel bevat aanbevelingen voor de Data Lake opslaan administrator voor het instellen van een enkel en gedeelde Data Lake opslaan-Account waarmee u over meerdere **active** HDInsight-clusters. Deze aanbevelingen gelden voor het hosten van meerdere beveiligde, evenals een niet-beveiligde Hadoop-clusters op een gedeelde Data Lake store-account.
 
@@ -94,7 +92,7 @@ Deze instellingen bekend is dat invloed op een specifieke HDInsight use case vas
 Zoals vermeld in de YARN-JIRA gekoppeld eerder tijdens het lokaliseren van openbare bronnen, de localizer wordt gevalideerd of de gewenste bronnen inderdaad openbare door hun machtigingen op het externe bestand-systeem controleren. Alle LocalResource die voldoet niet aan die voorwaarde is voor lokalisatie geweigerd. De controle voor machtigingen, omvat leestoegang tot het bestand voor 'anderen'. Dit scenario werkt niet out-of-the-box-bij het hosten van HDInsight-clusters op Azure Data Lake omdat Azure Data Lake alle de toegang aan 'anderen weigert' op hoofdniveau van de map.
 
 #### <a name="workaround"></a>Tijdelijke oplossing
-Set lees-schrijfrechten hebben voor **anderen** via de hiërarchie, bijvoorbeeld op  **/** , **/clusters** en   **/clusters/financiën** zoals weergegeven in de bovenstaande tabel.
+Set lees-schrijfrechten hebben voor **anderen** via de hiërarchie, bijvoorbeeld op **/**, **/clusters** en   **/clusters/financiën** zoals weergegeven in de bovenstaande tabel.
 
 ## <a name="see-also"></a>Zie ook
 

@@ -1,6 +1,6 @@
 ---
-title: HTTPS configureren op een aangepast domein Azure Content Delivery Network | Microsoft Docs
-description: Informatie over het in- of HTTPS uitschakelen op uw Azure CDN-eindpunt met een aangepast domein.
+title: HTTPS configureren op een aangepaste Azure CDN-domein | Microsoft Docs
+description: Informatie over het in- of uitschakelen van HTTPS op uw aangepaste domein van Azure CDN-eindpunt.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 554ae4c19d1a3d35075ad174549a62a20329e5fa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ca3dad18973197f63e69e6568b8ea5988b279e01
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>HTTPS configureren op een aangepast domein Azure Content Delivery Network
+# <a name="configure-https-on-an-azure-cdn-custom-domain"></a>HTTPS configureren op een aangepaste Azure CDN-domein
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Microsoft ondersteunt het HTTPS-protocol voor aangepaste domeinen op Azure Content Delivery Network (CDN). Met HTTPS-ondersteuning voor het aangepaste domein, kunt u beveiligde inhoud met SSL-beveiliging met behulp van uw eigen domeinnaam voor het verbeteren van de beveiliging van gegevens die onderweg leveren. De werkstroom HTTPS inschakelen voor uw aangepaste domein wordt vereenvoudigd, via één klik inschakelen en volledige Certificaatbeheer, allemaal zonder extra kosten.
+Azure Content Delivery Network (CDN) ondersteunt het HTTPS-protocol voor een aangepast domein op een CDN-eindpunt. Met het HTTPS-protocol op uw aangepaste domein, zorgt u ervoor dat uw vertrouwelijke gegevens wordt geleverd veilig via SSL-codering wanneer ze via internet worden verzonden. HTTPS biedt vertrouwt, verificatie, en uw webtoepassingen worden beschermd tegen aanvallen. Bovendien het leveren van de beveiligde inhoud met behulp van uw eigen domeinnaam (bijvoorbeeld https:\//www.contoso.com). De werkstroom inschakelen HTTPS wordt vereenvoudigd, via één klik inschakelen en volledige Certificaatbeheer, allemaal zonder extra kosten.
 
-Het is essentieel om te controleren of de privacy en integriteit van gegevens van uw webtoepassing gevoelige gegevens terwijl het onderweg is. Met het HTTPS-protocol, zorgt u ervoor dat uw vertrouwelijke gegevens worden versleuteld wanneer ze via internet worden verzonden. Het biedt vertrouwt, verificatie, en uw webtoepassingen worden beschermd tegen aanvallen. Standaard ondersteunt Azure CDN HTTPS op een CDN-eindpunt. Bijvoorbeeld, als u een CDN-eindpunt maken vanuit Azure CDN (zoals https:\//contoso.azureedge.net), HTTPS is automatisch ingeschakeld. Bovendien met HTTPS-ondersteuning voor het aangepaste domein, kunt u ook inschakelen beveiligde levering voor een aangepast domein (bijvoorbeeld https:\//www.contoso.com). 
+Azure CDN ondersteunt ook HTTPS op de hostnaam van een CDN-eindpunt standaard. Bijvoorbeeld, als u een CDN-eindpunt maken (zoals https:\//contoso.azureedge.net), HTTPS is automatisch ingeschakeld.  
 
 Enkele van de belangrijkste kenmerken van de functie voor HTTPS zijn:
 
@@ -39,7 +39,7 @@ Enkele van de belangrijkste kenmerken van de functie voor HTTPS zijn:
 >[!NOTE] 
 >Voordat het HTTPS-ondersteuning wordt ingeschakeld, u moet hebben al een [aangepaste Azure CDN-domein](./cdn-map-content-to-custom-domain.md).
 
-## <a name="enabling-https"></a>Enabling HTTPS
+## <a name="enabling-https"></a>HTTPS inschakelen
 
 Volg deze stappen zodat HTTPS op een aangepast domein:
 
@@ -77,6 +77,8 @@ Zie voor meer informatie over de CNAME-records [maakt u de DNS CNAME-record](htt
 
 Als uw CNAME-record in de juiste indeling is, wordt DigiCert automatisch gecontroleerd van uw aangepaste domeinnaam en voegt het toe aan het certificaat onderwerp alternatieve namen (SAN). DigitCert won't sturen je een bevestigingsmail en hoeft u uw aanvraag goedkeuren. Het certificaat is één jaar geldig en wordt automatische-vernieuwd voordat deze verloopt. Ga door naar [stap 3: wachten op doorgeven](#step-3-wait-for-propagation). 
 
+De validatie van de automatische duurt normaal gesproken een paar minuten. Als u uw domein gevalideerd binnen een uur niet ziet, moet u een ondersteuningsticket opent.
+
 #### <a name="cname-record-is-not-mapped-to-cdn-endpoint"></a>CNAME-record is niet toegewezen aan de CDN-eindpunt
 
 Als de vermelding CNAME-record voor uw eindpunt niet langer bestaat of het subdomein cdnverify bevat, voert u de rest van de instructies in deze stap.
@@ -87,11 +89,11 @@ Nadat u HTTPS op uw aangepaste domein inschakelt, de DigiCert-certificeringsinst
 
 DigiCert wordt ook een bevestigingsmail verzonden naar extra e-mailadressen. Als de WHOIS registrant informatie particulier is, controleert u of kunt u rechtstreeks vanuit een van de volgende adressen goedkeuren:
 
-admin@&lt;your-domain-name.com&gt;  
-administrator@&lt;your-domain-name.com&gt;  
-webmaster@&lt;your-domain-name.com&gt;  
-hostmaster@&lt;your-domain-name.com&gt;  
-postmaster@&lt;your-domain-name.com&gt;  
+beheerder @&lt;your domain-name.com&gt;  
+beheerder @&lt;your domain-name.com&gt;  
+webbeheerder @&lt;your domain-name.com&gt;  
+hostmaster @&lt;your domain-name.com&gt;  
+postbeheerder @&lt;your domain-name.com&gt;  
 
 U ontvangt een e-mailbericht over een paar minuten, vergelijkbaar met het volgende voorbeeld, waarin u de aanvraag goedkeuren. Als u een spamfilter gebruikt, voegt admin@digicert.com naar de goedgekeurde IP-adressen. Als u een e-mailbericht niet binnen 24 uur ontvangt, moet u contact op met Microsoft ondersteuning.
     
@@ -124,7 +126,7 @@ De volgende tabel toont de voortgang van de bewerking die wordt uitgevoerd wanne
 | 1 indienen aanvraag | Aanvraag verzenden |
 | | Uw HTTPS-aanvraag wordt verzonden. |
 | | Uw HHTPS-aanvraag is verzonden. |
-| 2 domeinvalidatie | We hebben verzonden een e-mail waarin u het eigendom van het domein te valideren. Wachten op uw bevestiging. ** |
+| 2 domeinvalidatie | Domein automatisch gevalideerd als het CNAME toegewezen aan het CDN-eindpunt. Anders wordt een verzoek voor identiteitverificatie verzonden naar de e-mail die worden vermeld in uw domein registratierecord (WHOIS registrant). Controleer of het domein zo snel mogelijk. |
 | | Uw domeineigendom is gevalideerd. |
 | | Domein eigendom validatieaanvraag verlopen (de klant waarschijnlijk heeft niet gereageerd binnen 6 dagen). HTTPS wordt niet ingeschakeld op uw domein. * |
 | | Domein eigendom validatie-aanvraag is geweigerd door de klant. HTTPS wordt niet ingeschakeld op uw domein. * |
@@ -135,7 +137,6 @@ De volgende tabel toont de voortgang van de bewerking die wordt uitgevoerd wanne
 
 \* Dit bericht is alleen beschikbaar als een fout opgetreden. 
 
-\** Dit bericht wordt niet weergegeven als u een CNAME-vermelding hebt voor uw aangepaste domein die rechtstreeks naar de hostnaam van uw CDN-eindpunt verwijst.
 
 Als een fout optreedt voordat de aanvraag is verzonden, wordt het volgende foutbericht weergegeven:
 
@@ -189,7 +190,7 @@ De volgende tabel toont de voortgang van de bewerking die deze gebeurtenis treed
 
 3. *Wat gebeurt er als ik ontvang geen bevestigingsmail van het domein van DigiCert?*
 
-    Neem contact op met Microsoft ondersteuning als u een e-mailbericht niet binnen 24 uur ontvangt. Als u een CNAME-item voor uw aangepaste domein die rechtstreeks naar de hostnaam van uw eindpunt verwijst hebt (en u de naam van het subdomein cdnverify niet gebruikt), ontvangt u geen een bevestigingsmail domein. Validatie wordt automatisch uitgevoerd.
+    Als u een CNAME-item voor uw aangepaste domein die rechtstreeks naar de hostnaam van uw eindpunt verwijst hebt (en u de naam van het subdomein cdnverify niet gebruikt), ontvangt u geen een bevestigingsmail domein. Validatie wordt automatisch uitgevoerd. Anders, als u een CNAME-vermelding hebt en u een e-mailbericht niet binnen 24 uur ontvangen, contact op met Microsoft ondersteuning.
 
 4. *Maakt gebruik van een SAN-certificaat minder veilig dan een speciaal certificaatarchief?*
     

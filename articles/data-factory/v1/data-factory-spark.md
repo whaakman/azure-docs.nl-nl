@@ -2,10 +2,10 @@
 title: Aanroepen van Spark-programma's van Azure Data Factory | Microsoft Docs
 description: Informatie over het aanroepen van Spark-programma's van een Azure data factory met behulp van de MapReduce-activiteit.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Spark-programma's van Azure Data Factory-pijplijnen aanroepen
 
@@ -59,7 +59,7 @@ Hier volgen de gebruikelijke stappen voor het maken van een data factory-pijplij
 
 2. Maken van een Spark-cluster in HDInsight door de instructies in de zelfstudie [maken van een Spark-cluster in HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Het opslagaccount dat u hebt gemaakt in stap 1 met dit cluster koppelen.
 
-3. Downloaden en bekijken van het scriptbestand Python **test.py** zich bevindt op [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+3. Downloaden en bekijken van het scriptbestand Python **test.py** zich bevindt op [ https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py ](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
 4. Uploaden **test.py** naar de **pyFiles** map in de **adfspark** container in de blob-opslag. Maak de container en de map als deze nog niet bestaan.
 
@@ -84,7 +84,7 @@ Volg deze stappen om een data factory te maken:
 7. Selecteer **Maken**.
 
    > [!IMPORTANT]
-   > Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) op abonnements-/resourcegroepniveau.
+   > Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) op abonnements-/resourcegroepniveau.
 
 8. Wanneer deze is gemaakt in het dashboard van de Azure-portal ziet u de gegevensfactory.
 

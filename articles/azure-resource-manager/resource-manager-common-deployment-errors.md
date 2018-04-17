@@ -2,7 +2,7 @@
 title: Veelvoorkomende fouten van de Azure-implementatie oplossen | Microsoft Docs
 description: Beschrijft hoe u veelvoorkomende fouten oplossen wanneer u resources in Azure met Azure Resource Manager implementeert.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01cc75c522b85f7b4a4b38c92f42cb113d016b73
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager oplossen
 
@@ -31,9 +31,9 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Ga als volgt naamsbeperkingen voor opslagaccounts. | [Naam van het opslagaccount oplossen](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Controleer de eigenschappen van het opslagaccount beschikbaar. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | Het cluster of de regio is geen beschikbare bronnen of het aangevraagde VM-grootte kan niet worden ondersteund. De aanvraag op een later tijdstip opnieuw proberen of vraag een andere VM-grootte. | [Inrichten en de toewijzing van problemen voor Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) en [inrichten en de toewijzing van problemen voor Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| AllocationFailed | Het cluster of de regio is geen beschikbare bronnen of het aangevraagde VM-grootte kan niet worden ondersteund. De aanvraag op een later tijdstip opnieuw proberen of vraag een andere VM-grootte. | [Inrichten en de toewijzing van problemen voor Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [inrichten en de toewijzing van problemen voor Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) en [toewijzingsfouten](../virtual-machines/windows/allocation-failure.md)|
 | AnotherOperationInProgress | Wacht u totdat de gelijktijdige bewerking is voltooid. | |
-| AuthorizationFailed | Uw account of de service-principal heeft niet voldoende toegangsrechten voor het voltooien van de implementatie. Controleer de uw account behoort tot rol en de toegang voor de implementatie-scope. | [Op rollen gebaseerde toegangsbeheer van Azure](../active-directory/role-based-access-control-configure.md) |
+| AuthorizationFailed | Uw account of de service-principal heeft niet voldoende toegangsrechten voor het voltooien van de implementatie. Controleer de uw account behoort tot rol en de toegang voor de implementatie-scope. | [Op rollen gebaseerde toegangsbeheer van Azure](../role-based-access-control/role-assignments-portal.md) |
 | BadRequest | U verzonden implementatie-waarden die niet overeenkomen met wat er wordt verwacht door Resource Manager. Controleer de binnenste statusbericht voor meer informatie over het oplossen van problemen. | [Verwijzing naar de sjabloon](/azure/templates/) en [locaties ondersteund](resource-manager-templates-resources.md#location) |
 | Conflict | U hebt aangevraagd een bewerking die niet is toegestaan in de huidige status van de resource. De schijfgrootte is mag bijvoorbeeld alleen bij het maken van een virtuele machine of wanneer de toewijzing van de VM ongedaan is gemaakt. | |
 | DeploymentActive | Wacht voor gelijktijdige implementatie aan deze resourcegroep te voltooien. | |

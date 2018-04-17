@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 65319df8db339b1c124be47f27a841bbd7141921
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d3387812e064d3ce8a293db7d2c942a34cd5b364
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Beveiliging in Azure Data Lake Store
 Veel bedrijven profiteert van big data-analyses voor zakelijke inzichten zodat beslissingen voor de smartcard. Een organisatie kan een complex en gereglementeerde omgeving met een toenemend aantal diverse gebruikers hebben. Is het essentieel is voor een ondernemings-om ervoor te zorgen dat essentiële bedrijfsgegevens veiliger, wordt opgeslagen met het juiste niveau van toegang te krijgen tot afzonderlijke gebruikers. Azure Data Lake Store is ontworpen om te voldoen aan deze beveiligingsvereisten. In dit artikel meer informatie over de beveiligingsmogelijkheden van Data Lake Store, met inbegrip van:
@@ -42,7 +42,7 @@ Elk Azure-abonnement kan worden gekoppeld aan een exemplaar van Azure Active Dir
 ## <a name="authorization-and-access-control"></a>Autorisatie en toegangsbeheer
 Nadat u Azure Active Directory wordt een gebruiker geverifieerd, zodat de gebruiker toegang Azure Data Lake Store tot, toegangsmachtigingen autorisatie besturingselementen voor Data Lake Store. Data Lake Store scheidt autorisatie voor activiteiten met betrekking tot account en gerelateerde gegevens in de volgende manier:
 
-* [Toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md) (RBAC) opgegeven door de Azure voor accountbeheer
+* [Toegangsbeheer op basis van rollen](../role-based-access-control/overview.md) (RBAC) opgegeven door de Azure voor accountbeheer
 * POSIX ACL voor toegang tot gegevens in het archief
 
 ### <a name="rbac-for-account-management"></a>RBAC voor accountbeheer

@@ -3,23 +3,23 @@ title: Azure Cosmos DB tabel API voor Python | Microsoft Docs
 description: Meer informatie over de Azure Cosmos DB tabel API met inbegrip van release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie.
 services: cosmos-db
 documentationcenter: python
-author: mimig
-manager: jhubbard
-editor: 
-ms.assetid: 
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 11/20/2017
-ms.author: mimig1
-ms.custom: 
-ms.openlocfilehash: 70315d93b7211351c19a17553db88962f25d8acb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: sngun
+ms.custom: ''
+ms.openlocfilehash: 760f79bf50ea3e6e76beb26d2cd8419a8404a3ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB tabel API SDK voor Python: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/21/2017
 |**API-documentatie**|[Python-API-naslagdocumentatie](https://azure.github.io/azure-cosmosdb-python/)|
 |**SDK-installatie-instructies**|[Python SDK installatie-instructies](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Bijdragen aan de SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Huidige ondersteund platform**|[Python 2.7](https://www.python.org/downloads/) of [Python 3.3, 3.4, 3.5 of 3.6] (https://www.python.org/downloads/)|
+|**Huidige ondersteund platform**|[Python 2.7](https://www.python.org/downloads/) of () [Python 3.3, 3.4, 3.5 of 3.6]https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
 > Als u tijdens de preview een tabel-API-account hebt gemaakt, moet u een [nieuw tabel-API-account](create-table-dotnet.md#create-a-database-account) maken om te kunnen werken met de algemeen beschikbare SDK’s voor tabel-API's.

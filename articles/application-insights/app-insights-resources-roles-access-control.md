@@ -2,7 +2,7 @@
 title: Resources, rollen en toegang beheren in Azure Application Insights | Microsoft Docs
 description: Eigenaren, bijdragers en lezers van inzicht in uw organisatie.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bb6c33c083e1be690b70b63ca087c923d43f3ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resources, rollen en toegangsbeheer in Application Insights
-U kunt bepalen wie heeft lezen en bijwerken van toegang tot uw gegevens in Azure [Application Insights][start], met behulp van [toegangsbeheer op basis van rollen in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+U kunt bepalen wie heeft lezen en bijwerken van toegang tot uw gegevens in Azure [Application Insights][start], met behulp van [toegangsbeheer op basis van rollen in Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Toewijzen van toegang voor gebruikers in de **resourcegroep of abonnement** die uw toepassingsresource behoort - niet in de bron zelf. Wijs de **Application Insights-onderdeelinzender** rol. Dit zorgt ervoor uniform beheer van toegang tot webtests en waarschuwingen samen met de bron van uw toepassing. [Meer informatie](#access).
@@ -45,7 +45,7 @@ Eerste, sommige definities:
 * [**Abonnement** ](https://portal.azure.com) - met Application Insights of andere Azure-resources, u zich aanmeldt bij een Azure-abonnement. Elke resourcegroep behoort tot één Azure-abonnement, waar u kiest uw pakket prijs en, als het een organisatie-abonnement, kiest u leden en hun machtigingen voor toegang.
 * [**Microsoft-account** ] [ account] -de gebruikersnaam en het wachtwoord dat u aan te melden bij Microsoft Azure-abonnementen, XBox Live, Outlook.com en andere Microsoft-services.
 
-## <a name="access"></a>Toegang beheren in de resourcegroep
+## <a name="access"></a> Toegang beheren in de resourcegroep
 Het is belangrijk te weten dat naast de bron die u voor uw toepassing hebt gemaakt, er ook afzonderlijke verborgen bronnen voor waarschuwingen en webtests zijn. Deze zijn gekoppeld aan dezelfde [resourcegroep](#resource-group) als uw toepassing. Mogelijk hebt u andere Azure-services in, zoals websites of opslag is er ook plaatsen.
 
 ![Resources in Application Insights](./media/app-insights-resources-roles-access-control/00-resources.png)
@@ -67,7 +67,7 @@ De gebruiker er toevoegen.
 
 Of u kan hoofdmap en de gebruiker toevoegen aan het abonnement.
 
-#### <a name="select-a-role"></a>Rol selecteren
+#### <a name="select-a-role"></a>Selecteer een rol
 ![Selecteer een rol voor de nieuwe gebruiker](./media/app-insights-resources-roles-access-control/03-role.png)
 
 | Rol | In de resourcegroep |
@@ -91,7 +91,7 @@ Als de gebruiker die u wilt dat niet in de map, kunt u iedereen met een Microsof
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 
-* [Op rollen gebaseerde toegangsbeheer in Azure](../active-directory/role-based-access-control-configure.md)
+* [Op rollen gebaseerde toegangsbeheer in Azure](../role-based-access-control/role-assignments-portal.md)
 
 <!--Link references-->
 

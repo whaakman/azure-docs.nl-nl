@@ -2,35 +2,33 @@
 title: .NET gebruiken met Hadoop-MapReduce op Linux gebaseerde HDInsight - Azure | Microsoft Docs
 description: Informatie over het gebruik van .NET-toepassingen voor streaming MapReduce op Linux gebaseerde HDInsight.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: bff53af8f5c0b74cf0f69ba474d62ecdb7e20ce1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 36b8f51122bad6614e63dfc58e09e5c1ca08f83d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migreren van .NET-oplossingen voor HDInsight op Linux gebaseerde HDInsight op basis van Windows
 
-Linux gebaseerde HDInsight-clusters gebruik [Mono (https://mono-project.com)](https://mono-project.com) .NET-toepassingen uit te voeren. Mono kunt u .NET-componenten zoals MapReduce-toepassingen gebruiken met HDInsight op basis van Linux. Informatie over het migreren van .NET-oplossingen voor Windows gebaseerde HDInsight-clusters werkt met Mono op Linux gebaseerde HDInsight gemaakt in dit document.
+Linux gebaseerde HDInsight-clusters gebruik [Mono (https://mono-project.com) ](https://mono-project.com) .NET-toepassingen uit te voeren. Mono kunt u .NET-componenten zoals MapReduce-toepassingen gebruiken met HDInsight op basis van Linux. Informatie over het migreren van .NET-oplossingen voor Windows gebaseerde HDInsight-clusters werkt met Mono op Linux gebaseerde HDInsight gemaakt in dit document.
 
 ## <a name="mono-compatibility-with-net"></a>Mono compatibiliteit met .NET
 
 Mono versie 4.2.1 is opgenomen in HDInsight versie 3.6. Zie voor meer informatie over de versie van Mono opgenomen met HDInsight [HDInsight onderdeel versies](hdinsight-component-versioning.md). Zie het installeren van een specifieke versie van Mono de [installeren of bijwerken van Mono](hdinsight-hadoop-install-mono.md) document.
 
-Zie voor meer informatie over de compatibiliteit tussen Mono en .NET de [Mono compatibiliteit (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) document.
+Zie voor meer informatie over de compatibiliteit tussen Mono en .NET de [Mono compatibiliteit (http://www.mono-project.com/docs/about-mono/compatibility/) ](http://www.mono-project.com/docs/about-mono/compatibility/) document.
 
 > [!IMPORTANT]
 > Het framework SCP.NET is compatibel met Mono. Zie voor meer informatie over het gebruik van SCP.NET met Mono [Gebruik Visual Studio C#-topologieën ontwikkelen voor Apache Storm op HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
@@ -58,7 +56,7 @@ De [.NET draagbaarheid Analyzer](https://marketplace.visualstudio.com/items?item
 
 ## <a name="manual-portability-analysis"></a>Handmatige draagbaarheid analyse
 
-Voer een handmatige controle van uw code met de informatie in de [toepassing draagbaarheid (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) document.
+Voer een handmatige controle van uw code met de informatie in de [toepassing draagbaarheid (http://www.mono-project.com/docs/getting-started/application-portability/) ](http://www.mono-project.com/docs/getting-started/application-portability/) document.
 
 ## <a name="modify-and-build"></a>Wijzigen en maken
 

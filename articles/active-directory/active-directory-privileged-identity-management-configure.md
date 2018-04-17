@@ -2,10 +2,10 @@
 title: Azure AD Privileged Identity Management configureren | Microsoft Docs
 description: Dit onderwerp wordt beschreven wat Azure AD Privileged Identity Management is en hoe u PIM gebruikt om de beveiliging van uw cloud te verbeteren.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f91ebe0f94c57c9ad217ffe280f9aa0a9aa6acb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Wat is Azure AD Privileged Identity Management?
 
@@ -72,7 +72,7 @@ Azure RBAC-rollen, kunt alleen de abonnementsbeheerder van een, een resource-eig
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Overzicht van Privileged Identity Management (toegangspunt)
 
-Azure AD Privileged Identity Management ondersteunt beheer van Azure AD-directory-rollen en functies voor Azure-Resources (Preview). De functie van de rollen voor Azure-resources verschillen van beheerdersrollen in Azure AD. Azure-resourcerollen bieden gedetailleerde machtigingen in voor de resource waarop ze worden toegewezen, en alle onderliggende resources in de resource-hiërarchie (bekend als overname). [Meer informatie over RBAC, resource-hiërarchie en overname](role-based-access-control-configure.md). PIM voor zowel Azure AD-directory rollen en Azure-Resources (Preview) kan worden beheerd door het openen van de koppeling onder het gedeelte van het beheren van de PIM-overzicht vermelding punt linkernavigatievenster menu.
+Azure AD Privileged Identity Management ondersteunt beheer van Azure AD-directory-rollen en functies voor Azure-Resources (Preview). De functie van de rollen voor Azure-resources verschillen van beheerdersrollen in Azure AD. Azure-resourcerollen bieden gedetailleerde machtigingen in voor de resource waarop ze worden toegewezen, en alle onderliggende resources in de resource-hiërarchie (bekend als overname). [Meer informatie over RBAC, resource-hiërarchie en overname](../role-based-access-control/role-assignments-portal.md). PIM voor zowel Azure AD-directory rollen en Azure-Resources (Preview) kan worden beheerd door het openen van de koppeling onder het gedeelte van het beheren van de PIM-overzicht vermelding punt linkernavigatievenster menu.
 
 PIM biedt snel toegang tot rollen activeren, bekijken in behandeling zijnde activeringen/aanvragen in behandeling zijnde goedkeuringen (voor Azure AD directory-functies), en in afwachting van uw antwoord in het gedeelte van de taken van het navigatiemenu links beoordeelt.
 

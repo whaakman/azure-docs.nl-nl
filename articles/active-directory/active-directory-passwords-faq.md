@@ -3,11 +3,11 @@ title: Selfservice voor wachtwoordherstel FAQ - Azure Active Directory
 description: Veelgestelde vragen over Azure AD zelf uw wachtwoord opnieuw instellen
 services: active-directory
 keywords: Wachtwoordbeheer Active directory, wachtwoordbeheer, Azure AD self service voor wachtwoordherstel
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d30e3f099f497f35938b702d5fbb3ca38565f7c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
@@ -105,7 +105,7 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
     >Als u de melding niet binnen deze tijd ontvangt:
         > * Controleer de map Ongewenste e-mail.
         > * Controleer of het nummer of de e-mailadres waarmee contact wordt gemaakt die u verwacht.
-        > * Controleren of de verificatiegegevens in de map juist is opgemaakt, bijvoorbeeld: + 1 4255551234 of  *user@contoso.com* . 
+        > * Controleren of de verificatiegegevens in de map juist is opgemaakt, bijvoorbeeld: + 1 4255551234 of *user@contoso.com*. 
   >
   >
 * **V: welke talen worden ondersteund door het wachtwoord opnieuw instellen?**
@@ -190,7 +190,7 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   >
 * **V: kan ik verhinderen dat gebruikers hun wachtwoord opnieuw instellen?**
 
-  > **A:** Ja, als u een groep gebruiken om in te schakelen SSPR, u kunt een afzonderlijke gebruiker verwijderen uit de groep waarmee gebruikers hun wachtwoord opnieuw instellen.
+  > **A:** Ja, als u een groep gebruiken om in te schakelen SSPR, u kunt een afzonderlijke gebruiker verwijderen uit de groep waarmee gebruikers hun wachtwoord opnieuw instellen. Als de gebruiker een globale beheerder ze, de mogelijkheid om hun wachtwoord opnieuw in te behouden en deze kan niet worden uitgeschakeld.
   >
   >
 

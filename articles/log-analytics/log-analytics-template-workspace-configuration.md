@@ -2,28 +2,28 @@
 title: Gebruik Azure Resource Manager-sjablonen te maken en configureren van een Log Analytics-werkruimte | Microsoft Docs
 description: U kunt Azure Resource Manager-sjablonen maken en configureren van Log Analytics-werkruimten.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: richrund
-ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e51dab1543c9c5c1c762134b3e73d608bcd523ba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
 U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met behulp van sjablonen uitvoeren kunt zijn:
 
-* Een werkruimte maken
+* Een werkruimte inclusief prijscategorie instelling maken 
 * Een oplossing toevoegen
 * Opgeslagen zoekopdrachten maken
 * Maak een computergroep
@@ -34,32 +34,108 @@ U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-gro
 * Log analytics agent toevoegen aan een virtuele machine van Azure
 * Log analytics om gegevens te indexeren verzameld met behulp van Azure diagnostics configureren
 
-In dit artikel biedt een sjabloon steekproeven illustratie van enkele van de configuratie die u van sjablonen uitvoeren kunt.
+In dit artikel vindt u voorbeelden van een sjabloon die illustratie van enkele van de configuratie die u met behulp van sjablonen uitvoeren kunt.
 
-## <a name="api-versions"></a>API-versies
-Het voorbeeld in dit artikel is voor een [werkruimte voor logboekanalyse bijgewerkt](log-analytics-log-search-upgrade.md).  Een verouderde om werkruimte te gebruiken, moet u de syntaxis van de query's op de oudere taal wijzigen en wijzigen van de API-versie voor elke resource.  De volgende tabel bevat de API-versie voor de resources in dit voorbeeld gebruikt.
+## <a name="create-a-log-analytics-workspace"></a>Een Log Analytics-werkruimte maken
+Het volgende voorbeeld wordt een werkruimte met een sjabloon van uw lokale computer. Het JSON-sjabloon is geconfigureerd om te vragen u alleen voor de naam van de werkruimte en geeft een standaardwaarde voor de parameters die waarschijnlijk moet worden gebruikt als een standaardconfiguratie in uw omgeving.  
 
-| Resource | Resourcetype | Verouderde API-versie | Bijgewerkte API-versie |
-|:---|:---|:---|:---|
-| Werkruimte   | Werkruimten    | 2015-11-01-preview | 2017-03-15-preview |
-| Search      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
-| Gegevensbron | gegevensbronnen   | 2015-11-01-preview | 2015-11-01-preview |
-| Oplossing    | oplossingen     | 2015-11-01-preview | 2015-11-01-preview |
+De volgende parameters instellen een standaardwaarde:
 
+* Locatie - standaard ingesteld op VS-Oost
+* SKU - standaard ingesteld op de nieuwe Per GB prijscategorie uitgebracht in de 2018 April model prijzen
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Maak en configureer een Log Analytics-werkruimte
+>[!WARNING]
+>Als het maken en configureren van een werkruimte voor logboekanalyse in een abonnement dat in de nieuwe April 2018 prijzen model heeft gekozen, is het de enige geldige logboekanalyse prijscategorie **PerGB2018**. 
+>
+
+### <a name="create-and-deploy-template"></a>Maken en implementeren van sjabloon
+
+1. Kopieer en plak de volgende JSON-syntaxis in het bestand:
+
+    ```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String",
+            "metadata": {
+              "description": "Specifies the name of the workspace."
+            }
+        },
+        "location": {
+            "type": "String",
+            "allowedValues": [
+              "eastus",
+              "westus"
+            ],
+            "defaultValue": "eastus",
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
+        },
+        "sku": {
+            "type": "String",
+            "allowedValues": [
+              "Standalone",
+              "PerNode",
+              "PerGB2018"
+            ],
+            "defaultValue": "PerGB2018",
+            "metadata": {
+            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
+        }
+          },
+    },
+    "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2017-03-15-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "sku": {
+                    "Name": "[parameters('sku')]"
+                },
+                "features": {
+                    "searchVersion": 1
+                }
+            }
+          }
+       ]
+    }
+    ```
+2. Bewerk de sjabloon om te voldoen aan uw vereisten.  Bekijk [Microsoft.OperationalInsights/workspaces sjabloon](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) verwijzing naar meer informatie over welke eigenschappen en waarden worden ondersteund. 
+3. Sla dit bestand als **deploylaworkspacetemplate.json** naar een lokale map.
+4. U kunt deze sjabloon nu implementeren. U PowerShell of de opdrachtregel om de werkruimte cretae te gebruiken.
+
+   * Gebruik de volgende opdrachten uit de map met de sjabloon voor PowerShell:
+   
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        ```
+
+   * Gebruik de volgende opdrachten uit de map met de sjabloon voor de opdrachtregel:
+
+        ```cmd
+        azure config mode arm
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        ```
+
+De implementatie kan enkele minuten duren. Wanneer deze is voltooid, ziet u een bericht dat lijkt op de volgende die het resultaat bevat:<br><br> ![Voorbeeld van resultaat wanneer de implementatie is voltooid](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+
+## <a name="create-and-configure-a-log-analytics-workspace"></a>Maken en configureren van een werkruimte voor logboekanalyse
 De volgende sjabloon voorbeeld ziet u hoe:
 
-1. Een werkruimte, met inbegrip van gegevensretentie instelling maken
-2. Oplossingen toevoegen aan de werkruimte
-3. Opgeslagen zoekopdrachten maken
-4. Maak een computergroep
-5. Verzamelen van IIS-logboeken van computers met de Windows-agent die is geïnstalleerd
-6. Verzamelen van prestatiemeteritems voor logische schijf van Linux-computers (% gebruikte Inodes Beschikbare Megabytes; Percentage gebruikte ruimte; Schijfoverdrachten per seconde; Schijf lezen per seconde; Schijf schrijven per seconde)
-7. Syslog-gebeurtenissen verzamelen van Linux-computers
-8. Fout- en waarschuwingsberichten gebeurtenissen verzamelen uit het gebeurtenislogboek van toepassing op Windows-computers
-9. Beschikbaar geheugen in megabytes-prestatiemeteritem verzamelen van Windows-computers
-11. IIS-logboeken en Windows-gebeurtenislogboeken is geschreven door Azure diagnostische gegevens naar een opslagaccount verzamelen
+1. Oplossingen toevoegen aan de werkruimte
+2. Opgeslagen zoekopdrachten maken
+3. Maak een computergroep
+4. Verzamelen van IIS-logboeken van computers met de Windows-agent die is geïnstalleerd
+5. Verzamelen van prestatiemeteritems voor logische schijf van Linux-computers (% gebruikte Inodes Beschikbare Megabytes; Percentage gebruikte ruimte; Schijfoverdrachten per seconde; Schijf lezen per seconde; Schijf schrijven per seconde)
+6. Syslog-gebeurtenissen verzamelen van Linux-computers
+7. Fout- en waarschuwingsberichten gebeurtenissen verzamelen uit het gebeurtenislogboek van toepassing op Windows-computers
+8. Beschikbaar geheugen in megabytes-prestatiemeteritem verzamelen van Windows-computers
+9. IIS-logboeken en Windows-gebeurtenislogboeken is geschreven door Azure diagnostische gegevens naar een opslagaccount verzamelen
 
 ```json
 {
@@ -77,10 +153,11 @@ De volgende sjabloon voorbeeld ziet u hoe:
       "allowedValues": [
         "Free",
         "Standalone",
-        "PerNode"
+        "PerNode",
+        "PerGB2018"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standalone, or PerNode"
+        "description": "Service Tier: Free, Standalone, PerNode, or PerGB2018"
     }
       },
     "dataRetention": {
@@ -421,7 +498,6 @@ New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <r
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
-
 
 ## <a name="example-resource-manager-templates"></a>Voorbeeld van de Resource Manager-sjablonen
 De Azure quickstart-sjablonengalerie bevat verschillende sjablonen voor logboekanalyse, met inbegrip van:

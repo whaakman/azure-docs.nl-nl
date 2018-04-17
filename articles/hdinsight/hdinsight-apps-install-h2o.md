@@ -2,25 +2,23 @@
 title: Installatie gepubliceerde toepassing - H2O mineraalwater - Azure HDInsight | Microsoft Docs
 description: Installeren en gebruiken van de toepassing H2O mineraalwater van derden Hadoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8734daa5303aa76e9f8a074b5f709727cabb58b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Gepubliceerde toepassing - H2O mineraalwater installeren
 
@@ -40,8 +38,8 @@ H2O mineraalwater biedt:
 ### <a name="resource-links"></a>Koppelingen naar hulpbronnen
 
 * [H2O.ai Engineering Roadmap](https://jira.h2o.ai/)
-* [H2O.ai Home](http://www.h2o.ai/)
-* [H2O.ai Documentation](http://docs.h2o.ai/)
+* [H2O.AI startpagina](http://www.h2o.ai/)
+* [H2O.AI documentatie](http://docs.h2o.ai/)
 * [H2O.AI-ondersteuning](https://support.h2o.ai/)
 * [H2O.AI Open-Source Codebase](https://github.com/h2oai/)
 
@@ -73,7 +71,7 @@ Lees voor stapsgewijze instructies over het installeren van deze en andere besch
 
     ![Cluster starten](./media/hdinsight-apps-install-h2o/start-cluster.png)
 
-5. Nadat het Cluster H2O actief en werkend is, open H2O stromen door te gaan naar  **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`** .
+5. Nadat het Cluster H2O actief en werkend is, open H2O stromen door te gaan naar **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`**.
 
     > [!NOTE]
     > Als u niet wilt openen H2O stromen, probeer uw browsercache wissen. Als u nog niet deze bereiken, u waarschijnlijk geen onvoldoende bronnen op het cluster. Verhoog het aantal Worker-knooppunten onder de **Scale cluster** optie in het deelvenster van uw cluster.
@@ -84,7 +82,7 @@ Lees voor stapsgewijze instructies over het installeren van deze en andere besch
 
     ![Selecteer Million_Songs.flow](./media/hdinsight-apps-install-h2o/million-songs.png)
 
-7. Zoeken naar het pad dat bevat **milsongs-cls-train.csv.gz**, en vervang het gehele pad tussen **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz** .
+7. Zoeken naar het pad dat bevat **milsongs-cls-train.csv.gz**, en vervang het gehele pad tussen **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
 
 8. Zoeken naar het pad dat bevat **milsongs-cls-test.csv.gz** en vervang ze door **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
 
