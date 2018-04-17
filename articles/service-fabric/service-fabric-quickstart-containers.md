@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/18
+ms.date: 04/03/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: eb4de9d7781ae355e42a6fec9f7732ad67228e70
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47a4e75699e024dae367524f16eb23fb72043ef5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Snelstart: een Service Fabric Windows-containertoepassing implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -28,12 +28,12 @@ Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in
 
 ![IIS-standaardwebpagina][iis-default]
 
-In deze snelstartgids leert u de volgende zaken:
-> [!div class="checklist"]
-> * Een Docker-containerinstallatiekopie verpakken
-> * Communicatie configureren
-> * De Service Fabric-toepassing bouwen en inpakken
-> * De containertoepassing implementeren naar Azure
+In deze snelstart leert u de volgende zaken:
+
+* Een Docker-containerinstallatiekopie verpakken
+* Communicatie configureren
+* De Service Fabric-toepassing bouwen en inpakken
+* De containertoepassing implementeren naar Azure
 
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement (u kunt een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maken).
@@ -210,16 +210,16 @@ Dit zijn de volledige manifesten voor de service en toepassing die worden gebrui
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze snelstartgids hebt u de volgende zaken geleerd:
-> [!div class="checklist"]
-> * Een Docker-containerinstallatiekopie verpakken
-> * Communicatie configureren
-> * De Service Fabric-toepassing bouwen en inpakken
-> * De containertoepassing implementeren naar Azure
 
-* Meer informatie over het uitvoeren van [containers in Service Fabric](service-fabric-containers-overview.md).
-* Lees de zelfstudie [Een .NET-toepassing implementeren in een container](service-fabric-host-app-in-a-container.md).
-* Meer informatie over de [levenscyclus](service-fabric-application-lifecycle.md) van de Service Fabric-toepassing.
-* Bekijk [voorbeelden van Service Fabric-containercode op GitHub](https://github.com/Azure-Samples/service-fabric-containers).
+* Een Docker-containerinstallatiekopie verpakken
+* Communicatie configureren
+* De Service Fabric-toepassing bouwen en inpakken
+* De containertoepassing implementeren naar Azure
+
+Meer informatie over het werken met Windows-containers in Service Fabric vindt u in de zelfstudie voor Windows-containerapps.
+
+> [!div class="nextstepaction"]
+> [Een Windows-containerapp maken](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

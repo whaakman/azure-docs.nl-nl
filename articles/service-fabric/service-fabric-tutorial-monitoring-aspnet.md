@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Zelfstudie: een ASP.NET Core-toepassing in Service Fabric bewaken en onderzoeken
 Deze zelfstudie is deel vier een serie. U doorloopt de stappen om controle en diagnose in te stellen met behulp van Application Insights voor een ASP.NET Core-toepassing die wordt uitgevoerd op een Service Fabric-cluster. U verzamelt de telemetrie van de toepassing die in het eerste deel van deze zelfstudie is ontwikkeld: [Een .NET Service Fabric-toepassing bouwen](service-fabric-tutorial-create-dotnet-app.md). 
@@ -89,8 +89,12 @@ Hier volgen de stappen om de NuGet in te stellen:
 1. Klik met de rechtermuisknop op **Oplossing 'Voting'** boven in uw Solution Explorer en klik op **NuGet-pakketten beheren voor Oplossing...**.
 2. Klik op **Bladeren** in het bovenste navigatiemenu van het venster 'NuGet--oplossing' en vink het vakje **Voorlopige versie opnemen** naast de zoekbalk aan.
 3. Zoek naar `Microsoft.ApplicationInsights.ServiceFabric.Native` en klik op het juiste NuGet-pakket.
+
+>[!NOTE]
+>Wellicht moet u het pakket Microsoft.ServiceFabric.Diagnistics.Internal op vergelijkbare wijze installeren als het pakket niet vooraf is geïnstalleerd, voordat u het Application Insights-pakket installeert.
+
 4. Vink rechts de twee vakjes aan naast de twee services in de toepassing, **VotingWeb** en **VotingData**, en klik op **Installeren**.
-    ![AI-registratie voltooid](./media/service-fabric-tutorial-monitoring-aspnet/aisdk-sf-nuget.png)
+    ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Klik op **OK** in het dialoogvenster *Wijzigingen controleren* dat verschijnt en *accepteer de licentie*. Hiermee wordt de NuGet aan de services toegevoegd.
 6. U moet nu de initialisatiefunctie voor telemetrie in de twee services instellen. Daarvoor opent u *VotingWeb.cs* en *VotingData.cs*. Voor beide volgt u de volgende twee stappen:
     1. Voeg deze twee *using*-instructies bovenaan het begin van elke  *\<ServiceName>.cs* toe:
@@ -114,6 +118,7 @@ Hier volgen de stappen om de NuGet in te stellen:
                 .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
+        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -137,6 +142,19 @@ Hier volgen de stappen om de NuGet in te stellen:
         .Build();
     ```
 
+Controleer of de `UseApplicationInsights()`-methode in beide bestanden wordt aangeroepen, zoals hierboven weergegeven. 
+
+>[!NOTE]
+>Deze voorbeeld-app gebruikt http om de services te laten communiceren. Als u een app ontwikkelt met Service Remoting V2, moet u ook de volgende regels code op dezelfde plaats toevoegen zoals u hierboven hebt gedaan.
+
+```csharp
+ConfigureServices(services => services
+    ...
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingDependencyTrackingTelemetryModule())
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingRequestTrackingTelemetryModule())
+)
+```
+
 U bent nu klaar om de toepassing te implementeren. Klik bovenaan op **Start** (of **F5**), waarna Visual Studio de toepassing bouwt en verpakt, uw lokale cluster instelt en de toepassing erin implementeert. 
 
 Nadat de toepassing is geïmplementeerd, gaat u naar [localhost:8080](localhost:8080) waar u de toepassing met één pagina 'Stemmingsvoorbeeld' zou moeten zien. Stem op een paar verschillende items naar keuze om voorbeeldgegevens en -telemetrie te maken. Hieronder zijn toetjes gebruikt.
@@ -147,9 +165,7 @@ Voel u ook vrij om een aantal van de stemopties te *verwijderen* nadat u een paa
 
 ## <a name="view-telemetry-and-the-app-map-in-application-insights"></a>De telemetrie en het toepassingsoverzicht in Application Insights bekijken 
 
-Ga naar uw Application Insights-resource in Azure Portal en klik in de linker navigatiebalk van de resource op **Previews** onder *Configureren*. Schakel **Aan** van de *Toepassingstoewijzing met meerdere rollen* in op de lijst met beschikbare previews.
-
-![Toepassingstoewijzing inschakelen in AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-appmap-enable.png)
+Ga naar uw Application Insights-resource in Azure Portal.
 
 Klik op **Overzicht** om terug te gaan naar de landingspagina van uw resource. Klik vervolgens op **Zoeken** in de rechterbovenhoek om de traceringen binnen te zien komen. Het duurt enkele minuten voordat de traceringen in Application Insights verschijnen. In het geval dat u er geen ziet, wacht u even en klikt u bovenaan op de knop **Vernieuwen**.
 ![Traceringen zien in AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
@@ -160,9 +176,9 @@ U kunt op een van deze traceringen klikken om er meer informatie over te bekijke
 
 ![AI-traceringsdetails](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-En aangezien we het toepassingsoverzicht hebben ingeschakeld, kunt u op de pagina *Overzicht* klikken op het pictogram **Toepassingsoverzicht** om beide verbonden services weer te geven.
+Bovendien kunt u klikken op *Toepassing toewijzen* in het linkermenu op de pagina Overzicht of klikken op het pictogram **App-kaart** om de App-kaart weer te geven met de twee verbonden services.
 
-![AI-traceringsdetails](./media/service-fabric-tutorial-monitoring-aspnet/app-map.png)
+![AI-traceringsdetails](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 Met het Toepassingsoverzicht kunt u beter inzicht krijgen in uw toepassingstopologie, vooral wanneer u meerdere verschillende services toevoegt die met elkaar samenwerken. U krijgt ook eenvoudige gegevens over succespercentages van aanvragen en inzicht in mislukte aanvragen om te zien waar iets fout kan zijn gegaan. Bekijk [Application Map in Application Insights](../application-insights/app-insights-app-map.md) (Toepassingsoverzicht in Application Insights) voor meer informatie over het gebruik van het toepassingsoverzicht.
 

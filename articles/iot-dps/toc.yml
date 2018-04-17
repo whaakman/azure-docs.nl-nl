@@ -89,28 +89,30 @@
       href: concepts-service.md
 - name: Handleidingen
   items:
-    - name: Apparaatregistraties beheren
-      items:
-        - name: Apparaatregistraties beheren met Azure Portal
-          href: how-to-manage-enrollments.md
-        - name: Apparaatregistraties beheren met service-SDK's
-          href: how-to-manage-enrollments-sdks.md
-    - name: Apparaattoegang intrekken
-      href: how-to-revoke-device-access-portal.md
-    - name: Inrichting van apparaten verwijderen
-      href: how-to-unprovision-devices.md
-    - name: Bewijs van bezit uitvoeren voor X.509 CA-certificaten
-      href: how-to-verify-certificates.md
-    - name: Gebruik HSM met SDK
-      href: use-hsm-with-sdk.md
-    - name: Toegang tot de inrichtingsservice beheren
-      href: how-to-control-access.md
-    - name: Azure CLI gebruiken voor het beheren van Device Provisioning Service
-      href: how-to-manage-dps-with-cli.md
-    - name: SDK-hulpprogramma's gebruiken om te ontwikkelen
-      href: how-to-use-sdk-tools.md
-    - name: Verbinding maken met een MXChip IoT DevKit
+    - name: MXChip IoT DevKit verbinden met IoT Hub
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Configuratie apparaatinrichting beheren
+      items:
+        - name: Geverifieerde CA-certificaten configureren
+          href: how-to-verify-certificates.md
+        - name: Ongedaan maken van inrichting beheren
+          href: how-to-unprovision-devices.md
+        - name: Uitschrijving beheren
+          href: how-to-revoke-device-access-portal.md
+        - name: Inschrijvingen beheren - Portal
+          href: how-to-manage-enrollments.md
+        - name: Inschrijvingen beheren - Service-SDK's
+          href: how-to-manage-enrollments-sdks.md
+    - name: Device Provisioning Service beheren
+      items:
+        - name: Device Provisioning Service configureren met behulp van de Azure CLI
+          href: how-to-manage-dps-with-cli.md
+        - name: Toegang tot de inrichtingsservice-API's beheren
+          href: how-to-control-access.md
+    - name: Attestation-mechanismen gebruiken met de SDK
+      href: use-hsm-with-sdk.md
+    - name: SDK-hulpprogramma's gebruiken voor ontwikkeling
+      href: how-to-use-sdk-tools.md
 - name: Naslaginformatie
   items:
     - name: REST

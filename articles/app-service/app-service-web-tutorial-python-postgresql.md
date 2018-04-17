@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9694dcfec7b3297e925bb45bee5e74b69609063d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Een Python- en PostgreSQL-web-app in Azure maken
+# <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Zelfstudie: een Python- en PostgreSQL-web-app in Azure maken
 
 > [!NOTE]
 > In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een Docker Python- en PostgreSQL-web-app in Azure maken](./containers/tutorial-docker-python-postgresql-app.md) voor een implementatie in App Service onder _Linux_.
@@ -31,8 +31,8 @@ ms.lasthandoff: 02/28/2018
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een PostgreSQL-database in Azure maken
-> * Een Python-app verbinden met MySQL
+> * Een PostgreSQL-database maken in Azure
+> * Een Python-app voor MySQL maken
 > * De app implementeren in Azure
 > * Het gegevensmodel bijwerken en de app opnieuw implementeren
 > * De app in Azure Portal beheren
@@ -59,7 +59,7 @@ sudo -u postgres psql
 
 Als de verbinding is geslaagd, wordt de PostgreSQL-database uitgevoerd. Zo niet, controleer dan of de lokale PostgreSQL-database wordt gestart door de stappen te volgen op [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
 
-Maak een database met de naam *eventregistration* en stel een afzonderlijke databasegebruiker in met de naam *manager* en wachtwoord *supersecretpass*.
+Maak een database met de naam *eventregistration* en stel een afzonderlijke databasegebruiker in met de naam *manager* en het wachtwoord *supersecretpass*.
 
 ```bash
 CREATE DATABASE eventregistration;
@@ -102,7 +102,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Wanneer de app volledig is geladen, ziet u een bericht zoals dit:
+Als de app is geladen, ziet u een bericht zoals dit:
 
 ```bash
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
@@ -134,7 +134,7 @@ In deze stap maakt u een PostgreSQL-database in Azure. Als de app is geïmplemen
 
 Maak een PostgreSQL-server met de opdracht [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create).
 
-Met de volgende opdracht vervangt u de tijdelijke aanduiding *\<postgresql_name>* door een unieke servernaam en de tijdelijke aanduiding *\<admin_username>* door een gebruikersnaam. De servernaam wordt gebruikt als onderdeel van het PostgreSQL-eindpunt (`https://<postgresql_name>.postgres.database.azure.com`). De naam moet dus uniek zijn voor alle servers in Azure. De gebruikersnaam is voor de gebruikersaccount van de oorspronkelijke databasebeheerder. U wordt gevraagd een wachtwoord voor deze gebruiker te kiezen.
+Met de volgende opdracht vervangt u de tijdelijke aanduiding *\<postgresql_name>* door een unieke servernaam en de tijdelijke aanduiding *\<admin_username>* door een gebruikersnaam. De servernaam wordt gebruikt als onderdeel van het PostgreSQL-eindpunt (`https://<postgresql_name>.postgres.database.azure.com`). De naam moet dus uniek zijn voor alle servers in Azure. De gebruikersnaam is voor het gebruikersaccount van de oorspronkelijke databasebeheerder. U wordt gevraagd een wachtwoord voor deze gebruiker te kiezen.
 
 ```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>  --storage-size 51200
@@ -226,7 +226,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Ga via een browser naar http://localhost:5000. Klik op **Registreren!** en maak een testregistratie. Er worden nu gegevens naar de database in Azure geschreven.
+Ga naar http://localhost:5000 in een browser. Klik op **Registreren!** en maak een testregistratie. Er worden nu gegevens naar de database in Azure geschreven.
 
 ![Lokaal uitgevoerde Python Flask-toepassing](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 

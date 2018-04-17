@@ -7,11 +7,11 @@ ms.topic: overview
 ms.date: 03/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 857dab5474cba24445daf7d139ae49d923038196
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8f6c2c54dd20b663eb43c716a2bd82310cf0256a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -30,7 +30,7 @@ Azure Migrate helpt u bij het volgende:
 
 - Op dit moment kunt u alleen on-premises virtuele VMware-machines (VMware-VM's) beoordelen voor migratie naar virtuele Azure-machines. De VMware-VM's moeten worden beheerd door een vCenter Server (versie 5.5, 6.0 of 6.5).
 - Ondersteuning voor Hyper-V is opgenomen in de planning. Ondertussen raden we u aan [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) te gebruiken om de migratie van Hyper-V-werkbelastingen te plannen. 
-- U kunt maximaal 1000 virtuele machines detecteren in een enkele detectieronde en maximaal 1500 virtuele machines in een enkel project. Bovendien kunt u maximaal 400 VM's beoordelen in een enkele beoordeling. Als u meer moet detecteren of beoordelen, kunt u het aantal detecties of beoordelingen verhogen. [Meer informatie](how-to-scale-assessment.md).
+- U kunt maximaal 1500 VM's detecteren in een enkele detectieronde en maximaal 1500 VM's in een enkel project. Bovendien kunt u maximaal 1500 VM's beoordelen in een enkele beoordeling.
 - U kunt een Azure Migrate-project alleen maken in de regio West-centraal VS of Oost VS. Dit is echter niet van invloed op de mogelijkheid om uw migratie te plannen voor een andere Azure-doellocatie. De locatie van het migratieproject wordt alleen gebruikt om de gedetecteerde metagegevens uit de on-premises omgeving op te slaan.
 - Azure Migrate biedt voor migratiebeoordeling alleen ondersteuning voor beheerde schijven.
 

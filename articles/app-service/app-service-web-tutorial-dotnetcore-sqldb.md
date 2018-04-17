@@ -5,7 +5,7 @@ services: app-service\web
 documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,13 +14,13 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d7f7407a385dd38989eaca2b81f66600c82cac2e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2fb966d92dec713d5bf5ca48e8d15ae489227739
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Een .NET Core- en SQL Database-web-app maken in Azure App Service
+# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Zelfstudie: een .NET Core- en SQL Database-web-app maken in Azure App Service
 
 > [!NOTE]
 > In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een .NET Core- en SQL Database-web-app maken in Azure App Service op Linux](./containers/tutorial-dotnetcore-sqldb-app.md) als u naar App Service wilt implementeren op _Linux_.
@@ -55,7 +55,7 @@ In deze stap stelt u het lokale .NET Core-project in.
 
 ### <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-In het terminalvenster, `cd` in een werkmap.
+Voer in het terminalvenster de opdracht `cd` naar een werkmap uit.
 
 Voer de volgende opdrachten uit om de voorbeeldopslagplaats te klonen en de hoofdmap ervan te wijzigen.
 
@@ -98,7 +98,7 @@ Voor SQL Database wordt in deze zelfstudie gebruikgemaakt van [Azure SQL Databas
 
 Maak een logische Azure SQL Database-server in Cloud Shell met de opdracht [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
 
-Vervang de tijdelijke aanduiding *\<server_name>* door een unieke SQL Database-naam. Deze naam wordt gebruikt als onderdeel van het SQL Database-eindpunt, `<server_name>.database.windows.net`. De naam moet dus uniek zijn voor alle logische servers in Azure. De naam mag alleen kleine letters, cijfers en het afbreekstreepje (-) bevatten, en moet tussen de 3 en 50 tekens lang zijn. Vervang tevens *\<db_username>* en *\<db_password>* door een gebruikersnaam en wachtwoord dat u zelf mag kiezen. 
+Vervang de tijdelijke aanduiding *\<server_name>* door een unieke SQL Database-naam. Deze naam wordt gebruikt als onderdeel van het SQL Database-eindpunt, `<server_name>.database.windows.net`. De naam moet dus uniek zijn voor alle logische servers in Azure. De naam mag alleen kleine letters, cijfers en het afbreekstreepje (-) bevatten, en moet tussen de 3 en 50 tekens lang zijn. Vervang tevens *\<db_username>* en *\<db_password>* door een zelfgekozen gebruikersnaam en wachtwoord. 
 
 
 ```azurecli-interactive
@@ -175,9 +175,9 @@ Als u verbindingsreeksen voor de Azure-app wilt instellen, gebruikt u de opdrach
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-Vervolgens stelt u de instelling voor `ASPNETCORE_ENVIRONMENT`-app in op _Productie_. Deze instelling betekent dat u de app in Azure uitvoert omdat u SQLite gebruikt voor uw lokale ontwikkelomgeving en SQL Database voor uw Azure-omgeving.
+Vervolgens stelt u de instelling voor de app `ASPNETCORE_ENVIRONMENT` in op _Productie_. Deze instelling betekent dat u de app in Azure uitvoert omdat u SQLite gebruikt voor uw lokale ontwikkelomgeving en SQL Database voor uw Azure-omgeving.
 
-In het volgende voorbeeld wordt een `ASPNETCORE_ENVIRONMENT`-app-instelling in de Azure-web-app geconfigureerd. Vervang de tijdelijke aanduiding *\<app_name>*.
+In het volgende voorbeeld wordt een app-instelling voor `ASPNETCORE_ENVIRONMENT` in de Azure-web-app geconfigureerd. Vervang de tijdelijke aanduiding *\<app_name>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -209,9 +209,9 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 
 Als met deze code wordt gedetecteerd dat deze in productie wordt uitgevoerd (wat op de Azure-omgeving wijst), wordt de verbindingsreeks gebruikt die u hebt geconfigureerd om verbinding te maken met SQL Database.
 
-De `Database.Migrate()`-aanroep helpt u wanneer deze in Azure wordt uitgevoerd, omdat automatisch de database wordt gemaakt die nodig is voor de NET Core-app, op basis van de migratieconfiguratie. 
+De aanroep `Database.Migrate()` helpt u wanneer deze in Azure wordt uitgevoerd, omdat automatisch de database wordt gemaakt die nodig is voor de NET Core-app, op basis van de migratieconfiguratie. 
 
-Sla uw wijzigingen op en voor deze door naar de Git-opslagplaats. 
+Sla uw wijzigingen op en voer deze door naar de Git-opslagplaats. 
 
 ```bash
 git commit -am "connect to SQLDB in Azure"
@@ -275,7 +275,7 @@ public bool Done { get; set; }
 
 ### <a name="run-code-first-migrations-locally"></a>Code First Migrations lokaal uitvoeren
 
-Voer enkele opdrachten uit en werk de lokale database bij.
+Voer enkele opdrachten uit om de lokale database bij te werken.
 
 ```bash
 dotnet ef migrations add AddProperty
@@ -293,7 +293,7 @@ Breng enkele wijzigingen aan de code aan zodat de eigenschap `Done` kan worden g
 
 Open _Controllers\TodosController.cs_.
 
-Zoek de `Create()`-methode en voeg `Done` toe aan de lijst met eigenschappen in het attribuut `Bind`. Als u klaar bent, ziet uw `Create()`-methode er uit als de onderstaande code:
+Zoek de methode `Create()` en voeg `Done` toe aan de lijst met eigenschappen in het attribuut `Bind`. Als u klaar bent, ziet uw methode `Create()` er uit als de onderstaande code:
 
 ```csharp
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
@@ -301,7 +301,7 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 
 Open _Views\Todos\Create.cshtml_.
 
-In de Razor-code zou u een `<div class="form-group">`-element voor `Description` moeten zien en vervolgens een ander `<div class="form-group">`-element voor `CreatedDate`. Voeg direct na deze twee elementen een ander `<div class="form-group">`-element voor `Done` toe:
+In de Razor-code zou u een `<div class="form-group">`-element voor `Description` moeten zien en vervolgens een ander element `<div class="form-group">` voor `CreatedDate`. Voeg direct na deze twee elementen een ander element `<div class="form-group">` voor `Done` toe:
 
 ```csharp
 <div class="form-group">
@@ -315,7 +315,7 @@ In de Razor-code zou u een `<div class="form-group">`-element voor `Description`
 
 Open _Views\Todos\Index.cshtml_.
 
-Zoek het lege `<th></th>`-element. Vlak boven dit element voegt u de volgende Razor-code toe:
+Zoek het lege element `<th></th>`. Vlak boven dit element voegt u de volgende Razor-code toe:
 
 ```csharp
 <th>
@@ -323,7 +323,7 @@ Zoek het lege `<th></th>`-element. Vlak boven dit element voegt u de volgende Ra
 </th>
 ```
 
-Zoek het `<td>`-element dat de `asp-action`-taghelpers bevat. Vlak boven dit element voegt u de volgende Razor-code toe:
+Zoek het element `<td>` dat de taghelpers voor `asp-action` bevat. Vlak boven dit element voegt u de volgende Razor-code toe:
 
 ```csharp
 <td>

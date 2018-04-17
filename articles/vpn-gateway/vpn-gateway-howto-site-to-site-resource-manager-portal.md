@@ -4,7 +4,7 @@ description: Stappen voor het maken van een IPSec-verbinding van uw on-premises 
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 827a4db7-7fa5-4eaf-b7e1-e1518c51c815
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3f85893884d11e89c1780db83f347005859b170a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 42aa80013edd7dcd0f78744e03e0f5da64bfeafc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Een site-naar-site-verbinding maken in Azure Portal
 
@@ -50,50 +50,50 @@ Controleer voordat u met de configuratie begint of u aan de volgende criteria he
 In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt deze waarden gebruiken om een testomgeving te maken of ze raadplegen om meer inzicht te krijgen in de voorbeelden in dit artikel. Zie [Over instellingen voor VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md) voor meer informatie over instellingen voor VPN-gateways in het algemeen.
 
 * **VNet-naam:** TestVNet1
-* **Adresruimte:** 10.11.0.0/16 en 10.12.0.0/16 (optioneel voor deze oefening)
+* **Adresruimte:** 10.1.0.0/16
 * **Abonnement:** Het gewenste abonnement
 * **Resourcegroep:** TestRG1
 * **Locatie:** VS - oost
-* **Subnet:** FrontEnd: 10.11.0.0/24, BackEnd: 10.12.0.0/24 (optioneel voor deze oefening)
+* **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optioneel voor deze oefening)
 * **Naam gatewaysubnet:** GatewaySubnet (dit wordt in de portal automatisch ingevuld)
-* **Adresbereik gatewaysubnet:** 10.11.255.0/27
-* **DNS-server:** optioneel. Het IP-adres van de DNS-server.
+* **Adresbereik gatewaysubnet:** 10.1.255.0/27
+* **DNS-server:** 8.8.8.8 (optioneel). Het IP-adres van de DNS-server.
 * **Gatewaynaam van het virtuele netwerk:** VNet1GW
 * **Openbare IP:** VNet1GWIP
 * **VPN-type:** Op route gebaseerd
 * **Verbindingstype:** site-naar-site (IPsec)
 * **Gatewaytype:** VPN
-* **Naam van lokale netwerkgateway:** Site2
-* **Verbindingsnaam:** VNet1toSite2
+* **Naam van lokale netwerkgateway:** Site1
+* **Verbindingsnaam:** VNet1toSite1
 * **Gedeelde sleutel:** In dit voorbeeld gebruiken we abc123. Maar u kunt datgene gebruiken wat compatibel is met uw VPN-hardware. Het belangrijkste is dat de waarden aan beide zijden van de verbinding met elkaar overeenkomen.
 
 ## <a name="CreatVNet"></a>1. Een virtueel netwerk maken
 
-[!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-s2s-rm-portal-include.md)]
+[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
 
 ## <a name="dns"></a>2. Een DNS-server opgeven
 
 DNS is niet vereist om site-naar-site-verbindingen te maken. Als u echter naamomzetting wilt instellen voor resources die in uw virtuele netwerk worden geïmplementeerd, moet u een DNS-server opgeven. Met deze instelling kunt u de DNS-server opgeven die u wilt gebruiken voor de naamomzetting voor dit virtuele netwerk. Hierdoor wordt geen DNS-server aangemaakt. Zie [Naamomzetting voor VM's en rolinstanties](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) voor meer informatie over naamomzetting.
 
-[!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
+[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-specify-dns-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Her gatewaysubnet maken
 
-[!INCLUDE [about gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
+[!INCLUDE [Add a gateway subnet](../../includes/vpn-gateway-add-gateway-subnet-portal-include.md)]
 
-[!INCLUDE [no nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="VNetGateway"></a>4. De VPN-gateway maken
 
-[!INCLUDE [vpn-gateway-add-gw-s2s-rm-portal](../../includes/vpn-gateway-add-gw-s2s-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gateway-portal-include.md)]
 
 ## <a name="LocalNetworkGateway"></a>5. De lokale netwerkgateway maken
 
 De lokale netwerkgateway verwijst doorgaans naar uw on-premises locatie. U geeft de site een naam waarmee Azure hiernaar kan verwijzen en geeft vervolgens het IP-adres op van het on-premises VPN-apparaat waarmee u verbinding maakt. U geeft ook de IP-adresvoorvoegsels op die via de VPN-gateway worden doorgestuurd naar het VPN-apparaat. De adresvoorvoegsels die u opgeeft, zijn de voorvoegsels die zich in uw on-premises netwerk bevinden. Als uw on-premises netwerk verandert of als u het openbare IP-adres voor het VPN-apparaat moet wijzigen, kunt u de waarden later eenvoudig bijwerken.
 
-[!INCLUDE [Add local network gateway](../../includes/vpn-gateway-add-lng-s2s-rm-portal-include.md)]
+[!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 
 ## <a name="VPNDevice"></a>6. Uw VPN-apparaat configureren
 
@@ -102,17 +102,17 @@ Voor site-naar-site-verbindingen met een on-premises netwerk is een VPN-apparaat
 - Een gedeelde sleutel. Dit is dezelfde gedeelde sleutel die u opgeeft wanneer u uw site-naar-site-VPN-verbinding maakt. In onze voorbeelden gebruiken we een eenvoudige gedeelde sleutel. We raden u aan een complexere sleutel te genereren.
 - Het openbare IP-adres van de gateway van uw virtuele netwerk. U kunt het openbare IP-adres weergeven met behulp van Azure Portal, PowerShell of de CLI. Navigeer naar **Virtuele netwerkgateways** en klik op de naam van uw VPN-gateway om het openbare IP-adres dat gebruikmaakt van Azure Portal te achterhalen.
 
-[!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+[!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
 ## <a name="CreateConnection"></a>7. De VPN-verbinding maken
 
 Maak de site-naar-site-VPN-verbinding tussen de gateway van uw virtuele netwerk en het on-premises VPN-apparaat.
 
-[!INCLUDE [Add connections](../../includes/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include.md)]
+[!INCLUDE [Add a site-to-site connection](../../includes/vpn-gateway-add-site-to-site-connection-portal-include.md)]
 
 ## <a name="VerifyConnection"></a>8. De VPN-verbinding controleren
 
-[!INCLUDE [Verify - Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
+[!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 
 ## <a name="connectVM"></a>Verbinding maken met een virtuele machine
 

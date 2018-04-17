@@ -5,7 +5,7 @@ services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Een ASP.NET-app bouwen in Azure met SQL Database
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Zelfstudie: Een ASP.NET-app bouwen in Azure met SQL Database
 
 [Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze zelfstudie leert u hoe u een gegevensgestuurde ASP.NET web-app implementeert in Azure en verbindt met [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Wanneer u klaar bent, hebt u een ASP.NET-app die wordt uitgevoerd in Azure en is verbonden met SQL-Database.
 
@@ -48,6 +48,8 @@ Vereisten voor het voltooien van deze zelfstudie:
   - **Azure-ontwikkeling**
 
   ![ASP.NET- en web-ontwikkeling en Azure-ontwikkeling (onder Web en cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+
+Als u Visual Studio al hebt geïnstalleerd, voegt u de workloads toe in Visual Studio door te klikken op **Extra** > **Hulpprogramma's en functies ophalen**.
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
@@ -224,7 +226,7 @@ public bool Done { get; set; }
 
 ### <a name="run-code-first-migrations-locally"></a>Code First Migrations lokaal uitvoeren
 
-Voer enkele opdrachten uit en werk de lokale database bij. 
+Voer enkele opdrachten uit om de lokale database bij te werken. 
 
 Klik in het menu **Hulpprogramma’s** op **NuGet Package Manager** > **Package Manager Console**.
 
@@ -256,7 +258,7 @@ Breng enkele wijzigingen aan de code aan zodat de eigenschap `Done` kan worden g
 
 Open _Controllers\TodosController.cs_.
 
-Zoek de methode `Create()` in regel 52 en voeg `Done` toe aan de lijst met eigenschappen in het kenmerk `Bind`. Als u klaar bent, ziet uw `Create()`-methode er uit als de onderstaande code:
+Zoek de methode `Create()` in regel 52 en voeg `Done` toe aan de lijst met eigenschappen in het kenmerk `Bind`. Als u klaar bent, ziet uw methode `Create()` er uit als de onderstaande code:
 
 ```csharp
 public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo todo)
@@ -280,7 +282,7 @@ In de Razor-code zou u een `<div class="form-group">`-element moeten zien dat `m
 
 Open _Views\Todos\Index.cshtml_.
 
-Zoek het lege `<th></th>`-element. Vlak boven dit element voegt u de volgende Razor-code toe:
+Zoek het lege element `<th></th>`. Vlak boven dit element voegt u de volgende Razor-code toe:
 
 ```csharp
 <th>

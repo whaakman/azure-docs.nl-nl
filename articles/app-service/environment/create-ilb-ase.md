@@ -1,6 +1,6 @@
 ---
-title: Een ILB maken en gebruiken met een Azure App Service-omgeving
-description: Meer informatie over het maken en gebruiken van een Azure App Service-omgeving met internetisolatie
+title: Een interne load balancer maken en gebruiken met een Azure App Service-omgeving
+description: Meer informatie over het maken en gebruiken van een Azure App Service-omgeving die geïsoleerd is van internet
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een ILB maken en gebruiken met een App Service-omgeving #
+# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
- Azure App Service Environment is een implementatie van Azure App Service in een subnet in een virtueel Azure-netwerk (VNet). Er zijn twee manieren om een AS-omgeving te implementeren: 
+ Azure App Service Environment is een implementatie van Azure App Service in een subnet in een virtueel Azure-netwerk (VNet). Er zijn twee manieren om een Azure App Service-omgeving (ASE) te implementeren: 
 
 - Met een VIP-adres op een extern IP-adres, vaak aangeduid als Externe AS-omgeving.
 - Met een VIP-adres op een intern IP-adres, vaak aangeduid als een ILB AS-omgeving omdat het interne eindpunt een ILB (Internal Load Balancer) is. 
 
-In dit artikel wordt uitgelegd hoe u een ILB AS-omgeving maakt. Zie [Introduction to App Service environments][Intro] (Inleiding tot App Service-omgevingen) voor een overzicht van de AS-omgeving. Zie [Create an External ASE][MakeExternalASE] (Een Externe AS-omgeving maken) voor informatie over het maken van een Externe AS-omgeving.
+In dit artikel wordt uitgelegd hoe u een ILB AS-omgeving maakt. Zie [Introduction to App Service Environments][Intro] voor een overzicht van de ASE. Zie [Create an External ASE][MakeExternalASE] (Een Externe AS-omgeving maken) voor informatie over het maken van een Externe AS-omgeving.
 
 ## <a name="overview"></a>Overzicht ##
 
@@ -63,7 +63,7 @@ Ga als volgt te werk om een ILB AS-omgeving te maken:
 
 4. Selecteer of maak een VNet.
 
-5. Als u een bestaand VNet selecteert, moet u een subnet maken om de AS-omgeving in te plaatsen. Zorg ervoor dat u een subnetgrootte instelt die groot genoeg is voor een eventuele toekomstige groei van uw AS-omgeving. We raden een grootte aan van `/25`. Dit formaat bevat 128 adressen en kan de grootst mogelijke AS-omgeving verwerken. De minimale grootte die u kunt selecteren is een `/28`. Deze grootte kan, afhankelijk van de behoeften van uw infrastructuur, worden geschaald naar maximaal 11 exemplaren.
+5. Als u een bestaand VNet selecteert, moet u een subnet maken om de AS-omgeving in te plaatsen. Zorg ervoor dat u een subnetgrootte instelt die groot genoeg is voor een eventuele toekomstige groei van uw AS-omgeving. We raden een grootte aan van `/25`. Dit formaat bevat 128 adressen en kan de grootst mogelijke AS-omgeving verwerken. De minimale grootte die u kunt selecteren is een `/28`. Deze grootte kan, afhankelijk van de behoeften van uw infrastructuur, niet verder worden geschaald dan maximaal 3 exemplaren.
 
     * Ga verder dan het maximumaantal van 100 exemplaren in uw App Service-plannen.
 
@@ -81,7 +81,7 @@ Ga als volgt te werk om een ILB AS-omgeving te maken:
 
     * &lt;naam van AS-omgeving&gt;.p.azurewebsites.net
 
-   De aangepaste domeinnaam die wordt gebruikt voor apps en de domeinnaam die wordt gebruikt voor uw AS-omgeving mogen niet overlappen. Voor een ILB AS-omgeving met de domeinnaam _contoso.com_ kunt u geen aangepaste domeinnamen voor de apps gebruiken, zoals:
+   Er is een functie met de naam aangepaste domeinnamen waarmee u een bestaande DNS-naam toewijst aan uw web-app. U kunt meer lezen over deze functie in het document [Een bestaande DNS-naam toewijzen aan uw web-app] [ customdomain]. De aangepaste domeinnaam die wordt gebruikt voor apps en de domeinnaam die wordt gebruikt voor uw AS-omgeving mogen niet overlappen. Voor een ILB AS-omgeving met de domeinnaam _contoso.com_ kunt u geen aangepaste domeinnamen voor de apps gebruiken, zoals:
 
     * www.contoso.com
 
@@ -250,3 +250,4 @@ Zie [Configure a web application firewall with your App Service environment][ASE
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-voorbeeldscript - routeverkeer via een virtueel netwerkapparaat | Microsoft Docs
-description: 'Azure CLI - voorbeeldscript: de Route-verkeer via een firewall netwerk virtueel apparaat.'
+title: Azure CLI-voorbeeldscript - verkeer routeren via een virtueel netwerkapparaat | Microsoft Docs
+description: Azure CLI-voorbeeldscript - verkeer routeren via een virtueel netwerkapparaat met firewall.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -10,22 +10,22 @@ tags: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 8506d67152a21586b2854891674d50f89d1a643c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: d0d410fd59574fe2884ae941ef3fd64600930f31
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="route-traffic-through-a-network-virtual-appliance"></a>-Routeverkeer via een virtueel netwerkapparaat
+# <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>Voorbeeldscript voor verkeer routeren via een virtueel netwerkapparaat
 
-Dit voorbeeldscript wordt een virtueel netwerk gemaakt met front-end en back-end-subnetten. Een virtuele machine wordt gemaakt met doorsturen via IP is ingeschakeld voor het routeren van netwerkverkeer tussen de twee subnetten. U kunt na het uitvoeren van het script netwerksoftware, zoals een firewalltoepassing naar de virtuele machine implementeren.
+Met dit voorbeeldscript wordt een virtueel netwerk met front-end- en back-end-subnetten gemaakt. Er wordt ook een virtuele machine gemaakt waarvoor doorsturen via IP is ingeschakeld, voor het routeren van netwerkverkeer tussen de twee subnetten. Na het uitvoeren van het script kunt u netwerksoftware, bijvoorbeeld een firewalltoepassing, op de VM implementeren.
 
-U kunt het script uitvoeren vanuit de Azure [Cloud Shell](https://shell.azure.com/bash), of vanuit een lokale installatie van de Azure CLI. Als u de CLI lokaal gebruikt, wordt dit script vereist dat u versie 2.0.28 uitvoert of hoger. Ga voor de geïnstalleerde versie uitvoeren `az --version`. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
+U kunt het script uitvoeren vanuit de Azure [Cloud Shell](https://shell.azure.com/bash) of vanuit een lokale installatie van de Azure CLI. Als u de CLI lokaal gebruikt, hebt u versie 2.0.28 of hoger nodig om dit script uit te voeren. Voer `az --version` uit om te zien welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de CLI lokaal uitvoert, moet u ook `az login` uitvoeren om verbinding te maken met Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ U kunt het script uitvoeren vanuit de Azure [Cloud Shell](https://shell.azure.co
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen:
+Voer de volgende opdracht uit om de resourcegroep, VM en alle gerelateerde resources te verwijderen:
 
 ```azurecli
 az group delete --name MyResourceGroup --yes
@@ -44,25 +44,25 @@ az group delete --name MyResourceGroup --yes
 
 ## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten voor het maken van een resourcegroep, het virtuele netwerk en netwerkbeveiligingsgroepen. Elke opdracht in de volgende tabel is gekoppeld aan de opdracht specifieke documentatie bij:
+In dit script worden de volgende opdrachten gebruikt voor het maken van een resourcegroep, een virtueel netwerk en netwerkbeveiligingsgroepen. Elke opdracht in de volgende tabel is een koppeling naar opdrachtspecifieke documentatie:
 
 | Opdracht | Opmerkingen |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Maakt een virtueel Azure-netwerk en de front-end-subnet. |
-| [AZ netwerksubnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Maakt back-end en DMZ subnetten. |
-| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Hiermee maakt u een openbaar IP-adres voor toegang tot de virtuele machine via het internet. |
-| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Maakt een virtuele netwerkinterface en doorsturen via IP inschakelen voor deze. |
-| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Maakt een netwerkbeveiligingsgroep (NSG). |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | NSG-regels waarmee HTTP en HTTPS-poorten inkomend naar de virtuele machine maakt. |
-| [AZ network vnet subnet bijwerken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Koppelt de nsg's en routetabellen aan subnetten. |
-| [AZ netwerk routetabel maken](/cli/azure/network/route-table#az_network_route_table_create)| Een routetabel voor alle routes maken. |
-| [netwerkroute AZ-routetabel maken](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Routes naar verkeer leiden tussen subnetten en het internet via de virtuele machine maakt. |
-| [az vm create](/cli/azure/vm#az_vm_create) | Hiermee maakt u een virtuele machine en de NIC koppelt aan het. Deze opdracht geeft ook aan de installatiekopie van de virtuele machine te gebruiken en de beheerdersreferenties. |
-| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep en alle resources die deze bevat. |
+| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Hiermee maakt u een virtueel Azure-netwerk en front-end-subnet. |
+| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Hiermee maakt u back-end- en DMZ-subnetten. |
+| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Hiermee maakt u een openbaar IP-adres voor toegang tot de VM via internet. |
+| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Hiermee maakt u een virtuele netwerkinterface en schakelt u doorsturen via IP in voor deze interface. |
+| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Hiermee maakt u een netwerkbeveiligingsgroep (NSG). |
+| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Hiermee maakt u NSG-regels waarmee inkomend verkeer via HTTP- en HTTPS-poorten naar de VM worden toegestaan. |
+| [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Hiermee koppelt u de NSG's en routetabellen aan subnetten. |
+| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Hiermee maakt u een routetabel voor alle routes. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Hiermee maakt u routes om verkeer tussen subnetten en internet via de VM te routeren. |
+| [az vm create](/cli/azure/vm#az_vm_create) | Hiermee maakt u een virtuele machine en koppelt u de NIC hieraan. Met deze opdracht geeft u ook de installatiekopie van de virtuele machine op die moet worden gebruikt, samen met beheerdersreferenties. |
+| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep en de bijhorende resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg de [documentatie van Azure CLI](/cli/azure) voor meer informatie over de Azure CLI.
 
-Extra virtuele netwerk CLI scriptvoorbeelden kunnen u vinden in [virtuele netwerk CLI voorbeelden](../cli-samples.md).
+Meer CLI-voorbeeldscripts voor virtuele netwerken kunt u vinden in [CLI-voorbeelden voor virtuele netwerken](../cli-samples.md).

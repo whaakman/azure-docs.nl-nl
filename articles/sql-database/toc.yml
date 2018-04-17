@@ -48,14 +48,18 @@
       href: sql-database-design-first-database.md
     - name: 1 - Database ontwerpen met behulp van .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - Migreren naar SQL Server-database
+    - name: 2 - Migreren naar SQL Server DB met DMS
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Uw SQL-database beveiligen
       href: sql-database-security-tutorial.md
     - name: 4 - Een geografisch gedistribueerde database implementeren
       href: sql-database-implement-geo-distributed-database.md
     - name: 5 - Beheerd exemplaar maken
-      href: sql-database-managed-instance-tutorial-portal.md
+      href: sql-database-managed-instance-create-tutorial-portal.md
+    - name: 6 - Een back-up terugzetten naar een beheerd exemplaar
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: 7 - Met DMS naar een beheerd exemplaar migreren
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Voorbeelden
   items:
     - name: Codevoorbeelden
@@ -410,6 +414,10 @@
               href: saas-tenancy-cross-tenant-reporting.md
             - name: ETL voor analyse
               href: saas-tenancy-tenant-analytics.md
+            - name: Herstel na noodgevallen met geo-herstel
+              href: saas-dbpertenant-dr-geo-restore.md
+            - name: Herstel na noodgevallen met geo-replicatie vanuit database
+              href: saas-dbpertenant-dr-geo-replication.md
         - name: Multitenant-database
           items:
             - name: Een voorbeeld-app implementeren

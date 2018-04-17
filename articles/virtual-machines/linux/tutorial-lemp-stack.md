@@ -1,13 +1,13 @@
 ---
 title: LEMP implementeren op een virtuele Linux-machine in Azure | Microsoft Docs
-description: Zelfstudie - installatie de stack LEMP op een Linux VM in Azure
+description: 'Zelfstudie: de LEMP-stack installeren op een Linux-VM in Azure'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,44 +15,44 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: MT
+ms.openlocfilehash: f907b468a409135d4b45e76297fc7cd86eeead78
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Een webserver LEMP installeren op een virtuele machine in Azure
-Dit artikel begeleidt u bij het implementeren van een NGINX-webserver, MySQL en PHP (de LEMP-stack) op een Ubuntu VM in Azure. De stack LEMP vormt een alternatief voor de populaire [licht stack](tutorial-lamp-stack.md), die u kunt ook installeren in Azure. Overzicht van de server LEMP in actie kunt u optioneel installeren en configureren van een WordPress-site. In deze zelfstudie leert u het volgende:
+# <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Een LEMP-webserver installeren op een Azure-VM
+Dit artikel begeleidt u bij de implementatie van een NGINX-webserver, MySQL en PHP (de LEMP-stack) op een Ubuntu-VM in Azure. De LEMP-stack is een alternatief voor de populaire [LAMP-stack](tutorial-lamp-stack.md), die u ook in Azure kunt installeren. Als u de LEMP-server in actie wilt zien, kunt u eventueel een WordPress-site installeren en configureren. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Maak een VM Ubuntu (de "L" in de stack LEMP)
+> * Een Ubuntu-VM maken (de L in LEMP-stack)
 > * Poort 80 openen voor webverkeer
 > * NGINX, MySQL en PHP installeren
-> * Controleer of de installatie en configuratie
-> * WordPress installeren op de server LEMP
+> * Installatie en configuratie verifiëren
+> * WordPress op de LEMP-server installeren
 
 
-Deze instelling is voor de snelle tests noch een bewijs van het concept.
+Deze installatie is voor snelle tests en het testen van het concept.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
 ## <a name="install-nginx-mysql-and-php"></a>NGINX, MySQL en PHP installeren
 
-Voer de volgende opdracht om te werken Ubuntu pakket bronnen en NGINX, MySQL en PHP installeren. 
+Voer de volgende opdracht uit om Ubuntu-pakketbronnen bij te werken en NGINX, MySQL en PHP te installeren. 
 
 ```bash
 sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
 ```
 
-U wordt gevraagd om de pakketten en andere afhankelijkheden te installeren. Wanneer u wordt gevraagd, een root-wachtwoord instellen voor MySQL, en vervolgens [Enter] om door te gaan. Volg de aanwijzingen resterende. Dit proces installeert de minimale vereiste PHP-uitbreidingen die nodig zijn voor PHP met MySQL gebruikt. 
+U wordt gevraagd de pakketten en andere afhankelijkheden te installeren. Stel, als daarom wordt gevraagd, een hoofdwachtwoord in voor MySQL en druk op Enter om door te gaan. Volg de resterende aanwijzingen op. In dit proces worden de minimaal vereiste PHP-extensies geïnstalleerd die voor het gebruik van PHP met MySQL nodig zijn. 
 
-![Pagina MySQL root-wachtwoord][1]
+![Pagina met MySQL-hoofdwachtwoord][1]
 
-## <a name="verify-installation-and-configuration"></a>Controleer of de installatie en configuratie
+## <a name="verify-installation-and-configuration"></a>Installatie en configuratie verifiëren
 
 
 ### <a name="nginx"></a>NGINX
@@ -62,35 +62,35 @@ Controleer de versie van NGINX met de volgende opdracht:
 nginx -v
 ```
 
-Met NGINX geïnstalleerd, en poort 80 is geopend voor uw virtuele machine, zijn de webserver nu toegankelijk vanaf internet. Open een webbrowser om weer te geven de NGINX-welkomstpagina, en geef het openbare IP-adres van de virtuele machine. Gebruik het openbare IP-adres dat u hebt gebruikt voor SSH naar de virtuele machine:
+Als NGINX is geïnstalleerd en poort 80 is geopend voor de VM, is de webserver nu toegankelijk vanaf internet. Als u de welkomstpagina van NGINX wilt weergeven, opent u een webbrowser en voert u het openbare IP-adres van de VM in. Gebruik het openbare IP-adres dat u hebt gebruikt om een SSH-verbinding met de VM te maken:
 
-![Standaard-NGINX-pagina][3]
+![Standaardpagina van NGINX][3]
 
 
 ### <a name="mysql"></a>MySQL
 
-Controleer de versie van MySQL met de volgende opdracht (Let op het kapitaal `V` parameter):
+Controleer de versie van MySQL met de volgende opdracht (let op de hoofdletter `V` van de parameter):
 
 ```bash
 mysql -V
 ```
 
-Ter beveiliging van de installatie van MySQL uitvoeren de `mysql_secure_installation` script. Als u alleen een tijdelijke server instelt, kunt u deze stap overslaan. 
+Voer het script `mysql_secure_installation` uit om de installatie van MySQL te beveiligen. Als u slechts een tijdelijke server instelt, kunt u deze stap overslaan. 
 
 ```bash
 mysql_secure_installation
 ```
 
-Geef een root-wachtwoord voor MySQL en de beveiligingsinstellingen voor uw omgeving.
+Voer een hoofdwachtwoord voor MySQL in en configureer de beveiligingsinstellingen voor uw omgeving.
 
-Als u wilt proberen MySQL-functies (een MySQL-database maken, gebruikers toevoegen of wijzigen van configuratie-instellingen), meld u aan bij MySQL. Deze stap is niet vereist om deze zelfstudie te voltooien. 
+Als u MySQL-functies wilt uitproberen (MySQL-database maken, gebruikers toevoegen of configuratie-instellingen wijzigen), meldt u zich aan bij MySQL. Deze stap is niet noodzakelijk voor het voltooien van deze zelfstudie. 
 
 
 ```bash
 mysql -u root -p
 ```
 
-Wanneer u klaar bent, sluit u de mysql-prompt door typen `\q`.
+Als u klaar bent, sluit u de mysql-prompt door `\q` te typen.
 
 ### <a name="php"></a>PHP
 
@@ -100,7 +100,7 @@ Controleer de versie van PHP met de volgende opdracht:
 php -v
 ```
 
-Configureer NGINX als PHP-FastCGI-proces Manager (PHP-Rambus) wilt gebruiken. Voer de volgende opdrachten voor back-up van het oorspronkelijke configuratiebestand blok van NGINX en bewerk het oorspronkelijke bestand in een editor naar keuze:
+Configureer NGINX om PHP FastCGI Process Manager (PHP-FPM) te kunnen gebruiken. Voer de volgende opdrachten uit om een back-up te maken van het oorspronkelijke configuratiebestand van het NGINX-serverblok en bewerk het oorspronkelijke bestand in een editor naar keuze:
 
 ```bash
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_backup
@@ -108,7 +108,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-Vervang de inhoud van in de editor `/etc/nginx/sites-available/default` met de volgende stappen. Zie de opmerkingen voor uitleg van de instellingen. Vervang het openbare IP-adres van uw virtuele machine voor *yourPublicIPAddress*, en laat de overige instellingen. Sla het bestand op.
+Vervang in de editor de inhoud van `/etc/nginx/sites-available/default` door het volgende. Zie de opmerkingen voor een verklaring van de instellingen. Vervang *yourPublicIPAddress* door het openbare IP-adres van uw VM en laat de resterende instellingen ongemoeid. Sla het bestand op.
 
 ```
 server {
@@ -133,7 +133,7 @@ server {
 }
 ```
 
-Controleer de configuratie NGINX syntaxisfouten:
+Controleer de configuratie van NGINX op syntaxisfouten:
 
 ```bash
 sudo nginx -t
@@ -145,7 +145,7 @@ Als de syntaxis juist is, start u NGINX opnieuw met de volgende opdracht:
 sudo service nginx restart
 ```
 
-Als u wilt om verder te testen, maakt u een snelle PHP pagina om weer te geven in een browser. De volgende opdracht maakt het PHP-info-pagina:
+Als u meer tests wilt uitvoeren, maakt u snel een PHP-infopagina om in een browser weer te geven. Met de volgende opdracht wordt de PHP-infopagina gemaakt:
 
 ```bash
 sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
@@ -153,28 +153,28 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 
 
-U kunt nu controleren de PHP-info pagina die u hebt gemaakt. Open een browser en Ga naar `http://yourPublicIPAddress/info.php`. Vervang het openbare IP-adres van uw virtuele machine. Het moet eruitzien als aan deze installatiekopie.
+Nu kunt u de zojuist gemaakte PHP-infopagina controleren. Open een browser en ga naar `http://yourPublicIPAddress/info.php`. Vervang het openbare IP-adres van uw VM. Het moet er ongeveer uitzien als in deze afbeelding.
 
-![Pagina voor PHP-info][2]
+![PHP-infopagina][2]
 
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt u een server LEMP in Azure geïmplementeerd. U hebt geleerd hoe u:
+In deze zelfstudie hebt u een LEMP-server in Azure geïmplementeerd. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Een virtuele Ubuntu-machine maken
+> * Maken van een Ubuntu-VM
 > * Poort 80 openen voor webverkeer
 > * NGINX, MySQL en PHP installeren
-> * Controleer of de installatie en configuratie
-> * WordPress installeren op de stack LEMP
+> * Installatie en configuratie verifiëren
+> * WordPress op de LEMP-stack installeren
 
-Ga naar de volgende zelfstudie voor meer informatie over het beveiligen van webservers met SSL-certificaten.
+Ga door naar de volgende zelfstudie om te leren hoe u webservers kunt beveiligen met behulp van SSL-certificaten.
 
 > [!div class="nextstepaction"]
-> [Webserver met SSL beveiligde](tutorial-secure-web-server.md)
+> [Webserver beveiligen met SSL](tutorial-secure-web-server.md)
 
 [1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png

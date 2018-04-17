@@ -14,14 +14,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 07/31/2017
+ms.date: 04/01/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 31be6bc80b147e106066c064903c6eb9e1900e12
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5f10bc981581de12b816a45a6c6d704c42024b67
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell gebruiken om te synchroniseren tussen een SQL-database en een on-premises SQL Server-database
 
@@ -395,7 +395,7 @@ Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
 -   [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync (Preview)](../sql-database-sync-data.md)
 -   [Azure SQL Data Sync instellen](../sql-database-get-started-sql-data-sync.md)
 -   [Aanbevolen procedures voor Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   [Azure SQL Data Sync controleren met OMS Log Analytics](../sql-database-sync-monitor-oms.md)
+-   [Azure SQL Data Sync bewaken met Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Problemen oplossen met Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 
 -   Voer PowerShell-voorbeelden uit die laten zien hoe u SQL Data Sync configureert:

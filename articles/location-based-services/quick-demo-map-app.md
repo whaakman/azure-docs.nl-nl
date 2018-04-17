@@ -2,25 +2,25 @@
 title: Interactief zoeken naar kaarten met de Azure Location Based Services | Microsoft Docs
 description: Azure Quick Start - Een demo starten over interactief zoeken naar kaarten met de Azure Location Based Services (preview)
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 288044b2f8a4b996489bbd6a6b0a61b455e8f4ad
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a61d56f8e649d60dacff8f9849ab7e26363e119
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Een demo starten over interactief zoeken naar kaarten met de Azure Location Based Services (preview)
 
-In dit artikel worden de mogelijkheden beschreven van Azure LBS (Location Based Services) om een interactieve zoekopdracht uit te voeren met behulp van Azure-kaarten. U leert ook de basisstappen voor het maken van uw eigen LBS-account en voor het ophalen van de sleutel van uw account voor gebruik in de demo-webtoepassing. 
+In dit artikel worden de mogelijkheden beschreven van Azure LBS (Location Based Services) om een interactieve zoekopdracht uit te voeren. U leert ook de basisstappen voor het maken van uw eigen LBS-account en voor het ophalen van de sleutel van uw account voor gebruik in de demo-webtoepassing. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -40,14 +40,14 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 5. Nadat uw account is gemaakt, opent u het account en gaat u naar de **Instellingen** van het account. Klik op **Sleutels** om de primaire en secundaire abonnementsleutels voor uw Azure Location Based Services-account op te halen. Kopieer de waarde van de **Primaire sleutel** naar uw lokale klembord voor gebruik in de volgende sectie. 
 
-## <a name="download-the-demo-application-for-azure-maps"></a>De demo-toepassing voor Azure-kaarten downloaden
+## <a name="download-the-demo-application"></a>Download de demo-toepassing
 
 1. Download of kopieer de inhoud van het bestand [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Sla de inhoud van dit bestand lokaal op als **AzureMapDemo.html** en open de inhoud in een teksteditor.
 3. Zoek naar de tekenreeks `<insert-key>` en vervang deze door de waarde voor de **Primaire sleutel** die u in de voorgaande sectie hebt verkregen. 
 
 
-## <a name="launch-the-demo-application-for-azure-maps"></a>De demo-toepassing voor Azure-kaarten starten
+## <a name="launch-the-demo-application-for"></a>Start de demo-toepassing voor
 
 1. Open het bestand **AzureMapDemo.html** in een browser naar keuze.
 2. Bekijk de kaart van Los Angeles. De plaats wordt bepaald door de waarde van het `[longitude, latitude]`-paar dat aan de JavaScript-variabele **center** is gegeven in de *AzureMapDemo.html*. U kunt deze coördinaten wijzigen in die voor een andere plaats van uw keuze. De coördinaten van bijvoorbeeld New York zijn *[-74.0060, 40.7128]*.
@@ -59,7 +59,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-De zelfstudies gaan nader in op het gebruiken en configureren van Azure Location Based Services voor uw account. Als u van plan bent om door te gaan met de zelfstudies, moet u niet de resources verwijderen die u in deze Quick Start hebt gemaakt. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources die via deze Snelstartgids zijn gemaakt, te verwijderen.
+De zelfstudies gaan nader in op het gebruiken en configureren van Azure Location Based Services voor uw account. Als u van plan bent om door te gaan met de zelfstudies, moet u niet de resources verwijderen die u in deze Quick Start hebt gemaakt. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources die via deze snelstart zijn gemaakt, te verwijderen.
 
 1. Sluit de browser waarin de **AzureMapDemo.html**-webtoepassing wordt uitgevoerd.
 2. Klik in het linkermenu van Azure Portal op **Alle resources** en selecteer uw LBS-account. Klik bovenaan de blade **Alle resources** op **Verwijderen**.

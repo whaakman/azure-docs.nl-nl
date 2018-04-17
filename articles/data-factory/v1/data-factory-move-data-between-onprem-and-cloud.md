@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: eff58d77b2f79581ee0f611ca25d6cbbc258e996
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 93b63e7c657282fc0ef285054ba90c9d6bc310b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Gegevens verplaatsen tussen lokale bronnen en de cloud met Data Management Gateway
 > [!NOTE]
@@ -72,7 +72,7 @@ In deze stap maakt u de Azure portal gebruiken voor het maken van een Azure Data
 6. Klik op **maken** op de **nieuwe gegevensfactory** pagina.
 
    > [!IMPORTANT]
-   > Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) op abonnements-/resourcegroepsniveau.
+   > Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) op abonnements-/resourcegroepsniveau.
    >
    >
 7. Nadat het maken voltooid is, ziet u de **Data Factory** pagina zoals in de volgende afbeelding:
@@ -120,7 +120,7 @@ In deze stap maakt u de Azure portal gebruiken voor het maken van een Azure Data
     ![Gateway-installatie is geslaagd](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
 6. Start **Data Management Gateway Configuration Manager** toepassing op uw computer. In de **Search** venster, type **Data Management Gateway** voor toegang tot dit hulpprogramma. U kunt ook het uitvoerbare bestand vinden **ConfigManager.exe** in de map: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-    ![Gateway Configuration Manager](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
+    ![Gateway-Configuratiebeheer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. Controleer of u `adftutorialgateway is connected to the cloud service` bericht. De statusbalk in het onderste worden **verbonden met de cloudservice** samen met een **groen vinkje**.
 
     Op de **Start** tabblad kunt u ook de volgende bewerkingen uitvoeren:

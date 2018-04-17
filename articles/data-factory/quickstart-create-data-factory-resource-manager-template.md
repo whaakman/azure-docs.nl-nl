@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 7df0c8153cc5b2e3a785d79e23ecb7d56285c6f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2769be7097ebc65bc7c022ebd2e3f2de6e57e9b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Zelfstudie: een Azure Data Factory maken op basis van een Azure Resource Manager-sjabloon
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Versie 2 - Preview](quickstart-create-data-factory-resource-manager-template.md) 
 
-In deze QuickStart wordt beschreven hoe u een Azure Resource Manager-sjabloon gebruikt om een Azure Data Factory te maken. Met de pijplijn die u in deze data factory maakt, worden gegevens **gekopieerd** van één map naar een andere map in een Azure Blob Storage. Zie [Zelfstudie: Gegevens transformeren met Spark](transform-data-using-spark.md) voor meer informatie over het **transformeren** van gegevens met Azure Data Factory. 
+In deze snelstart wordt beschreven hoe u een Azure Resource Manager-sjabloon gebruikt om een Azure Data Factory te maken. Met de pijplijn die u in deze data factory maakt, worden gegevens **gekopieerd** van één map naar een andere map in een Azure Blob Storage. Zie [Zelfstudie: Gegevens transformeren met Spark](transform-data-using-spark.md) voor meer informatie over het **transformeren** van gegevens met Azure Data Factory. 
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is, raadpleegt u [Uw eerste data factory maken met versie 1 van Data Factory](v1/data-factory-build-your-first-pipeline-using-arm.md).
@@ -320,7 +320,7 @@ Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat paramet
 > Mogelijk beschikt u over afzonderlijke JSON-bestanden met parameters voor ontwikkel-, test- en productieomgevingen die u met dezelfde JSON-sjabloon voor Data Factory kunt gebruiken. U kunt met behulp van een Power Shell-script het implementeren van Data Factory-entiteiten in deze omgevingen automatiseren. 
 
 ## <a name="deploy-data-factory-entities"></a>Data Factory-entiteiten implementeren 
-Voer de volgende opdracht uit in PowerShell om Data Factory-entiteiten te implementeren met behulp van de Resource Manager-sjabloon die u eerder in deze QuickStart hebt gemaakt. 
+Voer de volgende opdracht uit in PowerShell om Data Factory-entiteiten te implementeren met behulp van de Resource Manager-sjabloon die u eerder in deze snelstart hebt gemaakt. 
 
 ```PowerShell
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
@@ -446,7 +446,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
 5. Klik op de koppeling in de kolom **Acties**. 
 
     ![Koppeling voor pijplijnacties](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
-6. U ziet de uitvoering van de activiteiten die zijn gekoppeld aan de pijplijnuitvoering. In deze QuickStart heeft de pijplijn slechts één activiteit en wel van het type Kopiëren. Daarom ziet u een uitvoering voor die activiteit. 
+6. U ziet de uitvoering van de activiteiten die zijn gekoppeld aan de pijplijnuitvoering. In deze snelstart heeft de pijplijn slechts één activiteit en wel van het type Kopiëren. Daarom ziet u een uitvoering voor die activiteit. 
 
     ![Uitvoering van activiteiten](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
 1. Klik op de koppeling onder de kolom **Uitvoer**. U ziet de uitvoer van de kopieerbewerking in het venster **Uitvoer**. Klik op de knop Maximaliseren om de volledige uitvoer te bekijken. U kunt het gemaximaliseerde uitvoervenster sluiten. 
@@ -460,7 +460,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
-## <a name="json-definitions-for-entities"></a>JSON-definities voor entiteiten
+## <a name="data-factory-entities-in-the-template"></a> JSON-definities voor entiteiten
 De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd: 
 
 - [Een gekoppelde Azure Storage-service](#azure-storage-linked-service)

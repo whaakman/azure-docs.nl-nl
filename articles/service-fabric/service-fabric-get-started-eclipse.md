@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: java
 author: rapatchi
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
@@ -14,38 +14,43 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2016
 ms.author: rapatchi
-ms.openlocfilehash: 291bbd35d6e3c89eb9568130ad144831452142ad
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: d415c3eb540056dc7ad6f1ab14fc8250903d6744
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-invoegtoepassing voor de ontwikkeling van Eclipse Java-toepassingen
-Eclipse is een van de meest gebruikte Integrated Development Environments (IDE's) voor Java-ontwikkelaars. In dit artikel wordt beschreven hoe u een Eclipse-ontwikkelomgeving instelt voor gebruik met Azure Service Fabric. Ontdek hoe u de Service Fabric-invoegtoepassing installeert en een Service Fabric-toepassing implementeert in een lokaal of extern Service Fabric-cluster in Eclipse Neon. 
+Eclipse is een van de meest gebruikte Integrated Development Environments (IDE's) voor Java-ontwikkelaars. In dit artikel wordt beschreven hoe u een Eclipse-ontwikkelomgeving instelt voor gebruik met Azure Service Fabric. Ontdek hoe u de Service Fabric-invoegtoepassing installeert en een Service Fabric-toepassing implementeert in een lokaal of extern Service Fabric-cluster in Eclipse. 
 
 > [!NOTE]
 > De Eclipse-invoegtoepassing wordt momenteel niet ondersteund in Windows. 
 
-## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>De Service Fabric-invoegtoepassing installeren of bijwerken in Eclipse Neon
+## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse"></a>De Service Fabric-invoegtoepassing installeren of bijwerken in Eclipse
 U kunt een Service Fabric-invoegtoepassing in Eclipse installeren. De invoegtoepassing vereenvoudigt het proces voor het maken en implementeren van Java-services.
 
-1.  Zorg ervoor dat u de nieuwste versie van Eclipse Neon en de nieuwste versie van Buildship (1.0.17 of hoger) hebt geïnstalleerd:
-    -   U kunt de versies van geïnstalleerde onderdelen controleren door in Eclipse Neon **Help** > **Installation Details** te kiezen.
-    -   Zie [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle) als u Buildship wilt bijwerken.
-    -   Als u updates voor Eclipse Neon wilt zoeken en installeren, gaat u naar **Help** > **Check for Updates**.
+> [!IMPORTANT]
+> Voor de Service Fabric-invoegtoepassing is Eclipse Neon of een hogere versie vereist. Zie de instructies na deze opmerking voor het controleren van uw Eclipse-versie. Als er een oudere versie van Eclipse is geïnstalleerd, kunt u een nieuwere versie downloaden van de [site van Eclipse](https://www.eclipse.org). Het wordt afgeraden een oudere versie van Eclipse te overschrijven met een nieuwere versie. Verwijder de oudere versie voordat u het installatieprogramma uitvoert of installeer de nieuwe versie in een andere map. 
+> 
+> Voor Ubuntu wordt u aangeraden de installatie rechtstreeks vanaf de site van Eclipse uit te voeren en niet door middel van een installatieprogramma voor pakketten (`apt` of `apt-get`). Daardoor weet u zeker dat u de meest recente versie van Eclipse hebt. 
 
-2.  Als u de Service Fabric-invoegtoepassing wilt installeren, gaat u in Eclipse Neon naar **Help** > **Install New Software**.
-  1.    Geef in het vak **Work with** **http://dl.microsoft.com/eclipse** op.
+1.  Zorg ervoor dat u Eclipse Neon of nieuwer hebt en dat u de nieuwste versie van Buildship (1.0.17 of hoger) hebt geïnstalleerd:
+    -   U kunt de versies van geïnstalleerde onderdelen controleren door in Eclipse **Help** > **Installation Details** te kiezen.
+    -   Zie [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle) als u Buildship wilt bijwerken.
+    -   Als u updates voor Eclipse wilt zoeken en installeren, gaat u naar **Help** > **Check for Updates**.
+
+2.  Als u de Service Fabric-invoegtoepassing wilt installeren, gaat u in Eclipse naar **Help** > **Install New Software**.
+  1.    In het vak **Work with** voert u **http://dl.microsoft.com/eclipse** in.
   2.    Klik op **Add**.
 
-         ![De Service Fabric-invoegtoepassing voor Eclipse Neon][sf-eclipse-plugin-install]
+         ![De Service Fabric-invoegtoepassing voor Eclipse][sf-eclipse-plugin-install]
   3.    Selecteer de Fabric Service-invoegtoepassing en klik op **Next**.
   4.    Voer de installatiestappen uit en accepteer de licentievoorwaarden voor Microsoft-software.
 
 Als u de Service Fabric-invoegtoepassing al hebt geïnstalleerd, controleert u of u de meest recente versie gebruikt. Ga naar **Help** > **Installation Details** om te controleren of er updates beschikbaar zijn. Selecteer Service Fabric in de lijst met geïnstalleerde invoegtoepassingen en klik op **Update**. Beschikbare updates worden geïnstalleerd.
 
 > [!NOTE]
-> Als de installatie of update van de Service Fabric-invoegtoepassing traag verloopt, kan dit het gevolg zijn van een instelling in Eclipse. Eclipse verzamelt metagegevens over alle wijzigingen in updatesites die zijn geregistreerd bij uw exemplaar van Eclipse. Als u het proces voor het controleren op en installeren van updates van Service Fabric-invoegtoepassingen wilt versnellen, gaat u naar **Available Software Sites**. Schakel de selectievakjes uit voor alle sites, behalve voor de site die naar de locatie van de Fabric Service-invoegtoepassing wijst (http://dl.microsoft.com/eclipse/azure/servicefabric).
+> Als de installatie of update van de Service Fabric-invoegtoepassing traag verloopt, kan dit het gevolg zijn van een instelling in Eclipse. Eclipse verzamelt metagegevens over alle wijzigingen in updatesites die zijn geregistreerd bij uw exemplaar van Eclipse. Als u het proces voor het controleren op en installeren van updates van Service Fabric-invoegtoepassingen wilt versnellen, gaat u naar **Available Software Sites**. Schakel de selectievakjes uit voor alle sites, behalve voor de site die verwijst naar de locatie van de Service Fabric-invoegtoepassing (http://dl.microsoft.com/eclipse/azure/servicefabric)).
 
 > [!NOTE]
 >Als Eclipse op uw Mac niet werkt zoals u verwacht of als u het moet uitvoeren als supergebruiker), gaat u naar de map **ECLIPSE_INSTALLATION_PATH** en vervolgens naar de submap **Eclipse.app/Contents/MacOS**. Start Eclipse door `./eclipse` uit te voeren.
@@ -53,7 +58,7 @@ Als u de Service Fabric-invoegtoepassing al hebt geïnstalleerd, controleert u o
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Een Service Fabric-toepassing maken in Eclipse
 
-1.  Ga in Eclipse Neon naar **File** > **New** > **Other**. Selecteer **Fabric Service Project** en klik op **Next**.
+1.  Ga in Eclipse naar **File** > **New** > **Other**. Selecteer **Fabric Service Project** en klik op **Next**.
 
     ![Nieuw Service Fabric-project pagina 1][create-application/p1]
 
@@ -142,7 +147,7 @@ Stel dat u voor een upgradescenario het project **App1** hebt gemaakt met behulp
 
 Breng eerst eventuele wijzigingen aan in de toepassing en bouw vervolgens de gewijzigde service opnieuw op. Werk het manifestbestand van de gewijzigde service (ServiceManifest.xml) bij met de bijgewerkte versies voor de service (en code, configuratie of gegevens, indien van toepassing). Wijzig ook het toepassingsmanifest (ApplicationManifest.xml) met het bijgewerkte versienummer voor de toepassing en de gewijzigde service.  
 
-Als u de toepassingsupgrade wilt uitvoeren met behulp van Eclipse Neon, kunt u een dubbel uitvoerconfiguratieprofiel maken. Vervolgens gebruikt u dit om de toepassingsupgrade uit te voeren.
+Als u de toepassingsupgrade wilt uitvoeren met behulp van Eclipse, kunt u een dubbel uitvoerconfiguratieprofiel maken. Vervolgens gebruikt u dit om de toepassingsupgrade uit te voeren.
 
 1.  Ga naar **Run** > **Run Configurations**. Klik in het linkerdeelvenster op de kleine pijl, links van **Gradle Project**.
 2.  Klik met de rechtermuisknop op **ServiceFabricDeployer** en selecteer **Duplicate**. Voer een nieuwe naam in voor deze configuratie, bijvoorbeeld **ServiceFabricUpgrader**.

@@ -1,10 +1,10 @@
 ---
-title: "Formaat van geüploade afbeeldingen automatisch wijzigen met Azure Event Grid | Microsoft Docs"
-description: "U kunt instellen dat Azure Event Grid wordt geactiveerd als er blobs worden geüpload in Azure Storage. Dit is handig om afbeeldingsbestanden naar Azure Storage die worden geüpload naar Azure Storage te verzenden naar andere services, zoals Azure Functions, voor het aanpassen van het formaat en andere verbeteringen."
+title: Formaat van geüploade afbeeldingen automatisch wijzigen met Azure Event Grid | Microsoft Docs
+description: U kunt instellen dat Azure Event Grid wordt geactiveerd als er blobs worden geüpload in Azure Storage. Dit is handig om afbeeldingsbestanden naar Azure Storage die worden geüpload naar Azure Storage te verzenden naar andere services, zoals Azure Functions, voor het aanpassen van het formaat en andere verbeteringen.
 services: event-grid, functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 68343c3ffd87496ed4ae89b478ee5c8119ed67f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0edf5648ddef58db74273635c84d7473e17e1b30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Formaat van geüploade afbeeldingen automatisch wijzigen met Event Grid
 
@@ -90,7 +90,7 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbs
+myContainerName=thumbnails
 ```
 
 U kunt nu een codeproject van Functions implementeren naar deze functie-app.
@@ -145,7 +145,7 @@ Een gebeurtenisabonnement geeft aan welke door de provider gegenereerde gebeurte
     | **Eindpunt abonnee** | automatisch gegenereerd | Gebruik de eindpunt-URL die voor u wordt gegenereerd. | 
     | **Voorvoegselfilter** | /blobServices/default/containers/images/blobs/ | Opslaggebeurtenissen filteren op alleen de gebeurtenissen in de container **images**.| 
 
-4. Klik op **Maken** om het gebeurtenisabonnement toe te voegen. Er wordt een gebeurtenisabonnement gemaakt die `imageresizerfunc` activeert op het moment dat er een blob wordt toegevoegd aan de container *images*. De functie past de afbeelding in grootte aan en voegt deze toe aan de container *thumbs*.
+4. Klik op **Maken** om het gebeurtenisabonnement toe te voegen. Er wordt een gebeurtenisabonnement gemaakt die `imageresizerfunc` activeert op het moment dat er een blob wordt toegevoegd aan de container *images*. De functie past de afbeelding in grootte aan en voegt deze toe aan de container *thumbnails*.
 
 De services in de back-end zijn nu geconfigureerd. Dit betekent dat u de functionaliteit voor het aanpassen van het formaat van afbeeldingen kunt gaan testen in de voorbeeld-web-app. 
 
@@ -155,7 +155,7 @@ U kunt de formaatwijziging door de web-app testen door naar de URL van de gepubl
 
 Klik ergens in het gebied **Foto's uploaden** om een bestand te selecteren en te uploaden. U kunt ook een foto naar dit gebied slepen. 
 
-Zodra de geüploade afbeelding is verdwenen, ziet u een kopie van de geüploade afbeelding in de carrousel **Gegenereerde miniaturen**. Het formaat van deze afbeelding is gewijzigd door de functie, waarna de afbeelding is toegevoegd aan de container *thumbs* en is gedownload door de webclient.
+Zodra de geüploade afbeelding is verdwenen, ziet u een kopie van de geüploade afbeelding in de carrousel **Gegenereerde miniaturen**. Het formaat van deze afbeelding werd gewijzigd door de functie, waarna de afbeelding werd toegevoegd aan de container *thumbnails* en gedownload door de webclient.
 
 ![Gepubliceerde web-app in de Edge-browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 

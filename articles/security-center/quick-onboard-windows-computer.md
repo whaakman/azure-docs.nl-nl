@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snelstart: Windows-computers onboarden naar Azure Security Center
 Nadat u de onboarding van uw Azure-abonnementen hebt uitgevoerd, kunt u Security Center inschakelen voor resources die buiten Azure worden uitgevoerd, bijvoorbeeld on-premises of in andere clouds, door Microsoft Monitoring Agent in te richten.
@@ -62,7 +62,7 @@ U dient nu het gedownloade bestand op de doelcomputer te installeren.
 2. Op de pagina **Welkom** selecteert u **Volgende**.
 3. Lees de licentie op de pagina **Licentievoorwaarden** en selecteer **Akkoord**.
 4. Op de pagina **Doelmap** wijzigt u desgewenst de standaardinstallatiemap en selecteert u **Volgende**.
-5. Op de pagina **Installatieopties voor agent** kiest u ervoor de agent verbinding te laten maken met Azure Log Analytics (OMS) en selecteert u **Volgende**.
+5. Op de pagina **Installatieopties voor Agent** kiest u ervoor de agent verbinding te laten maken met Azure Log Analytics en selecteert u **Volgende**.
 6. Op de pagina **Azure Log Analytics** plakt u de **werkruimte-id** en **werkruimtesleutel (primaire sleutel)** die u in de vorige stap in Kladblok hebt gekopieerd.
 7. Als u de computer wilt laten rapporteren bij een Log Analytics-werkruimte in de Azure Government-cloud, selecteert u **Azure US Government** in de vervolgkeuzelijst **Azure Cloud**.  Als de computer met de Log Analytics-service moet communiceren via een proxyserver, selecteert u **Geavanceerd** en geeft u de URL en het poortnummer van de proxyserver op.
 8. Selecteer **Volgende** als u de vereiste configuratie-instellingen hebt voltooid.

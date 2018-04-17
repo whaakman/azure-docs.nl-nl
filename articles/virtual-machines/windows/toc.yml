@@ -83,6 +83,8 @@
           href: sizes-hpc.md
         - name: Azure Compute Units (ACU)
           href: acu.md
+        - name: Benchmarkscores
+          href: compute-benchmark-scores.md
     - name: Onderhoud en updates
       href: maintenance-and-updates.md
     - name: File Storage
@@ -157,7 +159,7 @@
         - name: WinRM gebruiken
           href: winrm.md
         - name: Toegangsbeheer gebruiken
-          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Beleidsregels gebruiken
           href: policy.md
         - name: Een sleutelkluis maken

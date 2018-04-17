@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 698f23507da0707a4612f8d33fe7e2995429f361
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 91f6fd077146e94833a5527f03ac710352e4fd9c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Een ASP.NET Core-web-app maken in Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/28/2018
 > In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een .NET Core-web-app maken en implementeren in App Service onder Linux ](./containers/quickstart-dotnetcore.md) om een app te implementeren in App Service onder _Linux_.
 >
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze quickstart laat zien hoe uw eerste ASP.NET Core-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze snelstart laat zien hoe uw eerste ASP.NET Core-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
 
 > [!NOTE]
 > Als u wilt weten hoe u een ASP.NET Framework-web-app kunt maken en implementeren, raadpleegt u het artikel [hier](app-service-web-get-started-dotnet-framework.md). 
@@ -45,6 +45,8 @@ Vereisten voor het voltooien van deze zelfstudie:
 
     ![ASP.NET- en web-ontwikkeling en Azure-ontwikkeling (onder Web en cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
+Als u Visual Studio al hebt geïnstalleerd, voegt u de workloads toe in Visual Studio door te klikken op **Hulpprogramma's** > **Hulpprogramma's en functies ophalen**.
+
 ## <a name="create-an-aspnet-core-web-app"></a>Een ASP.NET Core-web-app maken
 
 Maak in Visual Studio een project door **Bestand > Nieuw > Project** te selecteren. 
@@ -55,7 +57,7 @@ Geef de toepassing de naam _myFirstAzureWebApp_ en selecteer vervolgens **OK**.
    
 ![Het dialoogvenster Nieuw project](./media/app-service-web-get-started-dotnet/new-project.png)
 
-U kunt elk type ASP.NET Core-web-app implementeren in Azure. Voor deze quickstart selecteert u de sjabloon **Webtoepassing** en stelt u verificatie in op **Geen verificatie**.
+U kunt elk type ASP.NET Core-web-app implementeren in Azure. Voor deze snelstart selecteert u de sjabloon **Webtoepassing** en stelt u verificatie in op **Geen verificatie**.
       
 Selecteer **OK**.
 

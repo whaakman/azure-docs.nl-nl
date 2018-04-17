@@ -30,12 +30,12 @@
       href: powershell-samples.md
 - name: Concepten
   items:
-    - name: Verkeer filteren
+    - name: Beveiliging
       href: security-overview.md
-    - name: Service-eindpunten
-      href: virtual-network-service-endpoints-overview.md
     - name: Routering
       href: virtual-networks-udr-overview.md
+    - name: Service-eindpunten
+      href: virtual-network-service-endpoints-overview.md
     - name: Peering
       href: virtual-network-peering-overview.md
     - name: Virtueel netwerk voor Azure-services
@@ -72,12 +72,6 @@
               href: virtual-networks-create-nsg-arm-pportal.md
             - name: Template
               href: virtual-networks-create-nsg-arm-template.md
-            - name: Klassiek
-              items:
-                - name: Azure PowerShell
-                  href: virtual-networks-create-nsg-classic-ps.md
-                - name: Azure CLI 1.0
-                  href: virtual-networks-create-nsg-classic-cli.md
         - name: Routetabellen
           items:
             - name: Azure PowerShell
@@ -86,12 +80,6 @@
               href: tutorial-create-route-table-cli.md
             - name: Template
               href: virtual-network-create-udr-arm-template.md
-            - name: Klassiek
-              items:
-                - name: Azure PowerShell
-                  href: virtual-network-create-udr-classic-ps.md
-                - name: Azure-CLI
-                  href: virtual-network-create-udr-classic-cli.md
         - name: Service-eindpunten
           items:
             - name: Azure PowerShell
@@ -124,10 +112,6 @@
                   href: virtual-network-deploy-static-pip-arm-cli.md
                 - name: Template
                   href: virtual-network-deploy-static-pip-arm-template.md
-                - name: Klassiek
-                  items:
-                    - name: Azure PowerShell
-                      href: virtual-networks-reserved-public-ip.md
             - name: Een virtuele machine maken - statisch privé-IP-adres
               items:
                 - name: Azure Portal
@@ -136,14 +120,6 @@
                   href: virtual-networks-static-private-ip-arm-ps.md
                 - name: Azure-CLI
                   href: virtual-networks-static-private-ip-arm-cli.md
-                - name: Klassiek
-                  items:
-                    - name: Azure Portal
-                      href: virtual-networks-static-private-ip-classic-pportal.md
-                    - name: Azure PowerShell
-                      href: virtual-networks-static-private-ip-classic-ps.md
-                    - name: Azure-CLI
-                      href: virtual-networks-static-private-ip-classic-cli.md
             - name: Een virtuele machine maken - meerdere netwerkinterfaces
               items:
                 - name: Azure PowerShell
@@ -152,12 +128,6 @@
                   href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                 - name: Template
                   href: virtual-network-deploy-multinic-arm-template.md
-                - name: Klassiek
-                  items:
-                    - name: Azure PowerShell
-                      href: virtual-network-deploy-multinic-classic-ps.md
-                    - name: Azure-CLI
-                      href: virtual-network-deploy-multinic-classic-cli.md
             - name: Een virtuele machine maken - meerdere IP-adressen
               items:
                 - name: Azure Portal
@@ -178,7 +148,7 @@
               href: virtual-machine-network-throughput.md
         - name: Connectiviteitsscenario's
           items:
-            - name: Virtueel netwerk (VNet) naar VNet
+            - name: Virtueel netwerk naar virtueel netwerk
               href: ../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: VNet (Resource Manager) naar een VNet (klassiek)
               href: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
@@ -194,34 +164,8 @@
               href: virtual-network-scenario-udr-gw-nva.md
             - name: DMZ tussen Azure en internet
               href: ../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-            - name: Cloudservice en netwerkbeveiliging
-              href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-              items:
-                - name: Een DMZ met NSG's maken
-                  href: virtual-networks-dmz-nsg.md
-                - name: Een DMZ met NSG's (klassiek) maken
-                  href: virtual-networks-dmz-nsg-asm.md
-                - name: Een DMZ met een firewall en NSG's (klassiek) maken
-                  href: virtual-networks-dmz-nsg-fw-asm.md
-                - name: 'DMZ met firewall, UDR en NSG''s (klassiek)'
-                  href: virtual-networks-dmz-nsg-fw-udr-asm.md
-                - name: Voorbeeldtoepassing
-                  href: virtual-networks-sample-app.md
-        - name: Klassiek
-          items:
-            - name: Virtueel netwerk
-              href: create-virtual-network-classic.md
-              items:
-                - name: Azure Portal
-                  href: virtual-networks-create-vnet-classic-pportal.md
-                - name: Azure PowerShell
-                  href: virtual-networks-create-vnet-classic-netcfg-ps.md
-                - name: Azure-CLI
-                  href: virtual-networks-create-vnet-classic-cli.md
-            - name: DNS-instellingen in een virtueel-netwerkconfiguratiebestand opgeven
-              href: virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md
-            - name: DNS-instellingen in een serviceconfiguratiebestand opgeven
-              href: virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md
+            - name: Een DMZ met NSG's maken
+              href: virtual-networks-dmz-nsg.md
     - name: Configureren
       items:
         - name: Virtuele machines
@@ -230,30 +174,12 @@
               href: virtual-network-network-interface-vm.md
             - name: Naamomzetting voor VM's en cloudservices
               href: virtual-networks-name-resolution-for-vms-and-role-instances.md
-            - name: Dynamische DNS gebruiken met uw eigen DNS-server
-              href: virtual-networks-name-resolution-ddns.md
-            - name: Netwerkdoorvoer optimaliseren
-              href: virtual-network-optimize-network-bandwidth.md
-            - name: Hostnamen weergeven en wijzigen
-              href: virtual-networks-viewing-and-modifying-hostnames.md
-            - name: Klassiek
-              items:
-                - name: Statische IP-adressen
-                  items:
-                    - name: Azure PowerShell
-                      href: virtual-networks-reserved-private-ip.md
-                    - name: Azure-CLI
-                      href: virtual-networks-static-private-ip-classic-cli.md
-                - name: Openbare IP-adressen op exemplaarniveau
-                  href: virtual-networks-instance-level-public-ip.md
-        - name: Klassiek
-          items:
-            - name: Toegangsbeheerlijsten
-              items:
-                - name: Azure Portal
-                  href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-                - name: Azure PowerShell
-                  href: virtual-networks-acl-powershell.md
+        - name: Dynamische DNS gebruiken met uw eigen DNS-server
+          href: virtual-networks-name-resolution-ddns.md
+        - name: Netwerkdoorvoer optimaliseren
+          href: virtual-network-optimize-network-bandwidth.md
+        - name: Hostnamen weergeven en wijzigen
+          href: virtual-networks-viewing-and-modifying-hostnames.md
     - name: Beheren
       items:
         - name: Virtuele netwerken
@@ -269,20 +195,9 @@
                   href: ddos-protection-manage-portal.md
                 - name: Azure PowerShell
                   href: ddos-protection-manage-ps.md
-            - name: Klassiek
-              items:
-                - name: Netwerkconfiguratiebestand
-                  href: virtual-networks-using-network-configuration-file.md
-                - name: Van een affiniteitsgroep naar een regio migreren
-                  href: virtual-networks-migrate-to-regional-vnet.md
         - name: Netwerkbeveiligingsgroepen
+          href: manage-network-security-group.md
           items:
-            - name: Azure Portal
-              href: virtual-network-manage-nsg-arm-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-manage-nsg-arm-ps.md
-            - name: Azure-CLI
-              href: virtual-network-manage-nsg-arm-cli.md
             - name: Logboeken
               href: virtual-network-nsg-manage-log.md
         - name: Routetabellen
@@ -320,6 +235,78 @@
           href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
         - name: PTR configureren voor controle van de SMTP-koptekst
           href: create-ptr-for-smtp-service.md
+    - name: Klassiek
+      items:
+        - name: Een virtueel netwerk maken en beheren
+          items:
+            - name: Een virtueel netwerk maken
+              href: create-virtual-network-classic.md
+              items:
+                - name: Azure Portal
+                  href: virtual-networks-create-vnet-classic-pportal.md
+                - name: Azure PowerShell
+                  href: virtual-networks-create-vnet-classic-netcfg-ps.md
+                - name: Azure-CLI
+                  href: virtual-networks-create-vnet-classic-cli.md
+            - name: DNS-instellingen in een virtueel-netwerkconfiguratiebestand opgeven
+              href: virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md
+            - name: DNS-instellingen in een serviceconfiguratiebestand opgeven
+              href: virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md
+            - name: Beheren
+              items:
+                - name: Netwerkconfiguratiebestand
+                  href: virtual-networks-using-network-configuration-file.md
+                - name: Van een affiniteitsgroep naar een regio migreren
+                  href: virtual-networks-migrate-to-regional-vnet.md
+        - name: Een netwerkbeveiligingsgroep maken
+          items:
+            - name: Azure PowerShell
+              href: virtual-networks-create-nsg-classic-ps.md
+            - name: Azure CLI 1.0
+              href: virtual-networks-create-nsg-classic-cli.md
+        - name: Een routetabel maken
+          items:
+            - name: Azure PowerShell
+              href: virtual-network-create-udr-classic-ps.md
+            - name: Azure-CLI
+              href: virtual-network-create-udr-classic-cli.md
+        - name: VM-netwerken
+          items:
+            - name: Een virtuele machine maken - meerdere netwerkinterfaces
+              items:
+                - name: Azure PowerShell
+                  href: virtual-network-deploy-multinic-classic-ps.md
+                - name: Azure-CLI
+                  href: virtual-network-deploy-multinic-classic-cli.md
+            - name: Een virtuele machine maken - statisch privé-IP-adres
+              href: virtual-networks-reserved-public-ip.md
+            - name: Beheren
+              items:
+                - name: Statische IP-adressen
+                  items:
+                    - name: Azure PowerShell
+                      href: virtual-networks-reserved-private-ip.md
+                    - name: Azure-CLI
+                      href: virtual-networks-static-private-ip-classic-cli.md
+                - name: Openbare IP-adressen op exemplaarniveau
+                  href: virtual-networks-instance-level-public-ip.md
+                - name: Toegangsbeheerlijsten
+                  items:
+                    - name: Azure Portal
+                      href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+                    - name: Azure PowerShell
+                      href: virtual-networks-acl-powershell.md
+        - name: Cloudservice en netwerkbeveiliging
+          href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+          items:
+            - name: Een DMZ met NSG's maken
+              href: virtual-networks-dmz-nsg-asm.md
+            - name: Een DMZ met een firewall en NSG's maken
+              href: virtual-networks-dmz-nsg-fw-asm.md
+            - name: 'DMZ met firewall, UDR en NSG’s'
+              href: virtual-networks-dmz-nsg-fw-udr-asm.md
+            - name: Voorbeeldtoepassing
+              href: virtual-networks-sample-app.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

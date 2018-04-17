@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2018
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: ff610c4efa9db16ca8a1e151b36e0e08dfe30d69
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3b21a3ae5940cd736fe23b76e7ede9dc0061b711
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Gegevens verzamelen over Azure Virtual Machines
-[Azure Log Analytics](log-analytics-overview.md) kan gegevens rechtstreeks vanuit uw Azure-VM’s en andere bronnen in uw omgeving verzamelen en onderbrengen in één opslagplaats voor gedetailleerde analyse en correlatie.  In deze snelstart wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Azure Linux- of Windows-VM’s configureert en verzamelt.  
+[Azure Log Analytics](log-analytics-overview.md) kan gegevens rechtstreeks vanuit uw Azure-VM’s en andere bronnen in uw omgeving verzamelen en onderbrengen in één opslagplaats voor gedetailleerde analyse en correlatie.  In deze Quick Start wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Azure Linux- of Windows-VM’s configureert en verzamelt.  
  
-In deze snelstart wordt ervan uitgegaan dat u een bestaande Azure-VM hebt. Als u geen [Windows-VM](../virtual-machines/windows/quick-create-portal.md) of [Linux-VM](../virtual-machines/linux/quick-create-cli.md) kunt maken, raadpleeg dan onze snelstarts voor VM’s.
+In deze Quick Start wordt ervan uitgegaan dat u een bestaande Azure-VM hebt. Als u geen [Windows-VM](../virtual-machines/windows/quick-create-portal.md) of [Linux-VM](../virtual-machines/linux/quick-create-cli.md) kunt maken, raadpleeg dan onze Quick Starts voor VM’s.
 
 ## <a name="log-in-to-azure-portal"></a>Aanmelden bij Azure Portal
 Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
@@ -37,7 +37,7 @@ Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.c
   * Selecteer een **abonnement** om te koppelen door een selectie in de vervolgkeuzelijst te maken als de geselecteerde standaardwaarde niet juist is.
   * Selecteer bij **Resourcegroep** een bestaande resourcegroep die een of meer virtuele Azure-machines bevat.  
   * Selecteer de **Locatie** waarop uw virtuele machines zijn geïmplementeerd.  Bekijk [in welke regio's Log Analytics beschikbaar is](https://azure.microsoft.com/regions/services/) voor aanvullende informatie.
-  * Als u een werkruimte maakt in een nieuw abonnement dat na 2 april 2018 is gemaakt, gebruikt deze automatisch de prijscategorie *Per GB*. De optie voor het selecteren van een prijscategorie is dan niet beschikbaar.  Als u een werkruimte maakt voor een bestaand abonnement dat is gemaakt vóór 2 april, of voor een abonnement dat is gekoppeld aan een bestaande EA-inschrijving, kunt u kiezen uit drie prijscategorieën.  In deze snelstart selecteert u de gratis prijscategorie.  Zie [Prijzen voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor aanvullende informatie over de afzonderlijke lagen.
+  * Als u een werkruimte maakt in een nieuw abonnement dat na 2 april 2018 is gemaakt, gebruikt deze automatisch de prijscategorie *Per GB*. De optie voor het selecteren van een prijscategorie is dan niet beschikbaar.  Als u een werkruimte maakt voor een bestaand abonnement dat is gemaakt vóór 2 april, of voor een abonnement dat is gekoppeld aan een bestaande EA-inschrijving, kunt u hier uw gewenste prijscategorie selecteren.  Zie [Prijzen voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor aanvullende informatie over de afzonderlijke lagen.
   
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
@@ -45,19 +45,12 @@ Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.c
 
 Terwijl de gegevens worden geverifieerd en de werkruimte wordt gemaakt, kunt u de voortgang bijhouden onder **Meldingen** in het menu. 
 
->[!NOTE]
->Als u een nieuwe werkruimte maakt die is gekoppeld aan een nieuw abonnement dat is gemaakt na 2 april 2018, gebruikt deze automatisch de prijscategorie *PerGB2018*.  Dit plan omvat 5 GB data per maand gratis voor Application Insights- en Log Analytics-resources. Zie [Prijzen voor Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) voor aanvullende informatie over het prijsmodel.
->
-
 ## <a name="enable-the-log-analytics-vm-extension"></a>De Log Analytics VM-extensie inschakelen
 Voor Windows- en Linux-VM’s die al zijn geïmplementeerd in Azure, installeert u de Log Analytics-agent met de VM-extensie van Log Analytics.  De extensie vereenvoudigt het installatieproces en configureert automatisch de agent voor het verzenden van gegevens naar de Log Analytics-werkruimte die u opgeeft. De agent wordt bovendien automatisch bijgewerkt, zodat u over de nieuwste functies en correcties beschikt.
 
 >[!NOTE]
 >De OMS-agent voor Linux kan niet worden geconfigureerd om aan meer dan één werkruimte voor Log Analytics te rapporteren. 
 
-Als u een werkruimte hebt gemaakt in Azure Government-cloud, ziet u mogelijk boven aan de Log Analytics-resourcepagina in de portal een banner met de vraag om een upgrade uit te voeren.  De upgrade is niet nodig voor het doel van deze snelstart.<br>
-
-![Melding voor Log Analytics-upgrade in Azure Portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. Selecteer in de lijst met Log Analytics-werkruimten de *StandaardLAWerkruimte* die u eerder hebt gemaakt.
 3. In het menu links, onder Gegevensbronnen voor werkruimte, klikt u op **Virtuele machines**.  
@@ -93,10 +86,6 @@ Nu u gegevensverzameling hebt ingeschakeld, geven we een voorbeeld van een eenvo
 
 1. Navigeer in Azure Portal naar Log Analytics en selecteer de werkruimte die u eerder hebt gemaakt.
 2. Klik op de tegel **Zoeken in logboeken**. In het deelvenster Zoeken in logboeken typt u `Perf` in het queryveld en drukt u op Enter of klikt u op de zoekknop rechts van het queryveld.<br> ![Voorbeeld van zoeken in logboeken in Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
-
-   >[!NOTE]
-   >Als de werkruimte is gemaakt in Azure Government-cloud, gebruikt u de query `Type=Perf`.  
-   >
 
 Zo geeft de query in de volgende afbeelding 78.000 prestatierecords als resultaat.  Uw resultaat zal aanzienlijk kleiner zijn.<br> ![Zoekresultaat uit Log Analytics-logboeken](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 

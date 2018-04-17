@@ -1,111 +1,90 @@
 ---
-title: Aan de slag met Azure CDN | Microsoft Docs
-description: In dit onderwerp leert u hoe u het Content Delivery Network (CDN) van Azure inschakelt. In deze zelfstudie wordt uitgelegd hoe u een nieuw CDN-profiel en -eindpunt maakt.
+title: Maak een Azure CDN-profiel en een eindpunt | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u Azure CDN inschakelt door een nieuw CDN-profiel en -eindpunt te maken.
 services: cdn
-documentationcenter: 
-author: zhangmanling
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dksimpson
+manager: akucer
+editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/25/2018
+ms.topic: quickstart
+ms.date: 03/13/2018
 ms.author: mazha
-ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.custom: mvc
+ms.openlocfilehash: 6237b47be878217115849b87ebcd3d980665643a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="getting-started-with-azure-cdn"></a>Aan de slag met Azure CDN
-In dit artikel wordt beschreven hoe u Azure [Content Delivery Network (CDN)](cdn-overview.md) inschakelt door een nieuw CDN-profiel en -eindpunt te maken.
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Snelstart: Een Azure CDN-profiel en een eindpunt maken
+In deze snelstart wordt beschreven hoe u Azure Content Delivery Network (CDN) inschakelt door een nieuw CDN-profiel en -eindpunt te maken. Nadat u een profiel en een eindpunt hebt gemaakt, kunt u beginnen met het leveren van inhoud aan uw klanten.
 
-## <a name="create-a-new-cdn-profile"></a>Nieuwe CDN-profielen maken
-Een CDN-profiel is een verzameling van CDN-eindpunten. Elk profiel kan een of meer CDN-eindpunten bevaten. U kunt meerdere profielen gebruiken om de CDN-eindpunten te ordenen op basis van het internetdomein, de webtoepassing of andere criteria.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
-> Een Azure-abonnement heeft standaardlimieten voor de volgende resources:
-> - Het aantal CDN-profielen dat kan worden gemaakt
-> - Het aantal eindpunten dat kan worden gemaakt in een CDN-profiel 
-> - Het aantal aangepaste domeinen dat kan worden toegewezen aan een eindpunt
->
-> Zie [CDN-limieten](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits) voor meer informatie over CDN-abonnementen.
->
-> De prijzen van CDN worden standaard toegepast op het niveau van het CDN-profiel. Als u verschillende Azure CDN-prijscategorieën wilt gebruiken, moet u daarom meerdere CDN-profielen maken.
-> 
-> 
+## <a name="prerequisites"></a>Vereisten
+Voor deze snelstart moet u een opslagaccount hebben gemaakt met de naam *mystorageacct123*, die u gebruikt als de oorspronkelijke hostnaam. Zie voor meer informatie [Integreren van een Azure storage-account met Azure CDN](cdn-create-a-storage-account-with-cdn.md)
+
+## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+Meld u met uw Azure-account aan bij het [Azure Portal](https://portal.azure.com).
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## <a name="create-a-new-cdn-endpoint"></a>Nieuwe CDN-eindpunten maken
-**Een nieuw CDN-eindpunt maken**
 
-1. Navigeer in [Azure Portal](https://portal.azure.com) naar uw CDN-profiel. Mogelijk hebt u het profiel in de vorige stap vastgemaakt aan het dashboard. Zo niet, dan kunt u het vinden door **Alle services** en vervolgens **CDN-profielen** te selecteren. Selecteer in het deelvenster **CDN-profielen** het profiel waaraan u uw eindpunt wilt toevoegen. 
+Nadat u een CDN-profiel hebt gemaakt, kunt u het gebruiken om een eindpunt te maken.
+
+1. Selecteer in het dashboard het CDN-profiel dat u hebt gemaakt in het Azure Portal. Selecteer **Alle services** als u deze niet kunt vinden, selecteer daarna **CDN-profielen**. In de pagina **CDN-profielen** selecteert u het profiel dat u wilt gebruiken. 
    
-    Het deelvenster CDN-profiel wordt weergegeven.
-   
-    ![CDN-profiel][cdn-profile-settings]
+    De CDN-profielpagina wordt weergegeven.
 
 2. Selecteer **Eindpunt**.
    
-    ![De knop Eindpunt toevoegen][cdn-new-endpoint-button]
+    ![CDN-profiel](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
-    Het deelvenster **Een eindpunt toevoegen** wordt weergegeven.
-   
-    ![Deelvenster Eindpunt toevoegen][cdn-add-endpoint]
+    De pagina **Een eindpunt toevoegen** wordt weergegeven.
 
-3. Voer voor **Naam** een unieke naam voor het nieuwe CDN-eindpunt in. Deze naam wordt gebruikt om toegang te krijgen tot uw resources in de cache in het domein `<endpointname>.azureedge.net`.
+    Gebruik de instellingen zoals opgegeven in de tabel onder de afbeelding.
+   
+    ![Deelvenster Eindpunt toevoegen](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
 
-4. Selecteer een oorsprongtype voor **Oorsprongtype**. Selecteer **Storage** voor een Azure Storage-account, **Cloudservice** voor een Azure Cloud-service, **Web App** voor een Azure-webtoepassing of **Aangepaste oorsprong** voor een andere openbaar toegankelijke webserveroorsprong (gehost in Azure of ergens anders).
-   
-    ![Oorsprongtype CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-
-5. Selecteer of typ uw domein van oorsprong in **Hostnaam van oorsprong**. De vervolgkeuzelijst bevat alle beschikbare oorsprongen van het type dat u hebt opgegeven in stap 4. Als u **Aangepaste oorsprong** als oorsprongtype hebt geselecteerd, voert u het domein in van de aangepaste oorsprong.
+    | Instelling | Waarde |
+    | ------- | ----- |
+    | **Naam** | Voer *my-endpoint-123* in als hostnaam van uw eindpunt. Deze naam moet globaal uniek zijn. Als deze al in gebruik is, kunt u een andere invoeren. Deze naam wordt gebruikt voor toegang tot uw resources in de cache van de domein- _&lt;eindpuntnaam&gt;_.azureedge.net.|
+    | **Oorsprongtype** | Selecteer **Opslag**. | 
+    | **Hostnaam van oorsprong** | Voer *mystorageacct123.blob.core.windows.net* in als hostnaam. Deze naam moet globaal uniek zijn. Als deze al in gebruik is, kunt u een andere invoeren |
+    | **Pad voor de oorsprong** | Leeg laten. |
+    | **Host-header van oorsprong** | Laat de standaard gegenereerde waarde staan. |  
+    | **Protocol** | Laat de standaard geselecteerde opties **HTTP** en **HTTPS** staan. |
+    | **Poort van oorsprong** | Laat de standaard gegenereerde poortwaardes staan. | 
+    | **Geoptimaliseerd voor** | Laat de standaardselectie **Algemene weboverdracht** staan. |
     
-6. Voer bij **Oorsprongpad** het pad in naar de resources die u wilt opslaan in de cache. U kunt het vak ook leeg laten, zodat alle resources in het domein dat u in stap 5 hebt opgegeven, kunnen worden opgeslagen in de cache.
-    
-7. Geef bij **Host-header van oorsprong** de host-header op die voor elke aanvraag door Azure CDN moet worden verzonden of laat de standaardinstelling staan.
-   
-   > [!WARNING]
-   > Bepaalde oorsprongtypen, zoals Azure Storage en Web Apps, vereisen dat de hostheader overeenkomt met het domein van de oorsprong. Tenzij u een oorsprong hebt waarvoor een andere host-header is vereist dan die van het domein, laat u de standaardwaarde ongewijzigd.
-   > 
-    
-8. Geef voor **Protocol** en **Poort van oorsprong** de protocollen en poorten op die worden gebruikt voor toegang tot uw resources die aan de oorsprong liggen. Er moet minimaal één protocol (HTTP of HTTPS) worden geselecteerd. Gebruik het domein dat is verstrekt door het CDN (`<endpointname>.azureedge.net`) voor toegang tot HTTPS-inhoud. 
-   
-   > [!NOTE]
-   > De waarde voor **Poort van oorsprong** bepaalt alleen de poort die door het eindpunt wordt gebruikt om informatie op te halen bij de oorsprong. Het eindpunt zelf is alleen beschikbaar voor eindclients op de standaard-HTTP- en -HTTPS-poorten (80 en 443), ongeacht de waarde voor **Poort van oorsprong**.  
-   > 
-   > Eindpunten in **Azure CDN van Akamai**-profielen staan niet het volledige TCP-poortbereik voor oorsprongpoorten toe. Zie [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Door Azure CDN van Akamai toegestane poorten van oorsprong) voor een lijst met poorten van oorsprong die niet zijn toegestaan.  
-   > 
-   > Wanneer u toegang hebt tot CDN-inhoud via HTTPS, gelden de volgende beperkingen:
-   > 
-   > * Gebruik het SSL-certificaat dat door het CDN is verstrekt. Certificaten van derden worden niet ondersteund.
-   > * HTTPS-ondersteuning voor aangepaste Azure CDN-domeinen is alleen beschikbaar bij **Azure CDN van Verizon**-producten (Standard en Premium). Dit wordt niet ondersteund in producten van **Azure CDN van Akamai**. Zie [HTTPS op een aangepast Azure CDN-domein configureren](cdn-custom-ssl.md) voor meer informatie.
-    
-9. Selecteer **Toevoegen** om het nieuwe eindpunt te maken.
+3. Selecteer **Toevoegen** om het nieuwe eindpunt te maken.
    
    Zodra het eindpunt is gemaakt, wordt deze weergegeven in de lijst met eindpunten voor het profiel.
     
-   ![CDN-eindpunt][cdn-endpoint-success]
+   ![CDN-eindpunt](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   > [!IMPORTANT]
-   > Het eindpunt is niet onmiddellijk beschikbaar voor gebruik, aangezien het enige tijd vergt om de registratie door te geven. Profielen van **Azure CDN van Akamai** worden doorgaans binnen één minuut doorgegeven. Profielen van **Azure CDN van Verizon** worden doorgaans binnen 90 minuten doorgegeven, maar in sommige gevallen kan dit langer duren.
-    > 
-    > Als u de CDN-domeinnaam probeert te gebruiken voordat de eindpuntconfiguratie is doorgegeven aan de POP's, kunt u een HTTP 404-reactiestatus ontvangen. Zie [Problemen oplossen met CDN-eindpunten die 404-statusberichten retourneren](cdn-troubleshoot-endpoint.md) als u een paar uur nadat u uw eindpunt hebt gemaakt, nog steeds een 404-reactiestatus ontvangt.
-    > 
-    > 
+   Het eindpunt is niet onmiddellijk beschikbaar voor gebruik, aangezien het enige tijd vergt om de registratie door te geven. 
 
-## <a name="see-also"></a>Zie ook
-* [Het cachegedrag van aanvragen beheren met queryreeksen](cdn-query-string.md)
-* [CDN-inhoud toewijzen aan een aangepast domein](cdn-map-content-to-custom-domain.md)
-* [Vooraf assets op een Azure CDN-eindpunt laden](cdn-preload-endpoint.md)
-* [Een Azure CDN-eindpunt leegmaken](cdn-purge-endpoint.md)
-* [Problemen oplossen voor CDN-eindpunten die 404-statusberichten retourneren](cdn-troubleshoot-endpoint.md)
 
-[cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
-[cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
-[cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
-[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
+## <a name="clean-up-resources"></a>Resources opschonen
+In de voorgaande stappen hebt u een CDN-profiel en een eindpunt in een resourcegroep gemaakt. Sla deze resources op als u naar [Vervolgstappen](#next-steps) wilt gaan en informatie wilt krijgen over het toevoegen van een aangepast domein aan uw eindpunt. Als u echter denkt deze resources in de toekomst niet meer nodig te hebben, kunt u ze verwijderen door de resourcegroep te verwijderen. Op deze manier voorkomt u bijkomende kosten:
+
+1. Selecteer in het linkermenu in het Azure Portal **Resourcegroepen** en selecteer vervolgens **my-resource-group-123**.
+
+2. Selecteer op de **Resourcegroep**-pagina **Resourcegroep verwijderen**, voer *mijn-resource-group-123* in het tekstvak in en selecteer **Verwijderen**.
+
+    Deze actie zal de resourcegroep, het profiel en het eindpunt dat u in deze snelstart hebt gemaakt verwijderen.
+
+## <a name="next-steps"></a>Volgende stappen
+Zie voor meer informatie over het toevoegen van een aangepast domein aan uw CDN-eindpunt, de volgende zelfstudie:
+
+> [!div class="nextstepaction"]
+> [Een aangepast domein toevoegen](cdn-map-content-to-custom-domain.md)
+
+

@@ -1,6 +1,6 @@
 ---
-title: Filteren van netwerkverkeer - Azure PowerShell | Microsoft Docs
-description: In dit artikel leert u hoe voor het filteren van netwerkverkeer naar een subnet, met een netwerkbeveiligingsgroep met behulp van PowerShell.
+title: 'Netwerkverkeer filteren: zelfstudie - Azure PowerShell | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u netwerkverkeer filtert naar een subnet, met een netwerkbeveiligingsgroep, met behulp van PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -11,50 +11,50 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: 53406150cfc2ec4229ecd9cf3356ad03d60f8e7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 8e04ed7ad16b673597b62d947c3f782ee0d27c7c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filteren van netwerkverkeer met een netwerkbeveiligingsgroep met behulp van PowerShell
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>Zelfstudie: netwerkverkeer filteren met een netwerkbeveiligingsgroep met behulp van PowerShell
 
-U kunt het netwerkverkeer naar binnenkomende en uitgaande van een virtueel netwerksubnet filteren met een netwerkbeveiligingsgroep. Netwerkbeveiligingsgroepen bevatten beveiligingsregels voor verbindingen die filteren van netwerkverkeer door IP-adres, poort en protocol. Beveiligingsregels worden toegepast op resources geïmplementeerd in een subnet. In dit artikel leert u hoe:
+U kunt het netwerkverkeer inkomend in en uitgaand naar een subnet van een virtueel netwerk filteren met een netwerkbeveiligingsgroep. Netwerkbeveiligingsgroepen bevatten beveiligingsregels die netwerkverkeer filteren op IP-adres, poort en protocol. Beveiligingsregels worden toegepast op resources die zijn geïmplementeerd in een subnet. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een netwerkbeveiliging groep en beveiliging regels maken
-> * Een virtueel netwerk maken en koppelen van een netwerkbeveiligingsgroep aan een subnet
+> * Een netwerkbeveiligingsgroep en beveiligingsregels maken
+> * Een virtueel netwerk maken en een netwerkbeveiligingsgroep koppelen aan een subnet
 > * Virtuele machines (VM) implementeren in een subnet
-> * De verkeersfilters van de test
+> * Verkeersfilters testen
 
-Als u liever, kunt u voltooien in dit artikel met behulp van de [Azure CLI](tutorial-filter-network-traffic-cli.md).
+U kunt deze zelfstudie desgewenst volgen met behulp van de [Azure CLI](tutorial-filter-network-traffic-cli.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Als u wilt installeren en gebruiken van PowerShell lokaal, in dit artikel is vereist voor de Azure PowerShell moduleversie 5.4.1 of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
+Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 5.4.1 of hoger van de Azure PowerShell-module vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
 
 ## <a name="create-a-network-security-group"></a>Een netwerkbeveiligingsgroep maken
 
-Een netwerkbeveiligingsgroep bevat beveiligingsregels voor verbindingen. Beveiligingsregels Geef een bron en bestemming. Bronnen en bestemmingen kunnen beveiligingsgroepen van toepassing zijn.
+Een netwerkbeveiligingsgroep bevat beveiligingsregels. Beveiligingsregels geven een bron en doel op. Bronnen en doelen kunnen toepassingsbeveiligingsgroepen zijn.
 
-### <a name="create-application-security-groups"></a>Beveiligingsgroepen toepassing maken
+### <a name="create-application-security-groups"></a>Toepassingsbeveiligingsgroepen maken
 
-Eerst maakt u een resourcegroep voor alle resources die zijn gemaakt in dit artikel met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Het volgende voorbeeld maakt u een resourcegroep in de *eastus* locatie: 
+Maak eerst een resourcegroep voor alle resources die in deze zelfstudie zijn gemaakt met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam gemaakt op de locatie *eastus*: 
 
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-Maak de beveiligingsgroep van een toepassing met [nieuw AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup). De beveiligingsgroep van een toepassing kunt u groepsservers met vergelijkbaar poortfiltering vereisten. Het volgende voorbeeld maakt twee beveiligingsgroepen van toepassing.
+Maak een toepassingsbeveiligingsgroep met [New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup). Met een toepassingsbeveiligingsgroep kunt u servers met vergelijkbare poortfiltervereisten groeperen. In het volgende voorbeeld worden twee toepassingsbeveiligingsgroepen gemaakt.
 
 ```azurepowershell-interactive
 $webAsg = New-AzureRmApplicationSecurityGroup `
@@ -68,9 +68,9 @@ $mgmtAsg = New-AzureRmApplicationSecurityGroup `
   -Location eastus
 ```
 
-### <a name="create-security-rules"></a>Beveiligingsregels voor verbindingen maken
+### <a name="create-security-rules"></a>Beveiligingsregels maken
 
-Maken van een regel met [nieuw AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). Het volgende voorbeeld wordt een regel waarmee verkeer inkomend verkeer van internet naar de *myWebServers* toepassing beveiligingsgroep poorten 80 en 443:
+Maak een beveiligingsregel met [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). In het volgende voorbeeld wordt een regel gemaakt die inkomend verkeer van internet naar de toepassingsbeveiligingsgroep *myWebServers* toestaat via de poorten 80 en 443:
 
 ```azurepowershell-interactive
 $webRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -98,11 +98,11 @@ $mgmtRule = New-AzureRmNetworkSecurityRuleConfig `
   -DestinationPortRange 3389
 ```
 
-In dit artikel RDP (poort 3389) wordt blootgesteld aan internet voor de *myAsgMgmtServers* VM. Voor productieomgevingen, in plaats van het blootstellen van poort 3389 voor internet, wordt aanbevolen dat u verbinding maken met Azure-resources die u wilt beheren met behulp van een [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [persoonlijke](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) netwerkverbinding.
+In deze zelfstudie RDP wordt (poort 3389) beschikbaar gemaakt voor internet voor de VM *myAsgMgmtServers*. Voor productieomgevingen wordt u aanbevolen in plaats van poort 3389 voor internet te gebruiken, verbinding te maken met Azure-resources die u wilt beheren met behulp van een [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [persoonlijke](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) netwerkverbinding.
 
 ### <a name="create-a-network-security-group"></a>Een netwerkbeveiligingsgroep maken
 
-Maken van een netwerkbeveiligingsgroep met [nieuw AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNsg*: 
+Maak een netwerkbeveiligingsgroep met [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). In het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNsg* gemaakt: 
 
 ```powershell-interactive
 $nsg = New-AzureRmNetworkSecurityGroup `
@@ -114,7 +114,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Maak een virtueel netwerk met [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). Het volgende voorbeeld wordt een virtuele naam *myVirtualNetwork*:
+Maak een virtueel netwerk met [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). In het volgende voorbeeld wordt een virtueel netwerk met de naam *myVirtualNetwork* gemaakt:
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzureRmVirtualNetwork `
@@ -124,7 +124,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Maken van een subnetconfiguratie met [nieuw AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig), en vervolgens de configuratie van het subnet te schrijven naar het virtuele netwerk met [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork). Het volgende voorbeeld wordt een subnet met de naam *mySubnet* met het virtuele netwerk en gekoppeld de *myNsg* netwerkbeveiligingsgroep aan:
+Maak een subnetconfiguratie met [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) en schrijf de subnetconfiguratie vervolgens naar het virtuele netwerk met [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork). In het volgende voorbeeld wordt een subnet met de naam *mySubnet* toegevoegd aan het virtuele netwerk en wordt de netwerkbeveiligingsgroep *myNsg* hieraan gekoppeld:
 
 ```azurepowershell-interactive
 Add-AzureRmVirtualNetworkSubnetConfig `
@@ -137,25 +137,25 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 ## <a name="create-virtual-machines"></a>Virtuele machines maken
 
-Voordat u de virtuele machines, ophalen van het object van het virtuele netwerk met het subnet met [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
+Voordat u de virtuele machines maakt, haalt u het virtuele netwerkobject met het subnet op met [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
 
 ```powershell-interactive
 $virtualNetwork = Get-AzureRmVirtualNetwork `
  -Name myVirtualNetwork `
  -Resourcegroupname myResourceGroup
 ```
-Een openbaar IP-adres maken voor elke virtuele machine met [nieuw AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
+Maak een openbaar IP-adres voor elke VM met [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
 $publicIpWeb = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic ` - ResourceGroupName myResourceGroup `
-  -Location eastus ` -naam myVmWeb
+  -AllocationMethod Dynamic ` -ResourceGroupName myResourceGroup `
+  -Location eastus ` -Name myVmWeb
 
 $publicIpMgmt = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic ` - ResourceGroupName myResourceGroup `
-  -Location eastus ` -naam myVmMgmt
+  -AllocationMethod Dynamic ` -ResourceGroupName myResourceGroup `
+  -Location eastus ` -Name myVmMgmt
 
 
-Maak twee netwerkinterfaces met [nieuw AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface), en een openbare IP-adres toewijzen aan de netwerkinterface. Het volgende voorbeeld wordt een netwerkinterface, gekoppeld de *myVmWeb* openbaar IP-adres, en maakt het een lid van de *myAsgWebServers* toepassing beveiligingsgroep:
+Maak twee netwerkinterfaces met [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) en wijs een openbaar IP-adres toe aan de netwerkinterface. In het volgende voorbeeld wordt een netwerkinterface gemaakt, wordt het openbare IP-adres van *myVmWeb* eraan gekoppeld en wordt het tot lid gemaakt van de toepassingsbeveiligingsgroep *myAsgWebServers*:
 
 ```powershell-interactive
 $webNic = New-AzureRmNetworkInterface `
@@ -167,7 +167,7 @@ $webNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $publicIpWeb.Id
 ```
 
-Het volgende voorbeeld wordt een netwerkinterface, gekoppeld de *myVmMgmt* openbaar IP-adres, en maakt het een lid van de *myAsgMgmtServers* toepassing beveiligingsgroep:
+In het volgende voorbeeld wordt een netwerkinterface gemaakt, wordt het openbare IP-adres van *myVmMgmt* eraan gekoppeld en wordt het tot lid gemaakt van de toepassingsbeveiligingsgroep *myAsgMgmtServers*:
 
 ```powershell-interactive
 $mgmtNic = New-AzureRmNetworkInterface `
@@ -179,9 +179,9 @@ $mgmtNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $publicIpMgmt.Id
 ```
 
-Twee virtuele machines maken in het virtuele netwerk, zodat u kunt controleren of een latere stap van het filteren van verkeer. 
+Maak twee virtuele machines in het virtuele netwerk, zodat u het filteren van verkeer in een latere stap kunt controleren. 
 
-Maak een VM-configuratie met [nieuw AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), maakt u de virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Het volgende voorbeeld wordt een virtuele machine die als een webserver fungeert. De `-AsJob` optie maakt de virtuele machine op de achtergrond, zodat u kunt doorgaan met de volgende stap: 
+Maak een VM-configuratie met [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) en maak de virtuele machine vervolgens met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). In het volgende voorbeeld wordt een virtuele machine gemaakt die als een webserver fungeert. Met de optie `-AsJob` wordt de virtuele machine op de achtergrond gemaakt, zodat u met de volgende stap kunt doorgaan: 
 
 ```azurepowershell-interactive
 # Create user object
@@ -207,7 +207,7 @@ New-AzureRmVM `
   -AsJob
 ```
 
-Maak een VM moeten fungeren als een beheerserver:
+Maak een VM die fungeert als een beheerserver:
 
 ```azurepowershell-interactive
 # Create user object
@@ -233,11 +233,11 @@ New-AzureRmVM `
   -VM $mgmtVmConfig
 ```
 
-De virtuele machine duurt een paar minuten maken. Niet verder gaan met de volgende stap voordat Azure is gemaakt van de virtuele machine.
+Het maken van de virtuele machine duurt een paar minuten. Ga pas verder met de volgende stap als Azure klaar is met het maken van de virtuele machine.
 
-## <a name="test-traffic-filters"></a>De verkeersfilters van de test
+## <a name="test-traffic-filters"></a>Verkeersfilters testen
 
-Gebruik [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) te retourneren van het openbare IP-adres van een virtuele machine. Het volgende voorbeeld wordt het openbare IP-adres van de *myVmMgmt* VM:
+Gebruik [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) om het openbare IP-adres van een virtuele machine op te halen. In het volgende voorbeeld wordt het openbare IP-adres van de VM *myVmMgmt* opgehaald:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -246,37 +246,37 @@ Get-AzureRmPublicIpAddress `
   | Select IpAddress
 ```
 
-Gebruik de volgende opdracht voor het maken van een sessie voor extern bureaublad met de *myVmMgmt* VM van de lokale computer. Vervang `<publicIpAddress>` geretourneerd met het IP-adres van de vorige opdracht.
+Gebruik de volgende opdracht om een sessie met een extern bureaublad te starten met de VM *myVmMgmt* vanaf uw lokale computer. Vervang `<publicIpAddress>` door het IP-adres dat is geretourneerd met de vorige opdracht.
 
 ```
 mstsc /v:<publicIpAddress>
 ```
 
-Open het gedownloade RDP-bestand. Als u wordt gevraagd, selecteert u **Connect**.
+Open het gedownloade RDP-bestand. Selecteer **Verbinding maken** wanneer hierom wordt gevraagd.
 
-Geef de gebruikersnaam en wachtwoord die u hebt opgegeven bij het maken van de virtuele machine (mogelijk moet u selecteren **meer opties**, vervolgens **gebruik een ander account**, de referenties die u hebt opgegeven tijdens het maken van de virtuele machine opgeven), Selecteer vervolgens **OK**. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Selecteer **Ja** om door te gaan met de verbinding. 
+Voer de gebruikersnaam en het wachtwoord in die u bij het maken van de VM hebt opgegeven (mogelijk moet u **Meer opties** en **Een ander account gebruiken** selecteren om de aanmeldingsgegevens op te geven die u hebt ingevoerd tijdens het maken van de virtuele machine) en selecteer **OK**. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Selecteer **Ja** om door te gaan met de verbinding. 
    
-De verbinding slaagt, omdat poort 3389 is toegestaan inkomende van internet naar de *myAsgMgmtServers* toepassing beveiligingsgroep die de netwerkinterface is gekoppeld aan de *myVmMgmt* VM bevindt zich in.
+De verbinding slaagt, omdat inkomend verkeer van internet naar de toepassingsbeveiligingsgroep *myAsgMgmtServers* waarin de netwerkinterface die is gekoppeld aan de VM *myVmMgmt* zich bevindt, is toegestaan voor poort 3389.
 
-Gebruik de volgende opdracht voor het maken van een verbinding met extern bureaublad naar de *myVmWeb* VM, uit de *myVmMgmt* VM, met de volgende opdracht, vanuit PowerShell:
+Gebruik de volgende opdracht voor het maken van een externe bureaubladverbinding met de VM *myVmWeb*, uit de VM *myVmMgmt*, met de volgende opdracht, vanuit PowerShell:
 
 ``` 
 mstsc /v:myvmWeb
 ```
 
-De verbinding slaagt omdat een standaardbeveiligingsregel binnen elke netwerkbeveiligingsgroep verkeer via alle poorten tussen alle IP-adressen binnen een virtueel netwerk is toegestaan. U kan niet naar een extern bureaublad-verbinding maken de *myVmWeb* VM vanaf het internet omdat de beveiliging voor regel de *myAsgWebServers* mag geen poort 3389 inkomend van internet.
+De verbinding slaagt omdat een standaardbeveiligingsregel binnen elke netwerkbeveiligingsgroep verkeer via alle poorten tussen alle IP-adressen binnen een virtueel netwerk toestaat. U kunt geen externe bureaubladverbinding tot stand brengen met de VM *myVmWeb* via internet omdat de beveiligingsregel voor de *myAsgWebServers* geen inkomend verkeer van internet toestaat via poort 3389.
 
-Gebruik de volgende opdracht voor het installeren van Microsoft IIS op de *myVmWeb* VM vanuit PowerShell:
+Gebruik de volgende opdracht voor het installeren van Microsoft IIS op de VM *myVmWeb* vanuit PowerShell:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Nadat de installatie van IIS voltooid is, verbreekt u de *myVmWeb* VM, waarbij u in de *myVmMgmt* VM-verbinding met extern bureaublad. Weergeven van het IIS-welkomstscherm, open een internetbrowser en blader naar http://myVmWeb.
+Nadat de installatie van IIS is voltooid, verbreekt u de verbinding met de VM *myVmWeb*, waarbij u de externe bureaubladverbinding met VM *myVmMgmt* behoudt. Als u het IIS-welkomstscherm wilt weergeven, opent u een internetbrowser en bladert u naar http://myVmWeb.
 
-Verbreek de verbinding tussen de *myVmMgmt* VM.
+Verbreek de verbinding met de VM *myVmMgmt*.
 
-Voer op de computer de volgende opdracht vanuit PowerShell voor het ophalen van het openbare IP-adres van de *myVmWeb* server:
+Voer op de computer de volgende opdracht vanuit PowerShell uit om het openbare IP-adres van de *myVmWeb*-server op te halen:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -285,11 +285,11 @@ Get-AzureRmPublicIpAddress `
   | Select IpAddress
 ```
 
-Om te bevestigen dat u toegang hebt tot de *myVmWeb* webserver buiten Azure, opent u een internet-browser op uw computer en blader naar `http://<public-ip-address-from-previous-step>`. De verbinding slaagt, omdat poort 80 is toegestaan inkomende van internet naar de *myAsgWebServers* toepassing beveiligingsgroep die de netwerkinterface is gekoppeld aan de *myVmWeb* VM bevindt zich in.
+Om te bevestigen dat u toegang hebt tot de *myVmWeb*-webserver buiten Azure, opent u een internetbrowser op uw computer en bladert u naar `http://<public-ip-address-from-previous-step>`. De verbinding slaagt, omdat inkomend verkeer van internet naar de toepassingsbeveiligingsgroep *myAsgWebServers* waarin de netwerkinterface die is gekoppeld aan de VM *myVmWeb* zich bevindt, is toegestaan voor poort 80.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer deze niet langer nodig is, kunt u [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) verwijderen van de resourcegroep en alle resources die deze bevat:
+U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep en alle resources die deze bevat te verwijderen:
 
 ```azurepowershell-interactive 
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -297,9 +297,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel wordt een netwerkbeveiligingsgroep gemaakt en die aan een virtueel netwerksubnet zijn gekoppeld. Zie voor meer informatie over netwerkbeveiligingsgroepen, [netwerk groep beveiligingsoverzicht](security-overview.md) en [beheren van een netwerkbeveiligingsgroep](virtual-network-manage-nsg-arm-ps.md).
+In deze zelfstudie hebt u een netwerkbeveiligingsgroep gemaakt en die aan een subnet van een virtueel netwerk gekoppeld. Zie [Overzicht van netwerkbeveiligingsgroepen](security-overview.md) en [Een beveiligingsgroep beheren](virtual-network-manage-nsg-arm-ps.md) voor meer informatie over netwerkbeveiligingsgroepen.
 
-Azure routes verkeer tussen subnetten standaard. In plaats daarvan kunt u verkeer leiden tussen subnetten door middel van een virtuele machine, fungeren als een firewall, bijvoorbeeld. Voor meer informatie over het maken van een routetabel, Ga naar het volgende artikel.
+Azure routeert standaard verkeer tussen subnetten. In plaats daarvan kunt u verkeer routeren tussen subnetten via een virtuele machine, die bijvoorbeeld als een firewall fungeert. Ga verder met de volgende zelfstudie om te leren hoe u een routetabel maakt.
 
 > [!div class="nextstepaction"]
 > [Een routetabel maken](./tutorial-create-route-table-portal.md)

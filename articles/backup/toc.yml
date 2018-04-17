@@ -85,8 +85,6 @@
           href: backup-azure-files.md
         - name: Veelgestelde vragen over het maken van backups van Azure-bestandsshares
           href: backup-azure-files-faq.md
-        - name: Problemen met Azure-bestandsshares oplossen
-          href: troubleshoot-azure-files.md
     - name: Azure-VM's
       items:
         - name: De virtuele machine voorbereiden
@@ -181,18 +179,20 @@
           href: backup-azure-delete-vault.md
     - name: Problemen oplossen
       items:
-        - name: Problemen met back-ups van virtuele Azure-machines in Azure Portal
+        - name: Back-upfoutberichten van IaaS-VM
           href: backup-azure-vms-troubleshoot.md
-        - name: 'Back-up maken van Azure VM mislukt: kan niet communiceren met de VM-agent voor de status van de momentopname - time-out opgetreden tijdens uitvoeren van subtaak voor momentopname van VM'
+        - name: Time-out opgetreden bij agent voor Azure Backup (MARS) of VM-extensie
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Langzame back-ups van bestanden en mappen in Azure Backup
+        - name: Back-up maken van bestanden en mappen is langzaam
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Problemen met Azure Backup Server oplossen
+        - name: Azure Backup-server
           href: backup-azure-mabs-troubleshoot.md
-        - name: Problemen oplossen met System Center Data Protection Manager
+        - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Problemen met Azure Backup Agent oplossen
+        - name: Azure Backup-agent (MARS)
           href: backup-azure-mars-troubleshoot.md
+        - name: Back-up van Azure-bestandsshares
+          href: troubleshoot-azure-files.md
 - name: Naslaginformatie
   items:
     - name: Azure PowerShell

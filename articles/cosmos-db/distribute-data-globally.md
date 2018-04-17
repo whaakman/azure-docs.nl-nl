@@ -3,7 +3,7 @@ title: Gegevens met Azure Cosmos DB globaal distribueren | Microsoft Docs
 description: Meer informatie over de wereld scale geo-replicatie, failover en gegevens herstellen met globale databases van Azure Cosmos DB, een globaal gedistribueerd, zijn voor het model database-service.
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: SnehaGunda
 manager: kfile
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
-ms.author: arramac
-ms.openlocfilehash: 588eb4df9555f20fe4193e8ae34ad51c17921db2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: sngun
+ms.openlocfilehash: 54eac2f3a95ecd37af357c933ba03f6c59bb241f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Het distribueren van gegevens met Azure Cosmos DB globaal
 Azure is alomtegenwoordige - heeft een algemene footprint tussen 30 + geografische regio's en continu groter wordt. Met de wereldwijde aanwezigheid is een van de gedifferentieerde mogelijkheden die Azure voor de ontwikkelaars biedt de mogelijkheid om te maken, implementeren en globaal gedistribueerde toepassingen eenvoudig te beheren. 
@@ -230,10 +230,10 @@ Azure Cosmos DB beschrijft transparant de metrische gegevens doorvoer, latentie,
 ## <a id="References"></a>Verwijzingen
 1. Eric Brewer. [Voor robuuste gedistribueerde systemen](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)
 2. Eric Brewer. [KAPJE twaalf jaar Later – hoe de regels zijn gewijzigd](http://informatik.unibas.ch/fileadmin/Lectures/HS2012/CS341/workshops/reportsAndSlides/PresentationKevinUrban.pdf)
-3. Gilbert, Lynch. - [Brewer&#39;s gissingen en haalbaarheid van consistente, beschikbare partitie fouttolerante webservices](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)
+3. Geurts, Lynch. - [Brewer&#39;s gissingen en haalbaarheid van consistente, beschikbare partitie fouttolerante webservices](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)
 4. Daniel Abadi. [Consistentiecontrole voor-en nadelen in moderne gedistribueerde Database systemen ontwerp](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf)
 5. To Kleppmann. [Stop het aanroepen van databases CP of Azië](https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html)
 6. Peter Bailis et al. [Probabilistische gebonden veroudering (PBS) voor praktische gedeeltelijke quorum](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 7. Naor en wol. [Laden en de capaciteit en beschikbaarheid in een Quorum-systemen](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)
 8. Herlihy en volgende. [Lineralizability: Een juistheid voorwaarde voor gelijktijdige objecten](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)
-9. [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
+9. [SLA voor Azure Cosmos-DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/)

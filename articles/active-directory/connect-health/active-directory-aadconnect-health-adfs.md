@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 630a633cf8657d43d6416d316928830634c9bf48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS bewaken met Azure AD Connect Health
 De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -109,7 +109,7 @@ Dit rapport bevat de volgende informatie:
 | Gebruikers-ID |De gebruikers-ID die is gebruikt. Deze waarde is wat de gebruiker heeft getypt, wat in sommige gevallen de verkeerder gebruikers-id is. |
 | Mislukte pogingen |Geeft het totale aantal mislukte pogingen voor die specifieke gebruikers-ID weer. De tabel is gesorteerd in aflopende volgorde, met het hoogste aantal mislukte pogingen bovenaan. |
 | Laatste fout |Dit is het tijdstip waarop de laatste fout zich heeft voorgedaan. |
-| IP laatste fout |Toont het client-IP-adres uit de laatste ongeldige aanvraag. |
+| IP laatste fout |Toont het client-IP-adres uit de laatste ongeldige aanvraag. Als er meer dan één IP-adressen in deze waarde zijn, bevat deze mogelijk ook een IP om de client door te verbinden, samen met de laatste poging van de gebruiker om een IP aan te vragen.  |
 
 > [!NOTE]
 > Dit rapport wordt elke 12 uur automatisch bijgewerkt met de nieuwe informatie die in die tijd is verzameld. Als gevolg hiervan kunnen inlogpogingen van de laatste 12 uur niet worden opgenomen in het rapport.
@@ -191,11 +191,14 @@ De drempelwaarde voor waarschuwingen kan via de drempelwaarde-instellingen worde
 1. Waarom zie ik privé-IP-adresbereiken in het rapport?  <br />
 Privé-IP-adressen (<i>10.x.x.x, 172.x.x.x en 192.168.x.x</i>) en de Exchange-IP-adressen worden eruit gefilterd en als waar gemarkeerd in de lijst met toegestane IP-adressen. Als u privé-IP-adresbereiken ziet, is het zeer waarschijnlijk dat de externe load balancer het client-IP-adres niet verzendt wanneer deze de aanvraag naar de proxyserver van de webtoepassing doorstuurt.
 
-2. Hoe kan ik een IP-adres blokkeren?  <br />
+2. Waarom krijg ik load balancer IP-adressen in het rapport te zien?  <br />
+Als u load balancer IP-adressen ziet, is het zeer waarschijnlijk dat uw externe load balancer het client-IP-adres niet verzendt wanneer deze de aanvraag naar de proxyserver van de webtoepassing doorstuurt. Configureer de load balancer op een juiste manier om het client-IP-adres door te schakelen. 
+
+3. Hoe kan ik een IP-adres blokkeren?  <br />
 Voeg geïdentificeerde schadelijke IP-adressen toe aan de firewall of blokkeer deze in Exchange.   <br />
 Met AD FS 2016 + 1803.C+ QFE kunt u het IP-adres rechtstreeks in AD FS blokkeren. 
 
-3. Waarom zie ik geen items in dit rapport? <br />
+4. Waarom zie ik geen items in dit rapport? <br />
    - Het aantal mislukte aanmeldactiviteiten is lager dan de ingestelde drempelwaarde. 
    - Zorg ervoor dat er geen melding als 'Health-service is niet up-to-date' actief is in de AD FS-serverlijst.  Lees meer informatie over [het oplossen van deze waarschuwing](active-directory-aadconnect-health-data-freshness.md).
    - Controles zijn niet ingeschakeld in AD FS-farms.

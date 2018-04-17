@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6038251ba79797312a0fec61e4a6f3d2e99d5435
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Quickstart: een .NET-Service Fabric-toepassing maken in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -29,14 +29,14 @@ Deze Quick Start laat zien hoe u uw eerste .NET-toepassing in Service Fabric imp
 ![Schermafbeelding van de toepassing](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 Met behulp van deze toepassing leert u hoe u:
-> [!div class="checklist"]
-> * een toepassing kunt maken met .Net en Service Fabric
-> * ASP.NET Core gebruiken als een webfront-end
-> * Toepassingsgegevens in een stateful service opslaan
-> * Lokaal problemen met uw toepassing oplossen
-> * De toepassing in een cluster in Azure implementeren
-> * De toepassing op meerdere knooppunten uitschalen
-> * Een rolling upgrade op een toepassingen uitvoeren
+
+* een toepassing kunt maken met .Net en Service Fabric
+* ASP.NET Core gebruiken als een webfront-end
+* Toepassingsgegevens in een stateful service opslaan
+* Lokaal problemen met uw toepassing oplossen
+* De toepassing in een cluster in Azure implementeren
+* De toepassing op meerdere knooppunten uitschalen
+* Een rolling upgrade op een toepassingen uitvoeren
 
 ## <a name="prerequisites"></a>Vereisten
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
@@ -92,7 +92,7 @@ Wanneer u in de toepassing stemt, vinden de volgende gebeurtenissen plaats:
 
 ## <a name="debug-in-visual-studio"></a>Fouten opsporen met Visual Studio
 
-Als u met Visual Studio fouten opspoort in de toepassing, gebruikt u daarvoor een lokaal ontwikkelingscluster van Service Fabric. U hebt de mogelijkheid om uw foutopsporingservaring aan uw specifieke scenario aan te passen. In deze toepassing worden gegevens met behulp van een betrouwbare dictionary opgeslagen in de back-endservice. Visual Studio verwijdert standaard de toepassing wanneer u het foutopsporingsprogramma stopt. Door de toepassing te verwijderen, worden de gegevens in de back-endservice ook verwijderd. Als u de gegevens tussen de foutopsporingssessies wilt kunnen behouden, kunt u de **foutopsporingsmodus van de toepassing** als eigenschap op het **Voting**-project in Visual Studio wijzigen.
+De toepassing zou zonder problemen moeten worden uitgevoerd, maar u kunt het foutopsporingsprogramma gebruiken om te zien hoe belangrijke onderdelen van de toepassing werken. Als u met Visual Studio fouten opspoort in de toepassing, gebruikt u daarvoor een lokaal ontwikkelingscluster van Service Fabric. U hebt de mogelijkheid om uw foutopsporingservaring aan uw specifieke scenario aan te passen. In deze toepassing worden gegevens met behulp van een betrouwbare dictionary opgeslagen in de back-endservice. Visual Studio verwijdert standaard de toepassing wanneer u het foutopsporingsprogramma stopt. Door de toepassing te verwijderen, worden de gegevens in de back-endservice ook verwijderd. Als u de gegevens tussen de foutopsporingssessies wilt kunnen behouden, kunt u de **foutopsporingsmodus van de toepassing** als eigenschap op het **Voting**-project in Visual Studio wijzigen.
 
 Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
 1. Open het bestand **/VotingWeb/Controllers/VotesController.cs** en stel een onderbrekingspunt in de methode **Put** van de web-API (regel 69) in. U kunt in Solution Explorer in Visual Studio naar het bestand zoeken.
@@ -181,8 +181,8 @@ U kunt een waarschuwing van de browser krijgen dat de locatie niet wordt vertrou
 
 Voer de volgende stappen uit om de web-front-endservice te schalen:
 
-1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-2. Klik op het beletselteken (drie punten) naast het knooppunt **fabric:/Voting/VotingWeb** in de structuurweergave en kies **Service schalen**.
+1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+2. In de structuurweergave vouwt u **Toepassingen**->**VotingType**->**fabric:/Voting** uit. Klik op het beletselteken (drie punten) naast het knooppunt **fabric:/Voting/VotingWeb** in de structuurweergave en kies **Service schalen**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
@@ -213,25 +213,26 @@ Als u de toepassing wilt upgraden, gaat u als volgt te werk:
 7. Schakel in het dialoogvenster **Service Fabric-toepassing publiceren** het selectievakje De toepassing bijwerken in en klik op **Publiceren**.
 
     ![Upgrade-instelling in het dialoogvenster Publiceren](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
+
+    U kunt de toepassing blijven gebruiken terwijl de upgrade wordt uitgevoerd. Omdat er twee exemplaren van de service in het cluster worden uitgevoerd, wordt als reactie op een aantal van uw aanvragen mogelijk een bijgewerkte versie van de toepassing verstrekt, terwijl op basis van andere aanvragen mogelijk nog steeds de oude versie wordt verstrekt.
+
 8. Open uw browser en blader naar het adres van het cluster op poort 19080, bijvoorbeeld `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 9. Klik in de structuurweergave op het knooppunt **Toepassingen** en vervolgens op **Upgrades worden uitgevoerd** in het rechterdeelvenster. U ziet nu hoe de upgrade wordt uitgevoerd op de upgradedomeinen in uw cluster en dat elk domein wordt bijgewerkt voordat het volgende wordt bijgewerkt. Een upgradedomein wordt in de voortgangsbalk groen weergegeven als de status van het domein is geverifieerd.
     ![Weergave van de upgrade in Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric voert upgrades veilig uit door na het bijwerken van de service op elk knooppunt in het cluster twee minuten te wachten. Houd er rekening mee dat de volledige update ongeveer acht minuten kan duren.
 
-10. U kunt de toepassing blijven gebruiken terwijl de upgrade wordt uitgevoerd. Omdat er twee exemplaren van de service in het cluster worden uitgevoerd, wordt als reactie op een aantal van uw aanvragen mogelijk een bijgewerkte versie van de toepassing verstrekt, terwijl op basis van andere aanvragen mogelijk nog steeds de oude versie wordt verstrekt.
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze snelstartgids hebt u de volgende zaken geleerd:
 
-> [!div class="checklist"]
-> * een toepassing maken met .NET en Service Fabric
-> * ASP.NET Core gebruiken als een webfront-end
-> * Toepassingsgegevens in een stateful service opslaan
-> * Lokaal problemen met uw toepassing oplossen
-> * De toepassing in een cluster in Azure implementeren
-> * De toepassing op meerdere knooppunten uitschalen
-> * Een rolling upgrade op een toepassingen uitvoeren
+* een toepassing maken met .NET en Service Fabric
+* ASP.NET Core gebruiken als een webfront-end
+* Toepassingsgegevens in een stateful service opslaan
+* Lokaal problemen met uw toepassing oplossen
+* De toepassing in een cluster in Azure implementeren
+* De toepassing op meerdere knooppunten uitschalen
+* Een rolling upgrade op een toepassingen uitvoeren
 
 Raadpleeg de volgende zelfstudie voor meer informatie over Service Fabric en .NET:
 > [!div class="nextstepaction"]

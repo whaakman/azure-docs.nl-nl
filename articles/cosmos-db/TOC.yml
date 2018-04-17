@@ -183,7 +183,7 @@ items:
                 href: sql-api-sql-query-metrics.md
               - name: SQL-testomgeving
                 href: 'https://aka.ms/cosmos-db-playground'
-              - name: Partitionering
+              - name: SQL-gegevenspartitionering
                 href: sql-api-partition-data.md
               - name: 'Opgeslagen procedures, triggers en UDF''s'
                 href: programming.md
@@ -286,6 +286,8 @@ items:
             items:
               - name: Gremlin-ondersteuning
                 href: gremlin-support.md
+              - name: Graph-partitionering
+                href: graph-partitioning.md
           - name: Tabel-API
             items:
               - name: Tabelontwikkeling
@@ -328,8 +330,6 @@ items:
             href: geospatial.md
           - name: Indexeren
             href: indexing-policies.md
-          - name: Verbonden service in Visual Studio
-            href: connected-service.md
       - name: Beheren
         items:
           - name: Rendabele lees- en schrijfbewerkingen
@@ -394,7 +394,7 @@ items:
           - name: Het ODBC-stuurprogramma gebruiken voor gegevensvisualisatie
             href: odbc-driver.md
           - name: Spring Boot Starter gebruiken met SQL-API's
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
   - name: Naslaginformatie
     items:
       - name: Codevoorbeelden

@@ -196,6 +196,8 @@
               href: app-insights-usage-segmentation.md
             - name: Trechters
               href: usage-funnels.md
+            - name: Cohorten
+              href: app-insights-usage-cohorts.md
             - name: Impact
               href: app-insights-usage-impact.md
             - name: Bewaartermijn

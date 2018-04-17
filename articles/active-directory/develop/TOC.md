@@ -7,9 +7,9 @@
 ### [Overzicht](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
-### [Windows](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
+### [.NET (Windows Desktop)](active-directory-devquickstarts-dotnet.md)
+### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
+### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Web-apps
@@ -96,11 +96,16 @@
 ### Mobiele en desktop-apps
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET voor Windows-bureaublad](guidedsetups/active-directory-windesktop.md)
+#### [.NET (Windows Desktop)](guidedsetups/active-directory-windesktop.md)
 ### Web-apps
-#### [JavaScript-SPA](guidedsetups/active-directory-javascriptspa.md)
-#### [ASP.NET-webserver](guidedsetups/active-directory-aspnetwebapp.md)
-#### [NodeJS-web-app](active-directory-v2-devquickstarts-node-web.md)
+#### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### Apps met één pagina
+#### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
+### Web-API's
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
+### Service-naar-service
+#### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Handleidingen
 ### [Een app registreren](active-directory-v2-app-registration.md)
 ## Naslaginformatie
@@ -111,9 +116,9 @@
 #### [Impliciete goedkeuring voor OAuth 2.0](active-directory-v2-protocols-implicit.md)
 #### [Referenties voor OAuth 2.0-client verlenen](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Namens-stroom voor OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [Tokenverwijzing](active-directory-v2-tokens.md)
 #### [Certificaatreferenties](active-directory-certificate-credentials.md)
-### [Bereiken](active-directory-v2-scopes.md)
+### [Tokens](active-directory-v2-tokens.md)
+### [Bereiken en toestemming](active-directory-v2-scopes.md)
 # Resources
 ## [Ondersteuning vragen](active-directory-develop-help-support.md)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)

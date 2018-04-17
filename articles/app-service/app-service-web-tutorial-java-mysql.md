@@ -6,7 +6,7 @@ documentationcenter: Java
 author: bbenz
 manager: jeffsand
 editor: jasonwhowell
-ms.assetid: 
+ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0712035f317adb318d60285637526f951bf5bdec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Een Java- en MySQL-web-app bouwen in Azure
+# <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Zelfstudie: een Java- en MySQL-web-app bouwen in Azure
 
 > [!NOTE]
 > In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een beperkte Spring Boot-app implementeren in Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin) voor de implementatie naar App Service op _Linux_.
@@ -61,7 +61,7 @@ Maak in een terminalvenster verbinding met uw lokale MySQL-server. U kunt dit te
 mysql -u root -p
 ```
 
-Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het account `root`. Als u het wachtwoord van uw rootaccount niet meer weet, bekijkt u [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Als u wordt gevraagd om een wachtwoord, voert u het wachtwoord in voor het `root`-account. Als u het wachtwoord van uw rootaccount niet meer weet, bekijkt u [MySQL: het opnieuw instellen van het hoofdwachtwoord](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Als uw opdracht succesvol is uitgevoerd, wordt uw MySQL-server al uitgevoerd. Als dit niet het geval is, zorgt u ervoor dat de lokale MySQL-server is gestart door de [Stappen na installatie van MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) te volgen.
 
@@ -137,7 +137,7 @@ Gebruik de opdracht [`az appservice list-locations`](/cli/azure/appservice#list-
 
 ### <a name="create-a-mysql-server"></a>Een MySQL-server maken
 
-Maak vanuit de Cloud Shell een server in Azure Database for MySQL (Preview) met behulp van de opdracht [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Vervang de tijdelijke aanduiding `<mysql_server_name>` waar u deze ziet door de naam van uw eigen unieke MySQL-server. Deze naam maakt deel uit van de hostnaam van de MySQL-server (`<mysql_server_name>.mysql.database.azure.com`), dus hij moet globaal uniek zijn. Vervang `<admin_user>` en `<admin_password>` door uw eigen waardes.
+Maak vanuit Cloud Shell een server in Azure Database for MySQL met behulp van de opdracht [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Vervang de tijdelijke aanduiding `<mysql_server_name>` waar u deze ziet door de naam van uw eigen unieke MySQL-server. Deze naam maakt deel uit van de hostnaam van de MySQL-server (`<mysql_server_name>.mysql.database.azure.com`), dus hij moet globaal uniek zijn. Vervang `<admin_user>` en `<admin_password>` door uw eigen waardes.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
@@ -168,7 +168,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 ```
 
 > [!NOTE]
-> Azure Database for MySQL (Preview) activeert momenteel niet automatisch verbindingen van Azure-services. Omdat IP-adressen in Azure dynamisch toegewezen worden, is het beter om te zorgen dat alle IP-adressen actief zijn. Wanneer de service met de preview doorgaat, zullen betere methoden voor het beveiligen van uw database wordt ingeschakeld.
+> Azure Database for MySQL activeert momenteel niet automatisch verbindingen van Azure-services. Omdat IP-adressen in Azure dynamisch toegewezen worden, is het beter om te zorgen dat alle IP-adressen actief zijn. Betere methoden voor het beveiligen van uw database worden beschikbaar gemaakt.
 
 ## <a name="configure-the-azure-mysql-database"></a>De Azure MySQL-database configureren
 

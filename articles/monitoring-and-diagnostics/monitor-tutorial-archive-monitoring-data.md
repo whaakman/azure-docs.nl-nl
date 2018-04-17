@@ -1,6 +1,6 @@
 ---
-title: Archiveren van Azure bewakingsgegevens | Microsoft Docs
-description: Het logboek en meetwaarde op die gegevens archiveren geproduceerd in Azure met een opslagaccount.
+title: Azure-bewakingsgegevens archiveren | Microsoft Docs
+description: Archiveer logboek- en metrische gegevens die binnen Azure zijn geproduceerd voor een opslagaccount.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,23 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: MT
+ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="archive-azure-monitoring-data"></a>Archief Azure bewakingsgegevens
+# <a name="archive-azure-monitoring-data"></a>Azure-bewakingsgegevens archiveren
 
-Verschillende lagen van uw Azure-omgeving produceren logboek en metrische gegevens die kunnen worden gearchiveerd naar een Azure Storage-Account. U kunt dit doen om een geschiedenis van het bewaken van gegevens gedurende een bepaalde periode in een goedkope, niet-doorzoekbare archief nadat die gegevens de bewaarperiode in Log Analytics of Azure-Monitor is verstreken behouden. Deze zelfstudie stappen aan de hand van de configuratie van uw Azure-omgeving voor het archiveren van gegevens naar een opslagaccount.
+Verschillende lagen van uw Azure-omgeving produceren logboek- en metrische gegevens die in een Azure Storage-account kunnen worden gearchiveerd. U kunt dit doen om de geschiedenis van het bewaken van gegevens gedurende een bepaalde periode in een prijsvriendelijk, niet-doorzoekbaar archief te bewaren nadat voor die gegevens de bewaarperiode in Log Analytics of Azure-Monitor is verstreken. Deze zelfstudie doorloopt het proces van het configureren van uw Azure-omgeving om gegevens in een opslagaccount te archiveren.
 
 > [!div class="checklist"]
-> * Een opslagaccount voor het opslaan van bewakingsgegevens maken
-> * Abonnement logboeken te routeren 
-> * Route bron van gegevens 
-> * Route voor virtuele machine (Gast OS) van gegevens 
-> * De bewakingsgegevens weergeven in het 
-> * Uw resources opschonen 
+> * Een opslagaccount maken om bewakingsgegevens op te slaan
+> * Abonnementslogboeken naar het opslagaccount doorsturen
+> * Resourcegegevens naar het opslagaccount doorsturen
+> * Gegevens van virtuele machines (als gast-OS) naar het opslagaccount doorsturen
+> * De bewakingsgegevens in het opslagaccount weergeven
+> * Uw resources opschonen
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -34,150 +34,157 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 
-U moet eerst een opslagaccount waarvoor de bewakingsgegevens worden gearchiveerd instellen. Hiervoor [Volg de stappen die hier](../storage/common/storage-create-storage-account.md).
+U moet eerst een opslagaccount instellen waarin de bewakingsgegevens worden gearchiveerd. Daarvoor [volgt u deze stappen](../storage/common/storage-create-storage-account.md).
 
-## <a name="route-subscription-logs-to-the-storage-account"></a>Route abonnement logboeken naar de storage-account
+## <a name="route-subscription-logs-to-the-storage-account"></a>Abonnementslogboeken naar het opslagaccount doorsturen
 
-U bent nu klaar om te beginnen met het instellen van uw Azure-omgeving voor het routeren van bewakingsgegevens naar een opslagaccount. We eerst configureren abonnementsniveau gegevens (in de Azure Activity Log) om te worden doorgestuurd naar het opslagaccount. De [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) biedt een geschiedenis van gebeurtenissen in de Azure-abonnement. U kunt het bladeren in de Azure portal om te bepalen *die* gemaakt, bijgewerkt of verwijderd *wat* bronnen en *wanneer* ze dit hebben gedaan.
+U bent nu klaar om te beginnen met het instellen van uw Azure-omgeving voor het doorsturen van bewakingsgegevens naar een opslagaccount. We gaan eerst gegevens op abonnementsniveau (in het Azure-activiteitenlogboek) configureren om deze door te sturen naar het opslagaccount. Het [ **Azure-activiteitenlogboek** ](monitoring-overview-activity-logs.md) bevat een geschiedenis van gebeurtenissen op abonnementsniveau in Azure. U kunt ernaar zoeken in Azure Portal om te bepalen *wie* *welke* resources heeft gemaakt, bijgewerkt of verwijderd en *wanneer* dat is gebeurd.
 
-1. Klik op de **Monitor** knop gevonden op de linkernavigatiebalk-lijst, klikt u vervolgens op **activiteitenlogboek**.
+1. Klik op de knop **Controle** in de linker navigatielijst en klik op **Activiteitenlogboek**.
 
-   ![Uplogboekgedeelte van de activiteit](media/monitor-tutorial-archive-monitoring-data/activity-log-home.png)
+   ![Sectie Activiteitenlogboek](media/monitor-tutorial-archive-monitoring-data/activity-log-home.png)
 
-2. Klik in de sectie activiteitenlogboek die wordt weergegeven op de **exporteren** knop.
+2. Klik in de weergegeven sectie Activiteitenlogboek op de knop **Exporteren**.
 
-3. In de **Export activiteitenlogboek** sectie die wordt weergegeven, schakel het selectievakje voor **exporteren naar een opslagaccount** en klik op **Selecteer een opslagaccount.**
+3. Schakel in de sectie **Activiteitenlogboek exporteren** het selectievakje voor **Exporteren naar een opslagaccount** in en klik op **Een opslagaccount selecteren**.
 
-   ![Geëxporteerde activiteitenlogboeken](media/monitor-tutorial-archive-monitoring-data/activity-log-export.png)
+   ![Activiteitenlogboek exporteren](media/monitor-tutorial-archive-monitoring-data/activity-log-export.png)
 
-4. In de sectie die wordt weergegeven, gebruikt de **opslagaccount** vervolgkeuzelijst om de naam van het opslagaccount dat u hebt gemaakt in de voorgaande te selecteren **een opslagaccount maken** stap en klik vervolgens op **OK**.
+4. Gebruik in de weergegeven sectie de vervolgkeuzelijst **Opslagaccount** om de naam te selecteren van het opslagaccount dat u in de voorgaande stap, **Een opslagaccount maken**, hebt gemaakt en klik vervolgens op **OK**.
 
-   ![Kies een opslagaccount](media/monitor-tutorial-archive-monitoring-data/activity-log-storage.png)
+   ![Een opslagaccount kiezen](media/monitor-tutorial-archive-monitoring-data/activity-log-storage.png)
 
-5. Stel de **bewaartermijn (dagen)** schuifregelaar tot en met 30. Met deze schuifregelaar Hiermee stelt u een aantal dagen wilt bewaren van de bewakingsgegevens in het opslagaccount. Azure Monitor wordt automatisch verwijderd voor gegevens die ouder zijn dan het aantal dagen opgegeven. Een bewaartermijn van nul dagen worden de gegevens voor onbepaalde tijd opgeslagen.
+5. Stel de schuifregelaar **Bewaarperiode (dagen)** in op 30. Met deze schuifregelaar stelt u het aantal dagen in dat u de bewakingsgegevens in het opslagaccount wilt bewaren. Azure Monitor verwijdert automatisch gegevens die ouder zijn dan het aantal opgegeven dagen. Bij een bewaarperiode van nul dagen worden de gegevens voor onbepaalde tijd opgeslagen.
 
-6. Klik op **opslaan** en sluit u deze sectie.
+6. Klik op **Opslaan** en sluit deze sectie.
 
-Het bewaken van gegevens uit uw abonnement is nu die binnenkomen in het opslagaccount.
+Bewakingsgegevens uit uw abonnement worden nu doorgestuurd naar het opslagaccount.
 
-## <a name="route-resource-data-to-the-storage-account"></a>Gegevens van de bron routeren naar het storage-account
+## <a name="route-resource-data-to-the-storage-account"></a>Resourcegegevens doorsturen naar het opslagaccount
 
-Nu we niveau van de resource-gegevens (metrische gegevens voor resources en diagnostische logboeken) worden doorgestuurd naar het opslagaccount door in te stellen configureren **diagnostische broninstellingen**.
+Nu gaan we gegevens op resourceniveau (metrische gegevens voor resources en diagnostische logboeken) zodanig configureren dat ze worden doorgestuurd naar het opslagaccount door **instellingen voor resourcediagnose** te definiëren.
 
-1. Klik op de **Monitor** knop gevonden op de linkernavigatiebalk-lijst, klikt u vervolgens op **diagnostische instellingen**. Hier kunt u een lijst van alle resources in uw abonnement bewakingsgegevens via Azure Monitor produceren bekijken. Als u geen resources in deze lijst, kunt u [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) voordat u dat u een resource die u kunt een diagnostische instelling configureren hebt op.
+1. Klik op de knop **Controle** in de linker navigatielijst en klik op **Diagnostische instellingen**. Hier kunt u een lijst zien van alle resources in uw abonnement die bewakingsgegevens via Azure Monitor genereren. Als er geen resources in deze lijst staan, kunt u [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) voordat u verdergaat zodat u over een resource beschikt waarvoor u een diagnostische instelling kunt configureren.
 
-2. Klik op een resource in de lijst en klik vervolgens op **diagnostische gegevens inschakelen**.
-   
+2. Klik op een resource in de lijst en klik op **Diagnostische gegevens inschakelen**.
+
    ![Diagnostische gegevens inschakelen](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
-   Als al een instelling geconfigureerd is, in plaats daarvan ziet u de bestaande instellingen en een knop **diagnostische instelling toevoegen**. Op deze knop klikt.
+   Als er al een instelling is geconfigureerd, ziet u in plaats daarvan de bestaande instellingen, samen met de knop **Diagnostische instelling toevoegen**. Klik op deze knop.
 
-   De diagnostische instelling van een bron is een definitie van *wat* bewakingsgegevens van een bepaalde bron moet worden gestuurd en *waar* bewakingsgegevens moet gaan.
+   De diagnostische instelling van een resource is een definitie van *welke* bewakingsgegevens moeten worden doorgestuurd vanuit een bepaalde resource en *waar* die bewakingsgegevens naartoe moeten worden gestuurd.
 
-3. Geef de instelling in de sectie een **naam** en schakel het selectievakje voor **archiveren naar een opslagaccount**.
+3. Geef in de weergegeven sectie de instelling een **naam** en schakel het selectievakje in voor **Archiveren naar een opslagaccount**.
 
-   ![Diagnostische instellingen sectie](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-home.png)
+   ![Sectie Diagnostische instellingen](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-home.png)
 
-4. Klik op de **configureren** knop onder **archiveren naar een opslagaccount** en selecteer het opslagaccount dat u in de voorgaande sectie hebt gemaakt. Klik op **OK**.
+4. Klik op de knop **Configureren** onder **Archiveren naar een opslagaccount** en selecteer het opslagaccount dat u in de voorgaande sectie hebt gemaakt. Klik op **OK**.
 
-   ![Diagnostische instellingen voor storage-account](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-storage.png)
+   ![Opslagaccount voor diagnostische instellingen](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-storage.png)
 
-5. Schakel de selectievakjes onder **logboek** en **metriek**. Afhankelijk van het resourcetype mogelijk alleen hebt u een van deze opties. Deze selectievakjes bepalen welke categorieën van logboek- en meetwaarde op die gegevens beschikbaar voor resourcetype worden verzonden naar de bestemming die u hebt geselecteerd, in dit geval een opslagaccount.
+5. Schakel alle selectievakjes onder **Logboek** en **Metrische gegevens** in. Afhankelijk van het resourcetype is er mogelijk maar één van deze opties beschikbaar. Deze selectievakjes bepalen welke categorieën logboek- en metrische gegevens die voor dat resourcetype beschikbaar zijn, worden verzonden naar de door u geselecteerde bestemming, in dit geval een opslagaccount.
 
-   ![Diagnostische instellingen voor categorieën](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
-   
-6. Stel de **bewaartermijn (dagen)** schuifregelaar tot en met 30. Met deze schuifregelaar Hiermee stelt u een aantal dagen wilt bewaren van de bewakingsgegevens in het opslagaccount. Azure Monitor wordt automatisch verwijderd voor gegevens die ouder zijn dan het aantal dagen opgegeven. Een bewaartermijn van nul dagen worden de gegevens voor onbepaalde tijd opgeslagen.
+   ![Categorieën van diagnostische instellingen](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
+
+6. Stel de schuifregelaar **Bewaarperiode (dagen)** in op 30. Met deze schuifregelaar stelt u het aantal dagen in dat u de bewakingsgegevens in het opslagaccount wilt bewaren. Azure Monitor verwijdert automatisch gegevens die ouder zijn dan het aantal opgegeven dagen. Bij een bewaarperiode van nul dagen worden de gegevens voor onbepaalde tijd opgeslagen.
 
 7. Klik op **Opslaan**.
 
-Het bewaken van gegevens van de resource is nu die binnenkomen in het opslagaccount.
+Bewakingsgegevens uit uw resource worden nu doorgestuurd naar het opslagaccount.
 
-## <a name="route-virtual-machine-guest-os-data-to-the-storage-account"></a>Gegevens van de virtuele machine (Gast OS) routeren naar het storage-account
+> [!NOTE]
+> Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
+>
+> *Een voorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Maar wanneer de metriek wordt geëxporteerd via diagnostische instellingen, geeft de metriek alle binnenkomende berichten in alle wachtrijen in de Event Hub aan.
+>
+>
 
-1. Als u nog geen een virtuele machine in uw abonnement [maken van een virtuele machine](../virtual-machines/windows/quick-create-portal.md).
+## <a name="route-virtual-machine-guest-os-data-to-the-storage-account"></a>Gegevens van virtuele machines (als gast-OS) doorsturen naar het opslagaccount
 
-2. Klik in de lijst links navigatie in de portal op **virtuele Machines**.
+1. Als u nog geen een virtuele machine in uw abonnement hebt, [maakt u een virtuele machine](../virtual-machines/windows/quick-create-portal.md).
 
-3. Klik in de lijst met virtuele machines die wordt weergegeven, op de virtuele machine die u hebt gemaakt.
+2. Klik in de linker navigatielijst in de portal op **Virtuele machines**.
 
-4. Klik in de volgende sectie op **diagnostische instellingen** op de linkernavigatiebalk. Deze sectie kunt u voor het instellen van de controle out-of-box-extensie van de Azure-Monitor op uw virtuele machine en de gegevens routeren naar een opslagaccount wordt geproduceerd door Windows of Linux.
+3. Klik in de weergegeven lijst met virtuele machines op de virtuele machine die u hebt gemaakt.
 
-   ![Navigeer naar de diagnostische instellingen](media/monitor-tutorial-archive-monitoring-data/guest-navigation.png)
+4. Klik in de weergegeven sectie op **Diagnostische instellingen** in de linker navigatielijst. In deze sectie kunt u de standaard bewakingsextensie uit Azure Monitor instellen voor uw virtuele machine en gegevens die worden gegenereerd door Windows of Linux doorsturen naar een opslagaccount.
 
-5. Klik op **gastniveau bewaking inschakelen** in de sectie die wordt weergegeven.
+   ![Navigeren naar diagnostische instellingen](media/monitor-tutorial-archive-monitoring-data/guest-navigation.png)
 
-   ![Schakel de diagnostische instellingen](media/monitor-tutorial-archive-monitoring-data/guest-enable.png)
+5. Klik op **Bewaking op gastniveau inschakelen** in de sectie die wordt weergegeven.
 
-6. Wanneer de diagnostische instelling correct is opgeslagen, de **overzicht** tabblad bevat een overzicht van de gegevens worden verzameld en waar deze wordt opgeslagen. Klik op de **prestatiemeteritems** sectie om te controleren van de set met Windows performance prestatiemeteritems worden verzameld.
+   ![Diagnostische instellingen inschakelen](media/monitor-tutorial-archive-monitoring-data/guest-enable.png)
 
-   ![Instellingen van de prestatiemeteritems](media/monitor-tutorial-archive-monitoring-data/guest-perf-counters.png)
-   
-7. Klik op de **logboeken** tabblad en schakel de selectievakjes in voor **informatie** niveau toepassing aanmeldt en wordt vastgelegd.
+6. Nadat de diagnostische instelling correct is opgeslagen, laat het tabblad **Overzicht** een overzicht zien van de gegevens die worden verzameld en waar deze worden opgeslagen. Klik op de sectie **Prestatiemeteritems** om de verzamelde set Windows-prestatiemeteritems te bekijken.
+
+   ![Instellingen van prestatiemeteritems](media/monitor-tutorial-archive-monitoring-data/guest-perf-counters.png)
+
+7. Klik op het tabblad **Logboeken** en schakel de selectievakjes in voor logboeken op **Informatie**niveau voor Toepassings- en Systeemlogboeken.
 
    ![Instellingen voor logboeken](media/monitor-tutorial-archive-monitoring-data/guest-logs.png)
 
-8. Klik op de **Agent** tabblad en klikt u onder **opslagaccount** Klik op de naam van het opslagaccount wordt weergegeven.
+8. Klik op het tabblad **Agent** en klik onder **Opslagaccount** op de naam van het weergegeven opslagaccount.
 
-   ![Bijwerken van opslagaccount](media/monitor-tutorial-archive-monitoring-data/guest-storage-home.png)
+   ![Opslagaccount bijwerken](media/monitor-tutorial-archive-monitoring-data/guest-storage-home.png)
 
-9. Kies in de sectie het opslagaccount dat u hebt gemaakt in de voorgaande **een opslagaccount maken** stap.
+9. Kies in de weergegeven sectie het opslagaccount dat u in de voorgaande stap, **Een opslagaccount maken**, hebt gemaakt.
 
 10. Klik op **Opslaan**.
 
-Het bewaken van gegevens van uw virtuele machines is nu die binnenkomen in het opslagaccount.
+Bewakingsgegevens uit uw virtuele machines worden nu doorgestuurd naar het opslagaccount.
 
-## <a name="view-the-monitoring-data-in-the-storage-account"></a>De bewakingsgegevens weergeven in de storage-account
+## <a name="view-the-monitoring-data-in-the-storage-account"></a>De bewakingsgegevens in het opslagaccount weergeven
 
-Als u de voorgaande stappen hebt gevolgd, is gegevens begonnen met het tot uw storage-account.
+Als u de voorgaande stappen hebt gevolgd, worden gegevens nu doorgestuurd naar uw opslagaccount.
 
-1. Voor bepaalde gegevenstypen, bijvoorbeeld het activiteitenlogboek, moet er een activiteit die wordt een gebeurtenis gegenereerd in het opslagaccount. Volg voor het genereren van activiteit in het activiteitenlogboek, [deze instructies](./monitor-quick-audit-notify-action-in-subscription.md). Mogelijk moet u wachten tot vijf minuten duren voordat de gebeurtenis wordt weergegeven in het opslagaccount.
+1. Voor bepaalde gegevenstypen, zoals het activiteitenlogboek, moet er activiteit zijn die een gebeurtenis in het opslagaccount genereert. Volg [deze instructies](./monitor-quick-audit-notify-action-in-subscription.md) om activiteit in het activiteitenlogboek te genereren. Wellicht moet u vijf minuten wachten voordat de gebeurtenis in het opslagaccount wordt weergegeven.
 
-2. Navigeer in de portal naar de **Opslagaccounts** sectie door vinden op de linkernavigatiebalk.
+2. Navigeer in de portal naar de sectie **Opslagaccounts** vanuit de linker navigatiebalk.
 
-3. Identificeren van het opslagaccount dat u in de voorgaande sectie hebt gemaakt en klikt u op.
+3. Identificeer het opslagaccount dat u in de voorgaande sectie hebt gemaakt en klik erop.
 
-4. Klik op **Blobs**, vervolgens op de container met het label **insights operationele logboeken** en ten slotte op de container met het label **name = standaard**. Dit is de container met het activiteitenlogboek. Het bewaken van gegevens is onderverdeeld in containers op bron-ID (alleen de abonnement-ID voor het logboek) en klik vervolgens op datum en tijd. De volledige notatie voor deze BLOB's is:
+4. Klik op **Blobs**, vervolgens op de container met het label **insights-operational-logs** en ten slotte op de container met het label **name=default**. Dit is de container waarin het activiteitenlogboek is opgenomen. Bewakingsgegevens worden onderverdeeld in containers op basis van resource-id (alleen de abonnements-id voor het activiteitenlogboek) en vervolgens op basis van datum en tijd. De volledige notatie voor deze blobs is:
 
-   Insights-operationele-logboeken/name = standaard/resourceId = / ABONNEMENTEN / {abonnements-ID} / y = {4-cijferige numerieke year} / m = {jaartallen met twee numerieke month} / d = {jaartallen met twee numerieke dag} /h = {jaartallen met twee 24-uurs klok hour}/m=00/PT1H.json
+   insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{abonnements-id}/y={jaar als vier cijfers}/m={maand als twee cijfers}/d={dag als twee cijfers}/h={uur als twee cijfers in 24-uurs notatie}/m=00/PT1H.json
 
-5. Ga naar het bestand PT1H.json door te klikken in de containers voor de resource-ID, datum en tijd. Klik op het bestand PT1H.json en op **downloaden**. Elke blob PT1H.json bevat een JSON-blob van gebeurtenissen die hebben plaatsgevonden binnen het uur die is opgegeven in de blob-URL (bijvoorbeeld, h = 12). Tijdens het huidige uur gebeurtenissen naar het bestand PT1H.json toegevoegd wanneer deze zich voordoen. De minuut waarde (m = 00) is altijd 00, omdat de logboekgebeurtenissen worden onderverdeeld in afzonderlijke blobs per uur.
+5. Ga naar het bestand PT1H.json door te klikken in de containers voor resource-id, datum en tijd. Klik op het bestand PT1H.json en op **Downloaden**. Elke PT1H.json-blob bevat een JSON-blob van gebeurtenissen die hebben plaatsgevonden binnen het uur dat is opgegeven in de blob-URL (bijvoorbeeld, h=12). Tijdens het huidige uur worden gebeurtenissen toegevoegd aan het bestand PT1H.json wanneer deze zich voordoen. De minuutwaarde (m=00) is altijd 00 omdat logboekgebeurtenissen worden onderverdeeld in afzonderlijke blobs per uur.
 
-   U kunt nu de JSON-gebeurtenis die is opgeslagen in de storage-account weergeven. Voor diagnostische logboeken bron is de notatie voor de blobs:
+   U kunt nu de JSON-gebeurtenis zien die in het opslagaccount werd opgeslagen. Voor diagnostische logboeken voor resources is de notatie voor de blobs:
 
-   Insights - logs-{categorie logboeknaam} / resourceId = / {resource ID} / y = {4-cijferige numerieke year} / m = {jaartallen met twee numerieke month} / d = {jaartallen met twee numerieke dag} /h = {jaartallen met twee 24-uurs klok hour}/m=00/PT1H.json
+   insights-logs-{categorienaam logboek}/resourceId=/{resource-id}/y={jaar als vier cijfers}/m={maand als twee cijfers}/d={dag als twee cijfers}/h={uur als twee cijfers in 24-uurs notatie}/m=00/PT1H.json
 
-6. Gastbesturingssysteem bewakingsgegevens worden opgeslagen in tabellen. Ga terug naar de oorspronkelijke storage-account en klik op **tabellen**. Er zijn tabellen voor metrische gegevens, prestatiemeteritems en gebeurtenislogboeken.
+6. Bewakingsgegevens voor het gast-OS worden opgeslagen in tabellen. Ga terug naar het oorspronkelijke opslagaccount en klik op **Tabellen**. Er zijn tabellen voor metrische gegevens, prestatiemeteritems en gebeurtenislogboeken.
 
-U hebt nu ingesteld het bewaken van gegevens naar een opslagaccount worden gearchiveerd.
+U hebt nu ingesteld dat bewakingsgegevens in een opslagaccount kunnen worden gearchiveerd.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-1. Ga terug naar de **activiteitenlogboek exporteren** sectie van de voorgaande **abonnement logboeken doorsturen naar het opslagaccount** stap en klik op **opnieuw**.
+1. Ga terug naar de sectie **Activiteitenlogboek exporteren** in de voorgaande stap, **Abonnementslogboeken naar het opslagaccount doorsturen**, en klik op **Opnieuw instellen**.
 
-2. Navigeer naar de **diagnostische instellingen** sectie, klikt u op de resource waarop u een diagnostische instelling in de voorgaande gemaakt **brongegevens doorsturen naar het opslagaccount** stap en vervolgens de instelling vinden u gemaakte, klikt u op de **bewerkt u de instelling** en klik op **verwijderen**.
+2. Navigeer naar de sectie **Diagnostische instellingen**, klik op de resource waarvoor u een diagnostische instelling hebt gemaakt in de voorgaande stap, **Resourcegegevens doorsturen naar het opslagaccount**, zoek naar de instelling die u hebt gemaakt, klik op de knop **Instelling bewerken** en klik op **Verwijderen**.
 
-3. Navigeer naar de **diagnostische instellingen** sectie op de virtuele machine die u hebt geconfigureerd in de voorgaande **doorsturen van gegevens van de virtuele machine (Gast OS) naar het opslagaccount** stap en klikt u onder de  **Agent** tabblad Klik **verwijderen** (onder de **agent verwijderen van Azure Diagnostics** sectie).
+3. Navigeer naar de sectie **Diagnostische instellingen** op de virtuele machine die u hebt geconfigureerd in de voorgaande stap, **Gegevens van virtuele machines (als gast-OS) doorsturen naar het opslagaccount**, en klik op het tabblad **Agent** op **Verwijderen** (onder de sectie **Azure Diagnostics-agent verwijderen**).
 
-4. Navigeer naar het opslagaccount dat u hebt gemaakt in de voorgaande **een opslagaccount maken** stap en klik op **opslagaccount verwijderen**. Typ de naam van het storage-account en klik vervolgens op **verwijderen**.
+4. Navigeer naar het opslagaccount dat u in de voorgaande stap, **Een opslagaccount maken**, hebt gemaakt en klik op **Opslagaccount verwijderen**. Voer de naam in van het opslagaccount en klik op **Verwijderen**.
 
-5. Als u een virtuele machine of de logische App voor de voorgaande stappen hebt gemaakt, moet u die ook verwijderen.
+5. Als u voor de voorgaande stappen een virtuele machine of logische app hebt gemaakt, moet u die ook verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u gegevens van uw Azure-omgeving (abonnement, resource en gastbesturingssysteem) naar een opslagaccount worden gearchiveerd bewaking hebt ingesteld. 
+In deze zelfstudie hebt u geleerd hoe u gegevens uit uw Azure-omgeving (abonnement, resource en gastbesturingssysteem) instelt voor archivering naar een opslagaccount.
 
 
 > [!div class="checklist"]
-> * Een opslagaccount voor het opslaan van bewakingsgegevens maken
-> * Abonnement logboeken te routeren 
-> * Route bron van gegevens 
-> * Route voor virtuele machine (Gast OS) van gegevens 
-> * De bewakingsgegevens weergeven in het 
-> * Uw resources opschonen 
+> * Een opslagaccount maken om bewakingsgegevens op te slaan
+> * Abonnementslogboeken naar het opslagaccount doorsturen
+> * Resourcegegevens naar het opslagaccount doorsturen
+> * Gegevens van virtuele machines (als gast-OS) naar het opslagaccount doorsturen
+> * De bewakingsgegevens in het opslagaccount weergeven
+> * Uw resources opschonen
 
-Om meer uit uw gegevens en afgeleid van extra inzichten, moet u ook uw gegevens verzenden in logboekanalyse.
+Om meer uit uw gegevens te halen en extra inzichten af te leiden, moet u uw gegevens ook naar Log Analytics verzenden.
 
 > [!div class="nextstepaction"]
 > [Aan de slag met Log Analytics](../log-analytics/log-analytics-get-started.md)

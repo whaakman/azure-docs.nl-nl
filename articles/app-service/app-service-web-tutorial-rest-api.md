@@ -5,7 +5,7 @@ services: app-service\api
 documentationcenter: dotnet
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7420e92bc929808f074e9be00dfbcb7d8476654a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4b5e432a9c553f5221f138b19a180f92420e6058
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>RESTful API hosten met CORS in Azure App Service
+# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Zelfstudie: een RESTful API hosten met CORS in Azure App Service
 
 [Azure App Service](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Daarnaast bevat App Service ingebouwde ondersteuning voor [CORS (Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) voor RESTful API's. In deze zelfstudie leert u hoe u een ASP.NET Core API-app in App Service met CORS-ondersteuning implementeert. U configureert de app met opdrachtregelprogramma's en implementeert de app met behulp van Git. 
 
@@ -49,7 +49,7 @@ In deze stap stelt u het lokale ASP.NET Core-project in. App Service ondersteunt
 
 ### <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-In het terminalvenster, `cd` in een werkmap.  
+Voer in het terminalvenster de opdracht `cd` naar een werkmap uit.  
 
 Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
 
@@ -204,7 +204,7 @@ Wat u hebt geleerd:
 > * Een RESTful API implementeren in Azure met behulp van Git
 > * CORS-ondersteuning van App Service implementeren
 
-Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan uw web-app kunt toewijzen.
+Ga naar de volgende zelfstudie voor informatie over het verifiëren en autoriseren van gebruikers.
 
 > [!div class="nextstepaction"]
-> [Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Zelfstudie: gebruikers eind-tot-eind verifiëren en autoriseren](app-service-web-tutorial-auth-aad.md)

@@ -364,6 +364,10 @@
           href: create-azure-ssis-integration-runtime.md
     - name: SSIS-pakketten uitvoeren in Azure
       items:
+        - name: Aangepaste instelling voor Azure-SSIS-integratie-runtime
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Enterprise-editie voor Azure-SSIS-integratie-runtime inrichten
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Azure-SSIS-integratie-runtime aan een VNet koppelen
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Azure-SSIS-integratie-runtime beheren
@@ -374,6 +378,8 @@
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Azure-SSIS-integratie-runtime plannen
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Gelicentieerde onderdelen voor Azure SSIS-integratie-runtime ontwikkelen
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Triggers maken
       items:
         - name: Een planningstrigger maken

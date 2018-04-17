@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 80246b00-bdb8-4bbc-af54-06b7d12acf58
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2e2e8d7213504ccd71df7048045925bf566c76d5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-security-center-platform-migration"></a>Migratie van Azure Security Center-platform
 
@@ -32,7 +32,7 @@ Vanaf begin juni 2017 implementeert Azure Security Center belangrijke wijziginge
 
 Voorheen gebruikte Security Center de Azure Monitoring Agent voor het verzamelen van beveiligingsgegevens van uw virtuele machines. Dit is inclusief informatie over beveiligingsconfiguraties, die worden gebruikt voor het identificeren van kwetsbaarheden, en beveiligingsgebeurtenissen, die worden gebruikt voor het detecteren van bedreigingen. Deze gegevens werden opgeslagen in uw opslagaccounts in Azure.
 
-Voortaan maakt Security Center gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die wordt gebruikt door de Operations Management Suite en de Log Analytics-service. Gegevens die via deze agent worden verzameld, worden opgeslagen in een bestaande *Log Analytics*-[werkruimte](../log-analytics/log-analytics-manage-access.md) die is gekoppeld aan uw Azure-abonnement, of in nieuwe werkruimten, rekening houdend met de geolocatie van de virtuele machine.
+Voortaan maakt Security Center gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die wordt gebruikt door de Log Analytics-service. Gegevens die via deze agent worden verzameld, worden opgeslagen in een bestaande *Log Analytics*-[werkruimte](../log-analytics/log-analytics-manage-access.md) die is gekoppeld aan uw Azure-abonnement, of in nieuwe werkruimten, rekening houdend met de geolocatie van de virtuele machine.
 
 ## <a name="agent"></a>Agent
 
@@ -62,9 +62,9 @@ Voor werkruimten die zijn gemaakt door Security Center worden gegevens 30 dagen 
 > [!NOTE]
 > Gegevens die eerder door Security Center werden verzameld, blijven aanwezig in uw opslagaccounts. Nadat de migratie is voltooid, kunt u deze opslagaccounts verwijderen.
 
-### <a name="oms-security-solution"></a>OMS-beveiligingsoplossing 
+### <a name="security-management-solution"></a>Oplossing voor beveiligingsbeheer 
 
-Voor bestaande klanten die geen OMS-beveiligingsoplossing hebben geïnstalleerd, installeert Microsoft deze in hun werkruimte. De oplossing is echter alleen gericht op virtuele machines van Azure. U moet deze oplossing niet verwijderen, omdat er geen automatisch herstel is als dit wordt gedaan via de OMS-beheerconsole.
+Voor bestaande klanten die geen oplossing voor beveiligingsbeheer in Log Analytics hebben geïnstalleerd, installeert Microsoft deze in hun werkruimte. De oplossing is echter alleen gericht op virtuele machines van Azure. U moet deze oplossing niet verwijderen omdat er geen automatisch herstel is als dit wordt gedaan via de beheerconsole.
 
 
 ## <a name="other-updates"></a>Andere Updates

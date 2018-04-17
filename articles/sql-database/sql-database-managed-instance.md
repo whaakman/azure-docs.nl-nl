@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ba57530c5708216ca7c990025d513144dcdf82a4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een exemplaar beheerd (preview)?
 
@@ -51,7 +51,7 @@ De volgende tabel ziet u enkele eigenschappen, toegankelijk via de Transact-SQL 
 
 |Eigenschap|Waarde|Opmerking|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Deze waarde is gelijk aan die in SQL-Database.|
+|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) Microsoft Corporation die 2018.|Deze waarde is gelijk aan die in SQL-Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Deze waarde is gelijk aan die in SQL-Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|Deze waarde is uniek exemplaar beheerd.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Exemplaar van de volledige DNS-naam in de volgende indeling:<instanceName>.<dnsPrefix>. database.Windows.NET, waarbij <instanceName> is die is geleverd door de klant, terwijl <dnsPrefix> automatisch gegenereerde deel uitmaakt van de naam van de globale DNS-naam uniekheid garanderen ('wcus17662feb9ce98', bijvoorbeeld)|Voorbeeld: Mijn-managed-instance.wcus17662feb9ce98.database.windows.net|
@@ -131,7 +131,7 @@ Hieronder worden de belangrijkste functies van de servicelaag voor algemene doel
 
 Beheerde exemplaar bieden extra beveiliging, isolatie van andere tenants in de Azure-cloud. Isolatie omvat: 
 
-- Implementatie van systeemeigen virtueel netwerk en de verbinding met uw on-premises omgeving met behulp van Azure Express Route- of VPN-Gateway 
+- [Implementatie van systeemeigen virtueel netwerk](sql-database-managed-instance-vnet-configuration.md) en de verbinding met uw on-premises omgeving met behulp van Azure Express Route- of VPN-Gateway 
 - SQL-eindpunt is zichtbaar alleen via een particuliere IP-adres, zodat u veilige connectiviteit van persoonlijke Azure- of hybride netwerken
 - Single-tenant met speciale onderliggende infrastructuur (compute, storage)
 
@@ -185,7 +185,13 @@ De Azure-Service voor het migreren van Database is een volledig beheerde service
 
 ### <a name="backup-and-restore"></a>Back-ups en herstellen  
 
-De migratie maakt gebruik van SQL-back-ups naar Azure blob storage. Back-ups opgeslagen in Azure storage-blob kunnen rechtstreeks worden hersteld naar exemplaar dat wordt beheerd. 
+De migratie maakt gebruik van SQL-back-ups naar Azure blob storage. Back-ups opgeslagen in Azure storage-blob kunnen rechtstreeks worden hersteld naar exemplaar dat wordt beheerd. Als u een bestaande SQL-database herstellen naar een beheerde-exemplaar, kunt u het volgende doen:
+
+- Gebruik [Data migratie-Service (DMS)](/sql/dma/dma-overview). Zie voor een zelfstudie [migreren naar een exemplaar beheerd met behulp van Azure Database migratie Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) van een back-upbestand van de database herstellen
+- Gebruik de [T-SQL-herstelopdracht](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+  - Zie voor een zelfstudie waarin wordt getoond hoe Wide World Importers - back-upbestand Standard database terugzetten [herstelt van een back-upbestand naar een exemplaar beheerd](sql-database-managed-instance-restore-from-backup-tutorial.md). Deze zelfstudie ziet dat u hebt voor het uploaden van een back-upbestand naar de Azure-blog opslag en te beveiligen met behulp van een Shared access signature (SAS)-sleutel.
+  - Zie voor meer informatie over het terugzetten van URL [systeemeigen terugzetten vanaf URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- [Uit een Bacpac-bestand importeren](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>SQL-functies die worden ondersteund 
 
@@ -217,5 +223,6 @@ Beheerde exemplaar inschakelen systeembeheerder om zich te richten op wat belang
 ## <a name="next-steps"></a>Volgende stappen
 
 - Voor een functies en vergelijkingslijst Zie [algemene functies van SQL](sql-database-features.md).
+- Lees [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md) (VNet-configuratie voor beheerd exemplaar) voor meer informatie over VNet-configuratie.
 - Zie voor een zelfstudie maakt u een exemplaar beheerd en een database herstelt vanuit een back-upbestand [maken van een exemplaar beheerd](sql-database-managed-instance-tutorial-portal.md).
 - Lees het artikel [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md) (Migratie van een beheerd exemplaar via DMS) voor een zelfstudie over gebruik van de Azure Database Migration Service (DMS).

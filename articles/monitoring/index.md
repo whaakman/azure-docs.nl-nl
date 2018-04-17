@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: b20283e1189e4f1a3555e2dd8d25972c9a677cd6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-management---monitoring"></a>Azure Management - bewaking
 
@@ -35,7 +35,7 @@ Geen enkele Azure-service voldoet volledig aan de vereisten van een bepaald behe
 
 In de volgende gedeelten worden kort de diverse beheergebieden beschreven. Ook vindt u er koppelingen naar gedetailleerde inhoud over de belangrijkste Azure-services die voor deze gebieden bedoeld zijn.
 
-## <a name="monitor"></a>Bewaken
+## <a name="monitor"></a>Controleren
 Bewaken is het verzamelen en analyseren van gegevens om de prestaties, status en beschikbaarheid van uw zakelijke toepassingen te bepalen, evenals de resources waar deze toepassingen van afhankelijk zijn. Een effectieve bewakingsstrategie geeft u inzicht in de precieze werking van de verschillende onderdelen van uw toepassingen. Ook stelt deze u in staat om de bedrijfstijd te verbeteren door u pro-actief op de hoogte te houden van belangrijke kwesties, zodat u deze kunt oplossen voordat ze tot problemen leiden.  In [Bewaking van Azure-toepassingen en -resources](monitoring-overview.md) vindt u een overzicht van bewaking in Azure en leest u met welke services u een bewakingsstrategie kunt maken.
 
 
@@ -54,3 +54,14 @@ Bescherming heeft te maken met het altijd beschikbaar houden van uw toepassingen
 
 ## <a name="migrate"></a>Migreren 
 Migratie heeft betrekking op het overhevelen naar de Azure-cloud van workloads die momenteel on-premises worden uitgevoerd.  [Azure Migrate](../migrate/migrate-overview.md) is een service waarmee u de geschiktheid voor migratie kunt beoordelen. Zo kunt u onder meer de grootte en kosten van virtuele on-premises machines in Azure bepalen op basis van de prestaties.  Azure Site Recovery kan u helpen bij de daadwerkelijk migratie van virtuele machines [van on-premises](../site-recovery/migrate-tutorial-on-premises-azure.md) of [vanuit Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  [Azure Database Migration](../dms/dms-overview.md) helpt u bij de migratie van meerdere databasebronnen naar Azure-gegevensplatforms.
+
+
+## <a name="operations-management-suite"></a>Operations Management Suite
+Eerdere technische documentatie met betrekking tot Azure-beheer bevatte Operations Management Suite (OMS), een bundeling van de volgende Azure-beheerservices:
+
+- Azure Automation
+- Azure Backup
+- Log Analytics
+- Site Recovery
+
+We laten de beschrijving van deze bundeling in onze technische documentatie achter ons, omdat volledig beheer in Azure is uitgebreid naar andere services. Geen van de services die deel uitmaken van OMS zijn veranderd, en elke heeft nog steeds een belangrijke rol in het beheer van uw Azure-toepassingen en -resources. Uw focus zou moeten liggen op de beheertaken die u uit moet voeren en op de verschillende Azure-services die voor elke taak samenwerken.

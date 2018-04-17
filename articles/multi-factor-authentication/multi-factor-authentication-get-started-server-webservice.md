@@ -2,7 +2,7 @@
 title: Webservice voor mobiele apps voor de Azure MFA-server | Microsoft Docs
 description: De Microsoft verificator-app biedt een extra optie voor verificatie buiten de band.  Hierdoor kan de MFA-server pushmeldingen naar gebruikers sturen.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ca5c7bcc82f0a77276f4f39a02d8abf2f47bc10
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Authenticatie met de mobiele app integreren met Azure Multi-Factor Authentication-server
 
@@ -29,11 +29,13 @@ Het gebruik van een mobiele app voor verificatie in twee stappen wordt aanbevole
 
 Afhankelijk van uw omgeving kan het raadzaam zijn om de webservice voor mobiele apps te implementeren op dezelfde server als de Azure Multi-Factor Authentication-server of op een andere internetgerichte server.
 
+Als u MFA-server versie 8.0 of hoger hebt geïnstalleerd, zijn de meeste van de onderstaande stappen niet vereist. Verificatie voor mobiele apps kan worden ingesteld door de stappen onder [De mobiele app configureren](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server) te volgen.
+
 ## <a name="requirements"></a>Vereisten
 
 Als u de Microsoft verificator-app wilt gebruiken, is het volgende vereist om de app correct te laten communiceren met de webservice voor mobiele apps:
 
-* Azure Multi-Factor Authentication-server versie 6.0 of hoger.
+* Azure Multi-Factor Authentication-server versie 6.x of hoger
 * De webservice voor mobiele apps moet zijn geïnstalleerd op een internetgerichte webserver waarop Microsoft® [Internet Information Services (IIS) 7.x of hoger](http://www.iis.net/) wordt uitgevoerd.
 * ASP.NET versie 4.0.30319 moet zijn geïnstalleerd en geregistreerd en zijn ingesteld op Toegestaan.
 * Vereiste functieservices omvatten ASP.NET en compatibiliteit met IIS 6-metabase.
@@ -48,6 +50,7 @@ Als u de Microsoft verificator-app wilt gebruiken, is het volgende vereist om de
 
 Voordat u de webservice voor mobiele apps installeert, moet u op de volgende details letten:
 
+* Installatie van de webservice voor mobiele apps is niet nodig voor versie 8.0 of hoger. Voer alleen de stappen onder [De mobiele app configureren](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server) uit.
 * U moet een serviceaccount hebben dat deel uitmaakt van de groep 'PhoneFactor Admins'. Dit account mag hetzelfde zijn als het account dat is gebruikt voor de installatie van de gebruikersportal.
 * Het is handig om een webbrowser te openen op de internetgerichte webserver en te navigeren naar de URL van de webservice-SDK die in het bestand web.config is ingevoerd. Als de browser de webservice kan bereiken, wordt u normaal om referenties gevraagd. Geef de gebruikersnaam en het wachtwoord op precies zoals deze in het bestand web.config zijn ingevoerd. Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
 * Als zich vóór de webserver van de webservice voor mobiele apps een omgekeerde proxy of firewall bevindt en SSL-offloading wordt uitvoert, kunt u het bestand web.config van de webservice voor mobiele apps bewerken, zodat de webservice voor mobiele apps http in plaats van https kan gebruiken. SSL is nog steeds vereist vanuit de mobiele app naar de firewall/omgekeerde proxy. Voeg de volgende sleutel toe aan de sectie \<appSettings\>:
@@ -87,18 +90,17 @@ De webservice-SDK moet met een SSL-certificaat worden beveiligd. Voor dit doel k
    > Omdat voor deze verbinding SSL wordt gebruikt, moet u naar de webservice-SDK verwijzen met behulp van de **FQDN** en niet met het **IP-adres**. Er moet een SSL-certificaat voor de FQDN zijn uitgegeven en de URL moet overeenkomen met de naam op het certificaat.
 
 7. Als de website waaronder de webservice voor mobiele apps is geïnstalleerd, nog niet is verbonden met een openbaar ondertekend certificaat, installeert u het certificaat op de server. Vervolgens opent u IIS-beheer en verbindt u het certificaat met de website.
-8. Open op een computer een webbrowser en navigeer naar de URL waar de webservice Mobile Apps is geïnstalleerd (bijvoorbeeld: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
+8. Open op een computer een webbrowser en navigeer naar de URL waar de webservice voor mobiele apps is geïnstalleerd (voorbeeld: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService)). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
 9. Zie het Help-bestand van de MFA-server voor meer informatie over de methoden die beschikbaar zijn in de SDK voor webservices.
+10. Nu de webservice voor mobiele apps is geïnstalleerd, moet u de Azure Multi-Factor Authentication-server voor gebruik met de gebruikersportal configureren.
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>De instellingen voor de webservice voor mobiele apps op de Azure Multi-Factor Authentication-server configureren
-
-Nu de webservice voor mobiele apps is geïnstalleerd, moet u de Azure Multi-Factor Authentication-server voor gebruik met de gebruikersportal configureren.
 
 1. Klik in de console van de Multi-Factor Authentication-server op het pictogram Gebruikersportal. Als gebruikers zelf een verificatiemethode mogen kiezen, schakelt u op het tabblad Instellingen onder **Toestaan dat gebruikers de methode selecteren** de optie **Mobiele app** in. Als deze functie niet is ingeschakeld, moeten eindgebruikers contact opnemen met uw helpdesk om de activering van de mobiele app te voltooien.
 2. Schakel het selectievakje **Toestaan dat gebruikers de mobiele app activeren** in.
 3. Schakel het selectievakje **Registreren van gebruikers toestaan** in.
 4. Klik op het pictogram **Mobiele app**.
-5. Voer in het veld **Webservice-URL mobiele app:** de URL in die wordt gebruikt met de virtuele map die is gemaakt bij het installeren van MultiFactorAuthenticationMobileAppWebServiceSetup64 (voorbeeld: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/).
+5. Als u werkt met versie 8.0 of hoger, slaat u de volgende stap over: voer in het veld **Webservice-URL mobiele app:** de URL in die wordt gebruikt voor de virtuele map die werd gemaakt bij het installeren van MultiFactorAuthenticationMobileAppWebServiceSetup64 (voorbeeld: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/).
 6. Voer in het veld **Accountnaam** de naam van het bedrijf of de organisatie in die moet worden weergegeven in de mobiele toepassing voor dit account.
    ![Configuratie van MFA-server - instellingen voor mobiele app](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
 

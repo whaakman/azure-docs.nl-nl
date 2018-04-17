@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-voorbeeldscript - Peer twee virtuele netwerken | Microsoft Docs
-description: Azure PowerShell-voorbeeldscript - Peer twee virtuele netwerken
+title: Azure PowerShell-voorbeeldscript - twee virtuele netwerken peeren | Microsoft Docs
+description: Azure PowerShell-voorbeeldscript - twee virtuele netwerken peeren
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -10,22 +10,22 @@ tags: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: powershell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: c0efdf759a0bdb87de4dc8ff9566a8e817503c5e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 4e6f81e1663e55abbde50f73e3b3c8fa20e6b00c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="peer-two-virtual-networks"></a>Peer twee virtuele netwerken
+# <a name="peer-two-virtual-networks-script-sample"></a>Voorbeeldscript voor peering van twee virtuele netwerken
 
-Dit script wordt gemaakt en twee virtuele netwerken in dezelfde regio verbindt via het netwerk van Azure. Nadat het script is uitgevoerd, maakt u een peering tussen twee virtuele netwerken.
+Met dit voorbeeldscript worden twee virtuele netwerken in dezelfde regio gemaakt en verbonden via het Azure-netwerk. Nadat het script is uitgevoerd, maakt u een peering tussen twee virtuele netwerken.
 
-U kunt het script uitvoeren vanuit de Azure [Cloud Shell](https://shell.azure.com/powershell), of vanuit een lokale installatie van PowerShell. Als u lokaal PowerShell gebruikt, dit script is vereist voor de AzureRM PowerShell moduleversie 5.4.1 of hoger. Ga voor de geïnstalleerde versie uitvoeren `Get-Module -ListAvailable AzureRM`. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+U kunt het script uitvoeren vanuit de Azure [Cloud Shell](https://shell.azure.com/powershell) of vanuit een lokale installatie van PowerShell. Als u lokale PowerShell gebruikt, vereist dit script de AzureRM PowerShell-module versie 5.4.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te zien welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +35,7 @@ U kunt het script uitvoeren vanuit de Azure [Cloud Shell](https://shell.azure.co
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen:
+Voer de volgende opdracht uit om de resourcegroep, VM en alle gerelateerde resources te verwijderen:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -43,17 +43,17 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="script-explanation"></a>Uitleg van het script
 
-In dit script worden de volgende opdrachten gebruikt voor het maken van een resourcegroep, een virtuele machine en alle gerelateerde resources. Elke opdracht in de volgende tabel is gekoppeld aan de specifieke documentatie opdracht:
+In dit script worden de volgende opdrachten gebruikt voor het maken van een resourcegroep, een virtuele machine en alle gerelateerde resources. Elke opdracht in de volgende tabel is een koppeling naar specifieke documentatie over de opdracht:
 
 | Opdracht | Opmerkingen |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. | 
 | [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)| Hiermee maakt u een virtueel Azure-netwerk en -subnet. |
-| [Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering) | Maakt een peering tussen twee virtuele netwerken.  |
+| [Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering) | Hiermee maakt u een peering tussen twee virtuele netwerken.  |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [Documentatie over Azure PowerShell](/powershell/azure/overview) voor meer informatie over Azure PowerShell.
 
-Voorbeelden van extra virtuele netwerk PowerShell-script kunnen worden gevonden in [voorbeelden van virtueel netwerk PowerShell](../powershell-samples.md).
+Meer PowerShell-voorbeeldscripts voor virtuele netwerken vindt u in [PowerShell-voorbeelden voor virtuele netwerken](../powershell-samples.md).

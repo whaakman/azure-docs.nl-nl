@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9123519217e87494316c1dc6b7f90da1b30ba392
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 804bc3f3708a6b5e70c91d68f954ebc10c477831
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Uw ontwikkelomgeving voorbereiden in Linux
 > [!div class="op_single_selector"]
@@ -194,11 +194,16 @@ Als u Service Fabric-services wilt bouwen met Java, installeert u JDK 1.8 en Gra
   sudo apt-get install gradle
   ```
 
-## <a name="install-the-eclipse-neon-plug-in-optional"></a>De Eclipse Neon-invoegtoepassing installeren (optioneel)
+## <a name="install-the-eclipse-plug-in-optional"></a>De Eclipse-invoegtoepassing installeren (optioneel)
 
 U kunt de Eclipse-invoegtoepassing voor Service Fabric installeren vanuit de Eclipse IDE voor Java-ontwikkelaars. Met Eclipse kunt u behalve Service Fabric Java-toepassingen ook uitvoerbare Fabric Service-gasttoepassingen en containertoepassingen maken.
 
-1. Zorg er in Eclipse voor dat u de meest recente Eclipse Neon en de meest recente Buildship-versie (1.0.17 of hoger) hebt geïnstalleerd. U kunt de versies van geïnstalleerde onderdelen controleren door **Help** > **Installation Details** te selecteren. U kunt Buildship bijwerken met behulp van de instructies in [Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle][buildship-update].
+> [!IMPORTANT]
+> Voor de Service Fabric-invoegtoepassing is Eclipse Neon of een hogere versie vereist. Zie de instructies na deze opmerking voor het controleren van uw Eclipse-versie. Als er een oudere versie van Eclipse is geïnstalleerd, kunt u een nieuwere versie downloaden op de [site van Eclipse](https://www.eclipse.org). Het wordt afgeraden een oudere versie van Eclipse te overschrijven met een nieuwere versie. Verwijder de oudere versie voordat u het installatieprogramma uitvoert of installeer de nieuwe versie in een andere map. 
+> 
+> Voor Ubuntu wordt u aangeraden de installatie rechtstreeks vanaf de site van Eclipse uit te voeren in plaats van door middel van een installatieprogramma voor pakketten (`apt` of `apt-get`). Daardoor weet u zeker dat u de meest recente versie van Eclipse hebt. 
+
+1. Controleer in Eclipse of u Eclipse Neon of een hogere versie hebt en of de nieuwste Buildship-versie (1.0.17 or later) is geïnstalleerd. U kunt de versies van geïnstalleerde onderdelen controleren door **Help** > **Installation Details** te selecteren. U kunt Buildship bijwerken met behulp van de instructies in [Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle][buildship-update].
 
 2. Als u de Service Fabric-invoegtoepassing wilt installeren, selecteert u **Help** > **Install New Software**.
 

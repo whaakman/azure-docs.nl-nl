@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot Azure App Service-omgevingen
-description: Kort overzicht van Azure App Service-omgevingen
+title: Inleiding tot Azure App Service Environments
+description: Kort overzicht van Azure App Service Environments
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="introduction-to-app-service-environments"></a>Inleiding tot App Service-omgevingen #
+# <a name="introduction-to-the-app-service-environments"></a>Inleiding tot Azure App Service Environments #
  
 ## <a name="overview"></a>Overzicht ##
 
@@ -43,7 +43,7 @@ AS-omgevingen zijn geïsoleerd om de toepassingen van slechts één klant uit te
 
 ## <a name="dedicated-environment"></a>Toegewezen omgeving ##
 
-Een AS-omgeving is exclusief toegewezen aan één abonnement en kan 100 exemplaren hosten. Het bereik loopt van 100 exemplaren in één App Service-plan tot 100 App Service-plannen met één exemplaar, en alles hier tussenin.
+Een ASE is exclusief toegewezen aan één abonnement en kan 100 App Service Plan-exemplaren hosten. Het bereik loopt van 100 exemplaren in één App Service-plan tot 100 App Service-plannen met één exemplaar, en alles hier tussenin.
 
 Een AS-omgeving bestaat uit front-ends en werkrollen. Front-ends zijn verantwoordelijk voor HTTP/HTTPS-beëindiging en automatische taakverdeling van app-aanvragen in een AS-omgeving. Front-ends worden automatisch toegevoegd wanneer de App Service-plannen in de AS-omgeving worden uitgeschaald.
 

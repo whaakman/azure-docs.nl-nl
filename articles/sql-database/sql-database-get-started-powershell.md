@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.devlang: PowerShell
 ms.topic: quickstart
-ms.date: 04/17/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 97a2bdeb275c00d298b6b25e31516984c5d9b62e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9649b79a8100597c73d9082e1314fc47e811b95c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Een individuele Azure SQL Database maken met PowerShell
 
@@ -35,7 +35,7 @@ Add-AzureRmAccount
 
 ## <a name="create-variables"></a>Variabelen maken
 
-Definieer variabelen voor gebruik in de scripts in deze Quick Start.
+In deze snelstart leert u om variabelen te definiëren voor gebruik in de scripts.
 
 ```powershell
 # The data center and resource name for your resources
@@ -88,7 +88,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>Een database op de server maken met voorbeeldgegevens
 
-Maak een database met een [prestatieniveau van S0](sql-database-service-tiers.md) in de server met de opdracht [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). In het volgende voorbeeld wordt een database met de naam `mySampleDatabase` gemaakt en worden de gegevens uit het AdventureWorksLT-voorbeeld in deze database geladen. U kunt deze vooraf gedefinieerde waarden desgewenst vervangen. (Andere Quick Starts in deze verzameling zijn echter op de waarden in deze Quick Start gebaseerd.)
+Maak een database met een [prestatieniveau van S0](sql-database-service-tiers.md) in de server met de opdracht [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase). In het volgende voorbeeld wordt een database met de naam `mySampleDatabase` gemaakt en worden de gegevens uit het AdventureWorksLT-voorbeeld in deze database geladen. U kunt deze vooraf gedefinieerde waarden desgewenst vervangen (andere zelfstudies in deze verzameling zijn echter op de waarden in deze snelstart gebaseerd).
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
@@ -100,10 +100,10 @@ New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. 
+Andere zelfstudies in deze verzameling zijn gebaseerd op deze snelstart. 
 
 > [!TIP]
-> Als u van plan bent om door te gaan met andere Quick Starts, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die door deze Quick Start in Azure Portal zijn gemaakt.
+> Als u van plan bent om door te gaan met andere zelfstudies, verwijder dan niet de resources die u in deze snelstart hebt gemaakt. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze Quick Start in Azure Portal zijn gemaakt.
 >
 
 ```powershell

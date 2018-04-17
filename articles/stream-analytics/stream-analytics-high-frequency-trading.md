@@ -1,24 +1,19 @@
 ---
-title: Simulatie van high-frequency trading met Stream Analytics | Microsoft Docs
-description: Lineaire-regressiemodeltrainingen en scores uitvoeren als onderdeel van dezelfde Stream Analytics-taak
-keywords: machine learning, geavanceerde analyses, lineaire regressie, simulatie, UDA, door de gebruiker gedefinieerde functie
-documentationcenter: ''
+title: Simulatie van high-frequency trading met behulp van Azure Stream Analytics
+description: Lineaire-regressiemodeltrainingen en scores uitvoeren als onderdeel van een Azure Stream Analytics-taak.
 services: stream-analytics
 author: zhongc
-manager: ryanw
-ms.assetid: 997ccfc1-abaf-4c12-bef2-632481140f05
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: 349dc5c5277260b664d7214979ef15d1689b2716
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: get-started-article
+ms.date: 11/05/2017
+ms.openlocfilehash: cf04cf92f204b89c0641a23ba38b05dbcad409b2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulatie van high-frequency trading met Stream Analytics
 Met een combinatie van SQL-taal en UDF's (door de gebruiker gedefinieerde functies) en UDA's (door de gebruiker gedefinieerde aggregaties) van JavaScript in Azure Stream Analytics kunnen gebruikers geavanceerde analyses uitvoeren. Geavanceerde analyses omvatten mogelijk onder andere onlinetraining en -scoring voor Machine Learning, evenals simulatie van het stateful-proces. In dit artikel wordt beschreven hoe u lineaire regressie kunt uitvoeren in een Azure Stream Analytics-taak met continue training en scoring in een high-frequency trading-scenario.

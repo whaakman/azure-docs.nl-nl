@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 3/6/2018
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>De Azure App Service-omgeving configureren met geforceerde tunnels
 
@@ -49,6 +49,8 @@ Als u wilt instellen dat uw ASE rechtstreeks verbinding heeft met het internet, 
 
 Als u deze twee wijzigingen aanbrengt, wordt internetverkeer dat afkomstig is van het subnet van het ASE-subnet niet gedwongen om de ExpressRoute-verbinding te gebruiken.
 
+Als het netwerk al verkeersrouting on-premises uitvoert, moet u het subnet maken om uw ASE te hosten en de UDR ervoor te configureren voordat u de ASE implementeert.  
+
 > [!IMPORTANT]
 > De routes die zijn gedefinieerd in een UDR, moeten specifiek genoeg zijn om voorrang te krijgen boven alle routes die worden geadverteerd met de ExpressRoute-configuratie. In het voorgaande voorbeeld wordt het brede adresbereik 0.0.0.0/0 gebruikt. Dit bereik kan mogelijk per ongeluk worden overschreven door routeadvertenties die gebruikmaken van specifiekere adresbereiken.
 >
@@ -56,13 +58,16 @@ Als u deze twee wijzigingen aanbrengt, wordt internetverkeer dat afkomstig is va
 
 ![Directe internettoegang][1]
 
-## <a name="configure-your-ase-with-service-endpoints"></a>Uw ASE configureren met service-eindpunten
+
+## <a name="configure-your-ase-with-service-endpoints"></a>Uw ASE configureren met service-eindpunten ##
 
 Voer de volgende stappen uit als u al het uitgaande verkeer vanuit uw ASE, behalve het verkeer naar Azure SQL en Azure Storage, wilt omleiden:
 
 1. Maak een routetabel maken en wijs deze toe aan uw ASE-subnet. Zoek in [App Service Environment management addresses][management] (Beheeradressen van App Service Environment) de adressen bij uw regio. Maak routes voor deze adressen met Internet als de volgende hop. Dit is nodig omdat het inkomend managementverkeer van ASE moet beantwoorden vanaf hetzelfde adres als waarnaar het is verzonden.   
 
-2. Service-eindpunten met Azure SQL en Azure Storage instellen met uw ASE-subnet
+2. Service-eindpunten met Azure SQL en Azure Storage instellen met uw ASE-subnet.  Nadat deze stap is voltooid, kunt u uw VNet configureren met geforceerde tunneling.
+
+Om uw ASE in een virtueel netwerk te maken dat al is geconfigureerd voor het routeren van al het verkeer on-premises, moet u uw ASE met een resource manager-sjabloon maken.  Het is niet mogelijk in een bestaand subnet met het portal een ASE te maken.  Wanneer u uw ASE implementeert in een VNet dat is al geconfigureerd om uitgaand verkeer on-premises te routeren, moet u uw ASE maken met een resource manager-sjabloon, hiermee bent u in staat om een bestaand subnet op te geven. Lees voor meer informatie over het implementeren van een ASE met een sjabloon [Een App Service Environment maken met een sjabloon][template].
 
 Met service-eindpunten kunt u de toegang tot multitenant-services beperken tot een reeks virtuele Azure-netwerken en subnetten. In de documentatie [Virtual Network Service Endpoints][serviceendpoints] (Virtuele netwerkservice-eindpunten) vindt u meer informatie over service-eindpunten. 
 
@@ -70,7 +75,7 @@ Wanneer u service-eindpunten voor een bron inschakelt, worden er routes gemaakt 
 
 Als Service-eindpunten in een subnet met een Azure SQL-exemplaar is ingeschakeld, moet Service-eindpunten zijn ingeschakeld op alle Azure SQL-exemplaren waarmee vanuit dat subnet een verbinding wordt gemaakt. Als u vanuit hetzelfde subnet toegang wilt hebben tot meerdere Azure SQL-exemplaren, is het niet mogelijk om Service-eindpunten wel op het ene Azure SQL-exemplaar in te schakelen en niet op een ander.  Azure Storage gedraagt zich niet op dezelfde manier als Azure SQL.  Wanneer u Service-eindpunten met Azure Storage inschakelt, kunt u de toegang tot die resource vanuit uw subnet vergrendelen en toegang behouden tot andere Azure Storage-accounts, zelfs als Service-eindpunten op die accounts niet is ingeschakeld.  
 
-Als u geforceerde tunnels configureert met een netwerkfilterapparaat, houd er dan rekening mee dat de ASE naast Azure SQL en Azure Storage nog een aantal andere afhankelijkheden heeft. U moet dat verkeer toestaan, anders werkt de ASE niet goed.
+Als u geforceerd tunneling configureert met een netwerkfilterapparaat, houd er dan rekening mee dat de ASE naast Azure SQL en Azure Storage nog een aantal andere afhankelijkheden heeft. U moet verkeer naar deze afhankelijkheden toestaan, anders werkt de ASE niet goed.
 
 ![Geforceerde tunnels met Service-eindpunten][2]
 
@@ -122,7 +127,7 @@ Door deze wijzigingen wordt verkeer vanuit de ASE rechtstreeks naar Azure Storag
 
 Als de communicatie tussen de ASE en de bijbehorende afhankelijkheden wordt verbroken, wordt de ASE onbetrouwbaar.  Als deze te lang onbetrouwbaar blijft, wordt de toegang tot de ASE tijdelijk ingetrokken. Volg de instructies in de ASE-portal als u de toegang tot de ASE wilt herstellen.
 
-Niet alleen een onderbroken communicatie kan een nadelige invloed hebben op een ASE, maar ook de introductie van te veel latentie. Te veel latentie vindt plaats als uw ASE zich te ver van uw on-premises netwerk bevindt.  Bijvoorbeeld als er een oceaan of continent tussen de ASE en uw on-premises netwerk ligt. Latentie kan ook optreden als gevolg van congestie van het intranet of beperkingen van de uitgaande bandbreedte.
+Niet alleen een onderbroken communicatie kan een nadelige invloed hebben op een ASE, maar ook de introductie van te veel latentie. Te veel latentie vindt plaats als uw ASE zich te ver van uw on-premises netwerk bevindt.  Het is bijvoorbeeld te ver als er een oceaan of continent tussen de ASE en uw on-premises netwerk ligt. Latentie kan ook optreden als gevolg van congestie van het intranet of beperkingen van de uitgaande bandbreedte.
 
 
 <!--IMAGES-->

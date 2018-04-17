@@ -1,26 +1,25 @@
 ---
-title: Documentatie voor Azure SQL Data Warehouse - zelfstudies, API-verwijzing | Microsoft Docs
-description: Leer hoe u SQL Data Warehouse gebruikt, waarmee u SQL Server combineert met massively parallel processing. Documentatie laat zien hoe u gegevens kunt laden, analyseren, beheren en exporteren.
+title: Documentatie voor Azure SQL Data Warehouse - zelfstudies, concepten | Microsoft Docs
+description: Informatie over hoe u een Azure SQL Data Warehouse gebruikt, dat de relationele databases van SQL combineert met massively parallel processing. In zelfstudies en andere documentatie leert u hoe u gegevens ontwerpt, laadt, beheert en analyseert met behulp van een datawarehouse.
 services: sql-data-warehouse
-author: czeumault
-manager: carolz
+author: hirokib
+manager: craigg-msft
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-data-warehouse
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 47807360dd58f0c19360d90ed66f726d8922be1e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.component: design
+ms.date: 04/11/2018
+ms.author: elbutter
+ms.reviewer: jrj
+ms.openlocfilehash: 42db87fd64bca58ee3e86589acdc85107e057665
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-data-warehouse-documentation"></a>Documentatie voor SQL Data Warehouse
 
-Leer hoe u SQL Data Warehouse gebruikt, dat de relationele database van SQL Server combineert met massively parallel processing. Zelfstudies en andere documentatie laten zien hoe u gegevens kunt laden in het warehouse en deze vervolgens kunt analyseren, beheren en exporteren.
+Informatie over hoe u een Azure SQL Data Warehouse gebruikt, dat de relationele databases van SQL combineert met massively parallel processing. In zelfstudies en andere documentatie leert u hoe u gegevens ontwerpt, laadt, beheert en analyseert met behulp van een datawarehouse. 
 
 <ul class="panelContent cardsFTitle">
     <li>

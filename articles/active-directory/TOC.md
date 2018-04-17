@@ -56,6 +56,7 @@
 #### [Uitnodigingse-mail](active-directory-b2b-invitation-email.md)
 #### [Uitnodiging inwisselen](active-directory-b2b-redemption-experience.md)
 #### [B2B-gebruikers zonder uitnodiging toevoegen](active-directory-b2b-add-user-without-invite.md)
+#### [Uitnodigingen toestaan of blokkeren](active-directory-b2b-allow-deny-list.md)
 #### [Voorwaardelijke toegang voor B2B](active-directory-b2b-mfa-instructions.md)
 #### [Beleid voor B2B-deling](active-directory-b2b-delegate-invitations.md)
 #### [Een B2B-gebruiker toevoegen aan een rol](active-directory-b2b-add-guest-to-role.md)
@@ -327,9 +328,6 @@
 #### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
 #### [Veelgestelde vragen](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [Verifiëren zonder wachtwoorden](active-directory-azureadjoin-passport.md)
-#### [Windows Hello voor Bedrijven inschakelen](active-directory-azureadjoin-passport-deployment.md)
 ### Verificatie op basis van certificaat
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

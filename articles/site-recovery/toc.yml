@@ -293,8 +293,8 @@
               href: delete-vault.md
         - name: Controleren en problemen oplossen
           items:
-            - name: Problemen met failover naar Azure oplossen
-              href: site-recovery-failover-to-azure-troubleshoot.md
+            - name: Problemen met Hyper-V-replicatie oplossen
+              href: hyper-v-azure-troubleshoot.md
             - name: Azure Site Recovery bewaken
               href: site-recovery-monitor-and-troubleshoot.md
     - name: Hyper-V naar secundaire site

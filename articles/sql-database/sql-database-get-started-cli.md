@@ -11,11 +11,11 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 03/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 509cff23609896a019c110d8046935dfbce793f2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0c011ba84033655432ceee34295c2b1908a3ab58
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Een individuele Azure SQL-database maken met de Azure CLI
 
@@ -29,7 +29,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="define-variables"></a>Variabelen definiëren
 
-Definieer variabelen voor gebruik in de scripts in deze Quick Start.
+In deze snelstart leert u om variabelen te definiëren voor gebruik in de scripts.
 
 ```azurecli-interactive
 # The data center and resource name for your resources
@@ -78,7 +78,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>Een database op de server maken met voorbeeldgegevens
 
-Maak een database met een [prestatieniveau van S0](sql-database-service-tiers.md) op de server met de opdracht [az sql db create](/cli/azure/sql/db#az_sql_db_create). In het volgende voorbeeld wordt een database met de naam `mySampleDatabase` gemaakt en worden de gegevens uit het AdventureWorksLT-voorbeeld in deze database geladen. U kunt deze vooraf gedefinieerde waarden desgewenst vervangen. (Andere Quick Starts in deze verzameling zijn echter op de waarden in deze Quick Start gebaseerd.)
+Maak een database met een [prestatieniveau van S0](sql-database-service-tiers.md) op de server met de opdracht [az sql db create](/cli/azure/sql/db#az_sql_db_create). In het volgende voorbeeld wordt een database met de naam `mySampleDatabase` gemaakt en worden de gegevens uit het AdventureWorksLT-voorbeeld in deze database geladen. U kunt deze vooraf gedefinieerde waarden desgewenst vervangen (andere zelfstudies in deze verzameling zijn echter op de waarden in deze snelstart gebaseerd).
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \
@@ -87,10 +87,10 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. 
+Andere zelfstudies in deze verzameling zijn gebaseerd op deze snelstart. 
 
 > [!TIP]
-> Als u van plan bent om door te gaan met andere Quick Starts, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die door deze Quick Start in Azure Portal zijn gemaakt.
+> Als u van plan bent om door te gaan met andere zelfstudies, verwijder dan niet de resources die u in deze snelstart hebt gemaakt. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze Quick Start in Azure Portal zijn gemaakt.
 >
 
 ```azurecli-interactive

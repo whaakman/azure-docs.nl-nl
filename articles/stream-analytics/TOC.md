@@ -2,40 +2,38 @@
 
 # Overzicht
 ## [Wat is Stream Analytics?](stream-analytics-introduction.md)
-## [Storm en Stream Analytics vergelijken](stream-analytics-comparison-storm.md)
 
-# Aan de slag
-## [IoT-gegevensstromen verwerken](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [Fraudebewaking in realtime](stream-analytics-real-time-fraud-detection.md)
-## [Gegevens analyseren met Power BI](stream-analytics-power-bi-dashboard.md)
+# Snelstartgidsen
+## [Een taak maken - Azure Portal](stream-analytics-quick-create-portal.md)
+## [Een taak maken - PowerShell](stream-analytics-quick-create-powershell.md)
+
+# Zelfstudies
+## [1 - Een taak maken/beheren](stream-analytics-manage-job.md)
+## [2 - Azure Functions uitvoeren](stream-analytics-with-azure-functions.md)
+## [3 - Een JavaScript-UDF uitvoeren](stream-analytics-javascript-user-defined-functions.md)
 
 # Voorbeelden
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 
 # Concepten
-## Invoertypen voor een taak
+## [Invoertypen voor een taak](stream-analytics-add-inputs.md)
 ### [Gegevensinvoer streamen](stream-analytics-define-inputs.md)
 ### [Verwijzen naar gegevensinvoer](stream-analytics-use-reference-data.md)
 ## [Uitvoertypen voor een taak](stream-analytics-define-outputs.md)
+### [Uitvoer naar Cosmos DB](stream-analytics-documentdb-output.md)
 ## [Vensterfuncties](stream-analytics-window-functions.md)
 ## [Compatibiliteitsniveau](stream-analytics-compatibility-level.md)
 ## [Veelvoorkomende querypatronen](stream-analytics-stream-analytics-query-patterns.md)
 ## [Overwegingen over gebeurtenisvolgordes](stream-analytics-out-of-order-and-late-events.md)
 
-
 # Handleidingen
-
-## Taken maken
-### [Query's en voorbeelden van invoergegevens testen](stream-analytics-sample-data-input.md)
-### [Testquery's](stream-analytics-test-query.md)
-### [Een JavaScript-UDF uitvoeren](stream-analytics-javascript-user-defined-functions.md)
-### [Uitvoer naar Data Lake Store](stream-analytics-data-lake-output.md)
-### [Uitvoer naar Cosmos DB](stream-analytics-documentdb-output.md)
-### [Waarschuwingen configureren](stream-analytics-set-up-alerts.md)
 
 ## Beheren
 ### [Een taak bijwerken](stream-analytics-job-reliability.md)
 ### [Referenties bijwerken](stream-analytics-login-credentials-inputs-outputs.md)
+### [Waarschuwingen configureren](stream-analytics-set-up-alerts.md)
+### [Uw taak testen](stream-analytics-test-query.md)
+### [De resultaten bekijken in een dashboard](stream-analytics-power-bi-dashboard.md)
 
 ## Oplossingen bouwen
 ### [Twitter-sentimentanalyse](stream-analytics-twitter-sentiment-analysis-trends.md)
@@ -44,11 +42,11 @@
 ### [Analyse van de sensorgegevens van een tolloket](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Een JavaScript-UDA uitvoeren](stream-analytics-javascript-user-defined-aggregates.md)
 ### [High-frequency trading](stream-analytics-high-frequency-trading.md)
-### [Azure Functions uitvoeren](stream-analytics-with-azure-functions.md)
+### [IoT-gegevensstromen verwerken](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 
 ## Controleren
 
-### [Taken bewaken - Portal](stream-analytics-monitoring.md)
+### [Taken bewaken - Azure Portal](stream-analytics-monitoring.md)
 ### [Taken bewaken - PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Taken bewaken - Azure .Net SDK](stream-analytics-monitor-jobs.md)
 
@@ -82,7 +80,6 @@
 ### [Detectie van afwijkingen](stream-analytics-machine-learning-anomaly-detection.md)
 ### [REST API's gebruiken](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 
-
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [Querytaal](https://msdn.microsoft.com/library/azure/dn834998)
@@ -102,7 +99,8 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Casestudy's van klanten](https://azure.microsoft.com/case-studies/?service=stream-analytics)
-## [Gebeurtenissen in realtime verwerken](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [Whitepaper - Gebeurtenissen in realtime verwerken](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [Storm en Stream Analytics vergelijken](stream-analytics-comparison-storm.md)
 
 
 

@@ -2,11 +2,11 @@
 title: Overzicht van de identiteit voor Azure-Stack | Microsoft Docs
 description: Meer informatie over de identiteitssystemen die kunt u met Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: deebe5d8ff4c35c4507d2daf5c15025a1810d865
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.reviewer: ''
+ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Overzicht van de identiteit voor Azure-Stack
 
@@ -52,12 +52,12 @@ Gebruikersaccounts (identiteiten) zijn standaard accounts die personen verifiër
 Hoe u maken en beheren van gebruikers en groepen, is afhankelijk van de identiteitsoplossing die u gebruikt. 
 
 In Azure-Stack gebruikersaccounts: 
-- Worden gemaakt in de  *username@domain*  indeling. Hoewel de AD FS toegewezen gebruikersaccounts aan een Active Directory-exemplaar, AD FS ondersteunt niet het gebruik van de  *\<domain >\<alias >* indeling. 
+- Worden gemaakt in de *username@domain* indeling. Hoewel de AD FS toegewezen gebruikersaccounts aan een Active Directory-exemplaar, AD FS ondersteunt niet het gebruik van de  *\<domain >\<alias >* indeling. 
 - Kan worden ingesteld voor meervoudige verificatie gebruiken. 
 - Zijn beperkt tot de map waar ze wordt eerst registreren, die de adreslijst van hun organisatie.
 - Kan worden geïmporteerd vanuit uw on-premises adreslijsten. Zie voor meer informatie [uw on-premises adreslijsten integreren met Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect). 
 
-Wanneer u zich bij de tenantportal van uw organisatie aanmelden, gebruikt u de  *https://portal.local.azurestack.external*  URL. 
+Wanneer u zich bij de tenantportal van uw organisatie aanmelden, gebruikt u de *https://portal.local.azurestack.external* URL. 
 
 ### <a name="guest-users"></a>Gastgebruikers
 Gastgebruikers zijn gebruikersaccounts van andere directory-tenants die toegang tot bronnen in uw directory zijn verleend. Ter ondersteuning van gastgebruikers, Azure AD gebruikt en ondersteuning voor multitenancy inschakelen. Wanneer ondersteuning is ingeschakeld, kunt u gastgebruikers toegang krijgen tot bronnen in uw directory-tenant, die de samenwerking met externe organisaties zorgt uitnodigen. 
@@ -145,10 +145,10 @@ Voor toepassingen en gebruikers, wordt de architectuur van Azure-Stack beschreve
 
 ### <a name="authenticate-to-azure-resource-manager"></a>In Azure Resource Manager verifiëren
 Als u wilt verifiëren met de id-provider en ontvangt een JSON Web Token, hebt u de volgende informatie: 
-1.  **URL voor het identiteitssysteem (Authority)**: de URL waarmee de id-provider kan worden bereikt. Bijvoorbeeld:  *https://login.windows.net* . 
+1.  **URL voor het identiteitssysteem (Authority)**: de URL waarmee de id-provider kan worden bereikt. Bijvoorbeeld: *https://login.windows.net*. 
 2.  **App-ID-URI voor Azure Resource Manager**: de unieke id voor Azure Resource Manager dat is geregistreerd met de id-provider. Het is ook uniek is voor elke installatie van een Azure-Stack.
 3.  **Referenties**: de referenties die u met de id-provider gebruiken om te verifiëren. 
-4.  **URL voor Azure Resource Manager**: de URL is de locatie van de Azure Resource Manager-service. Bijvoorbeeld:  *https://management.azure.com*  of  *https://management.local.azurestack.external* .
+4.  **URL voor Azure Resource Manager**: de URL is de locatie van de Azure Resource Manager-service. Bijvoorbeeld: *https://management.azure.com* of *https://management.local.azurestack.external*.
 
 Wanneer een principal (een client, toepassing of gebruiker) een verificatieaanvraag maakt voor toegang tot een bron, wordt de aanvraag moet omvatten:
 - De principal-referenties.
@@ -169,9 +169,9 @@ Als alle validaties voltooid zijn, Azure Resource Manager gebruikt de *bezwaar* 
 
 ### <a name="use-role-based-access-control"></a>Op rollen gebaseerde toegangsbeheer gebruiken  
 Op rollen gebaseerde toegangsbeheer (RBAC) in Azure-Stack is consistent met de implementatie in Microsoft Azure. U kunt toegang tot bronnen beheren door de juiste RBAC-rol toewijzen aan gebruikers, groepen en toepassingen. Zie de volgende artikelen voor meer informatie over het gebruik van RBAC met Azure-Stack:
-- [Aan de slag met toegangsbeheer op basis van rollen in Azure portal](/azure/active-directory/role-based-access-control-what-is).
-- [Toegangsbeheer op basis van rollen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](/azure/active-directory/role-based-access-control-configure).
-- [Aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](/azure/active-directory/role-based-access-control-custom-roles).
+- [Aan de slag met toegangsbeheer op basis van rollen in Azure portal](/azure/role-based-access-control/overview).
+- [Toegangsbeheer op basis van rollen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](/azure/role-based-access-control/role-assignments-portal).
+- [Aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](/azure/role-based-access-control/custom-roles).
 - [Toegangsbeheer op basis van rollen beheren](azure-stack-manage-permissions.md) in Azure-Stack.
 
 

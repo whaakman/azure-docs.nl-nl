@@ -201,6 +201,8 @@
       items:
         - name: Clusterbeveiliging
           href: service-fabric-cluster-security.md
+        - name: Schalen
+          href: service-fabric-cluster-scaling.md
         - name: Functieverschillen tussen Linux en Windows
           href: service-fabric-linux-windows-differences.md
         - name: Clusters op Azure
@@ -323,6 +325,8 @@
               href: service-fabric-resource-governance.md
             - name: Volume en stuurprogramma's voor logboekregistratie
               href: service-fabric-containers-volume-logging-drivers.md
+            - name: Containerlogbestanden bekijken
+              href: service-fabric-containers-view-logs.md
             - name: Services in containers
               href: service-fabric-services-inside-containers.md
             - name: Netwerkmodi voor containers
@@ -539,8 +543,10 @@
           href: service-fabric-visualizing-your-cluster.md
         - name: Verbinding maken met een beveiligd cluster
           href: service-fabric-connect-to-secure-cluster.md
-        - name: Patch uitvoeren voor clusterknooppunten
+        - name: Patch uitvoeren voor clusterknooppunten (Windows)
           href: service-fabric-patch-orchestration-application.md
+        - name: Patch uitvoeren voor clusterknooppunten (Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
     - name: Bewaken en diagnoses uitvoeren
       items:
         - name: Analyseren met OMS

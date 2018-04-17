@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: linux
 author: suhuruli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: python
 ms.topic: quickstart
@@ -15,142 +15,161 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: f568bdf6ce40ff2d437f3566b66f6dd1478a74fa
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1b65f54547821654f35571c55f61074a0106a292
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Snelstart: een Linux-containertoepassing voor Azure Service Fabric implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
 
-In deze Quick Start leert u hoe u Linux-containers kunt implementeren in een Service Fabric-cluster. Nadat dit is voltooid, beschikt u over een stemtoepassing die bestaat uit een Python-web-front-end en een Redis-back-end. Beide worden uitgevoerd in een Service Fabric-cluster. 
+In deze Quick Start leert u hoe u Linux-containers kunt implementeren in een Service Fabric-cluster. Nadat dit is voltooid, beschikt u over een stemtoepassing die bestaat uit een Python-web-front-end en een Redis-back-end. Beide worden uitgevoerd in een Service Fabric-cluster. U leert ook hoe u failover voor een toepassing kunt gebruiken en een toepassing in uw cluster kunt schalen.
 
-![quickstartpic][quickstartpic]
+![Webpagina van stemtoepassing][quickstartpic]
 
-In deze snelstartgids leert u de volgende zaken:
-> [!div class="checklist"]
-> * Containers implementeren in een Linux Service Fabric-cluster in Azure
-> * Containers schalen en er failovers voor uitvoeren in Service Fabric
+In deze snelstart gebruikt u de Bash-omgeving in Azure Cloud Shell om Service Fabric CLI-opdrachten uit te voeren. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
 
-## <a name="prerequisite"></a>Vereiste
-1. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan voordat u begint.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-2. Als u ervoor kiest om de opdrachtregelinterface (CLI)lokaal te installeren en te gebruiken, zorgt u ervoor dat versie Azure CLI 2.0.4 of later wordt uitgevoerd. Voer az --version uit om de versie te zoeken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Als dit de eerste keer is dat u Cloud Shell uitvoert, wordt u gevraagd uw `clouddrive`-bestandsshare in te stellen. U kunt de standaardinstellingen accepteren of een bestaande bestandsshare toevoegen. Zie [Een `clouddrive`bestandsshare instellen](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share) voor meer informatie.
 
-## <a name="get-application-package"></a>Een toepassingspakket ophalen
+## <a name="get-the-application-package"></a>Het toepassingspakket ophalen
 Als u containers wilt implementeren op Service Fabric, hebt u een set manifestbestanden nodig (de toepassingsdefinitie), waarin de afzonderlijke containers en de toepassing worden beschreven.
 
-Gebruik git in Cloud Shell om een kopie van de toepassingsdefinitie te maken.
+Gebruik git in de Cloud Shell om een kopie van de toepassingsdefinitie te klonen. Wijzig vervolgens mappen in de `Voting`-map in de kloon. 
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
 cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
-## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
 
-### <a name="set-up-your-azure-service-fabric-cluster"></a>Het Azure Service Fabric-cluster instellen
-Maak uw eigen cluster om de toepassing te implementeren in een cluster in Azure.
+## <a name="create-a-service-fabric-cluster"></a>Een Service Fabric-cluster maken
+Voor het implementeren van de toepassing in Azure hebt u een Service Fabric-cluster nodig om de toepassing uit te voeren. Party-clusters bieden een eenvoudige manier om snel een Service Fabric-cluster te maken. Party-clusters zijn kosteloze, tijdelijke Service Fabric-clusters die worden gehost in Azure en worden uitgevoerd door het Service Fabric-team. U kunt party-clusters gebruiken om toepassingen te implementeren en meer te weten te komen over het platform. Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt.
 
-Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Ze worden beheerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en informatie krijgen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
-
-Als u beheerbewerkingen wilt uitvoeren op het beveiligde Party-cluster, kunt u gebruikmaken van Service Fabric Explorer, CLI of Powershell. Als u Service Fabric Explorer wilt gebruiken, moet u het PFX-bestand downloaden van de Party Cluster-website en het certificaat importeren in uw certificaatarchief (Windows of Mac) of in de browser zelf (Ubuntu). Er is geen wachtwoord voor de zelfondertekende certificaten van het Party-cluster. 
-
-Als u beheerbewerkingen wilt uitvoeren met Powershell of CLI, hebt u de PFX (Powershell) of PEM (CLI) nodig. Voer de volgende opdracht uit om de PFX te converteren naar een PEM-bestand:  
-
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
-```
-
-Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) voor meer informatie over het maken van uw eigen cluster.
+Meld u aan en neem deel aan een [Linux-cluster](http://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Klik op de koppeling **Leesmij** om het certificaatwachtwoord te vinden en instructies te krijgen over het configureren van verschillende omgevingen voor gebruik van het certificaat. Laat de pagina's **Welkom** en **Leesmij** geopend, want u hebt enkele instructies in de volgende stappen nodig. 
 
 > [!Note]
-> De web-front-endservice is geconfigureerd om naar binnenkomend verkeer te luisteren op poort 80. Zorg ervoor dat de poort is geopend in het cluster. Als u een cluster van derden gebruikt, is deze poort geopend.
+> Er zijn per uur een beperkt aantal party-clusters beschikbaar. Als er een fout optreedt wanneer u zich probeert aan te melden voor een party-cluster, kunt u een bepaalde tijd wachten en het opnieuw proberen, maar u kunt ook deze stappen in [Een Service Fabric-cluster in Azure maken](service-fabric-tutorial-create-vnet-and-linux-cluster.md) volgen om een cluster in uw abonnement te maken. 
+> 
+>Als u toch uw eigen cluster maakt, houd er dan rekening mee dat de web-front-endservice is geconfigureerd om te luisteren op poort 80 naar binnenkomend verkeer. Zorg ervoor dat de poort is geopend in het cluster. (Als u een party-cluster gebruikt, is deze poort geopend.)
 >
 
-### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Service Fabric-opdrachtregelinterface installeren en verbinden met uw cluster
+## <a name="configure-your-environment"></a>Uw omgeving configureren
+Service Fabric biedt verschillende hulpmiddelen waarmee u een cluster en de bijbehorende toepassingen kunt beheren:
 
-Maak verbinding met het Service Fabric-cluster in Azure met behulp van Azure CLI. Het eindpunt is het beheereindpunt van het cluster - bijvoorbeeld: `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+- Service Fabric Explorer, een op een browser gebaseerd hulpprogramma.
+- Service Fabric Command Line Interface (CLI), die wordt uitgevoerd boven op Azure CLI 2.0.
+- PowerShell-opdrachten. 
 
-```bash
-sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
-```
+In deze snelstart gebruikt u de Service Fabric CLI in Cloud Shell en Service Fabric Explorer. De volgende secties laten zien hoe u met behulp van deze hulpmiddelen het certificaat installeert dat nodig is om verbinding te maken met uw beveiligd cluster.
 
-### <a name="deploy-the-service-fabric-application"></a>De Service Fabric-toepassing implementeren 
-Service Fabric-containertoepassingen kunnen worden geïmplementeerd met behulp van het beschreven Service Fabric-toepassingspakket of Docker Compose. 
+### <a name="configure-certificate-for-the-service-fabric-cli"></a>Certificaat voor de Service Fabric CLI configureren
+Om de CLI in Cloud Shell te kunnen gebruiken, moet u het PFX-certificaatbestand uploaden naar Cloud Shell en dat vervolgens gebruiken om een PEM-bestand te maken.
 
-#### <a name="deploy-using-service-fabric-application-package"></a>Implementeren met behulp van het Service Fabric-toepassingspakket
-Gebruik het opgegeven installatiescript om de stemtoepassingsdefinitie te kopiëren naar het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
+1. Als u het certificaat wilt uploaden naar de huidige werkmap in Cloud Shell, sleept u het PFX-certificaatbestand vanuit de map waar het op uw computer is gedownload naar uw Cloud Shell-venster.  
 
-```bash
-./install.sh
-```
+2. Gebruik de volgende opdracht om het PFX-bestand te converteren naar een PEM-bestand. (Voor party-clusters kunt u een voor uw PFX-bestand en wachtwoord specifieke opdracht uit de instructies op de pagina **Leesmij** kopiëren.)
 
-#### <a name="deploy-the-application-using-docker-compose"></a>De toepassing implementeren met behulp van Docker Compose
-Implementeer en installeer de toepassing op het Service Fabric-cluster via Docker Compose met behulp van de volgende opdracht.
-```bash
-sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
-```
+    ```bash
+    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+    ``` 
 
-Open een browser en ga naar Service Fabric Explorer op http://\<my-azure-service-fabric-cluster-url>:19080/Explorer - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Als u het toepassingsknooppunt uitvouwt, ziet u nu een vermelding voor het type stemtoepassing en het exemplaar dat u hebt gemaakt.
+### <a name="configure-certificate-for-service-fabric-explorer"></a>Certificaat voor Service Fabric Explorer configureren
+Als u Service Fabric Explorer wilt gebruiken, moet u het PFX-certificaatbestand dat u hebt gedownload van de Party Cluster-website importeren in uw certificaatarchief (Windows of Mac) of in de browser zelf (Ubuntu). U hebt het wachtwoord voor uw persoonlijke PFX-sleutel nodig, die te vinden is op-de pagina **Leesmij**.
 
-![Service Fabric Explorer][sfx]
+Gebruik de methode die u het handigst vindt om het certificaat naar uw systeem te importeren. Bijvoorbeeld:
 
-Maak verbinding met de actieve container.  Open een webbrowser die verwijst naar de URL van het cluster - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:80`. U ziet nu de stemtoepassing in de browser.
+- Voor Windows: dubbelklik op het PFX-bestand en volg de aanwijzingen om het certificaat in uw persoonlijke archief, `Certificates - Current User\Personal\Certificates`, te installeren. U kunt ook de PowerShell-opdracht in de **Leesmij**-instructies gebruiken.
+- Voor Mac: dubbelklik op het PFX-bestand en volg de aanwijzingen om het certificaat in uw Sleutelhanger te installeren.
+- Voor Ubuntu: Mozilla Firefox is de standaardbrowser in Ubuntu 16.04. U kunt het certificaat importeren in Firefox door te klikken op de menuknop in de rechterbovenhoek van uw browser en te klikken op **Opties**. Op de pagina **Voorkeuren** gebruikt u het zoekvak om te zoeken naar 'certificaten'. Klik op **Certificaten bekijken**, selecteer het tabblad **Uw certificaten**, klik op **Importeren** en volg de aanwijzingen om het certificaat te importeren.
+ 
+   ![Certificaat installeren in Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png) 
 
-![quickstartpic][quickstartpic]
+## <a name="deploy-the-service-fabric-application"></a>De Service Fabric-toepassing implementeren 
+1. Maak in Cloud Shell verbinding met het Service Fabric-cluster in Azure met behulp van de CLI. Het eindpunt is het beheereindpunt voor uw cluster. U hebt het PEM-bestand in de vorige sectie gemaakt. (Voor party-clusters kunt u een voor uw PEM-bestand en beheereindpunt specifieke opdracht uit de instructies op de pagina **Leesmij** kopiëren.)
+
+    ```bash
+    sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+    ```
+
+2. Gebruik het installatiescript om de stemtoepassingsdefinitie te kopiëren naar het cluster, het toepassingstype te registreren en een exemplaar van de toepassing te maken.
+
+    ```bash
+    ./install.sh
+    ```
+
+2. Open een webbrowser en ga naar het Service Fabric Explorer-eindpunt voor uw cluster. Het eindpunt heeft de volgende indeling: https://\<my-azure-service-fabric-cluster-url>:19080/Explorer, bijvoorbeeld `https://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. </br>(Voor party-clusters kunt u het Service Fabric Explorer-eindpunt voor uw cluster vinden op de pagina **Welkom**.) 
+
+3. Als u het **toepassings**knooppunt uitvouwt, ziet u nu een vermelding voor het type stemtoepassing en het exemplaar dat u hebt gemaakt.
+
+    ![Service Fabric Explorer][sfx]
+
+3. Voor verbinding met de actieve container opent u een webbrowser en navigeert u naar de URL van uw cluster, bijvoorbeeld `http://linh1x87d1d.westus.cloudapp.azure.com:80`. U ziet nu de stemtoepassing in de browser.
+
+    ![Webpagina van stemtoepassing][quickstartpic]
+
+
+> [!NOTE]
+> U kunt ook Service Fabric-toepassingen implementeren met Docker Compose. U zou bijvoorbeeld de volgende opdracht kunnen gebruiken om de toepassing op de cluster te implementeren en installeren met behulp van Docker Compose.
+>  ```bash
+> sfctl compose create --deployment-name TestApp --file-path ../docker-compose.yml
+> ```
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>Failover uitvoeren voor een container in een cluster
-Service Fabric zorgt ervoor dat containerexemplaren automatisch worden verplaatst naar andere knooppunten in het cluster, mocht er een fout optreden. U kunt een knooppunt voor containers ook handmatig leegmaken en vervolgens probleemloos verplaatsen naar andere knooppunten in het cluster. Er zijn meerdere manieren om services te schalen. In dit voorbeeld gebruiken we Service Fabric Explorer.
+Service Fabric zorgt ervoor dat containerexemplaren automatisch worden verplaatst naar andere knooppunten in het cluster, mocht er een fout optreden. U kunt een knooppunt voor containers ook handmatig leegmaken en vervolgens probleemloos verplaatsen naar andere knooppunten in het cluster. Service Fabric biedt verschillende manieren voor het schalen van uw services. In de volgende stappen gebruikt u Service Fabric Explorer.
 
 Doe het volgende om een failover uit te voeren voor de front-endcontainer:
 
-1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
-2. Klik op het knooppunt **fabric:/Voting/azurevotefront** in de structuurweergave en vouw het partitieknooppunt uit (vertegenwoordigd door een GUID). Let op: de naam van het knooppunt in de structuurweergave laat zien op welke knooppunten de container momenteel wordt uitgevoerd, bijvoorbeeld: `_nodetype_4`
+1. Open Service Fabric Explorer in uw cluster, bijvoorbeeld `https://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
+2. Klik op het knooppunt **fabric:/Voting/azurevotefront** in de structuurweergave en vouw het partitieknooppunt uit (aangegeven door een GUID). Let op: de naam van het knooppunt in de structuurweergave laat zien op welke knooppunten de container momenteel wordt uitgevoerd, bijvoorbeeld `_nodetype_4`.
 3. Vouw het knooppunt **Knooppunten** in de structuurweergave uit. Klik op het weglatingsteken (drie punten) naast het knooppunt waarop de container wordt uitgevoerd.
 4. Kies **Opnieuw starten** om dit knooppunt opnieuw te starten en bevestig deze actie. Door het opnieuw starten wordt voor de container een failover uitgevoerd naar een ander knooppunt in het cluster.
 
-![sfxquickstartshownodetype][sfxquickstartshownodetype]
+    ![Weergave van het knooppunt in Service Fabric Explorer][sfxquickstartshownodetype]
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Toepassingen en services voor schalen in een cluster
 Service Fabric-services kunnen eenvoudig worden geschaald in een cluster om plaats te bieden aan de belasting voor de services. U schaalt een service door het aantal exemplaren te wijzigen dat wordt uitgevoerd in het cluster.
 
 Voer de volgende stappen uit om de web-front-endservice te schalen:
 
-1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Open Service Fabric Explorer in het cluster, bijvoorbeeld `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 2. Klik op het weglatingsteken (drie punten) naast het knooppunt **fabric:/Voting/azurevotefront** in de structuurweergave en kies **Service schalen**.
 
-    ![containersquickstartscale][containersquickstartscale]
+    ![Starten van het schalen door Service Fabric Explorer][containersquickstartscale]
 
   U kunt er nu voor kiezen om het aantal exemplaren van de web-front-endservice te schalen.
 
 3. Wijzig het aantal in **2** en klik op **Service schalen**.
-4. Klik op het knooppunt **fabric:/Voting/azurevotefront** in de structuurweergave en vouw het partitieknooppunt uit (vertegenwoordigd door een GUID).
+4. Klik op het knooppunt **fabric:/Voting/azurevotefront** in de structuurweergave en vouw het partitieknooppunt uit (aangegeven door een GUID).
 
-    ![containersquickstartscaledone][containersquickstartscaledone]
+    ![Het schalen van Service Fabric Explorer is voltooid][containersquickstartscaledone]
 
     U ziet nu dat de service twee exemplaren heeft. In de structuurweergave ziet u op welke knooppunten de exemplaren worden uitgevoerd.
 
-Met deze eenvoudige beheertaak is het aantal beschikbare resources voor het verwerken van gebruikersbelasting voor onze front-endservice verdubbeld. Het is belangrijk te weten dat u niet meerdere exemplaren van een service nodig hebt om ervoor te zorgen dat deze op betrouwbare wijze wordt uitgevoerd. Als de service mislukt, wordt in Service Fabric een nieuw exemplaar van de service uitgevoerd in het cluster.
+Met deze eenvoudige beheertaak hebt u het aantal beschikbare resources voor het verwerken van gebruikersbelasting voor de front-endservice verdubbeld. Het is belangrijk te weten dat u niet meerdere exemplaren van een service nodig hebt om ervoor te zorgen dat deze op betrouwbare wijze wordt uitgevoerd. Als de service mislukt, wordt in Service Fabric een nieuw exemplaar van de service uitgevoerd in het cluster.
 
-## <a name="clean-up"></a>Opruimen
-Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingsexemplaar te verwijderen uit het cluster en de registratie van het toepassingstype op te heffen. Het duurt enige tijd om het exemplaar te wissen met deze opdracht en de opdracht install‘sh mag niet onmiddellijk na dit script worden uitgevoerd. 
+## <a name="clean-up-resources"></a>Resources opschonen
+1. Gebruik het uninstall-script (uninstall.sh) dat is opgegeven in de sjabloon om het toepassingsexemplaar te verwijderen uit het cluster en de registratie van het toepassingstype op te heffen. Omdat het enige tijd duurt voordat het script het exemplaar heeft verwijderd, moet u het installatiescript niet onmiddellijk na dit script uitvoeren. U kunt Service Fabric Explorer gebruiken om te bepalen wanneer het exemplaar is verwijderd en de registratie van het toepassingstype ongedaan is gemaakt. 
 
-```bash
-./uninstall.sh
-```
+    ```bash
+    ./uninstall.sh
+    ```
+
+2. Als u klaar bent met het cluster, kunt u het certificaat verwijderen uit het certificaatarchief. Bijvoorbeeld:
+   - Op Windows: gebruik de [MMC-module Certificaten](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Selecteer **Mijn gebruikersaccount** wanneer u de module toevoegt. Navigeer naar `Certificates - Current User\Personal\Certificates` en verwijder het certificaat.
+   - Op Mac: gebruik de app Sleutelhanger.
+   - Op Ubuntu: volg de stappen die u hebt gebruikt om certificaten weer te geven en verwijder het certificaat.
+
+3. Als u Cloud Shell niet wilt blijven gebruiken, kunt u het daaraan gekoppelde opslagaccount verwijderen om verdere kosten te voorkomen. Sluit uw Cloud Shell-sessie. Klik in Azure Portal op het opslagaccount dat gekoppeld is aan Cloud Shell en klik op **Verwijderen** bovenaan de pagina en reageer op de prompts.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstartgids hebt u de volgende zaken geleerd:
-> [!div class="checklist"]
-> * Een Linux-containertoepassing implementeren in Azure
-> * Failover uitvoeren voor een container in een Service Fabric-cluster
-> * Een container in een Service Fabric-cluster schalen
+In deze snelstart hebt u een Linux-containertoepassing geïmplementeerd in een Service Fabric-cluster in Azure, een failover uitgevoerd op de toepassing en de toepassing geschaald in het cluster. Meer informatie over het werken met Linux-containers in Service Fabric vindt u in de zelfstudie voor Linux-containerapps.
 
-* Meer informatie over het uitvoeren van [containers in Service Fabric](service-fabric-containers-overview.md).
-* Meer informatie over de [levenscyclus](service-fabric-application-lifecycle.md) van de Service Fabric-toepassing.
-* Bekijk de [codevoorbeelden voor Service Fabric-containers](https://github.com/Azure-Samples/service-fabric-containers) op GitHub.
+> [!div class="nextstepaction"]
+> [Een Linux-container-app maken](./service-fabric-tutorial-create-container-images.md)
+
 
 [sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
 [quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png

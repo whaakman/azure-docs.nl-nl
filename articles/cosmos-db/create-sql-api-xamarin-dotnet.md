@@ -1,11 +1,10 @@
 ---
-title: 'Azure Cosmos DB: een web-app ontwikkelen met Xamarin en Facebook-authenticatie | Microsoft-documenten'
-description: Is een .NET-codevoorbeeld dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit Azure Cosmos DB
+title: 'Azure Cosmos DB: een taken-app ontwikkelen met Xamarin | Microsoft Docs'
+description: Biedt een Xamarin-voorbeeldcode die u kunt gebruiken om verbinding te maken met en query's uit te voeren op Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -13,26 +12,30 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/29/2017
-ms.author: mimig
-ms.openlocfilehash: 593c55951479a3cdebfe8bdc08ca0443738269ef
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 04/04/2018
+ms.author: sngun
+ms.openlocfilehash: 1fec2604dc2aee412e73f5ca332d2852bf7e58bd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: een web-app ontwikkelen met .NET, Xamarin, en Facebook-authenticatie
+# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: een taken-app ontwikkelen met Xamarin
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.
 
 > [!NOTE]
 > Voorbeeldcode voor een hele canonieke voorbeeldapp in Xamarin, met meerdere Azure-producten, waaronder CosmosDB, zijn te vinden [hier](https://github.com/xamarinhq/app-geocontacts) op GitHub. Deze app demonstreert de weergave van geografisch verspreide contactpersonen en de mogelijkheid om toe te staan dat deze contactpersonen hun locatie wijzigen.
 
-In deze quickstart ziet u hoe u een Azure Cosmos DB-account, een documentdatabase en een verzameling kunt maken met behulp van de Azure-portal. Vervolgens ontwikkelt en implementeert u een web-app voor een takenlijst op basis van de [SQL .NET API](sql-api-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/) en de Azure Cosmos DB-autorisatie-engine. De web-app voor een takenlijst implementeert een gegevenspatroon per gebruiker waarmee gebruikers zich kunnen aanmelden met Facebook Auth en hun eigen to-do-items kunnen beheren.
+Deze snelstart laat zien hoe u een SQL API-account van Azure Cosmos DB, een documentdatabase en een verzameling kunt maken met behulp van Azure Portal. U maakt en implementeert vervolgens een web-app voor takenlijstjes op de [SQL .NET API](sql-api-sdk-dotnet.md) en [Xamarin](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=Cross-Platform) met behulp van [Xamarin.Forms](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=XamarinForms) en het [MVVM-architectuurpatroon](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+
+![Taken-app in Xamarin uitgevoerd op iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
+Als u Windows gebruikt en Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** en **Mobile Development met .NET**-workloads inschakelt tijdens de installatie van Visual Studio.
+
+Als u een Mac gebruikt, kunt u **gratis** [Visual Studio voor Mac](https://www.visualstudio.com/vs/mac/) downloaden.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -45,74 +48,197 @@ Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en 
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+## <a name="add-sample-data"></a>Voorbeeldgegevens toevoegen
+
+U kunt nu gegevens aan uw nieuwe verzameling toevoegen met behulp van Data Explorer.
+
+1. Vouw vanuit Data Explorer de database **Taken** uit, vouw de verzameling **Items** uit, klik op **Documenten** en klik vervolgens op **Nieuwe documenten**.
+
+   ![Nieuwe documenten maken in Data Explorer in de Azure Portal](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+
+2. Voeg nu een document toe aan de verzameling met de volgende structuur.
+
+     ```json
+     {
+         "id": "1",
+         "name": "groceries",
+         "description": "Pick up apples and strawberries.",
+         "completed": false
+     }
+     ```
+
+3. Zodra u de JSON hebt toegevoegd aan het tabblad **Documenten** klikt u op **Opslaan**.
+
+    ![JSON-gegevens kopiëren en op Opslaan klikken in Data Explorer in Azure Portal](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-save-document.png)
+
+4. Maak nog één document en sla dit op. In het document voegt u een unieke waarde toe voor de eigenschap `id`. Wijzig de andere eigenschappen naar eigen inzicht. De nieuwe documenten kunnen elke gewenste structuur hebben, omdat in Azure Cosmos DB uw gegevens geen schema krijgen opgelegd.
+
+     U kunt nu query's in Data Explorer gebruiken om uw gegevens te halen. Data Explorer maakt standaard gebruik van `SELECT * FROM c` om alle documenten in de verzameling op te halen. U kunt dit wijzigen in een andere [SQL-query](sql-api-sql-query.md), zoals `SELECT * FROM c ORDER BY c._ts DESC`, om alle documenten terug te zetten in aflopende volgorde op basis van hun timestamp.
+
+     U kunt Data Explorer ook gebruiken voor het maken van opgeslagen procedures, UDF's en triggers om bedrijfslogica aan de serverzijde uit te voeren en doorvoer te schalen. In Data Explorer wordt alle ingebouwde programmatische gegevenstoegang zichtbaar die beschikbaar is in de API's, maar biedt eenvoudige toegang tot uw gegevens in Azure Portal.
+
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-We gaan nu een SQL API-app klonen vanuit GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
+Nu gaat u de SQL API-app voor Xamarin klonen vanuit GitHub, de code controleren, de API-sleutels ophalen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken.
 
 1. Open een venster in een git-terminal zoals git bash en `cd` naar een werkmap.
 
-2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
+2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen.
 
     ```bash
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
     ```
 
-3. Open vervolgens het bestand DocumentDBTodo.sln in de map samples/xamarin/UserItems/xamarin.forms in Visual Studio.
+3. Open vervolgens vanuit de map samples/xamarin/ToDoItems in Visual Studio het bestand ToDoItems.sln.
 
-## <a name="review-the-code"></a>De code bekijken
+## <a name="obtain-your-api-keys"></a>Uw API-sleutels ophalen
 
-De code in de map Xamarin bevat het volgende:
+Ga terug naar Azure Portal om de API-sleutelgegevens op te halen en deze in de app te kopiëren.
 
-* Xamarin-app. De app slaat de to-do-items van de gebruiker op in een gepartitioneerde verzameling met de naam UserItems.
-* Resourcetokenbroker-API. Een eenvoudige ASP.NET Web-API om Azure Cosmos DB-resourcetokens ter beschikking te stellen aan de aangemelde gebruikers van de app. Resourcetokens zijn kortdurende toegangstokens die de app voorzien van toegang tot de gegevens van de aangemelde gebruiker.
-
-De authenticatie- en gegevensstroom wordt afgebeeld in het volgende diagram.
-
-* De verzameling UserItems wordt gemaakt met de partitiesleutel '/userid'. Door een partitiesleutel op te geven voor een verzameling kan Azure Cosmos DB oneindig worden geschaald naarmate het aantal gebruikers en items toeneemt.
-* Met de Xamarin-app kunnen gebruikers zich aanmelden met hun Facebook-referenties.
-* De Xamarin-app gebruikt Facebook-toegangstokens om te authenticeren met de ResourceTokenBroker-API
-* De resourcetokenbroker-API authenticeert het verzoek met behulp van de functie App Service Auth en verzoekt om een Azure Cosmos DB-resourcetoken met lees-/schrijftoegang tot alle documenten die de geauthenticeerde partitiesleutel van de gebruiker delen.
-* Resourcetokenbroker retourneert de resourcetoken naar de client-app.
-* De app gebruikt de resourcetoken om toegang te krijgen tot de to-do-items van de gebruiker.
-
-![Taken-app met voorbeeldgegevens](./media/create-sql-api-xamarin-dotnet/tokenbroker.png)
-
-## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
-
-Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
-
-1. Klik in [Azure Portal](http://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Sleutels** en klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en primaire sleutel in het bestand web.config te kopiëren.
+1. Klik in [Azure Portal](http://portal.azure.com/), in uw SQL API-account voor Azure Cosmos DB, in het linker navigatiegedeelte op **Sleutels** en klik vervolgens op **Sleutels voor lezen/schrijven**. In de volgende stap gebruikt u de kopieerknoppen aan de rechterkant van het scherm om de URI en Primaire sleutel in het bestand APIKeys.cs te kopiëren.
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. Open het bestand Web.config in de map azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker in Visual Studio 2017. 
+2. Open het bestand APIKeys.cs vanuit de map azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers in Visual Studio 2017 of Visual Studio voor Mac.
 
-3. Kopieer uw URI-waarde vanaf de portal (met de kopieerknop) en geef deze als waarde aan de accountUrl in Web.config. 
+3. Kopieer uw URI-waarde vanuit de portal (met de kopieerknop) en geef deze op als waarde voor de variabele `CosmosEndpointUrl` in APIKeys.cs.
 
-    `<add key="accountUrl" value="{Azure Cosmos DB account URL}"/>`
+    `public static readonly string CosmosEndpointUrl = "{Azure Cosmos DB account URL}";`
 
-4. Kopieer vervolgens de waarde van uw PRIMAIRE SLEUTEL uit de portal en geef deze waarde aan accountKey in web.config.
+4. Kopieer vervolgens de waarde van uw PRIMAIRE SLEUTEL vanuit de portal en geef deze op als waarde van `Cosmos Auth Key` in APIKeys.cs.
 
-    `<add key="accountKey" value="{Azure Cosmos DB secret}"/>`
+    `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
 
-U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
+## <a name="review-the-code"></a>De code bekijken
 
-## <a name="build-and-deploy-the-web-app"></a>De web-app ontwikkelen en implementeren
+Deze oplossing laat zien hoe u een taken-app kunt maken met behulp van de SQL API van Azure Cosmos DB en Xamarin.Forms. De app bevat twee tabbladen. Het eerste tabblad bevat een lijst met taken die nog niet zijn voltooid. Het tweede tabblad geeft een lijst met voltooide taken weer. U kunt niet alleen niet-voltooide taken in het eerste tabblad bekijken, maar ook nieuwe taken toevoegen, bestaande taken bewerken en taken als voltooid markeren.
 
-1. Maak een App Service-website in de Azure Portal om de Resourcetokenbroker-API te hosten.
-2. Open in de Azure Portal de blade App Settings van de website van de Resourcetokenbroker-API. Vul de volgende instellingen in voor de app:
+![JSON-gegevens kopiëren en op Opslaan klikken in Data Explorer in Azure Portal](./media/create-sql-api-xamarin-dotnet/android-todo-screen.png)
 
-    * accountUrl - de URL van het Azure Cosmos DB-account van het tabblad Sleutels van uw Azure Cosmos DB-account.
-    * accountKey - de hoofdsleutel van het Azure Cosmos DB-account van het tabblad Sleutels van uw Azure Cosmos DB-account.
-    * databaseId en collectionId van de database en verzameling die u hebt gemaakt
+De code in de takenoplossing bevat:
 
-3. Publiceer de ResourceTokenBroker-oplossing op de website die u hebt gemaakt.
+* ToDoItems.Core: dit is een standaard .NET-project met een Xamarin.Forms-project en een logische code voor gedeelde toepassingen die taken in Azure Cosmos DB bijhoudt.
+* ToDoItems.Android: dit project bevat de Android-app.
+* ToDoItems.iOS: dit project bevat de iOS-app.
 
-4. Open het Xamarin-project en ga naar TodoItemManager.cs. Vul de waarden in voor accountURL, collectionId, databaseId, en voor resourceTokenBrokerURL als de basis https-url voor de website van de resourcetokenbroker.
+Laten we nog eens kort bekijken hoe de app met Azure Cosmos DB communiceert.
 
-5. Voltooi de zelfstudie [How to configure your App Service application to use Facebook login](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md) (Uw App Service-toepassing configureren voor Facebook-aanmelding) om Facebook-authenticatie in te stellen en de ResourceTokenBroker-website te configureren.
+* Het NuGet-pakket [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) moet aan alle projecten worden toegevoegd.
+* De klasse `ToDoItem` in de map azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Models staat model voor de documenten in de verzameling **Items** die hierboven is gemaakt. Houd er rekening mee dat de namen van eigenschappen hoofdlettergevoelig zijn.
+* De klasse `CosmosDBService` in de map azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services bevat de communicatie met Azure Cosmos DB.
+* Binnen de klasse `CosmosDBService` bevindt zich een variabele van het type `DocumentClient`. De `DocumentClient` wordt gebruikt om aanvragen te configureren en uit te voeren op het Azure Cosmos DB-account en wordt geïnstantieerd op regel 31:
 
-    Voer de Xamarin-app uit.
+    ```csharp
+    docClient = new DocumentClient(new Uri(APIKeys.CosmosEndpointUrl), APIKeys.CosmosAuthKey);
+    ```
+
+* Tijdens het uitvoeren van query's op een verzameling documenten wordt de methode `DocumentClient.CreateDocumentQuery<T>` gebruikt, zoals hier wordt weergegeven in de functie `CosmosDBService.GetToDoItems`:
+
+    ```csharp
+    public async static Task<List<ToDoItem>> GetToDoItems()
+    {
+        var todos = new List<ToDoItem>();
+
+        var todoQuery = docClient.CreateDocumentQuery<ToDoItem>(
+                                UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
+                                .Where(todo => todo.Completed == false)
+                                .AsDocumentQuery();
+
+        while (todoQuery.HasMoreResults)
+        {
+            var queryResults = await todoQuery.ExecuteNextAsync<ToDoItem>();
+
+            todos.AddRange(queryResults);
+        }
+
+        return todos;
+    }
+    ```
+
+    De `CreateDocumentQuery<T>` maakt gebruikt van een URI die verwijst naar de verzameling die in het vorige gedeelte is gemaakt. U kunt ook LINQ-operators opgeven, zoals een `Where`-component. In dit geval worden alleen taken die niet zijn voltooid, geretourneerd.
+
+    De functie `CreateDocumentQuery<T>` wordt synchroon uitgevoerd en retourneert een `IQueryable<T>`. De methode `AsDocumentQuery` zet de `IQueryable<T>` echter om naar een `IDocumentQuery<T>`-object dat asynchroon kan worden uitgevoerd. Zo wordt de gebruikersinterface-thread voor mobiele toepassingen niet geblokkeerd.
+
+    De functie `IDocumentQuery<T>.ExecuteNextAsync<T>` haalt de pagina met resultaten op van Azure Cosmos DB en `HasMoreResults` controleert of er nog extra resultaten moeten worden geretourneerd.
+
+> [!TIP]
+> Verschillende functies die op Azure Cosmos DB-verzamelingen en -documenten worden uitgevoerd, gebruiken een URI als een parameter die het adres van de verzameling of het document opgeeft. Deze URI is opgesteld met de klasse `URIFactory`. URI's voor databases, verzamelingen en documenten kunnen allemaal met deze klasse worden gemaakt.
+
+* De functie `ComsmosDBService.InsertToDoItem` op regel 107 laat zien hoe u een nieuw document invoegt:
+
+    ```csharp
+    public async static Task InsertToDoItem(ToDoItem item)
+    {
+        ...
+        await docClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), item);
+        ...
+    }
+    ```
+
+    Zowel de URI voor documentverzameling als het item dat moet worden ingevoegd, zijn opgegeven.
+
+* De functie `CosmosDBService.UpdateToDoItem` op regel 124 laat zien hoe u een bestaand document door een nieuwe vervangt:
+
+    ```csharp
+    public async static Task UpdateToDoItem(ToDoItem item)
+    {
+        ...
+        var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
+
+        await docClient.ReplaceDocumentAsync(docUri, item);
+    }
+    ```
+
+    Hier is een nieuwe URI nodig als unieke ID voor het document dat moet worden vervangen. Deze wordt verkregen door `UriFactory.CreateDocumentUri` te gebruiken en de namen van de database en verzameling en de ID van het document eraan door te geven.
+
+    De `DocumentClient.ReplaceDocumentAsync` vervangt het document dat door de URI is geïdentificeerd door het document dat als parameter is opgegeven.
+
+* Het verwijderen van een item wordt getoond met de functie `CosmosDBService.DeleteToDoItem` op regel 115:
+
+    ```csharp
+    public async static Task DeleteToDoItem(ToDoItem item)
+    {
+        ...
+        var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
+
+        await docClient.DeleteDocumentAsync(docUri);
+    }
+    ```
+
+    Let op de unieke document-URI die wordt gemaakt en doorgegeven aan de functie `DocumentClient.DeleteDocumentAsync`.
+
+## <a name="run-the-app"></a>De app uitvoeren
+
+U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB.
+
+Met de volgende stappen wordt gedemonstreerd hoe u de app uitvoert met behulp van het Visual Studio voor Mac-foutopsporingsprogramma.
+
+> [!NOTE]
+> Het gebruik van de Android-app is precies hetzelfde; eventuele verschillen worden in de onderstaande stappen aangegeven. Als u fouten wilt opsporen met Visual Studio in Windows, bekijkt u de documentatie voor [iOS](https://docs.microsoft.com/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) of [Android](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/).
+
+1. Selecteer eerst het doelplatform door op de gemarkeerde vervolgkeuzelijst te klikken en ToDoItems.iOS te selecteren voor iOS of ToDoItems.Android te selecteren voor Android.
+
+    ![Een platform kiezen voor foutopsporing in Visual Studio voor Mac](./media/create-sql-api-xamarin-dotnet/ide-select-platform.png)
+
+2. Druk op cmd + Enter of klik op de afspeelknop om de foutopsporing te starten in de app.
+
+    ![Foutopsporing starten in Visual Studio voor Mac](./media/create-sql-api-xamarin-dotnet/ide-start-debug.png)
+
+3. Als de iOS-simulator of Android-emulator klaar is met opstarten, geeft de app twee tabbladen weer, onderaan het scherm voor iOS en bovenaan het scherm voor Android. Het eerste geeft taken weer die niet zijn voltooid, het tweede taken die wel zijn voltooid.
+
+    ![Startscherm van taken-app](./media/create-sql-api-xamarin-dotnet/ios-droid-started.png)
+
+4. Als u een taak op iOS wilt voltooien, schuift u deze naar links en tikt u op de knop **Voltooien**. Als u een taak op Android wilt voltooien, houdt u het item lang ingedrukt en tikt u op de knop Voltooien.
+
+    ![Een taak voltooien](./media/create-sql-api-xamarin-dotnet/simulator-complete.png)
+
+5. Als u een taak wilt bewerken, tikt u op het item. Er wordt een nieuw scherm weergegeven waarop u nieuwe waarden kunt invoeren. Door op de knop Opslaan te tikken,worden de wijzigingen in Azure Cosmos DB opgeslagen.
+
+    ![Taak bewerken](./media/create-sql-api-xamarin-dotnet/simulator-edit.png)
+
+6. Als u een taak wilt toevoegen, tikt u in de rechterbovenhoek van het startscherm op de knop **Toevoegen**. Er wordt een nieuwe, lege pagina voor bewerken weergegeven.
+
+    ![Taak toevoegen](./media/create-sql-api-xamarin-dotnet/simulator-add.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 
@@ -127,7 +253,7 @@ Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken en hebt u een verzameling gemaakt met de Data Explorer en een Xamarin-app ontwikkeld en geïmplementeerd. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren.
+In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken en hebt u een verzameling gemaakt met de Data Explorer en een Xamarin-app ontwikkeld en geïmplementeerd. Nu kunt u aanvullende gegevens in uw Azure Cosmos DB-account importeren.
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB](import-data.md)

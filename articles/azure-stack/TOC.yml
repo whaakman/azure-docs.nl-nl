@@ -55,11 +55,11 @@
         - name: Azure Stack PKI implementatievereisten
           href: azure-stack-pki-certs.md
           items:
-            - name: Azure-Stack PKI-certificaten ophalen
+            - name: PKI-certificaten genereren
               href: azure-stack-get-pki-certs.md
             - name: Bereid Azure Stack PKI-certificaten
               href: azure-stack-prepare-pki-certs.md
-            - name: Valideren van Azure Stack PKI-certificaten
+            - name: Valideren van PKI-certificaten
               href: azure-stack-validate-pki-certs.md
         - name: Identiteitintegratie
           href: azure-stack-integrate-identity.md
@@ -286,8 +286,6 @@
           href: azure-stack-diagnostics.md
         - name: Validatie voor Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Azure Stack Development Kit opnieuw implementeren
-          href: azure-stack-redeploy.md
 - name: Referentie
   items:
     - name: PowerShell voor Azure Stack

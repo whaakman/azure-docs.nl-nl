@@ -6,7 +6,7 @@ services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.service: app-service-web
 ms.workload: web
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps
 
 [Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze zelfstudie toont u hoe u een bestaande aangepaste DNS-naam toewijst aan Azure Web Apps.
 
@@ -263,7 +263,7 @@ Selecteer **Hostnaam toevoegen**.
 
 Het kan even duren voor de nieuwe hostnaam wordt weergegeven op de pagina **Aangepaste domeinen** van de app. Vernieuw de browser voor om de gegevens bij te werken.
 
-Selecteer opnieuw het pictogram  **+**  om een andere hostnaam toe te voegen die overeenkomt met het wildcard-domein. Bijvoorbeeld: voeg `sub2.contoso.com` toe.
+Selecteer opnieuw het pictogram **+** om een andere hostnaam toe te voegen die overeenkomt met het wildcard-domein. Bijvoorbeeld: voeg `sub2.contoso.com` toe.
 
 ![CNAME-record toegevoegd](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
@@ -292,7 +292,7 @@ Aan de onderkant van de pagina verwijst de virtuele hoofdmap `/` standaard naar 
 
 ![Virtuele map aanpassen](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Nadat de bewerking is voltooid, moet uw app de juiste pagina op het hoofdpad (bijvoorbeeld http://contoso.com) retourneren.
+Nadat de bewerking is voltooid, moet uw app de juiste pagina op het hoofdpad (bijvoorbeeld http://contoso.com)) retourneren.
 
 ## <a name="automate-with-scripts"></a>Automatiseren met scripts
 

@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 03/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 7a06ed8433ebcf728c7b090f5e984d4e3ebeb846
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a3b703c96e309294e5327fb7fb013cbf28c369e4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Wat is de service Azure SQL Database? 
 
-SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt beheerde [enkelvoudige SQL-databases](sql-database-servers-databases.md), beheerde SQL-databases in een [elastische pool](sql-database-elastic-pool.md) en beheerde SQL-exemplaren (die [SQL Database Managed Instances](sql-database-managed-instance.md) worden genoemd en die in openbare preview zijn). De service biedt [dynamisch schaalbare prestaties](sql-database-service-tiers.md) en opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](sql-database-in-memory.md) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt. 
+SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt beheerde [enkelvoudige SQL-databases](sql-database-servers-databases.md), beheerde SQL-databases in een [elastische pool](sql-database-elastic-pool.md) en SQL [Managed Instances](sql-database-managed-instance.md)(in openbare preview). De service biedt [dynamisch schaalbare prestaties](sql-database-service-tiers.md) en opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](sql-database-in-memory.md) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt. 
 
 SQL Database deelt de codebasis met de [database-engine van Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). In het kader van de cloudstrategie van Microsoft worden nieuwe mogelijkheden van SQL Server eerst uitgebracht in SQL Database en vervolgens in SQL Server zelf. Dankzij deze aanpak kunt u beschikken over de nieuwste mogelijkheden van SQL Server zonder overhead voor patching en upgrading, en zijn de nieuwe functies getest op miljoenen databases. Ga voor informatie over aangekondigde nieuwe mogelijkheden naar:
 
@@ -41,9 +41,13 @@ Met SQL Database Managed Instance wordt elk exemplaar geïsoleerd van andere exe
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Prestaties en schaal aanpassen zonder uitvaltijd
 
-SQL Database biedt drie servicelagen die alle soorten workloads ondersteunen, van licht tot zeer zwaar: Basic, Standard en Premium. U kunt uw eerste app ontwikkelen op één enkele kleine database voor slechts enkele euro's per maand. Vervolgens kunt u op elk gewenst moment handmatig of programmatisch de servicelaag wijzigen, zodat deze beter past bij de behoeften van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
+Microsoft SQL Database biedt een [op DTU gebaseerd aankoopmodel](sql-database-service-tiers.md#dtu-based-purchasing-model) of het [op vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). 
+- Het op DTU gebaseerde aankoopmodel biedt een combinatie van berekenen, geheugen en i/o-resources in drie servicelagen voor lichte tot zware workloads van databases: Basic, Standard en Premium. Prestatieniveaus binnen elke laag bieden een andere combinatie van deze resources, waaraan u extra opslagbronnen kunt toevoegen.
+- Met het op vCore gebaseerde aankoopmodel kunt u het aantal vCores, de hoeveelheid of het geheugen, en de hoeveelheid en de snelheid van de opslag kiezen.
 
-   ![schalen](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+U kunt uw eerste app ontwikkelen op één enkele kleine database voor slechts enkele euro's per maand. Vervolgens kunt u op elk gewenst moment handmatig of programmatisch de servicelaag wijzigen, zodat deze beter past bij de behoeften van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
+
+   ![DTU schalen](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 SQL Database Managed Instance is in preview en biedt momenteel maar één servicelaag. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie.
 
@@ -64,7 +68,7 @@ Waarvoor u ook kiest - individuele databases of elastische pools - u zit er niet
 
 ### <a name="extensive-monitoring-and-alerting-capabilities"></a>Uitgebreide mogelijkheden voor bewaking en waarschuwingen
 
-Maar hoe kunt u de relatieve prestaties van individuele databases en elastische pools vergelijken? Hoe weet u wanneer u moet stoppen met omhoog of omlaag schalen? U gebruikt de [ingebouwde tools voor prestatiebewaking](sql-database-performance.md) en [waarschuwingen](sql-database-insights-alerts-portal.md), gecombineerd met de prestatiebeoordelingen op basis van [Database Transaction Units (DTU's) voor individuele databases en DTU's (eDTU's) voor elastische pools](sql-database-what-is-a-dtu.md). Met behulp van deze tools kunt u snel beoordelen wat de impact is van het aanpassen van de schaal op basis van uw huidige prestatiebehoeften of de prestatiebehoeften van uw project. Zie [SQL Database-opties en prestaties: wat is er beschikbaar in elke servicelaag](sql-database-service-tiers.md) voor meer informatie.
+Maar hoe kunt u de relatieve prestaties van individuele databases en elastische pools vergelijken? Hoe weet u wanneer u moet stoppen met omhoog of omlaag schalen? U maakt gebruik van de [ingebouwde hulpprogramma's voor prestatiebewaking](sql-database-performance.md) en [waarschuwingen](sql-database-insights-alerts-portal.md) in combinatie met de prestatiebeoordelingen. Met behulp van deze tools kunt u snel beoordelen wat de impact is van het aanpassen van de schaal op basis van uw huidige prestatiebehoeften of de prestatiebehoeften van uw project. Zie [SQL Database-opties en prestaties: wat is er beschikbaar in elke servicelaag](sql-database-service-tiers.md) voor meer informatie.
 
 Daarnaast kan SQL Database [metrische gegevens en diagnostische logboeken verzenden](sql-database-metrics-diag-logging.md) die de bewaking vergemakkelijken. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
 
@@ -82,7 +86,7 @@ De toonaangevende serviceovereenkomst [(SLA)](http://azure.microsoft.com/support
 - **[Herstel naar een bepaald tijdstip](sql-database-recovery-using-backups.md)**: SQL Database ondersteunt het herstel naar ieder bepaald tijdstip dankzij de automatische bewaarperiode voor back-ups.
 - **[Actieve geo-replicatie](sql-database-geo-replication-overview.md)**: met SQL Database kunt u maximaal vier leesbare secundaire databases configureren in hetzelfde Azure-datacenter of in wereldwijd gedistribueerde datacenters.  Als u bijvoorbeeld een SaaS-toepassing hebt met een catalogusdatabase met een groot volume aan gelijktijdige alleen-lezen transacties, kunt u actieve geo-replicatie gebruiken om het lezen wereldwijd te schalen en knelpunten weg te nemen die ontstaan door de lees-workloads op de primaire database. 
 - **[Failover-groepen](sql-database-geo-replication-overview.md)**: SQL Database biedt hoge beschikbaarheid en taakverdeling op wereldwijde schaal, inclusief transparante geo-replicatie en failover van omvangrijke sets databases en elastische pools. Dankzij failover-groepen en actieve geo-replicatie kunt u wereldwijd gedistribueerde SaaS-toepassingen maken met een minimale overhead aan beheer, doordat u alle complexe bewaking, routering en failover-indeling overlaat aan SQL Database.
-- **[Zone-redundante databases](sql-database-high-availability.md)**: met SQL Database kunt u Premium-databases of Premium elastische pools inrichten in meerdere beschikbaarheidszones. Omdat Premium-databases en Premium elastische pools meerdere redundante replica's hebben om een hoge beschikbaarheid te garanderen, biedt het plaatsen van deze replica's in meerdere beschikbaarheidszone betere herstelmogelijkheden, inclusief de mogelijkheid om zonder verlies van gegevens automatisch te herstellen van schalingsfouten in het datacenter. Deze functie is momenteel beschikbaar als preview-product. 
+- **[Zone-redundante databases](sql-database-high-availability.md)**: met SQL Database kunt u Premium-databases of Bedrijfskritieke (preview) databases of elastische pools inrichten in meerdere beschikbaarheidszones. Omdat deze databases en elastische pools meerdere redundante replica's hebben om een hoge beschikbaarheid te garanderen, biedt het plaatsen van deze replica's in meerdere beschikbaarheidszones betere weerbaarheid, inclusief de mogelijkheid om zonder verlies van gegevens automatisch te herstellen van schalingsfouten in het datacenter. Deze functie is momenteel beschikbaar als preview-product. 
 
 ## <a name="built-in-intelligence"></a>Ingebouwde intelligentie
 
@@ -94,7 +98,7 @@ SQL Database biedt gedetailleerde informatie over de query’s die u wilt bewake
 
 Maar doorlopende databasebewaking is een moeilijke, tijdrovende taak, zeker wanneer het om vele databases gaat. Met [Intelligent Insights](sql-database-intelligent-insights.md) wordt deze taak automatisch voor u uitgevoerd door de prestaties van SQL Database op schaal automatisch te bewaken en u te informeren over problemen met prestatievermindering. Hierbij wordt de hoofdoorzaak van het probleem aangegeven. Indien mogelijk worden er ook aanbevelingen voor prestatieverbetering geboden.
 
-Het is vrijwel onmogelijk om het beheer van enorme hoeveelheden databases op een efficiënte manier uit te voeren, zelfs met de hulpprogramma’s en rapporten van SQL Database en de Azure-portal. In plaats van het handmatig bewaken en afstemmen van uw database, kunt u overwegen sommige van deze taken over te laten aan SQL Database, met de functie voor [automatisch afstemmen](sql-database-automatic-tuning.md). Aanbevolen acties worden automatisch door SQL Database uitgevoerd, getest en geverifieerd om te garanderen dat de prestaties optimaal blijven. Op die manier past SQL Database zich automatisch op een gecontroleerde en veilige manier aan uw workloads aan. Automatische afstemming betekent dat de prestaties van uw database zorgvuldig worden bewaakt en vergeleken voor en na elke afstemactie. Als de prestaties niet zijn verbeterd, wordt de betreffende actie teruggedraaid.
+Het is vrijwel onmogelijk om het beheer van enorme hoeveelheden databases op een efficiënte manier uit te voeren, zelfs met de hulpprogramma’s en rapporten van SQL Database en Azure Portal. In plaats van het handmatig bewaken en afstemmen van uw database, kunt u overwegen sommige van deze taken over te laten aan SQL Database, met de functie voor [automatisch afstemmen](sql-database-automatic-tuning.md). Aanbevolen acties worden automatisch door SQL Database uitgevoerd, getest en geverifieerd om te garanderen dat de prestaties optimaal blijven. Op die manier past SQL Database zich automatisch op een gecontroleerde en veilige manier aan uw workloads aan. Automatische afstemming betekent dat de prestaties van uw database zorgvuldig worden bewaakt en vergeleken voor en na elke afstemactie. Als de prestaties niet zijn verbeterd, wordt de betreffende actie teruggedraaid.
 
 Veel van onze partners die [multitenant SaaS-apps](sql-database-design-patterns-multi-tenancy-saas-applications.md) uitvoeren op SQL Database, vertrouwen al op deze automatische afstemming, zodat de prestaties van hun toepassingen altijd stabiel en voorspelbaar zijn. Dankzij deze functie wordt de kans op prestatieproblemen (op welk moment dan ook) aanzienlijk kleiner. En omdat een deel van hun klanten ook werkt met SQL Server, maken ze gebruik van dezelfde indexeringsaanbevelingen van SQL Database om hun klanten met SQL Server te helpen.
 
@@ -147,7 +151,7 @@ SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse
 
 SQL Database maakt het bouwen en onderhouden van toepassingen makkelijker en productiever. Met SQL Database kunt u zich concentreren op dat waar u het beste in bent: fantastische apps bouwen. In SQL Database kunt u beheren en ontwikkelen met de hulpprogramma’s en vaardigheden die u al hebt.
 
-- **[De Azure-portal](https://portal.azure.com/)**: een webtoepassing voor het beheren van alle Azure-services 
+- **[Azure Portal](https://portal.azure.com/)**: een webtoepassing voor het beheren van alle Azure-services 
 - **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**: een gratis te downloaden clienttoepassing voor het beheren van elke SQL-infrastructuur, van SQL Server tot SQL Database
 - **[SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**: een gratis te downloaden clienttoepassing voor het ontwikkelen van relationele SQL Server-databases, Azure SQL-databases, Integration Services-pakketten, Analysis Services-gegevensmodellen en Reporting Services-rapporten.
 - **[Visual Studio Code](https://code.visualstudio.com/docs)**: een gratis te downloaden opensource code-editor voor Windows, macOS en Linux die ondersteuning biedt voor extensies, waaronder de [mssql-extensie](https://aka.ms/mssql-marketplace) voor het uitvoeren van query's in Microsoft SQL Server, Azure SQL Database en SQL Data Warehouse.
@@ -166,7 +170,7 @@ SQL Database ondersteunt het maken van toepassingen met Python, Java, Node.js, P
 
 - Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/sql-database/) voor hulpprogramma's voor het berekenen en vergelijken van de kosten voor individuele databases en elastische pools.
 
-- Zie deze Quick Starts om snel aan de slag te gaan:
+- Raadpleeg deze snelstarts om snel aan de slag te gaan:
 
   - [Een SQL-database maken in Azure Portal](sql-database-get-started-portal.md)  
   - [Een SQL-database maken met de Azure CLI](sql-database-get-started-cli.md)

@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: e07e6792c74e1bdb5c5839e8c6bd9efbedf10170
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Plannings- en bedieningsgids voor Azure Security Center
 Deze gids is bedoeld voor IT-specialisten, IT-architecten, gegevensbeveiligingsanalisten en cloudbeheerders die willen gaan werken met Azure Security Center.
@@ -138,7 +138,7 @@ In Security Center wordt voor elk van uw Azure-abonnementen automatisch een stan
 Voordat u beleidsregels voor veiligheid configureert, moet u elk van de [aanbevelingen voor beveiliging](https://docs.microsoft.com/azure/security-center/security-center-recommendations) controleren en bepalen of deze beleidsregels geschikt zijn voor uw verschillende abonnementen en resourcegroepen. Het is ook belangrijk om te begrijpen welke actie moet worden ondernomen om aan de slag te gaan met beveiligingsaanbevelingen en wie in uw organisatie verantwoordelijk is voor het controleren op nieuwe aanbevelingen en het nemen van de benodigde stappen.
 
 ## <a name="data-collection-and-storage"></a>Gegevensverzameling en -opslag
-Azure Security Center maakt gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die ook wordt gebruikt door de Operations Management Suite en de Log Analytics-service om beveiligingsgegevens van uw virtuele machines te verzamelen. [Gegevens die worden verzameld](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) van deze agent worden opgeslagen in uw Log Analytics-werkruimte(n).
+Azure Security Center maakt gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die ook wordt gebruikt door de Log Analytics-service om beveiligingsgegevens van uw virtuele machines te verzamelen. [Gegevens die worden verzameld](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) van deze agent worden opgeslagen in uw Log Analytics-werkruimte(n).
 
 ### <a name="agent"></a>Agent
 

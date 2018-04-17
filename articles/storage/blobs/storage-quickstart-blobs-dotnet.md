@@ -9,15 +9,15 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: b84a56996a335f8a137c4219c55b9878e39b5a3b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a34a94a9421c65a2b1d4ce5c390732e0adbb69d6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van .NET
 
-In deze quickstart leert u hoe u de .NET-clientbibliotheek voor Azure Storage gebruikt om blok-bobs in een container te uploaden, te downloaden en weer te geven.
+In deze snelstart leert u hoe u de .NET-clientbibliotheek voor Azure Storage gebruikt om blok-bobs in een container te uploaden, te downloaden en weer te geven.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -48,7 +48,7 @@ Zie [Choose between .NET Core and .NET Framework for server apps](https://docs.m
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 
-De voorbeeldtoepassing die in deze quickstart wordt gebruikt, is een basisconsoletoepassing. U kunt de voorbeeldtoepassing verkennen op [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart).
+De voorbeeldtoepassing die in deze snelstart wordt gebruikt, is een basisconsoletoepassing. U kunt de voorbeeldtoepassing verkennen op [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart).
 
 Gebruik [git](https://git-scm.com/) om een kopie van de toepassing naar uw ontwikkelomgeving te downloaden. 
 
@@ -56,26 +56,15 @@ Gebruik [git](https://git-scm.com/) om een kopie van de toepassing naar uw ontwi
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond. Zoek voor het openen van de Visual Studio-oplossing naar de map storage-blobs-dotnet-quickstart, open deze en dubbelklik op storage-blobs-dotnet-quickstart.sln. 
+Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond. Zoek voor het openen van de Visual Studio-oplossing naar de map *storage-blobs-dotnet-quickstart*, open deze en dubbelklik op *storage-blobs-dotnet-quickstart.sln*. 
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>De opslagverbindingsreeks configureren
 
-U moet de verbindingsreeks voor uw opslagaccount opgeven om de toepassing uit te voeren. Kopieer de verbindingsreeks vanuit Azure Portal en schrijf deze naar een nieuwe omgevingsvariabele. In het voorbeeld wordt de verbindingsreeks uit de omgevingsvariabele gelezen en gebruikt om uw aanvragen voor Azure Storage te verifiëren.
+U moet de verbindingsreeks voor uw opslagaccount opgeven om de toepassing uit te voeren. In de voorbeeldtoepassing wordt de verbindingsreeks uit een omgevingsvariabele gelezen en gebruikt om aanvragen voor Azure Storage te verifiëren.
 
-### <a name="copy-your-connection-string-from-the-azure-portal"></a>De verbindingsreeks vanuit Azure Portal kopiëren
-
-Ga als volgt te werk als u de verbindingsreeks wilt kopiëren:
-
-1. Navigeer naar [Azure Portal](https://portal.azure.com).
-2. Zoek uw opslagaccount.
-3. In de sectie **Instellingen** van het overzicht met opslagaccounts selecteert u **Toegangssleutels**.
-4. Zoek de waarde van de **Verbindingsreeks** onder **key1** en klik op de knop **Kopiëren** om de verbindingsreeks te kopiëren.  
-
-    ![Schermopname waarin een verbindingsreeks vanuit Azure Portal wordt gekopieerd](media/storage-quickstart-blobs-dotnet/portal-connection-string.png)
-
-## <a name="write-your-connection-string-to-an-environment-variable"></a>De verbindingsreeks naar een omgevingsvariabele schrijven
-
-Schrijf vervolgens de nieuwe omgevingsvariabele op de lokale computer waarop de toepassing wordt uitgevoerd. Als u de omgevingsvariabele wilt instellen, opent u een consolevenster en volgt u de aanwijzingen voor uw besturingssysteem. Vervang `<yourconnectionstring>` door de feitelijke verbindingsreeks:
+Nadat u de verbindingsreeks hebt gekopieerd, schrijft u deze naar een nieuwe omgevingsvariabele op de lokale computer waarop de toepassing wordt uitgevoerd. Als u de omgevingsvariabele wilt instellen, opent u een consolevenster en volgt u de aanwijzingen voor uw besturingssysteem. Vervang `<yourconnectionstring>` door de feitelijke verbindingsreeks:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 

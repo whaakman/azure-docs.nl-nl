@@ -1,8 +1,8 @@
 ---
-title: Web Application Firewall (WAF) configureren voor App Service-omgeving
-description: Informatie over het configureren van een web application firewall voor uw App Service-omgeving.
+title: Een Web Application Firewall (WAF) voor App Service Environment configureren
+description: Informatie over het configureren van een Web Application Firewall voor uw App Service Environment.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -12,95 +12,98 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/17/2016
+ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: bfe36ee5365e71db4280e8e2ccff6db8e552dd39
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: bc59d8671d904cf5096d616213cc4674ef5743b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Web Application Firewall (WAF) configureren voor App Service-omgeving
+# <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Een Web Application Firewall (WAF) voor App Service Environment configureren
 ## <a name="overview"></a>Overzicht
-Web application firewalls, zoals de [Barracuda WAF voor Azure](https://www.barracuda.com/programs/azure) die beschikbaar is op de [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) helpt bij het beveiligen van uw webtoepassingen door te inspecteren inkomend webverkeer blokkeren SQL-injectie, Cross-Site Scripting, malware uploads & DDoS-toepassing en andere aanvallen. Deze ook inspecteert de antwoorden van de back-end-webservers gegevens gegevensverlies te voorkomen (DLP). In combinatie met de isolatie en aanvullende schalen geleverd door App Service-omgevingen, biedt dit een ideale omgeving naar host business kritieke webtoepassingen die bestand zijn tegen schadelijke aanvragen en grote hoeveelheden verkeer wilt.
+
+Web Application Firewalls (WAF) helpen met het beveiligen van uw webtoepassingen door inkomend webverkeer te inspecteren om SQL-injecties, Cross-Site Scripting, malware-uploads en DDoS-toepassingen en andere aanvallen te blokkeren. Ze inspecteren ook de antwoorden van de back-end-webservers om gegevensverlies te voorkomen (DLP). In combinatie met de isolatie en aanvullende schalen geleverd door App Service Environments, biedt dit een ideale omgeving om bedrijfskritieke webtoepassingen te hosten die bestand moeten zijn tegen schadelijke aanvragen en grote hoeveelheden verkeer. Azure biedt mogelijkheden met WAF met de [Application Gateway](http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Voor informatie over het integreren van uw App Service Environment met een toepassingsgateway, kunt u het document [Uw ILD ASE integreren met een Application Gateway](http://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) lezen.
+
+Naast de Azure Application Gateway zijn er meerdere marketplace-opties, zoals de [Barracuda WAF voor Azure](https://www.barracuda.com/programs/azure) beschikbaar op de [Microsoft Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/). De rest van dit document richt zich op het integreren van uw App Service Environment met een Barracuda WAF-apparaat.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="setup"></a>Instellen
-Voor dit document wordt de App-serviceomgeving achter meerdere exemplaren van de taakverdeling van Barracuda WAF zodanig configureren dat alleen het verkeer van de WAF App Service-omgeving bereiken kan en niet toegankelijk is vanaf het Perimeternetwerk is. We hebben ook Azure Traffic Manager voor de Barracuda WAF exemplaren te verdelen over Azure-datacenters en regio's. Een diagram op hoog niveau van de installatie eruit als in de volgende afbeelding:
+Voor dit document wordt de App Service Environment achter meerdere exemplaren met gelijke taakverdeling van de Barracuda WAF zodanig geconfigureerd dat alleen het verkeer vanaf de WAF de App Service Environment kan bereiken en deze niet toegankelijk is vanaf de DMZ. We hebben ook Azure Traffic Manager voor de Barracuda WAF-exemplaren geplaatst om de taken gelijk te verdelen over Azure-datacenters en -regio's. Een diagram op hoog niveau van de installatie ziet eruit als in de volgende afbeelding:
 
 ![Architectuur][Architecture] 
 
 > [!NOTE]
-> Dankzij de introductie van [ILB ondersteuning voor App Service-omgeving](app-service-environment-with-internal-load-balancer.md), kunt u het as-omgeving om te worden niet toegankelijk vanaf het Perimeternetwerk en alleen beschikbaar voor het particuliere netwerk configureren. 
+> Dankzij de introductie van [ILB-ondersteuning voor App Service Environment](app-service-environment-with-internal-load-balancer.md), kunt u de ASE zodanig configureren dat deze niet toegankelijk is vanaf de DMZ en alleen beschikbaar is voor het particuliere netwerk. 
 > 
 > 
 
-## <a name="configuring-your-app-service-environment"></a>Uw App-serviceomgeving configureren
-Raadpleeg voor het configureren van een App-serviceomgeving [onze documentatie](app-service-web-how-to-create-an-app-service-environment.md) over dit onderwerp. Als u een App Service-omgeving gemaakt hebt, kunt u Web-Apps, API-Apps maken en [Mobile Apps](../../app-service-mobile/app-service-mobile-value-prop.md) in deze omgeving die al worden beveiligd achter de WAF we in de volgende sectie configureren.
+## <a name="configuring-your-app-service-environment"></a>Uw App Service Environment configureren
+Raadpleeg voor het configureren van een App Service Environment [onze documentatie](app-service-web-how-to-create-an-app-service-environment.md) over dit onderwerp. Als u een App Service Environment gemaakt hebt, kunt u in deze omgeving Web-apps, API-apps en [Mobiele apps](../../app-service-mobile/app-service-mobile-value-prop.md) maken die allemaal worden beveiligd achter de WAF die we in de volgende sectie configureren.
 
 ## <a name="configuring-your-barracuda-waf-cloud-service"></a>Uw Barracuda WAF Cloud Service configureren
-Barracuda heeft een [gedetailleerde artikel](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) over het implementeren van de WAF op een virtuele machine in Azure. Maar omdat we redundantie wilt en geen een potentieel risico introduceren, u wilt implementeren ten minste twee WAF exemplaar virtuele machines in dezelfde Cloud-Service wanneer deze instructies te volgen.
+Barracuda heeft een [gedetailleerd artikel](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) over het implementeren van de WAF op een virtuele machine in Azure. Maar omdat we redundantie willen en geen Single Point of Failure willen introduceren, dient u ten minste twee instanties van virtuele WAF-machines te implementeren in dezelfde cloudservice wanneer u deze instructies volgt.
 
-### <a name="adding-endpoints-to-cloud-service"></a>Toevoegen van eindpunten in de Cloud Service
-Nadat u 2 hebt of meer WAF VM-in uw Cloud-Service exemplaren, kunt u de [Azure-portal](https://portal.azure.com/) toevoegen van HTTP en HTTPS-eindpunten die worden gebruikt door uw toepassing, zoals wordt weergegeven in de volgende afbeelding:
+### <a name="adding-endpoints-to-cloud-service"></a>Eindpunten toevoegen in de cloudservice
+Wanneer u 2 of meer WAF VM-exemplaren in uw cloudservice hebt, kunt u [Azure Portal](https://portal.azure.com/) gebruiken om HTTP en HTTPS-eindpunten toe te voegen die worden gebruikt door uw toepassing, zoals wordt weergegeven in de volgende afbeelding:
 
-![-Eindpunt configureren][ConfigureEndpoint]
+![Eindpunt configureren][ConfigureEndpoint]
 
-Als uw toepassingen met andere eindpunten, zorg er dan voor dat toe te voegen aan deze lijst ook. 
+Als uw toepassingen andere eindpunten gebruiken, zorg er dan voor dat deze ook aan deze lijst zijn toegevoegd. 
 
-### <a name="configuring-barracuda-waf-through-its-management-portal"></a>Barracuda WAF via de beheerportal configureren
-Barracuda WAF maakt gebruik van TCP-poort 8000 voor configuratie via de beheerportal. Als u meerdere exemplaren van de WAF virtuele machines hebt, moet u hier de stappen herhalen voor elke VM-instantie. 
+### <a name="configuring-barracuda-waf-through-its-management-portal"></a>Barracuda WAF via het Beheerportal configureren
+Barracuda WAF maakt gebruik van TCP-poort 8000 voor configuratie via het Beheerportal. Als u meerdere exemplaren van de virtuele WAF-machines hebt, moet u hier de stappen herhalen voor elk VM-exemplaar. 
 
 > [!NOTE]
-> Wanneer u klaar bent met WAF configuratie, moet u het TCP/8000-eindpunt verwijderen uit uw WAF VMs uw WAF om veilig te houden.
+> Wanneer u klaar bent met de WAF-configuratie, moet u het TCP/8000-eindpunt uit uw WAF-VM's verwijderen om uw WAF veilig te houden.
 > 
 > 
 
-Het eindpunt management zoals weergegeven in de volgende afbeelding voor het configureren van uw Barracuda WAF toevoegen
+Voeg het beheereindpunt toe zoals weergegeven in de volgende afbeelding om uw Barracuda WAF te configureren.
 
-![Management-eindpunt toevoegen][AddManagementEndpoint]
+![Beheereindpunt toevoegen][AddManagementEndpoint]
 
-Een browser gebruiken om te bladeren naar het eindpunt van het beheer op uw Cloud-Service. Als uw Cloudservice test.cloudapp.net aangeroepen wordt, zou u dit eindpunt openen door te bladeren naar http://test.cloudapp.net:8000. U ziet een aanmeldingspagina zoals de volgende afbeelding die u kunt aanmelden met referenties die u hebt opgegeven in de installatiefase WAF VM.
+Een browser gebruiken om te bladeren naar het beheerseindpunt op uw cloudservice. Als uw cloudservice test.cloudapp.net heet, zou u dit eindpunt openen door naar http://test.cloudapp.net:8000 te bladeren. U ziet een aanmeldingspagina zoals de volgende afbeelding waarop u kunt aanmelden met de referenties die u hebt opgegeven in de installatiefase van de WAF-VM.
 
 ![Aanmeldingspagina voor beheer][ManagementLoginPage]
 
-Zodra u zich aanmeldt, moet u een dashboard zoals in de volgende afbeelding, waarin een elementaire statistieken over de beveiliging WAF zien.
+Zodra u zich aanmeldt, moet u een dashboard kunnen zien zoals in de volgende afbeelding, waarin de basisstatistieken over de beveiliging van WAF te zien zijn.
 
-![Management Dashboard][ManagementDashboard]
+![Dashboard voor beheer][ManagementDashboard]
 
-Klik op de **Services** tabblad kunt u uw WAF voor services die deze beveiligt configureren. Zie voor meer informatie over het configureren van uw WAF Barracuda [hun documentatie](https://techlib.barracuda.com/waf/getstarted1). In het volgende voorbeeld wordt is een Azure-Web-App voor verkeer op HTTP- en HTTPS geconfigureerd.
+Klik op het tabblad **Services** om uw WAF te configureren voor services die deze beveiligt. Zie voor meer informatie over het configureren van uw Barracuda WAF [hun documentatie](https://techlib.barracuda.com/waf/getstarted1). In het volgende voorbeeld wordt een web-app van Azure geconfigureerd voor verkeer op HTTP en HTTPS.
 
-![Management-Services toevoegen][ManagementAddServices]
+![Beheerservices toevoegen][ManagementAddServices]
 
 > [!NOTE]
-> Afhankelijk van hoe uw toepassingen zijn geconfigureerd en welke functies worden gebruikt in uw App Service-omgeving, moet u voor het doorsturen van verkeer voor TCP-poorten dan 80 en 443, bijvoorbeeld, als u setup voor IP-SSL voor een Web-App. Zie voor een lijst met netwerkpoorten die worden gebruikt in App Service-omgevingen, [inkomend verkeer voor beheer-documentatie](app-service-app-service-environment-control-inbound-traffic.md) netwerkpoorten sectie.
+> Afhankelijk van hoe uw toepassingen zijn geconfigureerd en welke functies worden gebruikt in uw App Service Environment, moet u verkeer voor andere TCP-poorten dan 80 en 443 doorsturen, bijvoorbeeld als u IP SSL hebt ingesteld voor een web-app. Zie voor een lijst met netwerkpoorten die worden gebruikt in App Service Environments, [Documentatie voor inkomend verkeer beheren](app-service-app-service-environment-control-inbound-traffic.md), in de sectie Netwerkpoorten.
 > 
 > 
 
-## <a name="configuring-microsoft-azure-traffic-manager-optional"></a>Configureren van Microsoft Azure Traffic Manager (optioneel)
-Als uw toepassing beschikbaar in meerdere regio's, is wordt u wilt laden saldo achter [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Om dit te doen, kunt u een eindpunt in toevoegen de [Azure-portal](https://portal.azure.com) met de naam van de Cloudservice voor uw WAF in Traffic Manager-profiel, zoals wordt weergegeven in de volgende afbeelding. 
+## <a name="configuring-microsoft-azure-traffic-manager-optional"></a>Configuratie van Microsoft Azure Traffic Manager (OPTIONEEL)
+Als uw toepassing beschikbaar in meerdere regio's, kunt u het best zorgen voor gelijke taakverdeling achter [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Om dit te doen, kunt u een eindpunt toevoegen in de [Azure Portal](https://portal.azure.com) met de naam van de cloudservice voor uw WAF in het Traffic Manager-profiel, zoals wordt weergegeven in de volgende afbeelding. 
 
 ![Traffic Manager-eindpunt][TrafficManagerEndpoint]
 
-Als uw toepassing verificatie vereist, zorg ervoor dat u hebt een resource die geen verificatie voor Traffic Manager te pingen niet vereist voor de beschikbaarheid van uw toepassing. U kunt de URL configureren op de **configuratie** pagina in de [Azure-portal](https://portal.azure.com) zoals weergegeven in de volgende afbeelding:
+Als voor uw toepassing verificatie is vereist, zorg er dan voor dat u een resource hebt die geen verificatie voor Traffic Manager vereist om te pingen voor de beschikbaarheid van uw toepassing. U kunt de URL configureren op de **Configuratie**pagina in de [Azure Portal](https://portal.azure.com), zoals wordt weergegeven in de volgende afbeelding:
 
 ![Traffic Manager configureren][ConfigureTrafficManager]
 
-Het Traffic Manager-pings verder vanaf uw WAF voor uw toepassing, moet u vertalingen van de Website op uw WAF Barracuda instellen voor het doorsturen van verkeer naar uw toepassing, zoals wordt weergegeven in het volgende voorbeeld:
+Om Traffic Manager-pings naar uw toepassing door te verbinden vanaf uw WAF, moet u Website Translations op uw WAF Barracuda instellen voor het doorsturen van verkeer naar uw toepassing, zoals wordt weergegeven in het volgende voorbeeld:
 
-![Vertalingen van de website][WebsiteTranslations]
+![Website Translations][WebsiteTranslations]
 
-## <a name="securing-traffic-to-app-service-environment-using-network-security-groups-nsg"></a>Beveiligen van verkeer naar App Service-omgeving met behulp van Netwerkbeveiligingsgroepen (NSG)
-Ga als volgt de [besturingselement binnenkomend verkeer documentatie](app-service-app-service-environment-control-inbound-traffic.md) voor meer informatie over het verkeer beperkt tot uw App Service-omgeving van de WAF alleen met behulp van de VIP-adres van uw Cloud-Service. Hier volgt een voorbeeld-Powershell-opdracht voor het uitvoeren van deze taak voor TCP-poort 80.
+## <a name="securing-traffic-to-app-service-environment-using-network-security-groups-nsg"></a>Verkeer naar App Service Environment beveiligen met behulp van Netwerkbeveiligingsgroepen (NSG)
+Volg de [Documentatie van binnenkomend verkeer beheren](app-service-app-service-environment-control-inbound-traffic.md) voor meer informatie over het beperken van verkeer tot uw App Service Environment vanaf de WAF met behulp van alleen het VIP-adres van uw cloudservice. Hier volgt een PowerShell-voorbeeldopdracht voor het uitvoeren van deze taak voor TCP-poort 80.
 
     Get-AzureNetworkSecurityGroup -Name "RestrictWestUSAppAccess" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP Barracuda" -Type Inbound -Priority 201 -Action Allow -SourceAddressPrefix '191.0.0.1'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
 
-De SourceAddressPrefix vervangen door het virtuele IP-adres (VIP) van uw WAF-Cloudservice.
+Vervang de SourceAddressPrefix door het virtuele IP-adres (VIP) van uw WAF-cloudservice.
 
 > [!NOTE]
-> Het VIP van uw Cloud-Service wordt gewijzigd wanneer u verwijderen en opnieuw maken van de Cloudservice. Zorg ervoor dat het IP-adres in de resourcegroep netwerk bijwerken nadat u doet dit. 
+> Het VIP van uw cloudservice wordt gewijzigd wanneer u de cloudservice verwijdert en opnieuw aanmaakt. Zorg ervoor dat u het IP-adres in de netwerk-resourcegroep bijwerkt nadat u dit doet. 
 > 
 > 
 

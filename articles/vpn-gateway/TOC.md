@@ -25,32 +25,25 @@
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure-CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-### [Azure Portal (klassiek)](vpn-gateway-howto-site-to-site-classic-portal.md)
-
 ## [Configuratiescripts voor VPN-apparaten downloaden](vpn-gateway-download-vpndevicescript.md)
-
 ## Point-to-site-verbindingen configureren – systeemeigen Azure-certificaatverificatie
 ### Een point-to-site-VPN configureren
 #### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 #### [Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-#### [Azure Portal (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 ### Zelfondertekende certificaten genereren
 #### [Azure PowerShell](vpn-gateway-certificates-point-to-site.md)
 #### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ### [VPN-clientconfiguratiebestanden maken en installeren](point-to-site-vpn-client-configuration-azure-cert.md)
 ### [Clientcertificaten installeren](point-to-site-how-to-vpn-client-install-azure-cert.md)
-
 ## Point-to-site-verbindingen configureren – RADIUS-verificatie
 ### Een point-to-site-VPN configureren
 #### [Azure PowerShell](point-to-site-how-to-radius-ps.md)
 ### [VPN-clientconfiguratiebestanden maken en installeren](point-to-site-vpn-client-configuration-radius.md)
 ### [P2S VPN RADIUS-verificatie integreren met NPS-server](vpn-gateway-radiuis-mfa-nsp.md)
-
 ## Verbindingen tussen VNet's configureren
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure-CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-### [Azure Portal (klassiek)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Een VNet-naar-VNet-verbinding tussen implementatiemodellen configureren
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -58,7 +51,6 @@
 ### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Meerdere site-to-siteverbindingen configureren
 ### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-### [Azure PowerShell (klassiek)](vpn-gateway-multi-site.md)
 ## Meerdere op beleid gebaseerde VPN-apparaten verbinden
 ### [Azure PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
 ## IPSec-/IKE-beleid voor verbindingen configureren
@@ -70,7 +62,6 @@
 ### [Azure-CLI](bgp-how-to-cli.md)
 ## Geforceerde tunneling configureren
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
-### [Azure PowerShell (klassiek)](vpn-gateway-about-forced-tunneling.md)
 ## Gateway-instellingen van lokaal netwerk aanpassen
 ### [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
@@ -80,13 +71,10 @@
 ## Een VPN-gateway verwijderen
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-### [Azure PowerShell (klassiek)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Een VPN-gateway configureren (klassiek)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## [Gateway-SKU's (oud)](vpn-gateway-about-skus-legacy.md)
 ## VPN-apparaten van derden configureren
 ### [Overzicht en Azure-configuratie](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Voorbeeld: Cisco ASA-apparaat (IKEv2/geen BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
-## [Migratie van het klassieke model naar het Resource Manager-model](vpn-gateway-classic-resource-manager-migration.md)
 ## [Problemen oplossen](vpn-gateway-troubleshoot.md)
 ### [Door de community voorgestelde VPN- of firewallinstellingen voor apparaten](vpn-gateway-third-party-settings.md)
 ### [VNet- of VPN-verbindingen configureren en valideren](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
@@ -98,6 +86,15 @@
 #### [Problemen met een site-naar-site-verbinding](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
 #### [Site-naar-Site-verbinding wordt herhaaldelijk verbroken](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 
+## Artikelen over het klassieke implementatiemodel
+### [Een site-to-siteverbinding configureren](vpn-gateway-howto-site-to-site-classic-portal.md)
+### [Een point-to-siteverbinding configureren](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### [Een verbinding tussen VNET's configureren](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+### [Geforceerde tunneling configureren](vpn-gateway-about-forced-tunneling.md)
+### [Een VPN-gateway verwijderen](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+### [Meerdere site-to-siteverbindingen configureren](vpn-gateway-multi-site.md)
+### [Een VPN-gateway configureren](vpn-gateway-configure-vpn-gateway-mp.md)
+### [Migratie van het klassieke model naar het Resource Manager-model](vpn-gateway-classic-resource-manager-migration.md)
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

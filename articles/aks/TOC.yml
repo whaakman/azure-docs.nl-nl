@@ -83,6 +83,8 @@
           href: openfaas.md
         - name: Spark-taken uitvoeren op AKS
           href: spark-job.md
+        - name: GPU's in AKS gebruiken
+          href: gpu-cluster.md
     - name: Basisbeginselen voor Kubernetes
       items:
         - name: Kubernetes-dashboard gebruiken
