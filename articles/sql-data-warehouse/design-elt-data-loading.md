@@ -7,14 +7,14 @@ manager: jhubbard
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 18d5f4131718021de82328719e0538db759dde9c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 13189bfe2e2e6db6185c798065dc3bea1fd3d537
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Ontwerpen extraheren, laden en transformeren (ELT) voor Azure SQL datawarehouse
 
@@ -48,8 +48,8 @@ Om gegevens te laden met PolyBase, kunt u een van deze opties laden.
 
 - [PolyBase met T-SQL](load-data-from-azure-blob-storage-using-polybase.md) goed werkt wanneer uw gegevens in Azure Blob storage of Azure Data Lake Store is. Biedt u de meeste controle over het laadproces, maar vereist dat u objecten van de externe gegevens definiëren. De andere methoden Definieer deze objecten achter de schermen als u brontabellen aan doeltabellen toewijzen.  U kunt Azure Data Factory, SSIS of Azure functions gebruiken voor de organisatie van T-SQL-belastingen. 
 - [PolyBase met SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) goed werkt wanneer de brongegevens is in SQL Server, SQL Server on-premises of in de cloud. SSIS definieert de bron naar doel Tabeltoewijzingen, en ook stuurt de belasting. Als u al SSIS-pakketten hebt, kunt u de pakketten werkt met de nieuwe datawarehouse doel wijzigen. 
-- [PolyBase met Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) orchestration hulpprogramma.  Definieert een pijplijn en taken plant. U kunt de ADF JSON-gegevens parseren en laden in SQL Data Warehouse.
-- [PolyBase met Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) gegevens van Azure Data Lake Store overzet naar SQL Data Warehouse. U kunt Azure DataBricks JSON-gegevens parseren en laden van de gegevens naar SQL Data Warehouse. 
+- [PolyBase met Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) orchestration hulpprogramma.  Definieert een pijplijn en taken plant. 
+- [PolyBase met Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) gegevens van een tabel met SQL Data Warehouse overzet naar een dataframe Databricks en/of schrijft gegevens uit een dataframe Databricks naar een tabel met SQL Data Warehouse.
 
 ### <a name="polybase-external-file-formats"></a>PolyBase externe bestandsindelingen
 
@@ -70,11 +70,8 @@ Als u wilt de gegevens in Azure-opslag land, kunt u deze te verplaatsen [Azure B
 Dit zijn de hulpprogramma's en services die u gebruiken kunt om gegevens te verplaatsen naar Azure Storage.
 
 - [Azure ExpressRoute](../expressroute/expressroute-introduction.md) service verhoogt de netwerkdoorvoer, prestaties en een hoge voorspelbaarheid is vereist. ExpressRoute is een service waarmee uw gegevens via een speciale persoonlijke verbinding worden doorgestuurd naar Azure. ExpressRoute-verbindingen niet versturen van gegevens via het openbare internet. De verbindingen bieden meer betrouwbaarheid, sneller en hebben ze lagere latenties en betere beveiliging dan gewone verbindingen via het openbare internet.
-- [AZCopy hulpprogramma](../storage/common/storage-use-azcopy.md) gegevens verplaatst naar Azure Storage via het openbare internet. Dit werkt als de grootten van uw gegevens minder dan 10 TB zijn. Test de netwerksnelheid om te zien als het is acceptabel om uit te voeren belasting regelmatig met AZCopy. 
-- [Azure Data Factory (ADF)](../data-factory/introduction.md) heeft een gateway die u op uw lokale server installeren kunt. Vervolgens kunt u een pijplijn om gegevens te verplaatsen van de lokale server tot Azure Storage.
-
-Zie voor meer informatie [verplaatsen van gegevens naar en van Azure Storage](../storage/common/storage-moving-data.md)
-
+- [AZCopy hulpprogramma](../storage/common/storage-moving-data.md) gegevens verplaatst naar Azure Storage via het openbare internet. Dit werkt als de grootten van uw gegevens minder dan 10 TB zijn. Test de netwerksnelheid om te zien als het is acceptabel om uit te voeren belasting regelmatig met AZCopy. 
+- [Azure Data Factory (ADF)](../data-factory/introduction.md) heeft een gateway die u op uw lokale server installeren kunt. Vervolgens kunt u een pijplijn om gegevens te verplaatsen van de lokale server tot Azure Storage. Zie voor het gebruik van Data Factory met SQL Data Warehouse, [gegevens laden in SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
 
 ## <a name="prepare-data"></a>Gegevens voorbereiden
 

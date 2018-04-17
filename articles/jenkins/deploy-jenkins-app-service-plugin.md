@@ -2,11 +2,11 @@
 title: Implementeren in Azure App Service met behulp van de invoegtoepassing Jenkins | Microsoft Docs
 description: Informatie over het gebruik van de Azure App Service Jenkins-invoegtoepassing voor het implementeren van een Java-web-app in Azure in Jenkins
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementeren in Azure App Service met behulp van de invoegtoepassing Jenkins 
 
@@ -39,7 +39,7 @@ Als u een model Jenkins nog geen hebt, begint u met de [oplossingssjabloon](inst
 * [De invoegtoepassing client Jenkins Git](https://plugins.jenkins.io/git-client) versie 2.4.6 
 * [Docker Commons invoegtoepassing](https://plugins.jenkins.io/docker-commons) versie 1.4.0
 * [Azure-referenties](https://plugins.jenkins.io/azure-credentials) versie 1.2
-* [Azure App Service](https://plugins.jenkins.io/azure-app-server) versie 0.1
+* [Azure App Service](https://plugins.jenkins.io/azure-app-service) versie 0.1
 
 U kunt de invoegtoepassing Jenkins gebruiken voor het implementeren van een web-app in elke taal die wordt ondersteund door Web-Apps, zoals C#, PHP, Java en Node.js. In deze zelfstudie gebruiken we een [eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample). Om te vertakken de opslagplaats op uw eigen GitHub-account, selecteert u de **Fork** knop in de rechterbovenhoek van de GitHub-interface.  
 > [!NOTE]
@@ -54,7 +54,7 @@ sudo apt-get install -y maven
 
 Als u wilt implementeren op Web-App voor Containers, installeert u Docker op Jenkins Master of de VM-agent die wordt gebruikt voor de build. Zie voor instructies [Docker installeren op Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a>Een Azure-service-principal toevoegen aan de Jenkins-referenties
+##<a name="service-principal"></a> Een Azure-service-principal toevoegen aan de Jenkins-referenties
 
 U moet een Azure-service-principal te implementeren in Azure. 
 
@@ -90,7 +90,7 @@ Voordat u de taak in Jenkins hebt ingesteld, moet u een Azure App Service-abonne
 ### <a name="set-up-the-jenkins-job"></a>De taak Jenkins instellen
 
 1. Maak een nieuwe **freestyle** project op het Jenkins Dashboard.
-2. Configureer de **Source Code Management** veld dat wordt gebruikt van uw lokale fork van de [eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample). Geef de **URL opslagplaats** waarde. Bijvoorbeeld: http://github.com/&lt;your_ID > / javawebappsample.
+2. Configureer de **Source Code Management** veld dat wordt gebruikt van uw lokale fork van de [eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample). Geef de **URL opslagplaats** waarde. Bijvoorbeeld: http://github.com/ &lt;your_ID > / javawebappsample.
 3. Toevoegen van een stap om het project bouwen met behulp van Maven door toe te voegen de **shell uitvoeren** opdracht. Bijvoorbeeld, moeten we een extra opdracht naam wijzigen van de \*.war-bestand in de doelmap naar **ROOT.war**:   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Voordat u de taak in Jenkins instelt, moet u een web-app op Linux. U moet ook ee
 ### <a name="set-up-the-jenkins-job-for-docker"></a>De taak Jenkins voor Docker instellen
 
 1. Maak een nieuwe **freestyle** project op het Jenkins Dashboard.
-2. Configureer de **Source Code Management** veld dat wordt gebruikt van uw lokale fork van de [eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample). Geef de **URL opslagplaats** waarde. Bijvoorbeeld: http://github.com/&lt;your_ID > / javawebappsample.
+2. Configureer de **Source Code Management** veld dat wordt gebruikt van uw lokale fork van de [eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample). Geef de **URL opslagplaats** waarde. Bijvoorbeeld: http://github.com/ &lt;your_ID > / javawebappsample.
 3. Toevoegen van een stap om het project bouwen met behulp van Maven door toe te voegen een **shell uitvoeren** opdracht. Neem de volgende regel in de opdracht:
     ```bash
     mvn clean package

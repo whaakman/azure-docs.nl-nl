@@ -1,8 +1,8 @@
 ---
-title: "Implementeren en beheren van Apache Storm-topologieën op Linux gebaseerde HDInsight | Microsoft Docs"
-description: "Informatie over het implementeren, bewaken en beheren van Apache Storm-topologieën met het Storm-Dashboard op Linux gebaseerde HDInsight. Hadoop-hulpprogramma's voor Visual Studio gebruiken."
+title: Implementeren en beheren van Apache Storm-topologieën op Linux gebaseerde HDInsight | Microsoft Docs
+description: Informatie over het implementeren, bewaken en beheren van Apache Storm-topologieën met het Storm-Dashboard op Linux gebaseerde HDInsight. Hadoop-hulpprogramma's voor Visual Studio gebruiken.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implementeren en beheren van Apache Storm-topologieën op HDInsight
 
@@ -95,7 +93,7 @@ De HDInsight Tools kan worden gebruikt om in te dienen C# of hybride topologieë
 
 ## <a name="submit-a-topology-programmatically"></a>Verzenden van een topologie: programmatisch
 
-U kunt een topologie met behulp van de service Nimbus programmatisch implementeren. [https://github.com/Azure-Samples/hdinsight-Java-Deploy-storm-Topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) bevat een voorbeeld van Java-toepassing die laat zien hoe u implementeert en een topologie via de Nimbus-service start.
+U kunt een topologie met behulp van de service Nimbus programmatisch implementeren. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) bevat een voorbeeld van Java-toepassing die laat zien hoe u implementeert en een topologie via de Nimbus-service start.
 
 ## <a name="monitor-and-manage-visual-studio"></a>Bewaken en beheren: Visual Studio
 
@@ -166,7 +164,7 @@ Een topologie herverdeling kan het systeem voor het bijwerken van de parallelle 
 
 ## <a name="monitor-and-manage-storm-ui"></a>Bewaken en beheren: Storm-gebruikersinterface
 
-De Storm-gebruikersinterface biedt een webinterface voor het werken met actieve topologieën en is opgenomen in uw HDInsight-cluster. Om weer te geven de Storm-gebruikersinterface, gebruikt u een webbrowser openen **https://CLUSTERNAME.azurehdinsight.NET/stormui**, waarbij **CLUSTERNAME** is de naam van uw cluster.
+De Storm-gebruikersinterface biedt een webinterface voor het werken met actieve topologieën en is opgenomen in uw HDInsight-cluster. Om weer te geven de Storm-gebruikersinterface, gebruikt u een webbrowser openen **https://CLUSTERNAME.azurehdinsight.net/stormui**, waarbij **CLUSTERNAME** is de naam van uw cluster.
 
 > [!NOTE]
 > Als u wordt gevraagd een gebruikersnaam en een wachtwoord op te geven, voert u de gegevens voor de clusterbeheerder (admin) en het wachtwoord in die u hebt gebruikt toen u het cluster maakte.

@@ -1,32 +1,32 @@
 ---
 title: OpenShift op Azure taken voor na de implementatie van | Microsoft Docs
-description: "Extra taken voor na een OpenShift-cluster is geïmplementeerd."
+description: Extra taken voor na een OpenShift-cluster is geïmplementeerd.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 77c4719b5cee7f5736d73ee10cf6abf12229ea11
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1fe44f6d18199fe1a37db566f8b30eeaa4fbfab2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="post-deployment-tasks"></a>Taken na de implementatie
 
 Nadat u een cluster OpenShift implementeert, kunt u extra items configureren. In dit artikel bevat informatie over het volgende:
 
 - Het configureren van eenmalige aanmelding met behulp van Azure Active Directory (Azure AD)
-- Operations Management Suite voor het bewaken van OpenShift configureren
+- Het configureren van logboekanalyse voor het bewaken van OpenShift
 - Metrische gegevens en logboekregistratie configureren
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Eenmalige aanmelding configureren met behulp van Azure Active Directory
@@ -38,9 +38,9 @@ Voor het gebruik van Azure Active Directory voor verificatie, moet u eerst de re
 Deze stappen de Azure CLI gebruiken voor het maken van de app-registratie en de gebruikersinterface (portal) van de machtigingen worden ingesteld. Voor het maken van de registratie van de app, moet u de volgende vijf stukjes informatie:
 
 - Weergavenaam: naam van App-registratie (bijvoorbeeld OCPAzureAD)
-- Startpagina: OpenShift console-URL (bijvoorbeeld https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- URI-id: OpenShift console-URL (bijvoorbeeld https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Antwoord-URL: De openbare URL van Master en de naam van de app-registratie (bijvoorbeeld https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Startpagina: OpenShift console URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- URI-id: OpenShift console-URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- URL van antwoord: De hoofdsleutel van de openbare URL en de naam van de app-registratie (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
 - Wachtwoord: Beveiligd wachtwoord (gebruik een sterk wachtwoord)
 
 Het volgende voorbeeld maakt een app te registreren met behulp van de genoemde informatie:
@@ -145,7 +145,7 @@ Voeg de volgende regels onmiddellijk na de voorgaande regels:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-De tenant-ID vinden met behulp van de volgende CLI-opdracht:```az account show```
+De tenant-ID vinden met behulp van de volgende CLI-opdracht: ```az account show```
 
 Start opnieuw op de master OpenShift-services op alle hoofdknooppunten:
 
@@ -171,11 +171,11 @@ sudo systemctl restart atomic-openshift-master
 
 In de console OpenShift ziet u nu twee opties voor verificatie: htpasswd_auth en [App-registratie].
 
-## <a name="monitor-openshift-with-operations-management-suite"></a>Monitor OpenShift bij Operations Management Suite
+## <a name="monitor-openshift-with-log-analytics"></a>Monitor OpenShift met logboekanalyse
 
-Als u wilt bewaken OpenShift bij Operations Management Suite, kunt u een van twee opties: installatie van de OMS-Agent op de VM-host of OMS-Container. Dit artikel bevat instructies voor het implementeren van de OMS-Container.
+Als u wilt bewaken OpenShift met Log Analytics, kunt u een van twee opties: installatie van de OMS-Agent op de VM-host of OMS-Container. Dit artikel bevat instructies voor het implementeren van de OMS-Container.
 
-## <a name="create-an-openshift-project-for-operations-management-suite-and-set-user-access"></a>Maken van een project OpenShift voor Operations Management Suite en gebruikerstoegang instellen
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Maken van een project OpenShift voor logboekanalyse en gebruikerstoegang instellen
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -244,7 +244,7 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>Een geheim yaml-bestand maken
 
-Als u wilt de geheime yaml-bestand maakt, moet u twee soorten informatie: OMS-werkruimte-ID en OMS werkruimte gedeelde sleutel. 
+Als u wilt de geheime yaml-bestand maakt, moet u twee soorten informatie: Log Analytics-werkruimte-ID en Log Analytics werkruimte gedeelde sleutel. 
 
 Hier volgt een voorbeeld van een ocp-secret.yml-bestand: 
 
@@ -258,7 +258,7 @@ data:
   KEY: key_data
 ```
 
-Vervang wsid_data met de Base64-gecodeerd OMS-werkruimte-ID. Vervolgens vervangen door key_data Base64-gecodeerd OMS werkruimte gedeelde sleutel.
+Vervang wsid_data met de Base64-gecodeerd Log Analytics-werkruimte-ID. Vervolgens vervangen door key_data Base64-gecodeerd Log Analytics gedeelde sleutel voor de werkruimte.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'

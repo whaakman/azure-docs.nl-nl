@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7fe27ed8615b9684e14276d6d0f5bf84ee5ee81
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6d9fbfd07de9a5d536cf458dc478aade851d4b23
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migreren van Amazon Web Services (AWS) en andere platforms naar schijven beheerd in Azure
 
@@ -55,7 +55,7 @@ Azure-beheerde schijven vereenvoudigt VM beheer door het verwijderen van de nood
 
 Deze sectie helpt u bij het maken van de beste beslissing op schijf en VM-typen.
 
-Als u van plan bent over het migreren van niet-beheerde schijven aan beheerde schijven, moet u zich bewust zijn dat gebruikers met de [Virtual Machine Contributor](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) rol kan niet worden de VM-grootte wijzigen (zoals ze vooraf conversie kunnen). Dit is omdat de virtuele machines met beheerde schijven moeten de gebruiker gemachtigd is Microsoft.Compute/disks/write op de OS-schijven.
+Als u van plan bent over het migreren van niet-beheerde schijven aan beheerde schijven, moet u zich bewust zijn dat gebruikers met de [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol kan niet worden de VM-grootte wijzigen (zoals ze vooraf conversie kunnen). Dit is omdat de virtuele machines met beheerde schijven moeten de gebruiker gemachtigd is Microsoft.Compute/disks/write op de OS-schijven.
 
 ### <a name="location"></a>Locatie
 

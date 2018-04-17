@@ -3,7 +3,7 @@ title: Koppelpunt Azure File storage in virtuele Linux-machines met SMB | Micros
 description: Het koppelen van Azure File storage op Linux VM's met behulp van SMB met de Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
-ms.author: v-livech
-ms.openlocfilehash: de200c9b18b9d27325bcb92e0d27e83ad7c65811
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: iainfou
+ms.openlocfilehash: 01e18103f9e94615357ff3b9c4be7f2473763a57
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Koppelpunt Azure File storage in virtuele Linux-machines met SMB
 
-In dit artikel leest u hoe de Azure File storage-service op een Linux-VM te gebruiken met behulp van een SMB-koppelen met de Azure CLI 2.0. Azure File storage biedt bestandsshares in de cloud met behulp van het standaard SMB-protocol. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). De vereisten zijn:
+In dit artikel leest u hoe de Azure File storage-service op een Linux-VM te gebruiken met behulp van een SMB-koppelen met de Azure CLI 2.0. Azure File storage biedt bestandsshares in de cloud met behulp van het standaard SMB-protocol. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md). De vereisten zijn:
 
 - [een Azure-account.](https://azure.microsoft.com/pricing/free-trial/)
 - [bestanden voor openbare en persoonlijke SSH-sleutels](mac-create-ssh-keys.md)
@@ -49,14 +49,14 @@ mkdir -p /mnt/mymountpoint
 ### <a name="mount-the-file-storage-smb-share-to-the-mount-point"></a>De opslag van bestanden naar het koppelpunt de SMB-share koppelen
 
 ```bash
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ### <a name="persist-the-mount-after-a-reboot"></a>De koppeling behouden na opnieuw opstarten
 Om dit te doen, voeg de volgende regel om de `/etc/fstab`:
 
 ```bash
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+//myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ## <a name="detailed-walkthrough"></a>Gedetailleerd overzicht
@@ -121,7 +121,7 @@ Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor
     Een lokale map maken in het Linux-bestandssysteem naar de SMB-share te koppelen. Geschreven of gelezen uit de lokale Koppelmap wordt doorgestuurd naar de SMB-share die wordt gehost op de opslag van bestanden. Voor het maken van een lokale map op /mnt/mymountdirectory, gebruikt u het volgende voorbeeld:
 
     ```bash
-    sudo mkdir -p /mnt/mymountdirectory
+    sudo mkdir -p /mnt/mymountpoint
     ```
 
 6. Koppel de SMB-share naar een lokale map.
@@ -129,7 +129,7 @@ Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor
     Geef uw eigen storage account gebruikersnaam en het opslagaccountsleutel referenties voor de koppeling als volgt:
 
     ```azurecli
-    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
+    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountpoint -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
     ```
 
 7. Behouden van de SMB-koppelpunt via opnieuw wordt opgestart.
@@ -137,11 +137,11 @@ Voor deze gedetailleerde procedure we maken van de vereisten die nodig zijn voor
     Wanneer u de Linux-VM opnieuw opstart, wordt tijdens het afsluiten van de gekoppelde SMB-share ontkoppeld. Als u wilt opnieuw koppelen van de SMB-share op opstarten, moet u een regel toegevoegd aan de /etc/fstab Linux. Linux gebruikt het fstab-bestand voor een lijst met de bestandssystemen die nodig is om te koppelen tijdens het opstarten. Het toevoegen van de SMB-share zorgt ervoor dat de File storage-share een permanent gekoppelde bestandssysteem voor de Linux-VM. De File storage SMB-share toe te voegen aan een nieuwe virtuele machine is mogelijk wanneer u cloud-init gebruiken.
 
     ```bash
-    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Gebruik van cloud-init voor het aanpassen van een Linux-VM tijdens het maken van](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Een schijf toevoegen aan een virtuele Linux-machine](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Versleutelen van schijven op een Linux-VM met behulp van de Azure CLI](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Gebruik van cloud-init voor het aanpassen van een Linux-VM tijdens het maken van](using-cloud-init.md)
+- [Een schijf toevoegen aan een virtuele Linux-machine](add-disk.md)
+- [Versleutelen van schijven op een Linux-VM met behulp van de Azure CLI](encrypt-disks.md)

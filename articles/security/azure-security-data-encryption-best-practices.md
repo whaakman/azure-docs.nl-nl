@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0cebc7ae5279b720e8fd0d6c986e1706d944476f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 159bdf681761b9fc46f77cbcf25a210db11d1d9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Best Practices voor beveiliging van gegevens van Azure en versleuteling
 Een van de sleutels voor bescherming van gegevens in de cloud is accounting voor de mogelijke statussen in die uw gegevens zich kunnen voordoen, en welke besturingselementen beschikbaar zijn voor die status. Omwille van de Azure data zijn versleuteling best practices voor beveiliging en de aanbevelingen om de statussen van de volgende gegevens:
@@ -63,11 +63,11 @@ Lees het artikel voor meer informatie over Azure MFA [aan de slag met Azure mult
 ## <a name="use-role-based-access-control-rbac"></a>Gebruik rollen gebaseerd toegangsbeheer (RBAC)
 Toegang beperken op basis de [moet weten](https://en.wikipedia.org/wiki/Need_to_know) en [minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) beveiligingsprincipes. Dit is noodzakelijk voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens. Azure op rollen gebaseerde toegangsbeheer (RBAC) kan worden gebruikt om machtigingen te wijzen aan gebruikers, groepen en toepassingen op een bepaalde scope. Het bereik van een roltoewijzing kan dit een abonnement, resourcegroep of één resource.
 
-U kunt gebruikmaken van [ingebouwde RBAC-rollen](../active-directory/role-based-access-built-in-roles.md) in Azure rechten toewijzen aan gebruikers. Overweeg het gebruik van *Storage Account Inzender* voor cloudoperators die nodig zijn voor het beheren van storage-accounts en *klassieke Storage Account Inzender* rol voor het beheren van klassieke opslagaccounts. Voor cloudoperators die nodig zijn voor het beheren van virtuele machines en storage-account, kunt toevoegen aan *Virtual Machine Contributor* rol.
+U kunt gebruikmaken van [ingebouwde RBAC-rollen](../role-based-access-control/built-in-roles.md) in Azure rechten toewijzen aan gebruikers. Overweeg het gebruik van *Storage Account Inzender* voor cloudoperators die nodig zijn voor het beheren van storage-accounts en *klassieke Storage Account Inzender* rol voor het beheren van klassieke opslagaccounts. Voor cloudoperators die nodig zijn voor het beheren van virtuele machines en storage-account, kunt toevoegen aan *Virtual Machine Contributor* rol.
 
 Organisaties die niet afgedwongen door toegangsbeheer gegevens dankzij het gebruik van mogelijkheden, zoals RBAC mogelijk meer bevoegdheden beschikt dan nodig is voor hun gebruikers geven. Dit kan leiden tot inbreuk op gegevens door sommige gebruikers toegang hebben tot gegevens die ze in eerste instantie mag geen te laten.
 
-U kunt meer informatie over Azure RBAC lezen van het artikel [rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-configure.md).
+U kunt meer informatie over Azure RBAC lezen van het artikel [rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Virtuele Machines van Azure versleutelen
 Voor veel organisaties [gegevensversleuteling in rust](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is een verplichte stap naar privacy, naleving en gegevens onafhankelijkheid van gegevens. Azure Disk Encryption kunnen IT-beheerders voor het versleutelen van de schijven voor Windows en Linux IaaS virtuele Machine (VM). Azure Disk Encryption maakt gebruik van de branche standaard BitLocker-functie van Windows en de functie DM-Crypt van Linux voor volumeversleuteling voor het besturingssysteem en de gegevensschijven.
@@ -107,7 +107,7 @@ Gebrek van endpoint protection mogelijk risico voor uw gegevens, zorg ervoor dat
 U kunt meer informatie over de juiste rechten toegang tot werkstation met het lezen van het artikel [bevoegde toegang beveiligen](https://technet.microsoft.com/library/mt631194.aspx).
 
 ## <a name="enable-sql-data-encryption"></a>SQL-gegevensversleuteling inschakelt
-[Azure SQL Database transparante gegevensversleuteling](https://msdn.microsoft.com/library/dn948096.aspx) (TDE) beschermt tegen de dreiging van schadelijke activiteiten door te voeren realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogbestanden in rust zonder wijzigingen in de toepassing.  TDE versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel, naam van de databaseversleutelingssleutel.
+[Azure SQL Database transparante gegevensversleuteling](https://msdn.microsoft.com/library/dn948096.aspx) (TDE) beschermt tegen de dreiging van schadelijke activiteiten door te voeren realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogbestanden in rust zonder vereist wijzigingen in de toepassing.  TDE versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel, naam van de databaseversleutelingssleutel.
 
 Zelfs als de volledige opslag wordt gecodeerd, is het erg belangrijk voor het versleutelen van uw database zelf ook. Dit is een implementatie van de verdediging in de diepte benadering voor gegevensbescherming. Als u [Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) en bescherming van gevoelige gegevens zoals creditcard of burgerservicenummers wilt, kunt u databases met FIPS 140-2-gevalideerde 256 bits AES-versleuteling dat voldoet aan de vereisten van veel industrienormen (bijv, HIPAA, PCI) coderen.
 

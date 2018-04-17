@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f8d7fff30d5f5289c362d78ad89027b8141bbbe6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cf73f792bcce906a673da0c6fb2eec099239c1c2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Machine learning en wetenschappelijke hulpprogramma 's
 De gegevens wetenschappelijke virtuele Machine (DSVM) heeft een uitgebreide set hulpprogramma's en bibliotheken voor machine learning in populaire talen zoals Python, R, Julia beschikbaar. 
@@ -59,7 +59,7 @@ Hier zijn enkele van de machine learning-hulpprogramma's en bibliotheken op de D
 | Doorgaans worden gebruikt      | Algemene ML hulpprogramma     |
 | Hoe gebruik / uitvoeren?      | Op Windows, zoeken naar Weka in het Menu Start. Op Linux, meld u aan met X2Go en vervolgens gaat u naar toepassingen-ontwikkeling > -> Weka. |
 | Koppelingen naar voorbeelden      | [Voorbeelden van weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Bijbehorende hulpprogramma's op de DSVM      |LightGBM, Rattle, XGBooost   |
+| Bijbehorende hulpprogramma's op de DSVM      |LightGBM, ratel, XGBooost   |
 
 ## <a name="rattle"></a>Rammelaar
 |    |           |
@@ -68,7 +68,7 @@ Hier zijn enkele van de machine learning-hulpprogramma's en bibliotheken op de D
 | Ondersteunde DSVM edities     | Windows, Linux     |
 | Doorgaans worden gebruikt      | Algemene UI gegevensanalyse hulpprogramma voor R    |
 | Hoe gebruik / uitvoeren?      | UI-hulpprogramma. In Windows, start een opdrachtprompt, voert u R binnen R uitvoeren `rattle()`. Op Linux, verbinding maken met X2Go, een terminal starten, uitvoeren van R binnen R uitvoeren `rattle()`. |
-| Koppelingen naar voorbeelden      | [Rattle](https://togaware.com/onepager/) |
+| Koppelingen naar voorbeelden      | [Rammelaar](https://togaware.com/onepager/) |
 | Bijbehorende hulpprogramma's op de DSVM      |LightGBM, Weka, XGBoost   |
 
 ## <a name="lightgbm"></a>LightGBM

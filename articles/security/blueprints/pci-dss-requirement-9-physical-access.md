@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 89f7b20a130e988bfe4964d50ae97de788ca4623
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2dbf4d9e2f4ff7b6cdf8e48c24eeee4d036fe195
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>Fysieke toegangsvereisten voor PCI DSS-compatibele omgevingen 
 ## <a name="pci-dss-requirement-9"></a>PCI-DSS vereiste 9
@@ -39,7 +39,7 @@ Alle fysieke toegang tot de gegevens of systemen die kaarthouder house gegevens 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is verantwoordelijk voor het implementeren en bewaken van fysieke beveiliging voor datacenters afdwingen. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -55,7 +55,7 @@ Alle fysieke toegang tot de gegevens of systemen die kaarthouder house gegevens 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is verantwoordelijk voor het implementeren en bewaking CCTV en mechanismen voor datacenters biometrische toegang afdwingen. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -70,7 +70,7 @@ Bijvoorbeeld: netwerk soorten netwerkconnectoren zich bevindt in openbare gebied
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Er zijn geen openbaar toegankelijk netwerk aansluitingen binnen de Microsoft Azure-platform. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -83,7 +83,7 @@ Bijvoorbeeld: netwerk soorten netwerkconnectoren zich bevindt in openbare gebied
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Fysieke toegang tot Microsoft Azure netwerkhardware strak wordt beheerd door een lijst met toegang tot meerdere formulieren van de verificatie, fysieke belemmering voor het item en de vereiste voor bedrijven moeten worden goedgekeurd voor toegang tot apparatuur. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -99,7 +99,7 @@ Bijvoorbeeld: netwerk soorten netwerkconnectoren zich bevindt in openbare gebied
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is verantwoordelijk voor het implementeren, afdwingen en beveiligings- en werknemer of contractor identificatie van fysieke toegang controleren als bezoekende datacenters. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -114,7 +114,7 @@ Bijvoorbeeld: netwerk soorten netwerkconnectoren zich bevindt in openbare gebied
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | -Verificatie ondersteunt voor Microsoft-datacenters wordt beheerd met behulp van een lijst met geautoriseerde toegang goedgekeurd door het team van het datacenter op basis van het principe van minimale bevoegdheden. De toegangsbeheerlijst is gecontroleerd, geverifieerd en elk kwartaal bijgewerkt.<br /><br />Microsoft Azure-datacenters gebruikmaken van fysieke toegangsapparaten zoals perimeter-poorten, elektronische toegang badge-lezers biometrische lezers, man-traps/portals en antivirusprogramma pass back-apparaten. Badge-toegangsapparaten worden continu bewaakt. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -127,7 +127,7 @@ Bijvoorbeeld: netwerk soorten netwerkconnectoren zich bevindt in openbare gebied
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is verantwoordelijk voor het afdwingen vooraf goedgekeurde leveringen worden ontvangen op een veilige laden bay die fysiek gescheiden is van de verwerking van gegevens faciliteiten en worden bewaakt door bevoegd personeel. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -141,7 +141,7 @@ Bijvoorbeeld: netwerk soorten netwerkconnectoren zich bevindt in openbare gebied
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is verantwoordelijk voor het afdwingen vooraf goedgekeurde leveringen worden ontvangen op een veilige laden bay die fysiek gescheiden is van de verwerking van gegevens faciliteiten en worden bewaakt door bevoegd personeel. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -154,7 +154,7 @@ Bijvoorbeeld: netwerk soorten netwerkconnectoren zich bevindt in openbare gebied
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft data center toegang moet vooraf goedgekeurde en geautoriseerde bezoekers zijn vereist voor inchecken met fysieke beveiliging op het moment van aankomst en geef een geldig bewijs van ID voordat vermelding. Badges duidelijk werknemers. Ontvangen tijdelijke badges die moeten worden gedaan bij het verlaten van de faciliteit aannemers en bezoekers. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -167,7 +167,7 @@ Bijvoorbeeld: netwerk soorten netwerkconnectoren zich bevindt in openbare gebied
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Bezoekers zijn vereist voor de afstand badges bij het verlaten van een Microsoft-faciliteit. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -182,7 +182,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is verantwoordelijk voor het onderhouden van een logboek bezoeker als een fysieke audittrail van bezoeker activiteit naar de opslagruimte, evenals computer ruimten en datacenters waar kaarthouder gegevens worden opgeslagen of verzonden. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -195,7 +195,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -208,7 +208,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -221,7 +221,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -234,7 +234,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -247,7 +247,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -260,7 +260,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -273,7 +273,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -287,7 +287,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -300,7 +300,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -313,7 +313,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat alle gegevens in Azure SQL Database. Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -326,7 +326,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Gegevens vernietiging technieken variëren afhankelijk van het type gegevensobject worden verbroken, ongeacht of deze abonnementen, opslag, virtuele machines of databases. In de Microsoft Azure-multitenant-omgeving, zorgvuldige aandacht wordt genomen om ervoor te zorgen dat één klantgegevens mag niet beide 'gegevenslekken' in een andere klantgegevens, of wanneer een klant Hiermee verwijdert u de gegevens van andere klanten geen (inclusief, in de meeste gevallen de klant wie de gegevens eenmaal eigenaar) kan toegang krijgen tot die gegevens verwijderd.<br /><br />Microsoft Azure volgt NIST 800 88 richtlijnen op opschoning van de Media, waarmee de principal belang om ervoor te zorgen dat de gegevens niet per ongeluk is vrijgegeven. Deze richtlijnen omvatten elektronische en fysieke opschoning. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore kan volledig door het verwijderen van de resourcegroep die wordt gebruikt tijdens de implementatie worden verwijderd.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore kan volledig door het verwijderen van de resourcegroep die wordt gebruikt tijdens de implementatie worden verwijderd.|
 
 
 
@@ -342,7 +342,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van OMS voor logboekregistratie van alle wijzigingen in het systeem.<br /><br />[Operations Management Suite (OMS)](/azure/operations-management-suite/) biedt uitgebreide logboekregistratie van wijzigingen. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. Zie voor meer specifieke instructies [richtlijnen PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure voor logboekregistratie van alle wijzigingen in het systeem.<br /><br />Log Analytics biedt uitgebreide logboekregistratie van wijzigingen. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. Zie voor meer specifieke instructies [richtlijnen PCI - registratie en controle](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -358,7 +358,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een referentiearchitectuur en een lijst met alle services die worden gebruikt in de documentatie van de implementatie.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een referentiearchitectuur en een lijst met alle services die worden gebruikt in de documentatie van de implementatie.|
 
 
 
@@ -374,7 +374,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -391,7 +391,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -404,7 +404,7 @@ Dit logboek voor een minimum van drie maanden bewaren tenzij anders wordt beperk
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 

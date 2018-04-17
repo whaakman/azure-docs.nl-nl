@@ -4,22 +4,22 @@ description: Gegevens platforms voor gegevens wetenschappelijke virtuele Machine
 keywords: hulpmiddelen voor wetenschappelijke gegevens, gegevens wetenschappelijke virtuele machine, hulpprogramma's voor gegevenswetenschap, gegevenswetenschap linux
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c9c85ebed6382a4188db028fbfb35675751bce76
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b3f340006801287383c2afb2924706affbd77a51
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-platforms"></a>Gegevensplatforms
 
@@ -68,7 +68,7 @@ De SQL-Server is geïnstalleerd op de gebruikelijke manier. Kan worden gevonden 
 | ------------- | ------------- |
 | Wat is het?   | Een zelfstandig (één knooppunt in-process)-exemplaar van het populaire Apache Spark-platform, een systeem voor het snel grootschalige gegevensverwerking en machine learning     |
 | Ondersteunde DSVM edities      | Linux <br /> Windows (experimentele)      |
-| Doorgaans worden gebruikt      | * Snelle ontwikkeling van Spark/PySpark toepassingen lokaal met kleinere gegevensset en hoger implementeert op grote Spark-clusters zoals Azure HDInsight<br/> * Test Microsoft R Server Spark Context <br />* SparkML of de Microsoft open-source gebruiken [MMLSpark](https://github.com/Azure/mmlspark) bibliotheek ML-toepassingen te bouwen  |
+| Doorgaans worden gebruikt      | * Snelle ontwikkeling van Spark/PySpark toepassingen lokaal met kleinere gegevensset en hoger implementeert op grote Spark-clusters zoals Azure HDInsight<br/> * Test Microsoft R Server Spark-Context <br />* SparkML of de Microsoft open-source gebruiken [MMLSpark](https://github.com/Azure/mmlspark) bibliotheek ML-toepassingen te bouwen  |
 | Koppelingen naar voorbeelden      |    Jupyter-voorbeeld: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server (Spark Context): /dsvm/samples/MRS/MRSSparkContextSample.R |
 | Bijbehorende hulpprogramma's op de DSVM       | PySpark, Scala<br/>Jupyter (Spark/PySpark Kernels)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache Inzoomen      |
 
@@ -100,7 +100,7 @@ U kunt de Hadoop stoppen gerelateerde services wanneer u deze niet nodig hebt do
 |Platform|Installatielocatie ($SPARK_HOME)|
 |:--------|:--------|
 |Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
-|Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
+|Linux   | /dsvm/Tools/Spark-X.X.X-bin-hadoopX.X|
 
 
 Bibliotheken voor toegang tot gegevens uit Azure Blob of Azure Data Lake storage (ADLS) en met behulp van Microsoft MMLSpark machine learning-bibliotheken zijn in $SPARK_HOME/potten vooraf. Deze potten worden automatisch geladen wanneer Spark wordt gestart. Spark maakt standaard gebruik van gegevens op de lokale schijf. Om het Spark-exemplaar op de DSVM voor toegang tot gegevens die zijn opgeslagen op Azure-blob of ADLS moet u maken/configureren de `core-site.xml` bestand op basis van sjabloon is gevonden in $SPARK_HOME/conf/core-site.xml.template (indien er tijdelijke aanduidingen voor Blob en ADLS zijn configuraties) met de juiste referenties naar Azure blob- en Azure Data Lake Storage. U vindt meer gedetailleerde stappen voor het maken van de referenties van de service ADLS [hier](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Als de referenties voor Azure blob of ADLS worden ingevoerd in het bestand core site.xml, kunt u verwijzen naar gegevens die zijn opgeslagen in de bronnen met het voorvoegsel van de URI van wasb: / / of adl: / /. 

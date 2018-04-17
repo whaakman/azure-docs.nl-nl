@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 03/19/2018
 ms.author: raynew
-ms.openlocfilehash: b2c89a980411cac02f46bc91d53620bc94fa845b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bba52534c534ea33c2939d0d9b76b7b4138e13cd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -37,7 +37,7 @@ Zorg ervoor dat u hebt gekopieerd en geplakt, de juiste informatie. Installeer d
 2. Dubbelklik op het gedownloade bestand voor het starten van de installatie.
 3. In setup op de **Welkom** pagina, klikt u op **volgende**. Op de **licentievoorwaarden** pagina, klikt u op **ik ga akkoord** de licentievoorwaarden accepteren.
 4. In **doelmap**, behouden of wijzigen van de standaardinstallatiemap > **volgende**.
-5. In **installatieopties voor Agent**, selecteer **Azure logboekanalyse (OMS)** > **volgende**.
+5. In **installatieopties voor Agent**, selecteer **Azure Log Analytics** > **volgende**.
 6. Klik op **toevoegen** een nieuwe werkruimte voor logboekanalyse toevoegen. Plak de project-ID en-sleutel die u hebt gekopieerd. Klik op **Volgende**.
 7. Controleer of de agent een verbinding aan het project maken kunt. Als dit niet, Controleer de instellingen. Als de agent verbinding maken kan maar de collector niet kunt, moet u contact op met ondersteuning.
 
@@ -62,7 +62,7 @@ Om de verzameling van prestatiegegevens van de schijf en netwerk, het niveau van
 
 **Ik geïnstalleerde agents en de afhankelijkheid visualisatie gebruikt om groepen te maken. Nu boeken failover, de machines actie 'Agent installeren' in plaats van 'Afhankelijkheden weergave' weergeven**
 * Post geplande of niet-geplande failover on-premises machines zijn uitgeschakeld en gelijkwaardige machines in Azure worden ingezet. Deze machines verkrijgen van een ander MAC-adres. Ze kunnen verkrijgen van een ander IP-adres op basis van of de gebruiker heeft ervoor gekozen voor het bewaren van lokale IP-adres of niet. Als MAC- en IP-adressen verschillen, Azure Migreer de lokale computers niet is gekoppeld met de gegevens van een Serviceoverzicht afhankelijkheid en vraagt de gebruiker installeren van agents in plaats van de afhankelijkheden weer te geven.
-* Na de testfailover, de lokale machines ingeschakeld blijven zoals verwacht. Gelijkwaardige machines ingezet in Azure ander MAC-adres verkrijgen en andere IP-adres kunnen verkrijgen. Tenzij de gebruiker uitgaande OMS-verkeer van deze machines blokkeert, Azure Migreer de lokale computers niet is gekoppeld met de gegevens van een Serviceoverzicht afhankelijkheid en vraagt de gebruiker installeren van agents in plaats van de afhankelijkheden weer te geven.
+* Na de testfailover, de lokale machines ingeschakeld blijven zoals verwacht. Gelijkwaardige machines ingezet in Azure ander MAC-adres verkrijgen en andere IP-adres kunnen verkrijgen. Tenzij de gebruiker uitgaande Log Analytics-verkeer van deze machines blokkeert, Azure Migreer de lokale computers niet is gekoppeld met de gegevens van een Serviceoverzicht afhankelijkheid en vraagt de gebruiker installeren van agents in plaats van de afhankelijkheden weer te geven.
 
 
 ## <a name="troubleshoot-readiness-issues"></a>Gereedheidsproblemen oplossen

@@ -5,8 +5,8 @@ services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Beveiligen van PaaS-webtoepassingen en mobiele toepassingen met behulp van Azure Storage
 In dit artikel bespreken we een verzameling van Azure Storage aanbevolen beveiligingsprocedures voor het beveiligen van uw PaaS-webtoepassingen en mobiele toepassingen. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure en de ervaringen van klanten zoals zelf.
@@ -75,7 +75,7 @@ Zie voor meer informatie, [Veelgestelde vragen over beheerde en onbeheerde premi
 
 Eerder besproken Shared Access Signature (SAS) met beperkte toegang tot objecten in uw opslagaccount verlenen aan andere clients zonder dat de sleutel van uw account-opslagaccount. Soms is de risico's die zijn gekoppeld aan een bepaalde bewerking op basis van uw opslagaccount opwegen tegen de voordelen van SAS. Soms is het eenvoudiger om toegang op een andere manier te beheren.
 
-Een andere manier om toegang te beheren is met [rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-what-is.md) (RBAC). Met RBAC, richten op uw werknemers de exacte machtigingen die ze nodig hebben, op basis van de noodzaak om te weten en minimale bevoegdheden beveiligingsprincipes. Te veel machtigingen kunnen een account dat kwaadwillende personen worden blootgesteld. Te weinig machtigingen betekent dat werknemers hun werk efficiënt kunnen niet ophalen. RBAC kunt u dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure. Dit is noodzakelijk voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens.
+Een andere manier om toegang te beheren is met [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) (RBAC). Met RBAC, richten op uw werknemers de exacte machtigingen die ze nodig hebben, op basis van de noodzaak om te weten en minimale bevoegdheden beveiligingsprincipes. Te veel machtigingen kunnen een account dat kwaadwillende personen worden blootgesteld. Te weinig machtigingen betekent dat werknemers hun werk efficiënt kunnen niet ophalen. RBAC kunt u dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure. Dit is noodzakelijk voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens.
 
 U kunt gebruikmaken van ingebouwde RBAC-rollen in Azure rechten toewijzen aan gebruikers. Overweeg het gebruik van Storage Account Inzender voor cloudoperators die nodig zijn voor het beheren van storage-accounts en de rol Inzender van de Account klassieke opslag voor het beheren van klassieke opslagaccounts. Voor cloudoperators die moeten beheren van virtuele machines, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden, kunt u deze toevoegt aan de rol Inzender van de virtuele Machine.
 
@@ -83,8 +83,8 @@ Organisaties die niet afgedwongen door toegangsbeheer gegevens dankzij het gebru
 
 Zie voor meer informatie over RBAC:
 
-- [Op rollen gebaseerde toegangsbeheer van Azure](../active-directory/role-based-access-control-configure.md)
-- [Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md)
+- [Op rollen gebaseerde toegangsbeheer van Azure](../role-based-access-control/role-assignments-portal.md)
+- [Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../role-based-access-control/built-in-roles.md)
 - [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md) voor details over het beveiligen van uw opslagaccount met RBAC
 
 ## <a name="storage-encryption"></a>Storage-versleuteling

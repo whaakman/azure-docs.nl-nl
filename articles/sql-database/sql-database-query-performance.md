@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 85f25946974b7ede64f9f8fb0009eed42c55c25a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c0cff73e8164bd493554b663d4ffbbf20f5155cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database Query Performance Insight
 Is een uitdaging waarvoor aanzienlijke expertise en investeringen tijd beheren en het afstemmen van de prestaties van relationele databases. Inzicht in queryprestaties kunt u minder tijd databaseprestaties oplossen door het volgende nodig:
@@ -29,7 +29,7 @@ Is een uitdaging waarvoor aanzienlijke expertise en investeringen tijd beheren e
 * Query Performance Insight vereist dat [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) actief is op uw database. Als de Query Store niet wordt uitgevoerd, wordt de portal vraagt u te schakelen.
 
 ## <a name="permissions"></a>Machtigingen
-De volgende [toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md) machtigingen zijn vereist voor Query Performance Insight gebruiken: 
+De volgende [toegangsbeheer op basis van rollen](../role-based-access-control/overview.md) machtigingen zijn vereist voor Query Performance Insight gebruiken: 
 
 * **Lezer**, **eigenaar**, **Inzender**, **SQL DB Contributor**, of **SQL Server Inzender** machtigingen zijn vereist bron weer te geven de bovenste verbruikt query's en -grafieken. 
 * **Eigenaar**, **Inzender**, **SQL DB Contributor**, of **SQL Server Inzender** machtigingen zijn vereist om querytekst weer te geven.

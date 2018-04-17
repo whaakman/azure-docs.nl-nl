@@ -5,19 +5,19 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
-ms.author: dekapur;maburlik;chackdan
-ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;maburlik;aljo
+ms.openlocfilehash: 62673025f5c597f6ed958ad523190d937a52c912
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 <a id="preparemachines"></a>
 
@@ -49,11 +49,11 @@ Wanneer u UDs in ClusterConfig.json opgeeft, kunt u de naam op voor elke UD. De 
 
 Zie voor meer informatie over FDs en UDs, [met een beschrijving van een Service Fabric-cluster](service-fabric-cluster-resource-manager-cluster-description.md).
 
-Een cluster in productie moet ten minste drie FDs span om te worden ondersteund in een productieomgeving, hebt u volledige controle over het onderhoud en beheer van de knooppunten, dus u bent zelf verantwoordelijk voor het bijwerken en machines vervangen. Voor clusters die zijn uitgevoerd in een omgeving (dat wil zeggen Amazon Web Services VM-instanties) waar u hebt geen volledige controle over de machines, moet u ten minste vijf FDs hebt in uw cluster. Elke FD kan een of meer knooppunten hebben. Zo wordt voorkomen dat problemen veroorzaakt door machine upgrades en updates die, afhankelijk van de timing, kunnen het uitvoeren van toepassingen en services in clusters verstoren.
+Een cluster in productie moet ten minste drie FDs span om te worden ondersteund in een productieomgeving, hebt u volledige controle over het onderhoud en beheer van de knooppunten, dat wil zeggen, u bent zelf verantwoordelijk voor het bijwerken en machines vervangen. Voor clusters die zijn uitgevoerd in een omgeving (dat wil zeggen, Amazon Web Services VM-instanties) waar u hebt geen volledige controle over de machines, moet u ten minste vijf FDs hebt in uw cluster. Elke FD kan een of meer knooppunten hebben. Zo wordt voorkomen dat problemen veroorzaakt door machine upgrades en updates, afhankelijk van de timing ervan kan leiden tot problemen met het uitvoeren van toepassingen en services in clusters.
 
 ## <a name="determine-the-initial-cluster-size"></a>De eerste clustergrootte bepalen
 
-Over het algemeen is het aantal knooppunten in het cluster bepaald op basis van de behoeften van uw bedrijf, dat wil zeggen, hoeveel services en containers wordt uitgevoerd op het cluster en het aantal resources moet u uw werkbelastingen tolereren. Voor productieclusters, wordt aangeraden ten minste 5 knooppunten in het cluster met 5 FDs-spanning. Echter, als hierboven beschreven, als u volledige controle over uw knooppunten hebt en drie FDs kan omspannen, vervolgens drie knooppunten moeten ook doen de taak.
+In het algemeen het aantal knooppunten in het cluster wordt bepaald op basis van de behoeften van uw bedrijf, die is, hoeveel services en containers wordt op het cluster worden uitgevoerd en hoeveel resources moet u uw werkbelastingen tolereren. Voor productieclusters, wordt aangeraden ten minste vijf knooppunten in het cluster met 5 FDs-spanning. Echter, als hierboven beschreven, als u volledige controle over uw knooppunten hebt en drie FDs kan omspannen, vervolgens drie knooppunten moeten ook doen de taak.
 
 Testclusters met stateful werkbelastingen moeten drie knooppunten hebben dat testclusters alleen actieve alleen staatloze werkbelastingen één knooppunt moeten. Ook moet worden opgemerkt dat voor ontwikkelingsdoeleinden, kunnen er meer dan één knooppunt op een bepaalde computer. In een productieomgeving echter Service Fabric ondersteunt slechts één knooppunt per fysieke of virtuele machine.
 
@@ -99,7 +99,7 @@ Wanneer een Clusterbeheerder zelfstandige Service Fabric-cluster configureert, m
 * Service Fabric SDK verwijderd hebben
 * Service Fabric-runtime verwijderd hebben 
 * Hebben de service Windows Firewall (mpsvc) ingeschakeld
-* Hebben de Remote Registry-Service (remoteregistry) ingeschakeld
+* Hebben de Remote Registry-Service (extern register) ingeschakeld
 * Bestand die delen (SMB) ingeschakeld
 * Hebt u nodig poorten die worden geopend, op basis van poorten voor cluster-configuratie
 * Nodig poorten zijn geopend voor Windows SMB en Remote Registry-service: 135, 137, 138, 139 en 445

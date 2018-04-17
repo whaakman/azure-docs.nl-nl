@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1fc210ac5e28efe10be27f8b5a752788d3d5a5a3
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Netwerk beveiligingsgroepen met een Azure Resource Manager-sjabloon maken
 
@@ -104,7 +104,7 @@ De voorbeeldsjabloon in de openbare opslagplaats maakt gebruik van een parameter
 Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u hebt gedownload met PowerShell.
 
 1. Als u Azure PowerShell nog nooit hebt gebruikt, volg de instructies in de [hoe voor het installeren en configureren van Azure PowerShell](/powershell/azure/overview) te installeren en configureren.
-2. Voer de  **`New-AzureRmResourceGroup`**  cmdlet om een resourcegroep met de sjabloon te maken.
+2. Voer de **`New-AzureRmResourceGroup`** cmdlet om een resourcegroep met de sjabloon te maken.
 
     ```powershell
     New-AzureRmResourceGroup -Name TestRG -Location uswest `

@@ -2,23 +2,19 @@
 title: Richtlijnen voor gerepliceerde tabellen - Azure SQL Data Warehouse ontwerpen | Microsoft Docs
 description: Aanbevelingen voor het ontwerpen van gerepliceerde tabellen in uw Azure SQL Data Warehouse-schema.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ronortloff
-manager: jhubbard
-editor: 
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 10/23/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/11/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 271b832f329e33b68f60fbc62005c6ee36bafe69
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Richtlijnen voor het gebruik van gerepliceerde tabellen in Azure SQL Data Warehouse ontwerpen
 Dit artikel bevat aanbevelingen voor het ontwerpen van gerepliceerde tabellen in uw SQL Data Warehouse-schema. Gebruik deze aanbevelingen voor het verbeteren van prestaties van query's door gegevens verplaatsing en query complexiteit te verminderen.
@@ -84,7 +80,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Bestaande round robin tabellen omzetten in gerepliceerde tabellen
 Als u al round robin-tabellen, wordt u aangeraden deze te converteren naar gerepliceerde tabellen als ze voldoen aan met de criteria die in dit artikel wordt beschreven. Gerepliceerde tabellen de prestaties verbeteren van round robin-tabellen, omdat ze niet meer hoeft te verplaatsen van gegevens.  Een tabel round robin vereist altijd gegevensverplaatsing joins. 
 
-In dit voorbeeld wordt [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) te wijzigen van de tabel DimSalesTerritory in een gerepliceerde tabel. In dit voorbeeld werkt ongeacht of DimSalesTerritory hash gedistribueerd of round robin.
+In dit voorbeeld wordt [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) te wijzigen van de tabel DimSalesTerritory in een gerepliceerde tabel. In dit voorbeeld werkt ongeacht of DimSalesTerritory hash gedistribueerd of round robin.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
@@ -112,7 +108,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Voorbeeld van de query-prestaties round-robin versus gerepliceerd 
 
-Een gerepliceerde tabel vereist geen een verplaatsing van gegevens voor samenvoegingen omdat de gehele tabel al aanwezig op elk rekenknooppunt is. Als de dimensietabellen round robin gedistribueerd, kopieert een join de dimensietabel volledig naar elk rekenknooppunt. Als u wilt de gegevens verplaatst, bevat het queryplan een BroadcastMoveOperation aangeroepen bewerking. Dit type verplaatsing van gegevens wordt vertraagd prestaties van query's en met behulp van gerepliceerde tabellen wordt geëlimineerd. Als u wilt weergeven van query plan stappen, gebruiken de [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) catalogusweergave systeem. 
+Een gerepliceerde tabel vereist geen een verplaatsing van gegevens voor samenvoegingen omdat de gehele tabel al aanwezig op elk rekenknooppunt is. Als de dimensietabellen round robin gedistribueerd, kopieert een join de dimensietabel volledig naar elk rekenknooppunt. Als u wilt de gegevens verplaatst, bevat het queryplan een BroadcastMoveOperation aangeroepen bewerking. Dit type verplaatsing van gegevens wordt vertraagd prestaties van query's en met behulp van gerepliceerde tabellen wordt geëlimineerd. Als u wilt weergeven van query plan stappen, gebruiken de [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) catalogusweergave systeem. 
 
 Bijvoorbeeld, in de volgende query op de AdventureWorks-schema, de ` FactInternetSales` tabel is hash worden verdeeld. De `DimDate` en `DimSalesTerritory` tabellen zijn kleinere dimensietabellen. Deze query retourneert de totale verkoop in Noord-Amerika voor het fiscale jaar 2004:
  
@@ -140,7 +136,7 @@ SQL Data Warehouse implementeert een gerepliceerde tabel door het onderhouden va
 
 Opnieuw worden opgebouwd zijn vereist is nadat:
 - Gegevens worden geladen of is gewijzigd
-- Het datawarehouse wordt geschaald naar een andere [service niveau](performance-tiers.md#service-levels)
+- Het datawarehouse wordt geschaald naar een ander niveau
 - Definitie van de tabel wordt bijgewerkt
 
 Opnieuw worden opgebouwd zijn niet vereist is nadat:
@@ -178,7 +174,7 @@ Bijvoorbeeld, dit patroon load gegevens worden geladen uit vier bronnen, maar ro
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Opnieuw samenstellen van een gerepliceerde tabel na een batch-belasting
 Om ervoor te zorgen uitvoeringstijden consistente query, wordt u aangeraden forceren van een vernieuwing van de gerepliceerde tabellen na een batch-belasting. Anders wordt moet de eerste query wachten tot de tabellen wilt vernieuwen, waaronder de indexen opnieuw opbouwen. Afhankelijk van de grootte en een aantal gerepliceerde tabellen die van invloed op zijn de prestatie-invloed verwaarloosbaar.  
 
-Deze query gebruikt de [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV voor een lijst met de gerepliceerde tabellen die zijn gewijzigd, maar niet opnieuw opgebouwd.
+Deze query gebruikt de [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV voor een lijst met de gerepliceerde tabellen die zijn gewijzigd, maar niet opnieuw opgebouwd.
 
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
@@ -200,8 +196,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>Volgende stappen 
 Gebruik een van deze instructies voor het maken van een gerepliceerde tabel:
 
-- [TABEL (Azure SQL datawarehouse) maken](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [TABLE AS SELECT (Azure SQL datawarehouse) maken](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [TABEL (Azure SQL datawarehouse) maken](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [TABLE AS SELECT (Azure SQL datawarehouse) maken](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 Zie voor een overzicht van gedistribueerde tabellen [tabellen gedistribueerd](sql-data-warehouse-tables-distribute.md).
 

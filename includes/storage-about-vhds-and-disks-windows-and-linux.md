@@ -1,4 +1,19 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: b4d208ca28f6287489f104ba4e2ea9696e7a1f58
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="about-vhds"></a>Over VHD's
 
 De VHD's die worden gebruikt in Azure zijn .vhd-bestanden opgeslagen als pagina-blobs in een Standard Storage- of Premium Storage-account in Azure. Zie [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/) (Inzicht in blok-blobs en pagina-blobs) voor meer informatie over pagina-blobs. Zie [High-performance premium storage and Azure VMs](../articles/virtual-machines/windows/premium-storage.md) (Hoogwaardige Premium Storage en virtuele Azure-machines) voor meer informatie over Premium Storage.
@@ -10,10 +25,10 @@ Alle VHD-bestanden in Azure die u gebruiken als bron wilt voor het maken van sch
 Wanneer u een virtuele machine van een installatiekopie maakt, maakt Azure een schijf voor de virtuele machine die een kopie is van het VHD-bronbestand. Als bescherming tegen onbedoeld verwijderen, plaatst Azure een lease op elk VHD-bronbestand dat wordt gebruikt voor het maken van een installatiekopie, een besturingssysteemschijf of een gegevensschijf.
 
 Voordat u een VHD-bronbestand kunt verwijderen, dient u de lease te verwijderen door de schijf of installatiekopie te verwijderen. Als u een VHD-bestand wilt verwijderen dat door een virtuele machine wordt gebruikt als besturingssysteemschijf, kunt u de virtuele machine, de besturingssysteemschijf en het VHD-bronbestand in één keer verwijderen door de virtuele machine en alle gekoppelde schijven te verwijderen. Het verwijderen van een VHD-bronbestand voor een gegevensschijf vereist echter een aantal stappen in een vaste volgorde. Koppel eerst de schijf los van de virtuele machine, verwijder daarna de schijf en verwijder vervolgens het VHD-bestand.
-
 > [!WARNING]
 > Als u een VHD-bronbestand uit de opslag verwijdert of uw opslagaccount verwijdert, kan Microsoft die gegevens niet voor u herstellen.
 > 
+> Pagina-blobs in Premium-opslag zijn alleen ontworpen voor gebruik als virtuele harde schijven. Niet wordt aangeraden het opslaan van andere typen gegevens in de pagina-blobs in Premium-opslag, zoals de kosten kan aanzienlijk groter zijn. Blok-blobs gebruiken voor het opslaan van gegevens die zich niet in een VHD.
 
 ## <a name="types-of-disks"></a>Typen schijven 
 
@@ -30,7 +45,7 @@ Raadpleeg [Standard Storage and Disks](../articles/virtual-machines/windows/stan
 
 ### <a name="premium-storage"></a>Premium Storage 
 
-Premium Storage maakt gebruik van SSD's en voorziet in hoogwaardige schijfondersteuning met lage latentie voor virtuele machines die I/O-intensieve workloads uitvoeren. U kunt de Premium-opslag gebruiken met Active Directory, DSv2, GS, Ls of FS reeks in het virtuele Azure-machines. Ga voor meer informatie naar [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
+Premium Storage maakt gebruik van SSD's en voorziet in hoogwaardige schijfondersteuning met lage latentie voor virtuele machines die I/O-intensieve workloads uitvoeren. Doorgaans kunt u Premium-opslag met grootten die een "s" in de naam van de gegevensreeks opnemen. Bijvoorbeeld: Er is de Dv3-reeks en de Dsv3-serie, de Dsv3-reeks kan worden gebruikt met Premium-opslag.  Ga voor meer informatie naar [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Niet-beheerde schijven
 

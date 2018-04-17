@@ -2,7 +2,7 @@
 title: Antwoorden op waarschuwingen in de Azure Log Analytics | Microsoft Docs
 description: Waarschuwingen in logboekanalyse kunnen belangrijke informatie in uw Azure-werkruimte te identificeren en proactief zullen u informeren over problemen of acties uit om te proberen op te lossen ze aanroepen.  In dit artikel beschrijft het maken van een waarschuwingsregel en details van de verschillende acties die ze kunnen ondernemen.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 6a48e4c0ab61e5dcf526bb8b1d8bdc6b0d16f9e7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Acties toevoegen aan de regels voor waarschuwingen in Log Analytics
 Wanneer een [waarschuwing is gemaakt in logboekanalyse](log-analytics-alerts.md), hebt u de optie [configureren van de waarschuwingsregel](log-analytics-alerts.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende acties die beschikbaar zijn en meer informatie over het configureren van elk type.
@@ -39,7 +39,7 @@ E-bewerkingen moet de eigenschappen in de volgende tabel.
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | Onderwerp |Onderwerpen in het e-mailbericht.  U kunt de hoofdtekst van het e-mailbericht niet wijzigen. |
-| Geadresseerden |De adressen van alle e-mailgeadresseerden.  Als u meer dan één adres opgeeft, scheidt u de adressen met een puntkomma (;). |
+| Geadresseerden |De adressen van alle e-mailgeadresseerden.  Als u meer dan één adres opgeeft, scheidt u de adressen van elkaar met een puntkomma (;). |
 
 
 ## <a name="webhook-actions"></a>Webhookacties
@@ -69,8 +69,8 @@ Webhooks omvatten een URL en een nettolading opgemaakt in JSON is de gegevens na
 | SearchIntervalEndtimeUtc |#searchintervalendtimeutc |De eindtijd voor de query in UTC-notatie. |
 | SearchIntervalInSeconds |#searchinterval |Tijdvenster voor de waarschuwingsregel. |
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Begintijd voor de query in UTC-notatie. |
-| searchQuery |#searchquery |Logboek zoekquery gebruikt door de waarschuwingsregel. |
-| Zoekresultaten |Hieronder vindt u de |Records geretourneerd door de query in JSON-indeling.  Beperkt tot de eerste 5000 records. |
+| SearchQuery |#searchquery |Logboek zoekquery gebruikt door de waarschuwingsregel. |
+| Zoekresultaten |Zie hieronder |Records geretourneerd door de query in JSON-indeling.  Beperkt tot de eerste 5000 records. |
 | WorkspaceID |#workspaceid |ID van de werkruimte voor logboekanalyse. |
 
 Bijvoorbeeld, kunt u opgeven de volgende aangepaste nettolading met een enkele parameter aangeroepen *tekst*.  De service die deze webhook aanroepen, zou deze parameter worden verwacht.
@@ -603,6 +603,7 @@ Hier volgt een voorbeeld-nettolading voor een runbook-bewerking in een bijgewerk
                 "a4e29a95-5b4c-408b-80e3-113f9410566e",
                 "00000000-0000-0000-0000-000000000000",
                 "Usage"
+            ]
             ]
         }
         ]

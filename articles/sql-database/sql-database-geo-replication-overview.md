@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d241bfb6245eb5a70f1e4fcedc86c969766019f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fc3dca82bea17b44f66b433f59e5861da3bb0ca2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Overzicht: Failover-groepen en actieve geo-replicatie
 Actieve geo-replicatie kunt u maximaal vier leesbare secundaire databases in de locaties van dezelfde of verschillende data center (regio's) configureren. Secundaire databases zijn beschikbaar voor het uitvoeren van query's en voor failover als er een datacentrum of het onvermogen om verbinding met de primaire database. De failover moet handmatig worden gestart door de toepassing van de gebruiker. Na een failover heeft de nieuwe primaire het eindpunt van een andere verbinding. 
@@ -131,7 +131,7 @@ Doorlopend kopiëren maakt gebruik van een asynchrone replicatiemechanisme vanwe
 ## <a name="programmatically-managing-failover-groups-and-active-geo-replication"></a>Failover-groepen en actieve geo-replicatie programmatisch te beheren
 Zoals eerder besproken automatische failover-groepen (in preview) en active kan geo-replicatie ook worden beheerd programmatisch met behulp van Azure PowerShell en de REST-API. De volgende tabellen beschrijven de reeks opdrachten die beschikbaar zijn.
 
-**Azure Resource Manager-API en op rollen gebaseerde beveiliging**: actieve geo-replicatie bevat een set met Azure Resource Manager-API's voor beheer, met inbegrip van de [REST-API van Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) en [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview). Deze API's vereisen het gebruik van resourcegroepen en ondersteuning voor beveiliging op basis van rollen (RBAC). Zie voor meer informatie over het implementeren van toegang tot rollen [rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-what-is.md).
+**Azure Resource Manager-API en op rollen gebaseerde beveiliging**: actieve geo-replicatie bevat een set met Azure Resource Manager-API's voor beheer, met inbegrip van de [REST-API van Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) en [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview). Deze API's vereisen het gebruik van resourcegroepen en ondersteuning voor beveiliging op basis van rollen (RBAC). Zie voor meer informatie over het implementeren van toegang tot rollen [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md).
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Failover van SQL database Transact-SQL met beheren
 

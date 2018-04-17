@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: devtiw
+ms.openlocfilehash: f42f20893a815640378b9d18186c88b782e61284
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption for Windows and Linux IaaS VM 's
 Microsoft Azure is sterk doorgevoerd om ervoor te zorgen voor uw privacy van gegevens, onafhankelijkheid van gegevens en schakelt u de controle uw Azure gegevens via een bereik van gehoste technologieën geavanceerde voor het versleutelen, beheren en beheren van versleutelingssleutels besturingselement & audit toegang van gegevens. Dit biedt Azure-klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van hun bedrijf. In dit artikel vindt we u een nieuwe technologieoplossing 'Azure Disk Encryption for Windows and Linux IaaS VM van' om te helpen beveiligen en bescherming van uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verplichtingen. Het artikel biedt gedetailleerde richtlijnen over het gebruik van de Azure disk encryption functies met inbegrip van de ondersteunde scenario's en de gebruiker optreedt.
@@ -460,7 +460,7 @@ De volgende tabel bevat de parameters van de Resource Manager-sjabloon voor de v
 | --- | --- |
 | newStorageAccountName | De naam van het opslagaccount voor het opslaan van de versleutelde OS-VHD. Dit opslagaccount moet al zijn gemaakt in dezelfde resourcegroep en dezelfde locatie als de virtuele machine. |
 | osVhdUri | De URI van de VHD OS vanuit het opslagaccount. |
-| osType | Type besturingssysteem product (Windows of Linux). |
+| besturingssysteemtype | Type besturingssysteem product (Windows of Linux). |
 | virtualNetworkName | Naam van het VNet dat de VM-NIC tot behoren moet. De naam moet al zijn gemaakt in dezelfde resourcegroep en dezelfde locatie als de virtuele machine. |
 | subnetName | Naam van het subnet in het VNet dat de VM-NIC tot behoren moet. |
 | vmSize | De grootte van de virtuele machine. Op dit moment worden alleen standaard A, D en G reeksen ondersteund. |
@@ -572,7 +572,7 @@ De volgende tabel bevat de parameters van de Resource Manager-sjabloon voor best
 | volumeType | Het type van het volume dat de coderingsbewerking wordt uitgevoerd op. Geldige ondersteunde waarden zijn _OS_ of _alle_ (Zie ondersteunde Linux-distributies en versies voor het besturingssysteem en gegevensschijven in prerequisiteis sectie eerder). |
 | sequenceVersion | De versie van de volgorde van de BitLocker-bewerking. Dit versienummer verhoogd telkens wanneer een schijfversleuteling bewerking wordt uitgevoerd op dezelfde virtuele machine. |
 | vmName | Naam van de virtuele machine die de versleutelingsbewerking op worden uitgevoerd. |
-| passPhrase | Typ een sterke wachtwoordzin als de gegevensversleutelingssleutel. |
+| Wachtwoordzin | Typ een sterke wachtwoordzin als de gegevensversleutelingssleutel. |
 
 > [!NOTE]
 > _KeyEncryptionKeyURL_ is een optionele parameter. U kunt brengt uw eigen KEK voor verdere beveiliging de gegevensversleutelingssleutel (geheime wachtwoordzin) in de sleutelkluis.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30f5fe83c46f2dbe1933e8347242be7fbb30a3e3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3c32b5ce90d4e5aafacb8211ff8f432bc3c78db8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Beheer van de virtuele machine met Azure PowerShell
 
@@ -43,15 +43,15 @@ De resourcegroep is momenteel leeg.
 
 ## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
-U wilt controleren of gebruikers in uw organisatie hebben het juiste niveau van toegang tot deze bronnen. U niet wilt onbeperkte toegang verlenen aan gebruikers, maar moet u ook om ervoor te zorgen dat ze hun werk te kunnen doen. [Toegangsbeheer op basis van rollen](../../active-directory/role-based-access-control-what-is.md) kunt u beheren welke gebruikers hebben een machtiging voor het voltooien van specifieke acties op een scope.
+U wilt controleren of gebruikers in uw organisatie hebben het juiste niveau van toegang tot deze bronnen. U niet wilt onbeperkte toegang verlenen aan gebruikers, maar moet u ook om ervoor te zorgen dat ze hun werk te kunnen doen. [Toegangsbeheer op basis van rollen](../../role-based-access-control/overview.md) kunt u beheren welke gebruikers hebben een machtiging voor het voltooien van specifieke acties op een scope.
 
 Als u wilt maken en verwijderen van roltoewijzingen, moeten gebruikers hebben `Microsoft.Authorization/roleAssignments/*` toegang. Deze toegang wordt verleend door middel van de eigenaar of beheerder voor gebruikerstoegang rollen.
 
 Voor het beheren van virtuele machine oplossingen, zijn er drie resourcespecifieke rollen die vaak nodig toegang bieden:
 
-* [Virtual Machine Contributor](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Inzender voor netwerken](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage-Account Inzender](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Inzender voor netwerken](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage-Account Inzender](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 In plaats van de rollen toewijzen aan individuele gebruikers, is het vaak eenvoudiger [een Azure Active Directory-groep maken](../../active-directory/active-directory-groups-create-azure-portal.md) voor gebruikers hoeven vergelijkbare acties te ondernemen. Vervolgens die groep toewijzen aan de juiste rol. Om te vereenvoudigen in dit artikel, moet u een Azure Active Directory-groep zonder leden maken. U kunt deze groep nog steeds toewijzen aan een rol voor een scope. 
 

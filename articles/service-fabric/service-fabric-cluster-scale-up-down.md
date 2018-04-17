@@ -3,9 +3,9 @@ title: Een Service Fabric-cluster in- of schalen | Microsoft Docs
 description: Een Service Fabric-cluster in- of vraag door het instellen van regels voor automatisch schalen voor elk knooppunt type/virtuele-machineschaalset overeen te schalen. Toevoegen of verwijderen van knooppunten aan een Service Fabric-cluster
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
-ms.author: chackdan
-ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: aljo
+ms.openlocfilehash: 506877e12d12ff3b1372cc0360a8df1a1d52744a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Schalen van een Service Fabric-cluster in- of met regels voor automatisch schalen
+# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Schalen van een Service Fabric-cluster in- of met regels voor automatisch schalen of handmatig
 Virtuele-machineschaalsets zijn een Azure compute resource die u gebruiken kunt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype dat is gedefinieerd in een Service Fabric-cluster is ingesteld als een afzonderlijke virtuele-machineschaalset. Elk knooppunttype kan vervolgens worden uitgebreid of uit onafhankelijk, hebben verschillende sets van poorten openen en andere capaciteitsmetrieken kan hebben. Lees meer over in de [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Omdat de typen van de Service Fabric-knooppunt in het cluster zijn gemaakt van de virtuele-machineschaalsets op de back-end, moet u regels voor elk knooppunt type/virtuele-machineschaalset automatisch schalen instellen.
 
 > [!NOTE]
@@ -40,14 +40,14 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 ```
 
 ## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Regels voor het type knooppunt/virtuele-machineschaalset automatisch schalen instellen
-Als uw cluster typen met meerdere knooppunten heeft, Herhaal dat dit voor elk knooppunt typen/virtuele-machineschaalset ingesteld dat u schalen wilt (inkomend of uitgaand). Rekening gehouden met het aantal knooppunten die u hebt nodig voordat u een automatische schaling instellen. Het minimum aantal knooppunten die u voor het primaire knooppunttype hebt nodig wordt aangedreven door het niveau van betrouwbaarheid dat u hebt gekozen. Lees meer over [betrouwbaarheid niveaus](service-fabric-cluster-capacity.md).
+Als uw cluster typen met meerdere knooppunten heeft, Herhaal dat dit voor elk knooppunt typen/virtuele-machineschaalset ingesteld dat u schalen wilt (inkomend of uitgaand). Bedenk eerst hoeveel knooppunten u moet hebben, voordat u automatisch schalen instelt. Het minimum aantal knooppunten dat u nodig hebt voor het primaire knooppunttype, wordt bepaald door het betrouwbaarheidsniveau dat u hebt gekozen. Lees meer over [betrouwbaarheid niveaus](service-fabric-cluster-capacity.md).
 
 > [!NOTE]
 > Het primaire knooppunt bij het verkleinen tot minder dan het minimale aantal Controleer het cluster onstabiel of typ brengt u het naar beneden. Dit kan leiden tot verlies van gegevens voor uw toepassingen en de systeemservices.
 > 
 > 
 
-De functie voor automatisch schalen wordt momenteel niet aangedreven door de belasting die uw toepassingen kunnen worden rapporteren naar Service Fabric. Op dit moment de dat u automatisch geschaald puur wordt aangedreven door de prestatiemeteritems die worden gegenereerd door elk van de virtuele Machine ingesteld scale dus exemplaren.  
+De functie voor automatisch schalen wordt momenteel niet aangedreven door de belasting die uw toepassingen kunnen worden rapporteren naar Service Fabric. Op dit moment de dat u automatisch geschaald puur wordt aangedreven door de prestatiemeteritems die worden gegenereerd door elk van de virtuele machine ingesteld scale dus exemplaren.  
 
 Volg deze instructies [voor het instellen van automatische-schaling voor elke virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
@@ -74,7 +74,7 @@ U moet de volgende stappen uit één VM-instantie tegelijk uitvoeren. Hierdoor k
 
 1. Voer [uitschakelen ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) met opzet 'RemoveNode' naar het knooppunt uitschakelen u wilt verwijderen (hoogste exemplaar in het desbetreffende knooppunttype).
 2. Voer [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) om ervoor te zorgen dat het knooppunt inderdaad is overgegaan op uitgeschakeld. Als dat niet het geval is, wacht totdat het knooppunt is uitgeschakeld. U kunt geen wacht niet langer in deze stap.
-3. Volg de sample/instructies in de [sjablonengalerie snel starten](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) wijzigen van het aantal virtuele machines met één die Nodetype. Het exemplaar dat is verwijderd is de hoogste VM-instantie. 
+3. Volg de sample/instructies in de [sjablonengalerie snel starten](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) wijzigen van het aantal virtuele machines met één dat type knooppunt. Het exemplaar dat is verwijderd is de hoogste VM-instantie. 
 4. Herhaal stap 1 tot en met 3 indien nodig, maar nooit terugschroeven het aantal exemplaren in het primaire knooppunttypen die kleiner is dan wat de betrouwbaarheidslaag garandeert. Raadpleeg [de details op betrouwbaarheid lagen hier](service-fabric-cluster-capacity.md). 
 
 ## <a name="manually-remove-vms-from-the-non-primary-node-typevirtual-machine-scale-set"></a>Virtuele machines handmatig uit de niet-primaire knooppunt type/virtuele-machineschaalset verwijderen
@@ -86,8 +86,8 @@ U moet de volgende stappen uit één VM-instantie tegelijk uitvoeren. Hierdoor k
 In dat geval moet u het uitvoeren van de volgende stappen uit één VM-instantie in op een tijdstip. Hiermee kunt u de systeemservices (en uw stateful services) worden afsluiten op de VM-instantie die u wilt verwijderen en nieuwe replica's gemaakt waar u anders.
 
 1. Voer [uitschakelen ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) met opzet 'RemoveNode' naar het knooppunt uitschakelen u wilt verwijderen (hoogste exemplaar in het desbetreffende knooppunttype).
-2. Voer [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) om ervoor te zorgen dat het knooppunt inderdaad is overgegaan op uitgeschakeld. Als dat niet, wacht u tot de knooppunten is uitgeschakeld. U kunt geen wacht niet langer in deze stap.
-3. Volg de sample/instructies in de [sjablonengalerie snel starten](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) wijzigen van het aantal virtuele machines met één die Nodetype. Hiermee wordt de hoogste VM-instantie nu verwijderd. 
+2. Voer [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) om ervoor te zorgen dat het knooppunt inderdaad is overgegaan op uitgeschakeld. Als dat niet het geval is, wacht totdat het knooppunt is uitgeschakeld. U kunt geen wacht niet langer in deze stap.
+3. Volg de sample/instructies in de [sjablonengalerie snel starten](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) wijzigen van het aantal virtuele machines met één dat type knooppunt. Hiermee wordt de hoogste VM-instantie nu verwijderd. 
 4. Herhaal stap 1 tot en met 3 indien nodig, maar nooit terugschroeven het aantal exemplaren in het primaire knooppunttypen die kleiner is dan wat de betrouwbaarheidslaag garandeert. Raadpleeg [de details op betrouwbaarheid lagen hier](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Gedrag kunnen zich in Service Fabric Explorer

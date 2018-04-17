@@ -2,7 +2,7 @@
 |-----------------------------------------|------------|---|
 |[C#](../articles/azure-functions/functions-reference-csharp.md)|Algemene beschikbaarheid|Preview|
 |[JavaScript](../articles/azure-functions/functions-reference-node.md)|Algemene beschikbaarheid|Preview|
-|[F#](../articles/azure-functions/functions-reference-fsharp.md)|Algemene beschikbaarheid||
+|[F#](../articles/azure-functions/functions-reference-fsharp.md)|Algemene beschikbaarheid|Preview|
 |[Java](../articles/azure-functions/functions-reference-java.md)||Preview|
 |Python              |Experimenteel||
 |PHP                 |Experimenteel||

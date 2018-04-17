@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens overdragen naar Azure Storage
 In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Import/Export-service veilig grote hoeveelheden gegevens overdragen naar Azure Blob storage en Azure-bestanden door de back-upfunctie schijven naar een Azure-Datacenter. Deze service kan ook worden gebruikt gegevens overdragen naar Azure storage naar harde schijven en verzenden naar uw on-premises-sites. Gegevens uit een enkele interne SATA harde schijf kunnen worden geïmporteerd naar Azure Blob storage of Azure-bestanden. 
@@ -47,7 +47,7 @@ Volg de onderstaande stappen te volgen als de gegevens op de schijf moet worden 
     |/j:     |De naam van het bestand wijzigingslogboek, klikt u met de extensie .jrn. Een journal-bestand wordt gegenereerd per station. Gebruik het serienummer van de schijf als de naam van het bestand wordt aanbevolen.         |
     |/SK:     |De sleutel van de Azure Storage-account.         |
     |/ t:     |De stationsletter van de schijf moeten worden verzonden. Bijvoorbeeld station `D`.         |
-    |/bk:     |De BitLocker-sleutel voor het station. Het wachtwoord van de numerieke van uitvoer van ` manage-bde -protectors -get D: `      |
+    |/BK:     |De BitLocker-sleutel voor het station. Het wachtwoord van de numerieke van uitvoer van ` manage-bde -protectors -get D: `      |
     |/srcdir:     |De stationsletter van de schijf moeten worden verzonden, gevolgd door `:\`. Bijvoorbeeld `D:\`.         |
     |/dstdir:     |De naam van de doelcontainer in Azure Storage         |
     |/skipwrite:     |De optie die aangeeft dat er geen nieuwe gegevens die nodig zijn om te worden gekopieerd en de bestaande gegevens op de schijf is om te worden voorbereid         |
@@ -431,7 +431,7 @@ Eerste controles van volgende worden aanbevolen voor het voorbereiden van uw sch
    | Begint met |/Music/ |Alle blobs in container exporteert **muziek** |
    | Begint met |hou muziek / |Alle blobs in container exporteert **muziek** die beginnen met het voorvoegsel **favoriete** |
    | Gelijk aan |$root/logo.bmp |Uitvoer-blob **logo.bmp** in de hoofdmap-container |
-   | Gelijk aan |videos/story.mp4 |Uitvoer-blob **story.mp4** in de container **video's** |
+   | Gelijk aan |videos/Story.mp4 |Uitvoer-blob **story.mp4** in de container **video's** |
    
    U kunt de blob-paden in geldige notaties om fouten te voorkomen tijdens de verwerking moet opgeven, zoals weergegeven in deze schermafbeelding.
    
@@ -560,7 +560,7 @@ Maximale Page Blob-grootte is 1TB.
 
 Azure Import/Export-service standaard versleuteld met AES 128 bitlocker-versleuteling, maar dit kan worden verhoogd tot AES 256 door handmatig te versleutelen met bitlocker voordat gegevens worden gekopieerd. 
 
-Als u [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), hieronder volgt een voorbeeld van een opdracht
+Als u [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), hieronder volgt een voorbeeld van een opdracht
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - bewaking met OMS Log Analytics ingesteld | Microsoft Docs
-description: Informatie over het instellen van Operations Management Suite voor het visualiseren en analyseren van gebeurtenissen voor het bewaken van uw Azure Service Fabric-clusters.
+title: Azure Service Fabric - bewaking met logboekanalyse ingesteld | Microsoft Docs
+description: Informatie over het instellen van logboekanalyse voor het visualiseren en analyseren van gebeurtenissen voor het bewaken van uw Azure Service Fabric-clusters.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/30/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 807c703eccf336236846212b8a0cadc20ec2bc4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Operations Management Suite Log Analytics voor een cluster instellen
+# <a name="set-up-log-analytics-for-a-cluster"></a>Log Analytics voor een cluster instellen
 
-U kunt instellen wanneer er een werkruimte van Operations Management Suite (OMS) via Azure Resource Manager, PowerShell of Azure Marketplace. Als u een bijgewerkte sjabloon voor Resource Manager van uw implementatie voor toekomstig gebruik onderhoudt, moet u dezelfde sjabloon gebruiken voor het instellen van uw omgeving OMS. Implementatie via de Marketplace is eenvoudiger als u al een cluster dat is geïmplementeerd met diagnostische gegevens die zijn ingeschakeld. Als u geen abonnement toegang in het account waarmee u OMS implementeert, implementeert u met behulp van PowerShell of de Resource Manager-sjabloon.
+U kunt instellen wanneer er een werkruimte voor logboekanalyse via Azure Resource Manager, PowerShell of Azure Marketplace. Als u een bijgewerkte sjabloon voor Resource Manager van uw implementatie voor toekomstig gebruik onderhoudt, moet u dezelfde sjabloon gebruiken voor het instellen van uw omgeving OMS. Implementatie via de Marketplace is eenvoudiger als u al een cluster dat is geïmplementeerd met diagnostische gegevens die zijn ingeschakeld. Als u geen abonnement toegang in het account waarmee u OMS implementeert, implementeert u met behulp van PowerShell of de Resource Manager-sjabloon.
 
 > [!NOTE]
-> Als u OMS instelt voor het bewaken van uw cluster, moet u diagnostische gegevens die zijn ingeschakeld voor de weergave van gebeurtenissen voor cluster- of platform-niveau hebben.
+> Als u Log Analytics instelt voor het bewaken van uw cluster, moet u diagnostische gegevens die zijn ingeschakeld voor het niveau van het cluster of platform gebeurtenissen weergeven hebben.
 
 ## <a name="deploy-oms-by-using-azure-marketplace"></a>OMS implementeren met behulp van Azure Marketplace
 

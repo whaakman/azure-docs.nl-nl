@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d8484a4c30fdd17cbb4773e6ff822b73efd5c4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Schalen in Service Fabric
 Azure Service Fabric kunt eenvoudig schaalbare toepassingen bouwen door het beheer van de services, partities en replica's op de knooppunten van een cluster. Veel werkbelastingen op dezelfde hardware uitgevoerd kunt maximale Resourcegebruik, maar ook biedt flexibiliteit in termen van hoe u kiest voor het schalen van uw werkbelastingen. Deze Channel 9 video wordt beschreven hoe u toepassingen voor schaalbare microservices kunt samenstellen:
@@ -117,12 +117,7 @@ Als u het aantal knooppunten verhoogt, wordt het Service Fabric enkele van de be
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>Schalen door toe te voegen en knooppunten verwijderen uit het cluster 
 Er is een andere optie voor schaling mogelijk met Service Fabric om de grootte van het cluster te wijzigen. Het wijzigen van de grootte van het cluster betekent toevoegen of verwijderen van knooppunten voor een of meer van de knooppunttypen in het cluster. Neem bijvoorbeeld een aanvraag waarin alle knooppunten in het cluster hot zijn. Dit betekent dat de cluster-resources bijna alle verbruikt zijn. In dit geval meer knooppunten toevoegen aan het cluster is de beste manier om te schalen. Zodra nieuwe knooppunten toegevoegd aan het cluster de resourcebeheer voor Service Fabric-Cluster wordt verplaatst services, wat resulteert in minder totale belasting van de bestaande knooppunten. Voor stateless services met het aantal exemplaren =-1, meer service exemplaren automatisch worden gemaakt. Hierdoor kunnen sommige aanroepen van de bestaande knooppunten naar de nieuwe knooppunten verplaatsen. 
 
-Toevoegen en verwijderen van knooppunten aan het cluster kunnen worden geconfigureerd via de Service Fabric Azure Resource Manager PowerShell-module.
-
-```posh
-Add-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName  -NumberOfNodesToAdd 5 
-Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName -NumberOfNodesToRemove 5
-```
+Zie voor meer informatie [clusterschaling](service-fabric-cluster-scaling.md).
 
 ## <a name="putting-it-all-together"></a>Kort samengevat
 Laten we de ideeën die we hier besproken en communiceren via een voorbeeld. Houd rekening met de volgende service: u probeert te maken van een service die als een adresboek naar namen fungeert op te houden en contactgegevens. 

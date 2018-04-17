@@ -1,10 +1,10 @@
 ---
-title: "Configureren van privé IP-adressen voor virtuele machines (klassiek) - Azure CLI 1.0 | Microsoft Docs"
-description: "Informatie over het configureren van privé IP-adressen voor virtuele machines (klassiek) met behulp van de Azure-opdrachtregelinterface (CLI) 1.0."
+title: Configureren van privé IP-adressen voor virtuele machines (klassiek) - Azure CLI 1.0 | Microsoft Docs
+description: Informatie over het configureren van privé IP-adressen voor virtuele machines (klassiek) met behulp van de Azure-opdrachtregelinterface (CLI) 1.0.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ed0fe2fea20671063395b9ff089599853278989d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c23419fdee7330d091d4699714f4ec08e72be2df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Privé IP-adressen voor een virtuele machine (klassiek) met behulp van de Azure CLI 1.0 configureren
 
@@ -114,6 +114,10 @@ Verwachte uitvoer:
     info:    Reading network configuration
     info:    Updating network configuration
     info:    vm static-ip set command OK
+
+## <a name="set-ip-addresses-within-the-operating-system"></a>Instellen van IP-adressen binnen het besturingssysteem
+
+Het raadzaam dat u geen statisch het privé IP-adres toegewezen aan de virtuele machine van Azure binnen het besturingssysteem van een VM, toewijst tenzij nodig. Als u de privé IP-adres in het besturingssysteem handmatig instelt, moet u zorgen dat het hetzelfde adres als de privé IP-adres is toegewezen aan de Azure VM of u verbinding met de virtuele machine kunt verliezen. U moet het openbare IP-adres is toegewezen aan een virtuele machine van Azure in het besturingssysteem van de virtuele machine nooit handmatig toewijzen.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [gereserveerde openbare IP-adres](virtual-networks-reserved-public-ip.md) adressen.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 10ed297180f68fcaf006f2778990879be02f994d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure-beveiliging en naleving blauwdruk - FedRAMP Web Applications Automation
 
@@ -76,10 +76,9 @@ Deze oplossing gebruikt de volgende Azure-services. Details van de architectuur 
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Azure Log Analytics**
+    - (1) log Analytics-werkruimte
 * **Azure Automation**
     - (1) de automation-account
-* **Operations Management Suite**
-    - (1) de OMS-werkruimte
 
 ## <a name="deployment-architecture"></a>Architectuur voor implementatie
 
@@ -136,7 +135,7 @@ Azure Disk Encryption wordt gebruikt om versleutelde Windows IaaS-schijven voor 
 
 ### <a name="logging-and-auditing"></a>Logboekregistratie en controle
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) biedt uitgebreide logboekregistratie van systeem- en gebruikersactiviteit evenals systeemstatus. 
+[Meld u Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) biedt uitgebreide logboekregistratie van systeem- en gebruikersactiviteit evenals systeemstatus. 
 
 - **Activiteitenlogboeken:**[activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.
 - **Diagnostische logboeken:**[diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource. Deze logboeken bevatten Windows-gebeurtenislogboeken system, Azure-opslag logboeken Sleutelkluis controlelogboeken en Application Gateway toegang en firewall-Logboeken.
@@ -154,7 +153,7 @@ De oplossing maakt gebruik van Azure Sleutelkluis sleutels en geheimen beheren.
 De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omgeving.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) van Microsoft multitenant cloud-gebaseerde directory en identity management-service is.
 - Verificatie voor een webtoepassing die door de klant geïmplementeerd kan worden uitgevoerd met behulp van Azure AD. Zie voor meer informatie [toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- [Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) kunt nauwkeurig gerichte toegangsbeheer voor Azure. Abonnement toegang is beperkt tot abonnementsbeheerder en toegang tot bronnen worden beperkt op basis van gebruikersrol.
+- [Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) kunt nauwkeurig gerichte toegangsbeheer voor Azure. Abonnement toegang is beperkt tot abonnementsbeheerder en toegang tot bronnen worden beperkt op basis van gebruikersrol.
 - Een geïmplementeerd exemplaar van Active Directory IaaS biedt identiteitsbeheer op de OS-niveau voor geïmplementeerde IaaS virtuele machines.
    
 ### <a name="compute-resources"></a>Rekenresources
@@ -182,17 +181,17 @@ Een management jumpbox (bastion host) biedt een beveiligde verbinding voor behee
 
 ### <a name="patch-management"></a>Patch management
 
-Windows virtuele machines zijn geïmplementeerd door deze Azure-beveiliging en naleving blauwdruk automatisering zijn standaard geconfigureerd voor automatische updates ontvangen van Windows Update-Service. Deze oplossing implementeert ook de OMS Azure Automation-oplossing waarmee Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is.
+Windows virtuele machines zijn geïmplementeerd door deze Azure-beveiliging en naleving blauwdruk automatisering zijn standaard geconfigureerd voor automatische updates ontvangen van Windows Update-Service. Deze oplossing implementeert ook de Azure Automation-oplossing waarmee Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is.
 
-### <a name="operations-management"></a>Operationeel beheer
+### <a name="operations-management"></a>Operationeel management
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Meld u Analytics](https://azure.microsoft.com/services/log-analytics/) is een service in Operations Management Suite (OMS) waarmee verzamelen en analyseren van gegevens die zijn gegenereerd voor resources in Azure en on-premises omgevingen.
+[Meld u Analytics](https://azure.microsoft.com/services/log-analytics/) is een service waarmee verzamelen en analyseren van gegevens die zijn gegenereerd voor resources in Azure en on-premises omgevingen.
 
-#### <a name="oms-solutions"></a>OMS-oplossingen
+#### <a name="management-solutions"></a>Beheeroplossingen
 
-De volgende OMS-oplossingen zijn vooraf geïnstalleerd als onderdeel van deze oplossing:
+De volgende oplossingen worden vooraf geïnstalleerd als onderdeel van deze oplossing:
 - [AD-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [Antimalware-evaluatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)

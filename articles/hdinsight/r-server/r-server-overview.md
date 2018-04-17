@@ -10,16 +10,14 @@ ms.assetid: 6dc21bf5-4429-435f-a0fb-eea856e0ea96
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: nitinme
-ms.openlocfilehash: 19334e78124d1e388bc760659385388d89953644
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 19c286db9a8a2aa537badc83d98a1b74b73e9873
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot R Server en open-source R mogelijkheden in HDInsight
 
@@ -147,5 +145,5 @@ De prijzen die gekoppeld aan een HDInsight-cluster met R Server zijn op dezelfde
 Zie de volgende onderwerpen voor meer informatie over het gebruik van R Server op HDInsight-clusters:
 
 * [Aan de slag met R Server-cluster in HDInsight](r-server-get-started.md)
-* [Opties voor R Server-cluster in HDInsight context voor berekenen](r-server-compute-contexts.md)
+* [Opties voor compute-context voor R Server-cluster in HDInsight](r-server-compute-contexts.md)
 * [Opties voor Azure Storage voor R Server-cluster in HDInsight](r-server-storage.md)

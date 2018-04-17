@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 0d67bf5625ee9037c5ec152c8ce8564235018e8e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b4fe1151337dc6f5874e6ad102c6e905e90fd963
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure-Database voor PostgreSQL met de Azure portal
 
@@ -81,6 +81,10 @@ Als u uw server voor geografisch redundante back-ups geconfigureerd, kan een nie
 
 2. In het formulier **bron selecteren** vervolgkeuzelijst kiezen **back-up**. Met deze actie wordt een lijst met servers die geografisch redundante back-ups ingeschakeld hebben. Selecteer een van deze back-ups als de bron van de nieuwe server.
    ![Bron selecteren: Lijst van geografisch redundante back-ups en back-up](./media/howto-restore-server-portal/2-georestore.png)
+
+   > [!NOTE]
+   > Wanneer een server voor het eerst wordt gemaakt kunt deze mogelijk niet onmiddellijk beschikbaar voor de geo-herstel. Het duurt enkele uren voor de benodigde metagegevens worden ingevuld.
+   >
 
 3. Vul de rest van het formulier met uw voorkeuren. U kunt kiezen **locatie**. Na het selecteren van de locatie, kunt u **prijscategorie**. Standaard worden de parameters voor de bestaande server die vanwaar u herstelt weergegeven. U kunt klikken op **OK** zonder wijzigingen over te nemen die instellingen. Of u kunt wijzigen **Compute generatie** (indien beschikbaar in de regio u hebt gekozen), aantal **vCores**, **back-up bewaarperiode**, en **back-up Redundantie optie**. Het wijzigen van **prijscategorie** (Basic, algemeen of geoptimaliseerd voor geheugen) of **opslag** tijdens het terugzetten van de grootte wordt niet ondersteund.
 

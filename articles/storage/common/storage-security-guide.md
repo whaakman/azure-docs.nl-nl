@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -85,16 +85,16 @@ Hier volgen de belangrijkste punten die u weten wilt over het gebruik van RBAC v
 * U kunt een rapport van die verleend/ingetrokken wat voor soort toegang naar/van wie en op welke bereik met PowerShell of Azure CLI kunt maken.
 
 #### <a name="resources"></a>Resources
-* [Toegangsbeheer op basis van rollen in Azure Active Directory](../../active-directory/role-based-access-control-configure.md)
+* [Toegangsbeheer op basis van rollen in Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   In dit artikel wordt het toegangsbeheer op basis van rollen in Azure Active Directory uitgelegd.
-* [RBAC: ingebouwde rollen](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: ingebouwde rollen](../../role-based-access-control/built-in-roles.md)
 
   In dit artikel beschrijft alle van de ingebouwde rollen die beschikbaar zijn in RBAC.
 * [Resource Manager-implementatie en klassieke implementatie begrijpen](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   Dit artikel wordt uitgelegd van de Resource Manager-implementatie en klassieke implementatiemodellen en wordt uitgelegd van de voordelen van het gebruik van de Resource Manager en resource-groepen. Hierin wordt uitgelegd hoe de Azure Compute, Network en Storage Providers onder het Resource Manager-model werken.
-* [Toegangsbeheer op basis van rollen beheren met de REST-API](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Toegangsbeheer op basis van rollen beheren met de REST-API](../../role-based-access-control/role-assignments-rest.md)
 
   Dit artikel beschrijft hoe u de REST-API gebruikt om RBAC te beheren.
 * [Azure Storage Resource Provider REST API-verwijzing](https://msdn.microsoft.com/library/azure/mt163683.aspx)
@@ -236,7 +236,7 @@ Raadpleeg de volgende artikelen voor meer gedetailleerde informatie over het geb
 
 * Dit zijn de verwijzing naar artikelen.
 
-  * [Service SAS](https://msdn.microsoft.com/library/dn140256.aspx)
+  * [Service-SAS](https://msdn.microsoft.com/library/dn140256.aspx)
 
     Dit artikel vindt voorbeelden van het gebruik van een SAS serviceniveau met blobs, Wachtrijberichten, tabel bereiken en bestanden.
   * [Maken van een service-SAS](https://msdn.microsoft.com/library/dn140255.aspx)
@@ -421,13 +421,13 @@ We hebben drie gevallen waarin we geïnteresseerd bent.
 
 1. De blob openbaar is en toegankelijk is via een URL zonder een Shared Access Signature. In dit geval wordt de status van de aanvraag is 'AnonymousSuccess' en het autorisatie-type is 'anonymous'.
 
-   1.0;2015-11-17T02:01:29.0488963Z;GetBlob;**AnonymousSuccess**;200;124;37;**anonymous**;;mystorage…
+   1.0; 2015-11-17T02:01:29.0488963Z; GetBlob; **AnonymousSuccess**; 200; 124; 37; **anonieme**; mystorage...
 2. De blob is persoonlijk en is gebruikt met een Shared Access Signature. In dit geval wordt de status van de aanvraag is 'SASSuccess' en het autorisatie-type is 'sas'.
 
    1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
 3. De blob is persoonlijk en de opslagsleutel gebruikt om deze te openen. In dit geval wordt de status van de aanvraag is '**geslaagd**'en het autorisatie-type is'**geverifieerde**'.
 
-   1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
+   1.0; 2015-11-16T18:32:24.3174537Z; GetBlob; **Geslaagd**; 206 59; 22; **geverifieerde**; mystorage...
 
 U kunt de Microsoft Message Analyzer weergeven en analyseren van deze logboeken. Het bevat de mogelijkheden van zoeken en filteren. Bijvoorbeeld, u mogelijk wilt zoeken voor exemplaren van GetBlob om te zien of het gebruik wat u verwacht is, dat wil zeggen, om ervoor te zorgen iemand is geen toegang hebben tot uw storage-account verkeerd.
 

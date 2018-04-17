@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 520427b99c05fcbc8125bdbde7d8eb56e7487292
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3eb6f08d89daec063841eeb5fff8479c9f2f41fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Parameters voor Azure Machine Learning-webservice
 Een Azure Machine Learning-webservice wordt gemaakt door het publiceren van een experiment die modules met configureerbare parameters bevat. In sommige gevallen wilt u mogelijk het gedrag van de module niet wijzigen terwijl de webservice wordt uitgevoerd. *Web-Service Parameters* kunt u deze taak. 
@@ -52,7 +52,7 @@ Een voorbeeld: Stel hebben we een experiment met een [gegevens exporteren] [ wri
    * Onder **Geef gegevensbestemming**, selecteert u 'Azure Blob Storage'.
    * Onder **Geef verificatietype**, selecteert u 'Account'.
    * Geef de accountgegevens voor de Azure blob-opslag. 
-     <p />
+
 3. Klik op het pictogram aan de rechterkant van de **pad naar de blob die begint met de parameter container**. Als volgt uitziet:
    
    ![Web Service Parameter-pictogram][icon]

@@ -1,11 +1,11 @@
 ---
-title: Query voor B2B-berichten in de Operations Management Suite - Azure Logic Apps | Microsoft Docs
-description: Maken van query's te traceren AS2, X 12 en EDIFACT berichten in de Operations Management Suite
+title: Query voor B2B-berichten in Log Analytics - Azure Logic Apps | Microsoft Docs
+description: Maken van query's te traceren AS2, X 12 en EDIFACT berichten in Log Analytics
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bc1ea42c9fb81fe1e2a2594fda48500132cbb539
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 345857801035fb7f149a57a4f0d58e7668f35b81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Query voor AS2, X 12 en EDIFACT berichten in de Microsoft Operations Management Suite (OMS)
+# <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Query voor AS2, X 12 en EDIFACT berichten in Log Analytics
 
-Ga voor de AS2 X12 of EDIFACT berichten die u met bijhoudt [Azure Log Analytics](../log-analytics/log-analytics-overview.md) in de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), kunt u query's die acties op basis van specifieke criteria filteren. U kunt bijvoorbeeld berichten op basis van een specifieke interchange besturingselement getal vinden.
+Ga voor de AS2 X12 of EDIFACT berichten die u met bijhoudt [Azure Log Analytics](../log-analytics/log-analytics-overview.md), kunt u query's die acties op basis van specifieke criteria filteren. U kunt bijvoorbeeld berichten op basis van een specifieke interchange besturingselement getal vinden.
 
 ## <a name="requirements"></a>Vereisten
 
@@ -30,41 +30,41 @@ Ga voor de AS2 X12 of EDIFACT berichten die u met bijhoudt [Azure Log Analytics]
 
 * Integratie-account ingesteld met de controle en logboekregistratie. Meer informatie over [het maken van een account integratie](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) en [het instellen van controle en logboekregistratie voor dat account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Als u dat nog niet gedaan hebt, [diagnostische gegevens publiceren met logboekanalyse](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) en [bericht bijhouden in OMS instellen](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Als u dat nog niet gedaan hebt, [diagnostische gegevens publiceren met logboekanalyse](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) en [mailbericht bijhouden logboekanalyse instellen](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Nadat u de vorige vereisten hebt voldaan, moet er een werkruimte in de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). U moet dezelfde OMS-werkruimte gebruiken voor het bijhouden van uw B2B-communicatie in OMS. 
+> Nadat u de vorige vereisten hebt voldaan, moet u een werkruimte in logboekanalyse hebben. U moet dezelfde werkruimte gebruiken voor het bijhouden van uw B2B-communicatie in logboekanalyse. 
 >  
-> Als u een OMS-werkruimte niet hebt, ontdek [het maken van een OMS-werkruimte](../log-analytics/log-analytics-get-started.md).
+> Als u een werkruimte voor logboekanalyse niet hebt, ontdek [het maken van een werkruimte voor logboekanalyse](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="create-message-queries-with-filters-in-the-operations-management-suite-portal"></a>Bericht-query's maken met filters in de Operations Management Suite-portal
+## <a name="create-message-queries-with-filters-in-log-analytics"></a>Bericht-query's maken met filters in Log Analytics
 
 In dit voorbeeld ziet hoe u berichten op basis van hun DIF besturingselement aantal kunt vinden.
 
 > [!TIP] 
-> Als u de naam van uw OMS-werkruimte, gaat u naar de startpagina van uw werkruimte (`https://{your-workspace-name}.portal.mms.microsoft.com`), en beginnen bij stap 4. Anders kunt u beginnen bij stap 1.
+> Als u de naam van uw Log Analytics-werkruimte, gaat u naar de startpagina van uw werkruimte (`https://{your-workspace-name}.portal.mms.microsoft.com`), en beginnen bij stap 4. Anders kunt u beginnen bij stap 1.
 
 1. In de [Azure-portal](https://portal.azure.com), kies **alle Services**. Zoek naar 'log analytics' in en kies vervolgens **logboekanalyse** als volgt te werk:
 
    ![Log Analytics vinden](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 
-2. Onder **logboekanalyse**, zoeken en selecteert u de OMS-werkruimte.
+2. Onder **logboekanalyse**, zoeken en selecteert u de werkruimte voor logboekanalyse.
 
-   ![Selecteer de OMS-werkruimte](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+   ![Selecteer de werkruimte voor logboekanalyse](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
 3. Onder **Management**, kies **OMS-Portal**.
 
    ![Kies de OMS-portal](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
 
-4. Kies op de startpagina OMS **logboek zoeken**.
+4. Kies op de startpagina **logboek zoeken**.
 
-   ![Kies op uw startpagina OMS "Logboek zoeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![Kies op uw startpagina "Logboek zoeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    -of-
 
-   ![Kies in het menu OMS "Logboek zoeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![Kies in het menu "Logboek zoeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
-5. Voer in het zoekvak, een veld dat u wilt zoeken en druk op **Enter**. Wanneer u te typen begint, OMS laat zien u mogelijke overeenkomsten en de bewerkingen die u kunt gebruiken. Meer informatie over [hoe u gegevens wilt zoeken in logboekanalyse](../log-analytics/log-analytics-log-searches.md).
+5. Voer in het zoekvak, een veld dat u wilt zoeken en druk op **Enter**. Wanneer u te typen begint, logboekanalyse laat zien u mogelijke overeenkomsten en de bewerkingen die u kunt gebruiken. Meer informatie over [hoe u gegevens wilt zoeken in logboekanalyse](../log-analytics/log-analytics-log-searches.md).
 
    Dit voorbeeld wordt gezocht voor gebeurtenissen met de **Type = AzureDiagnostics**.
 
@@ -106,15 +106,15 @@ In dit voorbeeld ziet hoe u berichten op basis van hun DIF besturingselement aan
 
    ![Uw query selecteren](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
-## <a name="find-and-run-saved-queries-in-the-operations-management-suite-portal"></a>Zoeken en opgeslagen query's uitvoeren in de Operations Management Suite-portal
+## <a name="find-and-run-saved-queries-in-log-analytics"></a>Zoeken naar en opgeslagen query's uitvoeren in Log Analytics
 
-1. Open de startpagina van de OMS-werkruimte (`https://{your-workspace-name}.portal.mms.microsoft.com`), en kies **logboek zoeken**.
+1. Open de startpagina van uw Log Analytics-werkruimte (`https://{your-workspace-name}.portal.mms.microsoft.com`), en kies **logboek zoeken**.
 
-   ![Kies op uw startpagina OMS "Logboek zoeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![Kies op uw startpagina Log Analytics "Logboek zoeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    -of-
 
-   ![Kies in het menu OMS "Logboek zoeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![Kies in het menu "Logboek zoeken"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
 2. Op de **logboek zoeken** startpagina, kiest u **Favorieten**.
 

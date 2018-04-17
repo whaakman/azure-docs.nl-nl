@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 81d8cc85827b29beaaec03fd258b550948798641
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: a4a2d8d616a503a2b200627a52103b78e573f767
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Een virtuele-Machineschaalset maken en implementeren van een maximaal beschikbare app in Windows
-Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. In deze zelfstudie implementeert u een virtuele-machineschaalset in Azure. Procedures voor:
+Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. In deze zelfstudie implementeert u een virtuele-machineschaalset in Azure. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * De extensie voor aangepaste scripts gebruiken voor het definiëren van een IIS-site om te schalen
@@ -46,7 +46,7 @@ Schaalsets bieden ondersteuning voor maximaal 1000 VM’s wanneer u een Azure-pl
 
 
 ## <a name="create-a-scale-set"></a>Een schaalset maken
-Maken van een virtuele-machineschaalset ingesteld met [nieuw AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). In het volgende voorbeeld wordt een schaalset met de naam *myScaleSet* gemaakt, die gebruikmaakt van de platforminstallatiekopie van *Windows Server 2016 Datacenter*. De Azure-netwerk-resources voor het virtuele netwerk, de openbare IP-adres en de load balancer worden automatisch gemaakt. Geef desgevraagd uw eigen gewenste beheerdersreferenties voor de VM-exemplaren in de schaalset:
+Maak een schaalset met virtuele machines met behulp van [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). In het volgende voorbeeld wordt een schaalset met de naam *myScaleSet* gemaakt, die gebruikmaakt van de platforminstallatiekopie van *Windows Server 2016 Datacenter*. De Azure-netwerkresources voor het virtuele netwerk, het openbare IP-adres en de load balancer worden automatisch gemaakt. Geef desgevraagd uw eigen beheerdersreferenties op voor de VM-exemplaren in de schaalset:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -64,9 +64,9 @@ Het duurt enkele minuten om alle schaalsetresources en VM's te maken en te confi
 
 
 ## <a name="deploy-sample-application"></a>Voorbeeldtoepassing implementeren
-Als u wilt testen uw schaalset, een eenvoudige webtoepassing te installeren. De aangepaste Scriptextensie van Azure wordt gebruikt om te downloaden en uitvoeren van een script dat wordt IIS geïnstalleerd op de VM-exemplaren. Deze uitbreiding is handig voor post-implementatieconfiguraties, software-installaties of andere configuratie-/beheertaken. Zie voor meer informatie het [overzicht van de aangepaste scriptextensie](extensions-customscript.md).
+Als u de schaalset wilt testen, installeert u een eenvoudige webtoepassing. U kunt de aangepaste scriptextensie van Azure downloaden en een script uitvoeren waarmee IIS wordt geïnstalleerd in de VM-exemplaren. Deze uitbreiding is handig voor post-implementatieconfiguraties, software-installaties of andere configuratie-/beheertaken. Zie voor meer informatie het [overzicht van de aangepaste scriptextensie](extensions-customscript.md).
 
-De extensie voor aangepaste scripts gebruiken voor het installeren van een eenvoudige IIS-webserver. Pas de aangepaste scriptextensie waarmee IIS wordt geïnstalleerd als volgt toe:
+Gebruik de aangepaste scriptextensie om een eenvoudige IIS-webserver te installeren. Pas de aangepaste scriptextensie waarmee IIS wordt geïnstalleerd als volgt toe:
 
 ```azurepowershell-interactive
 # Define the script for your Custom Script Extension to run
@@ -96,7 +96,7 @@ Update-AzureRmVmss `
 ```
 
 
-## <a name="test-your-scale-set"></a>Testen van uw schaalset
+## <a name="test-your-scale-set"></a>Uw schaalset testen
 Om te zien van de schaal in actie is ingesteld, wordt het openbare IP-adres van de load balancer met [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Het volgende voorbeeld verkrijgt het IP-adres voor *myPublicIP* gemaakt als onderdeel van de schaal is ingesteld:
 
 ```azurepowershell-interactive
@@ -116,13 +116,13 @@ Als u de schaalset in actie wilt zien, kunt u vernieuwing van uw webbrowser afdw
 Tijdens de levenscyclus van de schaalset moet u mogelijk een of meer beheertaken uitvoeren. Bovendien wilt u misschien scripts maken die verschillende levenscyclustaken automatiseren. Azure PowerShell biedt een snelle manier om deze taken. Hier volgen enkele algemene taken.
 
 ### <a name="view-vms-in-a-scale-set"></a>Virtuele machines weergeven in een schaalset
-Een overzicht van VM-exemplaren in een schaalset gebruiken [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) als volgt:
+Als u een overzicht wilt zien van de VM-exemplaren in een schaalset, gebruikt u [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) als volgt:
 
 ```azurepowershell-interactive
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet"
 ```
 
-Het volgende voorbeeld ziet u twee VM-instanties in de schaalset:
+In de volgende voorbeelduitvoer ziet u dat de schaalset twee VM-exemplaren bevat:
 
 ```powershell
 ResourceGroupName                 Name Location             Sku InstanceID ProvisioningState
@@ -131,7 +131,7 @@ MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0      
 MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
-Als u wilt weergeven als u meer informatie over een specifiek exemplaar van de VM, voeg de `-InstanceId` -parameter voor [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). Informatie over de VM-instantie voor het volgende voorbeeld-weergaven *1*:
+Als u extra informatie wilt weergeven over een specifiek VM-exemplaar, voegt u de parameter `-InstanceId` toe aan [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). In het volgende voorbeeld wordt informatie opgevraagd over het VM-exemplaar *1*:
 
 ```azurepowershell-interactive
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet" -InstanceId "1"
@@ -174,11 +174,12 @@ $mySubscriptionId = (Get-AzureRmSubscription)[0].Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
+$myScaleSetId = (Get-AzureRmVmss -ResourceGroupName $myResourceGroup -VMScaleSetName $myScaleSet).Id 
 
 # Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
-  -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
+  -MetricResourceId $myScaleSetId `
   -Operator GreaterThan `
   -MetricStatistic Average `
   -Threshold 60 `
@@ -191,7 +192,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
 # Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
 $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
-  -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
+  -MetricResourceId $myScaleSetId `
   -Operator LessThan `
   -MetricStatistic Average `
   -Threshold 30 `
@@ -214,7 +215,7 @@ Add-AzureRmAutoscaleSetting `
   -Location $myLocation `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `
-  -TargetResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
+  -TargetResourceId $myScaleSetId `
   -AutoscaleProfiles $myScaleProfile
 ```
 

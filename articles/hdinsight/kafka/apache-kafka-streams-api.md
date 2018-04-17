@@ -2,7 +2,7 @@
 title: De Apache Kafka Streams API - Azure HDInsight gebruiken | Microsoft Docs
 description: Informatie over het gebruik van de API van Apache Kafka stromen met Kafka op HDInsight. Deze API kunt u stroomverwerkingslogica tussen de onderwerpen in Kafka uitvoeren.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+ms.topic: conceptual
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: be6ed6d4c0c3a5fa55166b84b128881d434c4ab2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 36d67cdb99871f3948db1f6497b1a4638df4f3f1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Apache Kafka streams API
 
@@ -45,7 +45,7 @@ Dit voorbeeld vereist Kafka op HDInsight 3.6. Zie voor meer informatie over het 
 
 Gebruik de volgende stappen uit om te bouwen en het project implementeren in uw Kafka op HDInsight-cluster.
 
-1. Download de voorbeelden van [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Downloaden van de voorbeelden van [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
 2. Wijzig de mappen op de `Streaming` directory, en gebruik de volgende opdracht om een jar-pakket te maken:
 
@@ -114,14 +114,14 @@ Gebruik de volgende stappen uit om te bouwen en het project implementeren in uw 
 
     Met deze opdracht splitst de SSH-weergave in drie secties:
 
-    * Het linkergedeelte wordt uitgevoerd een console consumer, welke leesbewerkingen van berichten van de `wordcounts` onderwerp:`/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
+    * Het linkergedeelte wordt uitgevoerd een console consumer, welke leesbewerkingen van berichten van de `wordcounts` onderwerp: `/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
 
         > [!NOTE]
         > De `--property` parameters laat de consument console afdrukken van de sleutel (word) samen met het aantal (waarde). Deze parameter configureert ook de deserializer moet worden gebruikt bij het lezen van deze waarden van Kafka.
 
-    * Het bovenste gedeelte van de juiste voert de Streams API-oplossing:`java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
+    * Het bovenste gedeelte van de juiste voert de Streams API-oplossing: `java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
 
-    * Het onderste gedeelte van de juiste de producent console wordt uitgevoerd en wordt gewacht op berichten te verzenden geeft u de `test` onderwerp:`/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
+    * Het onderste gedeelte van de juiste de producent console wordt uitgevoerd en wordt gewacht op berichten te verzenden geeft u de `test` onderwerp: `/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
  
 6. Na de `tmux` opdracht splitst de weergave, wordt de cursor in het onderste gedeelte van de juiste. Beginnen met het invoeren van zinnen. Het linkerdeelvenster wordt bijgewerkt na elke zin om weer te geven van een aantal unieke woorden. De uitvoer lijkt op het volgende:
    

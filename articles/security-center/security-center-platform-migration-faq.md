@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 197b1a844291f2bef2dd35001d1e6b8807ac9805
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>Security Center-platform migratie Veelgestelde vragen
 In eerdere juni 2017 begonnen Azure Security Center met behulp van Microsoft Monitoring Agent voor het verzamelen en opslaan van gegevens. Zie voor meer informatie, [Azure Security Center-Platform migratie](security-center-platform-migration.md). Deze Veelgestelde vragen over de antwoorden op vragen over de migratie van het platform.
@@ -34,7 +34,7 @@ Microsoft Monitoring Agent Security Center gebruikt voor het verzamelen van beve
 Gegevens die worden verzameld door de agent wordt opgeslagen in een bestaande werkruimte voor logboekanalyse is verbonden met de virtuele machine of een nieuwe werkruimte gemaakt door Security Center. Wanneer Security Center een nieuwe werkruimte maakt, wordt de geolocatie van de virtuele machine in aanmerking genomen.
 
 > [!NOTE]
-> Microsoft Monitoring Agent is dezelfde agent die wordt gebruikt door de Operations Management Suite (OMS), Log Analytics-service en System Center Operations Manager (SCOM).
+> Microsoft Monitoring Agent is dezelfde agent die wordt gebruikt door de Log Analytics-service en System Center Operations Manager (SCOM).
 >
 >
 
@@ -64,8 +64,8 @@ De locatie van de werkruimte is gebaseerd op de locatie van de virtuele machine.
 >
 >
 
-### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>Ben ik gefactureerd voor logboekanalyse of OMS op de werkruimten die zijn gemaakt door Security Center?
-Nee. Werkruimten die zijn gemaakt door Security Center terwijl geconfigureerd voor OMS per knooppunt financieel medewerkers, komen niet OMS worden kosten in rekening. Security Center facturering is altijd op basis van het beveiligingsbeleid van uw Security Center en de oplossingen die zijn geïnstalleerd op een werkruimte:
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Ben ik gefactureerd voor logboekanalyse op de werkruimten die zijn gemaakt door Security Center?
+Nee. Werkruimten die zijn gemaakt door Security Center terwijl geconfigureerd voor logboekanalyse per knooppunt facturering, komen niet logboekanalyse worden kosten in rekening. Security Center facturering is altijd op basis van het beveiligingsbeleid van uw Security Center en de oplossingen die zijn geïnstalleerd op een werkruimte:
 
 - **Gratis laag** – Security Center kunt u de oplossing 'SecurityCenterFree' in de standaardwerkruimte voor. U wordt niet gefactureerd voor de laag gratis.
 - **Standard-laag** – Security Center kunt u de oplossing 'Security' in de standaardwerkruimte voor.
@@ -73,7 +73,7 @@ Nee. Werkruimten die zijn gemaakt door Security Center terwijl geconfigureerd vo
 Zie voor meer informatie over prijzen [Security Center prijzen](https://azure.microsoft.com/pricing/details/security-center/). Wijzigingen in de gegevensopslag van de beveiliging en naar rato facturering vanaf juni 2017 heeft betrekking op de pagina met prijzen.
 
 > [!NOTE]
-> De prijscategorie van de werkruimten die zijn gemaakt door Security Center OMS heeft geen invloed op de facturering Security Center.
+> De prijscategorie van de werkruimten die zijn gemaakt door Security Center logboekanalyse heeft geen invloed op de facturering Security Center.
 >
 >
 
@@ -101,7 +101,7 @@ Selecteer een bestaande werkruimte voor logboekanalyse:
 
 1. Onder **beveiligingsbeleid – gegevensverzameling**, selecteer **gebruik een andere werkruimte**.
 
-   ![Gebruik een andere werkruimte][5]
+   ![Een andere werkruimte gebruiken][5]
 
 2. Selecteer een werkruimte voor het opslaan van verzamelde gegevens in de vervolgkeuzelijst.
 
@@ -204,12 +204,12 @@ De agent handmatig verwijderen:
 >
 >
 
-## <a name="existing-oms-customers"></a>Bestaande OMS-klanten
+## <a name="existing-log-analytics-customers"></a>Bestaande Log Analytics-klanten
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Wordt de bestaande verbindingen tussen virtuele machines en werkruimten overschreven door Security Center?
 Als een virtuele machine al Microsoft Monitoring Agent geïnstalleerd als een Azure-extensie, wordt de bestaande verbinding in de werkruimte niet overschreven door Security Center. Security Center gebruikt in plaats daarvan de bestaande werkruimte.
 
-Een oplossing Security Center is geïnstalleerd op de werkruimte als dat niet al aanwezig, en de oplossing wordt alleen toegepast op de relevante virtuele machines. Wanneer u een oplossing toevoegt, wordt het automatisch naar alle Windows- en Linux-agents verbonden met uw werkruimte voor logboekanalyse standaard geïmplementeerd. [Oplossing Targeting](../operations-management-suite/operations-management-suite-solution-targeting.md), namelijk een OMS-functie kunt u een bereik van toepassing op uw oplossingen.
+Een oplossing Security Center is geïnstalleerd op de werkruimte als dat niet al aanwezig, en de oplossing wordt alleen toegepast op de relevante virtuele machines. Wanneer u een oplossing toevoegt, wordt het automatisch naar alle Windows- en Linux-agents verbonden met uw werkruimte voor logboekanalyse standaard geïmplementeerd. [Oplossing Targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) kunt u een bereik van toepassing op uw oplossingen.
 
 Als u Microsoft Monitoring Agent rechtstreeks op de VM (niet als een Azure-extensie) is geïnstalleerd, wordt Microsoft Monitoring Agent wordt niet geïnstalleerd door Security Center en beveiligingsbewaking is beperkt.
 
@@ -220,18 +220,13 @@ Dit vindt niet plaats. Als deze, klikt u vervolgens voordoet [maken van een aanv
 - De Azure-resource-ID van de werkruimte op de extensie geconfigureerd voordat de verbinding verbroken is
 - De agent en de versie die eerder is geïnstalleerd
 
-### <a name="does-security-center-install-solutions-on-my-existing-oms-workspaces-what-are-the-billing-implications"></a>Security Center wordt geïnstalleerd oplossingen op mijn bestaande OMS-werkruimten? Wat zijn de gevolgen voor de facturering?
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Security Center wordt geïnstalleerd oplossingen op mijn bestaande Log Analytics-werkruimten? Wat zijn de gevolgen voor de facturering?
 Als Beveiligingscentrum identificeert dat een virtuele machine al is verbonden met een werkruimte die u hebt gemaakt, kunt Security Center-oplossingen voor deze werkruimte volgens uw prijscategorie. De oplossingen worden alleen toegepast op de relevante Azure VM's [oplossing targeting](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), zodat de facturering hetzelfde is gebleven.
 
 - **Gratis laag** – Security Center installeert de oplossing 'SecurityCenterFree' in de werkruimte. U wordt niet gefactureerd voor de laag gratis.
 - **Standard-laag** – Security Center de beveiligingsoplossing installeert op de werkruimte.
 
    ![Oplossingen op standaardwerkruimte][4]
-
-> [!NOTE]
-> De oplossing 'Security' in logboekanalyse is de beveiliging en Audit oplossing in OMS.
->
->
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Ik heb al werkruimten in de omgeving, kan ik ermee voor het verzamelen van beveiligingsgegevens?
 Als een virtuele machine al Microsoft Monitoring Agent geïnstalleerd als een Azure-extensie, wordt in Security Center maakt gebruik van de bestaande verbonden werkruimte. Een oplossing Security Center is geïnstalleerd op de werkruimte als dat niet al aanwezig, en de oplossing wordt alleen toegepast op de relevante virtuele machines via [oplossing doelen](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).

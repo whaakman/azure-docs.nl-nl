@@ -5,43 +5,63 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/29/2018
+ms.topic: conceptual
+ms.date: 04/08/2018
 ms.author: raynew
-ms.openlocfilehash: 28ddecc45faa213d1fd536b5ad8690e151037505
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2a6e3052c64ab6a2865a0c24a4876cb2b98d1a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrix-ondersteuning voor VMware en fysieke server-replicatie naar Azure
 
 In dit artikel bevat een overzicht van ondersteunde onderdelen en -instellingen voor herstel na noodgevallen van virtuele VMware-machines naar Azure met behulp van [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="supported-scenarios"></a>Ondersteunde scenario's
+## <a name="replication-scenario"></a>Replicatiescenario
 
 **Scenario** | **Details**
 --- | ---
-Virtuele VMware-machines | U kunt herstel na noodgevallen in Azure uitvoeren voor de lokale virtuele VMware-machines. U kunt dit scenario in de Azure portal of met behulp van PowerShell implementeren.
-Fysieke servers | U kunt het herstel na noodgevallen in Azure uitvoeren voor fysieke on-premises Windows of Linux-servers. U kunt dit scenario in de Azure portal kunt implementeren.
+Virtuele VMware-machines | Replicatie van on-premises virtuele VMware-machines naar Azure. U kunt dit scenario in de Azure portal of met behulp van PowerShell implementeren.
+Fysieke servers | Replicatie van de lokale Windows-/ Linux fysieke serversto Azure. U kunt dit scenario in de Azure portal kunt implementeren.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokale virtualisatieservers
 
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
-VMware | vCenter Server 6.5 6.0, of 5.5 of vSphere 6.5, 6.0 of 5.5 | Het is raadzaam dat u een vCenter-server.
+VMware | vCenter Server 6.5 6.0, of 5.5 of vSphere 6.5, 6.0 of 5.5 | Het is raadzaam dat u een vCenter-server.<br/><br/> We raden aan dat vSphere-hosts en vCenter-servers bevinden zich in hetzelfde netwerk bevindt als de processerver. De server-onderdelen van het proces wordt standaard op de configuratieserver zodat dit is het netwerk waarin u van de configuratieserver instellen, tenzij u een speciale processerver ingesteld. 
 Fysiek | N/A
 
+## <a name="site-recovery-configuration-server"></a>Configuratie van de siteserver-herstel
+
+De configuratieserver is een lokale machine met Site Recovery-onderdelen, met inbegrip van de configuratieserver, de processerver en de hoofddoelserver. Voor VMware-replicatie instellen u de configuratieserver aan alle vereisten met een OVF-sjabloon maken van een VMware VM. Voor replicatie van de fysieke server moet instellen u de configuratie van server-machine handmatig.
+
+**Onderdeel** | **Vereisten**
+--- |---
+CPU-kernen | 8 
+RAM | 12 GB
+Aantal schijven | 3-schijven<br/><br/> Schijven bevatten de OS-schijf, proces server cache schijf en bewaarstation voor failback.
+Vrije schijfruimte | 600 GB ruimte nodig voor servercache proces.
+Vrije schijfruimte | Vereiste ruimte voor bewaarstation 600 GB.
+Besturingssysteem  | Windows Server 2012 R2 of WindowsServer 2016 | 
+Landinstelling van het besturingssysteem | Engels (en-us) 
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") moet worden geïnstalleerd.
+Windows Server-functies | Niet inschakelen: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
+Groepsbeleid| Niet inschakelen: <br> -Toegang tot de opdrachtprompt voorkomen. <br> -Toegang tot het register bewerkingsopties voorkomen. <br> -Logica voor bestandsbijlagen vertrouwen. <br> -Uitvoering van Script inschakelen. <br> [Meer informatie](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | Zorg ervoor dat u:<br/><br/> -Een bestaande standaardwebsite geen hebt <br> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Inschakelen [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) instelling  <br> -Bestaande website /-app niet hebt geluisterd op poort 443<br>
+NIC-type | VMXNET3 (indien geïmplementeerd als een VMware-VM) 
+Type IP-adres | Statisch 
+Poorten | 443 gebruikt voor het besturingselement kanaal orchestration)<br>9443 gebruikt voor het vervoer van gegevens
 
 ## <a name="replicated-machines"></a>Gerepliceerde machines
 
-De volgende tabel geeft een overzicht van de replicatie-ondersteuning voor virtuele VMware-machines en fysieke servers. Site Recovery biedt ondersteuning voor replicatie van elke werkbelasting die wordt uitgevoerd op een machine met een ondersteund besturingssysteem.
+Site Recovery biedt ondersteuning voor replicatie van elke werkbelasting die wordt uitgevoerd op een ondersteunde machine.
 
 **Onderdeel** | **Details**
 --- | ---
 Instellingen van de computer | Machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
 Windows-besturingssysteem | 64-bits Windows Server 2016 (Server Core, Server met Bureaubladbelevenis), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1. Windows 2016 Nano Server wordt niet ondersteund.
-Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4 <br/><br/>CentOS: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 TNS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 TNS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 met Red Hat compatibel kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>SP3 gerepliceerde machines bijwerken naar SP4 wordt niet ondersteund. Als u wilt upgraden, Schakel replicatie uit en opnieuw na de upgrade.
+Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4 <br/><br/>CentOS: 5.2 naar 5,11, 6.1 naar 6,9, 7.0 tot 7,4 <br/><br/>Ubuntu 14.04 TNS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 TNS server[ (kernel-versies ondersteund)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versies ondersteund)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 met Red Hat compatibel kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>SP3 gerepliceerde machines bijwerken naar SP4 wordt niet ondersteund. Als u wilt upgraden, Schakel replicatie uit en opnieuw na de upgrade.
 
 >[!NOTE]
 >
@@ -55,14 +75,14 @@ Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9,
 
 **Ondersteunde versie** | **Azure Site Recovery Mobility-Service-versie** | **Kernelversie** |
 --- | --- | --- |
-14.04 LTS | 9.11 | 3.13.0-24-Generic naar 3.13.0-128-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-91-generic |
-14.04 LTS | 9.12 | 3.13.0-24-Generic naar 3.13.0-132-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-96-generic |
-14.04 LTS | 9.13 | 3.13.0-24-Generic naar 3.13.0-137-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-104-generic |
-14.04 LTS | 9.14 | 3.13.0-24-Generic naar 3.13.0-142-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-116-generic |
-16.04 LTS | 9.11 | 4.4.0-21-Generic naar 4.4.0-91-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-32-generic |
-16.04 LTS | 9.12 | 4.4.0-21-Generic naar 4.4.0-96-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-35-generic |
-16.04 LTS | 9.13 | 4.4.0-21-Generic naar 4.4.0-104-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-42-generic |
-16.04 LTS | 9.14 | 4.4.0-21-Generic naar 4.4.0-116-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-36-generic,<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1011-azure |
+14.04 TNS | 9.11 | 3.13.0-24-Generic naar 3.13.0-128-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-91-generic |
+14.04 TNS | 9.12 | 3.13.0-24-Generic naar 3.13.0-132-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-96-generic |
+14.04 TNS | 9.13 | 3.13.0-24-Generic naar 3.13.0-137-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-104-generic |
+14.04 TNS | 9.14 | 3.13.0-24-Generic naar 3.13.0-142-generic,<br/>3.16.0-25-Generic naar 3.16.0-77-generic,<br/>3.19.0-18-Generic naar 3.19.0-80-generic,<br/>4.2.0-18-Generic naar 4.2.0-42-generic,<br/>4.4.0-21-Generic naar 4.4.0-116-generic |
+16.04 TNS | 9.11 | 4.4.0-21-Generic naar 4.4.0-91-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-32-generic |
+16.04 TNS | 9.12 | 4.4.0-21-Generic naar 4.4.0-96-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-35-generic |
+16.04 TNS | 9.13 | 4.4.0-21-Generic naar 4.4.0-104-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-42-generic |
+16.04 TNS | 9.14 | 4.4.0-21-Generic naar 4.4.0-116-generic,<br/>4.8.0-34-Generic naar 4.8.0-58-generic,<br/>4.10.0-14-Generic naar 4.10.0-42-generic,<br/>4.11.0-13-Generic naar 4.11.0-14-generic,<br/>4.13.0-16-Generic naar 4.13.0-36-generic,<br/>4.11.0-1009-Azure naar 4.11.0-1016-azure,<br/>4.13.0-1005-Azure naar 4.13.0-1011-azure |
 
 
 ### <a name="debian-kernel-versions"></a>Debian kernel-versies
@@ -70,8 +90,8 @@ Linux-besturingssysteem | Red Hat Enterprise Linux: 5.2 naar 5,11, 6.1 naar 6,9,
 
 **Ondersteunde versie** | **Azure Site Recovery Mobility-Service-versie** | **Kernelversie** |
 --- | --- | --- |
-Debian 7 | 9.14 | 3.2.0-4-amd64 to 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 8 | 9.14 | 3.16.0-4-amd64 to 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.5-amd64 |
+Debian 7 | 9.14 | 3.2.0-4-AMD64 naar 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 8 | 9.14 | 3.16.0-4-AMD64 naar 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 naar 4.9.0-0.bpo.5-amd64 |
 
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux-bestandsopslag voor gast-systemen
@@ -201,12 +221,12 @@ Kluis over brongroepen verplaatsen<br/><br/> Binnen en tussen abonnementen | Nee
 Verplaats de opslag, netwerk, Azure VM's via resourcegroepen<br/><br/> Binnen en tussen abonnementen | Nee
 
 
-## <a name="mobility-service"></a>Mobility Service
+## <a name="mobility-service"></a>Mobility-Service
 
 **Naam** | **Beschrijving** | **meest recente versie** | **Details**
 --- | --- | --- | --- | ---
 Azure Site Recovery Unified Setup | Coördineert de communicatie tussen de on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | 9.12.4653.1 (beschikbaar via de portal) | [Meest recente functies en oplossingen](https://aka.ms/latest_asr_updates)
-Mobility Service | Coördineert de replicatie tussen de on-premises VMware servers of fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VMware-VM of fysieke servers die u wilt repliceren | 9.12.4653.1 (beschikbaar via de portal) | [Meest recente functies en oplossingen](https://aka.ms/latest_asr_updates)
+Mobility-Service | Coördineert de replicatie tussen de on-premises VMware servers of fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VMware-VM of fysieke servers die u wilt repliceren | 9.12.4653.1 (beschikbaar via de portal) | [Meest recente functies en oplossingen](https://aka.ms/latest_asr_updates)
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,31 +1,26 @@
 ---
-title: Elastische Query concepten met Azure SQL datawarehouse | Microsoft Docs
-description: Elastische Query concepten met Azure SQL Data Warehouse
+title: Elastische query - toegang tot gegevens in Azure SQL Data Warehouse van Azure SQL Database | Microsoft Docs
+description: Meer informatie over aanbevolen procedures voor het gebruik van elastische Query gebruiken voor toegang tot gegevens in Azure SQL Data Warehouse van Azure SQL Database.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
 ms.author: elbutter
-ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.reviewer: jrj
+ms.openlocfilehash: 909271792b73b5fdc517847db7cfd6c8cf2092bc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Het gebruik van elastische Query met SQL Data Warehouse
+# <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Aanbevolen procedures voor het gebruik van elastische Query in Azure SQL Database voor toegang tot gegevens in Azure SQL Data Warehouse
+Meer informatie over aanbevolen procedures voor het gebruik van elastische Query voor toegang tot gegevens in Azure SQL Data Warehouse van Azure SQL Database. 
 
-
-
-Elastische Query met Azure SQL Data Warehouse kunt u Transact-SQL schrijven in een SQL-Database die op afstand wordt verzonden naar een Azure SQL Data Warehouse-exemplaar met behulp van externe tabellen. Met deze functie biedt kostenbesparingen en meer zodat architecturen afhankelijk van het scenario.
+## <a name="what-is-an-elastic-query"></a>Wat is een elastische query?
+Een elastische query kunt u een query schrijven in een Azure SQL-database die op afstand wordt verzonden naar een Azure SQL datawarehouse met T-SQL en externe tabellen. Met deze functie biedt kostenbesparingen en meer zodat architecturen, afhankelijk van het scenario.
 
 Met deze functie kunt twee scenario's beschreven:
 
@@ -46,10 +41,7 @@ Elastische query kunt bieden de mogelijkheid gemakkelijk subsets van SQL datawar
 
 Elastische query kunt u externe query uitvoeren op een exemplaar van SQL datawarehouse. Een kan gebruikmaken van het beste van zowel SQL-database en SQL datawarehouse door het scheiden van uw warme en koude gegevens tussen de twee databases. Gebruikers kunnen meer recente gegevens in een SQL-database, die, rapporten en grote aantallen gemiddelde zakelijke gebruikers voorzien kan behouden. Wanneer er meer gegevens of berekening is vereist, kan een gebruiker echter deel uitmaken van de query voor een SQL datawarehouse-exemplaar waar grootschalige statistische functies kunnen worden verwerkt veel sneller en efficiënter offloaden.
 
-
-
-## <a name="elastic-query-overview"></a>Elastische Query-overzicht
-
+## <a name="elastic-query-process"></a>Elastische queryproces
 Een elastische query kan worden gebruikt om gegevens die zich in een SQL data warehouse te SQL database-exemplaren. Elastische query kunt query's van een SQL-database verwijzen naar tabellen in een extern exemplaar van SQL datawarehouse. 
 
 De eerste stap is het maken van een definitie van de externe gegevensbron die verwijst naar het SQL datawarehouse-exemplaar, dat gebruikmaakt van de referenties van een bestaande gebruiker in de SQL datawarehouse. Er zijn geen wijzigingen nodig op het externe exemplaar van SQL datawarehouse. 
@@ -58,13 +50,12 @@ De eerste stap is het maken van een definitie van de externe gegevensbron die ve
 > 
 > U moet beschikken over een externe gegevensbron ALTER machtiging. Deze machtiging is opgenomen in de machtiging ALTER DATABASE. EEN externe gegevensbron ALTER machtigingen nodig om te verwijzen naar externe gegevensbronnen.
 
-Vervolgens maken we een definitie van de externe externe tabel in een SQL database-instantie die naar een externe tabel in de SQL datawarehouse wijst. Wanneer u een query die gebruikmaakt van een externe tabel gebruikt, wordt het gedeelte van de query verwijst naar de externe tabel verzonden naar het exemplaar van SQL datawarehouse worden verwerkt. Nadat de query is voltooid, wordt de resulterende set verzonden terug naar de aanroepende SQL database-instantie. Zie voor een korte zelfstudie voor het instellen van een elastische Query tussen de SQL-database en SQL datawarehouse de [elastische Query configureren met SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
+Maak vervolgens een definitie van de externe externe tabel in een SQL database-instantie, die naar een externe tabel in de SQL datawarehouse wijst. Wanneer een query maakt gebruik van een externe tabel, is het gedeelte van de query verwijst naar de externe tabel verzonden naar het exemplaar van SQL datawarehouse worden verwerkt. Nadat de query is voltooid, wordt de resulterende set verzonden terug naar de aanroepende SQL database-instantie. Zie voor een korte zelfstudie voor het instellen van een elastische Query tussen de SQL-database en SQL datawarehouse de [elastische Query configureren met SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
 
 Zie voor meer informatie over elastische Query met SQL database, de [overzicht van Azure SQL Database elastische query][Azure SQL Database elastic query overview].
 
-
-
 ## <a name="best-practices"></a>Aanbevolen procedures
+Gebruik deze best practices elastische query effectief.
 
 ### <a name="general"></a>Algemeen
 
@@ -78,9 +69,9 @@ Zie voor meer informatie over elastische Query met SQL database, de [overzicht v
 
 ### <a name="elastic-querying"></a>Elastische opvragen
 
-- In veel gevallen kan een wilt voor het beheren van een type van de gespreide tabel, waarbij een deel van de tabel in de SQL-Database de gegevens in de cache voor de prestaties met de rest van de gegevens die zijn opgeslagen in SQL Data Warehouse is. U moet twee objecten in SQL-Database hebt: een externe tabel in SQL-Database die verwijst naar de basistabel in SQL Data Warehouse en het gedeelte 'in de cache' van de tabel in de SQL-Database. U kunt een weergave maakt via de bovenkant van het in de cache-gedeelte van de tabel en de externe tabel welke samenvoegingen zowel tabellen en filters die scheiden van gegevens in SQL-Database en SQL Data Warehouse-gegevens toegankelijk zijn via externe tabellen gematerialiseerd toegepast.
+- In veel gevallen kan een wilt voor het beheren van een type van de gespreide tabel, waarbij een deel van de tabel in de SQL-Database de gegevens in de cache voor de prestaties met de rest van de gegevens die zijn opgeslagen in SQL Data Warehouse is. U moet twee objecten in een SQL-Database: een externe tabel in SQL-Database die verwijst naar de basistabel in SQL Data Warehouse en het gedeelte 'in de cache' van de tabel in de SQL-Database. U kunt een weergave maakt via de bovenkant van het in de cache-gedeelte van de tabel en de externe tabel welke samenvoegingen zowel tabellen en filters die scheiden van gegevens in SQL-Database en SQL Data Warehouse-gegevens toegankelijk zijn via externe tabellen gematerialiseerd toegepast.
 
-  Stel, dat we willen graag het meest recente jaar van de gegevens in een SQL database-exemplaar behouden. Er zijn twee tabellen **toest. Orders**, tabellen, die verwijst naar het datawarehouse orders en **dbo. Orders** die staat voor de meest recente jaren aan gegevens in de SQL database-instantie. In plaats van gebruikers vragen om te beslissen of u één tabel of een andere query, maken we een weergave boven in beide tabellen op het punt partitie van het meest recente jaar.
+  Stel dat u wilt behouden van de meest recente jaar van de gegevens in een SQL database-exemplaar. De **toest. Orders** tabel verwijst naar het datawarehouse orders tabellen. De **dbo. Orders** vertegenwoordigt de meest recente jaren aan gegevens in de SQL database-instantie. In plaats van gebruikers vragen om te beslissen of u query uitvoeren op één tabel of de andere, moet u een weergave maken via de bovenkant van beide tabellen op het punt partitie van het meest recente jaar.
 
   ```sql
   CREATE VIEW dbo.Orders_Elastic AS
@@ -115,23 +106,21 @@ Zie voor meer informatie over elastische Query met SQL database, de [overzicht v
 ### <a name="moving-data"></a>Verplaatsen van gegevens 
 
 - Indien mogelijk, houd gegevensbeheer eenvoudiger met alleen toevoegen brontabellen dat updates eenvoudig bruikbaar tussen de data warehouse en database-exemplaren zijn.
-- Gegevens verplaatsen op het niveau van de partitie met flush- en -semantiek Minimaliseer de kosten van de query op het niveau van de datawarehouse en de hoeveelheid gegevens verplaatst naar de database-instantie up-to-date te houden. 
+- Verplaatsing van gegevens op het niveau van de partitie met leegmaken en opvulling semantiek te minimaliseren, de kosten van de query op de gegevens datawarehouse-niveau en de hoeveelheid gegevens verplaatst naar de database-instantie up-to-date te houden. 
 
 ### <a name="when-to-choose-azure-analysis-services-vs-sql-database"></a>Wanneer Azure Analysis Services-tegenover SQL-Database kiezen
 
-#### <a name="azure-analysis-services"></a>Azure Analysis Services
+Gebruik Azure Analysis Services-wanneer:
 
 - U wilt uw cache gebruiken met een BI-hulpprogramma waarmee een groot aantal kleine query 's
 - U moet de latentie van query subsecond
 - U bent ervaren bij het beheren van/ontwikkelen van modellen voor Analysis Services 
 
-#### <a name="sql-database"></a>SQL Database
+Gebruik van Azure SQL Database wanneer:
 
 - U wilt zoeken van uw gegevens in cache met behulp van SQL
 - U moet extern worden uitgevoerd voor bepaalde query 's
 - Hebt u grotere cache-vereisten
-
-
 
 ## <a name="faq"></a>Veelgestelde vragen
 
@@ -161,19 +150,11 @@ A: spatiale typen kunt in SQL Data Warehouse u opslaan als varbinary(max) waarde
 
 ![spatiale typen](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 
-
-
-
-
-<!--Image references-->
-
 <!--Article references-->
 
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
-[Configure Elastic Query with SQL Data Warehouse]: ./tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Configure Elastic Query with SQL Data Warehouse]: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
 [Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md
 
-<!--MSDN references-->
 
-<!--Other Web references-->

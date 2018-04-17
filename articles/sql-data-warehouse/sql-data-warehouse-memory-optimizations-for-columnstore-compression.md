@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6484f457731bb1b97f01df339eaf1b0aebf924c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Het optimaliseren van rijgroep kwaliteit voor columnstore
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 DWU-grootte en de resource gebruikersklasse samen bepalen hoeveel geheugen beschikbaar is voor de aanvraag voor een gebruiker. Voor een verhoging van de geheugentoekenning voor een load-query kunt u Verhoog het aantal dwu's of vergroot de bronklasse.
 
 - Zie voor een verhoging van het aantal dwu's [hoe schalen prestaties?](quickstart-scale-compute-portal.md)
-- Zie het wijzigen van de bronklasse voor een query [wijzigen van een voorbeeld van een gebruiker resource klasse](resource-classes-for-workload-management.md#assigning-resource-classes).
+- Zie het wijzigen van de bronklasse voor een query [wijzigen van een voorbeeld van een gebruiker resource klasse](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
 Bijvoorbeeld op DWU 100 kunt een gebruiker in de bronklasse smallrc 100 MB aan geheugen voor elk distributiepunt. Zie voor meer informatie, [gelijktijdigheid in SQL Data Warehouse](resource-classes-for-workload-management.md).
 

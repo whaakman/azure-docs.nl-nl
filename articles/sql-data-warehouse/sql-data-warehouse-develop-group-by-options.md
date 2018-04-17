@@ -1,28 +1,27 @@
 ---
-title: Groeperen op opties in SQL Data Warehouse | Microsoft Docs
+title: Groep wordt gebruikt door de opties in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips voor het implementeren van de groep door de opties in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 98d2ecfd2f38d086e50f3103b8598b1dccc9323b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Groeperen op opties in SQL Data Warehouse
-De [GROUP BY] [ GROUP BY] component wordt gebruikt voor een overzicht set rijen van cumulatieve gegevens. Er wordt ook een aantal opties die de functionaliteit die moet worden besteed uitbreiden rond als ze niet rechtstreeks worden ondersteund door Azure SQL Data Warehouse.
+Tips voor het implementeren van de groep door de opties in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+
+## <a name="what-does-group-by-do"></a>Wat is GROUP BY?
+
+De [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL-component maakt een aggregatie van gegevens naar een samenvatting set rijen. GROUP BY bevat een aantal opties die biedt geen ondersteuning voor SQL Data Warehouse. Deze opties staat er tijdelijke oplossingen.
 
 Deze opties zijn
 
@@ -31,10 +30,9 @@ Deze opties zijn
 * GROUP BY met kubus
 
 ## <a name="rollup-and-grouping-sets-options"></a>Rollup en grouping sets-opties
-De eenvoudigste optie hier is het gebruik `UNION ALL` in plaats daarvan de rollup uitvoeren in plaats van te vertrouwen op de expliciete syntaxis. Het resultaat is precies hetzelfde
+De eenvoudigste optie hier is het gebruik in plaats daarvan UNION ALL om uit te voeren van het updatepakket in plaats van te vertrouwen op de expliciete syntaxis. Het resultaat is precies hetzelfde
 
-Hieronder volgt een voorbeeld van een groep met behulp van de instructie de `ROLLUP` optie:
-
+Het volgende voorbeeld met de GROUP BY-instructie met de ROLLUP-optie:
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -48,13 +46,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Met behulp van UPDATEPAKKET hebben we de volgende aggregaties aangevraagd:
+Met behulp van de ROLLUP-het voorgaande voorbeeld de volgende aggregaties aanvragen:
 
 * Land en regio
 * Land
 * Eindtotaal
 
-Dit u wilt gebruiken vervangen `UNION ALL`; aggregaties vereist expliciet om dezelfde resultaten weer te geven:
+U kunt voor het UPDATEPAKKET vervangen en dezelfde resultaten retourneren, UNION ALL gebruiken en de vereiste aggregaties expliciet op te geven:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -81,10 +79,10 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Voor GROUPING SETS alle we moeten doen is dezelfde principal vast maar UNION ALL secties voor de aggregatie niveaus die we wilt zien alleen maken
+Als u wilt vervangen GROUPING SETS, het principe voorbeeld is van toepassing. U hoeft alleen te maken van UNION ALL secties voor de aggregatie niveaus die u wilt zien.
 
 ## <a name="cube-options"></a>Kubusopties voor de
-Het is mogelijk een groep door met de kubus maken met de UNION ALL benadering. Het probleem is de code kan al gauw omslachtig en onhandig. Als oplossing hiervoor kunt u deze meer geavanceerde benadering.
+Het is mogelijk een groep door met de kubus maken met de UNION ALL benadering. Het probleem is de code kan al gauw omslachtig en onhandig. U kunt deze meer geavanceerde benadering gebruiken als oplossing hiervoor kunt.
 
 We gaan gebruiken in het bovenstaande voorbeeld.
 
@@ -121,7 +119,7 @@ FROM GrpCube;
 
 Hieronder ziet u de resultaten van de CTAS:
 
-![][1]
+![Groeperen op kubus](media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
 De tweede stap is om op te geven van een doeltabel voor het opslaan van tijdelijke resultaten:
 
@@ -170,7 +168,7 @@ BEGIN
 END
 ```
 
-Ten slotte kunt we de resultaten terugkeren door gewoon lezen van de tijdelijke tabel #Results
+Ten slotte kunt u de resultaten terugkeren door gewoon lezen van de tijdelijke tabel #Results
 
 ```sql
 SELECT *
@@ -179,19 +177,8 @@ ORDER BY 1,2,3
 ;
 ```
 
-De code wordt door de code in de secties splitsen en het genereren van een samenvoegartikel constructie beter beheerbaar en bruikbaar.
+Door de code in de secties splitsen en een samenvoegartikel constructie wordt gegenereerd, wordt de code te beheren en meer bruikbaar.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars][development overview].
+Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
-
-
-<!--Other Web references-->

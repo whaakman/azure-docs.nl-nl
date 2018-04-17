@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9a04f6ebbca60e969d608e0ad92839b5e04d772
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Afstemming van de prestaties in Azure SQL Database
 
@@ -28,7 +28,7 @@ Dit zijn handmatige methodes omdat u nodig hebt om te bepalen wat [Servicelagen]
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Laag van de toenemende prestaties van uw database
 
-Azure SQL Database biedt vier [Servicelagen](sql-database-service-tiers.md) die u kunt kiezen uit: Basic, Standard en Premium (prestaties wordt gemeten in database-eenheden voor doorvoer, of [dtu's](sql-database-what-is-a-dtu.md). Elke servicelaag isoleert uitsluitend de resources in uw SQL-database kunt gebruiken, en wordt gegarandeerd dat voorspelbare prestaties voor dit serviceniveau. In dit artikel bieden we hulp kunt u de servicetier voor uw toepassing kiezen. Dat kunt u uw toepassing Haal het meeste uit Azure SQL Database afstemmen manieren ook besproken.
+Azure SQL Database biedt twee aankopen modellen, een vCore gebaseerde aankoopmodel en een aankoopmodel v Core gebaseerd. Elk model heeft meerdere [Servicelagen](sql-database-service-tiers.md) die u kunt kiezen uit. Elke servicelaag isoleert uitsluitend de resources in uw SQL-database kunt gebruiken, en wordt gegarandeerd dat voorspelbare prestaties voor dit serviceniveau. In dit artikel bieden we hulp kunt u de servicetier voor uw toepassing kiezen. Dat kunt u uw toepassing Haal het meeste uit Azure SQL Database afstemmen manieren ook besproken.
 
 > [!NOTE]
 > Dit artikel is gericht op prestaties richtlijnen voor individuele databases in Azure SQL Database. Zie voor instructies prestaties gerelateerd aan elastische pools [prijs- en Prestatieoverwegingen voor elastische pools](sql-database-elastic-pool-guidance.md). Merk echter op dat u kunt veel afstemmen aanbevelingen in dit artikel van toepassing op databases in een elastische pool en vergelijkbare prestatievoordelen ophalen.

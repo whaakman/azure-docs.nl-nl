@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: ac63d0f731dcbb393d7bd1cb30e135fdcca095de
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 19e8c11a0051f9d13ef4be3d77fe828a272c3c77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Het label van een virtuele Linux-machine in Azure
 In dit artikel beschrijft de verschillende manieren voor het taggen van een virtuele Linux-machine in Azure via het Resource Manager-implementatiemodel. Labels zijn de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks op een resource of een resourcegroep kunnen worden geplaatst. Azure ondersteunt momenteel maximaal 15 tags per resource en resourcegroep. Labels kunnen worden geplaatst op een bron op het moment van maken of toegevoegd aan een bestaande resource. Houd er rekening mee,-labels worden ondersteund voor bronnen met behulp van het Resource Manager-implementatiemodel alleen gemaakt.
@@ -27,22 +27,30 @@ In dit artikel beschrijft de verschillende manieren voor het taggen van een virt
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Met Azure CLI-tagging
-Om te beginnen, moet u de meest recente [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
+Om te beginnen, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-azure-cli) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az-login).
 
 U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 U kunt alle eigenschappen weergeven voor een bepaalde virtuele Machine, met inbegrip van de labels met de volgende opdracht:
 
-        az vm show --resource-group MyResourceGroup --name MyTestVM
+```azurecli
+az vm show --resource-group MyResourceGroup --name MyTestVM
+```
 
 Als u wilt een nieuwe VM-code via de Azure CLI toevoegt, kunt u de `azure vm update` opdracht samen met de parameter tag **--ingesteld**:
 
-        az vm update --resource-group MyResourceGroup --name MyTestVM –-set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
+```azurecli
+az vm update \
+    --resource-group MyResourceGroup \
+    --name MyTestVM \
+    --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
+```
 
 Als u wilt verwijderen labels, kunt u de **--verwijderen** parameter in de `azure vm update` opdracht.
 
-        az vm update –-resource-group MyResourceGroup –-name MyTestVM --remove tags.myNewTagName1
-
+```azurecli
+az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1
+```
 
 Nu dat we labels op onze bronnen Azure CLI en de Portal hebt toegepast, gaat u nu een overzicht van de gebruiksgegevens voor een overzicht van de labels in de portal voor facturering.
 

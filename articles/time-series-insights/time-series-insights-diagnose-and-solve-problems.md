@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/15/2017
-ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/09/2018
+ms.openlocfilehash: f0c1b8aa99e9ac9c73f57af17490dd3a465a9cac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnosticeren en oplossen van problemen in uw omgeving Time Series Insights
 
@@ -45,6 +45,11 @@ Tijdens de registratie van am IoT-Hub of een event hub, kunt u de consumergroep 
 Wanneer u gegevens gedeeltelijk kunt zien, maar de gegevens is achtergebleven achter, zijn er verschillende mogelijkheden te overwegen:
 
 ### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>Mogelijke oorzaak A: uw omgeving worden beperkt door ophalen
+Dit is een veelvoorkomend probleem wanneer omgevingen zijn ingericht na het maken van een gebeurtenisbron met gegevens.  Azure IoT Hubs en gebeurtenissen Hubs opslaan van gegevens van zeven dagen.  TSI wordt altijd gestart vanuit de oudste gebeurtenis (FIFO) binnen de gebeurtenisbron.  Dus als er vijf miljoen gebeurtenissen in een gebeurtenisbron wanneer u verbinding met een S1, één eenheid TSI omgeving maakt, leest TSI ongeveer een miljoen gebeurtenissen per dag.  Dit lijkt lijkt het alsof TSI vijf dagen van de latentie op het eerste gezicht ondervindt.  Wat daadwerkelijk wordt de omgeving wordt beperkt.  Als u oude gebeurtenissen in uw gebeurtenisbron hebt, kunt u twee manieren benaderen:
+
+- Limieten voor de gebeurtenisbron bewaren om te verwijderen van oude gebeurtenissen die u niet wilt weergegeven in de TSI wijzigen
+- Richt een groter omgeving (wat betreft het aantal eenheden) voor een betere doorvoer van oude gebeurtenissen.  Het bovenstaande voorbeeld gebruikt als u vijf eenheden die dezelfde S1 omgeving verhoogd gedurende één dag, moet de omgeving bijwerken naar nu binnen een dag.  Als de actieve status gebeurtenis productie 1M of minder gebeurtenissen per dag, kunt u de capaciteit van de gebeurtenis terug naar beneden op één eenheid beperken nadat deze is bijgewerkt.  
+
 De limiet voor bandbreedteregeling wordt afgedwongen op basis van de omgeving SKU type en capaciteit. Alle bronnen van gebeurtenissen in de omgeving delen deze capaciteit. Als de gegevensbron voor uw IoT-Hub of event hub gegevens buiten de grenzen afgedwongen pusht, ziet u bandbreedtebeperking en een vertraging.
 
 Het volgende diagram toont een tijd reeks Insights-omgeving die een SKU S1 en een capaciteit van 3 heeft. Kan het 3 miljoen ingangsgebeurtenissen per dag.
@@ -76,6 +81,12 @@ U kunt de vertraging oplossen door de volgende stappen uitvoeren:
 Zorg ervoor dat de naam en waarde aan de volgende regels voldoen:
 * De naam van de timestamp-eigenschap is _hoofdlettergevoelig_.
 * De waarde van de timestamp-eigenschap die afkomstig is van de gebeurtenisbron, als een JSON-tekenreeks moet de indeling _jjjj-MM-ddTUU. FFFFFFFK_. Een voorbeeld van een dergelijke tekenreeks is ' 2008-04-12T12:53Z '.
+
+De eenvoudigste manier om ervoor te zorgen dat uw *tijdstempel eigenschapsnaam* wordt vastgelegd en goed werkt is het gebruik van de TSI explorer.  Vanuit de explorer TSI een bepaalde tijdsperiode nadat u hebt opgegeven met behulp van de grafiek, selecteert de *tijdstempel eigenschapsnaam*.  Met de rechtermuisknop op de selectie en kies de *verkennen gebeurtenissen* optie.  De eerste kolom-header moet uw *tijdstempel eigenschapsnaam* en er zijn een *($ts)* naast het woord *tijdstempel*, plaats:
+- *(abc)* , dit zou betekenen dat er TSI leest de gegevenswaarden als tekenreeksen
+- *Pictogram Agenda*, dit zou betekenen dat er TSI leest de gegevenswaarde als *datum/tijd*
+- *#*, de gegevenswaarden dit zou betekenen dat er TSI wordt gelezen als een geheel getal
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - Voor aanvullende ondersteuning door een gesprek te starten op de [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) of [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 

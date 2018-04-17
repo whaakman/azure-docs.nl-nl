@@ -3,9 +3,9 @@ title: Wijzig de instellingen van Azure Service Fabric-cluster | Microsoft Docs
 description: In dit artikel beschrijft de fabric-instellingen en de fabric-upgrade beleidsregels die u kunt aanpassen.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
-ms.author: chackdan
-ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: aljo
+ms.openlocfilehash: 7d32ebd54d501a2eb5d6e353d38834546200c813
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en het beleid voor Fabric-Upgrade aanpassen
 Dit document wordt uitgelegd hoe de verschillende fabric-instellingen aanpassen en de fabric-upgrade beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
@@ -117,7 +117,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | --- | --- | --- | --- |
 | NodeAddresses |tekenreeks, standaardwaarde is "" |Statisch|Een verzameling van adressen (verbindingsreeksen) op verschillende knooppunten die kunnen worden gebruikt om te communiceren met de de Naming Service. In eerste instantie verbindt de Client een van de adressen willekeurig selecteren. Als meer dan een verbindingsreeks wordt verstrekt en een verbinding is mislukt vanwege een communicatie- of time-outfout; de Client-switches sequentieel het volgende adres gebruiken. Zie de naamgeving van het adres van de sectie voor meer informatie over de semantiek voor nieuwe pogingen opnieuw. |
 | ConnectionInitializationTimeout |Tijd in seconden, de standaardwaarde is 2 |Dynamisch|Geef de interval in seconden. Time-outinterval voor elke keer client verbinding probeert te openen van een verbinding met de gateway. |
-| PartitionLocationCacheLimit |Int, de standaardwaarde is 100000 |Statisch|Het aantal partities in de cache opgeslagen voor de omzetting van de service (ingesteld op 0 in voor onbeperkt). |
+| Partitionlocationcachelimit op |Int, de standaardwaarde is 100000 |Statisch|Het aantal partities in de cache opgeslagen voor de omzetting van de service (ingesteld op 0 in voor onbeperkt). |
 | ServiceChangePollInterval |Tijd in seconden, de standaardwaarde is 120 |Dynamisch|Geef de interval in seconden. Het interval tussen opeenvolgende polls voor service van de client in de gateway voor geregistreerde service wijziging meldingen retouraanroepen verandert. |
 | KeepAliveIntervalInSeconds |Int, de standaardwaarde is 20 |Statisch|Het interval waarmee het transport FabricClient keepalive-berichten naar de gateway verzendt. Voor 0; keepAlive is uitgeschakeld. Moet een positieve waarde zijn. |
 | HealthOperationTimeout |Tijd in seconden, de standaardwaarde is 120 |Dynamisch|Geef de interval in seconden. De time-out voor een rapportbericht verzonden naar de Health Manager. |
@@ -243,28 +243,28 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | --- | --- | --- | --- |
 | RunAsAccountName |tekenreeks, standaardwaarde is "" |Dynamisch|Geeft de naam van Run as-account. Dit is alleen nodig voor account 'DomainUser' of 'ManagedServiceAccount' type. Geldige waarden zijn 'domein\gebruiker' of 'user@domain'. |
 |RunAsAccountType|tekenreeks, standaardwaarde is "" |Dynamisch|Geeft het type Run as-account. Dit is nodig voor alle geldige waarden voor RunAs-sectie ' DomainUser/NetworkService/ManagedServiceAccount/LocalSystem' zijn.|
-|RunAsPassword|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
+|Wachtwoord|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
 
 ### <a name="section-name-runasfabric"></a>Sectienaam: RunAs_Fabric
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 | RunAsAccountName |tekenreeks, standaardwaarde is "" |Dynamisch|Geeft de naam van Run as-account. Dit is alleen nodig voor account 'DomainUser' of 'ManagedServiceAccount' type. Geldige waarden zijn 'domein\gebruiker' of 'user@domain'. |
 |RunAsAccountType|tekenreeks, standaardwaarde is "" |Dynamisch|Geeft het type Run as-account. Dit is nodig voor alle geldige waarden voor RunAs-sectie ' Lokalegebruiker/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem' zijn. |
-|RunAsPassword|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
+|Wachtwoord|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
 
 ### <a name="section-name-runashttpgateway"></a>Sectienaam: RunAs_HttpGateway
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 | RunAsAccountName |tekenreeks, standaardwaarde is "" |Dynamisch|Geeft de naam van Run as-account. Dit is alleen nodig voor account 'DomainUser' of 'ManagedServiceAccount' type. Geldige waarden zijn 'domein\gebruiker' of 'user@domain'. |
 |RunAsAccountType|tekenreeks, standaardwaarde is "" |Dynamisch|Geeft het type Run as-account. Dit is nodig voor alle geldige waarden voor RunAs-sectie ' Lokalegebruiker/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem' zijn. |
-|RunAsPassword|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
+|Wachtwoord|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
 
 ### <a name="section-name-runasdca"></a>Sectienaam: RunAs_DCA
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 | RunAsAccountName |tekenreeks, standaardwaarde is "" |Dynamisch|Geeft de naam van Run as-account. Dit is alleen nodig voor account 'DomainUser' of 'ManagedServiceAccount' type. Geldige waarden zijn 'domein\gebruiker' of 'user@domain'. |
 |RunAsAccountType|tekenreeks, standaardwaarde is "" |Dynamisch|Geeft het type Run as-account. Dit is nodig voor alle geldige waarden voor RunAs-sectie ' Lokalegebruiker/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem' zijn. |
-|RunAsPassword|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
+|Wachtwoord|tekenreeks, standaardwaarde is "" |Dynamisch|Hiermee geeft u het wachtwoord voor RunAs-account. Dit is alleen nodig voor accounttype 'DomainUser'. |
 
 ### <a name="section-name-httpgateway"></a>Sectienaam: HttpGateway
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
@@ -299,10 +299,10 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 |GatewayX509CertificateFindValue | tekenreeks, standaardwaarde is "" |Dynamisch| Zoeken filterwaarde voor het vinden van het certificaat voor HTTP-app-gateway. Dit certificaat is geconfigureerd op het https-eindpunt en kan ook worden gebruikt om te controleren of de identiteit van de app als nodig is voor de services. FindValue wordt opgezocht eerste; en als dat niet bestaat; FindValueSecondary wordt opgezocht. |
 |GatewayX509CertificateFindValueSecondary | tekenreeks, standaardwaarde is "" |Dynamisch|Zoeken filterwaarde voor het vinden van het certificaat voor HTTP-app-gateway. Dit certificaat is geconfigureerd op het https-eindpunt en kan ook worden gebruikt om te controleren of de identiteit van de app als nodig is voor de services. FindValue wordt opgezocht eerste; en als dat niet bestaat; FindValueSecondary wordt opgezocht.|
 |HttpRequestConnectTimeout|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(5)|Dynamisch|Geef de interval in seconden.  Geeft de time-out voor verbinding maken voor de http-aanvragen worden verzonden vanaf de HTTP-app-gateway.  |
-|RemoveServiceResponseHeaders|tekenreeks, default is L "datum. Server'|Statisch|Puntkomma / door komma's gescheiden lijst van antwoordheaders die wordt verwijderd uit het antwoord van de service; voordat deze worden doorgestuurd naar de client. Als deze optie is ingesteld op een lege tekenreeks; Geeft de headers die zijn geretourneerd door de service-is. i.e de datum en de Server niet overschrijven |
+|RemoveServiceResponseHeaders|tekenreeks, default is L "datum. Server'|Statisch|Puntkomma / door komma's gescheiden lijst van antwoordheaders die wordt verwijderd uit het antwoord van de service; voordat deze worden doorgestuurd naar de client. Als deze optie is ingesteld op een lege tekenreeks; Geeft de headers die zijn geretourneerd door de service-is. Internet Explorer de datum en de Server niet overschrijven |
 |ApplicationCertificateValidationPolicy|tekenreeks, default is L 'None'|Statisch| ApplicationCertificateValidationPolicy: Geen: servercertificaat; wordt niet gevalideerd de aanvraag mislukt. ServiceCertificateThumbprints: Raadpleeg config ServiceCertificateThumbprints voor de door komma's gescheiden lijst met vingerafdrukken van externe certificaten die de omgekeerde proxy kan vertrouwen. ServiceCommonNameAndIssuer: Raadpleeg config ServiceCommonNameAndIssuer voor de vingerafdruk van het onderwerp en de verlener van externe certificaten die de omgekeerde proxy kan vertrouwen. |
 |ServiceCertificateThumbprints|tekenreeks, default is L""|Dynamisch| |
-|CrlCheckingFlag|uint, standaard is 0x40000000 |Dynamisch| De vlaggen voor de toepassing/service validatie van certificaatketen; bijvoorbeeld CRL-controle 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY wijzigt in 0 schakelt CRL controleren of volledige lijst met ondersteunde waarden wordt beschreven door dwFlags van CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078 (v=vs.85).aspx  |
+|CrlCheckingFlag|uint, standaard is 0x40000000 |Dynamisch| De vlaggen voor de toepassing/service validatie van certificaatketen; bijvoorbeeld CRL-controle 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY wijzigt in 0 schakelt CRL controleren of volledige lijst met ondersteunde waarden wordt door dwFlags van CertGetCertificateChain beschreven: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |IgnoreCrlOfflineError|BOOL, standaard is ingesteld op TRUE|Dynamisch|Hiermee geeft u op of u offline fout van de CRL voor verificatie van de toepassing/service-certificaat te negeren. |
 |SecureOnlyMode|BOOL, standaard is ONWAAR|Dynamisch| SecureOnlyMode: true: Reverse Proxy alleen doorstuurt naar de services die beveiligde eindpunten publiceren. ONWAAR: Reverse Proxy kan eindpunten beveiligen/niet-beveiligde aanvragen worden doorgestuurd.  |
 |ForwardClientCertificate|BOOL, standaard is ONWAAR|Dynamisch| |
@@ -451,7 +451,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 |ServerCertThumbprints|tekenreeks, default is L""|Dynamisch|Vingerafdrukken van servercertificaten door cluster gebruikt voor communicatie met clients; clients gebruiken deze om te verifiëren van het cluster. Het is een naam door komma's gescheiden lijst. |
 |ClientCertThumbprints|tekenreeks, default is L""|Dynamisch|Vingerafdrukken van certificaten die door clients wordt gebruikt voor communicatie met het cluster. cluster gebruikt deze binnenkomende verbinding te autoriseren. Het is een naam door komma's gescheiden lijst. |
 |AdminClientCertThumbprints|tekenreeks, default is L""|Dynamisch|Vingerafdrukken van certificaten die worden gebruikt door clients in de beheerdersrol. Het is een naam door komma's gescheiden lijst. |
-|CrlCheckingFlag|uint, standaard is 0x40000000|Dynamisch|Standaard certificaatketen validatie vlag; kan worden genegeerd door de onderdeel-specifieke vlag; bijvoorbeeld Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ ALLEEN de instelling op 0, schakelt CRL-controle volledige lijst met ondersteunde waarden wordt beschreven door dwFlags van CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078 (v=vs.85).aspx |
+|CrlCheckingFlag|uint, standaard is 0x40000000|Dynamisch|Standaard certificaatketen validatie vlag; kan worden genegeerd door de onderdeel-specifieke vlag; bijvoorbeeld Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ ALLEEN instellen op 0, wordt het CRL controleren of volledige lijst met ondersteunde waarden wordt door dwFlags van CertGetCertificateChain beschreven: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |IgnoreCrlOfflineError|BOOL, standaard is ONWAAR|Dynamisch|Of de fout te negeren CRL offline wanneer serverzijde binnenkomende clientcertificaten controleert |
 |IgnoreSvrCrlOfflineError|BOOL, standaard is ingesteld op TRUE|Dynamisch|Of de fout te negeren CRL offline wanneer de client-side controleert of servercertificaten voor binnenkomende; de standaardwaarde op true. Aanvallen met ingetrokken certificaten vereisen inbreuk op DNS; moeilijker dan met ingetrokken certificaten. |
 |CrlDisablePeriod|TimeSpan, de standaardwaarde is Common::TimeSpan::FromMinutes(15)|Dynamisch|Geef de interval in seconden. Hoe lang CRL-controle is uitgeschakeld voor een bepaald certificaat na het vaststellen van offline-fout. Als u offline CRL-fout kan worden genegeerd. |
@@ -748,7 +748,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | --- | --- | --- | --- |
 |PropertyGroup|KeyBoolValueMap, standaardwaarde is geen|Dynamisch|Bepaalt de set met metrische gegevens die moeten worden gebruikt voor defragmentatie en niet voor taakverdeling. |
 
-### <a name="section-name-defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>Section Name: DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
+### <a name="section-name-defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>Sectienaam: DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
 | **Parameter** | **Toegestane waarden** |**Beleid voor upgrade**| **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, standaardwaarde is geen|Dynamisch|Bepaalt het aantal beschikbare knooppunten die nodig zijn om het cluster gedefragmenteerd door te geven van beide procent in bereik Overweeg [0.0-1.0) of het aantal lege knooppunten as-nummer > = 1.0 |

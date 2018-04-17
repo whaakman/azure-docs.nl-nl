@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Instellen van het synchroniseren van de SQL-gegevens (Preview)
 In deze zelfstudie leert u het instellen van het synchroniseren van Azure SQL-gegevens door te maken van een hybride-groep voor synchronisatie met Azure SQL Database- en SQL Server-exemplaren. De nieuwe groep voor synchronisatie is volledig geconfigureerd en gesynchroniseerd volgens de planning die u instelt.
@@ -24,7 +24,7 @@ Deze zelfstudie wordt ervan uitgegaan dat er ten minste enige ervaring met SQL-D
 Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync (Preview)](sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
 
 Voor volledige PowerShell voorbeelden van het synchroniseren van de SQL-gegevens configureren, Zie de volgende artikelen:
--   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md)
+-   [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
 -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 ## <a name="step-1---create-sync-group"></a>Stap 1: het maken van de groep voor synchronisatie
@@ -151,7 +151,7 @@ Op de **configureren On-Premises** pagina, het volgende doen:
         ![Voer de referenties van sleutel- en agent](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   Als u een Firewallfout op dit moment krijgt, hebt u een firewallregel maken op Azure inkomend verkeer van de SQL Server-computer. U kunt de regel maken in de portal, maar soms is het eenvoudiger om deze te maken in SQL Server Management Studio (SSMS). In SSMS, probeert u verbinding maken met de hub-database in Azure. Voer de naam als \<hub_database_name\>. database.windows.net. Volg de stappen in het dialoogvenster voor het configureren van de firewallregel op Azure. Keer vervolgens terug naar de Agent voor synchronisatie van Client-app.
+        >   Als u een Firewallfout op dit moment krijgt, hebt u een firewallregel maken op Azure inkomend verkeer van de SQL Server-computer. U kunt de regel maken in de portal, maar soms is het eenvoudiger om deze te maken in SQL Server Management Studio (SSMS). In SSMS, probeert u verbinding maken met de hub-database in Azure. Voer de naam als < hub_database_name >. database.windows.net. Volg de stappen in het dialoogvenster voor het configureren van de firewallregel op Azure. Keer vervolgens terug naar de Agent voor synchronisatie van Client-app.
 
     9.  Klik in de app Client Sync-Agent op **registreren** registreren van een SQL Server-database met de agent. De **SQL Server-configuratiebestand** dialoogvenster wordt geopend.
 
@@ -225,7 +225,16 @@ Dat hoeft niet. In een groep voor synchronisatie met een hub en drie spaken (A, 
 
 ### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Hoe krijg ik wijzigingen in het schema in een groep voor synchronisatie
 
-U moet wijzigingen in het schema handmatig uitvoeren.
+U moet maken en alle wijzigingen in het schema handmatig doorgeven.
+1. De schemawijzigingen handmatig naar de hub en gerepliceerd op alle leden van de synchronisatie.
+2. De synchronisatieschema bijwerken.
+
+**Toevoegen van nieuwe tabellen en kolommen**. De huidige synchronisatie niet van invloed op nieuwe tabellen en kolommen. Synchroniseren van gegevens wordt de nieuwe tabellen en kolommen genegeerd totdat u ze aan het synchronisatieschema toevoegt. Wanneer u nieuwe databaseobjecten toevoegt, is dit de aanbevolen volgorde te volgen:
+1. De nieuwe tabellen of kolommen toevoegen aan de hub en op alle leden van de synchronisatie.
+2. De nieuwe tabellen of kolommen toevoegen aan het synchronisatieschema.
+3. Begin met het invoeren van waarden in de nieuwe tabellen en kolommen.
+
+**Het wijzigen van het gegevenstype van een kolom**. Wanneer u het gegevenstype van een bestaande kolom wijzigt, blijft synchroniseren van gegevens werken, zolang de nieuwe waarden aanpassen aan het oorspronkelijke gegevenstype dat is gedefinieerd in het synchronisatieschema. Bijvoorbeeld, als u het type in de brondatabase van wijzigen **int** naar **bigint**, synchroniseren van gegevens blijft werken totdat u een waarde die is te groot voor de **int** gegevenstype . Deze wijziging te voltooien, de schemawijziging handmatig repliceren naar de hub en op alle leden van de synchronisatie en werk vervolgens het synchronisatieschema.
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Hoe kan ik exporteren en importeren van een database met het synchroniseren van gegevens?
 Na het exporteren van een database als een `.bacpac` bestand en importeer het bestand om een nieuwe database te maken, moet u de volgende twee taken uitvoeren om te synchroniseren van gegevens in de nieuwe database te gebruiken:
@@ -279,7 +288,7 @@ Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
 -   [Problemen oplossen met Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Voer PowerShell-voorbeelden uit die laten zien hoe u SQL Data Sync configureert:
-    -   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [De documentatie over de REST-API van SQL Data Sync downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: a9b9bec4fd48c44ece9d762b539cd3d6e10c1858
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
 
@@ -21,7 +21,7 @@ Kunt u de Azure-portal prestaties aanbevelingen die u kunnen de prestaties van u
 
 ## <a name="viewing-recommendations"></a>Aanbevelingen weergeven
 
-Als u wilt bekijken en toepassen van aanbevelingen voor prestaties, moet u de juiste [toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md) machtigingen in Azure. **Lezer**, **SQL DB Contributor** machtigingen zijn vereist voor het weergeven van aanbevelingen en **eigenaar**, **SQL DB Contributor** machtigingen zijn vereist voor uitvoeren van acties; Maak of verwijder indexen en maken van een index te annuleren.
+Als u wilt bekijken en toepassen van aanbevelingen voor prestaties, moet u de juiste [toegangsbeheer op basis van rollen](../role-based-access-control/overview.md) machtigingen in Azure. **Lezer**, **SQL DB Contributor** machtigingen zijn vereist voor het weergeven van aanbevelingen en **eigenaar**, **SQL DB Contributor** machtigingen zijn vereist voor uitvoeren van acties; Maak of verwijder indexen en maken van een index te annuleren.
 
 Gebruik de volgende stappen uit om te zoeken prestaties aanbevelingen in Azure-portal:
 
@@ -154,5 +154,5 @@ Bewaken van uw aanbevelingen en blijven toepassen om de prestaties te verfijnen.
 ## <a name="additional-resources"></a>Aanvullende resources
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [INDEX MAKEN](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-what-is.md)
+* [Toegangsbeheer op basis van rollen](../role-based-access-control/overview.md)
 

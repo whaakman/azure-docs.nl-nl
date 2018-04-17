@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9ecd8dc40e168c2fd37e3d58ee588a0d9626a04a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Over configuratie-instellingen voor VPN-Gateway
 
@@ -79,9 +79,9 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizechange"></a>Vergroten of verkleinen versus een SKU wijzigen
+###  <a name="resizechange"></a>Het formaat wijzigen van een SKU of
 
-Formaat van een gateway-SKU is relatief eenvoudig. U hebt weinig downtime als Hiermee wordt ingesteld voor de gateway. Er zijn echter regels met betrekking tot het vergroten of verkleinen:
+Als u een VPN-gateway hebt en u wilt gebruiken van een andere gateway-SKU, zijn uw opties ofwel het formaat van uw gateway-SKU of te wijzigen in een andere SKU. Wanneer u een andere gateway SKU wijzigt, kunt u de bestaande gateway volledig te verwijderen en bouwen van een nieuwe. Dit kan tot 45 minuten duren om samen te stellen duren. Ter vergelijking, wanneer u de grootte van een gateway-SKU, hebt u weinig uitvaltijd omdat u niet hoeft te verwijderen en opnieuw opbouwen van de gateway. Als u de optie hebt voor het formaat van uw gateway-SKU, in plaats van deze te wijzigen, wilt u dat doet. Er zijn echter regels met betrekking tot het vergroten of verkleinen:
 
 1. U kunt wisselen tussen VpnGw1-, VpnGw2- en VpnGw3-SKU's.
 2. Als u met de oude gateway-SKU's werkt, kunt u wisselen tussen Basic-, Standard- en HighPerformance-SKU's.

@@ -2,11 +2,11 @@
 title: Beveiliging op rijniveau met Power BI werkruimte verzamelingen
 description: Meer informatie over beveiliging met Power BI werkruimte verzamelingen
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 8c3ce8bc69a098d3133f27a2604f9d564693ea54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 7256e2f798fbc32c098f19f60b62e577300868c7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Beveiliging op rijniveau met Power BI werkruimte verzamelingen
 
@@ -89,8 +89,8 @@ Filters kunnen nu ook stromen van de verkoop-tabel om de **Item** tabel:
 > [!NOTE]
 > Als u de modus DirectQuery voor uw gegevens, moet u inschakelen bidirectionele cross filteren op deze twee opties selecteren:
 
-1. **Bestand** -> **opties en instellingen** -> **Voorbeeldfuncties** -> **inschakelen kruislings filteren in beide richtingen voor DirectQuery**.
-2. **Bestand** -> **opties en instellingen** -> **DirectQuery** -> **onbeperkte meting in DirectQuery-modus toestaan**.
+1. **Bestand** -> **opties en instellingen** -> **Voorbeeldfuncties** -> **inschakelen kruislings filteren in beide richtingen voor DirectQuery** .
+2. **Bestand** -> **opties en instellingen** -> **DirectQuery** -> **onbeperkte meting toestaan in de modus DirectQuery**.
 
 Voor meer informatie over bidirectionele cross-filtering, downloaden de [bidirectionele cross-filteren in SQL Server Analysis Services 2016 en Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx) technisch document.
 

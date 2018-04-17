@@ -1,6 +1,6 @@
 ---
 title: Verificatie van de service-naar-service voor Azure Sleutelkluis met .NET
-description: "De bibliotheek Microsoft.Azure.Services.AppAuthentication gebruiken om te verifiëren voor Azure Sleutelkluis met .NET."
+description: De bibliotheek Microsoft.Azure.Services.AppAuthentication gebruiken om te verifiëren voor Azure Sleutelkluis met .NET.
 keywords: lokale referenties van Azure sleutelkluis verificatie
 author: lleonard-msft
 manager: mbaldwin
@@ -8,15 +8,15 @@ services: key-vault
 ms.author: alleonar
 ms.date: 11/15/2017
 ms.topic: article
-ms.prod: 
-ms.service: microsoft-keyvault
-ms.technology: 
+ms.prod: ''
+ms.service: key-vault
+ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db0b0ca72f41c68e19db6635d9ba0e9144183204
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Verificatie van de service-naar-service voor Azure Sleutelkluis met .NET
 
@@ -113,7 +113,7 @@ Azure CLI gebruiken voor lokale ontwikkeling:
 
 Gebruik `az account get-access-token` toegang controleren.  Als u een foutbericht ontvangt, controleert u of de stap 1 is voltooid. 
 
-Als Azure CLI is niet geïnstalleerd op de standaardmap, verschijnt er een fout rapportage die `AzureServiceTokenProvider` het pad niet vinden voor Azure CLI.  Gebruik de **AzureCLIPath**omgevingsvariabele voor het definiëren van de Azure CLI-installatiemap. `AzureServiceTokenProvider`voegt de opgegeven map in de **AzureCLIPath** omgevingsvariabele de **pad** omgevingsvariabele indien nodig.
+Als Azure CLI is niet geïnstalleerd op de standaardmap, verschijnt er een fout rapportage die `AzureServiceTokenProvider` het pad niet vinden voor Azure CLI.  Gebruik de **AzureCLIPath**omgevingsvariabele voor het definiëren van de Azure CLI-installatiemap. `AzureServiceTokenProvider` voegt de opgegeven map in de **AzureCLIPath** omgevingsvariabele de **pad** omgevingsvariabele indien nodig.
 
 Als u bent aangemeld bij Azure CLI met meerdere accounts of uw account toegang tot meerdere abonnementen heeft, moet u de specifieke abonnement moet worden gebruikt opgeven.  Gebruik het volgende om dit te doen:
 
@@ -211,7 +211,7 @@ Om aan te melden met behulp van een Azure AD de gedeelde geheime referentie:
 
 3. Voer de toepassing uit. 
 
-Zodra u alles correct geen verdere codewijzigingen ingesteld, zijn vereist.  `AzureServiceTokenProvider`de omgevingsvariabele en het certificaat voor verificatie met Azure AD gebruikt. 
+Zodra u alles correct geen verdere codewijzigingen ingesteld, zijn vereist.  `AzureServiceTokenProvider` de omgevingsvariabele en het certificaat voor verificatie met Azure AD gebruikt. 
 
 <a name="connectionstrings"></a>
 ## <a name="connection-string-support"></a>Ondersteuning voor verbindingen tekenreeks
@@ -228,9 +228,9 @@ De volgende opties worden ondersteund:
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Lokale ontwikkeling | AzureServiceTokenProvider maakt gebruik van Visual Studio-token ophalen. |
 | `RunAs=CurrentUser;` | Lokale ontwikkeling | AzureServiceTokenProvider maakt gebruik van Azure AD Integrated Authentication-token ophalen. |
 | `RunAs=App;` | Beheerde service-identiteit | AzureServiceTokenProvider maakt gebruik van de Service-identiteit beheerd-token ophalen. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Service-principal | `AzureServiceTokenProvider`maakt gebruik van certificaten van Azure AD-token ophalen. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Service-principal | `AzureServiceTokenProvider`certificaat wordt gebruikt vanuit Azure AD-token ophalen|
-| `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service-principal |`AzureServiceTokenProvider`maakt gebruik van geheim van Azure AD-token ophalen. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Service-principal | `AzureServiceTokenProvider` maakt gebruik van certificaten van Azure AD-token ophalen. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Service-principal | `AzureServiceTokenProvider` certificaat wordt gebruikt vanuit Azure AD-token ophalen|
+| `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service-principal |`AzureServiceTokenProvider` maakt gebruik van geheim van Azure AD-token ophalen. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

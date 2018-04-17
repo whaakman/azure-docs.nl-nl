@@ -2,30 +2,30 @@
 title: Informatie over het gebruik van de virtuele machine van Azure | Microsoft Docs
 description: Details van de virtuele machine gebruik begrijpen
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-virtual-machine
-ms.assetid: 
-ms.service: 
-ms.devlang: 
+ms.assetid: ''
+ms.service: ''
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: c87c4256aa193a4971b75c3230d1996c2efdc352
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 9980650008e2d2c2f768dcb3256ea5344119fa13
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informatie over het gebruik van de virtuele machine van Azure
-Krachtige verbruik insights kunnen worden verkregen door het analyseren van uw Azure gebruiksgegevens – inzichten die in staat kunnen stellen kosten beter beheer en de toewijzing binnen uw organisatie. Dit document bevat een diepgaand in de details van uw Azure Compute-verbruik. Voor meer informatie over het algemeen gebruik van Azure, gaat u naar [inzicht in uw factuur](/billing/billing-understand-your-bill.md).
+Krachtige verbruik insights kunnen worden verkregen door het analyseren van uw Azure gebruiksgegevens – inzichten die in staat kunnen stellen kosten beter beheer en de toewijzing binnen uw organisatie. Dit document bevat een diepgaand in de details van uw Azure Compute-verbruik. Voor meer informatie over het algemeen gebruik van Azure, gaat u naar [inzicht in uw factuur](../../billing/billing-understand-your-bill.md).
 
 ## <a name="download-your-usage-details"></a>De details van uw gebruik downloaden
-Om te beginnen, [downloaden van de details van uw gebruik](/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv.md). De onderstaande tabel bevat de definitie en voorbeeld van de waarden van het gebruik van voor virtuele Machines die zijn geïmplementeerd via de Azure Resource Manager. Dit document bevat geen gedetailleerde informatie voor virtuele machines die worden geïmplementeerd via het klassieke model.
+Om te beginnen, [downloaden van de details van uw gebruik](../../billing/billing-download-azure-invoice-daily-usage-date.md). De onderstaande tabel bevat de definitie en voorbeeld van de waarden van het gebruik van voor virtuele Machines die zijn geïmplementeerd via de Azure Resource Manager. Dit document bevat geen gedetailleerde informatie voor virtuele machines die worden geïmplementeerd via het klassieke model.
 
 
 | Velden             | Betekenis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Voorbeeldwaarden                                                                                                                                                                                                                                                                                                                                                   |
@@ -39,7 +39,7 @@ Om te beginnen, [downloaden van de details van uw gebruik](/billing/billing-down
 | Verbruikt           | Het bedrag van de resource die voor die dag is verbruikt. We factureren voor Compute, voor elke minuut dat de virtuele machine is uitgevoerd voor een bepaalde tijd (maximaal 6 decimalen nauwkeurig).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    “1”, “0.5”                                                                                                                                                                                                                                                                                                                                                    |
 | Resourcelocatie  | Hiermee wordt het datacenter geïdentificeerd waarop de resource wordt uitgevoerd.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 'Japan-Oost'                                                                                                                                                                                                                                                                                                                                                        |
 | Verbruikte service   | De Azure-platform-service die u hebt gebruikt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 'Microsoft.Compute'                                                                                                                                                                                                                                                                                                                                              |
-| Resourcegroep     | De resourcegroep waarin de geïmplementeerde resource wordt uitgevoerd. Zie voor meer informatie [overzicht van Azure Resource Manager.](/azure-resource-manager/resource-group-overview.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    'MyRG'                                                                                                                                                                                                                                                                                                                                                        |
+| Resourcegroep     | De resourcegroep waarin de geïmplementeerde resource wordt uitgevoerd. Zie voor meer informatie [overzicht van Azure Resource Manager.](../../azure-resource-manager/resource-group-overview.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    'MyRG'                                                                                                                                                                                                                                                                                                                                                        |
 | Exemplaar-id        | De id voor de resource. De id bevat de naam die u voor de resource opgeeft wanneer deze wordt gemaakt. Voor virtuele machines, de exemplaar-ID bevat de abonnements-id, ResourceGroupName en VMName (of schaal naam voor het gebruik van scale set instellen).                                                                                                                                                                                                                                                                                                                                                                                                                    | ' / abonnementen/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx / resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1 '<br><br>of<br><br>' / abonnementen/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx / resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1 '                                                                                           |
 | Tags               | Code die u aan de resource toewijst. Gebruik labels facturering groeperen van records. Meer informatie over hoe [labelen van uw virtuele Machines.](tag.md) Dit is alleen beschikbaar voor VM's van Resource Manager.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | ' {'myDepartment': 'RD', 'myUser': 'MijnNaam'} '                                                                                                                                                                                                                                                                                                                        |
 | Aanvullende informatie    | Service-specifieke metagegevens. Voor virtuele machines vult u het volgende in het veld aanvullende informatie: <ul><li>Afbeelding typespecifieke installatiekopie die u hebt uitgevoerd. De volledige lijst met ondersteunde tekenreeksen hieronder onder afbeeldingstypen vinden.</li><li>Servicetype: de grootte die u hebt geïmplementeerd.</li><li>VMName: de naam van uw virtuele machine. Dit is alleen ingevuld voor VM-schaalset. Als u moet de naam van uw VM voor schaal ingesteld virtuele machines, die kunt u vinden in de bovenstaande exemplaar-ID-reeks.</li><li>UsageType: Dit geeft het type van het gebruik van die dit vertegenwoordigt.<ul><li>ComputeHR is het gebruik van de Compute uur voor de onderliggende virtuele machine, zoals Standard_D1_v2.</li><li>ComputeHR_SW is de kosten van de software premium als premium-software, zoals Microsoft R Server van de virtuele machine gebruikmaakt.</li></ul></li></ul>    | Virtuele Machines {'ImageType': 'Canonieke', 'ServiceType': 'Standard_DS1_v2', 'VMName': ' ","UsageType":" ComputeHR"}<br><br>Virtuele-Machineschaalsets {'ImageType': 'Canonieke', 'ServiceType': 'Standard_DS1_v2', 'VMName': 'myVM1', 'UsageType': "ComputeHR"}<br><br>Premium-Software {'ImageType': "","ServiceType ': 'Standard_DS1_v2', 'VMName': ' ', 'UsageType': ' ComputeHR_SW"} |
@@ -72,41 +72,41 @@ De naam van het gebied ingevuld in het veld Resourcelocatie in de gebruiksdetail
 |    **Naam van de Resource Manager-gebied**       |    **Resourcelocatie in informatie over het gebruik**    |
 |--------------------------|------------------------------------------|
 |    australiaeast         |    Australië Oost                               |
-|    australiasoutheast    |    Australië Zuidoost                          |
+|    australiasoutheast    |    AU - zuidoost                          |
 |    brazilsouth           |    Brazilië Zuid                              |
-|    CanadaCentral         |    CA centraal                            |
-|    CanadaEast            |    CA Oost                               |
-|    CentralIndia          |    India, midden                            |
+|    CanadaCentral         |    CA - centraal                            |
+|    CanadaEast            |    CA - oost                               |
+|    CentralIndia          |    IN - centraal                            |
 |    centralus             |    VS - midden                            |
-|    chinaeast             |    China - oost                            |
+|    chinaeast             |    China East                            |
 |    chinanorth            |    China - noord                           |
 |    eastasia              |    Oost-Azië                             |
 |    eastus                |    VS - oost                               |
 |    eastus2               |    VS - oost 2                             |
-|    GermanyCentral        |    De, midden                            |
-|    GermanyNortheast      |    De, noordoosten                          |
+|    GermanyCentral        |    DE, midden                            |
+|    GermanyNortheast      |    DE, noordoosten                          |
 |    japaneast             |    JA - Oost                               |
 |    japanwest             |    JA - West                               |
-|    KoreaCentral          |    KR-centraal                            |
-|    KoreaSouth            |    KR Zuid                              |
+|    KoreaCentral          |    Korea, midden                            |
+|    KoreaSouth            |    Korea, zuiden                              |
 |    northcentralus        |    Noord-centraal VS                      |
 |    northeurope           |    Noord-Europa                          |
 |    southcentralus        |    Zuid-centraal VS                      |
 |    southeastasia         |    Zuidoost-Azië                        |
-|    SouthIndia            |    India, zuiden                              |
+|    SouthIndia            |    IN - zuid                              |
 |    UKNorth               |    VS Noord                              |
 |    uksouth               |    Verenigd Koninkrijk Zuid                              |
 |    UKSouth2              |    VK, zuid 2                            |
 |    ukwest                |    Verenigd Koninkrijk West                               |
 |    USDoDCentral          |    US DoD - centraal                        |
 |    USDoDEast             |    US DoD - oost                           |
-|    USGovArizona          |    Amerikaanse overheid Arizona                         |
+|    USGovArizona          |    USGov Arizona                         |
 |    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    Amerikaanse overheid Texas                           |
+|    USGovTexas            |    USGov Texas                           |
 |    usgovvirginia         |    USGov Virginia                        |
-|    westcentralus         |    VS West-Centraal                       |
+|    westcentralus         |    US - west-centraal                       |
 |    westeurope            |    West-Europa                           |
-|    WestIndia             |    India, westen                               |
+|    WestIndia             |    West-India                               |
 |    westus                |    VS - west                               |
 |    westus2               |    VS West 2                             |
 
@@ -131,7 +131,7 @@ ComputeHR staat voor Compute uur waarmee de gebeurtenis gebruik voor de onderlig
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Hoe weet als ik kosten in rekening voor premium-software gebracht ben?
 Wanneer ontdekken welke VM-installatiekopie beste past bij uw behoeften, moet u zien wat de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). De installatiekopie heeft de snelheid van software-abonnement. Als u 'Gratis' voor de frequentie waarmee ziet, is er zonder extra kosten voor de software. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Wat is het verschil tussen Microsoft.ClassicCompute en Microsoft.Compute in de service verbruikt?
-Microsoft.ClassicCompute vertegenwoordigt klassieke resources via de Azure Service Manager wordt geïmplementeerd. Als u via de Resource Manager implementeert, wordt in de verbruikte service Microsoft.Compute gevuld. Meer informatie over de [Azure-implementatiemodellen](/azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft.ClassicCompute vertegenwoordigt klassieke resources via de Azure Service Manager wordt geïmplementeerd. Als u via de Resource Manager implementeert, wordt in de verbruikte service Microsoft.Compute gevuld. Meer informatie over de [Azure-implementatiemodellen](../../azure-resource-manager/resource-manager-deployment-model.md).
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>Waarom is het exemplaar-id-veld leeg laten voor mijn gebruik van virtuele machines?
 Als u via het klassieke implementatiemodel implementeert, is de exemplaar-id-tekenreeks niet beschikbaar.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>Waarom zijn de labels voor mijn VM's die niet aan de verbruiksgegevens stromende?
@@ -142,5 +142,5 @@ In het klassieke model, wordt de facturering voor bronnen op het niveau van de C
 Premium-opslag kunnen virtuele machines worden gefactureerd op dezelfde snelheid als niet-premium-opslag kunnen virtuele machines. Alleen de opslagkosten verschillen. Ga naar de [opslag-pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over de details van uw gebruik, [inzicht in uw factuur voor Microsoft Azure.](/billing/billing-understand-your-bill.md)
+Zie voor meer informatie over de details van uw gebruik, [inzicht in uw factuur voor Microsoft Azure.](../../billing/billing-understand-your-bill.md)
 

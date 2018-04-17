@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf54c789d766c4bd3d353028e75e34c961470070
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Inleiding tot een multitenant SaaS-app die gebruikmaakt van het patroon database per tenant met SQL Database
 
@@ -24,7 +24,7 @@ Bron en het beheer toepassingsscripts zijn beschikbaar in de [WingtipTicketsSaaS
 
 ## <a name="application-architecture"></a>Toepassingsarchitectuur
 
-De app Wingtip SaaS maakt gebruik van de database per tenant. Elastische pools SQL wordt gebruikt om het te optimaliseren. Voor het inrichten en de toewijzing van tenants tot hun gegevens, wordt de catalogusdatabase van een gebruikt. De kern Wingtip SaaS-toepassing maakt gebruik van een groep met drie voorbeeld tenants, plus de catalogusdatabase. Veel van de resultaten van de zelfstudies Wingtip SaaS in invoegtoepassingen voor de initiële implementatie is voltooid. Invoegtoepassingen zoals analytische databases en management cross-databaseschema worden geïntroduceerd.
+De app Wingtip SaaS maakt gebruik van de database per tenant. Elastische pools SQL wordt gebruikt om het te optimaliseren. Voor het inrichten en de toewijzing van tenants tot hun gegevens, wordt de catalogusdatabase van een gebruikt. De kern Wingtip SaaS-toepassing maakt gebruik van een groep met drie voorbeeld tenants, plus de catalogusdatabase. De catalogus en tenant-servers zijn ingericht met DNS-aliassen. Deze aliassen worden gebruikt voor het onderhouden van een verwijzing naar de actieve resources gebruikt door de toepassing Wingtip. Deze aliassen worden bijgewerkt om te verwijzen naar herstelbronnen in het herstel na noodgevallen zelfstudies. Veel van de resultaten van de zelfstudies Wingtip SaaS in invoegtoepassingen voor de initiële implementatie is voltooid. Invoegtoepassingen zoals analytische databases en management cross-databaseschema worden geïntroduceerd.
 
 
 ![Wingtip SaaS-architectuur](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)

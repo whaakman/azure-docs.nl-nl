@@ -5,7 +5,7 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Opslagwachtrijen en Service Bus-wachtrijen - vergeleken en tegenstelling tot
 In dit artikel analyseert de verschillen en overeenkomsten tussen de twee typen wachtrijen die tegenwoordig worden aangeboden door Microsoft Azure: opslagwachtrijen en Service Bus-wachtrijen. U kunt deze informatie gebruiken om de verschillende technologieën te vergelijken en tegen elkaar af te zetten zodat u een weloverwogen beslissing kunt nemen en de oplossing kiest die beste voldoet aan uw behoeften.
@@ -39,7 +39,7 @@ Bij het bepalen van welke queuing technologie geschikt is voor het doel voor een
 
 Als een oplossing systeemarchitect of ontwikkelaar, **Overweeg het gebruik van opslagwachtrijen** wanneer:
 
-* Uw toepassing moet meer dan 80 GB van berichten opslaan in een wachtrij, waarbij de berichten een korter zijn dan 7 dagen levensduur hebben.
+* Uw toepassing moet meer dan 80 GB van berichten opslaan in een wachtrij.
 * Uw toepassing wil bijhouden uitgevoerd voor het verwerken van een bericht in de wachtrij. Dit is handig als het verwerken van een bericht van het werkproces is vastgelopen. Een daaropvolgende worker kunt die gegevens vervolgens gebruiken om door te gaan van waar de voorafgaande worker gebleven was.
 * Gewenste server side-logboeken van alle transacties die op uw wachtrijen worden uitgevoerd.
 
@@ -51,7 +51,6 @@ Als een oplossing systeemarchitect of ontwikkelaar, **Overweeg het gebruik van S
 * Uw oplossing moet mogelijk zijn ter ondersteuning van automatische detectie van duplicaten.
 * U wilt dat uw toepassing om berichten te verwerken als parallelle langlopende gegevensstromen (berichten zijn gekoppeld aan een stream met de [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) eigenschap voor het bericht). In dit model wordt op elk knooppunt in de betreffende toepassing concurreert om gegevensstromen, in plaats van berichten. Wanneer een stream is gegeven aan een knooppunt in beslag nemen, kan het knooppunt de status van de toepassingsstatus van de stroom met behulp van transacties bekijkt.
 * Uw oplossing is vereist voor transactionele gedrag en atomisch bij het verzenden of ontvangen van meerdere berichten uit een wachtrij.
-* De time-to-live (TTL) kenmerk van de werkbelasting toepassingsspecifieke kan groter zijn dan de 7 dagen.
 * Uw toepassing berichten verwerkt die kunnen groter zijn dan 64 KB, maar is niet waarschijnlijk benadering 256 KB wordt beperkt.
 * U werkt met een vereiste voor een model toegangsgroepen op basis van de wachtrijen en andere rechten machtigingen gelden voor afzenders en ontvangers.
 * De wachtrijgrootte van uw groeit niet groter zijn dan 80 GB.
@@ -120,7 +119,7 @@ Deze sectie worden vergeleken geavanceerde mogelijkheden van opslagwachtrijen en
 * Beide technologieën queuing inschakelen op een later tijdstip worden gepland voor ontvangst van een bericht.
 * Automatisch doorsturen van wachtrij kunt duizenden wachtrijen automatisch doorsturen hun berichten naar een enkele wachtrij, van waaruit de ontvangende toepassing het bericht verbruikt. U kunt dit mechanisme gebruiken om te bereiken, beveiliging, transportbesturing en opslag tussen elke uitgever bericht isoleren.
 * Opslagwachtrijen bieden ondersteuning voor het bijwerken van de inhoud van het bericht. U kunt deze functionaliteit voor persistent maken informatie over de status en van de incrementele voortgangsupdates gebruiken in het bericht zodat deze kan worden verwerkt vanaf het laatste controlepunt, in plaats van vanaf het begin starten. U kunt hetzelfde scenario door het gebruik van bericht sessies inschakelen met Service Bus-wachtrijen. Sessies, zodat u kunt opslaan en ophalen van de verwerkingsstatus van de toepassing (met behulp van [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) en [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)).
-* [Dode lettering](service-bus-dead-letter-queues.md), die wordt alleen ondersteund door Service Bus-wachtrijen kan nuttig zijn voor het isoleren van berichten die met succes kan niet worden verwerkt door de ontvangende toepassing of wanneer berichten hun bestemming als gevolg van een eigenschap verlopen time to live (TTL) kunnen niet bereiken. De TTL-waarde geeft aan hoe lang een bericht blijft in de wachtrij. Met Service Bus wordt het bericht verplaatst naar een speciale wachtrij $DeadLetterQueue wordt aangeroepen wanneer de TTL is verlopen.
+* [Dode lettering](service-bus-dead-letter-queues.md), die wordt alleen ondersteund door Service Bus-wachtrijen kan nuttig zijn voor het isoleren van berichten die met succes kan niet worden verwerkt door de ontvangende toepassing of wanneer berichten hun bestemming als gevolg van een verlopen time to live (kunnen niet bereiken De eigenschap TTL). De TTL-waarde geeft aan hoe lang een bericht blijft in de wachtrij. Met Service Bus wordt het bericht verplaatst naar een speciale wachtrij $DeadLetterQueue wordt aangeroepen wanneer de TTL is verlopen.
 * 'Verontreinigd' om berichten te zoeken in opslagwachtrijen, wanneer een bericht waarbij de toepassing onderzoekt de [DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx) eigenschap van het bericht. Als **DequeueCount** groter is dan een opgegeven drempelwaarde, de toepassing het bericht verplaatst naar een toepassingsspecifieke ' ' wachtrij met onbestelde.
 * Opslagwachtrij kunnen u een gedetailleerd logboek van alle transacties die worden uitgevoerd met de wachtrij als goed als samengevoegde metrische gegevens te verkrijgen. Beide opties zijn handig voor foutopsporing en inzicht in hoe uw toepassing gebruikmaakt van opslagwachtrijen. Ze zijn ook nuttig voor uw toepassing prestaties afstemmen en de kosten van het gebruik van wachtrijen.
 * Het concept van '-berichten uitwisselen' wordt ondersteund door Service Bus kunt berichten die deel uitmaken van een bepaalde logische groep moet worden gekoppeld aan een bepaalde ontvanger die op zijn beurt een sessie-achtige affiniteit tussen berichten en hun respectieve ontvangers maakt. U kunt deze geavanceerde functionaliteit van Service Bus door in te stellen de [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) eigenschap voor een bericht. Ontvangers kunnen vervolgens luisteren op een bepaalde sessie-ID en ontvangen van berichten die de opgegeven sessie-id delen.
@@ -133,7 +132,7 @@ Deze sectie vergelijkt opslagwachtrijen en Service Bus-wachtrijen vanuit het per
 | --- | --- | --- |
 | Maximale wachtrijgrootte |**500 TB**<br/><br/>(beperkt tot een [opslagaccountcapaciteit eenmalige](../storage/common/storage-introduction.md#queue-storage)) |**1 GB tot 80 GB**<br/><br/>(gedefinieerd bij het maken van een wachtrij en [inschakelen partitioneren](service-bus-partitioning.md) : Zie de sectie 'Aanvullende informatie') |
 | Maximale berichtgrootte |**64 KB**<br/><br/>(48 KB bij gebruik van **Base64** codering)<br/><br/>Azure biedt ondersteuning voor grote berichten door een combinatie van wachtrijen en blobs – in dat geval u in de wachtrij plaatsen kunt van 200 GB voor één item. |**256 KB** of **1 MB**<br/><br/>(met inbegrip van de kop- en hoofdtekst maximale header-grootte: 64 KB).<br/><br/>Afhankelijk van de [servicelaag](service-bus-premium-messaging.md). |
-| Maximale bericht TTL |**7 dagen** |**TimeSpan.Max** |
+| Maximale bericht TTL |**Oneindige** (vanaf 2017-07-27 api-versie) |**TimeSpan.Max** |
 | Maximum aantal wachtrijen |**Onbeperkt** |**10,000**<br/><br/>(per Servicenaamruimte) |
 | Maximum aantal gelijktijdige clients |**Onbeperkt** |**Onbeperkt**<br/><br/>(de limiet van 100 gelijktijdige verbindingen alleen van toepassing op TCP-protocol-communicatie) |
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: aa74596906206ba4460e80af9015955c0b848cd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Een virtuele Linux-machine maken met het versnelde netwerken
 
@@ -66,7 +66,7 @@ De volgende beperkingen bestaan wanneer deze wordt met deze mogelijkheid:
 * **Maken van VM:** een NIC met versnelde netwerken ingeschakeld kan alleen worden gekoppeld aan een VM wanneer de virtuele machine wordt gemaakt. De NIC kan niet worden gekoppeld aan een bestaande virtuele machine. Als de virtuele machine toe te voegen aan de bestaande beschikbaarheidsset is ingesteld, moeten alle virtuele machines in de beschikbaarheidsset ook versnelde netwerken ingeschakeld.
 * **Implementatie via Azure Resource Manager alleen:** virtuele machines (klassiek) kan niet worden geïmplementeerd met versnelde toegang.
 
-Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met versnelde netwerken met de Azure CLI, kunt u ook [maken van een virtuele machine met versnelde netwerken met de Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bij het maken van een virtuele machine met een ondersteund besturingssysteem en de VM-grootte in de portal onder **instellingen**, selecteer **ingeschakeld** onder **versnelde netwerken**. Nadat de virtuele machine is gemaakt, moet u de instructies in voltooien [Controleer of de versnelde netwerken is ingeschakeld](#confirm-that-accelerated-networking-is-enabled).
+Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met versnelde netwerken met de Azure CLI, kunt u ook [maken van een virtuele machine met versnelde netwerken met de Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bij het maken van een virtuele machine in de portal onder **instellingen**, selecteer **ingeschakeld**onder **versnelde netwerken**. De optie voor het inschakelen van versnelde netwerken wordt niet weergegeven in de portal, tenzij u hebt geselecteerd een [ondersteund besturingssysteem](#supported-operating-systems) en [VM-grootte](#supported-vm-instances). Nadat de virtuele machine is gemaakt, moet u de instructies in voltooien [Controleer of de versnelde netwerken is ingeschakeld](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
@@ -127,7 +127,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Maken van een netwerkinterface met [az netwerk nic maken](/cli/azure/network/nic#az_network_nic_create) met versnelde netwerken ingeschakeld. Het volgende voorbeeld wordt een netwerkinterface met de naam *myNic* in de *mySubnet* subnet van de *myVnet* virtueel netwerk en gekoppeld de * myNetworkSecurityGroup* netwerkbeveiligingsgroep voor de netwerkinterface:
+Maken van een netwerkinterface met [az netwerk nic maken](/cli/azure/network/nic#az_network_nic_create) met versnelde netwerken ingeschakeld. Het volgende voorbeeld wordt een netwerkinterface met de naam *myNic* in de *mySubnet* subnet van de *myVnet* virtueel netwerk en gekoppeld de  *myNetworkSecurityGroup* netwerkbeveiligingsgroep voor de netwerkinterface:
 
 ```azurecli
 az network nic create \
@@ -175,7 +175,7 @@ Zodra de virtuele machine is gemaakt, wordt de uitvoer ziet er als de volgende v
 
 ## <a name="confirm-that-accelerated-networking-is-enabled"></a>Controleer of de versnelde netwerken is ingeschakeld
 
-Gebruik de volgende opdracht voor het maken van een SSH-sessie met de virtuele machine. Vervang `<your-public-ip-address>` met het openbare IP-adres is toegewezen aan de virtuele machine hebt gemaakt en vervang *azureuser* als u een andere waarde voor gebruikt `--admin-username` tijdens het maken van de virtuele machine.
+Gebruik de volgende opdracht om voor de VM een SSH-sessie te maken. Vervang `<your-public-ip-address>` met het openbare IP-adres is toegewezen aan de virtuele machine hebt gemaakt en vervang *azureuser* als u een andere waarde voor gebruikt `--admin-username` tijdens het maken van de virtuele machine.
 
 ```bash
 ssh azureuser@<your-public-ip-address>

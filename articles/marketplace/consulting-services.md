@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8d414a7a2ad46fbe63cc6eb8e6a6a41bb76aa432
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c8966f3dfa16010b82d1fe9cd02c63bdde65463c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Marketplace adviesdiensten
 Met het doel van het verbinden van klanten met services om te ondersteunen en uitbreiden van het gebruik van Azure ondersteunt Azure Marketplace de vermelding van de offerings advies-service van de partners van Microsoft System Integrator (SI). 
@@ -33,9 +33,9 @@ Partners zijn ook vereist een zilver of gold-competentie hebben in het desbetref
 
 |Competentie  |Oplossing gebied  |
 |---------|---------|
-|Cloud-Platform en infrastructuur     |   Cloud Platform, Data Center      |
+|Cloud-Platform en infrastructuur     |   Cloud-Platform, Datacenter      |
 |Toepassingsontwikkeling en ISV     |  Application Development, integratie van toepassingen, DevOps       |
-|Gegevensbeheer en -analyse    |  Data Analytics, Data Platform       |
+|Gegevensbeheer en -analyse    |  Gegevensanalyse, gegevensplatform       |
 
 Aanbiedingen moeten zijn van een van de volgende vijf servicetypen (u kunt aanbieden meer dan één): 
 
@@ -48,6 +48,9 @@ Aanbiedingen moeten zijn van een van de volgende vijf servicetypen (u kunt aanbi
 Met uitzondering van de *gegevens meest* servicetype adviesdiensten persoon (dat wil zeggen, op de locatie op de locatie van een klant of een partner faciliteit) kan worden aangeboden of vrijwel (dat wil zeggen, via vergaderen via, web vergaderingen of extern implementatie). Briefings moeten worden aangeboden in persoon.
 
 Zie voor meer informatie [vaardigheden via Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
+
+>[!TIP]
+>Deze informatie is alleen van toepassing zijn op Azure Marketplace services. Om te publiceren naar de Azure Marketplace-winkel, brengt u deze selectie door 'Azure' kiezen uit de vervolgkeuzelijst 'Primaire Product' in de Cloud Partner-Portal. Om te publiceren naar AppSource, brengt u deze selectie door te kiezen 'Dynamics 365 ', 'Power BI' of 'Power Apps' uit de vervolgkeuzelijst 'Primaire Product' in de Cloud Partner-Portal. 
 
 ## <a name="supported-countries"></a>Ondersteunde landen
 
@@ -71,7 +74,7 @@ Voordat u uw service benoemen, kunt u beginnen met het verzamelen en voorbereide
 |---------|
 |MPN-id     |
 |Logo's voor de bedrijfsportal (48 &#215; 48, 216 &#215; 216)     |
-|Lead Destination     |
+|Bestemming leiden     |
 
 
 |Voor nieuwe aanbiedingen instellen  |
@@ -95,3 +98,31 @@ Uw aanbieding advies-service op Azure Marketplace aanbieding omvat de volgende f
 4. **Bekijk**: ons team marketing en redactionele controleert uw inzending en voor de leesbaarheid, grammatica en effectiviteit worden geoptimaliseerd. 
 5. **Fasering**: uw inzending tijdelijk worden opgeslagen voor uw beoordeling. 
 6. **Publiceren van**: wanneer u en Microsoft is voldaan aan de voorbereide inhoud, uw aanbieding is klaar voor live in Azure Marketplace. De startdatum voor uw aanbieding is afhankelijk van het land die opgegeven in uw aanbieding. Als de catalogus voor het geselecteerde land al live in Azure Marketplace, worden uw aanbieding binnen een paar uur weergegeven. De aanbieding wordt anders weergegeven zodra de catalogus live gaat.
+
+## <a name="content-review-criteria"></a>Criteria voor inhoud controleren
+
+Wanneer u de vereiste elementen bovenstaande hebt geconfigureerd, wordt het team van inhoud controleren gevalideerd of de beschrijving van uw aanbieding informatieve en voltooid voor uw doelgroep. 
+
+Houd er rekening mee dat het veld functie mag maximaal 50 tekens en de duur en service type de aanbieding moet doorgeven. Dit is de maximaliseren Zoekmachineoptimalisatie. De vereiste indeling is als volgt: naam: DURATIONTYPE
+
+Voorbeelden:
+
+
+|Voorbeeldtitel  |Juiste indeling  |
+|---------|---------|
+|Aan de slag met Azure IoT in productie    |   Productie IoT: 2 dagen Assessment      |
+|Workshop over slimme broodroosters        |  Smart broodroosters: 1-Wk Workshop       |
+|  SQL Server-migratie implementatiemodel    | Migratie van SQL: 3-Wk POC        |
+
+ 
+Bij het controleren van bieden beschrijvingen en samenvattingen bieden, geldt het team van de volgende criteria:
+
+|Type aanbieding  |Vereist |Aanbevolen  |
+|---------|---------|---------|
+|Evaluatie    |   Een gedetailleerde agenda voor Meerdaags of meerdere weken beoordelingen opnemen en bewoordingen aan wat product de klant kunt verwachten      |    Uw aanbieding met de hoogste Zoekmachineoptimalisatie trefwoorden samenvatting optimaliseren     |
+|Informatie    |   Bewoordingen aan wat product de klant kunt verwachten. Houd er rekening mee dat Briefings moeten worden aangeboden in persoon. Als u een virtuele-service aanbiedt, kies een andere aanbiedingtype    |  Uw aanbieding met de hoogste Zoekmachineoptimalisatie trefwoorden samenvatting optimaliseren       |
+|Implementatie    |  Een gedetailleerde agenda voor implementaties met meerdere dagen of meerdere weken opnemen en bewoordingen aan welke technische wijzigingen, technische artefacten of andere artefacten die een klant als de resultaten van de betrokkenheid verwachten kunt       |    Uw aanbieding met de hoogste Zoekmachineoptimalisatie trefwoorden samenvatting optimaliseren     |
+|Testen van het Concept    |    Bewoordingen aan welke technische wijzigingen, technische artefacten of andere artefacten die een klant als de resultaten van de betrokkenheid verwachten kunt     | Uw aanbieding met de hoogste Zoekmachineoptimalisatie trefwoorden samenvatting optimaliseren        |
+|Workshop    |   Een gedetailleerde agenda dagelijks, wekelijks of maandelijks, afhankelijk van de gekozen duur van uw aanbod bevatten. Bewoordingen aan de doelstellingen learning of andere items van uw workshop zijn     |   Uw aanbieding met de hoogste zoekmachine optimalisatie trefwoorden samenvatting optimaliseren      |
+
+In de Cloud Partner-Portal, opmaak kan worden toegevoegd aan uw aanbieding met behulp van [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Dit is een lichtgewicht ontwerp taal waarmee Pools toevoegen aan de aanbieding. 

@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0fe0b5d3120833b8472fcdaee366a5d1f2818600
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database beheerd exemplaar T-SQL-verschillen met SQL Server 
 
@@ -239,7 +239,7 @@ Zie voor meer informatie [FILESTREAM](https://docs.microsoft.com/sql/relational-
 ### <a name="linked-servers"></a>Gekoppelde servers
  
 Gekoppelde servers in beheerde exemplaar ondersteunen een beperkt aantal doelen: 
-- Doelen ondersteund: SQL Server, SQL-Database, exemplaar beheerd en SQL Server op een virtuele machine.
+- Doelen ondersteund: SQL Server en SQL-Database
 - Niet ondersteund doelen: bestanden, Analysis Services en andere RDBMS.
 
 Bewerkingen
@@ -419,4 +419,4 @@ Er kan slechts één database-e-mailprofiel en moet worden aangeroepen `AzureMan
 
 - Zie voor meer informatie over beheerde exemplaar [wat is er een exemplaar beheerd?](sql-database-managed-instance.md)
 - Voor een functies en vergelijkingslijst Zie [algemene functies van SQL](sql-database-features.md).
-- Zie voor een zelfstudie [maken van een exemplaar beheerd](sql-database-managed-instance-tutorial-portal.md).
+- Zie voor een zelfstudie waarin u wordt getoond hoe u een nieuw exemplaar van beheerde [het maken van een exemplaar beheerd](sql-database-managed-instance-create-tutorial-portal.md).

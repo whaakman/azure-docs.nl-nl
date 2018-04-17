@@ -6,7 +6,7 @@ documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ca42e0cc76bc385f04cb2e010ff91dbb27bd627a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-operational-security-overview"></a>Overzicht van Azure operationele beveiliging
 Azure bedrijfsbeveiliging verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere elementen in Microsoft Azure. [Azure bedrijfsbeveiliging](https://docs.microsoft.com/azure/security/azure-operational-security) is een framework waarin de kennis die is opgedaan met tal van mogelijkheden die uniek voor Microsoft zijn, met inbegrip van de Microsoft Security Development Lifecycle (SDL), de Microsoft Security Response Programma Center en grondige kennis van de cyberbeveiliging beveiliging threat Liggend.
@@ -65,7 +65,7 @@ Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automat
 -   Voorziet in centraal toegangsbeleid beheer, eenmalige aanmelding (SSO) en rapportage
 -   Ondersteunt de geïntegreerde access management voor [duizenden toepassingen](https://azure.microsoft.com/marketplace/active-directory/) in de galerie met toepassingen, inclusief Salesforce, Google Apps, Box, Concur en meer.
 
-Azure AD bevat ook een volledige reeks [mogelijkheden voor identiteitsbeheer](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports) inclusief [multi-factorauthenticatie](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), [apparaatregistratie]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), [ Selfservice voor wachtwoordherstel management](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), [selfservicegroepsbeheer](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), [bevoorrecht accountbeheer](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), [op rollen gebaseerde toegangsbeheer](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is), [gebruik toepassingsbewaking](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), [uitgebreide controle](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), en [beveiligingsbewaking en waarschuwingen](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+Azure AD bevat ook een volledige reeks [mogelijkheden voor identiteitsbeheer](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports) inclusief [multi-factorauthenticatie](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), [apparaatregistratie]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview), [ Selfservice voor wachtwoordherstel management](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/), [selfservicegroepsbeheer](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password), [bevoorrecht accountbeheer](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure), [op rollen gebaseerde toegangsbeheer](https://docs.microsoft.com/azure/role-based-access-control/overview), [gebruik toepassingsbewaking](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health), [uitgebreide controle](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), en [beveiligingsbewaking en waarschuwingen](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
 
 Met Azure Active Directory, alle toepassingen die u publiceert voor uw partners en klanten (werk of consumer) hebben dezelfde identiteit en toegang tot beheermogelijkheden. Hiermee kunt u de operationele kosten aanzienlijk te verlagen.
 
@@ -80,7 +80,7 @@ Met Azure Active Directory, alle toepassingen die u publiceert voor uw partners 
 -   Validatie voor schijfversleuteling
 -   Aanvallen op het netwerk
 
-Maakt gebruik van Azure Security Center [op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure), waarmee u [ingebouwde rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) die kunnen worden toegewezen aan gebruikers, groepen en -services in Azure.
+Maakt gebruik van Azure Security Center [op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), waarmee u [ingebouwde rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) die kunnen worden toegewezen aan gebruikers, groepen en -services in Azure.
 
 Security Center beoordeelt de configuratie van uw resources om beveiligingsproblemen en beveiligingslekken te identificeren. In Security Center ziet u alleen informatie met betrekking tot een bron wanneer u de rol van eigenaar, bijdrager of lezer voor het abonnement of resourcegroep die deel uitmaakt van een resource te worden toegewezen.
 
@@ -109,7 +109,7 @@ Het is een logboek biedt inzicht in de bewerkingen die zijn uitgevoerd op resour
 
 Bijvoorbeeld Windows-gebeurtenislogboeken system zijn één categorie van diagnostische logboeken voor virtuele machines en blob, table en queue logboeken zijn categorieën van diagnostische logboeken voor opslagaccounts.
 
-Diagnostische logboeken afwijken van de [activiteitenlogboek (voorheen bekend als het auditlogboek of operationeel logboek)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Het activiteitenlogboek verschaft inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement. Diagnostische logboeken bieden inzicht in bewerkingen dat de bron zelf uitgevoerd.
+Diagnostische logboeken afwijken van de [activiteitenlogboek (voorheen bekend als het auditlogboek of operationeel logboek)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Het activiteitenlogboek verschaft inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement. Diagnoselogboeken bieden inzicht in bewerkingen die door de resources zelf zijn uitgevoerd.
 
 ### <a name="metrics"></a>Metrische gegevens
 Monitor voor Azure kunt u telemetrie om meer inzicht verkrijgen in de prestaties en de status van uw workloads in Azure gebruiken. De belangrijkste type Azure telemetriegegevens is de metrische gegevens die (ook wel prestatiemeteritems) die door de meeste Azure-resources. Azure biedt verschillende manieren configureren en gebruiken deze [metrische gegevens](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) voor bewaking en probleemoplossing.

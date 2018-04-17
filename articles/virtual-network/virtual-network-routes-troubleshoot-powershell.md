@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bf7dc5e7-9399-460e-8e0d-8992dbed98a6
 ms.service: virtual-network
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: ac7f8ddaf84ba94075a9c9c3195bd57534c6821b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2d501419dde633f89a5760af9f82604006de6b6f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Problemen oplossen met Azure PowerShell routes
 > [!div class="op_single_selector"]
-> * [Azure-portal](virtual-network-routes-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 > 
 > 
@@ -57,7 +57,7 @@ Overzicht van de cumulatieve routes die worden toegepast op een virtuele machine
 ### <a name="view-effective-routes-for-a-network-interface"></a>De effectieve routes weergeven voor een netwerkinterface
 Overzicht van de cumulatieve routes die worden toegepast op een netwerkinterface, de volgende stappen uitvoeren:
 
-1. Start een Azure PowerShell-sessie en meld u aan bij Azure. Als u niet bekend met Azure PowerShell bent, leest u de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Start een Azure PowerShell-sessie en meld u aan bij Azure. Als u niet bekend met Azure PowerShell bent, leest u de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. De volgende opdracht retourneert alle routes die worden toegepast op een netwerkinterface met de naam *VM1 NIC1* in de resourcegroep *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

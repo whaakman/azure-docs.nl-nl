@@ -2,24 +2,24 @@
 title: Verbinding maken met virtuele netwerken - Azure HDInsight met Kafka | Microsoft Docs
 description: Informatie over het rechtstreeks verbinding maken met Kafka in HDInsight via een virtueel netwerk van Azure. Informatie over het verbinden met Kafka van ontwikkeling clients met behulp van een VPN-gateway of van clients in uw on-premises netwerk via een VPN-gateway-apparaat.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
+ms.devlang: ''
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/05/2018
 ms.author: larryfr
-ms.openlocfilehash: c82629c0f3d3b32314d22467164a06a4c7bcabfe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 53502257d85c88195a40b7bda033483bd97ff3f4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Verbinding maken met Kafka in HDInsight via een virtuele Azure-netwerk
 
@@ -62,7 +62,7 @@ HDInsight kan geen directe verbinding met Kafka via het openbare internet. Kafka
 
 Zie voor meer informatie over het gebruik van HDInsight in een virtueel netwerk [HDInsight uitbreiden met behulp van Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
 
-## <a id="on-premises"></a>Verbinding maken met Kafka vanuit een on-premises netwerk
+## <a id="on-premises"></a> Verbinding maken met Kafka vanuit een on-premises netwerk
 
 Maakt een Kafka-cluster die communiceert met uw on-premises netwerk, volg de stappen in de [HDInsight verbinding maken met uw lokale netwerk](./../connect-on-premises-network.md) document.
 
@@ -78,7 +78,7 @@ Deze stappen maken de volgende configuratie:
 
 Om te controleren of een Kafka client kan verbinding maken met het cluster van on-premises, gebruikt u de stappen in de [voorbeeld:-client voor Python](#python-client) sectie.
 
-## <a id="vpnclient"></a>Verbinding maken met Kafka met een VPN-client
+## <a id="vpnclient"></a> Verbinding maken met Kafka met een VPN-client
 
 Gebruik de stappen in deze sectie voor het maken van de volgende configuratie:
 
@@ -292,7 +292,7 @@ Standaard retourneert Zookeeper de domeinnaam van de beleggingsmakelaars Kafka a
 
 Gebruiken voor verbinding met de VPN-gateway, de __verbinding maken met Azure__ sectie van de [een punt-naar-Site-verbinding configureren](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) document.
 
-## <a id="python-client"></a>Voorbeeld:-Client voor Python
+## <a id="python-client"></a> Voorbeeld:-Client voor Python
 
 Gebruik de volgende stappen voor het maken en uitvoeren van een Python producenten en consumenten voor het valideren van de verbinding met Kafka:
 

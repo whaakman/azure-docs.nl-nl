@@ -1,31 +1,26 @@
 ---
 title: Verbinding maken met Azure SQL Data Warehouse | Microsoft Docs
-description: Zoeken naar de servernaam en verbindingsreeks voor uw Azure SQL Data Warehouse
+description: Verbinding maken met Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 12/14/2017
-ms.author: anvang;barbkess;kevin
-ms.openlocfilehash: 804d91d309fcce42f0ac50ac98dbad9c5648b4eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: a575bc4f57c3b1dbcf3846b1246b338621e4d720
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Verbinding maken met Azure SQL Data Warehouse
-In dit artikel wordt beschreven hoe u voor de eerste keer verbinding kunt maken met SQL Data Warehouse.
+Verbinding maken met Azure SQL Data Warehouse.
 
 ## <a name="find-your-server-name"></a>Uw servernaam vinden
-De eerste stap bij het maken van verbinding met SQL Data Warehouse is weten hoe u de naam van uw server kunt vinden.  De naam van de server in het volgende voorbeeld is bijvoorbeeld samplesvr.database.windows.net. Ga als volgt te werk om de volledig gekwalificeerde servernaam te vinden:
+De naam van de server in het volgende voorbeeld is samplesvr.database.windows.net. Ga als volgt te werk om de volledig gekwalificeerde servernaam te vinden:
 
 1. Ga naar [Azure Portal][Azure portal].
 2. Klik op **SQL data Warehouses**.
@@ -35,7 +30,7 @@ De eerste stap bij het maken van verbinding met SQL Data Warehouse is weten hoe 
     ![Volledige servernaam][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Ondersteunde stuurprogramma's en verbindingsreeksen
-Azure SQL Data Warehouse biedt ondersteuning voor [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] en [JDBC][JDBC]. Klik op een van de bovenstaande stuurprogramma's om de meest recente versie en documentatie te vinden. Voor het automatisch genereren van de verbindingsreeks voor het stuurprogramma dat u gebruikt vanuit de Azure-portal, kunt u klikken op de optie **Databaseverbindingsreeksen tonen** uit het voorgaande voorbeeld.  Hier volgen ook enkele voorbeelden van hoe een verbindingsreeks er voor elk stuurprogramma uitziet.
+Azure SQL Data Warehouse biedt ondersteuning voor [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] en [JDBC][JDBC]. Voor de meest recente versie en -documentatie, klikt u op een van de voorgaande stuurprogramma's. Voor het automatisch genereren van de verbindingsreeks voor het stuurprogramma die u gebruikt vanuit de Azure-portal, klikt u op de **databaseverbindingsreeksen tonen** uit het vorige voorbeeld. Hier volgen ook enkele voorbeelden van hoe een verbindingsreeks er voor elk stuurprogramma uitziet.
 
 > [!NOTE]
 > Overweeg de verbindingstime-out in te stellen op 300 seconden. De verbinding blijft dan in stand tijdens korte perioden van niet-beschikbaarheid.

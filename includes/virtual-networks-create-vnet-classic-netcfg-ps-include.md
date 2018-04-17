@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-network
+author: genli
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: genli
+ms.custom: include file
+ms.openlocfilehash: a84b31d64f8f9900d342e245ca66cde3c0395be1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Het maken van een virtueel netwerk met een configuratiebestand netwerk vanuit PowerShell
 Azure maakt gebruik van een xml-bestand voor het definiëren van alle virtuele netwerken die beschikbaar zijn in een abonnement. U kunt dit bestand downloaden, bewerkt om te wijzigen of verwijderen van de bestaande virtuele netwerken en nieuwe virtuele netwerken maken. In deze zelfstudie u meer informatie over het downloaden van dit bestand, netwerk-configuratie (of netcfg) bestand genoemd en bewerken om te maken van een nieuw virtueel netwerk. Zie voor meer informatie over het configuratiebestand van het netwerk, de [Azure virtual network-configuratieschema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -18,8 +34,8 @@ Als een virtueel netwerk maken met een netcfg-bestand met behulp van PowerShell,
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Open het bestand dat u in stap 2, gebruikmakend van een XML- of -editor toepassing opgeslagen en zoekt u de  **<VirtualNetworkSites>**  element. Als er geen netwerken hebt gemaakt, elk netwerk wordt weergegeven als een eigen  **<VirtualNetworkSite>**  element.
-4. Toevoegen voor het maken van het virtuele netwerk in dit scenario wordt de volgende XML net onder de  **<VirtualNetworkSites>**  element:
+3. Open het bestand dat u in stap 2, gebruikmakend van een XML- of -editor toepassing opgeslagen en zoekt u de **<VirtualNetworkSites>** element. Als er geen netwerken hebt gemaakt, elk netwerk wordt weergegeven als een eigen **<VirtualNetworkSite>** element.
+4. Toevoegen voor het maken van het virtuele netwerk in dit scenario wordt de volgende XML net onder de **<VirtualNetworkSites>** element:
 
    ```xml
          <?xml version="1.0" encoding="utf-8"?>

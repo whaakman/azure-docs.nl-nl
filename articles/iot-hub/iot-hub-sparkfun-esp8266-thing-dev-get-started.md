@@ -2,24 +2,24 @@
 title: ESP8266 naar cloud - Sparkfun ESP8266 ding Dev verbinding maken met Azure IoT Hub | Microsoft Docs
 description: Informatie over het instellen en Sparkfun ESP8266 ding Dev verbinden met Azure IoT Hub voor gegevens verzenden naar het Azure-cloud-platform in deze zelfstudie.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: 587fe292-9602-45b4-95ee-f39bba10e716
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
-ms.author: xshi
-ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: e6837d0312217d8e27e3639b8220f5016a2505a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Sparkfun ESP8266 ding Dev verbinden met Azure IoT Hub in de cloud
 
@@ -119,7 +119,7 @@ Als u Ubuntu gebruikt, controleert u of dat een normale gebruiker heeft de macht
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>`is de naam van de eigenaar die u in de vorige stap hebt verkregen. `<username>`uw gebruikersnaam Ubuntu is.
+   `<group-owner-name>` is de naam van de eigenaar die u in de vorige stap hebt verkregen. `<username>` uw gebruikersnaam Ubuntu is.
 
 1. Ubuntu afmelden en aanmelden voor deze opnieuw om de wijziging door te voeren.
 

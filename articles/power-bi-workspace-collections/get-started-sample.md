@@ -2,11 +2,11 @@
 title: Aan de slag met een voorbeeld
 description: In dit artikel maakt u kennis met het Power BI werkruimte verzamelingen get gestart voorbeeld.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 9049f95c9f81c0217c96469a45561b6cd0b33ae9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Aan de slag met Power BI werkruimte verzamelingen voorbeeld
 
@@ -45,7 +45,7 @@ Laten we helpt u stapsgewijs door het instellen van uw ontwikkelomgeving Visual 
 
 1. Downloaden en uitpakken van de [Power BI werkruimte verzamelingen: een rapport integreren in een web-app](http://go.microsoft.com/fwlink/?LinkId=761493) op GitHub.
 2. Open **PowerBI embedded.sln** in Visual Studio. Mogelijk moet u uitvoeren de **-updatepakket** opdracht in de NuGet Package Manager-Console om bij te werken van de pakketten die in deze oplossing gebruikt.
-3. De oplossing bouwen.
+3. Bouw de oplossing.
 4. Voer de **ProvisionSample** console-app. In de voorbeeld-console-app inrichten van een werkruimte en een PBIX-bestand importeren.
 5. Voor het inrichten van een nieuwe **werkruimte**, Selecteer optie 1, **verzameling management**, en selecteer vervolgens de optie 6, **inrichten van een nieuwe werkruimte**
 6. Voor het importeren van een nieuwe **rapport**, Selecteer optie 2, **rapporteren management**, en selecteer vervolgens de optie 3, **importeren PBIX Desktop-bestand in een werkruimte**.
@@ -171,7 +171,7 @@ Report.cshtml: Stel de **Model.AccessToken**, en de Lambda-expressie voor **Powe
         @Html.PowerBIReportFor(m => m.Report, new { style = "height:85vh" })
     </div>
 
-### <a name="controller"></a>Domeincontroller
+### <a name="controller"></a>Controller
 
 **DashboardController.cs**: maakt een PowerBIClient geven een **app-token**. Een JSON Web Token (JWT) is gegenereerd op basis van de **handtekeningsleutel** ophalen van de **referenties**. De **referenties** gebruikt bij het maken van een exemplaar van **PowerBIClient**. Zodra u een exemplaar van hebt **PowerBIClient**, kunt u GetReports() en GetReportsAsync() aanroepen.
 

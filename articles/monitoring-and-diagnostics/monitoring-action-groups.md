@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/12/2018
 ms.author: dukek
-ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e3185b8d8ce97ffd04188b2b49a457bd14d5c6c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in de Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
@@ -26,10 +26,10 @@ In dit artikel laat zien hoe actiegroepen in de Azure portal maken en beheren.
 
 U kunt een lijst van acties met actiegroepen configureren. Deze groepen kunnen vervolgens worden gebruikt door elke waarschuwing die u hebt gedefinieerd, waarbij u ervoor zorgt dat telkens wanneer een waarschuwing wordt geactiveerd door dezelfde acties worden genomen.
 
-Een actiegroep kan maximaal 10 van elk actietype hebben. Elke actie bestaat uit de volgende eigenschappen:
+Elke actie bestaat uit de volgende eigenschappen:
 
 * **Naam**: een unieke id binnen de groep in te grijpen.  
-* **Actietype**: een telefoongesprek of SMS-bericht verzenden, e-mailbericht verzenden, een webhook aanroepen, gegevens verzenden naar een hulpprogramma ITSM, aanroepen van een Azure-app of een Automation-runbook uitvoeren.
+* **Actietype**: een telefoongesprek of SMS-bericht verzenden, e-mailbericht verzenden, een webhook aanroepen, gegevens verzenden naar een hulpprogramma ITSM, aanroepen van een logische App, een push-melding verzenden naar de Azure app of een Automation-runbook uitvoeren.
 * **Details**: de bijbehorende phone getal, e-mailadres, webhook URI of ITSM verbindingsdetails.
 
 Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen voor het configureren van de actiegroepen [actie groep Resource Manager-sjablonen](monitoring-create-action-group-with-resource-manager-template.md).
@@ -56,14 +56,45 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen v
 
     a. **Naam**: Voer een unieke id voor deze actie.
 
-    b. **Actietype**: e-mailadres/SMS/Push/spraak, Webhook, ITSM of Automation-Runbook selecteren.
+    b. **Actietype**: e-mailadres/SMS/Push/spraak, logische App, Webhook, ITSM of Automation-Runbook selecteren.
 
     c. **Details**: op basis van het actietype, voer een telefoonnummer, e-mailadres, webhook URI, Apps van Azure, ITSM verbinding of Automation-runbook. Voor ITSM actie bovendien opgeven **werkitem** en andere velden uw ITSM hulpprogramma vereist.
 
-   > [!NOTE]
-   > ITSM-actie vereist een ITSM-verbinding. Meer informatie over het maken van een [ITSM verbinding](../log-analytics/log-analytics-itsmc-overview.md). 
-
 8. Selecteer **OK** om het actiegroep te maken.
+
+## <a name="action-specific-information"></a>Actie-specifieke informatie
+<dl>
+<dt>Apps van Azure-Push</dt>
+<dd>Mogelijk hebt u maximaal 10 Apps van Azure-acties in een groep in te grijpen.</dd>
+<dd>Op dit moment ondersteunt de Azure-app-actie alleen ServiceHealth waarschuwingen. Andere waarschuwing tijd zal worden genegeerd. Zie [waarschuwingen configureren wanneer een melding van de health service wordt geboekt](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
+
+<dt>E-mail</dt>
+<dd>Mogelijk hebt u maximaal 50 e-acties in de groep van een actie</dd>
+<dd>Zie de [snelheidsbeperking informatie](./monitoring-alerts-rate-limiting.md) artikel</dd>
+
+<dt>ITSM</dt>
+<dd>Mogelijk hebt u maximaal 10 ITSM acties in de groep van een actie</dd>
+<dd>ITSM-actie vereist een ITSM-verbinding. Meer informatie over het maken van een [ITSM verbinding](../log-analytics/log-analytics-itsmc-overview.md).</dd>
+
+<dt>Logische App</dt>
+<dd>Mogelijk hebt u maximaal 10 logische App-acties in de groep van een actie</dd>
+
+<dt>runbook</dt>
+<dd>Mogelijk hebt u maximaal 10 Runbook-acties in de groep van een actie</dd>
+
+<dt>SMS</dt>
+<dd>Mogelijk hebt u maximaal 10 SMS-acties in de groep van een actie</dd>
+<dd>Zie de [snelheidsbeperking informatie](./monitoring-alerts-rate-limiting.md) artikel</dd>
+<dd>Zie de [SMS waarschuwing gedrag](monitoring-sms-alert-behavior.md) artikel</dd>
+
+<dt>Voice-over</dt>
+<dd>Mogelijk hebt u maximaal 10 Voice-acties in de groep van een actie</dd>
+<dd>Zie de [snelheidsbeperking informatie](./monitoring-alerts-rate-limiting.md) artikel</dd>
+
+<dt>Webhook</dt>
+<dd>Mogelijk hebt u maximaal 10 webhookacties in de groep van een actie
+<dd>Pogingslogica - aanroep van de webhook zal worden geprobeerd maximaal 3 keer wanneer de volgende HTTP-statuscodes worden geretourneerd: 408, 429, 503, 504</dd>
+</dl>
 
 ## <a name="manage-your-action-groups"></a>Actiegroepen beheren ##
 Nadat u een actiegroep maakt, is zichtbaar in de **actiegroepen** sectie van de **Monitor** blade. Selecteer de actiegroep die u wilt beheren:

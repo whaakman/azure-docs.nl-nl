@@ -5,8 +5,8 @@ services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dec45d91ad1a73306b3e2656dd9bf7fdbe456720
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d2e606fe23a3a6eb9d2310b0932ccec8fcfc518c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Beveiligen van PaaS-webtoepassingen en mobiele toepassingen met behulp van Azure App Service
 
@@ -32,8 +32,8 @@ In dit artikel bespreken we een verzameling van [Azure App Service](https://azur
 Wanneer u App Service, volgt u deze aanbevolen procedures:
 
 - [Verifiëren via Azure Active Directory (AD)](../app-service/app-service-authentication-overview.md). App Service biedt een OAuth 2.0-service voor uw id-provider. OAuth 2.0 richt zich op de client developer eenvoud tijdens het ontwikkelen van specifieke autorisatie stromen voor webtoepassingen, bureaubladtoepassingen en mobiele telefoons. Azure AD maakt gebruik van OAuth 2.0, zodat u toegang tot mobiele en webtoepassingen autoriseren.
-- De toegang op basis van de noodzaak om te weten en minimale bevoegdheden beveiligingsprincipes beperken. Beperken van de toegang is van cruciaal belang voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens. Op rollen gebaseerde toegangsbeheer (RBAC) kan worden gebruikt om machtigingen te wijzen aan gebruikers, groepen en toepassingen op een bepaalde scope. Zie voor meer informatie over gebruikers geen toegang verlenen tot toepassingen, [aan de slag met toegangsbeheer](../active-directory/role-based-access-control-what-is.md).
-- Beveiligen van uw sleutels. Het maakt niet uit hoe goed is de beveiliging van uw als u uw abonnement sleutels verliest. Met Azure Key Vault kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. U kunt met Key Vault sleutels en geheimen versleutelen (zoals verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels, PFX-bestanden en wachtwoorden) door gebruik te maken van sleutels die worden beveiligd met HSM's. Voor extra zekerheid kunt u de sleutels importeren of genereren in HSM's. Zie [Azure Key Vault](../key-vault/key-vault-whatis.md) voor meer informatie. U kunt ook Sleutelkluis gebruiken voor het beheren van de TLS-certificaten met automatische verlenging.
+- De toegang op basis van de noodzaak om te weten en minimale bevoegdheden beveiligingsprincipes beperken. Beperken van de toegang is van cruciaal belang voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens. Op rollen gebaseerde toegangsbeheer (RBAC) kan worden gebruikt om machtigingen te wijzen aan gebruikers, groepen en toepassingen op een bepaalde scope. Zie voor meer informatie over gebruikers geen toegang verlenen tot toepassingen, [aan de slag met toegangsbeheer](../role-based-access-control/overview.md).
+- Beveiligen van uw sleutels. Het maakt niet uit hoe goed is de beveiliging van uw als u uw abonnement sleutels verliest. Met Azure Sleutelkluis kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. U kunt met Key Vault sleutels en geheimen versleutelen (zoals verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels, PFX-bestanden en wachtwoorden) door gebruik te maken van sleutels die worden beveiligd met HSM's. Voor extra zekerheid kunt u de sleutels importeren of genereren in HSM's. Zie [Azure Key Vault](../key-vault/key-vault-whatis.md) voor meer informatie. U kunt ook Sleutelkluis gebruiken voor het beheren van de TLS-certificaten met automatische verlenging.
 - Binnenkomende bron-IP-adressen beperken. [App Service-omgeving](../app-service/environment/intro.md) beschikt over een virtueel netwerk integratie-functie waarmee u binnenkomende bron-IP-adressen via netwerkbeveiligingsgroepen (nsg's) beperken. Als u niet bekend bent met Azure Virtual Networks (vnet's), is dit een functie waarmee u veel van uw Azure-resources in een internet-routeerbaar netwerk die u toegang tot te plaatsen. Zie voor meer informatie, [uw app integreren met een Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).
 
 ## <a name="next-steps"></a>Volgende stappen

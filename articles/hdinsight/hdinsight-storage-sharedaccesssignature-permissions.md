@@ -10,20 +10,18 @@ ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c201af6b1c14553e31ca71e28fc22d99ec900bd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Gebruik Azure Storage handtekeningen voor gedeelde toegang om toegang te beperken tot gegevens in HDInsight
 
-HDInsight heeft volledige toegang tot gegevens in de Azure Storage-accounts die zijn gekoppeld aan het cluster. U kunt handtekeningen voor gedeelde toegang op de blob-container gebruiken om toegang te beperken tot de gegevens. Als u bijvoorbeeld alleen-lezen toegang tot de gegevens te bieden. Shared Access Signatures (SAS) zijn een functie van Azure storage-accounts waarmee u toegang tot gegevens te beperken. Bijvoorbeeld, alleen-lezen toegang verlenen tot gegevens.
+HDInsight heeft volledige toegang tot gegevens in de Azure Storage-accounts die zijn gekoppeld aan het cluster. U kunt handtekeningen voor gedeelde toegang op de blob-container gebruiken om toegang te beperken tot de gegevens. Shared Access Signatures (SAS) zijn een functie van Azure storage-accounts waarmee u toegang tot gegevens te beperken. Bijvoorbeeld, alleen-lezen toegang verlenen tot gegevens.
 
 > [!IMPORTANT]
 > Voor een oplossing met behulp van Apache Zwerver, kunt u met HDInsight domein. Zie voor meer informatie de [HDInsight domein configureren](./domain-joined/apache-domain-joined-configure.md) document.
@@ -204,7 +202,7 @@ Als u een bestaand cluster op basis van Linux hebt, kunt u de SAS naar toevoegen
 
 4. Vouw de **aangepaste core-site** sectie en blader naar het einde en selecteer de **eigenschap toevoegen...**  koppeling. Gebruik de volgende waarden voor de **sleutel** en **waarde** velden:
 
-   * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
+   * **Sleutel**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Waarde**: de SAS geretourneerd door de C# of Python-toepassing die u eerder hebt uitgevoerd.
 
      Vervang **CONTAINERNAME** met de containernaam van de die u gebruikt met de C# of SAS-toepassing. Vervang **STORAGEACCOUNTNAME** met de opslagaccountnaam die u hebt gebruikt.

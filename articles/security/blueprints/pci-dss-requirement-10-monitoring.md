@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 5fa1d17e68ce04b1f67081479518279be6cca099
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 708c57c1d7b79d3fd3c129de9a7ce4099ab6ac36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>Controle van vereisten voor PCI DSS-compatibele omgevingen 
 ## <a name="pci-dss-requirement-10"></a>PCI-DSS vereiste 10
@@ -39,7 +39,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure beperkt toegang tot beheer- en diagnostische hulpprogramma's tot bevoegd personeel verantwoordelijkheid van de relevante taak. Microsoft Azure beperkt bevoorrechte toegang tot de hulpprogramma's in de productieomgeving op basis van de principes van de minste bevoegdheden. Microsoft Azure registreert en onderhoudt een logboek van alle afzonderlijke gebruikerstoegang tot Microsoft Azure-systeemonderdelen in de platform-omgeving.<br /><br />Microsoft Azure-platform-onderdelen (inclusief OS, CloudNet en Fabric) zijn geconfigureerd voor het aanmelden en beveiligingsgebeurtenissen verzamelen. Activiteit van de beheerder in de Microsoft Azure-platform wordt vastgelegd. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit (inclusief CHD logboekregistratie). Zie voor meer informatie [richtlijnen PCI - logboekregistratie](payment-processing-blueprint.md#logging-and-auditing).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit (inclusief CHD logboekregistratie). Zie voor meer informatie [richtlijnen PCI - logboekregistratie](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -59,7 +59,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure beperkt toegang tot beheer- en diagnostische hulpprogramma's tot bevoegd personeel verantwoordelijkheid van de relevante taak. Microsoft Azure beperkt bevoorrechte toegang tot de hulpprogramma's in de productieomgeving op basis van de principes van de minste bevoegdheden. Microsoft Azure registreert en onderhoudt een logboek van alle afzonderlijke gebruikerstoegang tot Microsoft Azure-systeemonderdelen in de platform-omgeving.<br /><br />Microsoft Azure-platform-onderdelen (inclusief OS, CloudNet en Fabric) zijn geconfigureerd voor het aanmelden en beveiligingsgebeurtenissen verzamelen. Activiteit van de beheerder in de Microsoft Azure-platform wordt vastgelegd. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft uitgebreide logboekregistratie van alle systeem- en activiteiten, waaronder CHD logboekregistratie. Zie voor meer informatie [richtlijnen PCI - logboekregistratie](payment-processing-blueprint.md#logging-and-auditing).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft uitgebreide logboekregistratie van alle systeem- en activiteiten, waaronder CHD logboekregistratie. Zie voor meer informatie [richtlijnen PCI - logboekregistratie](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -78,7 +78,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure procedures voor het synchroniseren van servers tot stand heeft gebracht en netwerkapparaten in de Microsoft Azure-omgeving met NTP Stratum 1 tijdservers gesynchroniseerd naar globale positionering System (GPS) satellieten. Synchronisatie wordt automatisch uitgevoerd om de vijf minuten. Microsoft Azure is verantwoordelijk voor het garanderen servicehosts goed synchronisatietijd. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore registreert gebruikers-id, gebeurtenistype, datum-/ tijdstempel, gebeurtenissen voor geslaagde is mislukt, bron van gebeurtenis en de naam van de resource zoals vereist door het besturingselement 10.3.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore registreert gebruikers-id, gebeurtenistype, datum-/ tijdstempel, gebeurtenissen voor geslaagde is mislukt, bron van gebeurtenis en de naam van de resource zoals vereist door het besturingselement 10.3.|
 
 
 
@@ -93,7 +93,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure procedures voor het synchroniseren van servers tot stand heeft gebracht en netwerkapparaten in de Microsoft Azure-omgeving met NTP Stratum 1 tijdservers gesynchroniseerd naar globale positionering System (GPS) satellieten. Synchronisatie wordt automatisch uitgevoerd om de vijf minuten. Microsoft Azure is verantwoordelijk voor het garanderen servicehosts goed synchronisatietijd. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Tijdsynchronisatie voor de PaaS-service wordt uitgevoerd door Azure.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Tijdsynchronisatie voor de PaaS-service wordt uitgevoerd door Azure.|
 
 
 
@@ -106,7 +106,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 10.4](#pci-dss-requirement-10-4). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Tijdsynchronisatie voor de PaaS-service wordt uitgevoerd door Azure.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Tijdsynchronisatie voor de PaaS-service wordt uitgevoerd door Azure.|
 
 
 
@@ -119,7 +119,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 10.4](#pci-dss-requirement-10-4). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Tijdsynchronisatie voor de PaaS-service wordt uitgevoerd door Azure.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Tijdsynchronisatie voor de PaaS-service wordt uitgevoerd door Azure.|
 
 
 
@@ -132,7 +132,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 10.4](#pci-dss-requirement-10-4). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Tijdsynchronisatie voor de PaaS-service wordt uitgevoerd door Azure.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Tijdsynchronisatie voor de PaaS-service wordt uitgevoerd door Azure.|
 
 
 
@@ -145,7 +145,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | FIM en id's worden geïmplementeerd in de Microsoft Azure-omgeving. Microsoft Azure gebruikt EWS ter ondersteuning van realtime analyses van gebeurtenissen in de operationele omgeving. MAs en doelstellingen genereren bijna realtime-waarschuwingen over gebeurtenissen die mogelijk inbreuk is gemaakt van het systeem. <br /><br />Logboekregistratie van gebeurtenissen die service, gebruiker en beveiliging (webserverlogboeken, FTP-server-Logboeken, enzovoort) is ingeschakeld en centraal behouden. Azure beperkt toegang tot de controlelogboeken tot bevoegd personeel op basis van verantwoordelijkheden. Logboeken worden gearchiveerd op de infrastructuur van Azure beveiligde archivering en 180 dagen worden bewaard. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen aan OMS. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen in Azure. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -158,7 +158,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 10.5](#pci-dss-requirement-10-5). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen aan OMS. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen in Azure. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -171,7 +171,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 10.5](#pci-dss-requirement-10-5). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen aan OMS. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen in Azure. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -184,7 +184,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 10.5](#pci-dss-requirement-10-5). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen aan OMS. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen in Azure. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -197,7 +197,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 10.5](#pci-dss-requirement-10-5). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen aan OMS. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen in Azure. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -210,7 +210,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 10.5](#pci-dss-requirement-10-5). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen aan OMS. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt voor de controle van alle elementen in Azure. Back-ups maken van een externe bron kan worden uitgevoerd door [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -226,7 +226,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | FIM en id's worden geïmplementeerd in de Microsoft Azure-omgeving. Microsoft Azure gebruikt EWS ter ondersteuning van realtime analyses van gebeurtenissen in de operationele omgeving. MAs en doelstellingen genereren bijna realtime-waarschuwingen over gebeurtenissen die mogelijk inbreuk is gemaakt van het systeem. <br /><br />Logboekregistratie van gebeurtenissen die service, gebruiker en beveiliging (webserverlogboeken, FTP-server-Logboeken, enzovoort) is ingeschakeld en centraal behouden. Azure beperkt toegang tot de controlelogboeken tot bevoegd personeel op basis van verantwoordelijkheden. Logboeken worden gearchiveerd op de infrastructuur van Azure beveiligde archivering en 180 dagen worden bewaard. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Maakt gebruik van de Contoso Webstore [Azure Security Center](https://azure.microsoft.com/services/security-center/) bewaakt en rapporteren en afwijkingen voorkomen. [Azure Advisor](/azure/advisor/advisor-security-recommendations) biedt een consistente, geconsolideerde weergave van aanbevelingen voor alle Azure-resources.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Maakt gebruik van de Contoso Webstore [Azure Security Center](https://azure.microsoft.com/services/security-center/) bewaakt en rapporteren en afwijkingen voorkomen. [Azure Advisor](/azure/advisor/advisor-security-recommendations) biedt een consistente, geconsolideerde weergave van aanbevelingen voor alle Azure-resources.|
 
 
 
@@ -243,7 +243,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 10.6](#pci-dss-requirement-10-6). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Maakt gebruik van de Contoso Webstore [Azure Security Center](https://azure.microsoft.com/services/security-center/) bewaakt en rapporteren en afwijkingen voorkomen. [Azure Advisor](/azure/advisor/advisor-security-recommendations) biedt een consistente, geconsolideerde weergave van aanbevelingen voor alle Azure-resources.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Maakt gebruik van de Contoso Webstore [Azure Security Center](https://azure.microsoft.com/services/security-center/) bewaakt en rapporteren en afwijkingen voorkomen. [Azure Advisor](/azure/advisor/advisor-security-recommendations) biedt een consistente, geconsolideerde weergave van aanbevelingen voor alle Azure-resources.|
 
 
 
@@ -256,7 +256,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 10.6](#pci-dss-requirement-10-6). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Maakt gebruik van de Contoso Webstore [Azure Security Center](https://azure.microsoft.com/services/security-center/) bewaakt en rapporteren en afwijkingen voorkomen. [Azure Advisor](/azure/advisor/advisor-security-recommendations) biedt een consistente, geconsolideerde weergave van aanbevelingen voor alle Azure-resources.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Maakt gebruik van de Contoso Webstore [Azure Security Center](https://azure.microsoft.com/services/security-center/) bewaakt en rapporteren en afwijkingen voorkomen. [Azure Advisor](/azure/advisor/advisor-security-recommendations) biedt een consistente, geconsolideerde weergave van aanbevelingen voor alle Azure-resources.|
 
 
 
@@ -269,7 +269,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie 'Microsoft Azure' sectie [vereiste 10.6](#pci-dss-requirement-10-6). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Maakt gebruik van de Contoso Webstore [Azure Security Center](https://azure.microsoft.com/services/security-center/) bewaakt en rapporteren en afwijkingen voorkomen. [Azure Advisor](/azure/advisor/advisor-security-recommendations) biedt een consistente, geconsolideerde weergave van aanbevelingen voor alle Azure-resources.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Maakt gebruik van de Contoso Webstore [Azure Security Center](https://azure.microsoft.com/services/security-center/) bewaakt en rapporteren en afwijkingen voorkomen. [Azure Advisor](/azure/advisor/advisor-security-recommendations) biedt een consistente, geconsolideerde weergave van aanbevelingen voor alle Azure-resources.|
 
 
 
@@ -282,7 +282,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure behoudt controlelogboeken voor één jaar met de meest recente 3 maanden onmiddellijk toegankelijk via hun interne portal. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit (inclusief CHD logboekregistratie). Zie voor meer informatie [richtlijnen PCI - logboekregistratie](payment-processing-blueprint.md#logging-and-auditing).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit (inclusief CHD logboekregistratie). Zie voor meer informatie [richtlijnen PCI - logboekregistratie](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -308,7 +308,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure gebruikt EWS ter ondersteuning van realtime analyses van gebeurtenissen in de operationele omgeving. MAs en doelstellingen genereren bijna realtime-waarschuwingen over gebeurtenissen die mogelijk inbreuk is gemaakt van het systeem. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit (inclusief CHD logboekregistratie). Zie voor meer informatie [richtlijnen PCI - logboekregistratie](payment-processing-blueprint.md#logging-and-auditing).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit (inclusief CHD logboekregistratie). Zie voor meer informatie [richtlijnen PCI - logboekregistratie](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -331,7 +331,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure gebruikt EWS ter ondersteuning van realtime analyses van gebeurtenissen in de operationele omgeving. MAs en doelstellingen genereren bijna realtime-waarschuwingen over gebeurtenissen die mogelijk inbreuk is gemaakt van het systeem. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit (inclusief CHD logboekregistratie). Zie voor meer informatie [richtlijnen PCI - logboekregistratie](payment-processing-blueprint.md#logging-and-auditing).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit (inclusief CHD logboekregistratie). Zie voor meer informatie [richtlijnen PCI - logboekregistratie](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -345,7 +345,7 @@ Logboekregistratie mechanismen en de mogelijkheid om bij te houden van gebruiker
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gebruiksvoorbeeld en een beschrijving van hoe de CHD beheerd en beveiligd.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gebruiksvoorbeeld en een beschrijving van hoe de CHD beheerd en beveiligd.|
 
 
 

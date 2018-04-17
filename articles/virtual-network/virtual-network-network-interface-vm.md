@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: bb21690865cd9384fe3d3c82e60f11e0fc64114c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: abccfed6f335ed7febb4fb2f17ad71fa153e3ed6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Netwerkinterfaces toevoegen of verwijderen van netwerkinterfaces van virtuele machines
 
@@ -32,9 +32,9 @@ Als u moet toe te voegen, wijzigen of verwijderen van IP-adressen voor een netwe
 De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit artikel:
 
 - Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
-- Als u de portal gebruikt, open https://portal.azure.com en meld u aan met uw Azure-account.
-- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.2.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` de geïnstalleerde versie vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
-- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.26 of hoger. Voer `az --version` de geïnstalleerde versie vinden. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
+- Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
+- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.2.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.26 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>Bestaande netwerkinterfaces toevoegen aan een nieuwe virtuele machine
 
@@ -46,7 +46,7 @@ Voordat u de virtuele machine maakt, maakt u een netwerkinterface met behulp van
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ vm maken](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_create)|
+|CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_create)|
 |PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Een netwerkinterface toevoegen aan een bestaande virtuele machine
@@ -75,7 +75,7 @@ Voordat u de virtuele machine maakt, maakt u een netwerkinterface met behulp van
 
 U kunt de netwerkinterfaces momenteel gekoppeld aan een virtuele machine voor meer informatie over de configuratie voor elke netwerkinterface en de IP-adressen toegewezen aan elke netwerkinterface weergeven. 
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met de rol van eigenaar, bijdrager of Network Contributor voor uw abonnement is toegewezen. Zie voor meer informatie over het toewijzen van rollen aan accounts, [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met de rol van eigenaar, bijdrager of Network Contributor voor uw abonnement is toegewezen. Zie voor meer informatie over het toewijzen van rollen aan accounts, [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. In het vak dat de tekst bevat **zoeken bronnen** aan de bovenkant van de Azure-portal, typ **virtuele machines**. Wanneer **virtuele machines** wordt weergegeven in de zoekresultaten, selecteer deze.
 3. Selecteer de naam van de virtuele machine waarvoor u wilt weergeven van netwerkinterfaces.
 4. In de **instellingen** sectie voor de VM die u hebt geselecteerd, selecteer **Networking**. Zie voor meer informatie over de netwerkinterface-instellingen en hoe u deze wijzigt, [netwerkinterfaces beheren](virtual-network-network-interface.md). Zie voor meer informatie over het toevoegen, wijzigen of verwijderen van IP-adressen toegewezen aan een netwerkinterface, [network interface-IP-adressen beheren](virtual-network-network-interface-addresses.md).
@@ -84,7 +84,7 @@ U kunt de netwerkinterfaces momenteel gekoppeld aan een virtuele machine voor me
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ vm weergeven](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_show)|
+|CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_show)|
 |PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-a-network-interface-from-a-vm"></a>Een netwerkinterface van een virtuele machine verwijderen

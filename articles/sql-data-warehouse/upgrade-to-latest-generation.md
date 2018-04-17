@@ -10,13 +10,13 @@ ms.component: manage
 ms.date: 04/02/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6ea45398b0bf7fca43c75797313b7e683972b1ab
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 724f027f3f43cd0ad846210b511c8fc1af27153f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Prestaties optimaliseren door het upgraden van SQL Data Warehouse
+# <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Prestaties optimaliseren door bijwerken van SQL Data Warehouse
 
 U kunt nu probleemloos upgraden naar de optimaliseren voor de prestatielaag Compute in de Azure portal. Als u een geoptimaliseerd voor elasticiteit datawarehouse hebt, kunt dat u een upgrade uitvoeren voor de nieuwste Azure hardware en een verbeterde storage-architectuur. U kunt zich profiteren van betere prestaties, hogere schaalbaarheid en onbeperkte kolommen opslag. 
 
@@ -70,9 +70,9 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
    
    De eerste stap van het upgradeproces, doorloopt de schaalaanpassing ('upgrade - Offline') waarbij alle gebruikerssessies worden verwijderd en worden deze verbindingen verwijderd. 
    
-   De tweede stap van het upgradeproces is de gegevensmigratie ('upgrade - Online'). Gegevensmigratie is een achtergrondproces online nieuwe die kolomgegevens van de oude Gen1 opslagarchitectuur langzaam worden verplaatst naar de nieuwe Gen2 opslagarchitectuur gebruikmaken van de lokale SSD-cache van Gen2. Tijdens deze periode worden uw datawarehouse online zijn voor het doorzoeken en laden. Al uw gegevens zijn beschikbaar om op te vragen ongeacht of deze is gemigreerd of niet. De gegevensmigratie gebeurt met een frequentie variëren afhankelijk van de gegevensgrootte van uw, het prestatieniveau en het nummer van de columnstore-segmenten. 
+   De tweede stap van het upgradeproces is de gegevensmigratie ('upgrade - Online'). Gegevensmigratie is een achtergrondproces online nieuwe die kolomgegevens van de oude opslagarchitectuur langzaam worden verplaatst naar de nieuwe opslagarchitectuur gebruik te maken van een lokale SSD-cache. Tijdens deze periode worden uw datawarehouse online zijn voor het doorzoeken en laden. Al uw gegevens zijn beschikbaar om op te vragen ongeacht of deze is gemigreerd of niet. De gegevensmigratie gebeurt met een frequentie variëren afhankelijk van de gegevensgrootte van uw, het prestatieniveau en het nummer van de columnstore-segmenten. 
 
-5. **Optionele aanbeveling:** sneller het migratieproces achtergrond, wordt aanbevolen om af te dwingen onmiddellijk verplaatsing van gegevens door te voeren [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) op alle columnstore-tabellen op een grotere SLO en resource de klasse. Deze bewerking is offline vergeleken met de nieuwe achtergrondproces; de gegevensmigratie wordt wel veel sneller waar u kunt vervolgens profiteren van de opslagarchitectuur Gen2 eenmaal met een hoge kwaliteit rowgroups voltooid. 
+5. **Optionele aanbeveling:** sneller het migratieproces achtergrond, wordt aanbevolen om af te dwingen onmiddellijk verplaatsing van gegevens door te voeren [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) op alle columnstore-tabellen op een grotere SLO en resource de klasse. Deze bewerking is offline vergeleken met de nieuwe achtergrondproces; de gegevensmigratie wordt wel veel sneller waar u kunt vervolgens profiteren van de nieuwe uitgebreide opslagarchitectuur met een hoge kwaliteit rowgroups eenmaal voltooid. 
 
 Deze volgende query worden de vereiste Alter Index Rebuild-opdrachten voor het migratieproces snellere gegenereerd:
 

@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 478a2ebfa6a4cc504119734ac2f67b1f7c77dd5a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a6a9b4d2fa0f9baa751c74e3444f44b4013265fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Toevoegen, wijzigen of verwijderen van IP-adressen voor een Azure-netwerk-interface
 
@@ -33,15 +33,15 @@ Als u nodig hebt voor het maken, wijzigen of verwijderen van een netwerkinterfac
 De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit artikel:
 
 - Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
-- Als u de portal gebruikt, open https://portal.azure.com en meld u aan met uw Azure-account.
-- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.2.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` de geïnstalleerde versie vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
-- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.26 of hoger. Voer `az --version` de geïnstalleerde versie vinden. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
+- Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
+- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.2.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.26 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
 ## <a name="add-ip-addresses"></a>IP-adressen toevoegen
 
 U kunt toevoegen als veel [persoonlijke](#private) en [openbare](#public) [IPv4](#ipv4) adressen zo nodig aan een netwerkinterface binnen de grenzen die worden vermeld in de [Azure beperkt](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artikel. U kunt de portal niet gebruiken voor een IPv6-adres toevoegen aan een bestaande netwerkinterface (Hoewel de portal kunt u een persoonlijk IPv6-adres toevoegen aan een netwerkinterface bij het maken van de netwerkinterface). U kunt PowerShell of de CLI gebruiken een persoonlijk IPv6-adres toevoegen aan een [secundaire IP-configuratie](#secondary) (zo lang er zijn geen bestaande secundaire IP-configuraties) voor een bestaande netwerkinterface die niet is gekoppeld aan een virtuele machine. U kunt elk hulpprogramma niet gebruiken een openbare IPv6-adres toevoegen aan een netwerkinterface. Zie [IPv6](#ipv6) voor meer informatie over het gebruik van IPv6-adressen. 
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met een account is toegewezen (minimaal) machtigingen voor de rol Inzender netwerk voor uw abonnement. Lees de [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikel voor meer informatie over het toewijzen van rollen en machtigingen aan accounts.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met een account is toegewezen (minimaal) machtigingen voor de rol Inzender netwerk voor uw abonnement. Lees de [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikel voor meer informatie over het toewijzen van rollen en machtigingen aan accounts.
 2. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *netwerkinterfaces*. Wanneer **netwerkinterfaces** wordt weergegeven in de zoekresultaten, klik erop.
 3. In de **netwerkinterfaces** blade die wordt weergegeven, klikt u op de netwerkinterface die u wilt toevoegen voor een IPv4-adres.
 4. Klik op **IP-configuraties** in de **instellingen** sectie van de blade voor de netwerkinterface die u hebt geselecteerd.
@@ -67,7 +67,7 @@ U kunt toevoegen als veel [persoonlijke](#private) en [openbare](#public) [IPv4]
 
 U kunt moet wijzigen van de methode voor het toewijzen van een IPv4-adres wijzigen van het statische IPv4-adres, of wijzigen van het openbare IP-adres is toegewezen aan een netwerkinterface. Als u de particulier IPv4-adres van een secundaire IP-configuratie die is gekoppeld aan een secundaire netwerkinterface in een virtuele machine wilt wijzigen (meer informatie over [primaire en secundaire netwerkinterfaces](virtual-network-network-interface-vm.md)), plaats de virtuele machine in de gestopt (toewijzing ongedaan gemaakt) voordat u de volgende stappen: 
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met een account is toegewezen (minimaal) machtigingen voor de rol Inzender netwerk voor uw abonnement. Lees de [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikel voor meer informatie over het toewijzen van rollen en machtigingen aan accounts.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met een account is toegewezen (minimaal) machtigingen voor de rol Inzender netwerk voor uw abonnement. Lees de [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikel voor meer informatie over het toewijzen van rollen en machtigingen aan accounts.
 2. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *netwerkinterfaces*. Wanneer **netwerkinterfaces** wordt weergegeven in de zoekresultaten, klik erop.
 3. In de **netwerkinterfaces** blade die wordt weergegeven, klikt u op de netwerkinterface die u wilt weergeven of wijzigen van IP-adresinstellingen voor.
 4. Klik op **IP-configuraties** in de **instellingen** sectie van de blade voor de netwerkinterface die u hebt geselecteerd.
@@ -88,7 +88,7 @@ U kunt moet wijzigen van de methode voor het toewijzen van een IPv4-adres wijzig
 
 U kunt verwijderen [persoonlijke](#private) en [openbare](#public) IP-adressen uit een netwerkinterface, maar een netwerkinterface moet altijd ten minste één particulier IPv4-adres toegewezen.
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met een account is toegewezen (minimaal) machtigingen voor de rol Inzender netwerk voor uw abonnement. Lees de [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikel voor meer informatie over het toewijzen van rollen en machtigingen aan accounts.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met een account is toegewezen (minimaal) machtigingen voor de rol Inzender netwerk voor uw abonnement. Lees de [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikel voor meer informatie over het toewijzen van rollen en machtigingen aan accounts.
 2. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *netwerkinterfaces*. Wanneer **netwerkinterfaces** wordt weergegeven in de zoekresultaten, klik erop.
 3. In de **netwerkinterfaces** blade die wordt weergegeven, klikt u op de netwerkinterface die u wilt verwijderen van IP-adressen uit.
 4. Klik op **IP-configuraties** in de **instellingen** sectie van de blade voor de netwerkinterface die u hebt geselecteerd.

@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: anavinahar
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3a8cae97-3bed-430d-91b3-274696d91e34
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: 906105e737087de91e7393861e9057f8acb06aa4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 85eefd0d15ed08eaa82983c6901faa0aa1ff303c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Meerdere IP-adressen toewijzen aan virtuele machines met de Azure portal
 
@@ -35,11 +35,11 @@ Als u maken van een virtuele machine met meerdere IP-adressen of een statisch pr
 
 ## <a name="add"></a>IP-adressen toevoegen aan een virtuele machine
 
-U kunt persoonlijke en openbare IP-adressen toevoegen aan een NIC via de stappen volgen. De voorbeelden in de volgende secties wordt ervan uitgegaan dat er al een virtuele machine met de drie IP-configuraties beschreven in de [scenario](#Scenario), maar dit is niet vereist.
+U kunt persoonlijke en openbare IP-adressen toevoegen aan een Azure-netwerkinterface via de stappen volgen. De voorbeelden in de volgende secties wordt ervan uitgegaan dat er al een virtuele machine met de drie IP-configuraties beschreven in de [scenario](#Scenario), maar dit is niet vereist.
 
 ### <a name="coreadd"></a>Core stappen
 
-1. Blader naar de Azure portal op https://portal.azure.com en meld u in de App, indien nodig.
+1. Blader naar de Azure portal op https://portal.azure.com en meld u aan bij deze, indien nodig.
 2. Klik in de portal op **meer services** > type *virtuele machines* in het filtervak en klik vervolgens op **virtuele machines**.
 3. In de **virtuele machines** deelvenster, klikt u op de virtuele machine die u wilt toevoegen, IP-adressen aan. Klik op **netwerkinterfaces** in de virtuele machine deelvenster die wordt weergegeven en selecteer vervolgens de netwerkinterface die u wilt toevoegen het IP-adressen aan. In het voorbeeld weergegeven in de volgende afbeelding wordt de NIC met de naam *myNIC* van de virtuele machine met de naam *myVM* is ingeschakeld:
 
@@ -75,7 +75,7 @@ Een openbaar IP-adres wordt toegevoegd door het koppelen van een resource met op
 
 Een openbaar IP-adres is een instelling voor de bron van een openbare IP-adres. Als u een openbare IP-adres resource die is momenteel niet gekoppeld aan een IP-configuratie die u wilt koppelen aan een IP-configuratie hebt, wordt de volgende stappen overslaan en voer de stappen in een van de secties die volgen, die u nodig hebt. Als u een beschikbare resource voor openbare IP-adres niet hebt, voert u de volgende stappen uit om een:
 
-1. Blader naar de Azure portal op https://portal.azure.com en meld u in de App, indien nodig.
+1. Blader naar de Azure portal op https://portal.azure.com en meld u aan bij deze, indien nodig.
 3. Klik in de portal op **maken van een resource** > **Networking** > **openbaar IP-adres**.
 4. In de **openbare IP-adres maken** deelvenster dat wordt weergegeven, voer een **naam**, selecteer een **IP-adrestoewijzing** type, een **abonnement**, een **Resourcegroep**, en een **locatie**, klikt u vervolgens op **maken**, zoals wordt weergegeven in de volgende afbeelding:
 

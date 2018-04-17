@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: cd5e53b49a850acf851e8351b5e14e2993176435
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 499f363dd6241612553e94e43dd56de6cfc8f71f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Machines van Azure naar een on-premises site opnieuw beveiligen
 
@@ -79,7 +79,7 @@ Nadat u een hoofddoelserver hebt gemaakt, het volgende doen:
 - U moet een nieuwe schijf toevoegen als u een bestaande proces server of configuratieserver server-machine of een schaal of een proces op het server-master server doelmachine. Het nieuwe station moet voldoen aan deze vereisten. Als het bewaarstation niet aanwezig is, wordt het niet weergegeven in de selectielijst van de vervolgkeuzelijst op de portal. Nadat u een station hebt toegevoegd aan het hoofddoel lokale, duurt het 15 minuten duren voordat het station moet worden weergegeven in de selectie op de portal. U kunt ook de configuratieserver vernieuwen als het station niet wordt weergegeven na 15 minuten.
 - Installeer VMware tools op de hoofddoelserver. Zonder de VMware-hulpprogramma's kan niet de datastores op het hoofddoel ESXi-host worden gedetecteerd.
 - Stel de `disk.EnableUUID=true` instellen in de configuratieparameters van het hoofddoel virtuele machine in VMware. Als deze rij niet bestaat, moet u deze toevoegen. Deze instelling is vereist voor een consistente UUID naar de schijf van de virtuele machine (VMDK) bieden, zodat deze correct koppelt.
-- Het hoofddoel moet ten minste één VMFS datastore gekoppeld zijn. Als er geen, de **Datastore** invoer op de pagina opnieuw beveiligen wordt niet leeg zijn en kan niet worden voortgezet.
+- De ESX-host waarop het hoofddoel wordt gemaakt, moet ten minste één VMFS datastore gekoppeld hebben. Als er geen, de **Datastore** invoer op de pagina opnieuw beveiligen wordt niet leeg zijn en kan niet worden voortgezet.
 - De hoofddoelserver kan geen momentopnamen op de schijven hebben. Als er momentopnamen, beveiligingspoging en failback is mislukt.
 - Het hoofddoel kan niet een Paravirtuele SCSI-controller hebben. De controller kan alleen worden een LSI Logic-controller. Zonder een domeincontroller LSI Logic mislukt beveiligingspoging.
 - Op een bepaald geval kan het hoofddoel atmst 60 schijven die zijn gekoppeld aan deze hebben. Als het aantal virtuele machines opnieuw aan het hoofddoel lokale wordt beveiligd som totale aantal meer dan 60 schijven hebt, gaat u aan het hoofddoel reprotects zal mislukken. Zorg ervoor dat er voldoende master schijf sleuven doel of extra hoofddoelservers implementeren.
@@ -92,7 +92,7 @@ Nadat een virtuele machine wordt opgestart in Azure, duurt het enige tijd voor d
 
 1. In **kluis** > **gerepliceerde items**, met de rechtermuisknop op de virtuele machine die failover uitgevoerd is is en selecteer vervolgens **opnieuw beveiligen**. U kunt ook klikt u op de machine en selecteer **opnieuw beveiligen** van de opdrachtknoppen.
 2. Controleer of de richting van beveiliging, **Azure met On-premises**, is al geselecteerd.
-3. In **Hoofddoelserver** en **processerver**, selecteer de on-premises hoofddoelserver en de processerver.
+3. In **Hoofddoelserver** en **processerver**, selecteer de on-premises hoofddoelserver en de processerver.  
 4. Voor **Datastore**, selecteert u het gegevensarchief waarnaar u herstellen van de schijven wilt on-premises. Deze optie wordt gebruikt wanneer de on-premises virtuele machine is verwijderd en moet u nieuwe schijven te maken. Deze optie wordt genegeerd als de schijven is al aanwezig, maar u moet nog steeds een waarde opgeven.
 5. Kies het station bewaren.
 6. Het failback-beleid wordt automatisch geselecteerd.

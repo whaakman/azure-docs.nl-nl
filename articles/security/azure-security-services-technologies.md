@@ -1,6 +1,6 @@
 ---
-title: "Azure-beveiligingsservices en -technologieën | Microsoft Docs"
-description: "Het artikel biedt een samengestelde lijst van de beveiliging van de Azure-services en -technologieën."
+title: Azure-beveiligingsservices en -technologieën | Microsoft Docs
+description: Het artikel biedt een samengestelde lijst van de beveiliging van de Azure-services en -technologieën.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1ea707d3d149734dad2d5c76d853ddd667cbf73b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 838987e7fa5e638a980c592f5cdf775d3110fab0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure-beveiligingsservices en -technologieën
 In onze overleg met de huidige en toekomstige Azure-klanten, we vaak gevraagd ' hebt u een lijst van de beveiliging van alle gerelateerde services en -technologieën die Azure te bieden heeft? '
@@ -54,7 +54,7 @@ Hier volgt onze inspanning initiële op een lijst te leveren. Deze lijst wordt g
 * [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Azure Identity and Access Management
-* [Toegangsbeheer op basis van een Azure-functie](../active-directory/role-based-access-control-configure.md)
+* [Toegangsbeheer op basis van een Azure-functie](../role-based-access-control/role-assignments-portal.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
 * [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)
@@ -66,7 +66,7 @@ Hier volgt onze inspanning initiële op een lijst te leveren. Deze lijst wordt g
 
 ## <a name="azure-networking"></a>Azure-netwerken
 * [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md)
-* [Azure VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+* [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)
 * [Azure Load Balancer](../load-balancer/load-balancer-overview.md)
 * [Azure ExpressRoute](../expressroute/expressroute-introduction.md)

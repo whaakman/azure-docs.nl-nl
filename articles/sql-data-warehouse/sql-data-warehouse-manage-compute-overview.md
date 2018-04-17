@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ddd80f2ebfa9d06fcd47c41d337348e01ac112e9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Compute in Azure SQL Data Warehouse beheren
 Meer informatie over het beheren van rekenresources in Azure SQL Data Warehouse. Lagere kosten door het datawarehouse onderbreken of schalen van het datawarehouse om te voldoen aan de prestatie-eisen. 
@@ -28,7 +28,7 @@ Meer informatie over het beheren van rekenresources in Azure SQL Data Warehouse.
 De architectuur van SQL Data Warehouse scheidt opslag en berekeningen, zodat deze afzonderlijk kunnen worden geschaald. Als gevolg hiervan kunt u berekenen om te voldoen aan de prestatie-eisen onafhankelijk van de opslag van gegevens schalen. U kunt ook onderbreken en hervatten van de compute-bronnen. Een natuurlijke gevolg van deze architectuur is dat [facturering](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) voor berekeningen en opslag is gescheiden. Als u uw datawarehouse gebruiken voor een tijdje niet wilt, kunt u de compute-kosten besparen door onderbreken compute. 
 
 ## <a name="scaling-compute"></a>Compute schalen
-U kunt uitbreiden of back compute schalen door het aanpassen van de [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md) instellen voor uw datawarehouse. Bij het laden en queryprestaties kunt lineair verhogen als u meer datawarehouse units toevoegen. SQL Data Warehouse biedt [serviceniveaus](performance-tiers.md#service-levels) voor gegevens datawarehouse eenheden die zorgen voor een merkbare veranderingen in de prestaties wanneer u schalen out- of back. 
+U kunt uitbreiden of back compute schalen door het aanpassen van de [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md) instellen voor uw datawarehouse. Bij het laden en queryprestaties kunt lineair verhogen als u meer datawarehouse units toevoegen. 
 
 Zie voor stappen voor scale-out de [Azure-portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), of [T-SQL](quickstart-scale-compute-tsql.md) snelstartgidsen. U kunt ook scale-out bewerkingen uitvoeren met een [REST-API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -103,19 +103,19 @@ U wordt aangeraden zodat bestaande transacties te voltooien voordat u een pauze 
 
 Wanneer u uw SQL Data Warehouse onderbreekt of schaalt, worden uw query’s achter de schermen geannuleerd zodra u het onderbreek- of schaalverzoek start.  Een eenvoudige SELECT-query annuleren is een snelle bewerking en heeft zo goed als geen invloed op de duur van het onderbreken of schalen van uw instantie.  Maar transactiequery’s, die uw gegevens of de structuur van uw gegevens wijzigen, kunnen mogelijk niet snel worden stopgezet.  **Transactiequery’s moeten per definitie volledig worden voltooid of hun wijzigingen volledig terugdraaien.**  Het kan even lang of langer duren om het werk dat door een transactiequery is voltooid, terug te draaien, als het uitvoeren van de oorspronkelijke opdracht van de query.  Als u bijvoorbeeld een query annuleert voor het verwijderen van rijen die al een uur wordt uitgevoerd, kan het systeem er een uur over doen om de verwijderde rijen terug te plaatsen.  Als u onderbreken of schalen uitvoert terwijl er transacties bezig zijn, kan het schalen of onderbreken lang lijken te duren omdat het schalen of onderbreken moet wachten op het terugdraaien van de transacties voordat het kan worden voortgezet.
 
-Zie ook [wat zijn transacties](sql-data-warehouse-develop-transactions.md), en [optimaliseren transacties][optimaliseren transacties](sql-data-warehouse-develop-best-practices-transactions.md).
+Zie ook [wat zijn transacties](sql-data-warehouse-develop-transactions.md), en [optimaliseren transacties](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## <a name="automating-compute-management"></a>Automatiseren compute-beheer
 Zie voor het automatiseren van de compute-beheerbewerkingen [compute beheren met Azure functions](manage-compute-with-azure-functions.md).
 
 Elk van de scale-out, onderbreken en hervattingsbewerkingen kan enkele minuten duren. Als u schalen, onderbreken, of automatisch hervat, wordt aangeraden implementeren logica om ervoor te zorgen dat voltooid bepaalde bewerkingen voordat u doorgaat met een andere actie. Controleren of de status van datawarehouse via verschillende eindpunten, kunt u de automatisering van dergelijke bewerkingen correct te implementeren. 
 
-Controleer de status van datawarehouse, se de [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) of [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) Quick Start. U kunt ook controleren met de status van datawarehouse met een [REST-API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+U kunt de status van datawarehouse controleren de [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) of [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) Quick Start. U kunt ook controleren met de status van datawarehouse met een [REST-API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>Machtigingen
 
-De machtigingen beschreven in het datawarehouse schalen vereist [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Onderbreken en hervatten, vereisen de [SQL DB Contributor](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor) machtiging specifiek Microsoft.Sql/servers/databases/action.
+De machtigingen beschreven in het datawarehouse schalen vereist [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  Onderbreken en hervatten, vereisen de [SQL DB Contributor](../role-based-access-control/built-in-roles.md#sql-db-contributor) machtiging specifiek Microsoft.Sql/servers/databases/action.
 
 
 ## <a name="next-steps"></a>Volgende stappen

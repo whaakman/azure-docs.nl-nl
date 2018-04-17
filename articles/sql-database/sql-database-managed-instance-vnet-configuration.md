@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bccc2d52c592101a23338e57791a992441e80047
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Een VNet configureren voor beheerde Azure SQL Database-exemplaar
 
@@ -66,7 +66,7 @@ Als u wilt implementeren meerdere beheerde exemplaren binnen het subnet en moete
 Maken van een virtuele Azure-netwerk is een vereiste voor het maken van een exemplaar beheerd. U kunt de Azure-portal [PowerShell](../virtual-network/quick-create-powershell.md), of [Azure CLI](../virtual-network/quick-create-cli.md). De volgende sectie bevat de stappen die met de Azure portal. De informatie die hier worden besproken van toepassing op elk van deze methoden.
 
 1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
-2. Zoek en klik vervolgens op **virtueel netwerk**, Controleer of de **Resource Manager** is geselecteerd als de implementatiemodus en klik vervolgens op **maken**.
+2. Zoek en klik op **Virtueel netwerk**, controleer of **Resource Manager** is geselecteerd als implementatiemodel en klik vervolgens op **Maken**.
 
    ![virtueel netwerk maken](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
 
@@ -93,23 +93,23 @@ Maken van een virtuele Azure-netwerk is een vereiste voor het maken van een exem
 ## <a name="create-the-required-route-table-and-associate-it"></a>De vereiste routetabel maken en koppelen
 
 1. Aanmelden bij Azure Portal  
-2. Zoek en klik vervolgens op **routetabel**, en klik vervolgens op **maken** op de pagina van de tabel Route.
+2. Zoek en klik op **Routetabel** en klik vervolgens op de pagina Routetabel op **Maken**.
 
-   ![routetabel formulier maken](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
+   ![formulier routetabel maken](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
 
 3. Een route van de volgende Hop Internet 0.0.0.0/0 op een manier zoals de volgende schermafbeeldingen maken:
 
-   ![routetabel toevoegen](./media/sql-database-managed-instance-tutorial/route-table-add.png)
+   ![toevoegen aan routetabel](./media/sql-database-managed-instance-tutorial/route-table-add.png)
 
-   ![Route](./media/sql-database-managed-instance-tutorial/route.png)
+   ![route](./media/sql-database-managed-instance-tutorial/route.png)
 
 4. Deze route aan het subnet voor het exemplaar worden beheerd, klikt u op een manier zoals de volgende schermafbeeldingen koppelen:
 
     ![subnet](./media/sql-database-managed-instance-tutorial/subnet.png)
 
-    ![de routetabel instellen](./media/sql-database-managed-instance-tutorial/set-route-table.png)
+    ![routetabel instellen](./media/sql-database-managed-instance-tutorial/set-route-table.png)
 
-    ![set route tabel moeten worden opgeslagen](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
+    ![instelling routetabel opslaan](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
 
 
 Als uw VNet is gemaakt, bent u klaar om uw beheerde exemplaar te maken.  
@@ -145,5 +145,5 @@ Zo ja, Zie [configureren van een aangepaste DNS](sql-database-managed-instance-c
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor een overzicht [wat is er een exemplaar beheerd](sql-database-managed-instance.md)
-- Zie voor een zelfstudie waarin wordt getoond hoe u een VNet maken en databases herstellen vanaf een databaseback-up maken van een exemplaar beheerd, [maakt u een Azure SQL Database beheerd instantie](sql-database-managed-instance-tutorial-portal.md).
+- Zie voor een zelfstudie waarin wordt getoond hoe u een VNet maken en databases herstellen vanaf een databaseback-up maken van een exemplaar beheerd, [maakt u een Azure SQL Database beheerd instantie](sql-database-managed-instance-create-tutorial-portal.md).
 - Zie voor DNS-problemen [een aangepaste DNS configureren](sql-database-managed-instance-custom-dns.md)

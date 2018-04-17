@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: raynew
-ms.openlocfilehash: 3b10765894501791004e3a9221363f196cc0c91d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a7c1dcae5708164252fa04a0fd1471eb1ae9bf90
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Een groep met apparaatgroeptoewijzing afhankelijkheid verfijnen
 
@@ -37,8 +37,8 @@ De agent installeren op een Windows-computer:
 1. Dubbelklik op de gedownloade agent.
 2. Klik op de pagina **Welkom** op **Volgende**. Op de **licentievoorwaarden** pagina, klikt u op **ik ga akkoord** de licentievoorwaarden accepteren.
 3. In **doelmap**, behouden of wijzigen van de standaardinstallatiemap > **volgende**. 
-4. In **installatieopties voor Agent**, selecteer **Azure logboekanalyse (OMS)** > **volgende**. 
-5. Klik op **toevoegen** toevoegen van een nieuwe OMS-werkruimte. In de werkruimte-ID en sleutel die u hebt gekopieerd uit de portal te plakken. Klik op **Volgende**.
+4. In **installatieopties voor Agent**, selecteer **Azure Log Analytics** > **volgende**. 
+5. Klik op **toevoegen** een nieuwe werkruimte voor logboekanalyse toevoegen. In de werkruimte-ID en sleutel die u hebt gekopieerd uit de portal te plakken. Klik op **Volgende**.
 
 
 De agent te installeren op een Linux-machine:

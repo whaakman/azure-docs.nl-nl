@@ -1,27 +1,26 @@
 ---
-title: Gebruiker gedefinieerde schema's in SQL Data Warehouse | Microsoft Docs
-description: Tips voor het gebruik van Transact-SQL-schema's in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+title: Met behulp van de gebruiker gedefinieerde schema's in SQL Data Warehouse | Microsoft Docs
+description: Tips voor het gebruik van de gebruiker gedefinieerde T-SQL-schema in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 52af5bd5-d5d3-4f9b-8704-06829fb924e3
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: dfb58956ad6637cf0f50b4c052ab98fb7c26139d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d30434bf3c5e5f27f3a95bcb70bddaf3d92967bd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="user-defined-schemas-in-sql-data-warehouse"></a>Gebruiker gedefinieerde schema's in SQL Data Warehouse
+# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Met behulp van de gebruiker gedefinieerde schema's in SQL Data Warehouse
+Tips voor het gebruik van de gebruiker gedefinieerde T-SQL-schema in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+
+## <a name="schemas-for-application-boundaries"></a>Schema's voor toepassingsgrenzen
+
 Afzonderlijke databases gebruik traditionele datawarehouses vaak te maken van de toepassingsgrenzen op basis van de werkbelasting, domein of beveiliging. Een traditionele SQL Server datawarehouse kan bijvoorbeeld een faseringsdatabase, een datawarehouse-database en sommige gegevens datamart-databases. In deze topologie wordt elke database uitgevoerd als een werkbelasting en de beveiligingsgrens in de architectuur.
 
 SQL Data Warehouse wordt daarentegen de hele datawarehouse-workload binnen één database uitgevoerd. Joins zijn niet toegestaan cross-database. SQL Data Warehouse verwacht daarom alle tabellen die door het datawarehouse gebruikt om te worden opgeslagen in een database.
@@ -121,13 +120,5 @@ FROM    [edw].customer
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars][development overview].
+Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

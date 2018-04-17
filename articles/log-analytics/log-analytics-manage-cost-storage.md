@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 865b0e485480f5ee7d676d3a6c90cb51fd50d19c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Kosten beheren via Besturingsmechanismen gegevensvolume en te bewaren in Log Analytics
 Log Analytics is ontworpen om scale en ondersteuning voor het verzamelen, te indexeren en opslaan van grote hoeveelheden gegevens per dag van elke bron in uw onderneming of geïmplementeerd in Azure.  Hoewel dit kan een primaire stuurprogramma voor uw organisatie, is kostenefficiëntie uiteindelijk het onderliggende stuurprogramma. Het is ook afhankelijk van het plan geselecteerd hiertoe het is belangrijk om te begrijpen dat de kosten van een werkruimte logboek Analytisc NET is niet gebaseerd op het volume van de gegevens die zijn verzameld, en hoe lang u hebt gekozen voor het opslaan van gegevens die zijn gegenereerd op basis van uw verbonden bronnen.  
@@ -33,15 +33,14 @@ De kosten van de gegevens zijn aanzienlijk afhankelijk van de volgende factoren:
 - De gegevens van de periode wordt bewaard in de werkruimte  
 - Aantal oplossingen voor het beheer ingeschakeld, gegevensbron en frequentie van de verzameling 
 
+Raadpleeg de documentatie van elke oplossing aangezien deze biedt een schatting maken van hoeveel gegevens worden verzameld.   
+
+Als u zich op de prijscategorie 'gratis', is gegevens beperkt tot 7 dagen bewaren. Verzamelde gegevens is beschikbaar voor de afgelopen 31 dagen voor de 'Per-GB (zelfstandig)' of 'Per knooppunt (OMS)' lagen en retentie kan worden verhoogd naar 2 jaar. Als u een langere bewaartermijn selecteert gelden. Het gratis-plan heeft 500 MB daglimiet opname en als u vindt dat u steeds meer bedragen dan de toegestane volume, kunt u uw werkruimte naar de Per GB of Per knooppunt lagen voor het verzamelen van gegevens boven deze limiet. U kunt op elk gewenst moment en voor meer informatie over prijzen wijzigen van het type van uw abonnement, Zie [prijsinformatie](https://azure.microsoft.com/pricing/details/log-analytics/). 
+
 > [!NOTE]
-> Raadpleeg de documentatie van elke oplossing aangezien deze biedt een schatting maken van hoeveel gegevens worden verzameld.   
+> In April 2018, we [geïntroduceerd](https://azure.microsoft.com/en-us/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) een nieuw prijsmodel voor het bewaken van Azure. Dit model neemt een eenvoudige 'betalen naar gebruik' model in de volledige portfolio van de bewaking van services. Meer informatie over de [nieuwe prijzen model](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), hoe naar [beoordeling van de gevolgen voor de upgrade naar dit model](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) op basis van de gebruikspatronen en [hoe u kunt kiezen voor het nieuwe model](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
 
-Als u op de *vrije* plan, gegevens zijn beperkt tot 7 dagen bewaren. Voor de *zelfstandige* of *betaalde* laag, verzamelde gegevens is beschikbaar voor de afgelopen 31 dagen. De *vrije* plan heeft 500 MB daglimiet opname en als u vindt dat u steeds meer bedragen dan de toegestane volume, kunt u uw werkruimte naar een betaald abonnement voor het verzamelen van gegevens boven deze limiet. 
-
-> [!NOTE]
-> Als u wilt selecteren van een langere bewaartermijn voor de betaalde laag gelden. U kunt op elk gewenst moment en voor meer informatie over prijzen wijzigen van het type van uw abonnement, Zie [prijsinformatie](https://azure.microsoft.com/pricing/details/log-analytics/). 
-
-Er zijn twee manieren waarbij de hoeveelheid gegevens kan worden beperkt en helpen de kosten bepalen, zijn dit dagelijkse initiaal en gegevens bewaren.  
+Ongeacht de prijscategorie model of laag is het beheren van de hoeveelheid gegevens fundmental voor het beheer van uw kosten. Dit zijn dagelijks initiaal en gegevens bewaren afgezien van de keuze en configuratie van de specifieke oplossing, binnen logboekanalyse er zijn twee manieren waarbij de hoeveelheid gegevens kan worden beperkt en helpen de kosten kunt bepalen.  
 
 ## <a name="review-estimated-cost"></a>Geschatte kosten controleren
 Log Analytics maakt het gemakkelijker te begrijpen wat de kosten zijn waarschijnlijk worden op basis van recente gebruikspatronen.  U doet dit door de volgende stappen uitvoeren.  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a546296749ba9373355cfe2b857b83d8af94d5a1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Bewaking Azure network-overzicht
 
@@ -51,7 +51,7 @@ Netwerk-Watcher heeft momenteel de volgende mogelijkheden:
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Op rollen gebaseerde toegangsbeheer (RBAC) in de netwerk-Watcher
 
-Netwerk-watcher gebruikt de [gebaseerd toegangsbeheer (RBAC) model](../active-directory/role-based-access-control-what-is.md). De volgende machtigingen zijn vereist voor de netwerk-Watcher. Het is belangrijk om ervoor te zorgen dat de rol die wordt gebruikt voor het initiëren van netwerk-Watcher-API's of het gebruik van netwerk-Watcher van de portal de vereiste toegang heeft.
+Netwerk-watcher gebruikt de [gebaseerd toegangsbeheer (RBAC) model](../role-based-access-control/overview.md). De volgende machtigingen zijn vereist voor de netwerk-Watcher. Het is belangrijk om ervoor te zorgen dat de rol die wordt gebruikt voor het initiëren van netwerk-Watcher-API's of het gebruik van netwerk-Watcher van de portal de vereiste toegang heeft.
 
 |Resource| Machtiging|
 |---|---| 

@@ -7,11 +7,11 @@ manager: rloutlaw
 ms.author: tarcher
 ms.date: 3/12/2018
 ms.topic: article
-ms.openlocfilehash: db45e9fe1eb724e6404f5e83bbbe4f62ee32343d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Een Azure Marketplace-installatiekopie gebruiken een Terraform Linux virtuele machine maken met de Service-identiteit beheerd
 
@@ -88,7 +88,7 @@ Het vorige script gebruikt de [AZ CLI v 2.0 interactief aanmelden](https://docs.
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- Zie voor meer informatie over het beheer van externe status [deze pagina over de externe status Terraform](https://www.terraform.io/docs/state/remote.html). De toegangssleutel voor opslag is beschikbaar in dit bestand is gemaakt en moet zorgvuldig worden gecontroleerd in broncodebeheer.  
+ Zie voor meer informatie over het beheer van externe status [deze pagina over de externe status Terraform](https://www.terraform.io/docs/state/remote.html). De toegangssleutel voor opslag is beschikbaar in dit bestand is gemaakt en moet worden uitgesloten voordat toezeggen Terraform configuratiebestanden in broncodebeheer.
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe Terraform virtuele Linux-machine in Azure instellen. Hier volgen enkele aanvullende resources waarmee u kunt meer informatie over Terraform op Azure: 

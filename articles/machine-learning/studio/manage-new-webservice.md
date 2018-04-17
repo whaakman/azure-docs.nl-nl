@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.openlocfilehash: d558db176f2fa6888ead1dd3228f31d942049fc4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c02ded6605b6374e0e37462205f8390f54b24b58
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Beheren van een webservice via de portal voor Azure Machine Learning-webservices
 U kunt uw Machine Learning nieuwe en klassieke webservices met behulp van de Microsoft Azure Machine Learning Web Services-portal beheren. Aangezien klassieke webservices en nieuwe Web-services zijn gebaseerd op verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
@@ -43,7 +43,7 @@ Als de gebruiker niet de juiste machtigingen heeft voor toegang tot bronnen in d
 
 Zie voor meer informatie over het maken van een werkruimte [maken en delen van een Azure Machine Learning-werkruimte](create-workspace.md).
 
-Zie voor meer informatie over toegangsmachtigingen instellen [toegangstoewijzingen weergeven voor gebruikers en groepen in de Azure portal - openbare preview](../../active-directory/role-based-access-control-manage-assignments.md).
+Zie voor meer informatie over toegangsmachtigingen instellen [toegangstoewijzingen weergeven voor gebruikers en groepen in de Azure portal - openbare preview](../../role-based-access-control/role-assignments-users.md).
 
 
 ## <a name="manage-new-web-services"></a>Nieuwe Web-services beheren

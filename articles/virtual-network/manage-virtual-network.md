@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ac0b15f120071093fd81de1d83cf2067ecbac269
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c5f3dbd1aa26cbe656b2ff89106819d228cf447d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Maken, wijzigen of verwijderen van een virtueel netwerk
 
@@ -49,7 +49,7 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
         - 255.255.255.255/32 (Broadcast)
         - 127.0.0.0/8 (Loopback)
         - 169.254.0.0/16 (Link-local)
-        - 168.63.129.16/32 (Internal DNS)
+        - 168.63.129.16/32 (interne DNS)
 
       Hoewel u slechts één adresbereik definiëren kunt wanneer u het virtuele netwerk maakt, kunt u meer adresbereiken toevoegen aan de adresruimte nadat het virtuele netwerk is gemaakt. Zie voor meer informatie over hoe u een adresbereik toevoegt aan een bestaand virtueel netwerk, [toevoegen of verwijderen van een adresbereik](#add-or-remove-an-address-range).
 
@@ -111,7 +111,7 @@ U kunt toevoegen en verwijderen-adresbereiken voor een virtueel netwerk. Een adr
 - 255.255.255.255/32 (Broadcast)
 - 127.0.0.0/8 (Loopback)
 - 169.254.0.0/16 (Link-local)
-- 168.63.129.16/32 (Internal DNS)
+- 168.63.129.16/32 (interne DNS)
 
 Toevoegen of verwijderen van een adresbereik:
 
@@ -167,7 +167,7 @@ U kunt een virtueel netwerk alleen verwijderen als er geen resources mee zijn ve
 
 ## <a name="permissions"></a>Machtigingen
 
-Als u wilt uitvoeren op virtuele netwerken, moet uw account worden toegewezen aan de [netwerk Inzender](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rol die is de juiste machtigingen toegewezen die worden vermeld in de volgende tabel:
+Als u wilt uitvoeren op virtuele netwerken, moet uw account worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rol die is de juiste machtigingen toegewezen die worden vermeld in de volgende tabel:
 
 |Bewerking                                    |   Bewerkingsnaam                    |
 |-------------------------------------------  |   --------------------------------  |

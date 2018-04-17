@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure-beveiliging en naleving blauwdruk - omgevingen PCI DSS-compatibele betaling verwerken
 
@@ -120,7 +120,7 @@ Deze oplossing gebruikt de volgende Azure-services. Details van de architectuur 
 >- Application Gateway
 >- Azure Active Directory
 >- App Service-omgeving v2
->- OMS Log Analytics
+>- Log Analytics
 >- Azure Key Vault
 >- Netwerkbeveiligingsgroepen
 >- Azure SQL Database
@@ -173,7 +173,7 @@ Elk van de nsg's een bepaalde poorten en protocollen die zijn geopend voor de ve
 
 Elk van de nsg's een bepaalde poorten en protocollen die zijn geopend voor de veilige en de juiste werking van de oplossing. Bovendien zijn de volgende configuraties voor elke NSG ingeschakeld:
 - Ingeschakeld [logboeken met diagnostische gegevens en gebeurtenissen](/azure/virtual-network/virtual-network-nsg-manage-log) worden opgeslagen in de storage-account 
-- Verbonden OMS Log Analytics naar de [NSG van diagnostische gegevens](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Log Analytics naar verbonden de [NSG van diagnostische gegevens](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 #### <a name="subnets"></a>Subnetten
  Zorg ervoor dat elk subnet is gekoppeld aan de bijbehorende NSG.
@@ -203,12 +203,12 @@ Het exemplaar van Azure SQL Database maakt gebruik van de volgende veiligheidsma
 
 ### <a name="logging-and-auditing"></a>Logboekregistratie en controle
 
-[Operations Management Suite (OMS)](/azure/operations-management-suite/) kan de Contoso Webstore voorzien van uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit, kaarthouder gegevensregistratie bevatten. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. 
+[Meld u Analytics](https://azure.microsoft.com/services/log-analytics) kan de Contoso Webstore voorzien van uitgebreide logboekregistratie van alle systeem- en gebruikersactiviteit, kaarthouder gegevensregistratie bevatten. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. 
 
-- **Activiteitenlogboeken:**[activiteitenlogboeken](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.  
-- **Diagnostische logboeken:**[diagnostische logboeken](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource.   Deze logboeken zijn Windows-gebeurtenislogboeken system Azure Blob storage, tabellen en logboeken van de wachtrij.
+- **Activiteitenlogboeken:**[activiteitenlogboeken](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.
+- **Diagnostische logboeken:**[diagnostische logboeken](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door elke resource. Deze logboeken zijn Windows-gebeurtenislogboeken system Azure Blob storage, tabellen en logboeken van de wachtrij.
 - **Firewall-logboeken:** de toepassingsgateway biedt volledige diagnostische en toegang tot logboeken. Firewall logboeken zijn beschikbaar voor Application Gateway-resources met WAF ingeschakeld een.
-- **Logboek archiveren:** alle diagnostische logboeken zijn geconfigureerd om te schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering met een gedefinieerde bewaarperiode (2 dagen). Logboeken zijn verbonden met Azure Log Analytics voor verwerken, opslaan en dashboarding. [Meld u Analytics](https://azure.microsoft.com/services/log-analytics) is een OMS-service waarmee verzamelen en analyseren van gegevens die zijn gegenereerd voor resources in uw cloud en on-premises omgevingen.
+- **Logboek archiveren:** alle diagnostische logboeken zijn geconfigureerd om te schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering met een gedefinieerde bewaarperiode (2 dagen). Logboeken zijn verbonden met Azure Log Analytics voor verwerken, opslaan en dashboarding. [Meld u Analytics](https://azure.microsoft.com/services/log-analytics) is een service waarmee verzamelen en analyseren van gegevens die zijn gegenereerd voor resources in uw cloud en on-premises omgevingen.
 
 ### <a name="encryption-and-secrets-management"></a>Versleuteling en geheimen management
 
@@ -224,7 +224,7 @@ De volgende technologieën bieden identiteit beheermogelijkheden in de Azure-omg
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is de Microsoft multitenant cloud-gebaseerde directory en identity management-service. Alle gebruikers voor de oplossing zijn gemaakt in Azure Active Directory, inclusief gebruikers met toegang tot de SQL-Database.
 - Verificatie van de toepassing wordt uitgevoerd met behulp van Azure AD. Zie voor meer informatie [toepassingen integreren met Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications). Daarnaast gebruikt de versleuteling van de kolom database ook Azure AD om te verifiëren van de toepassing met Azure SQL Database. Zie voor meer informatie [altijd versleuteld: beveiligen van gevoelige gegevens in SQL-Database](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - [Azure Active Directory: Identity Protection](/azure/active-directory/active-directory-identityprotection) detecteert mogelijke beveiligingsproblemen die invloed hebben op de identiteiten van uw organisatie, configureert u automatische antwoorden op gedetecteerde verdachte acties met betrekking tot de identiteiten van uw organisatie, en verdachte incidenten onderzoekt en neemt nodige actie deze op te lossen.
-- [Azure op rollen gebaseerde toegangsbeheer (RBAC)](/azure/active-directory/role-based-access-control-configure) kunt nauwkeurig gerichte toegangsbeheer voor Azure. Abonnement toegang is beperkt tot de abonnementsbeheerder en Azure Key Vault toegang wordt beperkt tot alle gebruikers.
+- [Azure op rollen gebaseerde toegangsbeheer (RBAC)](/azure/role-based-access-control/role-assignments-portal) kunt nauwkeurig gerichte toegangsbeheer voor Azure. Abonnement toegang is beperkt tot de abonnementsbeheerder en Azure Key Vault toegang wordt beperkt tot alle gebruikers.
 
 Zie voor meer informatie over het gebruik van de beveiligingsfuncties van Azure SQL Database, de [Contoso kliniek Demo-toepassing](https://github.com/Microsoft/azure-sql-security-sample) voorbeeld.
    
@@ -266,7 +266,7 @@ Een virtuele machine is gemaakt als een jumpbox (bastion host) met de volgende c
 
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) biedt een gecentraliseerde weergave van de beveiligingsstatus van alle Azure-resources. In een oogopslag kunt u controleren dat de juiste beveiligingscontroles zijn geïnstalleerd en correct geconfigureerd en u alle bronnen die aandacht vereisen snel kan identificeren.  
 
-[Azure Advisor](/azure/advisor/advisor-overview) is een persoonlijke cloud-consultant waarmee u Volg de aanbevolen procedures voor het optimaliseren van uw Azure-implementaties. Het analyseert uw resourceconfiguratie en de telemetrie van de informatie over het gebruik en vervolgens raadt aan om de oplossingen waarmee u de kosteneffectiviteit, prestaties, beschikbaarheid en beveiliging van uw Azure-resources te verbeteren.
+[Azure Advisor](/azure/advisor/advisor-overview) is een persoonlijke cloud-consultant waarmee u Volg de aanbevolen procedures voor het optimaliseren van uw Azure-implementaties. Het analyseert uw resourceconfiguratie en gebruikstelemetrie, en raadt vervolgens oplossingen aan die u kunnen helpen de kosteneffectiviteit, prestaties, hoge beschikbaarheid en beveiliging van uw Azure-resources te verbeteren.
 
 [Microsoft Antimalware](/azure/security/azure-security-antimalware) voor Azure Cloud Services en virtuele Machines is real-timebeveiliging-functie waarmee identificeren en te verwijderen van virussen, spyware en andere schadelijke software, met configureerbare waarschuwingen wanneer bekende schadelijke of ongewenste software probeert zichzelf te installeren of uitvoeren op uw Azure-systemen.
 
@@ -278,11 +278,11 @@ Gebruik [Application Insights](https://azure.microsoft.com/services/application-
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Meld u Analytics](https://azure.microsoft.com/services/log-analytics/) is een service in Operations Management Suite (OMS) waarmee u kunt verzamelen en analyseren van gegevens die zijn gegenereerd voor resources in uw cloud en on-premises omgevingen.
+[Meld u Analytics](https://azure.microsoft.com/services/log-analytics/) is een service in Azure die helpt u bij het verzamelen en analyseren van gegevens die zijn gegenereerd voor resources in uw cloud en on-premises omgevingen.
 
-#### <a name="oms-solutions"></a>OMS-oplossingen
+#### <a name="management-solutions"></a>Beheeroplossingen
 
-Deze extra OMS-oplossingen moeten worden gezien en geconfigureerd:
+Deze extra beheeroplossingen moeten worden gezien en geconfigureerd:
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Networking Analytics](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL-analyses](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,9 +338,9 @@ Het is raadzaam dat een schone installatie van PowerShell worden gebruikt voor h
     
     Zie voor instructies over het gebruik van gedetailleerde, [Script instructies - implementeren en configureren van de Azure-Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. OMS logboekregistratie en controle. Zodra de oplossing is geïmplementeerd, een [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) werkruimte te openen en de voorbeeldsjablonen die is opgegeven in de opslagplaats oplossing kunnen worden gebruikt om te laten zien hoe een bewakingsdashboard kan zijn geconfigureerd. Voor de OMS-voorbeeldsjablonen naar verwijzen de [omsDashboards map](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Houd er rekening mee dat de gegevens moeten worden verzameld in OMS voor sjablonen voor het implementeren van correct. Dit kan duren een uur of langer, afhankelijk van de activiteiten op websites.
+3. Logboekregistratie en controle. Zodra de oplossing is geïmplementeerd, een werkruimte voor logboekanalyse kan worden geopend en de voorbeeldsjablonen die is opgegeven in de opslagplaats oplossing kunnen worden gebruikt om te laten zien hoe een dashboard controle kan worden geconfigureerd. Voor de voorbeeldsjablonen naar verwijzen de [omsDashboards map](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Houd er rekening mee dat de gegevens moeten worden verzameld in Log Analytics voor sjablonen voor het implementeren van correct. Dit kan duren een uur of langer, afhankelijk van de activiteiten op websites.
  
-    Overweeg bij het instellen van uw OMS-logboekregistratie, waaronder de volgende bronnen:
+    Overweeg bij het instellen van uw Log Analytics-logboekregistratie, waaronder de volgende bronnen:
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups
@@ -388,7 +388,7 @@ De oplossing is gelezen door Coalfire systems, Inc. (PCI-DSS gekwalificeerde bev
 ### <a name="document-authors"></a>Auteurs van documenten
 
 - *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan Consulting)*
+- *Gururaj Pandurangi (Avyan advies)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code-opslagplaats"

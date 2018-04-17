@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: cosmos-db
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: sngun
+ms.custom: include file
+ms.openlocfilehash: f8ef3070c318293af59a8f22d271b9c836c06f69
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/16/2018
+---
 1. Meld u in een nieuw browservenster aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik op **Een resource maken** > **Databases** > **Azure Cosmos DB**.
    
@@ -17,7 +33,7 @@
 
     Klik vervolgens op **Maken**.
 
-    ![De nieuwe pagina voor het account voor Azure Cosmos-DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![De nieuwe pagina voor het account voor Azure Cosmos-DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account.png)
 
 4. Het duurt enkele minuten om het account te maken. Wacht tot de portal om weer te geven de **Gefeliciteerd! Uw Azure DB die Cosmos-account is gemaakt** pagina.
 

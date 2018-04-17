@@ -6,7 +6,7 @@ documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3c019e8e1518c661eb75065f061ee681f0231efa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-database
 
@@ -103,7 +103,7 @@ U vindt gedetailleerde informatie over [hier](https://docs.microsoft.com/azure/s
 
 ## <a name="protect-your-data-using-encryption"></a>Uw gegevens beschermen met versleuteling
 
-[Azure SQL Database transparante gegevensversleuteling (TDE)](https://msdn.microsoft.com/library/dn948096.aspx) helpt beschermen tegen de dreiging van schadelijke activiteiten door te voeren realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogbestanden in rust zonder wijzigingen in de toepassing. TDE versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel, naam van de databaseversleutelingssleutel.
+[Azure SQL Database transparante gegevensversleuteling (TDE)](https://msdn.microsoft.com/library/dn948096.aspx) helpt beschermen tegen de dreiging van schadelijke activiteiten door te voeren realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogbestanden in rust zonder vereist wijzigingen in de toepassing. TDE versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel, naam van de databaseversleutelingssleutel.
 
 Zelfs als de volledige opslag wordt gecodeerd, is het erg belangrijk voor het versleutelen van uw database zelf ook. Dit is een implementatie van de verdediging in de diepte benadering voor gegevensbescherming. Als u van Azure SQL Database gebruikmaakt en bescherming van gevoelige gegevens zoals creditcard of burgerservicenummers wilt, kunt u databases met FIPS 140-2-gevalideerde 256 bits AES-versleuteling dat voldoet aan de vereisten van veel industrienormen (bijv, HIPAA, PCI) te versleutelen.
 
@@ -112,7 +112,7 @@ Het is belangrijk te begrijpen of bestanden betrekking heeft op [uitbreiding (BP
 Sinds een geautoriseerde gebruiker zoals een beveiligingsbeheerder of een databasebeheerder toegang tot de gegevens zelfs als de database is versleuteld met TDE, moet u ook Volg de onderstaande aanbevelingen:
 
 -   Schakel SQL-verificatie op databaseniveau.
--   Gebruik Azure AD-verificatie met [RBAC-rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+-   Gebruik Azure AD-verificatie met [RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/overview).
 -   Gebruikers en toepassingen moeten afzonderlijke accounts voor verificatie gebruiken. Deze manier kunt u de machtigingen voor gebruikers en toepassingen beperken en de risico's van schadelijke activiteiten te verminderen.
 -   Beveiliging van de database op gebruikersniveau implementeren met behulp van de vaste databaserollen (zoals db_datareader of db_datawriter), of u kunt aangepaste rollen voor uw toepassing expliciete machtigen om objecten in de geselecteerde database maken.
 

@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c413d3cb5c242a16f3e534dafe322785a35141
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 94d3458fd6ea917347296fdb297ab67f3052f8e0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Een virtuele machine maken met een statisch openbaar IP-adres met behulp van PowerShell
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/21/2017
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="step-1---start-your-script"></a>Stap 1: uw script starten
+## <a name="start-your-script"></a>Start uw script
 U kunt de volledige PowerShell-script gebruikt downloaden [hier](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Volg onderstaande stappen voor het wijzigen van het script te laten werken in uw omgeving.
 
 Wijzig de waarden van de variabelen op basis van de waarden die u wilt gebruiken voor uw implementatie. De volgende waarden worden toegewezen aan het scenario in dit artikel gebruikt:
@@ -74,7 +74,7 @@ $pipName               = "PIPWEB1"
 $dnsName               = "iaasstoryws1"
 ```
 
-## <a name="step-2---create-the-necessary-resources-for-your-vm"></a>Stap 2: de benodigde resources voor uw virtuele machine maken
+## <a name="create-the-necessary-resources-for-your-vm"></a>De benodigde resources voor uw virtuele machine maken
 Voordat u een virtuele machine maakt, moet u een resourcegroep, VNet, openbare IP-adres en NIC moet worden gebruikt door de virtuele machine.
 
 1. Maak een nieuwe resourcegroep.
@@ -119,7 +119,7 @@ Voordat u een virtuele machine maakt, moet u een resourcegroep, VNet, openbare I
     -ResourceGroupName $rgName -Type Standard_LRS -Location $location
     ```
 
-## <a name="step-3---create-the-vm"></a>Stap 3: de virtuele machine maken
+## <a name="create-the-vm"></a>De virtuele machine maken
 Nu dat alle benodigde resources gemaakt zijn, kunt u een nieuwe virtuele machine kunt maken.
 
 1. Het configuratieobject voor de virtuele machine maken.
@@ -169,81 +169,14 @@ Nu dat alle benodigde resources gemaakt zijn, kunt u een nieuwe virtuele machine
 
 8. Sla het scriptbestand.
 
-## <a name="step-4---run-the-script"></a>Stap 4: Voer het script
-Nadat u wijzigingen nodig en kennis van het script weergeven hierboven, voert u het script. 
+## <a name="run-the-script"></a>Het script uitvoeren
 
-1. Voer het bovenstaande script van een PowerShell-console of de PowerShell ISE.
-2. De volgende uitvoer moet worden weergegeven na een paar minuten:
-   
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              : 
-        ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory
-   
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {}
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ResourceGuid      : [Id]
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        Id                : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {
-                              "DnsServers": []
-                            }
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "Etag": [Id],
-                                "Id": "/subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24",
-                                "IpConfigurations": [],
-                                "ProvisioningState": "Succeeded"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : westus
-        ResourceGuid      : [Id]
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : [Id]
-        Id                : /subscriptions/[Subscription Id]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
-        TrackingOperationId : [Id]
-        RequestId           : [Id]
-        Status              : Succeeded
-        StatusCode          : OK
-        Output              : 
-        StartTime           : [Subscription Id]
-        EndTime             : [Subscription Id]
-        Error               : 
-        ErrorText           : 
+Nadat u de benodigde wijzigingen, moet u het vorige script uitvoeren. De virtuele machine wordt gemaakt na een paar minuten.
 
+## <a name="set-ip-addresses-within-the-operating-system"></a>Instellen van IP-adressen binnen het besturingssysteem
+
+U moet het openbare IP-adres is toegewezen aan een virtuele machine van Azure in het besturingssysteem van de virtuele machine nooit handmatig toewijzen. Het raadzaam dat u geen statisch het privé IP-adres toegewezen aan de virtuele machine van Azure binnen het besturingssysteem van een VM, toewijst tenzij nodig, zoals wanneer [meerdere IP-adressen toewijzen aan een Windows-VM](virtual-network-multiple-ip-addresses-powershell.md). Als u de privé IP-adres in het besturingssysteem handmatig instelt, moet u zorgen dat het hetzelfde adres als de privé IP-adres is toegewezen aan de Azure [netwerkinterface](virtual-network-network-interface-addresses.md#change-ip-address-settings), of u verbinding met de virtuele machine kunt verliezen. Meer informatie over [privé IP-adres](virtual-network-network-interface-addresses.md#private) instellingen.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Netwerkverkeer kan stromen naar en van de virtuele machine gemaakt in dit artikel. Binnenkomende en uitgaande beveiligingsregels voor verbindingen binnen een netwerkbeveiligingsgroep die het verkeer dat naar en van de netwerkinterface, het subnet of beide stromen kan beperken, kunt u definiëren. Zie voor meer informatie over netwerkbeveiligingsgroepen, [netwerk groep beveiligingsoverzicht](security-overview.md).

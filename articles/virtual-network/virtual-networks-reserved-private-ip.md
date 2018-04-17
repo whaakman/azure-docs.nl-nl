@@ -3,8 +3,8 @@ title: Statische interne persoonlijke IP - virtuele machine van Azure - klassiek
 description: Inzicht in de statische interne IP-adressen (DIPs) en hoe deze te beheren
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
-ms.author: jdial
-ms.openlocfilehash: cf9ee59ca4e44ed01836c2efb1f4df5f073bf6e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: b668a06b91a5fcb1dd08737e0422b599bdb3e27f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Het instellen van een statische interne persoonlijke IP-adres met behulp van PowerShell (klassiek)
 In de meeste gevallen hoeft u niet een statische interne IP-adres voor uw virtuele machine opgeven. Virtuele machines in een virtueel netwerk ontvangen automatisch een IP-adres van een bereik dat u opgeeft. Maar in sommige gevallen een statisch IP-adres opgeven voor een bepaalde virtuele machine is wel zinvol. Als bijvoorbeeld uw virtuele machine gaat DNS uitvoert of wordt een domeincontroller. Een statische interne IP-adres blijft van toepassing op de virtuele machine, zelfs via een status stop/deprovision. 

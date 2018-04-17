@@ -1,8 +1,8 @@
 ---
 title: Wat zijn Azure servicestatusmeldingen? | Microsoft Docs
 description: Servicestatusmeldingen zodat u kunt bekijken van berichten van health-service gepubliceerd door Microsoft Azure.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 4/12/2017
+ms.author: dukek
+ms.openlocfilehash: 6821828d3e39a87b8c93f74e7e0583bf9fe1fe4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Servicestatusmeldingen weergeven met behulp van de Azure-portal
 
@@ -41,7 +41,7 @@ kanalen | Een van de volgende waarden: **Admin** of **bewerking**.
 correlationId | Meestal een GUID in de indeling van de tekenreeks. Gebeurtenissen die deel uitmaken van dezelfde actie meestal delen de dezelfde correlationId.
 eventDataId | De unieke id van een gebeurtenis.
 eventName | De titel van een gebeurtenis.
-niveau | Het niveau van een gebeurtenis. Een van de volgende waarden: **Kritiek**, **fout**, **waarschuwing** of **informatief**.
+niveau | Het niveau van een gebeurtenis
 resourceProviderName | De naam van de resourceprovider voor de betrokken resource.
 resourceType| Het type resource van de betrokken resource.
 subStatus | Meestal de HTTP-statuscode van de bijbehorende REST aanroepen, maar kan ook andere tekenreeksen met een beschrijving van een substatus bevatten. Bijvoorbeeld: OK (HTTP-statuscode: 200), gemaakt (HTTP-statuscode: 201), geaccepteerde (HTTP-statuscode: 202), geen inhoud (HTTP-statuscode: 204), ongeldige aanvraag (HTTP-statuscode: 400), niet vinden (HTTP-statuscode: 404), Conflict (HTTP-statuscode: 409), interne Server Fout (HTTP-statuscode: 500), Service niet beschikbaar (HTTP-statuscode: 503), en de time-out van Gateway (HTTP-statuscode: 504).
@@ -54,14 +54,52 @@ category | Deze eigenschap is altijd **ServiceHealth**.
 resourceId | De Resource-ID van de betrokken resource.
 Properties.title | De gelokaliseerde titel voor deze communicatie. Engels is de standaardinstelling.
 Properties.Communication | De gelokaliseerde details van de communicatie met de HTML-opmaak. Engels is de standaardinstelling.
-Properties.incidentType | Een van de volgende waarden: **AssistedRecovery**, **ActionRequired**, **informatie**, **Incident**,  **Onderhoud**, of **beveiliging**.
+Properties.incidentType | Een van de volgende waarden: **ActionRequired**, **informatie**, **Incident**, **onderhoud**, of **beveiliging**.
 Properties.trackingId | Het incident die aan deze gebeurtenis gekoppeld is. Gebruik deze optie als u de gebeurtenissen die betrekking hebben op een incident met elkaar correleren.
 Properties.impactedServices | Een escape-teken JSON-blob die hierin worden de services en regio's die worden beïnvloed door het incident. De eigenschap bevat een lijst met services, elk met een **ServiceName**, en een lijst van de betrokken regio's, elk met een **RegionName**.
 Properties.defaultLanguageTitle | De communicatie in het Engels.
 Properties.defaultLanguageContent | De communicatie in het Engels als HTML-indeling of tekst zonder opmaak.
-Properties.Stage | De mogelijke waarden voor **AssistedRecovery**, **ActionRequired**, **informatie**, **Incident**, en **beveiliging**  zijn **Active** of **opgelost**. Voor **onderhoud**, ze zijn: **Active**, **geplande**, **InProgress**, **geannuleerd**, **Opnieuw gepland**, **opgelost**, of **voltooid**.
+Properties.Stage | De mogelijke waarden voor **Incident**, en **beveiliging** zijn **actief,** **opgelost** of **RCA**. Voor **ActionRequired** of **informatie** is de enige waarde **actief.** Voor **onderhoud** ze: **Active**, **geplande**, **InProgress**, **geannuleerd**, **Opnieuw gepland**, **opgelost**, of **voltooid**.
 Properties.communicationId | De communicatie die aan deze gebeurtenis gekoppeld is.
 
+### <a name="details-on-service-health-level-information"></a>Meer informatie over health informatie over serviceniveau
+  <ul>
+    <li><b>Actie vereist</b> (properties.incidentType ActionRequired ==) <dl>
+            <dt>Informatief</dt>
+            <dd>Administrator-actie vereist om te voorkomen dat gevolgen voor bestaande services</dd>
+        </dl>
+    </li>
+    <li><b>Onderhoud</b> (properties.incidentType onderhoud ==) <dl>
+            <dt>Waarschuwing</dt>
+            <dd>noodgevallen onderhoud<dd>
+            <dt>Informatief</dt>
+            <dd>standaard gepland onderhoud</dd>
+        </dl>
+    </li>
+    <li><b>Informatie</b> (properties.incidentType == informatie) <dl>
+            <dt>Informatief</dt>
+            <dd>Beheerder mogelijk nodig zijn om te voorkomen dat gevolgen voor bestaande services</dd>
+        </dl>
+    </li>
+    <li><b>Beveiliging</b> (properties.incidentType == beveiliging) <dl>
+            <dt>Fout</dt>
+            <dd>Wijdverbreid problemen bij toegang tot meerdere services over meerdere regio's van invloed zijn op een heel scala aan klanten.</dd>
+            <dt>Waarschuwing</dt>
+            <dd>Problemen bij toegang tot specifieke services en/of specifieke gebieden van invloed zijn op een subset van klanten.</dd>
+            <dt>Informatief</dt>
+            <dd>Problemen die invloed hebben op beheerbewerkingen en/of latentie, niet van invloed op de beschikbaarheid van de service.</dd>
+        </dl>
+    </li>
+    <li><b>Problemen met service</b> (properties.incidentType Incident ==) <dl>
+            <dt>Fout</dt>
+            <dd>Wijdverbreid problemen bij toegang tot meerdere services over meerdere regio's van invloed zijn op een heel scala aan klanten.</dd>
+            <dt>Waarschuwing</dt>
+            <dd>Problemen bij toegang tot specifieke services en/of specifieke gebieden van invloed zijn op een subset van klanten.</dd>
+            <dt>Informatief</dt>
+            <dd>Problemen die invloed hebben op beheerbewerkingen en/of latentie, niet van invloed op de beschikbaarheid van de service.</dd>
+        </dl>
+    </li>
+  </ul>
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Uw servicestatusmeldingen weergeven in de Azure portal
 1.  In de [Azure-portal](https://portal.azure.com), selecteer **Monitor**.

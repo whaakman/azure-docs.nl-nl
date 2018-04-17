@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69b2caa6cd2fe6d2c89074614aaf28e2ad68a25a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer oplossen
 
@@ -103,9 +103,7 @@ Als een virtuele machine niet op het gegevensverkeer van reageert, kan zijn omda
 
 Als een of meer netwerkbeveiligingsgroepen geconfigureerd op het subnet of op de virtuele machine, blokkeert de bron-IP- of -poort, dan is de virtuele machine niet kunnen reageren.
 
-* Lijst van de netwerkbeveiligingsgroepen die zijn geconfigureerd op de back-end VM. Zie voor meer informatie:
-    -  [Netwerkbeveiligingsgroepen via de Portal beheren](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [Netwerkbeveiligingsgroepen beheren met behulp van PowerShell](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* Lijst van de netwerkbeveiligingsgroepen die zijn geconfigureerd op de back-end VM. Zie voor meer informatie [netwerkbeveiligingsgroepen beheren](../virtual-network/manage-network-security-group.md).
 * Controleer of in de lijst van netwerkbeveiligingsgroepen:
     - het binnenkomende of uitgaande verkeer op de poort heeft een storing. 
     - een **weigeren alle** netwerk beveiligingsregel-groep op de NIC van de virtuele machine of het subnet dat een hogere prioriteit die de standaardregel waarmee de Load Balancer-tests heeft en er verkeer (netwerkbeveiligingsgroepen moeten toestaan Load Balancer IP-adres van 168.63.129.16, is dit testpoort) 

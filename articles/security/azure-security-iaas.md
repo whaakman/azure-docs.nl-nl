@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
 
@@ -83,7 +83,7 @@ U kunt [Privileged Identity Management](../active-directory/active-directory-pri
 
 Met behulp van Azure voor labs en ontwikkelomgevingen kan organisaties om te testen en ontwikkeling van de flexibiliteit door de vertragingen die hardware inkoop introduceert Blijf krijgen. Een gebrek aan bekend bent met Azure of wil dragen bij aan de overstap kan helaas leiden dat de beheerder moet te soepele met toewijzing van gebruiksrecht. Dit risico kan de organisatie om interne aanvallen onbedoeld worden blootgesteld. Sommige gebruikers mogelijk veel meer toegang dan ze moeten worden verleend.
 
-De [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service gebruikt [rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-what-is.md) (RBAC). Met behulp van RBAC kunt u taken scheiden binnen uw team in rollen die verlenen alleen het niveau van toegang nodig zijn voor gebruikers om hun werk te doen. RBAC wordt geleverd met vooraf gedefinieerde functies (eigenaar, lab-gebruiker en Inzender). U kunt zelfs deze rollen toewijzen aan externe partners en samenwerking aanzienlijk te vereenvoudigen.
+De [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service gebruikt [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) (RBAC). Met behulp van RBAC kunt u taken scheiden binnen uw team in rollen die verlenen alleen het niveau van toegang nodig zijn voor gebruikers om hun werk te doen. RBAC wordt geleverd met vooraf gedefinieerde functies (eigenaar, lab-gebruiker en Inzender). U kunt zelfs deze rollen toewijzen aan externe partners en samenwerking aanzienlijk te vereenvoudigen.
 
 Omdat DevTest Labs RBAC gebruikt, is het mogelijk te maken als u meer, [aangepaste rollen](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs niet alleen vereenvoudigt het beheer van machtigingen, het vereenvoudigt het proces van het ophalen van omgevingen ingericht. Hiermee kunt u ook andere typische uitdagingen van teams die op een ontwikkel- en testomgevingen werkt behandelt. Voorbereiding is vereist, maar de lange termijn, deze wordt gemakkelijker voor uw team.
 
@@ -192,7 +192,7 @@ Net als beveiligingsupdates moet een back-up dat u een andere bewerking afgehand
 Productie-workloads naar Azure verplaatst moeten worden geïntegreerd met bestaande back-upoplossingen indien mogelijk. Of u kunt [Azure Backup](../backup/backup-azure-arm-vms.md) bij het oplossen van de vereisten van uw back-up.
 
 
-## <a name="monitor"></a>Bewaken
+## <a name="monitor"></a>Controleren
 
 [Security Center](../security-center/security-center-intro.md) biedt continue evaluatie van de beveiligingsstatus van uw Azure-resources voor het identificeren van mogelijke beveiligingsproblemen. Een lijst met aanbevelingen begeleidt u bij het configureren van benodigde besturingselementen.
 

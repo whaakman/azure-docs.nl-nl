@@ -3,7 +3,7 @@ title: Een Azure Service Fabric-cluster maken van een sjabloon | Microsoft Docs
 description: In dit artikel wordt beschreven hoe voor het instellen van een beveiligde Service Fabric-cluster in Azure met behulp van Azure Resource Manager en Azure Key Vault Azure Active Directory (Azure AD) voor clientverificatie.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
-ms.author: chackdan
-ms.openlocfilehash: b245c9e46c994d40a6d0f75eb8494828d0d4d165
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: aljo
+ms.openlocfilehash: 02ff0a8d2b7f594a7e1def23f91426639f52b150
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Maken van een Service Fabric-cluster met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -376,7 +376,7 @@ Clusternaam wordt gebruikt voor het voorvoegsel van de Azure AD-toepassingen die
 
 WebApplicationReplyUrl is het standaardeindpunt die Azure AD aan uw gebruikers retourneert nadat ze Voltooi de aanmelding. Stel het eindpunt van de Service Fabric Explorer voor uw cluster, dat standaard is dit eindpunt:
 
-https://&lt;cluster_domain&gt;:19080/Explorer
+https://&lt;cluster_domain&gt;: 19080/Explorer
 
 U wordt gevraagd aan te melden bij een account met voor de Azure AD-tenant beheerdersbevoegdheden. Nadat u zich aanmeldt, wordt het script maakt de web- en systeemeigen toepassingen voor uw Service Fabric-cluster. Als u kijkt naar de tenant-toepassingen in de [Azure-portal][azure-portal], ziet u twee nieuwe vermeldingen:
 

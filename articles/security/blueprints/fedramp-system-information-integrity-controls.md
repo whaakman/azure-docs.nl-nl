@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 0eca3c82aea287f6582bd56574512dce5e8e86c7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Systeem- en integriteit van de gegevens (SI)
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
-## <a name="nist-800-53-control-si-1"></a>NIST 800-53 Control SI-1
+## <a name="nist-800-53-control-si-1"></a>NIST 800 53 besturingselement SI-1
 
 #### <a name="system-and-information-integrity-policy-and-procedures"></a>Systeem en integriteitsbeleid informatie en Procedures
 
 **SI-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] een integriteitsbeleid systeem en gegevens die zijn gericht op doel, bereik, rollen, verantwoordelijkheden, management-streven samenwerking tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van het systeem en informatie-integriteitsbeleid en bijbehorende informatie integriteit controles; en controleert en updates van het huidige systeem- en integriteitsbeleid [toewijzing: organisatie gedefinieerde frequentie]; en -procedures voor systeem- en integriteit [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -45,11 +45,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI 2.** de organisatie identificeert, rapporten en informatie system fouten gecorrigeerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de OMS Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Vanuit het dashboard OMS de tegel updatebeheer beveiligingsfout herstel wordt status weergegeven voor alle geïmplementeerde Windows-servers. |
+| **De klant** | Deze blauwdruk implementeert de Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Vanuit het dashboard toont de tegel updatebeheer beveiligingsfout herstelstatus voor alle geïmplementeerde Windows-servers. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 2.b** software en -firmware updates met betrekking tot beveiligingsfout herstel voor effectiviteit en potentiële bijwerkingen voordat de installatie door de organisatie wordt getest.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -73,11 +73,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI 2.c** beveiliging relevante software en -firmware-updates binnen de organisatie is geïnstalleerd [toewijzing: organisatie gedefinieerde periode] van de release van de updates.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Windows virtuele machines zijn geïmplementeerd door deze blauwdruk zijn standaard geconfigureerd voor automatische updates ontvangen van Windows Update-Service. Deze oplossing implementeert ook de OMS Automation & Control-oplossing waarmee Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is. |
+| **De klant** | Windows virtuele machines zijn geïmplementeerd door deze blauwdruk zijn standaard geconfigureerd voor automatische updates ontvangen van Windows Update-Service. Deze oplossing implementeert ook de Automation & Control-oplossing waarmee Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 2.d** de organisatie opgenomen met het herstel van de fout in het proces voor het beheer van organisatie-configuratie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -101,35 +101,35 @@ ms.lasthandoff: 02/11/2018
 
 **SI-2 (1)** centraal beheert het herstelproces beveiligingsfout de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de OMS Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Vanuit het dashboard OMS de tegel updatebeheer beveiligingsfout herstel wordt status weergegeven voor alle geïmplementeerde Windows-servers. Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is. |
+| **De klant** | Deze blauwdruk implementeert de Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Vanuit het dashboard toont de tegel updatebeheer beveiligingsfout herstelstatus voor alle geïmplementeerde Windows-servers. Update-implementaties kunnen worden gemaakt voor het implementeren van patches op Windows-servers wanneer deze nodig is. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-2-2"></a>NIST 800-53 Control SI-2 (2)
+ ### <a name="nist-800-53-control-si-2-2"></a>NIST 800 53 besturingselement SI-2 (2)
 
 #### <a name="flaw-remediation--automated-flaw-remediation-status"></a>Herstel fout | Herstelstatus van geautomatiseerde fout
 
 **SI-2 (2)** de organisatie de veiligheidsmaatregelen voor geautomatiseerde mechanismen [toewijzing: organisatie gedefinieerde frequentie] om te bepalen van de status van onderdelen van het systeem informatie met betrekking tot herstel van de fout.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de OMS Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Voor elke beheerde Windows-computer wordt twee keer per dag een scan uitgevoerd. Om de vijftien minuten wordt de Windows-API aangeroepen voor de laatste updatetijd om op die manier te bepalen of de status is gewijzigd. Als dat het geval is, wordt er een nalevingsscan gestart. |
+| **De klant** | Deze blauwdruk implementeert de Automation & Control-oplossing voor het bijhouden van de status van updates voor de Windows virtuele machines in deze architectuur wordt geïmplementeerd. Voor elke beheerde Windows-computer wordt twee keer per dag een scan uitgevoerd. Om de vijftien minuten wordt de Windows-API aangeroepen voor de laatste updatetijd om op die manier te bepalen of de status is gewijzigd. Als dat het geval is, wordt er een nalevingsscan gestart. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-2-3a"></a>NIST 800-53 Control SI-2 (3).a
+ ### <a name="nist-800-53-control-si-2-3a"></a>NIST 800 53 SI-2 (3) een beheren
 
 #### <a name="flaw-remediation--time-to-remediate-flaws--benchmarks-for-corrective-actions"></a>Herstel fout | Tijd voor het herstellen van fouten / Benchmarks voor corrigerende maatregelen
 
 **SI-2 (3) een** de organisatie meet de tijd tussen fout-id en het doorvoeren van de fout.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-2 (3) .b** stelt de organisatie [toewijzing: benchmarks organisatie gedefinieerd] om corrigerende maatregelen te nemen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 3.** mechanismen voor het beveiligen van schadelijke code op informatie system toegang naar en uitgang punten voor het opsporen en schadelijke code roeien maakt gebruik van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 3.b** mechanismen voor het beveiligen van schadelijke code door de organisatie wordt bijgewerkt wanneer nieuwe releases beschikbaar volgens de configuratie van de organisatie-management-beleid en procedures zijn.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 3.c** de organisatie configureert mechanismen voor het beveiligen van schadelijke code om uit te voeren periodieke scans van het informatiesysteem [toewijzing: organisatie gedefinieerde frequentie] en realtime scans van bestanden van externe bronnen op [selectie (één of meer); eindpunt; netwerk binnenkomt/verlaat punten] als de bestanden zijn gedownload, geopend of uitgevoerd op basis van beleid voor beveiliging van de organisatie; en [selectie (een of meer): schadelijke code blokkeren; quarantaine schadelijke code; waarschuwing voor verzenden naar de beheerder. [Toewijzing: organisatie gedefinieerde actie]] Als reactie op detectie voor schadelijke code.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 3.d** de organisatie de ontvangst van de fout-positieven adressen tijdens uitroeiing en schadelijke code detecteren en de resulterende mogelijke gevolgen voor de beschikbaarheid van het informatiesysteem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -213,11 +213,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-3 (1)** de organisatie beheert centraal mechanismen voor het beveiligen van schadelijke code.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert host gebaseerde antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Azure OMS biedt een gecentraliseerde mogelijkheid om te controleren van de huidige status van de antimalwareoplossing. |
+| **De klant** | Deze blauwdruk implementeert host gebaseerde antimalware-bescherming voor alle geïmplementeerde virtuele machines van Windows geïmplementeerd met behulp van de extensie van de Microsoft Antimalware-virtuele machine. Azure biedt een gecentraliseerde mogelijkheid om te controleren van de huidige status van de antimalwareoplossing. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-3 (2)** informatie automatisch bijgewerkt mechanismen voor het beveiligen van schadelijke code.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-3 (7)** detectiemechanismen nonsignature gebaseerde schadelijke code door het informatiesysteem wordt geïmplementeerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -255,11 +255,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.** de organisatie controleert het informatiesysteem om te detecteren van aanvallen en indicatoren van mogelijke aanvallen in overeenstemming met [toewijzing: organisatie gedefinieerde doelstellingen bewaking]; en niet-geautoriseerde lokale-, netwerk- en RAS verbindingen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de logboekanalyse en de oplossing OMS beveiligings- en controlebeleid. Deze oplossing biedt een uitgebreid overzicht van beveiligingspostuur, aanvallen en indicatoren van mogelijke aanvallen. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. |
+| **De klant** | Deze blauwdruk implementeert de logboekanalyse en de oplossing voor beveiliging en controle. Deze oplossing biedt een uitgebreid overzicht van beveiligingspostuur, aanvallen en indicatoren van mogelijke aanvallen. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde oplossingen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -269,11 +269,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.b** de organisatie identificeert onbevoegd gebruik van het informatiesysteem via [toewijzing: organisatie gedefinieerde-technieken en methoden].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Het domein identificeren en toegang biedt een dashboard met een overzicht van de informatie identiteit systeemstatus, met inbegrip van aantal mislukte pogingen om aan te melden en het huidige aantal accounts die zijn aangemeld. De informatie in dit dashboard kan helpen bij de identificatie van mogelijke verdachte activiteit. |
+| **De klant** | Deze blauwdruk implementeert de beveiligings- en Audit-oplossing. Het domein identificeren en toegang biedt een dashboard met een overzicht van de informatie identiteit systeemstatus, met inbegrip van aantal mislukte pogingen om aan te melden en het huidige aantal accounts die zijn aangemeld. De informatie in dit dashboard kan helpen bij de identificatie van mogelijke verdachte activiteit. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -283,11 +283,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.c** bewaking apparaten strategisch vanuit het informatiesysteem voor het verzamelen van essentiële informatie organisatie bepaald; en op ad-hoc locaties binnen het systeem voor het bijhouden van bepaalde typen transacties van de organisatie wordt geïmplementeerd belang zijn voor de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de logboekanalyse en de oplossing OMS beveiligings- en controlebeleid. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen, inclusief inzicht in de VM-besturingssysteem bewaken van gegevens. |
+| **De klant** | Deze blauwdruk implementeert de logboekanalyse en de oplossing voor beveiliging en controle. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde beheeroplossingen, met inbegrip van inzicht in de VM-besturingssysteem bewaken van gegevens. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.d** de organisatie beschermt gegevens die zijn verkregen van inbraakdetectie bewaking extra tegen ongeoorloofde toegang, aanpassen en verwijderen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4.e** De organisatie kunnen het niveau van het informatiesysteem activiteit controleren wanneer er een indicatie van toegenomen risico voor de organisatie-bewerkingen en activa, personen, andere organisaties of het land op basis van wet afdwinging informatie we veel beter intelligence-informatie, of andere geloofwaardige informatiebronnen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.f** de organisatie verkrijgt juridische advies met betrekking tot informatie system bewakingsactiviteiten in overeenstemming met federale wetgeving, Executive Orders, richtlijnen, beleid of voorschriften.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.g** voorziet in de organisatie [toewijzing: organisatie gedefinieerde informatie system controlegegevens] naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] [selectie (een of meer): indien nodig; [Toewijzing: organisatie gedefinieerde frequentie]].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (1)** verbinding maakt en configureert u afzonderlijke inbraakdetectie detectie-hulpprogramma's in een systeem hele systeem inbraakdetectie detectie van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -367,11 +367,11 @@ ms.lasthandoff: 02/11/2018
 
 **(2) SI-4** veiligheidsmaatregelen hulpprogramma's voor de ondersteuning van bijna realtime analyses van gebeurtenissen voor de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de logboekanalyse en verschillende OMS-oplossingen, met inbegrip van de beveiligings- en Audit-oplossing. Log Analytics biedt bijna realtime analyses van gebeurtenissen op de geïmplementeerde resources. OMS solutions biedt een uitgebreid overzicht van beveiligingspostuur tussen domeinen van de oplossing. OMS verschaft inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. OMS kunnen worden geconfigureerd voor het genereren van waarschuwingen op basis van de gedefinieerde criteria. |
+| **De klant** | Deze blauwdruk implementeert de logboekanalyse en verschillende oplossingen voor beheer, met inbegrip van de beveiligings- en Audit-oplossing. Log Analytics biedt bijna realtime analyses van gebeurtenissen op de geïmplementeerde resources. Management-oplossingen bieden een uitgebreid overzicht van beveiligingspostuur tussen domeinen van de oplossing. Log Analytics biedt inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde oplossingen. Log Analytics kan worden geconfigureerd voor het genereren van waarschuwingen op basis van de gedefinieerde criteria. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (4)** het informatiesysteem controleert binnenkomende en uitgaande communicatieverkeer [toewijzing: organisatie gedefinieerde frequentie] voor ongebruikelijke of onbevoegde activiteiten of voorwaarden.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -395,21 +395,21 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (5)** de signalen informatie [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] wanneer de volgende aanduidingen van inbreuk of mogelijke inbreuk plaatsvinden: [toewijzing: indicatoren van inbreuk organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert verschillende OMS-oplossingen, met inbegrip van de beveiligings- en Audit oplossing. Log Analytics biedt bijna realtime analyses van gebeurtenissen op de geïmplementeerde resources. OMS solutions biedt een uitgebreid overzicht van beveiligingspostuur tussen domeinen van de oplossing. OMS kunnen worden geconfigureerd voor het genereren van waarschuwingen op basis van de gedefinieerde criteria. |
+| **De klant** | Deze blauwdruk implementeert verschillende oplossingen voor beheer, met inbegrip van de beveiligings- en Audit oplossing. Log Analytics biedt bijna realtime analyses van gebeurtenissen op de geïmplementeerde resources. Management-oplossingen bieden een uitgebreid overzicht van beveiligingspostuur tussen domeinen van de oplossing. Log Analytics kan worden geconfigureerd voor het genereren van waarschuwingen op basis van de gedefinieerde criteria. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-11"></a>NIST 800-53 Control SI-4 (11)
+ ### <a name="nist-800-53-control-si-4-11"></a>NIST 800 53 besturingselement SI-4 (11)
 
 #### <a name="information-system-monitoring--analyze-communications-traffic-anomalies"></a>Informatie systeemcontrole | Communicatie-verkeer afwijkingen analyseren
 
 **SI-4 (11)** de organisatie uitgaande communicatie-verkeer bij de externe grens van het systeem gegevens analyseert en geselecteerd [toewijzing: interior organisatie gedefinieerde gegevenspunten in het systeem (bijvoorbeeld subnetwerken, subsystemen)] naar afwijkingen gedetecteerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -417,13 +417,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-14"></a>NIST 800-53 Control SI-4 (14)
+ ### <a name="nist-800-53-control-si-4-14"></a>NIST 800 53 besturingselement SI-4 (14)
 
 #### <a name="information-system-monitoring--wireless-intrusion-detection"></a>Informatie systeemcontrole | Draadloze inbraakdetectie
 
 **SI-4 (14)** de organisatie gebruik wordt gemaakt een detectiesysteem draadloze inbraakdetectie om rogue draadloze apparaten te identificeren en voor het detecteren van aanvallen probeert en de mogelijke inbreuk/inbreuk op het informatiesysteem.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -431,27 +431,27 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure controleert regelmatig voor draadloze signalen rogue kwartaal zoals beschreven in de AC-18. <br /> Microsoft Azure implementeert dit besturingselement namens PaaS- en IaaS-klanten. |
 
 
- ### <a name="nist-800-53-control-si-4-16"></a>NIST 800-53 Control SI-4 (16)
+ ### <a name="nist-800-53-control-si-4-16"></a>NIST 800 53 besturingselement SI-4 (16)
 
 #### <a name="information-system-monitoring--correlate-monitoring-information"></a>Informatie systeemcontrole | Controlegegevens correleren
 
 **SI-4 (16)** de organisatie correleert informatie van de controlehulpprogramma's gebruikt, in het hele informatiesysteem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de logboekanalyse en verschillende OMS-oplossingen, met inbegrip van de beveiligings- en Audit-oplossing. OMS verschaft inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. |
+| **De klant** | Deze blauwdruk implementeert de logboekanalyse en verschillende oplossingen voor beheer, met inbegrip van de beveiligings- en Audit-oplossing. Log Analytics biedt inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde oplossingen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-18"></a>NIST 800-53 Control SI-4 (18)
+ ### <a name="nist-800-53-control-si-4-18"></a>NIST 800 53 besturingselement SI-4 (18)
 
 #### <a name="information-system-monitoring--analyze-traffic--covert-exfiltration"></a>Informatie systeemcontrole | Analyseer verkeer / converteren Exfiltration
 
 **SI-4 (18)** de organisatie uitgaande communicatie-verkeer bij de externe grens van het systeem (dat wil zeggen, systeem omtrek) voor informatie en analyseert [toewijzing: interior organisatie gedefinieerd in het systeem (bijvoorbeeld subsystemen verwijst subnetwerken)] converteren exfiltration van informatie te detecteren.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -459,13 +459,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-19"></a>NIST 800-53 Control SI-4 (19)
+ ### <a name="nist-800-53-control-si-4-19"></a>NIST 800 53 besturingselement SI-4 (19)
 
 #### <a name="information-system-monitoring--individuals-posing-greater-risk"></a>Informatie systeemcontrole | Personen die groter risico vormen
 
 **SI-4 (19)** de organisatie implementeert [toewijzing: aanvullende controle organisatie gedefinieerd] van de personen die zijn geïdentificeerd door [toewijzing: bronnen organisatie gedefinieerd] een verhoogde risiconiveau inhouden.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -473,13 +473,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-20"></a>NIST 800-53 Control SI-4 (20)
+ ### <a name="nist-800-53-control-si-4-20"></a>NIST 800 53 besturingselement SI-4 (20)
 
 #### <a name="information-system-monitoring--privileged-users"></a>Informatie systeemcontrole | Bevoegde gebruikers
 
 **SI-4 (20)** de organisatie implementeert [toewijzing: aanvullende controle organisatie gedefinieerd] van bevoegde gebruikers.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -487,13 +487,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-22"></a>NIST 800-53 Control SI-4 (22)
+ ### <a name="nist-800-53-control-si-4-22"></a>NIST 800 53 besturingselement SI-4 (22)
 
 #### <a name="information-system-monitoring--unauthorized-network-services"></a>Informatie systeemcontrole | Niet-geautoriseerde netwerkservices
 
 **SI-4 (22)** het informatiesysteem detecteert netwerkservices die niet zijn toegestaan of goedgekeurd door [toewijzing: organisatie gedefinieerd autorisatie of goedkeuring processen] en [selectie (een of meer): audits; waarschuwingen [toewijzing: personeel organisatie gedefinieerd of -rollen]].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -501,27 +501,27 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-23"></a>NIST 800-53 Control SI-4 (23)
+ ### <a name="nist-800-53-control-si-4-23"></a>NIST 800 53 besturingselement SI-4 (23)
 
 #### <a name="information-system-monitoring--host-based-devices"></a>Informatie systeemcontrole | Host-apparaten
 
 **SI-4 (23)** de organisatie implementeert [toewijzing: organisatie gedefinieerd host gebaseerde controle mechanismen] op [toewijzing: onderdelen van het systeem gedefinieerde organisatie informatie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk verzamelt bewakingsgegevens van geïmplementeerde bronnen, met inbegrip van gegevens van de mogelijkheden voor bewaking op basis van een host. Microsoft Monitoring Agent is geïnstalleerd op alle Windows virtuele machines voor het verzamelen van controlegegevens die wordt gebruikt door Log Analytics en andere OMS-oplossingen. |
+| **De klant** | Deze blauwdruk verzamelt bewakingsgegevens van geïmplementeerde bronnen, met inbegrip van gegevens van de mogelijkheden voor bewaking op basis van een host. Microsoft Monitoring Agent is geïnstalleerd op alle Windows virtuele machines voor het verzamelen van bewakingsgegevens gebruikt door Log Analytics en andere beheersystemen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-4-24"></a>NIST 800-53 Control SI-4 (24)
+ ### <a name="nist-800-53-control-si-4-24"></a>NIST 800 53 besturingselement SI-4 (24)
 
 #### <a name="information-system-monitoring--indicators-of-compromise"></a>Informatie systeemcontrole | Indicatoren van inbreuk
 
 **SI-4 (24)** het informatiesysteem detecteert, verzamelt, distribueert en maakt gebruik van indicatoren van inbreuk.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 5.** de organisatie ontvangt informatie system beveiligingswaarschuwingen, aanbevelingen en richtlijnen uit [toewijzing: externe organisaties organisatie gedefinieerd] voortdurend.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 5.b** de organisatie genereert interne beveiligingswaarschuwingen, aanbevelingen en richtlijnen benodigde.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 5.c** de organisatie verspreide beveiligingswaarschuwingen, aanbevelingen en richtlijnen: [selectie (een of meer): [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen]; [Toewijzing: elementen organisatie gedefinieerd binnen de organisatie]; [Toewijzing: externe organisaties organisatie gedefinieerd]].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 5.d** de organisatie beveiliging richtlijnen overeenkomstig de ingestelde tijd frames implementeert, of de melding de uitgevende organisatie van de mate van niet-compatibele.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) 5-SI** veiligheidsmaatregelen geautomatiseerde mechanismen om u te maken van de beveiliging voor de organisatie waarschuwing en advisory informatie die beschikbaar zijn in de hele organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 6.a** het informatiesysteem controleert of de juiste werking van [toewijzing: organisatie gedefinieerd beveiligingsfuncties].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 6.b** het informatiesysteem voert deze verificatie [selectie (een of meer): [toewijzing: status van het systeem gedefinieerde organisatie overgangs]; na de opdracht door gebruiker met de juiste bevoegdheden; [Toewijzing: organisatie gedefinieerde frequentie]].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 6.c** waarschuwt het informatiesysteem [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] van verificatietests beveiliging is mislukt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 6.d** het informatiesysteem [selectie (een of meer): het informatiesysteem afgesloten; het informatiesysteem; opnieuw opgestart [Toewijzing: organisatie gedefinieerde alternatieve actie (s)]] Wanneer afwijkingen gedetecteerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7** integriteit verificatie hulpprogramma's voor het detecteren van niet-geautoriseerde wijzigingen aan de veiligheidsmaatregelen voor de organisatie [toewijzing: organisatie gedefinieerde software, firmware en informatie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -669,13 +669,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-7-1"></a>NIST 800-53 Control SI-7 (1)
+ ### <a name="nist-800-53-control-si-7-1"></a>NIST 800 53 besturingselement SI-7 (1)
 
 #### <a name="software-firmware-and-information-integrity--integrity-checks"></a>Software, Firmware en integriteit van de gegevens | Integriteitscontroles
 
 **SI-7 (1)** voert een integriteitscontrole van de informatiesysteem [toewijzing: organisatie gedefinieerde software, firmware en informatie] [selectie (een of meer): bij het opstarten; bij [toewijzing: OVERGANGS statussen organisatie gedefinieerd of beveiliging relevante gebeurtenissen]; [Toewijzing: organisatie gedefinieerde frequentie]].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -683,13 +683,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-7-2"></a>NIST 800-53 Control SI-7 (2)
+ ### <a name="nist-800-53-control-si-7-2"></a>NIST 800 53 besturingselement SI-7 (2)
 
 #### <a name="software-firmware-and-information-integrity--automated-notifications-of-integrity-violations"></a>Software, Firmware en integriteit van de gegevens | Geautomatiseerde meldingen integriteit schendingen van
 
 **SI-7 (2)** geautomatiseerde hulpprogramma's die een melding naar de veiligheidsmaatregelen voor de organisatie [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] bij detectie van verschillen tijdens de systeemintegriteit.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (5)** het informatiesysteem automatisch [selectie (een of meer): het informatiesysteem afgesloten; de informatiesysteem wordt opnieuw opgestart; implementeert [toewijzing: organisatie gedefinieerd beveiligingsmaatregelen]] wanneer integriteit schendingen zijn gedetecteerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (7)** opgenomen met de organisatie de detectie van niet-geautoriseerde [toewijzing: beveiliging relevante wijzigingen in het informatiesysteem organisatie gedefinieerd] in de mogelijkheid van de organisatie-respons op incidenten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -725,13 +725,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-7-14"></a>NIST 800-53 Control SI-7 (14)
+ ### <a name="nist-800-53-control-si-7-14"></a>NIST 800 53 besturingselement SI-7 (14)
 
 #### <a name="software-firmware-and-information-integrity--binary-or-machine-executable-code"></a>Software, Firmware en integriteit van de gegevens | Binair of machines uitvoerbare Code
 
 **SI-7 (14)** de organisatie verbiedt het gebruik van binaire of machine-uitvoerbare code uit bronnen met weinig of geen enkele garantie en zonder het verstrekken van broncode; en uitzonderingen aan de vereiste bron code alleen voor dwingende missie biedt / operationele vereisten en met goedkeuring van de autorisatie officiële.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 8.** het beveiligingsmechanisme organisatie gebruik wordt gemaakt spam op informatie system toegang naar en uitgang punten om te detecteren en actie ondernemen door ongewenste berichten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 8.b** het organisatie updates spam beveiligingsmechanisme wanneer nieuwe versies beschikbaar zijn in overeenstemming met de configuratie van de organisatie-management-beleid en procedures.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) SI-8** de organisatie beheert centraal mechanismen voor het beveiligen van spam.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -781,13 +781,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-si-8-2"></a>NIST 800-53 Control SI-8 (2)
+ ### <a name="nist-800-53-control-si-8-2"></a>NIST 800 53 besturingselement SI-8 (2)
 
 #### <a name="spam-protection--automatic-updates"></a>Beveiliging tegen spam | Automatische Updates
 
 **(2) SI-8** informatie automatisch bijgewerkt mechanismen voor het beveiligen van spam.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -795,13 +795,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-si-10"></a>NIST 800-53 Control SI-10
+ ## <a name="nist-800-53-control-si-10"></a>NIST 800 53 besturingselement SI-10
 
 #### <a name="information-input-validation"></a>Informatie-validatie voor invoer
 
 **SI 10** controleert de geldigheid van de informatiesysteem [toewijzing: organisatie gedefinieerde informatie invoer].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -809,13 +809,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-si-11a"></a>NIST 800-53 Control SI-11.a
+ ## <a name="nist-800-53-control-si-11a"></a>NIST 800 53 besturingselement SI-11.a
 
 #### <a name="error-handling"></a>Foutafhandeling
 
 **SI 11.a** foutberichten die informatie die nodig is voor de corrigerende maatregelen bieden zonder weer te geven informatie op die kan worden misbruikt door tegenstanders wordt de informatie gegenereerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -829,7 +829,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 11.b** het informatiesysteem blijkt foutberichten alleen [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -837,13 +837,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-si-12"></a>NIST 800-53 Control SI-12
+ ## <a name="nist-800-53-control-si-12"></a>NIST 800 53 besturingselement SI-12
 
 #### <a name="information-handling-and-retention"></a>De informatieverwerking van de en retentie
 
 **SI-12** verwerkt en gegevens binnen de informatiesysteem en de uitvoer van de informatie uit het systeem in overeenstemming met federale wetgeving, behoudt de organisatie Executive Orders, richtlijnen, beleid, voorschriften, standaarden, en operationele vereisten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -851,13 +851,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-si-16"></a>NIST 800-53 Control SI-16
+ ## <a name="nist-800-53-control-si-16"></a>NIST 800 53 besturingselement SI-16
 
 #### <a name="memory-protection"></a>Geheugenbeveiliging
 
 **SI-16** door het informatiesysteem geïmplementeerd [toewijzing: organisatie gedefinieerd beveiligingsmaatregelen] het geheugen beschermen tegen onbevoegde code kan worden uitgevoerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|

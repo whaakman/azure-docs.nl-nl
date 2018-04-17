@@ -6,7 +6,7 @@ documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.custom: ''
+ms.openlocfilehash: 45b148a9ccbd7c801821f23586810872a4a0d50d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory en de multi-factor Authentication: persoonlijke gegevens beschermen met besturingselementen voor identiteits- en toegangsbeheer
 
@@ -39,7 +39,7 @@ Het bedrijf moet de privacy van klanten en werknemers persoonlijke gegevens beve
 
 ## <a name="company-goal"></a>Bedrijf-doel
 
-Doel van het bedrijf is om ervoor te zorgen dat toegang tot persoonlijke gegevens strikt wordt beheerd. Het is essentieel dat de identiteit van gebruikers met toegang tot persoonlijke gegevens door sterke verificatie worden beveiligd. Een beleid van [minimale bevoegdheden] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) moeten worden afgedwongen, zodat legitieme gebruikers hoeven alleen het niveau van toegang hebben en niet meer.
+Doel van het bedrijf is om ervoor te zorgen dat toegang tot persoonlijke gegevens strikt wordt beheerd. Het is essentieel dat de identiteit van gebruikers met toegang tot persoonlijke gegevens door sterke verificatie worden beveiligd. Een beleid van [minimale bevoegdheden] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) hebben alleen het niveau van toegang hebben en niet meer legitieme gebruikers moeten worden afgedwongen.
 
 ## <a name="solutions"></a>Oplossingen
 
@@ -83,11 +83,11 @@ Zie voor meer informatie en instructies voor het aan de slag met AAD PIM [Start 
 
 ### <a name="azure-role-based-access-control"></a>Op rollen gebaseerde toegangsbeheer van Azure
 
-[Azure op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) helpt Azure beheerders toegang tot Azure-resources beheren doordat het verlenen van toegang op basis van de gebruiker toegewezen rol. U kunt taken in een team scheiden en de hoeveelheid toegang verlenen aan gebruikers, groepen en toepassingen die ze nodig hebben voor het uitvoeren van hun taken.
+[Azure op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) helpt Azure beheerders toegang tot Azure-resources beheren doordat het verlenen van toegang op basis van de gebruiker toegewezen rol. U kunt taken in een team scheiden en de hoeveelheid toegang verlenen aan gebruikers, groepen en toepassingen die ze nodig hebben voor het uitvoeren van hun taken.
 
 Op rollen gebaseerde toegang kan worden verleend aan gebruikers via de Azure Portal, Azure-opdrachtregelprogramma's of Azure Management-API's.
 
-Zie voor meer informatie over de basisprincipes van Azure RBAC [aan de slag met toegangsbeheer op basis van rollen in Azure Portal.](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)
+Zie voor meer informatie over de basisprincipes van Azure RBAC [aan de slag met toegangsbeheer op basis van rollen in Azure Portal.](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>Hoe beheer ik Azure RBAC met PowerShell
 
@@ -111,7 +111,7 @@ U kunt de PowerShell-cmdlets gebruiken voor het beheren van Azure RBAC, met inbe
 
 - Lijst met aangepaste rollen
 
-Zie voor instructies over het beheren van Azure RBAC met PowerShell [toegang op basis van rollen beheren met Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
+Zie voor instructies over het beheren van Azure RBAC met PowerShell [toegang op basis van rollen beheren met Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -135,7 +135,7 @@ Als u momenteel geen licenties die u wilt gaan door het proces voor het bepalen 
 
     ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-4. Klik op **opslaan**
+4. Klik op **Opslaan**.
 
 In dit venster hebt u ook de optie voor het downloaden van de MFA-Server. U kunt extra informatie over hoe u de grootte en het plannen van uw implementatie aan de hand van het artikel krijgen [aan de slag met de Azure multi-factor Authentication-server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
@@ -184,6 +184,6 @@ Voor informatie over het configureren van Azure MFA-instellingen voor Fraudewaar
 
 - [Veelgestelde vragen over Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [Probleemoplossing voor toegangsbeheer op basis van rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [Probleemoplossing voor toegangsbeheer op basis van rollen](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

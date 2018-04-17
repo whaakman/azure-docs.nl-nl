@@ -2,7 +2,7 @@
 title: Azure SQL database-metrische gegevens en logboekregistratie van diagnostische gegevens | Microsoft Docs
 description: Meer informatie over het configureren van Azure SQL Database voor het opslaan van Resourcegebruik, connectiviteit en Uitvoeringsstatistieken query.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: veljko-msft
 manager: craigg
 ms.service: sql-database
@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens 
 Azure SQL Database kunt verzenden metrische gegevens en diagnostische logboeken voor het bewaken van eenvoudiger. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
@@ -191,11 +191,11 @@ De eenvoudigste manier om te configureren waarin de hun metrische gegevens voor 
 
 ### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Installeer de SQL-Analytics-oplossing uit de galerie
 
-1. Nadat u de bron Log Analytics maakt en uw gegevens die in deze binnenkomen is, installeert u de SQL-Analytics-oplossing. Selecteer op de pagina van de Operations Management Suite thuis in het menu aan clientzijde **galerie met oplossingen**. Selecteer in de galerie, de **Azure SQL Analytics** oplossing en selecteer **toevoegen**.
+1. Nadat u de bron Log Analytics maakt en uw gegevens die in deze binnenkomen is, installeert u de SQL-Analytics-oplossing. Selecteer op de startpagina in het menu aan clientzijde **galerie met oplossingen**. Selecteer in de galerie, de **Azure SQL Analytics** oplossing en selecteer **toevoegen**.
 
    ![oplossing voor controle](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. Op de startpagina van de Operations Management Suite de **Azure SQL Analytics** tegel wordt weergegeven. Selecteer deze tegel om de SQL-Analytics dashboard te openen.
+2. Op uw startpagina, de **Azure SQL Analytics** tegel wordt weergegeven. Selecteer deze tegel om de SQL-Analytics dashboard te openen.
 
 ### <a name="use-the-sql-analytics-solution"></a>Gebruik de SQL-Analytics-oplossing
 
@@ -272,7 +272,7 @@ Meer informatie over hoe [metrische gegevens en diagnostische logboeken download
 |SourceSystem|Altijd: Azure|
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Always: MICROSOFT.SQL|
+|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: QueryStoreRuntimeStatistics|
 |OperationName|De naam van de bewerking. Altijd: QueryStoreRuntimeStatisticsEvent|
 |Resource|De naam van de resource.|
@@ -323,7 +323,7 @@ Meer informatie over [gegevens Query Store runtime-statistieken](https://docs.mi
 |SourceSystem|Altijd: Azure|
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Always: MICROSOFT.SQL|
+|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: QueryStoreWaitStatistics|
 |OperationName|De naam van de bewerking. Altijd: QueryStoreWaitStatisticsEvent|
 |Resource|Naam van de resource|
@@ -361,7 +361,7 @@ Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microso
 |SourceSystem|Altijd: Azure|
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Always: MICROSOFT.SQL|
+|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: fouten|
 |OperationName|De naam van de bewerking. Altijd: ErrorEvent|
 |Resource|Naam van de resource|
@@ -390,7 +390,7 @@ Meer informatie over [SQL Server-foutberichten](https://msdn.microsoft.com/libra
 |SourceSystem|Altijd: Azure|
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Always: MICROSOFT.SQL|
+|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: DatabaseWaitStatistics|
 |OperationName|De naam van de bewerking. Altijd: DatabaseWaitStatisticsEvent|
 |Resource|Naam van de resource|
@@ -419,7 +419,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |SourceSystem|Altijd: Azure|
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Always: MICROSOFT.SQL|
+|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: time-outs|
 |OperationName|De naam van de bewerking. Altijd: TimeoutEvent|
 |Resource|Naam van de resource|
@@ -442,7 +442,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |SourceSystem|Altijd: Azure|
 |TimeGenerated [UTC]|Tijdstempel wanneer het logboek is opgenomen.|
 |Type|Altijd: AzureDiagnostics|
-|ResourceProvider|Naam van de resourceprovider. Always: MICROSOFT.SQL|
+|ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: blokken|
 |OperationName|De naam van de bewerking. Altijd: BlockEvent|
 |Resource|Naam van de resource|

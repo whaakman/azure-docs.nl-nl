@@ -2,23 +2,23 @@
 title: Raspberry Pi naar cloud (Python) - frambozen Pi verbinding maken met Azure IoT Hub | Microsoft Docs
 description: Informatie over het instellen en frambozen Pi verbinden met Azure IoT Hub voor frambozen Pi gegevens verzenden naar het Azure-cloud-platform in deze zelfstudie.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: Azure iot raspberry pi, raspberry pi iothub, raspberry pi verzenden gegevens naar de cloud, raspberry pi naar cloud
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2017
-ms.author: xshi
-ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 7069748c10f7c98f80fadc008f43a3aa02f7ac0e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>Raspberry Pi verbinden met Azure IoT Hub (Python)
 
@@ -169,7 +169,7 @@ Gebruik een van de volgende SSH-clients van de hostcomputer verbinding maken met
    nano config.py
    ```
 
-   Er zijn 5 macro's in dit bestand kunt u configurate. De eerste is `MESSAGE_TIMESPAN`, definieert het tijdsinterval (in milliseconden) tussen twee berichten die naar de cloud verzendt. De tweede waarde `SIMULATED_DATA`, dit is een Booleaanse waarde voor of gesimuleerde sensorgegevens of niet. `I2C_ADDRESS`is het adres I2C die uw sensor BME280 is verbonden. `GPIO_PIN_ADDRESS`is het adres GPIO voor uw LED. Het laatste item `BLINK_TIMESPAN`, die de timespan gedefinieerd wanneer uw LED is ingeschakeld in milliseconden.
+   Er zijn 5 macro's in dit bestand kunt u configurate. De eerste is `MESSAGE_TIMESPAN`, definieert het tijdsinterval (in milliseconden) tussen twee berichten die naar de cloud verzendt. De tweede waarde `SIMULATED_DATA`, dit is een Booleaanse waarde voor of gesimuleerde sensorgegevens of niet. `I2C_ADDRESS` is het adres I2C die uw sensor BME280 is verbonden. `GPIO_PIN_ADDRESS` is het adres GPIO voor uw LED. Het laatste item `BLINK_TIMESPAN`, die de timespan gedefinieerd wanneer uw LED is ingeschakeld in milliseconden.
 
    Als u **hoeft niet de sensor**stelt de `SIMULATED_DATA` van waarde naar `True` ervoor dat de voorbeeldtoepassing maken en gebruiken van gesimuleerde sensorgegevens.
 

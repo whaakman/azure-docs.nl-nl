@@ -1,11 +1,11 @@
 ---
-title: B2B-berichten in de Operations Management Suite - Azure Logic Apps bijhouden | Microsoft Docs
-description: Bijhouden van de B2B-communicatie voor uw integratie-account en logic apps in Operations Management Suite (OMS) met Azure Log Analytics
+title: B2B-berichten met Azure Log Analytics - Azure Logic Apps bijhouden | Microsoft Docs
+description: Bijhouden van de B2B-communicatie voor uw integratie-account en logic apps met Azure Log Analytics
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Bijhouden van de B2B-communicatie in de Microsoft Operations Management Suite (OMS)
+# <a name="track-b2b-communication-with-azure-log-analytics"></a>B2B-communicatie met Azure-logboekanalyse bijhouden
 
-Na het instellen van B2B-communicatie tussen twee bedrijfsprocessen of toepassingen via uw account integratie met deze entiteiten berichten met elkaar kunnen uitwisselen. Om te controleren of deze berichten correct worden verwerkt, u AS2, X12, bijhouden kunt en EDIFACT met berichten [Azure Log Analytics](../log-analytics/log-analytics-overview.md) in de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). U kunt bijvoorbeeld deze mechanismen voor het web gebaseerde bijhouden gebruiken voor het bijhouden van berichten:
+Na het instellen van B2B-communicatie tussen twee bedrijfsprocessen of toepassingen via uw account integratie met deze entiteiten berichten met elkaar kunnen uitwisselen. Om te controleren of deze berichten correct worden verwerkt, u AS2, X12, bijhouden kunt en EDIFACT met berichten [Azure Log Analytics](../log-analytics/log-analytics-overview.md). U kunt bijvoorbeeld deze mechanismen voor het web gebaseerde bijhouden gebruiken voor het bijhouden van berichten:
 
 * Aantal berichten en status
 * Bevestigingen status
@@ -36,30 +36,30 @@ Na het instellen van B2B-communicatie tussen twee bedrijfsprocessen of toepassin
 
 * Integratie-account ingesteld met de controle en logboekregistratie. Meer informatie over [het maken van een account integratie](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) en [het instellen van controle en logboekregistratie voor dat account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Als u dat nog niet gedaan hebt, [diagnostische gegevens publiceren met logboekanalyse](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) in OMS.
+* Als u dat nog niet gedaan hebt, [diagnostische gegevens publiceren met logboekanalyse](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Nadat u de vorige vereisten hebt voldaan, moet er een werkruimte in de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). U moet dezelfde OMS-werkruimte gebruiken voor het bijhouden van uw B2B-communicatie in OMS. 
+> Nadat u de vorige vereisten hebt voldaan, moet u een werkruimte in logboekanalyse hebben. U moet dezelfde werkruimte gebruiken voor het bijhouden van uw B2B-communicatie in logboekanalyse. 
 >  
-> Als u een OMS-werkruimte niet hebt, ontdek [het maken van een OMS-werkruimte](../log-analytics/log-analytics-get-started.md).
+> Als u een werkruimte voor logboekanalyse niet hebt, ontdek [het maken van een werkruimte voor logboekanalyse](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-the-operations-management-suite-oms"></a>De oplossing Logic Apps B2B toevoegen aan de Operations Management Suite (OMS)
+## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>De oplossing Logic Apps B2B met logboekanalyse toevoegen
 
-Als u wilt bijhouden B2B-berichten voor uw logische app OMS, moet u toevoegen de **Logic Apps B2B** oplossing naar de OMS-portal. Meer informatie over [oplossingen toe te voegen aan OMS](../log-analytics/log-analytics-get-started.md).
+Als u Log Analytics B2B-berichten voor uw logische app bijhouden, moet u toevoegen de **Logic Apps B2B** oplossing naar de OMS-portal. Meer informatie over [toe te voegen oplossingen met logboekanalyse](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. In de [Azure-portal](https://portal.azure.com), kies **alle Services**. Zoek naar 'log analytics' in en kies vervolgens **logboekanalyse** als volgt te werk:
 
    ![Log Analytics vinden](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-2. Onder **logboekanalyse**, zoeken en selecteert u de OMS-werkruimte. 
+2. Onder **logboekanalyse**, zoeken en selecteert u de werkruimte voor logboekanalyse. 
 
-   ![Selecteer de OMS-werkruimte](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Selecteer de werkruimte voor logboekanalyse](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
 3. Onder **Management**, kies **OMS-Portal**.
 
    ![Kies de OMS-portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Nadat de OMS-startpagina wordt geopend, kiest u **galerie met oplossingen**.    
+4. Nadat de startpagina wordt geopend, kiest u **galerie met oplossingen**.    
 
    ![Kies de galerie met oplossingen](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
@@ -71,21 +71,21 @@ Als u wilt bijhouden B2B-berichten voor uw logische app OMS, moet u toevoegen de
 
    ![Kies toevoegen](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-   Op de OMS-startpagina, de tegel voor **Logic Apps B2B-berichten** wordt nu weergegeven. 
+   Op de startpagina van de tegel voor **Logic Apps B2B-berichten** wordt nu weergegeven. 
    Deze tegel-het aantal berichten updates wanneer uw B2B-berichten worden verwerkt.
 
-   ![OMS startpagina van de tegel Logic Apps B2B-berichten](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+   ![Startpagina van de tegel Logic Apps B2B-berichten](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-the-operations-management-suite"></a>Berichtstatus en details in de Operations Management Suite bijhouden
+## <a name="track-message-status-and-details-in-log-analytics"></a>Status van bijhouden bericht en details in Log Analytics
 
-1. Nadat uw B2B-berichten worden verwerkt, kunt u de status en details voor deze berichten weergeven. Kies op de startpagina OMS de **Logic Apps B2B-berichten** tegel.
+1. Nadat uw B2B-berichten worden verwerkt, kunt u de status en details voor deze berichten weergeven. Kies op de startpagina van de **Logic Apps B2B-berichten** tegel.
 
    ![Aantal bijgewerkte berichten](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
    > [!NOTE]
-   > Standaard de **Logic Apps B2B-berichten** tegel ziet u gegevens op basis van een enkele dag. Om het bereik van de gegevens wijzigen in een ander interval, kiest u het bereik-besturingselement aan de bovenkant van de OMS-pagina:
+   > Standaard de **Logic Apps B2B-berichten** tegel ziet u gegevens op basis van een enkele dag. Om het bereik van de gegevens wijzigen in een ander interval, kiest u het bereik-besturingselement aan de bovenkant van de pagina:
    > 
    > ![Bereik van de gegevens wijzigen](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
    >
@@ -240,7 +240,7 @@ Hier vindt u de naam indelingen voor elke map voor gedownloade EDIFACT bericht e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Query voor B2B-berichten in de Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Query voor B2B-berichten in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Volgschema’s voor AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Volgschema’s voor X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Bijhouden van aangepaste schema 's](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

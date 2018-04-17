@@ -1,7 +1,7 @@
 | **Onderdeel** | **Vereiste** |
 | --- |---|
 | CPU-kernen| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Aantal schijven | 3, met inbegrip van de OS-schijf, proces server cache schijf en bewaarstation voor failback |
 | Vrije schijfruimte (cache van de processerver) | 600 GB
 | Vrije schijfruimte (bewaarschijf) | 600 GB|
@@ -13,5 +13,5 @@
 | IIS | -Er zijn geen bestaande standaardwebsite <br> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> -Inschakelen [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) instelling  <br> -Er zijn geen bestaande website/toepassing geluisterd op poort 443<br>|
 | NIC-type | VMXNET3 (indien geïmplementeerd als een VMware-VM) |
 | Type IP-adres | Statisch |
-| Toegang tot het internet | De server heeft toegang tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> -https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (niet vereist voor scale-out processervers) <br> - time.nist.gov <br> - time.windows.com |
+| Toegang tot het internet | De server heeft toegang tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (niet vereist voor scale-out processervers) <br> - time.nist.gov <br> - time.windows.com |
 | Poorten | 443 (Orchestration-besturingselement)<br>9443 (Gegevenstransport)|

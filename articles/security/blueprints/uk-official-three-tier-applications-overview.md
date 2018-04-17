@@ -1,6 +1,6 @@
 ---
-title: "Azure-beveiliging en naleving blauwdruk - VK officiële drie lagen Web Applications Automation"
-description: "Azure-beveiliging en naleving blauwdruk - VK officiële drie lagen Web Applications Automation"
+title: Azure-beveiliging en naleving blauwdruk - VK officiële drie lagen Web Applications Automation
+description: Azure-beveiliging en naleving blauwdruk - VK officiële drie lagen Web Applications Automation
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure-beveiliging en naleving blauwdruk - VK officiële drie lagen Web Applications Automation
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/11/2018
 
 (((1) /16 virtual Network - operationele VNet
 - (3) /24 subnetten - 3-laagse (Web, Biz, gegevens)
-- (1) /27 subnet - ADDS
+- (1) /27 subnet - wordt toegevoegd
 - (((1) /27 subnet - Gateway-Subnet
 - (((1) slechts/29-subnet - Subnet toepassingsgateway
 - Gebruikt standaard (Azure) DNS-
@@ -211,7 +211,7 @@ Klanten kunnen ook kunt u overwegen een [verbeterde beveiliging beheermodel](htt
 
 **Resourcebeheer**: Azure-resources, zoals virtuele machines, VNets en netwerktaakverdelers worden beheerd door ze te groeperen in [Azure-resourcegroepen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Resource toegangsbeheer op basis van rollen kunnen vervolgens worden toegewezen aan elke resourcegroep toegang te beperken tot alleen geautoriseerde gebruikers.
 
-**Toegang tot de beperkingen voor toegangsbeheer**: Gebruik [toegangsbeheer op basis van rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) voor het beheren van de resources in uw toepassing met [aangepaste rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) RBAC kan worden gebruikt om de bewerkingen te beperken die DevOps kunt uitvoeren op elke laag. Bij het verlenen van machtigingen, gebruiken de [principe van minimale bevoegdheden](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Meld u alle beheerbewerkingen en uitvoeren van regelmatige controle om ervoor te zorgen dat configuratiewijzigingen zijn gepland.
+**Toegang tot de beperkingen voor toegangsbeheer**: Gebruik [toegangsbeheer op basis van rollen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) voor het beheren van de resources in uw toepassing met [aangepaste rollen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC kan worden gebruikt om de bewerkingen te beperken die DevOps kunt uitvoeren op elke laag. Bij het verlenen van machtigingen, gebruiken de [principe van minimale bevoegdheden](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registreer alle beheergerelateerde bewerkingen en controleer regelmatig of eventuele configuratiewijzigingen inderdaad zo waren gepland.
 
 **Toegang tot Internet**: maakt gebruik van deze verwijzende architectuur [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) als de gateway en de load balancer toegankelijk via internet. Sommige klanten kunnen ook overwegen om virtuele netwerkapparaten van derden voor extra verificatielagen networking beveiliging als alternatief voor het [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 

@@ -2,24 +2,24 @@
 title: 'M0 naar cloud: doezelaar M0 Wi-Fi verbinding met Azure IoT Hub | Microsoft Docs'
 description: Informatie over het instellen en Adafruit Doezelaar M0 Wi-Fi verbinding met Azure IoT Hub gegevens verzenden naar het Azure-cloud-platform in deze zelfstudie.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: 51befcdb-332b-416f-a6a1-8aabdb67f283
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/16/2017
-ms.author: xshi
-ms.openlocfilehash: 9b278735ce3af9e6e61a85c5e95ea218622361c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 2a6a65a3c4a69a49788ce9799ceed53d53edcd77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>Adafruit Doezelaar M0 Wi-Fi verbinding met Azure IoT Hub in de cloud
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]

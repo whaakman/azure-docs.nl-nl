@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 03/27/2018
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f6410aa3ab21e7c50ec6918930f31b9e1455c464
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub apparaat-inrichtingsservice veiligheidsconcepten 
 
-IoT Hub apparaat-inrichtingsservice is een helper-service voor IoT-Hub die u gebruikt om zonder tussenkomst apparaat inrichten met een opgegeven IoT-hub te configureren. Met de Device Provisioning Service kunt u miljoenen apparaten inrichten op een veilige en schaalbare manier. In dit artikel biedt een overzicht van de *beveiliging* concepten betrokken bij de mobiele apparaten inrichten. Dit artikel is relevant zijn voor alle Persona's die zijn betrokken bij het voorbereiden van een apparaat voor implementatie.
+IoT Hub apparaat-inrichtingsservice is een helper-service voor IoT-Hub die u gebruikt om zonder tussenkomst apparaat inrichten met een opgegeven IoT-hub te configureren. Met de Service apparaat inrichting, kunt u [automatisch inrichten](concepts-auto-provisioning.md) miljoenen apparaten op een veilige en schaalbare manier. In dit artikel biedt een overzicht van de *beveiliging* concepten betrokken bij de mobiele apparaten inrichten. Dit artikel is relevant zijn voor alle Persona's die zijn betrokken bij het voorbereiden van een apparaat voor implementatie.
 
 ## <a name="attestation-mechanism"></a>Attestation-mechanisme
 
@@ -46,6 +46,8 @@ Apparaat geheimen kunnen ook worden opgeslagen in de software (geheugen), maar h
 
 TPM kan verwijzen naar een standaard voor het veilig opslaan van sleutels die worden gebruikt voor het verifiëren van het platform of het kan verwijzen naar de i/o-interface gebruikt om te communiceren met de implementatie van de standaard-modules. TPM's kunnen bestaan als discrete hardware, geïntegreerde hardware, firmware gebaseerde of op basis van software. Meer informatie over [TPM's en TPM attestation](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Apparaat inrichtingsservice biedt alleen ondersteuning voor TPM 2.0.
 
+Attestation TPM is gebaseerd op een nonce uitdaging die aanwezig zijn een ondertekende Shared Access Signature (SAS)-token met behulp van de hoofdsleutels goedkeurt en opslag.
+
 ### <a name="endorsement-key"></a>Goedkeuringssleutel
 
 De goedkeuringssleutel is een asymmetrische sleutel die is opgenomen in de TPM die intern is gegenereerd of geïnjecteerd productie-tijd en is uniek voor elke TPM. De goedkeuringssleutel kan niet worden gewijzigd of verwijderd. Het persoonlijke gedeelte van de goedkeuringssleutel is nooit buiten de TPM vrijgegeven terwijl het openbare deel van de goedkeuringssleutel wordt gebruikt voor het herkennen van een legitieme TPM. Meer informatie over de [goedkeuringssleutel](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
@@ -56,21 +58,27 @@ De opslaghoofdsleutel wordt opgeslagen in de TPM en wordt gebruikt voor het beve
 
 ## <a name="x509-certificates"></a>X.509-certificaten
 
-X.509-certificaten gebruiken als een mechanisme voor Attestation-bewerking is een uitstekende manier om te schalen productie en vereenvoudigen apparaten inrichten. X.509-certificaten worden doorgaans gerangschikt in een certificaatvertrouwensketen waarin elk certificaat in de keten is ondertekend door de persoonlijke sleutel van de volgende hogere certificaat, enzovoort, wordt beëindigd in een zelfondertekend basiscertificaat. Hiermee stelt u een gedelegeerde vertrouwensketen van het basiscertificaat dat is gegenereerd door een vertrouwde certificeringsinstantie (CA) omlaag via elke tussenliggende CA aan het einde-entiteit certificaat geïnstalleerd op een apparaat. Zie voor meer informatie, [verificatie van apparaten met behulp van de CA-certificaten X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+X.509-certificaten gebruiken als een mechanisme voor Attestation-bewerking is een uitstekende manier om te schalen productie en vereenvoudigen apparaten inrichten. X.509-certificaten worden doorgaans gerangschikt in een certificaatvertrouwensketen waarin elk certificaat in de keten is ondertekend door de persoonlijke sleutel van de volgende hogere certificaat, enzovoort, wordt beëindigd in een zelfondertekend basiscertificaat. Hiermee stelt u een gedelegeerde vertrouwensketen van het basiscertificaat dat is gegenereerd door een vertrouwde certificeringsinstantie (CA) omlaag via elke tussenliggende CA aan het einde-entiteit 'leaf' certificaat geïnstalleerd op een apparaat. Zie voor meer informatie, [verificatie van apparaten met behulp van de CA-certificaten X.509](/azure/iot-hub/iot-hub-x509ca-overview). 
 
-De certificaatketen vertegenwoordigt vaak een aantal logische of fysieke hiërarchie gekoppeld met apparaten. Bijvoorbeeld een fabrikant mogelijk een zelfondertekend basiscertificaat uitgeven, dat certificaat gebruiken bij het genereren van een unieke tussenliggende CA-certificaat voor elke factory, elke factory certificaat gebruiken voor het genereren van een unieke tussenliggende CA-certificaat voor elke productie regel in de installatie en gebruik ten slotte het certificaat van de productie-regel voor het genereren van een certificaat unieke apparaat (Eindentiteit) voor elk apparaat op de regel geproduceerd. Zie voor meer informatie, [conceptuele kennis van het x.509-CA-certificaten in de branche IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept). 
+De certificaatketen vertegenwoordigt vaak een aantal logische of fysieke hiërarchie gekoppeld met apparaten. Bijvoorbeeld, kan een fabrikant het volgende:
+- Geef een zelf-ondertekend basis-CA-certificaat
+- het basiscertificaat voor het genereren van een unieke tussenliggende CA-certificaat voor elke factory gebruiken
+- elke factory certificaat gebruiken voor het genereren van een unieke tussenliggende CA-certificaat voor elke regel productie in de installatie
+- en ten slotte het certificaat productie regel gebruiken om een certificaat unieke apparaat (Eindentiteit) voor elk apparaat heeft geproduceerd op de regel te genereren. 
+
+Zie voor meer informatie, [conceptuele kennis van het x.509-CA-certificaten in de branche IoT](/azure/iot-hub/iot-hub-x509ca-concept). 
 
 ### <a name="root-certificate"></a>Basiscertificaat
 
-Een basiscertificaat is een zelf-ondertekend X.509-certificaat voor een certificeringsinstantie (CA). Het is de terminus of vertrouwensanker van de certificaatketen. Basiscertificaten worden automatisch uitgegeven door een organisatie of aangeschaft via een basiscertificeringsinstantie. Zie voor meer informatie, [X.509-certificaten ophalen](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Het basiscertificaat kan ook worden aangeduid als een CA-basiscertificaat.
+Een basiscertificaat is een zelf-ondertekend X.509-certificaat voor een certificeringsinstantie (CA). Het is de terminus of vertrouwensanker van de certificaatketen. Basiscertificaten worden automatisch uitgegeven door een organisatie of aangeschaft via een basiscertificeringsinstantie. Zie voor meer informatie, [X.509-certificaten ophalen](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Het basiscertificaat kan ook worden aangeduid als een CA-basiscertificaat.
 
 ### <a name="intermediate-certificate"></a>Tussenliggende certificaat
 
 Er is een X.509-certificaat is ondertekend door het basiscertificaat (of door een andere tussenliggende certificaat met het basiscertificaat in de keten) voor een tussenliggende certificaat. De laatste tussenliggende certificaten in een keten van wordt gebruikt voor het leaf-certificaat ondertekenen. Een tussenliggende certificaat kan ook worden aangeduid als een tussenliggende CA-certificaat.
 
-### <a name="leaf-certificate"></a>Leaf-certificaat
+### <a name="end-entity-leaf-certificate"></a>Eindentiteitscertificaat 'leaf'
 
-Het certificaat of eindentiteitscertificaat, identificeert de certificaathouder. Het basiscertificaat in de certificaatketen en nul of meer tussenliggende certificaten heeft. Het certificaat wordt niet gebruikt om alle andere certificaten te ondertekenen. Unieke wijze identificeert het apparaat aan de inrichting service en wordt soms aangeduid als het certificaat voor apparaten. Het apparaat wordt de persoonlijke sleutel die is gekoppeld aan dit certificaat tijdens verificatie wordt gebruikt om te reageren op een bewijs van bezit uitdaging van de service. Zie voor meer informatie, [verificatie van apparaten die zijn ondertekend met x.509-CA-certificaten](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Het certificaat of eindentiteitscertificaat, identificeert de certificaathouder. Het basiscertificaat in de certificaatketen en nul of meer tussenliggende certificaten heeft. Het certificaat wordt niet gebruikt om alle andere certificaten te ondertekenen. Unieke wijze identificeert het apparaat aan de inrichting service en wordt soms aangeduid als het certificaat voor apparaten. Het apparaat wordt de persoonlijke sleutel die is gekoppeld aan dit certificaat tijdens verificatie wordt gebruikt om te reageren op een bewijs van bezit uitdaging van de service. Zie voor meer informatie, [verificatie van apparaten die zijn ondertekend met x.509-CA-certificaten](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Apparaattoegang tot de inrichting service met X.509-certificaten beheren
 

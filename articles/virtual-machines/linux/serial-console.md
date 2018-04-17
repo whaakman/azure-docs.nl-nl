@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: b7d6e48a6f34472bc38947fd70e850b1c3bf6f8a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële console van de virtuele machine (preview) 
 
@@ -32,7 +32,7 @@ De seriële console van de virtuele machine in Azure biedt toegang tot een op te
 ## <a name="prerequisites"></a>Vereisten 
 
 * Virtuele machine [opstarten diagnostics](boot-diagnostics.md) ingeschakeld 
-* Het account met behulp van de seriële console moet hebben [rol van Inzender](../../active-directory/role-based-access-built-in-roles.md) voor de virtuele machine en de [opstarten diagnostics](boot-diagnostics.md) storage-account. 
+* Het account met behulp van de seriële console moet hebben [rol van Inzender](../../role-based-access-control/built-in-roles.md) voor de virtuele machine en de [opstarten diagnostics](boot-diagnostics.md) storage-account. 
 * Zie voor specifieke instellingen voor Linux distro, [openen van de seriële console voor Linux](#accessing-serial-console-for-linux)
 
 
@@ -56,7 +56,7 @@ De functionaliteit van de seriële console kan worden gedeactiveerd voor specifi
 ## <a name="serial-console-security"></a>Beveiliging van de seriële console 
 
 ### <a name="access-security"></a>-Beveiliging 
-Toegang tot de seriële console is beperkt tot gebruikers die hebben [VM inzenders](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) of boven de toegang tot de virtuele machine. Als uw AAD-tenant is vereist voor multi-factor Authentication wordt toegang tot de seriële console ook de MFA moet omdat de toegang [Azure-portal](https://portal.azure.com).
+Toegang tot de seriële console is beperkt tot gebruikers die hebben [VM inzenders](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) of boven de toegang tot de virtuele machine. Als uw AAD-tenant is vereist voor multi-factor Authentication wordt toegang tot de seriële console ook de MFA moet omdat de toegang [Azure-portal](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Kanaal-beveiliging
 Alle gegevens wordt teruggestuurd en weer op de kabel wordt versleuteld.

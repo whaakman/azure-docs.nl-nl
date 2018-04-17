@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4c732bb7-5cb1-40af-9e6d-a2a307c2a9c4
 ms.service: virtual-network
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6beaeb4b7e5c9e393427d575f1cf8bc48599dbd5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Problemen met Netwerkbeveiligingsgroepen met Azure PowerShell
 > [!div class="op_single_selector"]
-> * [Azure-portal](virtual-network-nsg-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 
@@ -44,7 +44,7 @@ Hoewel dit voorbeeld wordt de TCP-poort 3389 gebruikt, kunnen de volgende stappe
 ## <a name="detailed-troubleshooting-steps"></a>Gedetailleerde stappen voor probleemoplossing
 De volgende stappen voor het oplossen van nsg's voor een virtuele machine:
 
-1. Start een Azure PowerShell-sessie en meld u aan bij Azure. Als u niet bekend bent met behulp van Azure PowerShell, leest u de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Start een Azure PowerShell-sessie en meld u aan bij Azure. Als u niet bekend bent met behulp van Azure PowerShell, leest u de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Voer de volgende opdracht om te retourneren van alle NSG-regels toegepast op een NIC met de naam *VM1 NIC1* in de resourcegroep *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1d5bc55b132b449ebc2964ef95016a6a4780c19
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Status controleren, instellen van logboekregistratie van diagnostische gegevens en waarschuwingen inschakelen voor Azure Logic Apps
 
@@ -66,7 +66,7 @@ Als u meldingen over fouten of andere mogelijke problemen, instellen van [waarsc
    ![Stap-details](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Alle details van de runtime en gebeurtenissen worden in de service Logic Apps versleuteld. Ze worden alleen als een gebruiker vraagt om weer te geven dat de gegevens ontsleuteld. U kunt ook toegang tot deze gebeurtenissen met [gebaseerd toegangsbeheer (RBAC)](../active-directory/role-based-access-control-what-is.md).
+   > Alle details van de runtime en gebeurtenissen worden in de service Logic Apps versleuteld. Ze worden alleen als een gebruiker vraagt om weer te geven dat de gegevens ontsleuteld. U kunt ook toegang tot deze gebeurtenissen met [gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md).
 
 6. Als u meer informatie over een specifieke triggergebeurtenis, gaat u terug naar de **overzicht** deelvenster. Onder **activeren geschiedenis**, selecteert u de triggergebeurtenis. U kunt nu gegevens, zoals de invoer en uitvoer, bijvoorbeeld bekijken:
 
@@ -217,7 +217,7 @@ Voor het instellen van waarschuwingen zonder [Azure Log Analytics](../log-analyt
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Instellingen van Azure Diagnostics-gebeurtenis en details
 
-Elke diagnostische gebeurtenissen voor meer informatie over uw logische app en dat de gebeurtenis, bijvoorbeeld de status heeft, begintijd, eindtijd en enzovoort. Als u bewaking, bijhouden en logboekregistratie programmatisch instelt, kunt organisatie-eenheid deze details met de [REST-API voor Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) en de [REST-API voor Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+Elke diagnostische gebeurtenissen voor meer informatie over uw logische app en dat de gebeurtenis, bijvoorbeeld de status heeft, begintijd, eindtijd en enzovoort. Als u bewaking, bijhouden en logboekregistratie programmatisch instelt, kunt u deze details met de [REST-API voor Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) en de [REST-API voor Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 
 Bijvoorbeeld, de `ActionCompleted` gebeurtenis heeft de `clientTrackingId` en `trackedProperties` eigenschappen die u gebruiken kunt voor bewaking en bij te houden:
 

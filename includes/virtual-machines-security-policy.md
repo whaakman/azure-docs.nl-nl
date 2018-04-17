@@ -28,7 +28,7 @@ Als u verbinding met virtuele machines, moet u cryptografie met openbare sleutel
 
 ## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
-Met behulp van [op rollen gebaseerde toegangsbeheer (RBAC)](../articles/active-directory/role-based-access-control-what-is.md), kunt u taken scheiden binnen uw team en de hoeveelheid toegang verlenen aan gebruikers op de virtuele machine die ze nodig hebben voor het uitvoeren van hun taken. In plaats van iedereen geven onbeperkte machtigingen op de virtuele machine, kunt u alleen bepaalde acties. U kunt Toegangsbeheer configureren voor de virtuele machine in de [Azure-portal](../articles/active-directory/role-based-access-control-configure.md), waarbij de [Azure CLI](https://docs.microsoft.com/cli/azure/role), of[Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md).
+Met behulp van [op rollen gebaseerde toegangsbeheer (RBAC)](../articles/role-based-access-control/overview.md), kunt u taken scheiden binnen uw team en de hoeveelheid toegang verlenen aan gebruikers op de virtuele machine die ze nodig hebben voor het uitvoeren van hun taken. In plaats van iedereen geven onbeperkte machtigingen op de virtuele machine, kunt u alleen bepaalde acties. U kunt Toegangsbeheer configureren voor de virtuele machine in de [Azure-portal](../articles/role-based-access-control/role-assignments-portal.md), waarbij de [Azure CLI](https://docs.microsoft.com/cli/azure/role), of[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Volgende stappen

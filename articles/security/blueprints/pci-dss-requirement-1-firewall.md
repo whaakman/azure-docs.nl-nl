@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 995ecd5ef876695145fc6313aba2a46d2cc085cc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 4e04d6417f1468c1bafada1a93ab63a73e39653d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="firewall-requirements-for-pci-dss-compliant-environments"></a>Firewallvereisten voor PCI DSS-compatibele omgevingen 
 ## <a name="pci-dss-requirement-1"></a>PCI-DSS vereiste 1
@@ -43,7 +43,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore beschikken over gebruik van het CDE met het PaaS-isolatie en een App Service-omgeving implementatie zorgt ervoor dat CDE inkomende en uitgaande van gegevens is beveiligd.<br /><br />Een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) is een Premium-service-abonnement gebruikt om wettelijke redenen. Zie voor meer informatie over besturingselementen as-omgeving en configuratie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore beschikken over gebruik van het CDE met het PaaS-isolatie en een App Service-omgeving implementatie zorgt ervoor dat CDE inkomende en uitgaande van gegevens is beveiligd.<br /><br />Een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) is een Premium-service-abonnement gebruikt om wettelijke redenen. Zie voor meer informatie over besturingselementen as-omgeving en configuratie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -57,7 +57,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Een exemplaar van Contoso Webstore stelt u een CI/CD DevOps-model om ervoor te zorgen dat alle wijzigingen correct worden beheerd. [Operations Management Suite (OMS)](/azure/operations-management-suite/) biedt uitgebreide logboekregistratie van wijzigingen. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. Zie voor meer specifieke instructies [richtlijnen PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Azure Security Center](https://azure.microsoft.com/services/security-center/) biedt een gecentraliseerde weergave van de beveiligingsstatus van alle Azure-resources. In een oogopslag kunt u controleren dat de juiste beveiligingscontroles zijn geïnstalleerd en correct geconfigureerd en u alle bronnen die aandacht vereisen snel kan identificeren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Een exemplaar van Contoso Webstore stelt u een CI/CD DevOps-model om ervoor te zorgen dat alle wijzigingen correct worden beheerd. Log Analytics biedt uitgebreide logboekregistratie van wijzigingen. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. Zie voor meer specifieke instructies [richtlijnen PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Azure Security Center](https://azure.microsoft.com/services/security-center/) biedt een gecentraliseerde weergave van de beveiligingsstatus van alle Azure-resources. In een oogopslag kunt u controleren dat de juiste beveiligingscontroles zijn geïnstalleerd en correct geconfigureerd en u alle bronnen die aandacht vereisen snel kan identificeren.|
 
 
 
@@ -70,7 +70,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Raadpleeg de Contoso Webstore architectuur en het ontwerp naslagdocumentatie geleverd als onderdeel van het patroon van de installatie van de oplossing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Raadpleeg de Contoso Webstore architectuur en het ontwerp naslagdocumentatie geleverd als onderdeel van het patroon van de installatie van de oplossing.|
 
 
 
@@ -83,7 +83,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Raadpleeg de Contoso-webarchief GSD en de risicomodel.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Raadpleeg de Contoso-webarchief GSD en de risicomodel.|
 
 
 
@@ -96,7 +96,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | De veiligheidsmaatregelen grens beveiliging apparaten zoals gateways, netwerk-ACL's en application firewalls om communicatie besturingselement op de externe en interne grenzen op het niveau van het platform voor Microsoft Azure. De klant configureert deze voor hun specificaties en vereisten. Microsoft Azure filtert communicatie als in het platform. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een DMZ met PaaS-isolatie en een App Service-omgeving implementatie zorgt ervoor dat CDE inkomende en uitgaande van gegevens is beveiligd.<br /><br />Een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) is een Premium-service-abonnement gebruikt om wettelijke redenen. Zie voor meer informatie over besturingselementen as-omgeving en configuratie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een DMZ met PaaS-isolatie en een App Service-omgeving implementatie zorgt ervoor dat CDE inkomende en uitgaande van gegevens is beveiligd.<br /><br />Een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) is een Premium-service-abonnement gebruikt om wettelijke redenen. Zie voor meer informatie over besturingselementen as-omgeving en configuratie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -109,7 +109,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Maakt gebruik van de Contoso Webstore [gebaseerd toegangsbeheer (RBAC)](/azure/active-directory/role-based-access-control-configure) voor het isoleren van gebruikersrollen. RBAC kunt nauwkeurig gerichte toegangsbeheer voor Azure. Specifieke configuraties bestaan voor toegang via abonnement en Azure Sleutelkluis.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Maakt gebruik van de Contoso Webstore [gebaseerd toegangsbeheer (RBAC)](/azure/role-based-access-control/role-assignments-portal) voor het isoleren van gebruikersrollen. RBAC kunt nauwkeurig gerichte toegangsbeheer voor Azure. Specifieke configuraties bestaan voor toegang via abonnement en Azure Sleutelkluis.|
 
 
 
@@ -122,7 +122,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore wordt alleen de vereiste poorten en protocollen overal in het ontwerp RA geopend. Meer informatie over de gegevensstroom zichtbaar in het model GSD en bedreigingen.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore wordt alleen de vereiste poorten en protocollen overal in het ontwerp RA geopend. Meer informatie over de gegevensstroom zichtbaar in het model GSD en bedreigingen.|
 
 
 
@@ -135,7 +135,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | In de Contoso Webstore, worden de regelsets firewall gecontroleerd om ervoor te zorgen dat geen overbodige of ongebruikte regels opgenomen worden. Standaard wordt de demo geïmplementeerd met een minimale bevoegdheden, waarbij de kleinste pad footprint.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | In de Contoso Webstore, worden de regelsets firewall gecontroleerd om ervoor te zorgen dat geen overbodige of ongebruikte regels opgenomen worden. Standaard wordt de demo geïmplementeerd met een minimale bevoegdheden, waarbij de kleinste pad footprint.|
 
 
 
@@ -151,7 +151,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Van de Contoso Webstore CDE is gedefinieerd in de documentatie van de RA en de implementatie. Niet-vertrouwde netwerken zijn standaard geweigerd.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Van de Contoso Webstore CDE is gedefinieerd in de documentatie van de RA en de implementatie. Niet-vertrouwde netwerken zijn standaard geweigerd.|
 
 
 
@@ -164,7 +164,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Van de Contoso Webstore CDE is gedefinieerd in de documentatie van de RA en de implementatie. Niet-vertrouwde netwerken zijn standaard geweigerd. De demo Contoso Webstore configureert u de firewall van de toepassing Microsoft Azure zodat alleen opgegeven bereiken van IP-adressen voor toegang tot Microsoft Azure-services. De Contoso Webstore biedt een firewall weigeren alle helemaal CDE grenzen. Alle configuraties wordt uitgevoerd tijdens de eerste installatie van de implementatie.
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Van de Contoso Webstore CDE is gedefinieerd in de documentatie van de RA en de implementatie. Niet-vertrouwde netwerken zijn standaard geweigerd. De demo Contoso Webstore configureert u de firewall van de toepassing Microsoft Azure zodat alleen opgegeven bereiken van IP-adressen voor toegang tot Microsoft Azure-services. De Contoso Webstore biedt een firewall weigeren alle helemaal CDE grenzen. Alle configuraties wordt uitgevoerd tijdens de eerste installatie van de implementatie.
 
 > [!NOTE]
 > As-omgeving (App Service omgeving) wordt gebruikt in deze oplossing voor het isoleren van CDE echter is het essentieel dat uw gekwalificeerde beveiliging beoordelaar (QSA) deze oplossing wordt geëvalueerd als as-omgeving een DMZ isolatie waarmee uitgaande verbindingen implementeert moeten worden uitgevoerd door de as-omgeving. PCI-DSS vereist dat alle binnenkomende en uitgaande verbindingen die niet vereist, moeten worden geblokkeerd. Voor de as-omgeving goed te laten werken, as-omgeving tot stand uitgaande verbindingen zoals brengen die nodig zijn zoals gedefinieerd in ['Overwegingen voor een App Service-omgeving netwerken'](/azure/app-service/app-service-environment/network-info). Klanten dienen de uitgaande verbindingen met uw QSA voordat u de oplossing implementeert in een productieomgeving om te controleren of deze voldoet aan de vereisten te evalueren. |
@@ -180,7 +180,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt configuraties voor besturingselementen van Microsoft Azure systeemeigen netwerk is gesynchroniseerd.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt configuraties voor besturingselementen van Microsoft Azure systeemeigen netwerk is gesynchroniseerd.|
 
 
 
@@ -193,7 +193,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore beschikt niet over draadloze oplossingen of mogelijkheden die zijn ingeschakeld.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore beschikt niet over draadloze oplossingen of mogelijkheden die zijn ingeschakeld.|
 
 
 
@@ -206,7 +206,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure maakt gebruik van netwerk- en host grens beveiliging apparaten zoals firewalls, netwerktaakverdelers en ACL's. Deze apparaten gebruikgemaakt van mechanismen zoals isolatie, NAT en pakketfilters aparte klantverkeer van Internet en beheer van verkeer van VLAN. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt op het moment van implementatie van de configuraties van de Azure-toepassing firewall zodat alleen opgegeven bereiken van IP-adressen voor toegang tot de site, de bastionomgeving Azure VM's opnemen in hun CDE.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt op het moment van implementatie van de configuraties van de Azure-toepassing firewall zodat alleen opgegeven bereiken van IP-adressen voor toegang tot de site, de bastionomgeving Azure VM's opnemen in hun CDE.|
 
 
 
@@ -220,7 +220,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De implementatie van Contoso Webstore van de DMZ zorgt ervoor dat alleen geautoriseerde services verbinding met het CDE maken kunnen.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De implementatie van Contoso Webstore van de DMZ zorgt ervoor dat alleen geautoriseerde services verbinding met het CDE maken kunnen.|
 
 
 
@@ -233,7 +233,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De implementatie van Contoso Webstore van de DMZ zorgt ervoor dat alleen geautoriseerde services verbinding met het CDE maken kunnen.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De implementatie van Contoso Webstore van de DMZ zorgt ervoor dat alleen geautoriseerde services verbinding met het CDE maken kunnen.|
 
 
 
@@ -246,7 +246,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementeert netwerk filteren om te voorkomen dat vervalste verkeer en binnenkomende en uitgaande verkeer te beperken tot vertrouwde platform-onderdelen. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -260,7 +260,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De architectuur van Contoso Webstore wordt voorkomen dat onbevoegde uitgaand verkeer van de omgeving in het bereik tot het Internet. Dit wordt bereikt door het uitgaande verkeer ACL's voor goedgekeurde poorten en protocollen configureren in Microsoft Azure. Toegang tot het CDE opnemen deze besturingselementen in de SQL Server-database. <br /><br />Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De architectuur van Contoso Webstore wordt voorkomen dat onbevoegde uitgaand verkeer van de omgeving in het bereik tot het Internet. Dit wordt bereikt door het uitgaande verkeer ACL's voor goedgekeurde poorten en protocollen configureren in Microsoft Azure. Toegang tot het CDE opnemen deze besturingselementen in de SQL Server-database. <br /><br />Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -274,7 +274,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementeert netwerk filteren om te voorkomen dat vervalste verkeer en binnenkomende en uitgaande verkeer te beperken tot vertrouwde platform-onderdelen. Het Microsoft Azure-netwerk wordt gescheiden voor het scheiden van klantverkeer van beheer van verkeer. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing.|
 
 
 
@@ -288,7 +288,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure maakt gebruik van scheiding van netwerk- en NAT scheiden van klantverkeer van beheer van verkeer. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De architectuur van Contoso Webstore wordt voorkomen dat onbevoegde uitgaand verkeer van de omgeving in het bereik tot het Internet. Dit wordt bereikt door het uitgaande verkeer ACL's voor goedgekeurde poorten en protocollen configureren in Microsoft Azure. Toegang tot het CDE opnemen deze besturingselementen in de SQL Server-database. <br /><br />Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De architectuur van Contoso Webstore wordt voorkomen dat onbevoegde uitgaand verkeer van de omgeving in het bereik tot het Internet. Dit wordt bereikt door het uitgaande verkeer ACL's voor goedgekeurde poorten en protocollen configureren in Microsoft Azure. Toegang tot het CDE opnemen deze besturingselementen in de SQL Server-database. <br /><br />Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -309,7 +309,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure maakt gebruik van NAT (Network Address Translation) en netwerk scheiding scheiden van klantverkeer van beheer van verkeer. Azure-apparaten uniek worden aangeduid met hun UUID en worden geverifieerd met Kerberos. Azure beheerd netwerk apparaten door RFC 1918-IP-adressen worden geïdentificeerd. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore plaatst alle kaarthouder gegevens achter een proxy-servers/firewall en RFC1918-adresruimte wordt intern gebruikt.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore plaatst alle kaarthouder gegevens achter een proxy-servers/firewall en RFC1918-adresruimte wordt intern gebruikt.|
 
 
 
@@ -324,7 +324,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt bescherming van de eindgebruiker geen apparaten. [Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) kan worden gebruikt voor het beheren van de mobiele apparaten die uw werknemers gebruikt voor toegang tot bedrijfsgegevens.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt bescherming van de eindgebruiker geen apparaten. [Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) kan worden gebruikt voor het beheren van de mobiele apparaten die uw werknemers gebruikt voor toegang tot bedrijfsgegevens.|
 
 
 
@@ -337,7 +337,7 @@ Andere onderdelen van het systeem kunnen firewall-functionaliteit bieden, zolang
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt op het moment van implementatie van de configuraties van de Azure-toepassing firewall zodat alleen opgegeven bereiken van IP-adressen voor toegang tot de site, de bastionomgeving Azure VM's opnemen in hun CDE.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt op het moment van implementatie van de configuraties van de Azure-toepassing firewall zodat alleen opgegeven bereiken van IP-adressen voor toegang tot de site, de bastionomgeving Azure VM's opnemen in hun CDE.|
 
 
 

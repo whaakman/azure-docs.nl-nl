@@ -3,22 +3,23 @@ title: Een geografisch kunstmatige Intelligence virtuele Machine in Azure - inri
 description: Het inrichten van een geografisch AI virtuele Machine in Azure.
 keywords: deep leren, AI en hulpmiddelen voor wetenschappelijke gegevens, gegevens wetenschappelijke virtuele machine, georuimtelijke analytics
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: gopitk
 manager: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2994ef858e960640d98ab2f7d02a401b11aa9e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 93dfe6594aeaf45a6905fe8cb55c98dd37cc9599
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Inrichten van een geografisch kunstmatige Intelligence virtuele Machine in Azure 
 
@@ -78,7 +79,7 @@ Zodra uw virtuele machine is gemaakt, bent u klaar om te beginnen met behulp van
 
 De Geo-DSVM al ArcGIS Pro bureaublad vooraf is geïnstalleerd en de omgeving die vooraf is geconfigureerd om te werken met de hulpprogramma's in de DSVM. Wanneer u ArcGIS Start wordt u gevraagd een aanmelding bij je account ArcGIS. Als u al een account ArcGIS en licenties voor de software hebt, kunt u uw bestaande referenties gebruiken.  
 
-![Arc-GIS-Logon](./media/provision-geo-ai-dsvm/ArcGISLogon.png)
+![Boog GIS aanmelding](./media/provision-geo-ai-dsvm/ArcGISLogon.png)
 
 Anders aanmelden voor een nieuwe account ArcGIS en licentie of ophalen van een [gratis proefversie](https://www.arcgis.com/features/free-trial.html). 
 

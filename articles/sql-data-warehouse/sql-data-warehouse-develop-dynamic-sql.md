@@ -1,28 +1,27 @@
 ---
-title: Dynamische SQL in SQL datawarehouse | Microsoft Docs
+title: Dynamische SQL met in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips voor het gebruik van dynamische SQL in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: a948c2c3-3cd1-4373-90a9-79e59414b778
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 29228676373aee8dbc7b1b2a7d92ffc978333804
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 260c8b69cbe783c2cf18e40669fe742867ab133d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>Dynamische SQL in SQL datawarehouse
-Bij het ontwikkelen van toepassingscode voor SQL Data Warehouse, moet u wellicht dynamische sql om flexibele, algemene en modulair oplossingen te gebruiken. SQL Data Warehouse biedt geen ondersteuning voor blob-gegevenstypen op dit moment. Dit beperkt mogelijk de grootte van uw tekenreeksen als blob typen zowel varchar(max) en nvarchar(max) typen bevatten. Als u deze typen in uw toepassingscode gebruikt hebt bij het bouwen van zeer grote tekenreeksen, moet u de code in segmenten opsplitsen en gebruik in plaats daarvan de instructie EXEC.
+Tips voor het gebruik van dynamische SQL in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+
+## <a name="dynamic-sql-example"></a>Dynamische SQL-voorbeeld
+
+Bij het ontwikkelen van toepassingscode voor SQL Data Warehouse, moet u wellicht dynamische sql om flexibele, algemene en modulair oplossingen te gebruiken. SQL Data Warehouse biedt geen ondersteuning voor blob-gegevenstypen op dit moment. Ondersteunt geen blob-gegevenstypen mogelijk beperkt de omvang van uw tekenreeksen sinds de blob-gegevenstypen zijn zowel varchar(max) en nvarchar(max) typen. Als u deze typen in uw toepassingscode gebruikt hebt om grote tekenreeksen samen te stellen, moet u de code in segmenten opsplitsen en gebruik in plaats daarvan de instructie EXEC.
 
 Een eenvoudig voorbeeld:
 
@@ -34,7 +33,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Als de tekenreeks kort is kunt u [sp_executesql] [ sp_executesql] die normaal werken.
+Als de tekenreeks kort is, kunt u [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql) die normaal werken.
 
 > [!NOTE]
 > Instructies die worden uitgevoerd als dynamische SQL nog steeds onderworpen aan alle TSQL-validatieregels.
@@ -42,14 +41,5 @@ Als de tekenreeks kort is kunt u [sp_executesql] [ sp_executesql] die normaal we
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars][development overview].
+Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
-
-<!--Other Web references-->

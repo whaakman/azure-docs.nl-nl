@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: af011cb3eea27498107cdfd650518552cd63bdf3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="governance-in-azure"></a>Governance in Azure
 
@@ -147,7 +147,7 @@ Wanneer Azure in eerste instantie is uitgebracht, toegangsbeheer om een abonneme
 
 De verspreiding van abonnementen is niet meer nodig. Met op rollen gebaseerde toegangsbeheer, kunt u gebruikers toewijzen aan standaardrollen (zoals 'Lezer' en 'schrijver' voorkomende rollen). U kunt ook aangepaste rollen definiëren.
 
-[Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) kunt Geavanceerd toegangsbeheer voor Azure. Met RBAC kunt u alleen de toegangsrechten aan gebruikers verlenen die ze nodig hebben om hun taken uit te voeren. Beveiliging gerichte bedrijven moeten zich richten op uw werknemers de exacte machtigingen die ze nodig hebben. Te veel machtigingen tonen een account voor aanvallen. Te weinig machtigingen betekenen dat werknemers hun werk efficiënt kunnen niet ophalen. Azure op rollen gebaseerde toegangsbeheer (RBAC) kunt u dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure. RBAC helpt u bij het scheiden van taken binnen uw team en de hoeveelheid toegang verlenen aan gebruikers die ze nodig hebben voor het uitvoeren van hun taken. In plaats van iedereen geven onbeperkte machtigingen in uw Azure-abonnement of de bronnen, kunt u alleen bepaalde acties.
+[Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) kunt Geavanceerd toegangsbeheer voor Azure. Met RBAC kunt u alleen de toegangsrechten aan gebruikers verlenen die ze nodig hebben om hun taken uit te voeren. Beveiliging gerichte bedrijven moeten zich richten op uw werknemers de exacte machtigingen die ze nodig hebben. Te veel machtigingen tonen een account voor aanvallen. Te weinig machtigingen betekenen dat werknemers hun werk efficiënt kunnen niet ophalen. Azure op rollen gebaseerde toegangsbeheer (RBAC) kunt u dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure. RBAC helpt u bij het scheiden van taken binnen uw team en de hoeveelheid toegang verlenen aan gebruikers die ze nodig hebben voor het uitvoeren van hun taken. In plaats van iedereen geven onbeperkte machtigingen in uw Azure-abonnement of de bronnen, kunt u alleen bepaalde acties.
 
 Bijvoorbeeld, gebruikmaken van RBAC te laten een werknemer virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren.
 
@@ -161,7 +161,7 @@ Azure RBAC heeft drie elementaire functies die van toepassing op alle brontypen:
 
 De rest van de RBAC-rollen in Azure toestaan van beheer van specifieke Azure-resources. De rol Inzender van de virtuele Machine kan bijvoorbeeld de gebruiker te maken en beheren van virtuele machines. Het biedt ze geen toegang geven tot het virtuele netwerk of het subnet dat de virtuele machine verbinding met maakt.
 
-[Ingebouwde RBAC-rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) vindt u de rollen die beschikbaar zijn in Azure. De Hiermee geeft u de bewerkingen en het bereik dat elke ingebouwde rol aan gebruikers verleent.
+[Ingebouwde RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) vindt u de rollen die beschikbaar zijn in Azure. De Hiermee geeft u de bewerkingen en het bereik dat elke ingebouwde rol aan gebruikers verleent.
 
 Toegang verlenen door de juiste RBAC-rol toewijzen aan gebruikers, groepen en toepassingen op een bepaalde scope. Het bereik van een roltoewijzing kan dit een abonnement, resourcegroep of één resource. Een rol die is toegewezen aan een bovenliggend bereik verleent toegang ook naar de onderliggende elementen erin opgenomen.
 
@@ -169,9 +169,9 @@ Een gebruiker met toegang tot een resourcegroep kan bijvoorbeeld alle resources,
 
 Azure RBAC ondersteunt alleen beheerbewerkingen van de Azure-resources in de Azure-portal en Azure Resource Manager-API's. Deze kan niet toestaan dat alle gegevens niveau bewerkingen voor Azure-resources. Bijvoorbeeld autoriseren iemand voor het beheren van Accounts voor opslag, maar niet aan de blobs of tabellen binnen een Opslagaccount niet. Op deze manier kan een SQL-database worden beheerd, maar niet de tabellen in het.
 
-Zie [Wat is op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) als u meer informatie wilt over het beheren van toegang met RBAC.
+Zie [Wat is op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/role-based-access-control/overview) als u meer informatie wilt over het beheren van toegang met RBAC.
 
-U kunt ook [maakt u een aangepaste rol](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) in gebaseerd toegangsbeheer (RBAC) als geen van de ingebouwde rollen aan uw specifieke toegang nodig heeft. Aangepaste rollen kunnen worden gemaakt met [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), [Azure-opdrachtregelinterface (CLI)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli), en de [REST-API](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Net als de ingebouwde rollen kunnen aangepaste rollen worden toegewezen aan gebruikers, groepen en toepassingen bij het abonnement, resourcegroep en resource bereiken.
+U kunt ook [maakt u een aangepaste rol](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) in gebaseerd toegangsbeheer (RBAC) als geen van de ingebouwde rollen aan uw specifieke toegang nodig heeft. Aangepaste rollen kunnen worden gemaakt met [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure-opdrachtregelinterface (CLI)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), en de [REST-API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Net als de ingebouwde rollen kunnen aangepaste rollen worden toegewezen aan gebruikers, groepen en toepassingen bij het abonnement, resourcegroep en resource bereiken.
 
 Binnen elk abonnement geldt een limiet van 2000 roltoewijzingen.
 
@@ -271,7 +271,7 @@ Toepassen van **ReadOnly** kan leiden tot onverwachte resultaten optreden omdat 
 
 Voor een ander voorbeeld plaatsen van een vergrendeling van het kenmerk alleen-lezen op een App Service-resource voorkomt u dat Visual Studio Server Explorer-bestanden voor de resource worden weergegeven omdat die interactie voor toegang voor schrijven vereist.
 
-In tegenstelling tot rollen gebaseerd toegangsbeheer kunt u management vergrendelingen toepassen van een beperking voor alle gebruikers en rollen. Zie voor meer informatie over het instellen van machtigingen voor gebruikers en rollen [toegangsbeheer op basis van rollen in Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+In tegenstelling tot rollen gebaseerd toegangsbeheer kunt u management vergrendelingen toepassen van een beperking voor alle gebruikers en rollen. Zie voor meer informatie over het instellen van machtigingen voor gebruikers en rollen [toegangsbeheer op basis van rollen in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Wanneer u een vergrendeling op een bovenliggend bereik toepast, nemen alle resources binnen dat bereik de dezelfde vergrendeling. Zelfs resources die u later toevoegen overnemen de vergrendeling van het bovenliggende item. De meest beperkende vergrendeling in de overname voorrang.
 

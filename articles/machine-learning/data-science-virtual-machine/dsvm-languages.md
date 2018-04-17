@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 0c780b822e80bb8fce9ef4b1d85b445ee73ae7db
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 411729155f5135c7e45588b69995274c9cac1315
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Talen die worden ondersteund op de gegevens wetenschappelijke virtuele Machine 
 
@@ -33,7 +33,7 @@ De gegevens wetenschappelijke virtuele Machine (DSVM) wordt geleverd met verschi
 | Ondersteunde DSVM edities      | Windows Server 2016     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Twee globale `conda` omgevingen worden gemaakt. <br /> * `root` omgeving zich bevindt op `/anaconda/` Python 3.6 is. <br/> * `python2` omgeving zich bevindt op `/anaconda/envs/python2`is Python 2.7       |
 | Koppelingen naar voorbeelden      | Voorbeeld Jupyter-notebooks voor Python zijn opgenomen     |
-| Bijbehorende hulpprogramma's op de DSVM      | PySpark, R, Julia      |
+| Bijbehorende hulpprogramma's op de DSVM      | Julia PySpark, R,      |
 
 > [!NOTE]
 > Windows Server 2016 gemaakt vóór maart 2018 bevat Python 3.5 en Python 2.7. Python 2.7 is ook de conda **hoofdmap** omgeving en **py35** is de 3.5 Python-omgeving. 
@@ -77,7 +77,7 @@ De standaard Python-omgevingen op de DSVM zijn globale omgeving kan worden gelez
 | Ondersteunde DSVM edities      | Linux, Windows Server 2012    |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Twee globale `conda` omgevingen worden gemaakt. <br /> * `root` omgeving zich bevindt op `/anaconda/` Python 2.7 is. <br/> * `py35` omgeving zich bevindt op `/anaconda/envs/py35`Python 3.5 is       |
 | Koppelingen naar voorbeelden      | Voorbeeld Jupyter-notebooks voor Python zijn opgenomen     |
-| Bijbehorende hulpprogramma's op de DSVM      | PySpark, R, Julia      |
+| Bijbehorende hulpprogramma's op de DSVM      | Julia PySpark, R,      |
 ### <a name="how-to-use--run-it"></a>Hoe gebruik / uitvoeren?    
 
 **Linux**
@@ -144,7 +144,7 @@ De standaard Python-omgevingen op de DSVM zijn globale omgeving kan worden gelez
 | Ondersteunde DSVM edities      | Linux, Windows     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Koppelingen naar voorbeelden      | Voorbeeld Jupyter-notebooks voor R zijn opgenomen     |
-| Bijbehorende hulpprogramma's op de DSVM      | SparkR, Python, Julia      |
+| Bijbehorende hulpprogramma's op de DSVM      | Julia SparkR, Python,      |
 ### <a name="how-to-use--run-it"></a>Hoe gebruik / uitvoeren?    
 
 **Windows**:
@@ -188,7 +188,7 @@ R is geïnstalleerd op de DSVM in een globale-omgeving kan worden gelezen door a
 
 |    |           |
 | ------------- | ------------- |
-| Ondersteunde versies | 0.6 |
+| Ondersteunde versies | 0,6 |
 | Ondersteunde DSVM edities      | Linux, Windows     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Windows: Geïnstalleerd op `C:\JuliaPro-VERSION`<br /> Linux: Geïnstalleerd op `/opt/JuliaPro-VERSION`    |
 | Koppelingen naar voorbeelden      | Voorbeeld Jupyter-notebooks voor Julia zijn opgenomen     |

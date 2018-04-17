@@ -1,39 +1,27 @@
 ---
-title: Het gebruik van blob storage (objectopslag) van C++ | Microsoft Docs
-description: Sla niet-gestructureerde gegevens op in de cloud met Azure Blob Storage (objectopslag).
+title: Het gebruik van C++ - Azure-Blob (object) opslag | Microsoft Docs
+description: Niet-gestructureerde gegevens opslaan in de cloud met Azure-blobopslag (object).
 services: storage
-documentationcenter: .net
 author: MichaelHauss
-manager: vamshik
-editor: tysonn
-ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: 9fe2112370f7d29eb0fde856995768660f9871e6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-use-blob-storage-from-c"></a>Het Blob Storage gebruiken met C++
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
+# <a name="how-to-use-blob-storage-from-c"></a>Het Blob storage gebruiken met C++
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-## <a name="overview"></a>Overzicht
-Azure Blob Storage is een service waarmee ongestructureerde gegevens als objecten/blobs worden opgeslagen in de cloud. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. U kunt Blob Storage zien als een vorm van objectopslag.
-
-Deze handleiding wordt gedemonstreerd hoe u veelvoorkomende scenario's met behulp van de Azure Blob storage-service uitvoert. De voorbeelden zijn geschreven in C++ en gebruik de [Azure Storage-clientbibliotheek voor C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). De scenario's worden behandeld: **uploaden**, **aanbieding**, **downloaden**, en **verwijderen** blobs.  
+Deze handleiding wordt uitgelegd hoe u veelvoorkomende scenario's met behulp van de Azure Blob storage-service uitvoert. De voorbeelden zijn geschreven in C++ en gebruik de [Azure Storage-clientbibliotheek voor C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). De scenario's worden behandeld bevatten uploaden, aanbieding, downloaden en verwijderen van blobs.  
 
 > [!NOTE]
-> Deze handleiding is bedoeld voor de Azure Storage-clientbibliotheek voor C++ versie 1.0.0 en hoger. De aanbevolen versie is Storage-clientbibliotheek 2.2.0, die beschikbaar is via [NuGet](http://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp).
-> 
-> 
+> Deze handleiding is bedoeld voor de Azure Storage-clientbibliotheek voor C++ versie 1.0.0 en hoger. Microsoft raadt het gebruik van de nieuwste versie van de Opslagclientbibliotheek voor C++, beschikbaar via [NuGet](http://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp).
+
+## <a name="what-is-blob-storage"></a>Wat is Blob storage?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -88,7 +76,7 @@ U kunt de **cloud_storage_account** klasse vertegenwoordigt de informatie van uw
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-Vervolgens maakt geen verwijzing ophalen naar een **cloud_blob_client** klasse omdat u objecten die vertegenwoordigen containers en blobs die zijn opgeslagen in de Blob Storage-Service ophalen. De volgende code maakt een **cloud_blob_client** object met het account opslagobject we hierboven opgehaald:  
+Vervolgens maakt geen verwijzing ophalen naar een **cloud_blob_client** klasse omdat u voor het ophalen van objecten die vertegenwoordigen containers en blobs die zijn opgeslagen in Blob-opslag. De volgende code maakt een **cloud_blob_client** object met het account opslagobject we hierboven opgehaald:  
 
 ```cpp
 // Create the blob client.
@@ -133,7 +121,7 @@ container.upload_permissions(permissions);
 Iedereen op Internet kan blobs in een openbare container zien, maar u kunt wijzigen of ze alleen verwijderen als u de juiste sleutel hebt.  
 
 ## <a name="how-to-upload-a-blob-into-a-container"></a>Procedure: een blob uploaden naar een container
-Azure Blob Storage ondersteunt blok-blobs en pagina-blobs. In de meeste gevallen is een blok-blob het aangewezen type om te gebruiken.  
+Azure Blob storage ondersteunt blokkeren blobs en pagina-blobs. In de meeste gevallen is een blok-blob het aangewezen type om te gebruiken.  
 
 Om een bestand naar een blok-blob te uploaden, haalt u een containerverwijzing op en gebruikt u deze om een blok-blobverwijzing op te halen. Zodra u een blobverwijzing hebt, kunt u een stream met gegevens uploaden naar het door het aanroepen van de **upload_from_stream** methode. Met deze bewerking wordt de blob gemaakt (als deze nog niet bestaat) of overschreven (als deze wel al bestaat). Het volgende voorbeeld laat zien hoe u een blob uploadt naar een container. Hierbij wordt ervan uitgegaan dat de container al is gemaakt.  
 

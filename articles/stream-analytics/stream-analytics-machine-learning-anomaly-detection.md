@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/12/2018
-ms.openlocfilehash: cda5c26d4256720a8cf9af0e9abd604c979422a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Afwijkingsdetectie in Azure Stream Analytics
 
@@ -65,6 +65,8 @@ Als u wilt de afzonderlijke waarden uit de record extraheren, gebruikt u de **Ge
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 Afwijkingsdetectie van een type wordt gedetecteerd wanneer een van de afwijkingsdetectie scores een drempelwaarde overschrijdt. De drempelwaarde is een drijvende-nummer > = 0. De drempelwaarde is een afweging tussen het gevoeligheid en vertrouwen. Bijvoorbeeld, zou een lagere drempelwaarde detectie gevoeliger voor wijzigingen aanbrengen en meer waarschuwingen genereren, terwijl een hogere drempelwaarde kan ervoor zorgen dat detectie minder gevoelig en meer vertrouwen, maar sommige afwijkingen maskeren. De exacte drempelwaarde moet worden gebruikt, is afhankelijk van het scenario. Er is geen bovengrens, maar de aanbevolen bereik 3,25 5 is. 
+
+De waarde weergegeven in het voorbeeld 3,25 is slechts een voorgestelde beginpunt. De waarde aanpassen door het uitvoeren van de bewerkingen in uw eigen set gegevens en de uitvoerwaarde zien totdat u een toegestane drempel bereikt.
 
 ## <a name="anomaly-detection-algorithm"></a>Anomaliedetectie-algoritme
 
@@ -118,12 +120,12 @@ Bekijken we de berekening strangeness in detail (wordt ervan uitgegaan dat er be
    - event_value/90th_percentile als event_value > 90th_percentile  
    - 10th_percentile/event_value, als de event_value < 10th_percentile  
 
-2. **Trage positieve trend:** een trendlijn via de waarden van de gebeurtenis in het geschiedenisvenster wordt berekend en we zoekt u een positieve trend in de regel. De waarde strangeness is als volgt berekend:  
+2. **Trage positieve trend:** een trendlijn via de waarden van de gebeurtenis in het geschiedenisvenster wordt berekend en de bewerking zoekt een positieve trend in de regel. De waarde strangeness is als volgt berekend:  
 
    - Helling, als helling positief  
    - 0 is, anders 
 
-1. **Trage negatieve trend:** een trendlijn via de waarden van de gebeurtenis in het geschiedenisvenster wordt berekend en we zoekt u negatieve trend in de regel. De waarde strangeness is als volgt berekend: 
+3. **Trage negatieve trend:** een trendlijn via de waarden van de gebeurtenis in het geschiedenisvenster wordt berekend en de bewerking zoekt negatieve trend in de regel. De waarde strangeness is als volgt berekend: 
 
    - Helling, als helling negatief is  
    - 0 is, anders  
@@ -140,7 +142,7 @@ De volgende punten overwegen wanneer u met deze detectie:
 
 1. Wanneer de tijdreeks plotseling ziet verhogen of verwijderen in waarde, de operator AnomalyDetection wordt gedetecteerd. Maar het rendement op normaal detecteren vereist meer planning. Als een tijdreeks in de actieve status voordat de afwijkingsdetectie die kan worden bereikt door de AnomalyDetection-operator detectie venster in te stellen op maximaal helft van de lengte van de afwijkingsdetectie was. Dit scenario wordt ervan uitgegaan dat de minimale duur van de afwijkingsdetectie kan worden geschat tevoren en er onvoldoende gebeurtenissen in die periode zijn voor het model trainen voldoende (ten minste 50 gebeurtenissen). 
 
-   Dit wordt weergegeven in de afbeeldingen 1 en 2 hieronder met behulp van een wijziging in de bovengrens (dezelfde logica van toepassing op een lagere limiet wijziging). In beide cijfers zijn de golfvormen een afwijkende niveau wijzigen. Verticale oranje lijnen duiden hop grenzen en de hopgrootte is hetzelfde als het venster detectie is opgegeven in de operator AnomalyDetection. De groene regels geven aan de grootte van het venster training. In afbeelding 1 is de hopgrootte hetzelfde als de tijd voor welke afwijkingsdetectie duurt. In afbeelding 2 is de hopgrootte helft van de tijd op waarvoor de afwijkingsdetectie duurt. In alle gevallen is een wijziging in de opwaarts omdat het model dat wordt gebruikt voor score berekenen is getraind op normale gegevens gedetecteerd. Maar op basis van hoe de detectie van de wijzigingen in twee richtingen werkt, moeten we de normale waarden uitsluiten van de training venster dat wordt gebruikt voor het model dat het retourtype op normaal scores. In afbeelding 1 bevat de score model training sommige normale gebeurtenissen, zodat terug naar normaal kan niet worden gedetecteerd. Maar in afbeelding 2 bevat de training alleen de afwijkende onderdeel zorgt ervoor dat het retourtype op normaal wordt gedetecteerd. Inhoud die kleiner is dan de helft werkt ook voor dezelfde reden dat alles groter uiteindelijk met inbegrip van een bits van de normale gebeurtenissen. 
+   Dit wordt weergegeven in de afbeeldingen 1 en 2 hieronder met behulp van een wijziging in de bovengrens (dezelfde logica van toepassing op een lagere limiet wijziging). In beide cijfers zijn de golfvormen een afwijkende niveau wijzigen. Verticale oranje lijnen duiden hop grenzen en de hopgrootte is hetzelfde als het venster detectie is opgegeven in de operator AnomalyDetection. De groene regels geven aan de grootte van het venster training. In afbeelding 1 is de hopgrootte hetzelfde als de tijd voor welke afwijkingsdetectie duurt. In afbeelding 2 is de hopgrootte helft van de tijd op waarvoor de afwijkingsdetectie duurt. In alle gevallen is een wijziging in de opwaarts omdat het model dat wordt gebruikt voor score berekenen is getraind op normale gegevens gedetecteerd. Maar op basis van hoe de detectie van de wijzigingen in twee richtingen werkt, moet deze de normale waarden uitsluiten van de training venster dat wordt gebruikt voor het model dat het retourtype op normaal scores. In afbeelding 1 bevat de score model training sommige normale gebeurtenissen, zodat terug naar normaal kan niet worden gedetecteerd. Maar in afbeelding 2 bevat de training alleen de afwijkende onderdeel zorgt ervoor dat het retourtype op normaal wordt gedetecteerd. Inhoud die kleiner is dan de helft werkt ook voor dezelfde reden dat alles groter uiteindelijk met inbegrip van een bits van de normale gebeurtenissen. 
 
    ![AD met de lengte van venster Grootte gelijk afwijkingsdetectie](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
 

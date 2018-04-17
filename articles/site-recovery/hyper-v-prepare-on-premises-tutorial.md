@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>On-premises Hyper-V-servers voorbereiden op herstel na noodgevallen naar Azure
 
@@ -35,8 +35,8 @@ Zorg ervoor dat Hyper-V-hosts en virtuele machines die voldoen aan de vereisten.
 1. [Controleer of](hyper-v-azure-support-matrix.md#on-premises-servers) on-premises serververeisten.
 2. [Controleer de](hyper-v-azure-support-matrix.md#replicated-vms) voor Hyper-V virtuele machines die u wilt repliceren naar Azure.
 3. Controleer de Hyper-V-host [netwerken](hyper-v-azure-support-matrix.md#hyper-v-network-configuration); en de host en de Gast [opslag](hyper-v-azure-support-matrix.md#hyper-v-host-storage) ondersteuning voor lokale Hyper-V-hosts.
-4. Controleren wat wordt ondersteund voor [Azure netwerken](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [opslag](hyper-v-azure-support-matrix.md#azure-storage), en [compute](hyper-v-azure-support-matrix.md#azure-compute-features), na een failover.
-5. Uw lokale virtuele machines die u naar Azure repliceert moeten voldoen aan [vereisten van de virtuele machine van Azure](hyper-v-azure-support-matrix.md#azure-vm-requirements).
+4. Controleer wat er na failover wordt ondersteund voor [Azure-netwerken](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [-opslag](hyper-v-azure-support-matrix.md#azure-storage) en [-rekenkracht](hyper-v-azure-support-matrix.md#azure-compute-features).
+5. De on-premises VM's die u voor Azure repliceert, moeten overeenstemmen met [Azure VM-vereisten](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
 
 ## <a name="prepare-vmm-optional"></a>Voorbereiden van VMM (optioneel)
@@ -58,14 +58,13 @@ VMM voorbereiden voor netwerktoewijzing als volgt:
 
 ## <a name="verify-internet-access"></a>Controleer of u toegang tot internet
 
-1. Voor de doeleinden van de zelfstudie is de eenvoudigste configuratie voor de Hyper-V-hosts en VMM-server, indien van toepassing, direct toegang hebben tot internet zonder gebruik van een proxy. 
+1. Voor de doeleinden van de zelfstudie is de eenvoudigste configuratie voor de Hyper-V-hosts en VMM-server direct toegang hebben tot internet zonder gebruik van een proxy. 
 2. Zorg ervoor dat Hyper-V-hosts en de VMM-server, indien van toepassing, toegang tot deze URL's: 
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-3. Zorg ervoor dat:
-    - Alle IP-adressen gebaseerde firewallregels moeten communicatie met Azure toestaan.
-    - Sta de [IP-adresbereiken voor Azure Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653) en de HTTPS-poort (443) toe.
+3. Als u bent toegangsbeheer op basis van IP-adres, zorg ervoor dat:
+    - IP-adressen gebaseerde firewallregels verbinding kunnen maken met [Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/confirmation.aspx?id=41653), en de poort voor HTTPS (443).
     - IP-adresbereiken voor de Azure-regio van uw abonnement en voor VS-West (gebruikt voor beheer en de identiteit van toegangsbeheer) toestaan.
 
 

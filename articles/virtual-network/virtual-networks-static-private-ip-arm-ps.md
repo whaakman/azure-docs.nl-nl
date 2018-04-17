@@ -1,6 +1,6 @@
 ---
-title: "Configureren van privé IP-adressen voor virtuele machines - Azure PowerShell | Microsoft Docs"
-description: "Informatie over het configureren van privé IP-adressen voor virtuele machines met behulp van PowerShell."
+title: Configureren van privé IP-adressen voor virtuele machines - Azure PowerShell | Microsoft Docs
+description: Informatie over het configureren van privé IP-adressen voor virtuele machines met behulp van PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8727318c9dff79b795b473caf7b778272134726c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b0e8153f1d0cecd4efe66dc7cce64addd6ed62aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Configureer persoonlijke IP-adressen voor een virtuele machine met behulp van PowerShell
 
@@ -68,7 +68,7 @@ Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van e
     -PrivateIpAddress 192.168.1.101
     ```
 
-5. De virtuele machine maken met de NIC die eerder is gemaakt.
+5. De virtuele machine maken met de NIC:
 
     ```powershell
     $vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
@@ -83,16 +83,7 @@ Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van e
     New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
     ```
 
-    Verwachte uitvoer:
-    
-        EndTime             : [Date and time]
-        Error               : 
-        Output              : 
-        StartTime           : [Date and time]
-        Status              : Succeeded
-        TrackingOperationId : [Id]
-        RequestId           : [Id]
-        StatusCode          : OK 
+Het raadzaam dat u geen statisch het privé IP-adres toegewezen aan de virtuele machine van Azure binnen het besturingssysteem van een VM, toewijst tenzij nodig, zoals wanneer [meerdere IP-adressen toewijzen aan een Windows-VM](virtual-network-multiple-ip-addresses-powershell.md). Als u de privé IP-adres in het besturingssysteem handmatig instelt, moet u zorgen dat het hetzelfde adres als de privé IP-adres is toegewezen aan de Azure [netwerkinterface](virtual-network-network-interface-addresses.md#change-ip-address-settings), of u verbinding met de virtuele machine kunt verliezen. Meer informatie over [privé IP-adres](virtual-network-network-interface-addresses.md#private) instellingen. U moet het openbare IP-adres is toegewezen aan een virtuele machine van Azure in het besturingssysteem van de virtuele machine nooit handmatig toewijzen.
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>Statische privé IP-adresgegevens voor een netwerkinterface ophalen
 Voer de volgende PowerShell-opdracht om weer te geven het statische privé IP-adresgegevens voor de virtuele machine met het bovenstaande script gemaakt, en houd rekening met de waarden voor *PrivateIpAddress* en *PrivateIpAllocationMethod*:
@@ -199,6 +190,9 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
+
+Het raadzaam dat u geen statisch het privé IP-adres toegewezen aan de virtuele machine van Azure binnen het besturingssysteem van een VM, toewijst tenzij nodig, zoals wanneer [meerdere IP-adressen toewijzen aan een Windows-VM](virtual-network-multiple-ip-addresses-powershell.md). Als u de privé IP-adres in het besturingssysteem handmatig instelt, moet u zorgen dat het hetzelfde adres als de privé IP-adres is toegewezen aan de Azure [netwerkinterface](virtual-network-network-interface-addresses.md#change-ip-address-settings), of u verbinding met de virtuele machine kunt verliezen. Meer informatie over [privé IP-adres](virtual-network-network-interface-addresses.md#private) instellingen. U moet het openbare IP-adres is toegewezen aan een virtuele machine van Azure in het besturingssysteem van de virtuele machine nooit handmatig toewijzen.
+
 ## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>De toewijzingsmethode voor een particuliere IP-adres is toegewezen aan een netwerkinterface wijzigen
 
 Een persoonlijke IP-adres is toegewezen aan een NIC met de statische of dynamische toewijzingsmethode. Dynamische IP-adressen kunnen wijzigen na het starten van een virtuele machine die eerder gestopt (toewijzing ongedaan gemaakt is). Dit kan problemen veroorzaken als de virtuele machine host fungeert voor een service die hetzelfde IP-adres zelfs na opnieuw opstarten van gestopt (toewijzing ongedaan gemaakt vereist). Statische IP-adressen worden bewaard totdat de virtuele machine wordt verwijderd. Als u wilt wijzigen van de toewijzingsmethode van een IP-adres, voer het volgende script, waardoor de toewijzingsmethode van dynamisch in statisch is gewijzigd. Als de toewijzingsmethode voor de huidige privé IP-adres statisch is, wijzigt u *statische* naar *dynamische* voordat het script wordt uitgevoerd.
@@ -222,7 +216,5 @@ Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.Provisioni
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [gereserveerde openbare IP-adres](virtual-networks-reserved-public-ip.md) adressen.
-* Meer informatie over [instantieniveau openbare IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adressen.
-* Raadpleeg de [gereserveerd IP-REST-API's](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
+Meer informatie over het beheren van [IP-adresinstellingen](virtual-network-network-interface-addresses.md).

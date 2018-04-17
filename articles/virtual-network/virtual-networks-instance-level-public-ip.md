@@ -3,8 +3,8 @@ title: Adressen van Azure instantieniveau openbare IP-adres (klassiek) | Microso
 description: Begrijpen exemplaar niveau openbare IP (ILPIP adressen) en hoe deze te beheren met behulp van PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 631b667b12941781a7e69361a0e731f94b7119f8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Exemplaar niveau openbare IP (klassiek)-overzicht
 Een instantie niveau openbare IP (ILPIP) is een openbaar IP-adres die u rechtstreeks naar een exemplaar van de rol virtuele machine of Cloud Services, in plaats van met de cloudservice die uw exemplaar van de virtuele machine of rol zich bevinden in kunt toewijzen. Een ILPIP ter niet vervanging van het virtuele IP (VIP) dat is toegewezen aan de cloudservice. Het is in plaats daarvan een extra IP-adres waarmee u kunt rechtstreeks verbinding maken met uw exemplaar van de virtuele machine of de rol.
@@ -43,7 +43,7 @@ Wanneer u een cloudservice in Azure maakt, worden overeenkomende DNS A-records a
 ## <a name="why-would-i-request-an-ilpip"></a>Waarom zou ik een ILPIP aanvragen?
 Als u wilt verbinding maken met uw exemplaar van de virtuele machine of rol door een IP-adres dat is toegewezen aan deze in plaats van de cloud service VIP:&lt;poortnummer&gt;, een ILPIP aanvragen voor uw virtuele machine of uw rolexemplaar.
 
-* **Actieve FTP** -een ILPIP toewijst aan een VM, het verkeer op een willekeurige poort kan ontvangen. Eindpunten zijn niet vereist voor de virtuele machine verkeer ontvangt.  (Https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) [FTP-Protocol Overview] Zie voor meer informatie over het FTP-protocol.
+* **Actieve FTP** -een ILPIP toewijst aan een VM, het verkeer op een willekeurige poort kan ontvangen. Eindpunten zijn niet vereist voor de virtuele machine verkeer ontvangt.  Zie (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP-Protocol Overview] voor meer informatie over het FTP-protocol.
 * **Uitgaande IP** - uitgaand verkeer dat afkomstig is van de virtuele machine is toegewezen aan de ILPIP als de bron en de ILPIP een unieke identificatie van de virtuele machine naar externe entiteiten.
 
 > [!NOTE]

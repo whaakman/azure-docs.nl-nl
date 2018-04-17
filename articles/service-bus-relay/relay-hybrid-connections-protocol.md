@@ -5,7 +5,7 @@ services: service-bus-relay
 documentationcenter: na
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1979746d143dbf8c3f4bca3f9a3a7925fe8e3f0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocol voor Azure Relay hybride verbindingen
-Azure Relay is een van de belangrijkste mogelijkheden stijlen van het Azure Service Bus-platform. De nieuwe *hybride verbindingen* mogelijkheid relay is een op basis van HTTP- en WebSockets evolutie van beveiligde, open-protocol. Het eerste evenredig met de naam die hij vervangt *BizTalk Services* functie die is gebaseerd op een eigen protocol foundation. De integratie van hybride verbindingen in Azure App Services, blijven functioneren als-is.
+Azure Relay is een van de belangrijkste mogelijkheden stijlen van het Azure Service Bus-platform. De nieuwe *hybride verbindingen* mogelijkheid relay is een op basis van HTTP- en WebSockets evolutie van beveiligde, open-protocol. Het eerste identiek met de naam die hij vervangt *BizTalk Services* functie die is gebaseerd op een eigen protocol foundation. De integratie van hybride verbindingen in Azure App Services, blijven functioneren als-is.
 
 Hybride verbindingen kunnen in twee richtingen, binaire gegevensstroom communicatie tussen twee netwerktoepassingen waarover een of beide partijen kunnen zich achter een NAT's en firewalls. In dit artikel beschrijft de clientzijde interactie met de relay hybride verbindingen voor het verbinden van clients in listener en functies van de afzender en hoe listeners nieuwe verbindingen accepteren.
 
 ## <a name="interaction-model"></a>Interactie model
 De relay hybride verbindingen verbindt twee partijen door een rendezvous-punt in de Azure-cloud die zowel partijen kunnen detecteren en verbinding maken met vanaf hun eigen netwerk perspectief te bieden. Dat rendezvous-punt wordt 'Hybride verbinding' in dit document en andere documentatie genoemd in de API's en in de Azure portal. Het service-eindpunt voor hybride verbindingen aangeduid als 'service' voor de rest van dit artikel. Het model interactie leans op de naamgeving volgt de namen tot stand gebracht door veel andere netwerk-API's.
 
-Er is een listener die eerst duidt gereedheid voor het afhandelen van binnenkomende verbindingen en vervolgens accepteert naarmate ze binnenkomen. Aan de andere kant zijn er is een client die verbinding maakt die verbinding voor de listener, die verbinding maakt kunnen worden geaccepteerd voor het tot stand brengen van een bidirectionele communicatiepad verwacht.
+Er is een listener die eerst duidt gereedheid voor het afhandelen van binnenkomende verbindingen en vervolgens accepteert naarmate ze binnenkomen. Aan de andere kant zijn er is een client die verbinding maakt die een verbinding aan de listener, die verbinding biedt kunnen worden geaccepteerd voor het tot stand brengen van een bidirectionele communicatiepad verwacht.
 'Verbinding', 'Luisteren' en 'Accepteren' zijn dezelfde voorwaarden u in de meeste socket API's vindt.
 
-Een communicatiemodel relayed heeft beide partijen maken van uitgaande verbindingen naar een service-eindpunt dat zorgt ervoor dat de 'listener' ook een 'client' in gewone gebruik en mogelijk ook andere terminologie overloads. De precieze terminologie die wij daarom voor hybride verbindingen gebruiken is als volgt:
+Een communicatiemodel relayed heeft beide partijen maken van uitgaande verbindingen naar een service-eindpunt, waardoor de 'listener' ook een 'client' in gewone gebruik en mogelijk ook andere terminologie overloads. De precieze terminologie die wij daarom voor hybride verbindingen gebruiken is als volgt:
 
 De programma's aan beide zijden van een verbinding worden 'clients,' genoemd, omdat ze clients naar de service. De client die wordt gewacht op en aanvaardt verbindingen is de 'listener' of genoemd in de 'listener rol'. De client die een nieuwe verbinding naar een listener via de service start wordt de 'afzender' genoemd, of bevindt zich in de 'afzender rol'.
 
@@ -40,10 +40,10 @@ De listener beschikt over vier interactie met de service; alle gegevens van de k
 
 #### <a name="listen"></a>Luisteren
 Om aan te geven van de gereedheid van de service die een listener is gereed om te accepteren, verbindingen, maakt het een uitgaande WebSocket-verbinding. De handshake van verbinding zijn voor de naam van een hybride verbinding geconfigureerd op de Relay-naamruimte en een beveiligingstoken dat rechts op de 'luisteren' verleent deze naam.
-Wanneer de WebSocket is geaccepteerd door de service, de registratie is voltooid en het tot stand gebrachte web WebSocket is in stand gehouden als 'besturingskanaal' voor het inschakelen van alle opeenvolgende interacties. De service kunnen maximaal 25 gelijktijdige listeners op een hybride verbinding. Als er twee of meer actieve listeners, worden binnenkomende verbindingen verdeeld zijn over ze in willekeurige volgorde; evenredige verdeling kan niet worden gegarandeerd.
+Wanneer de WebSocket is geaccepteerd door de service, de registratie is voltooid en de tot stand gebrachte WebSocket is in stand gehouden, als het 'besturingskanaal' voor het inschakelen van alle opeenvolgende interacties. De service kunnen maximaal 25 gelijktijdige listeners op een hybride verbinding. Als er twee of meer actieve listeners, worden binnenkomende verbindingen verdeeld zijn over ze in willekeurige volgorde; evenredige verdeling kan niet worden gegarandeerd.
 
 #### <a name="accept"></a>Accepteren
-Wanneer een afzender een nieuwe verbinding op de service opent, wordt de service kiest en waarschuwt een van de actieve listeners op de hybride verbinding. Deze melding wordt verzonden naar de listener via het open besturingskanaal als een JSON-bericht met de URL van het WebSocket-eindpunt dat de listener verbinding maken moet met voor het accepteren van de verbinding.
+Wanneer een afzender een nieuwe verbinding op de service opent, wordt de service kiest en waarschuwt een van de actieve listeners op de hybride verbinding. Deze melding wordt verzonden naar de listener via het open besturingskanaal als een JSON-bericht met de URL van het WebSocket-eindpunt dat de listener verbinding maken moet met om de verbinding accepteren.
 
 De URL kan en moet rechtstreeks worden gebruikt door de listener zonder extra werk.
 De gecodeerde gegevens is alleen geldig voor een korte periode, hoofdzakelijk voor zolang de afzender is bereid om te wachten voor de verbinding tot stand gebrachte end-to-end worden, maar maximaal 30 seconden. De URL kan alleen worden gebruikt voor een geslaagde verbindingspoging. Zodra de WebSocket-verbinding met de rendezvous-URL is gemaakt, wordt alle verdere activiteiten op dit WebSocket doorgegeven van en naar de afzender, zonder tussenkomst van de of interpretatie door de service.
@@ -52,7 +52,7 @@ De gecodeerde gegevens is alleen geldig voor een korte periode, hoofdzakelijk vo
 Het beveiligingstoken dat moet worden gebruikt voor het registreren van de listener en onderhouden van het besturingskanaal mogelijk verlopen terwijl de listener actief is. Het toegangstoken heeft geen invloed op actieve verbindingen, maar dit leidt tot het besturingskanaal worden verwijderd door de service op of kort na het tijdstip van de geldigheidsduur. De bewerking 'vernieuwen' is een JSON-bericht dat de listener verzenden kunt ter vervanging van het token dat is gekoppeld aan het besturingskanaal zodat het besturingskanaal gedurende langere perioden kan worden beheerd.
 
 #### <a name="ping"></a>Ping
-Als het besturingskanaal inactief gedurende een lange periode schakels op de manier blijft zoals load balancers of NAT's mogelijk verwijderen de TCP-verbinding. De bewerking 'pingen' voorkomt dat door een kleine hoeveelheid gegevens op het kanaal dat iedereen in de netwerkroute die de verbinding is bedoeld als actief is en deze fungeert ook als een 'live' test voor de listener herinnert verzenden. Als het pingen mislukt, wordt het besturingskanaal moet worden beschouwd als onbruikbaar en de listener moet opnieuw worden verbonden.
+Als het besturingskanaal gedurende een lange periode niet actief blijft, mogelijk schakels op de manier waarop, zoals netwerktaakverdelers of NAT-apparaten, de TCP-verbinding verwijderen. De bewerking 'pingen' voorkomt dat door een kleine hoeveelheid gegevens op het kanaal dat iedereen in de netwerkroute die de verbinding is bedoeld als actief is en deze fungeert ook als een 'live' test voor de listener herinnert verzenden. Als het pingen mislukt, wordt het besturingskanaal moet worden beschouwd als onbruikbaar en de listener moet opnieuw worden verbonden.
 
 ### <a name="sender-interaction"></a>Interactie van de afzender
 De afzender heeft slechts één interactie met de service: deze verbinding maakt.
@@ -75,7 +75,7 @@ Alle WebSocket-verbindingen worden uitgevoerd op poort 443 als een upgrade vanaf
 De listener-protocol bestaat uit twee verbinding gebaren en drie berichtbewerkingen.
 
 #### <a name="listener-control-channel-connection"></a>Listener-kanaal controleverbinding
-Het besturingskanaal is geopend met een WebSocket-verbinding te maken:
+Het besturingskanaal is geopend door een WebSocket-verbinding te maken:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
@@ -103,7 +103,7 @@ Als de WebSocket-verbinding is mislukt vanwege de hybride verbinding pad niet wo
 
 Als de WebSocket-verbinding opzettelijk door de service afgesloten wordt nadat deze is in eerste instantie hebt ingesteld, de reden voor dit wel doet wordt gecommuniceerd met behulp van een juiste WebSocket-protocol foutcode samen met een beschijvend foutbericht die ook een tracerings-ID. De service wordt niet afgesloten het besturingskanaal zonder dat er een fout opgetreden. Geldige afsluiting is de client worden beheerd.
 
-| WS Status | Beschrijving |
+| WS-Status | Beschrijving |
 | --- | --- |
 | 1001 |Het pad voor hybride verbinding is verwijderd of uitgeschakeld. |
 | 1008 |Het beveiligingstoken is verlopen, dus het verificatiebeleid wordt geschonden. |
@@ -147,11 +147,11 @@ De URL moet worden gebruikt als-is voor het tot stand brengen van de socket acce
 
 | Parameter | Vereist | Beschrijving |
 | --- | --- | --- |
-| `sb-hc-action` |Ja |Voor het accepteren van een socket, moet de parameter worden`sb-hc-action=accept` |
+| `sb-hc-action` |Ja |Voor het accepteren van een socket, moet de parameter worden `sb-hc-action=accept` |
 | `{path}` |Ja |(Zie het volgende lid) |
 | `sb-hc-id` |Nee |Zie vorige beschrijving van **id**. |
 
-`{path}`is het naamruimtepad van de URL-codering van de vooraf geconfigureerde hybride verbinding waarop deze listener registreren. Deze expressie wordt toegevoegd aan de vaste `$hc/` padgedeelte te hebben. 
+`{path}` is het naamruimtepad van de URL-codering van de vooraf geconfigureerde hybride verbinding waarop deze listener registreren. Deze expressie wordt toegevoegd aan de vaste `$hc/` padgedeelte te hebben. 
 
 De `path` expressie kan worden uitgebreid met een achtervoegsel en een query-tekenreeksexpressie die volgt op de geregistreerde naam na een bijbehorende slash. Hiermee kan de client afzender dispatch-argumenten doorgegeven aan de overnemende listener wanneer het is niet mogelijk om op te nemen van HTTP-headers. De verwachting is dat de listener-framework het vaste padgedeelte te hebben en de geregistreerde naam van het pad analyseert en de overige mogelijk zonder query-tekenreeksargumenten voorafgegaan maakt door `sb-`, beschikbaar voor de toepassing om te beslissen of u de verbinding accepteren.
 
@@ -166,7 +166,7 @@ Als er een fout is, kan de service als volgt beantwoorden:
 
 De verbinding tot stand is gebracht, de server afgesloten nadat de WebSocket wanneer de afzender WebSocket wordt afgesloten omlaag of met de volgende statussen:
 
-| WS Status | Beschrijving |
+| WS-Status | Beschrijving |
 | --- | --- |
 | 1001 |De afzender-client de verbinding wordt afgesloten. |
 | 1001 |Het pad voor hybride verbinding is verwijderd of uitgeschakeld. |
@@ -195,7 +195,7 @@ Wanneer correct is voltooid, wordt deze handshake opzettelijk mislukt met een HT
 | 500 |Interne fout |Er is een fout in de service. |
 
 ### <a name="listener-token-renewal"></a>Vernieuwing van het token listener
-Wanneer de listener-token bijna verlopen is, kan deze door een frame tekstbericht verzenden naar de service via het tot stand gebrachte besturingskanaal vervangen. Het bericht bevat een JSON-object aangeroepen `renewToken`, definieert een eigenschap van de volgende op dit moment:
+Wanneer de listener-token bijna verlopen is, kunt de listener vervangen door een frame tekstbericht verzenden naar de service via het tot stand gebrachte besturingskanaal. Het bericht bevat een JSON-object aangeroepen `renewToken`, definieert een eigenschap van de volgende op dit moment:
 
 * **token** – een geldige, door de URL-codering Service Bus gedeeld toegangstoken voor de naamruimte of hybride verbinding die verleent de **luisteren** rechts.
 
@@ -211,7 +211,7 @@ Wanneer de listener-token bijna verlopen is, kan deze door een frame tekstberich
 
 Als de validatie van het token is mislukt, de toegang is geweigerd en de cloudservice wordt gesloten voor het besturingskanaal WebSocket met een fout. Anders is geen antwoord ontvangen.
 
-| WS Status | Beschrijving |
+| WS-Status | Beschrijving |
 | --- | --- |
 | 1008 |Het beveiligingstoken is verlopen, dus het verificatiebeleid wordt geschonden. |
 
@@ -255,7 +255,7 @@ Als de WebSocket-verbinding is mislukt vanwege de hybride verbinding pad niet wo
 
 Als de WebSocket-verbinding opzettelijk door de service afgesloten wordt als deze in eerste instantie is ingesteld om de reden voor dit wel doet wordt gecommuniceerd met behulp van een juiste WebSocket-protocol foutcode samen met een beschijvend foutbericht die ook een tracerings-ID.
 
-| WS Status | Beschrijving |
+| WS-Status | Beschrijving |
 | --- | --- |
 | 1000 |De listener is afgesloten van de socket. |
 | 1001 |Het pad voor hybride verbinding is verwijderd of uitgeschakeld. |

@@ -3,23 +3,23 @@ title: Analyseer uw werkbelasting - Azure SQL Data Warehouse | Microsoft Docs
 description: Technieken voor het analyseren van de prioriteit van de query voor de werkbelasting in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: sqlmojo
-manager: jhubbard
+manager: craigg-msft
 ms.topic: conceptual
 ms.component: manage
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: joeyong
 ms.reviewer: jrj
-ms.openlocfilehash: 7fa5bbd8d9a50bb1dcd1ab5be73f4e248cbbf8fc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 609a0d72aa646054273e1a8ea8e02e3c3ae95dc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="analyze-your-workload"></a>Uw workload analyseren
+# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>De werkbelasting in Azure SQL Data Warehouse analyseren
 Technieken voor het analyseren van de prioriteit van de query voor de werkbelasting in Azure SQL Data Warehouse.
 
 ## <a name="workload-groups"></a>Werkbelastinggroepen 
-SQL Data Warehouse implementeert resource klassen met behulp van werkbelastinggroepen. Er zijn een totaal van acht werkbelastinggroepen die het gedrag van de resource-klassen over de verschillende grootten van DWU controleren. Voor elke DWU SQL Data Warehouse maakt gebruik van vier van de werkbelastinggroepen acht. Dit is wel zinvol omdat elke werkbelastinggroep is toegewezen aan een van de vier resource klassen: smallrc, mediumrc, largerc, of xlargerc. Het belang van het begrijpen van de werkbelastinggroepen is dat sommige van deze werkbelastinggroepen zijn ingesteld tot hogere *belang*. Urgentie wordt gebruikt voor CPU planning. Query's uitvoeren met een hoge urgentie krijgt drie keer meer CPU-cycli dan die met een gemiddeld urgentie. Daarom bepalen gelijktijdigheid sleuf toewijzingen ook voor CPU-prioriteit. Als een query 16 of meer sleuven verbruikt, voert deze als hoge urgentie.
+SQL Data Warehouse implementeert resource klassen met behulp van werkbelastinggroepen. Er zijn een totaal van acht werkbelastinggroepen die het gedrag van de resource-klassen over de verschillende grootten van DWU controleren. Voor elke DWU SQL Data Warehouse maakt gebruik van vier van de werkbelastinggroepen acht. Deze benadering is logisch omdat elke werkbelastinggroep is toegewezen aan een van de vier resource klassen: smallrc, mediumrc, largerc, of xlargerc. Het belang van het begrijpen van de werkbelastinggroepen is dat sommige van deze werkbelastinggroepen zijn ingesteld tot hogere *belang*. Urgentie wordt gebruikt voor CPU planning. Query's uitvoeren met een hoge urgentie ophalen drie keer meer CPU-cycli dan query's uitvoeren met een gemiddeld urgentie. Daarom bepalen gelijktijdigheid sleuf toewijzingen ook voor CPU-prioriteit. Als een query 16 of meer sleuven verbruikt, voert deze als hoge urgentie.
 
 De volgende tabel toont de toewijzingen belang voor elke werkbelastinggroep.
 
@@ -38,10 +38,10 @@ De volgende tabel toont de toewijzingen belang voor elke werkbelastinggroep.
 | SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | Hoog               |
 
 <!-- where are the allocation and consumption of concurrency slots charts? -->
-Van de **toewijzing en het verbruik van gelijktijdigheid sleuven** grafiek, kunt u zien dat een DW500 1, 4, 8 of 16 gelijktijdigheid sleuven voor smallrc, mediumrc largerc en xlargerc, respectievelijk gebruikt. U kunt deze waarden opzoeken in het voorgaande diagram het belang voor elke objectklasse bron vinden.
+De **toewijzing en het verbruik van gelijktijdigheid sleuven** diagram toont een DW500 gebruikt 1, 4, 8 of 16 gelijktijdigheid sleuven voor smallrc, mediumrc largerc en xlargerc, respectievelijk. Als u het belang voor elke objectklasse resource zoekt, kunt u deze waarden in het voorgaande diagram opzoeken.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Toewijzing van klassen op belang resource DW500
-| Bronklasse | Werkbelastinggroep | Gelijktijdigheid sleuven gebruikt | MB / distributie | Urgentie |
+| Resourceklasse | Werkbelastinggroep | Gelijktijdigheid sleuven gebruikt | MB / distributie | Urgentie |
 |:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
 | smallrc        | SloDWGroupC00  | 1                      | 100               | Middelgroot     |
 | mediumrc       | SloDWGroupC02  | 4                      | 400               | Middelgroot     |
@@ -57,7 +57,7 @@ Van de **toewijzing en het verbruik van gelijktijdigheid sleuven** grafiek, kunt
 | staticrc80     | SloDWGroupC03  | 16                     | 1,600             | Hoog       |
 
 ## <a name="view-workload-groups"></a>Groepen van de werkbelasting weergeven
-U kunt de volgende DMV-query om te kijken naar de verschillen in de geheugenbrontoewijzing in detail vanuit het perspectief van de resourceregeling of voor het analyseren van actieve en historische informatie over het gebruik van de werkbelastinggroepen bij het oplossen.
+De volgende query worden details weergegeven van de geheugentoewijzing voor de resource vanuit het perspectief van de resourceregeling. Dit is handig voor het analyseren van actieve en historische informatie over het gebruik van de werkbelastinggroepen bij het oplossen.
 
 ```sql
 WITH rg
@@ -106,7 +106,7 @@ ORDER BY
 ```
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>In de wachtrij query detectie- en andere DMV 's
-U kunt de `sys.dm_pdw_exec_requests` DMV voor het identificeren van query's die in een wachtrij gelijktijdigheid wachten. Query's te wachten op een site gelijktijdigheid van taken heeft een status van **onderbroken**.
+U kunt de `sys.dm_pdw_exec_requests` DMV voor het identificeren van query's die in een wachtrij gelijktijdigheid wachten. Query's die wachten op een site gelijktijdigheid hebben de status van **onderbroken**.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -146,7 +146,7 @@ SQL Data Warehouse heeft de volgende typen wachten:
 * **LocalQueriesConcurrencyResourceType**: query's die zich buiten het kader van de sleuf gelijktijdigheid van taken. Functies, zoals DMV-query's en system `SELECT @@VERSION` zijn voorbeelden van lokale query's.
 * **UserConcurrencyResourceType**: query's die zich in het kader van de sleuf gelijktijdigheid van taken bevinden. Query's op tabellen van de eindgebruiker vertegenwoordigen voorbeelden die dit brontype wilt gebruiken.
 * **DmsConcurrencyResourceType**: wacht ten gevolge van data movement-bewerkingen.
-* **BackupConcurrencyResourceType**: deze wachttijd geeft aan dat een database worden back-up. De maximale waarde voor dit resourcetype is 1. Als meerdere back-ups op hetzelfde moment hebt aangevraagd, wordt de andere wachtrij.
+* **BackupConcurrencyResourceType**: deze wachttijd geeft aan dat een database worden back-up. De maximale waarde voor dit resourcetype is 1. Als meerdere back-ups aangevraagd op hetzelfde moment de andere wachtrij.
 
 De `sys.dm_pdw_waits` DMV kan worden gebruikt om te zien welke bronnen op een aanvraag wacht.
 

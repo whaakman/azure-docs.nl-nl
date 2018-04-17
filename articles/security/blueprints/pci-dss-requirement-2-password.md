@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 4ae9fc7d5b53d33f9feb98c450970e0560afa2af
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8fafc277d7410ab3f8f54b0defee127fd6ec2f4d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="password-requirements-for-pci-dss-compliant-environments"></a>Vereisten voor wachtwoorden voor PCI DSS-compatibele omgevingen 
 ## <a name="pci-dss-requirement-2"></a>PCI-DSS vereiste 2
@@ -40,7 +40,7 @@ Dit geldt voor alle standaard wachtwoorden, met inbegrip van doch niet beperkt t
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Vereisten voor Microsoft Azure Active Directory wachtwoordbeleid worden afgedwongen voor de nieuwe wachtwoorden die door klanten in de portal AADUX geleverd. Selfservice voor wachtwoordherstel klant geïnitieerde wijzigingen vereist validatie van eerdere wachtwoord. Beheerder opnieuw instellen van wachtwoorden moeten worden gewijzigd bij volgende aanmelding. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore moeten gebruikers set sterke wachtwoorden gebruiken voor alle gebruikers. Er zijn geen voorbeeld of Gast-accounts zijn ingeschakeld in de demo.<br /><br />SNMP- en draadloze netwerken worden niet geïmplementeerd in de oplossing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore moeten gebruikers set sterke wachtwoorden gebruiken voor alle gebruikers. Er zijn geen voorbeeld of Gast-accounts zijn ingeschakeld in de demo.<br /><br />SNMP- en draadloze netwerken worden niet geïmplementeerd in de oplossing.|
 
 
 
@@ -53,7 +53,7 @@ Dit geldt voor alle standaard wachtwoorden, met inbegrip van doch niet beperkt t
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | SNMP- en draadloze netwerken worden niet geïmplementeerd in de oplossing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | SNMP- en draadloze netwerken worden niet geïmplementeerd in de oplossing.|
 
 
 
@@ -71,7 +71,7 @@ Bronnen van een algemeen geaccepteerde beperken van het systeem standaarden moge
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Het team OSSC technische beveiligingsservices ontwikkelt voor Microsoft Azure configuration beveiligingsstandaarden voor systemen in de Microsoft Azure-omgeving die consistent zijn met algemeen geaccepteerde standaarden beperken. Deze configuraties worden beschreven in het systeem basislijnen en relevante configuratiewijzigingen worden gecommuniceerd aan de betrokken teams (bijv, IPAK team). Procedures worden geïmplementeerd om te controleren op naleving op basis van de configuratie beveiligingsstandaarden. De security configuration standards voor systemen in de Microsoft Azure-omgeving consistent zijn met een algemeen geaccepteerde hardening standaarden en ten minste jaarlijks worden gecontroleerd. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt beveiliging van alle services binnen het bereik van de kaarthouder data environment (CDE). <br /><br />De Contoso Webstore ook implementeert de [Azure Security Center](https://azure.microsoft.com/services/security-center/), waarmee u een centrale weergave van de beveiligingsstatus van alle Azure-resources. In een oogopslag kunt u controleren dat de juiste beveiligingscontroles zijn geïnstalleerd en correct geconfigureerd en u alle bronnen die aandacht vereisen snel kan identificeren.<br /><br />De Contoso Webstore maakt gebruik van Operations Management Suite voor logboekregistratie van alle wijzigingen in het systeem. [Operations Management Suite (OMS)](/azure/operations-management-suite/) biedt uitgebreide logboekregistratie van wijzigingen. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. Zie voor meer specifieke instructies [richtlijnen PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt beveiliging van alle services binnen het bereik van de kaarthouder data environment (CDE). <br /><br />De Contoso Webstore ook implementeert de [Azure Security Center](https://azure.microsoft.com/services/security-center/), waarmee u een centrale weergave van de beveiligingsstatus van alle Azure-resources. In een oogopslag kunt u controleren dat de juiste beveiligingscontroles zijn geïnstalleerd en correct geconfigureerd en u alle bronnen die aandacht vereisen snel kan identificeren.<br /><br />De Contoso Webstore maakt gebruik van Operations Management Suite voor logboekregistratie van alle wijzigingen in het systeem. Log Analytics biedt uitgebreide logboekregistratie van wijzigingen. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. Zie voor meer specifieke instructies [richtlijnen PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -87,7 +87,7 @@ Bronnen van een algemeen geaccepteerde beperken van het systeem standaarden moge
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Contoso Webstore services worden geïmplementeerd als PaaS-services. Alle services zijn geïsoleerd, en gebruik van netwerksegmentering gesegmenteerde.<br /><br />De Contoso Webstore gebruikt ook een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) af te dwingen belangrijke procedures. Zie voor meer informatie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Contoso Webstore services worden geïmplementeerd als PaaS-services. Alle services zijn geïsoleerd, en gebruik van netwerksegmentering gesegmenteerde.<br /><br />De Contoso Webstore gebruikt ook een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) af te dwingen belangrijke procedures. Zie voor meer informatie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -100,7 +100,7 @@ Bronnen van een algemeen geaccepteerde beperken van het systeem standaarden moge
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Software- en hardwareconfiguraties van Microsoft Azure worden minstens per kwartaal herzien om te identificeren en oplossen van eventuele overbodige functies, -poorten, protocollen en services. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Contoso Webstore services worden geïmplementeerd als PaaS-services. Alle services zijn geïsoleerd, en gebruik van netwerksegmentering gesegmenteerde.<br /><br />De Contoso Webstore gebruikt ook een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) af te dwingen belangrijke procedures. Zie voor meer informatie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Contoso Webstore services worden geïmplementeerd als PaaS-services. Alle services zijn geïsoleerd, en gebruik van netwerksegmentering gesegmenteerde.<br /><br />De Contoso Webstore gebruikt ook een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) af te dwingen belangrijke procedures. Zie voor meer informatie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -117,7 +117,7 @@ Bronnen van een algemeen geaccepteerde beperken van het systeem standaarden moge
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Contoso Webstore services worden geïmplementeerd als PaaS-services. Alle services zijn geïsoleerd, en gebruik van netwerksegmentering gesegmenteerde. De implementatie biedt ook beveiliging van alle services in het bereik van het CDE. <br /><br />De Contoso Webstore ook implementeert de [Azure Security Center](https://azure.microsoft.com/services/security-center/), waarmee u een centrale weergave van de beveiligingsstatus van alle Azure-resources. In een oogopslag kunt u controleren dat de juiste beveiligingscontroles zijn geïnstalleerd en correct geconfigureerd en u alle bronnen die aandacht vereisen snel kan identificeren.<br /><br />De Contoso Webstore gebruikt ook een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) af te dwingen belangrijke procedures. Zie voor meer informatie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Contoso Webstore services worden geïmplementeerd als PaaS-services. Alle services zijn geïsoleerd, en gebruik van netwerksegmentering gesegmenteerde. De implementatie biedt ook beveiliging van alle services in het bereik van het CDE. <br /><br />De Contoso Webstore ook implementeert de [Azure Security Center](https://azure.microsoft.com/services/security-center/), waarmee u een centrale weergave van de beveiligingsstatus van alle Azure-resources. In een oogopslag kunt u controleren dat de juiste beveiligingscontroles zijn geïnstalleerd en correct geconfigureerd en u alle bronnen die aandacht vereisen snel kan identificeren.<br /><br />De Contoso Webstore gebruikt ook een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) af te dwingen belangrijke procedures. Zie voor meer informatie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -130,7 +130,7 @@ Bronnen van een algemeen geaccepteerde beperken van het systeem standaarden moge
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Azure zorgt ervoor dat alleen bevoegd personeel, kunnen Azure-platform beveiligingsmaatregelen configureren met behulp van toegangsbeheer met meerdere factoren en gedocumenteerde zakelijke behoeften. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore AAD gebruikt en AD RBAC voor het beheren van beveiligingsparameters zijn correct is geïmplementeerd. Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore AAD gebruikt en AD RBAC voor het beheren van beveiligingsparameters zijn correct is geïmplementeerd. Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -143,7 +143,7 @@ Bronnen van een algemeen geaccepteerde beperken van het systeem standaarden moge
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore bevat documentatie over hoe grenzen tot stand worden gebracht. Risicomodel van Contoso en gegevensstroom-diagram ziet u alle services die worden gebruikt en besturingselementen die zijn ingeschakeld.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore bevat documentatie over hoe grenzen tot stand worden gebracht. Risicomodel van Contoso en gegevensstroom-diagram ziet u alle services die worden gebruikt en besturingselementen die zijn ingeschakeld.|
 
 
 
@@ -159,7 +159,7 @@ Bronnen van een algemeen geaccepteerde beperken van het systeem standaarden moge
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure zorgt ervoor dat het gebruik van sterke cryptografie wordt afgedwongen bij het openen van de hypervisor-infrastructuur. Microsoft Azure ook zorgt ervoor dat klanten die gebruikmaken van Microsoft Azure Management Portal toegang kunnen krijgen tot hun service/IaaS-consoles met sterke cryptografie. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore ziet u hoe sterke wachtwoorden kunnen worden geïmplementeerd in een oplossing. Bovendien kunnen alle tests worden uitgevoerd om te controleren dat of versleuteling in de oplossing is geïmplementeerd.<br /><br />De Contoso Webstore gebruikt ook een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) af te dwingen belangrijke procedures. Zie voor meer informatie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore ziet u hoe sterke wachtwoorden kunnen worden geïmplementeerd in een oplossing. Bovendien kunnen alle tests worden uitgevoerd om te controleren dat of versleuteling in de oplossing is geïmplementeerd.<br /><br />De Contoso Webstore gebruikt ook een [as-omgeving (App Service omgeving)](/azure/app-service-web/app-service-app-service-environment-intro) af te dwingen belangrijke procedures. Zie voor meer informatie [richtlijnen PCI - App Service-omgeving](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -172,7 +172,7 @@ Bronnen van een algemeen geaccepteerde beperken van het systeem standaarden moge
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De inventarisatie Contoso Webstore demo PaaS-oplossing kan worden gecontroleerd in de documentatie van de opgegeven. Zie voor meer informatie [richtlijnen PCI - vooraf geïnstalleerde OMS oplossingen](payment-processing-blueprint.md#oms-solutions).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De inventarisatie Contoso Webstore demo PaaS-oplossing kan worden gecontroleerd in de documentatie van de opgegeven. Zie voor meer informatie [richtlijnen PCI - oplossingen voor het beheer van vooraf geïnstalleerde](payment-processing-blueprint.md#management-solutions).|
 
 
 
@@ -185,7 +185,7 @@ Bronnen van een algemeen geaccepteerde beperken van het systeem standaarden moge
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt documentatie inzicht in de beveiligingsparameters biedt en documenten service-elementen. |
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt documentatie inzicht in de beveiligingsparameters biedt en documenten service-elementen. |
 
 
 
@@ -198,7 +198,7 @@ Bronnen van een algemeen geaccepteerde beperken van het systeem standaarden moge
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. Microsoft Azure is niet een gedeelde hostingprovider. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing. Microsoft Azure is niet een gedeelde hostingprovider.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing. Microsoft Azure is niet een gedeelde hostingprovider.|
 
 
 

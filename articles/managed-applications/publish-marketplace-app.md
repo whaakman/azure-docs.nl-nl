@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 753e13ea0dbfc7fe0c74987e1383f71329b76a63
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Beheerde Azure-toepassingen in de Marketplace
 
@@ -107,7 +107,7 @@ Een SKU wordt weergegeven onder de bovenliggende aanbieding in de marketplace. D
 
 U kunt meerdere autorisaties toevoegen. Het is raadzaam dat u een AD-gebruikersgroep maken en geef de bijbehorende ID in **PrincipalId**. Op deze manier kunt u meer gebruikers toevoegen aan de gebruikersgroep zonder de noodzaak voor het bijwerken van de SKU.
 
-Zie voor meer informatie over RBAC [aan de slag met RBAC in Azure portal](../active-directory/role-based-access-control-what-is.md).
+Zie voor meer informatie over RBAC [aan de slag met RBAC in Azure portal](../role-based-access-control/overview.md).
 
 ## <a name="marketplace-form"></a>Formulier Marketplace
 

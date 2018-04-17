@@ -10,11 +10,11 @@ ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c755d171b34d59d2746a965ab3511a0df00c98db
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d464bbfb9f38b184e47911a7224be8ec8679f0be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Opslaan van gegevens aan de rand met SQL Server-databases
 
@@ -37,7 +37,7 @@ Nadat u de vereiste zelfstudies hebt voltooid, hebt u nu alle vereiste onderdele
 * Een IoT randapparaat met ten minste 2 GB RAM-geheugen en een schijfstation 2 GB.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
-* [C# voor Visual Studio Code (via OmniSharp)-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [De extensie C# voor Visual Studio Code (van OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Docker](https://docs.docker.com/engine/installation/)
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 * [Python 2.7](https://www.python.org/downloads/)
@@ -51,7 +51,7 @@ Windows- en Linux-containers op x64 processorarchitecturen voor deze zelfstudie 
 
 In deze sectie kunt u een MS SQL-database toevoegen aan uw gesimuleerde rand van de IoT-apparaat. De SQL Server 2017 docker-container afbeelding gebruiken, beschikbaar als een [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) container en als een [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/) container. 
 
-### <a name="deploy-sql-server-2017"></a>Deploy SQL Server 2017
+### <a name="deploy-sql-server-2017"></a>SQL Server 2017 implementeren
 
 De code in deze sectie maakt standaard een container met de gratis Developer-editie van SQL Server 2017. Als u wilt een productie-versies in plaats daarvan uitvoeren, Zie [uitvoeren productie container installatiekopieën](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#production) voor gedetailleerde informatie. 
 
@@ -98,7 +98,7 @@ In stap 3, kunt u het maken van opties voor de SQL Server-container die belangri
 3. Vervang de `<docker registry address>` met het adres op de voltooide zelfstudie ingevuld [Azure-functie implementeren als een module van de rand van de IoT - voorbeeld](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
 
    >[!NOTE]
-   >De Register-adres van de container is hetzelfde als de aanmeldingsserver die u hebt gekopieerd uit het register. Deze moet de vorm van `<your container registry name>.azurecr.io`
+   >Het registeradres van de container is hetzelfde als de aanmeldingsserver die u hebt gekopieerd uit het register. Deze moet de vorm van `<your container registry name>.azurecr.io`
 
 4. Afhankelijk van het besturingssysteem die u gebruikt, moet u de instellingen voor de SQL-module bijwerken met de volgende code: 
 
@@ -106,7 +106,7 @@ In stap 3, kunt u het maken van opties voor de SQL Server-container die belangri
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
    * Linux:
@@ -297,7 +297,7 @@ Om de wijzigingen die u hebt aangebracht, bijwerken van uw installatiekopie cont
 2. Op basis van het platform dat u gebruikt, vouw ofwel de **windows nano** of **linux x64** map. 
 3. Met de rechtermuisknop op de **Dockerfile** bestand en selecteer **bouwen IoT rand module Docker installatiekopie**.
 4. Navigeer naar de **FilterFunction** projectmap en klik op **Selecteer map als EXE_DIR**.
-5. Typ in het pop-tekst boven aan het venster tegenover Code, naam van de installatiekopie. Bijvoorbeeld `<your container registry address>/filterfunction:latest`. Als u met een lokale register implementeert, de naam moet `<localhost:5000/filterfunction:latest>`.
+5. Typ in het pop-uptekstvak boven aan het VS Code-venster de naam van de installatiekopie. Bijvoorbeeld `<your container registry address>/filterfunction:latest`. Als u met een lokale register implementeert, de naam moet `<localhost:5000/filterfunction:latest>`.
 6. Selecteer in het palet van de opdracht tegenover Code **rand: Push IoT rand module Docker installatiekopie**. 
 7. Voer de naam van de dezelfde installatiekopie in het pop-tekstvak. 
 8. Selecteer in het palet van de opdracht tegenover Code **rand: opnieuw opstarten rand**.

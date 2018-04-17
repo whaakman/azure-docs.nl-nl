@@ -2,11 +2,11 @@
 title: Toegangsbeheer op basis van rollen voor StorSimple gebruiken | Microsoft Docs
 description: Beschrijft hoe u Azure rollen gebaseerd toegangsbeheer (RBAC) in de context van StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: d040849360a47c611d44b3a5d7649c685dcc8068
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 5d68df424fbedbb9f0d17b87ceb243b079b3da14
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Toegangsbeheer op basis van rollen voor StorSimple
 
-Dit artikel bevat een korte beschrijving van hoe gebaseerd toegangsbeheer (RBAC) voor uw StorSimple-apparaat kan worden gebruikt. RBAC biedt Geavanceerd toegangsbeheer voor Azure. Met RBAC kunt alleen de juiste hoeveelheid toegang tot de StorSimple-gebruikers om hun werk in plaats van zorgen dat iedereen onbeperkte toegang verlenen. Zie voor meer informatie over de basisprincipes van toegangsbeheer in Azure, [aan de slag met toegangsbeheer op basis van rollen in Azure portal](../active-directory/role-based-access-control-what-is.md).
+Dit artikel bevat een korte beschrijving van hoe gebaseerd toegangsbeheer (RBAC) voor uw StorSimple-apparaat kan worden gebruikt. RBAC biedt Geavanceerd toegangsbeheer voor Azure. Met RBAC kunt alleen de juiste hoeveelheid toegang tot de StorSimple-gebruikers om hun werk in plaats van zorgen dat iedereen onbeperkte toegang verlenen. Zie voor meer informatie over de basisprincipes van toegangsbeheer in Azure, [aan de slag met toegangsbeheer op basis van rollen in Azure portal](../role-based-access-control/overview.md).
 
 In dit artikel is van toepassing op StorSimple 8000 series apparaten met Update 3.0 of hoger in de Azure portal.
 
@@ -30,9 +30,9 @@ In dit artikel is van toepassing op StorSimple 8000 series apparaten met Update 
 
 RBAC kan worden toegewezen op basis van de rollen. De rollen ervoor zorgen dat bepaalde machtigingsniveaus op basis van de beschikbare bronnen in de omgeving. Er zijn twee typen van functies die StorSimple gebruikers kunnen kiezen uit: ingebouwde of aangepaste.
 
-* **Ingebouwde rollen** -de ingebouwde rollen zijn eigenaar, bijdrager, lezer en beheerder voor gebruikerstoegang. Zie voor meer informatie [ingebouwde functies voor toegangsbeheer op basis van rollen in Azure](../active-directory/role-based-access-control-what-is.md#built-in-roles).
+* **Ingebouwde rollen** -de ingebouwde rollen zijn eigenaar, bijdrager, lezer en beheerder voor gebruikerstoegang. Zie voor meer informatie [ingebouwde functies voor toegangsbeheer op basis van rollen in Azure](../role-based-access-control/overview.md#built-in-roles).
 
-* **Aangepaste rollen** -als de ingebouwde rollen niet behoeften, kunt u aangepaste RBAC-rollen maken voor StorSimple. Beginnen met een ingebouwde rol voor het maken van een aangepaste RBAC-rol, bewerken en vervolgens importeren in de omgeving. Het downloaden en het uploaden van de rol worden beheerd met behulp van Azure PowerShell of Azure CLI. Zie voor meer informatie [aangepaste rollen maken voor toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-custom-roles.md).
+* **Aangepaste rollen** -als de ingebouwde rollen niet behoeften, kunt u aangepaste RBAC-rollen maken voor StorSimple. Beginnen met een ingebouwde rol voor het maken van een aangepaste RBAC-rol, bewerken en vervolgens importeren in de omgeving. Het downloaden en het uploaden van de rol worden beheerd met behulp van Azure PowerShell of Azure CLI. Zie voor meer informatie [aangepaste rollen maken voor toegangsbeheer op basis van rollen](../role-based-access-control/custom-roles.md).
 
 Als u wilt weergeven van de verschillende functies die beschikbaar is voor de gebruiker van een StorSimple-apparaat in de Azure portal, gaat u naar de service voor uw StorSimple-Apparaatbeheer en gaat u naar **toegangsbeheer (IAM) > rollen**.
 
@@ -108,7 +108,7 @@ Deze rol wordt nu weergegeven in de lijst met rollen in de **toegangsbeheer** bl
 
 ![RBAC-rollen weergeven](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-Ga voor meer informatie naar [maakt u een aangepaste RBAC-rol met behulp van PowerShell](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
+Ga voor meer informatie naar [maakt u een aangepaste RBAC-rol met behulp van PowerShell](../role-based-access-control/role-assignments-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
 
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Voorbeeld van uitvoer voor de aangepaste beveiligingsrol maken via de PowerShell
 
@@ -153,7 +153,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>Gebruikers toevoegen aan de aangepaste rol
 
-U verleent toegang vanuit de resource en resourcegroep die of het abonnement dat het bereik van de roltoewijzing is. Wanneer ze toegang verlenen, draagt u er rekening mee dat de toegang verleend aan het bovenliggende knooppunt wordt overgenomen door de onderliggende. Ga voor meer informatie naar [Resource hiërarchie en toegang overname](../active-directory/role-based-access-control-what-is.md#resource-hierarchy-and-access-inheritance).
+U verleent toegang vanuit de resource en resourcegroep die of het abonnement dat het bereik van de roltoewijzing is. Wanneer ze toegang verlenen, draagt u er rekening mee dat de toegang verleend aan het bovenliggende knooppunt wordt overgenomen door de onderliggende. Ga voor meer informatie naar [Resource hiërarchie en toegang overname](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance).
 
 1. Ga naar **toegangsbeheer (IAM)**. Klik op **+ toevoegen** op de Access control-blade.
 
@@ -186,5 +186,5 @@ Zodra deze rol is gemaakt, kunt u de machtigingen die zijn gekoppeld aan deze ro
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over hoe [aangepaste rollen voor interne en externe gebruikers toewijzen](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md).
+Meer informatie over hoe [aangepaste rollen voor interne en externe gebruikers toewijzen](../role-based-access-control/role-assignments-external-users.md).
 

@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/09/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: a4474aec212084006becd02f317dabae6e731d98
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5ac9623b9089fc0aa8a440196fb7f48cb4963a64
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Wat is Azure SQL Database Servicelagen?
 
@@ -100,6 +100,12 @@ In de vCore gebaseerde aankopen model klanten betalen voor:
 
 > [!IMPORTANT]
 > Reken-, IOs, gegevens en opslag voor toepassingslogboeken per database of elastische pool in rekening worden gebracht. Back-ups opslag wordt in rekening gebracht per elke database. Raadpleeg voor meer informatie van beheerde exemplaar kosten [Azure SQL Database-beheerd instantie](sql-database-managed-instance.md).
+
+> [!IMPORTANT]
+> Regio beperkingen: 
+>
+> Op basis van vCore aankoopmodel is nog niet beschikbaar in Australië-Zuidoost. De Preview-versie is niet beschikbaar in de volgende gebieden: West-Europa, Frankrijk centrale VK Zuid en VK West.
+> 
 
 ### <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Servicelaag, compute, geheugen, opslag en i/o-resources te kiezen
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7a7529f9a0ebe43c9fd6e473baff6f7a3b61e5e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="risk-assessment-ra"></a>Risicoanalyse (RA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] een risico-evaluatie beleid die zijn gericht op doel, bereik, rollen, verantwoordelijkheden, management streven, coördinatie tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van de risico-evaluatie beleid en de risico-evaluatie controles; en controleert en updates van het huidige beleid van de risico-evaluatie [toewijzing: organisatie gedefinieerde frequentie]; en risico-evaluatie procedures [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-2.** de organisatie categoriseert informatie en de informatie in overeenstemming met federale wetgeving, Executive Orders richtlijnen, beleid, voorschriften, standaarden en richtlijnen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-2.b** de organisatie de beveiliging categorisatie resultaten (inclusief ondersteunende logica) in de beveiligingsplan voor het informatiesysteem en documenten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-2.c** de organisatie zorgt ervoor dat de officiële autoriseren of officiële aangewezen vertegenwoordiger beoordeeld en goedgekeurd van de beveiliging categorisatie beslissing autoriseren.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.** de organisatie voert een evaluatie van risico, zoals de kans op en de omvang van de schade, uit de onbevoegde toegang, gebruik, vrijgeven, wordt onderbroken, wijziging of vernietigen van het informatiesysteem en de informatie deze verwerkt, worden opgeslagen of worden verzonden.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.b** risico-evaluatie resulteert in de organisatie en documenten [selectie: beveiligingsplan; risico-evaluatie rapport; [Toewijzing: document organisatie gedefinieerd]].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.c** de organisatie beoordeelt de risico-evaluatie resultaten [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.d** de organisatie verspreide risico-evaluatie resultaten [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.e** De organisatie werkt de risico-evaluatie [toewijzing: organisatie gedefinieerde frequentie] of wanneer er belangrijke wijzigingen aangebracht in de gegevens systeem of de omgeving van activiteit (inclusief de identificatie van nieuwe dreigingen voor en zwakke plekken), of andere voorwaarden die mogelijk van invloed op de beveiligingsstatus van het systeem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -157,11 +157,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.** de organisatie scant op beveiligingslekken in het informatiesysteem en gehoste toepassingen [toewijzing: organisatie gedefinieerde frequentie en/of willekeurig overeenkomstig proces organisatie gedefinieerd] en wanneer nieuwe beveiligingsproblemen mogelijk invloed op de systeemtoepassingen worden geïdentificeerd en gerapporteerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Deze oplossing biedt een uitgebreid overzicht van beveiliging. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Basislijn Assessment beoordeelt een set van registersleutels, instellingen voor het controlebeleid en instellingen voor beveiligingsbeleid samen met de aanbevolen waarden voor deze instellingen van Microsoft. Update-evaluatie beoordeelt de status van de beschikbare updates op alle geïmplementeerde virtuele machines. |
+| **De klant** | Deze blauwdruk implementeert de beveiligings- en Audit-oplossing. Deze oplossing biedt een uitgebreid overzicht van beveiliging. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Basislijn Assessment beoordeelt een set van registersleutels, instellingen voor het controlebeleid en instellingen voor beveiligingsbeleid samen met de aanbevolen waarden voor deze instellingen van Microsoft. Update-evaluatie beoordeelt de status van de beschikbare updates op alle geïmplementeerde virtuele machines. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -171,11 +171,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.b** veiligheidsmaatregelen beveiligingslek scannen van hulpprogramma's en technieken die vereenvoudigen de interoperabiliteit tussen hulpprogramma's en onderdelen van het beveiligingsprobleem management proces automatiseren met behulp van standaarden voor het inventariseren van platforms, software-fouten voor de organisatie , en onjuiste configuraties. opmaak controlelijsten en testprocedures; en beveiligingslek impact te meten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Geïdentificeerde problemen zijn het prioriteitsniveau toegewezen. Common Configuration Enumeration (CCE)-id's zijn beschikbaar voor beoordeling van de basislijn-regels.  |
+| **De klant** | Deze blauwdruk implementeert de beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Geïdentificeerde problemen zijn het prioriteitsniveau toegewezen. Common Configuration Enumeration (CCE)-id's zijn beschikbaar voor beoordeling van de basislijn-regels.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.c** beveiligingslek scan rapporten analyseert en resultaat is van een besturingselement beoordelingen van de veiligheid van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.d** de organisatie herstelt legitieme beveiligingslekken [toewijzing: reactietijden van de organisatie gedefinieerd] in overeenstemming met een organisatie-evaluatie van risico.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.e** De organisatie deelt verkregen informatie van het proces en beveiliging besturingselement beoordelingen met scannen beveiligingslek [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] om te voorkomen vergelijkbare beveiligingslekken in andere informatiesystemen (dat wil zeggen, zij zwakke punten of gebreken).
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -227,11 +227,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (1)** beveiligingslek scanning-hulpprogramma's die de mogelijkheid om bij te werken gemakkelijk informatie system beveiligingsproblemen worden gescand bevatten de veiligheidsmaatregelen voor de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. De criteria op basis waarvan deze oplossingen beoordelen wordt automatisch bijgewerkt. |
+| **De klant** | Deze blauwdruk implementeert de beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. De criteria op basis waarvan deze oplossingen beoordelen wordt automatisch bijgewerkt. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -241,11 +241,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (2)** de organisatie updates informatie system beveiligingsproblemen gescand [selectie (een of meer): [toewijzing: organisatie gedefinieerde frequentie]; voordat een nieuwe scan; wanneer nieuwe beveiligingsproblemen worden geïdentificeerd en gerapporteerd].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. De criteria op basis waarvan deze oplossingen beoordelen wordt automatisch bijgewerkt. |
+| **De klant** | Deze blauwdruk implementeert de beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. De criteria op basis waarvan deze oplossingen beoordelen wordt automatisch bijgewerkt. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -255,11 +255,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (3)** beveiligingslek scannen procedures voor het identificeren van de breedte en de diepte van dekking (dat wil zeggen, informatie systeemonderdelen gescand en beveiligingsproblemen gecontroleerd) maakt gebruik van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Update-evaluatie voert assessment tegen Windows- en Linux virtuele machines. Basislijn assessment voert assessment tegen Windows virtuele machines met behulp van een basislijn Microsoft heeft is gebaseerd op best practices. |
+| **De klant** | Deze blauwdruk implementeert de beveiligings- en Audit-oplossing. Binnen de oplossing zijn twee beveiligingsdomeinen, Update-evaluatie en beoordeling van de basislijn, beschikbaar. Update-evaluatie voert assessment tegen Windows- en Linux virtuele machines. Basislijn assessment voert assessment tegen Windows virtuele machines met behulp van een basislijn Microsoft heeft is gebaseerd op best practices. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (4)** de organisatie bepaalt welke informatie over het informatiesysteem kan worden gedetecteerd door tegenstanders en vervolgens gaat [toewijzing: corrigerende maatregelen organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (5)** het informatiesysteem geïmplementeerd bevoorrechte toegang te verkrijgen tot [toewijzing: organisatie geïdentificeerd informatie systeemonderdelen] voor geselecteerde [toewijzing: organisatie gedefinieerd beveiligingslek activiteiten scannen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -297,11 +297,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (6)** geautomatiseerde mechanismen voor het vergelijken van de resultaten van scans op zwakke plekken na verloop van tijd om te bepalen van trends in informatie system beveiligingslekken maakt gebruik van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | OMS biedt de mogelijkheid voor het maken van aangepaste dashboard tegels voor het analyseren van gegevens die worden verzameld door Log Analytics en Microsoft Monitoring Agent. Deze tegels kunnen worden aangepast voor het weergeven van trends na verloop van tijd. |
+| **De klant** | Azure biedt de mogelijkheid voor het maken van aangepaste dashboard tegels voor het analyseren van gegevens die worden verzameld door Log Analytics en Microsoft Monitoring Agent. Deze tegels kunnen worden aangepast voor het weergeven van trends na verloop van tijd. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (8)** de organisatie beoordeelt historische controlelogboeken om na te gaan als een beveiligingsprobleem geïdentificeerd in het informatiesysteem eerder is misbruikt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -325,9 +325,9 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (10)** de organisatie de uitvoer van het beveiligingsprobleem scanning-hulpprogramma's om te bepalen van de aanwezigheid van meerdere-vulnerability/meerdere-hop zwakke plekken correleert.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing. Deze oplossing biedt een uitgebreid overzicht van beveiliging. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde OMS-oplossingen. |
+| **De klant** | Deze blauwdruk implementeert de beveiligings- en Audit-oplossing. Deze oplossing biedt een uitgebreid overzicht van beveiliging. De beveiligings- en Audit dashboard biedt op hoog niveau inzicht in de beveiligingsstatus van geïmplementeerde resources met gegevens die beschikbaar zijn voor geïmplementeerde oplossingen. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |

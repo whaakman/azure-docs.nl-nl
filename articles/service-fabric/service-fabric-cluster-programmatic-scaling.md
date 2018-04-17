@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: mjrousos
 manager: jonjung
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,46 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b875351ef80050687fcf85e35da132cf37bab83b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Een Service Fabric-cluster via een programma schalen 
 
-De grondbeginselen van Service Fabric-cluster schalen in Azure worden behandeld in de documentatie op [clusterschaling](./service-fabric-cluster-scale-up-down.md). Dit artikel bevat informatie over hoe Service Fabric-clusters zijn gebaseerd op de virtuele-machineschaalsets en kunnen worden geschaald, hetzij handmatig, hetzij met regels voor automatisch schalen. Dit document wordt bekeken programmatische van coördinerende Azure vergroten/verkleinen bewerkingen meer geavanceerde scenario's. 
+Service Fabric-clusters worden uitgevoerd in Azure zijn gebouwd op de virtuele-machineschaalsets.  [Met clusterschaling](./service-fabric-cluster-scale-up-down.md) beschrijft hoe Service Fabric-clusters kunnen worden geschaald handmatig of met regels voor automatisch schalen. In dit artikel wordt beschreven hoe referenties beheren en schalen van een cluster in of uit met behulp van de beheersen Azure compute-SDK, die een meer geavanceerde scenario. Lees voor een overzicht [programmatische Azure schalen operations coördinatie van](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
-## <a name="reasons-for-programmatic-scaling"></a>Redenen voor het schalen van programmatische
-In veel scenario's vindt u goed oplossingen handmatig of via regels voor automatisch schalen. In andere scenario's, maar ze mogelijk niet de juiste keuze te maken. Bij deze methoden zijn:
-
-- Handmatig schalen, moet u zich aanmelden en aanvragen vergroten/verkleinen bewerkingen. Als vergroten/verkleinen bewerkingen vaak vereist of onvoorspelbare tijde zijn, is deze benadering mogelijk geen een goede oplossing.
-- Wanneer automatisch schalen regels een exemplaar van een virtuele-machineschaalset verwijdert, verwijder ze automatisch niet kennis van dat knooppunt uit de gekoppelde Service Fabric-cluster tenzij het knooppunttype een niveau duurzaamheid van zilver of goud heeft. Omdat automatisch schalen regels werken met de schaal instellen (in plaats van op het niveau van Service Fabric), kunnen regels voor automatisch schalen Service Fabric-knooppunten verwijderen zonder afgesloten ze. Het verwijderen van ruwe knooppunt laat 'ghost' status van Service Fabric-knooppunt achter na scale-in-bewerkingen. Een persoon (of een service) moet periodiek opschonen van de status van het verwijderde knooppunt in het Service Fabric-cluster.
-  - Verwijderde knooppunten een knooppunttype met een serviceniveau duurzaamheid goud of zilver automatisch opgeruimd zodat er geen aanvullende opschoning nodig is.
-- Er is wel [veel metrische gegevens](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) wordt ondersteund door regels voor automatisch schalen, is nog steeds een beperkte set. Als uw scenario aanroept voor schalen op basis van bepaalde metriek niet behandeld in deze groep, klikt u vervolgens regels voor automatisch schalen niet mogelijk een goede optie.
-
-Op basis van deze beperkingen, mogelijk wilt u meer aangepaste automatisch vergroten/verkleinen modellen implementeren. 
-
-## <a name="scaling-apis"></a>Schalen van API 's
-Azure-API's bestaan waarmee toepassingen programmatisch werken met virtuele machine sets schalen en Service Fabric-clusters. Als de bestaande opties voor automatisch schalen voor uw scenario niet werken, maken deze API's het mogelijk om aangepaste vergroten/verkleinen logica implementeren. 
-
-Een aanpak voor de implementatie van deze functionaliteit automatisch schalen 'home-made' is een nieuwe staatloze service toevoegen aan de Service Fabric-toepassing voor vergroten/verkleinen bewerkingen beheren. In de service `RunAsync` methode, een verzameling van triggers kan bepalen of schalen vereist is (inclusief parameters zoals maximale clustergrootte controleren en cooldowns schalen).   
-
-De API gebruikt voor de virtuele machine scale set interacties (zowel het huidige aantal exemplaren van virtuele machines controleren en wijzigen) is de [beheersen Azure Management Compute-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). De beheersen compute-bibliotheek biedt een API eenvoudig te gebruiken voor interactie met de virtuele-machineschaalsets.
-
-Gebruiken om te kunnen communiceren met het Service Fabric-cluster zelf, [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
-
-Natuurlijk hoeft de code vergroten/verkleinen niet uitgevoerd als een service in het cluster worden geschaald. Beide `IAzure` en `FabricClient` verbinding kunnen maken met de bijbehorende Azure-resources op afstand, zodat de service vergroten/verkleinen eenvoudig worden kan een consoletoepassing of de Windows-service uitvoert vanuit buiten de Service Fabric-toepassing. 
-
-## <a name="credential-management"></a>Beheer van referenties
+## <a name="manage-credentials"></a>Referenties beheren
 Eén uitdaging van het schrijven van een service voor het afhandelen van schalen, is de service moet toegang kunnen krijgen tot bronnen voor virtuele machines scale set zonder een interactieve aanmelding. Toegang tot de Service Fabric-cluster is eenvoudig als het vergroten/verkleinen service aan in een eigen Service Fabric-toepassing wijzigingen brengt, maar de referenties zijn nodig voor toegang tot de schaalaanpassingsset. Als u wilt aanmelden, kunt u een [service-principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) gemaakt met de [Azure CLI 2.0](https://github.com/azure/azure-cli).
 
 Een service-principal kan worden gemaakt met de volgende stappen:
 
 1. Aanmelden bij de Azure CLI (`az login`) als een gebruiker met toegang tot de schaal van de virtuele machine instellen
-2. De service-principal met maken`az ad sp create-for-rbac`
+2. De service-principal met maken `az ad sp create-for-rbac`
     1. Noteer de appId (client-ID elders genoemd), naam, wachtwoord en tenant voor later gebruik.
-    2. U moet ook uw abonnements-ID kan worden bekeken met`az account list`
+    2. U moet ook uw abonnements-ID kan worden bekeken met `az account list`
 
 De bibliotheek beheersen compute kunt aanmelden met deze referenties als volgt (Houd er rekening mee dat core beheersen Azure typen, zoals `IAzure` zijn in de [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) pakket):
 
@@ -85,7 +64,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-U kunt ook kan de grootte van virtuele machine scale set ook worden beheerd met PowerShell-cmdlets. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss)kan de virtuele machine scale set object ophalen. De huidige capaciteit is beschikbaar via de `.sku.capacity` eigenschap. Nadat u de capaciteit op de gewenste waarde, kan de virtuele-machineschaalset instellen in Azure worden bijgewerkt met de [ `Update-AzureRmVmss` ](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) opdracht.
+U kunt ook kan de grootte van virtuele machine scale set ook worden beheerd met PowerShell-cmdlets. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) kan de virtuele machine scale set object ophalen. De huidige capaciteit is beschikbaar via de `.sku.capacity` eigenschap. Nadat u de capaciteit op de gewenste waarde, kan de virtuele-machineschaalset instellen in Azure worden bijgewerkt met de [ `Update-AzureRmVmss` ](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) opdracht.
 
 Als bij het handmatig toevoegen van een knooppunt toevoegen van een schaalset exemplaar zijn bevat alles wat nodig is om te beginnen een nieuw Service Fabric-knooppunt omdat de sjabloon-schaalset extensies automatisch nieuwe exemplaren te koppelen aan de Service Fabric-cluster. 
 
@@ -140,12 +119,6 @@ Als met het uitbreiden van de PowerShell-cmdlets voor het wijzigen van de virtue
 ```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
-
-## <a name="potential-drawbacks"></a>Nadelen
-
-Zoals wordt beschreven in de voorgaande codefragmenten, biedt maken van uw eigen schalen service dat de grootste mate van controle en aanpassingsmogelijkheden via uw toepassing de gedrag schalen. Dit kan handig zijn voor scenario's waarin u nauwkeurige controle over hoe of wanneer een toepassing wordt geschaald in- of nodig zijn. Dit besturingselement is voorzien van een afweging van complexiteit bij de code. Met deze benadering, betekent dat u moet naar eigen vergroten/verkleinen code, die niet eenvoudig is.
-
-Hoe moet u benadert Service Fabric schalen, is afhankelijk van uw scenario. Als schalen ongewoon is, is de mogelijkheid toevoegen aan of het handmatig verwijderen van knooppunten is waarschijnlijk voldoende. Voor complexere scenario's, regels voor automatisch schalen en de mogelijkheid te schalen programmatisch blootstellen SDK's bieden krachtige alternatieven.
 
 ## <a name="next-steps"></a>Volgende stappen
 

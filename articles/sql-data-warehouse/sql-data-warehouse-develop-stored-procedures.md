@@ -1,51 +1,49 @@
 ---
-title: Opgeslagen procedures in SQL Data Warehouse | Microsoft Docs
+title: Gebruik van opgeslagen procedures in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips voor het implementeren van opgeslagen procedures in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 9b238789-6efe-4820-bf77-5a5da2afa0e8
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 74e943548ff97a04231e2affb645daa1e4b826a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="stored-procedures-in-sql-data-warehouse"></a>Opgeslagen procedures in SQL Data Warehouse
-Veel van de Transact-SQL-functies die gevonden in SQL Server biedt ondersteuning voor SQL Data Warehouse. Er zijn belangrijker scale-out specifieke functies die we willen gebruiken om de prestaties van uw oplossing.
+# <a name="using-stored-procedures-in-sql-data-warehouse"></a>Gebruik van opgeslagen procedures in SQL Data Warehouse
+Tips voor het implementeren van opgeslagen procedures in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+
+## <a name="what-to-expect"></a>Wat u kunt verwachten
+
+SQL Data Warehouse biedt ondersteuning voor veel van de T-SQL-functies die worden gebruikt in SQL Server. Er zijn echter scale-out specifieke functies waarmee u kunt de prestaties van uw oplossing.
 
 Als u wilt behouden zijn de schaal en prestaties van SQL Data Warehouse echter ook sommige functies en functionaliteit die u hebt doorgevoerd verschillen en anderen die niet worden ondersteund.
 
-In dit artikel wordt uitgelegd hoe u voor het implementeren van opgeslagen procedures in SQL Data Warehouse.
 
 ## <a name="introducing-stored-procedures"></a>Introductie van opgeslagen procedures
-Opgeslagen procedures zijn een goede manier voor het inkapselen van uw SQL-code het opslaan van dicht bij uw gegevens in het datawarehouse. Door de code in beheerbare eenheden encapsulating opgeslagen procedures ontwikkelaars helpen bij het modularize hun oplossingen; vergemakkelijken groter herbruikbaarheid van code. Elke opgeslagen procedure kan ook parameters zodat ze zelfs flexibelere accepteren.
+Opgeslagen procedures zijn een goede manier voor het inkapselen van uw SQL-code het opslaan van dicht bij uw gegevens in het datawarehouse. Opgeslagen procedures kunt ontwikkelaars hun oplossingen modularize door de code encapsulating in beheerbare eenheden; vergemakkelijken groter hergebruik van code. Elke opgeslagen procedure kan ook parameters zodat ze zelfs flexibelere accepteren.
 
-SQL Data Warehouse biedt een vereenvoudigd en gestroomlijnd opgeslagen procedure-implementatie. Het belangrijkste verschil in vergelijking met SQL Server is dat de opgeslagen procedure niet vooraf gecompileerde code. In datawarehouses we in het algemeen minder betrokken zijn bij het tijdstip van compilatie. Het is belangrijk dat de code van de opgeslagen procedure correct is geoptimaliseerd, als het wordt uitgevoerd op basis van grote hoeveelheden gegevens. Het doel is om op te slaan uren, minuten en seconden niet milliseconden. Daarom is het handiger om na te denken van opgeslagen procedures als containers voor SQL-logica.     
+SQL Data Warehouse biedt een vereenvoudigd en gestroomlijnd opgeslagen procedure-implementatie. Het belangrijkste verschil in vergelijking met SQL Server is dat de opgeslagen procedure niet vooraf gecompileerde code. In datawarehouses is het tijdstip van compilatie kleine in vergelijking met de tijd die nodig is voor query's uitvoeren op grote hoeveelheden gegevens. Het is belangrijker om te controleren of dat de code van de opgeslagen procedure correct is geoptimaliseerd voor grote query's. Het doel is om op te slaan uren, minuten en seconden, niet milliseconden. Daarom is het handiger om na te denken van opgeslagen procedures als containers voor SQL-logica.     
 
-Wanneer SQL Data Warehouse wordt uitgevoerd voor de opgeslagen procedure zijn de SQL-instructies geparseerd, vertaald en geoptimaliseerde tijdens runtime. Tijdens dit proces wordt elke instructie omgezet in gedistribueerde query's. De SQL-code die daadwerkelijk wordt uitgevoerd op basis van de gegevens is anders dan bij de query verzonden.
+Wanneer SQL Data Warehouse wordt uitgevoerd voor de opgeslagen procedure, zijn de SQL-instructies geparseerd vertaald en geoptimaliseerd tijdens runtime. Tijdens dit proces wordt elke instructie omgezet in gedistribueerde query's. De SQL-code die wordt uitgevoerd met de gegevens y verschilt van de query verzonden.
 
 ## <a name="nesting-stored-procedures"></a>Nesten van opgeslagen procedures
-Als opgeslagen procedures andere opgeslagen procedures aanroepen of dynamische sql uitvoeren en vervolgens het binnenste opgeslagen procedure of code aanroepen genoemd worden genest.
+Als opgeslagen procedures andere opgeslagen procedures aanroepen of dynamische SQL-instructies uitvoeren, klikt u vervolgens de binnenste opgeslagen procedure of code aanroepen genoemd worden genest.
 
-SQL Data Warehouse ondersteunt maximaal 8 geneste niveaus. Dit verschilt enigszins met SQL Server. Het nest-niveau in SQL Server is 32.
+SQL Data Warehouse ondersteunt maximaal acht geneste niveaus. Dit verschilt enigszins met SQL Server. Het nest-niveau in SQL Server is 32.
 
-De aanroep van het hoogste niveau opgeslagen procedure is gelijk als u wilt nesten niveau 1
+De aanroep op het hoogste niveau van de opgeslagen procedure is om te worden genest niveau 1 gelijk.
 
 ```sql
 EXEC prc_nesting
 ```
-Als de opgeslagen procedure kan ook een andere EXEC Roep vervolgens neemt hierdoor het nest-niveau 2
+Als de opgeslagen procedure wordt ook een andere EXEC aanroepen doet, wordt het nest-niveau verhoogd naar twee.
 
 ```sql
 CREATE PROCEDURE prc_nesting
@@ -54,7 +52,7 @@ EXEC prc_nesting_2  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```
-Als de tweede procedure enkele dynamische sql voert vervolgens neemt hierdoor het nest-niveau 3
+Als de tweede procedure wordt vervolgens uitgevoerd voor bepaalde dynamische SQL, verhoogt het nest-niveau tot drie.
 
 ```sql
 CREATE PROCEDURE prc_nesting_2
@@ -64,22 +62,21 @@ GO
 EXEC prc_nesting
 ```
 
-Opmerking SQL Data Warehouse ondersteunt momenteel geen@NESTLEVEL. U moet een om bij te houden van uw niveau nest zelf. Het lijkt onwaarschijnlijk bereikt u de limiet voor het niveau van 8 nest, maar als u dit doet u moet uw code opnieuw te laten werken en 'plat' deze zodat het past binnen deze limiet.
+Houd er rekening mee SQL Data Warehouse biedt momenteel geen ondersteuning voor [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). U moet volgen het nest-niveau. Het lijkt onwaarschijnlijk voor u het niveau acht nest overschreden, maar als u dit doet, moet u uw code aanpassen aan het aantal geneste niveaus binnen deze limiet bijwerken.
 
 ## <a name="insertexecute"></a>INSERT... UITVOEREN
-SQL Data Warehouse staat niet toe dat u gebruiken voor de resultatenset van een opgeslagen procedure met een instructie INSERT. Er is echter een alternatieve methode die u kunt gebruiken.
-
-Raadpleeg het volgende artikel over [tijdelijke tabellen] voor een voorbeeld van hoe u dit doet.
+SQL Data Warehouse staat niet toe dat u gebruiken voor de resultatenset van een opgeslagen procedure met een instructie INSERT. Er is echter een alternatieve methode die u kunt gebruiken. Zie het artikel op voor een voorbeeld [tijdelijke tabellen](sql-data-warehouse-tables-temporary.md). 
 
 ## <a name="limitations"></a>Beperkingen
 Er zijn bepaalde aspecten van Transact-SQL opgeslagen procedures die niet zijn geïmplementeerd in SQL Data Warehouse.
 
-Ze zijn:
+Dit zijn:
 
 * tijdelijke opgeslagen procedures
 * genummerde opgeslagen procedures
 * uitgebreide opgeslagen procedures
 * CLR opgeslagen procedures
+* 
 * versleutelingsoptie
 * replicatie-optie
 * Table-valued parameters
@@ -89,15 +86,5 @@ Ze zijn:
 * instructie return
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars][development overview].
+Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[tijdelijke tabellen]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[nest level]: https://msdn.microsoft.com/library/ms187371.aspx
-
-<!--Other Web references-->

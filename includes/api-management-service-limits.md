@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: bee289da3f18edd0cb425f3d9acde084567a3b13
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b40e2ba448236bcef72ffe501b4b14fa0dd64e1c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 | Resource | Limiet |
 | --- | --- |
@@ -21,6 +21,7 @@ ms.lasthandoff: 04/05/2018
 | Cache | 5 GB per eenheid<sup>1</sup> |
 | Back-end voor gelijktijdige verbindingen<sup>2</sup> per HTTP-instantie | 2048 per eenheid<sup>3</sup> |
 | Maximumgrootte van in cache opgeslagen antwoorden | 10MB |
+| Grootte van het document maximale beleid | 256KB |
 | Maximum aantal aangepaste gateway domeinen | 20 per service-exemplaar<sup>4</sup> |
 
 

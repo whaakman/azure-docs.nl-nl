@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database-servers en databases maken en beheren
 
@@ -46,7 +46,7 @@ Een logische server met Azure Database:
 - Is de bovenliggende resource voor databases, elastische groepen en datawarehouses
 - Biedt een naamruimte voor de databases en elastische pools datawarehouses
 - Een logische container is een server met sterke levensduur semantiek - verwijderen en de ingesloten databases, elastische pools en datawarehouses worden verwijderd
-- Maakt deel uit van [Azure op rollen gebaseerde toegangsbeheer (RBAC)](/active-directory/role-based-access-control-what-is) -databases en elastische pools datawarehouses binnen een server rechten overnemen van de server
+- Maakt deel uit van [Azure op rollen gebaseerde toegangsbeheer (RBAC)](/azure/role-based-access-control/overview) -databases en elastische pools datawarehouses binnen een server rechten overnemen van de server
 - Is een hogere-element van de identiteit van de databases en elastische pools datawarehouses voor Azure resource management-toepassing (Zie het URL-schema voor de databases en pools)
 - Groepeert resources in een regio
 - Biedt een verbindingseindpunt voor databasetoegang (<serverName>.database.windows.net)
@@ -79,9 +79,8 @@ Maken van een Azure SQL database met de [Azure-portal](https://portal.azure.com)
 
 > [!IMPORTANT]
 > Zie voor meer informatie over het selecteren van de prijscategorie voor uw database [Servicelagen](sql-database-service-tiers.md).
->
 
-Zie het maken van een exemplaar beheerd [-exemplaar van een beheerd maken](sql-database-managed-instance-tutorial-portal.md)
+Zie het maken van een exemplaar beheerd [-exemplaar van een beheerd maken](sql-database-managed-instance-create-tutorial-portal.md)
 
 ### <a name="manage-an-existing-sql-server"></a>Een bestaande SQL server beheren
 
@@ -132,8 +131,8 @@ Maken en beheren van Azure SQL-server, databases en firewalls met de [Azure CLI]
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Maakt een database|
 |[AZ sql db-lijst](/cli/azure/sql/db#az_sql_db_list)|Geeft een lijst van alle databases en datawarehouses in een server of alle databases in een elastische pool|
-|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Een lijst met beschikbare service doelstellingen en opslaglimieten|
-|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Retourneert het gebruik van de database|
+|[AZ sql db-edities](/cli/azure/sql/db#az_sql_db_list_editions)|Een lijst met beschikbare service doelstellingen en opslaglimieten|
+|[AZ sql db lijst-gebruik](/cli/azure/sql/db#az_sql_db_list_usages)|Retourneert het gebruik van de database|
 |[AZ sql db weergeven](/cli/azure/sql/db#az_sql_db_show)|Een database of de data warehouse opgehaald|
 |[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Een database bijwerkt|
 |[AZ sql db verwijderen](/cli/azure/sql/db#az_sql_db_delete)|Hiermee verwijdert u een database|
@@ -164,7 +163,7 @@ Gebruik de volgende T-SQL-opdrachten voor het maken en beheren van Azure SQL-ser
 
 | Opdracht | Beschrijving |
 | --- | --- |
-|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Maakt een nieuwe database. U moet verbonden zijn met de database master om een nieuwe database te maken.|
+|[DATABASE (Azure SQL Database) maken](/sql/t-sql/statements/create-database-azure-sql-database)|Maakt een nieuwe database. U moet verbonden zijn met de database master om een nieuwe database te maken.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Hiermee wijzigt u een Azure SQL database. |
 |[ALTER DATABASE (Azure SQL datawarehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Hiermee wijzigt u een Azure SQL datawarehouse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Hiermee verwijdert u een database.|

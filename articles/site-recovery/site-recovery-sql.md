@@ -2,23 +2,23 @@
 title: Toepassingen met SQL Server en Azure Site Recovery repliceren | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u SQL Server met behulp van Azure Site Recovery voor SQL Server-noodherstel mogelijkheden repliceren.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: prateek9us
 manager: gauravd
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 04/09/2018
 ms.author: pratshar
-ms.openlocfilehash: 7981173b419632683a40a54bc07f51f0fccab531
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: f0c43eee127857edfd1692dce825ef295be09f7b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server met behulp van SQL Server-noodherstel en Azure Site Recovery beveiligen
 
@@ -95,7 +95,7 @@ Deze tabel bevat een overzicht van onze aanbevelingen voor het SQL Server BCDR-t
 
 Active Directory is ingesteld in de herstelsite secundaire voor SQL Server correct kunnen worden uitgevoerd.
 
-* **Kleine onderneming**— met een klein aantal toepassingen en één domeincontroller voor de lokale site, als u failover wilt uitvoeren de hele site, raden wij aan u Site Recovery-replicatie gebruiken om te repliceren van de domeincontroller naar het secundaire datacenter of naar Azure.
+* **Kleine onderneming**— met een klein aantal toepassingen en één domeincontroller voor de lokale site, als u failover wilt uitvoeren de hele site, raden wij aan u Site Recovery-replicatie gebruiken voor het repliceren van de domeincontroller naar de secundaire Datacenter, of naar Azure.
 * **Middelgrote tot grote onderneming**— als u een groot aantal toepassingen, een Active Directory-forest hebt en u wilt uitvoeren door de toepassing of werkbelasting, raden wij aan instellen van een extra domeincontroller in het secundaire datacenter of in Azure. Als u AlwaysOn-beschikbaarheidsgroepen te herstellen naar een externe site gebruikt, raden wij dat u instellen in een andere extra domeincontroller op de secundaire site of in Azure, moet worden gebruikt voor het herstelde exemplaar van SQL Server.
 
 De instructies in dit artikel wordt ervan uitgegaan dat een domeincontroller beschikbaar op de secundaire locatie is. [Lees meer](site-recovery-active-directory.md) over het beveiligen van Active Directory met Site Recovery.

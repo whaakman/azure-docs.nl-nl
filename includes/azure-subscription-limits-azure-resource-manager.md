@@ -5,7 +5,7 @@
 | VM’s per reeks (Dv2, F, enz.), cores per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per regio | Contact opnemen met ondersteuning |
 | [Medebeheerders](../articles/billing-add-change-azure-subscription-administrator.md) per abonnement |Onbeperkt |Onbeperkt |
 | [Opslagaccounts](../articles/storage/common/storage-create-storage-account.md) per abonnement |200 |200<sup>2</sup> |
-| [Resourcegroepen](../articles/azure-resource-manager/resource-group-overview.md) per abonnement |800 |800 |
+| [Resourcegroepen](../articles/azure-resource-manager/resource-group-overview.md) per abonnement |980 |980 |
 | [Beschikbaarheidssets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per abonnement |2000 per regio |2000 per regio |
 | Leesbewerkingen Resource Manager-API |15.000 per uur |15.000 per uur |
 | Schrijfbewerkingen Resource Manager-API |1200 per uur |1200 per uur |

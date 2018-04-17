@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 2ff0dcba0912461d8528fc76c7c67d90febc0324
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële console van de virtuele machine (preview) 
 
@@ -33,7 +33,7 @@ De seriële console van de virtuele machine in Azure biedt toegang tot een op te
 ## <a name="prerequisites"></a>Vereisten 
 
 * Virtuele machine [opstarten diagnostics](boot-diagnostics.md) ingeschakeld 
-* Het account met behulp van de seriële console moet hebben [rol van Inzender](../../active-directory/role-based-access-built-in-roles.md) voor de virtuele machine en de [opstarten diagnostics](boot-diagnostics.md) storage-account. 
+* Het account met behulp van de seriële console moet hebben [rol van Inzender](../../role-based-access-control/built-in-roles.md) voor de virtuele machine en de [opstarten diagnostics](boot-diagnostics.md) storage-account. 
 
 ## <a name="open-the-serial-console"></a>Open de seriële console
 seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal](https://portal.azure.com). Hieronder volgen de stappen voor toegang tot de seriële console voor virtuele machines via de portal 
@@ -51,7 +51,7 @@ De functionaliteit van de seriële console kan worden gedeactiveerd voor specifi
 ## <a name="serial-console-security"></a>Beveiliging van de seriële console 
 
 ### <a name="access-security"></a>-Beveiliging 
-Toegang tot de seriële console is beperkt tot gebruikers die hebben [VM inzenders](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) of boven de toegang tot de virtuele machine. Als uw AAD-tenant is vereist voor multi-factor Authentication wordt toegang tot de seriële console ook de MFA moet omdat de toegang [Azure-portal](https://portal.azure.com).
+Toegang tot de seriële console is beperkt tot gebruikers die hebben [VM inzenders](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) of boven de toegang tot de virtuele machine. Als uw AAD-tenant is vereist voor multi-factor Authentication wordt toegang tot de seriële console ook de MFA moet omdat de toegang [Azure-portal](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Kanaal-beveiliging
 Alle gegevens wordt teruggestuurd en weer op de kabel wordt versleuteld.
@@ -323,7 +323,7 @@ Toe te voegen `/f` forceert waarop toepassingen worden uitgevoerd om te sluiten 
 #### <a name="detect-safe-mode-boot"></a>Opstarten in veilige modus detecteren
 `bcdedit /enum | find /i "safeboot"` 
 
-## <a name="windows-commands---powershell"></a>Windows Commands - PowerShell
+## <a name="windows-commands---powershell"></a>Windows - PowerShell-opdrachten
 
 Als u wilt uitvoeren in SAC, PowerShell als u bij een opdrachtprompt, typt u:
 

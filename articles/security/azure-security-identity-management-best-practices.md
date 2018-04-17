@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ec8eb8759e310e31c7798c54cc95f0170e95cf50
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure voor identiteits- en toegang beheren best practices voor beveiliging
 Veel Overweeg identiteit van de nieuwe grens laag voor beveiliging die rol van de traditionele netwerk gericht perspectief overneemt. Deze evolutie van het primaire pivot voor aandacht voor beveiliging en investeringen afkomstig zijn uit het feit dat netwerkverbindingen steeds poreuze zijn geworden, en dat perimeternetwerk kan niet zo effectief als ze eenmaal worden zijn voordat de explosie van [BYOD ](http://aka.ms/byodcg) apparaten en cloud-toepassingen.
@@ -52,7 +52,7 @@ Een belangrijke stap voor het beveiligen van uw identiteit is om ervoor te zorge
 Om dit te bereiken [hybride identiteit](../active-directory/active-directory-hybrid-identity-design-considerations-overview.md) scenario raadzaam twee opties:
 
 * Uw on-premises directory worden gesynchroniseerd met uw clouddirectory via Azure AD Connect
-* Uw on-premises identiteits met uw cloud directory met federeren [Active Directory Federation Services](https://msdn.microsoft.com/library/bb897402.aspx) (AD FS)
+* Eenmalige aanmelding met inschakelen [synchronisatie van wachtwoordhash](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization), [Pass through-verificatie](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) of uw on-premises identiteits met uw cloud directory met federeren [Active Directory Federatieservices](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-federation-servers) (AD FS)
 
 Organisaties die niet voldoen aan hun on-premises identiteits integreren met hun cloudidentiteit krijgen hogere administratieve overhead bij het beheren van accounts, waardoor de kans op fouten en beveiligingsrisico's.
 
@@ -95,11 +95,11 @@ Lees het artikel voor meer informatie over Azure MFA [aan de slag met Azure mult
 ## <a name="use-role-based-access-control-rbac"></a>Gebruik rollen gebaseerd toegangsbeheer (RBAC)
 De toegang beperken op basis van de [moet weten](https://en.wikipedia.org/wiki/Need_to_know) en [minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) beveiligingsprincipes is van cruciaal belang voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens. Azure op rollen gebaseerde toegangsbeheer (RBAC) kan worden gebruikt om machtigingen te wijzen aan gebruikers, groepen en toepassingen op een bepaalde scope. Het bereik van een roltoewijzing kan dit een abonnement, resourcegroep of één resource.
 
-U kunt gebruikmaken van [ingebouwde RBAC](../active-directory/role-based-access-built-in-roles.md) rollen in Azure rechten toewijzen aan gebruikers. Overweeg het gebruik van *Storage Account Inzender* voor cloudoperators die nodig zijn voor het beheren van storage-accounts en *klassieke Storage Account Inzender* rol voor het beheren van klassieke opslagaccounts. Voor cloudoperators die nodig zijn voor het beheren van virtuele machines en storage-account, kunt toevoegen aan *Virtual Machine Contributor* rol.
+U kunt gebruikmaken van [ingebouwde RBAC](../role-based-access-control/built-in-roles.md) rollen in Azure rechten toewijzen aan gebruikers. Overweeg het gebruik van *Storage Account Inzender* voor cloudoperators die nodig zijn voor het beheren van storage-accounts en *klassieke Storage Account Inzender* rol voor het beheren van klassieke opslagaccounts. Voor cloudoperators die nodig zijn voor het beheren van virtuele machines en storage-account, kunt toevoegen aan *Virtual Machine Contributor* rol.
 
 Organisaties die niet afgedwongen door toegangsbeheer gegevens dankzij het gebruik van mogelijkheden, zoals RBAC mogelijk meer bevoegdheden beschikt dan nodig is om hun gebruikers geven. Dit kan leiden tot gegevens inbreuk door dat gebruikers toegang tot bepaalde typen gegevens (bijvoorbeeld invloedrijk) die ze in eerste instantie mag geen typen.
 
-U kunt meer informatie over Azure RBAC lezen van het artikel [rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-configure.md).
+U kunt meer informatie over Azure RBAC lezen van het artikel [rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="control-locations-where-resources-are-created-using-resource-manager"></a>Locaties waar resources worden gemaakt met resourcemanager beheren
 Het inschakelen van cloudoperators voor het uitvoeren van taken bij het voorkomen dat conventies die nodig zijn voor het beheren van bronnen van uw organisatie op te splitsen is erg belangrijk. Organisaties die willen bepalen van de locaties waar resources zijn gemaakt moeten harde code voor deze locaties.

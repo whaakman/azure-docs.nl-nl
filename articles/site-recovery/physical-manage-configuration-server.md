@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84969ff04684003a04f99b4fbf7f03be4140a277
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor noodherstel van de fysieke server beheren
 
@@ -24,7 +24,7 @@ De tabel ziet u de prerequistes voor het implementeren van de lokale configurati
 | **Onderdeel** | **Vereiste** |
 | --- |---|
 | CPU-kernen| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Aantal schijven | 3, met inbegrip van de OS-schijf, proces server cache schijf en bewaarstation voor failback |
 | Vrije schijfruimte (cache van de processerver) | 600 GB
 | Vrije schijfruimte (bewaarschijf) | 600 GB|
@@ -36,7 +36,7 @@ De tabel ziet u de prerequistes voor het implementeren van de lokale configurati
 | IIS | -Er zijn geen bestaande standaardwebsite <br> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Inschakelen [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) instelling  <br> -Niet bestaande reeds websitetoepassing geluisterd op poort 443<br>|
 | NIC-type | VMXNET3 (indien geïmplementeerd als een VMware-VM) |
 | Type IP-adres | Statisch |
-| Toegang tot het internet | De server heeft toegang tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (niet vereist voor uitbreidbare processervers) <br> - time.nist.gov <br> - time.windows.com |
+| Toegang tot het internet | De server heeft toegang tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (niet vereist voor Scale-out proces Servers) <br> - time.nist.gov <br> - time.windows.com |
 | Poorten | 443 (Orchestration-besturingselement)<br>9443 (Gegevenstransport)|
 
 ## <a name="download-the-latest-installation-file"></a>Download de meest recente installatiebestand
@@ -171,7 +171,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
   2. Start de cspsconfigtool.exe met behulp van de snelkoppeling op het bureaublad.
   3. Klik op de **kluis registratie** tabblad.
   4. Een nieuwe registratiebestand downloaden via de portal en geef deze als invoer voor het hulpprogramma.
-        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+        ![register-configuratie-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
   5. Geef de details van de proxyserver en klik op de **registreren** knop.  
   6. Open een opdrachtvenster Admin PowerShell.
   7. De volgende opdracht uitvoeren

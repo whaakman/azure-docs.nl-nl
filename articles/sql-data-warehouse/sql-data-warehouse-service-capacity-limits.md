@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 03/27/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: fa7d8a9880ff97f30dc583d792e39aa914ea5435
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4c49fa082547dc0de76126df17a888c6c32f03e4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse Capaciteitslimieten
 De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de verschillende onderdelen van Azure SQL Data Warehouse.
@@ -27,11 +27,11 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 ## <a name="workload-management"></a>Werklastbeheer
 | Category | Beschrijving | Maximum |
 |:--- |:--- |:--- |
-| [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Maximale DWU voor een enkele SQL Data Warehouse | Geoptimaliseerd voor elasticiteit [prestatielaag](performance-tiers.md): DW6000<br></br>Geoptimaliseerd voor Compute [prestatielaag](performance-tiers.md): DW30000c |
+| [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Maximale DWU voor een enkele SQL Data Warehouse | Geoptimaliseerd voor elasticiteit [prestatielaag](memory-and-concurrency-limits.md#performance-tiers): DW6000<br></br>Geoptimaliseerd voor Compute [prestatielaag](memory-and-concurrency-limits.md#performance-tiers): DW30000c |
 | [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Standaard DTU per server |54,000<br></br>Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft een DTU-quotum 54.000, waardoor maximaal DW6000c standaard. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum door verhogen [een ondersteuningsticket maken] [ creating a support ticket] en te selecteren *quotum* als het aanvraagtype.  Voor het berekenen van uw DTU heeft, de 7.5 vermenigvuldigen met het totale aantal dat DWU nodig of 9.0 vermenigvuldigen met de totale cDWU nodig. Bijvoorbeeld:<br></br>DW6000 x 7.5 = 45,000 dtu's<br></br>DW600c x 9.0 = 54.000 dtu's.<br></br>U kunt uw huidige DTU-verbruik van de SQL server-optie weergeven in de portal. Zowel onderbroken als niet-onderbroken databases tellen mee voor het DTU-quotum. |
 | Databaseverbinding |Gelijktijdige sessies actief |1024<br/><br/>Elk van de actieve sessies 1024 kunt aanvragen met een SQL Data Warehouse-database verzenden op hetzelfde moment. Let op: Er zijn limieten van het aantal query's die gelijktijdig kan worden uitgevoerd. Wanneer de gelijktijdigheid limiet wordt overschreden, gaat de aanvraag u naar een interne wachtrij waar wacht om te worden verwerkt. |
 | Databaseverbinding |Maximale hoeveelheid geheugen voor voorbereide instructies |20 MB |
-| [Beheer van de werkbelasting][Workload management] |Maximum aantal gelijktijdige query 's |32<br/><br/> SQL Data Warehouse kan standaard maximaal 32 gelijktijdige query's en wachtrijen resterende query's worden uitgevoerd.<br/><br/>Het aantal gelijktijdige query's kunt descrease wanneer gebruikers worden toegewezen aan hogere resource klassen of wanneer SQL Data Warehouse heeft een lagere [service level](performance-tiers.md#service-levels). Sommige query's, zoals DMV-query's, zijn altijd toegestaan om uit te voeren. |
+| [Werklastbeheer](resource-classes-for-workload-management.md) |Maximum aantal gelijktijdige query 's |32<br/><br/> SQL Data Warehouse kan standaard maximaal 32 gelijktijdige query's en wachtrijen resterende query's worden uitgevoerd.<br/><br/>Het aantal gelijktijdige query's kan afnemen wanneer gebruikers worden toegewezen aan hogere resource klassen of wanneer SQL Data Warehouse heeft een lagere [datawarehouse unit](memory-and-concurrency-limits.md) instelling. Sommige query's, zoals DMV-query's, zijn altijd toegestaan om uit te voeren. |
 | [TempDB][Tempdb] |Maximale GB |399 GB per DW100. Daarom op DWU1000, wordt tempdb aangepast 3,99 TB |
 
 ## <a name="database-objects"></a>database-objecten

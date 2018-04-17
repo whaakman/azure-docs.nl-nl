@@ -3,7 +3,7 @@ title: Een momentopname van een VHD maken in Azure | Microsoft Docs
 description: Informatie over het maken van een kopie van een virtuele machine in Azure wilt gebruiken als een back up of voor het oplossen van problemen.
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: c5f4c7224e04b601d7d3fe4da7d8f5f0c02c7039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9f5a8be8a50a8e8168736899b6dba3c143f56219
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-snapshot"></a>Een momentopname maken
 
@@ -37,41 +37,52 @@ Een momentopname van een VHD voor back-up of om op te lossen VM uitgeeft OS- of 
 9. Klik op **Create**.
 
 ## <a name="use-powershell-to-take-a-snapshot"></a>PowerShell gebruiken om een momentopname
+
 De volgende stappen ziet u hoe u de VHD-schijf moet worden gekopieerd, maken de momentopnameconfiguraties en een momentopname van de schijf met behulp van de [nieuw AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
 
-Zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module geïnstalleerd hebt. Voer de volgende opdracht om deze te installeren.
+Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module hebt. Dit artikel is vereist voor de AzureRM moduleversie 5.7.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
-```
-Install-Module AzureRM.Compute -MinimumVersion 2.6.0
-```
-Zie voor meer informatie [Azure PowerShell Versioning](/powershell/azure/overview).
-
-
-1. Sommige parameters instellen. 
+Sommige parameters instellen. 
 
  ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
 $location = 'eastus' 
-$dataDiskName = 'myDisk' 
+$vmName = 'myVM'
 $snapshotName = 'mySnapshot'  
 ```
 
-2. Ophalen van de VHD-schijf moet worden gekopieerd.
+De virtuele machine worden opgehaald.
 
  ```azurepowershell-interactive
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
+$vm = get-azurermvm `
+   -ResourceGroupName $resourceGroupName `
+   -Name $vmName
 ```
-3. Maken van de momentopnameconfiguraties. 
+
+De configuratie van de momentopname maken. In dit voorbeeld gaan we momentopname van de besturingssysteemschijf.
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
+$snapshot =  New-AzureRmSnapshotConfig `
+   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+   -Location $location `
+   -CreateOption copy
 ```
-4. De momentopname.
+   
+> [!NOTE]
+> Als u wilt voor het opslaan van uw momentopname in de zone robuuste opslag, moet u deze maken in een regio die ondersteuning biedt voor [beschikbaarheid zones](../../availability-zones/az-overview.md) en bevatten de `-SkuName Standard_ZRS` parameter.   
 
- ```azurepowershell-interactive
-New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
+   
+De momentopname.
+
+```azurepowershell-interactive
+New-AzureRmSnapshot `
+   -Snapshot $snapshot `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName 
 ```
-Als u van plan bent de momentopname gebruiken om te maken van een schijf beheerd en koppelt u dit een virtuele machine die moet worden hoge prestaties, gebruikt u de parameter `-AccountType Premium_LRS` met de opdracht New-AzureRmSnapshot. De parameter wordt de momentopname gemaakt zodat deze wordt opgeslagen als een schijf Premium beheerd. Premium-schijven beheerd zijn duurder dan de standaard. Daarom moet u dat wat u moet Premium voordat u deze parameter.
+
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

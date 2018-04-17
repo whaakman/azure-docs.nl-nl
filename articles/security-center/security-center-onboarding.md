@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.openlocfilehash: a6394b1b02ebfe518dc2f2b7f65eb677bb0ba5f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Voorbereiding voor Azure Security Center Standard voor een betere beveiliging
 Upgrade uitvoeren naar Security Center Standard om te profiteren van betere beveiligingsbeheer en de bedreiging beveiliging voor de werkbelasting van uw hybride cloud.  U kunt standaard 60 dagen gratis uitproberen. Zie het Beveiligingscentrum [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
@@ -30,7 +30,7 @@ Security Center-standaard bevat:
 - **Toegangs- en -besturingselementen** -blok malware en andere ongewenste toepassingen door het toepassen van aanbevelingen whitelisting aangepast aan uw specifieke werkbelastingen en aangedreven door machine learning. Beperk uw netwerk kwetsbaarheid met just-in-time, beheerde toegang tot beheerpoorten op Azure Virtual machines, drastisch te verminderen blootstelling aan brute force en andere netwerkaanvallen.
 
 ## <a name="detecting-unprotected-resources"></a>Niet-beveiligde bronnen detecteren     
-Security Center detecteert automatisch een Azure-abonnementen of niet ingeschakeld voor Security Center Standard werkruimten. Dit omvat de Azure-abonnementen met Security Center gratis en werkruimten die geen van de oplossing beveiliging is ingeschakeld.
+Security Center detecteert automatisch alle Azure-abonnementen of werkruimten die niet zijn ingeschakeld voor Security Center Standard. Hiertoe behoren Azure-abonnementen die Security Center Free gebruiken en werkruimten waarvoor de Security-oplossing niet is ingeschakeld.
 
 U kunt een volledige Azure-abonnement upgraden naar de prijscategorie Standard, die wordt overgenomen door alle resources binnen het abonnement, of u kunt een uniek beleid om bij te werken alleen een specifieke resourcegroep definiëren. Als de resourcegroep beleidsinstellingen uniek zijn, overschreven Security Center niet door de prijscategorie beleidsregels wanneer u het abonnement een naar de prijscategorie Standard upgrade. Toepassen van de standaard laag naar een abonnement is alleen van toepassing op de virtuele machines in het abonnement die aan werkruimten die zijn gemaakt door Security Center rapporteren. Toepassen van de standaard laag naar de werkruimte is van toepassing op alle resources in de werkruimte rapportage.
 
@@ -115,7 +115,7 @@ U kunt een computer toevoegen aan de hand van de werkstroom vanaf **Onboarding**
 2. Selecteer de **Compute** tegel.
 3. Onder **Compute**, selecteer **computers toevoegen**.
 
-   ![Blade berekenen][6]
+   ![Blade Compute][6]
 
 4. Onder **nieuwe niet-Azure-computers toevoegen**, selecteer een werkruimte naar uw computer verbinden met en klik op **Computers toevoegen**.
 

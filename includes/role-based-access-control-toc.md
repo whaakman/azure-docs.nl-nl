@@ -1,5 +1,5 @@
-* [Toegangsbeheer op basis van rollen](../articles/active-directory/role-based-access-control-configure.md)
-* [Toegang met Azure Powershell beheren](../articles/active-directory/role-based-access-control-manage-access-powershell.md)
-* [Beheren van toegang met behulp van de Azure CLI](../articles/active-directory/role-based-access-control-manage-access-azure-cli.md)
-* [RBAC ingebouwde rollen](../articles/active-directory/role-based-access-built-in-roles.md)
+* [Toegangsbeheer op basis van rollen](../articles/role-based-access-control/role-assignments-portal.md)
+* [Toegang met Azure Powershell beheren](../articles/role-based-access-control/role-assignments-powershell.md)
+* [Beheren van toegang met behulp van de Azure CLI](../articles/role-based-access-control/role-assignments-cli.md)
+* [RBAC ingebouwde rollen](../articles/role-based-access-control/built-in-roles.md)
 

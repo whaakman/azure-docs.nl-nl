@@ -1,11 +1,11 @@
 ---
 title: Een Azure Service Fabric-cluster beveiligen | Microsoft Docs
-description: "Meer informatie over security scenario's voor een Azure Service Fabric-cluster en de verschillende technologieën die u kunt gebruiken voor het implementeren ervan."
+description: Meer informatie over security scenario's voor een Azure Service Fabric-cluster en de verschillende technologieën die u kunt gebruiken voor het implementeren ervan.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2017
-ms.author: chackdan
-ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: aljo
+ms.openlocfilehash: f60b428ba7fe93713af68851a3e9d246a3b1641b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenario's voor beveiliging van service Fabric-cluster
 Een Azure Service Fabric-cluster is een resource waarvan u eigenaar. Het is uw verantwoordelijkheid voor het beveiligen van clusters om te voorkomen dat onbevoegde gebruikers verbinding maken met deze. Een beveiligde cluster is vooral belangrijk wanneer u productieworkloads op het cluster worden uitgevoerd. Hoewel het mogelijk te maken van een niet-beveiligde cluster als het cluster eindpunten voor beheer met het openbare internet beschrijft, anonieme gebruikers verbinding mee kunnen maken. Niet-beveiligde clusters worden niet ondersteund voor productieworkloads. 

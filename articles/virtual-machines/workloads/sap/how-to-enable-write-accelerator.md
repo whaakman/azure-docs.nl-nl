@@ -16,21 +16,19 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 89a4216a3893892eedd6c216c7e0e5d51cf64749
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Azure schrijven Accelerator voor SAP-implementaties
 Azure schrijven Accelerator is een functionaliteit die is opgehaald uitgerold voor virtuele machines M-serie uitsluitend. De Accelerator voor het schrijven van Azure is niet beschikbaar bij alle andere VM-reeks in Azure, met uitzondering van de M-serie. Als de naam van de staat, is het doel van de functionaliteit voor het verbeteren van i/o-latentie van schrijfbewerkingen op basis van de Azure Premium-opslag. 
 
->[!NOTE]
-> Op dit moment de Accelerator voor het schrijven van Azure is openbare preview-versie en wit-aanbieding voor uw Azure-abonnement-ID is vereist
-
 De Accelerator voor Azure schrijven-functionaliteit is beschikbaar voor implementatie van de M-serie als openbare preview in:
 
 - West US2
+- Oost-US2
 - West-Europa
 - Zuidoost-Azië
 
@@ -44,8 +42,15 @@ Azure schrijven Accelerator werkt alleen in combinatie met [schijven die worden 
 
 Er zijn limieten van Azure Premium Storage VHD's per virtuele machine die kan worden ondersteund door Azure schrijven Accelerator. De huidige limieten zijn:
 
-- 16 VHD's voor een M128xx VM
-- 8 VHD's voor een M64xx VM
+
+| VM-SKU | Aantal schijven Accelerator schrijven | Schrijven van Accelerator IOP's per VM |
+| --- | --- | --- |
+| M128ms | 16 | 8000 |
+| M128s | 16 | 8000 |
+| M64ms | 8 | 4000 |
+| M64s | 8 | 4000 | 
+
+
 
 > [!IMPORTANT]
 > Als u wilt in- of uitschakelen van Azure schrijven Accelerator voor een bestaand volume die wordt samengesteld uit meerdere Azure Premium-opslag-schijven en striped verdeeld met behulp van de schijf of volume managers Windows, Windows Storage Spaces, Scale-out van de Windows-bestandsserver (SOFS) Linux LVM of MDADM, alle schijven voor het bouwen van het volume moet worden ingeschakeld of uitgeschakeld voor Accelerator schrijven in de afzonderlijke stappen. **Afgesloten voordat het in- of uitschakelen van Accelerator schrijven in een dergelijke configuratie, de Azure VM**. 

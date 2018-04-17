@@ -3,7 +3,7 @@ title: Azure diagnostische logboeken ondersteunde Services en schema's | Microso
 description: De ondersteunde schema van de services en evenementen voor Azure diagnostische logboeken kennen.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/24/2018
+ms.date: 4/12/2018
 ms.author: johnkem
-ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor Azure diagnostische logboeken
 
@@ -36,14 +36,14 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 | Azure Batch |[Diagnostische logboekregistratie van Azure Batch](../batch/batch-diagnostics.md) |
 | Customer Insights | Het schema is niet beschikbaar. |
 | CDN (Content Delivery Network) | Het schema is niet beschikbaar. |
-| CosmosDB | [Azure Cosmos DB Logging](../cosmos-db/logging.md) |
+| CosmosDB | [Logboekregistratie van Azure Cosmos DB](../cosmos-db/logging.md) |
 | Data Lake Analytics |[Diagnostische logboeken openen voor Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Toegang tot diagnoselogboeken voor Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Event Hubs |[Diagnostische logboeken van Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | IoT Hub | [Bewerkingen van de IoT-Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Logboekregistratie van Azure Key Vault](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Logboekanalyse voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
-| Logische apps |[Aangepast Logic Apps B2B-volgschema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Logic Apps |[Aangepast Logic Apps B2B-volgschema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Netwerkbeveiligingsgroepen |[Logboekanalyses voor netwerkbeveiligingsgroepen (NSG's)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS-beveiliging | Het schema is niet beschikbaar. |
 | Recovery Services | [Het gegevensmodel voor Azure Backup](../backup/backup-azure-reports-data-model.md)|
@@ -55,24 +55,25 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 | Virtuele netwerken | Het schema is niet beschikbaar. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Logboek categorieën per resourcetype ondersteund
-|Brontype|Categorie|Weergavenaam van de categorie|
+|Resourcetype|Category|Weergavenaam van de categorie|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Engine|Engine|
 |Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Logboeken die betrekking hebben op ApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Taaklogboeken|
-|Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
+|Microsoft.Automation/automationAccounts|JobStreams|Taak stromen|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Status van de DSC-knooppunt|
-|Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
+|Microsoft.Batch/batchAccounts|ServiceLog|Service-Logboeken|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hiermee worden de metrische gegevens van het eindpunt opgehaald, zoals bandbreedte, uitgaand verkeer enzovoort.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Pipeline-activiteitenlogboek wordt uitgevoerd|
 |Microsoft.DataFactory/factories|PipelineRuns|Pijplijn uitgevoerd logboek|
 |Microsoft.DataFactory/factories|TriggerRuns|Trigger voert logboek|
-|Microsoft.DataLakeAnalytics/accounts|Controle|Auditlogboeken|
+|Microsoft.DataLakeAnalytics/accounts|Controleren|Controlelogboeken|
 |Microsoft.DataLakeAnalytics/accounts|Aanvragen|Logboeken aanvragen|
-|Microsoft.DataLakeStore/accounts|Controle|Auditlogboeken|
+|Microsoft.DataLakeStore/accounts|Controleren|Controlelogboeken|
 |Microsoft.DataLakeStore/accounts|Aanvragen|Logboeken aanvragen|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL Server-logboeken|
 |Microsoft.Devices/IotHubs|Verbindingen|Verbindingen|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|De Apparaattelemetrie|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D-opdrachten|
@@ -84,6 +85,7 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.Devices/IotHubs|TwinQueries|Dubbele query 's|
 |Microsoft.Devices/IotHubs|JobsOperations|Bewerkingen voor taken|
 |Microsoft.Devices/IotHubs|DirectMethods|Rechtstreekse methoden|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|E2E diagnostische gegevens (Preview)|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Apparaatbewerkingen|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Servicebewerkingen|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -91,12 +93,11 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.EventHub/namespaces|ArchiveLogs|Archief Logboeken|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operationele Logboeken|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Logboeken voor automatisch schalen|
-|Microsoft.KeyVault/vaults|AuditEvent|Auditlogboeken|
+|Microsoft.KeyVault/vaults|AuditEvent|Controlelogboeken|
 |Microsoft.Logic/workflows|WorkflowRuntime|Diagnostische gebeurtenissen van de workflowruntime|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Gebeurtenissen van integratieaccounts bijhouden|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Gebeurtenis van Netwerkbeveiligingsgroep|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Regelteller van Netwerkbeveiligingsgroep|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Netwerkbeveiligingsgroep regel stroom gebeurtenis|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer waarschuwingsgebeurtenissen|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Gezondheidsstatus van Load Balancer-test|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS-bescherming-meldingen|
@@ -107,6 +108,8 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Diagnostische logboeken gateway|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Diagnostische logboeken tunnel|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Logboeken met diagnostische gegevens routeren|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE-diagnostische logboeken|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Diagnostische logboeken voor P2S|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager-test statusgebeurtenis resultaten|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabel met GWM prestatiemeteritems|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup rapportgegevens|
@@ -126,7 +129,8 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.Sql/servers/databases|Time-outs|Time-outs|
 |Microsoft.Sql/servers/databases|Blokken|Blokken|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL-inzichten|
-|Microsoft.Sql/servers/databases|Controle|Auditlogboeken|
+|Microsoft.Sql/servers/databases|Controleren|Controlelogboeken|
+|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Controlegebeurtenis voor SQL-beveiliging|
 |Microsoft.StreamAnalytics/streamingjobs|Uitvoering|Uitvoering|
 |Microsoft.StreamAnalytics/streamingjobs|Ontwerpen|Ontwerpen|
 

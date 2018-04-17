@@ -5,9 +5,9 @@ services: networking
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-networking"></a>Azure-netwerken
 
@@ -138,7 +138,7 @@ Azure biedt de volgende hulpprogramma's om te controleren en beheren van netwerk
 - **Diagnostische logboeken:** periodiek en eigen initiatief gebeurtenissen zijn gemaakt door netwerkbronnen en geregistreerd in Azure storage-accounts, verzonden naar een Azure Event Hub of verzonden naar Azure-logboekanalyse. Diagnostische logboeken bieden inzicht in de status van een resource. Diagnostische logboeken zijn beschikbaar voor de Load Balancer (internetgerichte), netwerk-beveiligingsgroepen, routes en Application Gateway. Lees voor meer informatie over diagnostische logboeken, het [diagnostische logboeken overzicht](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Metrische gegevens:** metrische gegevens zijn metingen van de prestaties en prestatiemeteritems die gedurende een periode van bronnen worden verzameld. Metrische gegevens kan worden gebruikt voor het activeren van waarschuwingen op basis van drempelwaarden. Metrische gegevens zijn momenteel beschikbaar op Application Gateway. Lees voor meer informatie over metrische gegevens, de [overzicht van metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Problemen oplossen:** informatie over probleemoplossing is toegankelijk rechtstreeks in de Azure-portal. De informatie helpt bij het analyseren van algemene problemen met ExpressRoute, VPN-Gateway, Application Gateway, netwerk-beveiligingslogboeken, Routes, DNS, Load Balancer en Traffic Manager.
-- **Op rollen gebaseerde toegangsbeheer (RBAC):** bepalen wie kunt maken en beheren van netwerkresources met op rollen gebaseerde toegangsbeheer (RBAC). Meer informatie over RBAC door het lezen van de [aan de slag met RBAC](../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel. 
+- **Op rollen gebaseerde toegangsbeheer (RBAC):** bepalen wie kunt maken en beheren van netwerkresources met op rollen gebaseerde toegangsbeheer (RBAC). Meer informatie over RBAC door het lezen van de [aan de slag met RBAC](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel. 
 - **Pakketopname:** de Azure-netwerk-Watcher-service biedt de mogelijkheid om uit te voeren van een pakketopname op een virtuele machine via een uitbreiding in de VM. Deze functie is beschikbaar voor Linux en Windows-VM's. Lees voor meer informatie over pakketopname de [pakket vastleggen overzicht](../network-watcher/network-watcher-packet-capture-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Controleer of IP-stromen:** netwerk-Watcher kunt u controleren of de IP-stromen tussen een virtuele machine van Azure en een externe bron om te bepalen of er pakketten worden toegestaan of geweigerd. Deze mogelijkheid biedt beheerders de mogelijkheid om op te sporen snel problemen met de netwerkverbinding. Lees meer informatie over het controleren van de IP-stromen, de [IP-stroom controleren overzicht](../network-watcher/network-watcher-ip-flow-verify-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **VPN-connectiviteit oplossen:** de VPN-probleemoplosser mogelijkheid van netwerk-Watcher biedt de mogelijkheid om een verbinding of de gateway query en controleer of de status van de resources. Lees meer informatie over het oplossen van VPN-verbindingen, de [VPN-verbinding overzicht probleemoplossing](../network-watcher/network-watcher-troubleshoot-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.

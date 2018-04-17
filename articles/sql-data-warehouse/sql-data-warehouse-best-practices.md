@@ -1,27 +1,23 @@
 ---
 title: Aanbevolen procedures voor Azure SQL Data Warehouse | Microsoft Docs
-description: Aanbevelingen en aanbevolen procedures voor het ontwikkelen van oplossingen voor Azure SQL Data Warehouse. Deze helpen u goede resultaten te bereiken.
+description: Aanbevelingen en aanbevolen procedures voor het ontwikkelen van oplossingen voor Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 53ad9f654c498f562d66de461a2a489895d0a46b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 7c5eb4d2176e12874a4fd7be8c29f4ce6ffe17ba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Aanbevolen procedures voor Azure SQL Data Warehouse
-Dit artikel bevat een verzameling van aanbevolen procedures waarmee u optimale resultaten kunt bereiken met Azure SQL Data Warehouse.  Sommige onderwerpen in dit artikel zijn eenvoudig uit te leggen, andere zijn geavanceerder, waardoor we alleen de basis hiervan kunnen behandelen.  Het doel van dit artikel is om u een aantal richtlijnen te geven en u te wijzen op belangrijke onderdelen bij het maken van een datawarehouse.  In elk gedeelte maakt u kennis met een onderwerp en wordt u gewezen op gedetailleerdere artikelen die dieper op het onderwerp ingaan.
+In dit artikel is een verzameling van best practices voor hulp bij optimale prestaties van uw Azure SQL Data Warehouse.  Sommige onderwerpen in dit artikel zijn eenvoudig uit te leggen, andere zijn geavanceerder, waardoor we alleen de basis hiervan kunnen behandelen.  Het doel van dit artikel is om u een aantal richtlijnen te geven en u te wijzen op belangrijke onderdelen bij het maken van een datawarehouse.  In elk gedeelte maakt u kennis met een onderwerp en wordt u gewezen op gedetailleerdere artikelen die dieper op het onderwerp ingaan.
 
 Laat u niet afschrikken door dit artikel als u net met Azure SQL Data Warehouse begint.  De onderwerpen zijn grotendeels gerangschikt op belangrijkheid.  Als u met de eerste onderwerpen begint, bent u al goed op weg.  Zodra u wat meer ervaring hebt opgedaan met SQL Date Warehouse, kunt u teruggaan naar dit artikel en andere onderwerpen bekijken.  U hebt het in een mum van tijd onder de knie.
 
@@ -52,7 +48,7 @@ PolyBase, ook wel bekend als externe tabellen, kan de snelste manier zijn om geg
 Zie ook [Gids voor gebruik van PolyBase][Guide for using PolyBase]
 
 ## <a name="hash-distribute-large-tables"></a>Grote tabellen distribueren met hash
-Tabellen worden standaard gedistribueerd middels Round Robin.  Dit maakt het gemakkelijk voor gebruikers om tabellen te maken zonder te hoeven bepalen hoe de tabellen moeten worden gedistribueerd.  Round Robin-tabellen leveren voldoende prestaties voor sommige workloads, maar in de meeste gevallen leidt het selecteren van een distributiekolom tot veel betere prestaties.  Het meestvoorkomende geval waarin een tabel die per kolom is gedistribueerd veel beter presteert dan een Round Robin-tabel, is wanneer twee grote feitentabellen worden samengevoegd.  Als u bijvoorbeeld een ordertabel hebt die is gedistribueerd op order_id, en een transactietabel die ook is gedistribueerd op order_id, en u de ordertabel met de transactietabel samenvoegt op order_id, wordt deze query een Pass-Through-query. Dit betekent dat bewerkingen voor gegevensverplaatsing worden voorkomen.  Minder stappen betekent een snellere query.  Minder gegevensverplaatsing maakt query’s ook sneller.  Deze uitleg dekt alleen de basis. Zorg er bij het laden van een distributietabel voor dat uw inkomende gegevens niet zijn gedistribueerd volgens de verdeelsleutel. Dit vertraagt het laden.  Raadpleeg de onderstaande koppelingen voor meer informatie over hoe het selecteren van een distributiekolom prestaties kan verbeteren en hoe u een distributietabel definieert in het WITH-component van uw CREATE TABLES-instructie.
+Tabellen worden standaard gedistribueerd middels Round Robin.  Dit maakt het gemakkelijk voor gebruikers om tabellen te maken zonder te hoeven bepalen hoe de tabellen moeten worden gedistribueerd.  Round Robin-tabellen leveren voldoende prestaties voor sommige workloads, maar in de meeste gevallen leidt het selecteren van een distributiekolom tot veel betere prestaties.  Het meestvoorkomende geval waarin een tabel die per kolom is gedistribueerd veel beter presteert dan een Round Robin-tabel, is wanneer twee grote feitentabellen worden samengevoegd.  Als u bijvoorbeeld een ordertabel hebt die is gedistribueerd op order_id, en een transactietabel die ook is gedistribueerd op order_id, en u de ordertabel met de transactietabel samenvoegt op order_id, wordt deze query een Pass-Through-query. Dit betekent dat bewerkingen voor gegevensverplaatsing worden voorkomen.  Minder stappen betekent een snellere query.  Minder gegevensverplaatsing maakt query’s ook sneller.  Deze uitleg scratches alleen het oppervlak. Zorg er bij het laden van een distributietabel voor dat uw inkomende gegevens niet zijn gedistribueerd volgens de verdeelsleutel. Dit vertraagt het laden.  Raadpleeg de onderstaande koppelingen voor meer informatie over hoe het selecteren van een distributiekolom prestaties kan verbeteren en hoe u een distributietabel definieert in het WITH-component van uw CREATE TABLES-instructie.
 
 Zie ook [Tabeloverzicht][Table overview], [Tabeldistributie][Table distribution], [Tabeldistributie selecteren][Selecting table distribution], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
@@ -77,7 +73,7 @@ Wanneer u tijdelijk gegevens naar SQL Data Warehouse laadt, kan een heap-tabel h
 Zie ook [Tijdelijke tabellen][Temporary tables], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Geclusterde columnstore-tabellen optimaliseren
-Geclusterde columnstore-indices vormen een van de meest efficiënte manieren om uw gegevens in SQL Data Warehouse te bewaren.  Tabellen worden in SQL Data Warehouse standaard als geclusterde columnstore gemaakt.  Een goede segmentkwaliteit is belangrijk om de beste resultaten te behalen voor query’s voor columnstore-tabellen.  Wanneer rijen naar columnstore-tabellen worden geschreven onder geheugendruk, kan dit ten koste gaan van de kwaliteit van columnstore-segmenten.  Segmentkwaliteit kan worden gemeten aan de hand van het aantal rijen in een gecomprimeerde rijengroep.  Zie [Oorzaken van slechte kwaliteit voor columnstore-indexen][Causes of poor columnstore index quality] in het artikel [Tabelindexen][Table indexes] voor stapsgewijze instructies voor het detecteren en verbeteren van segmentkwaliteit van geclusterde columnstore-tabellen.  Omdat het belangrijk is dat columnstore-segmenten van hoge kwaliteit zijn, is het een goed idee om gebruikers-id's te gebruiken uit een medium of grote resourceklasse voor het laden van gegevens. Door gebruik te maken van lagere [serviceniveaus](performance-tiers.md#service-levels) kunt u een grotere resourceklasse toewijzen aan de ladende gebruiker.
+Geclusterde columnstore-indices vormen een van de meest efficiënte manieren om uw gegevens in SQL Data Warehouse te bewaren.  Tabellen worden in SQL Data Warehouse standaard als geclusterde columnstore gemaakt.  Een goede segmentkwaliteit is belangrijk om de beste resultaten te behalen voor query’s voor columnstore-tabellen.  Wanneer rijen naar columnstore-tabellen worden geschreven onder geheugendruk, kan dit ten koste gaan van de kwaliteit van columnstore-segmenten.  Segmentkwaliteit kan worden gemeten aan de hand van het aantal rijen in een gecomprimeerde rijengroep.  Zie [Oorzaken van slechte kwaliteit voor columnstore-indexen][Causes of poor columnstore index quality] in het artikel [Tabelindexen][Table indexes] voor stapsgewijze instructies voor het detecteren en verbeteren van segmentkwaliteit van geclusterde columnstore-tabellen.  Omdat columnstore van hoge kwaliteit segmenten belangrijk zijn, is het een goed idee om te gebruiken van gebruikers-id's die in de grote of middelgrote bronklasse voor het laden van gegevens. Met behulp van lagere [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md) betekent dat u wilt een grotere bronklasse toewijzen aan de gebruiker bij het laden.
 
 Omdat columnstore-tabellen normaalgesproken gegevens niet naar een gecomprimeerd columnstore-segment doorzetten voordat er meer dan 1 miljoen rijen per tabel zijn en elke SQL Data Warehouse-tabel in 60 tabellen is gepartitioneerd, dragen columnstore-tabellen doorgaans niet bij aan een query tenzij de tabel meer dan 60 miljoen rijen heeft.  Voor tabellen met minder dan 60 miljoen rijen is het meestal niet nodig om een columnstore-index te hebben.  Het is misschien ook niet verkeerd.  Als u uw gegevens partitioneert, houd er dan ook rekening mee dat elke partitie 1 miljoen rijen nodig heeft om voordeel te halen uit een geclusterde columnstore-index.  Als een tabel 100 partities heeft, heeft deze ten minste 6 miljard rijen nodig om voordeel te halen uit een geclusterde columnstore (60 distributies * 100 partities * 1 miljoen rijen).  Als uw tabel in dit voorbeeld geen 6 miljoen rijen heeft, kunt u het aantal partities verminderen of overwegen een heap-tabel te gebruiken.  U kunt ook experimenteren om te zien of u de prestaties kunt verbeteren met een heap-tabel met secondaire sleutels in plaats van een columnstore-tabel.
 
@@ -103,7 +99,7 @@ Zie ook [Uw workload controleren met DMV's][Monitor your workload using DMVs], [
 ## <a name="other-resources"></a>Meer informatie
 Zie ook ons artikel [Problemen oplossen][Troubleshooting] voor veelvoorkomende problemen en oplossingen.
 
-Als u in dit artikel niet hebt gevonden waarnaar u zocht, kunt u "Zoeken naar documenten" aan de linkerzijde van deze pagina gebruiken om alle Azure SQL Data Warehouse-documenten te doorzoeken.  Het [MSDN-forum Azure SQL Data Warehouse][Azure SQL Data Warehouse MSDN Forum] is een plek waar u vragen kunt stellen aan andere gebruikers en de SQL Data Warehouse-productgroep.  We controleren het forum regelmatig om er zeker van te zijn dat uw vragen worden beantwoord door een andere gebruiker of een van ons.  We hebben ook een [Stack Overflow-forum Azure SQL Data Warehouse][Azure SQL Data Warehouse Stack Overflow Forum] voor als u uw vragen liever in Stack Overflow stelt.
+Als u in dit artikel niet hebt gevonden waarnaar u zocht, kunt u "Zoeken naar documenten" aan de linkerzijde van deze pagina gebruiken om alle Azure SQL Data Warehouse-documenten te doorzoeken.  De [Azure SQL Data Warehouse-Forum] [ Azure SQL Data Warehouse MSDN Forum] is een plaats voor u vragen stellen aan andere gebruikers en aan de productgroep SQL Data Warehouse.  We controleren het forum regelmatig om er zeker van te zijn dat uw vragen worden beantwoord door een andere gebruiker of een van ons.  We hebben ook een [Stack Overflow-forum Azure SQL Data Warehouse][Azure SQL Data Warehouse Stack Overflow Forum] voor als u uw vragen liever in Stack Overflow stelt.
 
 Tenslotte willen we u vragen de pagina [Azure SQL Data Warehouse Feedback][Azure SQL Data Warehouse Feedback] te gebruiken om functieverbeteringen aan te vragen.  Het toevoegen van aanvragen of het stemmen op andere aanvragen helpt ons prioriteit te geven aan bepaalde functies.
 
@@ -124,9 +120,9 @@ Tenslotte willen we u vragen de pagina [Azure SQL Data Warehouse Feedback][Azure
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
 [Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
+[Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with PolyBase]: ./load-data-wideworldimportersdw.md
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk

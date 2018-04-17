@@ -1,25 +1,20 @@
 ---
 title: Aanbevolen procedures voor het laden van gegevens - Azure SQL Data Warehouse | Microsoft Docs
-description: Aanbevelingen voor het laden van gegevens en het uitvoeren van ELT met Azure SQL Data Warehouse.
+description: Aanbevelingen en prestatieoptimalisatie voor het laden van gegevens in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 12/13/2017
-ms.author: barbkess
-ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: a416bf7965a5d297bfea698d318d45f6e47c9c50
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Aanbevolen procedures voor het laden van gegevens in Azure SQL Data Warehouse
 Aanbevelingen en prestatieoptimalisatie voor het laden van gegevens in Azure SQL Data Warehouse. 
@@ -62,11 +57,11 @@ Maak verbinding met het datawarehouse en maak een gebruiker. In de volgende code
 ```
 Meld u aan in als LoaderRC20 en voer de belasting uit om deze uit te voeren met resources voor de statiRC20-resourceklassen.
 
-Voer loads bij voorkeur uit onder statische en niet onder dynamische resourceklassen. Met de statische resourceklassen worden dezelfde resources gegarandeerd ongeacht het [serviceniveau](performance-tiers.md#service-levels). Als u een dynamische resourceklasse gebruikt, variëren de resources afhankelijk van uw serviceniveau. Voor dynamische klassen betekent een lager serviceniveau dat u waarschijnlijk een grotere resourceklasse moet gebruiken voor uw gebruiker van het laadproces.
+Voer loads bij voorkeur uit onder statische en niet onder dynamische resourceklassen. Met de klassen statische resource wordt gegarandeerd dat dezelfde bronnen ongeacht de [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md). Als u een dynamische resourceklasse gebruikt, variëren de resources afhankelijk van uw serviceniveau. Voor dynamische klassen betekent een lager serviceniveau dat u waarschijnlijk een grotere resourceklasse moet gebruiken voor uw gebruiker van het laadproces.
 
 ## <a name="allowing-multiple-users-to-load"></a>Meerdere gebruikers toestaan te laden
 
-Vaak is het nodig dat meerdere gebruikers gegevens kunnen laden in een datawarehouse. Voor laden met [CREATE TABLE AS SELECT (Transact-SQL)] [CREATE TABLE AS SELECT (Transact-SQL)] zijn CONTROL-machtigingen voor de database vereist.  De CONTROL-machtiging biedt beheertoegang tot alle schema's. Mogelijk wilt u niet alle gebruikers die laadtaken uitvoeren, beheertoegang tot alle schema's verlenen. Als u machtigingen wilt beperken, kunt u de instructie DENY CONTROL gebruiken.
+Vaak is het nodig dat meerdere gebruikers gegevens kunnen laden in een datawarehouse. Bij het laden van met de [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) vereist machtigingen voor beheer van de database.  De CONTROL-machtiging biedt beheertoegang tot alle schema's. Mogelijk wilt u niet alle gebruikers die laadtaken uitvoeren, beheertoegang tot alle schema's verlenen. Als u machtigingen wilt beperken, kunt u de instructie DENY CONTROL gebruiken.
 
 Denk bijvoorbeeld aan databaseschema's, schema_A voor afdeling A, en schema_B voor afdeling B. Laat databasegebruikers gebruiker_A en gebruiker_B gebruikers zijn voor PolyBase die respectievelijk laden in afdeling A en B. Beide zijn voorzien van databasemachtigingen voor CONTROL. De makers van schema A en B vergrendelen nu hun schema's met DENY:
 
@@ -99,13 +94,13 @@ Een load met behulp van een externe tabel kan mislukken met de fout *Query afgeb
 U kunt vervuilde records voorkomen door ervoor te zorgen dat uw externe tabel- en bestandindelingsdefinities correct zijn en uw externe gegevens overeenstemmen met deze definities. Als een subset van externe gegevensrecords ongeldig is, kunt u ervoor kiezen deze records voor uw query's te weigeren door gebruik te maken van de weigeringsopties in CREATE EXTERNAL TABLE.
 
 ## <a name="inserting-data-into-a-production-table"></a>Gegevens in een productietabel invoegen
-Een eenmalige laadtaak naar een kleine tabel met een [INSERT-instructie](/sql/t-sql/statements/insert-transact-sql.md) of zelfs een periodieke herlaadtaak kan een acceptabel resultaat geven met een instructie zoals `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Het invoegen van singletons is echter niet zo efficiënt als bulksgewijs laden. 
+Een eenmalige laadtaak naar een kleine tabel met een [INSERT-instructie](/sql/t-sql/statements/insert-transact-sql) of zelfs een periodieke herlaadtaak kan een acceptabel resultaat geven met een instructie zoals `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Het invoegen van singletons is echter niet zo efficiënt als bulksgewijs laden. 
 
 Als u de hele dag door duizenden of meerdere enkele gegevens wilt invoeren, voeg de gegevens dan samen tot een batch zodat deze bulksgewijs kunt laden.  Ontwikkel uw processen om de afzonderlijke gegevens aan een bestand toe te voegen en maak vervolgens een ander proces dat het bestand periodiek laadt.
 
 ## <a name="creating-statistics-after-the-load"></a>Statistieken maken na het laden
 
-Voor optimale resultaten van uw query's is het belangrijk dat u statistieken maakt voor alle kolommen van alle tabellen nadat de gegevens voor het eerst zijn geladen of wanneer de gegevens substantieel zijn gewijzigd.  Zie [Statistics][Statistics] voor een gedetailleerde uitleg van statistieken. In het volgende voorbeeld worden statistieken in vijf kolommen van de tabel Customer_Speed aangemaakt.
+Voor optimale resultaten van uw query's is het belangrijk dat u statistieken maakt voor alle kolommen van alle tabellen nadat de gegevens voor het eerst zijn geladen of wanneer de gegevens substantieel zijn gewijzigd.  Zie [statistieken](sql-data-warehouse-tables-statistics.md) voor gedetailleerde uitleg van statistieken. In het volgende voorbeeld worden statistieken in vijf kolommen van de tabel Customer_Speed aangemaakt.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -120,17 +115,21 @@ Het is verstandig uit veiligheidsoverwegingen de toegangssleutel in de blob-opsl
 
 Sleutels van het Microsoft Azure Storage-account draaien:
 
-Voor elk opslagaccount waarvan de sleutel is gewijzigd, moet u [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md) uitvoeren.
+Voor elk opslagaccount waarvan de sleutel is gewijzigd, moet u [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) uitvoeren.
 
 Voorbeeld:
 
 De oorspronkelijke sleutel wordt gemaakt
 
-CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+    ``` 
 
 Rotate key from key 1 to key 2
 
-ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```sq;
+    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```
 
 Er hoeven geen andere wijzigingen te worden aangebracht aan onderliggende externe gegevensbronnen.
 

@@ -1,23 +1,23 @@
 ---
 title: Azure SQL Data Warehouse-back-up en herstel - momentopnamen, geografisch redundante | Microsoft Docs
-description: Meer informatie over hoe back-up en herstel werkt in Azure SQL Data Warehouse. Back-ups van gegevens datawarehouse gebruiken om te zetten van uw datawarehouse naar een herstelpunt in de primaire regio of geografisch redundante back-ups gebruiken om te zetten naar een ander geografische regio.
+description: Meer informatie over hoe back-up en herstel werkt in Azure SQL Data Warehouse. Gebruik datawarehouse back-ups naar uw datawarehouse herstellen naar een herstelpunt in de primaire regio. Geografisch redundante back-ups gebruiken om te zetten naar een ander geografische regio.
 services: sql-data-warehouse
 author: ronortloff
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f540bca0d2eb2c9009a386bd14a5beda2912014
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 21708f51d09d640721af196d2ffa91aede97ffb3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
-Meer informatie over hoe back-up en herstel werkt in Azure SQL Data Warehouse. Back-ups van gegevens datawarehouse gebruiken om te zetten van uw datawarehouse naar een herstelpunt in de primaire regio of geografisch redundante back-ups gebruiken om te zetten naar een ander geografische regio. 
+Meer informatie over hoe back-up en herstel werkt in Azure SQL Data Warehouse. Gebruik datawarehouse back-ups naar uw datawarehouse herstellen naar een herstelpunt in de primaire regio. Geografisch redundante back-ups gebruiken om te zetten naar een ander geografische regio. 
 
 ## <a name="what-is-backup-and-restore"></a>Wat is de back-up en herstellen?
 Een *datawarehouse-back-up* het exemplaar van de database die u gebruiken kunt voor het herstellen van een datawarehouse.  Omdat SQL Data Warehouse een gedistribueerd systeem is, wordt een back-up van gegevens datawarehouse bestaat uit veel bestanden die zich in Azure-opslag bevinden. Een back-up van gegevens datawarehouse bevat momentopnamen van de lokale database en de geo-back-ups van de databases en bestanden die gekoppeld aan een datawarehouse zijn. 

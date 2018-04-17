@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 6c5b5c8c9dbb03a2189eb5f1539499ace55e7dfc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3e3ee232b6342601e44d728148d32e70e6f3f00b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Voorbeelden op de gegevens wetenschappelijke virtuele Machines (DSVM)
 
@@ -31,7 +31,7 @@ De DSVMs worden geleverd met voorbeelden van opgenomen volledig gewerkt-out in d
 | Voorbeelden categorie | Beschrijving | Locaties |
 | ------------- | ------------- | ------------- |
 | **R** taal  | Voorbeelden in **R** uitleg over scenario's zoals verbinding maken met Azure-cloud-gegevens opslaat, Open Source-R vergelijken en Microsoft R & operationele modellen op Microsoft R Server of SQL Server. <br/> [schermopname](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
-| **Python** Language  | Voorbeelden in **Python** scenario's zoals verbinding te maken met Azure-cloud gegevensarchieven en werken met uitleg over **Azure Machine Learning**.  <br/> [schermopname](#python-language) | <br/>`~notebooks` <br/><br/>|
+| **Python** taal  | Voorbeelden in **Python** scenario's zoals verbinding te maken met Azure-cloud gegevensarchieven en werken met uitleg over **Azure Machine Learning**.  <br/> [schermopname](#python-language) | <br/>`~notebooks` <br/><br/>|
 | **Julia** taal  | Voorbeeld **Julia** die worden beschreven die Plotting in Julia, diep in Julia leren, C en Python aanroept vanuit Julia enzovoort. <br/> [schermopname](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Microsoft cognitieve Toolkit)  | Deep learning voorbeelden die zijn gepubliceerd door het team cognitieve Toolkit bij Microsoft.  <br/> [schermopname](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
 | **MXNet** laptops  | Diep Learning steekproeven gebruik **MXNet** gebaseerde neural netwerken. Er zijn tal van notitieblokken variërend van beginnende tot geavanceerde scenario's.  <br/> [schermopname](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
@@ -73,7 +73,7 @@ Aanmelden met hetzelfde wachtwoord als uw aanmelding voor de DSVM.
 ## <a name="r-language"></a>R taal 
 <br/>![R-voorbeelden](./media/r-language-samples.png)<br/>
 
-## <a name="python-language"></a>Python Language
+## <a name="python-language"></a>Python-taal
 <br/>![Python-voorbeelden](./media/python-language-samples.png)<br/>
 
 ## <a name="julia-language"></a>Julia taal 
@@ -87,7 +87,7 @@ Aanmelden met hetzelfde wachtwoord als uw aanmelding voor de DSVM.
 <br/>![Voorbeelden van MXnet](./media/mxnet-samples.png)<br/>
 
 ## <a name="azureml"></a>AzureML 
-<br/>![AzurekML Samples](./media/azureml-samples.png)<br/>
+<br/>![Voorbeelden van AzurekML](./media/azureml-samples.png)<br/>
 
 ## <a name="caffe2"></a>caffe2 
 <br/>![Voorbeelden van caffe2](./media/caffe2-samples.png)<br/>

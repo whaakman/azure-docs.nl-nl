@@ -17,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: dfda95d2340d7dd57ac7b4d7ed7b0665c8e9294e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 11dc0e5f6ee398b2a745ed60cbc166e2a1697c3e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filteren van netwerkverkeer met een netwerkbeveiligingsgroep met de Azure CLI
 
-U kunt het netwerkverkeer naar binnenkomende en uitgaande van een virtueel netwerksubnet filteren met een netwerkbeveiligingsgroep. Netwerkbeveiligingsgroepen bevatten beveiligingsregels voor verbindingen die filteren van netwerkverkeer door IP-adres, poort en protocol. Beveiligingsregels worden toegepast op resources geïmplementeerd in een subnet. In dit artikel leert u hoe:
+U kunt het netwerkverkeer naar binnenkomende en uitgaande van een virtueel netwerksubnet filteren met een netwerkbeveiligingsgroep. Netwerkbeveiligingsgroepen bevatten beveiligingsregels voor verbindingen die filteren van netwerkverkeer door IP-adres, poort en protocol. Beveiligingsregels worden toegepast op resources geïmplementeerd in een subnet. In dit artikel leert u het volgende:
 
 * Een netwerkbeveiliging groep en beveiliging regels maken
 * Een virtueel netwerk maken en koppelen van een netwerkbeveiligingsgroep aan een subnet
@@ -241,6 +241,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel wordt een netwerkbeveiligingsgroep gemaakt en die aan een virtueel netwerksubnet zijn gekoppeld. Zie voor meer informatie over netwerkbeveiligingsgroepen, [netwerk groep beveiligingsoverzicht](security-overview.md) en [beheren van een netwerkbeveiligingsgroep](virtual-network-manage-nsg-arm-ps.md).
+In dit artikel wordt een netwerkbeveiligingsgroep gemaakt en die aan een virtueel netwerksubnet zijn gekoppeld. Zie voor meer informatie over netwerkbeveiligingsgroepen, [netwerk groep beveiligingsoverzicht](security-overview.md) en [beheren van een netwerkbeveiligingsgroep](manage-network-security-group.md).
 
 Azure routes verkeer tussen subnetten standaard. In plaats daarvan kunt u verkeer leiden tussen subnetten door middel van een virtuele machine, fungeren als een firewall, bijvoorbeeld. Voor meer informatie Zie [een routetabel maken](tutorial-create-route-table-cli.md).

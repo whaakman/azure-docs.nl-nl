@@ -5,19 +5,19 @@ services: service-fabric
 documentationcenter: .net
 author: maburlik
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik
-ms.openlocfilehash: 6a6bacedde04419449a061554d5ce9ad37259a2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maburlik;aljo
+ms.openlocfilehash: 37425f8a076be2579726e5a83bec3da8c6eb5fff
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Inhoud van de zelfstandige versie van Service Fabric-pakket voor Windows Server
 In de [gedownload](http://go.microsoft.com/fwlink/?LinkId=730690) zelfstandige voor Service Fabric-pakket, vindt u de volgende bestanden:

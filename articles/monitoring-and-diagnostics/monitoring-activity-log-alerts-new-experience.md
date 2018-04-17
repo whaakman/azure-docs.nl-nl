@@ -3,7 +3,7 @@ title: Activiteit logboek waarschuwingen maken en beheren van deze met de nieuwe
 description: In dit artikel bevat informatie over het maken van de activiteit logboek waarschuwingen van tabblad onder Azure Monitor waarschuwingen (Preview). In dit artikel wordt de nieuwe gebruikerservaring voor deze functie.
 author: JYOTHIRMAISURI
 manager: vvithal
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: 
-ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: ''
+ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Waarschuwingen met behulp van de nieuwe waarschuwingen (Preview) optreden activiteitenlogboek maken
 
@@ -103,13 +103,13 @@ Gebruik de volgende procedure:
 
     **Waarschuwing logica**:
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **Gebeurtenisniveau**-de ernst van de gebeurtenis. **Uitgebreide, informatief, waarschuwing, fout**, of **kritieke**.
+     - **Status**: de status van de gebeurtenis. **Gestart, kan niet**, of **geslaagd**.
+     - **De gebeurtenis wordt gestart door**: ook wel bekend als de aanroepfunctie De e-mailadres of Azure Active Directory-id van de gebruiker die de bewerking uitgevoerd.
 
-        **Sample signal graph with alert logic applied** :
+        **Voorbeeld signaal grafiek met waarschuwing logica toegepast** :
 
-        ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ geselecteerde criteria](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
 4. Onder **waarschuwingsregels details definiëren**, bieden de volgende details:
 

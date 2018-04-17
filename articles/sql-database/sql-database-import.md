@@ -6,14 +6,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 01/29/2018
+ms.date: 04/10/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 9d829bd312bb1ae2468258bc2ec8619b2858394e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4279630816b6d5f7cf15b7555bf951d3f2a5f95a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Een Bacpac-bestand importeren in een nieuwe Azure SQL Database
 
@@ -31,6 +31,9 @@ Open de pagina voor de server naar de database te koppelen en klik vervolgens op
    ![De database wordt geïmporteerd](./media/sql-database-import/import.png)
 
 Open de pagina voor de logische server met de database wordt geïmporteerd om de voortgang van de importbewerking. Schuif omlaag naar **Operations** en klik vervolgens op **voor importeren/exporteren** geschiedenis.
+
+> [!NOTE]
+> [Azure SQL Database beheerd-instantie](sql-database-managed-instance.md) importeren uit een Bacpac-bestand met de andere methoden in dit artikel wordt ondersteund, maar biedt geen ondersteuning voor migratie met behulp van de Azure-portal.
 
 ### <a name="monitor-the-progress-of-an-import-operation"></a>De voortgang van een importbewerking
 
@@ -98,6 +101,13 @@ $importStatus
 
 > [!TIP]
 Zie voor een ander scriptvoorbeeld [een database uit een Bacpac-bestand importeren](scripts/sql-database-import-from-bacpac-powershell.md).
+
+## <a name="import-using-other-methods"></a>Importeren van andere methoden
+
+U kunt ook deze wizards gebruiken:
+
+- [Data-tier Application-Wizard in SQL Server Management Studio importeren](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard).
+- [Wizard SQL Server importeren en exporteren](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over verbinding maken met en query uitvoeren op een geïmporteerde SQL-Database, [verbinding maken met SQL Database met SQL Server Management Studio en een voorbeeld T-SQL-query uit te voeren](sql-database-connect-query-ssms.md).

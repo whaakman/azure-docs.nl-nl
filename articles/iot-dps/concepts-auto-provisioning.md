@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: ''
-ms.openlocfilehash: cd458b1f6d26fbd5f5821a04cd01be5c3a4e4514
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auto-provisioning-concepts"></a>Automatische inrichting concepten
 
@@ -31,7 +31,7 @@ Azure IoT-auto-inrichting worden onderverdeeld in drie fasen:
    > [!NOTE]
    > Ongeacht de grootte van uw IoT-oplossing, zelfs als u van plan bent voor de ondersteuning van miljoenen apparaten, dit is een **eenmalige configuratie**.
 
-2. **Apparaatinschrijving** -het proces van het apparaat wordt ingericht Service-exemplaar op de hoogte van de apparaten die u probeert te registreren in de toekomst te maken. Inschrijving wordt gerealiseerd door het apparaat identiteitsgegevens in de inrichting service configureren als een 'afzonderlijke registratie"tot één apparaat of een 'groepsinschrijving' voor meerdere apparaten. Identiteit is gebaseerd op de [attestation mechanisme](concepts-security.md#attestation-mechanism) het apparaat is ontworpen om te gebruiken, waardoor de inrichting service sta in voor de echtheid van het apparaat tijdens de registratie:
+2. **Apparaatinschrijving** -het proces van het apparaat wordt ingericht Service-exemplaar op de hoogte van de apparaten die u probeert te registreren in de toekomst te maken. [Inschrijving](concepts-service.md#enrollment) wordt bereikt door het apparaat identiteitsgegevens in de inrichting service configureren als een 'afzonderlijke registratie"tot één apparaat of een 'groepsinschrijving' voor meerdere apparaten. Identiteit is gebaseerd op de [attestation mechanisme](concepts-security.md#attestation-mechanism) het apparaat is ontworpen om te gebruiken, waardoor de inrichting service sta in voor de echtheid van het apparaat tijdens de registratie:
 
    - **TPM**: geconfigureerd als een 'afzonderlijke inschrijving', de apparaat-id is gebaseerd op de TPM-registratie-ID en de openbare goedkeuringssleutel. Gezien het feit dat de TPM is een [specificatie]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), de service alleen wordt verwacht verklaren volgens de specificatie, ongeacht TPM-implementatie (hardware of software). Zie [apparaten inrichten: identiteit attestation met TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) voor meer informatie over attestation op basis van TPM. 
 

@@ -1,33 +1,35 @@
 ---
-title: Terraform met Azure provider implementatiesleuf
-description: Terraform met Azure provider implementatiesleuf zelfstudie
+title: Terraform met Azure provider implementatiesites
+description: Zelfstudie over het gebruik van Terraform met Azure provider implementatiesites
 keywords: terraform, devops, Azure, implementatiesites virtuele machine
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 4/05/2018
 ms.topic: article
-ms.openlocfilehash: 34b16b5fb2b5b574d166693db346ebba15eaa1f9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="using-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Met behulp van Terraform inrichten infrastructuur met Azure implementatiesites
+# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Terraform gebruiken voor het inrichten van infrastructuur met Azure implementatiesites
 
-[Azure implementatiesites](/azure/app-service/web-sites-staged-publishing) kunt wisselen tussen verschillende versies van uw app - zoals productie- en staging - te minimaliseren, de impact van verbroken implementaties. In dit artikel ziet u een voorbeeld van het gebruik van implementatiesites door u door de implementatie van apps in twee stappen via GitHub en Azure. Een app wordt gehost in een 'productiesleuf', terwijl de tweede app wordt gehost in een sleuf 'staging'. (De naam 'productie' en 'fasering' willekeurige zijn en mag elke gewenste die staat voor uw scenario). Zodra de implementatiesites zijn geconfigureerd, klikt u vervolgens kunt u Terraform wisselen tussen de twee sleuven indien nodig.
+U kunt [Azure implementatiesites](/azure/app-service/web-sites-staged-publishing) wisselen tussen verschillende versies van uw app. Mogelijkheid kunt u de impact van verbroken implementaties te minimaliseren. 
+
+In dit artikel ziet u een voorbeeld van het gebruik van implementatiesites door u door de implementatie van apps in twee stappen via GitHub en Azure. Een app wordt gehost in een productiesleuf. De tweede app wordt gehost in een faseringssleuf gewisseld. (De naam 'productie' en 'fasering' willekeurige zijn en mag elke gewenste die staat voor uw scenario). Nadat u uw implementatiesites hebt geconfigureerd, kunt u Terraform wisselen tussen de twee sleuven indien nodig.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **Azure-abonnement** : als u hebt een Azure-abonnement maken geen een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) voordat u begint.
+- **Azure-abonnement**: als u nog geen abonnement op Azure hebt, maakt u een [gratis Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 
-- **GitHub-account** - A [GitHub](http://www.github.com) vertakken en gebruik de toets GitHub-repo-account nodig.
+- **GitHub-account**: U moet een [GitHub](http://www.github.com) vertakken en gebruik de toets GitHub-repo-account.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Maken en toepassen van het plan Terraform
 
-1. Blader naar de [Azure-portal](http://portal.azure.com)
+1. Blader naar de [Azure-portal](http://portal.azure.com).
 
-1. Open [Azure Cloud Shell](/azure/cloud-shell/overview), en als u niet eerder - doet Selecteer **Bash** als uw omgeving.
+1. Open [Azure-Cloud-Shell](/azure/cloud-shell/overview). Als u een omgeving eerder hebt geselecteerd, selecteert u **Bash** als uw omgeving.
 
     ![Shell-prompt voor cloud](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
@@ -49,7 +51,7 @@ ms.lasthandoff: 04/06/2018
     mkdir swap
     ```
 
-1. Controleer of dat beide directory's zijn gemaakt met behulp van de `ls` opdracht bash.
+1. Gebruik de `ls` bash om te controleren of u beide directory's is gemaakt.
 
     ![Cloud-shell na het maken van mappen](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
 
@@ -59,18 +61,18 @@ ms.lasthandoff: 04/06/2018
     cd deploy
     ```
 
-1. Met behulp van de [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), maakt u een bestand met de naam `deploy.tf`, die wordt bevatten de [Terraform configuratie](https://www.terraform.io/docs/configuration/index.html).
+1. Met behulp van de [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), maakt u een bestand met de naam `deploy.tf`. Dit bestand bevat de [Terraform configuratie](https://www.terraform.io/docs/configuration/index.html).
 
     ```bash
     vi deploy.tf
     ```
 
-1. Voer invoegmodus door op de letter `i` sleutel.
+1. Voer de invoegmodus door het selecteren van de sleutel.
 
 1. De volgende code in de editor plakken:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     resource "azurerm_resource_group" "slotDemo" {
@@ -104,15 +106,15 @@ ms.lasthandoff: 04/06/2018
     }
     ```
 
-1. Druk op de  **&lt;Esc >** sleutel om af te sluiten van de invoegmodus.
+1. Selecteer de Esc-toets om af te sluiten van de invoegmodus.
 
-1. Sla het bestand en de vi-editor te sluiten door te voeren van de volgende opdracht, gevolgd door te drukken  **&lt;Enter >**:
+1. Sla het bestand op en sluit de editor vi af met de volgende opdracht:
 
     ```bash
     :wq
     ```
 
-1. Zodra het bestand is gemaakt, kunt u de inhoud ervan te controleren.
+1. Nu dat u het bestand hebt gemaakt, Controleer of de inhoud ervan.
 
     ```bash
     cat deploy.tf
@@ -138,15 +140,15 @@ ms.lasthandoff: 04/06/2018
 
 1. Sluit het venster Cloud Shell.
 
-1. Selecteer op de Azure portal hoofdmenu **resourcegroepen**.
+1. Selecteer in het hoofdmenu van de Azure portal **resourcegroepen**.
 
-    ![Azure-portal resourcegroepen](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
+    ![De selectie 'Resourcegroepen' in de portal](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
 1. Op de **resourcegroepen** tabblad **slotDemoResourceGroup**.
 
     ![Resourcegroep gemaakt door Terraform](./media/terraform-slot-walkthru/resource-group.png)
 
-Wanneer u klaar bent, ziet u alle resources die zijn gemaakt door Terraform.
+U ziet nu de resources die Terraform heeft gemaakt.
 
 ![Resources die zijn gemaakt door Terraform](./media/terraform-slot-walkthru/resources.png)
 
@@ -156,7 +158,7 @@ Voordat u het maken en wisselen in en uit de implementatiesites testen kunt, moe
 
 1. Blader naar de [geweldig terraform opslagplaats op GitHub](https://github.com/Azure/awesome-terraform).
 
-1. Fork de **geweldig terraform opslagplaats**.
+1. Fork de **geweldig terraform** opslagplaats.
 
     ![De GitHub-repo-fantastisch terraform vertakken](./media/terraform-slot-walkthru/fork-repo.png)
 
@@ -164,9 +166,9 @@ Voordat u het maken en wisselen in en uit de implementatiesites testen kunt, moe
 
 ## <a name="deploy-from-github-to-your-deployment-slots"></a>Implementeren vanuit GitHub op uw implementatiesites
 
-Eenmaal fork de opslagplaats van het project testen configureren voor de implementatiesites via de volgende stappen uit:
+Nadat u de test-repo-project vertakken, configureert u de implementatiesites via de volgende stappen uit:
 
-1. Selecteer op de Azure portal hoofdmenu **resourcegroepen**.
+1. Selecteer in het hoofdmenu van de Azure portal **resourcegroepen**.
 
 1. Selecteer **slotDemoResourceGroup**.
 
@@ -182,9 +184,9 @@ Eenmaal fork de opslagplaats van het project testen configureren voor de impleme
 
 1. Nadat Azure de verbinding maakt en alle opties wordt weergegeven, selecteert u **autorisatie**.
 
-1. Op de **autorisatie** tabblad **autoriseren**, en de referenties die nodig zijn voor Azure toegang tot uw GitHub-account op te geven. 
+1. Op de **autorisatie** tabblad **autoriseren**, en de referenties die Azure toegang nodig heeft tot uw GitHub-account op te geven. 
 
-1. Nadat u Azure uw GitHub-referenties gevalideerd, verschijnt een bericht dat het verificatieproces is voltooid. Selecteer **OK** sluiten de **autorisatie** tabblad.
+1. Nadat Azure uw GitHub-referenties gevalideerd, wordt een bericht wordt weergegeven en staat dat het verificatieproces is voltooid. Selecteer **OK** sluiten de **autorisatie** tabblad.
 
 1. Selecteer **Kies uw organisatie** en uw organisatie.
 
@@ -204,19 +206,19 @@ Eenmaal fork de opslagplaats van het project testen configureren voor de impleme
 
 U hebt op dit moment de productiesite geïmplementeerd. Voer voor het implementeren van de faseringssleuf alle van de vorige stappen in deze sectie met de volgende wijzigingen aanbrengen:
 
-- In stap 3, **slotAppServiceSlotOne** resource.
+- Selecteer in stap 3, de **slotAppServiceSlotOne** resource.
 
-- Selecteer in de map ' werkvertakking ' in plaats van de hoofdvertakking in stap 13.
+- Selecteer de werkvertakking in plaats van de hoofdvertakking in stap 13.
 
-    ![Kies vertakking werkt](./media/terraform-slot-walkthru/choose-branch-working.png)
+    ![Kies de werkvertakking](./media/terraform-slot-walkthru/choose-branch-working.png)
 
 ## <a name="test-the-app-deployments"></a>Testen van de app-implementaties
 
-In de vorige secties stelt u twee sleuven - **slotAppService** en **slotAppServiceSlotOne** - voor de implementatie vanaf verschillende filialen in GitHub. Een voorbeeld bekijken we de web-apps om te valideren dat ze zijn geïmplementeerd.
+In de vorige secties stelt u twee sleuven--**slotAppService** en **slotAppServiceSlotOne**--voor het implementeren van verschillende filialen in GitHub. Een voorbeeld bekijken we de web-apps om te valideren dat ze zijn geïmplementeerd.
 
-De volgende stappen uit twee keer waar in stap 3 u **slotAppService** de eerste keer, en selecteer vervolgens **slotAppServiceSlotOne** de tweede keer:
+Voer de volgende stappen uit twee keer. In stap 3, selecteert u **slotAppService** de eerste keer, en selecteer vervolgens **slotAppServiceSlotOne** de tweede keer.
 
-1. Selecteer op de Azure portal hoofdmenu **resourcegroepen**.
+1. Selecteer in het hoofdmenu van de Azure portal **resourcegroepen**.
 
 1. Selecteer **slotDemoResourceGroup**.
 
@@ -241,9 +243,9 @@ Als u wilt testen wisselen van de twee implementatiesites, moet u de volgende st
  
 1. Overschakelen naar het browsertabblad met **slotAppService** (de app met de blauwe pagina). 
 
-1. Ga terug naar de Azure-portal op een afzonderlijke tabblad.
+1. Terug naar de Azure-portal op een afzonderlijke tabblad.
 
-1. Open de Cloud-Shell.
+1. Open Cloud-Shell.
 
 1. Wijzig de mappen op de **clouddrive/wisselen** directory.
 
@@ -251,18 +253,18 @@ Als u wilt testen wisselen van de twee implementatiesites, moet u de volgende st
     cd clouddrive/swap
     ```
 
-1. Maken van een bestand met de naam met behulp van de editor vi `swap.tf`.
+1. Maak een bestand met de naam met behulp van de editor vi `swap.tf`.
 
     ```bash
     vi swap.tf
     ```
 
-1. Voer invoegmodus door op de letter `i` sleutel.
+1. Voer de invoegmodus door het selecteren van de sleutel.
 
 1. De volgende code in de editor plakken:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     # Swap the production slot and the staging slot
@@ -273,9 +275,9 @@ Als u wilt testen wisselen van de twee implementatiesites, moet u de volgende st
     }
     ```
 
-1. Druk op de  **&lt;Esc >** sleutel om af te sluiten van de invoegmodus.
+1. Selecteer de Esc-toets om af te sluiten van de invoegmodus.
 
-1. Sla het bestand en de vi-editor te sluiten door te voeren van de volgende opdracht, gevolgd door te drukken  **&lt;Enter >**:
+1. Sla het bestand op en sluit de editor vi af met de volgende opdracht:
 
     ```bash
     :wq
@@ -299,16 +301,16 @@ Als u wilt testen wisselen van de twee implementatiesites, moet u de volgende st
     terraform apply
     ```
 
-1. Zodra de Terraform is voltooid wisselen van de sleuven, Ga terug naar de browser die wordt gerenderd de **slotAppService** web-app en vernieuw de pagina. 
+1. Nadat Terraform is voltooid wisselen van de sleuven, Ga terug naar de browser die wordt gerenderd de **slotAppService** web-app en vernieuw de pagina. 
 
-De web-app in uw **slotAppServiceSlotOne** faseringssleuven heeft is gewisseld met de productiesite en nu rendert groen. 
+De web-app in uw **slotAppServiceSlotOne** faseringssleuven heeft is gewisseld met de productiesite en wordt nu in het groen weergegeven. 
 
 ![De implementatiesites hebben zijn gewisseld](./media/terraform-slot-walkthru/slots-swapped.png)
 
-Als u wilt terugkeren naar de oorspronkelijke productieversie van de app, pas de Terraform-plan dat is gemaakt op basis van de `swap.tf` configuratiebestand.
+Als u wilt terugkeren naar de oorspronkelijke productieversie van de app, pas de Terraform-plan dat u hebt gemaakt van de `swap.tf` configuratiebestand.
 
 ```bash
 terraform apply
 ```
 
-Nadat gewisseld, ziet u de oorspronkelijke configuratie.
+Nadat de app zijn uitgewisseld, ziet u de oorspronkelijke configuratie.

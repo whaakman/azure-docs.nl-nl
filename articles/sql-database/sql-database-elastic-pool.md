@@ -7,14 +7,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 6c2e4e7f99aeec3028e8df520dc6896234b5c969
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 930b5607f343b87adc253cc99d74ddf28235a50b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools helpen u te beheren en schalen van meerdere Azure SQL-databases
 
@@ -74,7 +74,7 @@ De volgende vuistregels voor databaseaantallen en databasegebruik helpen ervoor 
 
 ### <a name="minimum-number-of-databases"></a>Minimum aantal databases
 
-Als de hoeveelheid resources voor individuele databases meer dan 1,5 x de benodigde resources voor de groep, is wordt een elastische pool rendabeler is.
+Als de totale hoeveelheid resources voor individuele databases meer dan 1,5 x de benodigde resources voor de groep, is wordt een elastische pool rendabeler is.
 
 ***Voorbeeld aankopen model op basis van DTU***<br>
 Er zijn ten minste twee S3-databases of ten minste 15 S0-databases nodig wil een groep van 100 eDTU's rendabeler zijn dan het gebruik van de prestatieniveaus voor individuele databases.
@@ -236,8 +236,8 @@ Maken en beheren van elastische pools van de SQL-Database met de [Azure CLI](/cl
 | Cmdlet | Beschrijving |
 | --- | --- |
 |[elastische sql-AZ-groep maken](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Maakt een elastische pool.|
-|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Retourneert een lijst met elastische pools in een server.|
-|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Retourneert een lijst met databases in een elastische pool.|
+|[lijst met AZ sql elastische pool](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Retourneert een lijst met elastische pools in een server.|
+|[AZ sql elastische pool lijst-databases](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Retourneert een lijst met databases in een elastische pool.|
 |[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Omvat ook beschikbaar DTU groepsinstellingen, opslaglimieten, en per database-instellingen. Om te reduceren uitgebreidheid aanvullende opslaglimieten en per database instellingen standaard zijn verborgen.|
 |[update van de elastische pool AZ sql](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Een elastische pool-updates.|
 |[AZ sql elastische groep verwijderen](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Hiermee wordt de elastische groep verwijderd.|
@@ -252,7 +252,7 @@ Maken en het verplaatsen van databases binnen bestaande elastische pools of om i
 
 | Opdracht | Beschrijving |
 | --- | --- |
-|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Maakt een nieuwe database in een bestaande pool of als een individuele database. U moet verbonden zijn met de database master om een nieuwe database te maken.|
+|[DATABASE (Azure SQL Database) maken](/sql/t-sql/statements/create-database-azure-sql-database)|Maakt een nieuwe database in een bestaande pool of als een individuele database. U moet verbonden zijn met de database master om een nieuwe database te maken.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Een database verplaatsen naar, uit of tussen elastische pools.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Hiermee verwijdert u een database.|
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Retourneert de gebruiksstatistieken resource voor alle pools voor elastische databases in een logische server. Voor elke elastische databasegroep moet er één rij voor elke 15 seconden reporting venster (vier rijen per minuut). Dit omvat CPU, IO, logboek, opslagverbruik en gelijktijdige aanvraag/sessie gebruik door alle databases in de groep.|

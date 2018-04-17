@@ -5,20 +5,20 @@ services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 04/11/2018
 ms.author: sethm
-ms.openlocfilehash: 0ceeb138a7432e51cabe2597c680cb01ea9eac4a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 876b1c30c09f31958555ff3dee769d8dd443a60d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Service Bus-resources met behulp van Azure Resource Manager-sjablonen maken
 
@@ -61,7 +61,7 @@ Azure PowerShell installeren door de instructies in [aan de slag met Azure Power
 
 ### <a name="create-a-template"></a>Een sjabloon maken
 
-Kloon of kopieer de [201-servicebus-maken-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) sjabloon vanuit GitHub:
+Kloon de opslagplaats of een kopie van de [201-servicebus-maken-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) sjabloon vanuit GitHub:
 
 ```json
 {

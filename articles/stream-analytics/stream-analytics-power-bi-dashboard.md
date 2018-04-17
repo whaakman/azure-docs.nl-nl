@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2017
-ms.openlocfilehash: 15b8548e8b5b6ff8d2f5722d2a4031f8e52d044b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e84903870110091d527e870600d9a67bdc9cc6e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics en Power BI: een realtime analytics-dashboard voor het streamen van gegevens
+# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Zelfstudie: Stream Analytics en Power BI: een realtime analytics-dashboard voor het streamen van gegevens
 Azure Stream Analytics kunt u profiteren van een van de toonaangevende hulpprogramma's voor bedrijfsinformatie, [Microsoft Power BI](https://powerbi.com/). In dit artikel leert u hoe hulpprogramma's voor bedrijfsinformatie te maken met behulp van Power BI als uitvoer voor uw Azure Stream Analytics-taken. U leert ook hoe maken en gebruiken van een realtime dashboard.
 
 In dit artikel wordt voortgezet vanaf de Stream Analytics [realtime-fraudedetectie](stream-analytics-real-time-fraud-detection.md) zelfstudie. Het is gebaseerd op de werkstroom in deze zelfstudie hebt gemaakt en voegt een Power BI zodat u kunt visualiseren frauduleuze telefoongesprekken die zijn gedetecteerd door een Streaming Analytics-taak uitvoeren. 

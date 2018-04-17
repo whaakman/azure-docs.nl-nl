@@ -1,29 +1,22 @@
 ---
-title: Het Blob Storage gebruiken met Xamarin | Microsoft Docs
-description: De Azure Storage-clientbibliotheek voor Xamarin kunnen ontwikkelaars iOS, Android en Windows Store-apps maken met hun eigen gebruikersinterface. Deze zelfstudie laat zien hoe Xamarin gebruiken voor het maken van een toepassing die gebruikmaakt van Azure Blob-opslag.
+title: Het gebruik van de Xamarin-Blob (object) opslag | Microsoft Docs
+description: De Azure Storage-clientbibliotheek voor Xamarin kan ontwikkelaars iOS, Android en Windows Store-apps maken met hun eigen gebruikersinterface. Deze zelfstudie laat zien hoe Xamarin gebruiken voor het maken van een toepassing die gebruikmaakt van Azure Blob-opslag.
 services: storage
 documentationcenter: xamarin
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: 44cb845d-cf78-4942-95b8-952da4f9a2c2
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: c7b4d0e7d7d95f2e3f8c5a97b78c60c52cc862a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31dbaeb1dd998d8d27af5eff0fa293117ef7f471
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Het Blob Storage gebruiken met Xamarin
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-## <a name="overview"></a>Overzicht
 Xamarin kunnen ontwikkelaars gebruikt een gedeelde C# codebase iOS, Android en Windows Store-apps maken met hun eigen gebruikersinterface. Deze zelfstudie laat zien hoe u Azure Blob storage gebruiken met een Xamarin-toepassing. Als u meer informatie over Azure Storage vooraleer de code, Zie [Inleiding tot Microsoft Azure Storage](../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
@@ -43,7 +36,7 @@ Volg deze stappen om uw toepassing te maken:
 U hebt nu een toepassing waarmee u op een knop die een teller verhoogd.
 
 ## <a name="create-container-and-upload-blob"></a>Container maken en uploaden van blob
-Vervolgens onder uw `(Portable)` project, voegt u code naar `MyClass.cs`. Deze code maakt een container en een blob uploadt naar deze container. `MyClass.cs`moet eruitzien als in het volgende:
+Vervolgens onder uw `(Portable)` project, voegt u code naar `MyClass.cs`. Deze code maakt een container en een blob uploadt naar deze container. `MyClass.cs` moet eruitzien als in het volgende:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -84,7 +77,7 @@ namespace XamarinApp
 
 Zorg ervoor dat 'your_account_name_here' en "your_account_key_here" vervangen door uw werkelijke accountnaam en accountsleutel. 
 
-Uw iOS-, Android- en Windows Phone-projecten alle verwijzingen hebben naar uw draagbare project - wat betekent dat u alle gedeelde code kunt schrijven in een plaats en deze gebruiken voor alle projecten. U kunt nu de volgende regel code toevoegen aan elk project om te profiteren:`MyClass.performBlobOperation()`
+Uw iOS-, Android- en Windows Phone-projecten alle verwijzingen hebben naar uw draagbare project - wat betekent dat u alle gedeelde code kunt schrijven in een plaats en deze gebruiken voor alle projecten. U kunt nu de volgende regel code toevoegen aan elk project om te profiteren: `MyClass.performBlobOperation()`
 
 ### <a name="xamarinappdroid--mainactivitycs"></a>XamarinApp.Droid > MainActivity.cs
 

@@ -1,8 +1,8 @@
 ---
-title: "Implementeren en beheren van Apache Storm-topologieën op HDInsight | Microsoft Docs"
-description: "Informatie over het implementeren, bewaken en beheren van Apache Storm-topologieën op HDInsight met behulp van het Storm-Dashboard. Hadoop-hulpprogramma's voor Visual Studio gebruiken."
+title: Implementeren en beheren van Apache Storm-topologieën op HDInsight | Microsoft Docs
+description: Informatie over het implementeren, bewaken en beheren van Apache Storm-topologieën op HDInsight met behulp van het Storm-Dashboard. Hadoop-hulpprogramma's voor Visual Studio gebruiken.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5e542072-f014-42aa-82d6-2694a76df520
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 92c1a02cd7d435809914e7f5bb43b2f8d6aa0cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 55c92e6408522b8a96a37dbedd99d929af1e49fb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Implementeren en beheren van Apache Storm-topologieën op HDInsight op basis van Windows
 
@@ -161,7 +159,7 @@ Gebruik de volgende stappen een voorbeeld implementeren naar uw Storm op HDInsig
    > Storm-topologieën blijft in uitvoering totdat ze zijn gestopt of het cluster wordt verwijderd.
 
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 De Storm-gebruikersinterface is ingebouwd in de REST API, zodat u kunt vergelijkbare management en de controlefunctionaliteit met behulp van de REST-API. U kunt de REST-API maken voor aangepaste hulpprogramma's voor beheer en controle van Storm-topologieën.
 
@@ -171,7 +169,7 @@ Zie voor meer informatie [Storm UI REST-API](https://github.com/apache/storm/blo
 
 De basis-URI voor de REST-API op HDInsight-clusters is **https://&lt;clustername >.azurehdinsight.net/stormui/api/v1/**, waarbij **clustername** is de naam van uw Storm op HDInsight-cluster.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 
 Aanvragen voor de REST-API moeten gebruiken **basisverificatie**, zodat u de beheerder de naam van HDInsight-cluster en het wachtwoord gebruiken.
 

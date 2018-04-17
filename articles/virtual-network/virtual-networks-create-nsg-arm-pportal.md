@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 865032f350735d35668bb199ccf1ef3f0fae81de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd05df542327f9d8dae924b7097d247980a0558b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-portal"></a>Netwerk beveiligingsgroepen met de Azure portal maken
 
@@ -39,7 +39,7 @@ Het voorbeeld PowerShell onderstaande opdrachten een eenvoudige omgeving al gema
 ## <a name="create-the-nsg-frontend-nsg"></a>Het NSG NSG-FrontEnd maken
 Maken van de **NSG-FrontEnd** NSG zoals weergegeven in het bovenstaande scenario Volg de onderstaande stappen.
 
-1. Navigeer via een browser naar http://portal.azure.com en log, indien nodig, in met uw Azure-account.
+1. Navigeer in een browser naar http://portal.azure.com en meld u, indien nodig, aan met uw Azure-account.
 2. Klik op **Bladeren >** > **Netwerkbeveiligingsgroepen**.
    
     ![Azure portal - nsg 's](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
@@ -92,6 +92,6 @@ Maken van de **NSG-back-end** NSG en koppel deze aan de **back-end** subnet, vol
 3. Herhaal de stappen in [het NSG aan het subnet FrontEnd koppelt](#Associate-the-NSG-to-the-FrontEnd-subnet) koppelen de **NSG-back-end** NSG aan de **back-end** subnet.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over hoe [bestaande nsg's beheren](virtual-network-manage-nsg-arm-portal.md)
+* Meer informatie over hoe [bestaande nsg's beheren](manage-network-security-group.md)
 * [Logboekregistratie inschakelen](virtual-network-nsg-manage-log.md) voor nsg's.
 

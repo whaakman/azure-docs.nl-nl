@@ -6,7 +6,7 @@ cloud: na
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-ms.assetid: 
+ms.assetid: ''
 ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: terrylan
-ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f85f49bd54eacbca67143b35eaf555cfb744a41d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="permissions-in-azure-security-center"></a>Machtigingen in Azure Security Center
 
-Het Azure Beveiligingscentrum gebruikt [op rollen gebaseerd toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md), dat [ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md) biedt die kunnen worden toegewezen aan gebruikers, groepen en services in Azure.
+Maakt gebruik van Azure Security Center [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md), waarmee u [ingebouwde rollen](../role-based-access-control/built-in-roles.md) die kunnen worden toegewezen aan gebruikers, groepen en -services in Azure.
 
 Security Center beoordeelt de configuratie van uw resources om beveiligingsproblemen en beveiligingslekken te identificeren. In Security Center ziet u alleen informatie met betrekking tot een bron wanneer u de rol van eigenaar, bijdrager of lezer voor het abonnement of resourcegroep die deel uitmaakt van een resource te worden toegewezen.
 
@@ -48,7 +48,7 @@ De volgende tabel geeft rollen en toegestane acties in Security Center. Een X ge
 | Resourcegroep Inzender | -- | X | -- | X |
 | Lezer | -- | -- | -- | X |
 | Beveiligingsbeheerder | X | -- | X | X |
-| Beveiliging lezer | -- | -- | -- | X |
+| Beveiligingslezer | -- | -- | -- | X |
 
 > [!NOTE]
 > We raden u aan de rol toe te wijzen die gebruikers minimaal nodig hebben om hun taken uit te voeren. Bijvoorbeeld: de rol Lezer toewijzen aan gebruikers die alleen informatie weergeven over de beveiligingsstatus van een bron, maar geen actie uitvoert, zoals het toepassen van aanbevelingen of het bewerken van beleid nodig hebben.

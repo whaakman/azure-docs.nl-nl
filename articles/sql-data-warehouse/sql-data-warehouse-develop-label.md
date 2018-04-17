@@ -1,28 +1,27 @@
 ---
-title: Labels op instrument query's in SQL Data Warehouse gebruiken | Microsoft Docs
+title: Met labels op instrument query's in SQL Data Warehouse | Microsoft Docs
 description: Tips voor het gebruik van labels op instrument query's in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 44988de8-04c1-4fed-92be-e1935661a4e8
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 9e75bbe528a427724a623305fbd45e2277e9d0af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 48fe625573639c0ec98e672f02a35e4a9ae268e8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>Labels op instrument query's in SQL Data Warehouse gebruiken
-SQL Data Warehouse ondersteunt een concept query labels genoemd. Bekijk voordat u doorgaat naar eventuele diepte gaan we een voorbeeld van een:
+# <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Met behulp van de labels op instrument query's in Azure SQL Data Warehouse
+Tips voor het gebruik van labels op instrument query's in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+
+
+## <a name="what-are-labels"></a>Wat zijn labels?
+SQL Data Warehouse ondersteunt een concept query labels genoemd. Voordat u doorgaat naar eventuele diepte, bekijk een voorbeeld:
 
 ```sql
 SELECT *
@@ -31,11 +30,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Deze regel geeft de tekenreeks 'Mijn Query Label' aan de query. Dit is vooral handig zijn, zoals het label query kunnen via de DMV's is. Dit biedt ons een mechanisme voor het opsporen van probleem query's en om te identificeren uitgevoerd via een ETL uitvoeren.
+De laatste regel labels van de tekenreeks 'Mijn Query Label' aan de query. Deze code is vooral handig zijn, omdat het label query kunnen via de DMV's. Een query uitvoert voor labels biedt een mechanisme voor probleem query's te zoeken en helpen identificeren door een ELT uitvoeren.
 
-Een goede naamgevingsconventie echt helpt hier. Bijvoorbeeld als ' PROJECT: PROCEDURE: instructie: Opmerking ' kan helpen om de query in onder de code in broncodebeheer uniek te identificeren.
+Een goede naamgevingsconventie echt helpt. Bijvoorbeeld, helpt vanaf het label PROJECT kunt PROCEDURE, instructie of opmerking om de query onder de code in broncodebeheer uniek te identificeren.
 
-U kunt de volgende query die gebruikmaakt van de dynamische beheerweergaven gebruiken om te zoeken op label:
+De volgende query maakt gebruik van een dynamische Beheerweergave om te zoeken op label.
 
 ```sql
 SELECT  *
@@ -45,18 +44,11 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> Het is essentieel dat u vierkante haken of dubbele aanhalingstekens rond het word-label langs tijdens het opvragen van. Label is een gereserveerd woord en wordt een fout veroorzaakt als deze niet zijn gescheiden.
+> Het is belangrijk om de vierkante haken of dubbele aanhalingstekens rond het word-label worden geplaatst bij het opvragen van. Label is een gereserveerd woord en veroorzaakt een fout bij het niet worden gescheiden. 
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars][development overview].
+Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
 
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

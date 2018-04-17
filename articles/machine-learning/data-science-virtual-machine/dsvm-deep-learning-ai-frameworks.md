@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 829095c7f9b92f64fd6204481e68b2594a3a0017
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e2a0bdaf0d12a93dcee5a8a2657bb012095bb283
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Deep Learning en AI-frameworks
 De [gegevens wetenschappelijke virtuele Machine](http://aka.ms/dsvm) (DSVM) en de [grondige Learning VM](http://aka.ms/dsvm/deeplearning) ondersteunt een aantal grondige learning frameworks om u te helpen bij het ontwikkelen van toepassingen met predictive analytics kunstmatige intelligentie (AI) en cognitieve mogelijkheden, zoals de installatiekopie en language understanding. 
@@ -56,7 +56,7 @@ Hier volgen de details op alle frameworks die beschikbaar is op de DSVM learning
 | Ondersteunde DSVM edities      | Windows, Linux     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Keras is geïnstalleerd in Python 2.7 (_hoofdmap_), evenals Python 3.5 (_py35_) omgeving.   |
 | Koppelingen naar voorbeelden      | https://github.com/fchollet/keras/tree/master/examples      |
-| Bijbehorende hulpprogramma's op de DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
+| Bijbehorende hulpprogramma's op de DSVM      | Microsoft cognitieve Toolkit, TensorFlow, Theano      |
 | Hoe gebruik / uitvoeren?    | De voorbeelden van de locatie van Github downloaden, kopiëren naar een map onder ~/notebooks en openen in Jupyter   |
 
 
@@ -157,7 +157,7 @@ De service duurt ongeveer een minuut om te starten. Start een webbrowser en navi
 
 
 
-## <a name="nvdia-smi"></a>nvdia-smi
+## <a name="nvdia-smi"></a>NVDIA smi
 
 |    |           |
 | ------------- | ------------- |

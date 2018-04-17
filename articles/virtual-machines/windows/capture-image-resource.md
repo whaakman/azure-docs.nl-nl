@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 0b0bd48b95ad9393b4cd82081436e561326df6da
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8195c5e86e6e8d7e2a0bd059820998692667eca8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Maken van een begeleide afbeelding van een gegeneraliseerde virtuele machine in Azure
 
@@ -66,12 +66,11 @@ Zorg ervoor dat de serverfuncties die op de computer uitgevoerd worden ondersteu
 Het maken van een installatiekopie van een rechtstreeks vanuit de virtuele machine, zorgt u ervoor dat de installatiekopie alle schijven die zijn gekoppeld aan de virtuele machine bevat, inclusief de Besturingssysteemschijf en alle gegevensschijven. In dit voorbeeld laat zien hoe een begeleide afbeelding maken van een virtuele machine of schijven die gebruikt worden beheerd.
 
 
-Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module hebt. Voer de volgende opdracht om deze te installeren. (Gebruik `Get-Module` om te controleren welke versie u hebt.)
+Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module hebt. Dit artikel is vereist voor de AzureRM moduleversie 5.7.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
-```azurepowershell-interactive
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Zie voor meer informatie [Azure PowerShell Versioning](/powershell/azure/overview).
+
+> [!NOTE]
+> Als u wilt uw installatiekopie wordt opgeslagen in de zone robuuste opslag, moet u deze maken in een regio die ondersteuning biedt voor [beschikbaarheid zones](../../availability-zones/az-overview.md) en bevatten de `-ZoneResilient` parameter in de configuratie van de installatiekopie.
 
 
 1. Sommige variabelen maken.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 24c8d90d3fec27258165472e99ba3d36ffcba733
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: cd9054afc359d7568fcd08f983f374e0b2bc3792
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-system-requirements-for-pci-dss-compliant-environments"></a>Systeemvereisten voor PCI DSS-compatibele omgevingen beveiligen 
 ## <a name="pci-dss-requirement-6"></a>PCI-DSS vereiste 6
@@ -47,7 +47,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Procedures zijn gemaakt en geïmplementeerd om te scannen op beveiligingsproblemen op hypervisorhosts in de grens van het bereik. Beveiligingslek scannen wordt uitgevoerd op server-besturingssystemen, databases en netwerkapparaten met de juiste beveiligingslek scanning-hulpprogramma's. De scans op zwakke plekken worden per kwartaal minimaal uitgevoerd. Microsoft Azure-opdrachten met onafhankelijke beoordelaars binnendringen testen van de Microsoft Azure-grens. Rood Team oefeningen ook regelmatig worden uitgevoerd en resultaten gebruikt om de verbeterde beveiliging. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met WAF en de ruleset OWASP is ingeschakeld. Zie voor meer informatie [richtlijnen PCI - beperking van de risico's van beveiligingsproblemen](payment-processing-blueprint.md#application-gateway).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met WAF en de ruleset OWASP is ingeschakeld. Zie voor meer informatie [richtlijnen PCI - beperking van de risico's van beveiligingsproblemen](payment-processing-blueprint.md#application-gateway).|
 
 
 
@@ -63,7 +63,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is verantwoordelijk voor alle netwerkapparaten en hypervisor OS-software is beveiligd tegen bekende beveiligingsproblemen door het installeren van de betreffende leverancier beveiligingspatches. Tenzij een klant vraagt om de service niet te gebruiken, wordt een beheerproces patch bestaat om ervoor te zorgen dat besturingssysteem niveau beveiligingsproblemen worden voorkomen en tijdig worden hersteld. Productieservers worden gescand voor het valideren van naleving van de patch op maandelijkse basis. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore is een oplossing voor PaaS-service. Azure biedt onderhoud van alle service-patches.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore is een oplossing voor PaaS-service. Azure biedt onderhoud van alle service-patches.|
 
 
 
@@ -82,7 +82,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure-toepassingen en eindpunten worden ontwikkeld in overeenstemming met de Microsoft Security Development Lifecycle (SDL)-methode die in overeenstemming met DSS-vereisten. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore is ontworpen om aanbevolen procedures voor het beveiligen van CHD bedrijfstak volgt. Richtlijnen voor de implementatie biedt de details van de beveiliging meassures en logboekregistratie is ingeschakeld.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore is ontworpen om aanbevolen procedures voor het beveiligen van CHD bedrijfstak volgt. Richtlijnen voor de implementatie biedt de details van de beveiliging meassures en logboekregistratie is ingeschakeld.|
 
 
 
@@ -95,7 +95,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Laatste beveiliging controleren (FSR) wordt uitgevoerd voor belangrijke releases vóór de productie-implementatie met een aangewezen Security Advisor buiten het Azure ontwikkelteam om te controleren of alleen toepassingen gereed voor productie zijn vrijgegeven. Als onderdeel van de laatste evaluatie wordt gewaarborgd dat alle testaccounts en de testgegevens zijn verwijderd. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gefaseerde installatie service die is geregistreerd en geïsoleerd. Elk van de lagen netwerk heeft een speciale netwerkbeveiligingsgroep [NSG]. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](payment-processing-blueprint.md#network-security-groups).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gefaseerde installatie service die is geregistreerd en geïsoleerd. Elk van de lagen netwerk heeft een speciale netwerkbeveiligingsgroep [NSG]. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -117,7 +117,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure-toepassingen en eindpunten worden ontwikkeld in overeenstemming met de Microsoft Security Development Lifecycle (SDL)-methode. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gefaseerde installatie service die is geregistreerd en geïsoleerd. Elk van de lagen netwerk heeft een speciale netwerkbeveiligingsgroep [NSG]. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](payment-processing-blueprint.md#network-security-groups).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gefaseerde installatie service die is geregistreerd en geïsoleerd. Elk van de lagen netwerk heeft een speciale netwerkbeveiligingsgroep [NSG]. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -130,7 +130,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft volgt NIST richtlijnen met betrekking tot beveiligingsoverwegingen in softwareontwikkeling in de beveiliging van deze informatie moeten worden geïntegreerd in de SDLC van systeem begin. Continue integratie van procedures voor beveiliging in de Microsoft SDL kunnen:<ul><li>Vroege identificatie en beperking van beveiligingsrisico's en onvolkomenheden</li><li>Bewustzijn van mogelijke software problemen veroorzaakt door vereist beveiligingsmechanismen coderen</li><li>Identificatie van gedeelde beveiligingsservices en het hergebruik van best practices hulpprogramma's voor beveiliging, wat zorgt voor betere beveiligingspostuur via beproefde methoden en technieken</li><li>Afdwinging van het programma van Microsoft al uitgebreide risico management</li></ul>Microsoft Azure wijziging tot stand heeft gebracht en de vrijgave van beheerprocessen om te bepalen van de implementatie van grote wijzigingen, met inbegrip van:<ul><li>De identificatie en de documentatie van de geplande wijziging</li><li>Identificatie van zakelijke doelstellingen, prioriteiten en scenario's bij het plannen van het product</li><li>Specificatie van het ontwerp van de functie/onderdeel</li><li>Operationele gereedheid controleren op basis van een vooraf gedefinieerde criteria /-controlelijst om algemene risico's / impact vast te stellen</li><li>Testen, autorisatie en wijzigingsbeheer op basis van binnenkomt/verlaat criteria voor ontwikkeling (ontwikkeling), INT (integratie testen), fase (voor preproductie) en PROD (productie) omgevingen naar gelang van toepassing. Klanten zijn verantwoordelijk voor hun eigen toepassingen die worden gehost in Microsoft Azure.</li></ul> |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De demo Contoso Webstore biedt een gefaseerde installatie service die is geregistreerd en geïsoleerd. <br /><br />Elk van de lagen netwerk heeft een speciale netwerkbeveiligingsgroep [NSG]. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](payment-processing-blueprint.md#network-security-groups).<br /><br />Wijzigingen worden vastgelegd met behulp van Operations Management Suite en Runbooks worden gebruikt voor het verzamelen van Logboeken. [Operations Management Suite (OMS)](/azure/operations-management-suite/) biedt uitgebreide logboekregistratie van wijzigingen. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. Zie voor meer specifieke instructies [richtlijnen PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De demo Contoso Webstore biedt een gefaseerde installatie service die is geregistreerd en geïsoleerd. <br /><br />Elk van de lagen netwerk heeft een speciale netwerkbeveiligingsgroep [NSG]. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](payment-processing-blueprint.md#network-security-groups).<br /><br />Wijzigingen worden vastgelegd met behulp van Operations Management Suite en Runbooks worden gebruikt voor het verzamelen van Logboeken. Log Analytics biedt uitgebreide logboekregistratie van wijzigingen. Wijzigingen worden beoordeeld en gecontroleerd op juistheid. Zie voor meer specifieke instructies [richtlijnen PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -143,7 +143,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 6.4](#pci-dss-requirement-6-4). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gefaseerde installatie service die is geregistreerd en geïsoleerd. Elk van de lagen netwerk heeft een speciale netwerkbeveiligingsgroep [NSG]. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](payment-processing-blueprint.md#network-security-groups).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gefaseerde installatie service die is geregistreerd en geïsoleerd. Elk van de lagen netwerk heeft een speciale netwerkbeveiligingsgroep [NSG]. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -156,7 +156,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 6.4](#pci-dss-requirement-6-4). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gefaseerde installatie service die is geregistreerd en geïsoleerd. Elk van de lagen netwerk heeft een speciale netwerkbeveiligingsgroep [NSG]. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](payment-processing-blueprint.md#network-security-groups).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gefaseerde installatie service die is geregistreerd en geïsoleerd. Elk van de lagen netwerk heeft een speciale netwerkbeveiligingsgroep [NSG]. Zie voor meer informatie [richtlijnen PCI - Netwerkbeveiligingsgroepen](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -169,7 +169,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 6.4](#pci-dss-requirement-6-4). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft geen primaire account nummer (PAN) gegevens live.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft geen primaire account nummer (PAN) gegevens live.|
 
 
 
@@ -182,7 +182,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 6.4](#pci-dss-requirement-6-4). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft geen testaccounts.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft geen testaccounts.|
 
 
 
@@ -199,7 +199,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 6.4](#pci-dss-requirement-6-4). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore is een oplossing voor PaaS-service. En Azure biedt onderhoud van alle service-patches.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore is een oplossing voor PaaS-service. En Azure biedt onderhoud van alle service-patches.|
 
 
 
@@ -216,7 +216,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 6.4](#pci-dss-requirement-6-4). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore is een oplossing voor PaaS-service. En Azure biedt onderhoud van alle service-patches.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore is een oplossing voor PaaS-service. En Azure biedt onderhoud van alle service-patches.|
 
 
 
@@ -248,7 +248,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Zie de sectie 'Microsoft Azure' voor [vereiste 6.4](#pci-dss-requirement-6-4). |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Contoso Webstore demo biedt richtlijnen voor veilige ontwikkeling, een GSD en threat model ter illustratie van de procedures voor veilige ontwikkeling.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Contoso Webstore demo biedt richtlijnen voor veilige ontwikkeling, een GSD en threat model ter illustratie van de procedures voor veilige ontwikkeling.|
 
 
 
@@ -268,7 +268,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Voordat toepassingen op de productie-omgeving zijn geïmplementeerd, Microsoft Azure openbare webtoepassingen getest als onderdeel van de SDL-proces. Bovendien scant Microsoft alle openbare webtoepassingen in productie op gezette tijden voor het detecteren van alle mogelijke beveiligingsproblemen. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De referentie-oplossing vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met WAF en de ruleset OWASP is ingeschakeld. Zie voor meer informatie [richtlijnen PCI - beperking van de risico's van beveiligingsproblemen](payment-processing-blueprint.md#application-gateway).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De referentie-oplossing vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met WAF en de ruleset OWASP is ingeschakeld. Zie voor meer informatie [richtlijnen PCI - beperking van de risico's van beveiligingsproblemen](payment-processing-blueprint.md#application-gateway).|
 
 
 
@@ -281,7 +281,7 @@ Hier geen personen gebruik beveiligingsproblemen voor bevoorrechte toegang tot s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De referentie-oplossing vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met WAF en de ruleset OWASP is ingeschakeld. Zie voor meer informatie [richtlijnen PCI - beperking van de risico's van beveiligingsproblemen](payment-processing-blueprint.md#application-gateway).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De referentie-oplossing vermindert het risico van beveiligingsproblemen met behulp van een toepassingsgateway met WAF en de ruleset OWASP is ingeschakeld. Zie voor meer informatie [richtlijnen PCI - beperking van de risico's van beveiligingsproblemen](payment-processing-blueprint.md#application-gateway).|
 
 
 

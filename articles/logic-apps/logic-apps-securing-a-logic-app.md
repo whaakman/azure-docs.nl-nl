@@ -5,7 +5,7 @@ services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042fdaa037fe1928fdb81727968a532ddfae0a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>Veilige toegang tot uw logische apps
 
@@ -77,7 +77,7 @@ U kunt desgewenst het aanroepen van een logische app alleen van specifieke clien
 Deze instelling kan worden geconfigureerd in de logic app-instellingen:
 
 1. Open in de Azure-portal, de logische app die u wilt toevoegen, IP-adresbeperkingen
-1. Klik op de **configuratie voor toegangsbeheer** menu-item onder **instellingen**
+1. Klik op de **Werkstroominstellingen** menu-item onder **instellingen**
 1. Geef de lijst met IP-adresbereiken worden geaccepteerd door de trigger
 
 Een geldig IP-bereik heeft de notatie `192.168.1.1/255`. Als u wilt dat de logische app alleen gestart als een geneste logische app, selecteert u de **alleen andere logic apps** optie. Deze optie schrijft een lege matrix naar de resource betekenis alleen aanroepen van de service zelf (bovenliggende logic apps) is gestart.
@@ -119,7 +119,7 @@ Toevoegen van meer autorisatie-protocollen boven op een logische app, [Azure API
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Veilige toegang als u wilt beheren of logische apps bewerken
 
-U kunt toegang tot beheertaken uit te voeren op een logische app beperken zodat alleen bepaalde gebruikers of groepen kunnen geen bewerkingen uitvoeren op de resource. Logische apps gebruiken de Azure [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md) functie en met dezelfde hulpmiddelen kunnen worden aangepast.  Er zijn enkele ingebouwde rollen die kunt u ook leden van uw abonnement toewijzen:
+U kunt toegang tot beheertaken uit te voeren op een logische app beperken zodat alleen bepaalde gebruikers of groepen kunnen geen bewerkingen uitvoeren op de resource. Logische apps gebruiken de Azure [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md) functie en met dezelfde hulpmiddelen kunnen worden aangepast.  Er zijn enkele ingebouwde rollen die kunt u ook leden van uw abonnement toewijzen:
 
 * **Logic App Inzender** -toegang als u wilt weergeven, bewerken en bijwerken van een logische app biedt.  Kan de resource verwijderen of admin bewerkingen uitvoeren.
 * **Logic App Operator** - kunt bekijken van de logische app geschiedenis uitvoeren en in-of uitschakelen.  Niet kunt bewerken of bijwerken van de definitie.

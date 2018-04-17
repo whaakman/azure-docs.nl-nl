@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 26204d5bd61d193a3d08e26f98faf77ecc367a94
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0eda9012e6b6c7207d200a6e550b6bc0b0b09882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Gebruik alleen-lezen partities laden werklast alleen-lezen-query (preview)
 
@@ -32,7 +32,7 @@ Nadat lezen Scale-Out is ingeschakeld voor een database, verbinding maken met da
 
 ## <a name="data-consistency"></a>Gegevensconsistentie
 
-Een van de voordelen van AlwasyON is dat de replica's zich altijd in de transactioneel consistent wilt maken, maar op verschillende tijdstippen in de tijd kan er een aantal kleine latentie tussen verschillende replica's. Niveau van de sessie consistentie biedt ondersteuning voor lezen Scale-Out. Het betekent als de alleen-lezen-sessie opnieuw verbinding maakt nadat een de verbindingsfout is veroorzaakt door replica ontbreken, deze kan worden omgeleid naar een replica die geen 100% up-to-date met de replica alleen-lezen. Op dezelfde manier als een toepassing schrijft gegevens via een alleen-lezen-sessie en leest onmiddellijk met behulp van een alleen-lezen-sessie, is het mogelijk de nieuwste updates zijn niet onmiddellijk zichtbaar. Dit is omdat de transactie log opnieuw op de replica's asynchroon is.
+Een van de voordelen van AlwaysON is dat de replica's zich altijd in de transactioneel consistent wilt maken, maar op verschillende tijdstippen in de tijd kan er een aantal kleine latentie tussen verschillende replica's. Niveau van de sessie consistentie biedt ondersteuning voor lezen Scale-Out. Het betekent als de alleen-lezen-sessie opnieuw verbinding maakt nadat een de verbindingsfout is veroorzaakt door replica ontbreken, deze kan worden omgeleid naar een replica die geen 100% up-to-date met de replica alleen-lezen. Op dezelfde manier als een toepassing schrijft gegevens via een alleen-lezen-sessie en leest onmiddellijk met behulp van een alleen-lezen-sessie, is het mogelijk de nieuwste updates zijn niet onmiddellijk zichtbaar. Dit is omdat de transactie log opnieuw op de replica's asynchroon is.
 
 > [!NOTE]
 > Replicatielatentie binnen de regio laag zijn en deze situatie zeldzame is.

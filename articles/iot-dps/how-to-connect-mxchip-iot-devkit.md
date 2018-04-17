@@ -1,26 +1,26 @@
 ---
-title: Het gebruik van de IoT MXChip DevKit verbinding maken met de Azure IoT Hub apparaat inrichtingsservice | Microsoft Docs
-description: Het gebruik van de IoT MXChip DevKit verbinding maken met de Azure IoT Hub apparaat inrichtingsservice
+title: Het gebruik van Azure IoT Hub apparaat-inrichtingsservice automatische inrichting de MXChip IoT DevKit registreren met IoT Hub | Microsoft Docs
+description: Het registreren van de IoT MXChip DevKit met IoT Hub met automatisch inrichten van Azure IoT Hub apparaat-inrichtingsservice.
 services: iot-dps
 keywords: ''
 author: liydu
 ms.author: liydu
-ms.date: 02/20/2018
+ms.date: 04/04/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 502f22a39622e9a8341e1daca8c9899fd8b7d7d1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d60c5766b22e31c33d0dd4a743fa297470109ac6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="connect-the-mxchip-iot-devkit-to-the-azure-iot-hub-device-provisioning-service"></a>De MXChip IoT DevKit verbinding met het inrichten van de Service Azure IoT Hub-apparaat
+# <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Gebruik Azure IoT Hub apparaat-inrichtingsservice automatische inrichting voor het registreren van de IoT MXChip DevKit met IoT Hub
 
-In dit artikel wordt beschreven hoe de MXChip IoT DevKit om deze automatisch wordt geregistreerd bij Azure IoT Hub met behulp van de Azure IoT Device inrichtingsservice configureren. In deze zelfstudie leert u het volgende:
+In dit artikel wordt beschreven hoe u Azure IoT Hub apparaat-inrichtingsservice [automatische inrichting](concepts-auto-provisioning.md), de MXChip IoT DevKit registreren met Azure IoT Hub. In deze zelfstudie leert u het volgende:
 
 * Configureer het globale eindpunt van het apparaat op een apparaat-service inricht.
 * Gebruik een unieke apparaat-geheim (UDS) voor het genereren van een X.509-certificaat.
@@ -33,11 +33,11 @@ De [MXChip IoT DevKit](https://aka.ms/iot-devkit) een mededelingenbord alles in 
 
 Als u wilt de stappen in deze zelfstudie hebt voltooid, moet u eerst de volgende taken uitvoeren:
 
-* Uw DevKit voorbereiden door de stappen in [IoT DevKit AZ3166 verbinding maken met Azure IoT Hub in de cloud](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Uw DevKit voorbereiden door de stappen in [IoT DevKit AZ3166 verbinding maken met Azure IoT Hub in de cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 * Upgrade naar de meest recente firmware (1.3.0 of hoger) met de [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) zelfstudie.
-* Maken en koppelen van een IoT Hub met een service-exemplaar wordt ingericht door de stappen in apparaat [instellen van de IoT Hub apparaat inrichtingsservice met de Azure-portal](https://docs.microsoft.com/en-us/azure/iot-dps/quick-setup-auto-provision).
+* Maken en koppelen van een IoT Hub met een service-exemplaar wordt ingericht door de stappen in apparaat [instellen van de IoT Hub apparaat inrichtingsservice met de Azure-portal](/azure/iot-dps/quick-setup-auto-provision).
 
-## <a name="set-up-the-device-provisioning-service-configuration-on-the-device"></a>De configuratie van de service op het apparaat wordt ingericht apparaat instellen
+## <a name="build-and-deploy-auto-provisioning-registration-software-to-the-device"></a>Maken en inrichten van automatische inschrijving software implementeren op het apparaat
 
 Sluit de DevKit op het apparaat het inrichten van de service-exemplaar dat u hebt gemaakt:
 
@@ -51,7 +51,7 @@ Sluit de DevKit op het apparaat het inrichten van de service-exemplaar dat u heb
   git clone https://github.com/DevKitExamples/DevKitDPS.git
   ```
 
-4. Open Visual Studio Code DevKit aansluiten op uw computer en open vervolgens de map waarin de code die u gekloond.
+4. Open Visual Studio Code, de DevKit aansluiten op uw computer en open vervolgens de map waarin de code die u gekloond.
 
 5. Open **DevKitDPS.ino**. Zoeken en vervangen `[Global Device Endpoint]` en `[ID Scope]` met de waarden die u zojuist hebt genoteerd omlaag.
   ![Eindpunt van de DP's](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) kunt u de **registrationId** leeg. De toepassing genereert voor u op basis van de MAC-adres en firmware-versie. Als u aanpassen van de registratie-ID wilt, moet u gebruik alleen alfanumerieke of kleine letters en het koppelteken combinaties met een maximum van 128 tekens. Zie voor meer informatie [apparaatinschrijvingen met Azure portal beheren](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
@@ -62,7 +62,7 @@ Sluit de DevKit op het apparaat het inrichten van de service-exemplaar dat u heb
 
 ## <a name="save-a-unique-device-secret-on-an-stsafe-security-chip"></a>Een unieke apparaat-geheim opslaan op een STSAFE security-chip
 
-De apparaat-service inricht kan worden geconfigureerd op een apparaat op basis van de [Hardware Security Module](https://azure.microsoft.com/en-us/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/). Maakt gebruik van de IoT MXChip DevKit de [apparaat identiteit compositie-Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) van de [Trusted Computing Group](https://trustedcomputinggroup.org). Een *unieke apparaat-geheim* (UDS) opgeslagen in een beveiligingsgroep STSAFE chip op de DevKit wordt gebruikt voor het genereren van het apparaat met de unieke [X.509](https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-set-up-device#select-a-hardware-security-module) certificaat. Het certificaat kan later worden gebruikt voor het inschrijvingsproces van het apparaat-service inricht.
+Automatische inrichting kan worden geconfigureerd op een apparaat op basis van het apparaat [attestation mechanisme](concepts-security.md#attestation-mechanism). Maakt gebruik van de IoT MXChip DevKit de [apparaat identiteit compositie-Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) van de [Trusted Computing Group](https://trustedcomputinggroup.org). Een *unieke apparaat-geheim* (UDS) opgeslagen in een beveiligingsgroep STSAFE chip op de DevKit wordt gebruikt voor het genereren van het apparaat met de unieke [X.509-certificaat](concepts-security.md#x509-certificates). Het certificaat wordt later gebruikt voor het inschrijvingsproces in de apparaat-service inricht en tijdens de registratie tijdens runtime.
 
 Een typische unieke apparaat-geheim is een 64-tekenreeks, zoals in het volgende voorbeeld:
 
@@ -82,7 +82,7 @@ Een unieke apparaat-geheim opslaan op de DevKit:
 
 4. Typ in het venster seriële monitor *set_dps_uds [your_own_uds_value]* en selecteer Enter.
   > [!NOTE]
-  > Bijvoorbeeld, als u uw eigen UDS ingesteld door het wijzigen van de laatste twee tekens naar `f`, moet u de opdracht als volgt opgeven: set_dps_uds 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eff.
+  > Bijvoorbeeld, als u uw eigen UDS ingesteld door het wijzigen van de laatste twee tekens naar `f`, moet u de opdracht als volgt opgeven: `set_dps_uds 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eff`.
 
 5. De seriële zonder monitorvenster te sluiten, drukt u op de **opnieuw** knop op de DevKit.
 
@@ -101,22 +101,23 @@ Een unieke apparaat-geheim opslaan op de DevKit:
 2. Plak deze twee bestanden in de **extra** map op hetzelfde niveau met de **.build** map.
 
 3. Run **dps_cert_gen.exe**. Volg de aanwijzingen in te voeren uw **UDS**, wordt de **MAC-adres** voor de DevKit en de **firmwareversie** voor het genereren van het X.509-certificaat.
-  ![Run dps-cert-gen.exe](./media/how-to-connect-mxchip-iot-devkit/dps-cert-gen.png)
+  ![DP's-cert-gen.exe uitvoeren](./media/how-to-connect-mxchip-iot-devkit/dps-cert-gen.png)
 
 4. Nadat het X.509-certificaat wordt gegenereerd, een **.pem** certificaat wordt opgeslagen in dezelfde map.
 
 ## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Een device enrollment-vermelding in het service-inrichting apparaat maken
 
-1. Ga in de Azure-portal naar uw provisioning-service. Selecteer **inschrijvingen beheren**, en selecteer vervolgens de **afzonderlijke inschrijvingen** tabblad. ![Afzonderlijke inschrijvingen](./media/how-to-connect-mxchip-iot-devkit/individual-enrollments.png)
+1. In de Azure portal, gaat u naar uw apparaat inrichtingsservice-exemplaar. Selecteer **inschrijvingen beheren**, en selecteer vervolgens de **afzonderlijke inschrijvingen** tabblad. ![Afzonderlijke inschrijvingen](./media/how-to-connect-mxchip-iot-devkit/individual-enrollments.png)
 
 2. Selecteer **Toevoegen**.
 
-3. In **mechanisme**, selecteer **X.509**.
-  ![Certificaat uploaden](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+3. In het deelvenster 'Inschrijving toevoegen':
+   - Selecteer **X.509** onder **mechanisme**
+   - Klik op 'Een bestand selecteren' onder **primaire certificaat voor .pem of .cer-bestand**
+   - in het dialoogvenster bestand openen, gaat u naar en upload de **.pem** zojuist gegenereerde certificaat
+   - Laat de overige als standaard en klik op **opslaan**
 
-4. In **.pem of .cer certificaatbestand**, upload het **.pem** zojuist gegenereerde certificaat.
-
-5. Laat u de rest als standaard en selecteer **opslaan**.
+   ![Certificaat uploaden](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
 
 ## <a name="start-the-devkit"></a>Start de DevKit
 
@@ -147,7 +148,7 @@ De geregistreerd bij Azure IoT Hub apparaat-ID is *AZ3166*. Als u wijzigen van d
 
 Als u problemen ondervindt, raadpleegt u de Iot DevKit [Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/), of met de volgende kanalen voor ondersteuning:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,11 +1,11 @@
 ---
 title: Toegang tot API voor Azure Media Services met Azure Active Directory-verificatie | Microsoft Docs
-description: "Meer informatie over concepten en stappen voor het gebruik van Azure Active Directory (Azure AD) verifiëren van toegang tot de API van Azure Media Services."
+description: Meer informatie over concepten en stappen voor het gebruik van Azure Active Directory (Azure AD) verifiëren van toegang tot de API van Azure Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57f2680d6b3f06a88a13a09018e7d72afcb710a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Toegang tot de API van Azure Media Services met Azure AD-verificatie
  
 De API van Azure Media Services is een RESTful-API. U kunt deze bewerkingen uitvoeren op mediabronnen met behulp van een REST-API of met behulp van de beschikbare client-SDK's. Azure Media Services biedt een Media Services-client-SDK voor .NET voor Microsoft. Als u wilt worden gemachtigd voor toegang tot Media Services-resources en de Media Services-API, moet u eerst worden geverifieerd. 
 
-Media Services ondersteunt [Azure Active Directory (Azure AD)-gebaseerde verificatie](../active-directory/active-directory-whatis.md). De service Azure Media REST vereist dat de gebruiker of toepassing die de REST-API maakt aanvragen hebben ofwel de **Inzender** of **eigenaar** rol voor toegang tot de bronnen. Zie voor meer informatie [aan de slag met toegangsbeheer op basis van rollen in Azure portal](../active-directory/role-based-access-control-what-is.md).  
+Media Services ondersteunt [Azure Active Directory (Azure AD)-gebaseerde verificatie](../active-directory/active-directory-whatis.md). De service Azure Media REST vereist dat de gebruiker of toepassing die de REST-API maakt aanvragen hebben ofwel de **Inzender** of **eigenaar** rol voor toegang tot de bronnen. Zie voor meer informatie [aan de slag met toegangsbeheer op basis van rollen in Azure portal](../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
-> Media Services ondersteunt momenteel, het model van Azure Access Control service-verificatie. Access Control-autorisatie wordt echter op 1 juni 2018 afgeschaft. Het is raadzaam om te migreren naar het model van Azure AD authentication zo snel mogelijk.
+> Media Services ondersteunt momenteel, het model van Azure Access Control service-verificatie. Access Control-autorisatie wordt echter op 1 juni 2018 afgeschaft. We raden u aan om zo snel mogelijk naar het Azure Active Directory-verificatiemodel te migreren.
 
 Dit document bevat een overzicht van hoe u toegang tot de Media Services-API met REST- of .NET API's.
 
@@ -75,7 +75,7 @@ In het voorgaande diagram vertegenwoordigen de nummers in de stroom van de aanvr
         De tenant-informatie kan worden opgehaald uit de Azure-portal. Plaats de cursor op de naam van de aangemelde gebruiker in de rechterbovenhoek van de rechterbovenhoek.
     * Media Services resource-URI. 
 
-        Deze URI is hetzelfde voor Media Services-accounts die zich in de dezelfde Azure-omgeving (bijvoorbeeld https://rest.media.azure.net).
+        Deze URI is hetzelfde voor Media Services-accounts die zich in dezelfde Azure-omgeving (bijvoorbeeld https://rest.media.azure.net).
 
     * Media Services (systeemeigen) toepassingsclient-id.
     * Media Services (systeemeigen)-toepassing omleidings-URI.
@@ -105,7 +105,7 @@ Als u deze methode gebruikt, maak een Azure AD-toepassing en service principal i
 
 Nadat u uw Azure AD-toepassing hebt gemaakt, kunt u waarden ophalen voor de volgende instellingen. U moet deze waarden voor verificatie:
 
-- Client-ID 
+- Client-id 
 - Clientgeheim 
 
 De getallen in de voorgaande afbeelding gelden voor de stroom van de aanvragen in chronologische volgorde:
@@ -117,7 +117,7 @@ De getallen in de voorgaande afbeelding gelden voor de stroom van de aanvragen i
         De tenant-informatie kan worden opgehaald uit de Azure-portal. Plaats de cursor op de naam van de aangemelde gebruiker in de rechterbovenhoek van de rechterbovenhoek.
     * Media Services resource-URI. 
 
-        Deze URI is hetzelfde voor Media Services-accounts die zich in de dezelfde Azure-omgeving (bijvoorbeeld https://rest.media.azure.net bevinden).
+        Deze URI is hetzelfde voor Media Services-accounts die zich in dezelfde Azure-omgeving bevinden (bijvoorbeeld https://rest.media.azure.net).
 
     * Resource-URI voor de REST mediaservices.
 
@@ -147,7 +147,7 @@ De volgende artikelen vindt u overzichten van de concepten van Azure AD-verifica
 
 - [Verificatie scenario's voor toepassingsbeheer door Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 - [Toevoegen, bijwerken of verwijderen van een toepassing in Azure AD](../active-directory/develop/active-directory-integrating-applications.md)
-- [Configureren en beheren van rollen gebaseerd toegangsbeheer met behulp van PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Configureren en beheren van rollen gebaseerd toegangsbeheer met behulp van PowerShell](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

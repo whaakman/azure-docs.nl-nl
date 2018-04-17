@@ -2,24 +2,24 @@
 title: ESP8266 naar cloud - Doezelaar HUZZAH ESP8266 verbinden met Azure IoT Hub | Microsoft Docs
 description: Informatie over het instellen en Adafruit Doezelaar HUZZAH ESP8266 verbinden met Azure IoT Hub voor gegevens verzenden naar het Azure-cloud-platform in deze zelfstudie.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
-ms.author: xshi
-ms.openlocfilehash: e8f0397797d8f4c3349afcdfb02de071a6593c72
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: b850bb25d7a6d06a2d0f55ed915321badf76bb39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Doezelaar HUZZAH ESP8266 verbinden met Azure IoT Hub in de cloud
 
@@ -68,7 +68,7 @@ U moet ook de volgende bewerkingen voor uw ontwikkelomgeving:
 De volgende items zijn optioneel als u een sensor geen hebt. U hebt ook de optie van het gebruik van gesimuleerde sensorgegevens.
 
 * Een Adafruit DHT22 temperatuur en vochtigheid-temperatuursensor
-* A breadboard
+* Een breadboard
 * M/M meestal kabels
 
 
@@ -88,8 +88,8 @@ Gebruik de volgende bedrading voor sensor-pincodes:
 
 | Start (Sensor)           | Einde (BMC)           | Kleur van de kabel   |
 | -----------------------  | ---------------------- | ------------: |
-| VDD (Pin 31F)            | 3V (Pin 58H)           | Rode-kabel     |
-| GEGEVENS (Pin 32F)           | GPIO 2 (Pin 46A)       | Blauw-kabel    |
+| VDD (Pin 31F)            | 3v (vastmaken 58H)           | Rode-kabel     |
+| GEGEVENS (Pin 32F)           | GPIO 2 (Pin 46)       | Blauw-kabel    |
 | GND (Pin 34F)            | GND (PIn 56I)          | Zwarte kabel   |
 
 Zie voor meer informatie [Adafruit DHT22 sensor setup](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) en [Adafruit Doezelaar HUZZAH Esp8266 pin-outs gegeven](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts).
@@ -210,7 +210,7 @@ De voorbeeldtoepassing kunt temperatuur en vochtigheid gegevens simuleren als u 
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>De voorbeeldtoepassing voor Doezelaar HUZZAH ESP8266 implementeren
 
-1. Klik in de Visual Studio Code op  **<Select Serial Port>**  over de status van de balk en klik vervolgens op de seriële poort voor Doezelaar HUZZAH ESP8266.
+1. Klik in de Visual Studio Code op **<Select Serial Port>** over de status van de balk en klik vervolgens op de seriële poort voor Doezelaar HUZZAH ESP8266.
 1. Voer `F1`, typ **Arduino** en selecteer **Arduino: uploaden** kunnen bouwen en implementeren van de voorbeeldtoepassing voor Doezelaar HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Voer uw referenties in
@@ -222,7 +222,7 @@ Nadat het uploaden voltooid is, voert u deze stappen om uw referenties invoeren:
 1. Selecteer **er is geen afsluitende regel** voor de linker vervolgkeuzelijst.
 1. Selecteer **115200 baud** voor de lijst rechts vervolgkeuzelijst.
 1. Voer de volgende gegevens in het invoervak zich boven aan het venster seriële monitor, als u wordt gevraagd om ze en klik vervolgens op **verzenden**.
-   * Wi-Fi SSID
+   * Wi-Fi-SSID
    * Wi-Fi-wachtwoord
    * Apparaat-verbindingsreeks
 

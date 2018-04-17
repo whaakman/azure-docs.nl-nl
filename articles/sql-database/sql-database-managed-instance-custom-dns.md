@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 993ff518a1987581ad7de4797611f104080c2c2f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3175b99c0e41cedf313115043b09608496adfdca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Exemplaar van een aangepaste DNS configureren voor Azure SQL-Database beheerd
 
@@ -51,7 +51,7 @@ DNS-configuratie op een Azure-VNet vereist dat u IP-adressen opgeeft, configurer
 
 1. Open in de Azure-portal, de aangepaste DNS VM-netwerkinterface.
 
-   ![network-interface](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
+   ![netwerk-interface](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
 
 2. In de sectie IP-configuraties. Selecteer IP-configuratie 
 
@@ -79,5 +79,5 @@ DNS-configuratie op een Azure-VNet vereist dat u IP-adressen opgeeft, configurer
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor een overzicht [wat is er een exemplaar beheerd](sql-database-managed-instance.md)
-- Zie voor een voorbeeld van het maken van een VNet en maak vervolgens een exemplaar beheerd [het maken van een exemplaar beheerd](sql-database-managed-instance-tutorial-portal.md).
-- Zie voor het configureren van het VNet [VNet-configuratie voor beheerde exemplaren](sql-database-managed-instance-vnet-configuration.md)
+- Zie voor een zelfstudie waarin u wordt getoond hoe u een nieuw exemplaar van beheerde [het maken van een exemplaar beheerd](sql-database-managed-instance-create-tutorial-portal.md).
+- Zie voor meer informatie over het configureren van een VNet voor een exemplaar van beheerde [VNet-configuratie voor beheerde exemplaren](sql-database-managed-instance-vnet-configuration.md)

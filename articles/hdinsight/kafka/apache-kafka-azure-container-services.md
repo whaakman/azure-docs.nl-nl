@@ -2,23 +2,23 @@
 title: Gebruik Azure Containerservice met Kafka op HDInsight | Microsoft Docs
 description: Informatie over het Kafka op HDInsight van container afbeeldingen die worden gehost in Azure Container Service (AKS) gebruiken.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 16513cbd775e200a0821e8786ae823b82c67e437
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Azure-Containerservices gebruiken met Kafka in HDInsight
 
@@ -158,7 +158,7 @@ Op dit moment zijn Kafka en Azure Container Service in de communicatie via de pe
 
 1. Maak een Kafka-onderwerp dat wordt gebruikt door de testtoepassing. Zie voor meer informatie over het maken van Kafka onderwerpen de [maken van een cluster Kafka](apache-kafka-get-started.md) document.
 
-2. Downloaden van de voorbeeldtoepassing uit [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test). 
+2. Downloaden van de voorbeeldtoepassing uit [ https://github.com/Blackmist/Kafka-AKS-Test ](https://github.com/Blackmist/Kafka-AKS-Test). 
 
 3. Bewerk de `index.js` -bestand en wijzig de volgende regels:
 

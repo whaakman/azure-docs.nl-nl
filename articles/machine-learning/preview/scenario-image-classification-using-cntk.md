@@ -2,7 +2,7 @@
 title: Afbeelding classificatie met CNTK in Azure Machine Learning Workbench | Microsoft Docs
 description: Trainen, evalueren en een aangepaste installatiekopie classificatie-model met behulp van Azure ML-Workbench implementeren.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: PatrickBue
 ms.author: pabuehle
 manager: mwinkle
@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 03fdd1265464355a2787eff897eb4f70faa095b0
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c585609ec8854045e943ae7cd33089021f8f1f2f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificatie van de installatiekopie met behulp van Azure Machine Learning Workbench
 
@@ -54,7 +54,7 @@ De vereisten voor het uitvoeren van dit voorbeeld zijn als volgt:
 4. Een speciale GPU is niet vereist voor het uitvoeren van de training SVM in deel 1, maar dit is nodig voor het verfijnen van de DNN beschreven in deel 2. Als u niet over een sterke GPU, wilt trainen op meerdere GPU's of hebben geen Windows-computer, klikt u vervolgens Overweeg het gebruik van Azure grondige Learning virtuele Machine met Windows-besturingssysteem. Zie [hier](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) voor een 1 Klik-Implementatiehandleiding. Zodra geïmplementeerd, verbinding maken met de virtuele machine via een verbinding met extern bureaublad, Workbench er installeren en de code lokaal uitvoeren van de virtuele machine.
 5. Verschillende Python-bibliotheken zoals OpenCV moeten worden geïnstalleerd. Klik op *opdrachtprompt openen* van de *bestand* menu in de Workbench en voer de volgende opdrachten voor het installeren van deze afhankelijkheden:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` na het downloaden van het muiswiel OpenCV van http://www.lfd.uci.edu/~gohlke/pythonlibs/ (de exacte bestandsnaam en de versie kunnen wijzigen)
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` na het downloaden van de OpenCV steeds uit http://www.lfd.uci.edu/~gohlke/pythonlibs/ (de exacte bestandsnaam en de versie kunnen wijzigen)
     - `conda install pillow`
     - `pip install -U numpy`
     - `pip install bqplot`
@@ -73,7 +73,7 @@ De vereisten voor het uitvoeren van dit voorbeeld zijn als volgt:
 
 Een nieuw project in dit voorbeeld gebruiken als een sjabloon maken:
 1.  Open Azure Machine Learning Workbench.
-2.  Op de **projecten** pagina, klikt u op de  **+**  en selecteer **nieuw Project**.
+2.  Op de **projecten** pagina, klikt u op de **+** en selecteer **nieuw Project**.
 3.  In de **nieuw Project maken** deelvenster Vul de informatie voor het nieuwe project.
 4.  In de **zoeken projectsjablonen** het zoekvak, typ 'Installatiekopie classificatie' en selecteer de sjabloon.
 5.  Klik op **Create**.
@@ -84,7 +84,7 @@ Deze stappen uitvoert, maakt de projectstructuur die hieronder wordt weergegeven
   ---|---
   aml_config/|                           Map met de Azure Machine Learning Workbench configuratiebestanden
   bibliotheken /|                              Map met alle Python en Jupyter hulpfuncties
-  notebooks/|                              Map met alle notitieblokken
+  laptops /|                              Map met alle notitieblokken
   resources /|                              Map met alle resources (voor de voorbeeld-url van wijze installatiekopieën)
   scripts /|                              Map met alle scripts uitvoeren
   PARAMETERS.py|                       Python-script op alle parameters opgeven
@@ -215,7 +215,7 @@ We nu aanwezig zijn op verschillende manieren voor het verbeteren van de nauwkeu
 
 In plaats van een SVM kunt een de classificatie rechtstreeks in het neurale netwerk doen. Dit wordt bereikt door een nieuwe laatste laag toe te voegen aan de vooraf getraind DNN, waarbij de 512-tekst uit de voorlaatste laag als invoer wordt. De classificatie in de DNN te doen is dat het volledige netwerk kunt u retrained met backpropagation. Deze aanpak leidt vaak tot veel betere classificatie accuratesse vergeleken met het gebruik van de vooraf getraind DNN als-is echter ten koste van veel langer trainingstijd (zelfs met een GPU).
 
-Het Neurale netwerk in plaats van een SVM wordt gerealiseerd door het wijzigen van de variabele `classifier` in `PARAMETERS.py` van `svm` naar `dnn`. Zoals wordt beschreven in deel 1, de scripts, met uitzondering van voorbereiden van gegevens (stap 1) voor en training SVM (stap 3) moeten opnieuw worden uitgevoerd. DNN verfijning vereist een GPU. Als er geen GPU is gevonden of als de GPU is vergrendeld (bijvoorbeeld door een vorige CNTK-run) script `2_refineDNN.py` een fout genereert. DNN training kunt-geheugen fout genereert op sommige GPU's die kunnen worden vermeden door minibatch verkleinen (variabele `cntk_mb_size` in `PARAMETERS.py`).
+Het Neurale netwerk in plaats van een SVM wordt gerealiseerd door het wijzigen van de variabele `classifier` in `PARAMETERS.py` van `svm` naar `dnn`. Zoals wordt beschreven in deel 1, de scripts, met uitzondering van voorbereiden van gegevens (stap 1) voor en training SVM (stap 4) moeten opnieuw worden uitgevoerd. DNN verfijning vereist een GPU. Als er geen GPU is gevonden of als de GPU is vergrendeld (bijvoorbeeld door een vorige CNTK-run) script `2_refineDNN.py` een fout genereert. DNN training kunt-geheugen fout genereert op sommige GPU's die kunnen worden vermeden door minibatch verkleinen (variabele `cntk_mb_size` in `PARAMETERS.py`).
 
 Wanneer de training is voltooid, het verfijnd model is opgeslagen in *DATA_DIR/proc/fashionTexture/cntk_refined.model*, en tekent getekend dat toont hoe de trainings- en classificatiefouten tijdens de training wijzigen. Let op dat tekent die de fout op de training ingesteld is veel kleiner is dan op de testset. Dit zogenaamde te veel passende gedrag kan worden verkleind, bijvoorbeeld met behulp van een hogere waarde voor de frequentie Drop-out `rf_dropoutRate`.
 <p align="center">
@@ -234,8 +234,7 @@ De Azure Machine Learning-Workbench worden de geschiedenis van elke uitvoeren op
 In de eerste schermafbeelding leidt DNN verfijning tot betere accuratesse dan SVM training voor alle klassen. De tweede schermafbeelding ziet u alle metrische gegevens die worden bijgehouden, inclusief wat de classificatie is. Deze bijhouden wordt uitgevoerd in het script `5_evaluate.py` door het aanroepen van het logboek Azure Machine Learning-Workbench. Het script opslaat bovendien ook de ROC-curve en verwarring matrix aan de *levert* map. Dit *levert* map is speciaal in dat de inhoud ervan ook wordt gevolgd door de geschiedenisfunctie Workbench en daarom de uitvoerbestanden toegankelijk zijn op elk gewenst moment, ongeacht of lokale kopieën zijn overschreven.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>  
-</p>
+<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/> </p>
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/run_comparison2b.jpg" alt="alt text" width="700"/>

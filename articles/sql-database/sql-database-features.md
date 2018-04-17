@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bca2629ea4a0c859e92d829b49072fbdf3f9ffe2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bf9069df55352b4d7884e989be741fc42e06bfdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Vergelijking: Azure SQL Database en SQL Server 
 
@@ -76,16 +76,16 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [Uitgebreide gebeurtenissen](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Sommige - [uitgebreide gebeurtenissen in SQL-Database](sql-database-xevent-db-diff-from-svr.md) | Ja - Zie [uitgebreide gebeurtenissen verschillen ](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [uitgebreide opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Nee | Nee |
 [Bestanden en bestandsgroepen](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Primaire bestandsgroep | Ja |
-| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Nee | Nee |
+| [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Nee | Nee |
 | [Zoekopdracht in volledige tekst](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Woordafbreking van derden worden niet ondersteund. |Woordafbreking van derden worden niet ondersteund. |
 | [Functies](https://docs.microsoft.com/sql/t-sql/functions/functions) | De meeste - Zie afzonderlijke functies | Ja - Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
-| [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Ja | Nee, kunt u herstellen COPY_ONLY volledige back-ups die u onderneemt periodiek - Zie [back-up verschillen](sql-database-managed-instance-transact-sql-information.md#backup) en [herstellen verschillen](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
+| [geo-herstel](sql-database-recovery-using-backups.md#geo-restore) | Ja | Nee, kunt u herstellen COPY_ONLY volledige back-ups die u onderneemt periodiek - Zie [back-up verschillen](sql-database-managed-instance-transact-sql-information.md#backup) en [herstellen verschillen](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Geo-replicatie](sql-database-geo-replication-overview.md) | Ja | Nee |
 | [Verwerking van de grafiek](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
 | [Optimalisatie in het geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja - [Premium en kritieke zakelijke-lagen](sql-database-in-memory.md) | Nee |
 | [Ondersteuning voor JSON-gegevens](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Ja | Ja |
 | [Elementen van de taal](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De meeste - Zie afzonderlijke elementen |  Ja - Zie [T-SQL-verschillen](sql-database-managed-instance-transact-sql-information.md) |
-| [Gekoppelde servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Niet - Zie [elastische query](sql-database-elastic-query-horizontal-partitioning.md) | Alleen naar SQL Server |
+| [Gekoppelde servers](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Niet - Zie [elastische query](sql-database-elastic-query-horizontal-partitioning.md) | Alleen voor SQL Server en SQL-Database |
 | [Back-upfunctie voor logboekbestanden](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van zakelijke continuïteit met Azure SQL Database](sql-database-business-continuity.md) |[Hoge beschikbaarheid](sql-database-high-availability.md) is opgenomen in elke database. Herstel na noodgevallen wordt besproken in [overzicht van zakelijke continuïteit met Azure SQL Database](sql-database-business-continuity.md) |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Nee | Nee |
 | [Minimale bulkimport aanmelden](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Nee | Nee |
@@ -118,14 +118,14 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | Ja | Ja |
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Niet - Zie [elastische taken](sql-database-elastic-jobs-getting-started.md) | Ja - Zie [verschillen van de SQL Server Agent](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Niet - Zie [Azure analyseservices](https://azure.microsoft.com/services/analysis-services/) | Niet - Zie [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
-| [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Niet - Zie [SQL Database auditing](sql-database-auditing.md) | Ja - Zie [controle verschillen](sql-database-managed-instance-transact-sql-information.md#auditing) |
+| [Controle van SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Niet - Zie [SQL Database auditing](sql-database-auditing.md) | Ja - Zie [controle verschillen](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Ja | Ja |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, met een beheerde SSIS in Azure Data Factory (ADF)-omgeving, waar de pakketten worden opgeslagen in de SSISDB gehost door Azure SQL Database en worden uitgevoerd op [Azure SSIS-integratie Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). | Ja, met een beheerde SSIS in Azure Data Factory (ADF)-omgeving, waar de pakketten worden opgeslagen in de SSISDB gehost door beheerde exemplaar en uitgevoerd op [Azure SSIS-integratie Runtime](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Niet - Zie [uitgebreide gebeurtenissen](sql-database-xevent-db-diff-from-svr.md) | Ja |
 | [SQL Server-replicatie](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Alleen voor transactionele abonnees en abonnees met momentopnamereplicatie](sql-database-cloud-migrate.md) | Nee |
-| [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No - [see Power BI](https://docs.microsoft.com/power-bi/) | No - [see Power BI](https://docs.microsoft.com/power-bi/) |
+| [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Niet - [Zie Power BI](https://docs.microsoft.com/power-bi/) | Niet - [Zie Power BI](https://docs.microsoft.com/power-bi/) |
 | [Opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Ja | Ja |
 | [Systeem opgeslagen functies](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | De meeste - Zie afzonderlijke functies | Ja - Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Systeem opgeslagen procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Sommige - Zie afzonderlijke opgeslagen procedures | Ja - Zie [opgeslagen procedures, functies, triggers verschillen](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

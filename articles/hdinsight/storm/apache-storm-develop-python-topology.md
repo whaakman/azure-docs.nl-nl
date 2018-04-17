@@ -2,7 +2,7 @@
 title: Apache Storm met Python comopnents - Azure HDInsight | Microsoft Docs
 description: Informatie over het maken van een Apache Storm-topologie die gebruikmaakt van Python-onderdelen.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 1da38ebbe3354bbb36f68d1243b30bf2f4c5633f
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ebfc9d5aa1c3a650a938c0a9f5fc3d047f90458d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Apache Storm-topologieën op HDInsight met behulp van Python ontwikkelen
 
@@ -29,7 +27,7 @@ Informatie over het maken van een Apache Storm-topologie die gebruikmaakt van Py
 > [!IMPORTANT]
 > De informatie in dit document is getest met Storm op HDInsight 3.6. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-De code voor dit project is beschikbaar op [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+De code voor dit project is beschikbaar op [ https://github.com/Azure-Samples/hdinsight-python-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,7 +41,7 @@ De code voor dit project is beschikbaar op [https://github.com/Azure-Samples/hdi
 
 ## <a name="storm-multi-language-support"></a>Storm-ondersteuning voor meerdere talen
 
-Apache Storm is ontworpen om te werken met onderdelen die zijn geschreven met behulp van elke programmeertaal. De onderdelen moeten begrijpen hoe u werkt met de [Thrift-definitie voor Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). Voor Python, wordt een module geleverd als onderdeel van de Apache Storm-project waarmee u eenvoudig een interface met Storm. U vindt deze module op [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Apache Storm is ontworpen om te werken met onderdelen die zijn geschreven met behulp van elke programmeertaal. De onderdelen moeten begrijpen hoe u werkt met de [Thrift-definitie voor Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). Voor Python, wordt een module geleverd als onderdeel van de Apache Storm-project waarmee u eenvoudig een interface met Storm. U vindt deze module op [ https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py ](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
 Storm is een Java-proces dat wordt uitgevoerd op de Java-virtuele Machine (JVM). Onderdelen die zijn geschreven in andere talen worden uitgevoerd als subprocessen. De Storm communiceert met deze subprocessen met behulp van JSON-berichten via stdin/stdout verzonden. Meer informatie over de communicatie tussen onderdelen vindt u in de [Multi-lang Protocol](https://storm.apache.org/documentation/Multilang-protocol.html) documentatie.
 

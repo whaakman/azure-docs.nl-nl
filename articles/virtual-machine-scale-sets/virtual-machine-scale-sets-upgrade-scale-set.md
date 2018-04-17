@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Wijzigen van een virtuele-machineschaalset
 Gedurende de levenscyclus van uw toepassingen, kunt u wellicht wijzigen of bijwerken van uw virtuele-machineschaalset. Deze updates kunnen bevatten informatie over het bijwerken van de configuratie van de schaalaanpassingsset of wijzig de configuratie van de toepassing. Dit artikel wordt beschreven hoe u een bestaande schaal ingesteld met de REST-API's, Azure PowerShell of Azure CLI 2.0 wijzigt.
@@ -347,6 +347,7 @@ Sommige eigenschappen kunnen alleen worden ingesteld wanneer u de schaalaanpassi
 - Beschikbaarheidszones
 - referentie-installatiekopie-uitgever
 - afbeelding verwijzing aanbieding
+- Type opslagaccount OS schijf beheerd
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Eigenschappen die kunnen alleen worden gewijzigd op basis van de huidige waarde
 Sommige eigenschappen kunnen worden gewijzigd met uitzonderingen, afhankelijk van de huidige waarde. Deze eigenschappen omvatten:

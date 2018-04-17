@@ -3,9 +3,9 @@ title: Verwijderen van een Azure-cluster en de bijbehorende bronnen | Microsoft 
 description: Informatie over hoe u een Service Fabric cluster volledig verwijderen van de resourcegroep met het cluster verwijderen of door de bronnen selectief te verwijderen.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de422950-2d22-4ddb-ac47-dd663a946a7e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
-ms.author: chackdan
-ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: aljo
+ms.openlocfilehash: 7da2277fef224ff7859cac1ad5a2290c9dc56a85
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Verwijderen van een Service Fabric-cluster op Azure en de resources die wordt gebruikt
 Een Service Fabric-cluster is opgebouwd uit veel andere Azure-resources naast de clusterbron zelf. Als u een Service Fabric-cluster volledig wilt verwijderen, moet u dus ook alle resources waar het cluster uit bestaat, verwijderen.
@@ -43,10 +43,10 @@ Login-AzureRmAccount
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
 
-Wordt u gevraagd om bevestiging als u niet gebruikt de *-Force* optie. Op de bevestiging de RG en alle resources daarin verwijderd.
+Wordt u gevraagd om bevestiging als u niet gebruikt de *-Force* optie. Op de bevestiging, de RG en alle resources daarin verwijderd.
 
 ### <a name="delete-a-resource-group-in-the-azure-portal"></a>Verwijderen van een resourcegroep in de Azure portal
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Ga naar het Service Fabric-cluster dat u wilt verwijderen.
 3. Klik op de naam van de resourcegroep op de pagina van de essentials cluster.
 4. Hiermee wordt de **Resource groep Essentials** pagina.
@@ -65,7 +65,7 @@ Als u uw cluster met behulp van de portal of via een van de Service Fabric-Resou
 ***Label #2:*** sleutel = resourceName, waarde = ServiceFabric
 
 ### <a name="delete-specific-resources-in-the-azure-portal"></a>Verwijderen van specifieke bronnen in de Azure portal
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Ga naar het Service Fabric-cluster dat u wilt verwijderen.
 3. Ga naar **alle instellingen** op de blade essentials.
 4. Klik op **labels** onder **bronbeheer** op de instellingenblade.
@@ -84,13 +84,13 @@ Open een PowerShell-venster en voer de volgende PS-cmdlets:
 ```powershell
 Login-AzureRmAccount
 ```
-Voor elk van de resources wilt u verwijderen, voert u de volgende:
+Voer voor elk van de resources die u wilt verwijderen, het volgende script:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-Als u wilt verwijderen van de cluster-bron, voert u de volgende:
+Voer het volgende script voor het verwijderen van de cluster-bron:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force

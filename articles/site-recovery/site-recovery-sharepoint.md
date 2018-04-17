@@ -2,23 +2,23 @@
 title: Een toepassing met meerdere lagen SharePoint met Azure Site Recovery repliceren | Microsoft Docs
 description: In dit artikel wordt beschreven hoe een toepassing met meerdere lagen SharePoint met de mogelijkheden van Azure Site Recovery worden gerepliceerd.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: sujayt
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/23/2017
+ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Een toepassing met meerdere lagen SharePoint voor herstel na noodgevallen met Azure Site Recovery repliceren
 
@@ -115,7 +115,7 @@ Ga als volgt [in deze richtlijnen](site-recovery-vmware-to-azure.md) om te repli
 Voor sites, internetgericht [maken van een Traffic Manager-profiel van het type 'Prioriteit'](../traffic-manager/traffic-manager-create-profile.md) in de Azure-abonnement. En configureer vervolgens uw DNS- en Traffic Manager-profiel in de volgende manier.
 
 
-| **Waar** | **Bron** | **Doel**|
+| **waar** | **Bron** | **doel**|
 | --- | --- | --- |
 | Openbare DNS-server | Openbare DNS-server voor SharePoint-sites <br/><br/> Voorbeeld: sharepoint.contoso.com | Traffic Manager <br/><br/> contososharepoint.trafficmanager.net |
 | On-premises DNS | sharepointonprem.contoso.com | Openbare IP-adres op de lokale farm |
@@ -153,15 +153,15 @@ U kunt de meest gebruikte Azure Site Recovery-scripts implementeren in uw Automa
 
 1. Een script vóór actie toevoegen aan 'Groep 1' bij failover-SQL-beschikbaarheidsgroep. Het is gepubliceerd in de voorbeeldscripts 'ASR SQL FailoverAG'-script gebruiken. Zorg ervoor dat u Volg de instructies in het script en breng de gewenste wijzigingen in het script op de juiste wijze.
 
-    ![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
+    ![Toevoegen-AG-Script-stap-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
 
-    ![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
+    ![Toevoegen-AG-Script-stap-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
 
 2. Een script post actie om te koppelen van een load balancer op de mislukte toevoegen via de virtuele machines van de weblaag (groep 2). Het is gepubliceerd in de voorbeeldscripts 'ASR AddSingleLoadBalancer'-script gebruiken. Zorg ervoor dat u Volg de instructies in het script en breng de gewenste wijzigingen in het script op de juiste wijze.
 
-    ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
+    ![Toevoegen-LB-Script-stap-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
-    ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
+    ![Toevoegen-LB-Script-stap-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 
 3. Toevoegen van een handmatige stap voor het bijwerken van de DNS-records om te verwijzen naar de nieuwe farm in Azure.
 

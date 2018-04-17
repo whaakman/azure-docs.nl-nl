@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3d30f889c4d7ed0dafcf8559e8987090c03f4d5e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-ac"></a>Toegangsbeheer (AC)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] een beleid voor toegangsbeheer die zijn gericht op doel, bereik, rollen, verantwoordelijkheden, management streven, coördinatie tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van het beleid voor toegangsbeheer en de bijbehorende toegangsbeheer; en controleert en updates van het huidige beleid voor toegangsbeheer [toewijzing: organisatie gedefinieerde frequentie]; en toegang tot de controleprocedures [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.** de organisatie identificeert en selecteert u de volgende soorten informatie systeemaccounts ter ondersteuning van de organisatie missies/bedrijfsfuncties: [toewijzing: organisatie gedefinieerde informatie system accounttypen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.b** accountmanagers voor systeemaccounts informatie door de organisatie wordt toegewezen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.c** voorwaarden van de organisatie voor lidmaatschap van groep en de rol.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.d** de organisatie bevat geautoriseerde gebruikers van de informatie, lidmaatschap van groep en de rol, en toegang autorisaties (dat wil zeggen, bevoegdheden) en andere kenmerken (indien vereist) voor elk account.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2.e** De organisatie vereist goedkeuringen door [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] voor aanvragen voor gegevens systeemaccounts maken.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.f** de organisatie maakt, kunt wijzigt, wordt uitgeschakeld en verwijdert u de informatie systeemaccounts in overeenstemming met [toewijzing: organisatie gedefinieerde procedures of voorwaarden].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -129,11 +129,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.g** de organisatie bewaakt het gebruik van informatie systeemaccounts.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van OMS beveiligings- en controle van de oplossing. Dit dashboard kan accountmanagers voor het gebruik van informatie systeemaccounts bewaken. |
+| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van beveiliging en controle van de oplossing. Dit dashboard kan accountmanagers voor het gebruik van informatie systeemaccounts bewaken. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.h** de organisatie accountmanagers waarschuwt wanneer accounts zijn niet langer vereist; wanneer gebruikers worden beëindigd of overgedragen; en het gebruik van informatie over de afzonderlijke of wijzigingen nodig om te weten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.i** de organisatie gemachtigd voor toegang tot het informatiesysteem op basis van een geldige autorisatie; beoogde systeemgebruik; en andere kenmerken zoals vereist door de organisatie of de bijbehorende missies/bedrijfsfuncties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.j** de organisatie beoordeelt accounts om te voldoen aan de vereisten voor het beheer van account [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.k** de organisatie stelt een proces voor het opnieuw uitgeven van gedeelde of groep accountreferenties (indien geïmplementeerd) wanneer personen zijn verwijderd uit de groep.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -199,11 +199,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (1)** geautomatiseerde mechanismen ter ondersteuning van het beheer van informatie systeemaccounts maakt gebruik van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van OMS beveiligings- en controle van de oplossing. Dit dashboard kan accountmanagers voor het gebruik van informatie systeemaccounts bewaken. OMS kunnen worden geconfigureerd voor het verzenden van meldingen wanneer ongewone activiteit wordt vermoed of andere vooraf gedefinieerde gebeurtenissen plaatsvinden. |
+| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van beveiliging en controle van de oplossing. Dit dashboard kan accountmanagers voor het gebruik van informatie systeemaccounts bewaken. Deze kan worden geconfigureerd voor het verzenden van meldingen wanneer ongewone activiteit wordt vermoed of andere vooraf gedefinieerde gebeurtenissen plaatsvinden. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (2)** het informatiesysteem automatisch [selectie: Hiermee verwijdert u; uitgeschakeld] tijdelijk en noodgevallen accounts na [toewijzing: organisatie gedefinieerde periode voor elk type account].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (3)** wordt de informatie automatisch uitgeschakeld inactieve accounts na [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -241,11 +241,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (4)** automatisch acties voor het maken, wijzigen, inschakelen, uitschakelen en verwijdering van account controles en ontvangt een melding, het informatiesysteem [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de volgende typen van de systeem-account: Azure Active Directory-gebruikers, gebruikers van Windows-besturingssysteem, SQL Server-serviceaccount. Azure Active Directory-account acties genereren van een gebeurtenis in het Azure activiteitenlogboek; Acties voor OS-niveau account genereren een gebeurtenis in het systeemlogboek. Deze logboeken die door logboekanalyse verzameld en opgeslagen in de OMS-opslagplaats. OMS kunnen worden geconfigureerd voor het verzenden van meldingen wanneer vooraf gedefinieerde gebeurtenissen plaatsvinden.  |
+| **De klant** | Deze blauwdruk implementeert de volgende typen van de systeem-account: Azure Active Directory-gebruikers, gebruikers van Windows-besturingssysteem, SQL Server-serviceaccount. Azure Active Directory-account acties genereren van een gebeurtenis in het Azure activiteitenlogboek; Acties voor OS-niveau account genereren een gebeurtenis in het systeemlogboek. Deze logboeken worden verzameld door Log Analytics en opgeslagen in de werkruimte voor logboekanalyse. Log Analytics kunnen worden geconfigureerd voor het verzenden van meldingen wanneer vooraf gedefinieerde gebeurtenissen plaatsvinden.  |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (5)** de organisatie vereist dat gebruikers zich afmeldt wanneer [toewijzing: organisatie gedefinieerde-periode van inactiviteit verwachte of beschrijving van wanneer u zich afmeldt].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (7) een** wordt tot stand gebracht en worden beheerd door privileged gebruikersaccounts volgens een schema toegangsgroepen op basis van die toegang tot het systeem toegestane informatie en bevoegdheden in rollen ordent van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -283,11 +283,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (7) .b** bewaakt de organisatie de toewijzingen van bevoorrechte rol.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de OMS-beveiligings- en Audit-oplossing identiteit en toegang Dashboard. Dit dashboard kan accountmanagers voor het gebruik van informatie systeemaccounts bewaken. Deze oplossing kan worden opgezocht toewijzingen van bevoorrechte rol rapporteren. |
+| **De klant** | Deze blauwdruk implementeert de beveiligings- en Audit-oplossing identiteit en toegang Dashboard. Dit dashboard kan accountmanagers voor het gebruik van informatie systeemaccounts bewaken. Deze oplossing kan worden opgezocht toewijzingen van bevoorrechte rol rapporteren. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (7) .c** de organisatie nodig heeft [toewijzing: acties organisatie gedefinieerd] wanneer toewijzingen van bevoorrechte rol niet meer geschikt zijn.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (9)** de organisatie is alleen toegestaan voor het gebruik van gedeelde of groep accounts die voldoen aan [toewijzing: organisatie gedefinieerde voorwaarden voor het tot stand brengen van gedeelde/groepsaccounts].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (10)** het informatiesysteem wordt gedeeld of groep accountreferenties beëindigd wanneer leden zorgt dat de groep.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (11)** het informatiesysteem wordt afgedwongen [toewijzing: omstandigheden organisatie gedefinieerd en/of gebruik voorwaarden] voor [toewijzing: organisatie gedefinieerde informatie systeemaccounts].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -353,11 +353,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (12) een** de organisatie bewaakt systeemaccounts informatie voor [toewijzing: ongewone gebruik organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van OMS beveiligings- en controle van de oplossing. Dit dashboard kan accountmanagers toegangspogingen tegen geïmplementeerde resources bewaken. |
+| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van beveiliging en controle van de oplossing. Dit dashboard kan accountmanagers toegangspogingen tegen geïmplementeerde resources bewaken. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -367,11 +367,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (12) .b** de organisatie ongebruikelijk gebruik van informatie systeemaccounts naar rapporten [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van OMS beveiligings- en controle van de oplossing. Dit dashboard kan accountmanagers toegangspogingen tegen geïmplementeerde resources bewaken. Deze oplossing kan worden geconfigureerd voor het verzenden van meldingen wanneer ongewone activiteit wordt vermoed of andere vooraf gedefinieerde gebeurtenissen plaatsvinden. |
+| **De klant** | Deze blauwdruk implementeert identiteits- en toegangsbeheer dashboard van beveiliging en controle van de oplossing. Dit dashboard kan accountmanagers toegangspogingen tegen geïmplementeerde resources bewaken. Deze oplossing kan worden geconfigureerd voor het verzenden van meldingen wanneer ongewone activiteit wordt vermoed of andere vooraf gedefinieerde gebeurtenissen plaatsvinden. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (13)** de organisatie wordt uitgeschakeld accounts van gebruikers die een aanzienlijke risico vormen binnen [toewijzing: organisatie gedefinieerde periode] van detectie van het risico.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-3** goedgekeurde autorisaties voor logische toegang tot informatie en de systeembronnen in overeenstemming met beleid voor toegangsbeheer van toepassing wordt afgedwongen door het informatiesysteem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-4** goedgekeurde autorisaties voor het beheren van de stroom van gegevens in het systeem en tussen onderling verbonden systemen op basis van het informatiesysteem wordt afgedwongen [toewijzing: beleid voor organisatie gedefinieerde informatie stroom].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-4 (8)** het informatiesysteem wordt afgedwongen informatie stroom beheren met [toewijzing: organisatie gedefinieerd beleid beveiligingsfilters] als basis voor het toegangsbeheer voor stroom [toewijzing: organisatie gedefinieerd informatiestromen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-4 (21)** het informatiesysteem scheidt informatiestromen logisch of fysiek met [toewijzing: mechanismen organisatie gedefinieerd en/of technieken] om uit te voeren [toewijzing: kleurscheidingen door typen organisatie gedefinieerd vereist informatie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 5.** gescheiden van de organisatie [toewijzing: organisatie gedefinieerd taken van personen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 5.b** scheiding van functies van personen en documenten desgewenst de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 5.c** de organisatie definieert informatie system-verificatie ondersteunt voor de ondersteuning van scheiding van functies.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6** het principe van minimale bevoegdheden, zodat alleen geautoriseerde toegang voor gebruikers (of processen fungeert namens gebruikers) die nodig zijn voor toegewezen taken organisatie missies in overeenstemming met de veiligheidsmaatregelen voor de organisatie en bedrijfsfuncties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (1)** de organisatie expliciet gemachtigd voor toegang tot [toewijzing: organisatie gedefinieerd beveiligingsfuncties (geïmplementeerd in de hardware, software en firmware) en beveiliging relevante informatie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (2)** de organisatie vereist dat gebruikers van informatie systeemaccounts of rollen, met toegang tot [toewijzing: organisatie gedefinieerd beveiligingsfuncties of beveiliging relevante informatie], niet-gemachtigde accounts of -rollen te gebruiken wanneer toegang tot de functies niet voor beveiliging.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (3)** toegang tot het netwerk worden geautoriseerd door de organisatie [toewijzing: bevoegde opdrachten organisatie gedefinieerd] alleen voor [toewijzing: organisatie gedefinieerd dwingende operationele behoeften] en documenten van de logica die toegang in de beveiligingsplan voor het informatiesysteem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (5)** de organisatie beperkt bevoegde accounts op het informatiesysteem [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (7) een** de beoordelingen organisatie [toewijzing: organisatie gedefinieerde frequentie] de bevoegdheden die zijn toegewezen aan [toewijzing: rollen organisatie gedefinieerd of klassen van gebruikers] voor het valideren van de noodzaak van dergelijke bevoegdheden.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (7) .b** de organisatie wijst opnieuw toe of verwijdert u de bevoegdheden, indien nodig, in overeenstemming met correct organisatie missie/zakelijke behoeften.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (8)** voorkomt u dat het informatiesysteem [toewijzing: software organisatie gedefinieerd] wordt uitgevoerd op een hoger niveau van bevoegdheden dan gebruikers die de software wordt uitgevoerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -605,11 +605,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (9)** het informatiesysteem tijdens de uitvoering van bevoegde functies controles.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk implementeert de Log Analytics-service in OMS. Geïmplementeerde virtuele machines en Azure storage-accounts voor diagnostische gegevens zijn verbonden bronnen voor logboekanalyse ervoor te zorgen dat de uitvoering van bevoegde functies wordt gecontroleerd. |
+| **De klant** | Deze blauwdruk implementeert de Log Analytics-service. Geïmplementeerde virtuele machines en Azure storage-accounts voor diagnostische gegevens zijn verbonden bronnen voor logboekanalyse ervoor te zorgen dat de uitvoering van bevoegde functies wordt gecontroleerd. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (10)** het informatiesysteem wordt voorkomen dat onbevoegde gebruikers bevoorrechte functies om op te nemen is uitgeschakeld, omzeilen, uitvoeren of wijzigen van beveiliging beveiligingen/countermeasures zijn geïmplementeerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 7.** het informatiesysteem dwingt een limiet van [toewijzing: nummer organisatie gedefinieerd] opeenvolgende ongeldige aanmeldingspogingen door een gebruiker tijdens een [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 7.b** het informatiesysteem automatisch [selectie: Hiermee vergrendelt u de accountknooppunt voor een [toewijzing: organisatie gedefinieerde periode]; Hiermee vergrendelt u het account/knooppunt tot vrijgegeven door een beheerder; uitstelt volgende aanmeldingsprompt volgens [ Toewijzing: vertraging organisatie gedefinieerd algoritme]] wanneer het maximum aantal mislukte pogingen is overschreden.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-7 (2)** het informatiesysteem schoont wissen informatie uit [toewijzing: mobiele apparaten organisatie gedefinieerd] op basis van [toewijzing: organisatie gedefinieerd vereisten/technieken verwijderen/wissen] nadat [toewijzing: aantal organisatie gedefinieerd] aanmeldingspogingen opeenvolgende apparaten met mislukte
 
-**Verantwoordelijkheden:**`Not Applicable`
+**Verantwoordelijkheden:** `Not Applicable`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 8.** het informatiesysteem wordt weergegeven aan gebruikers [toewijzing: organisatie gedefinieerd gebruik Meldingsbericht of banner] voordat het verlenen van toegang tot het systeem dat privacy en beveiliging meldingen consistent zijn met de toepasselijke federal biedt wettelijke Executive Orders, richtlijnen, beleid, standaarden en richtlijnen en statussen dat gebruikers toegang hebben tot een VS Systeem voor Government informatie; het gebruik van informatie kan worden bewaakt, opgenomen, en onderhevig aan audit; onbevoegd gebruik van het informatiesysteem is verboden en onderworpen aan strafrechtelijke en civiele sancties; en gebruik van het informatiesysteem aangegeven toestemming voor bewaking en op te nemen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 8.b** het informatiesysteem behoudt de Meldingsbericht of de banner op het scherm totdat gebruikers de voorwaarden gebruik erkennen en expliciete maatregelen aan te melden bij of verder toegang tot het informatiesysteem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 8.c** geeft informatie over het gebruik van het bestandssysteem van de informatiesysteem voor systemen die openbaar toegankelijk [toewijzing: organisatie gedefinieerde voorwaarden], voordat het verlenen van toegang voor verdere; verwijzingen weergegeven dat moet worden bewaakt, opneemt, of controle die consistent zijn met privacy werkplekken voor dergelijke systemen die in het algemeen die activiteiten verbieden; en bevat een beschrijving van de gemachtigde maakt gebruik van het systeem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-10** het informatiesysteem beperkt het aantal gelijktijdige sessies voor elk [toewijzing: account organisatie gedefinieerd en/of accounttype] naar [toewijzing: nummer organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 11.a** het informatiesysteem voorkomt verdere toegang tot het systeem door het initiëren van een sessievergrendeling na [toewijzing: organisatie gedefinieerde periode] inactief of een aanvraag wordt ontvangen van een gebruiker.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 11.b** het informatiesysteem behoudt de sessievergrendeling totdat de gebruiker toegang tot stand gebrachte procedures voor identificatie en verificatie met herstelt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-11 (1)** het informatiesysteem verbergt via de sessievergrendeling informatie die eerder zichtbaar is voor de weergave met een installatiekopie van het openbaar zichtbaar.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-12** automatisch beëindigd door het informatiesysteem een gebruikerssessie na [toewijzing: organisatie gedefinieerde voorwaarden of trigger gebeurtenissen vereisen sessie verbreken].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-12 (1) een** het informatiesysteem biedt een mogelijkheid afmelden voor gebruiker gestart communicatie sessies wanneer verificatie wordt gebruikt om toegang te krijgen tot [toewijzing: organisatie gedefinieerd informatiebronnen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -801,7 +801,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-12 (1) .b** informatie krijgt een expliciete afmeldingsbericht aan gebruikers die de betrouwbare beëindiging van het geverifieerde communicatie sessies aangeeft.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -815,7 +815,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 14.a** identificeert de organisatie [toewijzing: organisatie gedefinieerd gebruikersacties] die kan worden uitgevoerd op het informatiesysteem zonder identificatie of verificatie consistent zijn met organisatie-missies/bedrijfsfuncties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -829,7 +829,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 14.b** documenten en bevat ondersteunende logica in de beveiligingsplan voor het informatiesysteem acties van de gebruiker geen vereisen identificatie of verificatie van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -843,7 +843,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 17.a** de organisatie vaststelt en documenten gebruiksbeperkingen, vereisten van de configuration-verbinding en implementatie-instructies voor elk type externe toegang is toegestaan.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -857,7 +857,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 17.b** externe toegang tot het systeem gegevens voordat deze verbindingen worden geautoriseerd door de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -871,11 +871,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (1)** het informatiesysteem bewaakt en beheert RAS-methoden.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
-| **De klant** | Deze blauwdruk biedt externe toegang tot het informatiesysteem via de Azure-portal via Extern bureaublad-verbinding via een jumpbox en via een webtoepassing die door de klant is geïmplementeerd. Toegang via de Azure-portal en extern bureaublad-sessies worden gecontroleerd en kunnen worden gecontroleerd met OMS. De klant moet de RAS-besturingselementen, indien nodig, naar de webtoepassing implementeren. |
+| **De klant** | Deze blauwdruk biedt externe toegang tot het informatiesysteem via de Azure-portal via Extern bureaublad-verbinding via een jumpbox en via een webtoepassing die door de klant is geïmplementeerd. Toegang via de Azure-portal en extern bureaublad-sessies worden gecontroleerd en kunnen worden gecontroleerd via logboekanalyse. De klant moet de RAS-besturingselementen, indien nodig, naar de webtoepassing implementeren. |
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
@@ -885,7 +885,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (2)** cryptografische mechanismen ter bescherming van de vertrouwelijkheid en integriteit van de RAS-sessies door het informatiesysteem wordt geïmplementeerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -899,7 +899,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (3)** het informatiesysteem van externe toegang via routes [toewijzing: nummer organisatie gedefinieerd] besturingselement netwerktoegangspunten beheerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -907,13 +907,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ac-17-4a"></a>NIST 800-53 Control AC-17 (4).a
+ ### <a name="nist-800-53-control-ac-17-4a"></a>NIST 800 53 AC-17 (4) een beheren
 
 #### <a name="remote-access--privileged-commands--access"></a>Externe toegang | Beschermde opdrachten / toegang
 
 **AC-17 (4) een** tijdens de uitvoering van bevoegde opdrachten en toegang tot beveiliging relevante informatie via externe toegang alleen voor de organisatie worden geautoriseerd [toewijzing: organisatie gedefinieerde behoeften].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -927,7 +927,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (4) .b** de organisatie en de logica die toegang documenten in de beveiligingsplan voor het informatiesysteem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -941,7 +941,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (9)** de organisatie, biedt de mogelijkheid snel verbreken of uitschakelen van externe toegang tot het informatiesysteem binnen [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -955,7 +955,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 18.a** de organisatie vaststelt gebruiksbeperkingen, vereisten van de configuration-verbinding en implementatie richtlijnen voor draadloze toegang.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -969,7 +969,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 18.b** draadloze toegang tot het systeem gegevens voordat deze verbindingen worden geautoriseerd door de organisatie.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -983,7 +983,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18 (1)** draadloze toegang tot het systeem met verificatie van het informatiesysteem worden beschermd [selectie (een of meer): gebruikers; apparaten] en versleuteling.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -997,7 +997,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18 (3)** de organisatie wordt uitgeschakeld, wanneer het niet bedoeld voor gebruik, draadloze netwerken mogelijkheden die intern zijn ingesloten in onderdelen van het systeem informatie voorafgaand aan de uitgifte en de implementatie.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -1011,7 +1011,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18 (4)** de organisatie identificeert en expliciet machtigt gebruikers toegestaan draadloze netwerkmogelijkheden apart te configureren.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -1025,7 +1025,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18 (5)** selecteert keuzerondje antennes en kalibreren transmission power beveiligingsniveaus om te verminderen de kans dat bruikbare signalen buiten de grenzen organisatie beheerd kunnen worden ontvangen door de organisatie.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -1039,7 +1039,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 19.a** de organisatie vaststelt gebruiksbeperkingen, configuratievereisten verbinding vereisten en implementatie-richtlijnen voor mobiele apparaten organisatie worden beheerd.
 
-**Verantwoordelijkheden:**`Not Applicable`
+**Verantwoordelijkheden:** `Not Applicable`
 
 |||
 |---|---|
@@ -1053,7 +1053,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 19.b** de organisatie machtigt de verbinding van mobiele apparaten om organisatiegegevens systemen.
 
-**Verantwoordelijkheden:**`Not Applicable`
+**Verantwoordelijkheden:** `Not Applicable`
 
 |||
 |---|---|
@@ -1067,7 +1067,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-19 (5)** maakt gebruik van de organisatie [selectie: volledige apparaatversleuteling; container versleuteling] bij het beveiligen van de vertrouwelijkheid en integriteit van gegevens op [toewijzing: mobiele apparaten organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Not Applicable`
+**Verantwoordelijkheden:** `Not Applicable`
 
 |||
 |---|---|
@@ -1081,7 +1081,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 20.a** de organisatie vaststelt voorwaarden en bepalingen consistent zijn met alle vertrouwensrelaties met andere organisaties die eigenaar is, werkt, en/of onderhouden van gegevens met externe systemen, waardoor gemachtigde personen voor toegang tot het informatiesysteem uit externe gegevens systemen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -1095,7 +1095,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 20.b** de organisatie vaststelt voorwaarden en bepalingen consistent zijn met alle vertrouwensrelaties met andere organisaties die eigenaar is, werkt, en/of onderhouden van gegevens met externe systemen, waardoor gemachtigde personen om te verwerken, opslaan of organisatie gecontroleerd informatie met externe systemen worden verzonden.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -1109,7 +1109,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-20 (1)** bevoegde personen met een extern systeem toegang tot het informatiesysteem of verwerken, opslaan of organisatie gecontroleerd informatie verzenden alleen als de organisatie heeft geverifieerd door de organisatie wordt toegestaan de toepassing van de vereiste controles op het externe systeem, zoals opgegeven in het beveiligingsbeleid van informatie van de organisatie en beveiligingsplan; of behoudt goedgekeurde informatie system verbinding of verwerking overeenkomsten aan de organisatie-entiteit die als host fungeert voor het systeem externe gegevens.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -1123,7 +1123,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-20 (2)** de organisatie [selectie: beperkt; verbiedt] het gebruik van de organisatie worden beheerd draagbare opslagapparaten door gemachtigde gebruikers op externe systemen.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -1137,7 +1137,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 21.a** de organisatie doordat de geautoriseerde gebruikers om te bepalen of de machtigingen die toegang worden toegewezen aan de delen partner overeenkomen met de toegangsbeperkingen voor de gegevens voor delen van informatie vereenvoudigt [toewijzing: organisatie gedefinieerde informatie delen omstandigheden waarin de gebruiker naar keuze vereist is].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -1151,7 +1151,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 21.b** maakt gebruik van de organisatie [toewijzing: organisatie gedefinieerd geautomatiseerde mechanismen of handmatige processen] om gebruikers te helpen beslissingen informatie delen/samenwerking.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -1165,7 +1165,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 22.a** personen die gemachtigd zijn om gegevens naar een openbaar toegankelijke informatiesysteem te posten Hiermee geeft u de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -1179,7 +1179,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 22.b** de organisatie traint bevoegde personen om ervoor te zorgen dat openbaar toegankelijk informatie geen niet-openbare informatie bevat.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -1193,7 +1193,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 22.c** de organisatie beoordeelt de voorgestelde inhoud van de gegevens voordat ze op het systeem openbaar toegankelijke informatie om ervoor te zorgen dat niet-openbare informatie niet opgenomen is.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -1207,7 +1207,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 22.d** de organisatie controleert de inhoud op het systeem openbaar toegankelijke informatie voor niet-openbare informatie [toewijzing: organisatie gedefinieerde frequentie] en verwijdert u deze informatie gedetecteerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|

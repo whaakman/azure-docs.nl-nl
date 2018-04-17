@@ -1,8 +1,8 @@
 ---
 title: Apache Storm voorbeeld Java-topologie - Azure HDInsight | Microsoft Docs
-description: "Informatie over het maken van Apache Storm-topologieën in Java met het maken van een voorbeeld van de word-count-topologie."
+description: Informatie over het maken van Apache Storm-topologieën in Java met het maken van een voorbeeld van de word-count-topologie.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,15 @@ keywords: Apache storm, apache storm bijvoorbeeld storm java, storm-topologie-vo
 ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Maken van een Apache Storm-topologie in Java
 
@@ -30,7 +28,7 @@ Informatie over het maken van een op Java gebaseerde topologie voor Apache Storm
 Na het voltooien van de stappen in dit document, kunt u de topologie implementeren voor Apache Storm op HDInsight.
 
 > [!NOTE]
-> Een voltooide versie van de Storm-topologie-voorbeelden in dit document gemaakt is beschikbaar op [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> Een voltooide versie van de Storm-topologie-voorbeelden in dit document gemaakt is beschikbaar op [ https://github.com/Azure-Samples/hdinsight-java-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -169,7 +167,7 @@ Maven-invoegtoepassingen kunt u voor het aanpassen van de build fasen van het pr
 </build>
 ```
 
-Deze sectie wordt gebruikt voor invoegtoepassingen, bronnen en andere configuratieopties build toevoegen. Voor een volledige beschrijving van de **pom.xml** bestand, Zie [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
+Deze sectie wordt gebruikt voor invoegtoepassingen, bronnen en andere configuratieopties build toevoegen. Voor een volledige beschrijving van de **pom.xml** bestand, Zie [ http://maven.apache.org/pom.html ](http://maven.apache.org/pom.html).
 
 ### <a name="add-plug-ins"></a>Invoegtoepassingen toevoegen
 
@@ -565,10 +563,10 @@ Deze XML configureert u een nieuwe logboek voor de `com.microsoft.example` klass
 
 De `<Root level="error">` sectie configureert u het hoogste niveau van logboekregistratie (alles wat u niet in `com.microsoft.example`) aan te melden alleen informatie over de fout.
 
-Zie voor meer informatie over het configureren van logboekregistratie voor Log4j [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
+Zie voor meer informatie over het configureren van logboekregistratie voor Log4j [ http://logging.apache.org/log4j/2.x/manual/configuration.html ](http://logging.apache.org/log4j/2.x/manual/configuration.html).
 
 > [!NOTE]
-> Storm-versie 0.10.0 en hoger gebruiken Log4j 2.x. Oudere versies van storm gebruikt Log4j 1.x, die een andere indeling voor logboekbestanden-configuratie gebruikt. Zie voor informatie over de configuratie van de oudere, [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+> Storm-versie 0.10.0 en hoger gebruiken Log4j 2.x. Oudere versies van storm gebruikt Log4j 1.x, die een andere indeling voor logboekbestanden-configuratie gebruikt. Zie voor informatie over de configuratie van de oudere, [ http://wiki.apache.org/logging-log4j/Log4jXmlFormat ](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
 
 ## <a name="test-the-topology-locally"></a>De topologie lokaal testen
 
@@ -601,7 +599,7 @@ Het bestand YAML definieert de onderdelen moet worden gebruikt voor de topologie
 Zie voor meer informatie over lichtstroom [lichtstroom framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 > [!WARNING]
-> Vanwege een [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) met Storm 1.0.1, moet u mogelijk installeren een [Storm-ontwikkelomgeving](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) lichtstroom topologieën lokaal uitvoeren.
+> Vanwege een [bug (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) met Storm 1.0.1, moet u mogelijk installeren een [Storm-ontwikkelomgeving](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) lichtstroom topologieën lokaal uitvoeren.
 
 1. Verplaats de `WordCountTopology.java` bestand buiten het project. Voorheen dit bestand de topologie gedefinieerd, maar met lichtstroom is niet nodig.
 
@@ -720,7 +718,7 @@ Zie voor meer informatie over lichtstroom [lichtstroom framework (https://storm.
     ```
 
     > [!WARNING]
-    > Als uw Storm 1.0.1 bits wordt gebruikt, wordt deze opdracht mislukt. Deze fout wordt veroorzaakt door [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). In plaats daarvan [Storm installeren in uw ontwikkelomgeving](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) en gebruik de volgende stappen:
+    > Als uw Storm 1.0.1 bits wordt gebruikt, wordt deze opdracht mislukt. Deze fout wordt veroorzaakt door [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). In plaats daarvan [Storm installeren in uw ontwikkelomgeving](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) en gebruik de volgende stappen:
     >
     > Als u hebt [Storm geïnstalleerd in uw ontwikkelomgeving](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), kunt u de volgende opdrachten in plaats daarvan:
     >

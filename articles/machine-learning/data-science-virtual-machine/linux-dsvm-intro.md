@@ -3,22 +3,22 @@ title: Inrichten van een Linux CentOS gegevens wetenschappelijke virtuele Machin
 description: Configureer en een Linux gegevens wetenschappelijke virtuele Machine in Azure doen analytics en machine learning maken.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: 7f683fff142a3654249560ed5299ed3cd7cb9cce
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: gokuma
+ms.openlocfilehash: 1a201974749acbbb9607e42e67d1935f437f9ca1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Inrichten van een Linux CentOS gegevens wetenschappelijke virtuele Machine in Azure
 
@@ -71,7 +71,7 @@ Hier volgen de stappen voor het maken van een exemplaar van de Linux wetenschapp
 2. Klik op **maken** (aan de onderkant) online zetten van de wizard.![ Configureer-gegevens-wetenschappelijke-vm](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3. De volgende secties bevatten de invoer voor elk van de stappen in de wizard (opgesomd aan de rechterkant van de voorgaande afbeelding) gebruikt voor het maken van de Microsoft Data wetenschappelijke virtuele Machine. Hier volgen de invoer voor het configureren van deze stappen:
    
-   a. **Basics**:
+   a. **Basisprincipes**:
    
    * **Naam**: naam van uw gegevens wetenschap-server die u maakt.
    * **Gebruikersnaam**: eerste account aanmelden ID.
@@ -217,7 +217,7 @@ De database van de open-source **Postgres** is beschikbaar op de virtuele machin
 
 Voordat u het eerste gebruik, stuurprogramma's en database aliassen hebt ingesteld. De JDBC-stuurprogramma's bevinden zich op:
 
-*/usr/share/java/jdbcdrivers*
+*/usr/share/Java/jdbcdrivers*
 
 Zie voor meer informatie [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 

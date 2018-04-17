@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99e7a7746ae3f229614c8ac3d059b422a4ee6f74
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure-beveiliging beheren en controleren van overzicht
 Azure biedt beveiligingsmethoden om u te helpen bij het beheren en controleren van de Azure-cloudservices en virtuele machines. Dit artikel bevat een overzicht van deze core beveiligingsfuncties en -services. Vindt u koppelingen naar artikelen met meer informatie over elk doorgegeven, zodat u meer informatie.
@@ -37,7 +37,7 @@ Hier volgen de belangrijkste functies in dit artikel aan bod:
 
 * Op rollen gebaseerd toegangsbeheer
 * Antimalware
-* Multi-Factor Authentication
+* Meervoudige verificatie
 * ExpressRoute
 * Virtuele netwerkgateways
 * Beschermde identiteitsbeheer
@@ -50,7 +50,7 @@ Op rollen gebaseerde toegangsbeheer (RBAC) biedt Geavanceerd toegangsbeheer voor
 Meer informatie:
 
 * [Active Directory-teamblog van RBAC](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
-* [Op rollen gebaseerde toegangsbeheer van Azure](../active-directory/role-based-access-control-configure.md)
+* [Op rollen gebaseerde toegangsbeheer van Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware
 Met Azure, kunt u antimalware-software van toonaangevende leveranciers zoals Microsoft, Symantec, Trend Micro, McAfee en Kaspersky kunt u uw virtuele machines beveiligen tegen schadelijke bestanden, adware en andere dreigingen.
@@ -69,7 +69,7 @@ Meer informatie:
 * [Het installeren en configureren van Symantec Endpoint Protection op een virtuele machine van Windows](../virtual-machines/windows/classic/install-symantec.md)
 * [Nieuwe Antimalware-opties voor het beveiligen van virtuele Machines in Azure – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Meervoudige verificatie
 Azure multi-factor authentication (MFA) is een authenticatiemethode die vereist het gebruik van meer dan één verificatiemethode en een kritieke tweede beveiligingslaag wordt toegevoegd aan de gebruikersaanmeldingen en transacties. MFA helpt beveiliging toegang tot gegevens en toepassingen en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden. Levert sterke verificatie via een aantal opties voor verificatie: telefoonoproep, tekstbericht of mobiele app melding of verificatie van code en van derden OATH-tokens.
 
 Meer informatie:

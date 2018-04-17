@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 04/09/2018
+ms.openlocfilehash: c29b90e703a66cbbc25227f9a4307c74d82b03b5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Gebeurtenissen verzenden naar een Time Series Insights-omgeving met Event Hub
 Dit artikel wordt uitgelegd hoe u maken en configureren van de event hub en uitvoeren van een voorbeeldtoepassing push-gebeurtenissen. Als u een bestaande event hub met gebeurtenissen in JSON-indeling hebt, deze zelfstudie overslaan en weergeven van uw omgeving in [Time Series Insights](https://insights.timeseries.azure.com).
@@ -48,6 +48,18 @@ Dit artikel wordt uitgelegd hoe u maken en configureren van de event hub en uitv
   ![Een beleid voor gedeelde toegang selecteren en klikken op de knop Toevoegen](media/send-events/shared-access-policy.png)  
 
   ![Een nieuw beleid voor gedeelde toegang toevoegen](media/send-events/shared-access-policy-2.png)  
+
+## <a name="add-time-series-insights-reference-data-set"></a>Gegevensset voor tijd reeks Insights verwijzing toevoegen 
+Gebruik van referentiegegevens in TSI contextualizes uw telemetriegegevens.  Die context betekenis toegevoegd aan uw gegevens en gemakkelijker te filteren en statistische functie.  TSI join verwijzen naar gegevens op moment van toegangsroutes en kunnen niet met terugwerkende kracht deelnemen aan deze gegevens.  Het is daarom essentieel om toe te voegen referentiegegevens vóór het toevoegen van een gebeurtenisbron met gegevens.  Gegevens, zoals locatie of sensor type zijn nuttig dimensies die u kunt koppelen aan een apparaat, de tag/het sensor ID gemakkelijker kunt segment en filteren.  
+
+> [!IMPORTANT]
+> Het is essentieel om met een verwijzing gegevensset geconfigureerd tijdens het uploaden van historische gegevens.
+
+Zorg ervoor dat u referentiegegevens aanwezig wanneer u de historische uploadgegevens naar TSI bulksgewijs.  Houd er rekening mee, TSI onmiddellijk lezen van een gebeurtenisbron van de gekoppelde wordt gestart als de bron van die gebeurtenis heeft gegevens.  Dit is handig moet worden gewacht met het toevoegen aan een gebeurtenisbron TSI totdat u uw referentiegegevens aanwezig is hebt, vooral als de bron van die gebeurtenis gegevens bevat. U kunt ook wachten met push-gegevens naar die bron totdat de gegevensset verwijzing geïmplementeerd is.
+
+Voor het beheren van referentiegegevens zich de webgebaseerde gebruikersinterface in de Verkenner TSI en er is een programmatische C#-API. TSI Explorer een visual gebruikerservaring heeft voor het van uploadbestanden of plakken in bestaande verwijzing gegevenssets als JSON- of CSV-indeling. Met de API kunt u een aangepaste app wanneer deze nodig is.
+
+Zie voor meer informatie over het beheren van referentiegegevens in tijd reeks inzichten de [verwijzingsartikel gegevens](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="create-time-series-insights-event-source"></a>Een Time Series Insights-gebeurtenisbron maken
 1. Als u nog geen gebeurtenisbron hebt gemaakt, volgt u [deze instructies](time-series-insights-how-to-add-an-event-source-eventhub.md) om een gebeurtenisbron te maken.
@@ -143,7 +155,7 @@ Een eenvoudig JSON-object.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### <a name="output---1-event"></a>Uitvoer - 1 gebeurtenis
+#### <a name="output---one-event"></a>Output - één gebeurtenis
 
 |id|tijdstempel|
 |--------|---------------|
@@ -165,7 +177,7 @@ Een JSON-matrix met twee JSON-objecten. Elk JSON-object wordt omgezet in een geb
     }
 ]
 ```
-#### <a name="output---2-events"></a>Uitvoer - 2 gebeurtenissen
+#### <a name="output---two-events"></a>Output - twee gebeurtenissen
 
 |id|tijdstempel|
 |--------|---------------|
@@ -176,7 +188,7 @@ Een JSON-matrix met twee JSON-objecten. Elk JSON-object wordt omgezet in een geb
 
 #### <a name="input"></a>Invoer
 
-Een JSON-object met een geneste JSON-matrix met twee JSON-objecten.
+Een JSON-object met een geneste JSON-matrix die twee JSON-objecten bevat:
 ```json
 {
     "location":"WestUs",
@@ -193,8 +205,8 @@ Een JSON-object met een geneste JSON-matrix met twee JSON-objecten.
 }
 
 ```
-#### <a name="output---2-events"></a>Uitvoer - 2 gebeurtenissen
-Houd er rekening mee dat de eigenschap 'location' naar elk van de gebeurtenissen wordt gekopieerd.
+#### <a name="output---two-events"></a>Output - twee gebeurtenissen
+U ziet dat de eigenschap 'locatie' wordt gekopieerd naar elk van de gebeurtenis.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -236,12 +248,185 @@ Een JSON-object met een geneste JSON-matrix met twee JSON-objecten. Uit deze inv
     ]
 }
 ```
-#### <a name="output---2-events"></a>Uitvoer - 2 gebeurtenissen
+#### <a name="output---two-events"></a>Output - twee gebeurtenissen
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+
+### <a name="json-shaping-strategies"></a>Vormgeven strategieën JSON
+We gaan gebruiken in het volgende voorbeeld van een gebeurtenis, zoals een begin wijst en problemen met het bestand en de strategieën voor het oplossen van die problemen worden besproken.
+
+#### <a name="payload-1"></a>De nettolading van 1:
+```json
+[{
+            "messageId": "LINE_DATA",
+            "deviceId": "FXXX",
+            "timestamp": 1522355650620,
+            "series": [{
+                        "chId": 3,
+                        "value": -3750.0
+                  }, {
+                        "chId": 13,
+                        "value": 0.58015072345733643
+                  }, {
+                        "chId": 11,
+                        "value": 800.0
+                  }, {
+                        "chId": 21,
+                        "value": 0.0
+                  }, {
+                        "chId": 14,
+                        "value": -999.0
+                  }, {
+                        "chId": 37,
+                        "value": 2.445906400680542
+                  }, {
+                        "chId": 39,
+                        "value": 0.0
+                  }, {
+                        "chId": 40,
+                        "value": 1.0
+                  }, {
+                        "chId": 1,
+                        "value": 1.0172575712203979
+                  }
+            ],
+            "EventProcessedUtcTime": "2018-03-29T20:36:21.3245900Z",
+            "PartitionId": 2,
+            "EventEnqueuedUtcTime": "2018-03-29T20:34:11.0830000Z",
+            "IoTHub": {
+                  "MessageId": "<17xxx2xx-36x0-4875-9x1x-x428x41x1x68>",
+                  "CorrelationId": "<x253x5xx-7xxx-4xx3-91x4-xxx3bx2xx0x3>",
+                  "ConnectionDeviceId": "AAAA-ZZ-001",
+                  "ConnectionDeviceGenerationId": "<123456789012345678>",
+                  "EnqueuedTime": "2018-03-29T20:34:10.7990000Z",
+                  "StreamId": null
+            }
+      }
+]
+ ```
+
+Als u deze matrix van gebeurtenissen als een nettolading TSI pushen, wordt deze opgeslagen als een gebeurtenis per elke waarde van de meting. In dat geval kunt maken van een teveel aan gebeurtenissen die mogelijk niet ideaal. U ziet dat u kunt referentiegegevens TSI betekenisvolle namen toevoegen als eigenschappen.  U kunt bijvoorbeeld gegevensset referentie maken met sleuteleigenschap = chId:  
+
+chId meting eenheid 24 Engine olie druk PSI 25 CALC pomp snelheid bKoppelingen/min
+
+Zie voor meer informatie over het beheren van referentiegegevens in tijd reeks inzichten de [verwijzingsartikel gegevens](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+
+Een ander probleem met de nettolading van de eerste is dat het tijdstempel is in milliseconden. TSI accepteert alleen ISO-notatie voor tijdstempels. Eén oplossing is te laat het standaardgedrag voor het tijdstempel in TSI, die moet worden gebruikt in de wachtrij tijdstempel is.
+
+Als alternatief voor de nettolading van de bovenstaande we kijken naar een ander voorbeeld.  
+
+#### <a name="payload-2"></a>De nettolading van 2:
+```json
+{
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "STATE Engine State": 1,
+      "unit": "NONE"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "MPC_AAAA-ZZ-001",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Well Head Px 1": -494162.8515625,
+      "unit": "psi"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate": 0,
+      "unit": "bbl/min"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Engine Fuel Pressure": 0,
+      "unit": "psi"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Engine Oil Pressure": 0.58015072345733643,
+      "unit": "psi"
+}
+```
+
+Net als de nettolading van-1 slaat TSI elke elke gemeten waarde als een unieke gebeurtenis.  Opmerkelijk verschil is dat TSI, leest de *tijdstempel* als correct hier, als ISO.  
+
+Als u Verminder het aantal gebeurtenissen die worden verzonden wilt, kan u de informatie verzenden als de volgende.  
+
+#### <a name="payload-3"></a>De nettolading van 3:
+```json
+{
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate": 0,
+      "CALC Pump Rate.unit": "bbl/min"
+      "Engine Oil Pressure": 0.58015072345733643,
+      "Engine Oil Pressure.unit": "psi"
+      "Engine Fuel Pressure": 0,
+      "Engine Fuel Pressure.unit": "psi"
+}
+```
+Een definitieve suggestie lager dan is.
+
+#### <a name="payload-4"></a>De nettolading van 4:
+```json
+{
+              "line": "Line01",
+              "station": "Station 11",
+              "gatewayid": "AAAA-ZZ-001",
+              "deviceid": "F12XX",
+              "timestamp": "2018-03-29T20:34:15.0000000Z",
+              "CALC Pump Rate": {
+                           "value": 0,
+                           "unit": "bbl/min"
+              },
+              "Engine Oil Pressure": {
+                           "value": 0.58015072345733643,
+                           "unit": "psi"
+              },
+              "Engine Fuel Pressure": {
+                           "value": 0,
+                           "unit": "psi"
+              }
+}
+```
+
+In dit voorbeeld ziet u de uitvoer na de JSON plat:
+
+```json
+{
+      "line": "Line01",
+      "station": "Station 11",,
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate.value": 0,
+      "CALC Pump Rate.unit": "bbl/min"
+      "Engine Oil Pressure.value": 0.58015072345733643,
+      "Engine Oil Pressure.unit": "psi"
+      "Engine Fuel Pressure.value": 0,
+      "Engine Fuel Pressure.unit": "psi"
+}
+```
+
+U hebt de vrijheid biedt verschillende eigenschappen voor elk van de kanalen in een eigen json-object terwijl nog steeds het aantal gebeurtenissen lage definiëren. Deze aanpak platte meer ruimte die belangrijk is te bedenken in beslag nemen. TSI capaciteit is gebaseerd op gebeurtenissen en de grootte, afhankelijk van wat zich het eerste voordoet.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

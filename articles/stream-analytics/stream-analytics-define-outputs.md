@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/18/2017
-ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.openlocfilehash: 8d984c17ab373428b13ed59a598ca8ae4e88136a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Stream Analytics-uitvoer: opties voor opslag en analyse
 Houd rekening met hoe de geretourneerde gegevens wordt gebruikt bij het ontwerpen van een Stream Analytics-taak. Hoe kunt u de resultaten van de Stream Analytics-taak weergeven en waarin kunt u deze opslaan?
@@ -21,18 +21,19 @@ Houd rekening met hoe de geretourneerde gegevens wordt gebruikt bij het ontwerpe
 Azure Stream Analytics heeft om in te schakelen tal van toepassing patronen, verschillende opties voor het opslaan van de uitvoer en weergeven van resultaten van de analyse. Dit maakt het eenvoudig taakuitvoer weergeven en geeft u de extra flexibiliteit in het verbruik en de opslag van de taakuitvoer van de voor gegevensopslag en andere doeleinden. Geen uitvoer geconfigureerd in de taak moet bestaan voordat de taak is gestart en gebeurtenissen start stromende. Bijvoorbeeld, als u een Blob-opslag als uitvoer gebruikt, de taak niet een opslagaccount maken automatisch. Een opslagaccount maken voordat de Stream Analytics-taak wordt gestart.
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
-Stream Analytics ondersteunt [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Deze opslag kunt u voor het opslaan van gegevens van elke grootte, type en opnamesnelheid snelheid voor operationele en experimentele analyses. Bovendien moet de Stream Analytics worden geautoriseerd voor toegang tot de Data Lake Store. Meer informatie over de autorisatie en hoe u zich registreert voor de Data Lake Store (indien nodig) worden besproken in de [Data Lake uitvoer artikel](stream-analytics-data-lake-output.md).
+Stream Analytics ondersteunt [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is een ondernemingsbrede opslagplaats op hyperschaal voor analytische workloads van big data. Data Lake Store kunt u voor het opslaan van gegevens van elke grootte, type en opnamesnelheid snelheid voor operationele en experimentele analyses. Bovendien moet de Stream Analytics worden geautoriseerd voor toegang tot de Data Lake Store.
 
-### <a name="authorize-an-azure-data-lake-store"></a>Een Azure Data Lake Store toestaan
-Wanneer Data Lake Storage als uitvoer in de Azure portal is geselecteerd, wordt u gevraagd om een verbinding met een bestaande Data Lake Store te autoriseren.  
+### <a name="authorize-an-azure-data-lake-store-account"></a>Een Azure Data Lake Store-account toestaan
 
-![Data Lake Store toestaan](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+1. Wanneer Data Lake Storage als uitvoer in de Azure portal is geselecteerd, wordt u gevraagd om een verbinding met een bestaande Data Lake Store te autoriseren.  
 
-Vul vervolgens de eigenschappen voor de Data Lake Store-uitvoer zoals hieronder wordt weergegeven:
+   ![Data Lake Store toestaan](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
-![Data Lake Store toestaan](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+2. Als u al toegang naar Data Lake Store, klik op 'Nu autoriseren' en een pagina wordt weergegeven dat aangeeft 'Omleidt naar autorisatie'. Nadat de autorisatie is geslaagd, krijgt u de pagina die u kunt de uitvoer van de Data Lake Store configureren.  
 
-De volgende tabel bevat de namen van eigenschappen en hun beschrijving op die nodig zijn voor het maken van een Data Lake Store-uitvoer.
+3. Zodra u het Data Lake Store-account dat is geverifieerd hebt, kunt u de eigenschappen configureren voor de uitvoer van uw Data Lake Store. De onderstaande tabel wordt de lijst met namen van eigenschappen en hun beschrijving voor het configureren van de uitvoer van uw Data Lake Store.
+
+   ![Data Lake Store toestaan](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 <table>
 <tbody>
@@ -46,11 +47,11 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving op die no
 </tr>
 <tr>
 <td>Accountnaam</td>
-<td>De naam van het Data Lake Storage-account waarin u de uitvoer wilt verzenden. Krijgt u een vervolgkeuzelijst met Data Lake Store-accounts waartoe de gebruiker is aangemeld bij de portal toegang tot heeft.</td>
+<td>De naam van het Data Lake Storage-account waarin u de uitvoer wilt verzenden. Krijgt u een vervolgkeuzelijst met Data Lake Store-accounts die beschikbaar in uw abonnement zijn.</td>
 </tr>
 <tr>
 <td>Pad voorvoegselpatroon</td>
-<td>Naamgeving van bestanden, volgt de volgende conventies: <BR>{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR>Voorbeeld van de uitvoerbestanden:<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>Hier volgen bovendien de situaties waarbij een nieuw bestand is gemaakt:<BR>1. Wijzig in het uitvoerschema <BR>2. Externe of interne opnieuw opstarten van een taak<BR><BR>Bovendien, als het bestandspatroon pad geen een afsluitende bevat '/', de laatste patroon in het bestandspad wordt behandeld als een voorvoegsel van de bestandsnaam.<BR><BR>Voorbeeld:<BR>Voor het patroon van pad: Logboeken-Map1/uu, het gegenereerde bestand eruit als: folder1/logs/02_134343_gguid_1.csv</td>
+<td>Het pad dat wordt gebruikt om uw bestanden binnen de opgegeven Data Lake Store-Account te schrijven. U kunt opgeven van een of meer exemplaren van de {date} en {time} variabelen.<BR> Voorbeeld 1: Map1/logs / {date} / {time}<BR>Voorbeeld 2: Map1/logs / {date}<BR>Hier volgen bovendien de situaties waarbij een nieuw bestand is gemaakt:<BR>1. Wijzig in het uitvoerschema <BR>2. Externe of interne opnieuw opstarten van een taak<BR><BR>Bovendien, als het bestandspatroon pad geen een afsluitende bevat '/', de laatste patroon in het bestandspad wordt behandeld als een voorvoegsel van de bestandsnaam.<BR></td>
 </tr>
 <tr>
 <td>Datum notatie [<I>optionele</I>]</td>
@@ -80,12 +81,14 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving op die no
 </table>
 
 ### <a name="renew-data-lake-store-authorization"></a>Vernieuwen van Data Lake Store-autorisatie
-U moet uw Data Lake Store-account te verifiëren als het wachtwoord is gewijzigd sinds de taak is gemaakt of laatst geverifieerd.
+U moet uw Data Lake Store-account te verifiëren als het wachtwoord is gewijzigd sinds de taak is gemaakt of laatst geverifieerd. Als u niet verifiëren, wordt de taak geen uitvoerresultaten en een foutbericht retourneren over de noodzaak van een nieuwe autorisatie is vastgelegd in de logboeken van de bewerking. Er is momenteel een beperking waar het verificatietoken moet worden handmatig vernieuwd om de 90 dagen voor alle taken met Data Lake Store-uitvoer. 
+
+Vernieuwen van de autorisatie, **stoppen** uw taak > Ga naar de uitvoer van uw Data Lake Store > klikt u op de **autorisatie vernieuwen** koppelen en gedurende een korte periode een pagina wordt weergegeven die wijzen op 'Omleidt naar autorisatie..'. De pagina wordt automatisch gesloten en als dit lukt, wordt aangegeven 'Autorisatie is vernieuwd'. Vervolgens moet u op **opslaan** aan de onderkant van de pagina en verder kunt gaan door het opnieuw starten van de taak in de **laatste tijd geëindigd** om gegevensverlies te voorkomen.
 
 ![Data Lake Store toestaan](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) kan worden gebruikt als uitvoer voor gegevens die relationele gegevens of voor toepassingen die afhankelijk zijn van de inhoud wordt gehost in een relationele database. Stream Analytics-taken schrijven naar een bestaande tabel in een Azure SQL Database.  Het tabelschema moet exact overeenkomen met de velden en hun typen wordt de uitvoer van de taak. Een [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) kan ook worden opgegeven als uitvoer via de SQL-Database output-optie ook (dit is een preview-functie). De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van de uitvoer van een SQL-Database.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) kan worden gebruikt als uitvoer voor gegevens die relationele gegevens of voor toepassingen die afhankelijk zijn van de inhoud wordt gehost in een relationele database. Stream Analytics-taken schrijven naar een bestaande tabel in een Azure SQL Database.  Het tabelschema moet exact overeenkomen met de velden en hun typen wordt de uitvoer van de taak. Een [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) kan ook worden opgegeven als uitvoer via de evenals SQL-Database output-optie. De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van de uitvoer van een SQL-Database.
 
 | De naam van eigenschap | Beschrijving |
 | --- | --- |
@@ -130,7 +133,7 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het 
 </tr>
 <tr>
 <td>Pad voorvoegsel patroon [optioneel]</td>
-<td>Het pad naar bestandspatroon gebruikt voor het schrijven van uw BLOB's binnen de opgegeven container. <BR> U kunt kiezen in het patroon pad naar een of meer exemplaren van de volgende 2 variabelen gebruiken om op te geven van de frequentie waarmee blobs worden geschreven: <BR> {date}, {time} <BR> Voorbeeld 1: cluster1/logs / {date} / {time} <BR> Voorbeeld 2: cluster1/logs / {date} <BR> <BR> Naamgeving van bestanden, volgt de volgende conventies: <BR> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR> Voorbeeld van de uitvoerbestanden: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Hier volgen bovendien de situaties waarbij een nieuw bestand is gemaakt: <BR> 1. Huidige bestand overschrijdt de maximum toegestane aantal blokken (momenteel 50.000) <BR> 2. Wijzig in het uitvoerschema <BR> 3. Externe of interne opnieuw opstarten van een taak  </td>
+<td>Het pad naar bestandspatroon gebruikt voor het schrijven van uw BLOB's binnen de opgegeven container. <BR> U kunt kiezen in het patroon pad naar een of meer exemplaren van de volgende 2 variabelen gebruiken om op te geven van de frequentie waarmee blobs worden geschreven: <BR> {date} {time} <BR> Voorbeeld 1: cluster1/logs / {date} / {time} <BR> Voorbeeld 2: cluster1/logs / {date} <BR> <BR> Naamgeving van bestanden, volgt de volgende conventies: <BR> {Pad voorvoegsel Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR> Voorbeeld van de uitvoerbestanden: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Hier volgen bovendien de situaties waarbij een nieuw bestand is gemaakt: <BR> 1. Huidige bestand overschrijdt de maximum toegestane aantal blokken (momenteel 50.000) <BR> 2. Wijzig in het uitvoerschema <BR> 3. Externe of interne opnieuw opstarten van een taak  </td>
 </tr>
 <tr>
 <td>[Optioneel] datumnotatie</td>
@@ -195,7 +198,7 @@ Er zijn een aantal parameters die nodig zijn voor het configureren van de Event 
    ![Power BI gebruiker autoriseren](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 2. Maak een nieuw account als u niet nog een klik op nu autoriseren.  Een scherm zoals hieronder wordt weergegeven.  
    
-   ![Azure Account Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+   ![Azure-Account Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 3. Geef het werk of school-account voor het machtigen van de Power BI-uitvoer in deze stap. Als u weet al niet aangemeld voor Power BI, kiest u nu Sign up. Het werk of school-account die u voor Power BI gebruikt kan afwijken van het account in Azure-abonnement, dat u momenteel bent aangemeld.
 
 ### <a name="configure-the-power-bi-output-properties"></a>Configureer de eigenschappen van Power BI-uitvoer
@@ -304,21 +307,26 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het 
 | Scheidingsteken |Alleen van toepassing voor CSV-serialisatie. Stream Analytics ondersteunt een aantal algemene scheidingstekens om gegevens te serialiseren in csv-indeling. Ondersteunde waarden zijn komma, puntkomma, schijfruimte, tabblad en de verticale balk. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is van een database globaal gedistribueerd en modellen service dat aanbiedingen oneindig elastisch schalen rond de hele wereld, uitgebreide query en automatische indexeren via schema networkdirect gegevensmodellen, lage latentie gegarandeerd en toonaangevende uitgebreide Sla's.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is van een database globaal gedistribueerd en modellen service dat aanbiedingen oneindig elastisch schalen rond de hele wereld, uitgebreide query en automatische indexeren via schema networkdirect gegevensmodellen, lage latentie gegarandeerd en toonaangevende uitgebreide Sla's. Raadpleeg voor meer informatie over opties voor het verzamelen van Cosmos DB voor Stream Analytics, de [Stream Analytics met Cosmos DB als uitvoer](stream-analytics-documentdb-output.md) artikel.
 
-De details hieronder een lijst met namen van de eigenschappen en hun beschrijving voor het maken van een Azure DB die Cosmos-uitvoer.
+> [!Note]
+> Op dit moment Azure Stream Analytics biedt alleen ondersteuning voor verbinding met behulp van CosmosDB **SQL-API**.
+> Andere Azure Cosmos DB-API's zijn nog niet ondersteund. Als u punt Azure Stream Analytics aan de Azure DB die Cosmos-accounts die worden gemaakt met andere API's, zijn de gegevens mogelijk niet juist opgeslagen. 
 
-* **Uitvoer Alias** – een alias voor deze uitvoer in de Stream Analytics query verwijzen  
-* **De accountnaam** : de naam of de URI van de Cosmos-DB-account voor het eindpunt.  
-* **Account van de sleutel** – de gedeelde toegangssleutel voor het account van de Cosmos-DB.  
-* **Database** – naam van de Cosmos-DB-database.  
-* **Verzameling naampatroon** – naam van de verzameling of het patroon voor de verzamelingen moet worden gebruikt. Indeling van de Collectienaam kan worden samengesteld met behulp van de optionele {partition}-token, waarbij partities beginnen bij 0. Hieronder vindt u voorbeeld geldige invoer:  
-  1\) MyCollection: een verzameling met de naam 'MyCollection' moet aanwezig zijn.  
-  2\) MyCollection {partition} – deze verzamelingen moeten bestaan – 'MyCollection0', 'MyCollection1', 'MyCollection2', enzovoort.  
-* **Partitie-sleutel** : optioneel. Dit is alleen nodig als u een partitie-token in het patroon van de naam van verzameling. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt om de sleutel op te geven voor het partitioneren van uitvoer in collecties. Voor één verzameling uitvoer, kan elke willekeurige uitvoerkolom bijvoorbeeld PartitionId worden gebruikt.  
-* **ID-document** : optioneel. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor de primaire sleutel opgeven in welke invoegen of updatebewerkingen zijn gebaseerd.  
+De volgende tabel beschrijft de eigenschappen voor het maken van een Azure DB die Cosmos-uitvoer.
+| De naam van eigenschap | Beschrijving |
+| --- | --- |
+| Uitvoeralias | Een alias aan dit uitvoer in de Stream Analytics query verwijzen. |
+| Sink | Cosmos DB |
+| Optie importeren | Kies een 'Cosmos-DB uit uw abonnement selecteren', of ' Geef Cosmos DB-instellingen handmatig '.
+| Account-id | De naam of de URI van de Cosmos-DB-account voor het eindpunt. |
+| Accountcode | De gedeelde toegangssleutel voor het account van de Cosmos-DB. |
+| Database | De naam van de Cosmos-DB-database. |
+| Patroon voor de collectienaam | Naam van de verzameling of het patroon voor de verzamelingen moet worden gebruikt. <br/>Indeling van de Collectienaam kan worden samengesteld met behulp van de optionele {partition}-token, waarbij partities beginnen bij 0. Twee voorbeelden:  <br/>1. _MyCollection_ : een verzameling met de naam 'MyCollection' moet aanwezig zijn.  <br/>2. _MyCollection {partition}_ – op basis van de partitioneringskolom. <br/>De partitionerende kolom verzamelingen moeten aanwezig zijn: 'MyCollection0', 'MyCollection1', 'MyCollection2', enzovoort. |
+| Partitiesleutel | Optioneel. Dit is alleen nodig als u een token {partition} in het patroon van de naam van verzameling.<br/> De partitiesleutel is de naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor het opgeven van de sleutel voor het partitioneren van uitvoer in collecties.<br/> Voor één verzameling uitvoer, kan elke willekeurige uitvoerkolom bijvoorbeeld PartitionId worden gebruikt. |
+| Document-ID |Optioneel. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor de primaire sleutel opgeven in welke invoegen of updatebewerkingen zijn gebaseerd.  
 
-## <a name="azure-functions-in-preview"></a>Azure Functions (In Preview)
+## <a name="azure-functions-in-preview"></a>Azure Functions (in preview)
 Azure Functions is een serverloze compute-service waarmee u code op aanvraag kunt uitvoeren zonder expliciet een infrastructuur in te richten of te beheren. Hiermee kunt u code die wordt geactiveerd door gebeurtenissen in Azure of services van derden implementeren.  Deze mogelijkheid van Azure Functions om te reageren op triggers maakt het een natuurlijke uitvoer voor een Azure Stream Analytics. Deze uitvoeradapter kan gebruikers verbinding van Stream Analytics met Azure Functions, en voer een script of een stuk code in reactie op tal van gebeurtenissen.
 
 Azure Stream Analytics roept Azure Functions via HTTP-triggers. De nieuwe uitvoer van de functie Azure-adapter is beschikbaar met de volgende eigenschappen kunnen worden geconfigureerd:

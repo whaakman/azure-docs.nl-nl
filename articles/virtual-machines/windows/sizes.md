@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: ca1c3950c4135f4120c1d361d23746f9bfe95d65
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 91cd1cc746952ef8f442165b167f88f626870c70
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Grootten voor Windows virtuele machines in Azure
 
@@ -44,7 +44,7 @@ In dit artikel beschrijft de beschikbare grootten en opties voor de virtuele mac
 
 
 
-## <a name="rest-api"></a>Rest-API
+## <a name="rest-api"></a>REST-API
 
 Zie de volgende onderwerpen voor informatie over het gebruik van de REST-API aan query voor VM-grootten:
 
@@ -57,6 +57,10 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 
 Meer informatie over het [Azure compute-eenheden (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
 
+## <a name="benchmark-scores"></a>Benchmark scores
+
+Meer informatie over de prestaties voor het gebruik van VM's van Windows compute de [CoreMark benchmark scores](compute-benchmark-scores.md).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over de verschillende grootten voor virtuele machine die beschikbaar zijn:
@@ -66,6 +70,7 @@ Meer informatie over de verschillende grootten voor virtuele machine die beschik
 - [Geoptimaliseerde opslag](../virtual-machines-windows-sizes-storage.md)
 - [Geoptimaliseerde GPU](sizes-gpu.md)
 - [Krachtig rekenvermogen](sizes-hpc.md)
+
 
 
 

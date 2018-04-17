@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Handleiding voor Azure Marketplace en AppSource uitgever
 
@@ -121,8 +121,7 @@ Elke winkel ondersteunt meerdere publishing opties en aanbieding typen. Selectee
 Neem contact op met Me gebruikt wanneer het niveau van de proefversie of transactie deelname is niet haalbaar. Het voordeel van deze benadering is dat het mogelijk uitgevers met een oplossing in de markt maakt naar onmiddellijk te ontvangen van leads die kunnen worden nurtured in de fundamentele aanbiedingen uw zakelijke vliegwiel starten. Het nadeel is echter dat betrokkenheid van de klant beperkt, ten opzichte van andere aanbiedingstypen is.
 
 >[!IMPORTANT]
-<<<<<<< Betrokkenheid van de klant HEAD best met proefversie is en Transact biedt. De waarde van Contact met Me opnemen de lead die u ontvangt, dus als u dit soort aanbieding kiest, zorg ervoor dat de bestemming voor de lead is geconfigureerd en u klaar bent voor de lead maximaliseren. === Wordt niet aanbevolen de contactpersoon mij vermeldingstype. U dient te gebruiken alleen in situaties waar er geen manier is tot stand brengen van een evaluatieversie. Betrokkenheid van de klant is de beste met evaluatie- en transactie-aanbiedingen. Als u elk type evaluatieversie hebt, vindt onze voorbereidingsproces u op een van deze opties, afhankelijk van uw scenario.
->>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
+>Betrokkenheid van de klant is het beste met proefversie en Transact biedt. De waarde van Contact met Me opnemen de lead die u ontvangt, dus als u dit soort aanbieding kiest, zorg ervoor dat de bestemming voor de lead is geconfigureerd en u klaar bent voor de lead maximaliseren. 
 
 Wanneer de aanbieding voornamelijk uit professionele services (bijvoorbeeld beoordelingen, implementaties, workshops), gebruik bestaat aanbieden de ondersteuningsdiensten type. Aanbieding-bereik, de duur en prijs moeten worden opgelost, moeten zijn voor één klant en moeten worden uitgevoerd op de site.
 
@@ -413,7 +412,7 @@ In deze sectie beschrijven we de stappen voor het:
 
 |Registratiestap Marketplace  |Time  |Beschrijving  |
 |---------|---------|---------|
-| Registreren in Microoft partnernetwerk | 15 min | Uitgevers moeten worden geregistreerd in Microsoft Partner Network (MPN) om het eerste niveau van account valideren en extra voordelen en ondersteuning bieden voor een Azure Marketplace-uitgever |
+| Registreren in het Microsoft Partner Network | 15 minuten | Uitgevers moeten worden geregistreerd in Microsoft Partner Network (MPN) om het eerste niveau van account valideren en extra voordelen en ondersteuning bieden voor een Azure Marketplace-uitgever |
 |Een Microsoft-ID maken     |   15 minuten      |   Partners moet beschikken over een Microsoft-ID. Dit Microsoft-ID wordt gebruikt voor toegang tot de Cloud Partner-Portal.       |
 |De benoeming marketplace formulier verzenden     |  1-3 dagen       |  Partners moeten de benoeming formulier voor het starten van het goedkeuringsproces voor de marketplace in te dienen. Nadat het formulier wordt verzonden, wordt het voorbereidingsteam marketplace de toepassing bekijken en valideren van de aanvraag.       |
 |Registreren in het Developer Center     |    5-10 dagen     | Registratie bij het Microsoft Developer Center is vereist voor Microsoft om te controleren of de partner een geldige rechtspersoon met een geldig BTW-nummer voor het land waar het is geregistreerd. Ontwikkelaars kunnen de partner een geregistreerde Microsoft developer en toegang tot de Azure Ontwikkelaarsprogramma voorzien. <br><br>Houd er rekening mee dat als u het formulier van de benoeming marketplace nog niet hebt voltooid, wordt u gevraagd om te betalen registratie $99. Als u deze kosten afgezien, vult u het formulier van de benoeming marketplace en ontvangt u een promotiecode via e-mail.  |
@@ -493,7 +492,6 @@ Dit is de lijst met de ondersteuningsopties voor Azure Marketplace:
 
 |Kanaal voor ondersteuning  |Beschrijving  |
 |---------|---------|
-|Vertraging: [Marketplace Slack koppelen](https://join.marketplace.azure.com)    |   Toegestane omgeving voor de ondersteuning van partners met de technische problemen. Er zijn meer dan 350 partners momenteel werkt in deze omgeving.        |
 |MSDN-forums: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network-forum.         |
 |Stack-overloop: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Stack Overflow-omgeving om oplossingen en vragen over alles met betrekking tot Azure en de Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 

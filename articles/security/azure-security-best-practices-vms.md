@@ -5,7 +5,7 @@ services: security
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5e757abe-16f6-41d5-b1be-e647100036d8
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ddddf72d1ded0fb7952a641c287a4a5696e3aaef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Aanbevolen procedures voor beveiliging van de virtuele machine in Azure
 
@@ -49,14 +49,14 @@ Het artikel onderzoekt de volgende aanbevolen procedures van de VM-beveiliging:
 
 De eerste stap bij het beveiligen van uw virtuele machine is om ervoor te zorgen dat alleen geautoriseerde gebruikers kunnen nieuwe VM's instellen. U kunt [Azure beleid](../azure-policy/azure-policy-introduction.md) om vast te stellen conventies voor resources in uw organisatie, aangepaste beleidsregels maken en deze beleidsregels van toepassing op resources, zoals [resourcegroepen](../azure-resource-manager/resource-group-overview.md).
 
-Virtuele machines die deel uitmaken van een resourcegroep natuurlijk neemt de beleidsregels. Hoewel we deze benadering voor het beheren van virtuele machines wordt aangeraden, kunt u ook toegang tot afzonderlijke VM-beleid beheren met behulp van [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md).
+Virtuele machines die deel uitmaken van een resourcegroep natuurlijk neemt de beleidsregels. Hoewel we deze benadering voor het beheren van virtuele machines wordt aangeraden, kunt u ook toegang tot afzonderlijke VM-beleid beheren met behulp van [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 Wanneer u beleidsregels voor Resource Manager en RBAC VM toegangsbeheer inschakelt, kunt u helpen verbeteren de algehele beveiliging van de virtuele machine. Het is raadzaam dat u virtuele machines met de dezelfde levenscyclus in dezelfde resourcegroep samenvoegen. Met behulp van resourcegroepen kunt u implementeren, bewaken en samengevouwen facturering kosten voor uw resources. Gebruiken om gebruikers te openen en het instellen van virtuele machines, een [minimale bevoegdheid benadering](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). En als u rechten aan gebruikers toewijst, wilt gebruiken de volgende ingebouwde Azure-rollen:
 
-- [Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): VM's, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden kunt beheren.
-- [Klassieke Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel, maar niet het virtuele netwerk of opslag account waarmee de virtuele machines zijn verbonden kunt beheren.
-- [Beveiligingsbeheer](../active-directory/role-based-access-built-in-roles.md#security-manager): beveiligingsonderdelen, beveiligingsbeleid en virtuele machines kunt beheren.
-- [DevTest Labs gebruiker](../active-directory/role-based-access-built-in-roles.md#devtest-labs-user): kunt Alles weergeven en verbinding maken, starten, opnieuw opstarten en afsluiten van virtuele machines.
+- [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): VM's, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden kunt beheren.
+- [Klassieke Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel, maar niet het virtuele netwerk of opslag account waarmee de virtuele machines zijn verbonden kunt beheren.
+- [Beveiligingsbeheer](../role-based-access-control/built-in-roles.md#security-manager): beveiligingsonderdelen, beveiligingsbeleid en virtuele machines kunt beheren.
+- [DevTest Labs gebruiker](../role-based-access-control/built-in-roles.md#devtest-labs-user): kunt Alles weergeven en verbinding maken, starten, opnieuw opstarten en afsluiten van virtuele machines.
 
 Deel geen accounts en wachtwoorden tussen beheerders en gebruik wachtwoorden niet niet meerdere gebruikersaccounts of services, met name de wachtwoorden voor sociale media of andere niet-administratieve activiteiten. In het ideale geval moet u [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) sjablonen voor het instellen van uw virtuele machines veilig. U kunt met deze benadering versterking van uw implementatie-instellingen en beveiligingsinstellingen in de implementatie worden afgedwongen.
 

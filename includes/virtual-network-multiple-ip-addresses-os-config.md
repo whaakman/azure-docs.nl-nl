@@ -1,6 +1,22 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-network
+author: jimdial
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="os-config"></a>IP-adressen toevoegen aan een VM-besturingssysteem
 
-Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere privé-IP-adressen hebt gemaakt. U moet alle privé-IP-adressen (met inbegrip van het primaire) die u aan de virtuele machine hebt toegevoegd, handmatig toevoegen. Voer de volgende stappen uit voor het VM-besturingssysteem:
+Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere privé-IP-adressen hebt gemaakt. U moet alle privé-IP-adressen (met inbegrip van het primaire) die u aan de virtuele machine hebt toegevoegd, handmatig toevoegen. Voltooi de stappen die hieronder voor uw besturingssysteem voor de virtuele machine.
 
 ### <a name="windows"></a>Windows
 
@@ -13,17 +29,16 @@ Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere pr
     * **IP-adres**: voer het *primaire* privé-IP-adres in
     * **Subnetmasker**: stel dit in op basis van uw subnet. Als het subnet bijvoorbeeld een /24 subnet is, is het subnetmasker 255.255.255.0.
     * **Standaardgateway**: het eerste IP-adres in het subnet. Als uw subnet 10.0.0.0/24 is, is het IP-adres van de gateway 10.0.0.1.
-    * Klik op **De volgende DNS-serveradressen gebruiken** en voer de volgende waarden in:
+    * Selecteer **de volgende DNS-serveradressen** en voer de volgende waarden:
         * **DNS-voorkeursserver**: als u niet uw eigen DNS-server gebruikt, voert u 168.63.129.16 in.  Als u uw eigen DNS-server gebruikt, voert u het IP-adres voor de server in.
-    * Klik op de knop **Geavanceerd** en voeg extra IP-adressen toe. Voeg elk van de secundaire privé-IP-adressen die in stap 8 worden vermeld, toe aan de NIC met hetzelfde subnet dat voor het primaire IP-adres is opgegeven.
-        >[!WARNING] 
-        >Als u de bovenstaande stappen niet correct uitvoert, kan het zijn dat de verbinding met uw virtuele machine wordt verbroken. Zorg ervoor dat de gegevens die u hebt ingevoerd voor stap 5 kloppen voordat u doorgaat.
+    * Selecteer de **Geavanceerd** knop en extra IP-adressen toe te voegen. Elk van de secundaire particuliere IP-adressen, die u hebt toegevoegd aan de interface van de Azure-netwerk in de vorige stap toevoegen aan de Windows-netwerkinterface die de primaire IP-adres is toegewezen aan de Azure-netwerk-interface is toegewezen.
+
+        U moet het openbare IP-adres is toegewezen aan een virtuele machine van Azure in het besturingssysteem van de virtuele machine nooit handmatig toewijzen. Als u het IP-adres in het besturingssysteem handmatig instelt, moet u zorgen dat het hetzelfde adres als de privé IP-adres is toegewezen aan de Azure [netwerkinterface](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), of u verbinding met de virtuele machine kunt verliezen. Meer informatie over [privé IP-adres](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) instellingen. Een Azure openbare IP-adres in het besturingssysteem, moet u nooit toewijzen.
 
     * Klik op **OK** om de TCP/IP-instellingen te sluiten en vervolgens nogmaals op **OK** om de instellingen van de netwerkadapter te sluiten. Uw RDP-verbinding wordt opnieuw tot stand gebracht.
 
 6. Typ vanaf een opdrachtprompt *ipconfig /all*. Alle IP-adressen die u hebt toegevoegd, worden weergegeven en DHCP is uitgeschakeld.
 7. Windows configureren voor het gebruik van de persoonlijke IP-adres van de primaire IP-configuratie in Azure als het primaire IP-adres voor Windows. Zie [geen internettoegang van VM van Windows Azure met meerdere IP-adressen](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) voor meer informatie. 
-
 
 ### <a name="validation-windows"></a>Validatie (Windows)
 

@@ -3,7 +3,7 @@ title: Externe verbinding in het knooppunt van een Azure Service Fabric-cluster 
 description: Informatie over het op afstand verbinding maken met een scale set-exemplaar (een Service Fabric-clusterknooppunt).
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
-ms.openlocfilehash: 8c7d5446429089a0fc931175b55e81e1ad0c97a0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: aljo
+ms.openlocfilehash: 68e3b8ae5bdaa3ad9f1c470294ef5c3bcf0c1893
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Extern verbinding maken met een virtuele machine scale set-exemplaar of een clusterknooppunt
 In een Service Fabric-cluster worden uitgevoerd in Azure, elk knooppunttype cluster die u definieert [stelt u een afzonderlijke virtuele-machineschaalset](service-fabric-cluster-nodetypes.md).  U kunt extern verbinding maken met specifieke scale set exemplaren (of clusterknooppunten).  In tegenstelling tot de single instance virtuele machines hebben niet scale set exemplaren hun eigen virtuele IP-adressen. Dit kan lastig zijn wanneer u zoekt een IP-adres en de poort die u gebruiken kunt voor externe verbinding met een specifiek exemplaar.

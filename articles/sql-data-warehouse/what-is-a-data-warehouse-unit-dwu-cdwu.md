@@ -2,23 +2,19 @@
 title: Wat zijn Data Warehouse Units (dwu's, cDWUs) in Azure SQL Data Warehouse? | Microsoft Docs
 description: Prestaties scale-out mogelijkheden in Azure SQL Data Warehouse. Uitbreiden door het aantal dwu's, cDWUs, aanpassen of onderbreken en hervatten van rekenresources kosten besparen.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+author: sqlmojo
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/09/2018
+ms.author: joeyong
+ms.reviewer: jrj
+ms.openlocfilehash: 56d59be2074a3047ce19fde3e808354266040864
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
+---
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en rekencapaciteit Data Warehouse Units (cDWUs)
 Verklaart Data Warehouse Units (dwu's) en Data Warehouse Units (cDWUS) berekenen voor Azure SQL Data Warehouse. Aanbevelingen voor het kiezen van het aantal ideaal datawarehouse units en het wijzigen van het aantal bevatten. 
@@ -38,6 +34,27 @@ Dwu's verhogen:
 - Prestaties van het systeem voor scans, aggregaties en CTAS instructies lineair wordt gewijzigd
 - Verhoogt het aantal en schrijfprogramma voor bewerkingen van PolyBase laden
 - Verhoogt het maximum aantal gelijktijdige query's en gelijktijdigheid sleuven.
+
+## <a name="service-level-objective"></a>Serviceniveaudoelstelling
+De Service Level Objective (SLO) is de instelling voor schaalbaarheid die de kosten en prestaties van uw datawarehouse bepaalt. Het niveau van de service voor het optimaliseren voor Compute prestaties laag schaal worden gemeten in compute datawarehouse-eenheden (cDWU), bijvoorbeeld DW2000c. De geoptimaliseerde voor serviceniveaus elasticiteit worden gemeten in dwu's, bijvoorbeeld dw2000 zijn. 
+
+De instelling SERVICE_OBJECTIVE bepaalt het serviceniveau en de prestatielaag voor uw datawarehouse op T-SQL.
+
+```sql
+--Optimized for Elasticity
+CREATE DATABASE myElasticSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000'
+)
+;
+
+--Optimized for Compute
+CREATE DATABASE myComputeSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000c'
+)
+;
+```
 
 ## <a name="performance-tiers-and-data-warehouse-units"></a>Prestatielagen en datawarehouse Units
 
@@ -209,7 +226,7 @@ Raadpleeg de volgende artikelen om te begrijpen enkele concepten die aanvullende
 [Best practices]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+[SQL DB Contributor]:../role-based-access-control/built-in-roles.md#sql-db-contributor
 
 <!--MSDN references-->
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx

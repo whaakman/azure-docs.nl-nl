@@ -1,47 +1,44 @@
 ---
-title: Beheert de apparaatinschrijvingen met Azure apparaat inrichten Service-SDK's | Microsoft Docs
-description: Apparaatinschrijvingen in de IoT Hub apparaat inrichtingsservice met de Service-SDK's beheren
+title: Beheert de apparaatinschrijvingen met behulp van Azure apparaat inrichten Service-SDK's | Microsoft Docs
+description: Apparaatinschrijvingen in de IoT Hub apparaat inrichten met behulp van de Service-SDK's beheren
 services: iot-dps
-keywords: 
+keywords: ''
 author: yzhong94
 ms.author: yizhon
-ms.date: 12/01/2017
+ms.date: 04/04/18
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
-manager: arjmands
+documentationcenter: ''
+manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 1ec86d319f529fe63b0924f4cfa0c2be178cd4d8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Apparaatinschrijvingen met Azure apparaat inrichten Service-SDK's beheren
 Een *apparaatinschrijving* maakt een record van een enkel apparaat of een groep apparaten die mogelijk op een bepaald moment geregistreerd bij de Service voor het inrichten van apparaten. De record van inschrijving bevat de eerste gewenste configuratie voor de apparaten als onderdeel van dat de inschrijving, met inbegrip van de gewenste IoT-hub. In dit artikel laat zien hoe apparaatinschrijvingen voor uw provisioning service programmatisch met behulp van de Azure IoT inrichting Service SDK's beheren.  De SDK's zijn beschikbaar op GitHub in dezelfde opslagplaats als Azure IoT SDK's.
 
-## <a name="samples"></a>Voorbeelden
-In dit artikel controleert de concepten van hoog niveau voor het beheren van apparaatinschrijvingen voor uw provisioning service programmatisch met behulp van de Azure IoT inrichting Service SDK's.  Exacte API-aanroepen kunnen afwijken als gevolg van verschillende talen.  Lees de controles die we op GitHub voor meer informatie bieden:
-* [Voorbeelden van Java-inrichting Service-Client](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
-* [Voorbeelden van node.js-Client-Service-inrichting](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
-* [Voorbeelden van de Client-Service van .NET-inrichting](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
-
 ## <a name="prerequisites"></a>Vereisten
-* Verbindingsreeks uit een apparaat inrichtingsservice-exemplaar
-* Apparaat beveiliging artefacten:
-    * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
+* De verbindingsreeks ophalen met uw apparaat inrichtingsservice-exemplaar.
+* Verkrijgen van het apparaat artefacten beveiliging voor de [attestation mechanisme](concepts-security.md#attestation-mechanism) gebruikt:
+    * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Afzonderlijke inschrijving: registratie-ID en TPM-goedkeuringssleutel vanaf een fysiek apparaat of van TPM-Simulator.
         * Inschrijvingsgroep geldt niet voor attestation TPM.
-    * [**X.509**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
-        * Afzonderlijke inschrijving: de [Leaf certificaat](https://docs.microsoft.com/azure/iot-dps/concepts-security#leaf-certificate) van fysieke apparaat of Emulator OPDELEN.
-        * Inschrijvingsgroep: de [basiscertificaat](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) of de [tussenliggende certificaat](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate)die worden gebruikt voor het produceren van certificaat voor apparaten op een fysiek apparaat.  Het kan ook worden gegenereerd van de Emulator OPDELEN.
+    * [**X.509**](/azure/iot-dps/concepts-security):
+        * Afzonderlijke inschrijving: de [Leaf certificaat](/azure/iot-dps/concepts-security#leaf-certificate) van fysieke apparaat of van de SDK [OPDELEN](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) Emulator.
+        * Inschrijvingsgroep: de [basis-CA-certificaat](/azure/iot-dps/concepts-security#root-certificate) of de [tussenliggende certificaat](/azure/iot-dps/concepts-security#intermediate-certificate)die worden gebruikt voor het produceren van certificaat voor apparaten op een fysiek apparaat.  Het kan ook worden gegenereerd van de emulator SDK OPDELEN.
+* Exacte API-aanroepen kunnen afwijken als gevolg van verschillende talen. Lees de voorbeelden op GitHub voor meer informatie:
+   * [Voorbeelden van Java-inrichting Service-Client](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
+   * [Voorbeelden van node.js-Client-Service-inrichting](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+   * [Voorbeelden van de Client-Service van .NET-inrichting](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
 ## <a name="create-a-device-enrollment"></a>Maken van een inschrijving van apparaten
-
 Er zijn twee manieren waarop u uw apparaten met de inrichting service kunt inschrijven:
 
-* Een **inschrijvingsgroep** is een vermelding voor een groep apparaten die een gemeenschappelijke attestation-mechanisme van X.509-certificaten delen, ondertekend door de [basiscertificaat](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) of de [tussenliggende certificaat ](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Aangeraden wordt een inschrijvingsgroep voor voor een groot aantal apparaten met een gewenste initiële configuratie delen of voor apparaten alle gaat dezelfde tenant. Houd er rekening mee dat u alleen de apparaten die gebruikmaken van het mechanisme voor X.509 attestation als kan inschrijven *inschrijving groepen*. 
+* Een **inschrijvingsgroep** is een vermelding voor een groep apparaten die een gemeenschappelijke attestation-mechanisme van X.509-certificaten delen, ondertekend door de [basiscertificaat](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) of de [tussenliggende certificaat ](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Aangeraden wordt een inschrijvingsgroep voor voor een groot aantal apparaten die een gewenste initiële configuratie delen of voor apparaten alle gaat dezelfde tenant. Houd er rekening mee dat u alleen de apparaten die gebruikmaken van het mechanisme voor X.509 attestation als kan inschrijven *inschrijving groepen*. 
 
     U kunt een registratie-groep maken met de SDK's die deze werkstroom te volgen:
 
@@ -49,7 +46,7 @@ Er zijn twee manieren waarop u uw apparaten met de inrichting service kunt insch
     1. Maak een nieuwe ```EnrollmentGroup``` met behulp van variabele de ```attestation``` gemaakt en een unieke ```enrollmentGroupId```.  U kunt eventueel parameters zoals instellen ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
     2. Service-SDK-API aanroepen ```createOrUpdateEnrollmentGroup``` in uw back-end-toepassing met ```EnrollmentGroup``` om een registratie-groep te maken.
 
-* Een **afzonderlijke inschrijving** is een vermelding voor één apparaat kan registreren. Afzonderlijke inschrijvingen mag x.509-certificaten of SAS-tokens (in een echt of virtueel TPM) gebruiken zoals attestation mechanismen. U wordt aangeraden met behulp van afzonderlijke inschrijvingen voor apparaten die unieke initiële configuraties vereisen of voor apparaten die u kunnen alleen SAS-tokens via TPM of virtuele TPM gebruiken als het mechanisme voor attestation. Afzonderlijke inschrijvingen wellicht de gewenste IoT hub apparaat-ID opgegeven.
+* Een **afzonderlijke inschrijving** is een vermelding voor één apparaat kan registreren. Afzonderlijke inschrijvingen mag x.509-certificaten of SAS-tokens (van een fysieke of virtuele TPM) gebruiken zoals attestation mechanismen. U wordt aangeraden met behulp van afzonderlijke inschrijvingen voor apparaten die unieke initiële configuraties vereisen of voor apparaten die u kunnen alleen SAS-tokens via TPM of virtuele TPM gebruiken als het mechanisme voor attestation. Afzonderlijke inschrijvingen hebben mogelijk de gewenste apparaat-id voor IoT Hub die is opgegeven.
 
     U kunt een afzonderlijke inschrijving maken met de SDK's die deze werkstroom te volgen:
     
@@ -59,9 +56,7 @@ Er zijn twee manieren waarop u uw apparaten met de inrichting service kunt insch
     2. Maak een nieuwe ```IndividualEnrollment``` variabele met behulp van de ```attestation``` gemaakt en een unieke ```registrationId``` als invoer, die op uw apparaat of gegenereerd op basis van de TPM-Simulator.  U kunt eventueel parameters zoals instellen ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
     3. Service-SDK-API aanroepen ```createOrUpdateIndividualEnrollment``` in uw back-end-toepassing met ```IndividualEnrollment``` voor het maken van een afzonderlijke inschrijving.
 
-Nadat u een inschrijving hebt gemaakt, zou de inrichtingsservice van het apparaat een registratie-resultaat retourneren.
-
-Deze werkstroom wordt geïllustreerd in de [voorbeelden](#samples).
+Nadat u een inschrijving hebt gemaakt, retourneert de inrichtingsservice van het apparaat een resultaat van de inschrijving. Deze werkstroom wordt geïllustreerd in de voorbeelden [eerder vermeld](#prerequisites).
 
 ## <a name="update-an-enrollment-entry"></a>Bijwerken van een vermelding voor inschrijving
 
@@ -77,14 +72,14 @@ U kunt een vermelding in het volgen van deze werkstroom registratie bijwerken:
     2. De parameter van de meest recente inschrijving zo nodig wijzigen.
     3. Met behulp van de meest recente inschrijving Service SDK-API niet aanroepen ```createOrUpdateEnrollmentGroup``` bij te werken uw registratie.
 
-Deze werkstroom wordt geïllustreerd in de [voorbeelden](#samples).
+Deze werkstroom wordt geïllustreerd in de voorbeelden [eerder vermeld](#prerequisites).
 
 ## <a name="remove-an-enrollment-entry"></a>Verwijder de vermelding voor een inschrijving
 
 * **Afzonderlijke inschrijving** kan worden verwijderd door het aanroepen van de SDK-API-Service ```deleteIndividualEnrollment``` met ```registrationId```.
 * **Registratie van de groep** kan worden verwijderd door het aanroepen van de SDK-API-Service ```deleteEnrollmentGroup``` met ```enrollmentGroupId```.
 
-Deze werkstroom wordt geïllustreerd in de [voorbeelden](#samples).
+Deze werkstroom wordt geïllustreerd in de voorbeelden [eerder vermeld](#prerequisites).
 
 ## <a name="bulk-operation-on-individual-enrollments"></a>Bulkbewerking op afzonderlijke inschrijvingen
 
@@ -95,4 +90,4 @@ U kunt bulkbewerking te maken, bijwerken of verwijderen van meerdere afzonderlij
 
 Nadat u hebt een bewerking is uitgevoerd, zou de Service voor het inrichten van apparaten bulksgewijs bewerkingsresultaat geretourneerd.
 
-Deze werkstroom wordt geïllustreerd in de [voorbeelden](#samples).
+Deze werkstroom wordt geïllustreerd in de voorbeelden [eerder vermeld](#prerequisites).

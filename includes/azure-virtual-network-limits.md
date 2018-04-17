@@ -26,12 +26,12 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Subnetten per virtueel netwerk |1000 |10.000 |
 | Virtueel netwerk peerings per virtueel netwerk |10 |50 |
 | DNS-servers per virtueel netwerk |9 |25 |
-| Privé-IP-adressen per virtueel netwerk |4096 |8192 |
+| Privé-IP-adressen per virtueel netwerk |16384 ** |16384 |
 | Privé-IP-adressen per netwerkinterface |256 |1024 |
 | Gelijktijdige TCP of UDP loopt per NIC van een virtuele machine of rolinstantie |500.000 |500.000 |
-| Netwerkinterfaces (NIC) |350 |20000 |
+| Netwerkinterfaces (NIC) |24000 ** |24000 |
 | Netwerkbeveiligingsgroepen (NSG's) |100 |5000 |
-| NSG-regels per NSG |200 |1000 |
+| NSG-regels per NSG |1000 ** |1000 |
 | IP-adressen en -bereiken die zijn opgegeven voor de bron- of doelserver in een beveiligingsgroep |2000 |4000 |
 | Toepassingsbeveiligingsgroepen |200 |500 |
 | Beveiligingsgroepen toepassing per IP-configuratie per NIC |10 |20 |
@@ -43,6 +43,8 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Openbare IP-adressen - statische |(Basic) 20 |contact met ondersteuning |
 | Openbare IP-adressen - statische |(Standard) 20 |contact met ondersteuning |
 | Punt-naar-site-basiscertificaten per VPN Gateway |20 |20 |
+
+** Deze standaardlimieten gelden voor abonnementen die niet eerder deze limieten verhoogd door middel van ondersteuning hebben nog
 
 #### <a name="load-balancer"></a>Load Balancer-limieten
 

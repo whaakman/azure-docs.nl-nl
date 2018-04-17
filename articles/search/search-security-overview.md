@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 95c1f209d51093c3f2bf2555f987983a85f2bf09
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Beveiliging en beperkte toegang in Azure Search
 
@@ -51,7 +51,7 @@ Codering in rust in 24 januari 2018 is aangekondigd en geldt voor alle Servicela
 Verschillende beveiligingsmechanismen zijn beschikbaar via de Azure-Stack en dus automatisch beschikbaar zijn voor de Azure Search-resources die u maakt.
 
 + [De vergrendelingen bij het abonnement of de resource-niveau om te voorkomen dat de verwijdering](../azure-resource-manager/resource-group-lock-resources.md)
-+ [Op rollen gebaseerde toegangsbeheer (RBAC) om de toegang tot informatie en administratieve bewerkingen beheren](../active-directory/role-based-access-control-what-is.md)
++ [Op rollen gebaseerde toegangsbeheer (RBAC) om de toegang tot informatie en administratieve bewerkingen beheren](../role-based-access-control/overview.md)
 
 Alle Azure-services ondersteunen op rollen gebaseerde toegangsbeheer (RBAC) voor het instellen van toegangsniveaus consistent op alle services. Bijvoorbeeld is weergeven van gevoelige gegevens, zoals de beheersleutel beperkt tot de functies van eigenaar en Inzender, terwijl de servicestatus van de weergeven beschikbaar voor leden van een rol is. RBAC biedt rollen eigenaar, bijdrager en Reader. Standaard zijn alle servicebeheerders leden van de rol van eigenaar.
 

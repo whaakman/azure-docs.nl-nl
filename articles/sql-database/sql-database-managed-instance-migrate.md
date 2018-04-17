@@ -9,26 +9,32 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 4546f03294ea8ab01ecb2b2777c5b92dbc5a7f4a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5b8a2ec7e0401ac239acdefdd77a13b522f73960
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database-beheerd instantie
 
 In dit artikel leert u de methoden voor het migreren van een SQL Server 2005 of een latere versie naar Azure SQL Database beheerd-instantie (preview). 
-
-> [!NOTE]
-> Zie voor het migreren van een individuele database in een individuele database of een elastische pool, [een SQL Server-database migreren naar Azure SQL Database](sql-database-cloud-migrate.md).
 
 SQL Database Managed Instance is een uitbreiding van de bestaande SQL Database-service en biedt naast databases en elastische pools een derde implementatieoptie.  Het is bedoeld voor database lift-en-verschuiving naar een volledig beheerde PaaS zonder de toepassing opnieuw. SQL Database Managed Instance biedt extra compatibiliteit met het on-premises SQL Server-programmeermodel en gebruiksklare ondersteuning voor de meeste functies van SQL Server en de bijbehorende hulpprogramma's en services.
 
 Op het hoogste niveau ziet migratieproces toepassing er in het volgende diagram:
 
 ![migratieproces](./media/sql-database-managed-instance-migration/migration-process.png)
+
+- [Beheerde exemplaar compatibiliteit evalueren](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
+- [App-verbindingsoptie kiezen](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
+- [Implementeren naar een optimaal grootte beheerde exemplaar](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
+- [Selecteer de migratiemethode en migreren](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
+- [Toepassingen bewaken](sql-database-managed-instance-migrate.md#monitor-applications)
+
+> [!NOTE]
+> Zie voor het migreren van een individuele database in een individuele database of een elastische pool, [een SQL Server-database migreren naar Azure SQL Database](sql-database-cloud-migrate.md).
 
 ## <a name="assess-managed-instance-compatibility"></a>Beheerde exemplaar compatibiliteit evalueren
 
@@ -43,14 +49,6 @@ Er zijn echter enkele gevallen wanneer moet u rekening houden met een andere opt
 - Als dit echt moet u op een specifieke versie van SQL Server blijven (2012, bijvoorbeeld).
 - Als uw compute-vereisten veel lager zijn dat exemplaar beheerd biedt openbare Preview (één vCore voor instantie) en de consolidatie van de database is niet acceptabel optie.
 
-## <a name="choose-app-connectivity-option"></a>App-verbindingsoptie kiezen
-
-Beheerde exemplaar volledig deel uitmaakt van het virtuele netwerk, zodat deze het ultieme niveau van isolatie en beveiligingsvereisten voor uw gegevens biedt. Het volgende diagram ziet u diverse opties voor het implementeren van verschillende topologieën voor toepassing volledig in Azure of in een hybride omgeving, ongeacht of u een volledig beheerde service kiezen of model voor de front-toepassingen die worden gehost.
-
-![toepassing implementatietopologieën](./media/sql-database-managed-instance-migration/application-deployment-topologies.png)
-
-Een van de geselecteerde opties toestaan verbinding met een SQL-eindpunt alleen via privé IP-adressen die wordt gegarandeerd dat de optimale prestaties van de isolatie voor uw gegevens. <!--- For more information, see How to connect your application to Managed Instance.--->
-
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implementeren naar een optimaal grootte beheerde exemplaar
 
 Beheerde exemplaar is aangepast voor lokale werkbelastingen die u van plan bent te verplaatsen naar de cloud. Dit introduceert een nieuwe koopmodel waarin meer flexibiliteit biedt bij het selecteren van het juiste niveau van resources voor uw werkbelastingen. In de wereld lokale bent u waarschijnlijk gewend voor het formaat van deze werkbelastingen met behulp van de fysieke kernen. De nieuwe aankoopmodel voor beheerde exemplaar is gebaseerd op virtuele kernen, of 'vCores' met de extra opslag en i/o beschikbaar afzonderlijk. Het model vCore is een eenvoudigere manier om te begrijpen uw compute-vereisten in de cloud tegenover die u gebruikt lokale vandaag. Dit nieuwe model kunt u het juiste formaat uw omgeving bestemming in de cloud.
@@ -59,7 +57,7 @@ Kunt u compute en opslagbronnen op implementatie tijd en daarna wijzigen zonder 
 
 ![beheerde exemplaar schaling](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
-Zie voor meer informatie over het maken van de VNet-infrastructuur en beheerde exemplaar - en een database terugzetten vanuit een back-upbestand, [maken van een exemplaar beheerd](sql-database-managed-instance-tutorial-portal.md).
+Zie voor meer informatie over het maken van de VNet-infrastructuur en een exemplaar beheerd, [maken van een exemplaar beheerd](sql-database-managed-instance-create-tutorial-portal.md).
 
 > [!IMPORTANT]
 > Het is belangrijk om te houden van uw doel VNet en subnet altijd overeenkomstig [beheerd exemplaar VNET vereisten](sql-database-managed-instance-vnet-configuration.md#requirements). Elke incompatibiliteit kunt voorkomen dat u van nieuwe exemplaren maken of gebruiken die u al hebt gemaakt.
@@ -77,11 +75,13 @@ Beheerde exemplaar is een volledig beheerde service waarmee u sommige van de reg
 
 Beheerde exemplaar ondersteunt de volgende migratie-opties voor database is (deze zijn momenteel de enige ondersteunde migratiemethoden):
 
+- Azure migratie databaseservice - migratie met vrijwel geen uitvaltijd
+- Systeemeigen herstel van de URL - systeemeigen back-ups van SQL Server gebruikt en sommige te worden stilgelegd
+- Migreren met behulp van Bacpac-bestand - Bacpac-bestand van SQL Server of SQL-Database wordt gebruikt en sommige te worden stilgelegd
+
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
 De [Azure Database migratie Service (DMS)](../dms/dms-overview.md) is een volledig beheerde service die is ontworpen om in te schakelen naadloze migraties uit meerdere databasebronnen naar Azure Data platforms met minimale downtime. Deze service stroomlijnt de vereiste taken voor het verplaatsen van bestaande van derden en SQL Server-databases naar Azure. Implementatieopties voor op Public Preview zijn Azure SQL Database, exemplaar beheerd en SQL Server in een virtuele Machine van Azure. DMS is de aanbevolen methode van de migratie voor de werkbelasting van uw onderneming. 
-
-![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
 Zie voor meer informatie over dit scenario en configuratiestappen voor DMS, [migreren uw on-premises database met beheerde-exemplaar met behulp van DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -100,12 +100,12 @@ De volgende tabel biedt meer informatie over de methode die u kunt gebruiken, af
 |Back-up naar Azure Storage plaatsen|Eerdere SQL 2012 SP1 CU2|.Bak-bestand rechtstreeks uploaden naar Azure storage|
 ||2012 SP1 CU2 - 2016|Directe back-up met behulp van afgeschaft [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) syntaxis|
 ||2016 en hoger|Directe back-up met behulp van [met SAS-referentie](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Herstel naar Azure Storage op beheerde exemplaar|[HERSTELLEN van URL met SAS-referentie](sql-database-managed-instance-tutorial-portal.md#restore-the-wide-world-importers-database-from-a-backup-file)|
+|Herstel naar Azure Storage op beheerde exemplaar|[HERSTELLEN van URL met SAS-referentie](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> PRestore van systeemdatabases wordt niet ondersteund. Exemplaar niveau om objecten te migreren (opgeslagen in master of msdb-databases), wordt aangeraden script deze en T-SQL-scripts uitvoeren op de doel-exemplaar.
+> Herstel van systeemdatabases wordt niet ondersteund. Exemplaar niveau om objecten te migreren (opgeslagen in master of msdb-databases), wordt aangeraden script deze en T-SQL-scripts uitvoeren op de doel-exemplaar.
 
-Zie voor een volledige zelfstudie waarin de back-up van een database herstellen naar een exemplaar beheerd met behulp van een SAS-referentie [maken van een exemplaar beheerd](sql-database-managed-instance-tutorial-portal.md).
+Zie voor een volledige zelfstudie waarin de back-up van een database herstellen naar een exemplaar beheerd met behulp van een SAS-referentie [back-up terugzetten naar een exemplaar beheerd](sql-database-managed-instance-restore-from-backup-tutorial.md).
 
 ### <a name="migrate-using-bacpac-file"></a>Migreren met behulp van Bacpac-bestand
 
@@ -127,6 +127,6 @@ Versterking van beveiliging, kunt u overwegen bepaalde functies die beschikbaar 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over beheerde exemplaar [wat is er een exemplaar beheerd?](sql-database-managed-instance.md)
-- Zie voor een zelfstudie waarin een herstel van back-up, [maken van een exemplaar beheerd](sql-database-managed-instance-tutorial-portal.md).
+- Zie voor informatie over exemplaren beheerd [wat is er een exemplaar beheerd?](sql-database-managed-instance.md).
+- Zie voor een zelfstudie waarin een herstel van back-up, [maken van een exemplaar beheerd](sql-database-managed-instance-create-tutorial-portal.md).
 - Zie voor een zelfstudie waarin migratie met behulp van DMS [migreren uw on-premises database met beheerde-exemplaar met behulp van DMS](../dms/tutorial-sql-server-to-managed-instance.md).  

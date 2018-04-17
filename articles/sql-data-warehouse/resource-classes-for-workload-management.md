@@ -2,44 +2,92 @@
 title: Resource-klassen voor het beheer van de werkbelasting - Azure SQL Data Warehouse | Microsoft Docs
 description: Richtlijnen voor het gebruik van resource klassen gelijktijdigheid van taken beheren en bronnen berekenen voor query's in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+author: kevinvngo
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: kevin
+ms.reviewer: jrj
+ms.openlocfilehash: 289281567eff7f2575f26f1ae7ec2f9ee4389461
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="resource-classes-for-workload-management"></a>Resource-klassen voor het beheer van de werkbelasting
-Richtlijnen voor het gebruik van resource-klassen voor het beheren van het aantal gelijktijdige query's die gelijktijdig worden uitgevoerd en bronnen berekenen voor query's in Azure SQL Data Warehouse.
+# <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Beheer van de werkbelasting met resource klassen in Azure SQL Data Warehouse
+Richtlijnen voor het gebruik van resource-klassen voor het beheren van geheugen en een gelijktijdigheid van taken voor query's in uw Azure SQL Data Warehouse.  
  
 ## <a name="what-is-workload-management"></a>Wat is werkbelasting management?
-Beheer van de werkbelasting is de mogelijkheid om de algehele prestaties van alle query's optimaliseren. Een goed afgestemd werkbelasting voert query's en bewerkingen efficiënt ongeacht of ze rekenintensieve of i/o-intensieve zijn laden. 
+Beheer van de werkbelasting is de mogelijkheid om de algehele prestaties van alle query's optimaliseren. Een goed afgestemd werkbelasting voert query's en bewerkingen efficiënt ongeacht of ze rekenintensieve of i/o-intensieve zijn laden.  SQL Data Warehouse levert werkbelasting voor omgevingen met meerdere gebruikers. Een datawarehouse is niet bedoeld voor werkbelastingen van meerdere tenants.
 
-SQL Data Warehouse levert werkbelasting voor omgevingen met meerdere gebruikers. Een datawarehouse is niet bedoeld voor werkbelastingen van meerdere tenants.
+De capaciteit van de prestaties van een datawarehouse wordt bepaald door de [prestatielaag](memory-and-concurrency-limits.md#performance-tiers) en de [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
+
+- De grenzen van het geheugen en een gelijktijdigheid van taken voor alle profielen van de prestaties Zie [geheugen en gelijktijdigheid limieten](memory-and-concurrency-limits.md).
+- Om aan te passen prestaties capaciteit, kunt u [omhoog of omlaag schalen](quickstart-scale-compute-portal.md).
+
+De capaciteit van de prestaties van een query wordt bepaald door de bronklasse van de query. Deze rest van dit artikel wordt uitgelegd wat resource klassen zijn en hoe u deze kunt wijzigen.
+
 
 ## <a name="what-are-resource-classes"></a>Wat zijn de klassen resource?
-Resource-klassen zijn vooraf bepaalde limieten voor uitvoering van de query. SQL Data Warehouse beperkt de rekenresources voor elke query volgens de bronklasse. 
+Resource-klassen worden vooraf bepaald limieten in Azure SQL Data Warehouse die bepalen rekenresources en gelijktijdigheid van taken voor uitvoering van de query. Resource klassen kunt u beperkingen instellen voor het aantal query's die gelijktijdig worden uitgevoerd en de rekenresources toegewezen aan elke query voor het beheren van uw workload. Er is een afweging tussen het geheugen en een gelijktijdigheid van taken.
 
-Resource klassen u helpt de algehele prestaties van uw datawarehouse-workload. Met resource klassen effectief kunt u beperkingen instellen voor het aantal query's die gelijktijdig worden uitgevoerd en de rekenresources toegewezen aan elke query voor het beheren van uw workload. 
+- Kleinere resource klassen verminderen de maximale hoeveelheid geheugen per query, maar tegelijkertijd verwerken.
+- Grotere resource categorieën verhoogt de maximale hoeveelheid geheugen per query, maar beperkt. 
 
-- Kleinere resource klassen gebruiken minder rekenresources maar groter algemene query gelijktijdigheid inschakelen
-- Grotere resource klassen bieden meer bronnen berekenen maar gelijktijdigheid van de query beperken
+De capaciteit van de prestaties van een query wordt bepaald door de gebruiker bronklasse.
 
-Resource-klassen zijn ontworpen voor activiteiten voor het beheer en manipuleren van gegevens. Sommige zeer complexe query's ook profiteren wanneer er grote joins en sorteert deze zodat het systeem wordt de query uitgevoerd in het geheugen in plaats van naar schijf lopen.
+- Het Resourcegebruik voor de resource-klassen, Zie [geheugen en gelijktijdigheid limieten](memory-and-concurrency-limits.md#concurrency-maximums).
+- U kunt de query onder een andere gebruiker uitvoeren om aan te passen op de bronklasse, of [wijzigen van de huidige gebruiker bronklasse](#change-a-user-s-resource-class) lidmaatschap. 
 
-De volgende bewerkingen worden bepaald door de klassen van de resource:
+Gelijktijdigheid sleuven resource klassen gebruiken om te meten resourceverbruik.  [Gelijktijdigheid sleuven](#concurrency-slots) verderop in dit artikel worden beschreven. 
+
+### <a name="static-resource-classes"></a>Statische resource klassen
+Statische resource klassen toewijzen dezelfde hoeveelheid geheugen, ongeacht het huidige prestatieniveau wordt gemeten in [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md). Omdat de query's geven de dezelfde geheugentoewijzing ongeacht het prestatieniveau [geschaalde uitbreiding van het datawarehouse](quickstart-scale-compute-portal.md) kunt u meer query's uitvoeren in een resourceklasse.
+
+De statische resource-klassen worden geïmplementeerd met deze vooraf gedefinieerde databaserollen:
+
+- staticrc10
+- staticrc20
+- staticrc30
+- staticrc40
+- staticrc50
+- staticrc60
+- staticrc70
+- staticrc80
+
+Deze resource-klassen zijn meest geschikt is voor oplossingen die bronklasse om extra rekenresources te vergroten.
+
+### <a name="dynamic-resource-classes"></a>Dynamische Bronklassen
+Dynamische Resource klassen toewijzen een variabele hoeveelheid geheugen, afhankelijk van het huidige serviceniveau. Als u naar een grotere service opschalen, wordt in uw query's automatisch meer geheugen krijgt. 
+
+De dynamische Bronklassen worden geïmplementeerd met deze vooraf gedefinieerde databaserollen:
+
+- smallrc
+- mediumrc
+- largerc
+- xlargerc. 
+
+Deze resource-klassen zijn meest geschikt is voor oplossingen welke toename compute scale voor aanvullende bronnen. 
+
+
+### <a name="default-resource-class"></a>Standaard-bronklasse
+Standaard is elke gebruiker lid is van de dynamische resourceklasse **smallrc**. 
+
+De resourceklasse van de servicebeheerder is vast en kan niet worden gewijzigd.  De servicebeheerder is de gebruiker die is gemaakt tijdens het inrichtingsproces.
+
+> [!NOTE]
+> Servicebeheerders zijn het gebruikers of groepen die zijn gedefinieerd als Active Directory-beheerder.
+>
+>
+
+## <a name="resource-class-operations"></a>Bewerkingen van de klasse resources
+
+Resource-klassen zijn ontworpen voor betere prestaties voor activiteiten voor het beheer en manipuleren van gegevens. Complexe query's kunnen ook profiteren van die wordt uitgevoerd onder een grote resourceklasse. Bijvoorbeeld, een query uitvoeren prestaties voor grote joins en sorteringen kunnen verbeteren als de bronklasse groot genoeg is is voor het inschakelen van de query uit te voeren in het geheugen.
+
+### <a name="operations-governed-by-resource-classes"></a>Bewerkingen die worden bepaald door de resource-klassen
+
+Deze bewerkingen worden bepaald door de klassen van de resource:
 
 * INSERT-SELECT-, UPDATE, DELETE
 * Selecteer (tijdens het opvragen van gebruikerstabellen)
@@ -56,50 +104,7 @@ De volgende bewerkingen worden bepaald door de klassen van de resource:
 > 
 > 
 
-## <a name="static-and-dynamic-resource-classes"></a>Statische en dynamische resource klassen
-
-Er zijn twee soorten klassen resource: dynamische en statische.
-
-- **Statische Resource klassen** toewijzen dezelfde hoeveelheid geheugen ongeacht de huidige serviceniveau wordt gemeten in [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md). Dit statische toewijzing betekent op grotere serviceniveaus dat kunt u meer query's uitvoeren in de resourceklasse van elke.  De statische resource klassen zijn benoemde staticrc10, staticrc20 staticrc30, staticrc40, staticrc50, staticrc60, staticrc70 en staticrc80. Deze resource-klassen zijn meest geschikt is voor oplossingen die bronklasse om extra rekenresources te vergroten.
-
-- **Dynamische Resource klassen** toewijzen van een variabele hoeveelheid geheugen, afhankelijk van het huidige serviceniveau. Als u naar een grotere service opschalen, wordt in uw query's automatisch meer geheugen krijgt. De dynamische Bronklassen zijn benoemde smallrc, mediumrc largerc en xlargerc. Deze resource-klassen zijn meest geschikt is voor oplossingen welke toename compute scale voor aanvullende bronnen. 
-
-De [prestatielagen](performance-tiers.md) dezelfde resourcegroep klassennamen gebruiken, maar hebben verschillende [geheugen en gelijktijdigheid specificaties](performance-tiers.md). 
-
-
-## <a name="assigning-resource-classes"></a>Toewijzen van de resource-klassen
-
-Resource-klassen worden geïmplementeerd door het toewijzen van gebruikers aan databaserollen. Wanneer een gebruiker een query uitvoert, wordt de query wordt uitgevoerd van de gebruiker bronklasse. Bijvoorbeeld, wanneer een gebruiker lid is van de databaserol smallrc of staticrc10, voer de query's met kleine hoeveelheden geheugen. Wanneer een databasegebruiker lid van de databaserollen xlargerc of staticrc80 is, wordt de query's uitvoeren met grote hoeveelheden geheugen. 
-
-Gebruik de opgeslagen procedure voor een verhoging van een gebruiker bronklasse [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
-
-```sql
-EXEC sp_addrolemember 'largerc', 'loaduser';
-```
-
-Als u wilt de bronklasse verlagen, gebruiken [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
-
-```sql
-EXEC sp_droprolemember 'largerc', 'loaduser';
-```
-
-De resourceklasse van de servicebeheerder is vast en kan niet worden gewijzigd.  De servicebeheerder is de gebruiker die is gemaakt tijdens het inrichtingsproces.
-
-> [!NOTE]
-> Servicebeheerders zijn het gebruikers of groepen die zijn gedefinieerd als Active Directory-beheerder.
->
->
-
-### <a name="default-resource-class"></a>Standaard-bronklasse
-Standaard elke gebruiker is lid van de resourceklasse kleine **smallrc**. 
-
-### <a name="resource-class-precedence"></a>Prioriteit van de resource-klasse
-Gebruikers kunnen lid zijn van meerdere resource-klassen. Wanneer een gebruiker behoort tot meer dan één resourceklasse:
-
-- Dynamische Bronklassen hebben voorrang op statische resource klassen. Bijvoorbeeld, als een gebruiker lid is van zowel mediumrc(dynamic) en staticrc80 (statische), query's worden uitgevoerd met mediumrc.
-- Grotere resource klassen hebben voorrang op kleinere resource klassen. Bijvoorbeeld, als een gebruiker lid is van mediumrc en largerc, query's worden uitgevoerd met largerc. Op dezelfde manier als een gebruiker lid is van zowel staticrc20 en statirc80, query's worden uitgevoerd met staticrc80 resourcetoewijzingen.
-
-### <a name="queries-exempt-from-resource-classes"></a>Query's is uitgesloten van resource-klassen
+### <a name="operations-not-governed-by-resource-classes"></a>Bewerkingen niet worden geregeld door de resource-klassen
 Sommige query's worden altijd uitgevoerd in de resource smallrc klasse ondanks dat de gebruiker lid van een grotere bronklasse is. Deze uitgesloten query's meetellen niet voor de limiet voor gelijktijdigheid van taken. Bijvoorbeeld, als de limiet voor gelijktijdige 16, kunnen veel gebruikers selecteren van systeemweergaven zonder enige impact op de sleuven beschikbaar gelijktijdigheid van taken.
 
 De volgende instructies zijn uitgesloten van resource-klassen en altijd uitgevoerd in smallrc:
@@ -117,7 +122,7 @@ De volgende instructies zijn uitgesloten van resource-klassen en altijd uitgevoe
 * MAKEN of weergave verwijderen
 * WAARDEN INVOEGEN
 * Selecteer in het systeemweergaven en DMV 's
-* EXPLAIN
+* UITLEGGEN
 * DBCC
 
 <!--
@@ -126,6 +131,45 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
 -->
+
+## <a name="concurrency-slots"></a>Gelijktijdigheid sleuven
+Er zijn een handige manier om bij te houden van de beschikbare resources voor uitvoering van de query voor gelijktijdigheid sleuven. Ze zijn vergelijkbaar met tickets die u aanschaft om te plaatsen op een overleg reserveren, omdat zitplaatsen beperkt is. Het totale aantal sleuven per datawarehouse gelijktijdigheid van taken wordt bepaald door het serviceniveau. Voordat een query kunt uitvoeren, moet het mogelijk om toegang te reserveren onvoldoende sleuven gelijktijdigheid van taken. Wanneer een query is voltooid, worden de sleuven gelijktijdigheid vrijgegeven.  
+
+- Een query uitgevoerd met 10 gelijktijdigheid sleuven hebben toegang tot 5 keer meer computerresources dan een query uitgevoerd met 2 gelijktijdigheid sleuven.
+- Als u elke query 10 gelijktijdigheid sleuven vereist en er zijn 40 gelijktijdigheid sleuven, kunnen gelijktijdig alleen 4 query's uitvoeren.
+ 
+Alleen resource geregeld query verbruiken gelijktijdigheid sleuven. Verbruikt sleuven geen System-query's en enkele trivial query's. Het exacte aantal gelijktijdigheid sleuven verbruikt wordt bepaald door de query bronklasse.
+
+## <a name="view-the-resource-classes"></a>De resource-klassen weergeven
+
+Resource-klassen worden geïmplementeerd als een vooraf gedefinieerde databaserollen. Er zijn twee soorten klassen resource: dynamische en statische. Een lijst van de resource-klassen wilt weergeven, gebruikt u de volgende query:
+
+    ```sql
+    SELECT name FROM sys.database_principals
+    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+    ```
+
+## <a name="change-a-users-resource-class"></a>De bronklasse van een gebruiker wijzigen
+
+Resource-klassen worden geïmplementeerd door het toewijzen van gebruikers aan databaserollen. Wanneer een gebruiker een query uitvoert, wordt de query wordt uitgevoerd van de gebruiker bronklasse. Bijvoorbeeld, wanneer een gebruiker lid is van de databaserol smallrc of staticrc10, voer de query's met kleine hoeveelheden geheugen. Wanneer een databasegebruiker lid van de databaserollen xlargerc of staticrc80 is, wordt de query's uitvoeren met grote hoeveelheden geheugen. 
+
+Gebruik de opgeslagen procedure voor een verhoging van een gebruiker bronklasse [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
+
+```sql
+EXEC sp_addrolemember 'largerc', 'loaduser';
+```
+
+Als u wilt de bronklasse verlagen, gebruiken [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
+
+```sql
+EXEC sp_droprolemember 'largerc', 'loaduser';
+```
+
+## <a name="resource-class-precedence"></a>Prioriteit van de resource-klasse
+Gebruikers kunnen lid zijn van meerdere resource-klassen. Wanneer een gebruiker behoort tot meer dan één resourceklasse:
+
+- Dynamische Bronklassen hebben voorrang op statische resource klassen. Bijvoorbeeld, als een gebruiker lid is van zowel mediumrc(dynamic) en staticrc80 (statische), query's worden uitgevoerd met mediumrc.
+- Grotere resource klassen hebben voorrang op kleinere resource klassen. Bijvoorbeeld, als een gebruiker lid is van mediumrc en largerc, query's worden uitgevoerd met largerc. Op dezelfde manier als een gebruiker lid is van zowel staticrc20 en statirc80, query's worden uitgevoerd met staticrc80 resourcetoewijzingen.
 
 ## <a name="recommendations"></a>Aanbevelingen
 We raden aan een gebruiker die is toegewezen voor het uitvoeren van een specifiek type query maken of laden van bewerkingen. Vervolgens geeft die gebruiker een permanente bronklasse in plaats van de bronklasse regelmatig wijzigen. Gezien het feit dat statische resource klassen meer algemene controle van de werkbelasting bieden ook raadzaam die eerst met voordat het overwegen van dynamische Bronklassen.

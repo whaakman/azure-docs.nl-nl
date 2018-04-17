@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: b3690ec991add437afdaba3ef22022d49c962b34
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: bfc8f432e868c03d101ca7bfbc6b59f6e98ce29b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Meerdere IP-adressen toewijzen aan virtuele machines met behulp van PowerShell
 
@@ -194,7 +194,7 @@ Welke stappen volgen wordt uitgelegd hoe een voorbeeld van de virtuele machine m
 
 ## <a name="add"></a>IP-adressen toevoegen aan een virtuele machine
 
-U kunt persoonlijke en openbare IP-adressen toevoegen aan een NIC via de stappen volgen. De voorbeelden in de volgende secties wordt ervan uitgegaan dat er al een virtuele machine met de drie IP-configuraties beschreven in de [scenario](#Scenario) in dit artikel, maar het is niet vereist dat u doen.
+U kunt persoonlijke en openbare IP-adressen toevoegen aan de interface van de Azure-netwerk via de stappen volgen. De voorbeelden in de volgende secties wordt ervan uitgegaan dat er al een virtuele machine met de drie IP-configuraties beschreven in de [scenario](#Scenario) in dit artikel, maar het is niet vereist dat u doen.
 
 1. Open een PowerShell-opdrachtprompt en voer de overige stappen in deze sectie binnen één PowerShell-sessie. Als u nog niet PowerShell geïnstalleerd en geconfigureerd, voer de stappen in de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel.
 2. "Waarden" van de volgende $Variables wijzigen in de naam van de NIC die u wilt toevoegen, IP-adres en de resourcegroep en locatie van die de NIC bestaat in:

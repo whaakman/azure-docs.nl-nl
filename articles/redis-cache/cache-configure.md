@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0cd21c0367a95d3e866137797ac32fc5bdd196c0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Het configureren van Azure Redis-Cache
 Dit onderwerp beschrijft de configuraties die beschikbaar zijn voor uw Azure Redis-Cache-exemplaren. Dit onderwerp worden ook de configuratie standaard Redis-server voor Azure Redis-Cache-exemplaren.
@@ -60,7 +60,7 @@ U kunt bekijken en configureren van de volgende instellingen met behulp van de *
     * [Gegevens importeren](#importexport)
     * [Gegevens exporteren](#importexport)
     * [Opnieuw opstarten](#reboot)
-* [Monitoring](#monitoring)
+* [Bewaking](#monitoring)
     * [Metrische gegevens redis](#redis-metrics)
     * [Regels voor waarschuwingen](#alert-rules)
     * [Diagnostics](#diagnostics)
@@ -79,7 +79,7 @@ Klik op **activiteitenlogboek** om acties die worden uitgevoerd op uw cache weer
 
 ### <a name="access-control-iam"></a>Toegangsbeheer (IAM)
 
-De **toegangsbeheer (IAM)** sectie biedt ondersteuning voor op rollen gebaseerde toegangsbeheer (RBAC) in de Azure-portal. Deze configuratie helpt organisaties die voldoen aan de beheervereisten toegang eenvoudig en nauwkeurig. Zie voor meer informatie [toegangsbeheer op basis van rollen in Azure portal](../active-directory/role-based-access-control-configure.md).
+De **toegangsbeheer (IAM)** sectie biedt ondersteuning voor op rollen gebaseerde toegangsbeheer (RBAC) in de Azure-portal. Deze configuratie helpt organisaties die voldoen aan de beheervereisten toegang eenvoudig en nauwkeurig. Zie voor meer informatie [toegangsbeheer op basis van rollen in Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Tags
 
@@ -460,10 +460,10 @@ Zie voor meer informatie over databases [wat Redis-databases zijn?](cache-faq.md
 > * BGREWRITEAOF
 > * BGSAVE
 > * CONFIGURATIE
-> * DEBUG
+> * FOUTEN OPSPOREN
 > * MIGREREN
 > * OPSLAAN
-> * SHUTDOWN
+> * AFSLUITEN
 > * SLAVEOF
 > * CLUSTER - schrijven zijn uitgeschakeld, maar alleen-lezen Cluster opdrachten zijn toegestaan.
 > 

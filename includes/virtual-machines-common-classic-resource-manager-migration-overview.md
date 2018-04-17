@@ -16,12 +16,12 @@ Deze klassieke IaaS-bronnen worden ondersteund tijdens de migratie
 * Virtuele netwerken
 * VPN Gateways
 * Express Route-Gateways _(in hetzelfde abonnement als virtueel netwerk alleen)_
-* Netwerkbeveiligingsgroepen 
-* Routetabellen 
-* Gereserveerde IP-adressen 
+* Netwerkbeveiligingsgroepen
+* Routetabellen
+* Gereserveerde IP-adressen
 
 ## <a name="supported-scopes-of-migration"></a>Ondersteunde scopes van de migratie
-Er zijn 4 verschillende manieren om de migratie van compute, network en storage-resources te voltooien. Dit zijn 
+Er zijn 4 verschillende manieren om de migratie van compute, network en storage-resources te voltooien. Dit zijn
 
 * Migratie van virtuele machines (niet in een virtueel netwerk)
 * Migratie van virtuele machines (in een virtueel netwerk)
@@ -77,7 +77,7 @@ De volgende functies worden momenteel niet ondersteund. U kunt deze instellingen
 | Compute | Installatiekopieën van virtuele machines. | De VHD-blobs achter deze schijven worden ophalen gemigreerd wanneer het Opslagaccount wordt gemigreerd |
 | Netwerk | Eindpunt-ACL's. | Verwijder de eindpunt-ACL's en migratie nogmaals uitvoeren. |
 | Netwerk | Application Gateway | Verwijder de toepassingsgateway vóór de migratie en vervolgens opnieuw de toepassingsgateway maken zodra de migratie is voltooid. |
-| Netwerk | Virtuele netwerken met VNet-Peering. | Migreer het virtuele netwerk naar Resource Manager en klik vervolgens op hetzelfde niveau. Meer informatie over [VNet-Peering](../articles/virtual-network/virtual-network-peering-overview.md). | 
+| Netwerk | Virtuele netwerken met VNet-Peering. | Migreer het virtuele netwerk naar Resource Manager en klik vervolgens op hetzelfde niveau. Meer informatie over [VNet-Peering](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### <a name="unsupported-configurations"></a>Niet-ondersteunde configuraties
 De volgende configuraties zijn momenteel niet ondersteund.
@@ -85,7 +85,7 @@ De volgende configuraties zijn momenteel niet ondersteund.
 | Service | Configuratie | Aanbeveling |
 | --- | --- | --- |
 | Resource Manager |Rollen gebaseerd toegangsbeheer (RBAC) voor klassieke resources |Omdat de URI van de resources is gewijzigd na migratie, is het raadzaam dat u van plan de RBAC beleidsupdates die moeten worden bent nadat de migratie. |
-| Compute |Meerdere subnetten die zijn gekoppeld aan een virtuele machine |Werk de subnetconfiguratie om te verwijzen naar alleen subnetten. |
+| Compute |Meerdere subnetten die zijn gekoppeld aan een virtuele machine |Werk de subnetconfiguratie om te verwijzen naar slechts één subnet. Mogelijk moet u een secundaire NIC (die verwijst naar een ander subnet) verwijderen van de virtuele machine en koppel deze opnieuw nadat de migratie is voltooid. |
 | Compute |Virtuele machines die deel uitmaken van een virtueel netwerk, maar geen een expliciete subnet toegewezen |U kunt de VM desgewenst verwijderen. |
 | Compute |Virtuele machines met waarschuwingen, beleid voor automatisch schalen |De migratie doorloopt en deze instellingen worden verwijderd. Het is raadzaam dat u uw omgeving evalueren voordat u de migratie. U kunt ook de instellingen voor waarschuwingen configureren nadat de migratie is voltooid. |
 | Compute |XML-VM-extensies (BGInfo-1.*, Visual Studio Debugger Web Deploy en foutopsporing op afstand) |Dit wordt niet ondersteund. Het wordt aanbevolen dat u deze uitbreidingen van de virtuele machine om door te gaan migratie verwijderen of wordt deze automatisch verwijderd tijdens het migratieproces. |
@@ -98,7 +98,7 @@ De volgende configuraties zijn momenteel niet ondersteund.
 | Netwerk | Klassieke Express Route-circuits |Dit wordt momenteel niet ondersteund. Deze circuits moeten in Azure Resource Manager worden gemigreerd vóór de migratie van IaaS. Voor meer informatie over deze Zie [verplaatsen van ExpressRoute-circuits van het klassieke naar het Resource Manager-implementatiemodel](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Virtuele netwerken met App Service-omgevingen |Dit wordt momenteel niet ondersteund. |
 | Azure HDInsight |Virtuele netwerken die HDInsight services bevatten |Dit wordt momenteel niet ondersteund. |
-| Microsoft Dynamics Lifecycle Services |Virtuele netwerken met virtuele machines die worden beheerd door Dynamics levenscyclus van Services |Dit wordt momenteel niet ondersteund. |
+| Microsoft Dynamics levenscyclus van Services |Virtuele netwerken met virtuele machines die worden beheerd door Dynamics levenscyclus van Services |Dit wordt momenteel niet ondersteund. |
 | Azure AD Domain Services |Virtuele netwerken die Azure AD Domain services bevatten |Dit wordt momenteel niet ondersteund. |
 | Azure RemoteApp |Virtuele netwerken met Azure RemoteApp-implementaties |Dit wordt momenteel niet ondersteund. |
 | Azure API Management |Virtuele netwerken met Azure API Management-implementaties |Dit wordt momenteel niet ondersteund. Wijzig het VNET van de API Management-implementatie die een geen uitvaltijd-bewerking is voor het migreren van het VNET IaaS. |

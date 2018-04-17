@@ -1,20 +1,21 @@
 ---
-title: Installeren en gebruiken van de machine learning-CLI voor bovenste Azure Machine Learning-taken
+title: Installeren en gebruiken van de CLI voor veelgebruikte taken - Azure Machine Learning
 description: Informatie over het installeren en de CLI gebruiken voor de meest voorkomende machine learning-taken in Azure Machine Learning.
 services: machine-learning
 author: haining
 ms.author: haining
-manager: mwinkler
+manager: cgronlun
 ms.reviewer: mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2018
-ms.openlocfilehash: f34c247728c854c47f486925d440eee0dc5b1945
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 33a1665c8f09efae88c831172199fca3e0b7634d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-the-machine-learning-cli-for-top-tasks-in-azure-machine-learning"></a>Installeren en gebruiken van de machine learning-CLI voor veelgebruikte taken in Azure Machine Learning
 
@@ -32,7 +33,11 @@ Dit artikel biedt een aantal van de handigste CLI-opdrachten voor uw gemak.
 
 ![Azure Machine Learning-CLI](media/cli-for-azure-machine-learning/flow.png)
 
->[!NOTE]
+## <a name="what-you-need-to-get-started"></a>Wat u moet aan de slag
+
+U eigenaarsrechten toegang nodig tot een Azure-abonnement of resourcegroep waarin u uw modellen kunt implementeren. Bovendien moet u Azure Machine Learning-Workbench om uit te voeren van de CLI installeren. 
+
+>[!IMPORTANT]
 >De CLI geleverd met Azure Machine Learning services verschilt van de [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest), die wordt gebruikt voor het beheren van Azure-resources.
 
 ## <a name="get-and-start-cli"></a>Ophalen en CLI starten

@@ -1,6 +1,6 @@
 ---
-title: Reageren op gebeurtenissen van Azure Blob Storage | Microsoft Docs
-description: Gebruik Azure gebeurtenis raster om u te abonneren op gebeurtenissen van de Blob-opslag.
+title: Reageren op gebeurtenissen van Azure Blob storage | Microsoft Docs
+description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen van Blob Storage.
 services: storage,event-grid
 keywords: ''
 author: cbrooksmsft
@@ -8,17 +8,17 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen van de Blob-opslag
+# <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen voor Blob-opslag
 
 Gebeurtenissen van Azure Storage kunnen toepassingen om te reageren op het maken en verwijderen van blobs met moderne zonder server architecturen. Zonder de noodzaak van complexe code of goedkoper en inefficiënt polling-services.  In plaats daarvan gebeurtenissen worden gepusht via [Azure gebeurtenis raster](https://azure.microsoft.com/services/event-grid/) naar abonnees zoals [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), of deze zelfs uw eigen aangepaste http-listener en u alleen betalen voor wat u gebruikt. 
 
-Algemene scenario's voor Blob Storage-gebeurtenis bevatten afbeeldings- of verwerking, zoekindexering of een bestand gebaseerde werkstroom.  Asynchrone bestandsuploads zijn een goede geschikt is voor gebeurtenissen.  Wanneer wijzigingen incidentele zijn, maar uw scenario onmiddellijke reactiesnelheid vereist, kan architectuur op basis van gebeurtenissen met name efficiënt zijn.
+Algemene Blob storage gebeurtenis scenario's omvatten afbeeldings- of verwerking, zoekindexering of een bestand gebaseerde werkstroom.  Asynchrone bestandsuploads zijn een goede geschikt is voor gebeurtenissen.  Wanneer wijzigingen incidentele zijn, maar uw scenario onmiddellijke reactiesnelheid vereist, kan architectuur op basis van gebeurtenissen met name efficiënt zijn.
 
 De beschikbaarheid van gebeurtenissen voor opslag is gekoppeld aan de gebeurtenis raster [beschikbaarheid](../../event-grid/overview.md) en zijn binnenkort beschikbaar in andere regio's zoals het raster gebeurtenis. Kijk eens naar [Route Blob storage gebeurtenissen naar een aangepaste web-eindpunt - CLI](storage-blob-event-quickstart.md) of [Route Blob storage gebeurtenissen naar een aangepaste web-eindpunt - PowerShell](storage-blob-event-quickstart-powershell.md) voor een kort voorbeeld. 
 
@@ -44,7 +44,7 @@ Meer informatie over het gebruik van eigenschappen van gebeurtenis raster gebeur
 > |Onderwerp|tekenreeks|Volledige Azure Resource Manager-id van het opslagaccount dat de gebeurtenis verzendt.|
 > |Onderwerp|tekenreeks|De relatieve bronpad naar het object dat het onderwerp van de gebeurtenis met behulp van dezelfde uitgebreid Azure Resource Manager-indeling die we gebruiken om te beschrijven van storage-accounts, services en containers voor Azure RBAC.  Deze indeling bevat een blob-naam van letters behouden blijven.|
 > |eventTime|tekenreeks|De gebeurtenis is gegenereerd, in de ISO 8601-notatie van datum/tijd|
-> |eventType|tekenreeks|'Microsoft.Storage.BlobCreated' of 'Microsoft.Storage.BlobDeleted'|
+> |EventType|tekenreeks|'Microsoft.Storage.BlobCreated' of 'Microsoft.Storage.BlobDeleted'|
 > |Id|tekenreeks|De unieke id als deze gebeurtenis|
 > |dataVersion|tekenreeks|De versie van het schema van het gegevensobject.|
 > |metadataVersion|tekenreeks|De schemaversie van de eigenschappen van het hoogste niveau.|
@@ -54,7 +54,7 @@ Meer informatie over het gebruik van eigenschappen van gebeurtenis raster gebeur
 > |data.url|tekenreeks|De url van het object dat het onderwerp van de gebeurtenis is|
 > |data.eTag|tekenreeks|De etag van het object wanneer deze gebeurtenis wordt gestart.  Niet beschikbaar voor de gebeurtenis BlobDeleted.|
 > |data.api|tekenreeks|De naam van de api-bewerking die deze gebeurtenis wordt geactiveerd.  Gebeurtenissen die BlobCreated, wordt deze waarde is 'PutBlob', 'PutBlockList' of 'CopyBlob'.  Deze waarde is BlobDeleted gebeurtenissen, 'DeleteBlob'.  Deze waarden zijn dezelfde api-namen die aanwezig in de Azure Storage diagnostische logboeken zijn.  Zie [geregistreerde bewerkingen en statusberichten](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
-> |data.sequencer|tekenreeks|Een ondoorzichtige string-waarde die aangeeft van de logische volgorde van gebeurtenissen voor een bepaalde blob-naam.  Gebruikers kunnen standaard tekenreeksvergelijking gebruiken om te begrijpen van de relatieve volgorde van de twee gebeurtenissen op dezelfde blobnaam.|
+> |Data.sequencer|tekenreeks|Een ondoorzichtige string-waarde die aangeeft van de logische volgorde van gebeurtenissen voor een bepaalde blob-naam.  Gebruikers kunnen standaard tekenreeksvergelijking gebruiken om te begrijpen van de relatieve volgorde van de twee gebeurtenissen op dezelfde blobnaam.|
 > |data.requestId|tekenreeks|Service gegenereerde aanvraag-id voor de opslagbewerking API.  Kan worden gebruikt om te relateren aan Azure Storage diagnostische logboeken met het veld 'aanvraag-id-header' in de logboeken en wordt geretourneerd vanaf het initiëren van API-aanroep in de header 'x-ms-aanvraag-id'. Zie [-indeling van logboekbestand](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
 > |data.clientRequestId|tekenreeks|Client-voorwaarde aanvraag-id voor de opslag API-bewerking.  Kan worden gebruikt voor correleert met Azure Storage logboeken met diagnostische gegevens met het veld 'client-request-id' in de logboeken en kan worden opgegeven in de aanvragen van clients met behulp van de header 'x-ms-client-request-id'. Zie [-indeling van logboekbestand](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
 > |data.storageDiagnostics|object|Diagnostische gegevens van tijd tot tijd worden opgenomen door de Azure Storage-service.  Indien aanwezig, moet worden genegeerd door gebeurtenisconsumers.|
@@ -92,7 +92,7 @@ BLOB gebeurtenisabonnementen kunnen worden gefilterd op basis van het gebeurteni
 
 De houder van gebeurtenissen voor Blob-opslag maakt gebruik van de indeling:
 
-```json
+```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
@@ -100,19 +100,19 @@ Zodat deze overeenkomen met alle gebeurtenissen voor een opslagaccount, kunt u d
 
 Gebruik zodat deze overeenkomen met gebeurtenissen van blobs die zijn gemaakt in een set van containers delen een voorvoegsel, een `subjectBeginsWith` zoals filteren:
 
-```json
+```
 /blobServices/default/containers/containerprefix
 ```
 
 Zodat deze overeenkomen met gebeurtenissen van de blobs in een specifieke container gemaakt, gebruikt u een `subjectBeginsWith` zoals filteren:
 
-```json
+```
 /blobServices/default/containers/containername/
 ```
 
 Zodat deze overeenkomen met gebeurtenissen van de blobs in specifieke delen van een voorvoegsel van blob-container gemaakt, gebruikt u een `subjectBeginsWith` zoals filteren:
 
-```json
+```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 

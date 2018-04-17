@@ -6,14 +6,14 @@ author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: f02311026e3f28d4cf41dfe9b155f928885ae938
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken met uw toepassing met Azure SQL Database beheerd exemplaar
 
@@ -79,4 +79,4 @@ Een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen Azure cer
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over beheerde exemplaar [wat is er een exemplaar beheerd](sql-database-managed-instance.md).
-- Zie voor een zelfstudie [maken van een exemplaar beheerd](sql-database-managed-instance-tutorial-portal.md).
+- Zie voor een zelfstudie waarin u wordt getoond hoe u een nieuw exemplaar van beheerde [maken van een exemplaar beheerd](sql-database-managed-instance-create-tutorial-portal.md).

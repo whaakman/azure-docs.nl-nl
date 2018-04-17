@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3a4026b56522da6c6efede4b8b7a542efc8a776d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Informatie over het inrichten van nieuwe tenants en registreert u ze in de catalogus
 
@@ -63,7 +63,7 @@ Inrichting van de database moet deel uitmaken van uw strategie voor het beheer v
 
 De database per tenant Wingtip Tickets app richt nieuwe tenants door te kopiëren van de sjabloondatabase van een met de naam _basetenantdb_, die is geïmplementeerd op de catalogusserver. Inrichting kan worden geïntegreerd in de toepassing als onderdeel van een registratie-ervaring. Deze kan ook worden ondersteund offline met behulp van scripts. Deze zelfstudie behandelt inrichten met behulp van PowerShell. 
 
-Inrichting scripts kopiëren de _basetenantdb_ database naar een nieuwe tenant-database in een elastische pool te maken. De scripts initialiseren van de database met tenant-specifieke informatie vervolgens en deze te registreren in de catalogus shard-toewijzing. Tenant-databases zijn gegeven namen op basis van de naam van de tenant. Deze schematische naam is niet een essentieel onderdeel van het patroon. De catalogus worden de tenantsleutel toegewezen aan de naam van de database, zodat een naamgevingsconventie kan worden gebruikt. 
+Inrichting scripts kopiëren de _basetenantdb_ database naar een nieuwe tenant-database in een elastische pool te maken. De tenant-database is gemaakt in de tenant-server die is toegewezen aan de _newtenant_ DNS-alias. Deze alias onderhoudt een verwijzing naar de server die wordt gebruikt voor het inrichten van nieuwe tenants en wordt bijgewerkt om te verwijzen naar een herstelserver tenant in het herstel na noodgevallen zelfstudies ([DR met georestore](saas-dbpertenant-dr-geo-restore.md), [DR met georeplication](saas-dbpertenant-dr-geo-replication.md)). De scripts initialiseren van de database met tenant-specifieke informatie vervolgens en deze te registreren in de catalogus shard-toewijzing. Tenant-databases zijn gegeven namen op basis van de naam van de tenant. Deze schematische naam is niet een essentieel onderdeel van het patroon. De catalogus worden de tenantsleutel toegewezen aan de naam van de database, zodat een naamgevingsconventie kan worden gebruikt. 
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>De database per tenant-toepassingsscripts Wingtip Tickets SaaS ophalen
@@ -83,7 +83,7 @@ Een onderbrekingspunt toevoegen om te begrijpen hoe de toepassing Wingtip Ticket
 
 2. Als u wilt een onderbrekingspunt toevoegen, plaats de cursor overal op de regel waarin staat dat *New-Tenant '*. Druk op F9.
 
-   ![Breakpoint](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Onderbrekingspunt](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Het script wordt uitgevoerd, druk op F5.
 

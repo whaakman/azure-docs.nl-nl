@@ -12,31 +12,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/06/2018
 ms.author: genli
-ms.openlocfilehash: 2743a00404a2ee990147dfb6e73e9c2369eb4753
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9026b702e6e0d27817955c70c733bf372005dd4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Virtuele machine van Azure problemen oplossen door het gebruik van geneste virtualisatie in Azure
 
-In dit artikel laat zien hoe een geneste virtualisatieomgeving maken in Microsoft Azure, zodat u de schijf van het probleem VM op de Hyper-V-host (herstel-VM koppelen kunt) voor het oplossen van problemen.
+In dit artikel laat zien hoe een geneste virtualisatieomgeving maken in Microsoft Azure, zodat u de schijf van het probleem VM op de Hyper-V-host (hulp VM koppelen kunt) voor het oplossen van problemen.
 
-## <a name="prerequisite"></a>Vereiste
+## <a name="prerequisites"></a>Vereisten
 
-Het probleem VM koppelen, moet de herstel-VM voldoen aan de volgende vereisten:
+Het probleem VM koppelen, de hulp virtuele machine moet voldoen aan de volgende vereisten:
 
--   De herstel-VM moet zich in dezelfde locatie als het probleem VM.
+-   De VM hulp moet zich in dezelfde locatie als het probleem VM.
 
--   De herstel-VM moet zich in dezelfde resourcegroep bevinden als het probleem VM.
+-   De VM hulp moet zich in dezelfde resourcegroep bevinden als het probleem VM.
 
--   De herstel-VM moet hetzelfde type Opslagaccount (Standard of Premium) gebruiken als het probleem VM.
+-   De VM hulp moet hetzelfde type Opslagaccount (Standard of Premium) gebruiken als het probleem VM.
 
-## <a name="step-1-create-a-recovery-vm-and-install-hyper-v-role"></a>Stap 1: Maken van een herstel-VM en Hyper-V-functie installeren
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Stap 1: Maak een VM hulp en Hyper-V-functie installeren
 
-1.  Maak een nieuwe virtuele machine voor herstel:
+1.  Maak een nieuwe virtuele machine voor hulp:
 
     -  Besturingssysteem: Windows Server 2016 Datacenter
 
@@ -46,13 +46,13 @@ Het probleem VM koppelen, moet de herstel-VM voldoen aan de volgende vereisten:
 
     -  Selecteer het hetzelfde type als het probleem VM (Standard of Premium).
 
-2.  Na de herstel-VM wordt gemaakt, extern bureaublad met de herstel-VM.
+2.  Na de hulp virtuele machine is gemaakt, extern bureaublad voor hulp VM.
 
 3.  Selecteer in Serverbeheer **beheren** > **functies en onderdelen toevoegen**.
 
 4.  In de **installatietype** sectie **op basis van functie of onderdeel gebaseerde installatie**.
 
-5.  In de **Select doelserver** sectie, zorg ervoor dat de herstel-VM is geselecteerd.
+5.  In de **Select doelserver** sectie, zorg ervoor dat de VM hulp is geselecteerd.
 
 6.  Selecteer de **Hyper-V-functie** > **onderdelen toevoegen**.
 
@@ -70,25 +70,25 @@ Het probleem VM koppelen, moet de herstel-VM voldoen aan de volgende vereisten:
 
 13. Toestaan dat de server voor het installeren van de Hyper-V-rol. Dit duurt enkele minuten en de server automatisch opnieuw wordt opgestart.
 
-## <a name="step-2-create-the-problem-vm-on-the-recovery-vms-hyper-v-server"></a>Stap 2: Maak de virtuele machine van het probleem op de herstel-VM Hyper-V-server
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Stap 2: Het probleem VM op de Hyper-V-server de hulp van de virtuele machine maken
 
 1.  Noteer de naam van de schijf in de virtuele machine van het probleem en verwijder vervolgens het probleem VM. Zorg ervoor dat u alle gekoppelde schijven behouden. 
 
-2.  Koppel de OS-schijf van uw probleem VM als een gegevensschijf van de herstel-VM.
+2.  Koppel de OS-schijf van uw probleem VM als een gegevensschijf van de VM hulp.
 
-    1.  Nadat het probleem virtuele machine is verwijderd, gaat u naar de herstel-VM.
+    1.  Nadat het probleem virtuele machine is verwijderd, gaat u naar de VM hulp.
 
     2.  Selecteer **schijven**, en vervolgens **gegevensschijf toevoegen**.
 
     3.  Selecteer de schijf het probleem van de virtuele machine en selecteer vervolgens **opslaan**.
 
-3.  Na de schijf is gekoppeld, extern bureaublad naar de herstel-VM.
+3.  Na de schijf is gekoppeld, extern bureaublad voor hulp VM.
 
 4.  Open Schijfbeheer (diskmgmt.msc). Zorg ervoor dat de schijf van het probleem VM is ingesteld op **Offline**.
 
 5.  Open Hyper-V-beheer: In **Serverbeheer**, selecteer de **Hyper-V-functie**. Met de rechtermuisknop op de server en selecteer vervolgens de **Hyper-V-beheer**.
 
-6.  In de Hyper-V-beheer met de rechtermuisknop op de herstel-VM en selecteer vervolgens **nieuw** > **virtuele Machine** > **volgende**.
+6.  In de Hyper-V-beheer met de rechtermuisknop op de VM hulp en selecteer vervolgens **nieuw** > **virtuele Machine** > **volgende**.
 
 7.  Typ een naam voor de virtuele machine en selecteer vervolgens **volgende**.
 
@@ -125,7 +125,7 @@ Het probleem VM koppelen, moet de herstel-VM voldoen aan de volgende vereisten:
 
 1.  Nadat u de virtuele machine weer online hebt ontvangen, sluit u de virtuele machine in Hyper-V-beheer.
 
-2.  Ga naar de [Azure-portal](https://portal.azure.com) en selecteer de herstel-VM > schijven, de naam van de schijf kopiëren. U gebruikt de naam in de volgende stap. Ontkoppel de vaste schijf van de herstel-VM.
+2.  Ga naar de [Azure-portal](https://portal.azure.com) en selecteert u de VM Hulp > schijven, de naam van de schijf kopiëren. U gebruikt de naam in de volgende stap. Ontkoppel de vaste schijf van de VM hulp.
 
 3.  Ga naar **alle resources**, zoekt u de naam van de schijf en selecteer vervolgens de schijf.
 

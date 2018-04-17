@@ -1,32 +1,26 @@
 ---
-title: Hoe Azure Blob storage gebruiken met iOS | Microsoft Docs
+title: Het gebruik van iOS - Azure-Blob (object) opslag | Microsoft Docs
 description: Sla niet-gestructureerde gegevens op in de cloud met Azure Blob Storage (objectopslag).
 services: storage
 documentationcenter: ios
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: f238804e6031fcf3f194695a06bf5b88733a27b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Het Blob storage gebruiken met iOS
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+Dit artikel laat zien hoe u veelvoorkomende scenario's met behulp van Microsoft Azure Blob-opslag. De voorbeelden zijn geschreven in Objective-C en gebruik de [Azure Storage-clientbibliotheek voor iOS](https://github.com/Azure/azure-storage-ios). De scenario's worden behandeld bevatten uploaden, aanbieding, downloaden en verwijderen van blobs. Zie voor meer informatie over blobs de [Vervolgstappen](#next-steps) sectie. U kunt ook downloaden de [voorbeeldapp](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) snel zien het gebruik van Azure Storage in een iOS-toepassing.
 
-## <a name="overview"></a>Overzicht
-In dit artikel wordt beschreven hoe u veelvoorkomende scenario's met behulp van Microsoft Azure Blob-opslag uitvoeren. De voorbeelden zijn geschreven in Objective-C en gebruik de [Azure Storage-clientbibliotheek voor iOS](https://github.com/Azure/azure-storage-ios). De scenario's worden behandeld: **uploaden**, **aanbieding**, **downloaden**, en **verwijderen** blobs. Zie voor meer informatie over blobs de [Vervolgstappen](#next-steps) sectie. U kunt ook downloaden de [voorbeeldapp](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) snel zien het gebruik van Azure Storage in een iOS-toepassing.
+## <a name="what-is-blob-storage"></a>Wat is Blob storage?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -91,7 +85,7 @@ Als u van Swift gebruikmaakt, moet u een bridging header maken en er < AZSClient
 
 1. Maak een headerbestand `Bridging-Header.h`, en de bovenstaande importinstructie toe te voegen.
 2. Ga naar de *Build Settings* tabblad en zoek naar *Objective-C Bridging Header*.
-3. Dubbelklik op het gebied van *Objective-C Bridging Header* en het pad toevoegen aan uw header-bestand:`ProjectName/Bridging-Header.h`
+3. Dubbelklik op het gebied van *Objective-C Bridging Header* en het pad toevoegen aan uw header-bestand: `ProjectName/Bridging-Header.h`
 4. Bouw het project (⌘ + B) om te controleren dat de bridging header is opgehaald door Xcode.
 5. Start met behulp van de bibliotheek rechtstreeks in een bestand Swift, is niet nodig voor importinstructies.
 
@@ -222,7 +216,7 @@ Het volgende voorbeeld ziet hoe u alle blobs in een container. Als u deze bewerk
 
 * **continuationToken** -de voortzetting token geeft waar de aanbieding-bewerking moet worden gestart. Als er geen token is opgegeven, wordt er een lijst blobs vanaf het begin. Een onbeperkt aantal blobs kan worden weergegeven, van nul tot een maximale set. Zelfs als deze methode nul resultaten retourneert als `results.continuationToken` is niet nul is, kunnen er meer blobs op de service die niet zijn opgenomen.
 * **voorvoegsel** -kunt u het voorvoegsel gebruiken voor blob-aanbieding. Alleen de blobs die met dit voorvoegsel beginnen wordt weergegeven.
-* **useFlatBlobListing** - zoals vermeld in de [Naming en verwijzen naar containers en blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) sectie, hoewel de Blob-service een opslagschema platte is, kunt u een virtuele hiërarchie door de naam van de blobs met informatie over het pad. Niet-platte aanbieding is echter momenteel niet ondersteund. Deze functie is binnenkort beschikbaar. Nu u deze waarde moet **Ja**.
+* **useFlatBlobListing** - zoals vermeld in de [Naming en verwijzen naar containers en blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) sectie, hoewel de Blob-service een opslagschema platte is, kunt u een virtuele hiërarchie door de naam van de blobs met pad informatie. Niet-platte aanbieding is echter momenteel niet ondersteund. Deze functie is binnenkort beschikbaar. Nu u deze waarde moet **Ja**.
 * **blobListingDetails** -kunt u opgeven welke items u wilt opnemen wanneer blobs
   * _AZSBlobListingDetailsNone_: lijst alleen doorgevoerde blobs en blobmetagegevens niet retourneren.
   * _AZSBlobListingDetailsSnapshots_: lijst doorgevoerd blobs en blob-momentopnamen.

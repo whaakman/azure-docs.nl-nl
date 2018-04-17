@@ -3,8 +3,8 @@ title: DNS-instellingen opgeven in een virtueel netwerk configuratiebestand | Mi
 description: Het wijzigen van DNS-serverinstellingen in een virtueel netwerk met een virtueel netwerk-configuratiebestand in het klassieke implementatiemodel
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genli
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: a8905927-92ac-42b5-8c33-8e42c000692c
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
-ms.author: jdial
-ms.openlocfilehash: ec33268915a1888509834ce6a5b2bc782a12ce4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 8e6cfc285b3fb23944dfa0189bb492a9b8fa9a88
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>DNS-instellingen opgeven in een configuratiebestand voor het virtuele netwerk
 Een configuratiebestand netwerk bestaat uit twee elementen die u gebruiken kunt om Domain Name System (DNS)-instellingen te geven: **DnsServers** en **DnsServerRef**. U kunt een lijst met DNS-servers toevoegen door te geven van de IP-adressen en namen om te verwijzen naar de **DnsServers** element. U kunt een **DnsServerRef** element dat u wilt opgeven welke server DNS-vermeldingen van het element DnsServers worden gebruikt voor andere netwerksites binnen het virtuele netwerk.

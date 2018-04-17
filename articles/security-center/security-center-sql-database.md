@@ -5,7 +5,7 @@ services: sql-database
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center en Azure SQL Database-service
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) helpt u bedreigingen te voorkomen, te detecteren en erop te reageren. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
@@ -38,7 +38,7 @@ Naast het beveiligen van uw SQL-Database-resources, biedt Security Center ook be
 ## <a name="prerequisites"></a>Vereisten
 U moet over een abonnement op Microsoft Azure beschikken om met Security Center aan de slag te gaan. De gratis categorie van het Beveiligingscentrum is met uw abonnement ingeschakeld. Zie voor meer informatie over de vrije en de standaard lagen van Security Center [Security Center prijzen](https://azure.microsoft.com/pricing/details/security-center/).
 
-Security Center biedt ondersteuning voor toegang op basis van rollen. Zie voor meer informatie over op rollen gebaseerde toegangsbeheer (RBAC) in Azure, [toegangsbeheer op basis van een functie van Azure Active Directory](../active-directory/role-based-access-control-configure.md). De Security Center FAQ biedt informatie over [hoe machtigingen worden verwerkt in Security Center](security-center-faq.md#permissions).
+Security Center biedt ondersteuning voor toegang op basis van rollen. Zie voor meer informatie over op rollen gebaseerde toegangsbeheer (RBAC) in Azure, [toegangsbeheer op basis van een functie van Azure Active Directory](../role-based-access-control/role-assignments-portal.md). De Security Center FAQ biedt informatie over [hoe machtigingen worden verwerkt in Security Center](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Security Center openen
 Security Center is toegankelijk via [Azure Portal](https://azure.microsoft.com/features/azure-portal/). [Aanmelden bij de portal](https://portal.azure.com/) en selecteer de **Security Center-optie**.
@@ -77,7 +77,7 @@ Ga voor aanbevelingen voor uw Azure-resources, selecteer de **aanbevelingen** te
 ![Aanbevelingen][4]
 
 Zoals hieronder wordt weergegeven, ziet u in Security Center de SQL-servers waarop de controle en detectie van bedreigingen niet zijn ingeschakeld. Nadat u controle, kunt u de instellingen van de detectie van dreigingen en e-mailinstellingen voor het ontvangen van beveiligingsberichten kunt configureren. Detectie van dreigingen waarschuwt u wanneer deze worden afwijkende databaseactiviteiten die duiden op beveiligingsdreigingen voor de database gedetecteerd. De waarschuwingen worden weergegeven in de Security Center-dashboard.
-![Controle en detectie van bedreigingen][5]
+![Controle en bedreigingen detecteren][5]
 
 Volg de stappen in [bedreigingsdetectie SQL-Database in de Azure portal](../sql-database/sql-database-threat-detection-portal.md) inschakelen en configureren van detectie van dreigingen en configureren van de lijst met e-mailberichten die beveiligingswaarschuwingen bij vreemde activiteiten worden ontvangen.
 

@@ -2,25 +2,23 @@
 title: Schalen van clusters - Azure HDInsight | Microsoft Docs
 description: De schaal van een HDInsight-cluster aan uw werkbelasting.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 7e9ee660c07d6265e55e94cf79ed13334fcb3d16
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8b76d7d0441a5c1c25ad17b73083ec0e4feef1fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight-clusters schalen
 
@@ -125,12 +123,12 @@ Na het verlaten van de veilige modus kunt u handmatig verwijderen van de tijdeli
 
 * H100 kan verzenden instructie databases weergeven: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: verbinding maken met hn0-clustername.servername.internal.cloudapp.net:10001 [hn0 clustername.servername . Internal.cloudapp.NET/1.1.1.1] is mislukt: **verbinding geweigerd**
 
-* H020 kan geen verbinding maken met .net hn0 hdisrv.servername.bx.internal.cloudapp: 10001: org.apache.thrift.transport.TTransportException: kan geen HTTP-verbinding naar http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 maken /. org.apache.http.conn.HttpHostConnectException: verbinding maken met hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] is mislukt: verbinding geweigerd: org.apache.thrift.transport.TTransportException: kan geen HTTP-verbinding naar http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 maken /. org.apache.http.conn.HttpHostConnectException: verbinding maken met hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] is mislukt: **verbinding geweigerd**
+* H020 kan geen verbinding maken met .net hn0 hdisrv.servername.bx.internal.cloudapp: 10001: org.apache.thrift.transport.TTransportException: kan geen HTTP-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: verbinding maken met hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] is mislukt: verbinding geweigerd: org.apache.thrift.transport.TTransportException: kan geen HTTP-verbinding te maken http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: verbinding maken met hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] is mislukt: **verbinding geweigerd**
 
 * Van de logboeken van de component: [hoofd] waarschuwen: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)): fout bij het starten van HiveServer2 poging 21, wordt het opnieuw geprobeerd 60 seconden java.lang.RuntimeException: fout bij het toepassen van verificatiebeleid van hive-configuratie: org.apache.hadoop.ipc.RemoteException () org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **kan map niet maken** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **De naam van knooppunt is in de veilige modus**.
     De gerapporteerde blokken 0 moet extra 9 blokken de drempelwaarde 0.9900 van totaal aantal blokken 9 bereiken.
     Het aantal live datanodes 10 is het minimale aantal 0 bereikt. **Veilige modus wordt automatisch worden uitgeschakeld nadat de drempelwaarden hebben bereikt**.
-    at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
+    op org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
 
 U kunt controleren de logboeken van de naam van knooppunt van de `/var/log/hadoop/hdfs/` map in de buurt van de tijd wanneer het cluster is geschaald om te zien wanneer deze veilige modus hebt ingevoerd. De naam van de logboekbestanden `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
@@ -156,7 +154,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Veilige modus uitschakelen](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]
-> De `-D` switch is nodig omdat het standaardbestandssysteem in HDInsight Azure Storage of Azure Data Lake Store. `-D`Hiermee geeft u de opdrachten worden uitgevoerd op basis van het lokale HDFS-bestandssysteem.
+> De `-D` switch is nodig omdat het standaardbestandssysteem in HDInsight Azure Storage of Azure Data Lake Store. `-D` Hiermee geeft u de opdrachten worden uitgevoerd op basis van het lokale HDFS-bestandssysteem.
 
 U kunt vervolgens een rapport met de details van de HDFS-status bekijken:
 

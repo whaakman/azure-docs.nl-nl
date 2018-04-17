@@ -2,10 +2,10 @@
 title: De installatiekopie van een virtuele machine maken voor Azure Marketplace | Microsoft Docs
 description: Gedetailleerde instructies voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace voor anderen om aan te schaffen.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cb1d529f8e3eaabb4d49e8bbea03cab8e838cfa2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace
 In dit artikel **stap 2**, wordt u begeleid bij het voorbereiden van de virtuele harde schijven (VHD's) dat u naar Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces is afhankelijk van of u een SKU op basis van Linux of op basis van Windows biedt. In dit artikel komen beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [accountaanmaking en registratie][link-acct-creation].
@@ -70,7 +70,7 @@ Een virtuele machine maken van een van de volgende afbeeldingen om te beginnen t
 
 * WindowsServer ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
 * SQL Server 2014 ([Enterprise][link-sql-2014-ent], [standaard][link-sql-2014-std], [Web][link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
+* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [standaard][link-sql-2012-std], [Web][link-sql-2012-web])
 
 Deze koppelingen zijn ook te vinden in de Portal voor Publiceren onder aan de SKU-pagina.
 
@@ -302,7 +302,7 @@ SAS-URL kan worden gegenereerd op meerdere manieren voor het delen van uw VHD vo
 Hieronder volgen de 3 aanbevolen hulpprogramma's:
 
 1.  Azure Opslagverkenner
-2.  Microsoft Storage Explorer
+2.  Microsoft Opslagverkenner
 3.  Azure-CLI
 
 **Azure Opslagverkenner (aanbevolen voor Windows-gebruikers)**
@@ -430,7 +430,7 @@ Hierna volgen de stappen voor het genereren van SAS-URL met behulp van Microsoft
 
 Hierna volgen de stappen voor het genereren van SAS-URL met Azure CLI
 
-1.  Downloaden van Microsoft Azure CLI van [hier](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Ook vindt u koppelingen naar de andere  **[Windows](http://aka.ms/webpi-azure-cli)**  en  **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Downloaden van Microsoft Azure CLI van [hier](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Ook vindt u koppelingen naar de andere **[Windows](http://aka.ms/webpi-azure-cli)** en  **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
 2.  Zodra deze is gedownload, installeer
 
@@ -446,7 +446,7 @@ Hierna volgen de stappen voor het genereren van SAS-URL met Azure CLI
 
     b. **`<Storage Account Key>`**: Geef de sleutel van uw opslagaccount
 
-    c. **`<Permission Start Date>`**: Selecteer om te waarborgen voor UTC-tijd, de dag vóór de huidige datum. Bijvoorbeeld, als de huidige datum 26 oktober 2016 is waarde dan 25-10-2016. Als Azure CLI 2.0 (az opdracht), geeft de datum en de tijd in het begin- en einddatum, bijvoorbeeld: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: Selecteer om te waarborgen voor UTC-tijd, de dag vóór de huidige datum. Bijvoorbeeld, als de huidige datum 25 oktober 2016 waarde dan 25-10-2016. Als Azure CLI 2.0 (az opdracht), geeft de datum en de tijd in het begin- en einddatum, bijvoorbeeld: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: Selecteer een datum die ten minste drie weken na de **begindatum**. De waarde moet **02-11-2016**. Als Azure CLI 2.0 (az opdracht), geeft de datum en de tijd in het begin- en einddatum, bijvoorbeeld: 11-02-2016T00:00:00Z.
 

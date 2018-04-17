@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6bc2c63e75e9c750da852b77e4486666c3fc8561
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-beveiliging en naleving blauwdruk - statusgegevens HIPAA/HITRUST en AI
 
@@ -79,14 +79,14 @@ De fundamentele architectuur bestaat uit de volgende onderdelen:
 ## <a name="roles"></a>Rollen
 
 
-De blauwdruk definieert twee rollen voor gebruikers met beheerdersrechten (operators) en de drie functies voor gebruikers in ziekenhuis beheer- en patiëntenzorg. Een zesde rol is gedefinieerd voor auditor evalueren van naleving van HIPAA en andere voorschriften. Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt nauwkeurig gerichte toegangsbeheer voor elke gebruiker van de oplossing door ingebouwde en aangepaste rollen. Zie [aan de slag met toegangsbeheer op basis van rollen in Azure portal](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) en [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) voor gedetailleerde informatie over RBAC, rollen en machtigingen.
+De blauwdruk definieert twee rollen voor gebruikers met beheerdersrechten (operators) en de drie functies voor gebruikers in ziekenhuis beheer- en patiëntenzorg. Een zesde rol is gedefinieerd voor auditor evalueren van naleving van HIPAA en andere voorschriften. Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt nauwkeurig gerichte toegangsbeheer voor elke gebruiker van de oplossing door ingebouwde en aangepaste rollen. Zie [aan de slag met toegangsbeheer op basis van rollen in Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview) en [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) voor gedetailleerde informatie over RBAC, rollen en machtigingen.
 
 ### <a name="site-administrator"></a>De beheerder van site
 
 
 Beheerder van de site is verantwoordelijk voor de klant Azure-abonnement. Ze bepalen van de algehele implementatie, maar hebben geen toegang tot patiëntrecords.
 
--   Standaard roltoewijzingen: [eigenaar](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+-   Standaard roltoewijzingen: [eigenaar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Aangepaste roltoewijzingen: N.V.T.
 
@@ -97,7 +97,7 @@ Beheerder van de site is verantwoordelijk voor de klant Azure-abonnement. Ze bep
 De databaseanalist worden beheerd door de SQL Server-exemplaar en de database.
 Ze hebben geen toegang tot patiëntrecords.
 
--   Ingebouwde roltoewijzingen: [SQL DB Contributor](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor), [Inzender van SQL Server](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+-   Ingebouwde roltoewijzingen: [SQL DB Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Inzender van SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Aangepaste roltoewijzingen: N.V.T.
 
@@ -108,7 +108,7 @@ Ze hebben geen toegang tot patiëntrecords.
 
 Het wetenschappelijk gegevens werkt de Azure Machine Learning-service. Ze kunnen importeren, exporteren, en gegevens beheren en uitvoeren van rapporten. Het wetenschappelijk gegevens toegang heeft tot patiëntgegevens, maar heeft geen beheerdersrechten heeft.
 
--   Ingebouwde roltoewijzingen: [Storage Account Inzender](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+-   Ingebouwde roltoewijzingen: [Storage Account Inzender](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Aangepaste roltoewijzingen: N.V.T.
 
@@ -138,7 +138,7 @@ Het is de taak van deze functie om de status van individuele patiënten te bewak
 
 De controleur evalueert de oplossing voor naleving. Ze hebben geen directe toegang tot het netwerk.
 
--   Ingebouwde roltoewijzingen: [lezer](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+-   Ingebouwde roltoewijzingen: [lezer](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Aangepaste roltoewijzingen: N.V.T.
 
@@ -164,13 +164,13 @@ De blauwdruk bevat een groot aantal geanonimiseerde medische registreert ter ill
 
 Alex van taak is het evalueren van de technologieën die u kunnen Verminder de belasting van het beheer van een on-premises netwerk en de kosten voor het beheer. Alex evalueren Azure heeft gedurende een bepaalde periode, maar heeft pogingen gedaan om de services die hij nodig heeft om te voldoen aan de nalevingsvereisten HiTrust geduld gegevens opslaan in de cloud te configureren. Alex is de Azure Health AI voor het implementeren van een oplossing voor naleving-ready health, die de vereisten te voldoen aan de klantvereisten voor HiTrust heeft opgelost geselecteerd.
 
-**Data Scientist -- Debra**
+**Gegevens wetenschappelijk--Debra**
 
 *E-mailadres: Debra\_DataScientist*
 
 Debra is verantwoordelijk voor het gebruik en het maken van modellen die medische gegevens om op te geven inzicht in de zorgsector analyseren. Debra maakt gebruik van SQL en de programmeertaal R statistische om haar modellen te maken.
 
-**Database Analyst -- Danny**
+**Database-analist--Danny**
 
 *E-mailadres: Danny\_DBAnalyst*
 
@@ -181,13 +181,13 @@ Danny is de belangrijkste contactpersoon voor alles met betrekking tot de Micros
 Caroline werkt samen met de lijnmanager Care Chris en Debra het wetenschappelijk gegevens om te bepalen welke factoren van invloed patiënt lengte verblijf.
 Caroline gebruikt de voorspellingen van de lengte van verblijf (LOS)-oplossing om te bepalen of bronnen op de juiste wijze wordt toegewezen in het netwerk ziekenhuis bent. Bijvoorbeeld, met behulp van het dashboard dat is opgegeven in deze oplossing.
 
-**Care Line Manager -- Chris**
+**Belangrijk lijnmanager--Chris**
 
 *E-mailadres: Chris\_CareLineManager*
 
 Als de afzonderlijke rechtstreeks verantwoordelijk voor het beheren van patiënt toelating en lozingen op Contosoclinic, Chris maakt gebruik van de voorspellingen gegenereerd door de oplossing LOS om ervoor te zorgen dat voldoende personeel beschikbaar zijn voor voorzichtig bieden aan patiënten terwijl ze zijn blijven de faciliteit.
 
-**Auditor -- Han**
+**Auditor--Han**
 
 *E-mailadres: Han\_Auditor*
 
@@ -222,7 +222,7 @@ In deze sectie worden de standaardconfiguraties en veiligheidsmaatregelen ingebo
 
 -   [Azure Active Directory: Identity Protection](/azure/active-directory/active-directory-identityprotection) detecteert mogelijke beveiligingsproblemen die invloed hebben op de identiteiten van uw organisatie, configureert u automatische antwoorden op gedetecteerde verdachte acties met betrekking tot de identiteiten van uw organisatie, en verdachte incidenten onderzoekt en neemt nodige actie deze op te lossen.
 
--   [Azure op rollen gebaseerde toegangsbeheer (RBAC)](/azure/active-directory/role-based-access-control-configure) kunt nauwkeurig gerichte toegangsbeheer voor Azure. Abonnement toegang is beperkt tot de abonnementsbeheerder en Azure Key Vault toegang is beperkt tot de sitebeheerder. Sterke wachtwoorden (minimale met ten minste één hoofdletters en kleine letter, cijfer en speciaal teken 12 tekens) zijn vereist.
+-   [Azure op rollen gebaseerde toegangsbeheer (RBAC)](/azure/role-based-access-control/role-assignments-portal) kunt nauwkeurig gerichte toegangsbeheer voor Azure. Abonnement toegang is beperkt tot de abonnementsbeheerder en Azure Key Vault toegang is beperkt tot de sitebeheerder. Sterke wachtwoorden (minimale met ten minste één hoofdletters en kleine letter, cijfer en speciaal teken 12 tekens) zijn vereist.
 
 -   Multi-factor authentication-server wordt ondersteund als de schakeloptie - enableMFA is ingeschakeld tijdens de implementatie.
 
@@ -230,7 +230,7 @@ In deze sectie worden de standaardconfiguraties en veiligheidsmaatregelen ingebo
 
 **Rollen:**
 
--   De oplossing maakt gebruik van [ingebouwde rollen](/azure/active-directory/role-based-access-built-in-roles) voor het beheren van toegang tot bronnen.
+-   De oplossing maakt gebruik van [ingebouwde rollen](/azure/role-based-access-control/built-in-roles) voor het beheren van toegang tot bronnen.
 
 -   Alle gebruikers worden specifieke ingebouwde rollen standaard toegewezen.
 
@@ -243,7 +243,7 @@ In deze sectie worden de standaardconfiguraties en veiligheidsmaatregelen ingebo
     -   Patiënt verbindingsreeks
     -   De tabelnaam patiëntgegevens
     -   Azure ML Web Service-eindpunt
-    -   Azure ML Service API Key
+    -   API-sleutel voor Azure ML-Service
 
 -   Geavanceerde beleidsregels zijn geconfigureerd op basis van de noodzaak
 -   Sleutelkluis-beleid worden gedefinieerd met de minimaal vereiste machtigingen aan sleutels en geheimen
@@ -350,7 +350,7 @@ De oplossing biedt ondersteuning voor Azure Event raster één service voor het 
 
 -   Gegevens in Blob storage in rust versleuteld.
 
-## <a name="analyze"></a>ANALYZE
+## <a name="analyze"></a>ANALYSEREN
 
 ### <a name="machine-learning"></a>Machine Learning
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -233,7 +233,7 @@ Prijzen van verkeer weergeven is gebaseerd op het aantal gegevenspunten gebruikt
 
 Met behulp van de eindpunten van meerdere abonnementen is niet mogelijk met Azure-Web-Apps. Azure-Web-Apps vereist dat een aangepaste domeinnaam gebruikt met Web-Apps alleen wordt gebruikt binnen een één abonnement. Het is niet mogelijk om te gebruiken van Web-Apps uit meerdere abonnementen met dezelfde domeinnaam.
 
-Voor andere eindpunttypen is het mogelijk te Traffic Manager gebruiken met de eindpunten van meer dan één abonnement. In de Resource-Manager eindpunten van een abonnement kunnen worden toegevoegd als aan Traffic Manager, zolang de persoon die de Traffic Manager-profiel configureren leestoegang tot het eindpunt heeft. Deze machtigingen worden verleend met behulp van [Azure Resource Manager-rol gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md).
+Voor andere eindpunttypen is het mogelijk te Traffic Manager gebruiken met de eindpunten van meer dan één abonnement. In de Resource-Manager eindpunten van een abonnement kunnen worden toegevoegd als aan Traffic Manager, zolang de persoon die de Traffic Manager-profiel configureren leestoegang tot het eindpunt heeft. Deze machtigingen worden verleend met behulp van [Azure Resource Manager-rol gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Kan ik Traffic Manager met Service voor de Cloud 'Staging' sleuven gebruiken?

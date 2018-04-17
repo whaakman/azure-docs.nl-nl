@@ -1,34 +1,30 @@
 ---
-title: MPP-architectuur - Azure SQL Data Warehouse? | Microsoft Docs
+title: Azure SQL datawarehouse - MPP-architectuur | Microsoft Docs
 description: Meer informatie over hoe Azure SQL Data Warehouse combineert massively parallelle processing (MPP) met Azure storage voor hoge prestaties en schaalbaarheid.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
+author: acomet
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: architecture
-ms.date: 11/15/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: 4c230eb0633b2917b90a5c1f9f4176882bfd0290
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/11/2018
+ms.author: acomet
+ms.reviewer: mausher
+ms.openlocfilehash: a0dad8afa87b3424c8561b2aaf44fbe0f5d5dae6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL datawarehouse - Massively parallelle verwerking van de architectuur (MPP)
 Meer informatie over hoe Azure SQL Data Warehouse combineert massively parallelle processing (MPP) met Azure storage voor hoge prestaties en schaalbaarheid. 
 
 ## <a name="mpp-architecture-components"></a>Onderdelen van de MPP-architectuur
-SQL Data Warehouse maakt gebruik van een scale-out-architectuur voor het distribueren van rekenkundige verwerking van gegevens op meerdere knooppunten. De eenheid van de schaal is een abstractie van rekenkracht waarvan bekend is als eenheid datawarehouse. SQL Data Warehouse gescheiden compute uit de opslag zodat u als de gebruiker om te schalen onafhankelijk van de gegevens in uw systeem berekenen.
+SQL Data Warehouse maakt gebruik van een scale-out-architectuur voor het distribueren van rekenkundige verwerking van gegevens op meerdere knooppunten. De eenheid van de schaal is een abstractie van rekenkracht waarvan bekend is als eenheid datawarehouse. SQL Data Warehouse gescheiden compute uit de opslag zodat u schalen onafhankelijk van de gegevens berekenen zijn in uw systeem.
 
 ![Architectuur van SQL Data Warehouse](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Data Warehouse maakt gebruik van een architectuur op basis van knooppunt. Toepassingen verbinding maken en uitgeven van T-SQL-opdrachten voor een beheerknooppunt, het één punt van de vermelding voor het datawarehouse is. Het beheerknooppunt wordt de MPP-engine optimaliseert de query's voor parallelle verwerking en geeft vervolgens bewerkingen aan rekenknooppunten voor hun werk parallel uitgevoerd. De Compute nodes alle gebruikersgegevens worden opgeslagen in Azure Storage opslaat en de parallelle query's uitvoeren. Data Movement Service (DMS) is een interne systeemniveau-service waarmee gegevens op de knooppunten die nodig zijn verplaatst voor query's parallel worden uitgevoerd en nauwkeurige resultaten retourneren. 
+SQL Data Warehouse maakt gebruik van een architectuur op basis van een knooppunt. Toepassingen verbinding maken en uitgeven van T-SQL-opdrachten voor een beheerknooppunt, het één punt van de vermelding voor het datawarehouse is. Het beheerknooppunt wordt de MPP-engine optimaliseert de query's voor parallelle verwerking en geeft vervolgens bewerkingen aan rekenknooppunten voor hun werk parallel uitgevoerd. De Compute nodes alle gebruikersgegevens worden opgeslagen in Azure Storage opslaat en de parallelle query's uitvoeren. Data Movement Service (DMS) is een interne systeemniveau-service waarmee gegevens op de knooppunten die nodig zijn verplaatst voor query's parallel worden uitgevoerd en nauwkeurige resultaten retourneren. 
 
 Als u opslag en rekenactiviteiten loskoppelt van elkaar, kan SQL Data Warehouse:
 
@@ -37,7 +33,7 @@ Als u opslag en rekenactiviteiten loskoppelt van elkaar, kan SQL Data Warehouse:
 * Rekencapaciteit onderbreken gegevens blijven behouden, zodat u betaalt alleen voor opslag.
 * De rekencapaciteit hervatten tijdens werktijden.
 
-### <a name="azure-storage"></a>Azure-opslag
+### <a name="azure-storage"></a>Azure Storage
 SQL Data Warehouse maakt gebruik van Azure-opslag om uw gebruikersgegevens te beschermen.  Aangezien uw gegevens worden opgeslagen en beheerd door de Azure-opslag, brengt SQL Data Warehouse afzonderlijk voor uw opslagverbruik. De gegevens zelf is shard in **distributies** om de prestaties van het systeem te optimaliseren. U kunt kiezen welke sharding-patroon gebruiken voor het distribueren van de gegevens bij het definiëren van de tabel. SQL Data Warehouse ondersteunt deze patronen sharding:
 
 * Hash

@@ -3,22 +3,23 @@ title: Met de Linux gegevens wetenschappelijke virtuele Machine in Azure voor ge
 description: Het uitvoeren van verschillende algemene gegevens wetenschappelijke taken met de Linux-VM wetenschappelijke van gegevens.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: aff0dd17baa72b3f58ed5effbedb3a4c630f22c6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: gokuma
+ms.openlocfilehash: 055d8b1c9884c9525ba15ea9508ab00a5f48a048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Met een Linux gegevens wetenschappelijke virtuele Machine in Azure voor gegevenswetenschap
 In dit scenario laat zien hoe u verschillende algemene gegevens wetenschappelijke taken met de virtuele Linux-gegevens van wetenschappelijke machine uitvoeren. Linux gegevens wetenschappelijke virtuele Machine (DSVM) is beschikbaar in Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning op de installatiekopie van een virtuele machine. De belangrijke softwareonderdelen worden gespecificeerd in de [Linux gegevens wetenschap-Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie kunt eenvoudig aan de slag gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk doen. U kunt eenvoudig opschalen van de virtuele machine, indien nodig en stop de toepassing als deze niet in gebruik. Deze resource wordt dus elastische en betaalbare.
@@ -238,7 +239,7 @@ De resterende secties laten zien hoe u een aantal van de hulpprogramma's geïnst
 * Jupyterhub
 * Rammelaar
 * PostgreSQL & Squirrel SQL
-* SQL Server Data Warehouse
+* SQL Server-datawarehouse
 
 ## <a name="xgboost"></a>XGBoost
 [XGBoost](https://xgboost.readthedocs.org/en/latest/) is een hulpprogramma waarmee een snelle en nauwkeurige gestimuleerd structuur-implementatie.
@@ -385,7 +386,7 @@ Rammelaar kunt ook cluster analyse uitvoeren. Laten we uitsluiten sommige functi
 * word_freq_money
 * capital_run_length_longest
 * word_freq_business
-* spam
+* ongewenste e-mail
 
 Ga vervolgens terug naar de **Cluster** Kies **KMeans**, en stel de *aantal clusters* tot en met 4. Vervolgens **uitvoeren**. De resultaten worden weergegeven in het uitvoervenster. Een cluster met hoge frequentie van 'george' en 'hp' heeft en is waarschijnlijk een legitieme zakelijke-e-mailadres.
 
@@ -499,7 +500,7 @@ De meeste e-mailberichten waarvoor een hoge exemplaar van *3d* zijn blijkbaar sp
 
 Als u uitvoeren van machine learning met gegevens die zijn opgeslagen in een PostgreSQL-database wilt, kunt u overwegen [MADlib](http://madlib.incubator.apache.org/).
 
-## <a name="sql-server-data-warehouse"></a>SQL Server Data Warehouse
+## <a name="sql-server-data-warehouse"></a>SQL Server-datawarehouse
 Azure SQL Data Warehouse is een schaalbare clouddatabase die geschikt is voor het verwerken van grote hoeveelheden relationele en/of niet-relationele gegevens. Zie voor meer informatie [wat is Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Als u wilt verbinding maken met het datawarehouse en de tabel maakt, voer de volgende opdracht uit vanaf de opdrachtprompt:

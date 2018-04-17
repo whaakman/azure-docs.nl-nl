@@ -6,7 +6,7 @@ documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolatie van opslagprestaties in de openbare Azure-Cloud
 ##  <a name="introduction"></a>Inleiding
@@ -52,7 +52,7 @@ Met betrekking tot werklocaties in de cloud kan een tenant worden gedefinieerd a
 Elke Azure AD-directory is uniek en werkt afzonderlijk van andere Azure AD-directory’s. Net zoals een kantoorgebouw een beveiligd bedrijfsmiddel is van uw organisatie, is ook een Azure AD-directory ontworpen als een beveiligd bedrijfsmiddel dat alleen door uw organisatie kan worden gebruikt. De Azure AD-architectuur isoleert klant- en identiteitsgegevens, zodat deze niet door elkaar worden gehaald. Dit betekent dat gebruikers en beheerders van een Azure AD-directory niet per ongeluk of opzettelijk gegevens in een andere directory kunnen openen.
 
 ### <a name="azure-tenancy"></a>Azure-Tenancymodus
-Azure-tenancymodus (Azure-abonnement) verwijst naar een relatie 'klant ' / facturering en een unieke [tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) in [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Niveau isolatie van tenants in Microsoft Azure wordt bereikt met Azure Active Directory en [besturingselementen op basis van rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) die worden aangeboden door het. Elk Azure-abonnement is gekoppeld aan één map op Azure Active Directory (AD).
+Azure-tenancymodus (Azure-abonnement) verwijst naar een relatie 'klant ' / facturering en een unieke [tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) in [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Niveau isolatie van tenants in Microsoft Azure wordt bereikt met Azure Active Directory en [besturingselementen op basis van rollen](https://docs.microsoft.com/azure/role-based-access-control/overview) die worden aangeboden door het. Elk Azure-abonnement is gekoppeld aan één map op Azure Active Directory (AD).
 
 Gebruikers, groepen en toepassingen van die directory kunnen resources in het Azure-abonnement te beheren. U kunt deze toegangsrechten met behulp van de Azure-portal, Azure-opdrachtregelprogramma's en Azure Management-API's. Een Azure AD-tenant is logisch is geïsoleerd met behulp van beveiligingsgrenzen zodat klanten geen toegang hebt of mede-tenants, met kwaadaardige bedoelingen of per ongeluk in gevaar brengen. Azure AD wordt uitgevoerd op bare-metalcomputer'-servers die zijn geïsoleerd in een netwerksegment gescheiden, waarbij hostniveau pakketfilters en Windows Firewall blokkeren ongewenste verbindingen en verkeer.
 
@@ -80,7 +80,7 @@ Het concept van tenant containers is diep is in Active Directory op alle lagen v
 Zelfs wanneer de metagegevens van meerdere tenants van Azure Active Directory op dezelfde fysieke schijf is opgeslagen, is er geen relatie tussen de containers dan wat wordt gedefinieerd door de directoryservice, die op zijn beurt wordt bepaald door de tenantbeheerder.
 
 ### <a name="azure-role-based-access-control-rbac"></a>Azure op rollen gebaseerde toegangsbeheer (RBAC)
-[Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) helpt u bij het delen van verschillende onderdelen die beschikbaar zijn in een Azure-abonnement dankzij Geavanceerd toegangsbeheer voor Azure. Azure RBAC kunt u taken binnen uw organisatie scheiden en het verlenen van toegang op basis van de gebruikers moeten uitvoeren van hun taken. In plaats van iedereen geven onbeperkte machtigingen in Azure-abonnement of bronnen, kunt u alleen bepaalde acties toestaan.
+[Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) helpt u bij het delen van verschillende onderdelen die beschikbaar zijn in een Azure-abonnement dankzij Geavanceerd toegangsbeheer voor Azure. Azure RBAC kunt u taken binnen uw organisatie scheiden en het verlenen van toegang op basis van de gebruikers moeten uitvoeren van hun taken. In plaats van iedereen geven onbeperkte machtigingen in Azure-abonnement of bronnen, kunt u alleen bepaalde acties toestaan.
 
 Azure RBAC heeft drie elementaire functies die van toepassing op alle brontypen:
 
@@ -94,7 +94,7 @@ Azure RBAC heeft drie elementaire functies die van toepassing op alle brontypen:
 
 De rest van de RBAC-rollen in Azure toestaan van beheer van specifieke Azure-resources. De rol Inzender van de virtuele Machine kan bijvoorbeeld de gebruiker te maken en beheren van virtuele machines. Het biedt ze geen toegang geven tot het virtuele Azure-netwerk of het subnet dat de virtuele machine verbinding met maakt.
 
-[Ingebouwde RBAC-rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) vermeld de rollen die beschikbaar zijn in Azure. De Hiermee geeft u de bewerkingen en het bereik dat elke ingebouwde rol aan gebruikers verleent. Als u op zoek bent om te definiëren van uw eigen rollen voor nog meer informatie over het bouwen [aangepaste rollen in Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+[Ingebouwde RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) vermeld de rollen die beschikbaar zijn in Azure. De Hiermee geeft u de bewerkingen en het bereik dat elke ingebouwde rol aan gebruikers verleent. Als u op zoek bent om te definiëren van uw eigen rollen voor nog meer informatie over het bouwen [aangepaste rollen in Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Bepaalde andere functies voor Azure Active Directory zijn onder andere:
 - Azure AD kunt eenmalige aanmelding voor SaaS-toepassingen, ongeacht waar ze worden gehost. Voor sommige toepassingen kan federatieve aanmelding worden gebruikt via Azure AD en voor andere toepassingen kan eenmalige aanmelding (SSO) met een wachtwoord worden gebruikt. Federatieve toepassingen kunnen bieden ook ondersteuning voor gebruikers inrichten en [wachtwoordkluizen](https://www.techopedia.com/definition/31415/password-vault).

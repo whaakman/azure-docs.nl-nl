@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 5b22da43fe36a4e048483bb558a7705a3a670a9f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eecdd9f169b5b61262f4e3121337c730700f0757
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Verbindingen met de netwerk-Watcher van Azure met behulp van PowerShell oplossen
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/05/2018
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
-> - [Azure REST API](network-watcher-connectivity-rest.md)
+> - [Azure REST-API](network-watcher-connectivity-rest.md)
 
 Informatie over het gebruik van verbinding oplossen om te controleren of een directe TCP-verbinding van een virtuele machine naar een opgegeven eindpunt kan worden gemaakt.
 
@@ -306,4 +306,4 @@ Hops             : [
 
 Bepalen of bepaalde verkeer is toegestaan in of buiten uw virtuele machine in via [controleren IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md).
 
-Zie als verkeer wordt geblokkeerd en mag geen [Netwerkbeveiligingsgroepen beheren](../virtual-network/virtual-network-manage-nsg-arm-portal.md) voor het opsporen van de groep en beveiliging netwerkbeveiligingsregels die zijn gedefinieerd.
+Zie als verkeer wordt geblokkeerd en mag geen [Netwerkbeveiligingsgroepen beheren](../virtual-network/manage-network-security-group.md) voor het opsporen van de groep en beveiliging netwerkbeveiligingsregels die zijn gedefinieerd.

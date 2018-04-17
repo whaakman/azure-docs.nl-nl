@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b0a704a6ac4a317e0d8e280a9353b04f9b4d919b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure virtuele-machineschaalsets Veelgestelde vragen
 
@@ -383,7 +383,7 @@ Zie [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PC
 
 ### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Biedt [Azure Managed Service-identiteit](https://docs.microsoft.com/azure/active-directory/msi-overview) werken met virtuele-machineschaalsets?
 
-Ja. Hier ziet u enkele voorbeeld MSI-sjablonen in Azure Quickstart-sjablonen. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
+Ja. Hier ziet u enkele voorbeeld MSI-sjablonen in Azure Quickstart-sjablonen. Linux: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>Extensies
@@ -402,9 +402,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 U vindt de waarde extensienaam in `$vmss`.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>Er is dat een virtuele-machineschaalset voorbeeldsjabloon die met Operations Management Suite integreert?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Er is dat een virtuele-machineschaalset voorbeeld van de sjabloon die in combinatie met logboekanalyse instellen?
 
-Voor een virtuele-machineschaalset ingesteld voorbeeld van de sjabloon die in combinatie met Operations Management Suite, Zie het tweede voorbeeld in [een Azure Service Fabric-cluster implementeren en schakel de bewaking met behulp van logboekanalyse](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Voor een virtuele-machineschaalset ingesteld voorbeeld van de sjabloon die in combinatie met Log Analytics, Zie het tweede voorbeeld in [een Azure Service Fabric-cluster implementeren en schakel de bewaking met behulp van logboekanalyse](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Extensies lijken te parallel worden uitgevoerd op virtuele-machineschaalsets. Dit zorgt ervoor dat de extensie voor aangepaste scripts mislukken. Wat kan ik doen om dit probleem oplossen?
 
@@ -693,9 +693,9 @@ Ja, kunt u het terugzetten van de installatiekopie opnieuw in te stellen van een
 
 Zie voor meer informatie [beheren van alle VM's in een virtuele-machineschaalset](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>Is het mogelijk schaalsets integreren met Azure OMS (Operations Management Suite)?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Is het mogelijk schaalsets integreren met Azure Log Analytics?
 
-Ja, kunt u door het installeren van de OMS-extensie op schaal instellen virtuele machines. Hier volgt een voorbeeld van Azure CLI:
+Ja, kunt u door het installeren van de extensie logboekanalyse op schaal instellen virtuele machines. Hier volgt een voorbeeld van Azure CLI:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

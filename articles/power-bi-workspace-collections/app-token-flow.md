@@ -2,11 +2,11 @@
 title: Verificatie en autorisatie bij Power BI werkruimte verzamelingen | Microsoft Docs
 description: Verificatie en autorisatie bij Power BI werkruimte verzamelingen.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: ae9627c6bb5e7bb099598acaa2eb29375c35593e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Verificatie en autorisatie bij Power BI werkruimte verzamelingen
 
@@ -93,7 +93,7 @@ Er zijn methoden beschikbaar zijn in de SDK's die het maken van app-tokens te ve
 
 Voor de .NET SDK, kunt u verwijzen naar [Scopes](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
-## <a name="scopes"></a>Scopes
+## <a name="scopes"></a>Bereiken
 
 Wanneer u insluiten tokens gebruikt, kunt u beperkt gebruik van de resources die u toegang te geven. Daarom kunt u een token met bereik machtigingen genereren.
 
@@ -147,7 +147,7 @@ Body
 
 ### <a name="operations-and-scopes"></a>Bewerkingen en -scopes
 
-|Bewerking|Doelbron|Token machtigingen|
+|Bewerking|Doelresource|Token machtigingen|
 |---|---|---|
 |Een nieuw rapport op basis van een gegevensset voor (in het geheugen) maken.|Gegevensset|Dataset.Read|
 |(In het geheugen) Maak een nieuw rapport op basis van een gegevensset en sla het rapport.|Gegevensset|* Dataset.Read<br>* Workspace.Report.Create|

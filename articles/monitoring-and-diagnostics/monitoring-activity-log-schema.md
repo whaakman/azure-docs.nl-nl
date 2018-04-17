@@ -10,13 +10,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
-ms.author: johnkem
-ms.openlocfilehash: a5c05466b21184a73d08190856e00ae95ee3727f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 4/12/2018
+ms.author: dukek
+ms.openlocfilehash: 4264bfd733f586dcdabdee8f29494bfffd9a7a76
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Activity Log gebeurtenis schema
 De **Azure Activity Log** is een logboek die biedt inzicht in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel wordt het schema van de gebeurtenis per categorie van gegevens.
@@ -29,7 +29,7 @@ Deze rubriek bevat de record van alle maken, update, delete en actie bewerkingen
 {
     "authorization": {
         "action": "Microsoft.Network/networkSecurityGroups/write",
-        "scope": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
+        "scope": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
     },
     "caller": "rob@contoso.com",
     "channels": "Operation",
@@ -74,7 +74,7 @@ Deze rubriek bevat de record van alle maken, update, delete en actie bewerkingen
         "localizedValue": "Administrative"
     },
     "eventTimestamp": "2018-01-29T20:42:31.3810679Z",
-    "id": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
+    "id": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
     "level": "Informational",
     "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
     "operationName": {
@@ -90,7 +90,7 @@ Deze rubriek bevat de record van alle maken, update, delete en actie bewerkingen
         "value": "Microsoft.Network/networkSecurityGroups",
         "localizedValue": "Microsoft.Network/networkSecurityGroups"
     },
-    "resourceId": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+    "resourceId": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
     "status": {
         "value": "Succeeded",
         "localizedValue": "Succeeded"
@@ -100,7 +100,7 @@ Deze rubriek bevat de record van alle maken, update, delete en actie bewerkingen
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-01-29T20:42:50.0724829Z",
-    "subscriptionId": "dd042f02-6b3e-4f79-939a-6a381ffed3c0",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "statusCode": "Created",
         "serviceRequestId": "a4c11dbd-697e-47c5-9663-12362307157d",
@@ -118,7 +118,7 @@ Deze rubriek bevat de record van alle maken, update, delete en actie bewerkingen
 | Autorisatie |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk het eigenschappen "action", 'rol' en 'bereik'. |
 | oproepende functie |E-mailadres van de gebruiker die is uitgevoerd. de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid. |
 | kanalen |Een van de volgende waarden: 'Admin', 'Operation' |
-| claims |De JWT-token gebruikt door Active Directory voor het verifiëren van de gebruiker of toepassing naar deze bewerking niet uitvoeren in het resourcemanager. |
+| Claims |De JWT-token gebruikt door Active Directory voor het verifiëren van de gebruiker of toepassing naar deze bewerking niet uitvoeren in het resourcemanager. |
 | correlationId |Meestal een GUID in de indeling van de tekenreeks. Gebeurtenissen die een correlationId share deel uitmaken van dezelfde uber actie. |
 | description |De beschrijving van de statische tekst van een gebeurtenis. |
 | eventDataId |De unieke id van een gebeurtenis. |
@@ -154,7 +154,7 @@ Deze rubriek bevat de record van een service health incidenten die hebben plaats
       "localizedValue": "Service Health"
   },
   "eventTimestamp": "2017-07-20T23:30:14.8022297Z",
-  "id": "/subscriptions/mySubscriptionID/events/c5bc4514-6642-2be3-453e-c6a67841b073/ticks/636361902148022297",
+  "id": "/subscriptions/<subscription ID>/events/c5bc4514-6642-2be3-453e-c6a67841b073/ticks/636361902148022297",
   "level": "Warning",
   "operationName": {
       "value": "Microsoft.ServiceHealth/incident/action",
@@ -167,7 +167,7 @@ Deze rubriek bevat de record van een service health incidenten die hebben plaats
       "value": null,
       "localizedValue": ""
   },
-  "resourceId": "/subscriptions/mySubscriptionID",
+  "resourceId": "/subscriptions/<subscription ID>",
   "status": {
       "value": "Active",
       "localizedValue": "Active"
@@ -176,7 +176,7 @@ Deze rubriek bevat de record van een service health incidenten die hebben plaats
       "value": null
   },
   "submissionTimestamp": "2017-07-20T23:30:34.7431946Z",
-  "subscriptionId": "mySubscriptionID",
+  "subscriptionId": "<subscription ID>",
   "properties": {
     "title": "Network Infrastructure - UK South",
     "service": "Service Fabric",
@@ -194,35 +194,7 @@ Deze rubriek bevat de record van een service health incidenten die hebben plaats
   }
 }
 ```
-
-### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
-Elementnaam | Beschrijving
--------- | -----------
-kanalen | Is een van de volgende waarden: 'Admin', 'Operation'
-correlationId | Is meestal een GUID in de indeling van de tekenreeks. Gebeurtenissen met die deel uitmaken van dezelfde uber actie meestal delen de dezelfde correlationId.
-description | Beschrijving van de gebeurtenis.
-eventDataId | De unieke id van een gebeurtenis.
-eventName | De titel van de gebeurtenis.
-niveau | Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', 'Ter informatie' en 'Verbose'
-resourceProviderName | De naam van de resourceprovider voor de betrokken resource. Als u niet bekend is, wordt dit niet null zijn.
-resourceType| Het type resource van de betrokken resource. Als u niet bekend is, wordt dit niet null zijn.
-subStatus | Meestal null voor Service Health-gebeurtenissen.
-eventTimestamp | Tijdstempel wanneer het gebeurtenislogboek is gegenereerd en naar het activiteitenlogboek verzonden.
-submissionTimestamp |   Tijdstempel wanneer de gebeurtenis is beschikbaar in het activiteitenlogboek geworden.
-subscriptionId | De Azure-abonnement in waarmee deze gebeurtenis is vastgelegd.
-status | De tekenreeks met een beschrijving van de status van de bewerking. Sommige algemene waarden zijn: actief, opgelost.
-operationName | De naam van de bewerking. Usually Microsoft.ServiceHealth/incident/action.
-category | "ServiceHealth"
-resourceId | Bron-id van de betrokken resource, indien bekend. Abonnements-ID is anders opgegeven.
-Properties.title | De gelokaliseerde titel voor deze communicatie. Engels is de standaardtaal.
-Properties.Communication | De gelokaliseerde details van de communicatie met de HTML-opmaak. Engels is de standaardinstelling.
-Properties.incidentType | Mogelijke waarden: AssistedRecovery, ActionRequired, informatie, Incident-, onderhoud, beveiliging
-Properties.trackingId | Identificeert het incident dat deze gebeurtenis is gekoppeld. Gebruik deze optie als u de gebeurtenissen die betrekking hebben op een incident met elkaar correleren.
-Properties.impactedServices | Een escape-teken JSON-blob die hierin worden de services en regio's die worden beïnvloed door het incident. Een lijst met Services, die allemaal een servicenaam en een lijst met ImpactedRegions, die allemaal een RegionName.
-Properties.defaultLanguageTitle | De communicatie in het Engels
-Properties.defaultLanguageContent | De communicatie in het Engels als HTML-indeling of tekst zonder opmaak
-Properties.Stage | Mogelijke waarden voor AssistedRecovery, ActionRequired, informatie, Incident-, beveiliging: actief, zijn opgelost. Ze zijn voor onderhoud: actief, gepland, InProgress, geannuleerd, Rescheduled, opgelost, voltooid
-Properties.communicationId | De communicatie deze gebeurtenis is gekoppeld.
+Raadpleeg de [service health meldingen](./monitoring-service-notifications.md) voor documentatie over de waarden in de eigenschappen van het artikel.
 
 ## <a name="alert"></a>Waarschuwing
 Deze rubriek bevat de record van alle activeringen van waarschuwingen van Azure. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "CPU-percentage op myVM is meer dan 80 voor de afgelopen vijf minuten." Een verscheidenheid aan Azure systemen hebben een waarschuwingsmethoden concept--u kunt een regel bepaalde hardwaresleutel definiëren en een melding ontvangen wanneer voorwaarden overeenkomen met die regel. Elke keer dat een ondersteunde Azure Waarschuwingstype 'wordt geactiveerd,' of de voorwaarden wordt voldaan voor het genereren van een melding, een record van de activering is ook naar deze categorie van het activiteitenlogboek gepusht.
@@ -236,7 +208,7 @@ Deze rubriek bevat de record van alle activeringen van waarschuwingen van Azure.
   "claims": {
     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/alertRules"
   },
-  "correlationId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
+  "correlationId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
   "description": "'Disk read LessThan 100000 ([Count]) in the last 5 minutes' has been resolved for CloudService: myResourceGroup/Production/Event.BackgroundJobsWorker.razzle (myResourceGroup)",
   "eventDataId": "149d4baf-53dc-4cf4-9e29-17de37405cd9",
   "eventName": {
@@ -247,25 +219,25 @@ Deze rubriek bevat de record van alle activeringen van waarschuwingen van Azure.
     "value": "Alert",
     "localizedValue": "Alert"
   },
-  "id": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle/events/149d4baf-53dc-4cf4-9e29-17de37405cd9/ticks/636362258535221920",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle/events/149d4baf-53dc-4cf4-9e29-17de37405cd9/ticks/636362258535221920",
   "level": "Informational",
   "resourceGroupName": "myResourceGroup",
   "resourceProviderName": {
     "value": "Microsoft.ClassicCompute",
     "localizedValue": "Microsoft.ClassicCompute"
   },
-  "resourceId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle",
+  "resourceId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle",
   "resourceType": {
     "value": "Microsoft.ClassicCompute/domainNames/slots/roles",
     "localizedValue": "Microsoft.ClassicCompute/domainNames/slots/roles"
   },
-  "operationId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
+  "operationId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
   "operationName": {
     "value": "Microsoft.Insights/AlertRules/Resolved/Action",
     "localizedValue": "Microsoft.Insights/AlertRules/Resolved/Action"
   },
   "properties": {
-    "RuleUri": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert",
+    "RuleUri": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert",
     "RuleName": "myalert",
     "RuleDescription": "",
     "Threshold": "100000",
@@ -284,7 +256,7 @@ Deze rubriek bevat de record van alle activeringen van waarschuwingen van Azure.
   },
   "eventTimestamp": "2017-07-21T09:24:13.522192Z",
   "submissionTimestamp": "2017-07-21T09:24:15.6578651Z",
-  "subscriptionId": "mySubscriptionID"
+  "subscriptionId": "<subscription ID>"
 }
 ```
 
@@ -293,7 +265,7 @@ Deze rubriek bevat de record van alle activeringen van waarschuwingen van Azure.
 | --- | --- |
 | oproepende functie | Altijd Microsoft.Insights/alertRules |
 | kanalen | Altijd 'Admin, bewerking' |
-| claims | JSON-blob met het type SPN (service principal name) of de bron van de waarschuwings-engine. |
+| Claims | JSON-blob met het type SPN (service principal name) of de bron van de waarschuwings-engine. |
 | correlationId | Een GUID in de indeling van de tekenreeks. |
 | description |De beschrijving van de statische tekst van de waarschuwing gebeurtenis. |
 | eventDataId |De unieke id van de waarschuwing gebeurtenis. |
@@ -322,20 +294,20 @@ Het eigenschappenveld bevat verschillende waarden, afhankelijk van de bron van d
 | properties.resourceId | De resource-ID van de activiteit gebeurtenislogboek waardoor deze activiteit logboek-waarschuwingsregel worden geactiveerd. |
 | properties.eventTimestamp | De gebeurtenis tijdstempel van de activiteit gebeurtenislogboek waardoor deze activiteit logboek-waarschuwingsregel worden geactiveerd. |
 | properties.operationName | De naam van de bewerking van de activiteit gebeurtenislogboek waardoor deze activiteit logboek-waarschuwingsregel worden geactiveerd. |
-| properties.status | De status van de activiteit gebeurtenislogboek waardoor deze activiteit logboek-waarschuwingsregel worden geactiveerd.|
+| Properties.status | De status van de activiteit gebeurtenislogboek waardoor deze activiteit logboek-waarschuwingsregel worden geactiveerd.|
 
 #### <a name="properties-for-metric-alerts"></a>Eigenschappen van metrische waarschuwingen
 | Elementnaam | Beschrijving |
 | --- | --- |
-| properties.RuleUri | Bron-ID van de metrische waarschuwingsregel zelf. |
+| Eigenschappen. RuleUri | Bron-ID van de metrische waarschuwingsregel zelf. |
 | properties.RuleName | De naam van de metrische waarschuwingsregel. |
 | Eigenschappen. RuleDescription | De beschrijving van de metrische waarschuwingsregel (zoals gedefinieerd in de waarschuwingsregel). |
 | Eigenschappen. Drempelwaarde | De drempelwaarde die wordt gebruikt in de evaluatie van de metrische waarschuwingsregel. |
-| properties.WindowSizeInMinutes | De grootte die in de evaluatie van de metrische waarschuwingsregel wordt gebruikt. |
-| properties.Aggregation | Het samenvoegingstype in de metrische waarschuwingsregel gedefinieerd. |
+| Eigenschappen. WindowSizeInMinutes | De grootte die in de evaluatie van de metrische waarschuwingsregel wordt gebruikt. |
+| Eigenschappen. Aggregatie | Het samenvoegingstype in de metrische waarschuwingsregel gedefinieerd. |
 | properties.Operator | De voorwaardelijke operator die wordt gebruikt in de evaluatie van de metrische waarschuwingsregel. |
 | properties.MetricName | De metrische naam van de metrische gegevens die in de evaluatie van de metrische waarschuwingsregel wordt gebruikt. |
-| properties.MetricUnit | De metrische eenheid voor de metriek gebruikt in de evaluatie van de metrische waarschuwingsregel. |
+| Eigenschappen. MetricUnit | De metrische eenheid voor de metriek gebruikt in de evaluatie van de metrische waarschuwingsregel. |
 
 ## <a name="autoscale"></a>Automatisch schalen
 Deze rubriek bevat de record van alle gebeurtenissen met betrekking tot de werking van de engine voor het automatisch schalen op basis van de instellingen voor automatisch schalen die u hebt gedefinieerd in uw abonnement. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Automatisch schalen opschaling van de actie is mislukt." Met automatisch schalen, kunt u automatisch geschaald uitbreiden of schalen op basis van tijd van de dag en/of laden (metrische) gegevens met behulp van een instelling voor automatisch schalen van het aantal exemplaren in een ondersteunde brontype. Wanneer de voorwaarden worden voldaan op schaal omhoog of omlaag is gestart en is geslaagd of mislukt gebeurtenissen worden vastgelegd in deze categorie.
@@ -349,7 +321,7 @@ Deze rubriek bevat de record van alle gebeurtenissen met betrekking tot de werki
     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/autoscaleSettings"
   },
   "correlationId": "fc6a7ff5-ff68-4bb7-81b4-3629212d03d0",
-  "description": "The autoscale engine attempting to scale resource '/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
+  "description": "The autoscale engine attempting to scale resource '/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
   "eventDataId": "a5b92075-1de9-42f1-b52e-6f3e4945a7c7",
   "eventName": {
     "value": "AutoscaleAction",
@@ -359,14 +331,14 @@ Deze rubriek bevat de record van alle gebeurtenissen met betrekking tot de werki
     "value": "Autoscale",
     "localizedValue": "Autoscale"
   },
-  "id": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup/events/a5b92075-1de9-42f1-b52e-6f3e4945a7c7/ticks/636361956518681572",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup/events/a5b92075-1de9-42f1-b52e-6f3e4945a7c7/ticks/636361956518681572",
   "level": "Informational",
   "resourceGroupName": "myResourceGroup",
   "resourceProviderName": {
     "value": "microsoft.insights",
     "localizedValue": "microsoft.insights"
   },
-  "resourceId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup",
+  "resourceId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup",
   "resourceType": {
     "value": "microsoft.insights/autoscalesettings",
     "localizedValue": "microsoft.insights/autoscalesettings"
@@ -377,8 +349,8 @@ Deze rubriek bevat de record van alle gebeurtenissen met betrekking tot de werki
     "localizedValue": "Microsoft.Insights/AutoscaleSettings/Scaledown/Action"
   },
   "properties": {
-    "Description": "The autoscale engine attempting to scale resource '/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
-    "ResourceName": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource",
+    "Description": "The autoscale engine attempting to scale resource '/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
+    "ResourceName": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource",
     "OldInstancesCount": "3",
     "NewInstancesCount": "2",
     "LastScaleActionTime": "Fri, 21 Jul 2017 01:00:51 GMT"
@@ -392,7 +364,7 @@ Deze rubriek bevat de record van alle gebeurtenissen met betrekking tot de werki
   },
   "eventTimestamp": "2017-07-21T01:00:51.8681572Z",
   "submissionTimestamp": "2017-07-21T01:00:52.3008754Z",
-  "subscriptionId": "mySubscriptionID"
+  "subscriptionId": "<subscription ID>"
 }
 
 ```
@@ -402,7 +374,7 @@ Deze rubriek bevat de record van alle gebeurtenissen met betrekking tot de werki
 | --- | --- |
 | oproepende functie | Altijd Microsoft.Insights/autoscaleSettings |
 | kanalen | Altijd 'Admin, bewerking' |
-| claims | JSON-blob met het type SPN (service principal name) of de bron van de engine voor automatisch schalen. |
+| Claims | JSON-blob met het type SPN (service principal name) of de bron van de engine voor automatisch schalen. |
 | correlationId | Een GUID in de indeling van de tekenreeks. |
 | description |De beschrijving van de statische tekst van de gebeurtenis met automatisch schalen. |
 | eventDataId |De unieke id van de gebeurtenis met automatisch schalen. |
@@ -415,8 +387,8 @@ Deze rubriek bevat de record van alle gebeurtenissen met betrekking tot de werki
 | properties |Een set `<Key, Value>` paren (dat wil zeggen, een woordenlijst) met een beschrijving van de details van de gebeurtenis. |
 | Eigenschappen. Beschrijving | Gedetailleerde beschrijving van wat de engine voor het automatisch schalen die werd uitgevoerd. |
 | properties.ResourceName | Bron-ID van de betrokken resource (de resource waarop de schaalactie werd uitgevoerd) |
-| properties.OldInstancesCount | Het aantal exemplaren voordat de actie voor automatisch schalen van kracht. |
-| properties.NewInstancesCount | Het aantal exemplaren nadat de actie voor automatisch schalen van kracht. |
+| Eigenschappen. OldInstancesCount | Het aantal exemplaren voordat de actie voor automatisch schalen van kracht. |
+| Eigenschappen. NewInstancesCount | Het aantal exemplaren nadat de actie voor automatisch schalen van kracht. |
 | properties.LastScaleActionTime | De tijdstempel van wanneer de actie voor automatisch schalen is opgetreden. |
 | status |De tekenreeks met een beschrijving van de status van de bewerking. Sommige algemene waarden zijn: In voortgang, geslaagd, mislukt, actief, opgelost gestart. |
 | subStatus | Meestal null voor automatisch schalen. |
@@ -443,7 +415,7 @@ Deze rubriek bevat de record geen waarschuwingen gegenereerd door Azure Security
         "localizedValue": "Security"
     },
     "eventTimestamp": "2017-10-18T06:02:18.6179339Z",
-    "id": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
+    "id": "/subscriptions/<subscription ID>/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
     "level": "Informational",
     "operationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
     "operationName": {
@@ -459,7 +431,7 @@ Deze rubriek bevat de record geen waarschuwingen gegenereerd door Azure Security
         "value": "Microsoft.Security/locations/alerts",
         "localizedValue": "Microsoft.Security/locations/alerts"
     },
-    "resourceId": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
+    "resourceId": "/subscriptions/<subscription ID>/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -468,7 +440,7 @@ Deze rubriek bevat de record geen waarschuwingen gegenereerd door Azure Security
         "value": null
     },
     "submissionTimestamp": "2017-10-18T06:02:52.2176969Z",
-    "subscriptionId": "d4742bb8-c279-4903-9653-9858b17d0c2e",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "accountLogonId": "0x2r4",
         "commandLine": "c:\\mydirectory\\doubleetension.pdf.exe",
@@ -498,13 +470,13 @@ Deze rubriek bevat de record geen waarschuwingen gegenereerd door Azure Security
 | id |Unieke resource-id van de beveiligingsgebeurtenis. |
 | niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', 'Ter informatie' of 'Uitgebreid' |
 | resourceGroupName |De naam van de resourcegroep voor de resource. |
-| resourceProviderName |Naam van de resourceprovider voor Azure Security Center. Always "Microsoft.Security". |
+| resourceProviderName |Naam van de resourceprovider voor Azure Security Center. Altijd 'Microsoft.Security'. |
 | resourceType |Het type resource dat de beveiligingsgebeurtenis, zoals 'Microsoft.Security/locations/alerts' gegenereerd |
 | resourceId |Bron-id van de beveiligingswaarschuwing. |
 | operationId |Een GUID die wordt gedeeld door de gebeurtenissen die met één bewerking overeenkomen. |
 | operationName |De naam van de bewerking. |
 | properties |Een set `<Key, Value>` paren (dat wil zeggen, een woordenlijst) met een beschrijving van de details van de gebeurtenis. Deze eigenschappen varieert afhankelijk van het type beveiligingswaarschuwing. Zie [deze pagina](../security-center/security-center-alerts-type.md) voor een beschrijving van de typen waarschuwingen die afkomstig van Security Center zijn. |
-| properties.Severity |De ernst op. Mogelijke waarden zijn 'Hoog', 'Gemiddeld' of 'Laag'. |
+| Eigenschappen. Ernst |De ernst op. Mogelijke waarden zijn 'Hoog', 'Gemiddeld' of 'Laag'. |
 | status |De tekenreeks met een beschrijving van de status van de bewerking. Sommige algemene waarden zijn: In voortgang, geslaagd, mislukt, actief, opgelost gestart. |
 | subStatus | Meestal null voor beveiligingsgebeurtenissen. |
 | eventTimestamp |Tijdstempel wanneer de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag de gebeurtenis overeenkomt. |

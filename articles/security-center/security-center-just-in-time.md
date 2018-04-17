@@ -5,8 +5,8 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Virtuele machine toegang met behulp van in de tijd beheren
 
 Alleen bij tijd virtuele machine (VM) kan toegang worden gebruikt vergrendelen binnenkomend verkeer naar uw Azure VM's, blootstelling aan aanvallen te verminderen terwijl er eenvoudig toegang krijgen tot het verbinding maken met virtuele machines wanneer deze nodig is.
 
 > [!NOTE]
-> De NET tijdig functie is beschikbaar op de prijscategorie Standard van Security Center.  Zie [prijzen](security-center-pricing.md) voor meer informatie over Security Center de prijscategorie.
+> De NET tijdig functie is beschikbaar op de prijscategorie Standard van Security Center.  Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
 >
 >
 
@@ -41,7 +41,7 @@ Een manier om te beperken van blootstelling aan een beveiligingsaanval is om te 
 
 Wanneer JIT is ingeschakeld, wordt binnenkomend verkeer naar de Azure-VM's vergrendeld via Security Center door een NSG-regel te maken. Selecteert u de poorten op de virtuele machine waarmee binnenkomend verkeer wordt worden vergrendeld. Deze poorten worden beheerd door de zojuist in tijdoplossing.
 
-Wanneer een gebruiker toegang tot een virtuele machine aanvraagt, Security Center controleert of de gebruiker [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md) machtigingen die schrijftoegang voor de virtuele machine bieden. Als ze schrijftoegang hebben, de aanvraag is goedgekeurd en Security Center automatisch de Netwerkbeveiligingsgroepen (nsg's configureert) zodat binnenkomend verkeer op de poorten voor de hoeveelheid tijd die u hebt opgegeven. Nadat de respijtperiode is verlopen, wordt het nsg's door Security Center naar de vorige staat hersteld.
+Wanneer een gebruiker toegang tot een virtuele machine aanvraagt, Security Center controleert of de gebruiker [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md) machtigingen die schrijftoegang voor de virtuele machine bieden. Als ze schrijftoegang hebben, de aanvraag is goedgekeurd en Security Center automatisch de Netwerkbeveiligingsgroepen (nsg's configureert) zodat binnenkomend verkeer op de poorten voor de hoeveelheid tijd die u hebt opgegeven. Nadat de respijtperiode is verlopen, wordt het nsg's door Security Center naar de vorige staat hersteld.
 
 > [!NOTE]
 > Security Center alleen bij het VM-time-toegang ondersteunt momenteel alleen virtuele machines die zijn geïmplementeerd via Azure Resource Manager. Voor meer informatie over het klassieke en het Resource Manager-implementatiemodel Zie [Azure Resource Manager versus klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).

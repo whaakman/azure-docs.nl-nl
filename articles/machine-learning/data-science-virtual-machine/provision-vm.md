@@ -2,22 +2,22 @@
 title: Inrichten van Windows gegevens wetenschappelijke virtuele Machine in Azure | Microsoft Docs
 description: Configureren en een virtuele Machine van de gegevens wetenschappelijke in Azure maken voor analytics en machine learning.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
-ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: 34bdbf6e98d5232bf924f3f32a2acb3460a7737f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van Windows gegevens wetenschappelijke virtuele Machine in Azure
 De Microsoft Data wetenschappelijke virtuele Machine is een Windows Azure virtuele machine (VM) vooraf is geïnstalleerd en geconfigureerd met verschillende populaire hulpprogramma's die vaak worden gebruikt voor gegevensanalyse en machine learning. De hulpprogramma's zijn:
@@ -126,7 +126,7 @@ Visual Studio Community edition is geïnstalleerd op de virtuele machine. Het is
 > 
 > 
 
-### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer edition
+### <a name="sql-server-2017-developer-edition"></a>2017 ontwikkelaarsversie van SQL Server
 Een developer-versie van SQL Server 2017 met ML-Services worden uitgevoerd in de database analytics is beschikbaar op de virtuele machine in R- of Python. ML-Services bieden een platform voor het ontwikkelen en implementeren van intelligent toepassingen. U kunt uitgebreide en krachtige deze talen en de veel pakketten van de community modellen maken en het genereren van voorspellingen voor uw SQL Server-gegevens. Omdat ML-Services (In database) het R- en Python taal in de SQL-Server integreert, kunt u analytics dicht bij de gegevens behouden. Hierdoor is de kosten en beveiligingsrisico's met de verplaatsing van gegevens.
 
 > [!NOTE]

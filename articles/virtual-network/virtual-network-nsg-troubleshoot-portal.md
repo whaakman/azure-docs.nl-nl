@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: b053993bec74d358dd7a0a8889fa05885b563b16
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Netwerkbeveiligingsgroepen met de Azure Portal oplossen
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ De volgende stappen voor het oplossen van nsg's voor een virtuele machine:
 
 U kunt de volledige lijst van de regels voor een effectieve beveiligingsmethode weergeven op een Netwerkinterfacekaart, van de virtuele machine zelf. U kunt ook toevoegen, wijzigen en verwijderen van zowel NIC en het subnetmasker NSG-regels op de blade effectieve regels als u machtigingen hebt voor deze bewerkingen uitvoeren.
 
-1. Meld u aan bij de Azure portal op https://portal.azure.com met een Azure-account. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Meld u aan bij de Azure portal op https://portal.azure.com met een Azure-account. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Klik op **alle services**, klikt u vervolgens op **virtuele machines** in de lijst die wordt weergegeven.
 3. Selecteer een virtuele machine om op te lossen in de lijst die wordt weergegeven en een VM-blade met opties wordt weergegeven.
 4. Klik op **spoor & oplossen van problemen met** en selecteer vervolgens een veelvoorkomend probleem. In dit voorbeeld **ik kan geen verbinding maken met mijn Windows-VM** is geselecteerd. 

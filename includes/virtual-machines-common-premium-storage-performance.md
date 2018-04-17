@@ -64,7 +64,7 @@ Vervolgens wordt de maximale prestatie-eisen van uw toepassing tijdens de levens
 | Min. Latentie | | | |
 | Gemiddelde latentie | | | |
 | Met maximaal CPU | | | |
-| Gemiddelde CPU | | | |
+| Gemiddeld CPU-gebruik | | | |
 | Met maximaal Geheugen | | | |
 | Gemiddelde geheugen | | | |
 | Wachtrijdiepte | | | |
@@ -87,14 +87,14 @@ De prestatiemeteritems zijn beschikbaar voor de processor, geheugen, en elke log
 | --- | --- | --- | --- |
 | **IOPS of transacties per seconde** |Het aantal i/o-aanvragen die zijn uitgegeven aan de opslagschijf per seconde. |Schijf lezen per seconde <br> Schijf schrijven per seconde |tps <br> r/s <br> w/s |
 | **Schijf lees- en schrijfbewerkingen** |% van de lees- en schrijfbewerkingen uitgevoerd op de schijf. |Percentage schijftijd voor lezen <br> Percentage schijftijd voor schrijven |r/s <br> w/s |
-| **Doorvoer** |De hoeveelheid gegevens lezen uit of schrijven naar de schijf per seconde. |Gelezen Bytes per seconde <br> Geschreven Bytes per seconde |kB_read/s <br> kB_wrtn/s |
+| **Doorvoer** |De hoeveelheid gegevens lezen uit of schrijven naar de schijf per seconde. |Bytes gelezen op schijf/sec <br> Bytes geschreven naar schijf/sec |kB_read/s <br> kB_wrtn/s |
 | **Latentie** |Totale tijd om een schijf i/o-aanvraag te voltooien. |Gemiddelde leestijd voor schijf <br> Gemiddelde fysieke schijf |await <br> svctm |
 | **I/o-grootte** |De grootte van i/o-problemen naar de opslagschijven aanvragen. |Gemiddeld aantal gelezen Bytes <br> Gemiddelde aantal geschreven Bytes |avgrq sz |
 | **Wachtrijdiepte** |Het aantal openstaande i/o-aanvragen in afwachting van formulier lezen of schrijven naar de opslagschijf. |Huidige wachtrijlengte voor schijf |avgqu sz |
 | **Max. Geheugen** |Vereiste toepassing probleemloos hoeveelheid geheugen |Percentage toegewezen Bytes in gebruik |Vmstat gebruiken |
 | **Max. CPU** |De hoeveelheid CPU probleemloos toepassing vereist |Percentage processortijd |% util |
 
-Meer informatie over [iostat](http://linuxcommand.org/man_pages/iostat1.html) en [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Meer informatie over [iostat](https://linux.die.net/man/1/iostat) en [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 ## <a name="optimizing-application-performance"></a>Optimaliseert de prestaties van toepassingen
 De belangrijkste factoren die van invloed op prestaties van een toepassing die wordt uitgevoerd op de Premium-opslag zijn aard van i/o-aanvragen, VM-grootte, de grootte van de schijf, het aantal schijven, schijfcache, Multithreading en wachtrijdiepte. U kunt sommige van deze factoren beheren met de knoppen geleverd door het systeem. De meeste toepassingen mogelijk niet bieden u een optie voor het wijzigen van de i/o-grootte en de wachtrijdiepte rechtstreeks. Bijvoorbeeld, als u SQL Server gebruikt, kiezen u niet de i/o-grootte en wachtrij diepte. SQL Server kiest de optimale IO wachtrij diepte waarden voor grootte en om de meeste prestaties te behalen. Het is belangrijk om te begrijpen van de gevolgen van beide typen factoren voor de toepassingsprestaties van uw zodat u de juiste resources om te voldoen aan de prestatiebehoeften kunt inrichten.
@@ -140,10 +140,10 @@ Hier volgt een voorbeeld van hoe u de IOPS en doorvoer/bandbreedte voor uw toepa
 
 | Vereisten voor toepassingsimplementatie | I/o-grootte | IOPS | Doorvoer/bandbreedte |
 | --- | --- | --- | --- |
-| Max. IOP 's |8 kB |5,000 |40 MB per seconde |
-| Maximale doorvoer |1024 KB |200 |200 MB per seconde |
+| Max. IOP's |8 kB |5.000 |40 MB per seconde |
+| Maximale doorvoer |1024 kB |200 |200 MB per seconde |
 | Maximale Throughput + hoge IOPS |64 kB |3,200 |200 MB per seconde |
-| Maximale IOPS + hoge doorvoersnelheid |32 KB |5,000 |160 MB per seconde |
+| Maximale IOPS + hoge doorvoersnelheid |32 KB |5.000 |160 MB per seconde |
 
 Als u IOPS en bandbreedte die hoger is dan de maximumwaarde van een schijf één premium-opslag, gebruikt u meerdere premium-schijven striped samen. Bijvoorbeeld, stripe twee P30 schijven als u een gecombineerde IOPS van 10.000 IOPS of een gecombineerde doorvoer van 400 MB per seconde. Zoals wordt beschreven in de volgende sectie, moet u een VM-grootte die ondersteuning biedt voor de gecombineerde IOPS en Doorvoerlimieten schijf.
 
@@ -242,7 +242,7 @@ Hieronder vindt u de aangeraden schijfruimte cache-instellingen voor gegevenssch
 
 | **Instelling van de schijfcache** | **Aanbeveling op wanneer deze instelling te gebruiken** |
 | --- | --- |
-| Geen |Host-cache configureren als geen voor de alleen-schrijven en schrijven zware schijven. |
+| None |Host-cache configureren als geen voor de alleen-schrijven en schrijven zware schijven. |
 | Alleen-lezen |Host-cache configureren als alleen-lezen voor alleen-lezen en alleen-lezen-schijven. |
 | ReadWrite |Host-cache configureren als ReadWrite alleen als uw toepassing op correcte wijze schrijven van gegevens in de cache met permanente schijven wanneer deze nodig is. |
 

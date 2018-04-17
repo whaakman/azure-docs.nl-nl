@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: a118bde2290e68c9a741e40cda210d47db918047
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8160ede71930bf4c15969044deb3fced855f03e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-overview"></a>Overzicht van Azure-opslag-beveiliging
 Azure Storage is de oplossing voor opslag in de cloud voor moderne toepassingen die afhankelijk zijn van duurzaamheid, beschikbaarheid en schaalbaarheid om te voldoen aan de behoeften van klanten. Azure Storage biedt een uitgebreide reeks beveiligingsmogelijkheden:
@@ -44,11 +44,11 @@ Hier volgen de belangrijkste functies in dit artikel aan bod:
 * Azure Key Vault
 
 ## <a name="role-based-access-control-rbac"></a>RBAC (op rollen gebaseerd toegangsbeheer)
-U kunt uw storage-account met op rollen gebaseerde toegangsbeheer (RBAC) beveiligen. De toegang beperken op basis van de [moet weten](https://en.wikipedia.org/wiki/Need_to_know) en [minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) beveiligingsprincipes is van cruciaal belang voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens. Deze toegangsrechten worden verleend door de juiste RBAC-rol toewijzen aan groepen en toepassingen op een bepaalde scope. U kunt [ingebouwde RBAC-rollen](../active-directory/role-based-access-built-in-roles.md), zoals opslag Account Inzender rechten toewijzen aan gebruikers.
+U kunt uw storage-account met op rollen gebaseerde toegangsbeheer (RBAC) beveiligen. De toegang beperken op basis van de [moet weten](https://en.wikipedia.org/wiki/Need_to_know) en [minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) beveiligingsprincipes is van cruciaal belang voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens. Deze toegangsrechten worden verleend door de juiste RBAC-rol toewijzen aan groepen en toepassingen op een bepaalde scope. U kunt [ingebouwde RBAC-rollen](../role-based-access-control/built-in-roles.md), zoals opslag Account Inzender rechten toewijzen aan gebruikers.
 
 Meer informatie:
 
-* [Toegangsbeheer op basis van rollen in Azure Active Directory](../active-directory/role-based-access-control-configure.md)
+* [Toegangsbeheer op basis van rollen in Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="delegated-access-to-storage-objects"></a>Gedelegeerde toegang tot opslagobjecten
 Een shared access signature (SAS) biedt gedelegeerde toegang tot bronnen in uw opslagaccount. De SAS betekent dat u een client beperkte machtigingen voor objecten in uw storage-account gedurende een bepaalde tijd en met een opgegeven set machtigingen kunt verlenen. U kunt deze beperkte rechten verlenen zonder te delen van de toegangssleutels van uw account. De SAS is een URI die de gegevens die zijn vereist voor geverifieerde toegang tot een opslagresource, in de queryparameters omvat. Voor toegang tot de storage-resources met de SA's, moet de client alleen voor de SAS naar de juiste constructor of methode.

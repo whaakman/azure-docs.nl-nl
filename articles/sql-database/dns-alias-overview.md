@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;ayolubek
 ms.author: dmalik
-ms.openlocfilehash: c2a2bce3b385bd5700bf327f283289cf4d94b057
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1793f44026db55d17fabde5fb92bc46795109418
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias voor Azure SQL Database
 
@@ -63,7 +63,7 @@ De volgende eigenschappen van toepassing op elke DNS-alias voor uw SQL Database-
 - *Niet is gebonden aan een willekeurige regio:* DNS-aliassen zijn niet gekoppeld aan een regio. DNS-aliassen kunnen worden bijgewerkt om te verwijzen naar een Azure SQL Database-server die zich in een geografische regio bevindt.
     - Bij het bijwerken van een alias voor het verwijzen naar een andere server beide servers moeten echter bestaan in dezelfde Azure *abonnement*.
 
-- *Machtigingen:* voor het beheren van een DNS-alias, moet de gebruiker hebben *Server Inzender* machtigingen of hoger. Zie voor meer informatie [aan de slag met toegangsbeheer op basis van rollen in Azure portal](../active-directory/role-based-access-control-what-is.md).
+- *Machtigingen:* voor het beheren van een DNS-alias, moet de gebruiker hebben *Server Inzender* machtigingen of hoger. Zie voor meer informatie [aan de slag met toegangsbeheer op basis van rollen in Azure portal](../role-based-access-control/overview.md).
 
 
 

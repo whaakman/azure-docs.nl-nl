@@ -1,5 +1,5 @@
 ---
-title: "SQL (PaaS) Database vs. SQL Server in de cloud op VM’s (IaaS) | Microsoft Docs"
+title: SQL (PaaS) Database vs. SQL Server in de cloud op VM’s (IaaS) | Microsoft Docs
 description: 'Informatie over welke SQL Server-cloudoptie geschikt is voor uw toepassing: Azure SQL (PaaS) Database of SQL Server in de cloud op Azure Virtual Machines.'
 services: sql-database, virtual-machines
 keywords: SQL Server-cloud, SQL Server in de cloud, PaaS-database, SQL-cloudserver, DBaaS
@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 04/09/2018
 ms.author: carlrab
-ms.openlocfilehash: a7fde828c7a88f440cf69e3a4b26bb6c75cdaafb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 38b7749ae83f1c4b037ec1996c84a9ffca1de50e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Kies een SQL Server-cloudoptie: Azure SQL (PaaS) Database of SQL Server op Azure Virtual Machines (IaaS)
 Azure heeft twee opties om SQL Server-workloads te hosten in Microsoft Azure:
@@ -74,7 +74,10 @@ Of u nu een startup bent die geld nodig heeft of een team in een goedlopend bedr
 #### <a name="billing-and-licensing-basics"></a>Grondbeginselen facturering en licenties
 **SQL Database** wordt aan klanten verkocht als een service en niet met een licentie.  [SQL Server op Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) wordt verkocht met een licentie waarvoor u per minuut betaalt. Als u een bestaande licentie hebt, kunt u deze ook gebruiken.  
 
-Op dit moment is **SQL Database** beschikbaar in verschillende servicelagen, die allemaal per uur worden gefactureerd tegen een vast tarief op basis van de servicelaag en het prestatieniveau dat u kiest. Bovendien wordt uitgaand internetverkeer in rekening gebracht bij u tegen het reguliere [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/). De servicecategorieën Basic, Standard en Premium zijn ontworpen om voorspelbare prestaties te leveren met meerdere prestatieniveaus om te voldoen aan de piekvereisten van uw toepassing. U kunt wisselen tussen servicecategorieën en prestatieniveaus om te voldoen aan de uiteenlopende doorvoerbehoeften van uw toepassing. Als er veel transacties plaatsvinden in uw database en er veel gelijktijdige gebruikers ondersteund moeten worden, raden wij de Premium servicecategorie aan. Voor de meest recente informatie over de huidige ondersteunde servicecategorieën, zie [Azure SQL Database servicecategorieën](sql-database-service-tiers.md). U kunt ook [elastische pools](sql-database-elastic-pool.md) maken om resources voor prestaties te delen met database-exemplaren.
+Op dit moment is **SQL Database** beschikbaar in verschillende servicelagen, die allemaal per uur worden gefactureerd tegen een vast tarief op basis van de servicelaag en het prestatieniveau dat u kiest. Bovendien wordt uitgaand internetverkeer in rekening gebracht bij u tegen het reguliere [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/). De servicecategorieën Basic, Standard, Premium, algemeen gebruik en bedrijfskritische zijn ontworpen om voorspelbare prestaties met meerdere prestatieniveaus overeenkomen met de piekvereisten van uw toepassing. U kunt wisselen tussen servicecategorieën en prestatieniveaus om te voldoen aan de uiteenlopende doorvoerbehoeften van uw toepassing. Voor de meest recente informatie over de huidige ondersteunde servicecategorieën, zie [Azure SQL Database servicecategorieën](sql-database-service-tiers.md). U kunt ook [elastische pools](sql-database-elastic-pool.md) maken om resources voor prestaties te delen met database-exemplaren.
+
+> [!IMPORTANT]
+> Als uw database heeft veel transacties plaatsvinden en moet worden veel gelijktijdige gebruikers ondersteund, raden wij de Premium- of bedrijfskritische Servicelagen. Om te beperken latentie tussen uw toepassing en de SQL-database, de toepassing niet vinden in dezelfde regio bevinden als uw database en test vervolgens de prestaties - uw prijscategorie en prestatieniveau serviceniveau verhogen, indien nodig.
 
 Met **SQL Database** wordt de databasesoftware automatisch geconfigureerd, hersteld en bijgewerkt door Microsoft, waardoor uw beheerkosten worden verlaagd. Bovendien kunt u met de [ingebouwde back-up](sql-database-automated-backups.md)mogelijkheden aanzienlijk op kosten besparen, vooral wanneer u een groot aantal databases hebt.
 
@@ -112,7 +115,7 @@ Met **SQL Server op Azure Virtual Machines** hebt u volledige controle over het 
 ### <a name="service-level-agreement-sla"></a>Service Level Agreement (SLA)
 Voor veel IT-afdelingen is het voldoen aan uptimeverplichtingen van een Service Level Agreement (SLA) een topprioriteit. In dit gedeelte kijken we welke SLA van toepassing is op de databasehostingopties.
 
-Voor **SQL Database** Basic, Standard en Premium servicelagen biedt Microsoft een beschikbaarheids- SLA van 99,99%. Zie [Service Level Agreement](https://azure.microsoft.com/support/legal/sla/sql-database/) voor de meest recente informatie. Zie [Servicecategorieën](sql-database-service-tiers.md) voor de meest recente informatie over SQL Database servicelagen en de ondersteunde plannen voor bedrijfscontinuïteit.
+Voor **SQL-Database** Basic, Standard, Premium, algemeen gebruik en bedrijfskritische Servicelagen Microsoft een beschikbaarheids-SLA van 99,99 biedt %. Zie [Service Level Agreement](https://azure.microsoft.com/support/legal/sla/sql-database/) voor de meest recente informatie. Zie [Servicecategorieën](sql-database-service-tiers.md) voor de meest recente informatie over SQL Database servicelagen en de ondersteunde plannen voor bedrijfscontinuïteit.
 
 Voor **SQL Server die wordt uitgevoerd op Azure Virtual Machines**, biedt Microsoft een beschikbaarheids-SLA van 99,95% die alleen van toepassing is op de virtuele machine. Deze SLA heeft geen betrekking op de processen (zoals SQL Server) die worden uitgevoerd op de VM en vereist dat u ten minste twee exemplaren van de virtuele machine in een beschikbaarheidsset host. Voor de meest recente informatie, zie de [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Voor hoge beschikbaarheid (HA) van de database binnen virtuele machines, moet u een van de ondersteunde opties voor hoge beschikbaarheid in SQL Server configureren, zoals [AlwaysOn-beschikbaarheidsgroepen](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Het gebruik van een ondersteunde optie voor hoge beschikbaarheid biedt geen extra SLA, maar u kunt wel een databasebeschikbaarheid van >99,99% behalen.
 

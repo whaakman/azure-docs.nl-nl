@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en -beveiliging met Azure-Monitor
 Veel teams moeten strikt reguleren toegang tot gegevens en instellingen controleren. Als er teamleden die werken alleen op de bewaking (ondersteuningsmedewerkers, devops engineers) of als u een provider van beheerde services gebruikt, u kunt ze om toegang te verlenen tot alleen bewakingsgegevens terwijl de beperkingen voor de mogelijkheid om te maken, wijzigen of verwijderen van resources. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol toepassen op een gebruiker in Azure of uw eigen aangepaste rol voor een gebruiker aan wie beperkte machtigingen voor controle moet bouwen. Vervolgens wordt de beveiligingsoverwegingen voor uw Azure-Monitor-gerelateerde resources en hoe u toegang tot de gegevens die ze bevatten alleen besproken.
@@ -71,11 +71,11 @@ Personen die de rol van Inzender bewaking toegewezen alle bewakingsgegevens kunt
 > 
 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Bewaking van aangepaste RBAC-rollen en machtigingen
-Als u de bovenstaande ingebouwde rollen niet voldoen aan de exacte behoeften van uw team, kunt u [maakt u een aangepaste RBAC-rol](../active-directory/role-based-access-control-custom-roles.md) met meer gedetailleerde machtigingen. Hieronder vindt u de algemene Azure Monitor RBAC-bewerkingen met de bijbehorende beschrijvingen.
+Als u de bovenstaande ingebouwde rollen niet voldoen aan de exacte behoeften van uw team, kunt u [maakt u een aangepaste RBAC-rol](../role-based-access-control/custom-roles.md) met meer gedetailleerde machtigingen. Hieronder vindt u de algemene Azure Monitor RBAC-bewerkingen met de bijbehorende beschrijvingen.
 
 | Bewerking | Beschrijving |
 | --- | --- |
-| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Lezen/schrijven/verwijderingsactie groepen. |
+| Microsoft.Insights/ActionGroups/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderingsactie groepen. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, schrijven, verwijderen] |Activiteit voor lezen, schrijven, verwijderen logboek waarschuwingen. |
 | Microsoft.Insights/AlertRules/[Read, schrijven, verwijderen] |Waarschuwingsregels lezen, schrijven, verwijderen (van waarschuwingen klassieke). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Lijst met incidenten (geschiedenis van de waarschuwingsregel wordt geactiveerd) voor regels voor waarschuwingen. Dit geldt alleen voor de portal. |
@@ -125,7 +125,7 @@ Alle drie van de volgende gegevenstypen worden opgeslagen in een opslagaccount o
 
 * Een enkele, speciaal opslagaccount gebruiken voor het bewaken van gegevens. Als u bewakingsgegevens opdelen in meerdere opslagaccounts, nooit delen informatie over het gebruik van een opslagaccount tussen bewaking en niet-bewaking gegevens, zoals dit mogelijk per ongeluk geven degenen die hoeft alleen toegang tot bewakingsgegevens (bijvoorbeeld een SIEM van derden) toegang tot de niet-bewaking gegevens.
 * Een enkele, toegewezen Service Bus- of Event Hub-naamruimte via alle diagnostische instellingen gebruiken om dezelfde reden als hierboven.
-* Beperken van toegang tot de bewaking-gerelateerde storage-accounts of event hubs doordat ze op een afzonderlijke resourcegroep en [gebruik scope](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) op uw bewaking rollen te beperken tot alleen die resourcegroep.
+* Beperken van toegang tot de bewaking-gerelateerde storage-accounts of event hubs doordat ze op een afzonderlijke resourcegroep en [gebruik scope](../role-based-access-control/overview.md#basics-of-access-management-in-azure) op uw bewaking rollen te beperken tot alleen die resourcegroep.
 * Nooit de machtiging ListKeys voor storage-accounts of event hubs op abonnementsbereik wanneer een gebruiker alleen toegang tot bewakingsgegevens nodig. In plaats daarvan deze machtigingen geven voor de gebruiker op een resource of resourcegroep (als u een speciale bewaking resourcegroep hebt) bereik.
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Beperken van toegang tot de bewaking-gerelateerde storage-accounts
@@ -178,6 +178,6 @@ Een vergelijkbaar patroon met event hubs kan worden uitgevoerd, maar u moet eers
    ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over RBAC en machtigingen in Resource Manager](../active-directory/role-based-access-control-what-is.md)
+* [Meer informatie over RBAC en machtigingen in Resource Manager](../role-based-access-control/overview.md)
 * [Lees het overzicht van de bewaking in Azure](monitoring-overview.md)
 

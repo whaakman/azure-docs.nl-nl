@@ -8,17 +8,18 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: f11aff2231a5ae6a58d5c9a3f53379a6849d226a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 09c48b92e39aa347c97d42358b50c338851fa59b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Tien dingen die u kunt doen in de virtuele wetenschapsgegevensmachine
 
@@ -247,7 +248,7 @@ Om te downloaden code van een GitHub-opslagplaats, gebruikt u de ```git clone```
 
 In Visual Studio kunt u de dezelfde kopieerbewerking doen. De volgende schermafbeelding ziet u hoe voor toegang tot Git en GitHub-hulpprogramma's in Visual Studio.
 
-![Git in Visual Studio](./media/vm-do-ten-things/VSGit.PNG)
+![GIT in Visual Studio](./media/vm-do-ten-things/VSGit.PNG)
 
 U vindt meer informatie over het werken met uw GitHub-opslagplaats van verschillende bronnen beschikbaar op github.com met Git. De [referentieoverzicht](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) is een nuttig verwijzing.
 
@@ -296,7 +297,7 @@ Nadat u uw AzCopy-opdracht kopiëren naar een Azure-blob uitvoert, ziet u dat he
 U kunt ook gegevens uit het lokale bestand uploaden in uw virtuele machine met behulp van Azure Storage Explorer:
 
 * Als u wilt gegevens uploaden naar een container, selecteer de doelcontainer en klik op de **uploaden** knop.![ In Opslagverkenner uploaden](./media/vm-do-ten-things/storage-accounts.png)
-* Klik op de **... ** rechts van de **bestanden** Selecteer een of meerdere bestanden voor het uploaden van het bestandssysteem en klikt u op **uploaden** om te beginnen met de bestanden te uploaden.![ Uploaden van bestanden naar de blob](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Klik op de **...**  rechts van de **bestanden** Selecteer een of meerdere bestanden voor het uploaden van het bestandssysteem en klikt u op **uploaden** om te beginnen met de bestanden te uploaden.![ Uploaden van bestanden naar de blob](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Gegevens lezen uit Azure Blob: leesmodule Machine Learning**
 
@@ -441,7 +442,7 @@ Het om bestandsinformatie te bekijken:
 
 ![Samenvatting](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
-### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop Clusters
+### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop-Clusters
 Azure HDInsight is een beheerde Apache Hadoop, Spark, HBase en Storm-service in de cloud. U kunt eenvoudig werken met Azure HDInsight-clusters van de gegevens wetenschappelijke virtuele machine.
 
 **Vereiste**
@@ -861,7 +862,7 @@ Op dezelfde manier als uw behoefte VM verwerkingscapaciteit vermindert (bijvoorb
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10. Extra hulpprogramma's installeren op de virtuele machine
 Er zijn verschillende hulpprogramma's die vooraf zijn ingebouwd in de DSVM die veel van de algemene gegevens analytics moet kunt oplossen. Dit bespaart u tijd door te vermijden dat Installeer en configureer uw omgevingen één voor één en u betaalt alleen voor resources dat u geld besparen.
 
-U kunt andere Azure-gegevens en analyse-services in dit artikel voor het verbeteren van uw omgeving analytics profiel gebruiken. In sommige gevallen moet de behoeften van uw mogelijk extra hulpprogramma's, waaronder sommige eigen hulpprogramma's van derden. U hebt volledige beheerderstoegang op de virtuele machine voor het installeren van nieuwe hulpprogramma's die u nodig hebt. U kunt ook extra pakketten installeren in Python en R die niet vooraf zijn geïnstalleerd. Voor Python gebruikt u een ```conda``` of ```pip```. Voor R kunt u de ```install.packages()``` in het R-console of gebruik van de IDE en kies '**pakketten** -> **installatiepakketten... **".
+U kunt andere Azure-gegevens en analyse-services in dit artikel voor het verbeteren van uw omgeving analytics profiel gebruiken. In sommige gevallen moet de behoeften van uw mogelijk extra hulpprogramma's, waaronder sommige eigen hulpprogramma's van derden. U hebt volledige beheerderstoegang op de virtuele machine voor het installeren van nieuwe hulpprogramma's die u nodig hebt. U kunt ook extra pakketten installeren in Python en R die niet vooraf zijn geïnstalleerd. Voor Python gebruikt u een ```conda``` of ```pip```. Voor R kunt u de ```install.packages()``` in het R-console of gebruik van de IDE en kies '**pakketten** -> **installatiepakketten...** ".
 
 ## <a name="summary"></a>Samenvatting
 Dit zijn slechts enkele dingen die u op de Microsoft wetenschappelijke virtuele Machine gegevens kunt doen. Er zijn veel meer kunt u stappen ondernemen om deze een effectieve analytics-omgeving.

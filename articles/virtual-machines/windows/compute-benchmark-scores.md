@@ -1,6 +1,6 @@
 ---
-title: COMPUTE benchmark scores voor VM's van Windows | Microsoft Docs
-description: Vergelijk SPECint compute benchmark scores voor Azure VM's met Windows Server
+title: Benchmark scores voor VM's van Windows Azure COMPUTE | Microsoft Docs
+description: Vergelijk SPECint compute benchmark scores voor Azure VM's met Windows Server.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
-ms.author: cynthn
-ms.openlocfilehash: 0b3e717ef9bf8af98650e78ce4a89eb9bf3eb83c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.author: cynthn;davberg
+ms.openlocfilehash: 2831f177bbcd02be02124812de144bd7a6867aa4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>COMPUTE benchmark scores voor VM's van Windows
 De volgende SPECInt benchmark scores weergeven computerprestaties voor Azure krachtige VM selectie met Windows Server. COMPUTE benchmark scores zijn ook beschikbaar voor [virtuele Linux-machines](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+
 > [!NOTE]
 > De Linux-nummers onlangs is bijgewerkt en een uitgebreidere set van virtuele machines bevatten.
 

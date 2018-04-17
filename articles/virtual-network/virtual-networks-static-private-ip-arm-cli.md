@@ -1,11 +1,11 @@
 ---
-title: "Configureren van privé IP-adressen voor virtuele machines - Azure CLI | Microsoft Docs"
-description: "Informatie over het configureren van privé IP-adressen voor virtuele machines met de Azure-opdrachtregelinterface (CLI)."
+title: Configureren van privé IP-adressen voor virtuele machines - Azure CLI | Microsoft Docs
+description: Informatie over het configureren van privé IP-adressen voor virtuele machines met de Azure-opdrachtregelinterface (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9fe7020719079e11150c62068650aa6ca17b056
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configureer persoonlijke IP-adressen voor een virtuele machine met de Azure CLI
 
@@ -158,6 +158,7 @@ Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van e
 
    * `--nics`: De naam van de NIC waaraan de virtuele machine is gekoppeld.
    
+Het raadzaam dat u geen statisch het privé IP-adres toegewezen aan de virtuele machine van Azure binnen het besturingssysteem van een VM, toewijst tenzij nodig, zoals wanneer [meerdere IP-adressen toewijzen aan een Windows-VM](virtual-network-multiple-ip-addresses-cli.md). Als u de privé IP-adres in het besturingssysteem handmatig instelt, moet u zorgen dat het hetzelfde adres als de privé IP-adres is toegewezen aan de Azure [netwerkinterface](virtual-network-network-interface-addresses.md#change-ip-address-settings), of u verbinding met de virtuele machine kunt verliezen. Meer informatie over [privé IP-adres](virtual-network-network-interface-addresses.md#private) instellingen.
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Statische persoonlijke IP-adresgegevens voor een virtuele machine ophalen
 
@@ -267,9 +268,7 @@ Als u wilt wijzigen de NIC voor de virtuele machine in de vorige opdrachten gebr
 
     > [!NOTE]
     > Als de virtuele machine groot genoeg zijn is om meer dan één NIC hebt, voert u de **azure-netwerk nic verwijderen** opdracht voor het verwijderen van de oude NIC.
-   
-## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [gereserveerde openbare IP-adres](virtual-networks-reserved-public-ip.md) adressen.
-* Meer informatie over [instantieniveau openbare IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adressen.
-* Raadpleeg de [gereserveerd IP-REST-API's](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
+## <a name="next-steps"></a>Volgende stappen
+
+Meer informatie over het beheren van [IP-adresinstellingen](virtual-network-network-interface-addresses.md).

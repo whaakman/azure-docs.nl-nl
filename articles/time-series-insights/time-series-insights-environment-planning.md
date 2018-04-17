@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 5fb158ba162dd199f419f9568de08a7a18c833dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Uw omgeving Azure Time Series Insights plannen
 
@@ -32,16 +32,18 @@ Houd rekening met de volgende kenmerken aan best plan de omgeving voor succes op
 - Opslagcapaciteit
 - Bewaarperiode van gegevens
 - Inkomend capaciteit 
+- Vormgeven van uw gebeurtenissen
+- Hebt u referentiegegevens gezorgd
 
 ## <a name="understand-storage-capacity"></a>Opslagcapaciteit begrijpen
 Standaard behoudt Time Series Insights gegevens op basis van de hoeveelheid opslagruimte die u hebt ingericht (eenheden keer hoeveelheid opslag per eenheid) en uitgangsclaims.
 
-## <a name="understand-data-retention"></a>Bewaren van gegevens begrijpen
+## <a name="understand-data-retention"></a>Inzicht in gegevensretentie
 U kunt de Time Series Insights-omgeving configureren **gegevensretentietijd** instelling, het inschakelen van maximaal 400 dagen bewaren.  Time Series Insights heeft twee modi, een dat is geoptimaliseerd voor uw omgeving zodat de meest recente gegevens (op standaard), en een andere dat is geoptimaliseerd voor het garanderen van retentie limieten zijn bereikt, waarbij inkomend is onderbroken als de totale capaciteit van de omgeving is bereikt.  U kunt bewaren en schakelen tussen de twee modi in de configuratiepagina van de omgeving in de Azure portal kunt aanpassen.
 
 U kunt maximaal 400 dagen bewaren van gegevens in uw omgeving Time Series Insights configureren.
 
-## <a name="configure-data-retention"></a>Bewaren van gegevens configureren
+## <a name="configure-data-retention"></a>Gegevensretentie configureren
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer uw Time Series Insights-omgeving.
 
@@ -74,15 +76,26 @@ Bijvoorbeeld, als er een enkel S1 SKU en inkomende gegevens met een frequentie v
 
 U weet mogelijk niet van tevoren hoeveel gegevens die u verwacht te pushen. In dit geval kunt u gegevens telemetrie voor vinden [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) en [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in uw Azure-portal. Deze telemetrie kunt u bepalen het inrichten van uw omgeving. Gebruik de **metrische gegevens** pagina in de Azure-portal voor de respectieve gebeurtenisbron om de telemetrie weer te geven. Als u de bron metrische gegevens van uw gebeurtenis weet, kunt u efficiënter plannen en inrichten van uw omgeving Time Series Insights.
 
-## <a name="calculate-ingress-requirements"></a>Vereisten voor inkomende gegevens berekenen
+### <a name="calculate-ingress-requirements"></a>Vereisten voor inkomende gegevens berekenen
 
 - Controleer de capaciteit van de inkomende gegevens hoger is dan de gemiddelde per minuut en dat uw omgeving groot genoeg is is voor het afhandelen van de verwachte inkomend equivalent zijn aan 2 x de capaciteit voor minder dan 1 uur.
 
 - Als inkomend pieken optreden die laatste langer dan 1 uur, de frequentie piek gebruiken als de gemiddelde en inrichten van een omgeving met de capaciteit voor het afhandelen van de piek-snelheid.
  
-## <a name="mitigate-throttling-and-latency"></a>Bandbreedtebeperking en latentie beperken
+### <a name="mitigate-throttling-and-latency"></a>Bandbreedtebeperking en latentie beperken
 
 Zie voor meer informatie over het voorkomen van bandbreedtebeperking en latentie [verhelpen latentie en beperking](time-series-insights-environment-mitigate-latency.md). 
+
+## <a name="shaping-your-events"></a>Vormgeven van uw gebeurtenissen
+Het is belangrijk om te controleren of de manier waarop u gebeurtenissen verzenden naar TSI biedt ondersteuning voor de grootte van de omgeving die u inricht (als u daarentegen, kunt u toewijzen de grootte van de omgeving voor het aantal gebeurtenissen TSI leest en de grootte van elke gebeurtenis).  Het is ook belangrijk om na te denken over de kenmerken die u wilt misschien segmenteren en filteren op bij het opvragen van uw gegevens.  Met dat gegeven in gedachte, wij aanraden voor het controleren van de JSON vormgeven van sectie van onze *gebeurtenissen verzenden* documentatie [documentatie] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events).  Het is aan de onderkant van de pagina.  
+
+## <a name="ensuring-you-have-reference-data-in-place"></a>Hebt u referentiegegevens gezorgd
+Een gegevensset verwijzing is een verzameling van items die verbeteren van de gebeurtenissen uit de gebeurtenisbron. Tijd reeks Insights inkomend engine koppelt elke gebeurtenis van de gebeurtenisbron-met de bijbehorende gegevensrij in uw gegevensset verwijzing. Deze uitgebreide gebeurtenis is vervolgens beschikbaar voor query’s. Deze koppeling is gebaseerd op de primaire sleutel kolommen gedefinieerd in uw gegevensset verwijzing.
+
+Houd er rekening mee referentiegegevens met terugwerkende kracht niet is toegevoegd. Dit betekent dat alleen de gegevens van de huidige en toekomstige inkomend komt overeen met en gekoppeld aan de verwijzing naar datum is ingesteld, zodra deze is geconfigureerd en geüpload.  Als u van plan bent te veel van historische gegevens verzenden naar TSI en niet uploaden of referentiegegevens eerst in TSI maken en vervolgens u wellicht opnieuw doen van uw werk (hint, niet leuke).  
+
+Voor meer informatie over het maken en beheren van uw referentiegegevens TSI uploaden, Ga naar onze *referentiegegevens* documentatie [documentatie] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Het toevoegen van een gebeurtenisbron Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md)

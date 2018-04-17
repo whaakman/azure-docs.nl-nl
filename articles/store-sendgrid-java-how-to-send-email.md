@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9f7d4841846e41eacb66125bcdeeb29466bb0b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Het verzenden van E-mail via SendGrid met Java
 Deze handleiding wordt uitgelegd hoe u algemene programmeertaken met de SendGrid-e-mailservice uitvoert op Azure. De voorbeelden zijn geschreven in Java. De scenario's worden behandeld: **construeren e**, **verzenden van e-mail**, **bijlagen toevoegen**, **met filters**, en **eigenschappen bijwerken**. Zie voor meer informatie over SendGrid en verzenden van e-mail, de [Vervolgstappen](#next-steps) sectie.
@@ -81,7 +81,7 @@ De bibliotheken javax.mail bijvoorbeeld verkrijgen van <http://www.oracle.com/te
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
 3. Maken van uw bericht en toewijzen **naar**, **van**, **onderwerp** en waarden van inhoud. Dit wordt weergegeven in de [How To: maken van een e-mailbericht](#how-to-create-an-email) sectie.
-4. Het bericht verzenden via een *javax.mail.Transport* object. Dit wordt weergegeven in de [How To: e-mailbericht verzenden] [hoe: e-mailbericht verzenden] sectie.
+4. Het bericht verzenden via een *javax.mail.Transport* object. Dit wordt weergegeven in de [How To: e-mailbericht verzenden] [#how-naar-send-een e-]-sectie.
 
 ## <a name="how-to-create-an-email"></a>Procedure: een e-mailbericht maken
 Hieronder ziet u hoe u waarden opgeven voor een e-mailbericht.

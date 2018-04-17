@@ -3,7 +3,7 @@ title: SQL Server Business Intelligence | Microsoft Docs
 description: Dit onderwerp maakt gebruik van resources die zijn gemaakt met het klassieke implementatiemodel en beschrijft de beschikbare functies voor Business Intelligence (BI) voor SQL Server op Azure Virtual Machines (VM's) wordt uitgevoerd.
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
-ms.author: asaxton
-ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: maghan
+ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Virtual Machines van Azure
 > [!IMPORTANT] 
@@ -62,7 +62,7 @@ De virtuele Machine in Microsoft Azure-galerie bevat diverse installatiekopieën
 
 Zie de volgende onderwerpen voor meer informatie over edities en functies die worden ondersteund door SQL Server:
 
-* [SQL Server Editions](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
+* [SQL Server-edities](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
 * [Functies die worden ondersteund door de verschillende edities van SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>BI functies worden geïnstalleerd op de installatiekopieën galerie met virtuele Machine van SQL Server
@@ -80,7 +80,7 @@ De volgende tabel geeft een overzicht van de geïnstalleerd op de algemene Micro
 | **Native modus van Reporting Services** |Ja |Geïnstalleerd, maar moet worden geconfigureerd, inclusief de URL van report manager. Zie de sectie [Reporting Services configureren](#configure-reporting-services). |
 | **Reporting Services-modus SharePoint wordt uitgevoerd** |Nee |De installatiekopie van de Microsoft Azure virtuele Machine-galerie bevat geen SharePoint- of SharePoint bestanden voor installatie. <sup>1</sup> |
 | **Analysis Services multidimensionale en Data mining (OLAP)** |Ja |Geïnstalleerd en geconfigureerd als het standaardexemplaar van de Analysis Services |
-| **Analysis Services Tabular** |Nee |Ondersteund in SQL Server 2012, is 2014 en 2016 afbeeldingen, maar het niet standaard geïnstalleerd. Een ander exemplaar van Analysis Services installeren. Zie de sectie andere SQL Server-Services en functies in dit onderwerp installeren. |
+| **Analyseservices in tabelvorm** |Nee |Ondersteund in SQL Server 2012, is 2014 en 2016 afbeeldingen, maar het niet standaard geïnstalleerd. Een ander exemplaar van Analysis Services installeren. Zie de sectie andere SQL Server-Services en functies in dit onderwerp installeren. |
 | **Analysis Services Power Pivot voor SharePoint** |Nee |De installatiekopie van de Microsoft Azure virtuele Machine-galerie bevat geen SharePoint- of SharePoint bestanden voor installatie. <sup>1</sup> |
 
 <sup>1</sup> Zie voor meer informatie over SharePoint en virtuele machines in Azure [Microsoft Azure architecturen voor SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) en [SharePoint-implementatie in Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
@@ -159,7 +159,7 @@ Er zijn twee algemene werkstromen om verbinding te maken voor een virtuele Machi
 
 **Start u Reporting Services Configuration Manager**
 
-In **Windows Server 2012/2016**:
+In **Windows Server 2012-2016**:
 
 1. Van de **Start** Typ **Reporting Services** voor een overzicht van Apps.
 2. Met de rechtermuisknop op **Reporting Services Configuration Manager** en klik op **als Administrator uitvoeren**.
@@ -225,7 +225,7 @@ Als u wilt verbinding maken met de web-portal of Rapportbeheer voor 2014 en 2012
 2. Open poort 80 in de firewall van de virtuele machine.
 3. Blader naar de web-portal of met behulp van Azure Virtual Machine manager rapporteren **DNS-naam** als de naam van de server in de URL. Bijvoorbeeld:
    
-    **Rapportserver**: http://uebi.cloudapp.net/reportserver **webportal**: http://uebi.cloudapp.net/reports
+    **Rapportserver**: http://uebi.cloudapp.net/reportserver **webportal**:   http://uebi.cloudapp.net/reports
    
     [Een Firewall configureren voor toegang tot de Server van rapporten](https://msdn.microsoft.com/library/bb934283.aspx)
 
@@ -257,7 +257,7 @@ Voer de wizard setup van SQL server voor het installeren van aanvullende SQL Ser
 2. Klik op **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** of **Microsoft SQL Server 2012** en klik vervolgens op **configuratiehulpprogramma's**.
 3. Klik op **Installatiecentrum van SQL Server**.
 
-Or run C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe or C:\SQLServer_11.0_full\setup.exe
+C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe of C:\SQLServer_11.0_full\setup.exe of starten
 
 > [!NOTE]
 > De eerste keer dat u de installatie van SQL Server uitvoeren meer setup-bestanden kunnen worden gedownload en vereist een herstart van de virtuele machine en het opnieuw opstarten van SQL Server setup.

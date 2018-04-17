@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 78449a527f5ee1410530ded18a11cb8c6a5dded5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Verkeer analytics Veelgestelde vragen
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/28/2018
 12.  Als ik het volgende bericht: '1) analyse van uw NSG logboeken voor de eerste keer stromen. Dit proces kan 20-30 minuten duren. Controleer na enige tijd opnieuw. 2) als de vorige stap niet werkt en uw werkruimte onder de gratis SKU is, wordt uw werkruimte-gebruik controleren om te valideren overschreden, anders verwijzen naar Veelgestelde vragen voor meer informatie', hoe los ik dit?
 
         Het kan foutbericht voor de volgende redenen:
-        - Verkeer analyses mogelijk zijn onlangs ingeschakeld en kan aggregeren van voldoende gegevens voor het afleiden van betekenisvolle inzichten voordat rapporten kunnen worden gegenereerd. In dit geval, probeer het opnieuw na 30 minuten
+        - Verkeer analyses mogelijk zijn onlangs ingeschakeld en kan niet nog zijn geaggregeerd voldoende gegevens voor het afleiden van betekenisvolle inzichten.
         - De OMS-werkruimte is onder de gratis SKU en deze de quotalimieten geschonden. In dit geval moet u wellicht een werkruimte in een SKU gebruiken met grotere capaciteit.
     
         Als de problemen zich blijven voordoen, verhoogt u problemen in de [voice-gebruikersforum](https://feedback.azure.com/forums/217313-networking?category_id=195844).

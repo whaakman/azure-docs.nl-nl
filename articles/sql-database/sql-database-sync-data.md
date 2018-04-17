@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met SQL synchroniseren van gegevens (Preview)
 
@@ -44,7 +44,7 @@ Een hub en spoke-topologie gegevenssynchronisatie gebruikt om gegevens te synchr
 
 ## <a name="when-to-use-data-sync"></a>Wanneer met het synchroniseren van gegevens
 
-Synchroniseren van gegevens is handig in gevallen waarbij gegevens moet worden bewaard up-to-date te houden in verschillende Azure SQL-Databases of SQL Server-databases. Hier volgen de belangrijkste gebruiksvoorbeelden voor synchroniseren van gegevens:
+Synchroniseren van gegevens is handig in gevallen waarin gegevens moet tussen verschillende Azure SQL-Databases of SQL Server-databases up-to-date worden gehouden. Hier volgen de belangrijkste gebruiksvoorbeelden voor synchroniseren van gegevens:
 
 -   **Hybride gegevenssynchronisatie:** met het synchroniseren van gegevens, kun je gegevens worden gesynchroniseerd tussen uw on-premises-databases en de Azure SQL-Databases hybride toepassingen inschakelen. Deze mogelijkheid kan beroep instellen voor klanten aan wie u van plan bent te verplaatsen naar de cloud en wilt enkele van de toepassing in Azure te plaatsen.
 
@@ -118,7 +118,7 @@ Gegevens synchroniseren gebruikt invoegen, bijwerken en verwijderen van triggers
 | Database-, tabel-, schema-en kolomnamen                       | 50 tekens per naam |                             |
 | Tabellen in een groep voor synchronisatie                                          | 500                    | Meerdere synchronisatiegroepen maken |
 | Kolommen in een tabel in een groep voor synchronisatie                              | 1000                   |                             |
-| Grootte van de rij gegevens in een tabel                                        | 24 Mb                  |                             |
+| Grootte van de rij gegevens in een tabel                                        | 24 mb                  |                             |
 | Minimale synchronisatie-interval                                           | 5 minuten              |                             |
 |||
 
@@ -138,6 +138,11 @@ Ja. U moet een SQL-Database-account voor het hosten van de Hub Database hebben.
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Kan ik synchroniseren van gegevens te synchroniseren tussen alleen lokale-databases in SQL Server gebruiken? 
 Niet rechtstreeks. U kunt synchroniseren tussen de SQL Server-databases voor lokale indirect echter door het maken van een Hub-database in Azure en vervolgens de lokale databases toe te voegen aan de groep voor synchronisatie.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Kan ik synchroniseren van gegevens te synchroniseren tussen de SQL-Databases die tot verschillende abonnementen behoren gebruiken?
+Ja. U kunt synchroniseren tussen de SQL-Databases die deel uitmaken van de resourcegroepen die eigendom zijn van verschillende abonnementen behoren.
+-   Als de abonnementen tot dezelfde tenant behoren en u machtigingen voor alle abonnementen hebt, kunt u de groep voor synchronisatie configureren in de Azure portal.
+-   Anders moet u PowerShell gebruiken voor het toevoegen van de synchronisatie-leden die tot verschillende abonnementen behoren.
    
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Kan ik synchroniseren van gegevens voor seedgegevens van mijn productiedatabase in een lege database gebruiken, en vervolgens deze gesynchroniseerd houden? 
 Ja. Het schema handmatig maken in de nieuwe database door het uitvoeren van scripts in het oorspronkelijke. Nadat u het schema maakt, moet u de tabellen toevoegen aan een groep voor synchronisatie met de gegevens kopiëren en het gesynchroniseerd houden.
@@ -147,6 +152,12 @@ Ja. Het schema handmatig maken in de nieuwe database door het uitvoeren van scri
 Het is niet raadzaam om te synchroniseren van de SQL-gegevens (Preview) gebruiken voor het maken van een back-up van uw gegevens. U kunt geen back-up of herstellen naar een bepaald punt in tijd omdat synchronisaties synchroniseren van de SQL-gegevens (Preview) niet samengesteld zijn. Synchroniseren van de SQL-gegevens (Preview) is bovendien andere SQL-objecten, zoals opgeslagen procedures geen back-up en het equivalent van een herstelbewerking niet snel kan.
 
 Zie voor een back-techniek aanbevolen, [kopiëren van een Azure SQL database](sql-database-copy.md).
+
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Kan de gegevenssynchronisatie versleutelde tabellen en kolommen synchroniseren?
+
+-   Als een database altijd versleuteld gebruikt, kunt u alleen de tabellen en kolommen die zijn synchroniseren *niet* versleuteld. De versleutelde kolommen kunnen niet worden gesynchroniseerd omdat het synchroniseren van gegevens kan de gegevens niet ontsleutelen.
+
+-   Als een kolom wordt gebruikt op kolomniveau-versleuteling (wissen), kunt u de kolom synchroniseren, zolang de rijomvang kleiner dan de maximale grootte van 24 Mb is. Synchroniseren van gegevens behandelt de kolom die is versleuteld met sleutel (wissen) als normale binaire gegevens. Voor het ontsleutelen van de gegevens op andere leden van de synchronisatie, moet u hetzelfde certificaat hebben.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>Wordt de sortering in SQL-gegevenssynchronisatie ondersteund?
 
@@ -170,7 +181,7 @@ Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
 -   [Problemen oplossen met Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Voer PowerShell-voorbeelden uit die laten zien hoe u SQL Data Sync configureert:
-    -   [PowerShell gebruiken om te synchroniseren tussen meerdere Azure SQL-databases](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [De documentatie over de REST-API van SQL Data Sync downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

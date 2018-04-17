@@ -2,11 +2,11 @@
 title: Power BI-werkruimte verzamelingen Veelgestelde vragen
 description: Veelgestelde vragen met betrekking tot Power BI werkruimte verzamelingen.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 6b33f497a5dbc889945e2147586f79edf1bd9aeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 6915538e47207ee9a45f2647a84924d79c7b2851
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI-werkruimte verzamelingen Veelgestelde vragen
 
@@ -43,7 +43,7 @@ Toepassingen zijn aanzienlijk krachtiger wanneer u kunt gebruikmaken van geweldi
 Power BI werkruimte verzamelingen zijn bedoeld voor uw toepassingen die beschikbaar zijn voor gebruik van derden. Als u de werkruimte verzamelingen van Power BI-service gebruiken wilt voor het maken van een interne zakelijke toepassing, moet elk van uw interne gebruikers een Power BI Pro USL en uw organisatie wordt in rekening gebracht voor verbruik van de werkruimte verzamelingen van Power BI-service naast de Power BI Pro USL-kosten. Om te voorkomen dat zowel de Power BI Pro USL kosten als de kosten voor het verbruik van Power BI werkruimte verzamelingen voor interne toepassingen, biedt de Power BI-service een eigen inhoud insluiten mogelijkheden buiten Power BI werkruimte verzamelingen zonder extra kosten aan Power BI USL houders (dev.powerbi.com).
 
 ## <a name="can-power-bi-workspace-collections-be-used-to-create-internal-applications"></a>Kan Power BI werkruimte verzamelingen worden gebruikt voor het maken van interne toepassingen?
-Nee, Power BI werkruimte verzamelingen zijn alleen bedoeld voor gebruik door externe gebruikers en mag niet worden gebruikt binnen interne zakelijke toepassingen. Als u Power BI-inhoud voor gebruik in interne bedrijfstoepassingen wilt insluiten, moet u de Power BI-service gebruiken en moeten alle gebruikers die deze inhoud gebruiken, beschikken over een geldige gebruikerslicentie voor Power BI Free of Power BI Pro. Meer informatie over het integreren van interne toepassingen met de Power BI-service is beschikbaar op [https://dev.powerbi.com](https://dev.powerbi.com).
+Nee, Power BI werkruimte verzamelingen zijn alleen bedoeld voor gebruik door externe gebruikers en mag niet worden gebruikt binnen interne zakelijke toepassingen. Als u Power BI-inhoud voor gebruik in interne bedrijfstoepassingen wilt insluiten, moet u de Power BI-service gebruiken en moeten alle gebruikers die deze inhoud gebruiken, beschikken over een geldige gebruikerslicentie voor Power BI Free of Power BI Pro. Meer informatie over het integreren van interne toepassingen met de Power BI-service is beschikbaar op [ https://dev.powerbi.com ](https://dev.powerbi.com).
 
 ## <a name="is-this-service-available-globally"></a>Deze service wereldwijd beschikbaar is?
 De werkruimte verzamelingen van Power BI-service is nu beschikbaar in de meeste datacenters. U kunt altijd de meest recente beschikbaarheid controleren [hier](https://azure.microsoft.com/status/).

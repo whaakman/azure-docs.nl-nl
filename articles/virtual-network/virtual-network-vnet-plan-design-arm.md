@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e41dae2f4e93fe2e3cef689596612a6a192c844
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Plannen en ontwerpen van virtuele netwerken van Azure
 Maken van een VNet om te experimenteren met eenvoudig genoeg is, maar waarschijnlijk hebt u meerdere VNets na verloop van tijd voor de ondersteuning van de productie-behoeften van uw organisatie gaat implementeren. Met een bepaalde planning en ontwerp, kunt u zich kan VNets implementeren en verbinding maken met de gewenste effectiever resources. Als u niet bekend bent met Vnetten, verdient het aanbeveling die u [meer informatie over VNets](virtual-networks-overview.md) en [implementeren](quick-create-portal.md) een voordat u doorgaat.
@@ -63,7 +63,7 @@ Vnet's bevatten de volgende eigenschappen.
 | **Naam** |VNet-naam |Tekenreeks van maximaal 80 tekens. Kan bevatten letters, cijfers, onderstrepingstekens, punten of afbreekstreepjes. Moet beginnen met een letter of cijfer. Moet eindigen op een letter, cijfer of onderstrepingsteken. Kan bevat hoofdletter of kleine letters bestaan. |
 | **location** |Azure-locatie (ook wel regio genoemd). |Moet een geldige Azure locaties. |
 | **addressSpace** |Verzameling van adresvoorvoegsels waaruit het VNet in CIDR-notatie. |Moet een matrix van geldig CIDR-adresblokken, met inbegrip van openbare IP-adresbereiken. |
-| **subnets** |Verzameling van subnetten die gezamenlijk de VNet |Zie de onderstaande subnet eigenschappentabel. |
+| **Subnetten** |Verzameling van subnetten die gezamenlijk de VNet |Zie de onderstaande subnet eigenschappentabel. |
 | **dhcpOptions** |Object met een enkele vereiste eigenschap met de naam **dnsServers**. | |
 | **dnsServers** |Matrix van DNS-servers die worden gebruikt door het VNet. Als er geen server is opgegeven, wordt Azure interne naamomzetting gebruikt. |Moet een matrix van maximaal 10 DNS-servers IP-adres. |
 
@@ -77,7 +77,7 @@ Subnetten bevatten de volgende eigenschappen.
 | **location** |Azure-locatie (ook wel regio genoemd). |Moet een geldige Azure locaties. |
 | **addressPrefix** |Één adresvoorvoegsel waaruit het subnet in CIDR-notatie |Moet een enkel CIDR-blok die deel uitmaakt van een van de VNet-adresruimten. |
 | **networkSecurityGroup** |NSG wordt toegepast op het subnet | |
-| **routeTable** |De routetabel is toegepast op het subnet | |
+| **Migratiestatus** |De routetabel is toegepast op het subnet | |
 | **ipConfigurations** |Verzameling van IP-configuratie-objecten die worden gebruikt door de NIC's die zijn verbonden met het subnet | |
 
 ### <a name="name-resolution"></a>Naamomzetting
@@ -87,16 +87,16 @@ Uw VNet gebruikt standaard [Azure verschafte naamomzetting](virtual-networks-nam
 Bekijk de netwerken limieten in de [Azure beperkt](../azure-subscription-service-limits.md#networking-limits) artikel om ervoor te zorgen dat uw ontwerp niet met een van de limieten conflicteert. Sommige limieten kunnen worden verhoogd door een ondersteuningsticket te openen.
 
 ### <a name="role-based-access-control-rbac"></a>RBAC (op rollen gebaseerd toegangsbeheer)
-U kunt [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) om te bepalen het niveau van andere gebruikers toegang tot verschillende resources in Azure hebben kunnen. Op die manier kunt u het werk dat door uw team op basis van hun behoeften scheiden.
+U kunt [Azure RBAC](../role-based-access-control/built-in-roles.md) om te bepalen het niveau van andere gebruikers toegang tot verschillende resources in Azure hebben kunnen. Op die manier kunt u het werk dat door uw team op basis van hun behoeften scheiden.
 
 Wat virtuele netwerken zijn betrokken gebruikers in de **Network Contributor** rol hebben volledige controle over virtuele Azure Resource Manager-netwerkbronnen. Op deze manier voor gebruikers in de **klassieke Network Contributor** rol hebben volledig beheer over de resources van klassieke virtuele netwerk.
 
 > [!NOTE]
-> U kunt ook [uw eigen rollen maken](../active-directory/role-based-access-control-configure.md) te scheiden van de behoeften van uw administratieve.
+> U kunt ook [uw eigen rollen maken](../role-based-access-control/role-assignments-portal.md) te scheiden van de behoeften van uw administratieve.
 >
 >
 
-## <a name="design"></a>Ontwerpen
+## <a name="design"></a>Ontwerp
 Zodra u weet dat de antwoorden op de vragen in de [plannen](#Plan) sectie, controleert u het volgende voordat u uw vnet's definieert.
 
 ### <a name="number-of-subscriptions-and-vnets"></a>Het aantal abonnementen en VNets
@@ -188,7 +188,7 @@ U moet beginnen met uw ontwerp plannen door het beantwoorden van de vraag in de 
 
     Ja. Het team van de netwerken moet volledig beheer over de instellingen voor virtuele netwerken terwijl ontwikkelaars moeten alleen hun virtuele machines implementeren met vooraf bestaande subnetten.
 
-### <a name="design"></a>Ontwerpen
+### <a name="design"></a>Ontwerp
 U moet het ontwerp van de abonnementen, VNets, subnetten en nsg's geven volgen. Nsg's hier worden besproken, maar u moet weten over [nsg's](virtual-networks-nsg.md) voordat u uw ontwerp voltooit.
 
 **Het aantal abonnementen en VNets**

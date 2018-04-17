@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/29/2017
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fbab223963989eab16cecea2facd9c15ba646d4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-your-data"></a>Uw gegevens migreren
 Gegevens kunnen worden verplaatst van verschillende bronnen in uw SQL Data Warehouse met een aantal verschillende hulpprogramma's.  ADF kopiëren, SSIS en bcp kunnen alle worden gebruikt om dit doel te bereiken. Echter, als de hoeveelheid gegevens toeneemt moet u bedenken splitsen van het migratieproces in stappen. Hierdoor kunnen u elke stap voor prestaties en herstelmogelijkheden bij een migratie smooth gegevens optimaliseren.
@@ -58,7 +58,7 @@ Er is bovendien altijd de mogelijkheid om een pakket vanwege problemen met beper
 
 Raadpleeg voor meer informatie de [SSIS-documentatie][SSIS documentation].
 
-## <a name="bcp"></a>bcp
+## <a name="bcp"></a>BCP
 BCP is een opdrachtregelprogramma dat is ontworpen voor een plat bestand gegevens importeren en exporteren. Sommige transformatie kan worden uitgevoerd tijdens het exporteren van gegevens. Eenvoudige transformaties gebruik om uit te voeren een query om te selecteren en de gegevens transformeren. Eenmaal geëxporteerd, kunnen de platte bestanden vervolgens worden geladen rechtstreeks in het doel de SQL Data Warehouse-database.
 
 > [!NOTE]
@@ -90,7 +90,7 @@ Een migratieproces SQLDW kan worden effectief onderverdeeld in drie afzonderlijk
 Elke stap kan afzonderlijk worden geoptimaliseerd voor het maken van een robuuste, opnieuw gestart en robuuste migratieproces die optimaliseert de prestaties bij elke stap.
 
 ## <a name="optimizing-data-load"></a>Optimaliseren laden van gegevens
-Kijken naar deze in omgekeerde volgorde voor even; Er is de snelste manier om gegevens te laden met PolyBase. Optimaliseren voor een laadproces PolyBase plaatst vereisten op de voorgaande stappen is het verstandig om te begrijpen dit vooraf. Ze zijn:
+Kijken naar deze in omgekeerde volgorde voor even; Er is de snelste manier om gegevens te laden met PolyBase. Optimaliseren voor een laadproces PolyBase plaatst vereisten op de voorgaande stappen is het verstandig om te begrijpen dit vooraf. Dit zijn:
 
 1. Codering van gegevensbestanden
 2. Indeling van de gegevensbestanden worden opgeslagen
@@ -106,7 +106,7 @@ PolyBase vereist een vaste rijeinde van \n of nieuwe regel aangeeft. Uw gegevens
 
 U moet voor elke kolom in het bestand als onderdeel van de externe tabel in PolyBase definiëren. Zorg ervoor dat alle geëxporteerde kolommen vereist zijn en dat de typen aan de vereiste normen voldoen.
 
-Raadpleeg terug naar de [migreren uw schema] artikel voor informatie over de ondersteunde gegevenstypen.
+Raadpleeg terug naar de [migreren van uw schema] artikel voor informatie over de ondersteunde gegevenstypen.
 
 ### <a name="location-of-data-files"></a>Locatie van gegevensbestanden
 SQL Data Warehouse gebruikmaakt van PolyBase uitsluitend laden van gegevens uit Azure Blob Storage. Als gevolg daarvan kan zijn de gegevens eerst overgebracht naar de blobopslag.
@@ -190,10 +190,11 @@ Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars][development
 [ADF samples]: ../data-factory/v1/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
 [development overview]: sql-data-warehouse-overview-develop.md
+[migreren van uw schema]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
+[Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 
 <!--MSDN references-->

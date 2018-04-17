@@ -2,23 +2,23 @@
 title: Inrichten van een Linux (Ubuntu) gegevens wetenschappelijke virtuele Machine in Azure | Microsoft Docs
 description: Configureer en een gegevens wetenschappelijke virtuele Machine voor Linux (Ubuntu) maken op Azure doen analytics en machine learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f3ddebdd02d4766b83f0834979a54552f88179cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>De gegevens wetenschappelijke virtuele Machine inrichten voor Linux (Ubuntu)
 
@@ -83,7 +83,7 @@ Hier volgen de stappen voor het maken van een exemplaar van de gegevens wetensch
 2. Klik op **maken** (aan de onderkant) online zetten van de wizard.![ Configureer-gegevens-wetenschappelijke-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 3. De volgende secties bevatten de invoer voor elk van de stappen in de wizard (opgesomd aan de rechterkant van de voorgaande afbeelding) gebruikt voor het maken van de Microsoft Data wetenschappelijke virtuele Machine. Hier volgen de invoer voor het configureren van deze stappen:
    
-   a. **Basics**:
+   a. **Basisprincipes**:
    
    * **Naam**: naam van uw gegevens wetenschap-server die u maakt.
    * **Gebruikersnaam**: eerste account aanmelden ID.
@@ -159,7 +159,7 @@ Caffe2 ligt een framework grondige learning van Facebook die is gebouwd op Caffe
 Sommige laptops voorbeeld zijn beschikbaar in JupyterHub.
 
 #### <a name="h2o"></a>H2O
-H2O is een snelle, in het geheugen, gedistribueerde machine learning en predictive analytics-platform. Een Python-pakket is geïnstalleerd in de hoofd- en py35 Anaconda-omgevingen. Een R-pakket is ook geïnstalleerd. Uitvoeren als u wilt starten H2O vanaf de opdrachtregel, `java -jar /dsvm/tools/h2o/current/h2o.jar`; er zijn verschillende [opdrachtregelopties](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) die u mogelijk wilt configureren. De Webgebruikersinterface stromen zijn toegankelijk door te bladeren naar http://localhost:54321 aan de slag. Voorbeeldquery notitieblokken zijn ook beschikbaar in JupyterHub.
+H2O is een snelle, in het geheugen, gedistribueerde machine learning en predictive analytics-platform. Een Python-pakket is geïnstalleerd in de hoofd- en py35 Anaconda-omgevingen. Een R-pakket is ook geïnstalleerd. Uitvoeren als u wilt starten H2O vanaf de opdrachtregel, `java -jar /dsvm/tools/h2o/current/h2o.jar`; er zijn verschillende [opdrachtregelopties](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) die u mogelijk wilt configureren. De Webgebruikersinterface stromen kunnen worden geopend door te bladeren naar http://localhost:54321 aan de slag. Voorbeeldquery notitieblokken zijn ook beschikbaar in JupyterHub.
 
 #### <a name="keras"></a>Keras
 Keras is een op hoog niveau neurale netwerk API in Python die kunnen worden uitgevoerd op de bovenkant van TensorFlow of Theano. Het is beschikbaar in de hoofdmap en py35 Python-omgevingen. 
@@ -221,7 +221,7 @@ Voor het installeren van extra Python-bibliotheken, moet u uitvoeren ```conda```
 ### <a name="jupyter-notebook"></a>Jupyter-notebook
 De Anaconda-verdeling wordt ook geleverd met een Jupyter-notebook een omgeving voor het delen van code en -analyse. De Jupyter-notebook toegankelijk is via JupyterHub. U kunt aanmelden met uw lokale Linux-gebruikersnaam en wachtwoord.
 
-De Jupyter-notebook-server is vooraf is geconfigureerd met Python 2, 3 Python en R kernels. Er is een pictogram op het bureaublad met de naam 'Jupyter-Notebook' starten van de browser voor toegang tot de notebook-server. Als u van de virtuele machine via SSH of X2Go-client gebruikmaakt, kunt u ook bezoeken [https://localhost:8000 /](https://localhost:8000/) voor toegang tot de Jupyter-notebook-server.
+De Jupyter-notebook-server is vooraf is geconfigureerd met Python 2, 3 Python en R kernels. Er is een pictogram op het bureaublad met de naam 'Jupyter-Notebook' starten van de browser voor toegang tot de notebook-server. Als u van de virtuele machine via SSH of X2Go-client gebruikmaakt, kunt u ook bezoeken [ https://localhost:8000/ ](https://localhost:8000/) voor toegang tot de Jupyter-notebook-server.
 
 > [!NOTE]
 > Doorgaan als u certificaatwaarschuwingen.
@@ -272,7 +272,7 @@ U hebt een keuze uit verschillende code-editors. Dit omvat vi/VIM, Emacs PyCharm
 
 Voordat u het eerste gebruik, stuurprogramma's en database aliassen hebt ingesteld. De JDBC-stuurprogramma's bevinden zich op:
 
-*/usr/share/java/jdbcdrivers*
+*/usr/share/Java/jdbcdrivers*
 
 Zie voor meer informatie [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
@@ -404,7 +404,7 @@ Nu een grafische interface wordt geopend met een reeks tabbladen. Hier volgen de
 7. Klik op de **Evaluate** tabblad.
 8. Klik op de **risico** keuzerondje en klikt u op **Execute** om twee risico (cumulatief) prestaties waarnemingspunten weer te geven.
 9. Klik op de **logboek** tabblad om de code genereren R voor voorgaande bewerkingen weer te geven.
-   (Vanwege een fout in de huidige release van Rammelaar, moet u invoegen een  *#*  teken vóór *... dit logboek exporteren*  in de tekst van het logboek.)
+   (Vanwege een fout in de huidige release van Rammelaar, moet u invoegen een *#* teken vóór *... dit logboek exporteren*  in de tekst van het logboek.)
 10. Klik op de **exporteren** om op te slaan van het R-script-bestand met de naam *weather_script. R* naar de basismap.
 
 U kunt afsluiten Rammelaar en R. U kunt nu het gegenereerde R-script wijzigen of ongewijzigd uit te voeren op elk gewenst moment om te worden herhaald alles die werd uitgevoerd in de gebruikersinterface Rattle gebruiken. Dit is een eenvoudige manier om snel analyses en machine learning in een eenvoudige grafische interface tijdens het automatisch genereren van code in R om te wijzigen en/of meer met name voor beginnende gebruikers in R.

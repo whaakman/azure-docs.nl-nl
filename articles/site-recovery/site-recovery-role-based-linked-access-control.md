@@ -2,11 +2,11 @@
 title: Met behulp van toegangsbeheer op basis van rollen voor het beheren van Azure Site Recovery | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u moeten worden toegepast en op rollen gebaseerde toegangsbeheer (RBAC) gebruiken voor het beheren van uw Azure Site Recovery-implementaties
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 9c8745162afebe6690776152b29d8619edc26a42
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d02ecc3293d0607dd3e19ade3c1d9087b544703b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Toegangsbeheer op basis van rollen gebruiken voor het beheren van Azure Site Recovery-implementaties
 
 Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met RBAC kunt u taken scheiden binnen uw team en alleen specifieke machtigingen verlenen aan gebruikers desgewenst specifieke taken uitvoeren.
 
-Azure Site Recovery biedt 3 ingebouwde functies voor het beheren van Site Recovery-beheerbewerkingen. Meer informatie over [ingebouwde Azure RBAC-rollen](../active-directory/role-based-access-built-in-roles.md)
+Azure Site Recovery biedt 3 ingebouwde functies voor het beheren van Site Recovery-beheerbewerkingen. Meer informatie over [ingebouwde Azure RBAC-rollen](../role-based-access-control/built-in-roles.md)
 
-* [Site Recovery-inzender](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) - deze rol bevat alle machtigingen die nodig zijn om Azure Site Recovery-bewerkingen in een Recovery Services-kluis te kunnen beheren. Een gebruiker met deze rol kan echter geen Recovery Services-kluis maken of verwijderen, noch toegangsrechten aan andere gebruikers toewijzen. Deze rol is het meest geschikt voor disaster recovery beheerders die kunnen inschakelen en herstel na noodgevallen voor toepassingen of volledige organisaties, zoals het geval worden beheren.
-* [Site Recovery-operator](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) -deze rol heeft machtigingen om failover- en failback-bewerkingen uit te voeren en te beheren. Een gebruiker met deze rol kan niet- of uitschakelen replicatie, maken of verwijderen van kluizen, registreren van nieuwe infrastructuur of toewijzen van rechten aan andere gebruikers. Deze rol is het meest geschikt is voor een disaster recovery operator die failover virtuele machines kunt of toepassingen wanneer u hierom wordt gevraagd door toepassingseigenaars en IT-beheerders in een situatie met een bestaande of gesimuleerde na noodgevallen zoals een DR zoomen. Post resolutie van de noodherstelservice, de operator DR opnieuw kunt beveiligen en failback van de virtuele machines.
-* [Site Recovery-lezer](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) - deze rol heeft machtigingen voor het weergeven van alle beheerbewerkingen van Site Recovery. Deze rol is het meest geschikt is voor een IT-bewaking leidinggevende die kunt bewaken van de huidige status van de beveiliging en ondersteuningstickets verhogen, indien nodig.
+* [Site Recovery-inzender](../role-based-access-control/built-in-roles.md#site-recovery-contributor) - deze rol bevat alle machtigingen die nodig zijn om Azure Site Recovery-bewerkingen in een Recovery Services-kluis te kunnen beheren. Een gebruiker met deze rol kan echter geen Recovery Services-kluis maken of verwijderen, noch toegangsrechten aan andere gebruikers toewijzen. Deze rol is het meest geschikt voor disaster recovery beheerders die kunnen inschakelen en herstel na noodgevallen voor toepassingen of volledige organisaties, zoals het geval worden beheren.
+* [Site Recovery-operator](../role-based-access-control/built-in-roles.md#site-recovery-operator) -deze rol heeft machtigingen om failover- en failback-bewerkingen uit te voeren en te beheren. Een gebruiker met deze rol kan niet- of uitschakelen replicatie, maken of verwijderen van kluizen, registreren van nieuwe infrastructuur of toewijzen van rechten aan andere gebruikers. Deze rol is het meest geschikt is voor een disaster recovery operator die failover virtuele machines kunt of toepassingen wanneer u hierom wordt gevraagd door toepassingseigenaars en IT-beheerders in een situatie met een bestaande of gesimuleerde na noodgevallen zoals een DR zoomen. Post resolutie van de noodherstelservice, de operator DR opnieuw kunt beveiligen en failback van de virtuele machines.
+* [Site Recovery-lezer](../role-based-access-control/built-in-roles.md#site-recovery-reader) - deze rol heeft machtigingen voor het weergeven van alle beheerbewerkingen van Site Recovery. Deze rol is het meest geschikt is voor een IT-bewaking leidinggevende die kunt bewaken van de huidige status van de beveiliging en ondersteuningstickets verhogen, indien nodig.
 
-Als u op zoek bent om te definiëren van uw eigen rollen voor nog meer Zie hoe [aangepaste rollen maken](../active-directory/role-based-access-control-custom-roles.md) in Azure.
+Als u op zoek bent om te definiëren van uw eigen rollen voor nog meer Zie hoe [aangepaste rollen maken](../role-based-access-control/custom-roles.md) in Azure.
 
 ## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Vereiste machtigingen voor replicatie inschakelen voor de nieuwe virtuele Machines
 Wanneer een nieuwe virtuele Machine naar Azure met Azure Site Recovery worden gerepliceerd, worden de bijbehorende gebruiker toegangsniveaus om ervoor te zorgen dat de gebruiker de vereiste machtigingen heeft voor het gebruik van de Azure-resources die aan de Site Recovery gevalideerd.
@@ -73,12 +73,12 @@ Een gebruiker moet de volgende machtigingen tot de replicatie van een nieuwe vir
 | Resourcegroep | Resource Manager | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
-Overweeg het gebruik van de 'Virtual Machine Contributor' en 'Klassieke Virtual Machine Contributor' [ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md) modellen respectievelijk voor de implementatie van Resource Manager en Classic.
+Overweeg het gebruik van de 'Virtual Machine Contributor' en 'Klassieke Virtual Machine Contributor' [ingebouwde rollen](../role-based-access-control/built-in-roles.md) modellen respectievelijk voor de implementatie van Resource Manager en Classic.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-configure.md): aan de slag met RBAC in Azure portal.
+* [Toegangsbeheer op basis van rollen](../role-based-access-control/role-assignments-portal.md): aan de slag met RBAC in Azure portal.
 * Meer informatie over het beheren van toegang met:
-  * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
-  * [Azure-CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)
-  * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
-* [Probleemoplossing voor toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-troubleshooting.md): Profiteer van tips voor het oplossen van veelvoorkomende problemen.
+  * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+  * [Azure-CLI](../role-based-access-control/role-assignments-cli.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
+* [Probleemoplossing voor toegangsbeheer op basis van rollen](../role-based-access-control/troubleshooting.md): Profiteer van tips voor het oplossen van veelvoorkomende problemen.

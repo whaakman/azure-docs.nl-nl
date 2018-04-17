@@ -1,8 +1,8 @@
 ---
-title: "Op basis van tijd Hadoop Oozie-coördinator gebruiken in HDInsight | Microsoft Docs"
-description: "Op basis van tijd Hadoop Oozie-coördinator gebruiken in HDInsight, een big data-service. Informatie over het definiëren van Oozie-werkstromen en coördinator en verzenden van taken."
+title: Op basis van tijd Hadoop Oozie-coördinator gebruiken in HDInsight | Microsoft Docs
+description: Op basis van tijd Hadoop Oozie-coördinator gebruiken in HDInsight, een big data-service. Informatie over het definiëren van Oozie-werkstromen en coördinator en verzenden van taken.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -10,18 +10,16 @@ editor: cgronlun
 ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0fa8e3630610913d909a75bf76236d120c8f1a2b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: db7f1f85601cfcf4531bb11176a21126625ce7f0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Tijd gebaseerde Oozie-coördinator gebruiken met Hadoop in HDInsight voor het definiëren van werkstromen en coördineren van taken
 In dit artikel leert u hoe u werkstromen en coördinator definiëren en het activeren van de coördinator-taken op basis van tijd. Is het handig om te gaan via [Oozie gebruiken met HDInsight] [ hdinsight-use-oozie] voordat u dit artikel leest. Naast Oozie, kunt u ook taken met behulp van Azure Data Factory plannen. Zie voor meer informatie over Azure Data Factory, [Use Pig en Hive met Data Factory](../data-factory/transform-data.md).

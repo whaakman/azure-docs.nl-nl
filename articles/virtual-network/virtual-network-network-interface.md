@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 49685d5b0e30356cab7f1f530bcc97e193d7fd90
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 21f29fc76ada1e081dcddeebdd537aebe308add3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
@@ -34,10 +34,10 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
 
 - Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
-- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.2.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
-- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.26 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
+- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell moduleversie 5.4.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.28 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
-Het account dat u zich bij Azure met aanmelden moet worden toegewezen aan een minimum, machtigingen voor de rol Inzender netwerk voor uw abonnement. Zie voor meer informatie over het toewijzen van rollen en machtigingen aan accounts, [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+Het account dat u zich bij Azure met aanmelden moet worden toegewezen aan een minimum, machtigingen voor de rol Inzender netwerk voor uw abonnement. Zie voor meer informatie over het toewijzen van rollen en machtigingen aan accounts, [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 
 ## <a name="create-a-network-interface"></a>Een netwerkinterface maken
 
@@ -62,6 +62,8 @@ Wanneer u een virtuele machine met de Azure portal maakt, maakt de portal een ne
 
 De portal biedt niet de optie voor een openbaar IP-adres toewijzen aan de netwerkinterface bij het maken, hoewel de portal een openbaar IP-adres maken en aan een netwerkinterface toewijzen bij het maken van een virtuele machine via de portal. Zie voor meer informatie over het toevoegen van een openbaar IP-adres aan de netwerkinterface nadat deze is gemaakt, [beheren IP-adressen](virtual-network-network-interface-addresses.md). Als u maken van een netwerkinterface met een openbaar IP-adres wilt, moet u de CLI of PowerShell gebruiken voor het maken van de netwerkinterface.
 
+De portal biedt niet de optie voor de netwerkinterface toewijzen aan beveiligingsgroepen van toepassing, maar de Azure CLI en PowerShell doen. Zie voor meer informatie over beveiligingsgroepen van toepassing, [toepassing beveiligingsgroepen](security-overview.md#application-security-groups).
+
 >[!Note]
 > Azure wijst een MAC-adres toe aan de netwerkinterface nadat de netwerkinterface is gekoppeld aan een virtuele machine en de virtuele machine voor het eerst wordt gestart. U kunt het MAC-adres waarmee Azure worden toegewezen aan de netwerkinterface niet opgeven. Het MAC-adres blijft toegewezen aan de netwerkinterface tot de netwerkinterface is verwijderd of de privé IP-adres is toegewezen aan de primaire IP-adresconfiguratie van de primaire netwerkinterface is gewijzigd. Zie voor meer informatie over IP-adressen en IP-configuraties, [beheren IP-adressen](virtual-network-network-interface-addresses.md)
 
@@ -74,7 +76,7 @@ De portal biedt niet de optie voor een openbaar IP-adres toewijzen aan de netwer
 
 ## <a name="view-network-interface-settings"></a>Netwerkinterface-instellingen weergeven
 
-U kunt weergeven en wijzigen van de meeste instellingen voor een netwerkinterface nadat deze gemaakt. Het DNS-achtervoegsel voor de netwerkinterface niet wordt weergegeven in de portal. U kunt de PowerShell of Azure CLI [opdrachten](#view-settings-commands) om weer te geven van het DNS-achtervoegsel.
+U kunt weergeven en wijzigen van de meeste instellingen voor een netwerkinterface nadat deze gemaakt. DNS-achtervoegsel of toepassing lidmaatschap van de beveiligingsgroep voor de netwerkinterface niet wordt weergegeven in de portal. U kunt de PowerShell of Azure CLI [opdrachten](#view-settings-commands) om de DNS-achtervoegsel en toepassing beveiligingsgroep weer te geven.
 
 1. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *netwerkinterfaces*. Wanneer **netwerkinterfaces** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer de netwerkinterface die u wilt weergeven of wijzigen van instellingen voor in de lijst.
@@ -82,10 +84,10 @@ U kunt weergeven en wijzigen van de meeste instellingen voor een netwerkinterfac
     - **Overzicht:** bevat informatie over de netwerkinterface, zoals het IP-adressen toegewezen aan deze, het virtuele netwerk/subnet aan de netwerkinterface is toegewezen en de virtuele machine de netwerkinterface is gekoppeld aan (als deze is gekoppeld aan een). De volgende afbeelding ziet u de instellingen van het overzicht voor een netwerkinterface met de naam **mywebserver256**: ![Network interface-overzicht](./media/virtual-network-network-interface/nic-overview.png) kunt u een netwerkinterface verplaatsen naar een andere resourcegroep of abonnement door te selecteren (**wijzigen**) naast de **resourcegroep** of **naam abonnement**. Als u de netwerkinterface verplaatst, moet u alle bronnen die betrekking hebben op de netwerkinterface met het verplaatsen. Als de netwerkinterface is gekoppeld aan een virtuele machine, bijvoorbeeld, moet u ook verplaatsen de virtuele machine en andere bronnen betrekking hebben op virtuele machine. Zie voor het verplaatsen van een netwerkinterface [resource verplaatsen naar een nieuwe resourcegroep of abonnement](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-portal). Dit artikel worden de vereisten en het verplaatsen van resources met behulp van de Azure-portal, PowerShell en de Azure CLI.
     - **IP-configuraties:** openbare en persoonlijke IPv4 en IPv6-adressen zijn toegewezen aan IP-configuraties worden hier vermeld. Als een IPv6-adres is toegewezen aan een IP-configuratie, wordt het adres niet weergegeven. Zie voor meer informatie over IP-configuraties en het toevoegen en verwijderen van IP-adressen, [configureren IP-adressen voor een Azure-netwerk-interface](virtual-network-network-interface-addresses.md). Doorsturen via IP en subnettoewijzing zijn ook in deze sectie geconfigureerd. Zie voor meer informatie over deze instellingen, [in- of uitschakelen van doorsturen via IP](#enable-or-disable-ip-forwarding) en [subnettoewijzing wijzigen](#change-subnet-assignment).
     - **DNS-servers:** kunt u opgeven welke DNS-server een netwerkinterface wordt toegewezen door de Azure-DHCP-servers. De netwerkinterface kunt de instelling overnemen van het virtuele netwerk dat de netwerkinterface is toegewezen aan of een aangepaste instelling die de instelling voor het virtuele netwerk dat toegewezen wordt aan hebben. Om te wijzigen wat wordt weergegeven, Zie [wijziging DNS-servers](#change-dns-servers).
-    - **Netwerkbeveiligingsgroep (NSG):** geeft dit NSG is gekoppeld aan de netwerkinterface (indien aanwezig). Een NSG bevat regels voor binnenkomende en uitgaande als u wilt filteren van netwerkverkeer voor de netwerkinterface. Als een NSG gekoppeld aan de netwerkinterface is, wordt de naam van de gekoppelde NSG weergegeven. Voer de stappen in om te wijzigen wat wordt weergegeven, [netwerk groep beveiligingskoppelingen beheren](virtual-network-manage-nsg-arm-portal.md#manage-associations).
+    - **Netwerkbeveiligingsgroep (NSG):** geeft dit NSG is gekoppeld aan de netwerkinterface (indien aanwezig). Een NSG bevat regels voor binnenkomende en uitgaande als u wilt filteren van netwerkverkeer voor de netwerkinterface. Als een NSG gekoppeld aan de netwerkinterface is, wordt de naam van de gekoppelde NSG weergegeven. Om te wijzigen wat wordt weergegeven, Zie [koppelen of ontkoppelen van een netwerkbeveiligingsgroep](#associate-or-dissociate-a-network-security-group).
     - **Eigenschappen:** bevat de belangrijkste instellingen over van de netwerkinterface, met inbegrip van het MAC-adres (leeg als de netwerkinterface is niet gekoppeld aan een virtuele machine) en het abonnement deze voorkomt in.
-    - **Effectieve beveiligingsregels:** beveiligingsregels staan als de netwerkinterface is gekoppeld aan een actieve virtuele machine en een NSG gekoppeld aan de netwerkinterface, het subnet dat toegewezen is aan of beide. Zie voor meer informatie over wat wordt weergegeven, [netwerkbeveiligingsgroepen oplossen](virtual-network-nsg-troubleshoot-portal.md#nsg). Zie voor meer informatie over het nsg's, [Netwerkbeveiligingsgroepen](virtual-networks-nsg.md).
-    - **Effectieve routes:** Routes worden weergegeven als de netwerkinterface is gekoppeld aan een actieve virtuele machine. De routes zijn een combinatie van de Azure standaardroutes, eventuele door de gebruiker gedefinieerde routes (UDR) en een BGP-routes die mogelijk aanwezig zijn voor het subnet dat aan de netwerkinterface is toegewezen. Zie voor meer informatie over wat wordt weergegeven, [routes oplossen](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-network-interface). Zie voor meer informatie over Azure standaard en udr's, [gebruiker gedefinieerde routes](virtual-networks-udr-overview.md).
+    - **Effectieve beveiligingsregels:** beveiligingsregels staan als de netwerkinterface is gekoppeld aan een actieve virtuele machine en een NSG gekoppeld aan de netwerkinterface, het subnet dat toegewezen is aan of beide. Zie voor meer informatie over wat wordt weergegeven, [effectieve beveiligingsregels weergeven](#view-effective-security-rules). Zie voor meer informatie over het nsg's, [Netwerkbeveiligingsgroepen](security-overview.md).
+    - **Effectieve routes:** Routes worden weergegeven als de netwerkinterface is gekoppeld aan een actieve virtuele machine. De routes zijn een combinatie van de Azure standaardroutes, eventuele door de gebruiker gedefinieerde routes en eventuele BGP-routes die mogelijk aanwezig zijn voor het subnet dat aan de netwerkinterface is toegewezen. Zie voor meer informatie over wat wordt weergegeven, [effectieve routes weergeven](#view-effective-routes). Zie voor meer informatie over Azure standaardroutes en de gebruiker gedefinieerde routes, [Routering-overzicht](virtual-networks-udr-overview.md).
     - **Algemene instellingen van Azure Resource Manager:** Zie voor meer informatie over de algemene instellingen van Azure Resource Manager, [activiteitenlogboek](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [labels](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Vergrendelt](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), en [automatiseringsscript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Opdrachten**
@@ -157,10 +159,34 @@ U kunt het subnet, maar niet het virtuele netwerk, dat een netwerkinterface is t
 |CLI|[AZ netwerk nic IP-configuratie bijwerken](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
+## <a name="add-to-or-remove-from-application-security-groups"></a>Toevoegen aan of verwijderen van beveiligingsgroepen van toepassing
+
+De portal niet de optie voor het toewijzen van een netwerkinterface om op te geven of verwijderen van een netwerkinterface van beveiligingsgroepen van toepassing, maar de Azure CLI en PowerShell doen. Zie voor meer informatie over beveiligingsgroepen van toepassing, [toepassing beveiligingsgroepen](security-overview.md#application-security-groups) en [Maak een beveiligingsgroep toepassing](#create-an-application-security-group).
+
+**Opdrachten**
+
+|Hulpprogramma|Opdracht|
+|---|---|
+|CLI|[AZ netwerk nic-update](/cli/azure/network/nic#az_network_nic_update)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
+
+## <a name="associate-or-dissociate-a-network-security-group"></a>Koppelen of ontkoppelen van een netwerkbeveiligingsgroep
+
+1. Voer in het zoekvak boven aan de portal *netwerkinterfaces* in het zoekvak. Wanneer **netwerkinterfaces** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
+2. Selecteer de netwerkinterface in de lijst die u wilt een netwerkbeveiligingsgroep te koppelen of ontkoppelen van een netwerkbeveiligingsgroep uit.
+3. Selecteer **netwerkbeveiligingsgroep** onder **instellingen**.
+4. Selecteer **Bewerken**.
+5. Selecteer **netwerkbeveiligingsgroep** en selecteer vervolgens de netwerkbeveiligingsgroep die u wilt koppelen aan de netwerkinterface, of selecteer **geen**, ontkoppelen van een netwerkbeveiligingsgroep.
+6. Selecteer **Opslaan**.
+
+**Opdrachten**
+
+- Azure CLI: [az netwerk nic-update](/cli/azure/network/nic#az-network-nic-update)
+- PowerShell: [Set AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)
 
 ## <a name="delete-a-network-interface"></a>Verwijderen van een netwerkinterface
 
-U kunt een netwerkinterface verwijderen zolang deze niet is gekoppeld aan een virtuele machine. Als deze is gekoppeld aan een virtuele machine, moet u eerst plaats de virtuele machine gestopt (toewijzing ongedaan gemaakt) en vervolgens de netwerkinterface van de virtuele machine, loskoppelen voordat u de netwerkinterface kunt verwijderen. Als u wilt loskoppelen van een netwerkinterface van een virtuele machine, voer de stappen in [loskoppelen van een netwerkinterface van een virtuele machine](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). Verwijderen van een virtuele machine wordt losgekoppeld van alle netwerkinterfaces die zijn gekoppeld, maar niet de netwerkinterfaces verwijdert.
+U kunt een netwerkinterface verwijderen zolang deze niet is gekoppeld aan een virtuele machine. Als een netwerkinterface is gekoppeld aan een virtuele machine, moet u eerst plaats de virtuele machine gestopt (toewijzing ongedaan gemaakt) en vervolgens loskoppelen van de netwerkinterface van de virtuele machine. Als u wilt loskoppelen van een netwerkinterface van een virtuele machine, voer de stappen in [loskoppelen van een netwerkinterface van een virtuele machine](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). U kunt een netwerkinterface van een virtuele machine kan niet loskoppelen als dit de enige netwerkinterface echter gekoppeld aan de virtuele machine. Een virtuele machine moet altijd ten minste één netwerkinterface is gekoppeld. Verwijderen van een virtuele machine wordt losgekoppeld van alle netwerkinterfaces die zijn gekoppeld, maar niet de netwerkinterfaces verwijdert.
 
 1. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *netwerkinterfaces*. Wanneer **netwerkinterfaces** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer **...**  aan de rechterkant van de netwerkinterface die u wilt verwijderen uit de lijst met netwerkinterfaces.
@@ -176,10 +202,46 @@ Wanneer u een netwerkinterface verwijdert, worden alle MAC of IP-adressen zijn t
 |CLI|[nic-AZ netwerk het verwijderen](/cli/azure/network/nic#az_network_nic_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
-## <a name="next-steps"></a>Volgende stappen
-Als een virtuele machine maken met meerdere netwerkinterfaces of IP-adressen, Zie de volgende artikelen:
+## <a name="resolve-connectivity-issues"></a>Verbindingsproblemen oplossen
+
+Als u niet communiceren naar of van een virtuele machine, netwerk-beveiligingsregels of routes effectieve voor een netwerkinterface kunnen het probleem veroorzaakt. U hebt de volgende opties voor het probleem op te lossen:
+
+### <a name="view-effective-security-rules"></a>De effectieve beveiligingsregels weergeven
+
+De regels voor een effectieve beveiligingsmethode voor elke netwerkinterface die is gekoppeld aan een virtuele machine zijn een combinatie van de regels die u hebt gemaakt in een netwerkbeveiligingsgroep en [beveiligingsregels standaard](security-overview.md#default-security-rules). Inzicht in de regels voor een effectieve beveiligingsmethode voor een netwerkinterface kan u helpen bepalen waarom het niet lukt om te communiceren of naar een virtuele machine. U kunt de effectieve regels voor een netwerkinterface die is gekoppeld aan een actieve virtuele machine weergeven.
+
+1. Voer in het zoekvak boven aan de portal, de naam van een virtuele machine die u wilt weergeven van regels voor een effectieve beveiligingsmethode. Als u de naam van een virtuele machine niet weet, voert u *virtuele machines* in het zoekvak. Wanneer **virtuele machines** worden weergegeven in de zoekresultaten, selecteert u deze en selecteer vervolgens een virtuele machine in de lijst.
+2. Selecteer **Networking** onder **instellingen**.
+3. Selecteer de naam van een netwerkinterface.
+4. Selecteer **effectieve beveiligingsregels** onder **ondersteuning + probleemoplossing**.
+5. Bekijk de lijst met een effectieve beveiligingsmethode regels om te bepalen of de juiste regels bestaan voor uw vereiste binnenkomende en uitgaande communicatie. Meer informatie over wat u ziet in de lijst in [netwerk groep beveiligingsoverzicht](security-overview.md).
+
+De stroom van de IP-Controleer of functie van Azure-netwerk-Watcher kunt u ook bepalen als beveiligingsregels voor communicatie tussen een virtuele machine en een eindpunt worden voorkomen. Zie voor meer informatie, [IP-stroom controleren](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Opdrachten**
+
+- Azure CLI: [az netwerk nic lijst effectief nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg)
+- PowerShell: [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) 
+
+### <a name="view-effective-routes"></a>De effectieve routes weergeven
+
+De effectieve routes voor de netwerkinterfaces die zijn gekoppeld aan een virtuele machine zijn een combinatie van standaardroutes, alle routes die u hebt gemaakt en alle routes doorgegeven vanuit de on-premises netwerken via BGP via een gateway virtuele Azure-netwerk. Inzicht in de effectieve routes voor een netwerkinterface kan u helpen bepalen waarom het niet lukt om te communiceren of naar een virtuele machine. U kunt de effectieve routes voor een netwerkinterface die is gekoppeld aan een actieve virtuele machine weergeven.
+
+1. Voer in het zoekvak boven aan de portal, de naam van een virtuele machine die u wilt weergeven van regels voor een effectieve beveiligingsmethode. Als u de naam van een virtuele machine niet weet, voert u *virtuele machines* in het zoekvak. Wanneer **virtuele machines** worden weergegeven in de zoekresultaten, selecteert u deze en selecteer vervolgens een virtuele machine in de lijst.
+2. Selecteer **Networking** onder **instellingen**.
+3. Selecteer de naam van een netwerkinterface.
+4. Selecteer **effectieve routes** onder **ondersteuning + probleemoplossing**.
+5. Bekijk de lijst met effectieve routes om te bepalen of de juiste routes bestaan voor uw vereiste binnenkomende en uitgaande communicatie. Meer informatie over wat u ziet in de lijst in [Routering-overzicht](virtual-networks-udr-overview.md).
+
+De volgende hop-functie van Azure-netwerk-Watcher kunt u bepalen of routes voorkomen de communicatie tussen een virtuele machine en een eindpunt dat worden ook. Zie voor meer informatie, [volgende hop](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+**Opdrachten**
+
+- Azure CLI: [az netwerk nic-ingang-route-tabel weergeven](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
+- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
+
+## <a name="next-steps"></a>Volgende stappen
+Als een virtuele machine maken met meerdere netwerkinterfaces of IP-adressen, Zie de volgende artikelen:
 
 |Taak|Hulpprogramma|
 |---|---|

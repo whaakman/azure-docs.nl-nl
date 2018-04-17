@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 356599cbe1e4e1948a5ec16d0d504835fa7dcd43
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3bbed692bfccaa2a3296ba4697c66e9069b6e914
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>CHD vereisten voor PCI DSS-compatibele omgevingen
 ## <a name="pci-dss-requirement-3"></a>PCI-DSS vereiste 3
@@ -44,7 +44,7 @@ Raadpleeg de PCI DSS en PA-DSS verklarende woordenlijst van termen, afkortingen 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Azure is verantwoordelijk voor de klantgegevens die is aangewezen voor verwijdering worden veilig buiten gebruik gestelde 800 88 compatibele protocollen die in het beleid van de verwijdering beveiligen met behulp van NIST. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore niet verwijderen of een opgeslagen CHD vernietigen. Maar alle gegevens zijn versleuteld en geen primaire account nummer (PAN) gegevens worden opgeslagen.<br /><br />|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore niet verwijderen of een opgeslagen CHD vernietigen. Maar alle gegevens zijn versleuteld en geen primaire account nummer (PAN) gegevens worden opgeslagen.<br /><br />|
 
 
 
@@ -61,7 +61,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore niet verwijderen of vernietigen eventuele opgeslagen CHD; de voorbeeldgegevens wordt voor demonstratiedoeleinden alleen opgeslagen. Alle gegevens is echter versleuteld en geen primaire account nummer (PAN) gegevens worden opgeslagen.<br /><br />|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore niet verwijderen of vernietigen eventuele opgeslagen CHD; de voorbeeldgegevens wordt voor demonstratiedoeleinden alleen opgeslagen. Alle gegevens is echter versleuteld en geen primaire account nummer (PAN) gegevens worden opgeslagen.<br /><br />|
 
 
 
@@ -73,7 +73,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 > In de normale gang van zaken moet de volgende gegevenselementen van de magnetische stripe mogelijk worden bewaard: 
 > - De naam van de kaarthouder 
 > - Primaire nummer (PAN) 
-> - Vervaldatum 
+> - Verloopdatum 
 > - Service-code 
 >
 > Om het risico minimaliseren, alleen deze gegevenselementen zo nodig voor bedrijven worden opgeslagen.
@@ -83,7 +83,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore worden niet opgeslagen voor de volledige inhoud van een CHD.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore worden niet opgeslagen voor de volledige inhoud van een CHD.|
 
 
 
@@ -96,7 +96,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore versleutelt alle gegevens, inclusief de CVW-voorbeelden.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore versleutelt alle gegevens, inclusief de CVW-voorbeelden.|
 
 
 
@@ -109,7 +109,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat geen PINCODE-informatie.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore slaat geen PINCODE-informatie.|
 
 
 
@@ -125,7 +125,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maskeert het hoofdaccount nummer (PAN) met transparante gegevensversleuteling, altijd versleutelde kolommen en dynamische gegevensmaskering. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maskeert het hoofdaccount nummer (PAN) met transparante gegevensversleuteling, altijd versleutelde kolommen en dynamische gegevensmaskering. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -145,7 +145,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore versleutelt alle gegevens die creditcard en maakt gebruik van Azure Key Vault voor het beheren van sleutels, het ophalen van CHD voorkomen.<br /><br />Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore versleutelt alle gegevens die creditcard en maakt gebruik van Azure Key Vault voor het beheren van sleutels, het ophalen van CHD voorkomen.<br /><br />Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -161,7 +161,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore versleutelt alle opgeslagen gegevens en scheidt verkeer om te voorkomen dat bevoegde uitbreiding van bevoegdheden voor DevOps-functies.<br /><br />Als de App-serviceomgeving is beveiligd en vergrendeld, moet er een mechanisme om toe te staan voor DevOps releases of wijzigingen die mogelijk nodig, zoals de mogelijkheid voor het bewaken van een Web-App met behulp van Kudu.<br /><br />Een virtuele machine wordt ingesteld als een jumpbox (bastion host) met de volgende configuraties:<br /><br /><ul><li>[Antimalware-uitbreiding](/azure/security/azure-security-antimalware)</li><li>[Extensie OMS Monitoring](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Extensie voor diagnostische gegevens VM](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[BitLocker-versleutelde schijf](/azure/security/azure-security-disk-encryption)</li></ul>Met Azure Key Vault wordt uitgelijnd met Azure Government, PCI DSS en HIPAA-vereisten.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore versleutelt alle opgeslagen gegevens en scheidt verkeer om te voorkomen dat bevoegde uitbreiding van bevoegdheden voor DevOps-functies.<br /><br />Als de App-serviceomgeving is beveiligd en vergrendeld, moet er een mechanisme om toe te staan voor DevOps releases of wijzigingen die mogelijk nodig, zoals de mogelijkheid voor het bewaken van een Web-App met behulp van Kudu.<br /><br />Een virtuele machine wordt ingesteld als een jumpbox (bastion host) met de volgende configuraties:<br /><br /><ul><li>[Antimalware-uitbreiding](/azure/security/azure-security-antimalware)</li><li>[Log Analytics bewaking extensie](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Extensie voor diagnostische gegevens VM](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[BitLocker-versleutelde schijf](/azure/security/azure-security-disk-encryption)</li></ul>Met Azure Key Vault wordt uitgelijnd met Azure Government, PCI DSS en HIPAA-vereisten.|
 
 
 
@@ -177,7 +177,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **Voor klanten met Sleutelkluis:**<br /><br />Microsoft Azure zorgt ervoor dat de klant sleutelkluizen zijn logisch van elkaar zijn afgezonderd en logisch is geïsoleerd van het beheervlak van de Sleutelkluis-service. Sleutelkluis is zodanig ontworpen dat Microsoft geen permanente toegang tot de sleutelkluis van de klant heeft. <br /><br />Sleutels worden beveiligd door Microsoft Azure industriestandaard algoritmen, sleutellengten en hardware security modules (HSM's).<br /><br />Een sleutel die wordt opgeslagen in Microsoft Azure Key Vault kan worden gebruikt om een andere sleutel te beveiligen. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore bevat documentatie die u laten zien en helpen bij het implementeren van een beveiligde sleutel oplossing ter bescherming van de demo CHD.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore bevat documentatie die u laten zien en helpen bij het implementeren van een beveiligde sleutel oplossing ter bescherming van de demo CHD.|
 
 
 
@@ -196,7 +196,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **Voor klanten met Sleutelkluis:**<br /><br />Microsoft Azure zorgt ervoor dat de klant sleutelkluizen zijn logisch van elkaar zijn afgezonderd en logisch is geïsoleerd van het beheervlak van de Sleutelkluis-service. Sleutelkluis is zodanig ontworpen dat Microsoft geen permanente toegang tot de sleutelkluis van de klant heeft. <br /><br />Sleutels worden beveiligd door Microsoft Azure industriestandaard algoritmen, sleutellengten en hardware security modules (HSM's).<br /><br />Een sleutel die wordt opgeslagen in Microsoft Azure Key Vault kan worden gebruikt om een andere sleutel te beveiligen. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore bevat documentatie die u laten zien en helpen bij het implementeren van een beveiligde sleutel oplossing ter bescherming van de demo CHD.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore bevat documentatie die u laten zien en helpen bij het implementeren van een beveiligde sleutel oplossing ter bescherming van de demo CHD.|
 
 
 
@@ -210,7 +210,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **Voor klanten met Sleutelkluis:**<br /><br />Sleutelkluis ondersteunt gedetailleerde toegangsbeleid, waardoor de eigenaar van een Sleutelkluis toegang verlenen tot specifieke functionaliteit specifieke bewerkingen aan specifieke entiteiten uit te voeren. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Contoso Webstore Sleutelbeheer is geïsoleerd, zodat één gebruikersaccount (admin ##@contosowebstore.com).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Contoso Webstore Sleutelbeheer is geïsoleerd, zodat één gebruikersaccount (admin ##@contosowebstore.com).|
 
 
 
@@ -229,7 +229,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **Voor klanten met Sleutelkluis:**<br /><br />Sleutels worden opgeslagen in de specifieke sleutelkluizen geïdentificeerd door de klant.<br /><br />Sleutelkluis toegankelijk tegelijk en globaal door meerdere toepassingen die vermindert de noodzaak voor het kopiëren van een sleutel en opslaan op meerdere locaties. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -243,7 +243,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **Voor klanten met Sleutelkluis:**<br /><br />Sleutels worden opgeslagen in de specifieke sleutelkluizen geïdentificeerd door de klant. <br /><br />Sleutelkluis toegankelijk tegelijk en globaal door meerdere toepassingen die vermindert de noodzaak voor het kopiëren van een sleutel en opslaan op meerdere locaties. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -259,7 +259,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -272,7 +272,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **Voor klanten met Sleutelkluis:** <br /><br />Bij het genereren van sleutels in de Sleutelkluis, is Azure verantwoordelijk voor het genereren van sleutels per specificaties van de klant. Sleutels worden gegenereerd met behulp van een HSM. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -285,7 +285,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **Voor klanten met Sleutelkluis:**<br /><br />Het bring uw eigen hulpprogramma key (BYOK) kapselt de sleutel van de klant en gericht is op een specifieke beveiligings-kluis die is gekoppeld aan een specifieke Azure-abonnement. De sleutel kan alleen worden geïmporteerd in het opgegeven abonnement sleutelkluis, in de opgegeven regio. Dit proces maakt gebruik van de procedures van de versleuteling geleverd door de hardwarefabrikant. Klanten ontvangen een melding dat de overdracht voltooid is. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -298,7 +298,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **Voor klanten met Sleutelkluis:**<br /><br />Sleutels worden opgeslagen in de HSM's en zijn beveiligd met de cryptografische beveiliging van de fabrikant van de hardware. De metagegevens voor sleutels worden opgeslagen in Azure Storage in een versleutelde status die uniek is voor elke sleutelkluis. <br /><br /> |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -311,7 +311,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **Voor klanten met Sleutelkluis:**<br /><br />Sleutelkluis ondersteunt functionaliteit om te werken of draaien sleutels, die is gedefinieerd door de klant. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -327,7 +327,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **Voor klanten met Sleutelkluis:**<br /><br />Sleutelkluis ondersteunt functionaliteit voor het buiten gebruik stelt of vervangen, die is gedefinieerd door de klant. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -343,7 +343,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -356,7 +356,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **Voor klanten met Sleutelkluis:**<br /><br />Sleutel kluizen logisch van elkaar worden gescheiden en bieden geen ondersteuning voor autorisatie van cross-directory. Als gevolg hiervan wordt niet-geautoriseerde vervanging voorkomen. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -369,7 +369,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Contoso Webstore Sleutelbeheer is geïsoleerd, zodat één gebruikersaccount (admin ##@contosowebstore.com).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Contoso Webstore Sleutelbeheer is geïsoleerd, zodat één gebruikersaccount (admin ##@contosowebstore.com).|
 
 
 
@@ -382,7 +382,7 @@ Voor gevoelige verificatiegegevens bevat de gegevens, zoals vermeld in de volgen
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Sleutelkluis voor alle Sleutelbeheer. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 

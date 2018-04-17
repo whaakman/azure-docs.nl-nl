@@ -1,28 +1,28 @@
 ---
-title: Apparaattoegang beheren voor Azure IoT Hub apparaat-inrichtingsservice | Microsoft Docs
-description: Het Apparaattoegang tot uw service DP's in de Azure Portal te trekken
+title: Hoe u een apparaat uit Azure IoT Hub apparaat-inrichtingsservice disenroll
+description: Hoe u een apparaat om te voorkomen dat inrichting via Azure IoT Hub apparaat-inrichtingsservice disenroll
 services: iot-dps
-keywords: 
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 12/22/2017
+keywords: ''
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/05/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 12aebf3a56aa7469a765ab6fc67aa65b254db71a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 50074eaecacf603d2bc6170183fd632b4a1ab2d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Apparaattoegang tot uw provisioning-service in de Azure portal intrekken
+# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Hoe u een apparaat uit Azure IoT Hub apparaat-inrichtingsservice disenroll
 
-Goed beheer van het apparaat is van cruciaal belang voor hoogwaardig systemen zoals IoT-oplossingen. Er is een best practice voor dergelijke systemen een duidelijke plan van hoe u toegang voor apparaten in te trekken wanneer hun referenties of een shared access signatures (SAS)-token of een X.509-certificaat is gecompromitteerd. In dit artikel wordt beschreven hoe apparaten toegang op de stap inrichting in te trekken.
+Goed beheer van het apparaat is van cruciaal belang voor hoogwaardig systemen zoals IoT-oplossingen. Er is een best practice voor dergelijke systemen een duidelijke plan van hoe u toegang voor apparaten in te trekken wanneer hun referenties of een shared access signatures (SAS)-token of een X.509-certificaat is gecompromitteerd. 
 
-Zie voor meer informatie over het Apparaattoegang tot een IoT-hub intrekken nadat het apparaat is ingericht, [apparaten uitschakelen](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+Inschrijving in de Service voor het inrichten van apparaten kunt u een apparaat om te worden [automatisch ingerichte](concepts-auto-provisioning.md). Een ingerichte apparaat is een die is geregistreerd met IoT Hub, zodat het voor het ontvangen van de eerste [apparaat twin](~/articles/iot-hub/iot-hub-devguide-device-twins.md) status en beginnen met het melden van telemetriegegevens. In dit artikel wordt beschreven hoe een apparaat van de inrichting service-exemplaar te voorkomen dat deze opnieuw wordt ingericht in de toekomst disenroll.
 
 > [!NOTE] 
 > Let op het beleid voor opnieuw proberen van apparaten die u toegang voor intrekken. Een apparaat met een oneindige herhaling-beleid kan bijvoorbeeld continu proberen te registreren bij de inrichting service. Deze situatie verbruikt-serviceresources en mogelijk van invloed op prestaties.
@@ -37,10 +37,10 @@ Tijdelijk afgekeurde het apparaat door de vermelding van de registratie uit te s
 2. Selecteer de inrichting service die u wilt uw apparaat bij afgekeurde in de lijst met resources.
 3. Selecteer in de inrichting service **inschrijvingen beheren**, en selecteer vervolgens de **afzonderlijke inschrijvingen** tabblad.
 4. Selecteer de vermelding van de inschrijving voor het apparaat dat u wilt afgekeurde. 
-5. Selecteer **uitschakelen** op de **invoer inschakelen** switch en selecteer vervolgens **opslaan**.  
+5. Blader naar beneden en selecteer **uitschakelen** op de **invoer inschakelen** switch en selecteer vervolgens **opslaan**.  
 
-   ![Uitschakelen van afzonderlijke inschrijving vermelding in de portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
-    
+   [![Uitschakelen van afzonderlijke inschrijving vermelding in de portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+
 Aan de zwarte het apparaat permanent door de registratie-item te verwijderen:
 
 1. Aanmelden bij de Azure portal en selecteert u een **alle resources** in het menu links.
@@ -64,9 +64,8 @@ Tijdelijk afgekeurde het certificaat door de registratie-groep uit te schakelen:
 1. Aanmelden bij de Azure portal en selecteert u een **alle resources** in het menu links.
 2. Selecteer de inrichting service die u wilt het handtekeningcertificaat van afgekeurde in de lijst met resources.
 3. Selecteer in de inrichting service **inschrijvingen beheren**, en selecteer vervolgens de **inschrijving groepen** tabblad.
-4. Selecteer de inschrijvingsgroep voor het certificaat dat u wilt afgekeurde.
-5. Selecteer in de vermelding van de groep inschrijving **groep bewerken**.
-6. Selecteer **uitschakelen** op de **invoer inschakelen** switch en selecteer vervolgens **opslaan**.  
+4. De registratie-groep met het certificaat dat u wilt afgekeurde selecteren.
+5. Selecteer **uitschakelen** op de **invoer inschakelen** switch en selecteer vervolgens **opslaan**.  
 
    ![Schakel inschrijving groepsvermelding in de portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
@@ -96,12 +95,15 @@ Als u wilt een afzonderlijk apparaat in een inschrijvingsgroep afgekeurde, de vo
 2. Selecteer de inrichting service met de registratie-groep voor het apparaat dat u wilt afgekeurde uit de lijst met resources.
 3. Selecteer in de inrichting service **inschrijvingen beheren**, en selecteer vervolgens de **afzonderlijke inschrijvingen** tabblad.
 4. Selecteer de **toevoegen** bovenaan op de knop. 
-5. Selecteer **X.509** als het beveiligingsmechanisme voor voor het apparaat en het uploaden van het certificaat voor apparaten. Dit is de ondertekende Eindentiteit certificaat op het apparaat geïnstalleerd. Het apparaat wordt gebruikt voor het genereren van certificaten voor clientverificatie.
+5. Selecteer **X.509** als de attestation-mechanisme voor het apparaat en het uploaden van het certificaat voor apparaten. Dit is de ondertekende Eindentiteit certificaat op het apparaat geïnstalleerd. Het apparaat wordt gebruikt voor het genereren van certificaten voor clientverificatie.
 6. Voor **IoT Hub apparaat-ID**, geef de ID voor het apparaat. 
 7. Selecteer **uitschakelen** op de **invoer inschakelen** switch en selecteer vervolgens **opslaan**. 
 
-   ![Uitschakelen van afzonderlijke inschrijving vermelding in de portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+    [![Gebruik afzonderlijke inschrijving-vermelding voor het apparaat van de groepsinschrijving in de portal uitschakelen uitgeschakeld](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 Wanneer u uw registratie met succes maakt, ziet u het apparaat worden weergegeven op de **afzonderlijke inschrijvingen** tabblad.
 
+## <a name="next-steps"></a>Volgende stappen
+
+Disenrollment maakt ook deel uit van het grotere inrichting proces. Een apparaat opheffen van inrichting omvat zowel disenrollment van de inrichting service en als uit iothub. Zie voor meer informatie over het hele proces, [hoe apparaten die zijn eerder automatisch ingerichte inrichting ervan ongedaan](how-to-unprovision-devices.md) 
 

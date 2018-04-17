@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Apparaat simulatie scenario
 
@@ -41,11 +41,11 @@ Als u de simulatie van het apparaat nog niet hebt geïmplementeerd, maar u moet 
 
 U kunt configureren en uitvoeren van de simulatie apparaat volledig uit in het dashboard. Open het dashboard van de IoT-Suite [ingerichte oplossingen](https://www.azureiotsuite.com/) pagina. Klik op **starten** onder uw nieuwe apparaat simulatie-implementatie.
 
-### <a name="target-iot-hub"></a>Target IoT Hub
+### <a name="target-iot-hub"></a>Doel IoT-Hub
 
 U kunt simulatie apparaat gebruiken met een vooraf is ingericht iothub of met andere IoT-hub:
 
-![Target IoT Hub](media/iot-suite-device-simulation-explore/targethub.png)
+![Doel IoT-Hub](media/iot-suite-device-simulation-explore/targethub.png)
 
 > [!NOTE]
 > De optie voor het gebruik van een vooraf is ingericht IoT-Hub is alleen beschikbaar als u hebt gekozen voor het maken van een nieuwe IoT Hub wanneer u simulatie apparaat hebt geïmplementeerd. Als u een IoT-hub hebt, kunt u altijd een nieuwe van maken de [Azure-portal](https://portal.azure.com).
@@ -69,22 +69,22 @@ Het model kunt u kiezen van het type apparaat om te simuleren. U kunt een van de
 
 Apparaat simulatie biedt drie modellen van de vooraf geconfigureerde apparaten. Apparaatmodellen voor Chillers liften en vrachtwagens zijn beschikbaar.
 
-Vooraf geconfigureerde apparaatmodellen bevatten meerdere sensoren met een vooraf bepaald telemetrie frequentie. U kunt de frequentie telemetrie voor deze apparaten niet aanpassen.
+Vooraf geconfigureerde apparaatmodellen bestaan uit meerdere sensoren met geavanceerde gedrag gedefinieerd in een JavaScript-bestand. Deze aangepaste problemen worden niet ondersteund in de web-UI. 
 
 De volgende tabel bevat een overzicht van de configuraties voor elke vooraf geconfigureerde Apparaatmodel:
 
-| Apparaatmodel | Temperatuursensor | Eenheid | Telemetrie-frequentie
-| -------------| ------ | -----| --------------------|
-| Koelunit | Vochtigheid | % | 5 seconden |
-| | pressure | psig | 5 seconden |
-| | Temperatuur | F | 5 seconden |
-| Lift | Floor | | 5 seconden |
-| | trillingen | mm | 5 seconden |
-| | Temperatuur | F | 5 seconden |
-| Vrachtwagen | Breedtegraad | | 3 seconden |
-| | Lengtegraad | | 3 seconden |
-| | Snelheid | mph | 5 seconden |
-| | cargotemperature | F | 5 seconden |
+| Apparaatmodel | Temperatuursensor | Eenheid | 
+| -------------| ------ | -----| 
+| Koelunit | Vochtigheid | % |
+| | pressure | psig | 
+| | Temperatuur | F | 
+| Lift | Floor | 
+| | trillingen | mm | 
+| | Temperatuur | F | 
+| Vrachtwagen | Breedtegraad | |
+| | Lengtegraad | | 
+| | Snelheid | mph | 
+| | cargotemperature | F | 
 
 #### <a name="custom-device-model"></a>Aangepaste Apparaatmodel
 
@@ -106,7 +106,7 @@ Aangepaste sensoren hebben de volgende eigenschappen:
 
 ### <a name="number-of-devices"></a>Aantal apparaten
 
-Apparaat simulatie kunt op dit moment u maximaal 1000 apparaten te simuleren.
+Apparaat simulatie kunt op dit moment u maximaal 20.000 apparaten simuleren.
 
 ![Aantal apparaten](media/iot-suite-device-simulation-explore/numberofdevices.png)
 

@@ -3,7 +3,7 @@
 
 * De conversie kan niet ongedaan worden gemaakt. 
 
-* Houd er rekening mee dat elke worden gebruikers met de [Virtual Machine Contributor](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) rol kan niet worden de VM-grootte wijzigen (zoals ze vooraf conversie kunnen). Dit is omdat de virtuele machines met beheerde schijven moeten de gebruiker gemachtigd is Microsoft.Compute/disks/write op de OS-schijven.
+* Houd er rekening mee dat elke worden gebruikers met de [Virtual Machine Contributor](../articles/role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol kan niet worden de VM-grootte wijzigen (zoals ze vooraf conversie kunnen). Dit is omdat de virtuele machines met beheerde schijven moeten de gebruiker gemachtigd is Microsoft.Compute/disks/write op de OS-schijven.
 
 * Test de conversie. Migreer de test-VM voordat u de migratie in de productieomgeving uitvoert.
 

@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: mlee3gsd
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b12bee87-2268-40c2-81bf-ab27588b32e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Power BI gebruiken met SQL datawarehouse
 Als met Azure SQL Database kan SQL Data Warehouse Direct Connect gebruiker gebruikmaken van krachtige logische naar beneden duwen naast de analytische functies van Power BI.  Query's worden met Direct Connect terug naar uw Azure SQL Data Warehouse in realtime verzonden als u de gegevens verkennen.  Deze, gecombineerd met de schaal van SQL Data Warehouse, kunnen gebruikers dynamische om rapporten te maken in minuten op basis van terabytes aan gegevens.  Bovendien kan de introductie van de openen in Power BI-knop gebruikers direct verbinding maken met Power BI hun SQL Data Warehouse zonder gegevens te verzamelen uit andere delen van Azure.

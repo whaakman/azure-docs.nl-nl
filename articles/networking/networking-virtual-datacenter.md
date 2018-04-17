@@ -9,13 +9,13 @@ ms.service: virtual-network
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 1aab466a06711a334df0584334e5229b33f57754
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Virtuele Microsoft Azure-Datacenter: Een netwerk-perspectief
 **Microsoft Azure**: sneller, geld besparen, integreren lokale apps en gegevens
@@ -97,7 +97,7 @@ Een [ **Azure Site-naar-Site VPN** ] [ VPN] is een onderling verbonden service v
 ExpressRoute-verbindingen implementeren omvat bezighouden met een ExpressRoute-serviceprovider. Voor klanten die willen snel starten, dit wordt meestal in eerste instantie Site-naar-Site VPN-verbinding tot stand brengen van verbindingen tussen de vDC gebruikt en on-premises resources, en vervolgens migreren naar een ExpressRoute-verbinding.
 
 ##### <a name="connectivity-within-the-cloud"></a>*Connectiviteit in de cloud*
-[VNets] [ VNet] en [VNet-Peering] [ VNetPeering] de netwerken connectiviteit basisservices binnen een vDC zijn. De grens van een natuurlijke van isolatie voor vDC-resources wordt gegarandeerd dat een VNet en VNet-peering kunt onderling tussen verschillende VNets binnen dezelfde Azure-regio. Beheer van netwerkverkeer binnen een VNet en tussen VNets moet overeenkomen met een set beveiligingsregels opgegeven met de Access Control Lists ([Netwerkbeveiligingsgroep][NSG]), [virtuele netwerkapparaten][NVA], en aangepaste routeringstabellen ([UDR][UDR]).
+[VNets] [ VNet] en [VNet-Peering] [ VNetPeering] de netwerken connectiviteit basisservices binnen een vDC zijn. De grens van een natuurlijke van isolatie voor vDC-resources wordt gegarandeerd dat een VNet en VNet-peering kunt onderling tussen verschillende VNets in dezelfde Azure-regio of zelfs meerdere regio's. Beheer van netwerkverkeer binnen een VNet en tussen VNets moet overeenkomen met een set beveiligingsregels opgegeven met de Access Control Lists ([Netwerkbeveiligingsgroep][NSG]), [virtuele netwerkapparaten][NVA], en aangepaste routeringstabellen ([UDR][UDR]).
 
 ## <a name="virtual-data-center-overview"></a>Virtuele Data Center-overzicht
 
@@ -124,7 +124,7 @@ De rol van elke spoke kan zijn op verschillende typen werkbelastingen host. De s
 ##### <a name="subscription-limits-and-multiple-hubs"></a>Abonnementen en meerdere hubs
 Elk onderdeel, ongeacht het type, wordt in Azure worden geïmplementeerd in een Azure-abonnement. De isolatie van Azure-componenten in verschillende Azure-abonnementen kunt voldoen aan de vereisten van verschillende LOB's, zoals het gedifferentieerde niveaus van toegang en autorisatie in te stellen.
 
-Een enkele vDC kunt schalen naar groot aantal spaken, hoewel net als bij elke IT-systeem, zijn er beperkingen voor platforms gelden. De implementatie van de hub is gebonden aan een specifieke Azure-abonnement, met beperkingen en limieten (bijvoorbeeld een maximum aantal VNet-peerings - Zie [Azure-abonnement en Servicelimieten, quota's en beperkingen] [ Limits] voor meer informatie). In gevallen waar limieten mogelijk een probleem, de architectuur kan opschalen verder omhoog door het model van een enkele hub-spaken uitbreiden naar een cluster van hub en spaken. Meerdere hubs in een of meer Azure-regio's kunnen ook worden verbonden met Express Route of site-naar-site VPN.
+Een enkele vDC kunt schalen naar groot aantal spaken, hoewel net als bij elke IT-systeem, zijn er beperkingen voor platforms gelden. De implementatie van de hub is gebonden aan een specifieke Azure-abonnement, met beperkingen en limieten (bijvoorbeeld een maximum aantal VNet-peerings - Zie [Azure-abonnement en Servicelimieten, quota's en beperkingen] [ Limits] voor meer informatie). In gevallen waar limieten mogelijk een probleem, de architectuur kan opschalen verder omhoog door het model van een enkele hub-spaken uitbreiden naar een cluster van hub en spaken. Meerdere hubs in een of meer Azure-regio's kunnen ook worden verbonden met VNet-Peering, ExpressRoute of site-naar-site VPN.
 
 [![2]][2]
 
@@ -191,10 +191,10 @@ Onderdelen van de infrastructuur bevatten de volgende functionaliteit:
 -   [**Virtueel netwerk**][VPN]. Virtuele netwerken zijn een van de belangrijkste onderdelen van een vDC en kunnen u een grens van de isolatie van verkeer op de Azure-platform maken. Een virtueel netwerk bestaat uit één of meerdere virtuele netwerksegmenten, elk met een bepaald IP-netwerk voorvoegsel (subnet). Het virtuele netwerk definieert een interne perimeter-gebied waar IaaS virtuele machines en PaaS-services besloten communicatie kunnen maken. Virtuele machines (en PaaS-services) in een virtueel netwerk kan niet rechtstreeks met virtuele machines communiceren (en PaaS-services) in een ander virtueel netwerk, zelfs als beide virtuele netwerken van dezelfde klant onder hetzelfde abonnement worden gemaakt. Isolatie is een kritieke eigenschap die ervoor zorgt dat de klant VM's en communicatie blijft persoonlijke binnen een virtueel netwerk.
 -   [**UDR**][UDR]. Verkeer in een virtueel netwerk wordt doorgestuurd op basis van de routeringstabel system standaard. Een Route voor het definiëren van de gebruiker is een aangepaste routetabel netwerkbeheerders kunt koppelen aan een of meer subnetten overschrijven het gedrag van de routeringstabel van systeem en het definiëren van een communicatiepad binnen een virtueel netwerk. De aanwezigheid van udr's zorgt ervoor dat uitgaande verkeer van de doorvoer spoke door specifieke aangepaste VM's en/of virtuele netwerkapparaten en netwerktaakverdelers aanwezig in de hub en in de spokes.
 -   [**NSG**][NSG]. Een Netwerkbeveiligingsgroep is een lijst met beveiligingsregels voor verbindingen die fungeren als verkeer filteren op IP-bronnen, doel-IP-protocollen, bron-IP-poorten en doel-IP-poorten. Het NSG kan worden toegepast op een subnet, een virtuele NIC-kaart die is gekoppeld aan een Azure VM of beide. Het nsg's zijn essentieel voor een juiste datatransportbesturing implementeren in de hub en in de spokes. Het niveau van beveiliging die worden geboden door de NSG is een functie van welke poorten u opent, en wat is het doel. Klanten wordt aangeraden extra VM filters met een host gebaseerde firewall zoals IPtables of de Windows Firewall.
--   **DNS**. De naamomzetting van resources in de VNets van een vDC is beschikbaar via DNS. Het bereik van naamomzetting van de standaard DNS is beperkt tot het VNet. Normaal gesproken een aangepaste DNS-service moet worden geïmplementeerd in de hub als onderdeel van algemene services, maar de belangrijkste consumenten van DNS-services zich in de spoke bevinden. Indien nodig, kunnen klanten een hiërarchische structuur voor DNS-kunnen maken met de overdracht van DNS-zones naar de spokes.
+-   [**DNS**][DNS]. De naamomzetting van resources in de VNets van een vDC is beschikbaar via DNS. Azure biedt DNS-services voor beide [openbare][DNS] en [persoonlijke] [ PrivateDNS] naamomzetting. Persoonlijke zones naamomzetting zowel binnen een virtueel netwerk en tussen virtuele netwerken. U kunt persoonlijke zones niet alleen span tussen virtuele netwerken in dezelfde regio, maar ook in regio's en -abonnementen hebben. Voor de omzetting van openbare biedt Azure DNS een hostingservice voor DNS-domeinen naamomzetting met behulp van Microsoft Azure-infrastructuur. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services.
 -   [** Abonnement] [ SubMgmt] en [resourcegroep Management][RGMgmt]**. Een abonnement definieert een natuurlijke grens voor het maken van meerdere groepen van resources in Azure. Resources in een abonnement worden samen in logische containers met de naam resourcegroepen worden samengesteld. De resourcegroep vertegenwoordigt een logische groep om de resources van een vDC te organiseren.
 -   [**RBAC**][RBAC]. Via RBAC is het mogelijk te kaart organisatierol samen met de rechten voor toegang tot specifieke Azure-resources, zodat u kunt gebruikers beperken tot alleen een bepaalde subset van acties. Met RBAC, kunt u de juiste rol toewijzen aan gebruikers, groepen en toepassingen binnen het bereik van de relevante toegang verlenen. Het bereik van een roltoewijzing kan dit een Azure-abonnement, resourcegroep of één resource. RBAC kunt overname van machtigingen. Een rol die is toegewezen aan een bovenliggend bereik verleent toegang ook naar de onderliggende elementen erin opgenomen. Met RBAC kunt u taken scheiden en de hoeveelheid toegang verlenen aan gebruikers die ze nodig hebben voor het uitvoeren van hun taken. Bijvoorbeeld, gebruikmaken van RBAC te laten een werknemer virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren.
--   [**VNet-Peering**][VNetPeering]. De fundamentele functie gebruikt voor het maken van de infrastructuur van een vDC is VNet-Peering, een mechanisme dat verbinding twee virtuele netwerken (vnet's) in dezelfde regio via het netwerk van het Azure Datacenter maakt.
+-   [**VNet-Peering**][VNetPeering]. De fundamentele functie gebruikt voor het maken van de infrastructuur van een vDC is VNet-Peering, een mechanisme dat verbinding twee virtuele netwerken (vnet's maakt) in dezelfde regio via het netwerk van Azure data center of met behulp van de Azure world wide-backbone tussen regio's.
 
 #### <a name="component-type-perimeter-networks"></a>Onderdeeltype: Perimeternetwerken
 [Perimeternetwerk] [ DMZ] componenten (ook wel een DMZ-netwerk) kunt u de netwerkverbinding voorzien van uw on-premises of fysieke datacenternetwerken, samen met eventuele connectiviteit en naar Internet. Het is ook waar uw netwerk- en teams waarschijnlijk te besteden aan de meeste van de tijd.
@@ -244,6 +244,8 @@ Bewaking componenten bieden zichtbaarheid en waarschuwingen van alle andere onde
 
 Azure biedt verschillende soorten logboekregistratie en controle van services voor het bijhouden van het gedrag van Azure gehoste bronnen. Beheer en controle van workloads in Azure is gebaseerde logboekgegevens niet alleen op het verzamelen, maar ook de mogelijkheid acties starten op basis van specifieke gemelde gebeurtenissen.
 
+[**Monitor voor Azure** ] [ Monitor] -Azure bevat meerdere services die afzonderlijk uitvoeren van een bepaalde rol of de taak in de ruimte bewaking. Deze services leveren samen een uitgebreide oplossing voor het verzamelen, analyseren en fungeert voor telemetrie van uw toepassing en de Azure-resources die deze ondersteunen. Ze kunnen ook worden gebruikt voor het bewaken van kritieke lokale bronnen om te voorzien van een hybride omgeving bewaken. Kennis van de hulpprogramma's en gegevens die beschikbaar zijn, is de eerste stap bij het ontwikkelen van een strategie voor een volledige controle voor uw toepassing.
+
 Er zijn twee belangrijke gebeurtenistypen Logboeken in Azure:
 
 -   [**Activiteitenlogboeken** ] [ ActLog] (ook als 'Operationele logboek' genoemd) bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in de Azure-abonnement. Deze logboeken rapporteert de besturingselement-vlak-gebeurtenissen voor uw abonnementen. Elke Azure-resource produceert controlelogboeken.
@@ -259,9 +261,11 @@ In een vDC is het zeer belangrijk voor het bijhouden van de logboeken van de nsg
 
 Alle logboeken kunnen worden opgeslagen in Azure Storage-Accounts voor controle, statische analyses of back-updoeleinden. Wanneer u de logboeken worden opgeslagen in Azure storage-account, kunnen klanten verschillende soorten frameworks gebruiken als u wilt ophalen, voorbereiding, analyseren en visualiseren van deze gegevens om te rapporteren van de status en gezondheid van cloudresources.
 
-Grote ondernemingen moeten al een standaard framework voor het bewaken van on-premises systemen hebt aangeschaft, en dat framework voor het integreren van logboeken die worden gegenereerd door cloudimplementaties kunnen uitbreiden. Voor organisaties die u wilt behouden van de logboekregistratie in de cloud, [logboekanalyse] [ LogAnalytics] is een uitstekende keuze. Aangezien logboekanalyse is geïmplementeerd als een cloudservice, kunt u laten actief en werkend snel met minimale investering in infrastructuurservices. Log Analytics kan ook worden geïntegreerd met System Center-onderdelen, zoals System Center Operations Manager uit te breiden van uw bestaande investeringen management in de cloud.
+Grote ondernemingen moeten al een standaard framework voor het bewaken van on-premises systemen hebt aangeschaft, en dat framework voor het integreren van logboeken die worden gegenereerd door cloudimplementaties kunnen uitbreiden. Organisaties die willen houden de logboekregistratie in de cloud, is Log Analytics [LogAnalytics] een uitstekende keuze. Aangezien logboekanalyse is geïmplementeerd als een cloudservice, kunt u laten actief en werkend snel met minimale investering in infrastructuurservices. Log Analytics kan ook worden geïntegreerd met System Center-onderdelen, zoals System Center Operations Manager uit te breiden van uw bestaande investeringen management in de cloud.
 
 Log Analytics is een service in Azure die u helpt bij het verzamelen, correleren, zoeken en reageren op logboek en prestaties gegevens die zijn gegenereerd door de besturingssystemen, toepassingen en onderdelen van cloud-infrastructuur. Dit biedt klanten realtime operationeel inzicht geïntegreerd zoeken en aangepaste dashboards gebruiken voor het analyseren van alle records tussen uw werkbelastingen in een vDC.
+
+De [netwerk Performance Monitor (NPM)] [ NPM] oplossing in OMS kan bieden gedetailleerde informatie end-to-end, met inbegrip van één enkele weergave van uw Azure-netwerken en on-premises netwerken. Met specifieke monitors voor ExpressRoute- en openbare services.
 
 #### <a name="component-type-workloads"></a>Onderdeeltype: werkbelastingen
 Onderdelen van de werkbelasting zijn waarin de werkelijke toepassingen en services zich bevinden. Het is ook waar ontwikkelteams toepassing te besteden aan de meeste van de tijd.
@@ -276,7 +280,7 @@ Line-of-business-toepassingen zijn computertoepassingen die cruciaal zijn voor d
 -   **Gegevensgestuurde**. LOB-toepassingen zijn intensieve met regelmatige toegang tot de databases of andere opslag van gegevens.
 -   **Geïntegreerde**. LOB-toepassingen aanbieding integratie met andere systemen binnen of buiten de organisatie.
 
-**Klantgerichte websites (Internet of een intern facing)** de meeste toepassingen die interactie met Internet hebben zijn websites. Azure biedt de mogelijkheid voor het uitvoeren van een website op een IaaS-VM of vanaf een [Azure Web Apps] [ WebApps] site (PaaS). Azure Web Apps ondersteuning voor integratie met VNets die de implementatie van de Web-Apps in de spoke van een vDC toestaan. Met de integratie van VNET, u hoeft niet te blootstellen van een Internet-eindpunt voor uw toepassingen, maar kunt in plaats daarvan het resources persoonlijke niet-routeerbaar internetadres van uw persoonlijke VNet gebruiken.
+**Klantgerichte websites (Internet of een intern facing)** de meeste toepassingen die interactie met Internet hebben zijn websites. Azure biedt de mogelijkheid voor het uitvoeren van een website op een IaaS-VM of vanaf een [Azure Web Apps] [ WebApps] site (PaaS). Azure Web Apps ondersteuning voor integratie met VNets die de implementatie van de Web-Apps in de spoke van een vDC toestaan. Als interne gerichte websites met de integratie VNET kijken hoeft u niet een Internet-eindpunt voor uw toepassingen beschikbaar, maar kunt in plaats daarvan de resources via persoonlijke niet internet routeerbare adressen van uw persoonlijke VNet gebruiken.
 
 **BIG gegevensanalyse** wanneer gegevens moeten worden uitgebreid naar een groot volume, databases kunnen niet omhoog schalen goed. Hadoop-technologie biedt een systeem in gedistribueerde query's parallel worden uitgevoerd op een groot aantal knooppunten. Klanten hebben de mogelijkheid om uit te voeren data-workloads in IaaS VM's of PaaS ([HDInsight][HDI]). HDInsight ondersteunt implementeren in een VNet op basis van locatie, kunnen worden geïmplementeerd op een cluster in een spoke van de vDC.
 
@@ -308,11 +312,12 @@ De uitvoering van een noodherstelplan sterk betrekking heeft op het type werkbel
 
 Synchronisatie of heartbeat-bewaking van toepassingen in andere Copy-VDC's moet communicatie ertussen. Twee Copy-VDC's in verschillende regio's kunnen worden verbonden via:
 
+-   VNet-Peering - VNet-Peering hubs kan verbinding tussen regio's
 -   ExpressRoute persoonlijke peering wanneer de vDC-hubs zijn verbonden met hetzelfde ExpressRoute-circuit
 -   meerdere ExpressRoute-circuits die zijn verbonden via uw bedrijfsnetwerken en uw mesh vDC verbonden met de ExpressRoute-circuits
 -   Site-naar-Site VPN-verbindingen tussen uw vDC-hubs in elke Azure-regio
 
-De ExpressRoute-verbinding is meestal de beste manier vanwege de hogere bandbreedte en consistente latentie wanneer bij doorvoer over de Microsoft-backbone.
+VNet-Peering of ExpressRoute-verbindingen zijn meestal de beste manier vanwege de hogere bandbreedte en consistente latentie wanneer bij doorvoer over de Microsoft-backbone.
 
 Er is geen magische recept valideren van een toepassing die zijn gedistribueerd tussen twee (of meer) andere Copy-VDC's zich in verschillende regio's. Klanten moeten kwalificatie netwerktests om te controleren of de latentie en bandbreedte van de verbindingen en de doelserver, of synchrone of asynchrone gegevensreplicatie geschikt is en welke de optimale beoogde hersteltijd (RTO) voor uw werkbelastingen kan worden uitgevoerd.
 
@@ -330,11 +335,11 @@ De volgende functies zijn in dit document besproken. Klik op de koppelingen voor
 | | | |
 |-|-|-|
 |Network-functies|Taakverdeling|Connectiviteit|
-|[Virtuele netwerken in Azure][VNet]</br>[Netwerkbeveiligingsgroepen][NSG]</br>[NSG Logs][NSGLog]</br>[De gebruiker gedefinieerde routering][UDR]</br>[Virtuele netwerkapparaten][NVA]</br>[Openbare IP-adressen][PIP]|[Azure Load Balancer (N3) ][ALB]</br>[Toepassingsgateway (N7) ][AppGW]</br>[Web Application Firewall][WAF]</br>[Azure Traffic Manager][TM] |[VNet-Peering][VNetPeering]</br>[Virtueel particulier netwerk][VPN]</br>[ExpressRoute][ExR]
+|[Virtuele netwerken in Azure][VNet]</br>[Netwerkbeveiligingsgroepen][NSG]</br>[NSG-Logboeken][NSGLog]</br>[De gebruiker gedefinieerde routering][UDR]</br>[Virtuele netwerkapparaten][NVA]</br>[Openbare IP-adressen][PIP]</br>[DNS]|[Azure Load Balancer (N3) ][ALB]</br>[Toepassingsgateway (N7) ][AppGW]</br>[Web Application Firewall][WAF]</br>[Azure Traffic Manager][TM] |[VNet-Peering][VNetPeering]</br>[Virtueel particulier netwerk][VPN]</br>[ExpressRoute][ExR]
 |Identiteit</br>|Bewaking</br>|Beste praktijken</br>|
-|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Role Base Access besturingselementen][RBAC]</br>[Standaardrollen AAD][Roles] |[Activiteitenlogboeken][ActLog]</br>[Diagnostische logboeken][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[Aanbevolen procedures voor perimeter-netwerken][DMZ]</br>[Beheer van abonnementen][SubMgmt]</br>[Beheer van resourcegroep][RGMgmt]</br>[Limieten voor Azure-abonnement][Limits] |
+|[Azure Active Directory][AAD]</br>[Multi-factor Authentication][MFA]</br>[Role Base Access besturingselementen][RBAC]</br>[Standaardrollen AAD][Roles] |[Monitor voor Azure][Monitor]</br>[Activiteitenlogboeken][ActLog]</br>[Diagnostische logboeken][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br>[Netwerk-Prestatiemeter][NPM]|[Aanbevolen procedures voor perimeter-netwerken][DMZ]</br>[Beheer van abonnementen][SubMgmt]</br>[Beheer van resourcegroep][RGMgmt]</br>[Limieten voor Azure-abonnement][Limits] |
 |Andere Azure-Services|
-|[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
+|[Azure-Web-Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
 
 
@@ -358,12 +363,14 @@ De volgende functies zijn in dit document besproken. Klik op de koppelingen voor
 
 <!--Link References-->
 [Limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
-[Roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles
+[Roles]: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 [VNet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
-[NSG]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg 
+[NSG]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[DNS]: https://docs.microsoft.com/azure/dns/dns-overview
+[PrivateDNS]: https://docs.microsoft.com/azure/dns/private-dns-overview
 [VNetPeering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview 
 [UDR]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview 
-[RBAC]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
+[RBAC]: https://docs.microsoft.com/azure/role-based-access-control/overview
 [MFA]: https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication
 [AAD]: https://docs.microsoft.com/azure/active-directory/active-directory-whatis
 [VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways 
@@ -376,10 +383,12 @@ De volgende functies zijn in dit document besproken. Klik op de koppelingen voor
 [PIP]: https://docs.microsoft.com/azure/virtual-network/resource-groups-networking#public-ip-address
 [AppGW]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [WAF]: https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview
+[Monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
+[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[NPM]: https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

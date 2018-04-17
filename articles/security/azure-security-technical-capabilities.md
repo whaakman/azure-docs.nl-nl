@@ -6,7 +6,7 @@ documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -166,7 +166,7 @@ Toegangsbeheer in Azure wordt gestart vanuit het oogpunt van facturering van. De
 
 Abonnementen hebben ook een koppeling naar een map. De map definieert een set van gebruikers. Deze kunnen gebruikers van werk of school dat de map gemaakt, of ze kunnen externe gebruikers (dat wil zeggen, een Microsoft-Accounts). Abonnementen zijn toegankelijk voor een subset van de directorygebruikers die zijn toegewezen als Service-beheerder (SA) of Medebeheerder (CA); de enige uitzondering hierop is dat, omwille van de oudere Microsoft-Accounts (voorheen Windows Live ID) kan worden toegewezen als SA of CA zonder aanwezig in de map.
 
-Beveiliging gerichte bedrijven moeten zich richten op uw werknemers de exacte machtigingen die ze nodig hebben. Te veel machtigingen kunnen een account dat kwaadwillende personen worden blootgesteld. Te weinig machtigingen betekenen dat werknemers hun werk efficiënt kunnen niet ophalen. [Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) helpt dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure.
+Beveiliging gerichte bedrijven moeten zich richten op uw werknemers de exacte machtigingen die ze nodig hebben. Te veel machtigingen kunnen een account dat kwaadwillende personen worden blootgesteld. Te weinig machtigingen betekenen dat werknemers hun werk efficiënt kunnen niet ophalen. [Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) helpt dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure.
 
 ![Toegang tot beveiligde bronnen ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
@@ -227,7 +227,7 @@ Gebruik voor de virtuele machine en lokale schijfopslag Azure Disk Encryption in
 
 Services met IaaS VM's (Windows of Linux) moeten gebruiken [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) voor het versleutelen van volumes met gegevens van de klant.
 
-#### <a name="paas-v2"></a>PaaS v2
+#### <a name="paas-v2"></a>PaaS-v2
 
 Services die worden uitgevoerd op PaaS-v2 met Service Fabric via Azure disk encryption voor virtuele-Machineschaalset [VMSS] coderen van hun PaaS v2 VM's.
 

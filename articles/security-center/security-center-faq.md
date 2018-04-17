@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7bbe0945981370c15fd10e93498fcc3ee0bf1a39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen over de antwoorden op vragen over Azure Security Center, een service waarmee u detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -41,10 +41,10 @@ Security Center wordt aangeboden in twee lagen:
 
 De **gratis laag** biedt inzicht in de beveiligingsstatus van uw Azure-resources, basic beveiligingsbeleid, aanbevelingen voor beveiliging en integratie met beveiligingsproducten en services van partners.
 
-De **standaardcategorie** geavanceerde threat detectiemogelijkheden, met inbegrip van dreiging intelligence, gedragsanalyse, afwijkingsdetectie, beveiligingsincidenten en daarmee rapporten dreiging wordt toegevoegd. De Standard-laag is gratis gedurende de eerste 60 dagen. Moet u kiezen om te blijven gebruiken van de service na 60 dagen, wordt automatisch gestart kosten in rekening gebracht voor de service.  Als u wilt bijwerken, selecteert u [prijscategorie](https://docs.microsoft.com/azure/security-center/security-center-pricing) in het beveiligingsbeleid.
+De **standaardcategorie** geavanceerde threat detectiemogelijkheden, met inbegrip van dreiging intelligence, gedragsanalyse, afwijkingsdetectie, beveiligingsincidenten en daarmee rapporten dreiging wordt toegevoegd. De prijscategorie Standard is gedurende de eerste 60 dagen gratis. Moet u kiezen om te blijven gebruiken van de service na 60 dagen, wordt automatisch gestart kosten in rekening gebracht voor de service.  Als u wilt bijwerken, selecteert u [prijscategorie](https://docs.microsoft.com/azure/security-center/security-center-pricing) in het beveiligingsbeleid.
 
 ## <a name="permissions"></a>Machtigingen
-Het Azure Beveiligingscentrum gebruikt [op rollen gebaseerd toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md), dat [ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md) biedt die kunnen worden toegewezen aan gebruikers, groepen en services in Azure.
+Maakt gebruik van Azure Security Center [op rollen gebaseerde toegangsbeheer (RBAC)](../role-based-access-control/role-assignments-portal.md), waarmee u [ingebouwde rollen](../role-based-access-control/built-in-roles.md) die kunnen worden toegewezen aan gebruikers, groepen en -services in Azure.
 
 Security Center beoordeelt de configuratie van uw resources om beveiligingsproblemen en beveiligingslekken te identificeren. In Security Center ziet u alleen informatie met betrekking tot een bron wanneer u de rol van eigenaar, bijdrager of lezer voor het abonnement of resourcegroep die deel uitmaakt van een resource te worden toegewezen.
 

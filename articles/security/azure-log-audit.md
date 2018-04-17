@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure logboekregistratie en controle
 ## <a name="introduction"></a>Inleiding
 ### <a name="overview"></a>Overzicht
 Er is een reeks whitepapers, overzichten van de beveiliging, aanbevolen procedures en controlelijsten ontwikkeld om te helpen de huidige en toekomstige Azure-klanten meer informatie over en de verschillende betrekking hebben op beveiliging mogelijkheden beschikbaar zijn in gebruik en rondom de Azure-Platform. De onderwerpen in termen van breedte en diepte liggen en regelmatig worden bijgewerkt. Dit document is onderdeel van de reeks zoals samengevat in de volgende sectie Abstract.
-### <a name="azure-platform"></a>Azure Platform
+### <a name="azure-platform"></a>Azure-Platform
 Azure is een open en flexibele cloud service-platform die ondersteuning biedt voor de breedste selectie van besturingssystemen, programmeertalen, frameworks, hulpprogramma's, databases, en apparaten.
 
 U kunt bijvoorbeeld:
@@ -72,7 +72,7 @@ De volgende tabel lijsttype belangrijkste logboeken beschikbaar in Azure.
 |[AAD-rapportage](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Logboeken en rapporten|Gebruiker aanmelden activiteiten & systeem activiteit informatie over gebruikers- en groepsbeheer|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
 |[Virtuele Machine & Cloudservices](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows-gebeurtenislogboek & Linux Syslog|    Systeemgegevens van het en logboekregistratie op de virtuele machines vastgelegd en die gegevens overgebracht naar een opslagaccount van uw keuze.|   Met behulp van Windows [af](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics opslag)- en Linux in Azure monitor|
 |[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Logboekregistratie voor opslag en metrische gegevens voor een opslagaccount biedt|Biedt inzicht in de trace-aanvragen trends in gebruik analyseren en onderzoeken van problemen met uw opslagaccount.|    REST-API of de [clientbibliotheek](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
-|[NSG (Netwerkbeveiligingsgroep) stroom-Logboeken](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-indeling en ziet u per regel op basis van een binnenkomende en uitgaande stromen|Informatie weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
+|[NSG (Netwerkbeveiligingsgroep) stroom-Logboeken](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-indeling en ziet u per regel op basis van een binnenkomende en uitgaande stromen|Informatie weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep|[Netwerk-Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Toepassing inzicht](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logboeken, uitzonderingen en aangepaste diagnostische gegevens|    Application Performance (APM)-service voor webontwikkelaars op meerdere platforms.| REST-API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
 |Gegevens verwerken / beveiligingswaarschuwing| Azure Security Center-waarschuwing, Log Analytics-waarschuwing|   Informatie over beveiliging en waarschuwingen.|   REST-API's, JSON|
 
@@ -101,7 +101,7 @@ Integratiescenario 's
 
 -   Exporteren van het activiteitenlogboek met logboek-profielen [Meld Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
-U kunt een opslagaccount of [event hub naamruimte](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) die zich niet in hetzelfde abonnement als het een importeerbereik logboek. De gebruiker die de instelling configureert moet beschikken over de juiste [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) toegang tot beide abonnementen
+U kunt een opslagaccount of [event hub naamruimte](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) die zich niet in hetzelfde abonnement als het een importeerbereik logboek. De gebruiker die de instelling configureert moet beschikken over de juiste [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) toegang tot beide abonnementen
 ### <a name="azure-diagnostic-logs"></a>Azure diagnostische logboeken
 Azure logboeken met diagnostische gegevens worden gegenereerd door een resource die uitgebreide, regelmatig gegevens over de werking van de bron. De inhoud van deze logboeken varieert per resourcetype (bijvoorbeeld [Windows-gebeurtenislogboeken system](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)één categorie van diagnostische logboeken zijn voor virtuele machines en [blob, table en queue logboeken](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) categorieën van diagnostische logboeken voor storage-accounts zijn) en verschillen van het activiteitenlogboek, waarmee u inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.
 
@@ -368,7 +368,7 @@ Er zijn vier verschillende manieren van [verzamelen van Logboeken en metrische g
 |Load Balancers|    Microsoft.Network/<br>loadBalancers|    Diagnostiek|||
 |Logic Apps|    Microsoft.Logic/<br>Werkstromen|  Diagnostiek|    Diagnostiek||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Netwerkbeveiligingsgroepen|   Microsoft.Network/<br>networksecuritygroups|Diagnostiek||   [Azure Network Security Group Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Netwerkbeveiligingsgroepen|   Microsoft.Network/<br>networksecuritygroups|Diagnostiek||   [Netwerkbeveiligingsgroep Azure Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Recovery kluizen|   Microsoft.RecoveryServices/<br>Kluizen|||[Azure Recovery Services-Analytics (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Services zoeken|   Microsoft.Search/<br>searchServices|    Diagnostiek|    Diagnostiek||
 |Service Bus-naamruimte| Microsoft.ServiceBus/<br>Naamruimten|    Diagnostiek|Diagnostiek|    [Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
@@ -379,10 +379,10 @@ Er zijn vier verschillende manieren van [verzamelen van Logboeken en metrische g
 |Virtuele machines|  Microsoft.Compute/<br>Virtuele machines|  Toestelnummer|  Toestelnummer||
 ||||Diagnostiek||
 |Virtuele Machines-schaalsets|   Microsoft.Compute/<br>Virtuele machines    ||Diagnostiek||
-||Microsoft.Compute/<br>virtualMachineScaleSets/<br>Virtuele machines||||
+||Microsoft.Compute/<br>virtualMachineScaleSets /<br>Virtuele machines||||
 |Webserver-farms|Microsoft.Web/<br>serverfarms||   Diagnostiek
 |Web Sites| Microsoft.Web/<br>sites ||      Diagnostiek|    [Meer informatie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-||Microsoft.Web/<br>sites/<br>sleuven|||||
+||Microsoft.Web/<br>sites /<br>sleuven|||||
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Logboek-integratie met on-premises SIEM-systemen
