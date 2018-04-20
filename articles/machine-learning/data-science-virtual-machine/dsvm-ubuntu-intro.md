@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: f3ddebdd02d4766b83f0834979a54552f88179cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>De gegevens wetenschappelijke virtuele Machine inrichten voor Linux (Ubuntu)
 
-De gegevens wetenschappelijke virtuele Machine voor Linux is de installatiekopie van een virtuele Ubuntu-machine dat kunt u eenvoudig aan de slag met grondige learning in Azure. Hulpprogramma's voor grondige learning omvatten:
+De gegevens wetenschappelijke virtuele Machine voor Linux is een installatiekopie van een virtuele Ubuntu-machine waarmee u gemakkelijk aan de slag met machine learning, met inbegrip van grondige learning, in Azure. Hulpprogramma's voor grondige learning omvatten:
 
   * [Caffe](http://caffe.berkeleyvision.org/): een grondige learning framework gebouwd voor snelheid, expressivity en modulariteit
   * [Caffe2](https://github.com/caffe2/caffe2): een cross-platform-versie van Caffe
@@ -31,6 +31,7 @@ De gegevens wetenschappelijke virtuele Machine voor Linux is de installatiekopie
   * [Keras](https://keras.io/): een op hoog niveau neurale netwerk API in Python voor Theano en TensorFlow
   * [MXNet](http://mxnet.io/): een flexibele en efficiënte grondige learning-bibliotheek veel taal bindingen
   * [NVIDIA cijfers](https://developer.nvidia.com/digits): een grafische systeem dat algemene beheertaken voor grondige learning vereenvoudigt
+  * [PyTorch](http://pytorch.org/): een op hoog niveau Python-bibliotheek met ondersteuning voor dynamische-netwerken
   * [TensorFlow](https://www.tensorflow.org/): een open source-bibliotheek voor machine intelligence van Google
   * [Theano](http://deeplearning.net/software/theano/): een Python-bibliotheek voor het definiëren en efficiënt evalueren wiskundige expressies met betrekking tot multi-dimensionale matrixen optimaliseren
   * [Torch](http://torch.ch/): een wetenschappelijke computing framework met brede ondersteuning voor machine learning-algoritmen
@@ -113,6 +114,14 @@ Hier volgen de stappen voor het maken van een exemplaar van de gegevens wetensch
 De inrichting duren ongeveer 5 tot 10 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Toegang tot de gegevens wetenschappelijke virtuele Machine voor Linux
+
+U kunt de Ubuntu DSVM drie manieren openen:
+1. SSH voor terminal-sessies
+2. X2Go voor grafische sessies
+3. JupyterHub en JupyterLab voor Jupyter-notebooks
+
+### <a name="ssh"></a>SSH
+
 Nadat de virtuele machine is gemaakt, kunt u aanmelden bij het gebruik van SSH. Gebruik de accountreferenties op die u hebt gemaakt in de **basisbeginselen** sectie van stap 3 voor de interface van de shell tekst. Op Windows, kunt u een SSH clienthulpprogramma zoals downloaden [Putty](http://www.putty.org). Als u liever een grafische bureaublad (X Windows-systeem), kunt u X11 doorsturen op Putty gebruiken of de X2Go-client installeren.
 
 > [!NOTE]
@@ -120,7 +129,7 @@ Nadat de virtuele machine is gemaakt, kunt u aanmelden bij het gebruik van SSH. 
 > 
 > 
 
-## <a name="installing-and-configuring-x2go-client"></a>Installeren en configureren van X2Go client
+### <a name="x2go"></a>X2Go
 De Linux-VM is al ingericht met X2Go server en gereed voor clientverbindingen accepteren. Voor verbinding met de grafische Linux VM-bureaublad, voer de volgende procedure op de client:
 
 1. Download en installeer de client X2Go voor uw clientplatform van [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
@@ -134,6 +143,14 @@ De Linux-VM is al ingericht met X2Go server en gereed voor clientverbindingen ac
    * **Gedeelde mappen**: als u mappen van uw clientcomputers die zijn gekoppeld aan de Linux-VM wilt, voegt u de client-machine-mappen die u wilt delen met de virtuele machine op dit tabblad.
 
 Nadat u zich aanmeldt bij de virtuele machine met behulp van de SSH-client of XFCE grafische bureaublad via de client X2Go, bent u klaar om te beginnen met de hulpprogramma's die zijn geïnstalleerd en geconfigureerd op de virtuele machine. Op XFCE ziet u toepassingen menu, snelkoppelingen en bureaubladpictogrammen voor veel van de hulpprogramma's.
+
+### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub en JupyterLab
+
+De DSVM Ubuntu wordt uitgevoerd [JupyterHub](https://github.com/jupyterhub/jupyterhub), een Jupyter-server met meerdere gebruikers. Als u wilt verbinden, bladert u naar https://your-vm-ip:8000 op uw laptop of het bureaublad en voer de gebruikersnaam en het wachtwoord dat u gebruikt voor het maken van de virtuele machine en aanmelden. Veel voorbeeldquery notitieblokken zijn beschikbaar voor u om te bladeren en uitproberen.
+
+JupyterLab, is de volgende generatie van Jupyter-notebooks en JupyterHub, ook beschikbaar. Aanmelden bij JupyterHub toegang tot deze, en blader naar de URL https://your-vm-ip:8000/lab. U kunt JupyterLab instellen als de standaardserver voor de notebook door deze regel toe te voegen aan /etc/jupyterhub/jupyterhub_config.py:
+
+    c.Spawner.default_url = '/lab'
 
 ## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Hulpprogramma's zijn geïnstalleerd op de gegevens wetenschappelijke virtuele Machine voor Linux
 ### <a name="deep-learning-libraries"></a>Grondige Learning bibliotheken
@@ -193,30 +210,32 @@ Console te starten R, typt u **R** in de shell. Hiermee gaat u naar een interact
 Er is ook een R-script voor installatie de [Top 20 R-pakketten](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) als u wilt. Dit script kan worden uitgevoerd nadat u zich in de interface voor interactieve op R, die kan worden ingevoerd (zoals vermeld) door te typen **R** in de shell.  
 
 ### <a name="python"></a>Python
-Voor de ontwikkeling met behulp van Python, is distributie Anaconda Python 2.7 en 3.5 geïnstalleerd. Deze verdeling bevat de base Python samen met ongeveer 300 van de meest populaire math, engineering en gegevens analytics pakketten. U kunt de standaard teksteditors gebruiken. Bovendien kunt u Spyder, een Python IDE die wordt meegeleverd met Anaconda Python-distributies. Spyder moet een grafische bureaublad of X11 doorsturen. Een snelkoppeling naar Spyder is opgegeven in de grafische bureaublad.
+Anaconda Python wordt geïnstalleerd met Python 2.7 en 3.5 omgevingen. De 2.7 omgeving heet _hoofdmap_, en de naam van de omgeving 3.5 _py35_. Deze verdeling bevat de base Python samen met ongeveer 300 van de meest populaire math, engineering en gegevens analytics pakketten. 
 
-Aangezien we Python 2.7 zowel 3.5 hebben, moet u de gewenste Python-versie (conda environment) u werken wilt op in de huidige sessie om precies te activeren. Het activeringsproces stelt de variabele PATH op de gewenste versie van Python.
+De omgeving py35 is de standaardinstelling. Voor het activeren van de omgeving hoofdmap (2.7):
 
-Voer de volgende opdracht uit vanuit de shell voor het activeren van de Python 2.7 conda omgeving:
+    source activate root
 
-    source /anaconda/bin/activate root
+De omgeving py35 opnieuw activeren:
 
-Python 2.7 is geïnstalleerd op *anaconda/bin*.
+    source activate py35
 
-Voer het volgende vanuit de shell voor het activeren van de Python 3.5 conda omgeving:
+Als u wilt een interactieve sessie Python aanroepen, typt u gewoon **python** in de shell. 
 
-    source /anaconda/bin/activate py35
+Installeren van extra Python-bibliotheek via ```conda``` of ````pip```` . Voor pip, activeren van de juiste omgeving eerst als u niet dat de standaard wilt:
 
+    source activate root
+    pip install <package>
 
-Python 3.5 is geïnstalleerd op */anaconda/envs/py35/bin*.
+Of geef het volledige pad naar een pip:
 
-Als u wilt een interactieve sessie Python aanroepen, typt u gewoon **python** in de shell. Als u X11 set bent doorgestuurd of zich op een grafische interface, typt u **pycharm** starten van de PyCharm Python IDE.
+    /anaconda/bin/pip install <package>
+    
+Voor conda, moet u altijd de omgevingsnaam van de opgeven (_py35_ of _hoofdmap_):
 
-Voor het installeren van extra Python-bibliotheken, moet u uitvoeren ```conda``` of ````pip```` opdracht onder sudo en volledig pad van de Python package manager (conda of pip) te installeren op de juiste Python-omgeving te bieden. Bijvoorbeeld:
+    conda install <package> -n py35
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
-
+Als u X11 set bent doorgestuurd of zich op een grafische interface, typt u **pycharm** starten van de PyCharm Python IDE. U kunt de standaard teksteditors gebruiken. Bovendien kunt u Spyder, een Python IDE die wordt meegeleverd met Anaconda Python-distributies. Spyder moet een grafische bureaublad of X11 doorsturen. Een snelkoppeling naar Spyder vindt u in de grafische desktop.s
 
 ### <a name="jupyter-notebook"></a>Jupyter-notebook
 De Anaconda-verdeling wordt ook geleverd met een Jupyter-notebook een omgeving voor het delen van code en -analyse. De Jupyter-notebook toegankelijk is via JupyterHub. U kunt aanmelden met uw lokale Linux-gebruikersnaam en wachtwoord.

@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
 ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-service"></a>sfctl service
 Maken, verwijderen en beheren van de service, servicetypen en servicepakketten.
@@ -28,25 +28,25 @@ Maken, verwijderen en beheren van de service, servicetypen en servicepakketten.
 |Opdracht|Beschrijving|
 | --- | --- |
 |    App-naam       | Hiermee haalt u de naam van de Service Fabric-toepassing voor een service.|
-|    code-package-list | Haalt de lijst met code-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt.|
+|    code pakketlijst | Haalt de lijst met code-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt.|
 |    maken         | De opgegeven Service Fabric-service maakt van de beschrijving.|
 |    verwijderen         | Hiermee verwijdert u een bestaande Service Fabric-service.|
 |    geïmplementeerd type  | Hiermee haalt u de informatie over een opgegeven service-type van de toepassing geïmplementeerd op een knooppunt in een Service Fabric-cluster.|
 |    geïmplementeerd type lijst| Hiermee wordt de lijst met de informatie over de servicetypen van de toepassingen die zijn geïmplementeerd op een knooppunt in een Service Fabric-cluster opgehaald.|
 |    description    | Hiermee haalt u de beschrijving van een bestaande Service Fabric-service.|
-|get-container-logs| Hiermee haalt u de logboeken van de container voor de container geïmplementeerd op een Service Fabric-knooppunt.|
+|Get-container-Logboeken| Hiermee haalt u de logboeken van de container voor de container geïmplementeerd op een Service Fabric-knooppunt.|
 |    status         | Hiermee wordt de status van de opgegeven Service Fabric-service opgehaald.|
-|    info           | Hiermee haalt u de informatie over de specifieke service die horen bij een Service Fabric-toepassing.|
+|    Info           | Hiermee haalt u de informatie over de specifieke service die horen bij een Service Fabric-toepassing.|
 |    lijst           | Hiermee haalt u de informatie over alle services die horen bij de toepassing die is opgegeven door de toepassings-ID.|
-|    manifest       | Hiermee haalt u de beschrijving van het servicetype van een manifest.|
-|    package-deploy | Downloadt pakketten die zijn gekoppeld aan de opgegeven servicemanifest aan het cachegeheugen van de installatiekopie op opgegeven knooppunt.|
+|    Manifest       | Hiermee haalt u de beschrijving van het servicetype van een manifest.|
+|    pakket implementeren | Downloadt pakketten die zijn gekoppeld aan de opgegeven servicemanifest aan het cachegeheugen van de installatiekopie op opgegeven knooppunt.|
 |    package-health | Hiermee haalt de informatie over de status van een servicepakket voor een bepaalde toepassing is geïmplementeerd voor een Service Fabric-knooppunt en de toepassing.|
 |    package-info   | Haalt de lijst met servicepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt die overeenkomt met de opgegeven naam.|
-|    package-list   | Haalt de lijst met servicepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt.|
+|    pakket-lijst   | Haalt de lijst met servicepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt.|
 |    herstellen        | Hiermee wordt aangegeven met het Service Fabric-cluster dat deze proberen moet te herstellen van de opgegeven service, die momenteel is vastgelopen in quorumverlies.|
 |    rapport-status  | Verzendt een statusrapport voor de Service Fabric-service.|
 |    oplossen        | Een Service Fabric-partitie worden omgezet.|
-|    type-list      | Hiermee haalt de lijst op met de informatie over servicetypen die worden ondersteund door een ingerichte toepassingstype in een Service Fabric-cluster.|
+|    lijst van type      | Hiermee haalt de lijst op met de informatie over servicetypen die worden ondersteund door een ingerichte toepassingstype in een Service Fabric-cluster.|
 |    bijwerken         | De opgegeven service met behulp van de updatebeschrijving van de opgegeven updates.|
 
 
@@ -67,23 +67,23 @@ De opgegeven Service Fabric-service maakt van de beschrijving.
 | --dns-naam            | De DNS-naam van de service moet worden gemaakt. De Service Fabric-DNS-service moet zijn ingeschakeld voor deze instelling.|
 | --aantal exemplaren      | Het aantal exemplaren. Dit geldt voor alleen stateless services.|
 | --int-schema          | Hiermee geeft u dat de service moet op uniforme wijze worden gepartitioneerd in een bereik van niet-ondertekende gehele getallen.|
-| --int-scheme-count    | Het aantal partities binnen het gehele getal key (voor een partitieschema uniform geheel getal) te maken.|
-| --int-scheme-high     | Het einde van het bereik van sleutel geheel getal, als u een partitieschema uniform geheel getal.|
-| --int-scheme-low      | Het begin van het bereik van sleutel geheel getal, als u een partitieschema uniform geheel getal.|
+| --int-schema-telling    | Het aantal partities binnen het gehele getal key (voor een partitieschema uniform geheel getal) te maken.|
+| --int-schema-hoog     | Het einde van het bereik van sleutel geheel getal, als u een partitieschema uniform geheel getal.|
+| --int-schema-laag      | Het begin van het bereik van sleutel geheel getal, als u een partitieschema uniform geheel getal.|
 | --load-metrische gegevens        | JSON gecodeerde lijst met metrische gegevens die gebruikt wordt wanneer services taakverdeling over knooppunten.|
 | --min-replica-set-grootte| De replica van de minimale instellen grootte als een getal. Dit geldt voor stateful services alleen.|
 | --verplaatsen kosten           | Hiermee geeft u de move-kosten voor de service. Mogelijke waarden zijn: 'Nul', 'Laag', 'Gemiddeld', 'Hoog'.|
-| --named-scheme        | Hiermee geeft u dat de service moet meerdere benoemde partities hebben.|
+| --met de naam schema        | Hiermee geeft u dat de service moet meerdere benoemde partities hebben.|
 | --met de naam-schema-lijst   | JSON gecodeerde lijst met namen voor het partitioneren van de service in, als het benoemde partitieschema gebruikt.|
 | --niet-persistent-status  | Indien waar, wordt hiermee de service heeft geen permanente status opgeslagen op de lokale schijf of alleen wordt status opgeslagen in het geheugen.|
 | --plaatsing beleidslijst  | JSON gecodeerde lijst met beleidsregels voor plaatsing voor de service, en alle gekoppelde domeinnamen. Beleidsregels kunnen worden een of meer van: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
-| --quorum-loss-wait    | De maximale duur in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen.|
-| --replica-restart-wait| De duur in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen.|
+| --quorum-verlies-wait    | De maximale duur in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen.|
+| --replica-opnieuw opstarten-wait| De duur in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen.|
 | --singleton-schema    | Hiermee geeft de service moet één partitie hebben of een niet - gepartitioneerde service moet zijn.|
 | --stand door replica behouden  | De maximale duur in seconden, voor welke stand-by worden replica's bewaard voordat het wordt verwijderd. Dit geldt voor stateful services alleen.|
 | --stateful            | Geeft aan dat de service is een stateful service.|
 | --staatloze           | Geeft aan dat de service is een staatloze service.|
-| --target-replica-set-size| De doelreplica instellen grootte als een getal. Dit geldt voor stateful services alleen.|
+| ---replica-set-doelgrootte| De doelreplica instellen grootte als een getal. Dit geldt voor stateful services alleen.|
 | --time-out -t          | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
@@ -200,7 +200,7 @@ Retourneert de informatie over alle services die horen bij de toepassing die is 
 | --- | --- |
 | --toepassing-id [vereist]| De identiteit van de toepassing. Dit wordt meestal de volledige naam van de toepassing zonder de "fabric:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden door het ' ~ ' teken. Als de toepassingsnaam van de is bijvoorbeeld "fabric: / myapp/app1", zou de toepassings-id ' myapp ~ app1 ' in 6.0 + en "myapp/app1" in eerdere versies.|
 | --vervolgtoken    | De token voortzetting-parameter wordt gebruikt voor het verkrijgen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in een enkele antwoordthread passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep, retourneert de API volgende reeks resultaten. Als er geen verdere resultaten, bevat klikt u vervolgens het vervolgtoken geen waarde. De waarde van deze parameter mag geen URL zijn gecodeerd.|
-| --service-type-name     | De naam van de service type is gebruikt voor het filteren van de services zoeken naar.|
+| --service typenaam     | De naam van de service type is gebruikt voor het filteren van de services zoeken naar.|
 | --time-out -t            | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten
@@ -300,12 +300,12 @@ De opgegeven service met behulp van de updatebeschrijving van de opgegeven updat
 | --min-replica-set-grootte| De replica van de minimale instellen grootte als een getal. Dit geldt voor stateful services alleen.|
 | --verplaatsen kosten           | Hiermee geeft u de move-kosten voor de service. Mogelijke waarden zijn: 'Nul', 'Laag', 'Gemiddeld', 'Hoog'.|
 | --plaatsing beleidslijst  | JSON gecodeerde lijst met beleidsregels voor plaatsing voor de service, en alle gekoppelde domeinnamen. Beleidsregels kunnen worden een of meer van: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
-| --quorum-loss-wait    | De maximale duur in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen.|
-| --replica-restart-wait| De duur in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen.|
+| --quorum-verlies-wait    | De maximale duur in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen.|
+| --replica-opnieuw opstarten-wait| De duur in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen.|
 | --stand door replica behouden  | De maximale duur in seconden, voor welke stand-by worden replica's bewaard voordat het wordt verwijderd. Dit geldt voor stateful services alleen.|
 | --stateful            | Geeft dat de doelservice is een stateful service.|
 | --staatloze           | Geeft dat de doelservice is een staatloze service.|
-| --target-replica-set-size| De doelreplica instellen grootte als een getal. Dit geldt voor stateful services alleen.|
+| ---replica-set-doelgrootte| De doelreplica instellen grootte als een getal. Dit geldt voor stateful services alleen.|
 | --time-out -t          | Server time-out in seconden.  Standaard: 60.|
 
 ### <a name="global-arguments"></a>Algemene argumenten

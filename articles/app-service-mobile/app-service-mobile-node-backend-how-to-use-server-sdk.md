@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Het gebruik van de Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -251,7 +251,7 @@ De Mobile Apps Node.js SDK gebruikt de [mssql Node.js pakket] voor het maken van
 >
 
 1. Download en installeer [Microsoft SQL Server 2014 Express]. Zorg ervoor dat u de SQL Server 2014 Express met hulpprogramma's-editie installeert. Tenzij u expliciet ondersteuning voor 64-bits vereist, verbruikt de 32-bits versie minder geheugen uitgevoerd.
-2. Run SQL Server 2014 Configuration Manager:
+2. Voer SQL Server 2014 Configuration Manager:
 
    a. Vouw de **SQL Server-netwerkconfiguratie** knooppunt in het menu structuur.
 
@@ -273,7 +273,7 @@ De Mobile Apps Node.js SDK gebruikt de [mssql Node.js pakket] voor het maken van
 
    i. Met de rechtermuisknop op **SQL Server (SQLEXPRESS)** en selecteer **opnieuw**.
 
-   j. Close SQL Server 2014 Configuration Manager.
+   j. Sluit SQL Server 2014 Configuration Manager.
 3. Uitvoeren van SQL Server 2014 Management Studio en maak verbinding met uw lokale exemplaar van SQL Server Express:
 
    1. Met de rechtermuisknop op uw exemplaar in Object Explorer en selecteer **eigenschappen**.
@@ -292,7 +292,7 @@ De Mobile Apps Node.js SDK gebruikt de [mssql Node.js pakket] voor het maken van
    10. Selecteer de **serverfuncties** pagina.
    11. Schakel het selectievakje in voor de **dbcreator** serverfunctie.
    12. Selecteer **OK**.
-   13. Close SQL Server 2015 Management Studio.
+   13. SQL Server 2015 Management Studio sluiten.
 
 Zorg ervoor dat de gebruikersnaam en wachtwoord die u hebt geselecteerd. Mogelijk moet u aanvullende serverfuncties of machtigingen, afhankelijk van uw database toewijzen.
 
@@ -337,7 +337,7 @@ De meeste instellingen in het bestand azureMobile.js hebben een equivalent app-i
 | App-instelling | azureMobile.js instelling | Beschrijving | Geldige waarden |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |naam |Naam van de app |tekenreeks |
-| **MS_MobileLoggingLevel** |logging.level |Minimale logboekniveau van berichten aan te melden |fout, waarschuwing, info, uitgebreid, foutopsporing, stom |
+| **MS_MobileLoggingLevel** |Logging.level |Minimale logboekniveau van berichten aan te melden |fout, waarschuwing, info, uitgebreid, foutopsporing, stom |
 | **MS_DebugMode** |fouten opsporen |Hiermee schakelt foutopsporingsmodus of |True, false |
 | **MS_TableSchema** |data.schema |Naam van de standaard schema voor de SQL-tabellen |tekenreeks (standaard: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Hiermee schakelt foutopsporingsmodus of |True, false |
@@ -894,7 +894,7 @@ U kunt uw Node.js back-end-scriptbestanden in App Service-Editor met behulp van 
 
 [Azure-portal]: https://portal.azure.com/
 [OData]: http://www.odata.org
-[Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[CTP]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp voorbeeld op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo-voorbeeld op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
 [directory voorbeelden op GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples

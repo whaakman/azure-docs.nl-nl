@@ -2,11 +2,11 @@
 title: Verzamel gegevens van uw omgeving met Azure Log Analytics | Microsoft Docs
 description: Dit onderwerp helpt u begrijpen hoe u gegevens verzamelen en controleren van computers die worden gehost in uw on-premises of andere cloudomgeving met logboekanalyse.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Verzamel gegevens van computers in uw omgeving met Log Analytics
 
@@ -32,7 +32,7 @@ Computers die worden gehost in uw omgeving kunnen rechtstreeks worden verbonden 
 
 ## <a name="overview"></a>Overzicht
 
-![log-analytics-agent-direct-connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
+![log-Analytics-agent-Direct-Connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
 
 Voordat u analyseren en op de verzamelde gegevens fungeert, moet u eerst installeren en verbinding maken met agents voor alle computers die u wilt gegevens verzenden naar het Log Analytics-service. U kunt agents installeren op uw on-premises computers via Setup, opdrachtregel of met Desired State Configuration (DSC) in Azure Automation. 
 

@@ -3,10 +3,10 @@ title: Azure Functions C# referentie voor ontwikkelaars
 description: Begrijpen hoe Azure-functies met C# ontwikkelen.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure-functies, functies, gebeurtenisverwerking, webhooks, dynamisch berekenen, architectuur zonder server
 ms.service: functions
 ms.devlang: dotnet
@@ -14,12 +14,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: glenga
-ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: tdykstra
+ms.openlocfilehash: e5310c59cbfe4080911768f29e1b8f635a611e63
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -233,9 +233,9 @@ public static class SimpleExample
 > [!NOTE]
 > Voor informatie over een nieuwere framework voor logboekregistratie die u in plaats van gebruiken kunt `TraceWriter`, Zie [schrijven Logboeken in C#-functies](functions-monitoring.md#write-logs-in-c-functions) in de **Monitor Azure Functions** artikel.
 
-## <a name="async"></a>Async
+## <a name="async"></a>Asynchrone
 
-Als u een functie asynchrone, gebruikt u de `async` sleutelwoord en retourneren een `Task` object.
+Om te maken van een functie [asynchrone](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), gebruiken de `async` sleutelwoord en retourneren een `Task` object.
 
 ```csharp
 public static class AsyncExample
@@ -385,7 +385,7 @@ De volgende tabel bevat de trigger en binding-kenmerken die beschikbaar in een A
 | [CosmosDBTrigger](functions-bindings-cosmosdb.md#trigger---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#input---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#output---attributes) |
 | [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
 | [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
-| [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [Queue](functions-bindings-storage-queue.md#output---attributes) |
+| [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [Wachtrij](functions-bindings-storage-queue.md#output---attributes) |
 | [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [ServiceBus](functions-bindings-service-bus.md#output---attributes) |
 | [TimerTrigger](functions-bindings-timer.md#attributes) | ||
 | |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|

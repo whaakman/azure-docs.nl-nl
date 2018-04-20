@@ -2,7 +2,7 @@
 title: Controleren, vaststellen en oplossen van Azure Storage | Microsoft Docs
 description: Functies gebruiken zoals storage analytics, client-side '-logboekregistratie en andere hulpprogramma's van derden om te identificeren, opsporen en oplossen van problemen met Azure Storage met.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: fhryo-msft
 manager: jahogg
 editor: tysonn
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage bewaken, problemen opsporen en oplossen
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -184,7 +184,7 @@ De volgende secties worden de stappen die u moet volgen voor het opsporen en opl
 ### <a name="service-health-issues"></a>Health service-problemen
 Problemen met de status van de service zijn meestal buiten het besturingselement. De [Azure-portal](https://portal.azure.com) bevat informatie over actieve problemen met Azure-services met inbegrip van opslagservices. Als u hebt gekozen voor geografisch redundante opslag met leestoegang wanneer u uw opslagaccount hebt gemaakt, kunt klikt u vervolgens als uw gegevens niet beschikbaar is op de primaire locatie, uw toepassing activeren tijdelijk de alleen-lezen kopie op de secundaire locatie. Als u wilt lezen vanaf de secundaire, moet uw toepassing kunnen overschakelen tussen het gebruik van de primaire en secundaire opslaglocaties naar en kunnen werken in een modus met verminderde functionaliteit met alleen-lezen gegevens. De clientbibliotheken van Azure Storage kunnen u voor het definiëren van een beleid voor opnieuw proberen dat uit de secundaire opslag lezen kan als van de primaire opslag gelezen is mislukt. Uw toepassing moet ook Houd er rekening mee dat de gegevens in de secundaire locatie uiteindelijk consistent is. Zie voor meer informatie het blogbericht [opslagopties van Azure voor redundantie en geografisch redundante opslag met leestoegang](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
-### <a name="performance-issues">prestatieproblemen</a>
+### <a name="performance-issues"></a>prestatieproblemen
 De prestaties van een toepassing kunnen subjectief zijn, met name vanuit het perspectief van een gebruiker. Het is daarom belangrijk dat u over prestatiegegevens voor een basislijn beschikt aan de hand waarvan u kunt bepalen waar er prestatieproblemen zijn. Veel factoren kunnen invloed hebben op de prestaties van een Azure storage-service vanuit het perspectief van de toepassing client. Deze factoren kunnen werken in de storage-service, in de client of in de netwerkinfrastructuur; Daarom is het belangrijk dat u een strategie voor het identificeren van de oorsprong van het prestatieprobleem.
 
 Nadat u de waarschijnlijk locatie van de oorzaak van het prestatieprobleem van de metrische gegevens hebt geïdentificeerd, kunt u de logboekbestanden vervolgens gebruiken om gedetailleerde informatie voor het opsporen en oplossen van het probleem verder te vinden.
@@ -238,7 +238,7 @@ End-to-end-tracering met een aantal logboekbestanden is een techniek nuttig voor
 ### <a name="correlating-log-data"></a>Logboekgegevens correleren
 Tijdens het weergeven van Logboeken van clienttoepassingen netwerk traceert en serverzijde opslag logboekregistratie, is het belangrijk om te correleren-aanvragen via de verschillende logboekbestanden. De logboekbestanden van opnemen een aantal verschillende velden die handig als de correlatie-id's zijn. De client-request-ID is het nuttigst veld gebruiken om te correleren vermeldingen in de verschillende logboeken. Maar in sommige gevallen, kan het handig zijn om de server aanvraag-ID of de tijdstempels te gebruiken. De volgende secties vindt u meer informatie over deze opties.
 
-### <a name="client-request-id">Aanvraag-ID van client</a>
+### <a name="client-request-id"></a>Aanvraag-ID van client
 De Opslagclientbibliotheek genereert automatisch een unieke client aanvraag-ID voor elke aanvraag.
 
 * In het logboek van clientzijde die de Storage-clientbibliotheek maakt de client-request-ID wordt weergegeven in de **aanvraag-ID van Client** veld van elke logboekvermelding met betrekking tot de aanvraag.
@@ -250,7 +250,7 @@ De Opslagclientbibliotheek genereert automatisch een unieke client aanvraag-ID v
 > 
 > 
 
-### <a name="server-request-id">Aanvraag-ID van server</a>
+### <a name="server-request-id"></a>Aanvraag-ID van server
 Server aanvraag-id's wordt automatisch gegenereerd door de storage-service.
 
 * In het logboek serverzijde opslag logboekregistratie de aanvraag-ID wordt weergegeven de **aanvraag-ID header** kolom.
@@ -298,7 +298,7 @@ catch (StorageException storageException)
 }
 ```
 
-### <a name="timestamps"></a>Timestamps
+### <a name="timestamps"></a>Tijdstempels
 U kunt ook tijdstempels gerelateerde logboekvermeldingen vinden, maar wees voorzichtig met een tijdverschil tussen de client en server die zich kan voordoen. Zoek plus of min 15 minuten voor de overeenkomende serverzijde vermeldingen op basis van de tijdstempel op de client. Houd er rekening mee dat de blobmetagegevens voor de blobs metrische gegevens met het tijdsbereik van de metrische gegevens opgeslagen in de blob. Dit tijdsbereik is handig als u veel metrische gegevens blobs voor dezelfde minuut of uur.
 
 ## <a name="troubleshooting-guidance"></a>Richtlijnen voor probleemoplossing
@@ -474,7 +474,7 @@ Als u de clienttoepassing die HTTP 403 (verboden) fouten, wordt er een waarschij
 | Bron | Uitgebreidheid | Uitgebreidheid | Clientaanvraag-id | Bewerking tekst |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-… |Bewerking wordt gestart met de primaire locatie per locatie modus PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Synchrone aanvraag voor https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14 starten&amp;sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Synchrone verzoek om te beginnen https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14 &amp;sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Wachten op reactie. |
 | Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab -… |Uitzondering geretourneerd tijdens het wachten op reactie: de externe server heeft een fout geretourneerd: (403) verboden. |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Het antwoord is ontvangen. Statuscode = 403, aanvraag-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 =, ETag =. |
@@ -519,24 +519,24 @@ Logboekvermeldingen:
 
 | Aanvraag-id | Bewerking tekst |
 | --- | --- |
-| 07b26a5d-... |Synchrone aanvraag voor https://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart. |
+| 07b26a5d-... |Synchrone verzoek om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Wachten op reactie. |
 | 07b26a5d-... |Het antwoord is ontvangen. Statuscode 200, aanvraag-ID = = eeead849... Content-MD5 =, ETag = &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Antwoordheaders zijn verwerkt, u doorgaat met de rest van de bewerking. |
 | 07b26a5d-... |Antwoordtekst downloaden. |
 | 07b26a5d-... |De bewerking is voltooid. |
-| 07b26a5d-... |Synchrone aanvraag voor https://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart. |
-| 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |Synchrone verzoek om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |StringToSign DELETE...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, 03 Jun 2014 = 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Wachten op reactie. |
 | 07b26a5d-... |Het antwoord is ontvangen. Statuscode = 202, aanvraag-ID = 6ab2a4cf-..., Content-MD5 =, ETag =. |
 | 07b26a5d-... |Antwoordheaders zijn verwerkt, u doorgaat met de rest van de bewerking. |
 | 07b26a5d-... |Antwoordtekst downloaden. |
 | 07b26a5d-... |De bewerking is voltooid. |
-| e2d06d78-... |Asynchrone aanvraag voor https://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart.</td> |
-| e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |Asynchrone aanvraag om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
+| e2d06d78-... |StringToSign HEAD...x-ms-client-request-id:e2d06d78-...x-ms-date:Tue, 03 Jun 2014 = 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Wachten op reactie. |
-| de8b1c3c-... |Synchrone aanvraag voor https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt wordt gestart. |
+| de8b1c3c-... |Synchrone verzoek om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign PUT =... 64.qCmF+TQLPhq/YYK50mP9ZQ==...x-MS-BLOB-type:BlockBlob.x-MS-Client-Request-id:de8b1c3c-...x-MS-Date:TUE, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Schrijven van gegevens van aanvragen wordt voorbereid. |
 | e2d06d78-... |Uitzondering geretourneerd tijdens het wachten op reactie: de externe server heeft een fout geretourneerd: (404) niet gevonden... |
@@ -544,8 +544,8 @@ Logboekvermeldingen:
 | e2d06d78-... |Antwoordheaders zijn verwerkt, u doorgaat met de rest van de bewerking. |
 | e2d06d78-... |Antwoordtekst downloaden. |
 | e2d06d78-... |De bewerking is voltooid. |
-| e2d06d78-... |Asynchrone aanvraag voor https://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart. |
-| e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |Asynchrone aanvraag om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| e2d06d78-... |StringToSign PUT =... 0...x-MS-Client-Request-id:e2d06d78-...x-MS-Date:TUE, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Wachten op reactie. |
 | de8b1c3c-... |Aanvraag voor het schrijven van gegevens. |
 | de8b1c3c-... |Wachten op reactie. |

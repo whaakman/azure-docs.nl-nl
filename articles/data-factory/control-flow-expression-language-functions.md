@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressies en functies in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,8 +49,8 @@ Expressies kunnen overal voorkomen in een string-waarde van JSON en altijd resul
   
 |JSON-waarde|Resultaat|  
 |----------------|------------|  
-|"parameters"|De tekens 'parameters' worden geretourneerd.|  
-|"parameters[1]"|De tekens 'parameters [1]' worden geretourneerd.|  
+|'parameters'|De tekens 'parameters' worden geretourneerd.|  
+|'[1] parameters'|De tekens 'parameters [1]' worden geretourneerd.|  
 |"@@"|Een tekenreeks 1 teken ' @' wordt geretourneerd.|  
 |" @"|Een tekenreeks 2 teken ' @' wordt geretourneerd.|  
   
@@ -61,9 +61,9 @@ Expressies kunnen overal voorkomen in een string-waarde van JSON en altijd resul
 |JSON-waarde|Resultaat|  
 |----------------|------------|  
 |"@pipeline().parameters.myString"| Retourneert `foo` als een tekenreeks.|  
-|"@{pipeline().parameters.myString}"| Retourneert `foo` als een tekenreeks.|  
+|"@{pipeline ()-.parameters.myString}"| Retourneert `foo` als een tekenreeks.|  
 |"@pipeline().parameters.myNumber"| Retourneert `42` als een *nummer*.|  
-|"@{pipeline().parameters.myNumber}"| Retourneert `42` als een *tekenreeks*.|  
+|"@{pipeline ()-.parameters.myNumber}"| Retourneert `42` als een *tekenreeks*.|  
 |"Antwoord is: @{pipeline ()-.parameters.myNumber}"| Retourneert de tekenreeks `Answer is: 42`.|  
 |'@concat(' Antwoord is: ', string(pipeline().parameters.myNumber)) '| Retourneert de tekenreeks `Answer is: 42`|  
 |"Antwoord: @@ {pipeline ()-.parameters.myNumber}"| Retourneert de tekenreeks `Answer is: @{pipeline().parameters.myNumber}`.|  
@@ -159,7 +159,7 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
 |GUID| Hiermee genereert u een globaal unieke tekenreeks (aka. GUID). Bijvoorbeeld de volgende uitvoer kan worden gegenereerd `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: indeling<br /><br /> **Beschrijving**: optioneel. Een enkele indelingsopgave die aangeeft [opmaken van de waarde van deze Guid](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). De indelingsparameter is "N", "D", "B", 'P' of 'X'. Als de indeling niet is opgegeven, wordt "D" gebruikt.|  
 |toLower|Zet een tekenreeks naar kleine letters. Bijvoorbeeld de volgende retourneert `two by two is four`:  `toLower('Two by Two is Four')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De tekenreeks converteren naar lagere hoofdlettergebruik. Als een teken in de tekenreeks is geen equivalent van een kleine letter, is opgenomen in de geretourneerde tekenreeks ongewijzigd.|  
 |toUpper|Zet een tekenreeks naar hoofdletters. Bijvoorbeeld de volgende expressie retourneert `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De tekenreeks converteren naar hoofdletters hoofdlettergebruik. Als een teken in de tekenreeks is geen equivalent hoofdletters, is opgenomen in de geretourneerde tekenreeks ongewijzigd.|  
-|indexof|De index van een waarde binnen case tekenreeks insensitively vinden. Bijvoorbeeld de volgende expressie retourneert `7`: `indexof('hello, world.', 'world')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De tekenreeks die de waarde kan bevatten.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De waarde zoeken in de index van.|  
+|indexOf|De index van een waarde binnen case tekenreeks insensitively vinden. Bijvoorbeeld de volgende expressie retourneert `7`: `indexof('hello, world.', 'world')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De tekenreeks die de waarde kan bevatten.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De waarde zoeken in de index van.|  
 |lastindexof|De laatste index van een waarde binnen case tekenreeks insensitively vinden. Bijvoorbeeld de volgende expressie retourneert `3`: `lastindexof('foofoo', 'foo')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De tekenreeks die de waarde kan bevatten.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De waarde zoeken in de index van.|  
 |StartsWith|Controleert of de tekenreeks op de insensitively met een waarde-aanvraag begint. Bijvoorbeeld de volgende expressie retourneert `true`: `lastindexof('hello, world', 'hello')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De tekenreeks die de waarde kan bevatten.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. Met kan de waarde van de tekenreeks beginnen.|  
 |EndsWith|Controleert of de tekenreeks op de insensitively op een waarde-aanvraag eindigt. Bijvoorbeeld de volgende expressie retourneert `true`: `lastindexof('hello, world', 'world')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De tekenreeks die de waarde kan bevatten.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De waarde van de tekenreeks kan eindigen op.|  
@@ -219,7 +219,7 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
 |Float|Het parameterargument niet converteren naar een getal met drijvende komma. Bijvoorbeeld de volgende expressie retourneert `10.333`:  `float('10.333')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: waarde<br /><br /> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een getal met drijvende komma.|  
 |BOOL|De parameter niet converteren naar een Booleaanse waarde. Bijvoorbeeld de volgende expressie retourneert `false`:  `bool(0)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: waarde<br /><br /> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar een Booleaanse waarde.|  
 |Coalesce|Retourneert het eerste niet-null-object in de doorgegeven argumenten. Opmerking: een lege tekenreeks is niet null. Bijvoorbeeld, als parameters 1 en 2 niet zijn gedefinieerd, dit retourneert `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Parameternummer**: 1... *n*<br /><br /> **Naam**: Object*n*<br /><br /> **Beschrijving**: vereist. De objecten om te controleren of `null`.|  
-|base64|Retourneert de base64-weergave van de invoertekenreeks. Bijvoorbeeld de volgende expressie retourneert `c29tZSBzdHJpbmc=`:  `base64('some string')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: String 1<br /><br /> **Beschrijving**: vereist. De tekenreeks voor het coderen naar base64-weergave.|  
+|Base64|Retourneert de base64-weergave van de invoertekenreeks. Bijvoorbeeld de volgende expressie retourneert `c29tZSBzdHJpbmc=`:  `base64('some string')`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: String 1<br /><br /> **Beschrijving**: vereist. De tekenreeks voor het coderen naar base64-weergave.|  
 |base64ToBinary|Retourneert een binaire voorstelling van een base64-gecodeerde tekenreeks. Bijvoorbeeld de volgende expressie de binaire voorstelling van sommige tekenreeks geretourneerd: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De met base64 gecodeerde tekenreeks.|  
 |base64ToString|Retourneert een string-weergave van een based64 gecodeerde tekenreeks. Bijvoorbeeld de volgende expressie retourneert een tekenreeks: `base64ToString('c29tZSBzdHJpbmc=')`.<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: tekenreeks<br /><br /> **Beschrijving**: vereist. De met base64 gecodeerde tekenreeks.|  
 |Binair bestand|Retourneert een binaire voorstelling van een waarde.  Bijvoorbeeld retourneert de volgende expressie een binaire voorstelling van sommige tekenreeks: `binary(‘some string’).`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: waarde<br /><br /> **Beschrijving**: vereist. De waarde die wordt geconverteerd naar binair.|  
@@ -244,7 +244,7 @@ In het volgende voorbeeld wordt de pijplijn duurt **inputPath** en **outputPath*
 |Functienaam|Beschrijving|  
 |-------------------|-----------------|  
 |toevoegen|Retourneert het resultaat van het toevoegen van de twee getallen. Bijvoorbeeld: deze functie retourneert `20.333`:  `add(10,10.333)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: Summand 1<br /><br /> **Beschrijving**: vereist. Het aantal toevoegen aan **Summand 2**.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: Summand 2<br /><br /> **Beschrijving**: vereist. Het aantal toevoegen aan **Summand 1**.|  
-|sub|Retourneert het resultaat van de aftrekken van de twee getallen. Bijvoorbeeld, retourneert deze functie: `-0.333`:<br /><br /> `sub(10,10.333)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: Minuend<br /><br /> **Beschrijving**: vereist. Het getal dat **Subtrahend** wordt verwijderd uit.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: Subtrahend<br /><br /> **Beschrijving**: vereist. Het getal te verwijderen uit de **Minuend**.|  
+|Sub|Retourneert het resultaat van de aftrekken van de twee getallen. Bijvoorbeeld, retourneert deze functie: `-0.333`:<br /><br /> `sub(10,10.333)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: Minuend<br /><br /> **Beschrijving**: vereist. Het getal dat **Subtrahend** wordt verwijderd uit.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: Subtrahend<br /><br /> **Beschrijving**: vereist. Het getal te verwijderen uit de **Minuend**.|  
 |mul|Retourneert het resultaat van de vermenigvuldiging van de twee getallen. Bijvoorbeeld de volgende retourneert `103.33`:<br /><br /> `mul(10,10.333)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: Multiplicand 1<br /><br /> **Beschrijving**: vereist. Het getal wilt vermenigvuldigen **Multiplicand 2** met.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: Multiplicand 2<br /><br /> **Beschrijving**: vereist. Het getal wilt vermenigvuldigen **Multiplicand 1** met.|  
 |div|Retourneert het resultaat van de deling van de twee getallen. Bijvoorbeeld de volgende retourneert `1.0333`:<br /><br /> `div(10.333,10)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: deeltal<br /><br /> **Beschrijving**: vereist. Het nummer te delen door het **deler**.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: deler<br /><br /> **Beschrijving**: vereist. Het aantal te verdelen de **deeltal** door.|  
 |Mod|Retourneert het resultaat van de resterende na de deling van de twee getallen (modulo). Bijvoorbeeld de volgende expressie retourneert `2`:<br /><br /> `mod(10,4)`<br /><br /> **Parameternummer**: 1<br /><br /> **Naam**: deeltal<br /><br /> **Beschrijving**: vereist. Het nummer te delen door het **deler**.<br /><br /> **Parameternummer**: 2<br /><br /> **Naam**: deler<br /><br /> **Beschrijving**: vereist. Het aantal te verdelen de **deeltal** door. Na de deling worden wordt de rest genomen.|  

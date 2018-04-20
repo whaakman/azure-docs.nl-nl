@@ -12,10 +12,10 @@ ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
 ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Schema in een SaaS-toepassing die gebruikmaakt van shard multitenant SQL-databases beheren
 
@@ -51,7 +51,7 @@ In deze zelfstudie leert u het volgende:
 - Azure PowerShell moet zijn geïnstalleerd. Zie voor meer informatie [aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Deze zelfstudie maakt gebruik van functies van de Azure SQL Database-service die zich in een beperkte preview ([elastische Database taken](sql-database-elastic-database-client-library.md)). Als u wenst te doen in deze zelfstudie, geeft u uw abonnement-ID  *SaaSFeedback@microsoft.com*  met de onderwerpnaam = elastische taken Preview. Wanneer u de bevestiging hebt ontvangen dat uw abonnement is ingeschakeld, [downloadt en installeert u de taak-cmdlets van de voorlopige versie](https://github.com/jaredmoo/azure-powershell/releases). Dit voorbeeld is beperkt, dus neem contact op met  *SaaSFeedback@microsoft.com*  voor vragen over of ondersteuning.
+> Deze zelfstudie maakt gebruik van functies van de Azure SQL Database-service die zich in een beperkte preview ([elastische Database taken](sql-database-elastic-database-client-library.md)). Als u wenst te doen in deze zelfstudie, geeft u uw abonnement-ID *SaaSFeedback@microsoft.com* met de onderwerpnaam = elastische taken Preview. Wanneer u de bevestiging hebt ontvangen dat uw abonnement is ingeschakeld, [downloadt en installeert u de taak-cmdlets van de voorlopige versie](https://github.com/jaredmoo/azure-powershell/releases). Dit voorbeeld is beperkt, dus neem contact op met *SaaSFeedback@microsoft.com* voor vragen over of ondersteuning.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Inleiding tot de SaaS-schema management patronen
 

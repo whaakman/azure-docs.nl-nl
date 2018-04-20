@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: yushwang
 ms.openlocfilehash: b3d9d45da0fb62445867d13c9dff7502af77e8a8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>VPN-apparaten en IPSec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen
 
@@ -173,10 +173,10 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Geen         |
 | 2 |AES256        |SHA1              |Geen         |
-| 3 |3DES          |SHA1              |None         |
-| 4 |AES256        |SHA256            |Geen         |
+| 3 |3DES          |SHA1              |Geen         |
+| 4 |AES256        |SHA256            |None         |
 | 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |None         |
+| 6 |3DES          |SHA256            |Geen         |
 | 7 |DES           |SHA1              |Geen         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |

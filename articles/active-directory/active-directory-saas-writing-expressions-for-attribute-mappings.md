@@ -2,7 +2,7 @@
 title: Expressies voor kenmerktoewijzingen schrijven in Azure Active Directory | Microsoft Docs
 description: Informatie over het gebruik van expressie toewijzingen kenmerkwaarden transformeren naar een aanvaardbaar indeling tijdens de geautomatiseerde inrichting van objecten van de SaaS-app in Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies voor kenmerktoewijzingen schrijven in Azure Active Directory
 Wanneer u configureert het inrichten van een SaaS-toepassing, is een van de soorten kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Hiervoor moet u een script-achtige expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -27,7 +27,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 * De volledige expressie moet worden gedefinieerd in termen van functies, die bestaan uit een naam die wordt gevolgd door haakjes argumenten: <br>
   *Functienaam (<< argument 1 >>, <<argument N>>)*
-* U kunt functies binnen elkaar nesten. Bijvoorbeeld: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+* U kunt functies binnen elkaar nesten. Bijvoorbeeld: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
 * U kunt drie soorten argumenten doorgegeven aan functies:
   
   1. Kenmerken, die moeten worden tussen vierkante vierkante haken. Bijvoorbeeld: [attributeName]
@@ -212,7 +212,7 @@ U moet een gebruiker alias genereren door middel van eerste 3 letters van de voo
 
 * **INVOER** (givenName): "Jan"
 * **INVOER** (voornaam): 'De Vries'
-* **OUTPUT**:  "JohDoe"
+* **UITVOER**: 'JohDoe'
 
 ### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Diakritische tekens verwijderen uit een tekenreeks en converteren naar kleine letters
 Moet u speciale tekens verwijderen uit een tekenreeks en omzetten van hoofdletters in kleine letters.
@@ -222,7 +222,7 @@ Moet u speciale tekens verwijderen uit een tekenreeks en omzetten van hoofdlette
 
 **I/o-voorbeeld:** <br>
 
-* **INPUT** (givenName): "Zoë"
+* **INVOER** (givenName): 'Zoë'
 * **UITVOER**: 'zoe'
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Uitvoerdatum als een tekenreeks in een bepaalde indeling
@@ -235,8 +235,8 @@ U wilt bijvoorbeeld datums voor ServiceNow opmaken.
 
 **I/o-voorbeeld:**
 
-* **INPUT** (extensionAttribute1): "20150123105347.1Z"
-* **OUTPUT**:  "2015-01-23"
+* **INVOER** (extensionAttribute1): '20150123105347.1Z'
+* **UITVOER**: '2015-01-23'
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Een waarde op basis van vooraf gedefinieerde set opties vervangen
 U moet de tijdzone van de gebruiker op basis van de status code opgeslagen in Azure AD te definiëren. <br>

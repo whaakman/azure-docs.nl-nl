@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9391072159f26ae8c7d3eba9f023a8e7d62a4e26
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App-Service op Azure-Stack update 1 release-opmerkingen
 
@@ -39,7 +39,7 @@ De App op Azure Stack Update 1 build-nummer is **69.0.13698.9**
 ### <a name="prerequisites"></a>Vereisten
 
 > [!IMPORTANT]
-> Nieuwe implementaties van Azure App Service op Azure-Stack moet nu een [drie onderwerp jokertekencertificaat](azure-stack-app-service-before-you-get-started.md#get-certificates) vanwege verbeteringen in de manier waarop SSO voor Kudu nu in Azure App Service wordt verwerkt.  Nieuw onderwerp is ** *. sso.appservice.<region>. <domainname>.<extension>**
+> Nieuwe implementaties van Azure App Service op Azure-Stack moet nu een [drie onderwerp jokertekencertificaat](azure-stack-app-service-before-you-get-started.md#get-certificates) vanwege verbeteringen in de manier waarop SSO voor Kudu nu in Azure App Service wordt verwerkt. Nieuw onderwerp is ** *.sso.appservice.<region>.<domainname>.<extension>**
 >
 >
 
@@ -49,11 +49,11 @@ Raadpleeg de [documentatie voordat u aan de slag](azure-stack-app-service-before
 
 Azure App Service op Azure Stack Update 1 bevat de volgende verbeteringen en oplossingen:
 
-- **Hoge beschikbaarheid van Azure App Service** -fault-domeinen voor de Azure-Stack 1802 update ingeschakeld workloads die moeten worden geïmplementeerd.  App Service-infrastructuur is daarom kunnen worden fouttolerant zoals deze wordt geïmplementeerd in domeinen met fouten.  Standaard alle nieuwe implementaties van Azure App Service heeft deze mogelijkheid echter voor implementaties voltooien voordat Azure Stack 1802 update wordt toegepast naar verwijzen de [Foutdomein van App Service-documentatie](azure-stack-app-service-fault-domain-update.md)
+- **Hoge beschikbaarheid van Azure App Service** -fault-domeinen voor de Azure-Stack 1802 update ingeschakeld workloads die moeten worden geïmplementeerd. App Service-infrastructuur is daarom kunnen worden fouttolerant zoals deze wordt geïmplementeerd in domeinen met fouten. Standaard alle nieuwe implementaties van Azure App Service heeft deze mogelijkheid echter voor implementaties voltooien voordat Azure Stack 1802 update wordt toegepast verwijzen naar de [Foutdomein van App Service-documentatie](azure-stack-app-service-fault-domain-update.md)
 
-- **Implementeren in een bestaand virtueel netwerk** -klanten kunnen nu op Azure-Stack-App Service implementeren in een bestaand virtueel netwerk.  Implementatie in een bestaand virtueel netwerk, kunnen klanten verbinding maken met de SQL Server en bestandsserver, vereist voor Azure App Service via particuliere poorten.  Tijdens de implementatie van klanten kunnen selecteren om te implementeren in een bestaand virtueel netwerk echter [moet maken voor gebruik door App Service-subnetten](azure-stack-app-service-before-you-get-started.md#virtual-network) voorafgaand aan de implementatie.
+- **Implementeren in een bestaand virtueel netwerk** -klanten kunnen nu op Azure-Stack-App Service implementeren in een bestaand virtueel netwerk. Implementatie in een bestaand virtueel netwerk, kunnen klanten verbinding maken met de SQL Server en bestandsserver, vereist voor Azure App Service via particuliere poorten. Tijdens de implementatie van klanten kunnen selecteren om te implementeren in een bestaand virtueel netwerk echter [moet maken voor gebruik door App Service-subnetten](azure-stack-app-service-before-you-get-started.md#virtual-network) voorafgaand aan de implementatie.
 
-- Updates voor de **App Service-Tenant, Admin, portals van de functies en hulpprogramma's voor Kudu**.  Consistent zijn met Azure Stack Portal SDK-versie.
+- Updates voor de **App Service-Tenant, Admin, portals van de functies en hulpprogramma's voor Kudu**. Consistent zijn met Azure Stack Portal SDK-versie.
 
 - **Updates voor de volgende toepassingsframeworks en hulpprogramma's**:
     - Toegevoegd **.Net Core 2.0** ondersteunen
@@ -105,11 +105,11 @@ Azure App Service op Azure Stack Update 1 bevat de volgende verbeteringen en opl
 
 - Validatiefouten certificaat
 
-Sommige klanten zijn problemen opgetreden bij het opgeven van certificaten aan het App Service-installatieprogramma bij het implementeren op een systeem geïntegreerde vanwege te streng validatie in het installatieprogramma.  Het installatieprogramma van de App Service is opnieuw uitgebracht, moeten klanten [downloaden van het bijgewerkte installatieprogramma](https://aka.ms/appsvconmasinstaller).  Als u problemen bij het valideren van certificaten met de bijgewerkte installatieprogramma doorgaat, moet u contact op met ondersteuning.
+Sommige klanten zijn problemen opgetreden bij het opgeven van certificaten aan het App Service-installatieprogramma bij het implementeren op een systeem geïntegreerde vanwege te streng validatie in het installatieprogramma. Het installatieprogramma van de App Service is opnieuw uitgebracht, moeten klanten [downloaden van het bijgewerkte installatieprogramma](https://aka.ms/appsvconmasinstaller). Als u problemen bij het valideren van certificaten met de bijgewerkte installatieprogramma doorgaat, moet u contact op met ondersteuning.
 
 - Probleem met het basiscertificaat van de Azure-Stack van geïntegreerde systeem ophalen.
 
-Een fout opgetreden in de Get-AzureStackRootCert.ps1 waardoor klanten kunnen niet worden opgehaald van het Azure-Stack-basiscertificaat wanneer het script wordt uitgevoerd op een computer waarop geen het basiscertificaat dat is geïnstalleerd.  Het script is nu ook opnieuw uitgebracht, het oplossen van dit probleem en de aanvraag klanten [downloaden van de bijgewerkte helper scripts](https://aka.ms/appsvconmashelpers).  Als u problemen bij het ophalen van het basiscertificaat met het bijgewerkte script doorgaat, moet u contact op met ondersteuning.
+Een fout opgetreden in de Get-AzureStackRootCert.ps1 waardoor klanten kunnen niet worden opgehaald van het Azure-Stack-basiscertificaat wanneer het script wordt uitgevoerd op een computer waarop geen het basiscertificaat dat is geïnstalleerd. Het script is nu ook opnieuw uitgebracht, het oplossen van dit probleem en de aanvraag klanten [downloaden van de bijgewerkte helper scripts](https://aka.ms/appsvconmashelpers). Als u problemen bij het ophalen van het basiscertificaat met het bijgewerkte script doorgaat, moet u contact op met ondersteuning.
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces kan controleren
 
@@ -119,12 +119,12 @@ Een fout opgetreden in de Get-AzureStackRootCert.ps1 waardoor klanten kunnen nie
 
 - Wisseling van sleuven is niet compatibel
 
-Site sleuf wisselen is onderverdeeld in deze release.  Om functionaliteit te herstellen, moet u deze stappen uitvoeren:
+Site sleuf wisselen is onderverdeeld in deze release. Om functionaliteit te herstellen, moet u deze stappen uitvoeren:
 
-1. Wijzigen van de Netwerkbeveiligingsgroep voor ControllersNSG naar **toestaan** extern bureaublad-verbindingen naar de App Service-controller-exemplaren.  AppService.local vervangen door de naam van de resourcegroep die u hebt geïmplementeerd in-App Service.
+1. Wijzigen van de Netwerkbeveiligingsgroep voor ControllersNSG naar **toestaan** extern bureaublad-verbindingen naar de App Service-controller-exemplaren. AppService.local vervangen door de naam van de resourcegroep die u hebt geïmplementeerd in-App Service.
 
     ```powershell
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
 
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -146,7 +146,7 @@ Site sleuf wisselen is onderverdeeld in deze release.  Om functionaliteit te her
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
 
-2. Blader naar de **CN0 VM** onder virtuele Machines in de Azure-Stack-beheerdersportal en **klikt u op Verbinden** voor het openen van een extern-bureaubladsessie met het exemplaar van de domeincontroller.  Gebruik de referenties die zijn opgegeven tijdens de implementatie van App Service.
+2. Blader naar de **CN0 VM** onder virtuele Machines in de Azure-Stack-beheerdersportal en **klikt u op Verbinden** voor het openen van een extern-bureaubladsessie met het exemplaar van de domeincontroller. Gebruik de referenties die zijn opgegeven tijdens de implementatie van App Service.
 3. Start **PowerShell als beheerder** en het volgende script uitvoeren
 
     ```powershell
@@ -171,11 +171,11 @@ Site sleuf wisselen is onderverdeeld in deze release.  Om functionaliteit te her
     ```
 
 4. Sluit de extern bureaublad-sessiehost.
-5. Herstellen van de Netwerkbeveiligingsgroep voor ControllersNSG naar **weigeren** extern bureaublad-verbindingen naar de App Service-controller-exemplaren.  AppService.local vervangen door de naam van de resourcegroep die u hebt geïmplementeerd in-App Service.
+5. Herstellen van de Netwerkbeveiligingsgroep voor ControllersNSG naar **weigeren** extern bureaublad-verbindingen naar de App Service-controller-exemplaren. AppService.local vervangen door de naam van de resourcegroep die u hebt geïmplementeerd in-App Service.
 
     ```powershell
 
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
 
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -196,6 +196,18 @@ Site sleuf wisselen is onderverdeeld in deze release.  Om functionaliteit te her
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
+- Werknemers hebben geen toegang heeft tot bestandsserver wanneer de App Service is geïmplementeerd in een bestaand virtueel netwerk en de bestandsserver is alleen beschikbaar op het particuliere netwerk.
+ 
+Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met uw bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen het subnet van de werknemer en de bestandsserver aan te geven. Hiervoor gaat u naar de WorkersNsg in het beheerportal en een uitgaande beveiligingsregel met de volgende eigenschappen toevoegen:
+ * Bron:
+ * Poortbereik van bron: *
+ * Bestemming: IP-adressen
+ * Doel-IP-adresbereik: bereik van IP-adressen voor uw bestandsserver
+ * Poortbereik van doel: 445
+ * Protocol: TCP
+ * Actie: toestaan
+ * Prioriteit: 700
+ * Naam: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bekende problemen voor Cloud-beheerders werking van Azure App Service op Azure-Stack
 

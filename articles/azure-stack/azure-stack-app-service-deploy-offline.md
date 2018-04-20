@@ -2,11 +2,11 @@
 title: App Service implementeren in een offline-omgeving in Azure-Stack | Microsoft Docs
 description: Gedetailleerde richtlijnen voor het App Service implementeren in een omgeving zonder verbinding Azure Stack beveiligd met AD FS.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 7a44c5d182aa3c66c07c3dad8c82e171429f2ee4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een Azure-Stack omgeving zonder verbinding beveiligd met AD FS
 
@@ -183,7 +183,20 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 
 2. Schakel in het overzicht onder status om te zien die de **Status** toont **alle rollen gereed zijn**.
 
-    ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
+    ![App Service-beheer](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres conenct bij uw bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen het subnet van de werknemer en de bestandsserver aan te geven.  Hiervoor gaat u naar de WorkersNsg in het beheerportal en een uitgaande beveiligingsregel met de volgende eigenschappen toevoegen:
+> * Bron:
+> * Poortbereik van bron: *
+> * Bestemming: IP-adressen
+> * Doel-IP-adresbereik: bereik van IP-adressen voor uw bestandsserver
+> * Poortbereik van doel: 445
+> * Protocol: TCP
+> * Actie: toestaan
+> * Prioriteit: 700
+> * Naam: Outbound_Allow_SMB445
+>
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>App Service-station op Azure-Stack testen
 
@@ -214,9 +227,9 @@ Vanaf de derde technical preview functies voor het maken van web-API en Azure ap
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Een WordPress, DNN of Django-website (optioneel) implementeren
 
-1. Klik in de tenantportal Azure Stack op  **+** , gaat u naar de Azure Marketplace een Django-website te implementeren en wacht met succes is voltooid. Een bestand gebaseerde database maakt gebruik van het Django webplatform. Eventuele extra resourceproviders, zoals SQL of MySQL nodig niet is.
+1. Klik in de tenantportal Azure Stack op **+**, gaat u naar de Azure Marketplace een Django-website te implementeren en wacht met succes is voltooid. Een bestand gebaseerde database maakt gebruik van het Django webplatform. Eventuele extra resourceproviders, zoals SQL of MySQL nodig niet is.
 
-2. Als u een MySQL-resourceprovider ook hebt geïmplementeerd, kunt u een WordPress-website van de Marketplace kunt implementeren. Wanneer u wordt gevraagd om de databaseparameters, voert u de naam van de gebruiker als  *User1@Server1* , met de gebruikersnaam en de naam van uw keuze.
+2. Als u een MySQL-resourceprovider ook hebt geïmplementeerd, kunt u een WordPress-website van de Marketplace kunt implementeren. Wanneer u wordt gevraagd om de databaseparameters, voert u de naam van de gebruiker als *User1@Server1*, met de gebruikersnaam en de naam van uw keuze.
 
 3. Als u een SQL Server-resourceprovider ook hebt geïmplementeerd, kunt u een website DNN vanuit de Marketplace kunt implementeren. Wanneer u wordt gevraagd om de databaseparameters, kiest u een database in de computer met SQL Server die verbonden met uw resourceprovider.
 

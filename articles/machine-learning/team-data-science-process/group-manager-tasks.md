@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: bradsev
 ms.openlocfilehash: 3c39ae865ec26567f70706b042dab2aa8e4939d3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="group-manager-tasks"></a>Groep Manager-taken
 
@@ -87,7 +87,7 @@ Nadat u zich aanmeldt, klikt u op **nieuw Account maken** in de rechterbovenhoek
 Vul de gegevens voor de VSTS-server die u maken wilt de **maken van uw account** wizard met de volgende waarden: 
 
 - **Server-URL**: Vervang *mysamplegroup* door uw eigen *servernaam*. De URL van uw server is het verstandig om: *https://\<servername\>. visualstudio.com*. 
-- **Beheren met behulp van code:** Selecteer ** _Git_**.
+- **Beheren met behulp van code:** Selecteer  **_Git_**.
 - **Naam van het project:** Enter *GroupCommon*. 
 - **Indelen met behulp van work:** Kies *Agile*.
 - **Host uw projecten in:** Kies een geografische locatie. In dit voorbeeld kiest *Zuid-centraal VS*. 
@@ -146,11 +146,11 @@ Naam wijzigen van de standaard **GroupCommon** opslagplaats als *GroupProjectTem
 
 ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
 
-- Klik op de **... ** rechts van de **GroupCommon** opslagplaats op het linkerdeelvenster en selecteer **Rename-opslagplaats**. 
+- Klik op de **...**  rechts van de **GroupCommon** opslagplaats op het linkerdeelvenster en selecteer **Rename-opslagplaats**. 
 
 ![12](./media/group-manager-tasks/rename-groupcommon-repo-5.png)
         
-- In de **Wijzig de naam van de opslagplaats GroupCommon** wizard die POP's, voer *GroupProjectTemplate* in de **naam** vak en klik vervolgens op **wijzigen **. 
+- In de **Wijzig de naam van de opslagplaats GroupCommon** wizard die POP's, voer *GroupProjectTemplate* in de **naam** vak en klik vervolgens op **wijzigen** . 
 
 ![13](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
 

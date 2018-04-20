@@ -2,10 +2,10 @@
 title: Media Services release-opmerkingen | Microsoft Docs
 description: Media Services release-opmerkingen
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20a24aa19989370c6ce82a738193a78f24b0eba9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen voor Azure Media Services geven een overzicht van wijzigingen van vorige versies en bekende problemen.
@@ -47,7 +47,7 @@ Zie voor informatie over de geschiedenis van de REST-API voor Media Services-ver
 
 ## <a name="october-2017-release"></a>Release van oktober 2017
 > [!IMPORTANT] 
-> Media Services is ondersteuning voor Azure Access Control Service verificatiesleutels het. Op 1 juni 2018, kunt u niet langer verifiëren met de Media Services-back-end via code via Access Control Service sleutels. U moet uw code voor het gebruik van Azure Active Directory (Azure AD) bijwerken [Azure AD gebaseerde verificatie](media-services-use-aad-auth-to-access-ams-api.md). Controleren of er waarschuwingen over deze wijziging in de Azure portal.
+> Media Services is ondersteuning voor Azure Access Control Service verificatiesleutels het. Op 22 juni 2018, kunt u niet langer verifiëren met de Media Services-back-end via code via Access Control Service sleutels. U moet uw code voor het gebruik van Azure Active Directory (Azure AD) bijwerken [Azure AD gebaseerde verificatie](media-services-use-aad-auth-to-access-ams-api.md). Controleren of er waarschuwingen over deze wijziging in de Azure portal.
 
 ### <a name="updates-for-october-2017"></a>Updates voor oktober 2017
 #### <a name="sdks"></a>SDK's
@@ -95,7 +95,7 @@ Vanaf 1 April 2017 elke record taak in uw account ouder is dan 90 dagen automati
 
 In Media Services vertegenwoordigt een streaming-eindpunt een streaming-service die inhoud rechtstreeks naar een clienttoepassing player of met een netwerk voor contentlevering (CDN) voor verdere distributie leveren kunt. Media Services biedt ook naadloze integratie van Azure Content Delivery Network. De uitgaande stroom van een service StreamingEndpoint kan dit een live stream, video op aanvraag of een progressieve download van de activa in uw Media Services-account. Elke Media Services-account bevat een standaard streaming-eindpunt. Aanvullende streaming-eindpunten kunnen worden gemaakt onder het account. 
 
-Er zijn twee versies van het streaming-eindpunten, 1.0 en 2.0. Starten van 10 januari 2017 bevatten zojuist gemaakte accounts Media Services versie 2.0 standaard streaming-eindpunt. Aanvullende streaming-eindpunten die u aan dit account toevoegt zijn ook versie 2.0. Deze wijziging geen invloed op bestaande accounts. Bestaande streaming-eindpunten versie 1.0 zijn en kunnen worden bijgewerkt naar versie 2.0. Er zijn gedrag, facturering en functiewijzigingen met deze wijziging. Zie voor meer informatie [Streaming-eindpunten overzicht](media-services-streaming-endpoints-overview.md).
+Er zijn twee versies van het streaming-eindpunten, 1.0 en 2.0. Starten van 10 januari 2017 bevatten zojuist gemaakte accounts Media Services versie 2.0 standaard streaming-eindpunt. Aanvullende streaming-eindpunten die u aan dit account toevoegt zijn ook versie 2.0. Deze wijziging geen invloed op bestaande accounts. Bestaande streaming-eindpunten versie 1.0 zijn en kunnen worden bijgewerkt naar versie 2.0. Er zijn gedrag, facturering en functiewijzigingen met deze wijziging. Zie [Streaming endpoints overview](media-services-streaming-endpoints-overview.md) (Overzicht van streaming-eindpunten) voor meer informatie.
 
 Vanaf versie 2.15, Media Services de volgende eigenschappen toegevoegd aan de streaming endpoint-entiteit:
 
@@ -388,7 +388,7 @@ Zie voor meer informatie [Pogingslogica in de Media Services SDK voor .NET].
 * Een probleem is opgelost die is gerelateerd aan transcodering MP4s waar de audio is gecodeerd met MPEG-1 Audio Layer 3 (ook wel bekend als MP3).
 
 ## <a id="jan_feb_changes_14"></a>Releases van januari/februari 2014
-### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK 3.0.0.1, 3.0.0.2 and 3.0.0.3
+### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK 3.0.0.1, 3.0.0.2 en 3.0.0.3
 De wijzigingen in 3.0.0.1 en 3.0.0.2 omvatten:
 
 * Problemen met betrekking tot het gebruik van de LINQ-query's met OrderBy-instructies zijn opgelost.
@@ -457,14 +457,14 @@ De volgende wijzigingen zijn opgenomen in de juni 2013 Media Services SDK worden
 * Vanaf versie 2.3.0.0, de Media Services SDK ondersteunt meerdere opslag koppelen gebruikersaccounts aan een Media Services-account. Deze functie wordt ondersteund door de volgende API's:
   
     * Type IStorageAccount
-    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property
+    * De eigenschap Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts
     * StorageAccount-eigenschap
     * De eigenschap StorageAccountName
   
     Zie voor meer informatie [Media Services beheren activa tussen meerdere opslagaccounts](http://msdn.microsoft.com/library/azure/dn271889.aspx).
 * Melding-gerelateerde API's. Vanaf versie 2.2.0.0, kunt u luistert naar Azure Queue storage meldingen. Zie voor meer informatie [verwerken Media Services taak meldingen](http://msdn.microsoft.com/library/azure/dn261241.aspx).
   
-    * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property
+    * De eigenschap Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions
     * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint type
     * Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription type
     * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection type

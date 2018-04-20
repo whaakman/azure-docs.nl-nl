@@ -2,10 +2,10 @@
 title: Problemen met aanmelden bij een galerij-toepassing is geconfigureerd voor federatieve eenmalige aanmelding | Microsoft Docs
 description: Richtlijnen voor de specifieke fouten bij het ondertekenen van een toepassing die u hebt geconfigureerd voor op basis van SAML federatieve eenmalige aanmelding met Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: fa1387c3eb11899bb74418b2ff1af4a5d22a73d9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een galerij-toepassing die is geconfigureerd voor federatieve eenmalige aanmelding
 
@@ -63,7 +63,7 @@ Nadat u de id-waarde hebben bijgewerkt in Azure AD en deze met de waarde verzend
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Het antwoordadres komt niet overeen met de antwoordadressen geconfigureerd voor de toepassing.
 
-*Fout AADSTS50011: Het antwoordadres 'https://contoso.com' komt niet overeen met de antwoordadressen geconfigureerd voor de toepassing*
+*Fout AADSTS50011: Het antwoordadreshttps://contoso.com' komt niet overeen met de antwoordadressen geconfigureerd voor de toepassing*
 
 **Mogelijke oorzaak**
 

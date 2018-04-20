@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Zelfstudie: Azure Active Directory-integratie met Tableau Server
 
@@ -127,7 +127,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     | Naam kenmerk | Waarde kenmerk |
     | ---------------| --------------- |    
-    | gebruikersnaam | *user.mailnickname* |
+    | gebruikersnaam | *User.mailnickname* |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -158,7 +158,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
   
    b. Schakel het selectievakje van **gebruik SAML voor eenmalige aanmelding**.
    
-   c. Tableau Server retour-URL, de URL die Tableau Server-gebruikers toegang, zoals http://tableau_server tot krijgen. Gebruik http://localhost wordt niet aanbevolen. Via een URL met een slash (bijvoorbeeld http://tableau_server/) wordt niet ondersteund. Kopiëren **Tableau Server retour-URL** en plak deze naar Azure AD **aanmelding op URL** textbox in **Tableau-serverdomein en URL's** sectie.
+   c. Tableau Server retour-URL, de URL die Tableau Server-gebruikers toegang, zoals tot krijgen http://tableau_server. Met behulp van http://localhost wordt niet aanbevolen. Via een URL met een slash (bijvoorbeeld http://tableau_server/) wordt niet ondersteund. Kopiëren **Tableau Server retour-URL** en plak deze naar Azure AD **aanmelding op URL** textbox in **Tableau-serverdomein en URL's** sectie.
    
    d. SAML-entiteit-ID, de entiteit-ID is uniek voor de serverinstallatie van Tableau aan de IdP. Hier geeft u de URL van de Server Tableau opnieuw, indien gewenst, maar deze hoeft niet te worden van de URL van de Server Tableau. Kopiëren **SAML entiteit-ID** en plak deze naar Azure AD **id** textbox in **Tableau-serverdomein en URL's** sectie.
      

@@ -2,10 +2,10 @@
 title: Inrichting van apps in Azure Active Directory met behulp van SCIM automatiseren | Microsoft Docs
 description: Azure Active Directory kunnen automatisch worden ingericht, gebruikers en groepen naar een toepassing of identiteit store die door een webservice is fronted met de interface die is gedefinieerd in de specificatie SCIM protocol
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
 ms.workload: identity
@@ -17,10 +17,10 @@ ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Systeem voor het identiteitsbeheer van verschillende domeinen gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory voor toepassingen
 
@@ -114,7 +114,7 @@ De eenvoudigste manier voor het implementeren van een SCIM-eindpunt dat inrichti
 
 **Een voorbeeld SCIM-eindpunt maken:**
 
-1. De code voorbeeld downloaden op [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
+1. Download het pakket voor het voorbeeld van code op [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Pak het pakket en plaats het op uw Windows-machine op een locatie zoals C:\AzureAD-BYOA-Provisioning-Samples\.
 3. In deze map, start u de FileProvisioningAgent oplossing in Visual Studio.
 4. Selecteer **Extra > Library Package Manager > Package Manager Console**, en voer de volgende opdrachten voor het project FileProvisioningAgent omzetten van de oplossing verwijzingen:
@@ -144,7 +144,7 @@ De eenvoudigste manier voor het implementeren van een SCIM-eindpunt dat inrichti
   ![][2]
   *Afbeelding 4: Configureren in de Azure portal-inrichting*
     
-6. In de **Tenant-URL** en voer de beschikbaar gesteld op internet-URL en poort van uw eindpunt SCIM. Zou dit iets zoals http://testmachine.contoso.com:9000 of http://<ip-address>:9000/, waarbij < ip-adres > internet is blootgesteld IP adres.  
+6. In de **Tenant-URL** en voer de beschikbaar gesteld op internet-URL en poort van uw eindpunt SCIM. Zou dit ongeveer http://testmachine.contoso.com:9000 of http://<ip-address>:9000/, waarbij < ip-adres > internet is blootgesteld IP-adres.  
 7. Als het eindpunt SCIM een OAuth bearer-token van een verlener dan Azure AD vereist, kopieert u de vereiste OAuth bearer-token naar de optionele **geheim Token** veld. Als dit veld leeg laat, wordt Azure AD een OAuth-bearer-token van Azure AD bij elke aanvraag uitgegeven opnemen. Apps die gebruikmaken van Azure AD als een id-provider kunt controleren of deze Azure AD-verleend token.
 8. Klik op de **testverbinding** knop Azure Active Directory proberen te verbinden met het eindpunt SCIM hebben. Als de pogingen mislukken, wordt informatie over de fout wordt weergegeven.  
 9. Als de pogingen tot verbinding maken met de toepassing te voltooien, klikt u op **opslaan** om op te slaan de beheerdersreferenties.
@@ -168,7 +168,7 @@ Voor het ontwikkelen van uw eigen webservice die aan de specificatie SCIM voldoe
 2. [Express route-handlers](http://expressjs.com/guide/routing.html) zijn beschikbaar voor het parseren van de aanvraag-objecten van een node.js-aanroepen (zoals gedefinieerd door de specificatie SCIM), die aangebracht aan een node.js-web-service.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Het bouwen van een aangepaste SCIM-eindpunt
-Met behulp van de CLI-bibliotheken, kunnen ontwikkelaars die bibliotheken met hun services in uitvoerbaar Common Language Infrastructure assembly of in Internet Information Services host. Hier volgt een voorbeeld van code voor het hosten van een service binnen een uitvoerbare assembly, het adres http://localhost:9000: 
+Met behulp van de CLI-bibliotheken, kunnen ontwikkelaars die bibliotheken met hun services in uitvoerbaar Common Language Infrastructure assembly of in Internet Information Services host. Hier is de voorbeeldcode voor het hosten van een service binnen een uitvoerbare assembly, het adres http://localhost:9000: 
 
     private static void Main(string[] arguments)
     {
@@ -288,7 +288,7 @@ Voor het hosten van de Internet Information Services-service, zou een ontwikkela
     }
 
 ### <a name="handling-endpoint-authentication"></a>Afhandeling van endpoint-verificatie
-Aanvragen van Azure Active Directory bevatten een OAuth 2.0-bearer-token.   Alle services die de aanvraag ontvangt, moet de verlener als Azure Active Directory namens de verwachte Azure Active Directory-tenant voor toegang tot de webservice Azure Active Directory Graph verifiëren.  In het token de certificaatverlener die wordt geïdentificeerd door een claim iss, zoals 'iss': 'https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/'.  In dit voorbeeld wordt het basisadres van de claimwaarde https://sts.windows.net, identificeert Azure Active Directory als de verlener terwijl het segment relatief adres, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is de unieke id van de Azure Active Directory tenant namens die het token is uitgegeven.  Als het token is uitgegeven voor toegang tot de Azure Active Directory Graph-webservice, klikt u vervolgens moet de id van die service, 00000002-0000-0000-c000-000000000000, de waarde van het token aud claim.  
+Aanvragen van Azure Active Directory bevatten een OAuth 2.0-bearer-token.   Alle services die de aanvraag ontvangt, moet de verlener als Azure Active Directory namens de verwachte Azure Active Directory-tenant voor toegang tot de webservice Azure Active Directory Graph verifiëren.  In het token de certificaatverlener die wordt geïdentificeerd door een claim iss, zoals 'iss': 'https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/'.  In dit voorbeeld wordt het basisadres van de claimwaarde https://sts.windows.net, identificeert u Azure Active Directory als de verlener terwijl de relatief adres segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is de unieke id van de Azure Active Directory-tenant op andere gebruikers die het token is uitgegeven.  Als het token is uitgegeven voor toegang tot de Azure Active Directory Graph-webservice, klikt u vervolgens moet de id van die service, 00000002-0000-0000-c000-000000000000, de waarde van het token aud claim.  
 
 Ontwikkelaars met behulp van de bibliotheken CLA is geleverd door Microsoft voor het bouwen van een service SCIM kunnen verifiëren aanvragen van Azure Active Directory met het pakket Microsoft.Owin.Security.ActiveDirectory met de volgende stappen: 
 
@@ -349,28 +349,28 @@ Azure Active Directory kunnen twee soorten resources met webservices SCIM inrich
 
 User-bronnen worden geïdentificeerd door de schema-id en urn: ietf:params:scim:schemas:extension:enterprise:2.0:User, die is opgenomen in deze specificatie van het protocol: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  De standaardtoewijzing van de kenmerken van gebruikers in Azure Active Directory in de kenmerken van resources urn: ietf:params:scim:schemas:extension:enterprise:2.0:User hieronder vindt u in de tabel 1.  
 
-Groep resources worden geïdentificeerd door de schema-id en http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabel 2 hieronder bevat de standaardtoewijzing van de kenmerken van groepen in Azure Active Directory op de kenmerken van http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group resources.  
+Groep resources worden geïdentificeerd door de schema-id en http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabel 2 hieronder bevat de standaardtoewijzing van de kenmerken van groepen in Azure Active Directory in de kenmerken van http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group resources.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabel 1: Standaard Gebruikerskoppeling kenmerk
-| Azure Active Directory user | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Azure Active Directory-gebruiker | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
 | IsSoftDeleted |actief |
 | displayName |displayName |
 | Facsimile-TelephoneNumber |phoneNumbers type eq 'fax'.value |
 | givenName |name.givenName |
-| jobTitle |titel |
+| Functie |titel |
 | E-mail |e-mailberichten type eq 'werk'.value |
 | mailNickname |externalId |
-| manager |manager |
-| mobiele |phoneNumbers[type eq "mobile"].value |
-| objectId |id |
-| postalCode |addresses[type eq "work"].postalCode |
+| Manager |Manager |
+| mobiele |phoneNumbers type eq 'mobiel'.value |
+| object-id |id |
+| Postcode |adressen type eq 'werk'.postalCode |
 | proxy-adressen |e-mailberichten [Geef eq 'andere']. Waarde |
 | physical-Delivery-OfficeName |adressen [Geef eq 'andere']. Indeling |
 | StreetAddress |adressen type eq 'werk'.streetAddress |
 | Achternaam |name.familyName |
 | Telefoonnummer |phoneNumbers type eq 'werk'.value |
-| user-PrincipalName |userName |
+| user-PrincipalName |Gebruikersnaam |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabel 2: Standaard kenmerk apparaatgroeptoewijzing
 | Azure Active Directory-groep | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
@@ -379,7 +379,7 @@ Groep resources worden geïdentificeerd door de schema-id en http://schemas.micr
 | E-mail |e-mailberichten type eq 'werk'.value |
 | mailNickname |displayName |
 | leden |leden |
-| objectId |id |
+| object-id |id |
 | proxyAddresses |e-mailberichten [Geef eq 'andere']. Waarde |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>Gebruikers inrichten en de inrichting
@@ -541,12 +541,12 @@ De volgende afbeelding ziet u de Azure Active Directory voor het beheren van de 
   * parameters.AlternateFilters.Count: 2
   * parameters. AlternateFilters.ElementAt(x). AttributePath: 'id'
   * parameters. AlternateFilters.ElementAt(x). Vergelijkingsoperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * parameters. AlternateFilter.ElementAt(x). ComparisonValue: '54D382A4-2050-4C03-94D1-E769F1D15682'
   * parameters. AlternateFilters.ElementAt(y). AttributePath: 'manager'
-  * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+  * parameters. AlternateFilters.ElementAt(y). Vergelijkingsoperator: ComparisonOperator.Equals
+  * parameters. AlternateFilter.ElementAt(y). ComparisonValue: '2819c223-7f76-453a-919d-413861904646'
   * parameters. RequestedAttributePaths.ElementAt(0): 'id'
-  * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * parameters. SchemaIdentifier: 'urn: ietf:params:scim:schemas:extension:enterprise:2.0:User'
 
   Hier de waarde van de x-index kan niet 0 en 1, is de waarde van de index y mogelijk of de waarde van x mogelijk 1 en de waarde van y kan zijn ingesteld op 0, afhankelijk van de volgorde van de expressies van de queryparameter filter.   
 
@@ -653,7 +653,7 @@ De volgende afbeelding ziet u de Azure Active Directory voor het beheren van de 
   ````
     In het voorbeeld van een aanvraag voor het bijwerken van een gebruiker heeft het object dat is opgegeven als de waarde van de patch-argument waarden van deze eigenschappen: 
   
-  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * ResourceIdentifier.Identifier: '54D382A4-2050-4C03-94D1-E769F1D15682'
   * ResourceIdentifier.SchemaIdentifier: 'urn: ietf:params:scim:schemas:extension:enterprise:2.0:User'
   * (PatchRequest als PatchRequest2). Operations.Count: 1
   * (PatchRequest als PatchRequest2). Operations.ElementAt(0). OperationName: OperationName.Add
@@ -679,7 +679,7 @@ De volgende afbeelding ziet u de Azure Active Directory voor het beheren van de 
   ````
   Het object dat is opgegeven als de waarde van het argument resourceIdentifier heeft waarden van deze eigenschappen in het voorbeeld van een aanvraag voor het inrichten van een gebruiker ongedaan: 
   
-  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * ResourceIdentifier.Identifier: '54D382A4-2050-4C03-94D1-E769F1D15682'
   * ResourceIdentifier.SchemaIdentifier: 'urn: ietf:params:scim:schemas:extension:enterprise:2.0:User'
 
 ## <a name="group-provisioning-and-de-provisioning"></a>Groep inrichting en ongedaan inrichten

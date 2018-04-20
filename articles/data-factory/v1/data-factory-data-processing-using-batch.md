@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 8f0cd8aad2d5c5142fc66c78393b57ff210a7b83
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grote gegevenssets proces met behulp van Data Factory en Batch
 > [!NOTE]
@@ -169,7 +169,7 @@ De methode heeft enkele belangrijke onderdelen die u nodig hebt om te begrijpen:
 * De methode bevat vier parameters:
 
   * **linkedServices**. Deze parameter is een inventariseerbare lijst met gekoppelde services die gegevensbronnen van invoer/uitvoer (bijvoorbeeld blobopslag) aan de gegevensfactory koppelen. In dit voorbeeld is er slechts één van de gekoppelde service van Azure Storage gebruikt voor invoer en uitvoer van het type.
-  * **datasets**. Deze parameter is een inventariseerbare lijst met gegevenssets. Deze parameter kunt u de locaties en schema's die zijn gedefinieerd door de invoer- en uitvoergegevenssets ophalen.
+  * **gegevenssets**. Deze parameter is een inventariseerbare lijst met gegevenssets. Deze parameter kunt u de locaties en schema's die zijn gedefinieerd door de invoer- en uitvoergegevenssets ophalen.
   * **activiteit**. Deze parameter geeft de huidige compute-entiteit. In dit geval is het een batchservice.
   * **logger**. Het logboek kunt u foutopsporing opmerkingen die surface schrijven als het logboek 'Gebruiker' voor de pijplijn.
 * De methode retourneert een woordenlijst die kan worden gebruikt om een keten van aangepaste activiteiten in de toekomst. Deze functie nog niet is geïmplementeerd, dus u hoeft alleen een woordenboek leeg retourneren van de methode.
@@ -177,7 +177,7 @@ De methode heeft enkele belangrijke onderdelen die u nodig hebt om te begrijpen:
 #### <a name="procedure-create-the-custom-activity"></a>Procedure: De aangepaste activiteit maken
 1. Maak een .NET-klasse bibliotheek-project in Visual Studio.
 
-   a. Start Visual Studio 2012/2013/2015.
+   a. Start Visual Studio 2012-2013-2015.
 
    b. Selecteer **Bestand** > **Nieuw** > **Project**.
 
@@ -664,7 +664,7 @@ In deze stap maakt u gegevenssets vertegenwoordigen de invoer-en uitvoergegevens
 
     De begintijd voor elk segment wordt vertegenwoordigd door de **SliceStart** systeemvariabele in het vorige JSON-codefragment. Hier volgen de begintijden voor elk segment.
 
-    | **Slice** | **Begintijd**          |
+    | **Segment** | **Begintijd**          |
     |-----------|-------------------------|
     | 1         | 2015-11-16T**00**:00:00 |
     | 2         | 2015-11-16T**01**:00:00 |
@@ -674,7 +674,7 @@ In deze stap maakt u gegevenssets vertegenwoordigen de invoer-en uitvoergegevens
 
     De **folderPath** wordt berekend met behulp van het jaar, maand, dag en uur deel van de begintijd van het segment (**SliceStart**). Hier ziet u hoe een invoermap is toegewezen aan een segment.
 
-    | **Slice** | **Begintijd**          | **Invoermap**  |
+    | **Segment** | **Begintijd**          | **Invoermap**  |
     |-----------|-------------------------|-------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
@@ -721,7 +721,7 @@ In deze stap maakt u een andere dataset van het type AzureBlob vertegenwoordigt 
 
     Een uitvoer-blob/bestand wordt gegenereerd voor elk segment invoer. Hier ziet u hoe een bestand voor uitvoer met de naam van elk segment. De uitvoerbestanden worden gegenereerd in een map voor uitvoer, `mycontainer\\outputfolder`.
 
-    | **Slice** | **Begintijd**          | **Bestand voor uitvoer**       |
+    | **Segment** | **Begintijd**          | **Bestand voor uitvoer**       |
     |-----------|-------------------------|-----------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |

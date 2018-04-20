@@ -7,11 +7,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: ddb1c9426874634fea54f1b67509d4ac2af70eba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>De configuratieserver voor VMware-virtuele machines beheren
 
@@ -65,7 +65,7 @@ Als u wilt, kunt u de configuratieserver in dezelfde kluis opnieuw registreren. 
   1. Open in de kluis **beheren** > **Site Recovery-infrastructuur** > **configuratieservers**.
   2. In **Servers**, selecteer **downloaden registratiesleutel** het kluisreferentiebestand te downloaden.
   3. Aanmelden bij de configuratie van server-machine.
-  4. In **%ProgramData%\ASR\home\svagent\bin**, open **cspsconfigtool.exe**.
+  4. In **%ProgramData%\ASR\home\svagent\bin**Open **cspsconfigtool.exe**.
   5. Op de **kluis registratie** tabblad **Bladeren** en zoek het kluisreferentiebestand die u hebt gedownload.
   6. Indien nodig, bieden u proxy-server-gegevens. Selecteer vervolgens **Registreren**.
   7. Open een PowerShell-opdrachtvenster beheerder en voer de volgende opdracht:
@@ -112,7 +112,7 @@ U kunt eventueel de configuratieserver verwijderen met behulp van PowerShell.
 1. [Installeer](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) de Azure PowerShell-module.
 2. Meld u aan bij uw Azure-account met deze opdracht:
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Selecteer het abonnement van de kluis.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

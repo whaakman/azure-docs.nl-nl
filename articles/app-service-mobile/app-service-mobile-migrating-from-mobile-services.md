@@ -2,10 +2,10 @@
 title: Migreren van Mobile Services naar een mobiele App Service-App
 description: Meer informatie over het eenvoudig migreren uw Mobile Services-toepassing in een App Service-mobiele App
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
 ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="article-top"></a>Uw bestaande Azure Mobile Service migreren naar Azure App Service
 Met de [algemene beschikbaarheid van Azure App Service], Azure Mobile Services-sites kunnen worden eenvoudig gemigreerd ter plekke om te profiteren van alle functies van de Azure App Service.  Dit document wordt uitgelegd wat u kunt verwachten wanneer uw site uit Azure Mobile Services migreren naar Azure App Service.
@@ -269,7 +269,7 @@ De volgende aanvullende appinstellingen zijn gemigreerd van uw mobiele Service e
 | Toepassingsinstelling | Beschrijving |
 |:--- |:--- |
 | **MS\_MobileServiceName** |De naam van uw app |
-| **MS\_MobileServiceDomainSuffix** |Het voorvoegsel van het domein. i.e azure-mobile.net |
+| **MS\_MobileServiceDomainSuffix** |Het voorvoegsel van het domein. Internet Explorer azure-mobile.net |
 | **MS\_ApplicationKey** |De sleutel van uw toepassing |
 | **MS\_MasterKey** |De hoofdsleutel van uw app |
 
@@ -311,7 +311,7 @@ Diagnostische logboekregistratie is gewoonlijk in een Azure App Service uitgesch
 4. Selecteer **diagnostische logboeken** in het menu functies.
 5. Klik op **ON** voor de volgende Logboeken: **toepassingslogboeken (bestandssysteem)**, **gedetailleerde foutberichten**, en **tracering van mislukte aanvragen**
 6. Klik op **bestandssysteem** voor logboekregistratie van webserver
-7. Klik op **opslaan**
+7. Klik op **Opslaan**.
 
 De logboeken weergeven:
 

@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
 
@@ -212,7 +212,7 @@ In deze stap maakt hebt u machtigingen domeinbeveiliging beleid voor de worker-g
 
 1. Voer activeren in het zoekvak en klik vervolgens op de koppeling **activeren in behandeling zijnde wijzigingen in beveiligingsbeleid**. 
    
-    ![Activate](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
+    ![Activeren](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "activeren") 
 2. Moet u de wijzigingen in behandeling het beveiligingsbeleid activeren taak eerst een opmerking invoeren voor controledoeleinden en klik vervolgens op **OK**. 
    
     ![In afwachting van beveiliging activeren](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "activeren in afwachting van beveiliging")   
@@ -366,13 +366,13 @@ In deze sectie configureert u hoe gebruikersgegevens uit Workday loopt naar Acti
 | **UserID**    |  algemene naam    |   |   Geschreven op alleen maken |
 | **Join (' @ ', [gebruikersnaam] 'contoso.com')**   | userPrincipalName     |     | Geschreven op alleen maken 
 | **Vervang (Mid (Vervang (\[UserID\],, ' (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ', ' ',), 1, 20), ' ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Geschreven op alleen maken |
-| **Switch (\[Active\],, '0', 'True', '1')** |  accountDisabled      |     | Maken en bijwerken |
-| **FirstName**   | givenName       |     |    Maken en bijwerken |
+| **Switch (\[Active\],, '0', 'True', '1')** |  AccountDisabled      |     | Maken en bijwerken |
+| **Voornaam**   | givenName       |     |    Maken en bijwerken |
 | **LastName**   |   SN   |     |  Maken en bijwerken |
 | **PreferredNameData**  |  displayName |     |   Maken en bijwerken |
 | **Bedrijf**         | Bedrijf   |     |  Maken en bijwerken |
 | **SupervisoryOrganization**  | Afdeling  |     |  Maken en bijwerken |
-| **ManagerReference**   | manager  |     |  Maken en bijwerken |
+| **ManagerReference**   | Manager  |     |  Maken en bijwerken |
 | **BusinessTitle**   |  titel     |     |  Maken en bijwerken | 
 | **AddressLineData**    |  StreetAddress  |     |   Maken en bijwerken |
 | **Gemeente**   |   l   |     | Maken en bijwerken |
@@ -380,7 +380,7 @@ In deze sectie configureert u hoe gebruikersgegevens uit Workday loopt naar Acti
 | **CountryReferenceTwoLetter**    |  c  |     |         Maken en bijwerken |
 | **CountryRegionReference** |  St     |     | Maken en bijwerken |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Maken en bijwerken |
-| **PostalCode**  |   postalCode  |     | Maken en bijwerken |
+| **PostalCode**  |   Postcode  |     | Maken en bijwerken |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Maken en bijwerken |
 | **Fax**      | facsimileTelephoneNumber     |     |    Maken en bijwerken |
 | **Mobile**  |    mobiele       |     |       Maken en bijwerken |
@@ -399,7 +399,7 @@ Na de installatie van agent, voer de onderstaande Powershell-opdrachten voor het
 
 > cd "C:\Program Files\Microsoft Azure AD Connect Agent\Modules\AADSyncAgent inrichting" Agent\\Modules\\AADSyncAgent
 
-> Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect inrichting Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Opdracht #2**
 
@@ -697,7 +697,7 @@ Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-dow
 
 5. Selecteer **externe**, en selecteert u het gedownloade Human_Resources WSDL-bestand in stap 2.
 
-    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
+    ![Werkdag Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio1.PNG)
 
 6. Stel de **locatie** veld `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, maar "IMPL CC" vervangen door uw werkelijke type instantie en 'TENANT' met de tenantnaam van uw echte.
 
@@ -705,7 +705,7 @@ Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-dow
 
 8.  Klik op de kleine **configureren** koppeling hieronder de deelvensters aanvragen/reacties uw Workday-referenties in te stellen. Controleer **verificatie**, en voer vervolgens de gebruikersnaam en het wachtwoord voor het systeem-account van uw Workday-integratie. Zorg ervoor dat de naam van de gebruiker als indeling name@tenant, en laat de **WS-Security UsernameToken** optie is geselecteerd.
 
-    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
+    ![Werkdag Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio2.PNG)
 
 9. Selecteer **OK**.
 
@@ -744,7 +744,7 @@ Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-dow
 
 13. Selecteer in de opdracht balk van Workday Studio **bestand > bestand openen...**  en open het XML-bestand dat u zojuist hebt opgeslagen. Dit geopend in de Workday Studio XML-editor.
 
-    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
+    ![Werkdag Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio3.PNG)
 
 14. Navigeer in de bestandsstructuur van het via **/env:Envelope > env > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** om gegevens van uw gebruikers te zoeken. 
 
@@ -771,7 +771,7 @@ Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-dow
 
 5. Selecteer **kenmerk controlelijst voor Workday**.
 
-    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
+    ![Werkdag Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD1.PNG)
 
 6. Ga naar de onderkant van de lijst met kenmerken aan waarvoor de invoer velden zijn.
 
@@ -783,7 +783,7 @@ Om dit te doen, moet u [Workday Studio](https://community.workday.com/studio-dow
 
 10. Selecteer **kenmerk toevoegen**.
 
-    ![Workday Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
+    ![Werkdag Studio](./media/active-directory-saas-workday-inbound-tutorial/WDstudio_AAD2.PNG)
 
 11. Selecteer **opslaan** hierboven, en vervolgens **Ja** naar het dialoogvenster. Sluit het scherm kenmerk toewijzen als deze nog steeds geopend.
 

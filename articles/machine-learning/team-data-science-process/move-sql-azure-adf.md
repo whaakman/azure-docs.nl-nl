@@ -2,7 +2,7 @@
 title: Gegevens verplaatsen van een lokale SQL Server naar SQL Azure met Azure Data Factory | Microsoft Docs
 description: Stel een ADF-pijplijn die stelt het bericht op twee activiteiten van de gegevens migreren die gegevens samen dagelijks tussen databases on-premises en in de cloud verplaatsen.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
 ms.openlocfilehash: 05884fd39db284e268f31987e5ad7a47b9f87ebf
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een lokale SQL server naar SQL Azure met Azure Data Factory
 Dit onderwerp wordt beschreven hoe gegevens uit een lokale SQL Server-Database verplaatsen naar een Azure SQL Database via Azure Blob Storage met Azure Data Factory (ADF).
@@ -37,7 +37,7 @@ Overweeg het gebruik van ADF:
 
 ADF kunt u de planning en bewaking van taken met behulp van eenvoudige JSON-scripts die de verplaatsing van gegevens op periodieke basis beheren. ADF heeft ook andere mogelijkheden, zoals ondersteuning voor complexe bewerkingen. Zie de documentatie op voor meer informatie over ADF [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
-## <a name="scenario"></a>The Scenario
+## <a name="scenario"></a>Het Scenario
 We instellen een ADF-pijplijn die de activiteiten van de migratie twee gegevens stelt het bericht. Samen wordt gegevens dagelijks verplaatsen tussen een lokale SQL-database en een Azure SQL Database in de cloud. Er zijn twee activiteiten:
 
 * gegevens kopiëren van een on-premises SQL Server database naar een Azure Blob Storage-account
@@ -113,7 +113,7 @@ Drie tabeldefinities nodig zijn voor deze ADF-pijplijn:
 >
 >
 
-### <a name="adf-table-onprem-sql">On-premises SQL-tabel</a>
+### <a name="adf-table-onprem-sql"></a>On-premises SQL-tabel
 De definitie van de tabel voor de lokale SQL Server is opgegeven in het volgende JSON-bestand:
 
         {
@@ -148,7 +148,7 @@ Naam van de JSON-definitie van de tabel in een bestand kopiëren *onpremtabledef
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store">Blobtabel </a>
+### <a name="adf-table-blob-store"></a>Blobtabel
 De definitie voor de tabel voor de locatie van de uitvoer-blob is in de volgende (Hiermee worden de opgenomen gegevens van on-premises naar Azure blob):
 
         {
@@ -178,7 +178,7 @@ Naam van de JSON-definitie van de tabel in een bestand kopiëren *bloboutputtabl
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sql">SQL Azure-tabel</a>
+### <a name="adf-table-azure-sql"></a>SQL Azure-tabel
 Definitie voor de tabel voor de SQL Azure-uitvoer is in de volgende (de gegevens die afkomstig zijn van de blob dit schema toegewezen):
 
     {

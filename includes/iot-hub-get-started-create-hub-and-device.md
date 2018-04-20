@@ -19,8 +19,8 @@ U hoeft deze iothubowner-verbindingsreeks niet te installeren voor deze zelfstud
 
 1. Open uw IoT-hub in [Azure Portal](https://portal.azure.com/).
 
-2. Klik op **Apparatenverkenner**.
-3. Klik in het deelvenster Apparatenverkenner op **Toevoegen** om een apparaat toe te voegen aan uw IoT-hub. Ga daarna als volgt te werk:
+2. Klik op **IoT-apparaten**.
+3. Klik in het deelvenster IoT-apparaten op **toevoegen** naar een apparaat toevoegt aan uw IoT-hub. Ga daarna als volgt te werk:
 
    **Apparaat-ID**: voer de ID van het nieuwe apparaat in. Apparaat-id's zijn hoofdlettergevoelig.
 
@@ -30,12 +30,15 @@ U hoeft deze iothubowner-verbindingsreeks niet te installeren voor deze zelfstud
 
    **Het apparaat verbinden met IoT Hub**: klik op **Inschakelen**.
 
-   ![Een apparaat in de Apparatenverkenner toevoegen aan uw IoT-hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   ![Een apparaat toevoegt in de IoT-apparaten van uw IoT-hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Klik op **Opslaan**.
-5. Nadat het apparaat is gemaakt, opent u het apparaat in het deelvenster **Apparatenverkenner**.
+5. Nadat het apparaat is gemaakt, opent u het apparaat in de **IoT-apparaten** deelvenster.
+
+   ![Lijst met IoT-apparaten in IoT-Hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+
 6. Noteer de primaire sleutel van de verbindingsreeks.
 
-   ![De verbindingsreeks ophalen](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![De verbindingsreeks ophalen](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: f42f20893a815640378b9d18186c88b782e61284
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption for Windows and Linux IaaS VM 's
 Microsoft Azure is sterk doorgevoerd om ervoor te zorgen voor uw privacy van gegevens, onafhankelijkheid van gegevens en schakelt u de controle uw Azure gegevens via een bereik van gehoste technologieën geavanceerde voor het versleutelen, beheren en beheren van versleutelingssleutels besturingselement & audit toegang van gegevens. Dit biedt Azure-klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van hun bedrijf. In dit artikel vindt we u een nieuwe technologieoplossing 'Azure Disk Encryption for Windows and Linux IaaS VM van' om te helpen beveiligen en bescherming van uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verplichtingen. Het artikel biedt gedetailleerde richtlijnen over het gebruik van de Azure disk encryption functies met inbegrip van de ondersteunde scenario's en de gebruiker optreedt.
@@ -662,10 +662,10 @@ U kunt de coderingsstatus van IaaS VM ophalen door met de opdracht van de CLI-sc
 #### <a name="disable-encryption-on-running-windows-iaas-vm"></a>Schakel versleuteling voor het uitvoeren van Windows IaaS VM
 U kunt versleuteling op een actieve Windows of Linux IaaS VM via de Azure Disk Encryption Resource Manager-sjabloon of het PowerShell-cmdlets uitschakelen en de configuratie ontsleuteling opgeven.
 
-##### <a name="windows-vm"></a>Windows VM
+##### <a name="windows-vm"></a>Windows-VM
 Versleuteling van het besturingssysteem, het gegevensvolume of beide op het actieve Windows IaaS VM Hiermee schakelt u de stap uitschakelen-codering. U kan het besturingssysteemvolume uitschakelen en laat het gegevensvolume dat is versleuteld. Wanneer de stap uitschakelen-versleuteling wordt uitgevoerd, het klassieke implementatiemodel Azure werkt het VM-servicemodel en de Windows IaaS VM ontsleutelde is gemarkeerd. De inhoud van de virtuele machine worden niet langer in rust versleuteld. De ontsleuteling verwijdert niet de sleutelkluis en de versleuteling sleutelmateriaal (versleutelingssleutels BitLocker voor Windows en de wachtwoordzin voor Linux).
 
-##### <a name="linux-vm"></a>Virtuele Linux-machine
+##### <a name="linux-vm"></a>Linux-VM
 Versleuteling van het gegevensvolume van de op de actieve virtuele machine IaaS Linux Hiermee schakelt u de stap uitschakelen-codering. Deze stap werkt alleen als de besturingssysteemschijf is niet versleuteld.
 
 > [!NOTE]
@@ -720,7 +720,7 @@ Lees voordat u doorgaat, de *vereisten* sectie in dit artikel. Nadat u ervoor te
 
 1. Start een Azure PowerShell-sessie en meld u aan bij uw Azure-account met de volgende opdracht:
 
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 
 2. Als u meerdere abonnementen hebt en opgeven dat een wilt om te gebruiken, typt u het volgende als u wilt zien van de abonnementen voor uw account:
 

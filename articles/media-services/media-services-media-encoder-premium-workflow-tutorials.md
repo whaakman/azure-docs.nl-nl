@@ -2,10 +2,10 @@
 title: Zelfstudies Avanced Media Encoder Premium werkstroom
 description: Dit document bevat scenario's die laten zien hoe u geavanceerde taken met Media Encoder Premium werkstroom uitvoert en ook het complexe werkstromen maken met Workflow Designer.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: xstof
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
 ms.workload: media
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
 ms.openlocfilehash: 8b714fcf001a6830cffe4df8c152dab40834c7c4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Geavanceerde werkstroom voor Media Encoder Premium zelfstudies
 ## <a name="overview"></a>Overzicht
 Dit document bevat scenario's die laten zien hoe u werkstromen met aanpassen **Workflow Designer**. U vindt de daadwerkelijke Werkstroombestanden [hier](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
-## <a name="toc"></a>TOC
+## <a name="toc"></a>INHOUDSOPGAVE
 De volgende onderwerpen komen aan bod:
 
 * [MXF naar een single-bitrate MP4-codering](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
@@ -335,7 +335,7 @@ Dit overzicht toont hoe sommige van de aspecten kunnen worden verbeterd en eenvo
 
 *Werkstroom voor het verbeteren van Multibitrate MP4*
 
-### <a id="MXF_to__multibitrate_MP4_file_naming">Naamgevingsregels voor bestanden</a>
+### <a id="MXF_to__multibitrate_MP4_file_naming"></a>Naamgevingsregels voor bestanden
 In de vorige werkstroom we een eenvoudige expressie als basis voor het genereren van bestandsnamen uitvoer opgegeven. We enkele duplicatie al hebben: alle onderdelen voor afzonderlijke uitvoer-bestand opgegeven dergelijke expressie.
 
 Bijvoorbeeld: onze bestand output-component voor het eerste videobestand wordt geconfigureerd met deze expressie:
@@ -420,7 +420,7 @@ Het hart van onze miniaturen generatie worden het onderdeel JPG-Encoder kunnen u
 
 ![JPG-codering](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
 
-*JPG Encoder*
+*JPG-codering*
 
 We kan geen onze stroom niet-gecomprimeerde Video echter rechtstreeks verbinding uit de invoer van Media-bestand in het coderingsprogramma JPG. Deze verwacht in plaats daarvan afzonderlijke frames worden verstrekt. Dit we kunt doen via het onderdeel Video Frame-Gate.
 

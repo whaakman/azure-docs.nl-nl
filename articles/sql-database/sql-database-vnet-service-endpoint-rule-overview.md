@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: b15b3c7f50c23a1c11b2467bfdd2794d52b451ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Gebruik Virtual Network service-eindpunten en regels voor Azure SQL Database
 
@@ -129,8 +129,8 @@ De functie van de regels voor virtueel netwerk heeft voor Azure SQL Database, de
 
 - Virtueel netwerk regels alleen van toepassing op virtuele netwerken van Azure Resource Manager; en niet op [klassieke implementatiemodel] [ arm-deployment-model-568f] netwerken.
 
-- Inschakelen van virtueel netwerk service-eindpunten met Azure SQL Database kunt ook de eindpunten voor de MySQL en PostGres Azure-services. Met de eindpunten van mislukt verbindingspogingen met uw MySQL of Postgres exemplaren van de eindpunten echter.
-    - De onderliggende reden is dat MySQL en PostGres bieden momenteel geen ondersteuning voor ACLing.
+- Inschakelen van virtueel netwerk service-eindpunten met Azure SQL Database kunt ook de eindpunten voor de MySQL en PostgreSQL Azure-services. Met de eindpunten van mislukt verbindingspogingen met uw MySQL of PostgreSQL-exemplaren van de eindpunten echter.
+    - De onderliggende reden is dat MySQL en PostgreSQL momenteel geen ACLing ondersteunen.
 
 - Op de firewall IP-adresbereiken zijn van toepassing op de volgende items voor netwerken, maar niet het virtuele netwerk regels:
     - [Site-naar-Site (S2S) virtueel particulier netwerk (VPN)][vpn-gateway-indexmd-608y]
@@ -225,6 +225,10 @@ Een lijst met verschillende foutberichten voor SQL-Database is gedocumenteerd [h
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Portal kunt een regel virtueel netwerk maken
 
 Deze sectie wordt beschreven hoe u kunt de [Azure-portal] [ http-azure-portal-link-ref-477t] maken een *virtueel netwerk regel* in uw Azure SQL Database. De regel geeft aan dat de SQL-Database communicatie accepteert van een bepaald subnet die zijn gelabeld als een *Virtual Network service-eindpunt*.
+
+> [!NOTE]
+> Zorg ervoor dat service eindpunten zijn ingeschakeld voor het VNET/Subnet dat u wilt toevoegen aan de VNET-firewallregels van uw Server.
+> Als service-eindpunten die niet zijn ingeschakeld voor het VNET/Subnet wordt u gevraagd in de portal wilt inschakelen, klikt u op inschakelen op de blade waarop u de regel toevoegen.
 
 #### <a name="powershell-alternative"></a>Alternatieve PowerShell
 

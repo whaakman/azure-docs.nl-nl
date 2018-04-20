@@ -10,10 +10,10 @@ ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: d5bad277e6a54b23f0e3ef7321e82d212ae885d3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>Opstellen en implementeren van een IoT-rand Python-module voor uw gesimuleerde apparaat - voorbeeld
 
@@ -22,8 +22,8 @@ Rand van de IoT-modules kunt u code waarmee u uw bedrijfslogica rechtstreeks aan
 > [!div class="checklist"]
 > * Visual Studio Code gebruiken om te maken van een IoT rand Python-module
 > * Gebruik Visual Studio Code en Docker voor een docker-installatiekopie maken en deze publiceren naar het register 
-> * De module implementeren voor uw IoT-randapparaat
-> * Gegevens weergeven die zijn gegenereerd
+> * De module implementeren op uw IoT Edge-apparaat
+> * Gegenereerde gegevens weergeven
 
 
 De rand van de IoT-module die u in deze zelfstudie maakt filtert de temperatuur gegevens die zijn gegenereerd door uw apparaat. Alleen wordt verzonden berichten stroomopwaarts als de temperatuur hoger dan een opgegeven drempelwaarde is. Dit type analyse aan de rand is nuttig voor het beperken van de hoeveelheid gegevens wordt gecommuniceerd aan en opgeslagen in de cloud. 
@@ -43,16 +43,16 @@ De rand van de IoT-module die u in deze zelfstudie maakt filtert de temperatuur 
 * [PIP](https://pip.pypa.io/en/stable/installing/#installation) voor het installeren van Python-pakketten.
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
-In deze zelfstudie maakt u de extensie Azure IoT rand voor VS-Code kunt gebruiken om te bouwen van een module en maak een **container installatiekopie** van de bestanden. En u deze installatiekopie push een **register** die worden opgeslagen en beheerd van uw afbeeldingen. U tot slot implementeren de installatiekopie uit het register uit te voeren op uw IoT-randapparaat.  
+In deze zelfstudie gebruikt u de Azure IoT Edge-extensie voor VS Code om een module te bouwen en maakt u een **containerinstallatiekopie** van de bestanden. Vervolgens pusht u deze installatiekopie naar een **register** waarin uw installatiekopieën worden opgeslagen en beheerd. Tot slot implementeert u de installatiekopie uit het register voor uitvoering op uw IoT Edge-apparaat.  
 
-Voor deze zelfstudie kunt u een register Docker-compatibel. Twee populaire Docker Registerservices beschikbaar in de cloud zijn [Azure Container register](https://docs.microsoft.com/azure/container-registry/) en [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Deze zelfstudie wordt Azure Container register. 
+Voor deze zelfstudie kunt u elk register gebruiken dat compatibel is met Docker. Twee populaire Docker-registerservices die beschikbaar zijn in de cloud zijn [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) en [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In deze zelfstudie wordt Azure Container Registry gebruikt. 
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer **maken van een resource** > **Containers** > **Azure Container register** .
-2. Geef een naam op voor het register, kies een abonnement, kiest u een resourcegroep en de SKU ingesteld op **Basic**. 
+1. Selecteer in [Azure Portal](https://portal.azure.com) de optie **Een resource maken** > **Containers** > **Azure Container Registry**.
+2. Geef een naam op voor het register, kies een abonnement, kies een resourcegroep en stel de SKU in op **Basis**. 
 3. Selecteer **Maken**.
-4. Zodra het register van de container is gemaakt, gaat u naar het en selecteer **toegangssleutels**. 
-5. Wisselknop **gebruiker met beheerdersrechten** naar **inschakelen**.
-6. Kopieer de waarden voor **Login-server**, **gebruikersnaam**, en **wachtwoord**. Verderop in de zelfstudie gebruikt u deze waarden. 
+4. Zodra het containerregister is gemaakt, gaat u er naartoe en selecteert u **Toegangssleutels**. 
+5. Stel de **Gebruiker met beheerdersrechten** in op **Inschakelen**.
+6. Kopieer de waarden voor **Aanmeldingsserver**, **Gebruikersnaam** en **wachtwoord**. U gebruikt deze waarden later in de zelfstudie. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Een IoT-rand module-project maken
 De volgende stappen ziet u het maken van een IoT rand Python-module met behulp van Visual Studio Code en de extensie Azure IoT rand.
@@ -63,7 +63,7 @@ De volgende stappen ziet u het maken van een IoT rand Python-module met behulp v
     pip install -U cookiecutter
     ```
 
-3. Maak een project voor de nieuwe module. De volgende opdracht maakt u de projectmap **FilterModule**, met de container-opslagplaats. De parameter van `image_repository` moet in de vorm van `<your container registry name>.azurecr.io/filtermodule` als u van Azure container register gebruikmaakt. Voer de volgende opdracht in de huidige map:
+3. Maak een project voor de nieuwe module. De volgende opdracht maakt u de projectmap **FilterModule**, met de container-opslagplaats. De parameter van `image_repository` moet in de vorm van `<your container registry name>.azurecr.io/filtermodule` als u van Azure container register gebruikmaakt. Voer de volgende opdracht in de huidige werkmap in:
 
     ```cmd/sh
     cookiecutter --no-input https://github.com/Azure/cookiecutter-azure-iot-edge-module module_name=FilterModule image_repository=<your container registry address>/filtermodule
@@ -140,7 +140,7 @@ De volgende stappen ziet u het maken van een IoT rand Python-module met behulp v
 
 ## <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Een Docker-installatiekopie maken en deze publiceren naar het register
 
-1. Aanmelden bij Docker hiertoe de volgende opdracht in de geïntegreerde terminal VS-Code in: 
+1. Meld u aan bij Docker door de volgende opdracht in de geïntegreerde VS Code-terminal in te voeren: 
      
    ```csh/sh
    docker login -u <username> -p <password> <Login server>
@@ -148,20 +148,20 @@ De volgende stappen ziet u het maken van een IoT rand Python-module met behulp v
         
    Gebruik de gebruikersnaam, wachtwoord en login-server die u hebt gekopieerd uit uw Azure-container register wanneer u het hebt gemaakt.
 
-2. In VS-Code explorer met de rechtermuisknop op de **module.json** -bestand en klik op **Build en Push IoT rand module Docker installatiekopie**. Selecteer in het pop-vervolgkeuzelijst aan de bovenkant van het venster tegenover Code, uw platform container, bijvoorbeeld **amd64** voor Linux-container. VS-Code containerize de `main.py` en de vereiste afhankelijkheden vervolgens dit doorgeven aan de container-registersleutel die u hebt opgegeven. Het mogelijk enkele minuten duren voordat de eerste keer is het image.
+2. Klik in VS Code explorer met de rechtermuisknop op het bestand **module.json** en klik op **Build and Push IoT Edge module Docker image** (Docker-installatiekopie voor IoT Edge-module maken en pushen). Selecteer in het pop-vervolgkeuzelijst aan de bovenkant van het venster tegenover Code, uw platform container, bijvoorbeeld **amd64** voor Linux-container. VS-Code containerize de `main.py` en de vereiste afhankelijkheden vervolgens dit doorgeven aan de container-registersleutel die u hebt opgegeven. Het mogelijk enkele minuten duren voordat de eerste keer is het image.
 
-3. U kunt het adres van de installatiekopie volledige container met het label krijgen in de VS Code geïntegreerd terminal. Voor meer informatie over de definitie van de build en push kunt u verwijzen naar de `module.json` bestand.
+3. U kunt het volledige adres van de containerinstallatiekopie, inclusief tag, in de geïntegreerde terminal van VS Code krijgen. Bekijk het `module.json`-bestand als u meer wilt weten over de build- en push-definitie.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Register-referenties aan de rand runtime toevoegen
-De referenties voor uw register toevoegen aan de rand runtime op de computer waarop u het apparaat aan de rand worden uitgevoerd. Deze referenties geven de runtime toegang tot het ophalen van de container. 
+Voeg de referenties voor uw register toe aan de Edge-runtime op de computer waarop u het Edge-apparaat uitvoert. Deze referenties geven de runtime toegang tot het ophalen van de container. 
 
-- Voor Windows, moet u de volgende opdracht uitvoeren:
+- Voer voor Windows de volgende opdracht uit:
     
     ```cmd/sh
     iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
-- Voer de volgende opdracht voor Linux:
+- Voer voor Linux de volgende opdracht uit:
     
     ```cmd/sh
     sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
@@ -169,18 +169,18 @@ De referenties voor uw register toevoegen aan de rand runtime op de computer waa
 
 ## <a name="run-the-solution"></a>De oplossing uitvoeren
 
-1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw IoT-hub.
+1. Navigeer in [Azure Portal](https://portal.azure.com) naar uw IoT-hub.
 2. Ga naar **IoT Edge (Preview)** en selecteer uw IoT Edge-apparaat.
-3. Selecteer **Modules ingesteld**. 
+3. Selecteer **Modules instellen**. 
 2. Controleer of de **tempSensor** module wordt automatisch ingevuld. Als dit niet het geval is, gebruikt u de volgende stappen toe te voegen:
-    1. Selecteer **IoT rand Module toevoegen**.
-    2. In de **naam** veld `tempSensor`.
-    3. In de **installatiekopie URI** veld `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-    4. Laat de overige instellingen ongewijzigd en klik op **opslaan**.
+    1. Selecteer **IoT Edge-module toevoegen**.
+    2. Voer in het veld **Naam** `tempSensor` in.
+    3. Voer in het veld **URI installatiekopie** `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` in.
+    4. Laat de overige instellingen ongewijzigd en klik op **Opslaan**.
 9. Voeg de **filterModule** module die u hebt gemaakt in de vorige secties. 
-    1. Selecteer **IoT rand Module toevoegen**.
-    2. In de **naam** veld `filterModule`.
-    3. In de **installatiekopie URI** en voer het adres klopt; bijvoorbeeld `<your container registry address>/filtermodule:0.0.1-amd64`. U vindt het adres van de volledige installatiekopie uit de vorige sectie.
+    1. Selecteer **IoT Edge-module toevoegen**.
+    2. Voer in het veld **Naam** `filterModule` in.
+    3. Voer in het veld **URI installatiekopie** het adres van uw installatiekopie in, bijvoorbeeld `<your container registry address>/filtermodule:0.0.1-amd64`. Het volledige adres van de installatiekopie vindt u in de vorige sectie.
     4. Controleer de **inschakelen** vak zodat u de twin module kunt bewerken. 
     5. Vervang de JSON in het tekstvak voor de module met de volgende JSON: 
 
@@ -194,7 +194,7 @@ De referenties voor uw register toevoegen aan de rand runtime op de computer waa
  
     6. Klik op **Opslaan**.
 10. Klik op **Volgende**.
-11. In de **Routes opgeven** stap, kopieert u de JSON onder in het tekstvak. Alle berichten publiceren modules naar de Edge-runtime. Declaratieve regels in de runtime definiëren waar de berichten stromen. In deze zelfstudie moet u twee routes. De eerste route transporten berichten van de temperatuursensor naar de filtermodule via het eindpunt 'input1', dat het eindpunt dat u hebt geconfigureerd met de **FilterMessages** handler. De tweede route transporten berichten van de module expressiefilter IoT-hub. In deze route `upstream` is een speciale bestemming waarin wordt uitgelegd rand Hub berichten verzenden naar IoT Hub. 
+11. Kopieer in de stap **Routes opgeven** de onderstaande JSON in het tekstvak. Alle berichten publiceren modules naar de Edge-runtime. Declaratieve regels in de runtime definiëren waar de berichten stromen. In deze zelfstudie moet u twee routes. De eerste route transporten berichten van de temperatuursensor naar de filtermodule via het eindpunt 'input1', dat het eindpunt dat u hebt geconfigureerd met de **FilterMessages** handler. Met de tweede route worden berichten van de filtermodule naar IoT Hub getransporteerd. In deze route is `upstream` een speciale bestemming die Edge Hub opdracht geeft berichten te verzenden naar IoT Hub. 
 
     ```json
     {
@@ -206,15 +206,15 @@ De referenties voor uw register toevoegen aan de rand runtime op de computer waa
     ```
 
 4. Klik op **Volgende**.
-5. In de **Template bekijken** stap, klikt u op **indienen**. 
-6. Ga terug naar de detailpagina voor rand van de IoT-apparaat en klikt u op **vernieuwen**. U ziet nu de nieuwe **filtermodule** uitgevoerd samen met de **tempSensor** module en de **IoT rand runtime**. 
+5. Klik in de stap **Sjabloon controleren** op **Indienen**. 
+6. Ga terug naar de detailpagina van het IoT Edge-apparaat en klik op **Vernieuwen**. U ziet nu de nieuwe **filtermodule** uitgevoerd samen met de **tempSensor** module en de **IoT rand runtime**. 
 
-## <a name="view-generated-data"></a>Gegevens weergeven die zijn gegenereerd
+## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 
-Voor het bewaken van het apparaat verzonden van uw IoT-randapparaat naar uw IoT-hub voor cloud-berichten:
-1. De Azure IoT Toolkit-uitbreiding configureren met de verbindingsreeks voor uw IoT-hub: 
+Ga als volgt te werk om het apparaat te controleren op cloudberichten die vanaf uw IoT Edge-apparaat worden verzonden naar uw IoT Hub:
+1. Configureer de Azure IoT Toolkit-extensie met de verbindingsreeks voor uw IoT Hub: 
     1. De Code van de VS explorer openen door te selecteren **weergave** > **Explorer**. 
-    3. Klik in de Verkenner op **IOT HUB-apparaten** en klik vervolgens op **... **. Klik op **verbindingsreeks van de IoT-Hub ingesteld** en geef de verbindingsreeks voor de IoT-hub die uw IoT-Edge-apparaat met in het pop-upvenster verbindt. 
+    3. Klik in de Verkenner op **IOT HUB-apparaten** en klik vervolgens op **...** . Klik op **verbindingsreeks van de IoT-Hub ingesteld** en geef de verbindingsreeks voor de IoT-hub die uw IoT-Edge-apparaat met in het pop-upvenster verbindt. 
 
         Als u wilt zoeken in de verbindingsreeks, klik op de tegel voor uw IoT-hub in de Azure portal en klik vervolgens op **gedeeld toegangsbeleid**. In **gedeeld toegangsbeleid**, klikt u op de **iothubowner** beleid en kopieert u de verbinding met IoT Hub tekenreeks in de **iothubowner** venster.   
 

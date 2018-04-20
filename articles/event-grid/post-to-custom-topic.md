@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f4323c4e68c639af9a5959af512c1cdd07cdf0c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Voor Azure Event raster naar aangepaste onderwerp boeken
 
@@ -73,7 +73,7 @@ Voor aangepaste onderwerpen bevat de gegevens op het hoogste niveau dezelfde vel
 ]
 ```
 
-Zie voor een beschrijving van deze eigenschappen [Azure gebeurtenis raster gebeurtenis schema](event-schema.md).
+Zie voor een beschrijving van deze eigenschappen [Azure gebeurtenis raster gebeurtenis schema](event-schema.md). Bij het publiceren van gebeurtenissen naar een onderwerp van het raster gebeurtenis kan een totale grootte van maximaal 1 MB hebben in de matrix. Elke gebeurtenis in de matrix is beperkt tot 64 KB.
 
 Bijvoorbeeld, is een geldige gebeurtenisnaam gegevensschema:
 
@@ -98,9 +98,10 @@ Na het boeken naar het eindpunt onderwerp ontvangen reactie. Het antwoord is een
 |Resultaat  |Antwoord  |
 |---------|---------|
 |Geslaagd  | 200 OK  |
-|Onjuiste eindpunt | 404 – Niet gevonden |
-|Ongeldige toegangstoets | 401-niet toegestaan |
 |Gebeurtenisgegevens hebben onjuiste indeling | 400 onjuiste aanvraag |
+|Ongeldige toegangstoets | 401-niet toegestaan |
+|Onjuiste eindpunt | 404 – Niet gevonden |
+|Matrix- of gebeurtenis overschrijdt de maximale grootte | 413 nettolading te groot |
 
 Voor fouten heeft de hoofdtekst van het bericht de volgende indeling:
 

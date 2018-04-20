@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
 ms.openlocfilehash: bd2bb0d05029237242b42225a2c846c78a7c6de9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
-# <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Een opstartscript service uitvoeren als een lokale gebruiker of systeem-account
+# <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Het opstartscript van een service uitvoeren als lokale gebruiker of systeemaccount
 Voordat u een uitvoerbaar bestand Service Fabric-service wordt mogelijk werk configuratie of installatie uitvoeren.  Bijvoorbeeld, configureren van omgevingsvariabelen. U kunt opgeven dat een script uit te voeren voordat het uitvoerbare bestand van de service wordt gestart in het servicemanifest voor de service. Het uitvoerbare installatiebestand uitgevoerd door het configureren van een RunAs-beleid voor het installatieprogramma toegangspunt dat kunt u welk account onder.  Een toegangspunt voor de afzonderlijke instellingen kunt u hoge privilged configuratie voor een korte periode uitvoeren zodat de ServiceHost uitvoerbare hoeven niet te worden uitgevoerd met hoge machtigingen voor langere tijd.
 
-Het ingangspunt setup (**entrypoint** in de [servicemanifest](service-fabric-application-and-service-manifests.md)) is een bevoorrechte toegangspunt die standaard wordt uitgevoerd met dezelfde referenties als Service Fabric (meestal de * NetworkService* account) voordat andere toegangspunt. Het uitvoerbare bestand dat is opgegeven door **EntryPoint** is meestal de ServiceHost langlopende. De **EntryPoint** uitvoerbaar bestand wordt uitgevoerd na de **entrypoint** uitvoerbaar bestand correct wordt afgesloten. Het resulterende proces wordt bewaakt en opnieuw opgestart, en opnieuw begint met **entrypoint** ooit wordt beëindigd als of als deze is vastgelopen. 
+Het ingangspunt setup (**entrypoint** in de [servicemanifest](service-fabric-application-and-service-manifests.md)) is een bevoorrechte toegangspunt die standaard wordt uitgevoerd met dezelfde referenties als Service Fabric (meestal de  *NetworkService* account) voordat andere toegangspunt. Het uitvoerbare bestand dat is opgegeven door **EntryPoint** is meestal de ServiceHost langlopende. De **EntryPoint** uitvoerbaar bestand wordt uitgevoerd na de **entrypoint** uitvoerbaar bestand correct wordt afgesloten. Het resulterende proces wordt bewaakt en opnieuw opgestart, en opnieuw begint met **entrypoint** ooit wordt beëindigd als of als deze is vastgelopen. 
 
 ## <a name="configure-the-service-setup-entry-point"></a>Configureer het toegangspunt voor service-instellingen
 Hieronder volgt een voorbeeld van een eenvoudige service manifest voor een stateless service waarmee u een installatiescript *MySetup.bat* in de service **entrypoint**.  **Argumenten** wordt gebruikt voor het doorgeven van argumenten aan het script als deze wordt uitgevoerd.

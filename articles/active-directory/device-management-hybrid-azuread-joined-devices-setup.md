@@ -2,10 +2,10 @@
 title: Hoe het configureren van hybride Azure Active Directory die lid zijn van apparaten | Microsoft Docs
 description: Informatie over het configureren van hybride Azure Active Directory die lid zijn van apparaten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Hybride Azure Active Directory die lid zijn van apparaten configureren
 
@@ -526,7 +526,7 @@ In AD FS, moet u een regel voor het transformeren van uitgifte die geeft via de 
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. Typ op de federatieserver de PowerShell-opdracht hieronder na het vervangen  **\<RPObjectName\>**  met de relying party objectnaam voor uw Azure AD relying party trust-object. Dit object meestal heet **Identiteitsplatform van Microsoft Office 365**.
+8. Typ op de federatieserver de PowerShell-opdracht hieronder na het vervangen **\<RPObjectName\>** met de relying party objectnaam voor uw Azure AD relying party trust-object. Dit object meestal heet **Identiteitsplatform van Microsoft Office 365**.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 

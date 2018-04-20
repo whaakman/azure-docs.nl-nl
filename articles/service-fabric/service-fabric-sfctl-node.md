@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 Beheren van de knooppunten die fungeren als een cluster wordt gevormd.
@@ -30,7 +30,7 @@ Beheren van de knooppunten die fungeren als een cluster wordt gevormd.
 |    uitschakelen       | Een Service Fabric-clusterknooppunt met de opgegeven deactivering wordt intentie deactiveren.|
 |    inschakelen        | Activeren van een Service Fabric-clusterknooppunt is gedeactiveerd.|
 |    status        | Hiermee haalt u de status van een Service Fabric-knooppunt.|
-|    info          | Hiermee haalt de informatie over een specifiek knooppunt in het Service Fabric-cluster.|
+|    Info          | Hiermee haalt de informatie over een specifiek knooppunt in het Service Fabric-cluster.|
 |    lijst          | Hiermee haalt de lijst met knooppunten in het Service Fabric-cluster.|
 |    laden          | Hiermee haalt u de informatie laden van een Service Fabric-knooppunt.|
 |    status verwijderen  | Service Fabric waarschuwt dat de permanente status op een knooppunt is permanent verwijderd of verloren.|
@@ -185,7 +185,7 @@ Start opnieuw op het knooppunt van een Service Fabric-cluster die al is gestart.
 |Argument|Beschrijving|
 | --- | --- |
 | --knooppuntnaam [vereist]| De naam van het knooppunt.|
-| --create-fabric-dump  | Geef waar voor het maken van een dump van het proces fabric-knooppunt. Dit is hoofdlettergevoelig.  Standaard: False.|
+| --maken fabric dump  | Geef waar voor het maken van een dump van het proces fabric-knooppunt. Dit is hoofdlettergevoelig.  Standaard: False.|
 | --knooppunt-exemplaar-id | De exemplaar-ID van het doelknooppunt. Als exemplaar-ID van het knooppunt opnieuw wordt gestart alleen als deze met het huidige exemplaar van het knooppunt overeenkomt is opgegeven. Een standaardwaarde van '0' overeenkomen met een exemplaar-ID. De exemplaar-ID kan worden verkregen met behulp van de query voor get-knooppunt.  Standaard: 0.|
 | --time-out -t       | Server time-out in seconden.  Standaard: 60.|
 

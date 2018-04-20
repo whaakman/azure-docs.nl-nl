@@ -5,7 +5,7 @@ services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 19233ccd306f507ef2e36bee878aa9705c115780
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fa1aed76f63e500a6c2849fb9b62a918e85c9fb0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Beleid voor IPsec/IKE voor S2S-VPN- of VNet-naar-VNet-verbindingen configureren
 
@@ -54,7 +54,7 @@ Deze sectie geeft een overzicht van de werkstroom voor het maken en IPsec/IKE-be
 
 De instructies in dit artikel helpt u bij het instellen en configureren van IPsec/IKE-beleid, zoals wordt weergegeven in het diagram:
 
-![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![ike-IPSec-beleid](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 ## <a name ="params"></a>Deel 2 - ondersteund cryptografische algoritmen en kracht van
 
@@ -64,7 +64,7 @@ De volgende tabel bevat de ondersteunde cryptografische algoritmen en kracht kun
 | ---  | --- 
 | IKEv2-versleuteling | AES256, AES192, AES128, DES3, DES  
 | IKEv2-integriteit  | SHA384, SHA256, SHA1, MD5  |
-| DH-groep         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
+| DH-groep         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, geen |
 | IPsec-versleuteling | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, geen    |
 | IPsec-integriteit  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | PFS-groep        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, geen 
@@ -162,7 +162,7 @@ Zorg ervoor dat u overschakelt naar de PowerShell-modus als u de Resource Manage
 Open de PowerShell-console en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -195,7 +195,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 Het volgende voorbeeldscript wordt een beleid voor IPsec/IKE gemaakt met de volgende algoritmen en parameters:
 
 * IKEv2: AES256, SHA384 DHGroup24
-* IPsec: AES256, SHA256, PFS None, SA Lifetime 14400 seconds & 102400000KB
+* IPsec: AES256, SHA256, PFS None, SA levensduur 14400 seconden & 102400000KB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
@@ -281,7 +281,7 @@ Vergelijkbaar met de S2S VPN-verbinding, een IPsec/IKE-beleid maken en toepassen
 
 Het volgende voorbeeldscript wordt een ander beleid voor IPsec/IKE gemaakt met de volgende algoritmen en parameters:
 * IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, SA Lifetime 14400 seconds & 102400000KB
+* IPsec: GCMAES128, GCMAES128, PFS14, SA levensduur 14400 seconden & 102400000KB
 
 ```powershell
 $ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
@@ -305,7 +305,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 
 De verbinding is gemaakt in een paar minuten en hebt u de volgende netwerktopologie zoals weergegeven in het begin na het voltooien van deze stappen:
 
-![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![ike-IPSec-beleid](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
 ## <a name ="managepolicy"></a>Deel 5 - Update IPsec/IKE-beleid voor een verbinding

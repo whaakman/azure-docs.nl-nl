@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
 ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 De replica's die deel uitmaken van servicepartities beheren.
@@ -30,7 +30,7 @@ De replica's die deel uitmaken van servicepartities beheren.
 |    geïmplementeerd  | Hiermee haalt u de details van replica is geïmplementeerd op een Service Fabric-knooppunt.|
 |    geïmplementeerd lijst| Hiermee haalt u de lijst van replica's die zijn geïmplementeerd op een Service Fabric-knooppunt.|
 |    status    | Hiermee haalt u de status van een Service Fabric stateful service replica of stateless service-exemplaar.|
-|    info      | Hiermee haalt u de informatie over een replica van een Service Fabric-partitie.|
+|    Info      | Hiermee haalt u de informatie over een replica van een Service Fabric-partitie.|
 |    lijst      | Hiermee haalt u de informatie over de replica's van de partitie van een Service Fabric-service.|
 |    verwijderen    | Hiermee verwijdert u de replica van een service uitgevoerd op een knooppunt.|
 |    rapport-status| Verzendt een statusrapport voor de Service Fabric-replica.|
@@ -82,7 +82,7 @@ Hiermee haalt u de status van een Service Fabric-replica. EventsHealthStateFilte
 | --debug                  | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h                | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o              | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
-| --query                  | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie.|
+| --query                  | JMESPath queryreeks. Zie voor meer informatie http://jmespath.org/.|
 | --uitgebreide                | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
@@ -106,7 +106,7 @@ Het antwoord bevat de id, rol, status, status, knooppuntnaam, bedrijfstijd en an
 | --debug               | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken.|
 | --help -h             | Deze help-bericht en afsluiten weergeven.|
 | --uitvoer -o           | De indeling van de uitvoer.  Toegestane waarden: json, jsonc, tabel, tsv.  Standaard: json.|
-| --query               | JMESPath queryreeks. Zie http://jmespath.org/ voor meer informatie.|
+| --query               | JMESPath queryreeks. Zie voor meer informatie http://jmespath.org/.|
 | --uitgebreide             | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken.|
 
 ## <a name="sfctl-replica-list"></a>lijst met sfctl replica 's

@@ -2,11 +2,11 @@
 title: Werken met proxy's in Azure Functions | Microsoft Docs
 description: Overzicht van het gebruik van Azure Functions-proxy 's
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Werken met Azure Functions-proxy 's
 
@@ -84,8 +84,8 @@ Bijvoorbeeld, als een proxy heeft een Routesjabloon zoals `/pets/{petId}`, de UR
 Naast de sjabloonparameters route kunnen configuratiewaarden in de volgende waarden worden gebruikt:
 
 * **{request.method}** : De HTTP-methode die wordt gebruikt op de oorspronkelijke aanvraag.
-* **{request.headers. \<HeaderName is opgeslagen\>}**: een header die kan worden gelezen vanaf de oorspronkelijke aanvraag. Vervang  *\<HeaderName is opgeslagen\>*  met de naam van de header die u wilt lezen. Als de header niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
-* **{request.querystring. \<ParameterName\>}**: een queryreeksparameter opgeven die kan worden gelezen vanaf de oorspronkelijke aanvraag. Vervang  *\<ParameterName\>*  met de naam van de parameter die u wilt lezen. Als de parameter niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
+* **{request.headers. \<HeaderName is opgeslagen\>}**: een header die kan worden gelezen vanaf de oorspronkelijke aanvraag. Vervang *\<HeaderName is opgeslagen\>* met de naam van de header die u wilt lezen. Als de header niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
+* **{request.querystring. \<ParameterName\>}**: een queryreeksparameter opgeven die kan worden gelezen vanaf de oorspronkelijke aanvraag. Vervang *\<ParameterName\>* met de naam van de parameter die u wilt lezen. Als de parameter niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
 
 ### <a name="response-parameters"></a>Verwijzing naar back-end antwoord parameters
 
@@ -93,7 +93,7 @@ Antwoord parameters kunnen worden gebruikt als onderdeel van het wijzigen van he
 
 * **{backend.response.statusCode}** : De HTTP-statuscode die op de back-end-antwoord wordt geretourneerd.
 * **{backend.response.statusReason}** : De HTTP-reden dat wordt geretourneerd van het back-end-antwoord.
-* **{backend.response.headers. \<HeaderName is opgeslagen\>}**: een koptekst die kan worden gelezen uit het antwoord van de back-end. Vervang  *\<HeaderName is opgeslagen\>*  met de naam van de header die u wilt lezen. Als de header niet in het antwoord opgenomen is, wordt de waarde een lege tekenreeks zijn.
+* **{backend.response.headers. \<HeaderName is opgeslagen\>}**: een koptekst die kan worden gelezen uit het antwoord van de back-end. Vervang *\<HeaderName is opgeslagen\>* met de naam van de header die u wilt lezen. Als de header niet in het antwoord opgenomen is, wordt de waarde een lege tekenreeks zijn.
 
 ### <a name="use-appsettings"></a>Toepassingsinstellingen-verwijzing
 
@@ -175,8 +175,8 @@ U kunt afzonderlijke proxy's uitschakelen door toe te voegen `"disabled": true` 
 Het object requestOverrides definieert wijzigingen aangebracht aan de aanvraag toen de back-end-bron wordt aangeroepen. Het object wordt gedefinieerd door de volgende eigenschappen:
 
 * **backend.Request.Method**: de HTTP-methode die wordt gebruikt voor het aanroepen van de back-end.
-* **backend.Request.QueryString. \<ParameterName\>**: een queryreeksparameter opgeven die kan worden ingesteld voor het aanroepen van de back-end. Vervang  *\<ParameterName\>*  met de naam van de parameter die u wilt instellen. Als de lege tekenreeks is opgegeven, wordt de parameter niet opgenomen in de back-end-aanvraag.
-* **backend.Request.headers. \<HeaderName is opgeslagen\>**: een header die kan worden ingesteld voor het aanroepen van de back-end. Vervang  *\<HeaderName is opgeslagen\>*  met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de koptekst niet opgenomen in de back-end-aanvraag.
+* **backend.Request.QueryString. \<ParameterName\>**: een queryreeksparameter opgeven die kan worden ingesteld voor het aanroepen van de back-end. Vervang *\<ParameterName\>* met de naam van de parameter die u wilt instellen. Als de lege tekenreeks is opgegeven, wordt de parameter niet opgenomen in de back-end-aanvraag.
+* **backend.Request.headers. \<HeaderName is opgeslagen\>**: een header die kan worden ingesteld voor het aanroepen van de back-end. Vervang *\<HeaderName is opgeslagen\>* met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de koptekst niet opgenomen in de back-end-aanvraag.
 
 Waarden kunnen verwijzen naar toepassingsinstellingen en parameters van de aanvraag van de oorspronkelijke client.
 
@@ -208,7 +208,7 @@ Het object requestOverrides definieert wijzigingen die zijn aangebracht aan de r
 * **response.statusCode**: de HTTP-statuscode moet worden geretourneerd naar de client.
 * **response.statusReason**: de HTTP-reden wordt geretourneerd naar de client.
 * **Response.BODY**: de tekenreeksrepresentatie van de instantie moet worden geretourneerd naar de client.
-* **Response.headers. \<HeaderName is opgeslagen\>**: een header die kan worden ingesteld voor het antwoord op de client. Vervang  *\<HeaderName is opgeslagen\>*  met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de koptekst niet opgenomen in het antwoord.
+* **Response.headers. \<HeaderName is opgeslagen\>**: een header die kan worden ingesteld voor het antwoord op de client. Vervang *\<HeaderName is opgeslagen\>* met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de koptekst niet opgenomen in het antwoord.
 
 Waarden kunnen verwijzen naar toepassingsinstellingen, de parameters van de aanvraag van de oorspronkelijke client en de parameters van het back-end-antwoord.
 

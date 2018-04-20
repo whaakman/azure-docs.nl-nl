@@ -2,10 +2,10 @@
 title: Azure API Management-sjabloon gegevensmodel verwijzing | Microsoft Docs
 description: Meer informatie over de entiteit en type representaties voor algemene items in de gegevensmodellen gebruikt voor de developer portal sjablonen in Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management data model verwijzing naar de sjabloon
 Dit onderwerp beschrijft de entiteit en type representaties voor algemene items in de gegevensmodellen gebruikt voor de developer portal sjablonen in Azure API Management.  
@@ -31,7 +31,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 -   [Bijlage](#Attachment)  
 -   [Voorbeeld van code](#Sample)  
 -   [Opmerking](#Comment)  
--   [Filtering](#Filtering)  
+-   [Filteren](#Filtering)  
 -   [Header](#Header)  
 -   [HTTP-aanvraag](#HTTPRequest)  
 -   [HTTP-antwoord](#HTTPResponse)  
@@ -39,7 +39,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 -   [Bewerking](#Operation)  
 -   [Bewerking menu](#Menu)  
 -   [Bewerking menu-item](#MenuItem)  
--   [Paging](#Paging)  
+-   [Paginering](#Paging)  
 -   [Parameter](#Parameter)  
 -   [Product](#Product)  
 -   [Provider](#Provider)  
@@ -64,7 +64,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |authenticationSettings|[Autorisatie-instellingen voor server-verificatie](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Verzameling van verificatie-instellingen die zijn opgenomen in deze API.|  
 |subscriptionKeyParameterNames|object|Optionele eigenschap die kan worden gebruikt om aangepaste namen voor de query en/of koptekst parameters met de abonnementssleutel te geven. Als deze eigenschap aanwezig is, moet er ten minste één van de volgende twee eigenschappen bevatten.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="APISummary">API-overzicht</a>  
+##  <a name="APISummary"></a> API-overzicht  
  De `API summary` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
@@ -73,7 +73,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |naam|tekenreeks|De naam van de API. Mag niet leeg zijn. Maximale lengte is 100 tekens.|  
 |description|tekenreeks|Beschrijving van de API. Mag niet leeg zijn. Kan HTML-opmaak labels bevatten. Maximumlengte is 1000 tekens.|  
   
-##  <a name="Application">Toepassing</a>  
+##  <a name="Application"></a> Toepassing  
  De `application` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
@@ -84,14 +84,14 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |URL|URI|De URI voor de toepassing.|  
 |Versie|tekenreeks|Versie-informatie voor de toepassing.|  
 |Vereisten|tekenreeks|Een beschrijving van de vereisten voor de toepassing.|  
-|Status|nummer|De huidige status van de toepassing.<br /><br /> -0 - geregistreerd<br /><br /> -1 - verzonden<br /><br /> -2 - gepubliceerd<br /><br /> -3 - geweigerd<br /><br /> -4 - niet gepubliceerd|  
+|Status|getal|De huidige status van de toepassing.<br /><br /> -0 - geregistreerd<br /><br /> -1 - verzonden<br /><br /> -2 - gepubliceerd<br /><br /> -3 - geweigerd<br /><br /> -4 - niet gepubliceerd|  
 |RegistrationDate|DateTime|De datum en tijd die de toepassing is geregistreerd.|  
-|Categorie-id|nummer|De categorie van de toepassing (financiën, entertainment, enz.)|  
+|Categorie-id|getal|De categorie van de toepassing (financiën, entertainment, enz.)|  
 |DeveloperId|tekenreeks|De unieke id van de ontwikkelaar die de aanvraag heeft ingediend.|  
 |Bijlagen|Verzameling van [bijlage](#Attachment) entiteiten.|Eventuele bijlagen voor de toepassing zoals schermafbeeldingen of pictogrammen.|  
 |Pictogram|[Bijlage](#Attachment)|Het pictogram de voor de toepassing.|  
   
-##  <a name="Attachment">Bijlage</a>  
+##  <a name="Attachment"></a> Bijlage  
  De `attachment` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
@@ -101,7 +101,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |Type|tekenreeks|Het type van de bijlage.|  
 |ContentType|tekenreeks|Het mediatype van de bijlage.|  
   
-##  <a name="Sample">Voorbeeld van code</a>  
+##  <a name="Sample"></a> Voorbeeld van code  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
@@ -110,7 +110,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |kwast|tekenreeks|Welke codesyntaxis sjabloon moet worden gebruikt bij het weergeven van de voorbeeldcode van de kleuren. Toegestane waarden zijn `plain`, `php`, `java`, `xml`, `objc`, `python`, `ruby`, en `csharp`.|  
 |sjabloon|tekenreeks|De naam van deze voorbeeldsjabloon code.|  
 |hoofdtekst|tekenreeks|Een tijdelijke aanduiding voor het gedeelte voor het voorbeeld van code van het fragment.|  
-|methode|tekenreeks|De HTTP-methode van de bewerking.|  
+|method|tekenreeks|De HTTP-methode van de bewerking.|  
 |Schema|tekenreeks|Het protocol moet worden gebruikt voor de aanvraag opnieuw.|  
 |pad|tekenreeks|Het pad van de bewerking.|  
 |query|tekenreeks|Voorbeeld van de query-tekenreeks met gedefinieerde parameters.|  
@@ -118,12 +118,12 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |headers|Verzameling van [Header](#Header) entiteiten.|Headers voor deze bewerking.|  
 |parameters|Verzameling van [Parameter](#Parameter) entiteiten.|De parameters die zijn gedefinieerd voor deze bewerking.|  
   
-##  <a name="Comment">Opmerking</a>  
+##  <a name="Comment"></a> Opmerking  
  De `API` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|Id|nummer|De id van de opmerking.|  
+|Id|getal|De id van de opmerking.|  
 |CommentText|tekenreeks|De hoofdtekst van de opmerking. Kan HTML bevatten.|  
 |DeveloperCompany|tekenreeks|De naam van het bedrijf van de ontwikkelaar.|  
 |PostedOn|DateTime|De datum en tijdstip waarop die de opmerking is gepost.|  
@@ -150,7 +150,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
 |Patroon|tekenreeks|De huidige zoekterm; of `null` als er geen zoekterm.|  
-|Tijdelijke aanduiding voor|tekenreeks|De tekst die moet worden weergegeven in het zoekvak als er geen zoekterm opgegeven.|  
+|Tijdelijke aanduiding|tekenreeks|De tekst die moet worden weergegeven in het zoekvak als er geen zoekterm opgegeven.|  
   
 ##  <a name="Header"></a> Koptekst  
  Deze sectie beschrijft de `parameter` weergave.  
@@ -163,9 +163,9 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |typeName|tekenreeks|Het gegevenstype van headerwaarde.|  
 |opties|tekenreeks|Opties.|  
 |Vereist|booleaans|Hiermee wordt aangegeven of de header is vereist.|  
-|readOnly|booleaans|Hiermee wordt aangegeven of de header is alleen-lezen.|  
+|Alleen-lezen|booleaans|Hiermee wordt aangegeven of de header is alleen-lezen.|  
   
-##  <a name="HTTPRequest">HTTP-aanvraag</a>  
+##  <a name="HTTPRequest"></a> HTTP-aanvraag  
  Deze sectie beschrijft de `request` weergave.  
   
 |Eigenschap|Type|Beschrijving|  
@@ -204,7 +204,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|ApiId|tekenreeks|De id van de huidige API.|  
+|apiId|tekenreeks|De id van de huidige API.|  
 |CurrentOperationId|tekenreeks|De id van de huidige bewerking.|  
 |Bewerking|tekenreeks|Het Menutype.|  
 |MenuItems|Verzameling van [bewerking menuopdracht](#MenuItem) entiteiten.|De bewerkingen voor de huidige API.|  
@@ -223,11 +223,11 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|Pagina|nummer|Het huidige paginanummer.|  
-|PageSize|nummer|Het maximum aantal resultaten op één pagina moet worden weergegeven.|  
-|TotalItemCount|nummer|Het aantal items om weer te geven.|  
+|Pagina|getal|Het huidige paginanummer.|  
+|PageSize|getal|Het maximum aantal resultaten op één pagina moet worden weergegeven.|  
+|TotalItemCount|getal|Het aantal items om weer te geven.|  
 |ShowAll|booleaans|Of u wilt weergeven, alle resultaten worden op één pagina.|  
-|PageCount|nummer|Het aantal pagina's met resultaten.|  
+|PageCount|getal|Het aantal pagina's met resultaten.|  
   
 ##  <a name="Parameter"></a> Parameter  
  Deze sectie beschrijft de `parameter` weergave.  
@@ -239,10 +239,10 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |waarde|tekenreeks|Waarde voor parameter.|  
 |opties|Matrix van tekenreeks|Waarden die zijn gedefinieerd voor parameterwaarden.|  
 |Vereist|booleaans|Hiermee geeft u op of de parameter vereist is.|  
-|type|nummer|Hiermee wordt aangegeven of deze parameter is een padparameter (1) of een parameter querystring (2).|  
+|type|getal|Hiermee wordt aangegeven of deze parameter is een padparameter (1) of een parameter querystring (2).|  
 |typeName|tekenreeks|Het parametertype.|  
   
-##  <a name="Product">Product</a>  
+##  <a name="Product"></a> Product  
  De `product` entiteit heeft de volgende eigenschappen:  
   
 |Eigenschap|Type|Beschrijving|  
@@ -251,9 +251,9 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |Titel|tekenreeks|De naam van het product. Mag niet leeg zijn. Maximale lengte is 100 tekens.|  
 |Beschrijving|tekenreeks|Beschrijving van het product. Mag niet leeg zijn. Kan HTML-opmaak labels bevatten. Maximumlengte is 1000 tekens.|  
 |Voorwaarden|tekenreeks|Product gebruiksvoorwaarden. Ontwikkelaars wilt abonneren op het product wordt weergegeven en moeten deze voorwaarden accepteren voordat ze het abonnement proces kunnen voltooien.|  
-|ProductState|nummer|Hiermee geeft u op of het product of niet is gepubliceerd. Gepubliceerde producten kunnen worden gevonden door ontwikkelaars op de portal voor ontwikkelaars. Niet-gepubliceerde producten zijn alleen zichtbaar voor beheerders.<br /><br /> De toegestane waarden voor de Productstatus zijn:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
+|ProductState|getal|Hiermee geeft u op of het product of niet is gepubliceerd. Gepubliceerde producten kunnen worden gevonden door ontwikkelaars op de portal voor ontwikkelaars. Niet-gepubliceerde producten zijn alleen zichtbaar voor beheerders.<br /><br /> De toegestane waarden voor de Productstatus zijn:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
 |AllowMultipleSubscriptions|booleaans|Hiermee geeft u op of een gebruiker meerdere abonnementen voor dit product op hetzelfde moment kan hebben.|  
-|MultipleSubscriptionsCount|nummer|Maximum aantal abonnementen voor dit product een gebruiker mag hebben op hetzelfde moment.|  
+|MultipleSubscriptionsCount|getal|Maximum aantal abonnementen voor dit product een gebruiker mag hebben op hetzelfde moment.|  
   
 ##  <a name="Provider"></a> Provider  
  De `provider` entiteit heeft de volgende eigenschappen:  
@@ -264,12 +264,12 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |authenticationType|tekenreeks|Het providertype. (Azure Active Directory, Facebook-aanmelding, Google-Account, Microsoft-Account, Twitter).|  
 |Bijschrift|tekenreeks|Weergavenaam van de provider.|  
   
-##  <a name="Representation">Weergave</a>  
+##  <a name="Representation"></a> Weergave  
  Deze sectie beschrijft een `representation`.  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|contentType|tekenreeks|Hiermee wordt een geregistreerde of aangepaste inhoudstype voor deze weergave bijvoorbeeld `application/xml`.|  
+|ContentType|tekenreeks|Hiermee wordt een geregistreerde of aangepaste inhoudstype voor deze weergave bijvoorbeeld `application/xml`.|  
 |voorbeeld|tekenreeks|Een voorbeeld van de weergave.|  
   
 ##  <a name="Subscription"></a> Abonnement  
@@ -311,9 +311,9 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|FirstName|tekenreeks|De voornaam. Mag niet leeg zijn. Maximale lengte is 100 tekens.|  
+|Voornaam|tekenreeks|De voornaam. Mag niet leeg zijn. Maximale lengte is 100 tekens.|  
 |LastName|tekenreeks|De achternaam. Mag niet leeg zijn. Maximale lengte is 100 tekens.|  
-|E-mail|tekenreeks|E-mailadres. Mag niet leeg zijn en moet uniek zijn binnen het service-exemplaar. Maximale lengte is 254 tekens.|  
+|Email|tekenreeks|E-mailadres. Mag niet leeg zijn en moet uniek zijn binnen het service-exemplaar. Maximale lengte is 254 tekens.|  
 |Wachtwoord|tekenreeks|Het wachtwoord voor gebruikersaccount.|  
 |NameIdentifier|tekenreeks|Account-id dezelfde zijn als de e-mailadres voor de gebruiker.|  
 |ProviderName|tekenreeks|Providernaam van verificatie.|  
@@ -324,7 +324,7 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|E-mail|tekenreeks|E-mailadres. Mag niet leeg zijn en moet uniek zijn binnen het service-exemplaar. Maximale lengte is 254 tekens.|  
+|Email|tekenreeks|E-mailadres. Mag niet leeg zijn en moet uniek zijn binnen het service-exemplaar. Maximale lengte is 254 tekens.|  
 |Wachtwoord|tekenreeks|Het wachtwoord voor gebruikersaccount.|  
 |ReturnUrl|tekenreeks|Meld u de URL van de pagina waar de gebruiker heeft geklikt.|  
 |RememberMe|booleaans|Hiermee geeft u op of u gegevens van de huidige gebruiker op te slaan.|  
@@ -344,12 +344,12 @@ Dit onderwerp beschrijft de entiteit en type representaties voor algemene items 
 |--------------|----------|-----------------|  
 |PasswordConfirm|booleaans|Waarde die wordt gebruikt door de [aanmelding](api-management-page-controls.md#sign-up)aanmelding besturingselement.|  
 |Wachtwoord|tekenreeks|Het wachtwoord voor gebruikersaccount.|  
-|PasswordVerdictLevel|nummer|Waarde die wordt gebruikt door de [aanmelding](api-management-page-controls.md#sign-up)aanmelding besturingselement.|  
+|PasswordVerdictLevel|getal|Waarde die wordt gebruikt door de [aanmelding](api-management-page-controls.md#sign-up)aanmelding besturingselement.|  
 |UserRegistrationTerms|tekenreeks|Termen die een gebruiker accepteren moet voordat u zich aanmeldt.|  
-|UserRegistrationTermsOptions|nummer|Waarde die wordt gebruikt door de [aanmelding](api-management-page-controls.md#sign-up)aanmelding besturingselement.|  
+|UserRegistrationTermsOptions|getal|Waarde die wordt gebruikt door de [aanmelding](api-management-page-controls.md#sign-up)aanmelding besturingselement.|  
 |ConsentAccepted|booleaans|Waarde die wordt gebruikt door de [aanmelding](api-management-page-controls.md#sign-up)aanmelding besturingselement.|  
-|E-mail|tekenreeks|E-mailadres. Mag niet leeg zijn en moet uniek zijn binnen het service-exemplaar. Maximale lengte is 254 tekens.|  
-|FirstName|tekenreeks|De voornaam. Mag niet leeg zijn. Maximale lengte is 100 tekens.|  
+|Email|tekenreeks|E-mailadres. Mag niet leeg zijn en moet uniek zijn binnen het service-exemplaar. Maximale lengte is 254 tekens.|  
+|Voornaam|tekenreeks|De voornaam. Mag niet leeg zijn. Maximale lengte is 100 tekens.|  
 |LastName|tekenreeks|De achternaam. Mag niet leeg zijn. Maximale lengte is 100 tekens.|  
 |UserData|tekenreeks|Waarde die wordt gebruikt door de [aanmelding](api-management-page-controls.md#sign-up) besturingselement.|  
 |NameIdentifier|tekenreeks|Waarde die wordt gebruikt door de [aanmelding](api-management-page-controls.md#sign-up)aanmelding besturingselement.|  

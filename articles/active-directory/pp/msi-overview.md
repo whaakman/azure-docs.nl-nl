@@ -2,24 +2,24 @@
 title: Beheerde Service-identiteit (MSI) voor Azure Active Directory
 description: Een overzicht van beheerde Service-identiteit voor Azure-resources.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ms.reviewer: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 95980c082b09ad959ab8bbaae0250b40ac08d2c8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Managed Service-identiteit (MSI) voor Azure-resources
 
@@ -47,7 +47,7 @@ Hier volgt een voorbeeld van hoe een MSI systeem toegewezen met Azure Virtual Ma
 2. Azure Resource Manager maakt een Service-Principal in Azure AD om weer te geven van de identiteit van de virtuele machine. De Service-Principal gemaakt in de Azure AD-tenant die wordt vertrouwd door dit abonnement.
 3. Azure Resource Manager configureert de details van de Service-Principal in de VM-extensie van de MSI van de virtuele machine. Deze stap omvat het configureren van client-ID en certificaat dat wordt gebruikt door de uitbreiding toegangstokens ophalen uit Azure AD.
 4. Nu dat de identiteit van de virtuele machine van de Service-Principal bekend is, is het kan dat deze toegang tot Azure-resources worden verleend. Bijvoorbeeld, als uw code aan te roepen Azure Resource Manager, wilt u toewijzen van de VM-Service-Principal de juiste rol met behulp van op rollen gebaseerde toegangsbeheer (RBAC) in Azure AD.  Als uw code aan te roepen Sleutelkluis, kunt u uw code toegang tot het specifiek geheim of de sleutel in de Sleutelkluis wilt verlenen.
-5. Uw code die wordt uitgevoerd op de virtuele machine vraagt een token van een lokaal eindpunt dat wordt gehost door de MSI-VM-extensie: oauth2-http://localhost:50342-token. De resourceparameter geeft u de service die het token wordt verzonden. Bijvoorbeeld, als u wilt dat uw code te verifiëren voor Azure Resource Manager, gebruikt u resource = https://management.azure.com/.
+5. Uw code die wordt uitgevoerd op de virtuele machine vraagt een token van een lokaal eindpunt dat wordt gehost door de MSI-VM-extensie: http://localhost:50342/oauth2/token. De resourceparameter geeft u de service die het token wordt verzonden. Bijvoorbeeld, als u wilt dat uw code te verifiëren voor Azure Resource Manager, gebruikt u resource =https://management.azure.com/.
 6. De VM-extensie MSI maakt gebruik van de geconfigureerde client-ID en certificaat voor het aanvragen van een toegangstoken van Azure AD.  Azure AD retourneert een toegangstoken JSON Web Token (JWT).
 7. Uw code verzendt het toegangstoken op een aanroep van een service die Azure AD-verificatie ondersteunt.
 
@@ -59,7 +59,7 @@ Met behulp van dezelfde van het diagram, hier een voorbeeld van hoe een gebruike
 2. Azure Resource Manager maakt een Service-Principal in Azure AD om weer te geven van de identiteit van het MSI-bestand. De Service-Principal gemaakt in de Azure AD-tenant die wordt vertrouwd door dit abonnement.
 3. Azure Resource Manager ontvangt een bericht voor het configureren van de details van de Service-Principal in de VM-extensie van de MSI van een virtuele machine. Deze stap omvat het configureren van client-ID en certificaat dat wordt gebruikt door de uitbreiding toegangstokens ophalen uit Azure AD.
 4. Nu dat de identiteit van de MSI van de Service-Principal bekend is, is het kan dat deze toegang tot Azure-resources worden verleend. Bijvoorbeeld, als uw code aan te roepen Azure Resource Manager, wilt u toewijzen het MSI Service-Principal de juiste rol met behulp van op rollen gebaseerde toegangsbeheer (RBAC) in Azure AD. Als uw code aan te roepen Sleutelkluis, kunt u uw code toegang tot het specifiek geheim of de sleutel in de Sleutelkluis wilt verlenen. Opmerking: De stap 3 is niet vereist als u stap 4. Zodra een MSI-bestand bestaat, kan worden deze toegang tot netwerkbronnen, ongeacht het op een virtuele machine wordt geconfigureerd of niet verleend.
-5. Uw code die wordt uitgevoerd op de virtuele machine vraagt een token van een lokaal eindpunt dat wordt gehost door de MSI-VM-extensie: oauth2-http://localhost:50342-token. De client-ID-parameter bevat de naam van de MSI-identiteit moet worden gebruikt. De resourceparameter bevat bovendien de service die het token wordt verzonden. Bijvoorbeeld, als u wilt dat uw code te verifiëren voor Azure Resource Manager, gebruikt u resource = https://management.azure.com/.
+5. Uw code die wordt uitgevoerd op de virtuele machine vraagt een token van een lokaal eindpunt dat wordt gehost door de MSI-VM-extensie: http://localhost:50342/oauth2/token. De client-ID-parameter bevat de naam van de MSI-identiteit moet worden gebruikt. De resourceparameter bevat bovendien de service die het token wordt verzonden. Bijvoorbeeld, als u wilt dat uw code te verifiëren voor Azure Resource Manager, gebruikt u resource =https://management.azure.com/.
 6. De VM-extensie MSI controleert het certificaat voor de aangevraagde client-ID is geconfigureerd als een toegangstoken van Azure AD-aanvragen. Azure AD retourneert een toegangstoken JSON Web Token (JWT).
 7. Uw code verzendt het toegangstoken op een aanroep van een service die Azure AD-verificatie ondersteunt.
 

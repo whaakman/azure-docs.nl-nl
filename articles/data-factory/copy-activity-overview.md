@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/16/2018
 ms.author: jingwang
 ms.openlocfilehash: 3b92aed83e01d223b33f269f0202355836f806c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -136,7 +136,7 @@ De volgende sjabloon van een kopieeractiviteit bevat een uitgebreide lijst met o
 | Invoer | Geef de gegevensset die u hebt gemaakt die verwijst naar de brongegevens. Kopieeractiviteit ondersteunt alleen een één invoer. | Ja |
 | uitvoer | Geef de gegevensset die u hebt gemaakt die verwijst naar de sink-gegevens. Kopieeractiviteit ondersteunt slechts één uitvoer. | Ja |
 | typeProperties | Een groep met eigenschappen voor het configureren van de kopieeractiviteit. | Ja |
-| bron | Het brontype van het exemplaar en de bijbehorende eigenschappen opgeven voor het ophalen van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
+| source | Het brontype van het exemplaar en de bijbehorende eigenschappen opgeven voor het ophalen van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
 | sink | Geef het exemplaar sink-type en de bijbehorende eigenschappen op het schrijven van gegevens.<br/><br/>Meer informatie over de details van de sectie 'activiteitseigenschappen kopiëren' in de connector artikelen in [ondersteunde gegevensarchieven en indelingen](#supported-data-stores-and-formats). | Ja |
 | Translator | Geef expliciete kolomtoewijzingen van bron opvangen. Wanneer u het standaardgedrag voor het exemplaar kan niet voldoen aan uw behoeften past.<br/><br/>Meer informatie over de details van [Schema en de gegevens Typetoewijzing](copy-activity-schema-and-type-mapping.md). | Nee |
 | cloudDataMovementUnits | Geef de powerfulness van [Azure integratie Runtime](concepts-integration-runtime.md) zorgen dat gegevens opnieuw te kopiëren.<br/><br/>Meer informatie over de details van [Cloud data movement eenheden](copy-activity-performance.md). | Nee |

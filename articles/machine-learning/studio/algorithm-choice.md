@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Algoritmen kiezen voor Microsoft Azure Machine Learning
 Het antwoord op de vraag 'Welke machine learning-algoritme moet ik gebruiken?' is altijd "Deze afhankelijk is." Dit is afhankelijk van de grootte, kwaliteit en aard van de gegevens. Dit is afhankelijk van wat u wilt doen met het antwoord. Dit is afhankelijk van hoe de berekening van het algoritme is vertaald naar instructies voor de computer die u gebruikt. En dit is afhankelijk van hoeveel tijd die u hebt. Zelfs de meest ervaren gegevenswetenschappers kunnen niet zien welk algoritme best zal uitvoeren voordat u ze.
@@ -121,14 +121,14 @@ Sommige learning-algoritmen zorg bepaalde veronderstellingen over de structuur v
 | [neurale netwerk](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Extra aanpassingen zijn mogelijk](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Controleer de eigenschappen van de twee klassenmethode geselecteerd |
 | **Regressie** | | | | | |
-| [linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
+| [Lineair](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Bayesiaanse lineair](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [besluit forest](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [gestimuleerd beslissingsstructuur](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Groot geheugengebruik: |
 | [snelle forest kwantiel](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributies in plaats van punt voorspellingen |
 | [neurale netwerk](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Extra aanpassingen zijn mogelijk](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Technisch logboek-lineaire. Voor het voorspellen van aantallen |
-| [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Voor het voorspellen van positie ordenen |
+| [Rangtelwoord](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Voor het voorspellen van positie ordenen |
 | **Detectie van afwijkingen** | | | | | |
 | [ondersteuning voor vectormachine](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Met name geschikt voor grote functiesets |
 | [PCA-gebaseerd anomaliedetectie](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |

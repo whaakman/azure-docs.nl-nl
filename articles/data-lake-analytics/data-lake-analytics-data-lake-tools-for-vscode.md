@@ -3,8 +3,8 @@ title: 'Azure Data Lake Tools: Gebruik Azure Data Lake Tools voor Visual Studio 
 description: 'Informatie over het gebruik van Azure Data Lake Tools voor Visual Studio Code maken, testen en U-SQL-scripts uitvoeren. '
 Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
+documentationcenter: ''
+author: Jejiang
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools voor Visual Studio Code gebruiken
 
@@ -35,10 +35,10 @@ Azure Data Lake Tools voor VSCode biedt ondersteuning voor Windows, Linux en Mac
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 
 Voor Mac OS- en Linux:
-- [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core). 
+- [.NET core SDK 2.0](https://www.microsoft.com/net/download/core). 
 - [Mono 5.2.x](http://www.mono-project.com/download/).
 
-## <a name="install-data-lake-tools"></a>Installeren van Data Lake Tools
+## <a name="install-data-lake-tools"></a>Data Lake Tools installeren
 
 Nadat u de vereiste onderdelen hebt geïnstalleerd, kunt u Data Lake Tools voor VS-Code installeren.
 
@@ -354,19 +354,19 @@ De status wordt weergegeven aan de onderkant van de statusbalk wanneer voltooid 
 
 ## <a name="vscode-explorer-integration-with-azure-data-lake"></a>Integratie met Azure Data Lake VSCode Explorer
 
-**Azure Integration** 
+**Integratie van Azure** 
 
-- Voordat u aanmelden bij Azure, kunt u altijd uitbreiden **DATALAKE EXPLORER**, klikt u vervolgens op **aanmelden bij Azur** voor aanmelding bij Azure. Na aanmelding, ziet u alle abonnementen onder uw Azure-account worden vermeld in het linkerpaneel van de **DATALAKE EXPLORER**. 
+- Voordat u aanmelden bij Azure, kunt u altijd uitbreiden **AZURE DATALAKE**, klikt u vervolgens op **aanmelden bij Azure** voor aanmelding bij Azure. Na aanmelding, ziet u alle abonnementen onder uw Azure-account worden vermeld in het linkerpaneel van de **AZURE DATALAKE**. 
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**ADLA Metadata Navigation** 
+**ADLA metagegevens navigatie**
 
 - Vouw uw Azure-abonnement, kunt u de U-SQL-database, navigeren weergave de **schema's**, **referenties**, **assembly's**, **tabel**, **Index**, enzovoort, onder het knooppunt U-SQL-Databases.
 
-**ADLA Metadata Entity Management**
+**ADLA metagegevens-Entiteitsbeheer**
 
 - Vouw **U-SQL-Databases**, kunt u een nieuwe database, schema, tabel, tabeltypen, index, statistieken met de rechtermuisknop op de **Script maken** contextmenu onder de bijbehorende knooppunt. Op de pagina is geopend script bewerkt u het script aan uw wensen en verzenden van de taak met de rechtermuisknop op contextmenu **ADL: Submit Job**. Nadat het maken is voltooid, klikt u op contextmenu **vernieuwen** om weer te geven van het nieuwe item gemaakt. U kunt ook het item verwijderen met de rechtermuisknop op het contextmenu **verwijderen**.
 
@@ -380,13 +380,33 @@ De status wordt weergegeven aan de onderkant van de statusbalk wanneer voltooid 
 
     ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
 
-**ADLS Integration** 
+**ADLS-integratie** 
 
- - Navigeer naar **Opslagaccount**, kunt u **Preview**, **downloaden**, **verwijderen**, **kopie relatief pad**, **Volledig pad kopiëren** door het snelmenu dat verschijnt op het bestandsknooppunt. U kunt **vernieuwen**, **uploaden**, **map uploaden**, **verwijderen** met de rechtermuisknop op het snelmenu dat verschijnt op het mapknooppunt.
+Navigeer naar **Data Lake Store**
+
+ - Op het mapknooppunt, kunt u **vernieuwen**, **verwijderen**, **uploaden**, **map uploaden**, **kopie relatief pad**, **Volledig pad kopiëren** in het snelmenu.
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - Op het bestandsknooppunt, kunt u **downloaden**, **Preview**, **verwijderen**, **relatieve pad kopiëren**, **volledig pad kopiëren**in het snelmenu. 
+
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**WASB-integratie**
+
+Navigeer naar **Blob Storage**
+
+- Op het knooppunt van blob-container, kunt u **vernieuwen**, **Blob-Container verwijderen**, **Blob uploaden** in het snelmenu.
+
+    ![BLOB Storage-blob-containerknooppunt](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- U kunt op het mapknooppunt **vernieuwen**, **Blob uploaden** in het snelmenu.
+
+    ![BLOB Storage mapknooppunt](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- Op het bestandsknooppunt, kunt u **Preview/bewerken**, **downloaden**, **verwijderen**, **relatieve pad kopiëren**, **volledig pad kopiëren** in het snelmenu.
+
+    ![Knooppunt van BLOB Storage-bestand](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>Open Opslagverkenner van ADL in portal
 1. Selecteer Ctrl + Shift + P om de opdracht palet te openen.

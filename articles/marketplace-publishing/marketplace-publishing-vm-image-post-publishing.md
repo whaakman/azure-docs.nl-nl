@@ -1,11 +1,11 @@
 ---
 title: Het beheren van uw installatiekopie van de virtuele machine in Azure Marketplace | Microsoft Docs
-description: "Gedetailleerde richtlijnen voor het beheren van uw installatiekopie van de virtuele machine in Azure Marketplace na de initiële publicatie"
+description: Gedetailleerde richtlijnen voor het beheren van uw installatiekopie van de virtuele machine in Azure Marketplace na de initiële publicatie
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: mbaldwin;
 ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Na productie-handleiding voor aanbiedingen van de virtuele machine in Azure Marketplace
 Dit artikel wordt uitgelegd hoe u een aanbieding live virtuele machine in Azure Marketplace kunt bijwerken. Dit leidt u door het proces van een of meer nieuwe SKU's toevoegen aan een bestaande aanbieding. Ook leidt u door het proces van het verwijderen van een aanbieding van live virtuele machine of de SKU van de Marketplace.
@@ -47,7 +47,7 @@ Een nieuwe versie op de vermelde SKU toevoegen en uw aanbieding publiceren, als 
 2. Ga naar de **virtuele machines** tabblad, en selecteer uw aanbieding.
 3. Klik in het menu links op de **VM-INSTALLATIEKOPIEËN** tabblad.
 4. In de **SKU's** sectie, zoek de SKU die u wilt bijwerken.
-5. Een nieuwe versienummer voor de SKU toevoegen en klik op de  **+**  knop. De nieuwe versie moet in een indeling X.Y.Z, waarbij X, Y en Z gehele getallen zijn. Wijzigingen in versie moet alleen incrementele.
+5. Een nieuwe versienummer voor de SKU toevoegen en klik op de **+** knop. De nieuwe versie moet in een indeling X.Y.Z, waarbij X, Y en Z gehele getallen zijn. Wijzigingen in versie moet alleen incrementele.
 6. In de **OS VHD URL** vak, voer de shared access signature URI voor de besturingssysteem-VHD gemaakt en de wijzigingen opslaan.
 
    > [!IMPORTANT]
@@ -89,7 +89,7 @@ De details van de aanbieding bijwerken en uw aanbieding publiceren, als volgt te
 7. Ga naar de **publiceren** tabblad en klik op **PUSH FASERING**. Zie voor gedetailleerde instructies over het testen van uw aanbieding in de testomgeving [testen van uw VM-aanbieding voor de Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
 8. Nadat u uw aanbieding in fasering getest hebt, gaat u naar de **publiceren** tabblad in de publicatie van de portal. Klik op **aanvragen goedkeuring te PUSHEN naar productie** uw aanbieding in de Marketplace opnieuw te publiceren.
 
-    ![Logos](media/marketplace-publishing-vm-image-post-publishing/img02.1_08.png)
+    ![Logo 's](media/marketplace-publishing-vm-image-post-publishing/img02.1_08.png)
 
 ### <a name="update-the-sku-description"></a>De SKU-beschrijving van update
 De details van de SKU bijwerken en uw aanbieding publiceren, als volgt te werk:

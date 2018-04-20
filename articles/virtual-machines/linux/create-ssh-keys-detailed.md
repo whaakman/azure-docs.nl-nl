@@ -1,6 +1,6 @@
 ---
-title: Gedetailleerde stappen om in Azure een SSH-sleutelpaar te maken voor virtuele Linux-machines | Microsoft Docs
-description: Informatie over extra stappen om in Azure een openbaar en persoonlijk SSH-sleutelpaar voor virtuele Linux-machines te maken, samen met specifieke certificaten voor verschillende gebruiksvoorbeelden.
+title: Gedetailleerde stappen - SSH sleutelpaar voor Azure Linux VM's | Microsoft Docs
+description: Meer gedetailleerde stappen voor het maken en beheren van een SSH openbare en persoonlijke sleutelpaar voor virtuele Linux-machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
@@ -13,67 +13,75 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 6/28/2017
+ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 20d36f5e377f2d5af588319cee2be1808571f905
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 827c80a70047fd0f1ad67e4f19cb2300e45b2c6b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
-# <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Gedetailleerd stappenplan voor het maken van een SSH-sleutelpaar en extra certificaten voor een virtuele Linux-machine in Azure
-Met een SSH-sleutelpaar kunt u virtuele machines in Azure maken die voor verificatie standaard gebruikmaken van SSH-sleutels, waardoor aanmelding met een wachtwoord niet meer nodig is. Wachtwoorden kunnen worden geraden en stellen uw virtuele machines bloot aan voortdurende aanvalspogingen om uw wachtwoord te raden. Virtuele machines die zijn gemaakt met de Azure CLI- of Resource Manager-sjablonen, kunnen uw openbare SSH-sleutel opnemen als onderdeel van de implementatie, waardoor configuratie na implementatie niet meer nodig is voor het uitschakelen van aanmelding met een wachtwoord voor SSH. Dit artikel vindt gedetailleerde stappen en aanvullende voorbeelden gegeven van certificaten genereren, zoals voor gebruik met de virtuele Linux-machines. Als u snel een SSH-sleutelpaar wilt maken en gebruiken, raadpleegt u [Een openbaar en persoonlijk SSH-sleutelpaar maken voor Linux-VM's in Azure](mac-create-ssh-keys.md).
+# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Gedetailleerde stappen: maken en beheren van de SSH-sleutels voor verificatie van een Linux VM in Azure 
+Met de combinatie van een secure shell (SSH), kunt u een virtuele Linux-machine maken in Azure die standaard SSH-sleutels gebruiken voor verificatie, hoeft u de wachtwoorden aan te melden. Virtuele machines gemaakt met de Azure portal, Azure CLI Resource Manager-sjablonen of andere hulpprogramma's voor uw openbare SSH-sleutel kunnen opnemen als onderdeel van de implementatie, u de verificatie van SSH-sleutel voor SSH-verbindingen stelt. 
 
-## <a name="understanding-ssh-keys"></a>Inzicht in SSH-sleutels
+In dit artikel vindt u gedetailleerde achtergrond en stappen voor het maken en beheren van een paar SSH RSA bestand met openbare en persoonlijke sleutel voor SSH-verbindingen voor clients. Als u wilt dat snelle opdrachten, Zie [maken van een openbare en persoonlijke SSH-sleutelpaar voor virtuele Linux-machines in Azure](mac-create-ssh-keys.md).
 
-Het gebruik van openbare en persoonlijke SSH-sleutels is de eenvoudigste manier om u aan te melden bij uw Linux-servers. [Cryptografie met openbare sleutels](https://en.wikipedia.org/wiki/Public-key_cryptography) biedt een veel veiligere manier van aanmelding bij uw virtuele Linux- of BSD-machines in Azure dan wachtwoorden, die aanzienlijk eenvoudiger met een brute force-aanval kunnen worden aangevallen.
+Zie voor meer manieren om te genereren en gebruiken van SSH-sleutels op een Windows-computer [het gebruik van SSH-sleutels met Windows in Azure](ssh-from-windows.md).
 
-Uw openbare sleutel kan worden gedeeld met iedereen, maar alleen u (of uw lokale beveiligingsinfrastructuur) beschikt over uw persoonlijke sleutel.  De privé-SSH-sleutel moet ter beveiliging een [zeer veilig wachtwoord](https://www.xkcd.com/936/) hebben (bron:[xkcd.com](https://xkcd.com)).  Dit wachtwoord dient alleen voor toegang tot het persoonlijke SSH-sleutelbestand en is **niet** het wachtwoord voor het gebruikersaccount.  Wanneer u een wachtwoord aan de SSH-sleutel toevoegt, wordt de privésleutel versleuteld met behulp van 128-bits AES, zodat deze niet kan worden gebruikt zonder het wachtwoord om de privésleutel te ontsleutelen.  Als een aanvaller uw persoonlijke sleutel zou stelen en deze geen wachtwoord zou hebben, zou de aanvaller in staat zijn om de persoonlijke sleutel te gebruiken voor aanmelding bij de servers waarop de bijbehorende openbare sleutel is geïnstalleerd.  Als een persoonlijke sleutel is beveiligd met een wachtwoord, kan deze niet worden gebruikt door de aanvaller. Zo beschikt u over een extra beveiligingslaag voor uw infrastructuur in Azure.
+[!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
-In dit artikel wordt een openbaar en persoonlijk sleutelpaarbestand met SSH-protocolversie 2 RSA gemaakt (ook wel 'SSH-RSA-sleutels' genoemd), dat wordt aanbevolen voor implementaties met Azure Resource Manager. *ssh-rsa*-sleutels zijn vereist in de [portal](https://portal.azure.com) voor zowel de klassieke implementatie als de implementatie voor resourcebeheer.
+### <a name="private-key-passphrase"></a>Persoonlijke sleutel wachtwoordzin
+De persoonlijke SSH-sleutel moet een zeer beveiligde wachtwoordzin te beschermen. Deze wachtwoordzin is alleen voor toegang tot de persoonlijke SSH-sleutelbestand en *is niet* wachtwoord voor het gebruikersaccount. Wanneer u een wachtwoordzin aan uw SSH-sleutel toevoegt, versleutelt de persoonlijke sleutel met AES 128-bits, zodat de persoonlijke sleutel onbruikbaar zonder de wachtwoordzin is te ontsleutelen. Als een aanvaller uw persoonlijke sleutel stelen en deze sleutel is geen een wachtwoordzin, is ze zou kunnen persoonlijke sleutel gebruiken voor aanmelding bij andere servers waarop de bijbehorende openbare sleutel. Als een persoonlijke sleutel wordt beveiligd door een wachtwoordzin, wordt deze niet gebruikt door de aanvaller, door een extra laag van beveiliging voor uw infrastructuur in Azure.
+
+[!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 ## <a name="ssh-keys-use-and-benefits"></a>Gebruik en voordelen van SSH-sleutels
 
-Voor Azure zijn openbare en persoonlijke sleutels van minimaal 2048-bits, met SSH-protocol versie 2 en met RSA-indeling vereist. Het openbare-sleutelbestand heeft de `.pub`-containerindeling. Voor het maken van de sleutels gebruiken we `ssh-keygen`, die een reeks vragen stelt en vervolgens een persoonlijke sleutel en een overeenkomende openbare sleutel schrijft. Wanneer een virtuele Azure-machine wordt gemaakt, kopieert Azure de openbare sleutel naar de map `~/.ssh/authorized_keys` op de virtuele machine. SSH-sleutels in `~/.ssh/authorized_keys` worden gebruikt om de client te vragen de bijbehorende persoonlijke sleutel te verstrekken bij verbinding via een SSH-aanmelding.  Wanneer er in Azure een virtuele Linux-machine wordt gemaakt met SSH-sleutels voor verificatie, configureert Azure de SSHD-server zodanig dat aanmelding met een wachtwoord niet wordt toegestaan en alleen SSH-sleutels worden toegestaan.  Daarom kunt u helpen de VM-implementatie te beveiligen door virtuele Azure-machines in Linux met SSH-sleutels te maken. Ook kunt u uzelf de typische configuratiestap besparen die moet worden uitgevoerd na de implementatie: wachtwoorden uitschakelen in het bestand **sshd_config**.
+Wanneer u een virtuele machine in Azure maakt door te geven van de openbare sleutel, Azure kopieert u de openbare sleutel (in de `.pub` indeling) naar de `~/.ssh/authorized_keys` map op de virtuele machine. SSH-sleutels in `~/.ssh/authorized_keys` worden gebruikt om de client te vragen de bijbehorende persoonlijke sleutel te verstrekken bij verbinding via een SSH-aanmelding. Azure configureert in een Azure Linux VM die gebruikmaakt van SSH-sleutels voor verificatie, de server SSHD wachtwoord aanmeldingen, SSH-sleutels niet zijn toegestaan. Daarom door het maken van een Azure Linux-VM met SSH-sleutels, kunt u de VM-implementatie te beveiligen en sla zelf de stap standaardconfiguratie na de implementatie van het uitschakelen van wachtwoorden in de `sshd_config` bestand.
 
-## <a name="using-ssh-keygen"></a>ssh-keygen gebruiken
+Als u niet gebruiken van SSH-sleutels wilt, kunt u uw Linux-VM instellen wachtwoordverificatie te gebruiken. Als uw virtuele machine geen toegang heeft tot Internet, met wachtwoorden mogelijk niet voldoende. U moet nog steeds wachtwoorden voor elke Linux-VM te beheren en onderhouden in orde wachtwoordbeleid en procedures, zoals minimale wachtwoordlengte en regelmatig updates. Met behulp van SSH-sleutels, vermindert de complexiteit van het beheren van afzonderlijke referenties in meerdere virtuele machines.
 
-Met deze opdracht wordt een met een wachtwoord beveiligd (versleuteld) SSH-sleutelpaar gemaakt met 2048-bits RSA waaraan opmerkingen worden toegevoegd om het gemakkelijk te kunnen identificeren.  
+## <a name="generate-keys-with-ssh-keygen"></a>Genereren van sleutels met ssh-keygen
+
+Voor het maken van de sleutels een voorkeurs-opdracht is `ssh-keygen`, die beschikbaar zijn met de OpenSSH-hulpprogramma's in de Azure-Cloud-Shell, een Mac OS- of Linux-host, is de [Windows-subsysteem voor Linux](https://docs.microsoft.com/windows/wsl/about), en andere hulpprogramma's. `ssh-keygen` een reeks vragen en schrijft u een persoonlijke sleutel en een overeenkomende openbare sleutel. 
 
 SSH-sleutels worden standaard opgeslagen in de `~/.ssh`-directory.  Als u niet beschikt over de map `~/.ssh`, wordt deze door de opdracht `ssh-keygen` voor u gemaakt met de juiste machtigingen.
+
+### <a name="basic-example"></a>Basic-voorbeeld
+
+De volgende `ssh-keygen` opdracht 2048-bits SSH RSA openbare en persoonlijke sleutelbestanden genereert standaard in de `~/.ssh` directory. Als een SSH-sleutelpaar in de huidige locatie bestaat, worden deze bestanden overschreven.
+
+```bash
+ssh-keygen -t rsa -b 2048
+```
+
+### <a name="detailed-example"></a>Gedetailleerd voorbeeld
+Het volgende voorbeeld ziet extra opdrachtopties voor het maken van een SSH-RSA-sleutelpaar. Als een SSH-sleutelpaar in de huidige locatie bestaat, worden deze bestanden overschreven. 
 
 ```bash
 ssh-keygen \
     -t rsa \
-    -b 2048 \
+    -b 4096 \
     -C "azureuser@myserver" \
-    -f ~/.ssh/id_rsa \
-    -N mypassword
+    -f ~/.ssh/mykeys/myprivatekey \
+    -N mypassphrase
 ```
 
-*Uitleg van de opdracht*
+**Uitleg van de opdracht**
 
 `ssh-keygen` = het programma dat wordt gebruikt voor het maken van de sleutels
 
-`-t rsa` = type sleutel maken die de [RSA-indeling](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) 
- `-b 2048` = aantal bits van de sleutel
+`-t rsa` = type sleutel dat moet worden gemaakt in dit geval de RSA-indeling
 
-`-C "azureuser@myserver"` = een opmerking die wordt toegevoegd aan het einde van het openbare sleutelbestand om het gemakkelijk te identificeren.  Normaal gesproken bestaat de opmerking uit een e-mailadres, maar u kunt ook iets anders gebruiken als dat beter aansluit bij uw infrastructuur.
+`-b 4096` = het aantal bits in de sleutel in dit geval 4096
 
-## <a name="classic-deploy-using-asm"></a>Klassieke implementatie met behulp van`asm`
+`-C "azureuser@myserver"` = een opmerking die wordt toegevoegd aan het einde van het openbare sleutelbestand om het gemakkelijk te identificeren. Normaal gesproken een e-mailadres wordt gebruikt als de opmerking, maar wat het beste werkt voor uw infrastructuur gebruiken.
 
-Als u van het klassieke implementatiemodel gebruikmaakt (`asm` modus in de CLI), kunt u een openbare SSH-RSA-sleutel of een RFC4716 geformatteerd sleutel in een pem-container.  De openbare SSH-RSA-sleutel is de sleutel die eerder in dit artikel is gemaakt met behulp van `ssh-keygen`.
+`-f ~/.ssh/mykeys/myprivatekey` de bestandsnaam van het persoonlijke sleutelbestand = als u niet de standaardnaam gebruiken. Een bestand met bijbehorende openbare sleutel wordt toegevoegd aan de `.pub` wordt gegenereerd in dezelfde map. De map moet bestaan.
 
-Een RFC4716-sleutel maken van een bestaande openbare SSH-sleutel:
+`-N mypassphrase` = een extra wachtwoordzin gebruikt voor toegang tot het bestand met de persoonlijke sleutel. 
 
-```bash
-ssh-keygen \
--f ~/.ssh/id_rsa.pub \
--e \
--m RFC4716 > ~/.ssh/id_ssh2.pem
-```
-
-## <a name="example-of-ssh-keygen"></a>Voorbeeld van ssh-keygen
+### <a name="example-of-ssh-keygen"></a>Voorbeeld van ssh-keygen
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
@@ -99,13 +107,13 @@ The keys randomart image is:
 +-----------------+
 ```
 
-Opgeslagen sleutelbestanden:
+#### <a name="saved-key-files"></a>Opgeslagen sleutelbestanden
 
 `Enter file in which to save the key (/home/azureuser/.ssh/id_rsa): ~/.ssh/id_rsa`
 
-De naam van het sleutelpaar voor dit artikel.  De naam **id_rsa** is de standaardwaarde voor een sleutelpaar. Sommige programma’s verwachten mogelijk **id_rsa** als naam voor het persoonlijke sleutelbestand, dus is het een goed idee als u er een hebt. De map `~/.ssh/` is de standaardlocatie voor SSH-sleutelparen en het SSH-configuratiebestand.  Als `ssh-keygen` niet wordt opgegeven met een volledig pad, worden de sleutels in de huidige werkmap gemaakt in plaats van in de standaardmap `~/.ssh`.
+De naam van het sleutelpaar voor dit artikel. Een sleutelpaar met de naam `id_rsa` is de standaardinstelling; sommige programma's verwachten mogelijk de `id_rsa` naam van de persoonlijke sleutelbestand, dus is het een goed idee. De map `~/.ssh/` is de standaardlocatie voor SSH-sleutelparen en het SSH-configuratiebestand. Als `ssh-keygen` niet wordt opgegeven met een volledig pad, worden de sleutels in de huidige werkmap gemaakt in plaats van in de standaardmap `~/.ssh`.
 
-Een vermelding van de `~/.ssh`-map
+#### <a name="list-of-the-ssh-directory"></a>Lijst van de `~/.ssh` directory
 
 ```bash
 ls -al ~/.ssh
@@ -113,17 +121,59 @@ ls -al ~/.ssh
 -rw-r--r-- 1 azureuser staff   410 Aug 25 18:04 id_rsa.pub
 ```
 
-Sleutelwachtwoord:
+#### <a name="key-passphrase"></a>Sleutel wachtwoordzin
 
 `Enter passphrase (empty for no passphrase):`
 
-`ssh-keygen` verwijst naar een wachtwoord voor de privésleutel (een zogenaamde 'wachtwoordzin').  Het wordt *sterk* aanbevolen een wachtwoord toe te voegen aan uw privésleutel. Zonder een wachtwoord dat het sleutelbestand beveiligt, kan iedereen met een exemplaar van het bestand zich aanmelden bij elke server die beschikt over de bijbehorende openbare sleutel. Het toevoegen van een wachtwoord (wachtwoordzin) biedt veel meer bescherming in het geval iemand in staat is toegang te krijgen tot uw persoonlijke sleutelbestand. In de extra tijd die dit oplevert, kunt u de sleutels wijzigen waarmee u wordt geverifieerd.
+Het is *sterk* aanbevolen een wachtwoordzin toevoegen aan uw persoonlijke sleutel. Zonder een wachtwoordzin voor het beveiligen van het sleutelbestand kunt iedereen met het bestand aanmelden bij elke server waarop de bijbehorende openbare sleutel. Toevoegen van een wachtwoordzin biedt meer beveiliging geval iemand in staat is toegang te krijgen tot uw persoonlijke sleutelbestand is geeft u de sleutels wijzigen tijd.
 
-## <a name="using-ssh-agent-to-store-your-private-key-password"></a>ssh-agent gebruiken voor het opslaan van het wachtwoord van uw persoonlijke sleutel
+## <a name="generate-keys-automatically-during-deployment"></a>Het automatisch genereren van sleutels tijdens de implementatie
 
-Om te voorkomen dat u het wachtwoord van uw persoonlijke sleutelbestand bij elke SSH-aanmelding moet opgeven, kunt u `ssh-agent` gebruiken om het wachtwoord van uw persoonlijke sleutelbestand in de cache te plaatsen. Als u een Mac gebruikt, worden de wachtwoorden van uw persoonlijke sleutels veilig opgeslagen door Sleutelhangertoegang van OSX wanneer u `ssh-agent` aanroept.
+Als u de [Azure CLI 2.0](/cli/azure) voor het maken van uw virtuele machine, kunt u eventueel SSH openbare en persoonlijke sleutelbestanden genereren door het uitvoeren van de [az vm maken](/cli/azure/vm#az_vm_create) opdracht met de `--generate-ssh-keys` optie. De sleutels worden opgeslagen in de map ~/.ssh. Houd er rekening mee dat deze optie niet sleutels overschreven als ze al aanwezig zijn op die locatie.
 
-Controleer en gebruik ssh-agent en ssh-add om het SSH-systeem te informeren over de sleutelbestanden, zodat de wachtwoordzin niet interactief hoeft te worden gebruikt.
+## <a name="provide-ssh-public-key-when-deploying-a-vm"></a>Openbare SSH-sleutel bieden bij het implementeren van een virtuele machine
+
+Geef uw openbare SSH-sleutel voor het maken van een Linux VM die gebruikmaakt van SSH-sleutels voor verificatie bij het maken van de virtuele machine met behulp van de Azure CLI-portal Resource Manager-sjablonen of andere methoden. Wanneer u de portal gebruikt, voert u de openbare sleutel zelf. Als u de [Azure CLI 2.0](/cli/azure) als uw virtuele machine maken met een bestaande openbare sleutel, geeft u de waarde of de locatie van deze openbare sleutel door het uitvoeren van de [az vm maken](/cli/azure/vm#az_vm_create) opdracht met de `--ssh-key-value` optie. 
+
+Als u niet bekend met de indeling van een openbare SSH-sleutel bent, ziet u de openbare sleutel door te voeren `cat` als volgt vervangen `~/.ssh/id_rsa.pub` met uw eigen locatie openbaar-sleutelbestand:
+
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+
+Uitvoer is vergelijkbaar met de volgende (hier geredigeerd):
+
+```
+ssh-rsa XXXXXXXXXXc2EAAAADAXABAAABAXC5Am7+fGZ+5zXBGgXS6GUvmsXCLGc7tX7/rViXk3+eShZzaXnt75gUmT1I2f75zFn2hlAIDGKWf4g12KWcZxy81TniUOTjUsVlwPymXUXxESL/UfJKfbdstBhTOdy5EG9rYWA0K43SJmwPhH28BpoLfXXXXXG+/ilsXXXXXKgRLiJ2W19MzXHp8z3Lxw7r9wx3HaVlP4XiFv9U4hGcp8RMI1MP1nNesFlOBpG4pV2bJRBTXNXeY4l6F8WZ3C4kuf8XxOo08mXaTpvZ3T1841altmNTZCcPkXuMrBjYSJbA8npoXAXNwiivyoe3X2KMXXXXXdXXXXXXXXXXCXXXXX/ azureuser@myserver
+```
+
+Als u kopieert en plakt u de inhoud van een bestand met de openbare sleutel in de Azure-portal of de Resource Manager-sjabloon, moet u niet alle aanvullende witruimte kopiëren of extra linebreaks introduceren. Als u Mac OS gebruikt, kunt u bijvoorbeeld een bestand met de openbare sleutel doorsluizen (standaard `~/.ssh/id_rsa.pub`) naar **pbcopy** om de inhoud te kopiëren (Er zijn andere Linux-programma's die dezelfde dingen, zoals doen **xclip**).
+
+Als u liever een openbare sleutel in een indeling met meerdere regels gebruikt, kunt u een RFC4716 opgemaakte sleutel genereren in een pem-container uit de openbare sleutel die u eerder hebt gemaakt.
+
+Een RFC4716-sleutel maken van een bestaande openbare SSH-sleutel:
+
+```bash
+ssh-keygen \
+-f ~/.ssh/id_rsa.pub \
+-e \
+-m RFC4716 > ~/.ssh/id_ssh2.pem
+```
+
+## <a name="ssh-to-your-vm-with-an-ssh-client"></a>SSH met uw virtuele machine met een SSH-client
+Met de openbare sleutel geïmplementeerd op de virtuele machine in Azure, en de persoonlijke sleutel op het lokale systeem, SSH met uw virtuele machine met behulp van de IP-adres of de DNS-naam van uw virtuele machine. Vervang *azureuser* en *myvm.westus.cloudapp.azure.com* in de volgende opdracht met de naam van de administrator-gebruiker en de volledig gekwalificeerde domeinnaam (of IP-adres):
+
+```bash
+ssh azureuser@myvm.westus.cloudapp.azure.com
+```
+
+Als u tijdens het maken van uw sleutelpaar een wachtwoordzin hebt opgegeven, moet u deze tijdens het aanmeldingsproces desgevraagd invoeren. (De server is toegevoegd aan uw map `~/.ssh/known_hosts` en u wordt pas weer gevraagd om verbinding te maken nadat de openbare sleutel op uw virtuele Azure-machine is gewijzigd of de naam van de server is verwijderd uit `~/.ssh/known_hosts`.)
+
+## <a name="use-ssh-agent-to-store-your-private-key-passphrase"></a>Ssh-agent gebruiken voor het opslaan van uw persoonlijke sleutel wachtwoordzin
+
+Om te voorkomen dat uw wachtwoordzin persoonlijke sleutelbestand bij elke SSH-aanmelding te typen, kunt u `ssh-agent` om uw persoonlijke sleutelbestand wachtwoordzin in cache. Als u een Mac worden gebruikt, het Mac OS-sleutelhanger de wachtwoordzin voor persoonlijke sleutels veilig opgeslagen wanneer u aanroept `ssh-agent`.
+
+Controleer en gebruik `ssh-agent` en `ssh-add` het SSH-systeem informeren over de belangrijkste bestanden, zodat u niet wilt dat de wachtwoordzin interactief gebruiken.
 
 ```bash
 eval "$(ssh-agent -s)"
@@ -135,20 +185,20 @@ Voeg nu de persoonlijke sleutel toe aan `ssh-agent` met de opdracht `ssh-add`.
 ssh-add ~/.ssh/id_rsa
 ```
 
-Het wachtwoord voor persoonlijke sleutel wordt nu opgeslagen in `ssh-agent`.
+De wachtwoordzin voor persoonlijke sleutels worden nu opgeslagen `ssh-agent`.
 
-## <a name="using-ssh-copy-id-to-copy-the-key-to-an-existing-vm"></a>`ssh-copy-id` gebruiken om de sleutel te kopiëren naar een bestaande virtuele machine
-Als u al een virtuele machine hebt gemaakt, kunt u de nieuwe openbare SSH-sleutel installeren op uw virtuele Linux-machine met:
+## <a name="use-ssh-copy-id-to-copy-the-key-to-an-existing-vm"></a>Ssh-exemplaar-id gebruiken om te kopiëren van de sleutel naar een bestaande virtuele machine
+Als u al een virtuele machine hebt gemaakt, kunt u de nieuwe openbare SSH-sleutel voor uw Linux-VM met een vergelijkbaar met de volgende opdracht installeren:
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub ahmet@myserver
+ssh-copy-id -i ~/.ssh/id_rsa.pub azureuser@myserver
 ```
 
 ## <a name="create-and-configure-an-ssh-config-file"></a>Een SSH-configuratiebestand maken en configureren
 
-Het wordt aanbevolen om een `~/.ssh/config`-bestand te maken en te configureren om aanmeldingen te versnellen en het gedrag van uw SSH-clientgedrag te optimaliseren.
+U kunt maken en configureren van een SSH-configuratiebestand (`~/.ssh/config`) om te versnellen logboek-modules en optimaliseren het gedrag van uw SSH-client. 
 
-In het volgende voorbeeld wordt een standaardconfiguratie getoond.
+Het volgende voorbeeld toont een eenvoudige configuratie waarmee u kunt snel aanmelden als een gebruiker voor een specifieke virtuele machine met behulp van de standaard persoonlijke SSH-sleutel. 
 
 ### <a name="create-the-file"></a>Het bestand maken
 
@@ -156,62 +206,38 @@ In het volgende voorbeeld wordt een standaardconfiguratie getoond.
 touch ~/.ssh/config
 ```
 
-### <a name="edit-the-file-to-add-the-new-ssh-configuration"></a>Bewerk het bestand om de nieuwe SSH-configuratie toe te voegen:
+### <a name="edit-the-file-to-add-the-new-ssh-configuration"></a>Bewerk het bestand om toe te voegen van de nieuwe SSH-configuratie
 
 ```bash
 vim ~/.ssh/config
 ```
 
-### <a name="example-sshconfig-file"></a>Voorbeeld van `~/.ssh/config`-bestand:
+### <a name="example-configuration"></a>Voorbeeldconfiguratie
+
+Configuratie-instellingen die geschikt is voor uw VM-host toevoegen.
 
 ```bash
 # Azure Keys
-Host fedora22
+Host myvm
   Hostname 102.160.203.241
-  User ahmet
+  User azureuser
 # ./Azure Keys
-# Default Settings
-Host *
-  PubkeyAuthentication=yes
-  IdentitiesOnly=yes
-  ServerAliveInterval=60
-  ServerAliveCountMax=30
-  ControlMaster auto
-  ControlPath ~/.ssh/SSHConnections/ssh-%r@%h:%p
-  ControlPersist 4h
-  IdentityFile ~/.ssh/id_rsa
 ```
 
-Deze SSH-configuratie bevat afzonderlijke secties voor elke server, zodat elke server kan beschikken over een eigen toegewezen sleutelpaar. De standaardinstellingen (`Host *`) zijn voor alle hosts die niet overeenkomen met een van de specifieke hosts die hoger in het configuratiebestand staan.
+U kunt configuraties voor extra hosts elk een eigen toegewezen sleutelpaar gebruiken toevoegen. Zie [SSH-configuratiebestand](https://www.ssh.com/ssh/config/) voor meer geavanceerde configuratieopties.
 
-### <a name="config-file-explained"></a>Uitleg van configuratiebestand
-
-`Host` = de naam van de host die wordt aangeroepen op de terminal.  `ssh fedora22` vertelt `SSH` dat de waarden moeten worden gebruikt in het instellingenblok met het label `Host fedora22` OPMERKING: de host kan elk label zijn dat logisch is voor uw gebruik. Het label vertegenwoordigt niet de werkelijke hostnaam van een server.
-
-`Hostname 102.160.203.241` = het IP-adres of de DNS-naam van de server die wordt benaderd.
-
-`User ahmet` = het account van de externe gebruiker dat moet worden gebruikt bij het aanmelden bij de server.
-
-`PubKeyAuthentication yes` = vertelt SSH dat u gebruik wilt maken van een SSH-sleutel voor aanmelding.
-
-`IdentityFile /home/ahmet/.ssh/id_id_rsa` = de persoonlijke SSH-sleutel en de bijbehorende openbare sleutel te gebruiken voor verificatie.
-
-## <a name="ssh-into-linux-without-a-password"></a>SSH in Linux zonder een wachtwoord
-
-Nu u een SSH-sleutelpaar en een geconfigureerd SSH-configuratiebestand hebt, kunt u zich snel en veilig aanmelden bij uw virtuele Linux-machine. De eerste keer dat u zich met een SSH-sleutel bij een server aanmeldt, wordt u gevraagd naar de wachtwoordzin voor dat sleutelbestand.
+Nu u een SSH-sleutelpaar en een geconfigureerd SSH-configuratiebestand hebt, kunt u zich snel en veilig aanmelden bij uw virtuele Linux-machine. Wanneer u de volgende opdracht uitvoert, SSH zoekt en laadt van instellingen uit de `Host myvm` blokkeren in de SSH-configuratiebestand.
 
 ```bash
-ssh fedora22
+ssh myvm
 ```
 
-### <a name="command-explained"></a>Uitleg van de opdracht
-
-Wanneer `ssh fedora22` wordt uitgevoerd, zoekt en laadt SSH eerst instellingen uit het `Host fedora22`-blok en laadt het vervolgens alle overige instellingen uit het laatste blok, `Host *`.
+De eerste keer dat u zich aanmelden met een server met een SSH-sleutel, de opdrachtprompts u naar de wachtwoordzin voor dat sleutelbestand.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De volgende stap bestaat uit het maken van virtuele Linux-machines in Azure met de nieuwe openbare SSH-sleutel.  Virtuele Azure-machines die zijn gemaakt met een openbare SSH-sleutel voor aanmelding, zijn beter beveiligd dan virtuele machines die zijn gemaakt met een wachtwoord als standaardaanmeldingsmethode.  Virtuele Azure-machines die zijn gemaakt met behulp van SSH-sleutels zijn standaard geconfigureerd met wachtwoorden uitgeschakeld, waarmee brute force-aanvallen om wachtwoorden te raden worden voorkomen.
+De volgende stap bestaat uit het maken van virtuele Linux-machines in Azure met de nieuwe openbare SSH-sleutel. Virtuele Azure-machines die zijn gemaakt met een openbare SSH-sleutel voor aanmelding, zijn beter beveiligd dan virtuele machines die zijn gemaakt met een wachtwoord als standaardaanmeldingsmethode.
 
-* [Een beveiligde virtuele Linux-machine maken met een Azure-sjabloon](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Een beveiligde virtuele Linux-machine maken met Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Een beveiligde virtuele Linux-machine maken met de Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Een virtuele Linux-machine maken met de Azure portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Een virtuele Linux-machine maken met de Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Maak een Linux-VM met een Azure-sjabloon](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

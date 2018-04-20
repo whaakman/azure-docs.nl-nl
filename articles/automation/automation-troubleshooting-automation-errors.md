@@ -10,18 +10,18 @@ ms.topic: article
 manager: carmonm
 tags: top-support-issue
 keywords: Fout bij het Automation, het oplossen van problemen probleem
-ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44200ae9deb1a5c11c81550173b3f6f90b5d62ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Het oplossen van veelvoorkomende problemen in Azure Automation 
 Dit artikel bevat help het oplossen van veelvoorkomende fouten u tegenkomen in Azure Automation en mogelijke oplossingen om op te lossen ze voorgesteld.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Verificatiefouten bij het werken met Azure Automation-runbooks
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Scenario: Meld u bij de Azure-Account is mislukt
-**Fout:** het foutbericht "Unknown_user_type: onbekende gebruikerstype" bij het werken met de cmdlets Add-AzureAccount of Login-AzureRmAccount.
+**Fout:** het foutbericht "Unknown_user_type: onbekende gebruikerstype" bij het werken met de cmdlets Add-AzureAccount of Connect-AzureRmAccount.
 
 **Reden voor de volgende fout:** deze fout treedt op als de referentienaam asset niet geldig is of als de gebruikersnaam en het wachtwoord dat u gebruikt voor het instellen van het Automation-referentieasset niet geldig zijn.
 
@@ -34,7 +34,7 @@ Dit artikel bevat help het oplossen van veelvoorkomende fouten u tegenkomen in A
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. Als uw verificatie is mislukt lokaal, dit betekent dat u uw Azure Active Directory-referenties correct hebt ingesteld. Raadpleeg [verificatie met Azure met Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blogbericht ophalen van de Azure Active Directory-account juist ingesteld.  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>Scenario: Kan het Azure-abonnement vinden
