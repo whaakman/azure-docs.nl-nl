@@ -25,7 +25,7 @@ Exporteer de openbare sleutel .cer bestand voor het basiscertificaat (niet de pe
 3. Selecteer **Nee, de persoonlijke sleutel niet exporteren** en klik vervolgens op **Volgende**.
 
   ![De persoonlijke sleutel niet exporteren](./media/vpn-gateway-certificates-export-public-key-include/notprivatekey.png)
-4. Selecteer op de pagina **Bestandsindeling voor export** de optie **Met Base64 gecodeerde X.509 (*.CER)** en klik op **Volgende**.
+4. Selecteer op de pagina **Bestandsindeling voor export** de optie **Met Base64 gecodeerde X.509 (.CER)** en klik op **Volgende**.
 
   ![Base 64-codering](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
 5. Voor **te exporteren bestand**, **Bladeren** naar de locatie waarnaar u wilt exporteren van het certificaat. Geef bij **Bestandsnaam** de naam van het certificaatbestand op. Klik op **Volgende**.
