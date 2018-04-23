@@ -334,10 +334,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 ## <a name="troubleshoot-itsm-connections"></a>ITSM verbindingen oplossen
 1.  Als de verbinding is mislukt door de gebruikersinterface van de verbonden bron met een **fout bij het opslaan van de verbinding** bericht wordt weergegeven, voert de volgende stappen uit:
 - Voor ServiceNow, Cherwell en Provance-verbindingen  
-           -Controleer of u de gebruikersnaam, wachtwoord, client-ID en clientgeheim correct voor elk van de verbindingen opgegeven.  
-           -Controleer of u voldoende rechten hebt in het bijbehorende ITSM product de verbinding te maken.  
+           - Controleer of u de gebruikersnaam, wachtwoord, client-ID en clientgeheim correct voor elk van de verbindingen opgegeven.  
+           - Controleer of u voldoende rechten hebt in het bijbehorende ITSM product de verbinding te maken.  
 - Voor Service Manager-verbindingen  
-           -Zorg ervoor dat de Web-app is geïmplementeerd en hybride verbinding is gemaakt. Om te controleren of de verbinding is tot stand gebracht met de Service Manager on-premises machine, gaat u naar de Web-app-URL zoals beschreven in de documentatie voor de [hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+           - Zorg ervoor dat de Web-app is geïmplementeerd en hybride verbinding is gemaakt. Om te controleren of de verbinding is tot stand gebracht met de Service Manager on-premises machine, gaat u naar de Web-app-URL zoals beschreven in de documentatie voor de [hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Als u gegevens van ServiceNow is niet ophalen die zijn gesynchroniseerd met Log Analytics, zorg ervoor dat het ServiceNow exemplaar zich niet in de slaapstand. ServiceNow Dev exemplaren gaat soms slaapstand bij inactiviteit gedurende een lange periode. Anders Meld het probleem.
 3.  Als OMS waarschuwingen geactiveerd, maar werkt items ITSM product niet worden gemaakt of configuratie-items zijn niet gemaakt/gekoppeld aan werkitems of andere algemene informatie, vindt u in de volgende locaties:
