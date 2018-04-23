@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-management-in-azure"></a>Beveiligingsbeheer in Azure
 Azure-abonnees kunnen hun cloudomgevingen beheren vanaf meerdere apparaten, waaronder beheerwerkstations, de pc's van ontwikkelaars en zelfs apparaten van bevoegde eindgebruikers met taakspecifieke rechten. In sommige gevallen worden beheerfuncties uitgevoerd via op het web gebaseerde consoles, zoals de [Azure Portal](https://azure.microsoft.com/features/azure-portal/). In andere gevallen zijn er mogelijk rechtstreekse verbindingen naar Azure vanaf on-premises systemen via virtuele particuliere netwerken (VPN), Terminal Services, protocollen van clienttoepassingen of de Azure Service Management API (SMAPI) (via een programma). Clienteindpunten kunnen bovendien zowel in een domein zijn samengevoegd als op zichzelf staand en niet-beheerd zijn, zoals tablets en smartphones.
@@ -64,7 +64,7 @@ Door toegangsbronnen te consolideren en niet-beheerde eindpunten te verwijderen,
 ### <a name="providing-security-for-azure-remote-management"></a>Beveiliging voor extern beheer van Azure
 Azure biedt beveiligingsmethoden om beheerders te helpen met het beheer van cloudservices en virtuele machines in Azure. Tot deze methoden behoren onder meer:
 
-* Verificatie en [toegangsbeheer op basis van rollen](../active-directory/role-based-access-control-configure.md).
+* Verificatie en [toegangsbeheer op basis van rollen](../role-based-access-control/role-assignments-portal.md).
 * Bewaking, logboekregistratie en controle.
 * Certificaten en gecodeerde communicatie.
 * Een webbeheerportal.
@@ -116,7 +116,7 @@ Een Extern bureaublad-gateway is een op beleid gebaseerde RDP-proxyservice die b
 ## <a name="security-guidelines"></a>Richtlijnen voor beveiliging
 In het algemeen sluit het beveiligen van werkstations van beheerders voor gebruik met de cloud aan bij de uitgangspunten die gelden voor elk ander on-premises werkstation, zoals een minimale build en beperkte machtigingen. Sommige unieke aspecten van cloudbeheer lijken meer op extern beheer of out-of-band-enterprise-beheer. Hierbij horen het gebruiken en controleren van referenties, verbeterde beveiliging van externe toegang, en bedreigingsdetectie en -respons.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Verificatie
 U kunt Azure-aanmeldingsbeperkingen gebruiken om de bron-IP-adressen te beperken die toegang hebben tot beheerhulpprogramma's, en om toegangsaanvragen te controleren. Om Azure te helpen beheerclients (werkstations en/of toepassingen) te identificeren, kunt u zowel SMAPI (via door de klant ontwikkelde hulpprogramma's, zoals Windows PowerShell-cmdlets) als Azure Portal zo configureren dat, in aanvulling op SSL-certificaten, ook installatie van beheercertificaten op de clients verplicht is. We raden u ook aan Multi-Factor Authentication verplicht te stellen voor beheerderstoegang.
 
 Sommige toepassingen of services die u in Azure implementeert, hebben wellicht hun eigen verificatiemethoden voor toegang voor zowel eindgebruikers als beheerders, terwijl andere volledig gebruikmaken van de mogelijkheden die Azure AD biedt. Afhankelijk van het gegeven of u referenties federeert via Active Directory Federation Services (AD FS), adreslijstsynchronisatie gebruikt of gebruikersaccounts uitsluitend in de cloud beheert, helpt het gebruik van [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (onderdeel van Azure AD Premium) u bij het beheer van levenscycli van identiteiten tussen de bronnen.

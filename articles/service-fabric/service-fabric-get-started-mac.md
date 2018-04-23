@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 76bbe686d07ff83bff6271f62793713194938212
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f6813d98782d31dc780da21f78aafbbfdfc5e688
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Als u een lokale Docker-container wilt instellen en daarop een Service Fabric-cl
     >
     >U wordt aangeraden tijdens het testen van grote toepassingen de resources te verhogen die aan Docker zijn toegewezen. U kunt dit doen door het **Docker-pictogram** te selecteren en vervolgens **Geavanceerd** om het aantal kernen en het geheugen aan te passen.
 
-2. Maak in een nieuwe map een bestand met de naam `.Dockerfile` om uw Service Fabric Image te maken:
+2. Maak in een nieuwe map een bestand met de naam `Dockerfile` om uw Service Fabric Image te maken:
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -86,7 +86,7 @@ Als u een lokale Docker-container wilt instellen en daarop een Service Fabric-cl
     >[!TIP]
     > Standaard wordt hierdoor de installatiekopie met de nieuwste versie van Service Fabric opgehaald. Ga naar de [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)-pagina als u een bepaalde revisie wilt ophalen
 
-3. Als u uw herbruikbare installatiekopie wilt bouwen vanaf `.Dockerfile`, opent u een terminal en gaat u met de opdracht `cd` naar de map met uw `.Dockerfile`. Voer vervolgende de volgende opdracht uit:
+3. Als u uw herbruikbare installatiekopie wilt bouwen vanaf `Dockerfile`, opent u een terminal en gaat u met de opdracht `cd` naar de map met uw `Dockerfile`. Voer vervolgende de volgende opdracht uit:
 
     ```bash 
     docker build -t mysfcluster .

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mbaldwin
-ms.openlocfilehash: e3a0bbe75177ac25a0aeff89d171dfe88bd0880f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c716f54a1361d41dbad00e2e45562d5fbf8fd6ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Aan de slag met persoonlijke sjablonen in Azure Portal
 Een [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) sjabloon is een declaratief sjabloon om uw implementatie te definiëren. U kunt de resources bepalen die u wilt implementeren in een oplossing en de parameters en variabelen vaststellen waarmee u waarden kunt invoeren voor verschillende omgevingen. De sjabloon bestaat uit JSON en expressies die u kunt gebruiken om waarden voor uw implementatie samen te stellen.
@@ -103,7 +103,7 @@ U kunt elk **sjabloon** implementeren waarvoor u een **lees**machtiging heeft. V
 ![Sjabloon implementeren](media/deploy-template-portal1b.png)
 
 ## <a name="share-a-template-resource"></a>Een sjabloonresource delen
-U kunt een **sjabloon**resource delen met anderen. Delen werkt op ongeveer dezelfde manier als [het toewijzen van rollen voor een resource in Azure](../active-directory/role-based-access-control-configure.md). De eigenaar van de **sjabloon** geeft andere gebruikers toestemming om te werken met een sjabloonresource. De persoon of groep personen met wie u de **sjabloon** hebt gedeeld, kan de Resource Manager-sjabloon en de galerie-eigenschappen zien.
+U kunt een **sjabloon**resource delen met anderen. Delen werkt op ongeveer dezelfde manier als [het toewijzen van rollen voor een resource in Azure](../role-based-access-control/role-assignments-portal.md). De eigenaar van de **sjabloon** geeft andere gebruikers toestemming om te werken met een sjabloonresource. De persoon of groep personen met wie u de **sjabloon** hebt gedeeld, kan de Resource Manager-sjabloon en de galerie-eigenschappen zien.
 
 ### <a name="access-control-for-the-microsoftgallery-resources"></a>Toegangsbeheer voor Microsoft.Gallery-resources
 | Rol | Machtigingen |

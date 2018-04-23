@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 3b935d3a3c37b63386dfb2cbd25ceba59d91a998
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f57a4b87c239126d248cba5106e005103d8372b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-security"></a>Netwerkbeveiliging
 
@@ -35,7 +35,7 @@ Als aan een netwerkinterface en aan het subnet waarin de netwerkinterface zich b
 - **Binnenkomend verkeer**: de netwerkbeveiligingsgroep die is gekoppeld aan het subnet waarin de netwerkinterface zich bevindt, wordt eerst geëvalueerd. Verkeer dat is toegestaan door de netwerkbeveiligingsgroep die is gekoppeld aan het subnet, wordt vervolgens geëvalueerd door de netwerkbeveiligingsgroep die aan de netwerkinterface is gekoppeld. Stel, u hebt binnenkomende toegang nodig tot een virtuele machine via poort 80 vanaf internet. Als u een netwerkbeveiligingsgroep koppelt aan zowel de netwerkinterface als het subnet waarin de netwerkinterface zich bevindt, wordt de netwerkbeveiligingsgroep gekoppeld aan het subnet en moet de netwerkinterface poort 80 toestaan. Als u alleen poort 80 toestaat via de netwerkbeveiligingsgroep die is gekoppeld aan het subnet of aan de netwerkinterface waarin het subnet zich bevindt, mislukt de communicatie vanwege de standaardbeveiligingsregels. Zie [Standaardbeveiligingsregels](#default-security-rules) voor meer informatie. Als u alleen een netwerkbeveiligingsgroep toepast op het subnet of op de netwerkinterface, en de netwerkbeveiligingsgroep een regel bevat die binnenkomend netwerkverkeer via poort 80 toestaat, lukt de communicatie wel. 
 - **Uitgaand verkeer**: de netwerkbeveiligingsgroep die is gekoppeld aan de netwerkinterface, wordt eerst geëvalueerd. Verkeer dat is toegestaan door de netwerkbeveiligingsgroep die is gekoppeld aan de netwerkinterface, wordt vervolgens geëvalueerd door de netwerkbeveiligingsgroep die aan het subnet is gekoppeld.
 
-U ben er mogelijk niet altijd van op de hoogte wanneer netwerkbeveiligingsgroepen worden toegepast op zowel een netwerkinterface als een subnet. U kunt eenvoudig de cumulatieve regels bekijken die op een netwerkinterface worden toegepast door de [effectieve beveiligingsregels](virtual-network-nsg-troubleshoot-portal.md) voor een netwerkinterface te bekijken. U kunt ook de functie [IP-stroom controleren](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) in Azure Network Watcher gebruiken om te bepalen of de communicatie van of naar een netwerkinterface is toegestaan. Deze functie vertelt u of communicatie is toegestaan en welke netwerkbeveiligingsregel verkeer toestaat of weigert.
+U ben er mogelijk niet altijd van op de hoogte wanneer netwerkbeveiligingsgroepen worden toegepast op zowel een netwerkinterface als een subnet. U kunt eenvoudig de cumulatieve regels bekijken die op een netwerkinterface worden toegepast door de [effectieve beveiligingsregels](virtual-network-network-interface.md#view-effective-security-rules) voor een netwerkinterface te bekijken. U kunt ook de functie [IP-stroom controleren](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) in Azure Network Watcher gebruiken om te bepalen of de communicatie van of naar een netwerkinterface is toegestaan. Deze functie vertelt u of communicatie is toegestaan en welke netwerkbeveiligingsregel verkeer toestaat of weigert.
  
 > [!NOTE]
 > Netwerkbeveiligingsgroepen worden gekoppeld aan subnetten of aan virtuele machines en cloudservices die het klassieke implementatiemodel implementeren, in plaats van aan netwerkinterfaces in het Resource Manager-implementatiemodel. Zie [Over Azure-implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over Azure-implementatiemodellen.

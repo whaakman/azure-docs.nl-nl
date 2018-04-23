@@ -5,7 +5,7 @@
 ## [PIM voor Azure-resources](azure-pim-resource-rbac.md)
 ## [PIM-werkstroom voor goedkeuring](azure-ad-pim-approval-workflow.md)
 ## [Rollen](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Goedkeuringswerkstromen voor Privileged Identity Management](azure-ad-pim-approval-workflow.md)
+
 
 
 # Aan de slag

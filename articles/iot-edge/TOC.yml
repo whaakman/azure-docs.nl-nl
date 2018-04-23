@@ -45,16 +45,12 @@
       href: how-to-install-iot-core.md
     - name: VS-code gebruiken om IoT Edge-oplossingen te maken
       items:
-        - name: 'Een C#-module ontwikkelen en implementeren'
-          href: how-to-vscode-develop-csharp-module.md
-        - name: 'Fouten opsporen in een C#-module'
-          href: how-to-vscode-debug-csharp-module.md
-        - name: Azure Functions ontwikkelen en implementeren
-          href: how-to-vscode-develop-azure-function.md
-        - name: Fouten opsporen in Azure Functions
-          href: how-to-vscode-debug-azure-function.md
         - name: Met meerdere modules werken
           href: tutorial-multiple-modules-in-vscode.md
+        - name: 'Fouten opsporen in een C#-module'
+          href: how-to-vscode-debug-csharp-module.md
+        - name: Fouten opsporen in Azure Functions
+          href: how-to-vscode-debug-azure-function.md
     - name: Gegevens opslaan aan de rand
       href: sql-storage.md
     - name: Problemen oplossen
