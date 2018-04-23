@@ -1,6 +1,6 @@
 ---
-title: "Failover- en failback-overschakeling uitvoeren van met Site Recovery naar Azure gerepliceerde VMware-VM’s en fysieke servers | Microsoft Docs"
-description: "Leer een failover-overschakeling uitvoeren van VMware-VM’s en fysieke servers naar Azure, en een failback naar de on-premises site, met Azure Site Recovery"
+title: Failover- en failback-overschakeling uitvoeren van met Site Recovery naar Azure gerepliceerde VMware-VM’s en fysieke servers | Microsoft Docs
+description: Leer een failover-overschakeling uitvoeren van VMware-VM’s en fysieke servers naar Azure, en een failback naar de on-premises site, met Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm

@@ -69,6 +69,8 @@
       items:
         - name: Javascript
           href: app-insights-javascript.md
+    - name: Azure Functions controleren
+      href: 'https://docs.microsoft.com/azure/azure-functions/functions-monitoring'
     - name: Andere platformen bewaken
       items:
         - name: SharePoint-sites

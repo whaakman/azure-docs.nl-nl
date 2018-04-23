@@ -18,6 +18,12 @@
       href: concepts-dependency-visualization.md
 - name: Handleidingen
   items:
+    - name: Uw on-premises resources migreren naar Azure
+      items:
+        - name: Scenario-overzicht - Uw lokale resources migreren naar Azure
+          href: migrate-scenarios-overview.md
+        - name: Scenario 1 - On-premises resources beoordelen voor een migratie naar Azure
+          href: migrate-scenarios-assessment.md
     - name: Een grote omgeving verkennen en beoordelen
       href: how-to-scale-assessment.md
     - name: Machines groeperen

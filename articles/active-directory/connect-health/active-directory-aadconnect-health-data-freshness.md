@@ -2,10 +2,10 @@
 title: Azure AD Connect Health - Health-servicegegevens zijn niet tot datum waarschuwing | Microsoft Docs
 description: Dit document beschrijft de oorzaak van de waarschuwing 'Health service-gegevens is niet up-to-date' en het oplossen van dit probleem.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhiweiw
 manager: maheshu
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

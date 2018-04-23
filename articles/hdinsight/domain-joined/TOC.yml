@@ -14,8 +14,12 @@
     - name: Hive-beleid configureren
       href: apache-domain-joined-run-hive.md
       maintainContext: true
-    - name: Aan een domein gekoppelde clusters beheren
-      href: apache-domain-joined-manage.md
+    - name: Gebruik VSCode om een koppeling te maken met een cluster dat aan een domein is toegevoegd
+      href: ../hdinsight-for-vscode.md
+    - name: Gebruik IntelliJ om een koppeling te maken met een cluster dat aan een domein is toegevoegd
+      href: ../spark/apache-spark-intellij-tool-plugin.md
+    - name: Gebruik Eclipse om een koppeling te maken met een cluster dat aan een domein is toegevoegd
+      href: ../spark/apache-spark-eclipse-tool-plugin.md
 - name: Gegevens beveiligen
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true

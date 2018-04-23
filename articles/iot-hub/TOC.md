@@ -121,7 +121,7 @@
 #### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java-back-end/Java-apparaat](iot-hub-java-java-twin-how-to-configure.md)
 #### [Python-back-end/Python-apparaat](iot-hub-python-python-twin-how-to-configure.md)
-### Apparaattaken gebruiken om apparaatfirmware bij te werken
+### Apparaatdubbelen gebruiken om apparaatfirmware bij te werken
 #### [Node.js-back-end/Node.js-apparaat](iot-hub-node-node-firmware-update.md)
 #### [.NET-back-end/Node.js-apparaat](iot-hub-csharp-node-firmware-update.md)
 #### [.NET-back-end/.NET-apparaat](iot-hub-csharp-csharp-firmware-update.md)

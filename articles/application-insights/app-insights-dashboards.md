@@ -2,7 +2,7 @@
 title: Dashboards en navigatie in de Azure Application Insights | Microsoft Docs
 description: Weergaven maken van uw belangrijkste APM-grafieken en query's.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd

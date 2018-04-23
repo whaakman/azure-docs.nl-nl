@@ -7,7 +7,7 @@ ms.author: janders
 editor: jasonwhowell
 manager: kfile
 ms.service: postgresql
-ms.custom: 
+ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966

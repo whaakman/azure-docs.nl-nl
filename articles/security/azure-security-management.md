@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-management-in-azure"></a>Beveiligingsbeheer in Azure
 Azure-abonnees kunnen hun cloudomgevingen beheren vanaf meerdere apparaten, waaronder beheerwerkstations, de pc's van ontwikkelaars en zelfs apparaten van bevoegde eindgebruikers met taakspecifieke rechten. In sommige gevallen worden beheerfuncties uitgevoerd via op het web gebaseerde consoles, zoals de [Azure Portal](https://azure.microsoft.com/features/azure-portal/). In andere gevallen zijn er mogelijk rechtstreekse verbindingen naar Azure vanaf on-premises systemen via virtuele particuliere netwerken (VPN), Terminal Services, protocollen van clienttoepassingen of de Azure Service Management API (SMAPI) (via een programma). Clienteindpunten kunnen bovendien zowel in een domein zijn samengevoegd als op zichzelf staand en niet-beheerd zijn, zoals tablets en smartphones.
@@ -99,7 +99,7 @@ Azure-cloudservices worden geconfigureerd via de Azure Portal of SMAPI, hetzij m
 
 Toepassingen die zijn geïmplementeerd op een virtuele machine, bieden hun eigen clienthulpprogramma's en -interfaces, zoals de Microsoft Management Console (MMC), een enterprisebeheerconsole (zoals Microsoft System Center of Windows Intune) of een andere beheertoepassing, bijvoorbeeld Microsoft SQL Server Management Studio. Deze hulpprogramma's bevinden zich meestal in een bedrijfsomgeving of clientnetwerk. Ze zijn mogelijk afhankelijk van specifieke netwerkprotocollen, zoals Remote Desktop Protocol (RDP), die directe, stateful verbindingen vereisen. Sommige hulpprogramma's hebben wellicht een webinterface die niet openbaar mag worden gepubliceerd of toegankelijk mag zijn via internet.
 
-U kunt de toegang tot de infrastructuur en het beheer van platformservices in Azure beperken met behulp van [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md), [x.509-beheercertificaten](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) en firewallregels. De Azure Portal en SMAPI vereisen Transport Layer Security (TLS). Services en toepassingen die u in Azure implementeert, vereisen echter dat u passende beveiligingsmaatregelen neemt op basis van uw toepassing. Deze methoden kunnen vaak eenvoudiger worden ingeschakeld met behulp van een gestandaardiseerde configuratie voor beperkte werkstations.
+U kunt de toegang tot de infrastructuur en het beheer van platformservices in Azure beperken met behulp van [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md), [x.509-beheercertificaten](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) en firewallregels. De Azure Portal en SMAPI vereisen Transport Layer Security (TLS). Services en toepassingen die u in Azure implementeert, vereisen echter dat u passende beveiligingsmaatregelen neemt op basis van uw toepassing. Deze methoden kunnen vaak eenvoudiger worden ingeschakeld met behulp van een gestandaardiseerde configuratie voor beperkte werkstations.
 
 ### <a name="management-gateway"></a>Beheergateway
 Als u alle beheerderstoegang wilt centraliseren en controle en logboekregistratie wilt vereenvoudigen, kunt u in uw on-premises netwerk een speciale [Extern bureaublad-gateway](https://technet.microsoft.com/library/dd560672)-server implementeren, die is verbonden met uw Azure-omgeving.
@@ -110,7 +110,7 @@ Een Extern bureaublad-gateway is een op beleid gebaseerde RDP-proxyservice die b
 * Maak de Extern bureaublad-gateway lid van hetzelfde [beheerdomein](http://technet.microsoft.com/library/bb727085.aspx) als de werkstations van de beheerders. Dit is nodig als u een IPsec-VPN tussen sites of een ExpressRoute gebruikt binnen een domein met een eenzijdige vertrouwensrelatie naar Azure AD, of als u referenties tussen uw on-premises exemplaar van AD DS en Azure AD federeert.
 * Configureer [verificatiebeleid voor clientverbindingen](http://technet.microsoft.com/library/cc753324.aspx), zodat de Extern bureaublad-gateway controleert of de naam van het clientapparaat geldig is (lid is van een domein) en toegang heeft tot Azure Portal.
 * Gebruik IPsec voor [Azure-VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) om beheerverkeer extra te beschermen tegen afluisteren en diefstal van tokens, of breng een geïsoleerde internetkoppeling tot stand via [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Schakel Multi-Factor Authentication (via [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) of smartcardverificatie in voor beheerders die zich via de Extern bureaublad-gateway aanmelden.
+* Schakel Multi-Factor Authentication (via [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)) of smartcardverificatie in voor beheerders die zich via de Extern bureaublad-gateway aanmelden.
 * Configureer in Azure [IP-adresbeperkingen](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) voor bronnen of [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) om het aantal toegestane eindpunten voor beheer te minimaliseren.
 
 ## <a name="security-guidelines"></a>Richtlijnen voor beveiliging

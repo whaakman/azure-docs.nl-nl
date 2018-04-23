@@ -3,7 +3,7 @@ title: Hadoop-cluster maken met opslagaccounts voor veilige overdracht in Azure 
 description: Informatie over het maken van HDInsight-clusters met Azure-opslag-accounts voor veilige overdracht.
 keywords: aan de slag met hadoop, hadoop linux, hadoop Quick Start, veilige overdracht, azure opslagaccount
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun

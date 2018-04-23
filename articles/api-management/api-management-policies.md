@@ -2,10 +2,10 @@
 title: Azure API Management-beleidsregels | Microsoft Docs
 description: Meer informatie over het beschikbaar voor gebruik in Azure API Management-beleid.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

@@ -1,6 +1,6 @@
 ---
-title: "Overzicht van zakelijke continuïteit met Azure-Database voor PostgreSQL"
-description: "Overzicht van zakelijke continuïteit met Azure-Database voor PostgreSQL."
+title: Overzicht van zakelijke continuïteit met Azure-Database voor PostgreSQL
+description: Overzicht van zakelijke continuïteit met Azure-Database voor PostgreSQL.
 services: postgresql
 author: kamathsun
 ms.author: sukamat

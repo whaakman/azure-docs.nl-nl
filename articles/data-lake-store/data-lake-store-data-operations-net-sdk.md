@@ -2,7 +2,7 @@
 title: '.NET SDK: Bestandssysteembewerkingen in Azure Data Lake Store | Microsoft Docs'
 description: Gebruik Azure Data Lake Store .NET SDK om bestandssysteembewerkingen uit te voeren op Data Lake Store, bijvoorbeeld om mappen te maken enzovoort.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun

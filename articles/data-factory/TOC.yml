@@ -374,7 +374,9 @@
           href: manage-azure-ssis-integration-runtime.md
         - name: Prestatie-instellingen van Azure-SSIS-integratie-runtime configureren
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: SSIS-pakketten aanroepen met behulp van opgeslagen procedureactiviteit
+        - name: SSIS-pakketten uitvoeren met behulp van SSIS-activiteit
+          href: how-to-invoke-ssis-package-ssis-activity.md
+        - name: SSIS-pakketten uitvoeren met behulp van opgeslagen procedureactiviteit
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Azure-SSIS-integratie-runtime plannen
           href: how-to-schedule-azure-ssis-integration-runtime.md

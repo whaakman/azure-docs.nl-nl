@@ -2,10 +2,10 @@
 title: Ontwikkelaarsaccounts in Azure API Management met behulp van OAuth 2.0 autoriseren | Microsoft Docs
 description: Informatie over het autoriseren van gebruikers met behulp van OAuth 2.0 in API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

@@ -2,10 +2,10 @@
 title: Beleid in Azure API Management | Microsoft Docs
 description: Informatie over het maken, bewerken en configureren van beleid in API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

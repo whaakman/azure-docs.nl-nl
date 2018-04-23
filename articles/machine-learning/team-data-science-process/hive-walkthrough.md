@@ -2,7 +2,7 @@
 title: Verken de gegevens in een Hadoop-cluster en modellen maken in Azure Machine Learning | Microsoft Docs
 description: Met behulp van het Team gegevens wetenschap proces voor een end-to-end-scenario, die gebruikmaakt van een HDInsight Hadoop-cluster te bouwen en implementeren van een model.
 services: machine-learning,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun

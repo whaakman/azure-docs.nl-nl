@@ -3,8 +3,8 @@ title: bestand opnemen
 description: bestand opnemen
 services: cosmos-db
 documentationcenter: ''
-author: cristy
-manager: paulyuk
+author: ShehaGunda
+manager: kfile
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,19 +13,13 @@ ms.devlang: dotnet
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 04/06/2018
-ms.author: cristyg
+ms.date: 04/13/2018
+ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: e03bd5aaa49c419344157235389b783b2522b4cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: bc68ed6d52bcd1f26a504b63d0ac5265bac678ee
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
-Voor deze zelfstudie kunt u [gratis Azure Cosmos DB probeer](https://azure.microsoft.com/try/cosmosdb/) gratis verbintenissen en zonder een Azure-abonnement.
-
-U kunt ook de [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) met een URI van https://localhost:8081 en de volgende registersleutel:   
-
-   ```
-   C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
-   ```
+[Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen. Of u kunt de [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) gebruiken met een URI van https://localhost:8081. De primaire sleutel wordt gegeven in [Aanvragen verifiëren](../articles/cosmos-db/local-emulator.md#authenticating-requests).

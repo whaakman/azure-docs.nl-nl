@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentatie over Batch
 metadata:
   title: Documentatie voor Batch - zelfstudies, API-verwijzing | Microsoft Docs
-  description: "In Batch kunt u grootschalige parallelle en HPC-toepassingen (High Performance Computing-toepassingen) efficiënt in de cloud uitvoeren. Definieer de Azure-rekenresources om uw toepassingen parallel of op schaal uit te voeren zonder de infrastructuur handmatig te hoeven configureren of beheren. Plan rekenintensieve taken en voeg dynamisch rekenresources toe, of verwijder deze weer, op basis van uw vereisten. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Batch gebruikt."
+  description: In Batch kunt u grootschalige parallelle en HPC-toepassingen (High Performance Computing-toepassingen) efficiënt in de cloud uitvoeren. Definieer de Azure-rekenresources om uw toepassingen parallel of op schaal uit te voeren zonder de infrastructuur handmatig te hoeven configureren of beheren. Plan rekenintensieve taken en voeg dynamisch rekenresources toe, of verwijder deze weer, op basis van uw vereisten. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Batch gebruikt.
   services: batch
   author: czeumault
   manager: carolz
@@ -19,7 +19,7 @@ metadata:
   ms.contentlocale: nl-NL
   ms.lasthandoff: 02/28/2018
 abstract:
-  description: "In Batch kunt u grootschalige parallelle en HPC-toepassingen (High Performance Computing-toepassingen) efficiënt in de cloud uitvoeren. Definieer de Azure-rekenresources om uw toepassingen parallel of op schaal uit te voeren zonder de infrastructuur handmatig te hoeven configureren of beheren. Plan rekenintensieve taken en voeg dynamisch rekenresources toe, of verwijder deze weer, op basis van uw vereisten. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Batch gebruikt."
+  description: In Batch kunt u grootschalige parallelle en HPC-toepassingen (High Performance Computing-toepassingen) efficiënt in de cloud uitvoeren. Definieer de Azure-rekenresources om uw toepassingen parallel of op schaal uit te voeren zonder de infrastructuur handmatig te hoeven configureren of beheren. Plan rekenintensieve taken en voeg dynamisch rekenresources toe, of verwijder deze weer, op basis van uw vereisten. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Batch gebruikt.
 sections:
 - title: QuickStarts van vijf minuten
   items:
@@ -53,7 +53,7 @@ sections:
     items:
     - html: <a href="tutorial-parallel-dotnet">Parallelle bestandsverwerking met de .NET-SDK</a>
     - html: <a href="tutorial-parallel-python">Parallelle bestandsverwerking met de Python-SDK</a>
-    - html: "<a href=\"tutorial-rendering-cli\">Scènes weergeven met Arnold</a>"
+    - html: <a href="tutorial-rendering-cli">Scènes weergeven met Arnold</a>
     - html: <a href="tutorial-r-doazureparallel">Parallelle R-simulatie</a>
 - title: Voorbeelden
   items:

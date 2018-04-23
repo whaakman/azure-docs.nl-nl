@@ -2,11 +2,11 @@
 title: Extern bureaublad voor een virtuele Linux-machine in Azure gebruiken | Microsoft Docs
 description: Meer informatie over het installeren en configureren van extern bureaublad (xrdp) verbinding maken met een Linux VM in Azure met grafische hulpprogramma 's
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux

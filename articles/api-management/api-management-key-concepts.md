@@ -2,10 +2,10 @@
 title: Overzicht en belangrijkste concepten van API Management| Microsoft Docs
 description: Meer informatie over API's, producten, rollen, groepen en andere belangrijke concepten van API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

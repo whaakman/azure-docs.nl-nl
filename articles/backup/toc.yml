@@ -29,6 +29,8 @@
   items:
     - name: Azure PowerShell
       href: powershell-backup-samples.md
+    - name: Resource Manager-sjablonen
+      href: backup-rm-template-samples.md
 - name: Concepten
   items:
     - name: Veelgestelde vragen
@@ -100,7 +102,7 @@
         - name: Back-ups maken van virtuele machines
           items:
             - name: Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis
-              href: backup-azure-arm-vms.md
+              href: backup-azure-vms-first-look-arm.md
             - name: Back-ups maken van versleutelde virtuele machines
               href: backup-azure-vms-encryption.md
             - name: VM-back-up inschakelen tijdens het maken van een virtuele machine
@@ -179,9 +181,9 @@
           href: backup-azure-delete-vault.md
     - name: Problemen oplossen
       items:
-        - name: Back-upfoutberichten van IaaS-VM
+        - name: Azure VM
           href: backup-azure-vms-troubleshoot.md
-        - name: Time-out opgetreden bij agent voor Azure Backup (MARS) of VM-extensie
+        - name: Time-out opgetreden bij agent voor Azure Backup of VM-extensie
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Back-up maken van bestanden en mappen is langzaam
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
@@ -189,16 +191,22 @@
           href: backup-azure-mabs-troubleshoot.md
         - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Azure Backup-agent (MARS)
+        - name: Azure Backup-agent
           href: backup-azure-mars-troubleshoot.md
-        - name: Back-up van Azure-bestandsshares
+        - name: Azure-bestandsshare
           href: troubleshoot-azure-files.md
 - name: Naslaginformatie
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.recoveryservices.backup
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+    - name: Azure CLI 2.0
+      href: /cli/azure/backup?view=azure-cli-latest
+    - name: PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: REST - Back-up
+      href: /rest/api/backup/
+    - name: REST - Recovery Services-kluis
+      href: /rest/api/recoveryservices/
 - name: Resources
   items:
     - name: Azure-roadmap

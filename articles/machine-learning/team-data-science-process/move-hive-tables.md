@@ -2,7 +2,7 @@
 title: Hive-tabellen maken en te laden van gegevens uit Azure Blob Storage | Microsoft Docs
 description: Hive-tabellen maken en te laden van gegevens in blob naar de hive-tabellen
 services: machine-learning,storage
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun

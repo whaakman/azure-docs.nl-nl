@@ -2,11 +2,11 @@
 title: Een meerlaagse SAP NetWeaver toepassingsimplementatie met Azure Site Recovery beveiligen | Microsoft Docs
 description: In dit artikel wordt beschreven hoe het beveiligen van SAP NetWeaver toepassingsimplementaties met behulp van Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na

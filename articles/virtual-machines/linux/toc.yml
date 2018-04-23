@@ -470,6 +470,8 @@
           href: troubleshoot-app-connection.md
         - name: Toewijzingsfouten
           href: allocation-failure.md
+        - name: Toewijzingsfouten - klassieke VM
+          href: allocation-failure-classic.md
         - name: Implementatieproblemen
           href: troubleshoot-deploy-vm.md
         - name: Een virtuele machine maken

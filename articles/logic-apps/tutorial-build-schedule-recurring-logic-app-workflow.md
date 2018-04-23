@@ -3,10 +3,10 @@ title: Geautomatiseerde werkstromen maken op basis van een planning - Azure Logi
 description: Deze zelfstudie laat zien hoe u een terugkerende, geautomatiseerde werkstroom op basis van een planning kunt maken met Azure Logic Apps
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na

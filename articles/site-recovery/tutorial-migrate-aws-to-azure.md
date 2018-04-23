@@ -1,5 +1,5 @@
 ---
-title: "VM’s vanuit AWS migreren naar Azure met Site Recovery | Microsoft Docs"
+title: VM’s vanuit AWS migreren naar Azure met Site Recovery | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u virtuele machines die worden uitgevoerd op Amazon Web Services (AWS) naar Azure migreert met behulp van Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman

@@ -1,6 +1,8 @@
 # [Documentatie voor Azure Marketplace](index.md)
 ## [Uitgevershandleiding voor Azure Marketplace en AppSource](marketplace-publishers-guide.md)
 ## [Laat uw bedrijf groeien met Azure Marketplace](grow-your-business-azure-marketplace.md)
+## [Wat is Appsource](marketplace-what-is-appsource.md)
+## [Breid uw bedrijf uit met Appsource](marketplace-grow-your-business-with-appsource.md)
 ## [Adviesdiensten voor Azure Marketplace](consulting-services.md)
 ## [Technische publicatiehandleiding voor Azure Marketplace SaaS-toepassing](marketplace-saas-applications-technical-publishing-guide.md)
 ## [Cloud Partner-portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)

@@ -25,6 +25,7 @@
 ## [Compatibiliteitsniveau](stream-analytics-compatibility-level.md)
 ## [Veelvoorkomende querypatronen](stream-analytics-stream-analytics-query-patterns.md)
 ## [Overwegingen over gebeurtenisvolgordes](stream-analytics-out-of-order-and-late-events.md)
+## [Controlepunt en herhaling](stream-analytics-concepts-checkpoint-replay.md)
 
 # Handleidingen
 
@@ -68,7 +69,7 @@
 
 ## Problemen oplossen
 ### [Stappen voor probleemoplossing](stream-analytics-troubleshooting-guide.md)
-### [Veelgestelde vragen voor probleemoplossing](stream-analytics-common-troubleshooting-issues.md)
+### [Algemene problemen](stream-analytics-common-troubleshooting-issues.md)
 ### [Taakdiagram](stream-analytics-job-diagram-with-metrics.md)
 ### [Diagnostische logboeken](stream-analytics-job-diagnostic-logs.md)
 ### [Status van resources controleren](stream-analytics-resource-health.md)
@@ -94,16 +95,8 @@
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
-## [Releaseopmerkingen](stream-analytics-release-notes.md)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Casestudy's van klanten](https://azure.microsoft.com/case-studies/?service=stream-analytics)
 ## [Whitepaper - Gebeurtenissen in realtime verwerken](stream-analytics-real-time-event-processing-reference-architecture.md)
-## [Storm en Stream Analytics vergelijken](stream-analytics-comparison-storm.md)
-
-
-
-
-
-

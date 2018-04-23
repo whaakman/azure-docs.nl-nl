@@ -1,6 +1,6 @@
 ---
-title: "Overzicht van zakelijke continuïteit met Azure-Database voor MySQL"
-description: "Overzicht van zakelijke continuïteit met Azure-Database voor MySQL."
+title: Overzicht van zakelijke continuïteit met Azure-Database voor MySQL
+description: Overzicht van zakelijke continuïteit met Azure-Database voor MySQL.
 services: mysql
 author: kamathsun
 ms.author: sukamat

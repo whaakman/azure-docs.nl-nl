@@ -8,6 +8,7 @@
 ## [Veelgestelde vragen over DNS](dns-faq.md)
 ## [Met behulp van persoonlijke DNS-zones](private-dns-overview.md)
 ## [Privé-DNS-scenario's](private-dns-scenarios.md)
+## [DNS-statistieken en -waarschuwingen](dns-alerts-metrics.md)
 
 
 # Aan de slag

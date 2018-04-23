@@ -11,6 +11,12 @@
 ### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
 ### [Azure-CLI](create-routebased-vpn-gateway-cli.md)
 
+# Voorbeelden
+## [Een VPN-gateway maken](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md)
+## [Point-to-site - RADIUS-verificatie](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md)
+## [Point-to-site - certificaatverificatie](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md)
+## [Site-to-Site](./scripts/vpn-gateway-sample-site-to-site-powershell.md)
+
 # Concepten
 ## [Planning en ontwerp voor VPN Gateway](vpn-gateway-plan-design.md)
 ## [Over instellingen voor VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md)
@@ -19,8 +25,9 @@
 ## [Over BGP en VPN Gateway](vpn-gateway-bgp-overview.md)
 ## [Info over maximaal beschikbare verbindingen](vpn-gateway-highlyavailable.md)
 ## [Over point-to-site-verbindingen](point-to-site-about.md)
+## [Over point-to-site-routering](vpn-gateway-about-point-to-site-routing.md)
 
-# Procedures
+# Handleidingen
 ## Site-to-siteverbindingen configureren
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
