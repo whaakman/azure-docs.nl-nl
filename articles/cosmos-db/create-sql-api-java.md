@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 99b400d17164881f75cb8313c939d713610c221e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5be05ebd201796707934eac665793dd2c1dc8f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: een document maken met behulp van Java en Azure Portal
 
@@ -54,43 +54,11 @@ Voordat u een documentdatabase kunt maken, moet u een SQL-API-account maken met 
 <a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>Voorbeeldgegevens toevoegen
 
-U kunt nu gegevens aan uw nieuwe verzameling toevoegen met behulp van Data Explorer.
-
-1. Vouw de verzameling **Items** uit en klik op **Documenten** > **Nieuw Document**.
-
-   ![Nieuwe documenten maken in Data Explorer in de Azure Portal](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
-  
-2. Voeg nu een document toe aan de verzameling met de volgende structuur en klik op **Opslaan**. Gebruik de knop **Kopiëren** in het codevak om de json naar het klembord te kopiëren.
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-    ![JSON-gegevens kopiëren en op Opslaan klikken in Data Explorer in Azure Portal](./media/create-sql-api-java/azure-cosmosdb-data-explorer-save-document.png)
-
-3.  Maak nog één document en sla dit op wanneer u `id` in 2 wijzigt en wijzig de andere eigenschappen naar eigen inzicht. De nieuwe documenten kunnen elke gewenste structuur hebben, omdat in Azure Cosmos DB uw gegevens geen schema krijgen opgelegd.
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## <a name="query-your-data"></a>Uw gegevens opvragen
 
-U kunt nu query's in Data Explorer gebruiken om uw gegevens te halen en te filteren.
-
-1. U ziet dat de query standaard is ingesteld op `SELECT * FROM c`. Deze standaardquery haalt alle documenten in de verzameling op en geeft ze weer. 
-
-    ![De standaardquery in Data Explorer is 'SELECT * FROM c'](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
-
-2. Blijf op het tabblad **Documenten** en wijzig de query door op de knop **Filter bewerken** te klikken, `ORDER BY c._ts DESC` aan het vak Querypredicaat toe te voegen en vervolgens op **Filter toepassen** te klikken.
-
-    ![Wijzig de standaardquery door ORDER BY c._ts DESC toe te voegen en te klikken op Filter toepassen](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
-
-Deze gewijzigde query sorteert documenten in aflopende volgorde op basis van hun tijdstempel. Uw tweede document wordt nu dus als eerste weergegeven. Als u bekend bent met SQL-syntaxis, kunt u een van de ondersteunde [SQL-query's](sql-api-sql-query.md) in dit vak invoeren. 
-
-Ons werk in Data Explorer is voltooid. Voordat we verdergaan met het werken met code, willen we u erop wijzen dat u Data Explorer ook kunt gebruiken voor het maken van opgeslagen procedures, UDF's en triggers om bedrijfslogica aan de serverzijde uit te voeren en doorvoer te schalen. In Data Explorer wordt alle ingebouwde programmatische gegevenstoegang zichtbaar die beschikbaar is in de API's, maar biedt eenvoudige toegang tot uw gegevens in Azure Portal.
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 

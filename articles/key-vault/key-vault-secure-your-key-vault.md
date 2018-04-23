@@ -2,7 +2,7 @@
 title: Uw Key Vault beveiligen | Microsoft Docs
 description: Toegangsmachtigingen voor Key Vault voor het beheer van kluizen, sleutels en geheimen beheren. Verificatie- en autorisatiemodel voor Key Vault en informatie over het beveiligen van uw Key Vault
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a769d15fe79a56d623399d0d38b6dd9c060db36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-your-key-vault"></a>Uw Key Vault beveiligen
 Azure Key Vault is een cloudservice die versleutelingssleutels en geheimen (zoals certificaten, verbindingsreeksen en wachtwoorden) voor uw cloudtoepassingen beveiligt. Omdat deze gegevens vertrouwelijk en essentieel voor uw bedrijf zijn, is het belangrijk om de toegang tot uw Key Vaults te beveiligen, zodat alleen gemachtigde toepassingen en gebruikers toegang hebben tot Key Vault. In dit artikel wordt een overzicht gegeven van het toegangsmodel van Key Vault, verificatie en autorisatie worden uitgelegd en met een voorbeeld wordt veilige toegang tot Key Vault voor uw cloud-toepassingen geïllustreerd.
@@ -76,7 +76,7 @@ Elk Azure-abonnement heeft een Azure Active Directory. Gebruikers, groepen en to
 
 Met het Azure Resource Manager-model maakt u uw Key Vault in een resourcegroep en beheert u de toegang tot de beheerlaag van deze Key Vault met Azure Active Directory. U kunt bijvoorbeeld gebruikers of een groep machtigen om Key Vaults in een bepaalde resourcegroep te beheren.
 
-U kunt toegang verlenen aan gebruikers, groepen en toepassingen binnen een bepaald bereik door de juiste RBAC-rollen toe te wijzen. Als u bijvoorbeeld een gebruiker wilt machtigen om Key Vaults te beheren, kunt u de vooraf gedefinieerde rol 'Key Vault-inzender' toewijzen aan deze gebruiker voor een bepaald bereik. Het bereik is in dit geval een abonnement, een resourcegroep of alleen een specifieke Key Vault. Een rol die is toegewezen op abonnementsniveau, is van toepassing op alle resourcegroepen en resources in dat abonnement. Een rol die is toegewezen op het niveau van de resourcegroep, is van toepassing op alle resources in die resourcegroep. Een rol die is toegewezen voor een specifieke resource, geldt alleen voor die resource. Er zijn verschillende vooraf gedefinieerde rollen (zie [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md)). Als de vooraf gedefinieerde rollen niet aansluiten bij uw behoeften, kunt u ook uw eigen rollen definiëren.
+U kunt toegang verlenen aan gebruikers, groepen en toepassingen binnen een bepaald bereik door de juiste RBAC-rollen toe te wijzen. Als u bijvoorbeeld een gebruiker wilt machtigen om Key Vaults te beheren, kunt u de vooraf gedefinieerde rol 'Key Vault-inzender' toewijzen aan deze gebruiker voor een bepaald bereik. Het bereik is in dit geval een abonnement, een resourcegroep of alleen een specifieke Key Vault. Een rol die is toegewezen op abonnementsniveau, is van toepassing op alle resourcegroepen en resources in dat abonnement. Een rol die is toegewezen op het niveau van de resourcegroep, is van toepassing op alle resources in die resourcegroep. Een rol die is toegewezen voor een specifieke resource, geldt alleen voor die resource. Er zijn verschillende vooraf gedefinieerde rollen (zie [RBAC: ingebouwde rollen](../role-based-access-control/built-in-roles.md)). Als de vooraf gedefinieerde rollen niet aansluiten bij uw behoeften, kunt u ook uw eigen rollen definiëren.
 
 > [!IMPORTANT]
 > Houd er rekening mee dat een gebruiker die inzendersmachtigingen (RBAC) heeft voor de beheerlaag van een Key Vault, zichzelf toegang kan geven tot de gegevenslaag. Dit kan hij doen door toegangsbeleid voor de Key Vault in te stellen en zo de toegang tot de gegevenslaag te beheren. Daarom is het aanbevolen streng te zijn bij het bepalen wie er inzenderstoegang heeft tot uw Key Vaults en er zo voor te zorgen dat alleen gemachtigde personen toegang hebben tot uw Key Vaults, sleutels, geheimen en certificaten, en deze kunnen beheren.
@@ -203,20 +203,20 @@ In dit voorbeeld ziet u een eenvoudig scenario. In de praktijk zijn scenario's m
 > 
 > 
 
-## <a name="resources"></a>Bronnen
-* [Toegangsbeheer op basis van rollen in Azure Active Directory](../active-directory/role-based-access-control-configure.md)
+## <a name="resources"></a>Resources
+* [Toegangsbeheer op basis van rollen in Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
   
   In dit artikel wordt het toegangsbeheer op basis van rollen in Azure Active Directory uitgelegd.
-* [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: ingebouwde rollen](../role-based-access-control/built-in-roles.md)
   
   In dit artikel worden alle beschikbare ingebouwde rollen in RBAC beschreven.
 * [Resource Manager-implementatie en klassieke implementatie begrijpen](../azure-resource-manager/resource-manager-deployment-model.md)
   
   In dit artikel worden het Resource Manager-implementatiemodel en het klassieke implementatiemodel uitgelegd en worden de voordelen van het gebruik van Resource Manager en resourcegroepen beschreven
-* [Toegangsbeheer op basis van rollen beheren met Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+* [Toegangsbeheer op basis van rollen beheren met Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
   
   In dit artikel wordt uitgelegd hoe u toegangsbeheer op basis van rollen beheert met Azure PowerShell
-* [Toegangsbeheer op basis van rollen beheren met de REST-API](../active-directory/role-based-access-control-manage-access-rest.md)
+* [Toegangsbeheer op basis van rollen beheren met de REST-API](../role-based-access-control/role-assignments-rest.md)
   
   Dit artikel beschrijft hoe u de REST-API gebruikt om RBAC te beheren.
 * [Toegangsbeheer op basis van rollen voor Microsoft Azure vanuit Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)

@@ -2,23 +2,23 @@
 
 # Overzicht
 ## [Wat is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
-## [Hoe werkt het?](multi-factor-authentication-how-it-works.md)
-## [Hoe kan ik Azure MFA verkrijgen?](multi-factor-authentication-versions-plans.md)
+## [Hoe werkt het?](../active-directory/authentication/concept-mfa-howitworks.md)
+## [Hoe kan ik Azure MFA verkrijgen?](../active-directory/authentication/concept-mfa-licensing.md)
 
 # Aan de slag
-## [Implementatielocatie selecteren](multi-factor-authentication-get-started.md)
-## [MFA in de cloud](multi-factor-authentication-get-started-cloud.md)
+## [Implementatielocatie selecteren](../active-directory/authentication/concept-mfa-whichversion.md)
+## [MFA in de cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 ## [MFA on-premises](multi-factor-authentication-get-started-server.md)
 ## [MFA voor O365-gebruikers](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [Aanbevolen procedures voor beveiliging](multi-factor-authentication-security-best-practices.md)
 
 # Procedures
 ## Implementeren en gebruiken
-### [Instellingen configureren](multi-factor-authentication-whats-next.md)
+### [Instellingen configureren](../active-directory/authentication/howto-mfa-mfasettings.md)
 ### [Rapporten in MFA](multi-factor-authentication-manage-reports.md)
-### [Bestaande netwerkbeleidservers gebruiken](multi-factor-authentication-nps-extension.md)
-#### [Geavanceerde configuratie voor NPS-extensie](nps-extension-advanced-configuration.md)
-### [Een verificatieprovider maken](multi-factor-authentication-get-started-auth-provider.md)
+### [Bestaande netwerkbeleidservers gebruiken](../active-directory/authentication/howto-mfa-nps-extension.md)
+#### [Geavanceerde configuratie voor NPS-extensie](../active-directory/authentication/howto-mfa-nps-extension-advanced.md)
+### [Een verificatieprovider maken](../active-directory/authentication/concept-mfa-authprovider.md)
 ### MFA on-premises implementeren
 #### [De gebruikersportal installeren](multi-factor-authentication-get-started-portal.md)
 #### [Geavanceerde VPN-configuraties](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,9 +38,9 @@
 ### [VPN](nps-extension-vpn.md)
 ### MFA on-premises integreren
 #### [Federation Services](multi-factor-authentication-get-started-adfs.md)
-##### [AD FS gebruiken](multi-factor-authentication-get-started-adfs-cloud.md)
+##### [AD FS gebruiken](../active-directory/authentication/howto-mfa-adfs.md)
 ##### [AD FS 2.0 gebruiken](multi-factor-authentication-get-started-adfs-adfs2.md)
-##### [Windows Server 2012 R2 AD FS gebruiken](multi-factor-authentication-get-started-adfs-w2k12.md)
+##### [Windows Server 2012 R2 AD FS gebruiken](../active-directory/authentication/howto-mfaserver-adfs-2012.md)
 #### Mappen
 ##### [LDAP-verificatie](multi-factor-authentication-get-started-server-ldap.md)
 ##### [RADIUS-verificatie](multi-factor-authentication-get-started-server-radius.md)
@@ -54,7 +54,7 @@
 ## Problemen oplossen
 ### [Veelgestelde vragen](multi-factor-authentication-faq.md)
 ### [Een vraag stellen](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
-### [NPS-uitbreidingsfouten](multi-factor-authentication-nps-errors.md)
+### [NPS-uitbreidingsfouten](../active-directory/authentication/howto-mfa-nps-extension-errors.md)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)

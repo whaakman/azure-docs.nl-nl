@@ -134,24 +134,24 @@
 #### [Certificaten gebruiken](active-directory-reporting-api-with-certificates.md)
 
 ## Wachtwoorden beheren
-### [Overzicht met betrekking tot wachtwoorden](active-directory-passwords-overview.md)
+### [Overzicht met betrekking tot wachtwoorden](authentication/active-directory-passwords-overview.md)
 ### Gebruikersdocumenten
 #### [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
 #### [Aanbevolen procedures voor wachtwoorden](active-directory-secure-passwords.md)
 #### [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
-### [Hoe SSPR werkt](active-directory-passwords-how-it-works.md)
-### [SSPR-implementatiegids](active-directory-passwords-best-practices.md)
+### [Hoe SSPR werkt](authentication/concept-sspr-howitworks.md)
+### [SSPR-implementatiegids](authentication/howto-sspr-deployment.md)
 ### [SSPR en Windows 10](active-directory-passwords-login.md)
-### [Beleidsregels voor SSPR](active-directory-passwords-policy.md)
-### [SSPR aanpassen](active-directory-passwords-customize.md)
-### [Gegevensvereisten voor SSPR](active-directory-passwords-data.md)
-### [Rapportage voor SSPR](active-directory-passwords-reporting.md)
+### [Beleidsregels voor SSPR](authentication/concept-sspr-policy.md)
+### [SSPR aanpassen](authentication/concept-sspr-customization.md)
+### [Gegevensvereisten voor SSPR](authentication/howto-sspr-authenticationdata.md)
+### [Rapportage voor SSPR](authentication/howto-sspr-reporting.md)
 ### IT-beheerders: wachtwoorden opnieuw instellen
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-### [SSPR licentiëren](active-directory-passwords-licensing.md)
+### [SSPR licentiëren](authentication/concept-sspr-licensing.md)
 ### [Wachtwoord terugschrijven](active-directory-passwords-writeback.md)
-### [Problemen oplossen](active-directory-passwords-troubleshoot.md)
-### [Veelgestelde vragen](active-directory-passwords-faq.md)
+### [Problemen oplossen](authentication/active-directory-passwords-troubleshoot.md)
+### [Veelgestelde vragen](authentication/active-directory-passwords-faq.md)
 
 
 ## Apparaten beheren

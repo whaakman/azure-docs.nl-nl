@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Een Azure-abonnement koppelen of toevoegen aan Azure Active Directory
 
@@ -42,7 +42,7 @@ Alle gebruikers hebben één basisdirectory waarmee ze worden geverifieerd, maar
 2. Klik op **Directory wijzigen**.
 
     ![Schermafbeelding van de knop Directory wijzigen](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Bekijk de waarschuwingen. Alle [RBAC](role-based-access-control-configure.md)-gebruikers (Role-Based Access Control, op rollen gebaseerd toegangsbeheer) met toegewezen toegang en alle abonnementsbeheerders verliezen toegang wanneer de directory van het abonnement wordt gewijzigd.
+3. Bekijk de waarschuwingen. Alle [RBAC](../role-based-access-control/role-assignments-portal.md)-gebruikers (Role-Based Access Control, op rollen gebaseerd toegangsbeheer) met toegewezen toegang en alle abonnementsbeheerders verliezen toegang wanneer de directory van het abonnement wordt gewijzigd.
 4. Selecteer een directory.
 
     ![Schermafbeelding waarin de directory wordt gewijzigd](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
@@ -60,7 +60,7 @@ Het wijzigen van de abonnementsdirectory is een bewerking op serviceniveau. Dit 
 
 * Zie [Een Azure Active Directory-tenant verkrijgen](develop/active-directory-howto-tenant.md) voor meer informatie over het gratis maken van een nieuwe Azure AD-directory.
 * Zie [Eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md) voor meer informatie over het overdragen van het eigendom van een Azure-abonnement.
-* Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](active-directory-understanding-resource-access.md)
+* Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Zie [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) voor meer informatie over het toewijzen van rollen in Azure AD.
 
 <!--Image references-->

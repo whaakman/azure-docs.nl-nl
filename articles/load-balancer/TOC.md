@@ -12,15 +12,15 @@
 ## [Metrische en diagnostische gegevens voor een load balancer van het type Standard](load-balancer-standard-diagnostics.md)
 
 # Aan de slag
-## [Een load balancer van het type Basic maken](load-balancer-get-started-internet-portal.md)
-### [Een load balancer van het type Basic maken (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [Een load balancer van het type Basic maken (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-## [Een load balancer van het type Standard maken](load-balancer-standard-public-portal.md)
-### [Een load balancer van het type Standard maken (CLI)](load-balancer-standard-public-cli.md)
+## [Een load balancer van het type Basic maken](quickstart-create-basic-load-balancer-portal.md)
+### [Een load balancer van het type Basic maken (CLI)](quickstart-create-basic-load-balancer-cli.md)
+### [Een load balancer van het type Basic maken (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
+## [Een load balancer van het type Standard maken](quickstart-load-balancer-standard-public-portal.md)
+### [Een load balancer van het type Standard maken (CLI)](quickstart-load-balancer-standard-public-cli.md)
 
 # Procedures
 
-## [Een zoneredundante openbare load balancer van het type Standard maken](load-balancer-get-started-internet-az-portal.md)
+## [Een zoneredundante openbare load balancer van het type Standard maken](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 ### [Een zoneredundante openbare load balancer van het type Standard maken (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Een zoneredundante openbare load balancer van het type Standard maken (CLI)](load-balancer-get-started-internet-az-cli.md)
 ## [Een zonegebonden openbare load balancer van het type Standard maken](load-balancer-get-started-internet-availability-zones-zonal-portal.md)

@@ -11,6 +11,8 @@
   items:
     - name: Maken en koppelen - portal
       href: create-data-warehouse-portal.md
+    - name: Maken - PowerShell
+      href: create-data-warehouse-powershell.md
     - name: Berekening onderbreken en hervatten
       items:
         - name: Portal

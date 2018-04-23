@@ -7,14 +7,14 @@ author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Gebruik Virtual Network service-eindpunten en regels voor Azure SQL Database
 
@@ -140,7 +140,7 @@ De functie van de regels voor virtueel netwerk heeft voor Azure SQL Database, de
 Wanneer u service-eindpunten voor Azure SQL Database, bekijk de volgende punten:
 
 - **Uitgaand naar Azure SQL Database openbare IP-adressen is vereist**: Netwerkbeveiligingsgroepen (nsg's) naar Azure SQL Database IPs waarmee verbinding moet worden geopend. U kunt dit doen met behulp van de NSG [Service-Tags](../virtual-network/security-overview.md#service-tags) voor Azure SQL Database.
-- **Azure voor PostgreSQL en MySQL-Database worden niet ondersteund**: Service-eindpunten worden niet ondersteund voor Azure-Database voor PostgreSQL of MySQL. Inschakelen van de service-eindpunten met SQL Database verbreekt de connectiviteit met deze services. We hebben een beperking voor dit; Neem contact op met *dmalik@microsoft.com*.
+- **Azure voor PostgreSQL en MySQL-Database worden niet ondersteund**: Service-eindpunten worden niet ondersteund voor Azure-Database voor PostgreSQL of MySQL. Inschakelen van de service-eindpunten met SQL Database verbreekt de connectiviteit met deze services. We hebben een beperking voor deze, en u kunt contact opnemen met *dmalik@microsoft.com* voor meer informatie.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -178,7 +178,7 @@ Azure-opslag is geïmplementeerd de dezelfde functie waarmee u verbinding met uw
 Als u deze functie wilt gebruiken met een opslagaccount die wordt gebruikt door een Azure SQL Server kiest, kunt u uitvoeren in de problemen. Vervolgens vindt u een beschrijving van de Azure-SQLDB-functies die worden beïnvloed door dit.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQLDW van Storage-accounts. Als het opslagaccount dat u bij het laden van gegevens van alleen toegang tot een set VNet-subnetten limieten, verbreekt de verbinding tussen PolyBase en het Account. Er is een beperking voor dit; Neem contact op met *dmalik@microsoft.com* voor meer informatie.
+PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQLDW van Storage-accounts. Als het opslagaccount dat u bij het laden van gegevens van alleen toegang tot een set VNet-subnetten limieten, verbreekt de verbinding tussen PolyBase en het Account. Er is een beperking voor deze, en u kunt contact opnemen met *dmalik@microsoft.com* voor meer informatie.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob controle
 Controlelogboeken auditingfunctie voor BLOBs worden verstuurd naar uw eigen opslagaccount. Verbinding tussen Azure SQLDB en het opslagaccount worden verbroken als dit opslagaccount gebruikmaakt van de functie VENTILATOR Service-eindpunten.
@@ -227,8 +227,9 @@ Een lijst met verschillende foutberichten voor SQL-Database is gedocumenteerd [h
 Deze sectie wordt beschreven hoe u kunt de [Azure-portal] [ http-azure-portal-link-ref-477t] maken een *virtueel netwerk regel* in uw Azure SQL Database. De regel geeft aan dat de SQL-Database communicatie accepteert van een bepaald subnet die zijn gelabeld als een *Virtual Network service-eindpunt*.
 
 > [!NOTE]
-> Zorg ervoor dat service eindpunten zijn ingeschakeld voor het VNET/Subnet dat u wilt toevoegen aan de VNET-firewallregels van uw Server.
-> Als service-eindpunten die niet zijn ingeschakeld voor het VNET/Subnet wordt u gevraagd in de portal wilt inschakelen, klikt u op inschakelen op de blade waarop u de regel toevoegen.
+> Als u van plan bent een service-eindpunt toevoegen aan de VNet-firewallregels van uw Azure SQL Database-server, controleert u eerst of de service eindpunten zijn ingeschakeld voor het subnet.
+>
+> Als service-eindpunten zijn niet ingeschakeld voor het subnet, wordt de portal voor u te maken. Klik op de **inschakelen** knop op de dezelfde blade waarop u de regel toevoegen.
 
 #### <a name="powershell-alternative"></a>Alternatieve PowerShell
 

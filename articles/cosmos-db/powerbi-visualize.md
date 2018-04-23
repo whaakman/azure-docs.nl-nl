@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/19/2018
 ms.author: sngun
-ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8a0f50ad6df1135e05cd69be78e6b7f7820f90c6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Power BI-zelfstudie voor Azure Cosmos DB: gegevens visualiseren met behulp van de Power BI-connector
 [PowerBI.com](https://powerbi.microsoft.com/) is een onlineservice waar u kunt maken en delen van dashboards en rapporten met gegevens die belangrijk voor u en uw organisatie.  Power BI Desktop is een speciale rapport ontwerpgereedschap waarmee u gegevens ophalen uit verschillende gegevensbronnen, samen te voegen en de gegevens transformeren krachtige rapporten en visualisaties maken en publiceren van de rapporten naar Power BI.  Met de meest recente versie van Power BI Desktop, kunt u nu verbinding met uw Azure DB die Cosmos-account via de Azure DB die Cosmos-connector voor Power BI.   
@@ -96,16 +96,16 @@ Wilt u het proberen? Aan de slag.
     ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector, bureaublad-venster verbinding maken](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 8. Als u naar dit eindpunt voor de eerste keer verbindt, wordt u gevraagd de accountsleutel op te geven. Voor uw eigen account ophalen van de sleutel van de **primaire sleutel** vak de **[alleen-lezen sleutels](manage-account.md#keys)** blade van de Azure-portal. Voor de demo-account, de sleutel is `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Voer de juiste sleutel in en klik vervolgens op **Connect**.
    
-    Het is raadzaam dat u de sleutel alleen-lezen bij het maken van rapporten.  Hierdoor kan onnodige blootstelling van de hoofdsleutel voor potentiële beveiligingsrisico's. De sleutel alleen-lezen is beschikbaar via de [sleutels](manage-account.md#keys) blade van de Azure portal of u kunt de bovenstaande demo-accountgegevens.
+    Het is raadzaam dat u de sleutel alleen-lezen bij het maken van rapporten.  Dit voorkomt dat onnodige blootstelling van de hoofdsleutel voor potentiële beveiligingsrisico's. De sleutel alleen-lezen is beschikbaar via de [sleutels](manage-account.md#keys) blade van de Azure portal of u kunt de bovenstaande demo-accountgegevens.
    
     ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector, Accountsleutel](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
     
     > [!NOTE] 
     > Als u krijgt een foutbericht 'de opgegeven database is niet gevonden.' Zie de oplossing in deze stappen [Power BI probleem](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200).
     
-9. Wanneer het account met succes is verbonden, de **Navigator** wordt weergegeven.  De **Navigator** ziet een lijst met databases die onder het account.
-10. Klik op en vouw op de database waarin de gegevens voor het rapport, zijn afkomstig van, als u de demo-account selecteren **volcanodb**.   
-11. Selecteer nu een verzameling die u de gegevens van ophaalt. Als u de demo-account gebruikt, selecteert u **volcano1**.
+9. Wanneer het account met succes is verbonden, de **Navigator** deelvenster wordt weergegeven.  De **Navigator** bevat een lijst met databases die onder het account.
+10. Klik op en vouw op de database waarin de gegevens voor het rapport is afkomstig uit, als u de demo-account selecteren **volcanodb**.   
+11. Selecteer nu een verzameling waartoe de gegevens moeten worden opgehaald. Als u de demo-account gebruikt, selecteert u **volcano1**.
     
     Het voorbeeldvenster bevat een overzicht van **Record** items.  Een Document wordt weergegeven als een **Record** type in Power BI. Een geneste JSON-blok in het document is op deze manier ook een **Record**.
     
@@ -115,28 +115,29 @@ Wilt u het proberen? Aan de slag.
 ## <a name="flattening-and-transforming-json-documents"></a>Plat en transformeren JSON-documenten
 1. Overschakelen naar de editor voor Power BI Query waarin de **Document** kolom in het middelste deelvenster.
    ![Power BI Desktop Query-Editor](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
-2. Klik op de uitbreidingsmodule aan de rechterkant van de **Document** kolomkop.  Het snelmenu dat verschijnt een lijst met velden worden weergegeven.  Selecteer de velden die u nodig hebt voor uw rapport, bijvoorbeeld, Vulkaan naam, land, regio, locatie, uitbreiding van bevoegdheden, Type, Status en laatste weten uitbreken en klik vervolgens op **OK**.
+2. Klik op de uitbreidingsmodule aan de rechterkant van de **Document** kolomkop.  Het snelmenu dat verschijnt een lijst met velden worden weergegeven.  Selecteer de velden die u nodig hebt voor uw rapport bijvoorbeeld Vulkaan naam, land, regio, locatie, uitbreiding van bevoegdheden, Type, Status en laatste uitbreken weten. Schakel de **oorspronkelijke kolomnaam gebruiken als voorvoegsel** vak en klik vervolgens op **OK**.
    
     ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector - documenten uitvouwen](./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
-3. Het middelste deelvenster wordt een voorbeeld van het resultaat weergegeven met de velden die zijn geselecteerd.
+3. Het middelste deelvenster ziet een voorbeeld van het resultaat met de velden die zijn geselecteerd.
    
     ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector - plat resultaten](./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 4. In ons voorbeeld is de locatie-eigenschap een blok GeoJSON in een document.  Zoals u zien kunt, de locatie wordt weergegeven als een **Record** type in Power BI Desktop.  
-5. Klik op de uitbreidingsmodule aan de rechterkant van de kolomkop locatie.  Het snelmenu met type en coördinaten velden worden weergegeven.  Laten we selecteert het veld coördinaten en klikt u op **OK**.
+5. Klik op de uitbreidingsmodule aan de rechterkant van de kolomkop Document.Location.  Het snelmenu met type en coördinaten velden worden weergegeven.  Laten we het veld coördinaten Selecteer, controleert u **oorspronkelijke kolomnaam gebruiken als voorvoegsel** niet is ingeschakeld en klik op **OK**.
    
     ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector, locatie-record](./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 6. Het middelste deelvenster ziet u nu een kolom coördinaten van **lijst** type.  Zoals wordt weergegeven aan het begin van de zelfstudie, wordt de status van de GeoJSON-gegevens in deze zelfstudie is van het type met breedtegraad en lengtegraad waarden worden vastgelegd in de matrix coördinaten.
    
     Het element coördinaten [0] geeft lengtegraad terwijl coördinaten [1] breedtegraad vertegenwoordigt.
     ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector, coördinaten lijst](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
-7. Als u wilt de matrix coördinaten afvlakken, maken we een **aangepaste kolom** LatLong aangeroepen.  Selecteer de **kolom toevoegen** lint en klik op **aangepaste kolom toevoegen**.  De **aangepaste kolom toevoegen** venster moet worden weergegeven.
+7. Als u wilt de matrix coördinaten afvlakken, maakt u een **aangepaste kolom** LatLong aangeroepen.  Selecteer de **kolom toevoegen** lint en klik op **aangepaste kolom**.  De **aangepaste kolom** venster wordt weergegeven.
 8. Geef een naam voor de nieuwe kolom, bijvoorbeeld LatLong.
 9. Geef vervolgens de aangepaste formule voor de nieuwe kolom.  In ons voorbeeld wordt we samenvoegen van de breedtegraad en lengtegraad waarden, gescheiden door komma's, zoals hieronder met de volgende formule weergegeven: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Klik op **OK**.
    
     Ga voor meer informatie over gegevens Analysis expressies (DAX) waaronder DAX-functies [Basic DAX in Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
    
     ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector, aangepaste kolom toevoegen](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
-10. Het middelste deelvenster ziet nu de nieuwe kolom die LatLong gevuld met de breedtegraad en lengtegraad waarden, gescheiden door komma's.
+
+10. Het middelste deelvenster ziet nu de nieuwe LatLong kolommen gevuld met de waarden.
     
     ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector, aangepaste LatLong kolom](./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
     
@@ -145,10 +146,8 @@ Wilt u het proberen? Aan de slag.
     ![Toegepaste stappen moet bron, navigatie, uitgebreid Document, uitgebreid Document.Location, aangepaste toegevoegd](./media/powerbi-visualize/power-bi-applied-steps.png)
     
     Als uw stappen verschillen, de extra stappen te verwijderen en probeer opnieuw de aangepaste kolom toe te voegen. 
-11. We hebben nu voltooid samenvoegen van de gegevens in tabelvorm.  U kunt profiteren van alle functies die beschikbaar zijn in de Query-Editor naar vorm en transformatie van gegevens in Cosmos-database.  Als u het voorbeeld, het gegevenstype wijzigen voor uitbreiding naar **geheel getal** door het wijzigen van de **gegevenstype** op de **Start** lint.
-    
-    ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector - type van de kolom wijzigen](./media/powerbi-visualize/power_bi_connector_pbichangetype.png)
-12. Klik op **sluiten en toepassen** om op te slaan van het gegevensmodel.
+
+11. Klik op **sluiten en toepassen** om op te slaan van het gegevensmodel.
     
     ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector, sluit & toepassen](./media/powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
@@ -160,9 +159,9 @@ Power BI Desktop rapportweergave is waar u kunt gaan maken van rapporten om gege
 
 U moet in de rapportweergave vinden:
 
-1. De **velden** deelvenster dit is waar u ziet een lijst met gegevensmodellen met velden die u voor uw rapporten gebruiken kunt.
+1. De **velden** deelvenster dit is waar u een lijst met gegevensmodellen met velden die u voor uw rapporten gebruiken kunt kunt zien.
 2. De **visualisaties** deelvenster. Een rapport kan één of meerdere visualisaties bevatten.  Kies de visuele typen aanpassen van uw behoeften van de **visualisaties** deelvenster.
-3. De **rapport** canvas, dit is waar bouwt u de visuele elementen voor uw rapport.
+3. De **rapport** canvas, dit is waar u de visuele elementen maken voor uw rapport.
 4. De **rapport** pagina. U kunt meerdere pagina's het rapport in Power BI Desktop toevoegen.
 
 Hieronder ziet u de basisstappen voor het maken van een eenvoudige interactieve kaart view-rapport.
@@ -175,6 +174,7 @@ Hieronder ziet u de basisstappen voor het maken van een eenvoudige interactieve 
 6. U hebt nu een eenvoudig rapport gemaakt.  Verder kunt u het rapport aanpassen door meer visualisaties toe te voegen.  In ons geval hebben we een slicer Vulkaan Type zodat het rapport interactieve toegevoegd.  
    
     ![Schermopname van het laatste rapport Power BI Desktop na voltooiing van de Power BI-zelfstudie voor Azure Cosmos-DB](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
+7. Klik in het menu bestand **opslaan** en sla het bestand als PowerBITutorial.pbix.
 
 ## <a name="publish-and-share-your-report"></a>Publiceren en delen van uw rapport
 Als u wilt delen van uw rapport, hebt u een account op PowerBI.com.
@@ -201,26 +201,26 @@ Volg de instructies in [een tegel uit een rapport vastmaken](https://powerbi.mic
 
 U kunt ook ad-hoc wijzigingen in het rapport doen voordat u een dashboard. Het wordt echter aanbevolen dat u Power BI Desktop uitvoeren van de wijzigingen en het rapport naar PowerBI.com te publiceren.
 
-## <a name="refresh-data-in-powerbicom"></a>Gegevens vernieuwen in PowerBI.com
-Er zijn twee manieren om gegevens, ad-hoc en geplande te vernieuwen.
+<!-- ## Refresh data in PowerBI.com
+There are two ways to refresh data, ad hoc and scheduled.
 
-Voor een ad-hoc vernieuwen, klikt u op de eclipses (...) door de **gegevensset**, bijvoorbeeld PowerBITutorial. U ziet een lijst van acties zoals **nu vernieuwen**. Klik op **nu vernieuwen** de gegevens te vernieuwen.
+For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-![Schermopname van vernieuwing nu in PowerBI.com](./media/powerbi-visualize/power-bi-refresh-now.png)
+![Screenshot of Refresh Now in PowerBI.com](./media/powerbi-visualize/power-bi-refresh-now.png)
 
-Ga als volgt te werk voor een geplande vernieuwing.
+For a scheduled refresh, do the following.
 
-1. Klik op **schema vernieuwen** in de actielijst. 
+1. Click **Schedule Refresh** in the action list. 
 
-    ![Schermopname van het schema vernieuwen in PowerBI.com](./media/powerbi-visualize/power-bi-schedule-refresh.png)
-2. In de **instellingen** pagina uit, vouw **gegevensbronreferenties**. 
-3. Klik op **bewerken van referenties**. 
+    ![Screenshot of the Schedule Refresh in PowerBI.com](./media/powerbi-visualize/power-bi-schedule-refresh.png)
+2. In the **Settings** page, expand **Data source credentials**. 
+3. Click on **Edit credentials**. 
    
-    De pop-up configureren wordt weergegeven. 
-4. Voer de sleutel voor het verbinding maken met de Azure DB die Cosmos-account voor deze gegevensset en klik vervolgens op **aanmelden**. 
-5. Vouw **schema vernieuwen** en stel de planning die u wilt vernieuwen van de gegevensset. 
-6. Klik op **toepassen** en u klaar bent met de geplande vernieuwing in te stellen.
-
+    The Configure popup appears. 
+4. Enter the key to connect to the Azure Cosmos DB account for that data set, then click **Sign in**. 
+5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset. 
+6. Click **Apply** and you are done setting up the scheduled refresh.
+-->
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over Power BI, [aan de slag met Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Zie voor meer informatie over Azure Cosmos DB, de [startpagina van Azure DB die Cosmos documentatie](https://azure.microsoft.com/documentation/services/cosmos-db/).

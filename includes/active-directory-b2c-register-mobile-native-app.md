@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: active-directory-b2c
+author: davidmu1
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: davidmu
+ms.custom: include file
+ms.openlocfilehash: 8363d023e89c77aabc0d123f19264c9a0758a656
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/18/2018
+---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 Gebruik de instellingen die zijn opgegeven in de tabel om uw mobiele of native toepassing te registreren.
@@ -8,7 +24,7 @@ Gebruik de instellingen die zijn opgegeven in de tabel om uw mobiele of native t
 | ------------ | ------- | -------------------------------------------------- |
 | **Naam** | Contoso B2C-app | Geef een **naam** op voor de toepassing waarmee deze wordt beschreven voor uw consumenten. |
 | **Systeemeigen client** | Ja | Selecteer **Ja** voor een mobiele of native toepassing. |
-| **Aangepaste omleidings-URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Voer een omleidings-URI met een aangepast schema in. Zorg ervoor dat u een [goede omleidings-URI](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-native-application-redirect-uri) kiest en geen speciale tekens zoals onderstrepingstekens gebruikt. |
+| **Aangepaste omleidings-URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Voer een omleidings-URI met een aangepast schema in. Zorg ervoor dat u een [goede omleidings-URI](../articles/active-directory-b2c/active-directory-b2c-app-registration.md) kiest en geen speciale tekens zoals onderstrepingstekens gebruikt. |
 
 Klik op **Maken** om uw toepassing te registreren.
 

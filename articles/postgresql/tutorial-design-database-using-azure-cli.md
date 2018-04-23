@@ -1,5 +1,21 @@
---titel: ' zelfstudie: een Azure-Database voor PostgreSQL met Azure CLI ontwerpen ' Beschrijving: in deze zelfstudie laat zien hoe maken, configureren en uw eerste Azure-Database voor gebruik van Azure CLI PostgreSQL-server een query.
-Services: postgresql auteur: Koos msft ms.author: raagyema manager: kfile-editor: jasonwhowell ms.service: postgresql ms.custom: mvc ms.devlang: azure cli ms.topic: zelfstudie ms.date: 01-04/2018
+---
+title: 'Zelfstudie: een Azure Database for PostgreSQL ontwerpen met Azure CLI'
+description: Deze zelfstudie laat zien hoe u uw eerste Azure Database for PostgreSQL-server kunt maken, configureren en er query's op kunt toepassen met Azure CLI.
+services: postgresql
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
+editor: jasonwhowell
+ms.service: postgresql
+ms.custom: mvc
+ms.devlang: azure-cli
+ms.topic: tutorial
+ms.date: 04/01/2018
+ms.openlocfilehash: acba480631ba69a81da3029aadfb9cb51797549a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Zelfstudie: een Azure Database for PostgreSQL ontwerpen met Azure CLI 
 In deze zelfstudie gebruikt u Azure CLI (Command Line Interface of opdrachtregelinterface in goed Nederlands) en andere hulpprogramma's om deze bewerkingen uit te voeren:
@@ -27,31 +43,6 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [az group create](/cli/azure/group#az_group_create). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myresourcegroup` gemaakt op de locatie `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-
-## <a name="add-the-extension"></a>De extensie toevoegen
-Voeg de bijgewerkte Azure Database for PostgreSQL-beheerextensie toe met de volgende opdracht:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Controleer of de juiste versie van de extensie is geïnstalleerd. 
-```azurecli-interactive
-az extension list
-```
-
-Het geretourneerde JSON-script moet het volgende bevatten: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Als versie 0.0.5 wordt geretourneerd, voert u het volgende voor het bijwerken van de extensie: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Een Azure-database voor PostgreSQL-server maken

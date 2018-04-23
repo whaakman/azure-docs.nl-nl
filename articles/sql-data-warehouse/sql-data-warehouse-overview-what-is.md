@@ -2,24 +2,19 @@
 title: Wat is Azure SQL Data Warehouse? | Microsoft Docs
 description: Gedistribueerde database op ondernemingsniveau die geschikt is voor het verwerken van petabytes aan relationele en niet-relationele gegevens. Het is het eerste geavanceerde clouddatawarehouse in de branche dat in enkele seconden kan worden vergroot, verkleind en onderbroken.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jenniehubbard
-editor: 
-ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+author: igorstanko
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 10/23/2017
-ms.author: jrj
-ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
+ms.author: igorstan
+ms.reviewer: igorstan
+ms.openlocfilehash: 57b94a57ae0279a391cb4269f7b1625499748bae
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Wat is Azure SQL Data Warehouse?
 
@@ -37,13 +32,6 @@ In SQL Data Warehouse worden gegevens opgeslagen in relationele tabellen met ops
 
 De analyseresultaten kunnen worden verzonden naar wereldwijde rapportagedatabases of toepassingen. Bedrijfsanalisten kunnen vervolgens inzichten verkrijgen om goed gefundeerde zakelijke beslissingen te maken.
 
-## <a name="optimization-choices"></a>Keuzen voor optimalisatie
-
-SQL Data Warehouse biedt [prestatielagen](performance-tiers.md) die zijn ontworpen voor flexibiliteit, om te voldoen aan uw gegevensbehoeften, of het nu om veel of om weinig gegevens gaat. U kunt een datawarehouse kiezen dat is geoptimaliseerd voor elasticiteit of voor rekenkracht. 
-
-- In de prestatielaag **Geoptimaliseerd voor elasticiteit** worden de reken- en opslaglaag in de architectuur gescheiden. Deze optie werkt uitstekend bij werkbelastingen die optimaal profiteren van de scheiding tussen berekening en opslag, door regelmatig te schalen ter ondersteuning van korte perioden van piekactiviteit. Deze rekenlaag heeft de laagste toegangspuntprijs en kan worden geschaald ter ondersteuning van het merendeel van de klantwerkbelastingen.
-
-- De prestatielaag **Geoptimaliseerd voor berekenen** maakt gebruik van de nieuwste Azure-hardware om een nieuwe NVMe Solid State Disk-cache te introduceren waarin de meestgebruikte gegevens dicht bij de CPU's worden opgeslagen, precies waar u deze wilt hebben. Doordat de opslag automatisch in lagen wordt verdeeld, is deze prestatielaag uitstekend geschikt voor complexe query's, omdat alle IO lokaal wordt opgeslagen in de rekenlaag. Bovendien wordt de kolomopslag uitgebreid voor het opslaan van een onbeperkte hoeveelheid gegevens in uw SQL-datawarehouse. De prestatielaag Geoptimaliseerd voor berekenen biedt het hoogste schaalbaarheidsniveau, zodat u maximaal 30.000 cDWU's (compute Data Warehouse Units) kunt schalen. Kies deze laag voor werkbelastingen waarvoor continue, zeer snelle prestaties zijn vereist.
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [een SQL Data Warehouse maakt][create a SQL Data Warehouse] en [voorbeeldgegevens laadt][load sample data]. Als u niet bekend bent met Azure, kan de [Azure-woordenlijst][Azure glossary] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  

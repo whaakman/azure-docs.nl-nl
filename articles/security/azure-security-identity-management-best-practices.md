@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 2b77167992704bd342d67dc03b66af1e55955532
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 761013ad82fb8fa7d84e7929341d2e7d9e2d724c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure voor identiteits- en toegang beheren best practices voor beveiliging
 Veel Overweeg identiteit van de nieuwe grens laag voor beveiliging die rol van de traditionele netwerk gericht perspectief overneemt. Deze evolutie van het primaire pivot voor aandacht voor beveiliging en investeringen afkomstig zijn uit het feit dat netwerkverbindingen steeds poreuze zijn geworden, en dat perimeternetwerk kan niet zo effectief als ze eenmaal worden zijn voordat de explosie van [BYOD ](http://aka.ms/byodcg) apparaten en cloud-toepassingen.
@@ -88,7 +88,7 @@ Door Azure MFA inschakelen voor uw gebruikers, kunt u een tweede beveiligingslaa
 
 Bijvoorbeeld: u Azure MFA afdwingen voor uw gebruikers en configureer het om een telefoongesprek of tekstbericht gebruiken als verificatie. Als de referenties van de gebruiker verdacht zijn, kan de aanvaller geen toegang tot alle bronnen omdat geen toegang tot het telefoonnummer van gebruiker hebben. Organisaties die Voeg geen extra beveiligingslagen identiteit zijn vatbaarder zijn voor de aanval diefstal van referenties, wat tot inbreuk op gegevens leiden kan.
 
-Een alternatief voor organisaties die u behouden van de gehele verificatie besturingselement wilt on-premises is [Azure multi-factor Authentication-Server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), ook wel MFA lokale. Met deze methode kunt zich u nog steeds multi-factor authentication, terwijl de MFA-server on-premises afdwingen.
+Een alternatief voor organisaties die u behouden van de gehele verificatie besturingselement wilt on-premises is [Azure multi-factor Authentication-Server](../active-directory/authentication/howto-mfaserver-deploy.md), ook wel MFA lokale. Met deze methode kunt zich u nog steeds multi-factor authentication, terwijl de MFA-server on-premises afdwingen.
 
 Zie het artikel voor meer informatie over Azure MFA [aan de slag met Azure multi-factor Authentication in de cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 

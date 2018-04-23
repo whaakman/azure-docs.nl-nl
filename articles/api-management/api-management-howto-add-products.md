@@ -2,10 +2,10 @@
 title: Een product maken en publiceren in Azure API Management
 description: Leer hoe u producten kunt maken en publiceren in Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: b9e3127a6b055a1fe013fa91714676a7c56686c5
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 4df1aac9b7176962c6030ad9ed998d50bdf576af
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-publish-a-product"></a>Een product maken en publiceren  
 
@@ -37,8 +37,6 @@ In deze zelfstudie leert u het volgende:
 + Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 + Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
 ## <a name="create-and-publish-a-product"></a>Een product maken en publiceren
 
 1. Klik op **Producten** in het menu aan de linkerkant om de pagina **Producten** weer te geven.
@@ -48,10 +46,10 @@ In deze zelfstudie leert u het volgende:
 
     Wanneer u een product toevoegt, moet u de volgende informatie opgeven: 
 
-    |Name|Beschrijving|
+    |Naam|Beschrijving|
     |---|---|
     |Weergavenaam|De naam zoals u wilt dat deze wordt weergegeven in de **ontwikkelaarsportal**.|
-    |Name|Een beschrijvende naam van het product.|
+    |Naam|Een beschrijvende naam van het product.|
     |Beschrijving|In het veld **Beschrijving** kunt u gedetailleerde informatie over het product opgeven, zoals het doel, de API's waartoe het product toegang biedt, en andere nuttige informatie.|
     |Status|Druk op **Gepubliceerd** als u het product wilt publiceren. Voordat de API's in een product kunnen worden aangeroepen, moet het product worden gepubliceerd. Nieuwe producten zijn standaard niet-gepubliceerd, en alleen zichtbaar voor gebruikers in de groep **Beheerders**.|
     |Goedkeuring vereist|Schakel **Goedkeuring abonnement vereisen** in als u wilt dat een beheerder abonnementspogingen voor dit product beoordeelt en accepteert of weigert. Als het selectievakje uitgeschakeld is, worden abonnementspogingen automatisch goedgekeurd. |

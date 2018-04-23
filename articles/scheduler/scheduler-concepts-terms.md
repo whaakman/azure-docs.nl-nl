@@ -1,11 +1,11 @@
 ---
 title: Scheduler-concepten, -termen en -entiteiten | Microsoft Docs
-description: "Azure Scheduler-concepten, -terminologie en -entiteitenhiërarchie, inclusief jobs en jobverzamelingen.  Toont een uitgebreid voorbeeld van een geplande job."
+description: Azure Scheduler-concepten, -terminologie en -entiteitenhiërarchie, inclusief jobs en jobverzamelingen.  Toont een uitgebreid voorbeeld van een geplande job.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Schedulerconcepten, -terminologie en -entiteitenhiërarchie
 ## <a name="scheduler-entity-hierarchy"></a>Scheduler-entiteitenhiërarchie
@@ -176,7 +176,7 @@ Als een Scheduler-job is mislukt, is het mogelijk om een beleid voor opnieuw pro
 
 Om een beleid voor opnieuw proberen in te stellen, kunnen twee extra instellingen worden opgegeven: een interval voor nieuwe poging (**retryInterval**) en het aantal nieuwe pogingen (**retryCount**).
 
-Het interval voor een nieuwe poging, dat met het object **retryInterval** wordt opgegeven, is het interval tussen nieuwe pogingen. De standaardwaarde is 30 seconden, de configureerbare minimumwaarde is 15 seconden en de maximumwaarde is 18 maanden. Jobs in gratis jobverzamelingen hebben een configureerbare minimumwaarde van 1 uur.  Dit interval wordt gedefinieerd in de ISO 8601-notatie. Op dezelfde manier wordt de waarde van het aantal nieuwe pogingen opgegeven met het object **retryCount**; dit is het aantal keren dat een nieuwe poging wordt gedaan. De standaardwaarde is 4 en de maximumwaarde is 20\. **retryInterval** en **retryCount** zijn beide optioneel. Ze hebben hun standaardwaarden als **retryType** is ingesteld op **fixed** en er niet expliciet waarden zijn opgegeven.
+Het interval voor een nieuwe poging, dat met het object **retryInterval** wordt opgegeven, is het interval tussen nieuwe pogingen. De standaardwaarde is 30 seconden, de configureerbare minimumwaarde is 15 seconden en de maximumwaarde is 18 maanden. Dit interval wordt gedefinieerd in de ISO 8601-notatie. Op dezelfde manier wordt de waarde van het aantal nieuwe pogingen opgegeven met het object **retryCount**; dit is het aantal keren dat een nieuwe poging wordt gedaan. De standaardwaarde is 4 en de maximumwaarde is 20\. **retryInterval** en **retryCount** zijn beide optioneel. Ze hebben hun standaardwaarden als **retryType** is ingesteld op **fixed** en er niet expliciet waarden zijn opgegeven.
 
 ## <a name="see-also"></a>Zie ook
  [Wat is Scheduler?](scheduler-intro.md)
