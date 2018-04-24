@@ -17,7 +17,7 @@
 ## [Een bedrijfshuisstijl toevoegen](customize-branding.md)
 ## [Gebruikers toevoegen aan Azure AD](add-users-azure-active-directory.md)
 ## [Licenties toewijzen aan een gebruikers](license-users-groups.md)
-## [Self-service voor wachtwoord opnieuw instellen configureren](active-directory-passwords-getting-started.md)
+## [Self-service voor wachtwoord opnieuw instellen configureren](authentication/quickstart-sspr.md)
 
 
 # Procedures
@@ -63,6 +63,8 @@
 #### [Dynamische groepen en B2B-gebruikers](active-directory-b2b-dynamic-groups.md)
 #### [Controle en rapportage](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B voor hybride organisaties](active-directory-b2b-hybrid-organizations.md)
+##### [B2B-gebruikers toegang geven tot lokale apps](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+##### [Lokale gebruikers toegang geven tot cloud-apps](active-directory-b2b-hybrid-on-premises-to-cloud.md)
 #### [Extern delen B2B en Office 365](active-directory-b2b-o365-external-user.md)
 #### [B2B-licentieverlening](active-directory-b2b-licensing.md)
 #### [Huidige beperkingen](active-directory-b2b-current-limitations.md)
@@ -119,6 +121,7 @@
 #### [Retentie](active-directory-reporting-retention.md)
 #### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
 #### [Meldingen](active-directory-reporting-notifications.md)
+#### [Activiteitsverwijzing controleren](active-directory-reporting-activity-audit-reference.md)
 #### [Foutcodes voor aanmeldingsactiviteit](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Problemen oplossen
@@ -141,7 +144,7 @@
 #### [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
 ### [Hoe SSPR werkt](authentication/concept-sspr-howitworks.md)
 ### [SSPR-implementatiegids](authentication/howto-sspr-deployment.md)
-### [SSPR en Windows 10](active-directory-passwords-login.md)
+### [SSPR en Windows 10](authentication/tutorial-sspr-windows.md)
 ### [Beleidsregels voor SSPR](authentication/concept-sspr-policy.md)
 ### [SSPR aanpassen](authentication/concept-sspr-customization.md)
 ### [Gegevensvereisten voor SSPR](authentication/howto-sspr-authenticationdata.md)
@@ -149,7 +152,7 @@
 ### IT-beheerders: wachtwoorden opnieuw instellen
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 ### [SSPR licentiëren](authentication/concept-sspr-licensing.md)
-### [Wachtwoord terugschrijven](active-directory-passwords-writeback.md)
+### [Wachtwoord terugschrijven](authentication/howto-sspr-writeback.md)
 ### [Problemen oplossen](authentication/active-directory-passwords-troubleshoot.md)
 ### [Veelgestelde vragen](authentication/active-directory-passwords-faq.md)
 

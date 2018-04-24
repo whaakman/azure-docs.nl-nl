@@ -12,4 +12,5 @@
 ## De Microsoft Authenticator-app gebruiken
 ### [Aan de slag met de app](microsoft-authenticator-app-how-to.md)
 ### [Aanmelden via uw telefoon](microsoft-authenticator-app-phone-signin-faq.md)
+### [Back-up en herstel van accountreferenties](microsoft-authenticator-app-backup-and-recovery.md)
 ### [Veelgestelde vragen](microsoft-authenticator-app-faq.md)

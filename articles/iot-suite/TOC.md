@@ -48,6 +48,7 @@
 ### [Kennismaken met de oplossing voor voorspellend onderhoud](iot-suite-predictive-walkthrough.md)
 
 ## Verbonden factory
+### [Wat is een verbonden factory?](iot-suite-connected-factory-features.md)
 ### [Overzicht van de oplossing voor verbonden bedrijven](iot-suite-connected-factory-overview.md)
 ### [Kennismaken met de oplossing voor verbonden bedrijven](iot-suite-connected-factory-sample-walkthrough.md)
 

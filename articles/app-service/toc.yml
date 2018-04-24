@@ -29,7 +29,7 @@
       href: app-service-web-get-started-html.md
 - name: Zelfstudies
   items:
-    - name: 1 - App met DB
+    - name: App met DB
       items:
         - name: .Net Core met SQL DB
           href: app-service-web-tutorial-dotnetcore-sqldb.md
@@ -43,15 +43,17 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python met PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - RESTful API hosten
+    - name: Veilig toegang krijgen tot SQL DB
+      href: app-service-web-tutorial-connect-msi.md
+    - name: RESTful API hosten
       href: app-service-web-tutorial-rest-api.md
-    - name: 2 - Aangepast domein toewijzen
+    - name: Aangepast domein toewijzen
       href: app-service-web-tutorial-custom-domain.md
-    - name: 3 - SSL-certificaat binden
+    - name: SSL-certificaat verbinden
       href: app-service-web-tutorial-custom-ssl.md
-    - name: 4 - CDN toevoegen
+    - name: CDN toevoegen
       href: app-service-web-tutorial-content-delivery-network.md
-    - name: 5 - Gebruikers verifiëren
+    - name: Gebruikers verifiëren
       href: app-service-web-tutorial-auth-aad.md
 - name: Voorbeelden
   items:
@@ -69,6 +71,8 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: OS-functionaliteit
       href: web-sites-available-operating-system-functionality.md
+    - name: Inkomende en uitgaande IP-adressen
+      href: app-service-ip-addresses.md
     - name: Verificatie en autorisatie
       href: app-service-authentication-overview.md
     - name: Hybride verbindingen
@@ -143,6 +147,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: Verificatie aanpassen
           href: app-service-authentication-how-to.md
+        - name: IP-adressen beperken
+          href: app-service-ip-restrictions.md
         - name: Een beheerde service-identiteit gebruiken
           href: app-service-managed-service-identity.md
         - name: Een SSL-certificaat in de toepassingscode gebruiken

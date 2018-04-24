@@ -50,7 +50,7 @@
 ### [Ondersteuning van meerdere domeinen voor federeren](active-directory-aadconnect-multiple-domains.md)
 ### [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Een SAML 2.0-id-provider (IdP) gebruiken voor eenmalige aanmelding](active-directory-aadconnect-federation-saml-idp.md)
-
+### [Gebruikersaccounts synchroniseren van de gebruikersaccounts van gastgebruikers die e-mail gebruiken om aan te melden](active-directory-aadconnect-guest-sync.md)
 
 
 ## Azure AD Connect Sync beheren

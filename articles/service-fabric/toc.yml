@@ -27,9 +27,11 @@
           href: service-fabric-tutorial-create-dotnet-app.md
         - name: 2 - De toepassing implementeren
           href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-        - name: 3 - CI/CD configureren
+        - name: 3 - HTTPS inschakelen
+          href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
+        - name: 4 - CI/CD configureren
           href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-        - name: 4- Bewaken en diagnoses uitvoeren
+        - name: 5 - Bewaken en diagnoses uitvoeren
           href: service-fabric-tutorial-monitoring-aspnet.md
     - name: Een Java-app implementeren
       items:
@@ -553,36 +555,40 @@
           href: service-fabric-patch-orchestration-application-linux.md
     - name: Bewaken en diagnoses uitvoeren
       items:
-        - name: Analyseren met OMS
+        - name: Toepassingen bewaken
           items:
-            - name: OMS Log Analytics instellen
-              href: service-fabric-diagnostics-oms-setup.md
-            - name: De OMS-agent toevoegen
-              href: service-fabric-diagnostics-oms-agent.md
-            - name: Bewaken met OMS
-              href: service-fabric-diagnostics-event-analysis-oms.md
+            - name: Analyseren met Application Insights
+              href: service-fabric-diagnostics-event-analysis-appinsights.md
+            - name: Logboekregistratie toevoegen aan uw toepassing
+              href: service-fabric-how-to-diagnostics-log.md
+            - name: Gebeurtenissen samenstellen met EventFlow
+              href: service-fabric-diagnostics-event-aggregation-eventflow.md
             - name: Containers bewaken
               href: service-fabric-diagnostics-oms-containers.md
-        - name: Analyseren met Application Insights
-          href: service-fabric-diagnostics-event-analysis-appinsights.md
-        - name: Gebeurtenissen samenstellen - EventFlow
-          href: service-fabric-diagnostics-event-aggregation-eventflow.md
-        - name: Gebeurtenissen samenstellen - Azure Diagnostics
+        - name: Clusters bewaken
           items:
-            - name: Windows
+            - name: Windows Azure Diagnostics
               href: service-fabric-diagnostics-event-aggregation-wad.md
-            - name: Linux
+            - name: Linux Azure Diagnostics
               href: service-fabric-diagnostics-event-aggregation-lad.md
-        - name: Prestatiebewaking met WAD
-          href: service-fabric-diagnostics-perf-wad.md
-        - name: Status rapporteren en controleren
-          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-        - name: Logboekregistratie toevoegen aan uw service
-          href: service-fabric-how-to-diagnostics-log.md
-        - name: Problemen met systeemstatusrapporten oplossen
-          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-        - name: Statusrapporten weergeven
-          href: service-fabric-view-entities-aggregated-health.md
+            - name: OMS Log Analytics instellen
+              href: service-fabric-diagnostics-oms-setup.md
+            - name: Bewaken met OMS
+              href: service-fabric-diagnostics-event-analysis-oms.md
+        - name: Infrastructuur bewaken
+          items:
+            - name: Prestatiebewaking met WAD
+              href: service-fabric-diagnostics-perf-wad.md
+            - name: Prestatiebewaking met de OMS-agent
+              href: service-fabric-diagnostics-oms-agent.md
+        - name: Statusbewaking
+          items:
+            - name: Status rapporteren en controleren
+              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+            - name: Problemen met systeemstatusrapporten oplossen
+              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+            - name: Statusrapporten weergeven
+              href: service-fabric-view-entities-aggregated-health.md
         - name: Problemen met uw lokale cluster oplossen
           href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Naslaginformatie
