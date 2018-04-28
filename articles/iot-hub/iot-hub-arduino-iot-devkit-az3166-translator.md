@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: d17f117d71eb0616201df18aea6dc48749ae24a8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ac0b82c4683f5a1b09d7e6102a7b70361e1fbce2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>IoT DevKit AZ3166 met Azure-functie en cognitieve Services gebruiken om te maken van een vertaler taal
 
@@ -35,7 +35,7 @@ Voltooid de [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot
 
 Een actief Azure-abonnement. Als u geen abonnement hebt, kunt u via een van deze twee manieren registreren:
 
-* Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azure.microsoft.com/en-us/free/)
+* Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azure.microsoft.com/free/)
 * Claim uw [Azure-tegoeden](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) als u MSDN of Visual Studio-abonnee bent
 
 ## <a name="step-1-open-the-project-folder"></a>Step 1. Open de projectmap
@@ -46,17 +46,14 @@ Een actief Azure-abonnement. Als u geen abonnement hebt, kunt u via een van deze
 - VS Code starten
 - De DevKit aansluiten op uw computer.
 
-VS-Code wordt automatisch de DevKit vindt en opent een pagina Inleiding:
-
-![Introductiepagina](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_start.png)
-
 ### <a name="b-open-the-arduino-examples-folder"></a>B. Open de map Arduino-voorbeelden
 
 Vouw de linkerkant **ARDUINO voorbeelden > Voorbeelden voor MXCHIP AZ3166 > AzureIoT**, en selecteer **DevKitTranslator**. Er wordt een nieuw venster van de VS Code geopend met de projectmap DEVKITTRANSLATOR in het.
 
 ![Voorbeelden van IoT DevKit](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
-Als u per ongeluk het venster sluit, kunt u deze opnieuw openen. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) typt u de opdracht om palet te openen, **Arduino**, en zoek en selecteer **Arduino: voorbeelden**.
+> [!NOTE]
+> U kunt bijvoorbeeld ook openen vanuit opdracht palet. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) typt u de opdracht om palet te openen, **Arduino**, en zoek en selecteer **Arduino: voorbeelden**.
 
 ## <a name="step-2-provision-azure-services"></a>Stap 2. Azure-services inrichten
 
@@ -127,7 +124,7 @@ De geregistreerd in Azure IoT Hub apparaat-ID is **AZ3166**. Als u wijzigen wilt
 
 Als u problemen ondervindt, raadpleegt u [Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of bereiken aan ons van de volgende kanalen:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -143,4 +140,4 @@ Nu u de IoT DevKit als een vertaler met behulp van Azure-functie en cognitieve S
 Ga naar de andere zelfstudies voor meer informatie:
 
 > [!div class="nextstepaction"]
-> [Verbinding maken met IoT DevKit AZ3166 Azure IoT Suite voor externe controle](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [Verbinding maken met IoT DevKit AZ3166 Azure IoT Suite voor externe controle](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)

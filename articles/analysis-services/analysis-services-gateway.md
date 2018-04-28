@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5d327f016237890b506f45c4c494bd08ad2f71bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abd2d2c8e220a946d08774f8e55ea968008c1757
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Verbinding maken met on-premises gegevensbronnen met Azure On-premises Data Gateway
 De lokale data gateway fungeert als een brug, bieden veilige gegevensoverdracht tussen uw Azure Analysis Services-servers in de cloud en on-premises gegevensbronnen. Naast het werken met meerdere Azure Analysis Services-servers in dezelfde regio, werkt de meest recente versie van de gateway ook met Azure Logic Apps, Power BI, Power-Apps en Microsoft-Flow. U kunt meerdere services in dezelfde regio koppelen met een enkele gateway. 
@@ -82,6 +82,11 @@ U kunt de gateway om te communiceren met Azure Service Bus via HTTPS in plaats v
     <value>Https</value>
 </setting>
 ```
+
+## <a name="tenant-level-administration"></a>Tenant niveau beheer 
+
+Er is momenteel geen enkele locatie beheren tenantbeheerders alle gateways die andere gebruikers hebben geïnstalleerd en geconfigureerd.  Als u een tenantbeheerder bent, wordt het aanbevolen om dat gebruikers te vragen in uw organisatie u toevoegen als beheerder aan elke gateway die te installeren. Hiermee kunt u voor het beheren van de gateways in uw organisatie via de pagina instellingen van de Gateway of via [PowerShell-opdrachten](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="faq"></a>Veelgestelde vragen
 

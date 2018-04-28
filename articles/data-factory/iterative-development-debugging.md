@@ -4,7 +4,7 @@ description: Informatie over het ontwikkelen en testen van Data Factory-pijplijn
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.topic: article
 ms.service: data-factory
 services: data-factory
@@ -12,11 +12,11 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: adb5ffd65d4b2b591abba5d4b3481b7ca08de579
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6a6fbd721e4f0af977fe7fa03adc4459de7611f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Iteratieve ontwikkeling en foutopsporing met Azure Data Factory
 
@@ -45,9 +45,17 @@ Wanneer u wordt uitgevoerd test, hoeft u uw wijzigingen aan de gegevensfactory p
 
 ## <a name="setting-breakpoints-for-debugging"></a>Onderbrekingspunten instellen voor foutopsporing
 
-Data Factory kunt u fouten opsporen in totdat u een bepaalde activiteit in de pipeline-canvas. Alleen een onderbrekingspunt in de activiteit tot welke u wilt testen, en selecteer plaatsen **Debug**. Data Factory zorgt ervoor dat de test wordt uitgevoerd totdat de activiteit onderbrekingspunt alleen op het canvas pijplijn. Dit *Debug totdat* functie is handig als u niet wilt testen van de hele pipeline, maar alleen een subset van activiteiten in de pijplijn.
+Data Factory kunt u fouten opsporen in totdat u een bepaalde activiteit op het canvas pijplijn. Alleen een onderbrekingspunt in de activiteit tot welke u wilt testen, en selecteer plaatsen **Debug**. Data Factory zorgt ervoor dat de test wordt uitgevoerd totdat de activiteit onderbrekingspunt alleen op het canvas pijplijn. Dit *Debug totdat* functie is handig als u niet wilt testen van de hele pipeline, maar alleen een subset van activiteiten in de pijplijn.
 
 ![Onderbrekingspunten op het canvas pijplijn](media/iterative-development-debugging/iterative-development-image4.png)
+
+Stel een onderbrekingspunt in door een element op het canvas pijplijn te selecteren. Een *Debug totdat* optie wordt weergegeven als een lege rode cirkel in de rechterbovenhoek van het element.
+
+![Voordat u een onderbrekingspunt instelt op het geselecteerde element](media/iterative-development-debugging/iterative-development-image5.png)
+
+Nadat u hebt geselecteerd de *Debug totdat* optie, verandert deze in een gevulde rode cirkel om aan te geven de het onderbrekingspunt is ingeschakeld.
+
+![Na het instellen van een onderbrekingspunt voor het geselecteerde element](media/iterative-development-debugging/iterative-development-image6.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 [Continue integratie en implementatie in Azure Data Factory](continuous-integration-deployment.md)

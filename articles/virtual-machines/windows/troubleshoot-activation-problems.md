@@ -2,10 +2,10 @@
 title: Problemen met Windows virtuele machine activering in Azure | Microsoft Docs
 description: Biedt de stappen voor probleemoplossing voor het oplossen van problemen met Windows virtuele machine activation in Azure
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3926522c8359587798ea540d13b157832551f24d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure virtuele machine activation problemen oplossen
 
@@ -78,7 +78,7 @@ Deze stap is niet van toepassing op Windows 2012 of Windows 2008 R2. De functie 
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Stap 2 de connectiviteit tussen de virtuele machine en Azure KMS-service controleren
 
-1. Downloaden en uitpakken van de [psping om](http:/technet.microsoft.com/en-us/sysinternals/jj729731.aspx) hulpprogramma naar een lokale map in de virtuele machine die niet worden geactiveerd. 
+1. Downloaden en uitpakken van de [psping om](http:/technet.microsoft.com/sysinternals/jj729731.aspx) hulpprogramma naar een lokale map in de virtuele machine die niet worden geactiveerd. 
 
 2. Ga naar Start, zoeken op Windows PowerShell, met de rechtermuisknop op Windows PowerShell en selecteer als administrator uitvoeren.
 
@@ -126,7 +126,7 @@ Ja.
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Wat gebeurt er als Windows-activering is verlopen? 
  
-Wanneer de respijtperiode is verlopen en Windows is nog niet geactiveerd, wordt Windows Server 2008 R2 en latere versies van Windows extra meldingen over het activeren van weergeven. De bureaubladachtergrond blijft zwart en Windows Update wordt geïnstalleerd, beveiliging en alleen essentiële updates, maar niet optionele updates. Zie de sectie meldingen aan de onderkant van de [licentieverlening voorwaarden](http://technet.microsoft.com/en-us/library/ff793403.aspx) pagina.   
+Wanneer de respijtperiode is verlopen en Windows is nog niet geactiveerd, wordt Windows Server 2008 R2 en latere versies van Windows extra meldingen over het activeren van weergeven. De bureaubladachtergrond blijft zwart en Windows Update wordt geïnstalleerd, beveiliging en alleen essentiële updates, maar niet optionele updates. Zie de sectie meldingen aan de onderkant van de [licentieverlening voorwaarden](http://technet.microsoft.com/library/ff793403.aspx) pagina.   
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.

@@ -2,7 +2,7 @@
 title: Azure-sjablonen gebruiken voor het maken van HDInsight en Data Lake Store | Microsoft Docs
 description: Gebruik van Azure Resource Manager-sjablonen maken en gebruiken van HDInsight-clusters met Azure Data Lake Store
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 8c5afc96cc8101345f00b5d435e9f393d22672de
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bc20504865fa59cafc199305f9810fb4c3d99524
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Een HDInsight-cluster maken met Data Lake Store met Azure Resource Manager-sjabloon
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ De instructies in de bovenstaande koppeling vereisen PowerShell. Zorg voordat u 
 
 ```
 # Log in to your Azure account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List all the subscriptions associated to your account
 Get-AzureRmSubscription
@@ -80,7 +80,7 @@ Om te zorgen dat de voorbeeldgegevens die u uploadt, is toegankelijk vanaf het H
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>Testtaken uitvoeren op het HDInsight-cluster te gebruiken van de Data Lake Store
 Nadat u een HDInsight-cluster hebt geconfigureerd, kunt u testtaken uitvoeren op het cluster om te testen of de HDInsight-cluster toegang Data Lake Store tot. Om dit te doen, voeren we een voorbeeld Hive-taak die u maakt een tabel met de voorbeeldgegevens die u eerder hebt geüpload naar uw Data Lake Store.
 
-In deze sectie wordt u SSH in een cluster in HDInsight Linux en voer de een Hive-voorbeeldquery. Als u een Windows-client gebruikt, wordt u aangeraden **PuTTY**, die kan worden gedownload vanaf [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+In deze sectie wordt u SSH in een cluster in HDInsight Linux en voer de een Hive-voorbeeldquery. Als u een Windows-client gebruikt, wordt u aangeraden **PuTTY**, die kan worden gedownload vanaf [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Zie voor meer informatie over het gebruik van PuTTY [SSH gebruiken met Hadoop op basis van Linux in HDInsight via Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -116,7 +116,7 @@ Zie voor meer informatie over het gebruik van PuTTY [SSH gebruiken met Hadoop op
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>Toegang tot Data Lake Store met HDFS-opdrachten
 Wanneer u het HDInsight-cluster voor het gebruik van Data Lake Store hebt geconfigureerd, kunt u de HDFS-shell-opdrachten voor toegang tot de store.
 
-In deze sectie wordt u SSH in een HDInsight Linux-cluster en voer de HDFS-opdrachten. Als u een Windows-client gebruikt, wordt u aangeraden **PuTTY**, die kan worden gedownload vanaf [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+In deze sectie wordt u SSH in een HDInsight Linux-cluster en voer de HDFS-opdrachten. Als u een Windows-client gebruikt, wordt u aangeraden **PuTTY**, die kan worden gedownload vanaf [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Zie voor meer informatie over het gebruik van PuTTY [SSH gebruiken met Hadoop op basis van Linux in HDInsight via Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 

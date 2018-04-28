@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb305986982432d7a432204e3fae8a1dff6a5d74
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Hoge beschikbaarheid poorten configureren voor een interne load balancer
 
@@ -39,12 +39,6 @@ De afbeelding ziet de volgende configuratie van de voorbeeld-implementatie in di
 ![Hoge beschikbaarheid poorten Voorbeeldimplementatie](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-## <a name="preview-sign-up"></a>Preview-registratie
-
-Registreer uw abonnement om toegang te krijgen met behulp van Azure CLI 2.0 of PowerShell als u wilt deelnemen aan de evaluatieversie van de functie voor hoge beschikbaarheid van poorten in standaard Azure Load Balancer. Registreren van uw abonnement voor [standaard Load Balancer Preview](https://aka.ms/lbpreview#preview-sign-up).
-
->[!NOTE]
->De registratie van de standaard Load Balancer Preview kan een uur duren.
 
 ## <a name="configure-high-availability-ports"></a>Poorten voor hoge beschikbaarheid configureren
 

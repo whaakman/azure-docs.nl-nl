@@ -8,13 +8,13 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 35e30700270fb5757a80c4a6b8f231042f7640f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-managed-applications-overview"></a>Overzicht van door Azure beheerde toepassingen
 
@@ -52,7 +52,7 @@ Zie voor meer informatie over het publiceren van een beheerde toepassing in de M
 
 ## <a name="resource-groups-for-managed-applications"></a>Resourcegroepen voor beheerde toepassingen
 
-De resources voor een beheerde toepassing zich doorgaans in twee resourcegroepen bevinden. De consument beheert een resourcegroep en de uitgever van de resourcegroep beheert. Bij het definiëren van de beheerde toepassing geeft de uitgever de toegangsniveaus. De volgende afbeelding toont een scenario waarbij de uitgever verzoekt om de rol van eigenaar voor de beheerde resourcegroep. De uitgever wordt een alleen-lezen-vergrendeling op deze resourcegroep geplaatst voor de consument.
+De resources voor een beheerde toepassing zich doorgaans in twee resourcegroepen bevinden. De consument beheert een resourcegroep en de uitgever van de resourcegroep beheert. Bij het definiëren van de beheerde toepassing geeft de uitgever de toegangsniveaus. De volgende afbeelding toont een scenario waarbij de uitgever verzoekt om de rol van eigenaar voor de beheerde resourcegroep. De uitgever wordt een alleen-lezen-vergrendeling op deze resourcegroep geplaatst voor de consument. De publisher identiteiten die toegang tot de beheerde resourcegroep krijgen zijn uitgesloten van de vergrendeling.
 
 ![Toegang tot bedrijfsbronnen-groep](./media/overview/access.png)
 

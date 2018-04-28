@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f40bd7954bbf079c87f8312bff731b68d1acb7dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database herstelt via automatische databaseback-ups
 SQL Database biedt deze opties voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md) en [back-ups in lange bewaartermijn](sql-database-long-term-retention.md). U kunt herstellen met een databaseback-up naar:
@@ -50,7 +50,7 @@ De hersteltijd herstellen van een database met behulp van automatische databaseb
   
   Voor een zeer groot en/of actieve database, kan het terugzetten van enkele uren duren. Als er langdurige storing in een regio, is het mogelijk dat er grote aantallen geo-restore-aanvragen worden verwerkt door een andere regio's zijn. Wanneer er veel aanvragen, kan de hersteltijd verhogen voor databases in deze regio. De meeste database herstelt voltooid binnen de 12 uur.
 
-Voor een enkele abonnement, er zijn enkele beperkingen op het aantal gelijktijdige restore-aanvragen (inclusief punt in tijd terugzetten, geo-restore en lange termijn bewaren van back-up) wordt ingediend en soepel:
+Voor een enkele abonnement, er zijn enkele beperkingen op het aantal gelijktijdige restore-aanvragen (inclusief punt in tijd terugzetten, geo-restore en langdurige bewaarperiode back-up) wordt ingediend en soepel:
 |  | **Maximum aantal gelijktijdige aanvragen worden verwerkt** | **Maximum aantal gelijktijdige aanvragen worden verzonden** |
 | :--- | --: | --: |
 |Individuele database (per abonnement)|10|60|
@@ -97,7 +97,7 @@ U kunt een verwijderde database herstellen naar de tijd voor het verwijderen van
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Een verwijderde database tijdens het herstellen ervan [bewaarperiode](sql-database-service-tiers.md) met de Azure portal, open de pagina voor uw server en in het gebied van bewerkingen, klikt u op **databases verwijderd**.
+Een verwijderde database tijdens het herstellen ervan [bewaarperiode model op basis van DTU](sql-database-service-tiers-dtu.md) of [bewaarperiode model op basis van vCore](sql-database-service-tiers-vcore.md) met de Azure portal, open de pagina voor uw server en in het gebied van bewerkingen, klikt u op **Databases verwijderd**.
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -123,7 +123,7 @@ Punt in tijd terugzetten op een secundaire geo-server is momenteel niet onderste
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Op het geo-terugzetten van een database tijdens de [bewaarperiode](sql-database-service-tiers.md) met de Azure portal, open de pagina SQL-Databases en klik vervolgens op **toevoegen**. In de **Select bron** in het tekstvak, selecteer **back-up**. Geef de back-up van waaruit het herstel wilt uitvoeren in de regio en op de server van uw keuze. 
+Naar geo-restore a database tijdens de [bewaarperiode model op basis van DTU](sql-database-service-tiers-dtu.md) of [bewaarperiode model op basis van vCore](sql-database-service-tiers-vcore.md) met de Azure portal, open de pagina SQL-Databases en klik vervolgens op **toevoegen** . In de **Select bron** in het tekstvak, selecteer **back-up**. Geef de back-up van waaruit het herstel wilt uitvoeren in de regio en op de server van uw keuze. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Herstel met behulp van automatische back-ups uitvoeren via een programma
 Als eerder beschreven, naast de Azure portal, databaseherstel, worden uitgevoerd via een programma met Azure PowerShell of de REST-API. De volgende tabellen beschrijven de reeks opdrachten die beschikbaar zijn.
@@ -132,15 +132,15 @@ Als eerder beschreven, naast de Azure portal, databaseherstel, worden uitgevoerd
 | Cmdlet | Beschrijving |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Hiermee haalt u een of meer databases op. |
-| [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Hiermee haalt u een verwijderde database die u kunt herstellen. |
-| [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |Hiermee haalt u een geografisch redundante back-up van een database. |
-| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Een SQL-database herstelt. |
+| [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Hiermee haalt u een verwijderde database die u kunt herstellen op. |
+| [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |Hiermee haalt u een geografisch redundante back-up van een database op. |
+| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Hiermee herstelt u een SQL-database. |
 |  | |
 
 ### <a name="rest-api"></a>REST-API
 | API | Beschrijving |
 | --- | --- |
-| [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Hiermee herstelt u een database |
+| [REST (createMode = Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Hiermee herstelt u een database |
 | [Get maken of bijwerken van de databasestatus](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Hiermee wordt de status geretourneerd tijdens een terugzetbewerking |
 |  | |
 

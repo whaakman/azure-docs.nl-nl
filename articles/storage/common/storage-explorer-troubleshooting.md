@@ -2,11 +2,11 @@
 title: Azure Storage Explorer probleemoplossingsgids | Microsoft Docs
 description: Overzicht van de twee foutopsporingsfunctie van Azure
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: cshepard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,141 +14,107 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
+ms.openlocfilehash: c409788ef68ab41a23e2991ea0ea1effce841a82
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer probleemoplossingsgids
 
-Microsoft Azure Opslagverkenner (Preview) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux. De app kan verbinding maken met de Storage-accounts die worden gehost op Azure, nationale Clouds en Azure-Stack.
+Microsoft Azure Storage Explorer is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux. De app kan verbinding maken met de Storage-accounts die worden gehost op Azure, nationale Clouds en Azure-Stack.
 
 Deze handleiding bevat een overzicht van oplossingen voor algemene problemen gezien in Opslagverkenner.
 
-## <a name="sign-in-issues"></a>Problemen met aanmelden
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fout: Zelf-ondertekend certificaat in de certificaatketen (en vergelijkbare fouten)
 
-Alleen Azure Active Directory (AAD) accounts worden ondersteund. Als u een AD FS-account gebruikt, wordt verwacht dat het aanmelden bij Opslagverkenner niet werkt. Voordat u doorgaat, probeer uw toepassing opnieuw te starten en zien of de problemen te corrigeren.
-
-### <a name="error-self-signed-certificate-in-certificate-chain"></a>Fout: Zelf-ondertekend certificaat in de certificaatketen
-
-Er zijn diverse redenen waarom u deze fout kan optreden, en de twee meest voorkomende redenen zijn als volgt:
+Certificaatfouten worden veroorzaakt door een van de twee volgende situaties:
 
 1. De app is verbonden via een transparante proxy-, wat betekent dat een server (zoals de bedrijfsserver van uw) onderscheppen HTTPS-verkeer, ontsleutelen van deze en vervolgens versleutelen met behulp van een zelfondertekend certificaat.
+2. U kunt een toepassing die is injecteren van een zelfondertekend SSL-certificaat in de HTTPS-berichten die u ontvangt worden uitgevoerd. Voorbeelden van toepassingen die certificaten invoeren inclusief antivirus- en verkeer inspectie software.
 
-2. U kunt een toepassing, zoals antivirussoftware, die is injecteren van een zelfondertekend SSL-certificaat in de HTTPS-berichten die u ontvangt worden uitgevoerd.
+Wanneer Opslagverkenner ziet een zelf ondertekend of niet-vertrouwd certificaat, kan het niet meer te weten of het ontvangen bericht voor HTTPS is gewijzigd. Als u een kopie van het zelfondertekend certificaat hebt, kunt u opdracht geven Opslagverkenner vertrouwen als volgt u de volgende stappen uit:
 
-Wanneer Opslagverkenner een van de problemen tegenkomt, kan het niet meer te weten of het ontvangen bericht voor HTTPS is geknoeid. Als u een kopie van het zelfondertekend certificaat hebt, kunt u Opslagverkenner vertrouwen. Als u die het certificaat is injecteren weet, als volgt te werk:
+1. Verkrijgen van een Base-64 gecodeerde X.509 (.cer) kopie van het certificaat
+2. Klik op **bewerken** > **SSL-certificaten** > **certificaten importeren**, en gebruik vervolgens de bestandskiezer om te zoeken, selecteert en opent u het cer-bestand
 
-1. Open SSL installeren
+Dit probleem kan ook worden de resultaten van meerdere certificaten (hoofdmap en tussenliggende). Beide certificaten moeten worden toegevoegd aan de fout te verhelpen.
 
-    - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (een van de lichte versies moet voldoende)
+Als u waar het certificaat vandaan komt weet, kunt u proberen deze stappen om te zoeken:
 
-    - Mac- en Linux: moet worden opgenomen met het besturingssysteem
+1. Installeer Open SSL
 
-2. Open SSL uitvoeren
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (een van de lichte versies moet voldoende)
+    * Mac- en Linux: moet worden opgenomen met het besturingssysteem
+2. Voer Open SSL uit
 
-    - Windows: open de map wilt installeren, klik op **/bin/**, en dubbelklik vervolgens op **openssl.exe**.
-    - Mac- en Linux: Voer **openssl** van een definitieve.
-
-3. Uitvoeren van s_client - showcerts-microsoft.com:443 verbinding
-
-4. Zoek naar de zelfondertekende certificaten. Als u niet zeker dat zelf ondertekend weet, zoek naar elke locatie het onderwerp ('s:') en de verlener ('i') zijn hetzelfde.
-
+    * Windows: open de map wilt installeren, klik op **/bin/**, en dubbelklik vervolgens op **openssl.exe**.
+    * Mac- en Linux: Voer **openssl** van een definitieve.
+3. Voer `s_client -showcerts -connect microsoft.com:443` uit
+4. Zoek naar zelfondertekende certificaten. Als u welke zijn zelf-ondertekend weet, zoekt u naar een willekeurige plaats het onderwerp `("s:")` en de verlener `("i:")` zijn hetzelfde.
 5. Wanneer u zelfondertekende certificaten hebt gevonden, voor elk adres kopieert en plakt u alles uit en inclusief **---BEGIN CERTIFICATE---** naar **---EINDCERTIFICAAT---** naar een nieuw .cer-bestand.
-
 6. Open Opslagverkenner, klik op **bewerken** > **SSL-certificaten** > **certificaten importeren**, en gebruik vervolgens de bestandskiezer om te zoeken, selecteert, en Open het cer-bestanden die u hebt gemaakt.
 
-Als u geen zelfondertekende certificaten met behulp van de voorgaande stappen niet kunt vinden, contact met ons opnemen via het hulpprogramma feedback voor meer informatie.
+Als u geen zelfondertekende certificaten met behulp van de voorgaande stappen niet kunt vinden, contact met ons opnemen via het hulpprogramma feedback voor meer informatie. U kunt ook kiezen Opslagverkenner starten vanaf de opdrachtregel met de `--ignore-certificate-errors` vlag. Wanneer met deze markering wordt gestart, wordt in Opslagverkenner certificaatfouten negeren.
 
-### <a name="unable-to-retrieve-subscriptions"></a>Kan geen abonnementen ophalen
+## <a name="sign-in-issues"></a>Problemen met aanmelden
 
-Als u niet ophalen van uw abonnementen, nadat u zich hebt aangemeld, volg deze stappen om dit probleem oplossen:
+Als u zich niet aanmelden, probeert u de volgende methoden:
 
-- Controleer of dat uw account toegang tot de abonnementen heeft wanneer u zich aanmeldt bij de Azure portal.
+* Opnieuw opstarten Opslagverkenner
+* Als het verificatievenster leeg is, wacht u minstens één minuut voordat u sluit het verificatiedialoogvenster.
+* Zorg ervoor dat uw proxy- en certificaat instellingen correct zijn geconfigureerd voor de computer en de Opslagverkenner
+* Als u in Windows en toegang tot Visual Studio 2017 op dezelfde computer en aanmelding, probeert u aanmelden bij Visual Studio 2017
 
-- Zorg ervoor dat u bent aangemeld met behulp van de juiste omgeving (Azure, Azure China, Duitse Azure, Azure US Government of aangepaste omgeving/Azure Stack).
+Als geen van deze methoden werkt [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-- Als u zich achter een proxy, zorg er dan voor dat u de proxy Opslagverkenner juist hebt geconfigureerd.
+## <a name="unable-to-retrieve-subscriptions"></a>Kan geen abonnementen ophalen
 
-- Verwijder en readding van het account.
+Als u nog niet ophalen van uw abonnementen, nadat u zich hebt aangemeld, probeert u de volgende methoden:
 
-- Probeer een van de volgende bestanden worden verwijderd uit de hoofddirectory (dat wil zeggen, C:\Users\ContosoUser) en vervolgens readding het account:
+* Controleer of dat uw account toegang heeft tot de abonnementen die u verwacht. U kunt controleren of u toegang aanmeldt bij de portal voor de Azure-omgeving die u probeert hebt te gebruiken.
+* Zorg ervoor dat u zich aan met de juiste Azure omgeving (Azure, Azure China, Duitse Azure, Azure US Government of aangepaste omgeving).
+* Als u zich achter een proxy, zorg er dan voor dat u de proxy Opslagverkenner juist hebt geconfigureerd.
+* Verwijder en readding van het account.
+* Bekijk de console ontwikkelhulpprogramma's (Help > Toggle ontwikkelhulpprogramma's) tijdens Opslagverkenner abonnementen wordt geladen. Zoeken naar foutberichten (rode tekst) of een bericht met de tekst 'kan niet worden geladen abonnementen voor de tenant." Als u alle betreffende berichten ziet [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-    - .adalcache
+## <a name="cannot-remove-attached-account-or-storage-resource"></a>Kan de gekoppelde account of storage resource niet verwijderen.
 
-    - .devaccounts
+Als u niet verwijderen van een gekoppelde account of een opslagresource via de gebruikersinterface, kunt u alle gekoppelde resources handmatig verwijderen door de volgende mappen te verwijderen:
 
-    - .extaccounts
-
-- Bekijk de ontwikkelhulpprogramma's console (door op F12 wordt gedrukt) wanneer u voor eventuele foutberichten aanmeldt zich:
-
-![ontwikkelhulpprogramma's](./media/storage-explorer-troubleshooting/4022501_en_2.png)
-
-### <a name="unable-to-see-the-authentication-page"></a>Kan niet voor een overzicht van de verificatiepagina
-
-Als u niet wilt weergeven van de verificatiepagina als volgt te werk om dit probleem oplossen:
-
-- Afhankelijk van de snelheid van uw verbinding duurt lang voordat de aanmeldingspagina te laden, wacht u minstens één minuut voordat u sluit het verificatiedialoogvenster.
-
-- Als u zich achter een proxy, zorg er dan voor dat u de proxy Opslagverkenner juist hebt geconfigureerd.
-
-- De developer-console weergeven door op de F12-toets te drukken. Bekijk de antwoorden van de developer-console en ontdek of voor u een aanwijzing Waarom vindt verificatie werkt niet.
-
-### <a name="cannot-remove-account"></a>Kan het account niet verwijderen
-
-Als u niet om een account te verwijderen, of als de koppeling opnieuw verifiëren heeft geen invloed, volg deze stappen om dit probleem oplossen:
-
-- Probeer de volgende bestanden worden verwijderd uit de hoofddirectory en vervolgens readding het account:
-
-    - .adalcache
-
-    - .devaccounts
-
-    - .extaccounts
-
-- Als u wilt verwijderen SAS opslagbronnen aangesloten, verwijdert u de volgende bestanden:
-
-    - De map %AppData%/StorageExplorer voor Windows
-
-    - /Gebruikers/ < Uw_naam >/Library/Applicaiton ondersteuning/StorageExplorer voor Mac
-
-    - ~/.config/StorageExplorer for Linux
+* Windows: `%AppData%/StorageExplorer`
+* Mac OS: `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
->  Na het verwijderen van de voorgaande bestanden, moet u opnieuw aanmelden bij uw accounts.
+>  Opslagverkenner sluiten voordat u de bovenstaande mappen verwijderen.
+
+> [!NOTE]
+>  Als u ooit de SSL-certificaten hebt geïmporteerd en vervolgens back-up van de inhoud van de `certs` directory. Later kunt u de back-up van uw SSL-certificaten opnieuw importeren.
 
 ## <a name="proxy-issues"></a>Proxy-problemen
 
 Controleer eerst of dat de volgende informatie die u hebt ingevoerd juist zijn:
 
-- De proxy-URL en het poortnummer
-
-- Gebruikersnaam en wachtwoord, indien vereist door de proxy
+* De proxy-URL en het poortnummer * gebruikersnaam en wachtwoord, indien vereist door de proxy
 
 ### <a name="common-solutions"></a>Algemene oplossingen
 
-Als u steeds problemen ondervindt nog, volg deze stappen voor het oplossen van deze:
+Als u steeds problemen ondervindt nog, probeert u de volgende methoden:
 
-- Als u verbinding met Internet maken kunt zonder gebruik van uw proxyserver, moet u controleren of Opslagverkenner zonder proxyinstellingen zijn ingeschakeld werkt. Als dit het geval is, is er mogelijk een probleem met uw proxy-instellingen. Werken met de proxy-beheerder om de problemen te identificeren.
-
-- Controleer of andere toepassingen die gebruikmaken van de proxyserver werken zoals verwacht.
-
-- Controleer of u verbinding kunt maken voor de Microsoft Azure-portal met behulp van uw webbrowser
-
-- Controleer of u kunt reacties van uw service-eindpunten te ontvangen. Voer een van de eindpunt-URL's in uw browser. Als u verbinding maken kunt, ontvangt u een InvalidQueryParameterValue of een vergelijkbare XML-antwoord.
-
-- Als iemand anders Opslagverkenner ook met de proxyserver gebruikt, controleert u of dat ze verbinding kunnen maken. Als ze verbinding maken kunnen, hebt u mogelijk contact op met uw proxy-server.
+* Als u verbinding met Internet maken kunt zonder gebruik van uw proxyserver, moet u controleren of Opslagverkenner zonder proxyinstellingen zijn ingeschakeld werkt. Als dit het geval is, is er mogelijk een probleem met uw proxy-instellingen. Werken met de proxy-beheerder om de problemen te identificeren.
+* Controleer of andere toepassingen die gebruikmaken van de proxyserver werken zoals verwacht.
+* Controleer of u verbinding kunt maken naar de portal voor de Azure-omgeving die u probeert te gebruiken
+* Controleer of u kunt reacties van uw service-eindpunten te ontvangen. Voer een van de eindpunt-URL's in uw browser. Als u verbinding maken kunt, ontvangt u een InvalidQueryParameterValue of een vergelijkbare XML-antwoord.
+* Als iemand anders Opslagverkenner ook met de proxyserver gebruikt, controleert u of dat ze verbinding kunnen maken. Als ze verbinding maken kunnen, hebt u mogelijk contact op met uw proxy-server.
 
 ### <a name="tools-for-diagnosing-issues"></a>Hulpprogramma's voor het oplossen van problemen
 
 Als u hulpprogramma's voor netwerken, zoals Fiddler voor Windows hebt, kunt u mogelijk problemen als volgt:
 
-- Als u om te werken via de proxy hebt, moet u wellicht uw netwerken hulpprogramma om verbinding via de proxy te configureren.
-
-- Controleer het poortnummer dat wordt gebruikt door uw netwerken hulpprogramma.
-
-- Voer de URL van de lokale host en het poortnummer van de netwerken hulpprogramma als proxy-instellingen in Opslagverkenner. Als dit correct is uitgevoerd, start u uw netwerken hulpprogramma logboekregistratie netwerkaanvragen door Opslagverkenner voor beheer en service-eindpunten. Voer bijvoorbeeld https://cawablobgrs.blob.core.windows.net/ voor het eindpunt van de blob in een browser en ontvangt u een antwoord lijkt op het volgende voorbeeld, waarin wordt voorgesteld de bron bestaat, hoewel u geen toegang toe heeft.
+* Als u om te werken via de proxy hebt, moet u wellicht uw netwerken hulpprogramma om verbinding via de proxy te configureren.
+* Controleer het poortnummer dat wordt gebruikt door uw netwerken hulpprogramma.
+* Voer de URL van de lokale host en het poortnummer van de netwerken hulpprogramma als proxy-instellingen in Opslagverkenner. Indien correct uitgevoerd, start u uw netwerken hulpprogramma logboekregistratie netwerkaanvragen door Opslagverkenner voor beheer en service-eindpunten. Voer bijvoorbeeld https://cawablobgrs.blob.core.windows.net/ voor het eindpunt van de blob in een browser, en u ontvangt een antwoord lijkt op het volgende voorbeeld, waarin wordt voorgesteld de bron bestaat, hoewel u geen toegang toe heeft.
 
 ![Voorbeeld van code](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -156,9 +122,8 @@ Als u hulpprogramma's voor netwerken, zoals Fiddler voor Windows hebt, kunt u mo
 
 Als uw proxy-instellingen correct zijn, hebt u mogelijk contact opnemen met uw beheerder proxy-server en
 
-- Zorg ervoor dat uw proxy geen verkeer naar Azure management of de resource-eindpunten blokkeert.
-
-- Controleer of het verificatieprotocol dat wordt gebruikt door de proxyserver. Opslagverkenner biedt momenteel geen ondersteuning voor NTLM-proxy's.
+* Zorg ervoor dat uw proxy geen verkeer naar Azure management of de resource-eindpunten blokkeert.
+* Controleer of het verificatieprotocol dat wordt gebruikt door de proxyserver. Opslagverkenner biedt momenteel geen ondersteuning voor NTLM-proxy's.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Foutbericht 'Kan niet naar onderliggende elementen ophalen'
 
@@ -167,13 +132,11 @@ Als u met Azure via een proxy verbonden bent, moet u controleren of de proxyinst
 ### <a name="issues-with-sas-url"></a>Problemen met SAS-URL
 Als u verbinding met een service met behulp van een SAS-URL en deze fout optreedt maakt:
 
-- Controleer of dat de URL van de vereiste machtigingen voor lezen of lijst van bronnen biedt.
+* Controleer of dat de URL van de vereiste machtigingen voor lezen of lijst van bronnen biedt.
+* Controleer of de URL is niet verlopen.
+* Als de SAS-URL is gebaseerd op een toegangsbeleid, controleert u of het beleid voor toegang niet is ingetrokken.
 
-- Controleer of de URL is niet verlopen.
-
-- Als de SAS-URL is gebaseerd op een toegangsbeleid, controleert u of het beleid voor toegang niet is ingetrokken.
-
-Als u per ongeluk gekoppeld met behulp van een ongeldige SAS-URL en kan niet loskoppelen, volg deze stappen:
+Als u per ongeluk gekoppeld met behulp van een ongeldige SAS-URL en kan niet worden losgekoppeld, voert u de volgende stappen uit:
 1.  Als u Opslagverkenner, drukt u op F12 om de hulpprogramma's voor ontwikkelaars venster te openen.
 2.  Klik op het tabblad toepassing en klik vervolgens op van de lokale opslag > file:// in de structuur aan de linkerkant.
 3.  Zoek de sleutel gekoppeld aan het type van de service van de problematisch SAS-URI. Bijvoorbeeld, als de onjuiste SAS-URI voor een blob-container, zoekt u naar de sleutel met de naam `StorageExplorer_AddStorageServiceSAS_v1_blob`.
@@ -183,16 +146,15 @@ Als u per ongeluk gekoppeld met behulp van een ongeldige SAS-URL en kan niet los
 ## <a name="linux-dependencies"></a>Linux-afhankelijkheden
 
 Voor Linux-distributies dan Ubuntu 16.04, moet u wellicht handmatig enkele afhankelijkheden te installeren. In het algemeen zijn de volgende pakketten vereist:
-* libgconf-2-4
-* libsecret
+* [.NET core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* `libsecret`
+* `libgconf-2-4`
 * Up-to-date GCC
 
 Afhankelijk van uw distro mogelijk zijn er andere pakketten die u wilt installeren. Opslagverkenner [releaseopmerkingen](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) specifieke stappen voor een aantal distributies bevatten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als geen van de oplossingen die voor u werken, Geef uw probleem via het hulpprogramma feedback met uw e-mailadres en zo veel meer informatie over het probleem dat is opgenomen als u kunnen, zodat we kunnen contact met u voor het oplossen van het probleem.
+Als geen van de oplossingen, klikt u vervolgens werken [opent u een probleem op GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). U kunt ook snel met GitHub ophalen met behulp van de knop 'Rapport probleem met GitHub' in de linkerbenedenhoek.
 
-Om dit te doen, klikt u op **Help** menu en klik vervolgens op **Feedback verzenden**.
-
-![Feedback](./media/storage-explorer-troubleshooting/4022503_en_1.png)
+![Feedback](./media/storage-explorer-troubleshooting/feedback-button.PNG)

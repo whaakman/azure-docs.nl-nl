@@ -9,18 +9,18 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: cfad53a3f86450163b2e29d5e4d4ed2726ecb0bc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fe3864c3f765ff4858deede798d5641a55dd8aef
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Azure Active Directory-verificatie gebruiken voor verificatie met SQL-Database, exemplaar beheerd of SQL Data Warehouse
 Azure Active Directory-verificatie is een mechanisme van verbinding maken met Microsoft Azure SQL Database en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure Active Directory (Azure AD). Azure AD-verificatie, kunt u de identiteit van gebruikers en andere Microsoft-services op één centrale locatie centraal beheren. Centrale ID-beheer biedt er één plaats is voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen. Voordelen zijn onder andere:
 
 * Het biedt een alternatief voor SQL Server-verificatie.
 * Houdt de komst van gebruikersidentiteiten voor databaseservers.
-* Hiermee kunt wachtwoord draaien op één plaats
+* Kan wachtwoord draaien op één plaats.
 * Klanten kunnen databasemachtigingen met externe (Azure AD) groepen beheren.
 * Deze kunt wachtwoorden moet opslaan voorkomen door het inschakelen van geïntegreerde Windows-verificatie en andere soorten authenticatie wordt ondersteund door Azure Active Directory.
 * Ingesloten databasegebruikers Azure AD-verificatie gebruikt voor het verifiëren van identiteiten op databaseniveau.
@@ -75,7 +75,7 @@ Azure AD-beperkingen betrekking hebben op beheerde exemplaar:
 - Alleen Azure AD-beheerder van databases maken kan, Azure AD-gebruikers zijn gericht op een enkele DB en bent niet gemachtigd deze
 - Database-eigenaar:
   - Azure AD-principal eigendom van de database (AUTORISATIE ON DATABASE wijzigen) niet wijzigen en kan niet worden ingesteld als eigenaar.
-  - Voor databases die zijn gemaakt door Azure AD-beheerder geen eigenaar is ingesteld (owner_sid veld in sys.sysdatabases is 0x1)
+  - Voor databases die zijn gemaakt door Azure AD-beheerder geen eigenaar is ingesteld (0x1 owner_sid veld in sys.sysdatabases is).
 - SQL-Agent kan niet worden beheerd wanneer aangemeld met behulp van Azure AD-principals. 
 - Azure AD-beheerder kan niet worden geïmiteerd met EXECUTE AS
 - DAC-verbinding wordt niet ondersteund met Azure AD-principals. 
@@ -97,7 +97,7 @@ Azure Active Directory-verificatie ondersteunt de volgende methoden van verbindi
 
 ### <a name="additional-considerations"></a>Aanvullende overwegingen
 
-* Betere beheerbaarheid, raden we u een specifieke Azure AD inrichten als een beheerder een groep.   
+* Betere beheerbaarheid, wordt aangeraden inrichten van een specifieke Azure AD als een beheerder een groep.   
 * Slechts één Azure AD-beheerder (een gebruiker of groep) kan worden geconfigureerd voor een Azure SQL Database-server, exemplaar beheerd of Azure SQL Data Warehouse op elk gewenst moment.   
 * Alleen een Azure AD-beheerder voor SQL Server kan in eerste instantie verbinding maken met de Azure SQL Database-server, exemplaar beheerd of Azure SQL Data Warehouse met een Azure Active Directory-account. De Active Directory-beheerder kan de volgende Azure AD configureren gebruikers van de database.   
 * U wordt aangeraden de verbindingstime-out ingesteld op 30 seconden.   

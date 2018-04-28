@@ -2,10 +2,10 @@
 title: Overzicht van Media Services bewerkingen REST-API | Microsoft Docs
 description: REST-API voor Media Services-overzicht
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: juliako;johndeu
-ms.openlocfilehash: 066959058576af830103aa98a12f0c36acfdbb14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 472408f1c367984d5f4e0e435366c4a0af2e5b34
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services operations REST-API-overzicht
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -42,7 +42,7 @@ De volgende overwegingen wanneer u de REST van toepassing.
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
         x-ms-version: 2.17
-        Authorization: Bearer <token> 
+        Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
         {
@@ -76,18 +76,18 @@ Hier volgt een set optionele headers:
 | Accepteer taal |'en', 'es', enzovoort. |Hiermee geeft u de gewenste taal voor het antwoord. |
 | Accepteer Charset |Type Charset zoals "UTF-8" |Standaardwaarde is UTF-8. |
 | X-HTTP-methode |HTTP-methode |Kan de clients of firewalls die HTTP-methoden zoals PUT of verwijderen voor het gebruik van deze methoden, via een tunnel via een GET-aanroep niet ondersteunen. |
-| Inhoudstype |Inhoudstype |Type inhoud van de aanvraagtekst in PUT- of POST-aanvragen. |
-| client-request-id |Reeks |Een aanroeper gedefinieerde waarde waarmee de aanvraag. Als u opgeeft, wordt deze waarde in het antwoordbericht voor het toewijzen van de aanvraag opgenomen. <p><p>**Belangrijk**<p>Waarden moeten worden beperkt tot 2096b (2k). |
+| Content-Type |Inhoudstype |Type inhoud van de aanvraagtekst in PUT- of POST-aanvragen. |
+| client-request-id |Tekenreeks |Een aanroeper gedefinieerde waarde waarmee de aanvraag. Als u opgeeft, wordt deze waarde in het antwoordbericht voor het toewijzen van de aanvraag opgenomen. <p><p>**Belangrijk**<p>Waarden moeten worden beperkt tot 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standaard-HTTP-antwoordheaders ondersteund door Media Services
 Hier volgt een set headers die kunnen worden geretourneerd voor u, afhankelijk van de resource die u zijn aangevraagd en de actie die u wilde uitvoeren.
 
 | Koptekst | Type | Waarde |
 | --- | --- | --- |
-| aanvraag-id |Reeks |Een unieke id voor de huidige bewerking, service gegenereerd. |
-| client-request-id |Reeks |Een id die is opgegeven door de aanroeper de oorspronkelijke aanvraag, indien aanwezig. |
+| aanvraag-id |Tekenreeks |Een unieke id voor de huidige bewerking, service gegenereerd. |
+| client-request-id |Tekenreeks |Een id die is opgegeven door de aanroeper de oorspronkelijke aanvraag, indien aanwezig. |
 | Date |RFC 1123 datum |De datum/tijd die de aanvraag is verwerkt. |
-| Inhoudstype |Varieert |Het inhoudstype van de antwoordtekst. |
+| Content-Type |Varieert |Het inhoudstype van de antwoordtekst. |
 | Codering van inhoud |Varieert |Gzip of verkleinen, indien nodig. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Standaard HTTP-termen die door Media Services worden ondersteund

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 0f560a02a51239cff0a7d4057ec7beb2f0f5c5c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f439c65d9b4fbeb78623312c426767f89dfd9fab
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: Multi-Factor Authentication in uw consumententoepassingen inschakelen
-Azure Active Directory (Azure AD) B2C wordt rechtstreeks geïntegreerd met [Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) zodat u een tweede beveiligingslaag aan de ervaringen van registreren en aanmelden in uw consumententoepassingen toevoegen kunt. En u kunt dit doen zonder een één regel code te schrijven. Wij ondersteunen momenteel verificatie voor telefoongesprekken en SMS-bericht. Als u zich kunnen registreren en aanmelden beleid hebt gemaakt, kunt u nog steeds multi-factor Authentication inschakelen.
+Azure Active Directory (Azure AD) B2C wordt rechtstreeks geïntegreerd met [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) zodat u een tweede beveiligingslaag aan de ervaringen van registreren en aanmelden in uw consumententoepassingen toevoegen kunt. En u kunt dit doen zonder een één regel code te schrijven. Wij ondersteunen momenteel verificatie voor telefoongesprekken en SMS-bericht. Als u zich kunnen registreren en aanmelden beleid hebt gemaakt, kunt u nog steeds multi-factor Authentication inschakelen.
 
 > [!NOTE]
 > Multi-factor Authentication kan ook worden ingeschakeld wanneer u zich kunnen registreren en aanmelden beleidsregels, niet alleen bestaande beleidsregels bewerken.

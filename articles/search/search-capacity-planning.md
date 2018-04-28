@@ -1,25 +1,18 @@
 ---
 title: Capaciteitsplanning voor Azure Search | Microsoft Docs
 description: Partitie en replica computerbronnen in Azure Search, waarbij een prijs van elke resource in factureerbare search-eenheden aanpassen.
-services: search
-documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 1dc16afe-56f9-439d-8874-1733ae1a2b74
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 08ae64aa92d7262b462ad105aa8e776bdaef15c0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Resource schaalniveaus voor query's en workloads in Azure Search indexeren
 Nadat u [Kies een prijscategorie](search-sku-tier.md) en [inrichten van een zoekservice](search-create-service-portal.md), de volgende stap is het eventueel verhogen van het aantal replica's of partities die worden gebruikt door uw service. Elke laag biedt een vast aantal facturering eenheden. Dit artikel wordt uitgelegd hoe deze eenheden om te zorgen voor een optimale configuratie die door een compromis uw vereisten voor het uitvoeren van de query tussen, indexeren en de opslag toewijzen.
@@ -111,10 +104,10 @@ Deze tabel ziet de SUs vereist ter ondersteuning van combinaties van replica's e
 | **1 replica** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 replica 's** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 replica 's** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 replica 's** |4 SU |8 SU |12 SU |16 SU |24 SU |N.v.t. |
-| **5 replica 's** |5 SU |10 SU |15 SU |20 SU |30 SU |N.v.t. |
-| **6 replica 's** |6 SU |12 SU |18 SU |24 SU |36 SU |N.v.t. |
-| **12 replica 's** |12 SU |24 SU |36 SU |N.v.t. |N.v.t. |N.v.t. |
+| **4 replica 's** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
+| **5 replica 's** |5 SU |10 SU |15 SU |20 SU |30 SU |N/A |
+| **6 replica 's** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
+| **12 replica 's** |12 SU |24 SU |36 SU |N/A |N/A |N/A |
 
 SUs-prijzen en capaciteit zijn in detail uitgelegd op de Azure-website. Zie voor meer informatie [prijsinformatie](https://azure.microsoft.com/pricing/details/search/).
 

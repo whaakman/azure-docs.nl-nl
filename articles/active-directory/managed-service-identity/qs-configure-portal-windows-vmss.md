@@ -13,45 +13,50 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: d9b493203a78aebdfadef15cf53d9cc023bb66f8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: af17bf716ce22bc7c02d40def36248facb6fbcc4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="configure-an-azure-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Een Azure virtuele Machine Scale ingesteld beheerde Service identiteit (MSI) met de Azure portal configureren
+# <a name="configure-a-vmss-managed-service-identity-msi-using-the-azure-portal"></a>Een VMSS beheerde Service identiteit (MSI) met de Azure portal configureren
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om alle services die Azure AD-verificatie ondersteunt, zonder referenties in uw code te verifiëren. 
 
-In dit artikel leert u informatie over het inschakelen en MSI voor een virtuele machine van Azure-schaalset verwijderen met behulp van de Azure-portal.
+In dit artikel leert u hoe inschakelen en uitschakelen van het systeem toegewezen identiteit voor een VMSS, met de Azure portal. Toe te wijzen en verwijderen van de gebruiker toegewezen identiteiten uit een Azure-VMSS is momenteel niet ondersteund via Azure Portal.
+
+> [!NOTE]
+> Gebruiker toegewezen identiteit bewerkingen worden op dit moment niet ondersteund via Azure Portal. Controleer regelmatig op updates.
 
 ## <a name="prerequisites"></a>Vereisten
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-## <a name="enable-msi-during-creation-of-azure-virtual-machine-scale-set"></a>MSI inschakelen bij het maken van Azure virtuele-machineschaalset
+- Als u niet bekend met de Service-identiteit beheerd bent, bekijk de [overzichtssectie van](overview.md).
+- Als u al een Azure-account niet hebt [aanmelden voor een gratis account](https://azure.microsoft.com/free/) voordat u doorgaat.
 
-Vanaf het moment van schrijven van dit wordt MSI inschakelen tijdens het maken van een virtuele-machineschaalset ingesteld in de Azure-portal niet ondersteund. In plaats daarvan, Raadpleeg de volgende virtuele machine van Azure scale set maken Quick Start artikel eerst een Azure virtuele-machineschaalset maken:
+## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Beheerde Service-identiteit bij het maken van een Azure virtuele-machineschaalset
+
+Maken van VM's via Azure portal ondersteunt op dit moment niet beheerd Service-identiteit bewerkingen. In plaats daarvan, Raadpleeg de volgende virtuele machine van Azure scale set maken Quick Start artikel eerst een Azure virtuele-machineschaalset maken:
 
 - [Een virtuele-Machineschaalset maken in de Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 Gaat u verder met de volgende sectie voor meer informatie over het inschakelen van MSI op de virtuele-machineschaalset.
 
-## <a name="enable-msi-on-an-existing-azure-vmms"></a>MSI op een bestaande Azure-VMMS inschakelen
+## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Service-identiteit beheerd op een bestaande Azure-VMMS inschakelen
 
-Als u een virtuele-machineschaalset die oorspronkelijk was ingericht zonder een MSI-bestand hebt:
+Het systeem toegewezen identiteit op een virtuele machine die oorspronkelijk was ingericht zonder deze inschakelen:
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account die is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
 
 2. Navigeer naar de gewenste virtuele-machineschaalset.
 
-3. Klik op de **configuratie** pagina, MSI inschakelen op de virtuele-machineschaalset instellen door te selecteren **Ja** onder 'Beheerde identiteit service', klik vervolgens op **opslaan**. Deze bewerking duurt 60 seconden of langer om te voltooien:
+3. Inschakelen van de identiteit van de automatisch toegewezen op de virtuele machine door het selecteren van 'Ja' onder 'Identiteit beheerde service' en klik vervolgens op **opslaan**. Deze bewerking duurt 60 seconden of langer om te voltooien:
 
-   ![Schermopname van configuratie-pagina](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)  
+   [![Schermopname van configuratie-pagina](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
-## <a name="remove-msi-from-an-azure-virtual-machine-scale-set"></a>MSI uit een Azure virtuele-machineschaalset verwijderen
+## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Managed Service-identiteit uit een Azure virtuele-machineschaalset verwijderen
 
 Als u een virtuele-machineschaalset die een MSI-bestand niet meer nodig hebt:
 
@@ -59,13 +64,16 @@ Als u een virtuele-machineschaalset die een MSI-bestand niet meer nodig hebt:
 
 2. Navigeer naar de gewenste virtuele-machineschaalset.
 
-3. Klik op de **configuratie** pagina, MSI verwijdert uit de virtuele-machineschaalset instellen door te selecteren **Nee** onder **beheerde service-identiteit**, klikt u vervolgens op **opslaan** . Deze bewerking duurt 60 seconden of langer om te voltooien:
+3. Uitschakelen van het systeem toegewezen identiteit op de virtuele machine door als u op 'Nee' onder 'Identiteit beheerde service' en klik op opslaan. Deze bewerking duurt 60 seconden of langer om te voltooien:
 
    ![Schermopname van configuratie-pagina](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
 
+## <a name="related-content"></a>Gerelateerde inhoud
+
+- Zie voor een overzicht van de Service-identiteit beheerd [overzicht](overview.md).
+
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](overview.md).
 - Azure Portal gebruikt, Geef een virtuele machine van Azure schaalset MSI [toegang tot een andere Azure-resource](howto-assign-access-portal.md).
 
 Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm.

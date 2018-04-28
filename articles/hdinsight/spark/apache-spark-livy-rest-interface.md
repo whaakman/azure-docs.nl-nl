@@ -3,7 +3,7 @@ title: Livy Spark gebruiken voor het verzenden van taken met Spark op Azure HDIn
 description: Informatie over het Apache Spark REST API gebruiken om Spark-taken op afstand met een Azure HDInsight-cluster te verzenden.
 keywords: Apache spark rest-api, spark livy
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -11,21 +11,19 @@ tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 05a50488793482ef761f34f4729c52181bc3eaf4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29cf245a03b38be4f5396a3c83c966a27cf038f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API gebruiken om externe taken met een HDInsight Spark-cluster te verzenden
 
-Informatie over het gebruik van Livy, Apache Spark REST API, die wordt gebruikt voor het verzenden van externe taken naar een Azure HDInsight Spark-cluster. Zie voor gedetailleerde documentatie [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
+Informatie over het gebruik van Livy, Apache Spark REST API, die wordt gebruikt voor het verzenden van externe taken naar een Azure HDInsight Spark-cluster. Zie voor gedetailleerde documentatie [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
 
 Hier kunt u interactieve Spark houders uitvoeren of verzenden van batchtaken worden uitgevoerd op Spark. In dit artikel wordt gesproken over met behulp van Livy om batchtaken te verzenden. De codefragmenten in dit artikel wordt cURL gebruiken om REST-API-aanroepen naar de Livy Spark-eindpunt.
 

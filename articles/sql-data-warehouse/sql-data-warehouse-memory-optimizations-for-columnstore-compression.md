@@ -2,23 +2,19 @@
 title: De columnstore-index prestaties - Azure SQL Data Warehouse verbeteren | Microsoft Docs
 description: Verminder de geheugenvereisten of vergroot de hoeveelheid beschikbaar geheugen om het aantal rijen comprimeren van een columnstore-index in elke rijgroep maximaliseren.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 6484f457731bb1b97f01df339eaf1b0aebf924c1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 909b53e65fd893575a944d714f99698c7e45387d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Het optimaliseren van rijgroep kwaliteit voor columnstore
 
@@ -38,7 +34,7 @@ Tijdens het bulksgewijs laden of columnstore-index opnieuw opbouwen is soms er o
 
 Wanneer er onvoldoende geheugen voor het comprimeren van minimaal 10.000 rijen in elke rijgroep, wordt er een fout gegenereerd in SQL Data Warehouse.
 
-Zie voor meer informatie over bulksgewijs laden [bulksgewijs laden in een geclusterde columnstore-index](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Zie voor meer informatie over bulksgewijs laden [bulksgewijs laden in een geclusterde columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Het bewaken van rijgroep kwaliteit
 
@@ -153,11 +149,3 @@ Stel dat u vastgesteld dat er 700 MB geheugen voor het ophalen van hoge kwalitei
 
 Ga voor meer manieren om de prestaties verbeteren in SQL Data Warehouse, Zie de [prestatieoverzicht](sql-data-warehouse-overview-manage-user-queries.md).
 
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->

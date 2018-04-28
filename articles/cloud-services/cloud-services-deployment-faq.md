@@ -2,10 +2,10 @@
 title: Problemen bij de implementatie voor veelgestelde vragen over Microsoft Azure Cloud Services | Microsoft Docs
 description: Dit artikel worden de veelgestelde vragen over de implementatie voor Microsoft Azure Cloud Services.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: effc0eb872a1f63e32c1958234c173a53c381620
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen bij de implementatie voor Azure Cloud Services: veelgestelde vragen (FAQ's)
 
@@ -79,4 +79,4 @@ Aangezien de Cloudservice een klassieke resource die niet rechtstreeks compatibe
 
 Het pakket is geüpload naar de API-beheerlaag rechtstreeks in de klassieke portal en vervolgens de API-laag tijdelijk plaatst het pakket naar een interne storage-account.  Dit proces zorgt ervoor dat problemen met prestaties en schaalbaarheid omdat de API-laag niet ontworpen is om te worden van een bestand uploaden-service.  In de Azure portal (Resource Manager-implementatiemodel), hebben we de tussentijdse stap van het eerste uploaden naar de API-laag omzeild waardoor sneller en betrouwbaarder implementaties. 
 
-Als de kosten voor zeer kleine is en u kunt hetzelfde opslagaccount opnieuw gebruiken in alle implementaties. U kunt de [opslag kosten Rekenmachine](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) om te bepalen van de kosten voor het uploaden van het servicepakket (CSPKG), de CSPKG downloaden en verwijder vervolgens de CSPKG. 
+Als de kosten voor zeer kleine is en u kunt hetzelfde opslagaccount opnieuw gebruiken in alle implementaties. U kunt de [opslag kosten Rekenmachine](https://azure.microsoft.com/pricing/calculator/#storage1) om te bepalen van de kosten voor het uploaden van het servicepakket (CSPKG), de CSPKG downloaden en verwijder vervolgens de CSPKG. 

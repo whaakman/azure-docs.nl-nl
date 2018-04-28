@@ -3,23 +3,23 @@ title: PowerShell-voorbeelden voor op basis van een groep licentieverlening in A
 description: PowerShell-scenario's voor Azure Active Directory op basis van een groep licentieverlening
 services: active-directory
 keywords: Azure AD-licentieverlening
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 04/23/2018
 ms.author: curtand
-ms.openlocfilehash: 6a518f9c7ddb11de2b459d5d28c404316eb62355
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60387840b9a155c3d8494efb2d41cc094d05504b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-voorbeelden voor op basis van een groep licentieverlening in Azure AD
 
@@ -28,8 +28,8 @@ Volledige functionaliteit voor licentieverlening op basis van een groep is besch
 > [!NOTE]
 > Voordat u begint dat u de cmdlets uitvoert, moet u eerst verbinding maakt met uw tenant, door het uitvoeren van de `Connect-MsolService` cmdlet.
 
->[!WARNING]
->Deze code is bedoeld als voorbeeld voor demonstratiedoeleinden. Als u van plan bent om deze te gebruiken in uw omgeving, kunt u eerst testen op kleine schaal of in een afzonderlijke testtenant. U moet de code om te voldoen aan de specifieke behoeften van uw omgeving aanpassen.
+> [!WARNING]
+> Deze code is bedoeld als voorbeeld voor demonstratiedoeleinden. Als u van plan bent om deze te gebruiken in uw omgeving, kunt u eerst testen op kleine schaal of in een afzonderlijke testtenant. U moet de code om te voldoen aan de specifieke behoeften van uw omgeving aanpassen.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Weergave productlicenties toegewezen aan een groep
 De [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet kan worden gebruikt voor het ophalen van het groepsobject en controleer de *licenties* eigenschap: geeft een lijst van alle productlicenties momenteel toegewezen aan de groep.
@@ -202,17 +202,17 @@ Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-12
 Hier volgt een andere versie van het script dat wordt gezocht alleen in groepen die licentie fouten bevatten. Het kan meer worden geoptimaliseerd voor scenario's waarin u verwacht dat bepaalde groepen met problemen hebben.
 
 ```
-Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
-    $user = $_;
-    $user.IndirectLicenseErrors | % {
-            New-Object Object |
-                Add-Member -NotePropertyName UserName -NotePropertyValue $user.DisplayName -PassThru |
-                Add-Member -NotePropertyName UserId -NotePropertyValue $user.ObjectId -PassThru |
-                Add-Member -NotePropertyName GroupId -NotePropertyValue $_.ReferencedObjectId -PassThru |
-                Add-Member -NotePropertyName LicenseError -NotePropertyValue $_.Error -PassThru
-        }
-    }
-```
+$groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
+    foreach ($groupId in $groupIds) {
+    Get-MsolGroupMember -All -GroupObjectId $groupId.ObjectID |
+        Get-MsolUser -ObjectId {$_.ObjectId} |
+        Where {$_.IndirectLicenseErrors -and $_.IndirectLicenseErrors.ReferencedObjectId -eq $groupId.ObjectID} |
+        Select DisplayName, `
+               ObjectId, `
+               @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId.ObjectID} | Select -ExpandProperty Error}}
+ 
+    } 
+``` 
 
 ## <a name="check-if-user-license-is-assigned-directly-or-inherited-from-a-group"></a>Controleer of de licentie is toegewezen rechtstreeks of van een groep overgenomen
 

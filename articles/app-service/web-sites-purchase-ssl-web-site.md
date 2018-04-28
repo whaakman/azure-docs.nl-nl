@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 759bd1e8be8aaebbf98e1c02d67f3e56609354aa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 63592a1a1c20dd25e5eea66d501f26efeaf0cf21
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
@@ -101,7 +101,7 @@ In de  **[Azure-portal](https://portal.azure.com/)**, klikt u op de **App Servic
 
 Klik op de naam van uw app waaraan u dit certificaat wilt toewijzen.
 
-In de **instellingen**, klikt u op **SSL-certificaten**.
+In de **instellingen**, klikt u op **SSL-instellingen**.
 
 Klik op **App Service-certificaat importeren** en selecteer het certificaat dat u zojuist hebt aangeschaft.
 
@@ -206,5 +206,7 @@ Als uw SSL-certificaat is geconfigureerd voor automatisch verlengen, maar deze n
 
 ## <a name="more-resources"></a>Meer bronnen
 
+* [HTTPS afdwingen](app-service-web-tutorial-custom-ssl.md#enforce-https)
+* [TLS 1.1/1.2 afdwingen](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
 * [Een SSL-certificaat gebruiken in uw toepassingscode in Azure App Service](app-service-web-ssl-cert-load.md)
 * [Veelgestelde vragen over: App Service-certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

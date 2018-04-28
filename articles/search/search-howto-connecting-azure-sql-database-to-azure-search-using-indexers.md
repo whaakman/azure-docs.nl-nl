@@ -1,24 +1,19 @@
 ---
 title: Verbinding maken met Azure SQL-Database naar Azure Search met behulp van indexeerfuncties | Microsoft Docs
 description: Informatie over het ophalen van gegevens uit Azure SQL Database naar een Azure Search-index met de indexeerfuncties.
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: e9bbf352-dfff-4872-9b17-b1351aae519f
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: eugenesh
-ms.openlocfilehash: a5198cc6e3b019fc6fd241f22c4da088f0839066
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 02b4e8cb4963a5c12b528630e8e7906d6c5307fe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Verbinding maken met Azure SQL Database in Azure Search met indexeerfuncties
 

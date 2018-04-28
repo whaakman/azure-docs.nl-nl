@@ -2,10 +2,10 @@
 title: Azure Active Directory-v2.0 en het protocol OpenID Connect | Microsoft Docs
 description: Webtoepassingen bouwen met behulp van de Azure AD v2.0-implementatie van het OpenID Connect-verificatieprotocol.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 3f5b6a68cf6ee38d1dc2317381ec33f035c57569
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory-v2.0 en het protocol OpenID Connect
 OpenID Connect is een authenticatieprotocol dat is gebaseerd op OAuth 2.0 die u gebruiken kunt voor het veilig Meld u aan een gebruiker aan een webtoepassing. Wanneer u het v2.0-eindpunt implementatie van OpenID Connect gebruikt, kunt u aanmelden en toegang tot API toevoegen aan uw web gebaseerde apps. In dit artikel wordt beschreven hoe u te doen dit onafhankelijk van de taal. We beschrijven hoe verzenden en ontvangen van HTTP-berichten zonder een Microsoft open source-bibliotheken.
@@ -29,7 +29,7 @@ OpenID Connect is een authenticatieprotocol dat is gebaseerd op OAuth 2.0 die u 
 > 
 > 
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) breidt het OAuth 2.0 *autorisatie* protocol moet worden gebruikt als een *verificatie* protocol, zodat u één uitvoeren kunt aanmelding met OAuth. OpenID Connect introduceert het concept van een *token ID*, dit is een beveiligingstoken waarmee de client de identiteit van de gebruiker. Het token ID wordt ook basisprofiel informatie over de gebruiker. Omdat het OpenID Connect breidt OAuth 2.0, apps veilig kunnen verkrijgen *toegang tot tokens*, die kan worden gebruikt voor toegang tot resources die zijn beveiligd met een [autorisatie server](active-directory-v2-protocols.md#the-basics). Het is raadzaam dat u OpenID Connect als u een [webtoepassing](active-directory-v2-flows.md#web-apps) die wordt gehost op een server en geopend via een browser.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) breidt het OAuth 2.0 *autorisatie* protocol moet worden gebruikt als een *verificatie* protocol, zodat u één uitvoeren kunt aanmelding met OAuth. OpenID Connect introduceert het concept van een *token ID*, dit is een beveiligingstoken waarmee de client de identiteit van de gebruiker. Het token ID wordt ook basisprofiel informatie over de gebruiker. Omdat het OpenID Connect breidt OAuth 2.0, apps veilig kunnen verkrijgen *toegang tot tokens*, die kan worden gebruikt voor toegang tot resources die zijn beveiligd met een [autorisatie server](active-directory-v2-protocols.md#the-basics). Het v2.0-eindpunt kunt ook apps van derden die zijn geregistreerd bij Azure AD-toegangstokens voor beveiligde resources, zoals Web-API's uitgeven. Zie voor meer informatie over het instellen van een toepassing uitgeven toegangstokens [het registreren van een app met het v2.0-eindpunt](active-directory-v2-app-registration.md). Het is raadzaam dat u OpenID Connect als u een [webtoepassing](active-directory-v2-flows.md#web-apps) die wordt gehost op een server en geopend via een browser.
 
 ## <a name="protocol-diagram-sign-in"></a>Protocol diagram: aanmelden
 De meest eenvoudige aanmelding-stroom heeft de stappen die u in het volgende diagram. Elke stap in detail in dit artikel worden beschreven.
@@ -94,18 +94,18 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Klik op de volgende koppeling om het uitvoeren van deze aanvraag. Nadat u zich aanmeldt, wordt uw browser wordt omgeleid naar https://localhost/myapp/ met een token ID in de adresbalk. Let op: maakt gebruik van deze aanvraag `response_mode=query` (voor demonstratiedoeleinden alleen). Het is raadzaam dat u `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/Authorize...</a>
+> Klik op de volgende koppeling om het uitvoeren van deze aanvraag. Nadat u zich aanmeldt, kunt u uw browser wordt omgeleid naar https://localhost/myapp/, met een token ID in de adresbalk. Let op: maakt gebruik van deze aanvraag `response_mode=query` (voor demonstratiedoeleinden alleen). Het is raadzaam dat u `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 
 | Parameter | Voorwaarde | Beschrijving |
 | --- | --- | --- |
-| Tenant |Vereist |U kunt de `{tenant}` waarde in het pad van de aanvraag om te bepalen wie bij de toepassing aanmelden zich. De toegestane waarden zijn `common`, `organizations`, `consumers`, en het tenant-id's. Zie voor meer informatie [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints). |
+| tenant |Vereist |U kunt de `{tenant}` waarde in het pad van de aanvraag om te bepalen wie bij de toepassing aanmelden zich. De toegestane waarden zijn `common`, `organizations`, `consumers`, en het tenant-id's. Zie voor meer informatie [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints). |
 | client_id |Vereist |De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
 | response_type |Vereist |Moet bevatten `id_token` voor OpenID Connect aanmelden. Het kan ook betekenen dat andere `response_types` waarden, zoals `code`. |
 | redirect_uri |Aanbevolen |De omleidings-URI van uw app, waarbij verificatie reacties kunnen worden verzonden en ontvangen door uw app. Moet exact overeenkomen met een van de omleidings-URI's die u in de portal hebt geregistreerd, behalve dat het moet een URL zijn gecodeerd. |
-| Bereik |Vereist |Een door spaties gescheiden lijst met bereiken. Voor het OpenID Connect, het bereik moet bevatten `openid`, die wordt omgezet in de machtiging 'Aanmelden u' in de gebruikersinterface van de toestemming. U kunt ook andere bereiken opnemen in deze aanvraag voor toestemming wordt gevraagd. |
+| scope |Vereist |Een door spaties gescheiden lijst met bereiken. Voor het OpenID Connect, het bereik moet bevatten `openid`, die wordt omgezet in de machtiging 'Aanmelden u' in de gebruikersinterface van de toestemming. U kunt ook andere bereiken opnemen in deze aanvraag voor toestemming wordt gevraagd. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die wordt opgenomen in de resulterende id_token-waarde als een claim. De app kunt controleren of deze waarde om te beperken token replay-aanvallen. De waarde is doorgaans een willekeurige, unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
 | response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van de resulterende autorisatiecode terug naar uw app. Een van `query`, `form_post`, of `fragment`. Voor webtoepassingen, wordt u aangeraden `response_mode=form_post`, zodat de meest beveiligde overdracht van tokens voor uw toepassing. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord worden geretourneerd. Een tekenreeks van alle inhoud die u wilt dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor [aanvraagvervalsing op meerdere sites aanvallen te voorkomen](http://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de gebruiker is op weergave. |
@@ -221,8 +221,8 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 ```
 
 > [!TIP]
-> Klik op de volgende koppeling om het uitvoeren van deze aanvraag. Nadat u zich aanmeldt, wordt uw browser wordt omgeleid naar https://localhost/myapp/ met een token ID en een code in de adresbalk. Let op: maakt gebruik van deze aanvraag `response_mode=query` (voor demonstratiedoeleinden alleen). Het is raadzaam dat u `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/Authorize...</a>
+> Klik op de volgende koppeling om het uitvoeren van deze aanvraag. Nadat u zich aanmeldt, uw browser wordt omgeleid naar https://localhost/myapp/, met een token ID en een code in de adresbalk. Let op: maakt gebruik van deze aanvraag `response_mode=query` (voor demonstratiedoeleinden alleen). Het is raadzaam dat u `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 

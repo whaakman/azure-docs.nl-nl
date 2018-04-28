@@ -2,7 +2,7 @@
 title: 'Zelfstudie: BlueJeans configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en gebruikersaccounts aan BlueJeans ongedaan in te richten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd-msft
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: 55a907bdab57ce73533361782a3890466e3076ea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9b071d166f741df523d6343ba771b7a29cd4a303
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Zelfstudie: BlueJeans configureren voor het automatisch gebruikers inrichten
 
@@ -104,7 +104,7 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-service
 
 5. Onder de **beheerdersreferenties** sectie, voer de **Admin Username**, en **beheerderswachtwoord** van uw account BlueJeans. Voorbeelden van deze waarden zijn:
 
-    *   In de **Admin Username** veld, de gebruikersnaam van het beheerdersaccount op uw Tenant BlueJeans vullen. Voorbeeld: admin@contoso.com.
+    *   In de **Admin Username** veld, de gebruikersnaam van het beheerdersaccount op uw tenant BlueJeans vullen. Voorbeeld: admin@contoso.com.
 
     *   In de **beheerderswachtwoord** veld, vult u het wachtwoord dat overeenkomt met de gebruikersnaam van de beheerder.
 
@@ -112,7 +112,7 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-service
 
     ![BlueJeans inrichten](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
-7. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet het inrichtingsproces fout meldingen ontvangen en schakel het selectievakje **e-mailmelding verzenden wanneer een foutoptreedt**.
+7. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet het inrichtingsproces fout meldingen ontvangen en schakel het selectievakje in - **e-mailmelding verzenden wanneer een foutoptreedt**.
 
     ![BlueJeans inrichten](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
@@ -143,6 +143,10 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-service
 Deze bewerking begint de initiële synchronisatie van alle gebruikers en/of groepen die zijn gedefinieerd **bereik** in de **instellingen** sectie. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de Azure AD-service inricht wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenrapport waarin alle acties die worden uitgevoerd door de Azure AD-service op BlueJeans inricht.
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](./active-directory-saas-provisioning-reporting.md).
+
+## <a name="connector-limitations"></a>Connector-beperkingen
+
+* Bluejeans gebruikersnamen die langer dan 30 tekens zijn niet toegestaan.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

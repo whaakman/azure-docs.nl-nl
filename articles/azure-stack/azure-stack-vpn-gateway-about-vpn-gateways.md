@@ -2,10 +2,10 @@
 title: Over VPN-gateway voor Azure-Stack | Microsoft Docs
 description: Meer informatie over en configureren van VPN-gateways die u met Azure-Stack gebruiken.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ba9642d8c51f57623aded44b84d7127334806bc1
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: MT
+ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Over VPN-gateway voor Azure-Stack
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
@@ -87,13 +87,14 @@ Houd rekening met het volgende als u een SKU selecteert:
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Geschatte geaggregeerde doorvoer per SKU
 In de volgende tabel ziet u de gatewaytypen en de geschatte geaggregeerde doorvoer per gateway-SKU.
 
-|   | Doorvoer VPN-Gateway *(1)* |Max. IPsec-tunnels VPN-Gateway |
+|   | Doorvoer VPN-Gateway *(1)* | VPN-Gateway max. IPsec-tunnels *(2)* |
 |-------|-------|-------|
-|**Basis-SKU** ***(2)***    | 100 Mbps  | 10    |
+|**Basis-SKU** ***(3)***    | 100 Mbps  | 10    |
 |**Standaard SKU**       | 100 Mbps  | 10    |
-|**Hoge prestaties SKU** | 200 Mbps    | 30    |
+|**Hoge prestaties SKU** | 200 Mbps    | 5 |
 ***(1)***  De VPN-doorvoer is niet een gegarandeerde doorvoer voor cross-premises verbindingen via Internet. Het is een meting van de maximaal mogelijke doorvoer.  
-***(2)***  BGP wordt niet ondersteund voor de basis-SKU.
+***(2)***  Max tunnels aantal is het totale aantal per Azure-Stack-implementatie voor alle abonnementen.
+***(3)***  BGP wordt niet ondersteund voor de basis-SKU.
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [instellingen voor VPN-gateways](azure-stack-vpn-gateway-settings.md) voor Azure-Stack.

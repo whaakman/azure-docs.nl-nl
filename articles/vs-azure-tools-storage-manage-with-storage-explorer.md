@@ -1,11 +1,11 @@
 ---
-title: Aan de slag met Opslagverkenner (Preview) | Microsoft Docs
-description: Azure Storage-resources beheren met Opslagverkenner (Preview)
+title: Aan de slag met Opslagverkenner | Microsoft Docs
+description: Azure storage-resources beheren met Opslagverkenner
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
@@ -14,33 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
+ms.openlocfilehash: e8ebbd1a0ac2153913a2e5f506505ffb481b3822
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="get-started-with-storage-explorer-preview"></a>Aan de slag met Opslagverkenner (Preview)
+# <a name="get-started-with-storage-explorer"></a>Aan de slag met Opslagverkenner
 ## <a name="overview"></a>Overzicht
-Azure Storage Explorer (Preview) is een zelfstandige app waarmee u eenvoudig met Azure Storage-gegevens kunt werken via Windows, macOS en Linux. In dit artikel leert u verschillende manieren om verbinding te maken met en beheren van uw Azure storage-accounts.
+Azure Storage Explorer is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux. In dit artikel leert u verschillende manieren om verbinding te maken met en beheren van uw Azure storage-accounts.
 
-![Microsoft Azure Storage Explorer (voorbeeld)][0]
+![Microsoft Azure Storage Explorer][0]
 
 ## <a name="prerequisites"></a>Vereisten
-* [Opslagverkenner (Preview) downloaden en installeren](http://www.storageexplorer.com)
 
-> [!NOTE]
-> Voor Linux-distributies dan Ubuntu 16.04, moet u wellicht handmatig enkele afhankelijkheden te installeren. In het algemeen zijn de volgende pakketten vereist:
-> * libgconf-2-4
-> * libsecret
-> * Up-to-date GCC
->
-> Afhankelijk van uw distro mogelijk zijn er andere pakketten die u wilt installeren. Opslagverkenner [releaseopmerkingen](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) specifieke stappen voor een aantal distributies bevatten.
->
->
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+Azure Storage Explorer wordt ondersteund door de volgende versies van Windows:
+
+* Windows 10 (aanbevolen)
+* Windows 8
+* Windows 7
+
+[Download en installeer Opslagverkenner](http://www.storageexplorer.com)
+
+# <a name="macostabmacos"></a>[MacOS](#tab/macos)
+Azure Storage Explorer wordt ondersteund door de volgende versies van Mac OS:
+
+* Mac OS 10,12 'Sierra' en latere versies
+
+[Download en installeer Opslagverkenner](http://www.storageexplorer.com)
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+Azure Storage Explorer wordt ondersteund door de volgende distributies van Linux:
+
+* Ubuntu 16.04 x64 (aanbevolen)
+* Ubuntu 17.10 x64
+* Ubuntu 14.04 x64
+
+Azure Storage Explorer werkt mogelijk op andere distributies, maar alleen bovenstaande officieel ondersteund.
+
+U moet ook de volgende afhankelijkheden/bibliotheken geïnstalleerd voor uitvoering van Azure Storage Exploer op Linux hebben:
+
+* [.NET core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* libsecret (Opmerking: libsecret 1.so.0 moet beschikbaar zijn op uw computer. Als u een andere versie van libsecret geïnstalleerd hebt, kunt u proberen het bestand .so soft libsecret 1.so.0 koppelen)
+* libgconf-2-4
+* Up-to-date GCC
+
+De Azure Storage Explorer [releaseopmerkingen](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) specifieke stappen voor een aantal distributies bevatten.
+
+[Download en installeer Opslagverkenner](http://www.storageexplorer.com)
+
+---
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Verbinding maken met een opslagaccount of -service
-Opslagverkenner (Preview) biedt verschillende manieren om verbinding te maken met opslagaccounts. U kunt bijvoorbeeld:
+Storage Explorer biedt verschillende manieren om verbinding te maken met opslagaccounts. U kunt bijvoorbeeld:
 * Verbinding maken met de opslagaccounts die zijn gekoppeld aan uw Azure-abonnementen.
 * Verbinding maken met de opslagaccounts en -services die via andere Azure-abonnementen worden gedeeld.
 * Verbinding maken met lokale opslag en lokale opslag beheren met de Azure-opslagemulator. 
@@ -60,7 +87,7 @@ Bovendien kunt u wereldwijd en nationaal werken met opslagaccounts in Azure:
 >
 >
 
-1. Selecteer in Opslagverkenner (Preview) **Accounts beheren** naar de **Account Management Panel**.
+1. Selecteer in Opslagverkenner **Accounts beheren** naar de **Account Management Panel**.
 
     ![Accounts beheren][1]
 
@@ -79,7 +106,7 @@ Bovendien kunt u wereldwijd en nationaal werken met opslagaccounts in Azure:
     ![Geselecteerde Azure-abonnementen][4]
 
 ## <a name="work-with-local-development-storage"></a>Werken met lokale ontwikkelingsopslag
-Met Opslagverkenner (Preview) kunt u met lokale opslag werken via de Azure-opslagemulator. Deze aanpak kunt u werken met Azure Storage simuleren zonder dat hiervoor een opslagaccount dat is geïmplementeerd in Azure, omdat het opslagaccount wordt gesimuleerd door de Azure-Opslagemulator.
+Met Opslagverkenner, kunt u werken met lokale opslag met behulp van de Azure-Opslagemulator. Deze aanpak kunt u werken met Azure Storage simuleren zonder dat hiervoor een opslagaccount dat is geïmplementeerd in Azure, omdat het opslagaccount wordt gesimuleerd door de Azure-Opslagemulator.
 
 > [!NOTE]
 > De Azure-opslagemulator wordt momenteel alleen door Windows ondersteund.
@@ -91,7 +118,7 @@ Met Opslagverkenner (Preview) kunt u met lokale opslag werken via de Azure-opsla
 >
 >
 
-1. Vouw in het linkerdeelvenster van Opslagverkenner (Preview), de **(lokaal en Attached)** > **Opslagaccounts** > **(ontwikkeling)**  >  **Blob-Containers** knooppunt.
+1. Vouw in het linkerdeelvenster van Opslagverkenner, de **(lokaal en Attached)** > **Opslagaccounts** > **(ontwikkeling)**  >  **Blob-Containers** knooppunt.
 
     ![Node lokale ontwikkeling][5]
 
@@ -102,12 +129,9 @@ Met Opslagverkenner (Preview) kunt u met lokale opslag werken via de Azure-opsla
 3. Wanneer de emulator is geïnstalleerd, kunt u lokale blobs, wachtrijen en tabellen maken en hiermee werken. Raadpleeg voor meer informatie over het werken met elk opslagaccounttype, de volgende handleidingen:
 
     * [Resources voor Azure Blob Storage beheren](vs-azure-tools-storage-explorer-blobs.md)
-    * Opslagresources voor het delen van Azure-bestanden beheren: *binnenkort beschikbaar*
-    * Resources voor Azure Queue Storage beheren: *binnenkort beschikbaar*
-    * Resources voor Azure Table Storage beheren: *binnenkort beschikbaar*
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Koppelen aan een extern opslagaccount of de koppeling opheffen
-Met Opslagverkenner (Preview) kunt u externe opslagaccounts koppelen zodat opslagaccounts eenvoudig kunnen worden gedeeld. In dit gedeelte wordt uitgelegd hoe u externe opslagaccounts koppelt (en hoe u de koppeling opheft).
+Met Opslagverkenner kunt u om externe opslagaccounts te koppelen, zodat de storage-accounts kunnen eenvoudig worden gedeeld. In dit gedeelte wordt uitgelegd hoe u externe opslagaccounts koppelt (en hoe u de koppeling opheft).
 
 ### <a name="get-the-storage-account-credentials"></a>De opslagaccountreferenties ophalen
 Als u wilt delen een extern opslagaccount, moet de eigenaar van dat account eerst de referenties (accountnaam en -sleutel) ontvangen voor het account en vervolgens delen dat gegevens met de persoon die wil koppelen aan deze account. U kunt de opslagaccountreferenties via de Azure-portal verkrijgen tijdens het doorzoeken van de volgende stappen uit:
@@ -120,7 +144,7 @@ Als u wilt delen een extern opslagaccount, moet de eigenaar van dat account eers
 
 4. In de lijst met **Opslagaccounts**, selecteer het gewenste opslagaccount.
 
-5. Onder **instellingen**, selecteer **toegangssleutels**.
+5. Selecteer **Toegangssleutels** bij **Instellingen**.
 
     ![Optie Toegangssleutels][7]
 
@@ -129,9 +153,9 @@ Als u wilt delen een extern opslagaccount, moet de eigenaar van dat account eers
     ![Toegangssleutels][8]
 
 ### <a name="attach-to-an-external-storage-account"></a>Koppelen aan een extern opslagaccount
-Als u verbinding wilt maken met een extern opslagaccount, moet u de accountaam en -sleutel opgeven. In het gedeelte 'De opslagaccountreferenties ophalen' wordt uitgelegd hoe u deze waarden verkrijgt in de Azure Portal. In de portal wordt de accountsleutel echter **key1** genoemd. Dus wanneer Opslagverkenner (Preview) om een accountsleutel wordt gevraagd, voert u de **key1** waarde.
+Als u verbinding wilt maken met een extern opslagaccount, moet u de accountaam en -sleutel opgeven. In het gedeelte 'De opslagaccountreferenties ophalen' wordt uitgelegd hoe u deze waarden verkrijgt in de Azure Portal. In de portal wordt de accountsleutel echter **key1** genoemd. Dus wanneer Opslagverkenner om een accountsleutel wordt gevraagd, voert u de **key1** waarde.
 
-1. Open in Opslagverkenner (Preview), de **dialoogvenster verbinding**.
+1. Open in Opslagverkenner de **dialoogvenster verbinding**.
 
     ![Verbinding maken met de optie Azure Storage][9]
 
@@ -172,10 +196,10 @@ Een voorbeeld van dit scenario: stel gebruiker A is beheerder van een Azure-abon
 
 2. Gebruiker a deelt de SAS met de persoon die wil de toegang tot het opslagaccount (gebruiker b, in dit voorbeeld).  
 
-3. Gebruiker B gebruikt Opslagverkenner (Preview) om verbinding te maken met het account van gebruiker A via de opgegeven SAS.
+3. Gebruiker b gebruikt Opslagverkenner koppelen aan het account dat bij GebruikerA hoort met behulp van de opgegeven SAS.
 
 ### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Genereren van een SAS-verbindingsreeks voor de account die u wilt delen
-1. In Opslagverkenner (Preview) met de rechtermuisknop op het opslagaccount dat u wilt delen, en selecteer vervolgens **Shared Access Signature ophalen...** .
+1. Met de rechtermuisknop op het opslagaccount dat u wilt delen, en selecteer vervolgens in Opslagverkenner **Shared Access Signature ophalen...** .
 
     ![Optie SAS-contextmenu ophalen][14]
 
@@ -186,7 +210,7 @@ Een voorbeeld van dit scenario: stel gebruiker A is beheerder van een Azure-abon
 3. Naast de **verbindingsreeks** in het tekstvak, selecteer **kopie** naar het Klembord kopiëren en klik vervolgens op **sluiten**.
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Koppelen aan een opslagaccount met behulp van een SAS-verbindingsreeks
-1. Open in Opslagverkenner (Preview), de **dialoogvenster verbinding**.
+1. Open in Opslagverkenner de **dialoogvenster verbinding**.
 
     ![Verbinding maken met de optie Azure Storage][9]
 
@@ -213,12 +237,9 @@ De sectie 'Een storage-account koppelen via een SAS' wordt uitgelegd hoe de behe
 In deze context is een service een blobcontainer, wachtrij, tabel, of bestandsshare. Zie voor het genereren van de SAS voor een vermelde service:
 
 * [De SAS ophalen voor een blobcontainer](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-* De SAS ophalen voor het delen van bestanden: *binnenkort beschikbaar*
-* De SAS ophalen voor een wachtrij: *binnenkort beschikbaar*
-* De SAS ophalen voor een tabel: *binnenkort beschikbaar*
 
 ### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>Koppelen aan de gedeelde-accountservice met behulp van een SAS-URI
-1. Open in Opslagverkenner (Preview), de **dialoogvenster verbinding**.
+1. Open in Opslagverkenner de **dialoogvenster verbinding**.
 
     ![Verbinding maken met de optie Azure Storage][9]
 
@@ -251,7 +272,7 @@ Naast het beheer van Azure DB die Cosmos accounts via Azure-abonnement moet een 
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Verbinding maken met Azure Data Lake Store URI verwijst
 Als u toegang wilt krijgen tot de resources die niet aanwezig zijn in uw abonnement, maar anderen de URI voor de resources aan u geven. In dit geval kunt u de URI gebruiken om verbinding te maken met Data Lake Store nadat u bent aangemeld. Bekijk de volgende stappen.
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 2. Vouw **Lokaal en gekoppeld** uit in het linkerdeelvenster.
 3. Klik met uw rechtermuisknop op **Data Lake Store** en selecteer **Verbinding maken met Data Lake Store...** in het contextmenu.
 
@@ -276,9 +297,9 @@ Terwijl u in het zoekvak typt, worden alle bronnen die overeenkomen met de zoekw
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Azure Blob Storage-resources beheren met Opslagverkenner (Preview)](vs-azure-tools-storage-explorer-blobs.md)
+* [Azure Blob Storage-resources beheren met Opslagverkenner](vs-azure-tools-storage-explorer-blobs.md)
 * [Beheren van Azure Cosmos DB in Azure Opslagverkenner (Preview)](./cosmos-db/storage-explorer.md)
-* [Azure Data Lake Store-resources beheren met Opslagverkenner (preview)](./data-lake-store/data-lake-store-in-storage-explorer.md)
+* [Azure Data Lake Store-resources beheren met Opslagverkenner](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

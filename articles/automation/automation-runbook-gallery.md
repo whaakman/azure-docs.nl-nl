@@ -1,5 +1,5 @@
 ---
-title: "Runbook- en galerieën voor Azure Automation"
+title: Runbook- en galerieën voor Azure Automation
 description: Runbooks en modules van Microsoft en de community zijn beschikbaar voor u installeren en gebruiken in uw Azure Automation-omgeving.  Dit artikel wordt beschreven hoe u toegang hebt tot deze bronnen en bij te dragen van uw runbooks aan de galerie.
 services: automation
 ms.service: automation
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6a9298c0b7331bfa8af76eb904d256f6302816bf
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fe0e38e384f9f3d40bc6f7556cdb5e6dee9b4395
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- en galerieën voor Azure Automation
 In plaats van uw eigen runbooks en modules in Azure Automation, kunt u toegang tot allerlei scenario's die al zijn gebouwd door Microsoft en de community.  U kunt deze scenario's zonder aanpassingen gebruiken of u kunt ze als uitgangspunt gebruiken en ze bewerken voor uw specifieke vereisten.
@@ -25,7 +25,7 @@ De [Runbookgalerie](http://gallery.technet.microsoft.com/scriptcenter/site/searc
 U kunt alleen met de importeren rechtstreeks vanuit de Runbookgalerie met de Azure portal. U kunt deze functie met Windows PowerShell niet uitvoeren.
 
 > [!NOTE]
-> U moet controleren of de inhoud van alle runbooks die u niet uit de Runbookgalerie ophalen en uiterst voorzichtig met het installeren en uit te voeren in een productieomgeving. |
+> De inhoud van alle runbooks die u niet uit de Runbookgalerie ophalen en uiterst voorzichtig met het installeren en uit te voeren in een productieomgeving, moet u valideren.
 > 
 > 
 

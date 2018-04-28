@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e4de55d99fce1cb1feff18a784eb029d3cb6a404
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b1d990337c7c5caaee79bc8e3280c2690fc47b0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Zelfstudie: Azure Active Directory-integratie met Form.com
 
@@ -101,16 +101,16 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_samlbase.png)
 
 3. Op de **Form.com domein en de URL's** sectie, voert u de volgende stappen uit:
 
     ![URL's en Form.com domein eenmalige aanmelding informatie](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.wa-form.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.wa-form.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.form.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.form.com`
 
     c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:
     | |
@@ -118,46 +118,26 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
     | `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
     
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke aanmeldings-URL, antwoord-URL en id. Neem contact op met [Form.com Client ondersteuningsteam](https://form.com/about/company/contact-us/) ophalen van deze waarden. 
- 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+    > [!NOTE]
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke aanmeldings-URL, antwoord-URL en id. Neem contact op met [Form.com Client ondersteuningsteam](https://form.com/about/company/contact-us/) ophalen van deze waarden.
 
-    ![De downloadkoppeling certificaat](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_certificate.png) 
-
-5. Voor het genereren van de **metagegevens-URL**, voer de volgende stappen uit:
-
-    a. Klik op **App registraties**.
+4. Op de **certificaat voor ondertekening van SAML** sectie, voert u de volgende stappen uit:
     
-    ![Appreg configureren](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appregistrations.png)
-   
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Endpointcon configureren](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpointicon.png)
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-formcom-tutorial/tutorial_metadataurl.png)
 
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-    
-    ![-Eindpunt configureren](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpoint.png)
+    a. Klik op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+
+    b. Klik op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
      
-    d. Nu gaat u naar de eigenschappenpagina van **Form.com** en kopieer de **toepassings-Id** met **kopie** knop en plak deze in Kladblok.
- 
-    ![Appid configureren](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appid.png)
-
-    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Klik op **opslaan** knop.
+5. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-formcom-tutorial/tutorial_general_400.png)
 
-7. Op de **Form.com configuratie** sectie, klikt u op **configureren Form.com** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+6. Op de **Form.com configuratie** sectie, klikt u op **configureren Form.com** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![Form.com configuratie](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_configure.png) 
 
-8. Eenmalige aanmelding configureren op **Form.com** zijde, moet u de gedownloade verzenden **certificaat (Base64)**, **metagegevens-URL**, en **SAML Single Sign-On Service-URL** naar [Form.com ondersteuningsteam](https://form.com/about/company/contact-us/). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+7. Eenmalige aanmelding configureren op **Form.com** zijde, moet u de gedownloade verzenden **certificaat (Base64)**, **App-Url voor federatieve metagegevens**, en **SAML Single Sign-On Service-URL** naar [Form.com ondersteuningsteam](https://form.com/about/company/contact-us/). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -232,7 +212,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Form.com in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Form.com.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

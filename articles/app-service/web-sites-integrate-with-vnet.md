@@ -2,7 +2,7 @@
 title: Een app integreren met een Azure-netwerk
 description: Ziet u hoe u een app in Azure App Service verbinden met een nieuwe of bestaande virtuele Azure-netwerk
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
 editor: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83f5c64926eb9b718463c415a5478af374245f31
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-netwerk
 Dit document beschrijft de integratiefunctie van Azure App Service virtueel netwerk en ziet u hoe u met apps in instelt [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Als u niet bekend bent met Azure Virtual Networks (vnet's), is dit een functie waarmee u veel van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met een aantal VPN-technologieën. Voor meer informatie over Azure Virtual Networks, beginnen met de informatie hier: [Azure Virtual Network-overzicht][VNETOverview]. 
@@ -57,7 +57,8 @@ Hier volgen een aantal zaken rekening moet houden voordat u uw web-app verbinden
 
 * VNet-integratie werkt alleen met apps in een **standaard**, **Premium**, of **geïsoleerd** plan prijzen. Als u de functie inschakelen en vervolgens uw App Service Plan een plan voor niet-ondersteunde prijscategorie uw apps de verbinding verbroken aan de VNets die ze gebruiken te schalen. 
 * Als het virtuele doelnetwerk al bestaat, moet de punt-naar-site VPN is ingeschakeld met een gateway voor dynamische routering voordat deze kan worden verbonden met een app hebben. Als uw gateway is geconfigureerd met statische routering, kunt u de punt-naar-site virtueel particulier netwerk (VPN) niet inschakelen.
-* Het VNet moet zich in hetzelfde abonnement als uw App Service-Plan(ASP). 
+* Het VNet moet zich in hetzelfde abonnement als uw App Service-Plan(ASP).
+* Als uw gateway al met punt bestaat-naar-site is ingeschakeld en deze zich niet in de basis-SKU, moet u IKEV2 uitgeschakeld in de configuratie van de punt-naar-site.
 * De apps die zijn geïntegreerd met een VNet gebruiken de DNS-server die is opgegeven voor dit VNet.
 * Standaard routeren uw integreren apps alleen verkeer in uw VNet op basis van de routes die zijn gedefinieerd in uw VNet. 
 
@@ -263,7 +264,7 @@ Nu zijn als uw VNet gehost VM toegang heeft tot uw on-premises systeem, maar uw 
 U kunt de App Service integreren met een Azure-netwerk met behulp van PowerShell. Zie voor een script kant-en-klaar [een app in Azure App Service verbinden met een Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>Hybride verbindingen en App Service-omgevingen
-Er zijn drie functies waarmee u toegang tot bronnen van de VNet die worden gehost. Ze zijn:
+Er zijn drie functies waarmee u toegang tot bronnen van de VNet die worden gehost. Dit zijn:
 
 * VNet-integratie
 * Hybride verbindingen

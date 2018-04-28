@@ -2,7 +2,7 @@
 title: Problemen oplossen met Apache Spark-cluster in Azure HDInsight | Microsoft Docs
 description: Meer informatie over problemen met Apache Spark-clusters in Azure HDInsight en hoe deze te omzeilen.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,24 +10,22 @@ tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Bekende problemen van Apache Spark-cluster in HDInsight
 
 Dit document houdt van alle bekende problemen voor de openbare preview van HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy lekt interactieve sessies
-Wanneer Livy opnieuw wordt gestart (van Ambari of vanwege headnode 0 virtuele machine opnieuw opstarten) met een interactieve sessie nog steeds actief is, wordt een sessie interactieve taak gelekt. Als gevolg hiervan worden nieuwe taken kunnen blijven steken bij de status goedgekeurd en kunnen niet worden gestart.
+Wanneer Livy opnieuw wordt opgestart (van Ambari of vanwege headnode 0 virtuele machine opnieuw opstarten) met een interactieve sessie nog steeds actief is, wordt een sessie interactieve taak gelekt. Als gevolg hiervan kunnen nieuwe taken worden vastgelopen in de status goedgekeurd.
 
 **Risicobeperking:**
 
@@ -54,7 +52,12 @@ Spark geschiedenis Server is niet automatisch gestart nadat een cluster is gemaa
 De geschiedenis-server handmatig starten vanaf Ambari.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Machtiging probleem in de logboekmap Spark
-Wanneer hdiuser een taak met spark-submit verzendt, er is een fout java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (toestemming geweigerd) en het Stuurprogrammalogboek is niet geschreven. 
+hdiuser wordt opgehaald van de volgende fout bij het verzenden van een taak met spark-verzenden van:
+
+```
+java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
+```
+En er zijn geen Stuurprogrammalogboek wordt geschreven. 
 
 **Risicobeperking:**
 
@@ -65,7 +68,7 @@ Wanneer hdiuser een taak met spark-submit verzendt, er is een fout java.io.FileN
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>Spark Phoenix connector wordt niet ondersteund
 
-De connector Spark Phoenix wordt momenteel niet ondersteund met een HDInsight Spark-cluster.
+HDInsight Spark-clusters bieden geen ondersteuning voor de connector Spark Phoenix.
 
 **Risicobeperking:**
 
@@ -75,10 +78,10 @@ In plaats daarvan moet u de Spark-HBase-connector gebruiken. Zie voor instructie
 Hier volgen enkele bekende problemen die betrekking hebben op Jupyter-notebooks.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Laptops met niet-ASCII-tekens in bestandsnamen
-Jupyter-notebooks die kunnen worden gebruikt in HDInsight Spark-clusters mag geen niet-ASCII-tekens in bestandsnamen. Als u probeert te uploaden van een bestand via de UI Jupyter een niet-ASCII-bestandsnaam heeft, mislukt de bewerking achtergrond (dat wil zeggen, Jupyter kunt u niet het bestand uploadt, maar een zichtbaar fout niet ofwel worden Veroorzaak). 
+Gebruik geen niet-ASCII-tekens in Jupyter-notebook bestandsnamen. Als u probeert te uploaden van een bestand via de UI Jupyter een niet-ASCII-bestandsnaam heeft, mislukt dit zonder een foutbericht wordt weergegeven. Jupyter kunt u niet het bestand uploadt, maar een zichtbaar fout niet ofwel worden genereert.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Fout tijdens het laden van notitieblokken van grotere
-U ziet mogelijk een fout  **`Error loading notebook`**  wanneer het laden van laptops die groter zijn.  
+U ziet mogelijk een fout **`Error loading notebook`** wanneer het laden van laptops die groter zijn.  
 
 **Risicobeperking:**
 

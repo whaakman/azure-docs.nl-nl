@@ -2,10 +2,10 @@
 title: Het gebruik van een Azure VM beheerde Service-identiteit voor aanmelden
 description: Stapsgewijze openen instructies en voorbeelden voor het gebruik van een Azure VM MSI-service-principal voor script-client zich aanmelden en resource.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4df404bbf56efbc3bb68f006f8aa0c7cdf0e86ac
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: MT
+ms.openlocfilehash: bae2d1c823c606cdb3202f2af1bdc4d577126868
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Het gebruik van een Azure VM beheerde Service identiteit (MSI) voor aanmelding 
 
@@ -51,7 +51,7 @@ Het volgende script toont hoe:
 2. Aanroepen van Azure Resource Manager en ophalen van de VM service principal-ID. CLI zorgt voor het beheren van de token overname/gebruik automatisch voor u. Zorg ervoor dat uw virtuele machine van de naam `<VM-NAME>`.  
 
    ```azurecli
-   az login --msi
+   az login --identity
    
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The MSI service principal ID is $spID
@@ -61,20 +61,11 @@ Het volgende script toont hoe:
 
 Het volgende script toont hoe:
 
-1. Verkrijgen van een MSI-toegangstoken voor de virtuele machine.  
-2. Gebruik het toegangstoken aan te melden bij Azure AD, onder de bijbehorende service-principal van MSI.   
-3. Aanroepen van een cmdlet voor Azure Resource Manager voor informatie over de virtuele machine. PowerShell zorgt voor het beheren van token gebruikt voor u automatisch.  
+1. aanmelden bij Azure AD onder de VM MSI service-principal  
+2. Aanroepen van een cmdlet voor Azure Resource Manager voor informatie over de virtuele machine. PowerShell zorgt voor het beheren van token gebruikt voor u automatisch.  
 
    ```azurepowershell
-   # Get an access token for the MSI
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
-                                 -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-   $content =$response.Content | ConvertFrom-Json
-   $access_token = $content.access_token
-   echo "The MSI access token is $access_token"
-
-   # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-   Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+   Add-AzureRmAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
    $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>

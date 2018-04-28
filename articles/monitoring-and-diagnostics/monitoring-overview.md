@@ -1,7 +1,7 @@
 ---
 title: Azure-toepassingen en bronnen bewaken | Microsoft Docs
 description: Overzicht van Microsoft-services en functies die aan een strategie voor een volledige controle voor uw Azure-services en toepassingen bijdragen.
-author: robb
+author: rboucher
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: c20e97e445dc79bdb65dcde40d323989005f5f5d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Bewaking van de Azure-toepassingen en bronnen
 
@@ -63,9 +63,9 @@ Metrische gegevens beschikbaar zijn die prestatiestatistieken bieden voor versch
 U kunt ook deze metrische gegevens en de logboeken Azure Log Analytics voor trends en gedetailleerde analyse verzenden of maken van aanvullende waarschuwingsregels proactief om u te waarschuwen van kritieke problemen als gevolg van deze analyse.  
 
 > [!NOTE]
-> Log Analytics multidimensionale metrische gegevens verzenden via de diagnostische instellingen is momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte één dimensionale metrische gegevens, getotaliseerd over dimensiewaarden.
+> Log Analytics multidimensionale metrische gegevens verzenden via de diagnostische instellingen is momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
 >
-> *Bijvoorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op een niveau van de wachtrij. Echter als geëxporteerd naar logboekanalyse de metrische gegevens worden weergegeven als alle binnenkomende berichten in alle wachtrijen in de Event Hub.
+> *Een voorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Echter als geëxporteerd naar logboekanalyse de metrische gegevens worden weergegeven als alle binnenkomende berichten in alle wachtrijen in de Event Hub.
 >
 >
 
@@ -161,6 +161,6 @@ Na een storing gemelde u Serviceoverzicht gebruiken om uit te voeren forensische
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over:
 
-* [Monitor voor Azure](https://azure.microsoft.com/en-us/services/monitor/) aan de slag met kernbewaking metrische gegevens en waarschuwingen.
+* [Monitor voor Azure](https://azure.microsoft.com/services/monitor/) aan de slag met kernbewaking metrische gegevens en waarschuwingen.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) als u probeert te analyseren van problemen in uw App Service-web-app.
 * [Meld u Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) voor het analyseren van verzamelde bewakingsgegevens en Logboeken.

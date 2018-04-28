@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ca9df36c642334d9323736abb51a931a6610fd3e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Klassieke metrische waarschuwingen in de Azure-Monitor maken voor Azure-services - PowerShell
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ U kunt configureren en informatie ophalen over met behulp van regels voor waarsc
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [Opdrachtregelinterface (CLI)](insights-alerts-command-line-interface.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Monitor voor Azure REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 Voor meer informatie, kunt u altijd typen ```Get-Help``` en vervolgens de PowerShell-opdracht op het gewenste help.
 
@@ -62,7 +62,7 @@ Voor meer informatie, kunt u altijd typen ```Get-Help``` en vervolgens de PowerS
 1. Aanmelden bij Azure.   
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     ```
 2. Een lijst van de abonnementen er beschikbaar zijn. Controleer of u werkt met het juiste abonnement. Als dit niet het geval is, stel deze in op de juiste is met behulp van de uitvoer van `Get-AzureRmSubscription`.

@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: cpendle
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8c284bb3637415186a12c63d4eeb088ab5f23e2e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f85a7b018085ce30550bec21fe41ca3f9253da80
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-location-based-services---supported-languages"></a>Services - ondersteunde talen op basis van een Azure-locatie
 Services voor Azure op basis van locatie zijn via de services in verschillende talen gelokaliseerd.  De volgende tabel bevat de ondersteunde taalcodes voor elke service.  
@@ -32,14 +32,14 @@ Services voor Azure op basis van locatie zijn via de services in verschillende t
 | ar-SA      | Arabisch                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | eu-ES      | Baskisch                 |       |        |         |                   |                |     ✓     |
 | bg-BG      | Bulgaars              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| ca-ES      | Catalaans                |       |    ✓   |         |                   |                |     ✓     |
+| CA-ES      | Catalaans                |       |    ✓   |         |                   |                |     ✓     |
 | zh-HanS    | Chinees (Vereenvoudigd)   |       |  zh-CN |         |                   |                |     ✓     |
-| zh-HanT    | Chinees (Traditioneel)  | zh-TW |  zh-TW |  zh-TW  |                   |      Zh-TW     |     ✓     |
+| zh-HanT    | Chinees (Traditioneel)  | zh-TW. |  zh-TW. |  zh-TW.  |                   |      zh-TW.     |     ✓     |
 | hr-HR      | Kroatisch               |       |    ✓   |         |                   |                |     ✓     |
 | cs-CZ      | Tsjechisch                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da-DK      | Deens                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| nl -NL     | Nederlands                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| nl-BE      | Nederlands (België)        |       |    ✓   |         |                   |                |     ✓     |
+| NL-NL      | Nederlands                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NL-worden      | Nederlands (België)        |       |    ✓   |         |                   |                |     ✓     |
 | nl         | Nederlands                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estisch               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Fins                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -48,13 +48,13 @@ Services voor Azure op basis van locatie zijn via de services in verschillende t
 | gl-ES      | Galicisch               |       |        |         |                   |                |     ✓     |
 | de-DE      | Duits                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | el-GR      | Grieks                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| he-IL      | Hebreeuws                 |       |        |         |         ✓         |                |     ✓     |
+| hij IL      | Hebreeuws                 |       |        |         |         ✓         |                |     ✓     |
 | hi-IN      | Hindi                  |       |        |         |                   |                |     ✓     |
 | hu-HU      | Hongaars              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | id-ID      | Indonesisch             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
-| it-IT      | Italiaans                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| IT-IT      | Italiaans                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japans               |       |        |         |                   |                |     ✓     |
-| kk-KZ      | Kazachs                 |       |        |         |                   |                |     ✓     |
+| Kk KZ      | Kazachs                 |       |        |         |                   |                |     ✓     |
 | ko-KR      | Koreaans                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | es-419     | Spaans Latijns-Amerika |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Lets                |       |    ✓   |         |         ✓         |                |     ✓     |
@@ -72,8 +72,8 @@ Services voor Azure op basis van locatie zijn via de services in verschillende t
 | sl-SL      | Sloveens              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | es-ES      | Spaans                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | Spaans (Mexico)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
-| sv -SE     | Zweeds                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| SV -SE     | Zweeds                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | th-TH      | Thais                   |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
 | tr-TR      | Turks                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| uk-UA      | Oekraïense               |       |        |         |                   |                |     ✓     |
+| VK UA      | Oekraïense               |       |        |         |                   |                |     ✓     |
 | vi-VN      | Vietnamees             |       |        |         |                   |                |     ✓     |

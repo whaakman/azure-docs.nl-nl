@@ -1,25 +1,18 @@
 ---
 title: RBAC-rollen voor Azure Search beheerderstoegang ingesteld in de portal | Microsoft Docs
 description: Op rollen gebaseerde beheer in de Azure portal.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
-tags: azure-portal
-ms.assetid: ''
+services: search
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: d14bf9b154c450d863d4d365c215e9712694a767
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1a463c9eb52ffe2a667cdeace7478e67233a0806
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>RBAC-rollen voor beheerderstoegang instellen
 

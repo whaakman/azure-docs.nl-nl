@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f44d8cc48d6bfee909c04b20136cd2be6f828a0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Continue integratie en implementatie in Azure Data Factory
 
@@ -92,7 +92,7 @@ Hier volgen de stappen voor het instellen van een Release VSTS zodat u kunt de i
 
     a.  De geheimen aan parameterbestand toevoegen:
 
-        -   Maak een kopie van de parameterbestand dat is geüpload naar de vertakking publiceren en stel de waarden van de parameters die u wilt ophalen uit de sleutelkluis met de volgende indeling:
+       -   Maak een kopie van de parameterbestand dat is geüpload naar de vertakking publiceren en stel de waarden van de parameters die u wilt ophalen uit de sleutelkluis met de volgende indeling:
 
         ```json
         {
@@ -102,24 +102,24 @@ Hier volgen de stappen voor het instellen van een Release VSTS zodat u kunt de i
                         "keyVault": {
                             "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
                         },
-                        "secretName": " &lt secret - name &gt "
+                        "secretName": " < secret - name > "
                     }
-                }        
+                }
             }
         }
         ```
 
-        -   Wanneer u deze methode gebruikt, wordt het geheim automatisch opgehaald uit de sleutelkluis.
+       -   Wanneer u deze methode gebruikt, wordt het geheim automatisch opgehaald uit de sleutelkluis.
 
-        -   De parameterbestand moet zich in de publiceren onderliggende items.
+       -   De parameterbestand moet zich in de publiceren onderliggende items.
 
     b.  Voeg een [Azure Key Vault taak](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
 
-        -   Selecteer de **taken** tabblad, een nieuwe taak maken, zoekt u **Azure Key Vault** en toe te voegen.
+       -   Selecteer de **taken** tabblad, een nieuwe taak maken, zoekt u **Azure Key Vault** en toe te voegen.
 
-        -   Kies in de Sleutelkluis-taak, het abonnement waarin u de sleutelkluis hebt gemaakt, Geef indien nodig referenties in en kies vervolgens de sleutelkluis.
+       -   Kies in de Sleutelkluis-taak, het abonnement waarin u de sleutelkluis hebt gemaakt, Geef indien nodig referenties in en kies vervolgens de sleutelkluis.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Een implementatie van Azure Resource Manager-taak toevoegen:
 

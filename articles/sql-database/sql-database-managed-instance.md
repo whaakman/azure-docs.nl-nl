@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ba57530c5708216ca7c990025d513144dcdf82a4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een exemplaar beheerd (preview)?
 
@@ -42,8 +42,6 @@ De volgende overzichten van de tabel van belangrijke verschillen en ontwikkelaar
 |Azure SQL Database (enkele of groep) |**Elastische pools**: voor klanten ontwikkelen van nieuwe multitenant SaaS-toepassingen of opzettelijk transformeert hun bestaande on-premises apps in een multitenant SaaS-app, voorstellen elastische pools. Voordelen van dit model zijn: <br><ul><li>Conversie van het bedrijfsmodel te verkopen, licenties te verkopen abonnementen (voor ISV's)</li></ul><ul><li>Isolatie van tenants eenvoudig en opsommingsteken bewijs</li></ul><ul><li>Een vereenvoudigde database gericht programmeermodel</li></ul><ul><li>De mogelijkheid uit te schalen zonder een vaste maximum op</li></ul>**Eén databases**: voor het ontwikkelen van nieuwe apps dan de multitenant SaaS, waarvan de werklast stabiel en voorspelbaar is, klanten voorstellen individuele databases. Voordelen van dit model zijn:<ul><li>Een vereenvoudigde database gericht programmeermodel</li></ul>  <ul><li>Voorspelbare prestaties voor elke database</li></ul>|
 |SQL-IaaS virtuele machine|Voor klanten die behoefte hebben aan voor het aanpassen van het besturingssysteem of de database-server, evenals klanten die de specifieke vereisten in termen van apps van derden door kant met SQL Server uitgevoerd (op dezelfde virtuele machine), SQL-VM's voorstellen / IaaS als de optimale oplossing|
 |||
-
-<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Een instantie worden beheerd via een programma te identificeren
 
@@ -224,5 +222,5 @@ Beheerde exemplaar inschakelen systeembeheerder om zich te richten op wat belang
 
 - Voor een functies en vergelijkingslijst Zie [algemene functies van SQL](sql-database-features.md).
 - Lees [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md) (VNet-configuratie voor beheerd exemplaar) voor meer informatie over VNet-configuratie.
-- Zie voor een zelfstudie maakt u een exemplaar beheerd en een database herstelt vanuit een back-upbestand [maken van een exemplaar beheerd](sql-database-managed-instance-tutorial-portal.md).
+- Zie voor een zelfstudie maakt u een exemplaar beheerd en een database herstelt vanuit een back-upbestand [maken van een exemplaar beheerd](sql-database-managed-instance-create-tutorial-portal.md).
 - Lees het artikel [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md) (Migratie van een beheerd exemplaar via DMS) voor een zelfstudie over gebruik van de Azure Database Migration Service (DMS).

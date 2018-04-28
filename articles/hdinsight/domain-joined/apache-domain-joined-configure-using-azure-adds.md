@@ -1,24 +1,19 @@
 ---
-title: Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services - Azure configureren | Microsoft Docs
+title: Domein-HDInsight-clusters met AAD DS configureren
 description: Meer informatie over het instellen en domein HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/20/2018
-ms.author: bhanupr
-ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 060ca8040f514ec1df48c2ca4568cbbb2a529267
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren
 
@@ -36,7 +31,10 @@ U moet maken van een Azure AD DS voordat u een HDInsight-cluster kunt maken. Zie
 > [!NOTE]
 > Alleen de pachterbeheerders hebben de bevoegdheden voor het maken van de domeinservices. Als u Azure Data Lake Storage (ADLS) als de standaard-opslag voor HDInsight, Controleer of dat de standaard Azure AD-tenant voor ADLS is hetzelfde als het domein voor het HDInsight-cluster. Multi-factor authentication-server moet worden uitgeschakeld voor gebruikers die toegang tot het cluster voor deze ingesteld om te werken met Azure Data Lake Store.
 
-Nadat de domeinservice is ingericht, moet u voor het maken van een serviceaccount in de **beheerders van Azure AD-DC** groep maken van het HDInsight-cluster. Het serviceaccount moet een globale beheerder op de Azure AD.
+Nadat de AAD-domein-service is ingericht, moet u een serviceaccount in AAD (die worden gesynchroniseerd naar AAD-DS) maken met de juiste machtigingen om de HDInsight-cluster te maken. Als deze serviceaccount al bestaat, moet u opnieuw instellen van het wachtwoord en wacht totdat deze wordt gesynchroniseerd met AAD-DS (deze bewerking leidt ertoe dat het maken van het kerberos-wachtwoord-hash en het kan tot 30 minuten duren). Deze serviceaccount mag de volgende bevoegdheid hebben:
+
+- Computers toevoegen aan het domein en plaats machine principals binnen de organisatie-eenheid die u tijdens het maken van het cluster opgeeft.
+- Service-principals binnen de organisatie-eenheid die u tijdens het maken van een cluster opgeeft maken.
 
 Beveiligde LDAP voor Azure AD Domain Services beheerd domein, moet u inschakelen. Zie voor het inschakelen van beveiligde LDAP [configureren beveiligde LDAP (LDAPS) voor een Azure AD Domain Services beheerd domein](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
@@ -49,7 +47,7 @@ Het is eenvoudiger om de service Azure AD-domein en het HDInsight-cluster in de 
 Wanneer u een domein HDInsight-cluster maakt, moet u de volgende parameters opgeven:
 
 - **Domeinnaam**: de domeinnaam die is gekoppeld aan Azure AD DS. Bijvoorbeeld: contoso.onmicrosoft.com
-- **Domeingebruikersnaam**: de serviceaccount in de groep beheerders van Azure AD-domeincontroller die is gemaakt in de vorige sectie. Bijvoorbeeld hdiadmin@contoso.onmicrosoft.com. Deze domeingebruiker is de beheerder van dit domein HDInsight-cluster.
+- **Domeingebruikersnaam**: de serviceaccount in de Azure AD-domeincontroller die is gemaakt in de vorige sectie. Bijvoorbeeld hdiadmin@contoso.onmicrosoft.com. Deze domeingebruiker worden de beheerder van dit domein HDInsight-cluster.
 - **Domeinwachtwoord**: het wachtwoord van het serviceaccount.
 - **Organisatie-eenheid**: de DN-naam van de organisatie-eenheid die u wilt gebruiken met HDInsight-cluster. Bijvoorbeeld: OU = HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com. Als deze organisatie-eenheid niet bestaat, wordt de HDInsight-cluster probeert te maken van deze organisatie-eenheid. 
 - **LDAPS URL**: bijvoorbeeld ldaps://contoso.onmicrosoft.com:636

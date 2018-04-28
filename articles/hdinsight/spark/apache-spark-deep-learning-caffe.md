@@ -2,7 +2,7 @@
 title: Gebruik Caffe op Azure HDInsight Spark voor gedistribueerde grondige learning | Microsoft Docs
 description: Gebruik Caffe op Azure HDInsight Spark voor gedistribueerde grondige learning
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: xiaoyongzhu
 manager: asadk
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 71dcd1ad-4cad-47ad-8a9d-dcb7fa3c2ff9
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: 7565efd82945f21b83471ee66098cd476b7bb59f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: bccd889ba8a063613f1f3f385b39e4bfe8afcc89
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Gebruik Caffe op Azure HDInsight Spark voor gedistribueerde grondige learning
 
@@ -31,27 +29,27 @@ Grondige learning is van invloed op alle gegevens van de gezondheidszorg voor ve
 
 Er zijn [veel populaire frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), waaronder [Microsoft cognitieve Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, enzovoort. Caffe is een van de grootste beroemdheid frameworks voor neurale netwerk wordt niet symbolische (imperatieve) en veel worden gebruikt in veel gebieden, waaronder computer vision. Bovendien [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combineert Caffe met Apache Spark, in welk geval diep learning gemakkelijk kan worden gebruikt op een bestaand Hadoop-cluster. U kunt grondige learning samen met Spark ETL pijplijnen, verminderen system complexiteit en latentie voor learning volledige oplossing gebruiken.
 
-[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/) een cloud Hadoop biedt die voorziet in analytische clusters geoptimaliseerde open-source Spark, Hive, Hadoop, HBase, Storm, Kafka en R Server. HDInsight wordt ondersteund door een SLA met 99,9%. Elk van deze big data-technologieën en ISV-toepassingen is eenvoudig te implementeren als beheerde clusters met beveiligings- en bewaking voor ondernemingen.
+[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/) een cloud Hadoop biedt geoptimaliseerde analytische open source-clusters en biedt voor Spark, Hive, Hadoop, HBase, Storm, Kafka en R Server. HDInsight wordt ondersteund door een SLA met 99,9%. Elk van deze big data-technologieën en ISV-toepassingen is eenvoudig te implementeren als beheerde clusters met beveiligings- en bewaking voor ondernemingen.
 
 In dit artikel laat zien hoe u voor het installeren van [Caffe op Spark](https://github.com/yahoo/CaffeOnSpark) voor een HDInsight-cluster. In dit artikel gebruikt ook de ingebouwde MNIST demo om het gebruik van gedistribueerd grondige Learning met HDInsight Spark op CPU's weer te geven.
 
-Er zijn vier hoofdstappen downloaden werken op HDInsight.
+Er zijn vier stappen de taak uit te voeren:
 
 1. De vereiste afhankelijkheden te installeren op alle knooppunten
 2. Caffe op Spark voor HDInsight voor het hoofdknooppunt bouwen
 3. De vereiste bibliotheken voor alle worker-knooppunten distribueren
 4. Een model Caffe opstellen en voer deze in een gedistribueerde manier.
 
-Aangezien HDInsight een PaaS-oplossing is, biedt uitstekende platformfuncties - zodat u gemakkelijk een aantal taken uit te voeren. Een van de functies die we veel in dit blogbericht gebruiken heet [scriptactie](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), waarmee u de shell-opdrachten voor het aanpassen van de clusterknooppunten (hoofdknooppunt, werkrolknooppunt of edge-knooppunt) kunt uitvoeren.
+Aangezien HDInsight een PaaS-oplossing is, biedt uitstekende platformfuncties - zodat u gemakkelijk een aantal taken uit te voeren. Een van de functies die wordt gebruikt in dit blogbericht heet [scriptactie](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), waarmee u de shell-opdrachten voor het aanpassen van de clusterknooppunten (hoofdknooppunt, werkrolknooppunt of edge-knooppunt) kunt uitvoeren.
 
 ## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>Stap 1: De vereiste afhankelijkheden installeren op alle knooppunten
 
-Om te beginnen, moet voor het installeren van de afhankelijkheden die we nodig hebben. De site Caffe en [CaffeOnSpark site](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) sommige wiki nuttig voor het installeren van de afhankelijkheden voor Spark op YARN-modus biedt. HDInsight gebruikt ook Spark op YARN-modus. Echter, moet enkele meer afhankelijkheden voor HDInsight platform toevoegen. Om dit te doen we gebruiken een scriptactie en uitvoeren op alle hoofdknooppunten en worker-knooppunten. Deze scriptactie duurt ongeveer 20 minuten, zoals die afhankelijkheden is ook afhankelijk van andere pakketten zijn. U moet deze plaatsen op een locatie die toegankelijk is voor uw HDInsight-cluster, zoals een GitHub-locatie of de standaard BLOB storage-account.
+Om te beginnen, moet u de afhankelijkheden te installeren. De site Caffe en [CaffeOnSpark site](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) sommige wiki nuttig voor het installeren van de afhankelijkheden voor Spark op YARN-modus biedt. HDInsight gebruikt ook Spark op YARN-modus. U moet echter een paar meer afhankelijkheden voor HDInsight platform toevoegen. Om dit te doen, moet u een script en uitvoeren op alle hoofdknooppunten en worker-knooppunten. Deze scriptactie duurt ongeveer 20 minuten, zoals die afhankelijkheden is ook afhankelijk van andere pakketten zijn. U moet deze plaatsen op een locatie die toegankelijk is voor uw HDInsight-cluster, zoals een GitHub-locatie of de standaard BLOB storage-account.
 
     #!/bin/bash
     #Please be aware that installing the below will add additional 20 mins to cluster creation because of the dependencies
     #installing all dependencies, including the ones mentioned in http://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
-    #It seems numpy will only needed during compilation time, but for safety purpose we install them on all the nodes
+    #It seems numpy will only needed during compilation time, but for safety purpose you install them on all the nodes
 
     sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler maven libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev build-essential  libboost-all-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 
@@ -67,9 +65,9 @@ Om te beginnen, moet voor het installeren van de afhankelijkheden die we nodig h
     echo "protobuf installation done"
 
 
-Er zijn twee stappen in de scriptactie. De eerste stap is het de vereiste bibliotheken installeren. Deze bibliotheken bevatten de benodigde bibliotheken voor zowel Caffe compileren (zoals gflags, glog) en het uitvoeren van Caffe (zoals numpy). We libatlas voor CPU-optimalisatie gebruiken, maar u kunt de wiki CaffeOnSpark altijd volgen over het installeren van andere bibliotheken optimalisatie zoals MKL of CUDA (voor GPU).
+Er zijn twee stappen in de scriptactie. De eerste stap is het de vereiste bibliotheken installeren. Deze bibliotheken bevatten de benodigde bibliotheken voor zowel Caffe compileren (zoals gflags, glog) en het uitvoeren van Caffe (zoals numpy). u libatlas gebruikt voor de optimalisatie van de CPU, maar u kunt de wiki CaffeOnSpark altijd volgen over het installeren van andere bibliotheken optimalisatie zoals MKL of CUDA (voor GPU).
 
-De tweede stap is het downloaden en protobuf 2.5.0 voor Caffe installeren tijdens de runtime worden gecompileerd. Protobuf 2.5.0 [is vereist](https://github.com/yahoo/CaffeOnSpark/issues/87), maar deze versie niet beschikbaar als een pakket op Ubuntu 16, is dus moeten we er tijdens het compileren van de broncode. Er zijn ook een aantal bronnen op het Internet voor het eerst compileren. Zie voor meer informatie [hier](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
+De tweede stap is het downloaden en protobuf 2.5.0 voor Caffe installeren tijdens de runtime worden gecompileerd. Protobuf 2.5.0 [is vereist](https://github.com/yahoo/CaffeOnSpark/issues/87), maar deze versie niet beschikbaar als een pakket op Ubuntu 16, is dus moet u tijdens het compileren van de broncode. Er zijn ook een aantal bronnen op het Internet voor het eerst compileren. Zie voor meer informatie [hier](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
 Om te beginnen, kunt u net uitvoeren met deze scriptactie op basis van uw cluster voor alle worker-knooppunten en hoofdknooppunten (voor HDInsight 3.5). U kunt de scriptacties uitvoeren op een bestaand cluster, of gebruik scriptacties tijdens het maken van het cluster. Zie de documentatie voor meer informatie over de scriptacties [hier](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
 
@@ -155,7 +153,7 @@ Waarschijnlijk ziet u een test-fout bij het uitvoeren van de laatste controle op
 
 ## <a name="step-3-distribute-the-required-libraries-to-all-the-worker-nodes"></a>Stap 3: Distribueert vereiste bibliotheken voor alle worker-knooppunten
 
-De volgende stap is het distribueren van de tapewisselaars (in feite de bibliotheken in CaffeOnSpark/caffe-openbare/distribueren/lib/en CaffeOnSpark/caffe-distri/distribueren/lib /) voor alle knooppunten. In stap 2, we deze bibliotheken in BLOB storage plaatsen en in deze stap gebruiken we scriptacties om deze te kopiëren naar de hoofdknooppunten en worker-knooppunten.
+De volgende stap is het distribueren van de tapewisselaars (in feite de bibliotheken in CaffeOnSpark/caffe-openbare/distribueren/lib/en CaffeOnSpark/caffe-distri/distribueren/lib /) voor alle knooppunten. In stap 2, u die bibliotheken in BLOB storage plaatsen en in deze stap maakt u scriptacties gebruiken om te kopiëren naar de hoofdknooppunten en worker-knooppunten.
 
 Voer hiertoe een scriptactie zoals weergegeven in het volgende fragment:
 
@@ -164,7 +162,7 @@ Voer hiertoe een scriptactie zoals weergegeven in het volgende fragment:
 
 Zorg ervoor dat u wilt, wijs de juiste locatie specifieke uw cluster)
 
-Omdat u in stap 2, we plaatsen in de BLOB-opslag die toegankelijk is voor alle knooppunten, in deze stap kopiëren alleen we deze voor alle knooppunten.
+Omdat u in stap 2, u deze plaatsen op de BLOB-opslag die toegankelijk is voor alle knooppunten, in deze stap kopiëren u zojuist hebt voor alle knooppunten.
 
 ## <a name="step-4-compose-a-caffe-model-and-run-it-in-a-distributed-manner"></a>Stap 4: Een model Caffe opstellen en deze in een gedistribueerde manier uitvoeren
 
@@ -172,13 +170,13 @@ Caffe is na het uitvoeren van de voorgaande stappen geïnstalleerd. De volgende 
 
 Caffe is een 'expressieve architectuur', waarbij voor het opstellen van een model, u alleen hoeft te definiëren van een configuratiebestand met en zonder codering helemaal (in de meeste gevallen). Dus laten we er. 
 
-Het model dat wordt getraind is een voorbeeld-model voor MNIST training. De database MNIST geschreven cijfers heeft een trainingset 60.000 voorbeelden en geen testset van 10.000 voorbeelden. Dit is een subset van een grotere set van NIST beschikbaar. De cijfers zijn grootte genormaliseerd en in het midden van de installatiekopie van een vaste grootte. CaffeOnSpark heeft sommige scripts voor het downloaden van de gegevensset en deze converteren naar de juiste indeling.
+Het model dat u trainen is een voorbeeld-model voor MNIST training. De database MNIST geschreven cijfers heeft een trainingset 60.000 voorbeelden en geen testset van 10.000 voorbeelden. Dit is een subset van een grotere set van NIST beschikbaar. De cijfers zijn grootte genormaliseerd en in het midden van de installatiekopie van een vaste grootte. CaffeOnSpark heeft sommige scripts voor het downloaden van de gegevensset en deze converteren naar de juiste indeling.
 
 CaffeOnSpark biedt een aantal voorbeelden van de netwerk-topologieën voor MNIST training. Er is een goed ontwerp van het splitsen van de netwerkarchitectuur (de topologie van het netwerk) en optimalisatie van. In dit geval zijn er twee bestanden vereist: 
 
-het bestand 'Solver '' (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) wordt gebruikt voor de optimalisatie overzien en updates van de parameter wordt gegenereerd. Bijvoorbeeld, definieert of CPU of GPU wordt gebruikt, wat is de dynamiek, het aantal iteraties zijn, enzovoort. Wordt ook gedefinieerd welke netwerktopologie neuron moet het programma gebruiken (dit is het tweede bestand we moeten). Zie voor meer informatie over Solver [Caffe documentatie](http://caffe.berkeleyvision.org/tutorial/solver.html).
+het bestand 'Solver '' (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) wordt gebruikt voor de optimalisatie overzien en updates van de parameter wordt gegenereerd. Bijvoorbeeld, definieert of CPU of GPU wordt gebruikt, wat is de dynamiek, het aantal iteraties zijn, enzovoort. Wordt ook gedefinieerd welke netwerktopologie neuron moet het programma gebruiken (dit is het tweede bestand dat u nodig). Zie voor meer informatie over Solver [Caffe documentatie](http://caffe.berkeleyvision.org/tutorial/solver.html).
 
-We gebruiken CPU in plaats van GPU, moeten we voor dit voorbeeld de laatste regel te wijzigen:
+Aangezien u CPU in plaats van GPU, moet u voor dit voorbeeld de laatste regel te wijzigen:
 
     # solver mode: CPU or GPU
     solver_mode: CPU
@@ -187,7 +185,7 @@ We gebruiken CPU in plaats van GPU, moeten we voor dit voorbeeld de laatste rege
 
 U kunt andere regels indien nodig wijzigen.
 
-De tweede (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt)-bestand definieert hoe het netwerk neuron eruit, en de relevante invoer- en -uitvoerbestand. Ook moet het bestand om de locatie van de gegevens training bijwerken. Wijzig het volgende gedeelte in lenet_memory_train_test.prototxt (u moet verwijzen naar de juiste locatie die specifiek zijn voor uw cluster):
+De tweede (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt)-bestand definieert hoe het netwerk neuron eruit, en de relevante invoer- en -uitvoerbestand. ook moet u het bestand om de locatie van de gegevens training bijwerken. Wijzig het volgende gedeelte in lenet_memory_train_test.prototxt (u moet verwijzen naar de juiste locatie die specifiek zijn voor uw cluster):
 
 - Wijzig de 'file:/Users/mridul/bigml/demodl/mnist_train_lmdb' in ' wasb: / / / projecten/machine_learning/image_dataset/mnist_train_lmdb '
 - wijzigen in 'file:/Users/mridul/bigml/demodl/mnist_test_lmdb/' ' wasb: / / / projecten/machine_learning/image_dataset/mnist_test_lmdb '
@@ -196,7 +194,7 @@ De tweede (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt)-bestand defi
 
 Raadpleeg voor meer informatie over het definiëren van het netwerk de [Caffe documentatie over MNIST gegevensset](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 
-In dit artikel gebruiken we in dit voorbeeld MNIST. De volgende opdrachten uitvoeren vanaf het hoofdknooppunt:
+In dit artikel wordt u in dit voorbeeld MNIST gebruiken. De volgende opdrachten uitvoeren vanaf het hoofdknooppunt:
 
     spark-submit --master yarn --deploy-mode cluster --num-executors 8 --files ${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt,${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt --conf spark.driver.extraLibraryPath="${LD_LIBRARY_PATH}" --conf spark.executorEnv.LD_LIBRARY_PATH="${LD_LIBRARY_PATH}" --class com.yahoo.ml.caffe.CaffeOnSpark ${CAFFE_ON_SPARK}/caffe-grid/target/caffe-grid-0.1-SNAPSHOT-jar-with-dependencies.jar -train -features accuracy,loss -label label -conf lenet_memory_solver.prototxt -devices 1 -connection ethernet -model wasb:///mnist.model -output wasb:///mnist_features_result
 
@@ -204,7 +202,7 @@ De voorgaande opdracht distribueert de vereiste bestanden (lenet_memory_solver.p
 
 ## <a name="monitoring-and-troubleshooting"></a>Bewaking en probleemoplossing
 
-We gebruiken YARN clustermodus, in dat geval het Spark-stuurprogramma wordt gepland om een willekeurige container (en een willekeurige werkrolknooppunt) weergegeven alleen in de console ongeveer als volgt uitvoeren:
+Aangezien u YARN clustermodus gebruikt, in dat geval het Spark-stuurprogramma wordt gepland om een willekeurige container (en een willekeurige werkrolknooppunt) weergegeven alleen in de console ongeveer als volgt uitvoeren:
 
     17/02/01 23:22:16 INFO Client: Application report for application_1485916338528_0015 (state: RUNNING)
 
@@ -214,7 +212,7 @@ Als u weten wat er gebeurd is wilt, moet u doorgaans de Spark ophalen van stuurp
    
 ![GEBRUIKERSINTERFACE VAN YARN](./media/apache-spark-deep-learning-caffe/YARN-UI-1.png)
 
-U kunt bekijken hoeveel resources worden toegewezen voor deze bepaalde toepassing op te nemen. U kunt klikken op de koppeling "Scheduler" en vervolgens ziet u dat voor deze toepassing, er zijn 9 containers die worden uitgevoerd. We vragen YARN voor 8 Executor en een andere container is voor stuurprogramma-proces. 
+U kunt bekijken hoeveel resources worden toegewezen voor deze bepaalde toepassing op te nemen. U kunt klikken op de koppeling "Scheduler" en vervolgens ziet u dat voor deze toepassing, er zijn negen containers die worden uitgevoerd. YARN voor acht Executor te vragen en een andere container is voor stuurprogramma-proces. 
 
 ![YARN Scheduler](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
 
@@ -271,7 +269,7 @@ van de headnode. Nadat u hebt gecontroleerd container mislukt, wordt dit veroorz
 
 ## <a name="getting-results"></a>Ophalen van resultaten
 
-Aangezien we 8 Executor toewijzen wilt en de netwerktopologie eenvoudig is, moet het alleen ongeveer 30 minuten duren om uit te voeren van het resultaat. Vanaf de opdrachtregel, ziet u dat we plaatst u het model voor wasb:///mnist.model, en de resultaten naar een map met de naam wasb: / / / mnist_features_result.
+Aangezien u 8 Executor toewijzen wilt en de netwerktopologie eenvoudig is, moet het alleen ongeveer 30 minuten duren om uit te voeren van het resultaat. Vanaf de opdrachtregel, ziet u dat u plaatst u het model naar wasb:///mnist.model, en de resultaten naar een map met de naam wasb: / / / mnist_features_result.
 
 U kunt de resultaten krijgen door te voeren
 

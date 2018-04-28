@@ -1,5 +1,3 @@
-U moet een aanmeldingsbeleid maken om aanmelden in te schakelen op uw toepassing. In dit beleid wordt de ervaring van consumenten bij het aanmelden beschreven en de inhoud van tokens die de toepassing ontvangt nadat aanmeldingen zijn voltooid.
-
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 Selecteer bij instellingen in de sectie Beleid de optie **Registratie- of aanmeldingsbeleid** en klik op **+Toevoegen**.

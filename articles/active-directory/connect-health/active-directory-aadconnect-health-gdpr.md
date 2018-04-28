@@ -1,36 +1,32 @@
 ---
-title: Azure AD Connect Health en algemene gegevens beveiliging regelgeving | Microsoft Docs
-description: Dit document beschrijft het verkrijgen van GDPR compliancy met Azure AD Connect.
+title: Azure AD Connect Health en Privacy van gebruikers | Microsoft Docs
+description: Dit document beschrijft de privacy van gebruikers met Azure AD Connect Health.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bf26e91308cfec0dc8ede20e683919b5764a4868
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect-health"></a>GDPR compatibiliteit en Azure AD Connect Health 
+# <a name="user-privacy-and-azure-ad-connect-health"></a>Privacy van gebruikers en Azure AD Connect Health 
 
-[Algemene gegevens beveiliging regelgeving (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is van een Europese Unie beveiliging en privacy-wet. De GDPR legt nieuwe regels voor bedrijven, overheidsinstanties, non-profitorganisaties en andere organisaties die waren en diensten aan te aan mensen in de EU of die bieden verzamelen en analyseren van gegevens die zijn gekoppeld aan de EU inwoners. 
-
-Microsoft-producten en services zijn vandaag beschikbaar waarmee u voldoen aan de vereisten GDPR. Meer informatie over het privacybeleid van Microsoft voor op [Vertrouwenscentrum](https://www.microsoft.com/trustcenter).
-
-Azure AD Connect Health controleert uw lokale-identity-service-infrastructuur en synchronisatie. Dit biedt u ook inzicht en verwerkingsinformatie waarschuwingen. Microsoft hecht GDPR-naleving van alle cloudservices wanneer het afdwingen van mei 2018 wordt gestart en GDPR-gerelateerde garantie in haar contractueel verplichtingen. 
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
-> In dit artikel bevat een overzicht van de naleving van de GDPR in Azure AD Connect Health. Zie voor informatie over de naleving van de GDPR in Azure AD Connect, [GDPR naleving en Azure AD Connect](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
+>In dit artikel gaat over Azure AD Connect Health en gebruiker privacy.  Zie het artikel voor informatie over Azure AD Connect en gebruiker privacy [hier](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
 
-## <a name="gdpr-classification"></a>GDPR classificatie
+## <a name="user-privacy-classification"></a>Gebruiker privacy classificatie
 Azure AD Connect Health worden onderverdeeld in de **gegevensprocessor** categorie van GDPR classificatie. De service biedt services voor gegevensverwerking een pijplijn gegevensprocessor tot belangrijke partners en end consumenten. Azure AD Connect Health genereert geen gebruikersgegevens en heeft geen onafhankelijke controle over welke persoonlijke gegevens worden verzameld en hoe deze wordt gebruikt. Gegevens ophalen, aggregatie, analyse en rapportage in Azure AD Connect Health zijn gebaseerd op bestaande on-premises gegevens. 
 
 ## <a name="data-retention-policy"></a>Beleid voor gegevensretentie
@@ -67,5 +63,5 @@ Als opnieuw wilt inschakelen in Azure AD Connect Health voor een eerder verwijde
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Het beleid voor Microsoft Privacy op Vertrouwenscentrum bekijken](https://www.microsoft.com/trustcenter)
-* [Azure AD Connect en GDPR](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
-* [Azure AD Connect Health-bewerkingen](active-directory-aadconnect-health-operations.md)
+* [Azure AD Connect en Privacy van gebruikers](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
+

@@ -2,22 +2,20 @@
 title: HBase oplossen met behulp van Azure HDInsight | Microsoft Docs
 description: Vind antwoorden op veelgestelde vragen over het werken met HBase en Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinver
 manager: ashitg
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.openlocfilehash: cd6315c192ad3c33d43406993b1a3e6bd6ec7e4d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 04d8e37791c12078754a661f7a1aa8a76a6b3c44
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>HBase oplossen met behulp van Azure HDInsight
 
@@ -47,7 +45,7 @@ Voor het maken van de niet-toegewezen gebieden terug naar een normale status, mo
 
 Een mogelijke oorzaak voor time-out van problemen wanneer u de `hbck` opdracht mogelijk verschillende regio's zijn in de status 'in de overgangsfase' gedurende een lange periode. Deze regio's kunt u zien als offline in de HBase-Master-UI. Omdat een groot aantal gebieden om een overgang probeert, HBase Master time-out mogelijk en geen regio's weer online brengen.
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. Meld u aan het HDInsight HBase-cluster via SSH.
 2. Voor verbinding met de ZooKeeper-shell, voer de `hbase zkcli` opdracht.
@@ -128,7 +126,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten. Het aantal knooppunten is lager dan of dicht bij de replicatie HDFS factor.
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen 
+### <a name="resolution-steps"></a>Oplossingen 
 
 1. De status van de HDFS ophalen op het HDInsight-cluster met de volgende opdrachten:
 
@@ -213,7 +211,7 @@ De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten
 
 ## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Hoe los JDBC of SQLLine verbinding problemen met Apache Phoenix?
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 Als u wilt verbinden met Phoenix, moet u het IP-adres van een actief ZooKeeper-knooppunt opgeven. Zorg ervoor dat de service ZooKeeper welke sqlline.py verbinding probeert te maken is actief.
 1. Meld u aan het HDInsight-cluster via SSH.
@@ -278,7 +276,7 @@ Tijdens het opstarten HMaster biedt een eenvoudige `list` opdracht op deze mappe
 
 Probeer om te bepalen van de tijdlijn van het maken van het bestand en controleer vervolgens of er is een proces crash rond de tijd die het bestand is gemaakt in de logboeken van de server regio. (Contact op met ondersteuning van HBase om u te helpen dit uit te voeren). Dit helpt ons bieden krachtiger mechanismen, zodat u kunt u door deze fout voorkomen en zorg ervoor dat de correcte proces afsluitingen over te slaan.
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 Controleer de aanroepstack en probeer het bepalen van de map waarin het probleem mogelijk worden veroorzaakt (bijvoorbeeld het moet mogelijk de map WALs of TMP). In de Cloud Explorer of via de HDFS-opdrachten, probeer het probleembestand te zoeken. Meestal is dit een \*-renamePending.json-bestand. (De \*-renamePending.json bestand is een journaalbestand dat wordt gebruikt voor het implementeren van de atomic naamswijziging in het stuurprogramma WASB. Als gevolg van fouten in deze implementatie van kunnen deze bestanden blijven via na proces crashes, enzovoort.) Force verwijderen van dit bestand in de Cloud Explorer of via de HDFS-opdrachten. 
 
@@ -294,7 +292,7 @@ Er is geen serveradres wordt vermeld in *hbase: meta* voor xxx regio.
 
 U ziet een bericht op uw Linux-cluster waarmee wordt aangegeven dat de *hbase: meta* tabel is niet online. Met `hbck` kunnen melden die ' hbase: meta tabel replicaId 0 is niet gevonden in elke regio. " Het probleem mogelijk HMaster kan niet initialiseren nadat u HBase opnieuw opgestart. In de logboeken HMaster ziet u het bericht: "Er is geen serveradres vermeld in hbase: meta voor regio hbase: back- \<regionaam\>'.  
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. Voer de volgende opdrachten (werkelijke waarden voor de wijziging van toepassing) in de HBase-shell:  
 
@@ -333,7 +331,7 @@ U kunt dit probleem kan optreden als er veel tabellen en regio's die niet is lee
 
 Dit is een bekend probleem met de service HMaster. Algemene cluster starten van de taken kunnen lang duren. HMaster afgesloten omdat de tabel naamruimte nog niet is toegewezen. Dit gebeurt alleen in scenario's waarin grote hoeveelheid gegevens unflushed bestaat en een time-out van vijf minuten is niet voldoende.
   
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. Ga in de UI Ambari naar **HBase** > **Configs**. Voeg de volgende instelling in het bestand aangepaste hbase-site.xml: 
 
@@ -411,7 +409,7 @@ Vanwege het abrupte afsluiten, kan de poort die is gekoppeld aan het proces niet
    ... 15 more
    ```
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. Wilt u de belasting op de HBase regio-servers te verminderen voordat u een opnieuw opstarten initiëren. 
 2. U kunt ook (als stap 1 niet help), probeer het opnieuw wilt opstarten regio servers op de worker-knooppunten met behulp van de volgende opdrachten:

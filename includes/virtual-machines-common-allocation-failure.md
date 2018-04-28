@@ -1,22 +1,91 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines-windows, azure-resource-manager
+author: genlin
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 04/14/2018
+ms.author: genli
+ms.custom: include file
+ms.openlocfilehash: 6377b79d986d32fba8f84c670d6b69d5eda98b8a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/18/2018
+---
+Wanneer u een virtuele machine (VM) maken, gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten of het formaat van een virtuele machine, wijst Microsoft Azure compute-bronnen aan uw abonnement. We zijn voortdurend investeren in extra infrastructuur en functies om ervoor te zorgen dat er altijd alle VM-typen die beschikbaar zijn voor de ondersteuning van de vraag van klanten hebben. Echter kan van tijd tot tijd toewijzingsfouten resource optreden vanwege een ongekende groei van de vraag voor Azure-services in specifieke gebieden. Dit probleem kan optreden wanneer u probeert te maken of virtuele machines in een regio terwijl de virtuele machines worden de volgende foutcode en het bericht weergegeven:
 
-Als uw Azure probleem niet wordt besproken in dit artikel, gaat u naar de [Azure-forums op MSDN en Stack Overflow](https://azure.microsoft.com/support/forums/). U kunt het probleem op deze forums of boeken @AzureSupport op Twitter. U kunt ook een ondersteuning van Azure-aanvraag indienen door te selecteren **ondersteuning krijgen** op de [ondersteuning van Azure](https://azure.microsoft.com/support/options/) site.
+**Foutcode**: AllocationFailed of ZonalAllocationFailed
 
-## <a name="general-troubleshooting-steps"></a>Algemene stappen voor probleemoplossing
-### <a name="troubleshoot-common-allocation-failures-in-the-classic-deployment-model"></a>Algemene toewijzingsfouten in het klassieke implementatiemodel
-Deze stappen oplossen veel toewijzingsfouten in virtuele machines:
+**Foutbericht**: 'toewijzing is mislukt. Er geen voldoende capaciteit voor de aangevraagde VM-grootte in deze regio. Meer informatie over het verbeteren van de kans op succes bij toewijzing http://aka.ms/allocation-guidance'
 
-* De grootte van de virtuele machine naar een andere VM-grootte.<br>
-    Klik op **door alle Bladeren** > **virtuele machines (klassiek)** > uw virtuele machine > **instellingen** > **grootte**. Zie voor gedetailleerde stappen [vergroten of verkleinen van de virtuele machine](https://msdn.microsoft.com/library/dn168976.aspx).
-* Alle virtuele machines van de cloudservice verwijderen en opnieuw maken van virtuele machines.<br>
-    Klik op **door alle Bladeren** > **virtuele machines (klassiek)** > uw virtuele machine > **verwijderen**. Klik vervolgens op **maken van een resource** > **Compute** > [installatiekopie van virtuele machine].
+Dit artikel wordt uitgelegd van de oorzaken van een deel van de algemene toewijzingsfouten en mogelijke oplossingen wordt voorgesteld.
 
-### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Algemene toewijzingsfouten in het Azure Resource Manager-implementatiemodel
-Deze stappen oplossen veel toewijzingsfouten in virtuele machines:
+Als uw Azure probleem niet wordt besproken in dit artikel, gaat u naar de [Azure-forums op MSDN en Stack Overflow](https://azure.microsoft.com/support/forums/). U kunt het probleem op deze forums of boeken @AzureSupport op Twitter. U kunt ook een aanvraag voor de ondersteuning van Azure indienen door het selecteren van Get-ondersteuning op de [ondersteuning van Azure](https://azure.microsoft.com/support/options/) site.
 
-* Gestopt (toewijzing ongedaan maken) alle VM's in de dezelfde beschikbaarheid instellen, start vervolgens elke service.<br>
-    Om te stoppen: klik op **resourcegroepen** > uw resourcegroep > **Resources** > uw beschikbaarheidsset > **virtuele Machines** > uw virtuele machine >  **Stop**.
-  
-    Nadat alle virtuele machines stoppen, selecteert u de eerste virtuele machine en klik op **Start**.
+We raden klanten die problemen met implementatie rekening te houden met de instructies in de volgende tabel als tijdelijke oplossing totdat het type van uw voorkeur VM in uw voorkeur regio beschikbaar is. 
+
+Identificeren van het scenario dat het meest geschikt is voor uw aanvraag en probeer de aanvraag voor geheugentoewijzing met behulp van de bijbehorende voorgestelde oplossing voor vergroot de kans van slagen van de toewijzing. U kunt ook u kunt altijd het later opnieuw. Dit komt doordat er onvoldoende bronnen is mogelijk vrijgemaakt in de regio-, cluster- of zone voor uw aanvraag. 
+
+
+## <a name="resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Wijzig het formaat van een virtuele machine of virtuele machines toevoegen aan een bestaande beschikbaarheidsset
+
+### <a name="cause"></a>Oorzaak
+
+Een aanvraag om de grootte van een virtuele machine of het toevoegen van dat een virtuele machine naar een bestaande beschikbaarheidsset moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de beschikbaarheid van de bestaande ingesteld. De aangevraagde VM-grootte wordt ondersteund door het cluster, maar het cluster kan momenteel geen voldoende capaciteit. 
+
+### <a name="workaround"></a>Tijdelijke oplossing
+
+Als de virtuele machine deel van een andere beschikbaarheidsset uitmaken kan, maakt u een virtuele machine in een andere beschikbaarheidsset (in dezelfde regio). Deze nieuwe virtuele machine kan vervolgens worden toegevoegd aan hetzelfde virtuele netwerk.
+
+Gestopt (toewijzing ongedaan maken) alle VM's in de dezelfde beschikbaarheid instellen, start vervolgens elke service.
+Om te stoppen: klik op resourcegroepen > [uw resourcegroep] > Resources > [uw beschikbaarheidsset] > virtuele Machines > [uw virtuele machine] > stoppen.
+Nadat alle virtuele machines stoppen, selecteert u de eerste virtuele machine en klik vervolgens op starten.
+Deze stap zorgt ervoor dat er een nieuwe poging van de toewijzing wordt uitgevoerd en dat een nieuw cluster kan worden geselecteerd die voldoende capaciteit heeft.
+
+## <a name="restart-partially-stopped-deallocated-vms"></a>Gedeeltelijk gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
+
+### <a name="cause"></a>Oorzaak
+
+Gedeeltelijke toewijzing is opgeheven betekent dat u (toewijzing ongedaan gemaakt) een of meer gestopt, maar niet alle virtuele machines in een beschikbaarheidsset ingesteld. Wanneer u een virtuele machine ongedaan gemaakt, worden de bijbehorende bronnen vrijgegeven. Opnieuw opstarten van virtuele machines in een beschikbaarheidsset gedeeltelijk toewijzing ongedaan is gemaakt, is hetzelfde als de virtuele machines toevoegen aan een bestaande beschikbaarheidsset. Daarom kan de aanvraag voor geheugentoewijzing moet worden uitgevoerd op het oorspronkelijke cluster hosts die de bestaande beschikbaarheidsset hebt niet voldoende capaciteit.
+
+### <a name="workaround"></a>Tijdelijke oplossing
+
+Gestopt (toewijzing ongedaan maken) alle VM's in de dezelfde beschikbaarheid instellen, start vervolgens elke service.
+Om te stoppen: klik op resourcegroepen > [uw resourcegroep] > Resources > [uw beschikbaarheidsset] > virtuele Machines > [uw virtuele machine] > stoppen.
+Nadat alle virtuele machines stoppen, selecteert u de eerste virtuele machine en klik vervolgens op starten.
+Hiermee zorgt u ervoor dat er een nieuwe poging van de toewijzing wordt uitgevoerd en dat een nieuw cluster kan worden geselecteerd die voldoende capaciteit heeft.
+
+## <a name="restart-fully-stopped-deallocated-vms"></a>Volledig gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
+
+### <a name="cause"></a>Oorzaak
+
+Volledige toewijzing is opgeheven betekent dat u gestopt (toewijzing opgeheven) alle VM's in een beschikbaarheidsset. De aanvraag voor geheugentoewijzing opnieuw opstarten van deze virtuele machines heeft betrekking op alle clusters die ondersteuning bieden voor de gewenste grootte binnen de regio of de zone. Uw aanvraag voor geheugentoewijzing per de suggesties in dit artikel te wijzigen en probeer de aanvraag voor het verbeteren van de kans van slagen van de toewijzing. 
+
+### <a name="workaround"></a>Tijdelijke oplossing
+
+Als u oudere VM-reeks of de grootte, zoals Dv1, DSv1, Av1, D15v2 of DS15v2, kunt u verplaatsen naar nieuwere versies. Deze aanbevelingen weergeven voor het specifieke VM-grootten.
+Als u de optie voor het gebruik van een andere VM-grootte niet hebt, probeer te implementeren naar een andere regio binnen de dezelfde geo. Voor meer informatie over de beschikbare grootten voor virtuele machine in elke regio op https://aka.ms/azure-regions
+
+Als u van beschikbaarheid zones gebruikmaakt, probeert u een andere zone binnen de regio waarvoor beschikbare capaciteit voor de aangevraagde VM-grootte.
+
+Als uw aanvraag voor geheugentoewijzing groot is (meer dan 500 kernen), Zie de informatie in de volgende secties om de aanvraag in kleinere implementaties.
+
+## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Toewijzingsfouten voor oudere VM-grootten (Av1, Dv1, DSv1, D15v2, DS15v2, enz.)
+
+Als we Azure-infrastructuur uitbreiden, implementeren we nieuwere generatie hardware die is ontworpen ter ondersteuning van de meest recente typen virtuele machines. Sommige van de oudere reeks virtuele machines niet uitgevoerd op onze nieuwste generatie infrastructuur. Om deze reden kunnen klanten soms toewijzingsfouten problemen voor deze oudere SKU's. U voorkomt dit probleem, raden we klanten die oudere reeks virtuele machines in overweging moet nemen verplaatsen naar de equivalente nieuwere VM's per de volgende aanbevelingen: deze VM's zijn geoptimaliseerd voor de meest recente hardware- en kunt u profiteren van betere prijzen en prestaties. 
+
+|VM-reeks of grootte van de verouderde|Nieuwere VM-reeks of grootte van de aanbevolen|Meer informatie|
+|----------------------|----------------------------|--------------------|
+|Av1-serie|[Av2-serie](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Dv1 of DSv1-serie (D1 naar D5)|[Dv3 of DSv3-serie](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 of DSv1-serie (D11 naar D14)|[Ev3 of ESv3-serie](../articles/virtual-machines/windows/sizes-memory.md#esv3-series-sup1sup)|
+|D15v2 of DS15v2|Als u theResource Manager-implementatiemodel gebruikt om te profiteren van de grotere VM-grootten, kunt u D16v3/DS16v3 of D32v3/DS32v3 te verplaatsen. Deze zijn ontworpen om uit te voeren op de meest recente generatie hardware. Als u het implementatiemodel van Resource Manager gebruikt om ervoor te zorgen dat uw VM-instantie is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant, kunt u verplaatsen naar de nieuwe geïsoleerde VM-grootten, E64i_v3 of E64is_v3, die zijn ontworpen om uit te voeren op de meest recente generatie hardware. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
+
+## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Toewijzingsfouten voor grote implementaties (meer dan 500 kernen)
+
+Verminder het aantal exemplaren van de aangevraagde VM-grootte en probeer het opnieuw implementeren. Bovendien voor grotere implementaties u mogelijk wilt evalueren [virtuele Azure-machine-schaalsets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). Het aantal VM-exemplaren automatisch verhoogd of verlaagd in reactie op aanvraag of een ingesteld schema, en u hebt een grotere kans van slagen van de toewijzing omdat de implementaties kunnen worden verdeeld over meerdere clusters. 
 
 ## <a name="background-information"></a>Achtergrondinformatie
 ### <a name="how-allocation-works"></a>De werking van toewijzing
@@ -24,187 +93,8 @@ De servers in Azure-datacenters worden in clusters gepartitioneerd. Normaal gesp
 ![Diagram van toewijzing](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
 ### <a name="why-allocation-failures-happen"></a>Waarom toewijzingsfouten gebeuren
-Wanneer een aanvraag voor geheugentoewijzing is vastgemaakt aan een cluster, is er een hogere kans niet te vinden van resources vrij, omdat de groep beschikbare resource kleiner is. Bovendien als uw aanvraag voor geheugentoewijzing is vastgemaakt aan een cluster, maar het type resource dat u hebt aangevraagd wordt niet ondersteund door dit cluster, zal uw aanvraag mislukken zelfs als het cluster resources vrij heeft. Diagram 3 hieronder ziet u het geval waarbij een vastgezette toewijzing is mislukt omdat het cluster alleen candidate geen gratis resources. Diagram 4 ziet u het geval waarbij een vastgezette toewijzing is mislukt omdat het cluster alleen candidate biedt geen ondersteuning voor de aangevraagde VM-grootte, zelfs als het cluster resources vrij heeft.
+Wanneer een aanvraag voor geheugentoewijzing is vastgemaakt aan een cluster, is er een hogere kans niet te vinden van resources vrij, omdat de groep beschikbare resource kleiner is. Bovendien als uw aanvraag voor geheugentoewijzing is vastgemaakt aan een cluster, maar het type resource dat u hebt aangevraagd wordt niet ondersteund door dit cluster, zal uw aanvraag mislukken zelfs als het cluster resources vrij heeft. Het volgende Diagram 3 ziet u dat het geval waarbij een vastgezette toewijzing is mislukt omdat het cluster alleen candidate geen gratis resources. Diagram 4 ziet u het geval waarbij een vastgezette toewijzing is mislukt omdat het cluster alleen candidate biedt geen ondersteuning voor de aangevraagde VM-grootte, zelfs als het cluster resources vrij heeft.
 
 ![Vastgemaakte geheugentoewijzing is mislukt](./media/virtual-machines-common-allocation-failure/Allocation2.png)
 
-## <a name="detailed-troubleshoot-steps-specific-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Gedetailleerde stappen specifieke toewijzing in scenario's fouten in het klassieke implementatiemodel oplossen
-Hier vindt u algemene scenario's toewijzing die ertoe leiden dat een aanvraag voor geheugentoewijzing om te worden vastgemaakt. We je Duik in elk scenario verderop in dit artikel.
-
-* Wijzig het formaat van een virtuele machine of virtuele machines of rolinstanties toevoegen aan een bestaande cloudservice
-* Gedeeltelijk gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
-* Volledig gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
-* Fasering/productie-implementaties (platform als een service alleen)
-* Affiniteitsgroep (VM-/ service nabijheid)
-* Virtueel netwerk op basis van affiniteit-groep
-
-Wanneer u een toewijzingsfout ontvangt, kunt u zien als een van de scenario's beschreven op fout in uw toepassing. Gebruik de toewijzingsfout geretourneerd door de Azure-platform voor het identificeren van het betreffende scenario. Als uw aanvraag is vastgemaakt, verwijder enkele van de vastmaken beperkingen uw aanvraag om meer clusters, waardoor de kans van slagen van de toewijzing te openen.
-
-In het algemeen, zolang de fout betekent niet 'de aangevraagde VM-grootte wordt niet ondersteund', u kunt altijd opnieuw uitvoeren op een later tijdstip, zoals onvoldoende bronnen is in het cluster vrijgemaakt mogelijk aan uw aanvraag. Als het probleem is dat de aangevraagde VM-grootte niet wordt ondersteund, kunt u een andere VM-grootte. Anders is de enige optie als de vastmaken beperking wilt verwijderen.
-
-Twee algemene scenario's met fouten gerelateerd aan affiniteitsgroepen. In het verleden een affiniteitsgroep is gebruikt om te bieden dicht bij de virtuele machines/service-exemplaren of voor het maken van een virtueel netwerk is gebruikt. Dankzij de introductie van regionale virtuele netwerken, affiniteitsgroepen niet langer zijn vereist voor het maken van een virtueel netwerk. Met de vermindering van de netwerklatentie in Azure-infrastructuur, is de aanbeveling om de affiniteit tussen groepen gebruiken voor het VM-/ service nabijheid gewijzigd.
-
-Diagram 5 hieronder toont de taxonomie van de toewijzing van (vastgemaakt)-scenario's.
-![Vastgezette toewijzing taxonomie](./media/virtual-machines-common-allocation-failure/Allocation3.png)
-
-> [!NOTE]
-> De volgende fout weergegeven in elk scenario van toewijzing is een korte vorm. Raadpleeg de [fout tekenreeks lookup](#Error string lookup) voor gedetailleerde foutberichten.
-> 
-> 
-
-## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Scenario van toewijzing: Wijzig het formaat van een virtuele machine of virtuele machines of rolinstanties toevoegen aan een bestaande cloudservice
-**Error**
-
-Upgrade_VMSizeNotSupported of GeneralError
-
-**Oorzaak van het cluster vastmaken**
-
-Een aanvraag om de grootte van een virtuele machine of een virtuele machine of een rolinstantie toevoegen aan een bestaande cloudservice moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de bestaande cloudservice. Een nieuwe cloudservice maakt, wordt de Azure-platform om te zoeken naar een ander cluster die ondersteuning biedt voor de VM-grootte die u hebt aangevraagd of resources vrij heeft.
-
-**Tijdelijke oplossing**
-
-Als de fout is Upgrade_VMSizeNotSupported *, kunt u een andere VM-grootte. Als met behulp van een andere VM-grootte kan niet worden gebruikt, maar als het is acceptabel gebruik van een ander virtueel IP-adres (VIP), maakt u een nieuwe cloudservice voor het hosten van de nieuwe virtuele machine en de nieuwe cloudservice toevoegen aan het regionale virtuele netwerk waarin de bestaande virtuele machines worden uitgevoerd. Als uw bestaande cloudservice niet voor een regionaal virtueel netwerk gebruikt wordt, kunt u nog steeds een nieuw virtueel netwerk voor de nieuwe cloudservice maken en maken vervolgens verbinding met uw [bestaand virtueel netwerk met de nieuwe virtuele netwerk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Zie voor meer informatie over [regionale virtuele netwerken](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
-
-Als de fout is GeneralError *, is het waarschijnlijk dat het type resource (zoals een bepaalde VM-grootte) wordt ondersteund door het cluster, maar het cluster geen gratis resources op het moment dat heeft. Vergelijkbaar met het bovenstaande scenario, de gewenste compute resource bij het maken van een nieuwe cloudservice (Let erop dat de nieuwe cloudservice heeft tot het gebruik van een andere VIP) toevoegen en gebruiken van een regionaal virtueel netwerk verbinding maken uw cloudservices verkregen.
-
-## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scenario van toewijzing: gedeeltelijk gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
-**Error**
-
-GeneralError *
-
-**Oorzaak van het cluster vastmaken**
-
-Gedeeltelijke toewijzing is opgeheven betekent dat u (toewijzing ongedaan gemaakt) een of meer, maar niet alle virtuele machines in een cloudservice gestopt. Wanneer u stopt (ongedaan gemaakt) een virtuele machine, de bijbehorende bronnen worden vrijgegeven. Opnieuw starten die gestopt (toewijzing ongedaan gemaakt) VM is daarom een nieuwe aanvraag voor geheugentoewijzing. Opnieuw opstarten van virtuele machines in een gedeeltelijk toewijzing ongedaan is gemaakt van de cloudservice is gelijk aan het toevoegen van virtuele machines aan een bestaande cloudservice. De aanvraag voor geheugentoewijzing moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de bestaande cloudservice. Een andere cloudservice maakt, wordt de Azure-platform om te zoeken naar een ander cluster die ondersteuning biedt voor de VM-grootte die u hebt aangevraagd of gratis resource heeft.
-
-**Tijdelijke oplossing**
-
-Als het aanvaardbaar is voor gebruik van een andere VIP, verwijderen van de gestopt (toewijzing ongedaan gemaakt) virtuele machines (maar de gekoppelde schijven behouden) en de virtuele machines opnieuw door een andere cloudservice toevoegen. Gebruik een regionaal virtueel netwerk voor de verbinding met uw cloudservices:
-
-* Als uw bestaande cloudservice een regionaal virtueel netwerk gebruikt, moet u gewoon de nieuwe cloudservice toevoegen aan hetzelfde virtuele netwerk.
-* Als uw bestaande cloudservice niet voor een regionaal virtueel netwerk gebruikt wordt, een nieuw virtueel netwerk voor de nieuwe cloudservice maken en vervolgens [uw bestaande virtuele netwerk verbinden met de nieuwe virtuele netwerk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Zie voor meer informatie over [regionale virtuele netwerken](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
-
-## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Scenario van toewijzing: volledig gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
-**Error**
-
-GeneralError *
-
-**Oorzaak van het cluster vastmaken**
-
-Volledige toewijzing is opgeheven betekent dat u gestopt (toewijzing opgeheven) alle VM's van een cloudservice. De toewijzingsaanvragen voor deze virtuele machines opnieuw moeten worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de cloudservice. Een nieuwe cloudservice maakt, wordt de Azure-platform om te zoeken naar een ander cluster die ondersteuning biedt voor de VM-grootte die u hebt aangevraagd of resources vrij heeft.
-
-**Tijdelijke oplossing**
-
-Als deze aanvaardbaar is voor gebruik van een andere VIP, verwijderen van de oorspronkelijke gestopt (toewijzing ongedaan gemaakt) virtuele machines (maar houd het bijbehorende schijven) en verwijder de bijbehorende cloudservice (de bijbehorende rekenresources zijn al is vrijgegeven wanneer u gestopt (toewijzing ongedaan gemaakt) de virtuele machines). Maak een nieuwe cloudservice voor het toevoegen van de virtuele machines terug.
-
-## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Scenario van toewijzing: tijdelijke/productie-implementaties (platform als een service alleen)
-**Error**
-
-New_General * of New_VMSizeNotSupported *
-
-**Oorzaak van het cluster vastmaken**
-
-De implementatie van fasering en productie-implementatie van een cloudservice worden gehost in hetzelfde cluster. Wanneer u de tweede implementatie toevoegt, wordt de bijbehorende toewijzingsaanvraag geprobeerd in hetzelfde cluster die als host fungeert voor de eerste implementatie.
-
-**Tijdelijke oplossing**
-
-Verwijder de eerste implementatie en de oorspronkelijke cloudservice en implementeer de cloudservice opnieuw. Deze actie kan de eerste implementatie terechtkomen in een cluster met onvoldoende resources vrij voor beide implementaties of in een cluster die ondersteuning biedt voor de VM-grootten die u hebt aangevraagd.
-
-## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Scenario van toewijzing: affiniteitsgroep (VM-/ service nabijheid)
-**Error**
-
-New_General * of New_VMSizeNotSupported *
-
-**Oorzaak van het cluster vastmaken**
-
-Een compute resource toegewezen aan een affiniteitsgroep is gekoppeld aan één cluster. Nieuwe compute resource aanvragen in de betreffende affiniteitsgroep bevinden worden geprobeerd in hetzelfde cluster waar de bestaande bronnen worden gehost. Dit geldt of de nieuwe resources zijn gemaakt via een nieuwe cloudservice of een bestaande cloudservice.
-
-**Tijdelijke oplossing**
-
-Als een affiniteitsgroep niet nodig is, gebruikt u een affiniteitsgroep of uw rekenresources te groeperen in meerdere affiniteitsgroepen.
-
-## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Scenario van toewijzing: virtueel netwerk op basis van affiniteit-groep
-**Error**
-
-New_General * of New_VMSizeNotSupported *
-
-**Oorzaak van het cluster vastmaken**
-
-Voordat de regionale virtuele netwerken zijn geïntroduceerd, moest u een virtueel netwerk koppelen aan een affiniteitsgroep. Als gevolg hiervan compute resources in een affiniteitsgroep geplaatst zijn gebonden aan de dezelfde beperkingen, zoals beschreven in de ' toewijzing scenario: affiniteitsgroep (VM-/ service nabijheid) ' hierboven. De rekenresources zijn gekoppeld aan één cluster.
-
-**Tijdelijke oplossing**
-
-Als u niet in een affiniteitsgroep hoeft, maakt u een nieuw regionaal virtueel netwerk voor de nieuwe resources die u toevoegen wilt, en vervolgens [uw bestaande virtuele netwerk verbinden met de nieuwe virtuele netwerk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Zie voor meer informatie over [regionale virtuele netwerken](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
-
-U kunt ook [uw virtueel netwerk voor op basis van affiniteit-groep migreren naar een regionaal virtueel netwerk](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), en voeg vervolgens de gewenste bronnen opnieuw toe.
-
-## <a name="detailed-troubleshooting-steps-specific-allocation-failure-scenarios-in-the-azure-resource-manager-deployment-model"></a>Gedetailleerde probleemoplossing stappen specifieke toewijzing in scenario's fouten in het Azure Resource Manager-implementatiemodel
-Hier vindt u algemene scenario's toewijzing die ertoe leiden dat een aanvraag voor geheugentoewijzing om te worden vastgemaakt. We je Duik in elk scenario verderop in dit artikel.
-
-* Wijzig het formaat van een virtuele machine of virtuele machines of rolinstanties toevoegen aan een bestaande cloudservice
-* Gedeeltelijk gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
-* Volledig gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
-
-Wanneer u een toewijzingsfout ontvangt, kunt u zien als een van de scenario's beschreven op fout in uw toepassing. Gebruik de toewijzingsfout geretourneerd door de Azure-platform voor het identificeren van het betreffende scenario. Als uw aanvraag is vastgemaakt aan een bestaand cluster, verwijder enkele van de vastmaken beperkingen uw aanvraag om meer clusters, waardoor de kans van slagen van de toewijzing te openen.
-
-In het algemeen, zolang de fout betekent niet 'de aangevraagde VM-grootte wordt niet ondersteund', u kunt altijd opnieuw uitvoeren op een later tijdstip, zoals onvoldoende bronnen is in het cluster vrijgemaakt mogelijk aan uw aanvraag. Als het probleem is dat de aangevraagde VM-grootte niet wordt ondersteund, Zie hieronder voor tijdelijke oplossingen.
-
-## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Scenario van toewijzing: Wijzig het formaat van een virtuele machine of virtuele machines toevoegen aan een bestaande beschikbaarheidsset
-**Error**
-
-Upgrade_VMSizeNotSupported * of GeneralError *
-
-**Oorzaak van het cluster vastmaken**
-
-Een aanvraag om de grootte van een virtuele machine of een virtuele machine toevoegen aan een bestaande beschikbaarheidsset moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de bestaande beschikbaarheidsset. Een nieuwe beschikbaarheidsset maakt, wordt de Azure-platform om te zoeken naar een ander cluster die ondersteuning biedt voor de VM-grootte die u hebt aangevraagd of resources vrij heeft.
-
-**Tijdelijke oplossing**
-
-Als de fout is Upgrade_VMSizeNotSupported *, kunt u een andere VM-grootte. Als u met behulp van een andere VM-grootte kan niet worden gebruikt, stopt u alle virtuele machines in de beschikbaarheidsset. Vervolgens kunt u de grootte van de virtuele machine die de virtuele machine naar een cluster die ondersteuning biedt voor de gewenste VM-grootte worden toegewezen.
-
-Als de fout is GeneralError *, is het waarschijnlijk dat het type resource (zoals een bepaalde VM-grootte) wordt ondersteund door het cluster, maar het cluster geen gratis resources op het moment dat heeft. Als de virtuele machine deel van een andere beschikbaarheidsset uitmaken kan, maakt u een nieuwe virtuele machine in een andere beschikbaarheidsset (in dezelfde regio). Deze nieuwe virtuele machine kan vervolgens worden toegevoegd aan hetzelfde virtuele netwerk.  
-
-## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scenario van toewijzing: gedeeltelijk gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten
-**Error**
-
-GeneralError *
-
-**Oorzaak van het cluster vastmaken**
-
-Gedeeltelijke toewijzing is opgeheven betekent dat u (toewijzing ongedaan gemaakt) een of meer gestopt, maar niet alle virtuele machines in een beschikbaarheidsset ingesteld. Wanneer u stopt (ongedaan gemaakt) een virtuele machine, de bijbehorende bronnen worden vrijgegeven. Opnieuw starten die gestopt (toewijzing ongedaan gemaakt) VM is daarom een nieuwe aanvraag voor geheugentoewijzing. Opnieuw opstarten van virtuele machines in een gedeeltelijk toewijzing ongedaan is gemaakt beschikbaarheidsset is gelijk aan het toevoegen van virtuele machines aan een bestaande beschikbaarheidsset. De aanvraag voor geheugentoewijzing moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de bestaande beschikbaarheidsset.
-
-**Tijdelijke oplossing**
-
-Stop alle virtuele machines in de beschikbaarheidsset voordat de eerste die opnieuw wordt opgestart. Dit zorgt ervoor dat er een nieuwe poging van de toewijzing wordt uitgevoerd en dat een nieuw cluster kan worden geselecteerd met de beschikbare capaciteit.
-
-## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Scenario van toewijzing: opnieuw opstarten volledig gestopt (toewijzing ongedaan gemaakt)
-**Error**
-
-GeneralError *
-
-**Oorzaak van het cluster vastmaken**
-
-Volledige toewijzing is opgeheven betekent dat u gestopt (toewijzing opgeheven) alle VM's in een beschikbaarheidsset. De aanvraag voor geheugentoewijzing opnieuw opstarten van deze virtuele machines heeft betrekking op alle clusters die ondersteuning bieden voor de gewenste grootte.
-
-**Tijdelijke oplossing**
-
-Selecteer een nieuwe VM-grootte toe te wijzen. Probeer het later opnieuw als dit niet werkt.
-
-<a name="Error string lookup"></a>
-
-## <a name="error-string-lookup"></a>Fout bij het opzoeken tekenreeks
-**New_VMSizeNotSupported***
-
-'De VM grootte (of combinatie van VM-formaten) vereist voor deze implementatie kan niet worden ingericht als gevolg van implementatie aanvraag beperkingen. Indien mogelijk, probeer doet beperkingen, zoals de bindingen van virtueel netwerk, implementeren op een gehoste service met geen andere implementatie in het en naar een andere affiniteitsgroep of niets affiniteitsgroep of implementeren op een andere regio."
-
-**New_General***
-
-'Toewijzing is mislukt; kan niet voldoen aan de beperkingen in de aanvraag. De aangevraagde nieuwe service-implementatie is gebonden aan een affiniteitsgroep of er een bestaande implementatie onder deze gehoste service is gericht op een virtueel netwerk. Deze omstandigheden Hiermee beperkt u de nieuwe implementatie voor specifieke Azure-resources. Probeer het later opnieuw of verklein de VM-grootte of het aantal rolinstanties. U kunt ook indien mogelijk, verwijder de hiervoor genoemde beperkingen of probeer te implementeren naar een andere regio.'
-
-**Upgrade_VMSizeNotSupported***
-
-'Kan geen upgrade uitvoeren van de implementatie. De aangevraagde VM-grootte XXX mogelijk niet beschikbaar in de resources die de bestaande implementatie ondersteunen. Probeer het later opnieuw, probeer met een andere VM-grootte of met minder rolinstanties, of maak een implementatie onder een lege gehoste service met een nieuwe affiniteitsgroep of niets affiniteitsgroep binding."
-
-**GeneralError***
-
-'De server heeft een interne fout. Probeer de aanvraag." Of "Voor het produceren van een toewijzing voor de service mislukt."
 

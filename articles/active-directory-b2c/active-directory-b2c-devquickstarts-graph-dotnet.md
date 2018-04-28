@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 731ff24fe9cc1b5dbf0c597139a96ae80b863cc2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Gebruik de Azure AD Graph API
 
@@ -29,16 +29,16 @@ Voor B2C-tenants zijn er twee primaire modi voor de communicatie met de Graph AP
 * Voor interactieve, eenmalige taken, moet u fungeren als een administrator-account in de B2C-tenant wanneer u de taken uitvoeren. Deze modus moet een beheerder zich aanmelden met referenties waarover de beheerder om de aanroepen van de Graph API kan uitvoeren.
 * Voor de geautomatiseerde, continue taken, moet u een type-serviceaccount de juiste rechten heeft voor beheertaken in te voorzien. In Azure AD, kunt u dit doen door een toepassing registreren en te verifiëren met Azure AD. Dit wordt gedaan met behulp van een **toepassings-ID** die gebruikmaakt van de [OAuth 2.0-clientreferenties verlenen](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). In dit geval wordt fungeert de toepassing als zichzelf niet als een gebruiker, de API van de grafiek aan te roepen.
 
-In dit artikel bespreken we hoe u de automatische gebruiksvoorbeeld uitvoert. U kunt zien, moet gaan we verder met een .NET 4.5 `B2CGraphClient` die de gebruiker voert maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen. De client heeft een Windows-opdrachtregelinterface (CLI) waarmee u verschillende methoden aanroepen. De code is echter zich gedragen in een niet-interactieve, geautomatiseerde manier geschreven.
+In dit artikel leert u hoe de geautomatiseerde gebruiksvoorbeeld uitvoeren. U hebt een .NET 4.5 bouwen `B2CGraphClient` die de gebruiker voert maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen. De client heeft een Windows-opdrachtregelinterface (CLI) waarmee u verschillende methoden aanroepen. De code is echter zich gedragen in een niet-interactieve, geautomatiseerde manier geschreven.
 
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Een Azure AD B2C-tenant verkrijgen
-Voordat u kunt maken van toepassingen of gebruikers of helemaal met Azure AD communiceren, moet u een Azure AD B2C-tenant en een globale beheerdersaccount in de tenant. Als u nog geen een tenant hebt, [aan de slag met Azure AD B2C](active-directory-b2c-get-started.md).
+Voordat u toepassingen of gebruikers maken kunt, moet u een Azure AD B2C-tenant. Als u nog geen een tenant hebt, [aan de slag met Azure AD B2C](active-directory-b2c-get-started.md).
 
 ## <a name="register-your-application-in-your-tenant"></a>Uw toepassing registreren in uw tenant
-Nadat u een B2C-tenant hebt, moet u registreren van uw toepassingen via de [Azure Portal](https://portal.azure.com).
+Nadat u een B2C-tenant hebt, moet u registreren van uw toepassing met de [Azure-portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Als u wilt gebruiken de Graph API met uw B2C-tenant, moet u een specifieke toepassing registreren met behulp van de algemene *App registraties* menu in de Azure-Portal **niet** Azure AD B2C  *Toepassingen* menu. U kunt de al bestaande B2C toepassingen die u hebt geregistreerd in de Azure AD B2C niet opnieuw gebruiken *toepassingen* menu.
+> Als u wilt gebruiken de Graph API met uw B2C-tenant, moet u registreert een toepassing met de *App registraties* service in de Azure portal **niet** Azure AD B2C *toepassingen*menu. De volgende instructies leiden u naar het juiste menu. U kunt bestaande B2C-toepassingen die u hebt geregistreerd in de Azure AD B2C niet opnieuw gebruiken *toepassingen* menu.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Uw account selecteren in de rechterbovenhoek van de pagina kiest u uw Azure AD B2C-tenant.
@@ -47,7 +47,8 @@ Nadat u een B2C-tenant hebt, moet u registreren van uw toepassingen via de [Azur
     1. Selecteer **Web-App / API** als het toepassingstype.    
     2. Geef **elke URL met eenmalige aanmelding** (bijvoorbeeld https://B2CGraphAPI) omdat dit niet relevant voor dit voorbeeld.  
 5. De toepassing wordt nu weergegeven in de lijst met toepassingen, klikt u op het verkrijgen van de **toepassings-ID** (ook wel bekend als een Client-ID). Kopieer de verbindingsreeks als u hebt deze nodig in een volgende sectie.
-6. Klik in het menu instellingen op **sleutels** en voeg een nieuwe sleutel (ook wel bekend als clientgeheim). Ook het kopiëren voor gebruik in een volgende sectie.
+6. Klik in het menu instellingen **sleutels**.
+7. In de **wachtwoorden** sectie, de belangrijkste omschrijving en selecteert u een duur en klik vervolgens op **opslaan**. Kopieer de waarde van de sleutel (ook wel bekend als Clientgeheim) voor gebruik in een volgende sectie.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configureer maken, lezen en bijwerken van machtigingen voor uw toepassing
 Nu moet u uw toepassing configureren voor het ophalen van de vereiste machtigingen te maken, lezen, bijwerken en verwijderen van gebruikers.

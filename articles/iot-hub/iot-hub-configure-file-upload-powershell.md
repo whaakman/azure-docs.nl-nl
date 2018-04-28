@@ -2,10 +2,10 @@
 title: Azure PowerShell gebruiken om te uploaden bestand configureren | Microsoft Docs
 description: Het gebruik van de Azure PowerShell-cmdlets voor het configureren van uw IoT-hub zodat bestand uploadt van verbonden apparaten. Bevat informatie over het configureren van de doel-Azure storage-account.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c6966fd4a60681643c2a690013035bde20abee78
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22d331342504aa7cc3d4fe86777ef9c2595a27ac
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Uploaden van bestanden met PowerShell IoT-Hub configureren
 
@@ -35,12 +35,12 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Aanmelden en uw Azure-account instellen
 
-Aanmelden bij uw Azure-account en uw abonnement te selecteren.
+Meld u aan bij uw Azure-account en selecteer uw abonnement.
 
-1. Uitvoeren op de PowerShell-prompt de **Login-AzureRmAccount** cmdlet:
+1. Uitvoeren op de PowerShell-prompt de **Connect-AzureRmAccount** cmdlet:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Als u meerdere Azure-abonnementen hebt, verleent aanmelden bij Azure u toegang tot alle de Azure-abonnementen die zijn gekoppeld aan uw referenties. Gebruik de volgende opdracht voor een lijst met de Azure-abonnementen beschikbaar moet worden gebruikt:
@@ -49,7 +49,7 @@ Aanmelden bij uw Azure-account en uw abonnement te selecteren.
     Get-AzureRMSubscription
     ```
 
-    Gebruik de volgende opdracht om abonnement die u gebruiken wilt voor het uitvoeren van de opdrachten voor het beheren van uw IoT-hub te selecteren. U kunt de naam van abonnement of de ID van de uitvoer van de vorige opdracht gebruiken:
+    Gebruik de volgende opdracht om abonnement die u gebruiken wilt voor het uitvoeren van de opdrachten voor het beheren van uw IoT-hub te selecteren. U kunt de naam van het abonnement of de id van de uitvoer van de vorige opdracht gebruiken:
 
     ```powershell
     Select-AzureRMSubscription `
@@ -136,7 +136,7 @@ Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 * [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
-* [AI implementeren op de edge-apparaten met Azure IoT rand][lnk-iotedge]
+* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
 * [Beveiligen van uw IoT-oplossing bouwen up][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md

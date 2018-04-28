@@ -2,25 +2,23 @@
 title: Maken van maximaal beschikbare Spark-Streaming-taken in YARN - Azure HDInsight | Microsoft Docs
 description: Het instellen van het Spark-Streaming voor een scenario met hoge beschikbaarheid.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ramoha
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: ramoha
-ms.openlocfilehash: f916f9939ac9683a2ee162ba4d2105f66187b111
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0a738d7e26384523e9da9c8c79e12729330fe6f7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Hoge beschikbaarheid Spark-Streaming taken met YARN maken
 
@@ -117,7 +115,7 @@ Samengevat: plaatsen van controlepunten, WAL + betrouwbare ontvangers gebruikt, 
 
 * U moet langlopende taken segmenteren.  Als een toepassing Spark-Streaming wordt verzonden naar het cluster, moet de YARN-wachtrij waarin de taak wordt uitgevoerd worden gedefinieerd. U kunt een [YARN capaciteit Scheduler](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) om langlopende taken naar een afzonderlijke wachtrijen te verzenden.
 
-* Afsluiten uw streaming-toepassing. Als uw offsets worden aangeduid, en alle statussen van de toepassing is die extern zijn opgeslagen, kunt u uw streaming toepassing op de juiste plaats programmatisch stoppen. Een techniek is het gebruik van 'thread hooks' in Spark, door te controleren voor een externe vlag elke  *n*  seconden. U kunt ook een *markeringsbestand dat* die op HDFS gemaakt wanneer de toepassing wordt gestart, wordt verwijderd wanneer u wilt stoppen. Gebruik voor een benadering markering-bestand een afzonderlijke thread in uw Spark-toepassing die code ongeveer als volgt aanroept:
+* Afsluiten uw streaming-toepassing. Als uw offsets worden aangeduid, en alle statussen van de toepassing is die extern zijn opgeslagen, kunt u uw streaming toepassing op de juiste plaats programmatisch stoppen. Een techniek is het gebruik van 'thread hooks' in Spark, door te controleren voor een externe vlag elke *n* seconden. U kunt ook een *markeringsbestand dat* die op HDFS gemaakt wanneer de toepassing wordt gestart, wordt verwijderd wanneer u wilt stoppen. Gebruik voor een benadering markering-bestand een afzonderlijke thread in uw Spark-toepassing die code ongeveer als volgt aanroept:
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)

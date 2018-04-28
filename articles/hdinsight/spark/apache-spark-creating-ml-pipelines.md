@@ -2,27 +2,25 @@
 title: Maken van een Apache Spark machine learning-pipeline - Azure HDInsight | Microsoft Docs
 description: Gebruik de Apache Spark machine learning-bibliotheek gegevenspijplijnen maken.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: maxluk
-ms.openlocfilehash: 238ab5f940fbea836b75e20b015ae16f22eef3e9
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 75fdc427be42ff8895cde8add7c7b0623da6a808
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>Een Spark machine learning-pijplijn maken
+# <a name="create-a-spark-machine-learning-pipeline"></a>Een machine learning-pijplijn in Spark maken
 
 Apache Spark van schaalbare machine learning-bibliotheek (MLlib) brengt modellering mogelijkheden voor een gedistribueerde omgeving. Het pakket Spark [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) is een set op hoog niveau API's die zijn gebouwd op DataFrames. Deze API's te maken en praktische machine learning pijplijnen afstemmen.  *Machine learning Spark* verwijst naar deze MLlib DataFrame-API, niet de oudere RDD gebaseerde pijplijn API.
 
@@ -36,7 +34,7 @@ Elke staatloze exemplaar van een transformator of een Estimator heeft zijn eigen
 
 ## <a name="pipeline-example"></a>Pipeline-voorbeeld
 
-Als u wilt een praktische gebruik van een pijplijn ML demonstreren, in dit voorbeeld wordt de steekproef `HVAC.csv` gegevensbestand dat op de standaard-opslag voor uw HDInsight-cluster, Azure Storage of Data Lake Store vooraf geladen is. Als u wilt weergeven van de inhoud van het bestand, gaat u naar de `/HdiSamples/HdiSamples/SensorSampleData/hvac` directory. `HVAC.csv`bevat een aantal keren met doel- en werkelijke temperaturen voor HVAC (*verwarming, ventilatie en airconditioning*) systemen in verschillende gebouwen. Het doel is voor het trainen van het model van de gegevens en een prognose temperatuur voor een bepaalde gebouw produceren.
+Als u wilt een praktische gebruik van een pijplijn ML demonstreren, in dit voorbeeld wordt de steekproef `HVAC.csv` gegevensbestand dat op de standaard-opslag voor uw HDInsight-cluster, Azure Storage of Data Lake Store vooraf geladen is. Als u wilt weergeven van de inhoud van het bestand, gaat u naar de `/HdiSamples/HdiSamples/SensorSampleData/hvac` directory. `HVAC.csv` bevat een aantal keren met doel- en werkelijke temperaturen voor HVAC (*verwarming, ventilatie en airconditioning*) systemen in verschillende gebouwen. Het doel is voor het trainen van het model van de gegevens en een prognose temperatuur voor een bepaalde gebouw produceren.
 
 De volgende code:
 

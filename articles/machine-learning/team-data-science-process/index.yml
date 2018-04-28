@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/18/2018
   ms.author: bradsev
-  ms.openlocfilehash: a12326f4e3822bc32b863dd61de3b5f2a440dd23
-  ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+  ms.openlocfilehash: 232b4a1e4ef6fdb4c8d07234c2ae988e3e1f3650
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 03/28/2018
+  ms.lasthandoff: 04/28/2018
 abstract:
   description: Het Team Data Science Process is een flexibele, iteratieve data science-methodologie die op een efficiënte manier predictive analytics-oplossingen en intelligente toepassingen biedt. TDSP helpt om de teamsamenwerking en het leerproces te verbeteren. Het bevat een distillatie van de best practices en structuren van Microsoft en andere bedrijven in deze branche die willen helpen om de implementatie van initiatieven op het gebied van data science te laten slagen. Het doel is bedrijven te helpen om de voordelen van hun analyseprogramma volledig te kunnen benutten.
 sections:
@@ -28,8 +28,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href:"overview">Overzicht</a>
-    - html: <a href:"lifecycle">Levenscyclus</a>
+    - html: <a href="overview">Overzicht</a>
+    - html: <a href="lifecycle">Levenscyclus</a>
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph

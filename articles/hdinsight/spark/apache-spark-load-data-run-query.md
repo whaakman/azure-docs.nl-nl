@@ -3,32 +3,30 @@ title: Interactieve query's uitvoeren op een Azure HDInsight Spark-cluster | Mic
 description: HDInsight Spark-snelstartgids over het maken van een Apache Spark-cluster in HDInsight.
 keywords: spark-snelstartgids,interactieve spark,interactieve query,hdinsight spark,azure spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 177fb47c72e9abbafcda69416643fbd3848373bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Interactieve query's uitvoeren op Spark-clusters in HDInsight
 
 Informatie over het gebruik van Jupyter-notebook voor interactieve Spark SQL-query's uitvoeren op een Spark-cluster. 
 
-[Jupyter-notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) is een browsertoepassing die uitgebreider is dan de interactieve ervaring via de console op het Web. Spark in HDInsight omvat ook [Zeppelin-Notebook](apache-spark-zeppelin-notebook.md). Jupyter-Notebook wordt in deze zelfstudie gebruikt.
+[Jupyter-notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) is een browsertoepassing die uitgebreider is dan de interactieve ervaring via de console op het Web. Apache Spark in HDInsight bevat tevens [Zeppelin Notebook](apache-spark-zeppelin-notebook.md). Jupyter Notebook wordt in deze zelfstudie gebruikt.
 
-Ondersteuning voor Jupyter-notebooks op HDInsight-clusters drie kernels - **PySpark**, **PySpark3**, en **Spark**. De **PySpark** kernel in deze zelfstudie wordt gebruikt. Voor meer informatie over de kernels en de voordelen van het gebruik van **PySpark**, Zie [gebruik Jupyter-notebook kernels met Apache Spark-clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md). Zie voor het gebruik van de Notebook Zeppelin [gebruiken Zeppelin-notebooks met Apache Spark in Azure HDInsight-cluster](./apache-spark-zeppelin-notebook.md).
+In Jupyter-notebooks in HDInsight-clusters worden drie kernels ondersteund: **PySpark**, **PySpark3** en **Spark**. In deze zelfstudie wordt de **PySpark**-kernel gebruikt. Zie [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md) (Jupyter-notebookkernels gebruiken met Apache Spark-clusters in HDInsight) voor meer informatie over de kernels en de voordelen van het gebruik van **PySpark**. Zie voor het gebruik van de Notebook Zeppelin [gebruiken Zeppelin-notebooks met Apache Spark in Azure HDInsight-cluster](./apache-spark-zeppelin-notebook.md).
 
 In deze zelfstudie maakt u een query gegevens in een csv-bestand. Eerst moet u die gegevens laden in Spark als een dataframe. Vervolgens kunt u query's uitvoeren op de dataframe met Jupyter-Notebook. 
 

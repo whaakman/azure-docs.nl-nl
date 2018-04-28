@@ -2,10 +2,10 @@
 title: Oplossing voor externe controle integreren met Azure-Stack | Microsoft Docs
 description: Informatie over het Azure-Stack integreren met een oplossing voor externe controle in uw datacenter.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
-ms.translationtype: MT
+ms.openlocfilehash: e47141d31d3876264eaf2bcb7dc562a4711048cc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Oplossing voor externe controle integreren met Azure-Stack
 
@@ -80,10 +80,10 @@ Configureer de invoegtoepassingbestand 'Azurestack_plugin.py' met de volgende pa
 | *arm_endpoint* | Azure Resource Manager (beheerder)-eindpunt |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Azure Resource Manager (beheerder)-eindpunt  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | Beheerder abonnements-ID | Via de beheerdersportal of PowerShell ophalen |
-| *User_name* | Operator abonnement gebruikersnaam | operator@myazuredirectory.onmicrosoft.com |
+| *Gebruikersnaam* | Operator abonnement gebruikersnaam | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Operator abonnement wachtwoord | mijnwachtwoord |
 | *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *region* |  Naam van de regio Azure Stack | lokaal |
+| *Regio* |  Naam van de regio Azure Stack | lokaal |
 |  |  |
 
 * De PowerShell-GUID die opgegeven is universal. U kunt deze gebruiken voor elke implementatie.
@@ -99,7 +99,7 @@ Als u Operations Manager, Nagios of een oplossing op basis van Nagios niet gebru
    ```PowerShell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
-   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 3. Ga naar de map waarin u hebt geïnstalleerd het [extra Azure-Stack](https://github.com/Azure/AzureStack-Tools) als onderdeel van de PowerShell-installatie, bijvoorbeeld c:\azurestack-tools-master. Vervolgens wijzigen in de infrastructuur-map en voer de volgende opdracht voor het importeren van de infrastructuur-module:
 
@@ -138,14 +138,14 @@ De aanvraag haalt alle actieve en gesloten waarschuwingen voor de provider stand
 
 |Methode  |Aanvraag-URI  |
 |---------|---------|
-|TOEVOEGEN     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
+|TOEVOEGEN     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01 '      |
 |     |         |
 
-**Arguments**
+**Argumenten**
 
 |Argument  |Beschrijving  |
 |---------|---------|
-|armendpoint     |  Het Azure Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de indeling https://adminmanagement. {RegionName}. {Externe FQDN}. Als de externe FQDN-naam is bijvoorbeeld *azurestack.external* en de regionaam van de is *lokale*, dan is het Resource Manager-eindpunt https://adminmanagement.local.azurestack.external.       |
+|armendpoint     |  Het Azure Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de notatie https://adminmanagement.{RegionName}.{External FQDN}. Als de externe FQDN-naam is bijvoorbeeld *azurestack.external* en de regionaam van de is *lokale*, dan is het Resource Manager-eindpunt https://adminmanagement.local.azurestack.external.       |
 |subid     |   Abonnements-ID van de gebruiker die de oproep aan te brengen. U kunt deze API's voor query alleen met een gebruiker die gemachtigd om de standaard provider-abonnement te is gebruiken.      |
 |RegionName     |    De naam van het gebied van de Azure-Stack-implementatie.     |
 |API-versie     |  De versie van het protocol dat wordt gebruikt voor het maken van deze aanvraag. U moet 2016-05-01.      |
@@ -226,7 +226,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceRegistrationid*    |     ID van de betreffende geregistreerde resource.    |
 |*resourceProviderRegistrationID*   |    ID van de geregistreerde resourceprovider van het betreffende onderdeel.  |
 |*serviceregistrationid*     |    ID van de geregistreerde service.   |
-|*severity*     |     De ernst van waarschuwing.  |
+|*Ernst*     |     De ernst van waarschuwing.  |
 |*Status*     |    Waarschuwing status.   |
 |*titel*     |    De naam van de waarschuwing.   |
 |*impactedresourceid*     |     ID van de betrokken resource.    |
@@ -241,14 +241,14 @@ De aanvraag wordt gesloten voor een waarschuwing door de unieke ID.
 
 |Methode    |Aanvraag-URI  |
 |---------|---------|
-|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
+|PLAATSEN     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01 '    |
 
-**Arguments**
+**Argumenten**
 
 
 |Argument  |Beschrijving  |
 |---------|---------|
-|*armendpoint*     |   Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de indeling https://adminmanagement. {RegionName}. {Externe FQDN}. Als de externe FQDN-naam is bijvoorbeeld *azurestack.external* en de regionaam van de is *lokale*, dan is het Resource Manager-eindpunt https://adminmanagement.local.azurestack.external.      |
+|*armendpoint*     |   Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de notatie https://adminmanagement.{RegionName}.{External FQDN}. Als de externe FQDN-naam is bijvoorbeeld *azurestack.external* en de regionaam van de is *lokale*, dan is het Resource Manager-eindpunt https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    Abonnements-ID van de gebruiker die de oproep aan te brengen. U kunt deze API's voor query alleen met een gebruiker die gemachtigd om de standaard provider-abonnement te is gebruiken.     |
 |*RegionName*     |   De naam van het gebied van de Azure-Stack-implementatie.      |
 |*API-versie*     |    De versie van het protocol dat wordt gebruikt voor het maken van deze aanvraag. U moet 2016-05-01.     |
@@ -369,7 +369,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*resourceRegistrationid*    |     ID van de betreffende geregistreerde resource.    |
 |*resourceProviderRegistrationID*   |    ID van de geregistreerde resourceprovider van het betreffende onderdeel.  |
 |*serviceregistrationid*     |    ID van de geregistreerde service.   |
-|*severity*     |     De ernst van waarschuwing.  |
+|*Ernst*     |     De ernst van waarschuwing.  |
 |*Status*     |    Waarschuwing status.   |
 |*titel*     |    De naam van de waarschuwing.   |
 |*impactedresourceid*     |     ID van de betrokken resource.    |
@@ -385,15 +385,15 @@ De aanvraag Hiermee wordt de status voor alle geregistreerde resourceproviders.
 
 |Methode  |Aanvraag-URI  |
 |---------|---------|
-|TOEVOEGEN    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
+|TOEVOEGEN    |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01 '   |
 
 
-**Arguments**
+**Argumenten**
 
 
 |Argumenten  |Beschrijving  |
 |---------|---------|
-|*armendpoint*     |    Het Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de indeling https://adminmanagement. {RegionName}. {Externe FQDN}. Bijvoorbeeld, als de externe FQDN azurestack.external is en regionaam lokaal is, klikt u vervolgens het Resource Manager-eindpunt is https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Het Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de notatie https://adminmanagement.{RegionName}.{External FQDN}. Bijvoorbeeld, als de externe FQDN azurestack.external is en regionaam lokaal is, klikt u vervolgens het Resource Manager-eindpunt is https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     Abonnements-ID van de gebruiker die de oproep aan te brengen. U kunt deze API's voor query alleen met een gebruiker die gemachtigd om de standaard provider-abonnement te is gebruiken.    |
 |*RegionName*     |     De naam van het gebied van de Azure-Stack-implementatie.    |
 |*API-versie*     |   De versie van het protocol dat wordt gebruikt voor het maken van deze aanvraag. U moet 2016-05-01.      |
@@ -438,14 +438,14 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*type*     |  Resourcedefinitie.       |
 |*location*     |  Regionaam.       |
 |*tags*     |     Resourcelabels.    |
-|*registrationId*     |   Unieke registratie voor de resourceprovider.      |
+|*Registratie-id*     |   Unieke registratie voor de resourceprovider.      |
 |*displayName*     |Weergavenaam van de resource provider.        |
-|*namespace*     |   API-naamruimte de resourceprovider implementeert.       |
+|*naamruimte*     |   API-naamruimte de resourceprovider implementeert.       |
 |*routePrefix*     |    De URI voor de interactie met de resourceprovider.     |
 |*serviceLocation*     |   Deze resourceprovider is geregistreerd bij de regio.      |
 |*infraURI*     |   De URI van de resourceprovider vermeld als een functie van de infrastructuur.      |
 |*alertSummary*     |   Samenvatting van kritieke en waarschuwingsstatussen waarschuwing die is gekoppeld aan de resourceprovider.      |
-|*healthState*     |    De status van de resourceprovider.     |
+|*HealthState*     |    De status van de resourceprovider.     |
 
 
 ### <a name="get-resource-health"></a>Resourcestatus ophalen
@@ -456,17 +456,17 @@ Status van de aanvraag opgehaald voor een specifieke geregistreerde resourceprov
 
 |Methode  |Aanvraag-URI  |
 |---------|---------|
-|TOEVOEGEN     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
+|TOEVOEGEN     |     https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01 '    |
 
-**Arguments**
+**Argumenten**
 
 |Argumenten  |Beschrijving  |
 |---------|---------|
-|*armendpoint*     |    Het Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de indeling https://adminmanagement. {RegionName}. {Externe FQDN}. Bijvoorbeeld, als de externe FQDN azurestack.external is en regionaam lokaal is, klikt u vervolgens het Resource Manager-eindpunt is https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Het Resource Manager-eindpunt van uw Azure-Stack-omgeving, in de notatie https://adminmanagement.{RegionName}.{External FQDN}. Bijvoorbeeld, als de externe FQDN azurestack.external is en regionaam lokaal is, klikt u vervolgens het Resource Manager-eindpunt is https://adminmanagement.local.azurestack.external.     |
 |*subid*     |Abonnements-ID van de gebruiker die de oproep aan te brengen. U kunt deze API's voor query alleen met een gebruiker die gemachtigd om de standaard provider-abonnement te is gebruiken.         |
 |*RegionName*     |  De naam van het gebied van de Azure-Stack-implementatie.       |
 |*API-versie*     |  De versie van het protocol dat wordt gebruikt voor het maken van deze aanvraag. U moet 2016-05-01.       |
-|*RegistrationID* |Registratie-ID voor een bepaalde resourceprovider. |
+|*Registratie-id* |Registratie-ID voor een bepaalde resourceprovider. |
 
 **Antwoord**
 
@@ -506,7 +506,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*type*     |  Resourcedefinitie.       |
 |*location*     |  Regionaam.       |
 |*tags*     |     Resourcelabels.    |
-|*registrationId*     |   Unieke registratie voor de resourceprovider.      |
+|*Registratie-id*     |   Unieke registratie voor de resourceprovider.      |
 |*resourceType*     |Type resource.        |
 |*resourceName*     |   Naam van de resource.   |
 |*usageMetrics*     |    Gebruik de metrische gegevens voor de resource.     |

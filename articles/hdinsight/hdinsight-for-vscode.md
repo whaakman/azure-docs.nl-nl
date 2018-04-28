@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 0074486d3d7fb58bc6e3adcbe4245ec53e7e4cde
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Gebruik van Azure HDInsight Tools voor Visual Studio Code
 
@@ -29,7 +29,7 @@ Informatie over het gebruik van Azure HDInsight Tools voor Visual Studio Code (V
 
 De volgende items zijn vereist voor de stappen in dit artikel:
 
-- Een HDInsight-cluster.  Zie het maken van een cluster [aan de slag met HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- Een HDInsight-cluster. Zie het maken van een cluster [aan de slag met HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono is alleen vereist voor Linux en Mac OS.
 
@@ -100,7 +100,7 @@ Voordat u scripts naar HDInsight-clusters van de Code van de VS indienen kunt, m
     - PySpark batchscripts te verzenden
     - Set-configuraties
 
-**Koppelen van een cluster**
+<a id="linkcluster"></a>**Koppelen van een cluster**
 
 U kunt koppelen van een normale cluster door Ambari beheerd gebruikersnaam, een beveiliging hadoop-cluster ook een koppeling maken met domeingebruikersnaam (bijvoorbeeld: user1@contoso.com).
 1. Het palet opdracht openen door te selecteren **CTRL + SHIFT + P**, en voer vervolgens **HDInsight: een cluster koppelen**.
@@ -112,7 +112,7 @@ U kunt koppelen van een normale cluster door Ambari beheerd gebruikersnaam, een 
    ![koppeling cluster dialoogvenster](./media/hdinsight-for-vscode/link-cluster-process.png)
 
    > [!NOTE]
-   > We gebruiken de gekoppelde gebruikersnaam en het wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster gekoppeld. 
+   > De gekoppelde gebruikersnaam en wachtwoord worden gebruikt als het cluster zowel geregistreerd in Azure-abonnement en een cluster gekoppeld. 
    
 3. U ziet een gekoppelde cluster met behulp van de opdracht **lijst cluster**. U kunt nu een script voor deze gekoppelde cluster verzenden.
 
@@ -275,8 +275,50 @@ HDInsight Tools voor VS-Code kunt u indienen interactieve PySpark-query's met Sp
 
 Nadat u een Python-taak hebt ingediend, verzending van Logboeken worden weergegeven in de **uitvoer** venster in VS-Code. De **Spark UI URL** en **Yarn UI URL** ook worden weergegeven. U kunt de URL in een webbrowser om bij te houden van de status van de taak openen.
 
-
+>[!NOTE]
+>PySpark3 wordt niet meer ondersteund in Livy 0,4 (dit is de HDI 2.2 spark-cluster). Alleen 'PySpark' wordt ondersteund voor python. Het is bekend probleem dat met spark 2.2 verzenden is mislukt met python3.
    
+## <a name="livy-configuration"></a>Configuratie van Livy
+Livy configuratie wordt ondersteund, deze kan worden ingesteld op de projectinstellingen in werkmappen ruimte. Meer informatie Zie [Livy Leesmij](https://github.com/cloudera/livy/blob/master/README.rst ).
+
++ De projectinstellingen:
+
+    ![Configuratie van Livy](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ De ondersteunde configuraties voor Livy:   
+
+    **POST /batches**   
+    Aanvraagtekst
+
+    | naam | description | type | 
+    | :- | :- | :- | 
+    | bestand | Bestand met de toepassing uit te voeren | pad (vereist) | 
+    | proxyUser | Gebruiker imiteren wanneer de taak wordt uitgevoerd | tekenreeks | 
+    | className | Java/Spark belangrijkste Toepassingsklasse | tekenreeks |
+    | argumenten | Opdrachtregelargumenten voor de toepassing | lijst met tekenreeksen | 
+    | potten | jars moet worden gebruikt in deze sessie | Lijst met tekenreeksen | 
+    | pyFiles | Python-bestanden in deze sessie moet worden gebruikt | Lijst met tekenreeksen |
+    | bestanden weergeven | bestanden in deze sessie moet worden gebruikt | Lijst met tekenreeksen |
+    | driverMemory | Hoeveelheid geheugen die moet worden gebruikt voor het stuurprogramma-proces | tekenreeks |
+    | driverCores | Aantal kernen dat moet worden gebruikt voor het stuurprogramma-proces | int |
+    | executorMemory | Hoeveelheid geheugen per executor proces gebruiken | tekenreeks |
+    | executorCores | Aantal kernen dat moet worden gebruikt voor elke executor | int |
+    | numExecutors | Aantal Executor voor deze sessie starten | int |
+    | archieven | Archieven worden gebruikt in deze sessie | Lijst met tekenreeksen |
+    | Wachtrij | De naam van de wachtrij YARN waarnaar verzonden | tekenreeks |
+    | naam | De naam van deze sessie | tekenreeks |
+    | conf | Spark-configuratie-eigenschappen | Kaart van sleutel = waarde opnemen |
+
+    Antwoordtekst   
+    Het gemaakte object van de Batch.
+
+    | naam | description | type | 
+    | :- | :- | :- | 
+    | id | De sessie-id | int | 
+    | AppId | De toepassings-id van deze sessie |  Tekenreeks |
+    | appInfo | De gedetailleerde toepassingsgegevens | Kaart van sleutel = waarde opnemen |
+    | Logboek | De logboek-regels | lijst met tekenreeksen |
+    | state |   De batch-status | tekenreeks |
 
 
 ## <a name="additional-features"></a>Aanvullende functies

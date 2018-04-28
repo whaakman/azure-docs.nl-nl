@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 5b81ca4f5a9f30b2882d86639ca9386e7bbc09e8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c89be4917bb266bcd0244f2409bfa703dd3e523c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met samenloop SAML SSO door Microsoft
 
@@ -118,7 +118,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_samlbase.png)
 
 3. Op de **samenloop SAML SSO door Microsoft-Domain en URL's** sectie, voert u de volgende stappen uit:
@@ -131,29 +131,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Poort is optioneel, mocht dat een benoemde URL. Deze waarden worden ontvangen tijdens de configuratie van de invoegtoepassing samenloop, die verderop in de zelfstudie wordt beschreven.
 
-4. Voor het genereren van de **metagegevens** -url, de volgende stappen uitvoeren:
-
-    a. Klik op **App registraties**.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
     
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-Confluencemicrosoft-tutorial/appregistrations.png)
-   
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-Confluencemicrosoft-tutorial/endpointicon.png)
-
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-Confluencemicrosoft-tutorial/endpoint.png)
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-Confluencemicrosoft-tutorial/tutorial_metadataurl.png)
      
-    d. Nu gaat u naar de eigenschappenpagina van **samenloop SAML SSO door Microsoft** en kopieer de **toepassings-Id** met **kopie** knop en plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-Confluencemicrosoft-tutorial/appid.png)
-
-    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` en kopieer deze waarde in Kladblok, zoals het later voor de configuratie van de invoegtoepassing gebruikt wordt.
-
 5. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-Confluencemicrosoft-tutorial/tutorial_general_400.png)
@@ -175,11 +159,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 10. Voer de volgende stappen uit op de configuratiepagina:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon52.png)
- 
+
     > [!TIP]
     > Zorg ervoor dat er slechts één certificaat toegewezen aan de app, zodat er geen fout is bij het oplossen van de metagegevens. Als er meerdere certificaten, haalt de beheerder een fout opgetreden bij het omzetten van de metagegevens.
 
-    a. In **metagegevens-URL** plak de **metagegevens-URL** gegenereerd op basis van Azure AD en klik op de **oplossen** knop. De URL van de metagegevens IdP worden gelezen en alle informatie in de velden gevuld.
+    a. In de **metagegevens-URL** textbox plakken **App-Url voor federatieve metagegevens** waarde die u hebt gekopieerd van de Azure-portal en klik op de **oplossen** knop. De URL van de metagegevens IdP worden gelezen en alle informatie in de velden gevuld.
 
     b. Kopiëren de **id, de antwoord-URL en de URL met eenmalige** waarden en plak ze in **id, de antwoord-URL en de URL met eenmalige** respectievelijk in tekstvakken **samenloop SAML SSO door Microsoft-Domain en URL's** sectie op Azure-portal.
 
@@ -202,10 +186,6 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     > [!NOTE]
     > Voor meer informatie over installatie en probleemoplossing, gaat u naar [MS samenloop SSO Connector Admin handleiding](ms-confluence-jira-plugin-adminguide.md) en er ook [Veelgestelde vragen over](ms-confluence-jira-plugin-faq.md) voor uw hulp
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -323,4 +303,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_general_203.png
-

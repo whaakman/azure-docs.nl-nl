@@ -3,24 +3,24 @@ title: Voorwaarden in voorwaardelijke toegang van Azure Active Directory | Micro
 description: Meer informatie over hoe toewijzingen van voorwaardelijke toegang van Azure Active Directory worden gebruikt voor het activeren van een beleid.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: MT
+ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Voorwaarden in Azure Active Directory voorwaardelijke toegang 
 
@@ -71,7 +71,7 @@ De cloud-apps-voorwaarde is verplicht in een beleid voor voorwaardelijke toegang
 
 U kunt selecteren:
 
-- **Alle cloud-apps** basislijn-beleid moet worden toegepast op de hele organisatie. Een algemene gebruiksvoorbeeld voor deze selectie is een beleid dat multi-factor authentication-server is vereist bij het aanmelden risico wordt gedetecteerd voor alle cloud-Apps.
+- **Alle cloud-apps** basislijn-beleid moet worden toegepast op de hele organisatie. Een algemene gebruiksvoorbeeld voor deze selectie is een beleid dat multi-factor authentication-server is vereist bij het aanmelden risico wordt gedetecteerd voor alle cloud-Apps. Een beleid toegepast op **alle cloud-apps** geldt voor toegang tot alle website en services. Deze instelling is niet beperkt tot de cloud-apps die worden weergegeven op de **Selecteer Cloud-apps** lijst.
 
 - Afzonderlijke cloud-apps tot specifieke services door het beleid voor doel. U kunt bijvoorbeeld vereisen dat gebruikers hebben een [compatibel apparaat](active-directory-conditional-access-policy-connected-applications.md) voor toegang tot SharePoint Online. Dit beleid geldt ook voor andere services wanneer ze toegang SharePoint-inhoud, bijvoorbeeld Microsoft-Teams tot. 
 

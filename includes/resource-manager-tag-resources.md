@@ -22,3 +22,10 @@
 7. U kunt de vastgemaakte tag selecteren vanuit het dashboard om de resources met die tag te bekijken.
 
      ![Tags vastmaken aan het dashboard](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+
+Bulksgewijs labels toewijzen aan meerdere resources:
+1. Uit een lijst met resources (bijvoorbeeld alle Resources, resourcegroep oveview);
+2. Schakel dit selectievakje in voor de bronnen die u wilt toewijzen van de tag;
+3. Selecteer optie voor toewijzen-tags;
+4. Namen en waarden toevoegen en selecteer toewijzen.

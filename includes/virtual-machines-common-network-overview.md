@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 14aa0002ff88678bb54a3abed8bf7eeed3b717f4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 Wanneer u een virtuele Azure-machine maakt, moet u een [virtueel netwerk](../articles/virtual-network/virtual-networks-overview.md) (VNet) maken of een bestaand VNet gebruiken. U moet ook bepalen hoe uw virtuele machines kunnen worden geopend via de VNet. Het is belangrijk om [een planning te maken voordat u resources maakt](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) en ervoor te zorgen dat u op de hoogte bent van de [limieten van netwerkresources](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -48,7 +48,7 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een netwerk
 | Azure Portal | Wanneer u een virtuele machine in Azure Portal maakt, wordt automatisch een netwerkinterface voor u gemaakt (u kunt niet een NIC gebruiken die u afzonderlijk hebt gemaakt). De portal maakt een virtuele machine met slechts één NIC. Als u een virtuele machine met meer dan één NIC wilt maken, moet u deze met een andere methode maken. |
 | [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Gebruik [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) met de parameter **-PublicIpAddressId** om de ID op te geven van het openbare IP-adres dat u eerder hebt gemaakt. |
 | [Azure-CLI](../articles/virtual-machines/linux/multiple-nics.md) | Als u de ID wilt opgeven van het openbare IP-adres dat u eerder hebt gemaakt, gebruikt u [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) met de parameter **--public-ip-address**. |
-| [Sjabloon](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | Gebruik [Netwerkinterface in een virtueel netwerk met openbaar IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) als richtlijn voor het implementeren van een netwerkinterface met behulp van een sjabloon. |
+| [Sjabloon](../articles/virtual-network/template-samples.md) | Gebruik [Netwerkinterface in een virtueel netwerk met openbaar IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) als richtlijn voor het implementeren van een netwerkinterface met behulp van een sjabloon. |
 
 ## <a name="ip-addresses"></a>IP-adressen 
 
@@ -70,7 +70,7 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een IP-adre
 | [Azure Portal](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Standaard zijn openbare IP-adressen dynamisch, en het adres dat eraan is gekoppeld kan worden gewijzigd wanneer de virtuele machine wordt gestopt of verwijderd. Om ervoor te zorgen dat de virtuele machine altijd hetzelfde openbare IP-adres gebruikt, maakt u een statisch openbaar IP-adres. De portal wijst standaard een dynamisch privé IP-adres toe aan een NIC bij het maken van een virtuele machine. Nadat de virtuele machine is gemaakt, kunt u dit IP-adres naar statisch.|
 | [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | U gebruikt [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) met de parameter **-AllocationMethod** als dynamisch of statisch. |
 | [Azure-CLI](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | U gebruikt [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) met de parameter **--allocation-method** als dynamisch of statisch. |
-| [Sjabloon](../articles/virtual-network/virtual-network-deploy-static-pip-arm-template.md) | Gebruik [Netwerkinterface in een virtueel netwerk met openbaar IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) als richtlijn voor het implementeren van een openbaar IP-adres met behulp van een sjabloon. |
+| [Sjabloon](../articles/virtual-network/template-samples.md) | Gebruik [Netwerkinterface in een virtueel netwerk met openbaar IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) als richtlijn voor het implementeren van een openbaar IP-adres met behulp van een sjabloon. |
 
 Nadat u een openbaar IP-adres hebt gemaakt, kunt u dit aan een virtuele machine koppelen door het aan een NIC toe te wijzen.
 
@@ -112,7 +112,7 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een netwerk
 | [Azure Portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Wanneer u een virtuele machine in Azure Portal maakt, wordt een NSG automatisch gemaakt en gekoppeld aan de NIC die door de Portal wordt gemaakt. De naam van de NSG is een combinatie van de naam van de virtuele machine en **-nsg**. Deze NSG bevat een regel voor inkomende verbindingen met een prioriteit van 1000, de service ingesteld op RDP, het protocol ingesteld op TCP, de poort ingesteld op 3389 en de actie ingesteld op Toestaan. Als u ander inkomend verkeer op de virtuele machine wilt toestaan, moet u extra regels toevoegen aan de NSG. |
 | [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Gebruik [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) en geef de vereiste regelinformatie op. Gebruik [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) om de NSG te maken. Gebruik [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) voor het configureren van de NSG voor het subnet. Gebruik [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) om de NSG toe te voegen aan de VNet. |
 | [Azure-CLI](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Gebruik [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) om de NSG te maken. Gebruik [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) om regels toe te voegen aan de NSG. Gebruik [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) om de NSG toe te voegen aan het subnet. |
-| [Sjabloon](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md) | Gebruik [Een netwerkbeveiligingsgroep maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) als richtlijn voor het implementeren van een netwerkbeveiligingsgroep met behulp van een sjabloon. |
+| [Sjabloon](../articles/virtual-network/template-samples.md) | Gebruik [Een netwerkbeveiligingsgroep maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) als richtlijn voor het implementeren van een netwerkbeveiligingsgroep met behulp van een sjabloon. |
 
 ## <a name="load-balancers"></a>Load balancers
 

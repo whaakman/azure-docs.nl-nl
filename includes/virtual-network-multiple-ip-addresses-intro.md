@@ -1,8 +1,23 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-network
+author: jimdial
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: f1dc43b6fea4ebfb47439ec64b573cc471614d98
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/18/2018
+---
 > [!div class="op_single_selector"]
 > * [Azure Portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
-> * [Azure CLI](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
-> * [Sjabloon](../articles/virtual-network/virtual-network-multiple-ip-addresses-template.md)
+> * [Azure-CLI](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 >
 
 Aan een virtuele Azure-machine zijn een of meer netwerkinterfaces (NIC's) gekoppeld. Aan elke NIC kunnen een of meer statische of dynamische openbare en privé-IP-adressen worden toegewezen. Door meerdere IP-adressen toe te wijzen aan een virtuele machine, hebt u de volgende mogelijkheden:

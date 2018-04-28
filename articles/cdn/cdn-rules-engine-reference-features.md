@@ -3,7 +3,7 @@ title: Azure CDN regels engine functies | Microsoft Docs
 description: Documentatie bij Azure CDN regels engine functies.
 services: cdn
 documentationcenter: ''
-author: Lichard
+author: dksimpson
 manager: akucer
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
-ms.author: rli
-ms.openlocfilehash: fd670e3b01812b7fa8fc708a02d02210b598ac6a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: v-deasim
+ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies in de engine Azure CDN-regels
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
 
-Het derde deel van een regel is de functie. Een functie bepaalt het type actie dat wordt toegepast op het aanvraagtype geïdentificeerd door een set voorwaarden van de overeenkomst.
+Het derde deel van een regel is de functie. Een functie bepaalt het type actie dat wordt toegepast op het aanvraagtype die wordt geïdentificeerd door een set voorwaarden van de overeenkomst.
 
 ## <a name="access-features"></a>Access-functies
 
@@ -515,16 +515,16 @@ Belangrijke informatie:
 
 ---
 ### <a name="debug-cache-response-headers"></a>Fouten opsporen in Cache antwoordheaders
-**Doel:** bepaalt of een antwoord antwoordheader van de X-EC-Debug die informatie over het cachebeleid voor de aangevraagde asset bevat kunt opnemen.
+**Doel:** bepaalt of een antwoord kunt opnemen [X-EC-Debug antwoordheaders](cdn-http-debug-headers.md), waarmee u informatie op het cachebeleid voor de aangevraagde asset.
 
 Fouten opsporen in cacheantwoord headers worden opgenomen in het antwoord wanneer het volgende waar zijn:
 
-- Fouten opsporen in Cache antwoord Headers functie is ingeschakeld op de gewenste aanvraag.
-- De bovenstaande aanvraag definieert de set van foutopsporing cache antwoordheaders die wordt opgenomen in het antwoord.
+- De functie antwoordheaders voor fouten opsporen in Cache is ingeschakeld op de opgegeven aanvraag.
+- De opgegeven aanvraag definieert de set van foutopsporing cache antwoordheaders die wordt opgenomen in het antwoord.
 
-Fouten opsporen in cacheantwoord headers kunnen worden aangevraagd door de volgende header en de gewenste richtlijnen in de aanvraag, waaronder:
+Fouten opsporen in cacheantwoord headers kunnen worden aangevraagd door de volgende header en de opgegeven richtlijnen in de aanvraag, waaronder:
 
-X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
+`X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
 **Voorbeeld:**
 
@@ -624,7 +624,7 @@ Verwijderen| Zorgt ervoor dat een `Expires` header is niet opgenomen in de heade
 ### <a name="external-max-age"></a>Externe maximumleeftijd
 **Doel:** bepaalt het maximumleeftijd interval voor de browser opnieuw valideren pop-server. Met andere woorden, de hoeveelheid tijd die wordt doorgegeven voordat een browser kan worden gecontroleerd voor een nieuwe versie van een actief van een pop-server.
 
-Inschakelen van deze functie genereert `Cache-Control: max-age` en `Expires` headers van de POP's en verzend dit naar de HTTP-client. Standaard wordt deze headers die zijn gemaakt met de oorspronkelijke server overschreven. Maar de behandeling van Cache-Control-Header en de onderdelen van de Header behandeling verloopt gebruikt voor het wijzigen van dit probleem.
+Inschakelen van deze functie genereert `Cache-Control: max-age` en `Expires` headers van de POP's en verzend dit naar de HTTP-client. Standaard wordt deze koppen deze koppen gemaakt door de oorspronkelijke server overschreven. Maar de behandeling van Cache-Control-Header en de onderdelen van de Header behandeling verloopt gebruikt voor het wijzigen van dit probleem.
 
 Belangrijke informatie:
 
@@ -706,7 +706,7 @@ Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overe
 Belangrijke informatie:
 
 - Een door spaties gescheiden set toegestane H.264 filename extensies in de optie bestandsextensies definiëren. De optie bestandsextensies wordt het standaardgedrag negeren. Ondersteuning voor MP4 en F4V onderhouden door te nemen die bestandsnaamextensies als u deze optie. 
-- Zorg ervoor dat een periode bij het opgeven van elke extensie (bijvoorbeeld MP4 .f4v).
+- Een periode bij het opgeven van elke extensie bevatten (bijvoorbeeld _MP4_, _.f4v_).
 
 **Standaardgedrag:** MP4 en F4V media standaard HTTP progressief downloaden ondersteunt.
 
@@ -727,7 +727,7 @@ Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag wordt 
 
 Voor alle verkeer van de productie, is het raadzaam deze functie in de standaardstatus uitgeschakeld laten staan. Oorsprong-servers wordt anders niet worden afgeschermd van eindgebruikers die per ongeluk activeren mogelijk veel aanvragen voor Nee-cache bij het vernieuwen van webpagina's, of van de veel populaire mediaspelers die zijn gecodeerd voor het verzenden van een koptekst Nee-cache met elke aanvraag video. Deze functie kan echter nuttig om te passen op bepaalde niet-productieve staging- of -adreslijsten moet testen om nieuwe inhoud op aanvraag worden opgehaald vanaf de oorspronkelijke server toestaan zijn.
 
-De status van de cache die worden gerapporteerd voor een aanvraag die is toegestaan moeten worden doorgestuurd naar een bronserver als gevolg van deze functie is TCP_Client_Refresh_Miss. De statussen van de Cache-rapport, die beschikbaar in de module reporting Core is, bevat statistische gegevens door de status van de cache. Hiermee kunt u voor het bijhouden van het aantal en het percentage verzoeken die worden doorgestuurd naar een bronserver als gevolg van deze functie.
+De status van de cache die is gerapporteerd voor een aanvraag die kan worden doorgestuurd naar een bronserver als gevolg van deze functie is `TCP_Client_Refresh_Miss`. De statussen van de Cache-rapport, die beschikbaar in de module reporting Core is, bevat statistische gegevens door de status van de cache. Dit rapport kunt u het aantal en het percentage verzoeken die worden doorgestuurd naar een bronserver als gevolg van deze functie bijhouden.
 
 **Standaardgedrag:** uitgeschakeld.
 
@@ -858,7 +858,7 @@ Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is que
 ### <a name="maximum-keep-alive-requests"></a>Maximum aantal keepalive-aanvragen
 **Doel:** definieert het maximum aantal aanvragen voor een Keep-Alive verbinding wordt gesloten.
 
-Als het maximale aantal aanvragen op een lage waarde wordt sterk afgeraden en kan leiden tot verminderde prestaties.
+Als het maximale aantal aanvragen op een lage waarde wordt afgeraden en kan leiden tot verminderde prestaties.
 
 Belangrijke informatie:
 
@@ -884,9 +884,9 @@ Een van de volgende acties worden uitgevoerd op een aanvraag-header:
 
 Optie|Beschrijving|Voorbeeld
 -|-|-
-Toevoegen|De opgegeven waarde zal worden toegevoegd aan het einde van de bestaande waarde voor de aanvraag-header.|**Headerwaarde (Client) aanvraag:**Value1 <br/> **Headerwaarde (http-regelengine) aanvraag:** Value2 <br/>**Nieuwe aanvraag-header-waarde:** Value1Value2
-Overschrijven|De waarde van de aanvraag-header wordt ingesteld op de opgegeven waarde.|**Headerwaarde (Client) aanvraag:**Value1 <br/>**Headerwaarde (http-regelengine) aanvraag:** Value2 <br/>**Nieuwe aanvraag-header-waarde:** Value2 <br/>
-Verwijderen|Hiermee verwijdert u de opgegeven aanvraagheader.|**Headerwaarde (Client) aanvraag:**Value1 <br/> **Configuratie van de Client-aanvraagheader wijzigen:** verwijderen van de desbetreffende aanvraagheader. <br/>**Resultaat:** de opgegeven aanvraagkop niet doorgestuurd naar de oorspronkelijke server.
+Toevoegen|De opgegeven waarde zal worden toegevoegd aan het einde van de bestaande waarde voor de aanvraag-header.|**Headerwaarde (Client) aanvraag:** Value1 <br/> **Headerwaarde (http-regelengine) aanvraag:** Value2 <br/>**Nieuwe aanvraag-header-waarde:** Value1Value2
+Overschrijven|De waarde van de aanvraag-header wordt ingesteld op de opgegeven waarde.|**Headerwaarde (Client) aanvraag:** Value1 <br/>**Headerwaarde (http-regelengine) aanvraag:** Value2 <br/>**Nieuwe aanvraag-header-waarde:** Value2 <br/>
+Verwijderen|Hiermee verwijdert u de opgegeven aanvraagheader.|**Headerwaarde (Client) aanvraag:** Value1 <br/> **Configuratie van de Client-aanvraagheader wijzigen:** verwijderen van de desbetreffende aanvraagheader. <br/>**Resultaat:** de opgegeven aanvraagkop niet doorgestuurd naar de oorspronkelijke server.
 
 Belangrijke informatie:
 
@@ -922,8 +922,8 @@ Een van de volgende acties worden uitgevoerd op een antwoordheader:
 
 Optie|Beschrijving|Voorbeeld
 -|-|-
-Toevoegen|De opgegeven waarde zal worden toegevoegd aan het einde van de bestaande waarde voor de antwoord-header.|**Antwoord headerwaarde (Client):**Value1 <br/> **Antwoord headerwaarde (http-regelengine):** Value2 <br/>**Nieuwe antwoord headerwaarde:** Value1Value2
-Overschrijven|De waarde van de antwoord-header wordt met de opgegeven waarde worden ingesteld.|**Antwoord headerwaarde (Client):**Value1 <br/>**Antwoord headerwaarde (http-regelengine):** Value2 <br/>**Nieuwe antwoord headerwaarde:** Value2 <br/>
+Toevoegen|De opgegeven waarde zal worden toegevoegd aan het einde van de bestaande waarde voor de antwoord-header.|**Antwoord headerwaarde (Client):** Value1 <br/> **Antwoord headerwaarde (http-regelengine):** Value2 <br/>**Nieuwe antwoord headerwaarde:** Value1Value2
+Overschrijven|De waarde van de antwoord-header wordt met de opgegeven waarde worden ingesteld.|**Antwoord headerwaarde (Client):** Value1 <br/>**Antwoord headerwaarde (http-regelengine):** Value2 <br/>**Nieuwe antwoord headerwaarde:** Value2 <br/>
 Verwijderen|Hiermee verwijdert u de opgegeven antwoordheader.|**Antwoord headerwaarde (Client):** Value1 <br/> **Configuratie van de Client antwoordheader wijzigen:** antwoordheader van de desbetreffende verwijderen. <br/>**Resultaat:** de opgegeven antwoordkop niet doorgestuurd naar de aanvrager.
 
 Belangrijke informatie:
@@ -990,12 +990,22 @@ Belangrijke informatie:
 
 ---
 ### <a name="proxy-special-headers"></a>Speciale proxy-kopteksten
-**Doel:** definieert de set van CDN-specifieke aanvraagheaders die van een POP-, worden doorgestuurd naar een bronserver.
+**Doel:** definieert de set met [Verizon-specifieke HTTP-aanvraagheaders](cdn-verizon-http-headers.md) die zal van een POP-worden doorgestuurd naar een bronserver.
 
 Belangrijke informatie:
 
-- Elke aanvraag-header van het CDN-specifieke gedefinieerd in deze functie zal worden doorgestuurd naar een bronserver.
-- Voorkomen dat een aanvraagheader CDN-specifieke worden doorgestuurd naar een server oorsprong door deze te verwijderen uit deze lijst.
+- Elke aanvraag-header van het CDN-specifieke gedefinieerd in deze functie wordt doorgestuurd naar een bronserver. Uitgesloten headers niet doorgestuurd.
+- Om te voorkomen dat een aanvraagheader CDN-specifieke die ernaar worden doorgestuurd, moet u deze uit door spaties gescheiden lijst in het veld header lijst verwijderd.
+
+De volgende HTTP-headers zijn opgenomen in de lijst met:
+- via
+- X doorgestuurd voor
+- X-doorgestuurd-protocol
+- X-Host
+- X-Midgress
+- X-Gateway-lijst
+- X-EC-naam
+- Host
 
 **Standaardgedrag:** alle CDN-specifieke aanvraagheaders doorgestuurd naar de oorspronkelijke server.
 

@@ -2,7 +2,7 @@
 title: Gebruik van een Windows-VM-MSI voor toegang tot Azure Resource Manager
 description: Een zelfstudie die u bij het proces helpt van het gebruik van een Windows VM beheerde Service identiteit (MSI) voor toegang tot Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 616bbc9c657d5d6afba962c676d44ac0baa6841e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a19f0b9a333cbd01827ce54576c1bb77a0ce7c1d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot de Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u beheerde Service identiteit (MSI) inschakelen voor virtuele Windows-machine (VM). U kunt vervolgens die identiteit gebruiken voor toegang tot de Azure Resource Manager-API. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie zonder referenties invoegen in uw code. Procedures voor:
+Deze zelfstudie laat zien hoe u beheerde Service identiteit (MSI) inschakelen voor virtuele Windows-machine (VM). U kunt vervolgens die identiteit gebruiken voor toegang tot de Azure Resource Manager-API. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie zonder referenties invoegen in uw code. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Inschakelen van MSI op een Windows VM 
@@ -37,7 +37,7 @@ Deze zelfstudie laat zien hoe u beheerde Service identiteit (MSI) inschakelen vo
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine in een nieuwe resourcegroep maken
 
@@ -54,17 +54,13 @@ Voor deze zelfstudie maken we een nieuwe Windows VM.  U kunt ook MSI op een best
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen 
 
-Een VM MSI kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Inschakelen van MSI vertelt Azure maken van een beheerde identiteit voor uw virtuele machine. Achter de MSI inschakelen biedt twee dingen: het installeren van de MSI-VM-extensie op uw virtuele machine en zorgt ervoor dat MSI in Azure Resource Manager.
+Een VM MSI kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Inschakelen van de Service-identiteit beheerd op een virtuele machine, biedt twee dingen: registreert uw virtuele machine met Azure Active Directory voor het maken van de beheerde identiteit en configureert u de identiteit op de virtuele machine.
 
 1.  Selecteer de **virtuele Machine** dat u inschakelen van MSI wilt op.  
 2.  Klik op de linkernavigatiebalk **configuratie**. 
 3.  U ziet **beheerde Service-identiteit**. Als u wilt registreren en inschakelen van het MSI-bestand, selecteer **Ja**, als u wilt uitschakelen, kiest u Nee. 
 4.  Zorg ervoor dat u klikt op **opslaan** aan de configuratie op te slaan.  
     ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Als u wilt controleren en nagaan welke uitbreidingen zijn op deze virtuele machine, klikt u op **extensies**. Als MSI is ingeschakeld, klikt u vervolgens **ManagedIdentityExtensionforWindows** worden weergegeven in de lijst.
-
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Uw VM-toegang verlenen aan een resourcegroep in Resource Manager
 Met behulp van MSI Vind uw code toegangstokens voor verificatie naar bronnen die ondersteuning bieden voor Azure AD-verificatie.  De Azure Resource Manager biedt ondersteuning voor Azure AD-verificatie.  Eerst moet deze VM identiteit toegang verlenen tot een resource in Resource Manager in dit geval de resourcegroep waarin de virtuele machine is opgenomen.  
@@ -89,7 +85,7 @@ U moet gebruiken **PowerShell** in dit gedeelte.  Als u niet hebt geïnstalleerd
 4.  Maak met behulp van Powershell Invoke-WebRequest, een aanvraag naar het lokale eindpunt MSI een access-token ophalen voor Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]

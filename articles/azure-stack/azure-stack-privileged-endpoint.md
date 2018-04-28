@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9fb928b7cb8e1a83734b64a8b9c19bc3cf3203ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Met behulp van de bevoegde eindpunt in Azure-Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Als een Azure-Stack-operator, moet u de beheerdersportal PowerShell of Azure Resource Manager-API's gebruiken voor meest dagelijkse beheertaken. Evenwel sommige minder algemene bewerkingen u wilt gebruiken, de *bevoegde eindpunt* (PEP). De PEP is een vooraf geconfigureerde externe PowerShell console waarmee u net voldoende mogelijkheden om u te helpen bij het uitvoeren van een vereiste taak. Maakt gebruik van het eindpunt [PowerShell JEA (net genoeg beheer)](https://docs.microsoft.com/en-us/powershell/jea/overview) om slechts een beperkt aantal cmdlets weer te geven. Voor toegang tot de PEP en de beperkte set cmdlets worden aangeroepen, wordt een account met beperkte bevoegdheden gebruikt. Er is geen administrator-accounts zijn vereist. Voor extra beveiliging, is uitvoeren van scripts niet toegestaan.
+Als een Azure-Stack-operator, moet u de beheerdersportal PowerShell of Azure Resource Manager-API's gebruiken voor meest dagelijkse beheertaken. Evenwel sommige minder algemene bewerkingen u wilt gebruiken, de *bevoegde eindpunt* (PEP). De PEP is een vooraf geconfigureerde externe PowerShell console waarmee u net voldoende mogelijkheden om u te helpen bij het uitvoeren van een vereiste taak. Maakt gebruik van het eindpunt [PowerShell JEA (net genoeg beheer)](https://docs.microsoft.com/powershell/jea/overview) om slechts een beperkt aantal cmdlets weer te geven. Voor toegang tot de PEP en de beperkte set cmdlets worden aangeroepen, wordt een account met beperkte bevoegdheden gebruikt. Er is geen administrator-accounts zijn vereist. Voor extra beveiliging, is uitvoeren van scripts niet toegestaan.
 
 De PEP kunt u taken uitvoert zoals het volgende:
 
@@ -77,7 +77,7 @@ Voordat u deze procedure voor een geïntegreerde, zorg er dan voor dat u toegang
       ```` 
    Wanneer u wordt gevraagd, gebruikt u de volgende referenties:
 
-      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling ** &lt; *Azure Stack domein*&gt;\cloudadmin**. (Voor ASDK, de gebruikersnaam is **azurestack\cloudadmin**.)
+      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling  **&lt; *Azure Stack domein*&gt;\cloudadmin**. (Voor ASDK, de gebruikersnaam is **azurestack\cloudadmin**.)
       - **Wachtwoord**: Voer het wachtwoord dat is opgegeven tijdens de installatie voor de administrator-account van het AzureStackAdmin.
 
     > [!NOTE]
@@ -88,17 +88,17 @@ Voordat u deze procedure voor een geïntegreerde, zorg er dan voor dat u toegang
     Veel van deze cmdlets zijn alleen bedoeld voor geïntegreerde systeemomgevingen (zoals de cmdlets die betrekking hebben op datacenter-integratie). In de ASDK zijn de volgende cmdlets gevalideerd:
 
     - Clear-Host
-    - Close-PrivilegedEndpoint
+    - Sluit PrivilegedEndpoint
     - Exit-PSSession
     - Get-AzureStackLog
     - Get-AzureStackStampInformation
-    - Get-Command
+    - Opdracht GET
     - Get-FormatData
     - Get-Help
     - Get-ThirdPartyNotices
-    - Measure-Object
+    - Meting-Object
     - New-CloudAdminUser
-    - Out-Default
+    - Uitgaande standaard
     - Remove-CloudAdminUser
     - Select-Object
     - Set-CloudAdminUserPassword
@@ -108,7 +108,7 @@ Voordat u deze procedure voor een geïntegreerde, zorg er dan voor dat u toegang
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Tips voor het gebruik van de bevoegde eindpunt 
 
-Zoals eerder vermeld, de PEP is een [PowerShell JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) eindpunt. Een eindpunt JEA vermindert en tegelijkertijd een laag sterke beveiliging, enkele basic PowerShell mogelijkheden, zoals scripts of tabblad voltooiing. Als u een willekeurig type Scriptbewerking probeert, mislukt de bewerking met de fout **ScriptsNotAllowed**. Dit is verwacht gedrag.
+Zoals eerder vermeld, de PEP is een [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) eindpunt. Een eindpunt JEA vermindert en tegelijkertijd een laag sterke beveiliging, enkele basic PowerShell mogelijkheden, zoals scripts of tabblad voltooiing. Als u een willekeurig type Scriptbewerking probeert, mislukt de bewerking met de fout **ScriptsNotAllowed**. Dit is verwacht gedrag.
 
 Bijvoorbeeld: als u de lijst met parameters voor een bepaalde cmdlet, loopt u de volgende opdracht:
 
@@ -116,7 +116,7 @@ Bijvoorbeeld: als u de lijst met parameters voor een bepaalde cmdlet, loopt u de
     Get-Command <cmdlet_name> -Syntax
 ```
 
-U kunt ook de [Import-PSSession](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) cmdlet alle PEP cmdlets importeren in de huidige sessie op uw lokale machine. Door dit te doen, zijn alle cmdlets en -functies van de PEP nu beschikbaar op uw lokale computer, samen met de tab-Aanvulling en informatie over het algemeen scripting. 
+U kunt ook de [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) cmdlet alle PEP cmdlets importeren in de huidige sessie op uw lokale machine. Door dit te doen, zijn alle cmdlets en -functies van de PEP nu beschikbaar op uw lokale computer, samen met de tab-Aanvulling en informatie over het algemeen scripting. 
 
 Voer de volgende stappen uit voor het importeren van de sessie PEP op uw lokale machine:
 
@@ -149,7 +149,7 @@ Voer de volgende stappen uit voor het importeren van de sessie PEP op uw lokale 
       ```` 
    Wanneer u wordt gevraagd, gebruikt u de volgende referenties:
 
-      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling ** &lt; *Azure Stack domein*&gt;\cloudadmin**. (Voor ASDK, de gebruikersnaam is **azurestack\cloudadmin**.)
+      - **Gebruikersnaam**: Geef het account CloudAdmin in de indeling  **&lt; *Azure Stack domein*&gt;\cloudadmin**. (Voor ASDK, de gebruikersnaam is **azurestack\cloudadmin**.)
       - **Wachtwoord**: Voer het wachtwoord dat is opgegeven tijdens de installatie voor de administrator-account van het AzureStackAdmin.
 
 3. De sessie PEP in uw lokale machine importeren

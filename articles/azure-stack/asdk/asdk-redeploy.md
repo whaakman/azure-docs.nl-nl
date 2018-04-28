@@ -2,11 +2,11 @@
 title: Implementeren van de Azure-Stack Development Kit (ASDK) | Microsoft Docs
 description: In deze zelfstudie leert u hoe de ASDK opnieuw installeren.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 579414f79da29a443ddaf8e167bf3889a647f33d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: MT
+ms.openlocfilehash: 33879187a912394b5cec6e9f9a8898f431134f5c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-redeploy-the-asdk"></a>Zelfstudie: de ASDK opnieuw implementeren
 In deze zelfstudie leert u hoe de Azure Stack Development Kit (ASDK) in een niet-productieomgeving implementeren. Omdat de ASDK bijwerken wordt niet ondersteund, moet u volledig opnieuw te implementeren om te verplaatsen naar een nieuwere versie. U kunt ook de ASDK implementeren op elk gewenst moment die u wilt beginnen vanaf het begin.
@@ -48,7 +48,7 @@ Gebruiken om de registratie-resource verwijdert, de **verwijderen AzsRegistratio
   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   # Provide Azure subscription admin credentials
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
 
   # Provide ASDK admin credentials
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"

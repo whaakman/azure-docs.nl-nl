@@ -2,10 +2,10 @@
 title: Veelgestelde vragen over Azure VM Backup | Microsoft Docs
 description: Antwoorden op veelgestelde vragen over de werking van Azure VM Backup, over de beperkingen en over wat er gebeurt wanneer het beleid wordt gewijzigd
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
+editor: ''
 keywords: azure vm backup, virtuele azure-machines herstellen, back-upbeleid
 ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Vragen over de Azure VM Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van Azure VM Backup. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -33,7 +33,7 @@ Doorloop [ondersteunde besturingssystemen](backup-azure-arm-vms-prepare.md#suppo
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Waarom zie ik mijn virtuele machine niet in de wizard Back-up configureren?
 In de wizard Back-up configureren, Azure Backup alleen een lijst met virtuele machines die zijn:
-  * Nog niet beveiligd kunt u de back-status van een virtuele machine controleren door te gaan naar de blade VM en controleren van de status van de back-up van het Menu instellingen. Meer informatie over [hoe u de back-upstatus van een virtuele machine controleert](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
+  * Nog niet beveiligd kunt u de back-status van een virtuele machine controleren door te gaan naar de blade VM en controleren van de status van de back-up van het Menu instellingen. Meer informatie over [hoe u de back-upstatus van een virtuele machine controleert](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
   * Tot dezelfde regio behoren als de virtuele machine
 
 ## <a name="backup"></a>Back-up maken
@@ -78,7 +78,7 @@ Raadpleeg voor Powershell-cmdlets [hier](backup-azure-vms-automation.md#restore-
 
 ## <a name="manage-vm-backups"></a>Back-ups van uw virtuele machine beheren
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Wat gebeurt er wanneer ik het back-upbeleid voor een of meer virtuele machines wijzig?
-Wanneer een nieuw beleid wordt toegepast op VM('s), wordt planning en retentie van het nieuwe beleid gevolgd. Als de bewaarperiode is uitgebreid, worden bestaande herstelpunten zodat ze volgens het beleid voor nieuwe gemarkeerd. Als bewaarperiode wordt beperkt, worden ze gemarkeerd voor verwijderen in de volgende taak opschonen en vervolgens verwijderd. 
+Wanneer een nieuw beleid wordt toegepast op VM('s), wordt planning en retentie van het nieuwe beleid gevolgd. Als de retentie is uitgebreid, worden de bestaande herstelpunten gemarkeerd voor bewaring conform het nieuwe beleid. Als de retentie is beperkt, worden de bestaande herstelpunten gemarkeerd voor verwijdering in de eerstvolgende opschoontaak, en worden ze vervolgens verwijderd. 
 
 ### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Hoe kan ik een virtuele machine die is geregistreerd in Azure back-up tussen brongroepen verplaatsen?
 Volg de onderstaande stappen zijn de back-up VM verplaatsen naar de doelresourcegroep 

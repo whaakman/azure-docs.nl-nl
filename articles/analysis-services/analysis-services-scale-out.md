@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a340cb3d73e0aaa86a5b7beb555133daed39d8b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services scale-out
 
@@ -22,7 +22,7 @@ Met scale-out clientquery's kunnen worden verdeeld over meerdere *query uitvoere
 
 In een implementatie voor typische server fungeert één server als zowel de verwerking server en de queryserver. Als het aantal clientaanvragen op modellen op uw server de Query verwerken eenheden (QPU) voor uw server plan overschrijdt of modelverwerking vindt plaats op hetzelfde moment als hoge query werkbelastingen, worden de prestaties kunnen afnemen. 
 
-Met scale-out, kunt u een query-pool met maximaal zeven extra query replica's (acht totaal, met inbegrip van uw server). U kunt het aantal replica's query om te voldoen aan de eisen van QPU op essentiële tijdstippen schalen en u kunt een server voor verwerking van de query-groep op elk gewenst moment scheiden. 
+Met scale-out, kunt u een query-pool met maximaal zeven extra query replica's (acht totaal, met inbegrip van uw server). U kunt het aantal replica's query om te voldoen aan de eisen van QPU op essentiële tijdstippen schalen en u kunt een server voor verwerking van de query-groep op elk gewenst moment scheiden. Alle query-replica's worden gemaakt in dezelfde regio bevinden als uw server.
 
 Ongeacht het aantal query-replica's die u in de groep van een query hebt zijn niet verwerkingsbelastingen verdeeld over query replica's. Eén server fungeert als de server voor verwerking. Query-replica's dienen alleen query's op de modellen gesynchroniseerd tussen elke replica in de query-groep. 
 
@@ -73,7 +73,13 @@ Gebruik de **sync** bewerking.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-Synchronisatie uitvoeren van PowerShell, [bijwerken naar de meest recente](https://github.com/Azure/azure-powershell/releases) 5.01 of hoger AzureRM-module. Gebruik [Sync AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Voordat u met behulp van PowerShell, [installeren of bijwerken van de meest recente AzureRM module](https://github.com/Azure/azure-powershell/releases). 
+
+U kunt het aantal query replica's instellen met [Set AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Geef de optionele `-ReadonlyReplicaCount` parameter.
+
+Gebruik voor het uitvoeren van synchronisatie, [Sync AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+
+
 
 ## <a name="connections"></a>Verbindingen
 

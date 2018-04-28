@@ -1,8 +1,8 @@
 ---
-title: "Gegevens kopiëren of verplaatsen naar Azure Storage met AzCopy op Linux | Microsoft Docs"
-description: "De AzCopy op Linux-hulpprogramma gebruiken om te verplaatsen of kopiëren van gegevens of naar blob- en -inhoud. Gegevens van lokale bestanden kopiëren naar Azure Storage of kopiëren van gegevens binnen of tussen opslagaccounts. Uw gegevens eenvoudig migreren naar Azure Storage."
+title: Gegevens kopiëren of verplaatsen naar Azure Storage met AzCopy op Linux | Microsoft Docs
+description: De AzCopy op Linux-hulpprogramma gebruiken om te verplaatsen of kopiëren van gegevens of naar blob- en -inhoud. Gegevens van lokale bestanden kopiëren naar Azure Storage of kopiëren van gegevens binnen of tussen opslagaccounts. Uw gegevens eenvoudig migreren naar Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -12,48 +12,79 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 2fd89684176cd832b656dae8c8f94a6f1ccbbbe8
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 80b112de1fd8417dd64d9d95b7a037ec876d18c7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Gegevensoverdracht met AzCopy op Linux
 
-AzCopy is een opdrachtregelprogramma dat is ontworpen voor het kopiëren van gegevens uit Microsoft Azure Blob-, bestands- en tabel opslag, met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
+AzCopy is een opdrachtregelprogramma dat is ontworpen voor het kopiëren van gegevens uit Microsoft Azure Blob- en bestandsopslag, met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
 
-Er zijn twee versies van AzCopy die u kunt downloaden. AzCopy op Linux is gebouwd met .NET Core Framework dat gericht is op Linux-platforms biedt POSIX-stijl opdrachtregelopties. [AzCopy op Windows](../storage-use-azcopy.md) is gebouwd met .NET Framework en Windows-stijl biedt opdrachtregelopties. In dit artikel bevat informatie over AzCopy op Linux.
+Er zijn twee versies van AzCopy die u kunt downloaden. AzCopy op Linux is bedoeld voor Linux-platforms biedt POSIX-stijl opdrachtregelopties. [AzCopy op Windows](../storage-use-azcopy.md) biedt Windows stijl opdrachtregelopties. In dit artikel bevat informatie over AzCopy op Linux. 
+
+> [!NOTE]  
+> Vanaf versie van AzCopy 7.2, zijn de afhankelijkheden .NET Core verpakt met het AzCopy-pakket. Als u 7,2 versie gebruiken of later kunt u niet langer .NET Core installeren als een vereiste.
 
 ## <a name="download-and-install-azcopy"></a>Downloaden en installeren van AzCopy
+
 ### <a name="installation-on-linux"></a>Installatie op Linux
 
-Het artikel bevat opdrachten voor verschillende versies van Ubuntu.  Gebruik de `lsb_release -a` opdracht om uw distributierelease en de codenaam te bevestigen. 
+> [!NOTE]
+> U moet mogelijk installeren .NET Core 2.1 afhankelijkheden die zijn gemarkeerd in dit [.NET Core vereisten artikel](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) , afhankelijk van uw distributiepunt. Voor algemene distributies zoals Ubuntu 16.04 en RHEL 7 is dit doorgaans niet nodig.
 
-AzCopy op Linux vereist .NET Core framework (versie 2.0) op het platform. Zie de installatie-instructies op de [.NET Core](https://www.microsoft.com/net/download/linux) pagina.
+AzCopy installeren op Linux (v7.2 of hoger) is net zo eenvoudig als het uitpakken van een pakket tar en het script voor installatie uitgevoerd. 
 
-Installeer .NET Core op Ubuntu 16.04 als voorbeeld. Voor de meest recente installatiehandleiding, gaat u naar [.NET Core op Linux](https://www.microsoft.com/net/download/linux) op de installatiepagina.
-
-
+**RHEL 6 op basis van distributies**: [downloadkoppeling](https://aka.ms/downloadazcopylinuxrhel6)
 ```bash
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.2
-```
-
-Als u .NET Core hebt geïnstalleerd, downloaden en installeren van AzCopy.
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-Nadat AzCopy op Linux is geïnstalleerd, kunt u de uitgepakte bestanden verwijderen. Als u geen supergebruiker bevoegdheden, kunt u ook ook AzCopy met het shellscript 'azcopy' in de uitgepakte map uitvoeren. 
+**Alle Linux-distributies**: [downloadkoppeling](https://aka.ms/downloadazcopylinux64)
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
 
+Nadat AzCopy op Linux is geïnstalleerd, kunt u de uitgepakte bestanden verwijderen. U kunt ook als u bent niet bevoegd beheerder kunt u ook uitvoeren `azcopy` met het azcopy shell-script in de uitgepakte map.
+
+### <a name="alternative-installation-on-ubuntu"></a>Alternatieve installatie op Ubuntu
+
+**Ubuntu 14.04**
+
+Apt bron voor Linux Microsoft product opslagplaats toevoegen en AzCopy installeren:
+
+```bash
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
+
+**Ubuntu 16.04**
+
+Apt bron voor Linux Microsoft product opslagplaats toevoegen en AzCopy installeren:
+
+```bash
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
 
 ## <a name="writing-your-first-azcopy-command"></a>Schrijven van uw eerste AzCopy-opdracht
 De algemene syntaxis voor opdrachten van AzCopy is:
@@ -193,7 +224,7 @@ azcopy \
     --dest-key <key>
 ```
 
-Als de opgegeven bestemming-container niet bestaat, wordt AzCopy maakt en uploadt het bestand in de App.
+Als de opgegeven doelcontainer niet bestaat, wordt deze door AzCopy gemaakt en wordt het bestand erin geüpload.
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Bestand uploaden naar virtuele map
 
@@ -205,6 +236,14 @@ azcopy \
 ```
 
 Als de opgegeven virtuele map niet bestaat, AzCopy uploadt het bestand voor het opnemen van de virtuele map in de blob-naam (*bijvoorbeeld*, `vd/abc.txt` in het bovenstaande voorbeeld).
+
+### <a name="redirect-from-stdin"></a>Omleiden van stdin
+
+```azcopy
+gzip myarchive.tar -c | azcopy \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/mydir/myarchive.tar.gz \
+    --dest-key <key>
+```
 
 ### <a name="upload-all-files"></a>Alle bestanden uploaden
 
@@ -379,7 +418,7 @@ azcopy \
     --sync-copy
 ```
 
-`--sync-copy`Als u meer uitgaande kosten vergeleken met de asynchrone exemplaar kunnen worden gegenereerd. De aanbevolen aanpak is het gebruik van deze optie in een Azure VM, die zich in dezelfde regio bevinden als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaande gegevens.
+`--sync-copy` Als u meer uitgaande kosten vergeleken met de asynchrone exemplaar kunnen worden gegenereerd. De aanbevolen aanpak is het gebruik van deze optie in een Azure VM, die zich in dezelfde regio bevinden als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaande gegevens.
 
 ## <a name="file-download"></a>Bestand: downloaden
 ### <a name="download-single-file"></a>Enkel bestand downloaden
@@ -601,10 +640,31 @@ Optie `--parallel-level` geeft het aantal gelijktijdige te kopiëren. AzCopy wor
 >[!TIP]
 >Bekijk de volledige lijst van AzCopy parameters wilt weergeven, 'azcopy--help-menu.
 
-## <a name="known-issues-and-best-practices"></a>Bekende problemen en aanbevolen procedures
-### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>Fout: De SDK voor .NET 2.0 is niet gevonden in het systeem.
-AzCopy is afhankelijk van de .NET SDK 2.0 vanaf de versie van AzCopy 7.0. AzCopy gebruikt voor deze versie .NET Core 1.1. Als er een foutmelding weergegeven dat .NET Core 2.0 is niet geïnstalleerd in het systeem optreden, moet u mogelijk installeren of upgraden met behulp van de [.NET Core-installatie-instructies](https://www.microsoft.com/net/learn/get-started/linuxredhat).
+## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>Installatiestappen voor 7.1 AzCopy en eerdere versies
 
+AzCopy op Linux (v7.1 en eerder) vereist .NET Core framework. Installatie-instructies zijn beschikbaar op de [.NET Core-installatie](https://www.microsoft.com/net/core#linuxubuntu) pagina.
+
+Bijvoorbeeld, beginnen met het installeren van .NET Core op Ubuntu 16,10. Voor de meest recente installatiehandleiding, gaat u naar [.NET Core op Linux](https://www.microsoft.com/net/core#linuxubuntu) op de installatiepagina.
+
+
+```bash
+sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.0.0
+```
+
+Als u .NET Core hebt geïnstalleerd, downloaden en installeren van AzCopy.
+
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
+
+Nadat AzCopy op Linux is geïnstalleerd, kunt u de uitgepakte bestanden verwijderen. U kunt ook als u geen supergebruiker bevoegdheden, kunt u ook uitvoeren `azcopy` met het azcopy shell-script in de uitgepakte map.
+
+## <a name="known-issues-and-best-practices"></a>Bekende problemen en aanbevolen procedures
 ### <a name="error-installing-azcopy"></a>Fout bij het installeren van AzCopy
 Als u problemen met de installatie van AzCopy, u kunt proberen om uit te voeren met de bash-script in de uitgepakte AzCopy `azcopy` map.
 
@@ -618,16 +678,34 @@ Als u blobs of bestanden met AzCopy kopieert, houd er rekening mee dat een ander
 
 Als u niet voorkomen andere toepassingen dat bij het schrijven naar blobs of bestanden, terwijl ze worden gekopieerd, klikt u vervolgens Houd er rekening mee dat op het moment dat de taak is voltooid, de gekopieerde resources niet meer mogelijk volledige pariteit met de bron-resources.
 
-### <a name="run-one-azcopy-instance-on-one-machine"></a>Één AzCopy-sessie uitvoeren op één computer.
-AzCopy is ontworpen om u te maximaliseren van uw machinebron de gegevensoverdracht versnellen, is het raadzaam u slechts één exemplaar van AzCopy uitvoeren op één machine en selecteer de optie `--parallel-level` als u meer gelijktijdige bewerkingen nodig. Typ voor meer informatie `AzCopy --help parallel-level` op de opdrachtregel.
+### <a name="running-multiple-azcopy-processes"></a>Bezig met meerdere processen van AzCopy
+U kunt meerdere AzCopy processen uitvoeren op één client bieden verschillende logboekmappen te gebruiken. Met behulp van een map één journaal voor meerdere AzCopy processen wordt niet ondersteund.
+
+1e proces:
+```azcopy
+azcopy \
+    --source /mnt/myfiles1 \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/myfiles1 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal1"
+```
+
+2e proces:
+```azcopy
+azcopy \
+    --source /mnt/myfiles2 \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/myfiles2 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal2"
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
 
 ### <a name="azure-storage-documentation"></a>Documentatie bij Azure Storage:
-* [Inleiding tot Azure Storage](../storage-introduction.md)
+* [Kennismaking met Azure Storage](../storage-introduction.md)
 * [Een opslagaccount maken](../storage-create-storage-account.md)
-* [BLOB Storage Explorer beheren](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
+* [Blobs beheren met Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [De Azure CLI 2.0 gebruiken met Azure Storage](../storage-azure-cli.md)
 * [Het Blob storage gebruiken met C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Blob Storage gebruiken met Java](../blobs/storage-java-how-to-use-blob-storage.md)

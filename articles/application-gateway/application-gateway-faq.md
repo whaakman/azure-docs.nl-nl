@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 41d679d7660cbc35d6af8f9afc1a36e6e5c5c541
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen voor Application Gateway
 
@@ -53,7 +53,7 @@ Back-endpools kunnen bestaan uit NIC's, virtuele-machineschaalsets, openbare IP-
 
 **Q. Welke regio's is de service beschikbaar is in?**
 
-Application Gateway is beschikbaar in alle regio's van globale Azure. Het is ook beschikbaar in [Azure China](https://www.azure.cn/) en [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)
+Application Gateway is beschikbaar in alle regio's van globale Azure. Het is ook beschikbaar in [Azure China](https://www.azure.cn/) en [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 **Q. Is dit een specifieke implementatie voor mijn abonnement of is het voor klanten is gedeeld?**
 
@@ -329,4 +329,4 @@ De meest voorkomende reden is toegang tot de back-end wordt geblokkeerd door een
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over Application Gateway Bezoek [Inleiding tot Application Gateway](application-gateway-introduction.md).
+Voor meer informatie over Application Gateway Bezoek [wat is Azure Application Gateway?](overview.md)

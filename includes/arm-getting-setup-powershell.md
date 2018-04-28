@@ -26,7 +26,7 @@ Als u nog geen Azure-abonnement hebt, kunt u activeren uw [voordelen als MSDN-ab
 
 Open een Azure PowerShell-opdrachtprompt en meld u aan bij Azure met deze opdracht.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Als u meerdere Azure-abonnementen hebt, kunt u uw Azure-abonnementen met deze opdracht weergeven.
 

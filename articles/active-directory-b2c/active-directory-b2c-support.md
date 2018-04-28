@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 2cb881e50b9a08c99b59796a23107bfafb847b75
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4f665985cbb1bb02d5f2378d1953de76303de04d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Aanvragen voor de ondersteuning bestand
 U kunt ondersteuningsaanvragen indienen voor Azure Active Directory (Azure AD) B2C in de Azure portal met behulp van de volgende stappen uit:
@@ -35,7 +35,7 @@ U kunt ondersteuningsaanvragen indienen voor Azure Active Directory (Azure AD) B
    * **Type probleem** is **technische**.
    * Kies de juiste **abonnement**.
    * **Service** is **Active Directory**.
-   * Kies de juiste **ondersteuningsplan**. Als u niet hebt, kunt u zich aanmeldt voor een [hier](https://azure.microsoft.com/en-us/support/plans/).
+   * Kies de juiste **ondersteuningsplan**. Als u niet hebt, kunt u zich aanmeldt voor een [hier](https://azure.microsoft.com/support/plans/).
      
      ![Ondersteuning voor-basisbeginselen](./media/active-directory-b2c-support/support-basics.png)
 6. In de **probleem** blade gebruiken deze gegevens en klik op **volgende**.

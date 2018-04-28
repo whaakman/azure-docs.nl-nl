@@ -2,10 +2,10 @@
 title: De beleidsmodule Azure Stack gebruiken | Microsoft Docs
 description: Meer informatie over het beperken van een Azure-abonnement kan worden gebruikt als een Azure-Stack-abonnement
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mabrigg
-ms.openlocfilehash: 71f17a460f4a81a98e2cdef183acb29f721d584e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 10df87ec6d30e74356b0ff0f44b8745f8c7b8bf3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Azure met behulp van de beleidsmodule van de Azure-Stack-beleid beheren
 
@@ -41,7 +41,7 @@ De beleidsmodule van Azure Stack kunt u een Azure-abonnement configureren met de
 De volgende opdracht kan worden gebruikt om toe te passen van een Azure-Stack standaardbeleid op basis van uw Azure-abonnement. Voordat u gaat werken, vervangt *de naam van de Azure-abonnement* met uw Azure-abonnement.
 
 ```PowerShell
-Login-AzureRmAccount
+Add-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
@@ -53,7 +53,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 U kunt beleidsregels in een meer gedetailleerd methode.  Als u bijvoorbeeld wellicht andere resources voor uitvoering in hetzelfde abonnement.  U kunt het bereik van de toepassing van beleid aan een specifieke resourcegroep, waarmee u uw apps testen voor Azure-resources met Azure-Stack. Voordat u gaat werken, vervangt *de naam van de Azure-abonnement* met de naam van uw Azure-abonnement.
 
 ```PowerShell
-Login-AzureRmAccount
+Add-AzureRmAccount
 $rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)

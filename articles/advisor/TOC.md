@@ -23,7 +23,7 @@
 ## [App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # Resources
-## [Azure Advisor-video’s](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
+## [Azure Advisor-video’s](https://azure.microsoft.com/resources/videos/index/?services=advisor)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 

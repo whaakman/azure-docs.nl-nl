@@ -1,24 +1,19 @@
 ---
 title: Indexeren van JSON-blobs met Azure Search blob indexeerfunctie
 description: Indexeren van JSON-blobs met Azure Search blob indexeerfunctie
-services: search
-documentationcenter: 
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: 57e32e51-9286-46da-9d59-31884650ba99
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2dac2c5980970946a6b9c26ee6ee8ac0f0344144
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: MT
+ms.openlocfilehash: aa0c26a722ecddabee70127bf4b4fd67855a1523
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met Azure Search blob indexeerfunctie
 In dit artikel laat zien hoe een Azure Search blob indexeerfunctie om uit te pakken gestructureerde inhoud uit JSON-blobs in Azure Blob-opslag configureren.
@@ -221,4 +216,4 @@ Als u hebt het functieaanvragen of suggesties voor verbeteringen, bereiken ons o
 + [Indexeerfuncties in Azure Search](search-indexer-overview.md)
 + [Azure Blob Storage met Azure Search indexeren](search-howto-index-json-blobs.md)
 + [Indexeren van CSV-blobs met Azure Search blob indexeerfunctie](search-howto-index-csv-blobs.md)
-+ [Zelfstudie: Semi-gestructureerde gegevens uit Azure Blob storage zoeken](search-semi-structured-data.md)
++ [Zelfstudie: Semi-gestructureerde gegevens uit Azure Blob storage zoeken ](search-semi-structured-data.md)

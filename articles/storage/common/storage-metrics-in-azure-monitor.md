@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: e8e9f9c0cbe044b2aa459898f2d3900db10d200a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 5316013631670ab3612e441e64e2f330f01941b7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Storage in de Azure-Monitor (preview)
 
@@ -28,17 +28,17 @@ Azure biedt een uniforme gebruikersinterfaces voor het bewaken van alle andere A
 
 ## <a name="access-metrics"></a>Toegang tot metrische gegevens
 
-Azure biedt verschillende manieren met toegang tot metrische gegevens. U kunt krijgen van de [Azure-portal](https://portal.azure.com), de Azure-Monitor API's (REST en .net) en analyse-oplossingen zoals Log Analytics en Event Hub. Zie voor meer informatie [Azure Monitor metrische gegevens](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure biedt verschillende manieren met toegang tot metrische gegevens. U kunt krijgen van de [Azure-portal](https://portal.azure.com), de Azure-Monitor API's (REST en .net) en analyse-oplossingen zoals de bewerking Management Suite en Event Hubs. Zie voor meer informatie [Azure Monitor metrische gegevens](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot de meest recente 30 dagen aan gegevens. Als u gegevens wilt behouden voor een langere periode nodig hebt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in de Azure-Monitor.
+Metrische gegevens zijn standaard ingeschakeld en u toegang hebt tot de afgelopen 30 dagen van gegevens. Als u gegevens wilt behouden voor een langere periode nodig hebt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in de Azure-Monitor.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Toegang tot metrische gegevens in de Azure portal
 
-U kunt metrische gegevens controleren na verloop van tijd in de Azure portal. Het volgende is een voorbeeld weergeven van **UsedCapacity** op niveau van de account.
+U kunt metrische gegevens controleren na verloop van tijd in de Azure portal. Het volgende voorbeeld laat zien hoe om weer te geven **UsedCapacity** op niveau van de account.
 
 ![Schermafbeelding van de toegang tot metrische gegevens in de Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-Voor de metrische gegevens voor ondersteuning van dimensies, moet u met de waarde van de gewenste dimensie filteren. Het volgende is een voorbeeld weergeven van **transacties** op niveau van een account met **geslaagd** antwoordtype.
+Voor de metrische gegevens voor ondersteuning van dimensies, moet u met de waarde van de gewenste dimensie filteren. Het volgende voorbeeld laat zien hoe om weer te geven **transacties** op niveau van een account met **geslaagd** antwoordtype.
 
 ![Schermafbeelding van de toegang tot metrische gegevens met dimensie in de Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -139,9 +139,151 @@ Het volgende antwoord bevat metrische waarden in de JSON-indeling:
 
 ```
 
-## <a name="billing-for-metrics"></a>Facturering voor metrische gegevens
+### <a name="access-metrics-with-the-net-sdk"></a>Toegang tot metrische gegevens met de .net SDK
 
-Met metrische gegevens in de Azure-Monitor is die momenteel beschikbaar is. Echter, als u aanvullende oplossingen voor het opnemen van metrische gegevens gebruikt, u mogelijk worden gefactureerd door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als archiveren van metrische gegevens aan een Azure Storage-account. Of u wordt gefactureerd door logboekanalyse als stream van metrische gegevens voor logboekanalyse voor geavanceerde analyse.
+Azure biedt [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) metrische definitie en waarden worden gelezen. De [voorbeeldcode](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) laat zien hoe de SDK wilt gebruiken met andere parameters. U moet gebruiken `0.18.0-preview` of latere versie van opslag metrische gegevens. De resource-ID wordt gebruikt in .net SDK. Lees voor meer informatie [inzicht in resource-ID voor services in de opslag](#understanding-resource-id-for-services-in-storage).
+
+Het volgende voorbeeld laat zien hoe Azure-Monitor .net SDK gebruiken om te lezen van metrische gegevens storage.
+
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Lijst met niveau metrische gebruikersaccount met de .net SDK
+
+Het volgende voorbeeld ziet u hoe u metrische definitie op niveau van de account:
+
+```csharp
+    public static async Task ListStorageMetricDefinition()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
+
+        foreach (var metricDefinition in metricDefinitions)
+        {
+            //Enumrate metric definition:
+            //    Id
+            //    ResourceId
+            //    Name
+            //    Unit
+            //    MetricAvailabilities
+            //    PrimaryAggregationType
+            //    Dimensions
+            //    IsDimensionRequired
+        }
+    }
+
+```
+
+Als u weergeven van de metrische definities voor blob, table, bestand of wachtrij wilt, moet u verschillende bron-id's voor elke service opgeven met de API.
+
+#### <a name="read-metric-values-with-the-net-sdk"></a>Lezen van metrische waarden met de .net SDK
+
+Het volgende voorbeeld ziet u hoe `UsedCapacity` gegevens op het niveau van de account:
+
+```csharp
+    public static async Task ReadStorageMetricValue()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+
+        Response = await readOnlyClient.Metrics.ListAsync(
+            resourceUri: resourceId,
+            timespan: timeSpan,
+            interval: System.TimeSpan.FromHours(1),
+            metric: "UsedCapacity",
+
+            aggregation: "Average",
+            resultType: ResultType.Data,
+            cancellationToken: CancellationToken.None);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
+
+In bovenstaande bijvoorbeeld moet als u wilt lezen metrische waarden voor blob, table, bestand of wachtrij, u verschillende bron-id's voor elke service met de API.
+
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Multidimensionale metrische waarden met de .net SDK lezen
+
+Voor multidimensionale metrische gegevens moet u meta data filter definiëren als u wilt lezen metrische gegevens op een specifieke dimensiewaarde.
+
+Het volgende voorbeeld ziet u hoe metrische gegevens op de dimensie met meerdere ondersteunende metriek lezen:
+
+```csharp
+    public static async Task ReadStorageMetricValueTest()
+    {
+        // Resource ID for blob storage
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+        // It's applicable to define meta data filter when a metric support dimension
+        // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
+        ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
+            string.Format("BlobType eq '{0}'", "BlockBlob"));
+
+        Response = readOnlyClient.Metrics.List(
+                        resourceUri: resourceId,
+                        timespan: timeSpan,
+                        interval: System.TimeSpan.FromHours(1),
+                        metric: "BlobCapacity",
+                        odataQuery: odataFilterMetrics,
+                        aggregation: "Average",
+                        resultType: ResultType.Data);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
 
 ## <a name="understanding-resource-id-for-services-in-azure-storage"></a>Understanding resource-ID voor de services in Azure Storage
 
@@ -187,8 +329,7 @@ GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
 `
 
 ## <a name="capacity-metrics"></a>Capaciteit metrische gegevens
-
-Capaciteit metrische waarden worden verzonden naar Azure Monitor om het uur. De waarde worden dagelijks vernieuwd. De tijdgranulariteit definieert het tijdsinterval waarvoor metrische waarden worden weergegeven. De ondersteunde tijdgranulariteit voor alle capaciteitsmetrieken is een uur (PT1H).
+Capaciteit metrische waarden worden verzonden naar Azure Monitor om het uur. De waarden worden dagelijks vernieuwd. De tijdgranulariteit definieert het tijdsinterval waarvoor metrische waarden worden weergegeven. De ondersteunde tijdgranulariteit voor alle capaciteitsmetrieken is een uur (PT1H).
 
 Azure Storage biedt de volgende capaciteit metrische gegevens in de Azure-Monitor.
 
@@ -196,7 +337,7 @@ Azure Storage biedt de volgende capaciteit metrische gegevens in de Azure-Monito
 
 | Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-| UsedCapacity | De hoeveelheid opslagruimte die wordt gebruikt door de storage-account. Voor standard-opslag-accounts is de som van de capaciteit die wordt gebruikt door de blob-, tabel-, bestands- en wachtrij. Voor premium storage-accounts en Blob storage-accounts is dit hetzelfde is als BlobCapacity. <br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
+| UsedCapacity | De hoeveelheid opslagruimte die wordt gebruikt door de storage-account. Voor standard-opslag-accounts is de som van de capaciteit die wordt gebruikt door de blob-, tabel-, bestands- en wachtrij. Voor premium storage-accounts en Blob storage-accounts is hetzelfde als BlobCapacity. <br/><br/> Eenheid: Bytes <br/> Samenvoegingstype: gemiddelde <br/> Voorbeeld van een waarde: 1024 |
 
 ### <a name="blob-storage"></a>Blob Storage
 
@@ -252,7 +393,7 @@ Azure Storage ondersteunt volgende dimensies voor metrische gegevens in Azure-Mo
 | Dimensienaam | Beschrijving |
 | ------------------- | ----------------- |
 | BlobType | Het type van de blob voor alleen Blob metrische gegevens. De ondersteunde waarden zijn **BlockBlob** en **PageBlob**. Toevoeg-Blob is opgenomen in BlockBlob. |
-| ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder andere: <br/><br/> <li>ServerOtherError: Alle andere serverzijde fouten behalve beschreven die zijn </li> <li> ServerBusyError: Geverifieerde aanvraag die een HTTP 503-statuscode geretourneerd. (Nog niet ondersteund) </li> <li> ServerTimeoutError: Time-out geverifieerde aanvraag die een HTTP 500-statuscode geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> ThrottlingError: De som van de clientzijde en serverzijde bandbreedteregeling fout (deze wordt verwijderd zodra ServerBusyError en ClientThrottlingError worden ondersteund) </li> <li> AuthorizationError: Geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot gegevens of een Autorisatiefout. </li> <li> NetworkError: Geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op wanneer een client een verbinding voor de vervaldatum van de time-out voor de voortijdig wordt gesloten. </li> <li>  ClientThrottlingError: Clientzijde bandbreedteregeling fout (nog niet ondersteund) </li> <li> ClientTimeoutError: Time-out geverifieerde aanvraag die een HTTP 500-statuscode geretourneerd. Als de client netwerktime-out- of time-out van de aanvraag is ingesteld op een lagere waarde dan werd verwacht door de storage-service, is een time-out van de verwachte. Anders wordt deze gerapporteerd als een ServerTimeoutError. </li> <li> ClientOtherError: Beschreven die zijn met uitzondering van alle andere client-side '-fouten. </li> <li> Voltooid: Aanvraag is gelukt|
+| ResponseType | Transactietype antwoord. De beschikbare waarden zijn onder andere: <br/><br/> <li>ServerOtherError: Alle andere serverzijde fouten behalve beschreven die zijn </li> <li> ServerBusyError: Geverifieerde aanvraag die een HTTP 503-statuscode geretourneerd. </li> <li> ServerTimeoutError: Time-out geverifieerde aanvraag die een HTTP 500-statuscode geretourneerd. De time-out is opgetreden vanwege een serverfout. </li> <li> AuthorizationError: Geverifieerde aanvraag die is mislukt vanwege niet-geautoriseerde toegang tot gegevens of een Autorisatiefout. </li> <li> NetworkError: Geverifieerde aanvraag die is mislukt vanwege netwerkfouten. Treedt meestal op wanneer een client een verbinding voor de vervaldatum van de time-out voor de voortijdig wordt gesloten. </li> <li>    ClientThrottlingError: Clientzijde bandbreedteregeling fout. </li> <li> ClientTimeoutError: Time-out geverifieerde aanvraag die een HTTP 500-statuscode geretourneerd. Als de client netwerktime-out- of time-out van de aanvraag is ingesteld op een lagere waarde dan werd verwacht door de storage-service, is een time-out van de verwachte. Anders wordt deze gerapporteerd als een ServerTimeoutError. </li> <li> ClientOtherError: Beschreven die zijn met uitzondering van alle andere client-side '-fouten. </li> <li> Voltooid: Aanvraag is gelukt|
 | GeoType | De transactie uit cluster primair of secundair. De beschikbare waarden zijn primair en secundair. Dit geldt voor leestoegang geografisch redundante Storage(RA-GRS) bij het lezen van objecten van secundaire tenant. |
 | ApiName | De naam van de bewerking. Bijvoorbeeld: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Zie voor alle namen van de bewerking, [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
@@ -260,8 +401,8 @@ Voor de metrische gegevens ondersteunende dimensies moet u de dimensiewaarde om 
 
 ## <a name="service-continuity-of-legacy-metrics"></a>Continuïteit van de service van verouderde metrische gegevens
 
-Verouderde metrische gegevens zijn parallel met Azure Monitor beheerd metrische gegevens beschikbaar. De ondersteuning blijft hetzelfde tot Azure Storage is beëindigd door de service op verouderde metrische gegevens. We zullen het eind plan aankondigen nadat we Azure Monitor beheerd metrische gegevens officiële release.
+Verouderde metrische gegevens zijn parallel met Azure Monitor beheerd metrische gegevens beschikbaar. De ondersteuning blijft hetzelfde tot Azure Storage is beëindigd door de service op verouderde metrische gegevens.
 
-## <a name="see-also"></a>Zie ook
+## <a name="next-steps"></a>Volgende stappen
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)

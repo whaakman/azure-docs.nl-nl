@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 48af0bd566f8250e47e03ae45c8ba1c06e5a6792
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bce7a8532782e6d911ab1acdd74de8bb0de84307
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Beheergroepen voor bronorganisatie en -beheer maken
 Beheergroepen zijn containers waarmee u toegang, beleid en naleving in meerdere abonnementen beheren. Maken van deze containers voor het bouwen van een effectiever en efficiënter-hiërarchie die kan worden gebruikt met [Azure beleid](../azure-policy/azure-policy-introduction.md) en [toegangsbeheer voor op basis van Azure-functie](../role-based-access-control/overview.md). Zie voor meer informatie over beheergroepen [ordenen van uw resources met Azure-beheergroepen ](management-groups-overview.md). 
 
-De functie management group is beschikbaar in een openbare preview. Aan de slag met beheer van groepen, meld u aan bij de [Azure-portal](https://portal.azure.com) of kunt u [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), of de [REST-API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) naar beheergroepen maken.   
+De functie management group is beschikbaar in een openbare preview. Aan de slag met beheer van groepen, meld u aan bij de [Azure-portal](https://portal.azure.com) of kunt u [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), of de [REST-API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) naar beheergroepen maken.   
 
 De eerste beheergroep gemaakt in de map kan maximaal 15 minuten duren. Er zijn processen die worden uitgevoerd van de eerste keer instellen van de groepen service management voor uw map binnen Azure. U ontvangt een melding wanneer het proces voltooid is.  
 
@@ -73,4 +73,4 @@ Zie voor meer informatie over beheergroepen:
 - [Wijzigen, verwijderen of beheren van uw beheergroepen](management-groups-manage.md)
 - [Installeer de Azure Powershell-module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Bekijk de REST-API-specificaties](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [De uitbreiding voor de Azure CLI installeren](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [De uitbreiding voor de Azure CLI installeren](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)

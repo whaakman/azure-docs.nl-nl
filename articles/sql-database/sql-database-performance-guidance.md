@@ -9,26 +9,26 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: c9a04f6ebbca60e969d608e0ad92839b5e04d772
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c84104ac9094980d0e6d16b535dcf13c462a645a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Afstemming van de prestaties in Azure SQL Database
 
 Azure SQL Database biedt [aanbevelingen](sql-database-advisor.md) dat u gebruiken kunt voor het verbeteren van de prestaties van uw database, of kunt u gebruiken om Azure SQL Database [automatisch aanpassen aan uw toepassing](sql-database-automatic-tuning.md) en wijzigingen die worden de prestaties van uw werkbelasting toepassen.
 
 In dat u geen toepasselijke aanbevelingen, en u nog steeds prestatieproblemen, je kunt de volgende methoden gebruiken voor betere prestaties:
-1. Verhogen [Servicelagen](sql-database-service-tiers.md) en bieden meer bronnen met uw database.
-2. Uw toepassing afstemmen en enkele aanbevolen procedures die u kunnen de prestaties verbeteren van toepassing. 
-3. De database optimaliseren door indexen en query's efficiënter werken met gegevens te wijzigen.
+- Vergroot de servicecategorieën in uw [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) of uw [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md) om meer bronnen met uw database.
+- Uw toepassing afstemmen en enkele aanbevolen procedures die u kunnen de prestaties verbeteren van toepassing. 
+- De database optimaliseren door indexen en query's efficiënter werken met gegevens te wijzigen.
 
-Dit zijn handmatige methodes omdat u nodig hebt om te bepalen wat [Servicelagen](sql-database-service-tiers.md) kiest u of u moet voor het herschrijven van code toepassing of de database en implementeren van de wijzigingen.
+Dit zijn handmatige methodes omdat u nodig hebt om te bepalen wat [model op basis van de DTU limieten](sql-database-dtu-resource-limits.md) en [model op basis van vCore limieten (preview)](sql-database-vcore-resource-limits.md) aan uw behoeften voldoet. Anders moet u voor het herschrijven van de toepassing of databasecode en de wijzigingen implementeren.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Laag van de toenemende prestaties van uw database
 
-Azure SQL Database biedt twee aankopen modellen, een vCore gebaseerde aankoopmodel en een aankoopmodel v Core gebaseerd. Elk model heeft meerdere [Servicelagen](sql-database-service-tiers.md) die u kunt kiezen uit. Elke servicelaag isoleert uitsluitend de resources in uw SQL-database kunt gebruiken, en wordt gegarandeerd dat voorspelbare prestaties voor dit serviceniveau. In dit artikel bieden we hulp kunt u de servicetier voor uw toepassing kiezen. Dat kunt u uw toepassing Haal het meeste uit Azure SQL Database afstemmen manieren ook besproken.
+Azure SQL Database biedt twee aankopen modellen, een [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) en een [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md) die u kunt kiezen uit. Elke servicelaag isoleert uitsluitend de resources in uw SQL-database kunt gebruiken, en wordt gegarandeerd dat voorspelbare prestaties voor dit serviceniveau. In dit artikel bieden we hulp kunt u de servicetier voor uw toepassing kiezen. Dat kunt u uw toepassing Haal het meeste uit Azure SQL Database afstemmen manieren ook besproken.
 
 > [!NOTE]
 > Dit artikel is gericht op prestaties richtlijnen voor individuele databases in Azure SQL Database. Zie voor instructies prestaties gerelateerd aan elastische pools [prijs- en Prestatieoverwegingen voor elastische pools](sql-database-elastic-pool-guidance.md). Merk echter op dat u kunt veel afstemmen aanbevelingen in dit artikel van toepassing op databases in een elastische pool en vergelijkbare prestatievoordelen ophalen.
@@ -48,7 +48,7 @@ Het serviceniveau dat u nodig hebt voor de SQL-database, is afhankelijk van de v
 
 ### <a name="service-tier-capabilities-and-limits"></a>Service tier mogelijkheden en beperkingen
 
-Op elke servicelaag instellen u het prestatieniveau, zodat u de flexibiliteit om betaalt alleen voor de capaciteit die u nodig hebt. U kunt [aanpassen capaciteit](sql-database-service-tiers.md), omhoog of omlaag, omdat wijzigingen van de werkbelasting. Als de werkbelasting van uw database tijdens de back-naar-school winkelwagen seizoen hoog is, kunt u het prestatieniveau voor de database verhogen voor een bepaalde periode, juli tot en met September. U kunt deze beperken wanneer uw seizoen piek wordt beëindigd. U betaalt door het optimaliseren van uw cloudomgeving voor de seizoensgebonden van uw bedrijf, kunt u minimaliseren. Dit model ook geschikt is voor software product release cycli. Een testteam mogelijk capaciteit toewijzen terwijl deze wordt uitgevoerd test en vervolgens die capaciteit vrijgeven wanneer ze klaar bent met testen. In een model van de aanvraag capaciteit betaalt u voor capaciteit terwijl u nodig hebt en besparen op toegewijde bronnen die u mogelijk zelden gebruikt.
+Op elke servicelaag instellen u het prestatieniveau, zodat u de flexibiliteit om betaalt alleen voor de capaciteit die u nodig hebt. U kunt [aanpassen capaciteit](sql-database-service-tiers-dtu.md), omhoog of omlaag, omdat wijzigingen van de werkbelasting. Als de werkbelasting van uw database tijdens de back-naar-school winkelwagen seizoen hoog is, kunt u het prestatieniveau voor de database verhogen voor een bepaalde periode, juli tot en met September. U kunt deze beperken wanneer uw seizoen piek wordt beëindigd. U betaalt door het optimaliseren van uw cloudomgeving voor de seizoensgebonden van uw bedrijf, kunt u minimaliseren. Dit model ook geschikt is voor software product release cycli. Een testteam mogelijk capaciteit toewijzen terwijl deze wordt uitgevoerd test en vervolgens die capaciteit vrijgeven wanneer ze klaar bent met testen. In een model van de aanvraag capaciteit betaalt u voor capaciteit terwijl u nodig hebt en besparen op toegewijde bronnen die u mogelijk zelden gebruikt.
 
 ### <a name="why-service-tiers"></a>Waarom Servicelagen?
 Hoewel elke werkbelasting database verschillen kan, is het doel van Servicelagen voor prestaties voorspelbaarheid op verschillende prestatieniveaus. Klanten met grootschalige database resourcevereisten kunnen in een meer specifieke computeromgeving werken.
@@ -270,7 +270,8 @@ Sommige toepassingen zijn schrijven-intensief. U kunt de totale i/o-belasting va
 Sommige databasetoepassingen hebben lezen zware workloads. Opslaan in cache lagen mogelijk de belasting van de database te verminderen en het prestatieniveau vereist ter ondersteuning van een database met behulp van Azure SQL Database mogelijk verkleint. Met [Azure Redis-Cache](https://azure.microsoft.com/services/cache/), als u een werkbelasting lezen zware hebt, kunt u de gegevens eenmaal lezen (of bijvoorbeeld eenmaal per toepassingslaag machine, afhankelijk van hoe deze is geconfigureerd), en die gegevens buiten uw SQL-database op te slaan. Dit is een manier om te beperken van de database laden (CPU en i/o-lezen), maar er is een effect op transactionele consistentie omdat de gegevens worden gelezen uit de cache is mogelijk niet gesynchroniseerd met de gegevens in de database. Hoewel in veel toepassingen een zekere mate van inconsistentie acceptabel is, die geldt niet voor alle werkbelastingen. U moet eventuele toepassingsvereisten volledig begrijpen voordat u een toepassing lagen in het cachegeheugen strategie implementeert.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over Servicelagen [SQL Database-opties en prestaties](sql-database-service-tiers.md)
+* Zie voor meer informatie over DTU gebaseerde Servicelagen [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) en [model op basis van de DTU limieten](sql-database-dtu-resource-limits.md)
+* Zie voor meer informatie over Servicelagen op basis van vCore [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md) en [vCore gebaseerde limieten (preview)](sql-database-vcore-resource-limits.md)
 * Zie voor meer informatie over elastische pools [wat is er een Azure elastische groep?](sql-database-elastic-pool.md)
 * Zie voor meer informatie over prestaties en elastische pools [wanneer te overwegen een elastische pool](sql-database-elastic-pool-guidance.md)
 

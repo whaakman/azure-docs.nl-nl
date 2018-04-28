@@ -10,14 +10,14 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 178eba46e0d128c8d93f2ba664a4a0916889fbbd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: 22337e412661172475a05f6fec31ae03683be988
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Database Transaction Units (dtu's) en elastische Database Transaction Units (edtu's)
-In dit artikel wordt uitgelegd wat DTU's (Database Transaction Units) en eDTU's (elastische Database Transaction Units) zijn en wat er gebeurt als u het maximale aantal DTU's of eDTU's hebt bereikt.  
+In dit artikel wordt uitgelegd wat DTU's (Database Transaction Units) en eDTU's (elastische Database Transaction Units) zijn en wat er gebeurt als u het maximale aantal DTU's of eDTU's hebt bereikt. Zie voor specifieke informatie over de prijzen, [prijzen van Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Wat zijn's (Database Transaction Units)?
 Voor één Azure SQL database op een specifiek prestatieniveau binnen een [servicelaag](sql-database-single-database-resources.md), garandeert een bepaalde mate van resources voor die database (onafhankelijk van een andere database in de Azure-cloud) en het geven van een voorspelbare niveau van de prestaties van Microsoft. Deze hoeveelheid resources wordt berekend als een aantal Database Transaction Units of dtu's en is een gecombineerde meting van berekenings-, opslag- en i/o-resources. De verhouding tussen deze resources oorspronkelijk is bepaald door een [benchmark-OLTP-werkbelasting](sql-database-benchmark-overview.md) ontworpen om typische van echte OLTP-werkbelastingen. Wanneer uw werkbelasting het bedrag van elk van deze resources overschrijdt, is uw doorvoer beperkte - resulterende in tragere prestaties en time-outs. De beschikbare bronnen voor andere SQL-databases in de Azure-cloud hebben geen invloed op de bronnen die worden gebruikt door de werkbelasting en de resource die wordt gebruikt door andere werkbelastingen hebben geen invloed op de beschikbare bronnen voor de SQL-database.

@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 70c1553c166cc334f9db03c78139181c6f5c0553
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: caf2c54c986f8c4dd951628fd6908d42e7ddd281
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
-In dit artikel bevat de stappen voor het voorbereiden van uw omgeving tot back-up van een Azure Resource Manager geïmplementeerde virtuele machine (VM). De stappen in de procedures gebruikt u de Azure-portal. De back-upgegevens van de virtuele machine opslaan in een Recovery Services-kluis. De kluis bevat de back-upgegevens voor classic en Resource Manager geïmplementeerde virtuele machines.
+In dit artikel bevat de stappen voor het voorbereiden van uw omgeving tot back-up van een Azure Resource Manager geïmplementeerde virtuele machine (VM). De stappen in de procedures gebruikt u de Azure-portal. Wanneer u back-up van een virtuele machine, worden de back-upgegevens of herstelpunten, opgeslagen in een Recovery Services-kluis. Recovery Services-kluizen opslaan back-upgegevens voor klassieke en Resource Manager geïmplementeerde virtuele machines.
 
 > [!NOTE]
 > Azure heeft twee implementatiemodellen voor het maken en werken met resources: [Resource Manager en classic](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Voordat u beveiligen (of back-up) een Resource Manager geïmplementeerde virtuele machine, Controleer of deze vereiste onderdelen aanwezig zijn:
 
-* Een Recovery Services-kluis maken (of een bestaande Recovery Services-kluis identificeren) *in dezelfde regio bevinden als uw VM*.
+* Maak of Identificeer een Recovery Services-kluis *in dezelfde regio bevinden als uw virtuele machine*.
 * Selecteer een scenario, het back-upbeleid definiëren en definiëren van items moeten worden beveiligd.
-* Controleer de installatie van een VM-agent op de virtuele machine.
+* Controleer de installatie van een VM-agent (extensie) op de virtuele machine.
 * Controleer de netwerkverbinding.
 * Voor virtuele Linux-machines, als u uw back-omgeving voor toepassingsconsistente back-ups aanpassen wilt, volgt u de [stappen voor het configureren van scripts die voorafgaat aan momentopnamen en volgt op momentopnamen](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
@@ -51,7 +51,7 @@ Voordat u uw omgeving hebt voorbereid, zorg er dan voor dat deze beperkingen beg
 * Back-ups van virtuele machines met meer dan 16 gegevensschijven wordt niet ondersteund.
 * Back-ups van virtuele machines met een gereserveerd IP-adres en er is geen gedefinieerde eindpunt wordt niet ondersteund.
 * Back-ups van virtuele Linux-machines versleuteld door middel van Linux Unified sleutel Setup (LUKS) codering wordt niet ondersteund.
-* Back-ups van virtuele machines met gedeelde clustervolumes (CSV) of Scale-Out File Server-configuratie aanbevolen niet. Ze hebben met betrekking tot alle virtuele machines die zijn opgenomen in de configuratie tijdens de taak van een momentopname van het cluster nodig. Azure Backup biedt geen ondersteuning voor consistentie tussen meerdere VM's. 
+* Back-ups van virtuele machines met gedeelde clustervolumes (CSV) of Scale-Out File Server-configuratie aanbevolen niet. Als u doet, met CSV-schrijvers mislukken. Ze hebben met betrekking tot alle virtuele machines die zijn opgenomen in de configuratie tijdens de taak van een momentopname van het cluster nodig. Azure Backup biedt geen ondersteuning voor consistentie tussen meerdere VM's. 
 * Back-upgegevens bevat geen gekoppeld netwerkstations gekoppeld aan een virtuele machine.
 * Een bestaande virtuele machine kan tijdens het herstel niet worden vervangen. Als u probeert te herstellen van de virtuele machine wanneer de virtuele machine bestaat, mislukt de herstelbewerking opnieuw.
 * Regio-overschrijdende back-up en herstel worden niet ondersteund.
@@ -167,7 +167,7 @@ Voordat u een virtuele machine met een Recovery Services-kluis registreert, voer
 
    ![Knop 'Back-up inschakelen'](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-Nadat u de back-up is ingeschakeld, wordt uw back-upbeleid volgens schema uitgevoerd. Als u genereren van een back-uptaak op aanvraag wilt naar de back-up van de virtuele machines nu Zie [activering van de back-uptaak](./backup-azure-arm-vms.md#triggering-the-backup-job).
+Nadat u de back-up is ingeschakeld, wordt uw back-upbeleid volgens schema uitgevoerd. Als u genereren van een back-uptaak op aanvraag wilt naar de back-up van de virtuele machines nu Zie [activering van de back-uptaak](./backup-azure-vms-first-look-arm.md#initial-backup).
 
 Als u problemen met de registratie van de virtuele machine hebt, raadpleegt u de volgende informatie over het installeren van de VM-agent en op de netwerkverbinding. Moet u waarschijnlijk niet de volgende informatie als u virtuele machines die zijn gemaakt in Azure beveiligt. Maar als u uw virtuele machines naar Azure hebt gemigreerd, moet u dat u de VM-agent correct geïnstalleerd en dat de virtuele machine met het virtuele netwerk communiceren kan.
 
@@ -208,6 +208,10 @@ Geaccepteerde IP-bereiken met de Azure-datacenter, Zie de [Azure-website](http:/
 U kunt de verbindingen naar de opslag van de specifieke regio toestaan met behulp van [service labels](../virtual-network/security-overview.md#service-tags). Zorg ervoor dat de regel die toegang tot het opslagaccount verleent hogere prioriteit dan de regel die blokkeert de toegang tot internet heeft. 
 
 ![NSG met labels van de opslag voor een regio](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+De volgende video wordt u begeleid bij de stap voor stap procedure voor het configureren van de service-tags: 
+
+>[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
 > [!WARNING]
 > Storage-service-tags zijn alleen beschikbaar in specifieke gebieden en zijn Preview-versie. Zie voor een lijst met regio's, [Service-tags voor opslag](../virtual-network/security-overview.md#service-tags).

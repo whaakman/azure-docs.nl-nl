@@ -1,7 +1,7 @@
 ---
 title: 'PowerShell: Azure HDInsight-cluster met Data Lake Store als extra opslag | Microsoft Docs'
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: db10e6f2cc06e493fd3269c6ac7c7ef8213fb1ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9591da6826c0bdd369792e8a9fe125619a091f29
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Azure PowerShell gebruiken voor het maken van een HDInsight-cluster met Data Lake Store (als extra opslag)
 > [!div class="op_single_selector"]
@@ -54,8 +54,8 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 of hoger**. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview).
-* **Windows SDK**. Kunt u het installeren van [hier](https://dev.windows.com/en-us/downloads). Hiermee u maakt een beveiligingscertificaat.
-* **Azure Active Directory Service Principal**. De stappen in deze zelfstudie bevatten instructies voor het maken van een service-principal in Azure AD. U moet echter een Azure AD-beheerder om te kunnen maken van een service-principal. Als u een Azure AD-beheerder bent, kunt u deze vereiste overslaan en doorgaan met de zelfstudie.
+* **Windows-SDK**. Kunt u het installeren van [hier](https://dev.windows.com/en-us/downloads). Hiermee u maakt een beveiligingscertificaat.
+* **Azure Active Directory Service-Principal**. De stappen in deze zelfstudie bevatten instructies voor het maken van een service-principal in Azure AD. U moet echter een Azure AD-beheerder om te kunnen maken van een service-principal. Als u een Azure AD-beheerder bent, kunt u deze vereiste overslaan en doorgaan met de zelfstudie.
 
     **Als u niet een Azure AD-beheerder**, u kan niet worden de stappen die zijn vereist voor het maken van een service-principal uit te voeren. In dat geval moet uw Azure AD-beheerder eerst een service-principal maken voordat u een HDInsight-cluster met Data Lake Store maken kunt. Ook de service-principal moet worden gemaakt met een certificaat, zoals beschreven op [een service-principal maken met certificaat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
 
@@ -65,7 +65,7 @@ Volg deze stappen voor het maken van een Data Lake Store.
 1. Een nieuw Azure PowerShell-venster openen vanaf het bureaublad en voer het volgende fragment. Als u wordt gevraagd om aan te melden, zorg er dan voor dat u zich aanmelden als een beheerder/eigenaar van het abonnement:
 
         # Log in to your Azure account
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription

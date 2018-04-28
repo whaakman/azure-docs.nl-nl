@@ -1,25 +1,20 @@
 ---
 title: Azure Search met behulp van Powershell-scripts beheren | Microsoft Docs
 description: Uw Azure Search-service met de PowerShell-scripts beheren. Maken of bijwerken van een Azure Search-service en Azure Search administratorsleutels beheren
-services: search
-documentationcenter: 
-author: seansaleh
-manager: mblythe
-editor: 
+author: HeidiSteen
+manager: cgronlun
 tags: azure-resource-manager
-ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: powershell
+ms.devlang: powershell
+ms.topic: conceptual
 ms.date: 08/15/2016
-ms.author: seasa
-ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: heidist
+ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Uw Azure Search-service met PowerShell beheren
 > [!div class="op_single_selector"]
@@ -29,7 +24,7 @@ ms.lasthandoff: 12/21/2017
 > 
 
 Dit onderwerp beschrijft de PowerShell-opdrachten uit te voeren veel van de beheertaken voor Azure Search-services. U kunt zien bij het maken van een service voor zoeken, schalen en het beheren van de API-sleutels.
-Deze opdrachten parallel de beheeropties beschikbaar in de [Azure Search Management REST API](http://msdn.microsoft.com/library/dn832684.aspx).
+Deze opdrachten parallel de beheeropties beschikbaar in de [Azure Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## <a name="prerequisites"></a>Vereisten
 * U moet Azure PowerShell 1.0 of hoger hebben. Zie voor instructies [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
@@ -37,7 +32,7 @@ Deze opdrachten parallel de beheeropties beschikbaar in de [Azure Search Managem
 
 Eerst moet u aanmelden bij Azure met deze opdracht:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Geef het e-mailadres van uw Azure-account en het bijbehorende wachtwoord in het dialoogvenster voor Microsoft Azure-aanmelding.
 
@@ -135,6 +130,6 @@ Nu dat uw service hebt gemaakt, kunt u de volgende stappen uitvoeren: bouwen een
 * [Een Azure Search-index maken in de Azure portal](search-create-index-portal.md)
 * [Query uitvoeren op een Azure Search-index met behulp van de Search Explorer in de Azure portal](search-explorer.md)
 * [Stel een indexeerfunctie om gegevens te laden van andere services](search-indexer-overview.md)
-* [Het gebruik van Azure Search in .NET](search-howto-dotnet-sdk.md)
+* [Azure Search in .NET gebruiken.](search-howto-dotnet-sdk.md)
 * [Analyseer het verkeer van uw Azure Search](search-traffic-analytics.md)
 

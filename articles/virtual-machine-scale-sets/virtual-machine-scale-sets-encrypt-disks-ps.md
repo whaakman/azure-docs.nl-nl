@@ -2,12 +2,12 @@
 title: Azure virtuele-machineschaalsets schijfversleuteling | Microsoft Docs
 description: Informatie over het gebruik van Azure PowerShell voor het versleutelen van VM-exemplaren en de gekoppelde schijven in virtuele-machineschaalsets
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 856d4bc7dd636b3a2f3d072a10989cafd7efd6a6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d24189e94cade36eca3349c1f46810ee6daa2a49
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>OS- en bijgesloten gegevensschijven in een virtuele-machineschaalset coderen
 Als u wilt beveiligen en bescherming van gegevens in rust met toonaangevende standaard versleuteling technologie, ondersteuning voor virtuele-machineschaalsets Azure schijf versleuteling (ADE). Versleuteling kan worden ingeschakeld voor Windows en Linux virtuele machine sets schalen. Zie voor meer informatie [Azure Disk Encryption for Windows- en Linux](../security/azure-security-disk-encryption.md).
@@ -41,7 +41,7 @@ In dit artikel is vereist voor de Azure PowerShell-moduleversie 5.3.0 of hoger. 
 Hiermee stelt u uw Azure subsription voor de evaluatieversie van de schijfversleuteling voor virtuele-machineschaalset met registreren [registreren AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
@@ -80,13 +80,13 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 
 
 ## <a name="create-a-scale-set"></a>Een schaalset maken
-Een beheerder eerst Stel gebruikersnaam en wachtwoord voor de VM-exemplaren met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Stel eerst een beheerdersnaam en -wachtwoord in voor de VM-exemplaren met behulp van [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Maak nu een virtuele-machineschaalset met [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Een load balancer wordt ook gemaakt voor het distribueren van het verkeer naar de afzonderlijke VM-exemplaren. De load balancer bevat regels voor het distribueren van verkeer op TCP-poort 80, evenals extern bureaublad-verkeer op TCP-poort 3389 en PowerShell voor externe toegang op TCP-poort 5985 toestaan:
+Maak nu een virtuele-machineschaalset met [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Om het verkeer te distribueren naar de verschillende VM-exemplaren, wordt er ook een load balancer gemaakt. De load balancer bevat regels voor het distribueren van verkeer op TCP-poort 80, en voor het toestaan van extern bureaubladverkeer op TCP-poort 3389 en externe toegang via PowerShell op TCP-poort 5985:
 
 ```powershell
 $vmssName="myScaleSet"

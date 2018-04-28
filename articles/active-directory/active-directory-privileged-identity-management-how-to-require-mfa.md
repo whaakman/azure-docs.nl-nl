@@ -2,10 +2,10 @@
 title: Meervoudige verificatie vereisen | Microsoft Docs
 description: Ontdek hoe meervoudige authenticatie (MFA) voor bevoegde identiteiten met de extensie Azure Active Directory Privileged Identity Management.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1e3dc4ad-3a6a-4a52-8417-3ca4f84ae05c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: faee62bdaca3f80fdd8f6be8aaf28c881314333a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 42552b4b8a7b2704a94786518f411f922dbd6a81
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>MFA in Azure AD Privileged Identity Management vereisen
 Het is raadzaam dat u multi-factor authentication (MFA) voor al uw beheerders vereist. Dit vermindert het risico van een aanval als gevolg van een wachtwoord waarmee is geknoeid.
@@ -41,9 +41,9 @@ Bovendien kunt u de MFA-vereiste voor een specifieke rol door erop te klikken in
 ## <a name="how-azure-ad-pim-validates-mfa"></a>Hoe Azure AD PIM wordt gevalideerd met MFA
 Er zijn twee opties voor het valideren van MFA wanneer een gebruiker een rol activeren.
 
-De eenvoudigste optie is te vertrouwen op de Azure MFA voor gebruikers die een bevoorrechte rol wilt activeren. U doet dit door Controleer eerst of die gebruikers in licentie gegeven zijn, indien nodig, en hebt geregistreerd voor Azure MFA. Meer informatie over hoe u dit doet zich in [aan de slag met Azure multi-factor Authentication in de cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md). Het wordt aanbevolen, maar niet vereist, dat u Azure AD MFA afdwingen voor deze gebruikers wanneer ze zich aanmelden als u wilt configureren. Dit is omdat de MFA-controles worden uitgevoerd per Azure AD PIM zelf.
+De eenvoudigste optie is te vertrouwen op de Azure MFA voor gebruikers die een bevoorrechte rol wilt activeren. U doet dit door Controleer eerst of die gebruikers in licentie gegeven zijn, indien nodig, en hebt geregistreerd voor Azure MFA. Meer informatie over hoe u dit doet zich in [aan de slag met Azure multi-factor Authentication in de cloud](authentication/howto-mfa-getstarted.md). Het wordt aanbevolen, maar niet vereist, dat u Azure AD MFA afdwingen voor deze gebruikers wanneer ze zich aanmelden als u wilt configureren. Dit is omdat de MFA-controles worden uitgevoerd per Azure AD PIM zelf.
 
-Als gebruikers lokale verificatie kunt u ook hebt id-provider is verantwoordelijk voor MFA. Bijvoorbeeld, als u AD Federation Services om te vereisen verificatie op basis van een smartcard voor de toegang tot Azure AD hebt geconfigureerd [cloudresources beveiligen met Azure multi-factor Authentication en AD FS](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md) bevat instructies voor het configureren van AD FS verzendt u claims die naar Azure AD. Wanneer een gebruiker probeert een rol wilt activeren, accepteert Azure AD PIM dat MFA is al gevalideerd voor de gebruiker wanneer deze de juiste claims ontvangt.
+Als gebruikers lokale verificatie kunt u ook hebt id-provider is verantwoordelijk voor MFA. Bijvoorbeeld, als u AD Federation Services om te vereisen verificatie op basis van een smartcard voor de toegang tot Azure AD hebt geconfigureerd [cloudresources beveiligen met Azure multi-factor Authentication en AD FS](authentication/howto-mfa-adfs.md) bevat instructies voor het configureren van AD FS verzendt u claims die naar Azure AD. Wanneer een gebruiker probeert een rol wilt activeren, accepteert Azure AD PIM dat MFA is al gevalideerd voor de gebruiker wanneer deze de juiste claims ontvangt.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen

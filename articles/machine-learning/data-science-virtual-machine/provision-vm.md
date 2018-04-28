@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.openlocfilehash: 34bdbf6e98d5232bf924f3f32a2acb3460a7737f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 445b18dee9efa9561ba1274ef59a9a426332d745
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van Windows gegevens wetenschappelijke virtuele Machine in Azure
 De Microsoft Data wetenschappelijke virtuele Machine is een Windows Azure virtuele machine (VM) vooraf is geïnstalleerd en geconfigureerd met verschillende populaire hulpprogramma's die vaak worden gebruikt voor gegevensanalyse en machine learning. De hulpprogramma's zijn:
 
-* [Azure Machine Learning](../preview/index.yml) Workbench
+* [Azure Machine Learning](../service/index.yml) Workbench
 * [Microsoft-Machine Learning-Server](https://docs.microsoft.com/machine-learning-server/index) ontwikkelaarsversie
 * Anaconda Python-distributie
 * Jupyter-notebook (met R, Python, PySpark kernels)
@@ -192,7 +192,7 @@ De [ **Microsoft Web Platform Installer** ](https://www.microsoft.com/web/downlo
 Hier volgen enkele volgende stappen om door te gaan uw leren en te verkennen. 
 
 * Verken de verschillende beschikbare hulpprogramma wetenschappelijke gegevens op de virtuele machine voor gegevenswetenschap door te klikken op het startmenu en controleren van de hulpprogramma's die worden vermeld in het menu.
-* Meer informatie over Azure Machine Learning-Services en -Workbench door naar het product te [pagina Quick Start- en zelfstudies](../preview/index.yml). 
+* Meer informatie over Azure Machine Learning-Services en -Workbench door naar het product te [pagina Quick Start- en zelfstudies](../service/index.yml). 
 * Navigeer naar **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** voor voorbeelden weergegeven met behulp van de bibliotheek RevoScaleR in R die ondersteuning biedt voor gegevensanalyse die op grote schaal enterprise.  
 * Lees het artikel: [10 dingen die u op de virtuele Machine voor gegevenswetenschap doen kunt](http://aka.ms/dsvmtenthings)
 * Informatie over het bouwen van end-to-end analyseoplossingen systematischer met behulp van de [Team gegevens wetenschap proces](../team-data-science-process/index.yml).

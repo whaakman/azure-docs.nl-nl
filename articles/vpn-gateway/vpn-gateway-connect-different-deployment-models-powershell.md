@@ -5,7 +5,7 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: a3afd89a928854a1b03bfd4c5645ea12dbb638fc
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 65faf1a4f78244d9fdd03b6415bf2cadac923504
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Virtuele netwerken van verschillende implementatiemodellen verbinden met PowerShell
 
@@ -55,7 +55,7 @@ VNet-naam = ClassicVNet <br>
 Locatie VS-West = <br>
 Adresruimten voor virtueel netwerk 10.0.0.0/24 = <br>
 Subnet-1 = 10.0.0.0/27 <br>
-GatewaySubnet = 10.0.0.32/29 <br>
+GatewaySubnet 10.0.0.32/29 = <br>
 De naam van het lokale netwerk RMVNetLocal = <br>
 GatewayType DynamicRouting =
 
@@ -65,7 +65,7 @@ VNet-naam = RMVNet <br>
 Resourcegroep RG1 = <br>
 Virtueel netwerk-IP-adresruimten 192.168.0.0/16 = <br>
 Subnet-1 = 192.168.1.0/24 <br>
-GatewaySubnet = 192.168.0.0/26 <br>
+GatewaySubnet 192.168.0.0/26 = <br>
 Locatie VS-Oost = <br>
 Het openbare IP-gatewaynaam gwpip = <br>
 Lokale netwerkgateway ClassicVNetLocal = <br>
@@ -176,7 +176,7 @@ Volg de volgende instructies voor het maken van een VPN-gateway voor het VNet RM
 1. Aanmelden bij uw Azure-account in de PowerShell-console. De volgende cmdlet vraagt u om uw Azure-Account voor de aanmeldingsreferenties. Na het aanmelden, worden de instellingen van uw account worden gedownload zodat ze beschikbaar voor Azure PowerShell zijn.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ``` 
    
   Haal een lijst met uw Azure-abonnementen op.

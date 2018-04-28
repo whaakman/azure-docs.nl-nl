@@ -2,10 +2,10 @@
 title: Maken van een Azure-IoT-Hub met een sjabloon (PowerShell) | Microsoft Docs
 description: Het gebruik van een Azure Resource Manager-sjabloon maken van een IoT Hub met PowerShell.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7eade855-c289-4ffb-b5ef-02be8c5f670f
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 242c50b61b00bbf71b26e2aea1a66e2b2c55dbd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0e5f95d98f772b226e162f601939bc94bf8fb78b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Een iothub met Azure Resource Manager-sjabloon (PowerShell) maken
 
@@ -42,7 +42,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 Voer de volgende opdracht aan te melden bij uw Azure-abonnement in een PowerShell-opdrachtprompt:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Als u meerdere Azure-abonnementen hebt, verleent aanmelden bij Azure u toegang tot alle de Azure-abonnementen die zijn gekoppeld aan uw referenties. Gebruik de volgende opdracht voor een lijst met de Azure-abonnementen beschikbaar moet worden gebruikt:
@@ -51,7 +51,7 @@ Als u meerdere Azure-abonnementen hebt, verleent aanmelden bij Azure u toegang t
 Get-AzureRMSubscription
 ```
 
-Gebruik de volgende opdracht om abonnement die u gebruiken wilt voor het uitvoeren van de opdrachten voor het maken van uw IoT-hub te selecteren. U kunt de naam van abonnement of de ID van de uitvoer van de vorige opdracht gebruiken:
+Gebruik de volgende opdracht om het abonnement te selecteren dat u wilt gebruiken voor het uitvoeren van de opdrachten voor het maken van uw IoT-hub. U kunt de naam van het abonnement of de id van de uitvoer van de vorige opdracht gebruiken:
 
 ```powershell
 Select-AzureRMSubscription `
@@ -157,7 +157,7 @@ Zie de volgende artikelen voor meer informatie over het ontwikkelen voor IoT-Hub
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
-* [AI implementeren op de edge-apparaten met Azure IoT rand][lnk-iotedge]
+* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

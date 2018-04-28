@@ -1,92 +1,91 @@
 ---
-title: Zoeken semi-gestructureerde gegevens in de Azure-cloud-opslag
-description: Zoeken naar semi-gestructureerde blob-gegevens met behulp van Azure Search.
+title: Semi-gestructureerde gegevens zoeken in Azure-cloudopslag
+description: Semi-gestructureerde blobgegevens zoeken met behulp van Azure Search.
 author: roygara
-manager: timlt
+manager: cgronlun
 ms.service: search
 ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
-ms.custom: mvc
-ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: MT
+ms.openlocfilehash: f05e9dd12a838199b23deddb4f6c4fb4c2fced08
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Deel 2: Zoeken semi-gestructureerde gegevens in de cloudopslag
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Deel 2: Semi-gestructureerde gegevens zoeken in cloudopslag
 
-In een tweedelige zelfstudie reeks leert u hoe moet worden gezocht semi-gestructureerde en ongestructureerde gegevens met behulp van Azure search. [Deel 1](../storage/blobs/storage-unstructured-search.md) doorlopen u zoeken via ongestructureerde gegevens, maar ook belangrijke vereisten voor deze zelfstudie, zoals het maken van het opslagaccount is opgenomen. 
+In een tweedelige zelfstudie leert u hoe u semi-gestructureerde en niet-gestructureerde gegevens kunt doorzoeken met behulp van Azure Search. In [deel 1](../storage/blobs/storage-unstructured-search.md) hebt u gezien hoe u niet-gestructureerde gegevens doorzoekt en zijn ook belangrijke vereisten voor deze zelfstudie behandeld, zoals het maken van het opslagaccount. 
 
-In deel 2 verplaatst focus naar semi-gestructureerde gegevens, zoals JSON, opgeslagen in Azure blobs. Semi-gestructureerde gegevens bevat labels of markeringen die inhoud in de gegevens te scheiden. Hiermee splitst u het verschil tussen ongestructureerde gegevens die wholistically moet worden geïndexeerd en formeel gestructureerde gegevens die in overeenstemming is met een gegevensmodel, zoals een relationele database-schema, dat op basis van veld per kan worden benaderd.
+Deel 2 gaat voornamelijk over semi-gestructureerde gegevens, zoals JSON, die zijn opgeslagen in Azure-blobs. Semi-gestructureerde gegevens bevatten labels of markeringen die inhoud in de gegevens scheiden. Hierin ligt ook het verschil tussen niet-gestructureerde gegevens en formeel gestructureerde gegevens. Niet-gestructureerde gegevens moeten als geheel worden geïndexeerd en gestructureerde gegevens zijn in overeenstemming met een gegevensmodel, zoals een relationele-databaseschema, en kunnen op veldbasis worden benaderd.
 
-In deel 2, leest u hoe:
+In deel 2 vindt u informatie over:
 
 > [!div class="checklist"]
-> * Een Azure Search-gegevensbron voor een Azure blob-container
-> * U maakt en vult u een Azure Search-index en een indexeerfunctie met de container verkennen en uitpakken van inhoud
-> * Zoeken in de index die u zojuist hebt gemaakt
+> * Een Azure Search-gegevensbron configureren voor een Azure-blobcontainer
+> * Een Azure Search-index maken en vullen, en een indexeerfunctie maken om de container te verkennen en doorzoekbare inhoud uit te pakken
+> * De index doorzoeken die u zojuist hebt gemaakt
 
 > [!NOTE]
-> Deze zelfstudie wordt gebruikgemaakt van JSON matrix ondersteuning, momenteel een preview-functie in Azure Search is. Het is niet beschikbaar in de portal. Om deze reden we maken gebruik van de preview REST-API waarmee deze functie en een REST-clienthulpprogramma de API aan te roepen.
+> In deze zelfstudie wordt gebruikgemaakt van JSON-matrixondersteuning. Dit is momenteel een preview-functie in Azure Search. Deze is niet beschikbaar in de portal. Daarom wordt hier gebruikgemaakt van de preview-REST API, die deze functie biedt, en een REST-clienthulpprogramma om de API aan te roepen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Voltooiing van de [vorige zelfstudie](../storage/blobs/storage-unstructured-search.md) bieden de storage-account en zoek service gemaakt in de vorige zelfstudie.
+* De [vorige zelfstudie](../storage/blobs/storage-unstructured-search.md) moet zijn voltooid. Deze biedt het opslagaccount en daar is de zoekservice gemaakt.
 
-* Installatie van een REST-client en een goed begrip van het maken van een HTTP-aanvraag. Voor de doeleinden van deze zelfstudie gebruiken we [Postman](https://www.getpostman.com/). U kunt een andere REST-client gebruiken als u al vertrouwd met een bepaald bent.
+* Installatie van een REST-client en goed begrip van hoe u een HTTP-aanvraag moet maken. Voor deze zelfstudie wordt gebruikgemaakt van [Postman](https://www.getpostman.com/). U kunt ook een andere REST-client gebruiken als u daar meer ervaring mee hebt.
 
 ## <a name="set-up-postman"></a>Postman instellen
 
-Start Postman en instellen van een HTTP-aanvraag. Als u niet bekend met dit hulpprogramma bent, raadpleegt u [verkennen Azure Search REST API's met Fiddler of Postman](search-fiddler.md) voor meer informatie.
+Start Postman en stel een HTTP-aanvraag in. Als u niet bekend bent met dit hulpprogramma, raadpleegt u [REST Azure Search-API's verkennen in Fiddler of Postman](search-fiddler.md) voor meer informatie.
 
-De aanvraagmethode voor elke aanroep in deze zelfstudie is "POST". De header-sleutels zijn 'Content-type' en "api-sleutel." De waarden van de header-sleutels zijn ' application/json' en de administratorsleutel' ' (de beheersleutel is een tijdelijke aanduiding voor de primaire sleutel van uw zoekopdracht) respectievelijk. De hoofdtekst is waar u de werkelijke inhoud van de aanroep van plaatsen. Afhankelijk van de client die u gebruikt, mogelijk zijn er enkele variaties op de manier waarop u uw query samenstelt, maar zijn de basisprincipes.
+De aanvraagmethode voor elke aanroep in deze zelfstudie is 'POST'. De headersleutels zijn 'Content-type' en 'api-key'. De waarden van de headersleutels zijn respectievelijk 'application/json' en 'admin key' (admin key is een tijdelijke aanduiding voor de primaire sleutel van uw zoekopdracht). In de hoofdtekst plaatst u de werkelijke inhoud van uw aanroep. Afhankelijk van de client die u gebruikt, kunnen er enkele variaties zijn op de manier waarop u uw query samenstelt, maar dit zijn de basisprincipes.
 
-  ![Semi-gestructureerde zoeken](media/search-semi-structured-data/postmanoverview.png)
+  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/postmanoverview.png)
 
-Uw zoekopdracht api-sleutel is vereist voor de REST-aanroepen behandeld in deze zelfstudie. U vindt uw api-sleutel onder **sleutels** binnen uw search-service. Deze api-sleutel moet zich in de koptekst van elke API-aanroep (vervangen ' administratorsleutel' in de vorige schermafbeelding ermee) u kunt in deze zelfstudie wordt verwezen. De sleutel behouden omdat u deze nodig voor elke aanroep hebt.
+Voor de REST-aanroepen die in deze zelfstudie worden behandeld, is de API-sleutel van de zoekopdracht vereist. U vindt de API-sleutel onder **Sleutels** in uw zoekservice. Deze API-sleutel moet voorkomen in de header van elke API-aanroep (vervang 'admin key' in de vorige schermafbeelding door deze API-sleutel) die u in deze zelfstudie gevraagd wordt te maken. Noteer de sleutel. U hebt deze nodig voor elke aanroep.
 
-  ![Semi-gestructureerde zoeken](media/search-semi-structured-data/keys.png)
+  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/keys.png)
 
-## <a name="download-the-sample-data"></a>Download de voorbeeldgegevens
+## <a name="download-the-sample-data"></a>De voorbeeldgegevens downloaden
 
-Een verzameling voorbeeldgegevens is bedoeld voor u. **Download [klinische op proefversies json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)**  en pak deze naar de eigen map.
+Er is een voorbeeldgegevensset voor u voorbereid. **Download [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** en pak het uit in een eigen map.
 
-Voorbeeld van de JSON-bestanden die oorspronkelijk tekst opgenomen in het voorbeeld zijn bestanden die zijn verkregen via [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We hebben ze converteren naar JSON voor uw gemak.
+In de zip vindt u voorbeeld-JSON-bestanden. Dit waren oorspronkelijk tekstbestanden, verkregen via [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Deze zijn voor uw gemak geconverteerd naar JSON.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
 Meld u aan bij [Azure Portal](http://portal.azure.com).
 
-## <a name="upload-the-sample-data"></a>De voorbeeldgegevens te uploaden
+## <a name="upload-the-sample-data"></a>De voorbeeldgegevens uploaden
 
-In de Azure portal, gaat u terug naar het opslagaccount dat is gemaakt in de [vorige zelfstudie](../storage/blobs/storage-unstructured-search.md). Open vervolgens de **gegevens** container en op **uploaden**.
+Ga in Azure Portal terug naar het opslagaccount dat is gemaakt in de [vorige zelfstudie](../storage/blobs/storage-unstructured-search.md). Open de **gegevens**container en klik op **Uploaden**.
 
-Klik op **Geavanceerd**'klinische-proefversies-json' opgeven en vervolgens uploaden alle van de JSON-bestanden die u hebt gedownload.
+Klik op **Geavanceerd**, voer 'clinical-trials-json' in en upload alle JSON-bestanden die u hebt gedownload.
 
-  ![Semi-gestructureerde zoeken](media/search-semi-structured-data/clinicalupload.png)
+  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/clinicalupload.png)
 
-Nadat het uploaden is voltooid, worden de bestanden worden weergegeven in hun eigen submap in de gegevenscontainer.
+Nadat de upload is voltooid, worden de bestanden weergegeven in hun eigen submap in de gegevenscontainer.
 
-## <a name="connect-your-search-service-to-your-container"></a>Verbinding maken met uw search-service naar de container
+## <a name="connect-your-search-service-to-your-container"></a>Uw zoekservice verbinden met de container
 
-We gebruiken Postman drie API-aanroepen naar uw search-service om te kunnen maken van een gegevensbron en een index een indexeerfunctie. De gegevensbron bevat een verwijzing naar uw storage-account en uw JSON-gegevens. Uw zoekservice maakt de verbinding bij het laden van de gegevens.
+We gebruiken Postman om drie API-aanroepen te doen naar uw zoekservice; voor het maken van een gegevensbron, een index en een indexeerfunctie. De gegevensbron bevat een verwijzing naar uw opslagaccount en uw JSON-gegevens. Uw zoekservice maakt de verbinding tijdens het laden van de gegevens.
 
-De query-tekenreeks moet bevatten **api-version = 2016-09-01-Preview** en elke aanroep moet resulteren in een **201 gemaakt**. De algemeen beschikbaar api-versie heeft nog geen de mogelijkheid om te verwerken json op als een jsonArray, momenteel alleen de preview-api-versie wordt.
+De querytekenreeks moet **api-version=2016-09-01-Preview** bevatten en elke aanroep moet resulteren in een **201 - Gemaakt**. Met de algemeen beschikbare api-versie is het nog niet mogelijk om json te verwerken als een jsonArray. Dat is momenteel alleen mogelijk met de preview-api-versie.
 
-De volgende drie API-aanroepen van de REST-client uitvoeren.
+Voer de volgende drie API-aanroepen uit vanuit de REST-client.
 
 ### <a name="create-a-datasource"></a>Een gegevensbron maken
 
-Een gegevensbron geeft aan welke gegevens u wilt een index.
+Een gegevensbron geeft aan welke gegevens moeten worden geïndexeerd.
 
-Het eindpunt van deze aanroep is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Vervang `[service name]` met de naam van uw zoekservice.
+Het eindpunt van deze aanroep is `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Vervang `[service name]` door de naam van uw zoekservice.
 
-Voor deze aanroep moet u de naam van uw opslagaccount en de sleutel van uw opslagaccount. De opslagaccountsleutel vindt u in de Azure-portal in uw opslagaccount **toegangstoetsen**. De locatie wordt weergegeven in de volgende afbeelding:
+Voor deze aanroep hebt u de naam en sleutel van uw opslagaccount nodig. De opslagaccountsleutel vindt u in de **Toegangssleutels** van uw opslagaccount in Azure Portal. De locatie wordt in de volgende afbeelding weergegeven:
 
-  ![Semi-gestructureerde zoeken](media/search-semi-structured-data/storagekeys.png)
+  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/storagekeys.png)
 
-Zorg ervoor dat u de `[storage account name]` en `[storage account key]` in de hoofdtekst van de aanroep van voordat de aanroep wordt uitgevoerd.
+Zorg dat u de `[storage account name]` en `[storage account key]` in de hoofdtekst van de aanroep vervangt voordat u de aanroep uitvoert.
 
 ```json
 {
@@ -97,7 +96,7 @@ Zorg ervoor dat u de `[storage account name]` en `[storage account key]` in de h
 }
 ```
 
-Het antwoord moet eruitzien als:
+Het antwoord moet er als volgt uitzien:
 
 ```json
 {
@@ -121,11 +120,11 @@ Het antwoord moet eruitzien als:
 
 ### <a name="create-an-index"></a>Een index maken
     
-De tweede API-aanroep maakt een index. Een index bevat alle parameters en hun kenmerken.
+Met de tweede API-aanroep wordt een index gemaakt. Een index geeft alle parameters en hun kenmerken op.
 
-De URL voor deze aanroep is `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Vervang `[service name]` met de naam van uw zoekservice.
+De URL voor deze aanroep is `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Vervang `[service name]` door de naam van uw zoekservice.
 
-Eerst Vervang de URL. Kopieer en plak de volgende code in de hoofdtekst en voer de query.
+Vervang eerst de URL. Kopieer daarna de volgende code, plak deze in de hoofdtekst en voer de query uit.
 
 ```json
 {
@@ -161,7 +160,7 @@ Eerst Vervang de URL. Kopieer en plak de volgende code in de hoofdtekst en voer 
 }
 ```
 
-Het antwoord moet eruitzien als:
+Het antwoord moet er als volgt uitzien:
 
 ```json
 {
@@ -209,13 +208,13 @@ Het antwoord moet eruitzien als:
 }
 ```
 
-### <a name="create-an-indexer"></a>Maak een indexeerfunctie
+### <a name="create-an-indexer"></a>Een indexeerfunctie maken
 
-Een indexeerfunctie verbindt de gegevensbron met de doel-zoekindex en eventueel biedt een planning voor het automatiseren van de gegevens te vernieuwen.
+Een indexeerfunctie verbindt de gegevensbron met de doelzoekindex en biedt optioneel een schema om het vernieuwen van de gegevens te automatiseren.
 
-De URL voor deze aanroep is `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Vervang `[service name]` met de naam van uw zoekservice.
+De URL voor deze aanroep is `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Vervang `[service name]` door de naam van uw zoekservice.
 
-Eerst Vervang de URL. Kopieer en plak de volgende code in de hoofdtekst en voer de query.
+Vervang eerst de URL. Kopieer daarna de volgende code, plak deze in de hoofdtekst en voer de query uit.
 
 ```json
 {
@@ -226,7 +225,7 @@ Eerst Vervang de URL. Kopieer en plak de volgende code in de hoofdtekst en voer 
 }
 ```
 
-Het antwoord moet eruitzien als:
+Het antwoord moet er als volgt uitzien:
 
 ```json
 {
@@ -252,39 +251,39 @@ Het antwoord moet eruitzien als:
 }
 ```
 
-## <a name="search-your-json-files"></a>Zoek uw JSON-bestanden
+## <a name="search-your-json-files"></a>Uw JSON-bestanden doorzoeken
 
-Nu dat uw search-service is verbonden met uw gegevenscontainer, kunt u beginnen uw bestanden te zoeken.
+Nu de zoekservice is verbonden met uw gegevenscontainer, kunt u uw bestanden gaan doorzoeken.
 
-Opent u de Azure-portal en Ga terug naar uw search-service. Net als in de vorige zelfstudie.
+Open Azure Portal en ga terug naar uw zoekservice. Net zoals u dat hebt gedaan in de vorige zelfstudie.
 
-  ![Niet-gestructureerde zoeken](media/search-semi-structured-data/indexespane.png)
+  ![Niet-gestructureerde zoekopdracht](media/search-semi-structured-data/indexespane.png)
 
-### <a name="user-defined-metadata-search"></a>Zoeken van de gebruiker gedefinieerde metagegevens
+### <a name="user-defined-metadata-search"></a>Door gebruiker gedefinieerde metagegevens doorzoeken
 
-Als voorheen kunt de gegevens kunnen worden opgevraagd op verschillende manieren: zoeken in volledige tekst, de Systeemeigenschappen of de gebruiker gedefinieerde metagegevens. Zowel de Systeemeigenschappen als de gebruiker gedefinieerde metagegevens kunnen alleen worden doorzocht met de `$select` parameter als ze zijn gemarkeerd als **ophalen mogelijk** tijdens het maken van de doelindex. Parameters in de index kunnen niet worden gewijzigd als ze zijn gemaakt. Extra parameters kunnen echter worden toegevoegd.
+Ook nu kunnen gegevens worden opgevraagd op verschillende manieren: zoeken in volledige tekst, systeemeigenschappen of door de gebruiker gedefinieerde metagegevens. Systeemeigenschappen en door de gebruiker gedefinieerde metagegevens kunnen alleen worden doorzocht met de parameter `$select` als ze tijdens het maken van de doelindex zijn gemarkeerd als **Ophalen mogelijk**. Parameters in de index mogen niet meer worden gewijzigd nadat ze zijn gemaakt. Er kunnen echter wel extra parameters worden toegevoegd.
 
-Een voorbeeld van een eenvoudige query is `$select=Gender,metadata_storage_size`, die beperkt de terug naar deze twee parameters.
+Een voorbeeld van een eenvoudige query is `$select=Gender,metadata_storage_size`. Deze retourneert alleen deze twee parameters.
 
-  ![Semi-gestructureerde zoeken](media/search-semi-structured-data/lastquery.png)
+  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/lastquery.png)
 
-Een voorbeeld van complexe query's is `$filter=MinimumAge ge 30 and MaximumAge lt 75`, die alleen resultaten waarbij de parameters MinimumAge is groter dan of gelijk is aan 30 en MaximumAge minder dan 75 retourneert.
+Een voorbeeld van een complexere query is `$filter=MinimumAge ge 30 and MaximumAge lt 75`. Deze retourneert alleen resultaten als de parameter MinimumAge groter is dan of gelijk is aan 30 en als MaximumAge kleiner is dan 75.
 
-  ![Semi-gestructureerde zoeken](media/search-semi-structured-data/metadatashort.png)
+  ![Semi-gestructureerde zoekopdracht](media/search-semi-structured-data/metadatashort.png)
 
-Als u wilt experimenteren en probeer het een paar meer query's zelf, u kunt doen. Weten waarmee u logische operators kunt (en, of niet) en vergelijkingsoperators (eq, ne, gt, lt, ge, RP). Tekenreeksvergelijkingen zijn hoofdlettergevoelig.
+Ga gerust uw gang als u wilt experimenteren en zelf nog een aantal query's wilt proberen. U kunt logische operators (AND, OR, NOT) en vergelijkingsoperators (eq, ne, gt, lt, ge en le) gebruiken. Tekenreeksvergelijkingen zijn hoofdlettergevoelig.
 
-De `$filter` parameter werkt alleen met metagegevens die zijn gemarkeerd Filterbaar bij het maken van uw index.
+De parameter `$filter` werkt alleen met metagegevens die bij het maken van de index zijn gemarkeerd als filterbaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd over semi-gestructureerde gegevens met behulp van Azure search, zoals het zoeken:
+In deze zelfstudie hebt u geleerd over het doorzoeken van semi-gestructureerde gegevens met behulp van Azure Search. U hebt onder andere het volgende geleerd:
 
 > [!div class="checklist"]
-> * Een Azure Search-Service met de REST-API maken
-> * De Azure Search-Service gebruiken om te zoeken van de container
+> * Een Azure Search Service maken met de REST API
+> * De Azure Search Service gebruiken om uw container te doorzoeken
 
 Volg deze koppeling voor meer informatie over zoeken.
 
 > [!div class="nextstepaction"]
-> [Indexeren van documenten in Azure Blob-opslag](search-howto-indexing-azure-blob-storage.md)
+> [Documenten in Azure Blob Storage indexeren](search-howto-indexing-azure-blob-storage.md)

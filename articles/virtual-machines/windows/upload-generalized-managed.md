@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 919b1bef1f1337ad188e26476da8c5a5ef029224
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 133c09ad1f81a122d089485f8793d7dddbd1488a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Een gegeneraliseerde VHD uploaden en deze gebruiken voor het maken van nieuwe virtuele machines in Azure
 
@@ -107,7 +107,7 @@ U kunt ook een VHD uploaden naar uw storage-account met behulp van een van de vo
     Import/Export kan worden gebruikt om te kopiëren naar een standard-opslagaccount. U wilt kopiëren van de standard-opslag naar premium storage-account met behulp van een hulpprogramma zoals AzCopy.
 
 > [!IMPORTANT]
-> Als u uw VHD uploaden naar Azure AzCopy gebruikt, controleert u of u hebt ingesteld [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) voordat u script uploaden. Als de bestemming een blob is en deze optie niet is opgegeven, standaard maakt AzCopy een blok-blob.
+> Als u uw VHD uploaden naar Azure AzCopy gebruikt, controleert u of u hebt ingesteld [/BlobType:page](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) voordat u script uploaden. Als de bestemming een blob is en deze optie niet is opgegeven, standaard maakt AzCopy een blok-blob.
 > 
 > 
 

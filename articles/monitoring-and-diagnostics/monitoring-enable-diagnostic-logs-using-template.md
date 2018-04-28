@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: f1e1c2aa447e35ea483665cc33e4eb6af7a41f51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 090629874e75d75223e018b002cf04a02b1d1bb0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Diagnostische instellingen voor automatisch inschakelen bij het maken van de resource met een Resource Manager-sjabloon
 In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een bron wanneer deze wordt gemaakt. Hiermee kunt u op automatisch starten streaming uw diagnostische logboeken en metrische gegevens naar Event Hubs in een Opslagaccount wilt archiveren, of ze worden verzonden naar logboekanalyse wanneer een bron wordt gemaakt.
@@ -116,7 +116,7 @@ Voor niet-rekenresources moet u twee dingen doen:
     ]
     ```
 
-De blob eigenschappen voor de diagnostische instelling volgt [de indeling die wordt beschreven in dit artikel](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Toevoegen van de `metrics` eigenschap kunt u ook resource metrische gegevens verzenden naar deze dezelfde uitvoer, op voorwaarde dat [Azure Monitor metrische gegevens biedt ondersteuning voor de resource](monitoring-supported-metrics.md).
+De blob eigenschappen voor de diagnostische instelling volgt [de indeling die wordt beschreven in dit artikel](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Toevoegen van de `metrics` eigenschap kunt u ook resource metrische gegevens verzenden naar deze dezelfde uitvoer, op voorwaarde dat [Azure Monitor metrische gegevens biedt ondersteuning voor de resource](monitoring-supported-metrics.md).
 
 Hier volgt een voorbeeld van een volledige die een logische App maakt en Hiermee schakelt u streaming met Event Hubs en opslag in een opslagaccount.
 
@@ -134,7 +134,7 @@ Hier volgt een voorbeeld van een volledige die een logische App maakt en Hiermee
     },
     "testUri": {
       "type": "string",
-      "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
+      "defaultValue": "http://azure.microsoft.com/status/feed/"
     },
     "settingName": {
       "type": "string",

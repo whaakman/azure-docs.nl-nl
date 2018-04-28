@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 252763c6112026b7af697783034555e8d96ca6a4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d7df167bd5988c297f4ff338bfecf49bdc941797
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Zelfstudie: Azure Active Directory-integratie met YardiOne
 
@@ -111,37 +111,17 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     b. In de **id** textbox, typ een URL met het volgende patroon volgen: `http://<y1-subdomain>.yardione.com/yAuth2/trust`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [YardiOne Client ondersteuningsteam](https://clientcentral.yardi.com) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [YardiOne Client ondersteuningsteam](https://clientcentral.yardi.com) ophalen van deze waarden.
+     
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok. 
+
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_certificate.png) 
  
-4. Klik op **opslaan** knop.
+5. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-yardione-tutorial/tutorial_general_400.png)
 
-5. Voor het genereren van de **metagegevens-url**, voer de volgende stappen uit:
-
-    a. Klik op **App registraties**.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_appregistrations.png)
-   
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_endpointicon.png)
-
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_endpoint.png)
-     
-    d. Nu gaat u naar de eigenschappenpagina van **YardiOne** en kopieer de **toepassings-Id** met **kopie** knop en plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-yardione-tutorial/tutorial_yardione_appid.png)
-
-    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Eenmalige aanmelding configureren op **YardiOne** zijde, moet u de gegenereerde verzenden **metagegevens-url** naar [YardiOne ondersteuningsteam](https://clientcentral.yardi.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+6. Eenmalige aanmelding configureren op **YardiOne** kant die u wilt verzenden de **App-Url voor federatieve metagegevens** naar [YardiOne ondersteuningsteam](https://clientcentral.yardi.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: 7a775b6d23c144c81650bb3608ee6a117475a9ba
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 1de7e58eecc80e306920ab17884290dfddf8efa8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-containers-with-log-analytics"></a>Monitor containers met Log Analytics
  
-In dit artikel bevat informatie over de stappen die nodig zijn voor het instellen van de bewaking van de container voor uw cluster. Zie voor meer informatie over dit [Containers in Service Fabric Monitoring](service-fabric-diagnostics-event-analysis-oms.md#monitoring-containers). Een stapsgewijze zelfstudie hierover vindt u kunt ook volgen [Monitor Windows containers in Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+In dit artikel bevat informatie over de stappen die nodig zijn voor het instellen van de OMS-logboekanalyse-container bewakingsoplossing container gebeurtenissen wilt weergeven. Als u uw cluster instelt voor het verzamelen van gebeurtenissen van de container, ziet u dit [stapsgewijze zelfstudie](service-fabric-tutorial-monitoring-wincontainers.md).
 
 ## <a name="set-up-the-container-monitoring-solution"></a>De container bewakingsoplossing instellen
 
@@ -35,9 +35,22 @@ In dit artikel bevat informatie over de stappen die nodig zijn voor het instelle
 
     ![Containers-oplossing toevoegen](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. Maak de oplossing binnen dezelfde werkruimte die al is gemaakt voor het cluster. Deze wijziging wordt automatisch geactiveerd voor de agent voor het verzamelen van docker-gegevens voor de containers. In ongeveer 15 minuten of doet ziet u de oplossing lichte up met binnenkomende logboeken en statistieken.
+3. Maak de oplossing binnen dezelfde werkruimte die al is gemaakt voor het cluster. Deze wijziging wordt automatisch geactiveerd voor de agent voor het verzamelen van docker-gegevens voor de containers. In ongeveer 15 minuten of doet ziet u de oplossing lichte up met binnenkomende logboeken en statistieken. zoals u in de onderstaande afbeelding.
+
+    ![Basic OMS-Dashboard](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+
+De agent kunt het verzamelen van verschillende container-specifieke logboeken die kan worden doorzocht in OMS of gebruikt voor het gevisualiseerde prestatie-indicatoren. De logboek-typen die zijn verzameld zijn:
+
+* ContainerInventory: geeft informatie over de containerlocatie, naam en installatiekopieën
+* ContainerImageInventory: informatie over geïmplementeerde installatiekopieën, met inbegrip van id's of grootten
+* ContainerLog: specifieke foutenlogboeken, docker-Logboeken (stdout, enzovoort) en andere items
+* ContainerServiceLog: docker-daemon opdrachten die zijn uitgevoerd
+* Prestaties: prestatiemeteritems met inbegrip van container cpu, geheugen, netwerkverkeer, schijf-i/o en aangepaste metrische gegevens van de hostmachines
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
+* Meer informatie over [van OMS Containers oplossing](../log-analytics/log-analytics-containers.md).
 * Lees meer over container orchestration op Service Fabric - [Service Fabric en containers](service-fabric-containers-overview.md)
 * Familiarized ophalen met de [zoeken en uitvoeren van query's in logboek registreren](../log-analytics/log-analytics-log-searches.md) functies die worden aangeboden als onderdeel van logboekanalyse
 * Configureren van logboekanalyse voor het instellen van [geautomatiseerde waarschuwingen](../log-analytics/log-analytics-alerts.md) regels om te helpen detecteren en diagnostische gegevens

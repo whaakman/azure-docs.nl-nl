@@ -2,10 +2,10 @@
 title: Azure API Management Veelgestelde vragen | Microsoft Docs
 description: Meer informatie over de antwoorden op veelgestelde vragen (FAQ) patronen en aanbevolen procedures in Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 091cfaaf8fa1cccf2f8b819732946bbbd08fd426
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 243f0b8206166e3e054dfc423259bd3444d8a2db
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management-Veelgestelde vragen
 De antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure API Management.
@@ -88,7 +88,7 @@ Hier ziet u hoe u een gebruiker kunt toevoegen aan de groep Administrators:
 
 Nu de zojuist toegevoegde Inzender kan Azure PowerShell gebruiken [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx). Ga als volgt aanmelden als beheerder:
 
-1. Gebruik de `Login-AzureRmAccount` cmdlet aan te melden.
+1. Gebruik de `Connect-AzureRmAccount` cmdlet aan te melden.
 2. De context ingesteld op het abonnement waarvoor de service met behulp van `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
 3. Ophalen van een URL met eenmalige aanmelding met behulp van `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. De URL gebruiken voor toegang tot de beheerportal.

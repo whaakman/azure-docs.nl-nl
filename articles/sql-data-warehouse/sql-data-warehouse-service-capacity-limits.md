@@ -1,38 +1,33 @@
 ---
-title: SQL Data Warehouse Capaciteitslimieten | Microsoft Docs
-description: Maximale waarden voor verbindingen, databases, tabellen en query's voor SQL Data Warehouse.
+title: Capaciteitslimieten - Azure SQL Data Warehouse | Microsoft Docs
+description: De maximumwaarde is toegestaan voor de verschillende onderdelen van Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
+author: antvgski
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 03/27/2018
-ms.author: kevin;barbkess
-ms.openlocfilehash: 4c49fa082547dc0de76126df17a888c6c32f03e4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: anvang
+ms.reviewer: igorstan
+ms.openlocfilehash: a2a6c78444cb385a2e74b108000555ff056fe9f0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse Capaciteitslimieten
-De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de verschillende onderdelen van Azure SQL Data Warehouse.
+De maximumwaarde is toegestaan voor de verschillende onderdelen van Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Werklastbeheer
 | Category | Beschrijving | Maximum |
 |:--- |:--- |:--- |
-| [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Maximale DWU voor een enkele SQL Data Warehouse | Geoptimaliseerd voor elasticiteit [prestatielaag](memory-and-concurrency-limits.md#performance-tiers): DW6000<br></br>Geoptimaliseerd voor Compute [prestatielaag](memory-and-concurrency-limits.md#performance-tiers): DW30000c |
-| [Datawarehouse Units (DWU)][Data Warehouse Units (DWU)] |Standaard DTU per server |54,000<br></br>Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft een DTU-quotum 54.000, waardoor maximaal DW6000c standaard. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum door verhogen [een ondersteuningsticket maken] [ creating a support ticket] en te selecteren *quotum* als het aanvraagtype.  Voor het berekenen van uw DTU heeft, de 7.5 vermenigvuldigen met het totale aantal dat DWU nodig of 9.0 vermenigvuldigen met de totale cDWU nodig. Bijvoorbeeld:<br></br>DW6000 x 7.5 = 45,000 dtu's<br></br>DW600c x 9.0 = 54.000 dtu's.<br></br>U kunt uw huidige DTU-verbruik van de SQL server-optie weergeven in de portal. Zowel onderbroken als niet-onderbroken databases tellen mee voor het DTU-quotum. |
+| [Datawarehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Maximale DWU voor een enkele SQL Data Warehouse | Gen1: DW6000<br></br>Gen2: DW30000c |
+| [Datawarehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Standaard DTU per server |54,000<br></br>Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft een DTU-quotum 54.000, waardoor maximaal DW6000c standaard. Dit quotum is gewoon een veiligheidsbeperking. U kunt uw quotum door verhogen [een ondersteuningsticket maken](sql-data-warehouse-get-started-create-support-ticket.md) en te selecteren *quotum* als het aanvraagtype.  Voor het berekenen van uw DTU heeft, de 7.5 vermenigvuldigen met het totale aantal dat DWU nodig of 9.0 vermenigvuldigen met de totale cDWU nodig. Bijvoorbeeld:<br></br>DW6000 x 7.5 = 45,000 dtu's<br></br>DW600c x 9.0 = 54.000 dtu's.<br></br>U kunt uw huidige DTU-verbruik van de SQL server-optie weergeven in de portal. Zowel onderbroken als niet-onderbroken databases tellen mee voor het DTU-quotum. |
 | Databaseverbinding |Gelijktijdige sessies actief |1024<br/><br/>Elk van de actieve sessies 1024 kunt aanvragen met een SQL Data Warehouse-database verzenden op hetzelfde moment. Let op: Er zijn limieten van het aantal query's die gelijktijdig kan worden uitgevoerd. Wanneer de gelijktijdigheid limiet wordt overschreden, gaat de aanvraag u naar een interne wachtrij waar wacht om te worden verwerkt. |
 | Databaseverbinding |Maximale hoeveelheid geheugen voor voorbereide instructies |20 MB |
 | [Werklastbeheer](resource-classes-for-workload-management.md) |Maximum aantal gelijktijdige query 's |32<br/><br/> SQL Data Warehouse kan standaard maximaal 32 gelijktijdige query's en wachtrijen resterende query's worden uitgevoerd.<br/><br/>Het aantal gelijktijdige query's kan afnemen wanneer gebruikers worden toegewezen aan hogere resource klassen of wanneer SQL Data Warehouse heeft een lagere [datawarehouse unit](memory-and-concurrency-limits.md) instelling. Sommige query's, zoals DMV-query's, zijn altijd toegestaan om uit te voeren. |
-| [TempDB][Tempdb] |Maximale GB |399 GB per DW100. Daarom op DWU1000, wordt tempdb aangepast 3,99 TB |
+| [TempDB](sql-data-warehouse-tables-temporary.md) |Maximale GB |399 GB per DW100. Tempdb wordt daarom op DWU1000 aangepast 3,99 TB. |
 
 ## <a name="database-objects"></a>database-objecten
 | Category | Beschrijving | Maximum |
@@ -41,8 +36,8 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 | Tabel |Max. grootte |60 TB gecomprimeerd op schijf |
 | Tabel |Tabellen per database |10.000 |
 | Tabel |Kolommen per tabel |1024 kolommen |
-| Tabel |Bytes per kolom |Afhankelijk van de kolom [gegevenstype][data type].  De limiet is 8000 voor de gegevenstypen char, 4000 voor nvarchar of 2 GB voor de gegevenstypen MAX. |
-| Tabel |Bytes per rij, gedefinieerde grootte |8060 bytes<br/><br/>Het aantal bytes per rij wordt berekend op dezelfde manier als voor SQL Server bij de pagina compressie. Zoals SQL Server ondersteunt SQL Data Warehouse overloop rij-opslag, waardoor **kolommen met variabele lengte** moet buiten een rij worden gepusht. Wanneer de rijen met variabele lengte zijn buiten de rij gepusht, wordt alleen 24-byte-hoofdmap opgeslagen in de belangrijkste record. Zie voor meer informatie de [overloop rij gegevens van meer dan 8 KB][Row-Overflow Data Exceeding 8 KB]. |
+| Tabel |Bytes per kolom |Afhankelijk van de kolom [gegevenstype](sql-data-warehouse-tables-data-types.md). De limiet is 8000 voor de gegevenstypen char, 4000 voor nvarchar of 2 GB voor de gegevenstypen MAX. |
+| Tabel |Bytes per rij, gedefinieerde grootte |8060 bytes<br/><br/>Het aantal bytes per rij wordt berekend op dezelfde manier als voor SQL Server bij de pagina compressie. Zoals SQL Server ondersteunt SQL Data Warehouse overloop rij-opslag, waardoor **kolommen met variabele lengte** moet buiten een rij worden gepusht. Wanneer de rijen met variabele lengte zijn buiten de rij gepusht, wordt alleen 24-byte-hoofdmap opgeslagen in de belangrijkste record. Zie voor meer informatie [overloop rij gegevens van meer dan 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabel |Partities per tabel |15,000<br/><br/>Voor hoge prestaties raden we het nummer voor het minimaliseren van partities moet u terwijl toch op uw zakelijke vereisten. Wanneer het aantal partities groeit, wordt de overhead voor bewerkingen Data Definition Language (DDL) en gegevens manipulatie taal (DML) groeit en zorgt ervoor dat de tragere prestaties. |
 | Tabel |Tekens per partitie grenswaarde. |4000 |
 | Index |Niet-geclusterde indexen per tabel. |50<br/><br/>Van toepassing op alleen rowstore-tabellen. |
@@ -73,8 +68,8 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 | SELECTEREN |Kolommen per JOIN |1024 kolommen<br/><br/>U kunt nooit meer dan 1024 kolommen hebben in de JOIN. Er is geen garantie dat u kunt altijd 1024 hebben. Als het plan JOIN een tijdelijke tabel met meer kolommen dan de JOIN-resultaat vereist, geldt de 1024-limiet voor de tijdelijke tabel. |
 | SELECTEREN |Aantal bytes per GROEPEREN op kolommen. |8060<br/><br/>De kolommen in de component GROUP BY kunnen maximaal 8060 bytes hebben. |
 | SELECTEREN |Aantal bytes per ORDER BY kolommen |8060 bytes<br/><br/>De kolommen in de component ORDER BY kunnen maximaal van 8060 bytes hebben. |
-| Id's per instructie |Aantal waarnaar wordt verwezen id 's |65,535<br/><br/>SQL Data Warehouse beperkt het aantal id's die kunnen worden opgenomen in één expressie van een query. Dit nummer resulteert in een SQL Server-fout 8632 overschrijdt. Zie voor meer informatie [interne fout: een expressie services limiet is bereikt][Internal error: An expression services limit has been reached]. |
-| Letterlijke tekenreeks | Aantal letterlijke tekenreeks in een instructie | 20,000 <br/><br/>SQL Data Warehouse limites het aantal tekenreeksconstanten die kunnen worden opgenomen in één expressie van een query. Dit nummer resulteert in een SQL Server-fout 8632 overschrijdt. Zie voor meer informatie [interne fout: een expressie services limiet is bereikt][Internal error: An expression services limit has been reached]. |
+| Id's per instructie |Aantal waarnaar wordt verwezen id 's |65,535<br/><br/>SQL Data Warehouse beperkt het aantal id's die kunnen worden opgenomen in één expressie van een query. Dit nummer resulteert in een SQL Server-fout 8632 overschrijdt. Zie voor meer informatie [interne fout: een expressie services limiet is bereikt.] [interne fout: een expressie services limiet is bereikt]. |
+| Letterlijke tekenreeks | Aantal letterlijke tekenreeks in een instructie | 20,000 <br/><br/>SQL Data Warehouse beperkt het aantal tekenreeksconstanten in één expressie van een query. Dit nummer resulteert in een SQL Server-fout 8632 overschrijdt.|
 
 ## <a name="metadata"></a>Metagegevens
 | Het systeemweergave | Maximumaantal rijen |
@@ -90,18 +85,4 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 | sys.dm_pdw_sql_requests |De meest recente 1000 SQL-aanvragen die zijn opgeslagen in sys.dm_pdw_exec_requests. |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie, [SQL Data Warehouse verwijzing overzicht][SQL Data Warehouse reference overview].
-
-<!--Image references-->
-
-<!--Article references-->
-[Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
-[SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
-[Workload management]: ./resource-classes-for-workload-management.md
-[Tempdb]: ./sql-data-warehouse-tables-temporary.md
-[data type]: ./sql-data-warehouse-tables-data-types.md
-[creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md
-
-<!--MSDN references-->
-[Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
-[Internal error: An expression services limit has been reached]: https://support.microsoft.com/kb/913050
+Zie voor aanbevelingen voor het gebruik van SQL Data Warehouse de [cheats blad](cheat-sheet.md).

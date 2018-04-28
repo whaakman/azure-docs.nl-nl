@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a4bdea4844c4aaa9990d619d59326a83cf0aef6c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Het beheer van apparaten met de Azure portal
 
@@ -74,7 +74,7 @@ De instellingenpagina voor het apparaat kunt u configureren:
 
 - **Gebruikers kunnen hun apparaten registreren met Azure AD** -u moet deze instelling en ervoor zorgen dat apparaten worden [geregistreerd](device-management-introduction.md#azure-ad-registered-devices) met Azure AD. Als u selecteert **geen**, apparaten zijn niet toegestaan om te registreren wanneer ze niet Azure AD zijn toegevoegd of hybride die lid zijn van Azure AD. Registratie bij Microsoft Intune of Mobile Device Management (MDM) voor Office 365 moet worden geregistreerd. Als u een van deze services hebt geconfigureerd **alle** is geselecteerd en is **NONE** niet beschikbaar...
 
-- **Multi-factor Authentication om toe te voegen apparaten vereisen** -kunt u kiezen of gebruikers zijn vereist voor een tweede verificatiefactor naar [join](device-management-introduction.md#azure-ad-joined-devices) hun apparaat bij Azure AD. De standaardwaarde is **Nee**. Het is raadzaam om meervoudige verificatie vereisen wanneer een apparaat wordt geregistreerd. Voordat u multi-factor authentication voor deze service inschakelt, moet u ervoor zorgen dat multi-factor authentication-server is geconfigureerd voor de gebruikers die hun apparaten registreren. Zie voor meer informatie over andere Azure multi-factor authentication-services [aan de slag met Azure multi-factor authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
+- **Multi-factor Authentication om toe te voegen apparaten vereisen** -kunt u kiezen of gebruikers zijn vereist voor een tweede verificatiefactor naar [join](device-management-introduction.md#azure-ad-joined-devices) hun apparaat bij Azure AD. De standaardwaarde is **Nee**. Het is raadzaam om meervoudige verificatie vereisen wanneer een apparaat wordt geregistreerd. Voordat u multi-factor authentication voor deze service inschakelt, moet u ervoor zorgen dat multi-factor authentication-server is geconfigureerd voor de gebruikers die hun apparaten registreren. Zie voor meer informatie over andere Azure multi-factor authentication-services [aan de slag met Azure multi-factor authentication](authentication/concept-mfa-whichversion.md). 
 
 - **Maximum aantal apparaten** -deze instelling schakelt u het maximum aantal apparaten dat een gebruiker in Azure AD hebben kan selecteren. Als een gebruiker dit quotum bereikt, dat niet meer mogelijk extra apparaten toevoegen totdat een of meer van de bestaande apparaten zijn verwijderd. De aanhalingstekens van het apparaat wordt beschouwd voor alle apparaten die Azure AD zijn toegevoegd of Azure AD vandaag geregistreerd. De standaardwaarde is **20**.
 

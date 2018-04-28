@@ -2,7 +2,7 @@
 title: Apache Spark machine learning-toepassingen in Azure HDInsight bouwen | Microsoft Docs
 description: Stapsgewijze instructies voor het bouwen van Apache Spark machine learning-toepassing op HDInsight Spark-clusters met Jupyter-notebook
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 95daab2bd7bc57d01bc9e3c05404958edd71eecc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Apache Spark machine learning-toepassingen in Azure HDInsight bouwen
 
@@ -185,7 +183,7 @@ In deze toepassing, gebruikt u een Spark [ML pijplijn](https://spark.apache.org/
 10. Sluit de notebook om resources vrij te geven. Dit doet u door in het menu **Bestand** in de notebook te klikken op **Sluiten en stoppen**. Dit wordt afgesloten en sluit de notebook.
 
 ## <a name="anaconda"></a>Gebruik scikit Anaconda-bibliotheek voor Spark machine learning meer
-Apache Spark-clusters in HDInsight bevatten Anaconda-bibliotheken. Dit omvat ook de **scikit-meer** -bibliotheek voor machine learning. De bibliotheek bevat ook verschillende gegevenssets die u voor het bouwen van de voorbeeldtoepassingen rechtstreeks vanuit een Jupyter-notebook kunt gebruiken. Voor voorbeelden van het gebruik van de scikit-bibliotheek Lees [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Apache Spark-clusters in HDInsight bevatten Anaconda-bibliotheken. Dit omvat ook de **scikit-meer** -bibliotheek voor machine learning. De bibliotheek bevat ook verschillende gegevenssets die u voor het bouwen van de voorbeeldtoepassingen rechtstreeks vanuit een Jupyter-notebook kunt gebruiken. Voor voorbeelden van het gebruik van de scikit-bibliotheek Lees [ http://scikit-learn.org/stable/auto_examples/index.html ](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="seealso"></a>Zie ook
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)

@@ -2,7 +2,7 @@
 title: Apache Spark gebruiken voor het analyseren van gegevens in Azure Data Lake Store | Microsoft Docs
 description: Spark-taken voor het analyseren van gegevens die zijn opgeslagen in Azure Data Lake Store uitvoeren
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 1f174323-c17b-428c-903d-04f0e272784c
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 6e44ffc26bbb618e0ff14d412ed77e4827232b42
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fa6f93231cba46e29206ec312fb82ad120ed45f6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>HDInsight Spark-cluster gebruiken voor het analyseren van gegevens in Data Lake Store
 
@@ -55,7 +53,7 @@ Als u een HDInsight-cluster met Data Lake Store als extra opslagruimte en Azure 
    > Zorg ervoor dat u die de namen van de bestands- en in het juiste geval zijn.
    >
    >
-3. U wordt gevraagd de referenties voor de Azure-abonnement waaronder die u een Data Lake Store-account hebt invoeren. U ziet een uitvoer die vergelijkbaar is met het volgende fragment:
+3. U wordt gevraagd de referenties voor de Azure-abonnement waaronder die u een Data Lake Store-account hebt invoeren. Het volgende (of een vergelijkbaar) codefragment wordt weergegeven:
 
         Initializing Copy.
         Copy Started.

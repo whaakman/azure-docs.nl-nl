@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/16/2018
 ms.author: ayolubek
-ms.openlocfilehash: 928ff9b2519f6e92b091d9fd6b4ea0a7bca94d2b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: a677e6eb583e293f83df824804aa4cd6f8f5d778
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="recover-a-multi-tenant-saas-application-using-geo-restore-from-database-backups"></a>Een multitenant SaaS-toepassing met behulp van geo-herstel van de databaseback-ups herstellen
 
@@ -68,7 +68,7 @@ In deze zelfstudie worden deze uitdagingen aangepakt gebruikt functies van Azure
 
 ## <a name="get-the-disaster-recovery--scripts"></a>De disaster recovery scripts ophalen 
 
-De DR-scripts die worden gebruikt in deze zelfstudie zijn beschikbaar in de [Wingtip Tickets SaaS-database per tenant GitHub-opslagplaats](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/tree/feature-DR-georestore). Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de Wingtip Tickets management scripts deblokkeren.
+De DR-scripts die worden gebruikt in deze zelfstudie zijn beschikbaar in de [Wingtip Tickets SaaS-database per tenant GitHub-opslagplaats](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de Wingtip Tickets management scripts deblokkeren.
 > [!IMPORTANT]
 > Net als alle Wingtip Tickets management scripts, de DR-scripts zijn voorbeeld kwaliteit en niet moet worden gebruikt in productie.   
 

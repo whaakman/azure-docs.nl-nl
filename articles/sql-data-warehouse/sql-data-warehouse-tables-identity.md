@@ -1,41 +1,30 @@
 ---
-title: Vervangend sleutels maken met behulp van de identiteit | Microsoft Docs
-description: Informatie over het gebruik van identiteit vervangende om sleutels te maken voor tabellen.
+title: IDENTITEIT gebruiken voor het maken van sleutels vervangende - Azure SQL Data Warehouse | Microsoft Docs
+description: Aanbevelingen en voorbeelden voor het gebruik van de IDENTITY-eigenschap vervangende om sleutels te maken van tabellen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: e10b58743fad5f7c2c4f00b51f06d4ec9bcb6768
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: ab028705f5af7c37017d2e697240b7d3436f5f71
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="create-surrogate-keys-by-using-identity"></a>Vervangend sleutels maken met behulp van identiteit
-> [!div class="op_single_selector"]
-> * [Overzicht][Overview]
-> * [Gegevenstypen][Data Types]
-> * [Distribueren][Distribute]
-> * [Index][Index]
-> * [Partitie][Partition]
-> * [Statistieken][Statistics]
-> * [Tijdelijke][Temporary]
-> * [Identiteit][Identity]
-> 
-> 
+# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Met behulp van de identiteit vervangende om sleutels te maken in Azure SQL Data Warehouse
+Aanbevelingen en voorbeelden voor het gebruik van de IDENTITY-eigenschap vervangende om sleutels te maken van tabellen in Azure SQL Data Warehouse.
 
-Veel gegevens modelers zoals vervangende om sleutels te maken op de tabellen bij het ontwerpen van datawarehouse-modellen. U kunt de IDENTITY-eigenschap te realiseren eenvoudig en effectief zonder laadprestaties gebruiken. 
+## <a name="what-is-a-surrogate-key"></a>Wat is de sleutel van een vervangende?
+Een vervangende sleutel in een tabel is een kolom met een unieke identificatie voor elke rij. De sleutel wordt niet afgeleid van gegevens in de tabel. Gegevens modelers zoals vervangende om sleutels te maken op de tabellen bij het ontwerpen van datawarehouse-modellen. U kunt de IDENTITY-eigenschap te realiseren eenvoudig en effectief zonder laadprestaties gebruiken.  
 
-## <a name="get-started-with-identity"></a>Aan de slag met de identiteit
+## <a name="creating-a-table-with-an-identity-column"></a>Maakt een tabel met een id-kolom
+De IDENTITY-eigenschap is ontworpen voor zonder laadprestaties uitbreiden in de distributies in het datawarehouse. Daarom is de implementatie van de identiteit is gericht op deze doelstellingen te bereiken. 
+
 Een tabel kunt u definiëren als de IDENTITY-eigenschap hebben wanneer u eerst de tabel maken met behulp van de syntaxis die vergelijkbaar is met de volgende instructie:
 
 ```sql
@@ -52,8 +41,7 @@ WITH
 
 Vervolgens kunt u `INSERT..SELECT` voor het vullen van de tabel.
 
-## <a name="behavior"></a>Gedrag
-De IDENTITY-eigenschap is ontworpen voor zonder laadprestaties uitbreiden in de distributies in het datawarehouse. Daarom is de implementatie van de identiteit is gericht op deze doelstellingen te bereiken. Deze sectie worden de nuances van de implementatie kunt u ze beter te begrijpen.  
+Deze rest van deze sectie worden de nuances van de implementatie voor deze uitgebreider inzicht gemarkeerd.  
 
 ### <a name="allocation-of-values"></a>Toewijzing van waarden
 De volgorde waarin de vervangende waarden worden toegewezen, dat overeenkomt met het gedrag van SQL Server en Azure SQL Database niet worden gegarandeerd dat de IDENTITY-eigenschap. Echter, in Azure SQL Data Warehouse het ontbreken van een garantie groter is. 
@@ -100,7 +88,7 @@ Als een van deze voorwaarden voldaan wordt, wordt de kolom geen NULL in plaats v
 ### <a name="create-table-as-select"></a>TABLE AS SELECT MAKEN
 Maak tabel AS selecteren (CTAS) volgt hetzelfde gedrag voor SQL Server die wordt beschreven voor SELECT... IN. Echter, u een IDENTITY-eigenschap niet opgeven in de definitie van de kolom van de `CREATE TABLE` deel uit van de instructie. Ook in functie IDENTITY niet gebruiken de `SELECT` deel uit van de CTAS. Om te voorzien van een tabel, moet u gebruiken `CREATE TABLE` voor het definiëren van de tabel die wordt gevolgd door `INSERT..SELECT` het vullen.
 
-## <a name="explicitly-insert-values-into-an-identity-column"></a>Expliciet waarden invoegen in een identiteitskolom 
+## <a name="explicitly-inserting-values-into-an-identity-column"></a>Expliciet invoegen waarden in een identiteitskolom 
 Biedt ondersteuning voor SQL Data Warehouse `SET IDENTITY_INSERT <your table> ON|OFF` syntaxis. Deze syntaxis kunt u expliciet waarden invoegen in de identiteitskolom.
 
 Veel gegevens modelers zoals met vooraf gedefinieerde negatieve waarden voor bepaalde rijen in hun dimensies. Een voorbeeld is de -1 of 'onbekend lid' rij. 
@@ -124,11 +112,10 @@ FROM    dbo.T1
 ;
 ```    
 
-## <a name="load-data-into-a-table-with-identity"></a>Gegevens laden in een tabel met de identiteit
+## <a name="loading-data"></a>Gegevens laden
 
 De aanwezigheid van de IDENTITY-eigenschap heeft een aantal gevolgen toe aan uw code laden van gegevens. Deze sectie worden enkele basispatronen die voor het laden van gegevens in tabellen met behulp van de identiteit. 
 
-### <a name="load-data-with-polybase"></a>Gegevens laden met PolyBase
 Gegevens laden in een tabel en een vervangend sleutel genereren met behulp van de identiteit, de tabel maken en vervolgens met INSERT... Selecteer of INSERT... WAARDEN voor het uitvoeren van de belasting.
 
 Het volgende voorbeeld illustreert het basispatroon:
@@ -160,28 +147,16 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE] 
-> Het is niet mogelijk om te gebruiken `CREATE TABLE AS SELECT` momenteel bij het laden van gegevens naar een tabel met een identiteitskolom.
+> Het is niet mogelijk te maken tabel AS SELEC gebruiken is momenteel bij het laden van gegevens naar een tabel met een identiteitskolom.
 > 
 
-Zie de volgende artikelen voor meer informatie over het laden van gegevens met behulp van het hulpprogramma voor bulksgewijs kopiëren (BCP)-programma's:
+Zie voor meer informatie over het laden van gegevens, [ontwerpen extraheren, laden en transformeren (ELT) voor Azure SQL Data Warehouse](design-elt-data-loading.md) en [bij het laden van aanbevolen procedures](guidance-for-loading-data.md).
 
-- [Laden met PolyBase][]
-- [Aanbevolen procedures van PolyBase][]
 
-### <a name="load-data-with-bcp"></a>Gegevens laden met BCP
-BCP is een opdrachtregelprogramma waarmee u gebruiken kunt om gegevens te laden in SQL Data Warehouse. Een van de parameters (-E) bepaalt het gedrag van BCP bij het laden van gegevens naar een tabel met een identiteitskolom. 
+## <a name="system-views"></a>Systeemweergaven
+U kunt de [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) catalogusweergave om een kolom waarvoor de eigenschap identiteit te identificeren.
 
-Wanneer -E wordt opgegeven, worden de waarden die zijn ondergebracht in het bestand voor invoer voor de kolom met de identiteit behouden. Als E - *niet* opgegeven, worden de waarden in deze kolom worden genegeerd. Als de identiteitskolom niet opgenomen is, is de gegevens die normaal werken geladen. De waarden worden gegenereerd volgens het beleid verhoging en seed van de eigenschap.
-
-Zie voor meer informatie over het laden van gegevens met behulp van BCP, de volgende artikelen:
-
-- [Laden met BCP][]
-- [BCP in MSDN][]
-
-## <a name="catalog-views"></a>Catalogusweergaven
-SQL Data Warehouse ondersteunt de `sys.identity_columns` catalogusweergave. Deze weergave kan worden gebruikt om een kolom waarvoor de eigenschap identiteit te identificeren.
-
-Als u het databaseschema beter te begrijpen, in dit voorbeeld laat zien hoe integreren `sys.identity_columns` met andere weergaven van de catalogus system:
+Als u het databaseschema beter te begrijpen, dit voorbeeld ziet u het integreren van sys.identity_column' met andere weergaven van de catalogus system:
 
 ```sql
 SELECT  sm.name
@@ -202,28 +177,27 @@ AND     tb.name = 'T1'
 ```
 
 ## <a name="limitations"></a>Beperkingen
-De IDENTITY-eigenschap kan niet worden gebruikt in de volgende scenario's:
-- Waar het gegevenstype van kolom is geen INT of BIGINT
-- De kolom is waar ook de distributiesleutel
-- Waar de tabel is een externe tabel 
+De IDENTITY-eigenschap kan niet worden gebruikt:
+- Wanneer het gegevenstype van kolom is geen INT of BIGINT
+- Als de kolom is ook de distributiesleutel
+- Als de tabel is een externe tabel 
 
 De volgende gerelateerde functies worden niet ondersteund in SQL Data Warehouse:
 
-- [IDENTITY()][]
-- [@@IDENTITY][]
-- [SCOPE_IDENTITY][]
-- [IDENT_CURRENT][]
-- [IDENT_INCR][]
-- [IDENT_SEED][]
-- [DBCC CHECK_IDENT()][]
+- [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql)
+- [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)
+- [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql)
+- [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql)
+- [IDENT_INCR](/sql/t-sql/functions/ident-incr-transact-sql)
+- [IDENT_SEED](/sql/t-sql/functions/ident-seed-transact-sql)
+- [DBCC CHECK_IDENT()](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql)
 
-## <a name="tasks"></a>Taken
+## <a name="common-tasks"></a>Algemene taken
 
-Deze sectie bevat enkele veelvoorkomende taken uitvoeren wanneer u met de id-kolommen werkt kunt u voorbeeldcode.
+Deze sectie bevat enkele veelvoorkomende taken uitvoeren wanneer u met de id-kolommen werkt kunt u voorbeeldcode. 
 
-> [!NOTE] 
-> Kolom C1 is de identiteit in de volgende taken.
-> 
+Kolom C1 is de identiteit in de volgende taken.
+ 
  
 ### <a name="find-the-highest-allocated-value-for-a-table"></a>De hoogste toegewezen waarde vinden voor een tabel
 Gebruik de `MAX()` functie om te bepalen van de hoogste waarde die is toegewezen aan een gedistribueerde tabel:
@@ -254,39 +228,5 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over het ontwikkelen van tabellen, [tabel overzicht][Overview], [tabel gegevenstypen][Data Types], [distribueren van een tabel][Distribute], [indexeren van een tabel][Index], [partitie van een tabel][Partition], en [tijdelijke tabellen][Temporary]. 
-* Zie voor meer informatie over best practices [aanbevolen procedures voor SQL Data Warehouse][SQL Data Warehouse Best Practices].  
+* Zie voor meer informatie over het ontwikkelen van tabellen, [tabel overview] [Overview].  
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Identity]: ./sql-data-warehouse-tables-identity.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-[Laden met bcp]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp/
-[Laden met PolyBase]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase/
-[Aanbevolen procedures van PolyBase]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide/
-
-
-<!--MSDN references-->
-[Identity property]: https://msdn.microsoft.com/library/ms186775.aspx
-[sys.identity_columns]: https://msdn.microsoft.com/library/ms187334.aspx
-[IDENTITY()]: https://msdn.microsoft.com/library/ms189838.aspx
-[@@IDENTITY]: https://msdn.microsoft.com/library/ms187342.aspx
-[SCOPE_IDENTITY]: https://msdn.microsoft.com/library/ms190315.aspx
-[IDENT_CURRENT]: https://msdn.microsoft.com/library/ms175098.aspx
-[IDENT_INCR]: https://msdn.microsoft.com/library/ms189795.aspx
-[IDENT_SEED]: https://msdn.microsoft.com/library/ms189834.aspx
-[DBCC CHECK_IDENT()]: https://msdn.microsoft.com/library/ms176057.aspx
-
-[BCP in MSDN]: https://msdn.microsoft.com/library/ms162802.aspx
-  
-
-<!--Other Web references-->  

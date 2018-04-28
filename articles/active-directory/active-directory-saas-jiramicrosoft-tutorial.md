@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ade72311977d1a9f40eb0750afd9d906b883d6c6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>Zelfstudie: Azure Active Directory-integratie met Microsoft Azure Active Directory eenmalige aanmelding voor JIRA
 
@@ -115,7 +115,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Dialoogvenster voor eenmalige aanmelding](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_samlbase.png)
 
 3. Op de **Microsoft Azure Active Directory eenmalige aanmelding voor JIRA domein en URL's** sectie, voert u de volgende stappen uit:
@@ -128,29 +128,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Poort is optioneel, mocht dat een benoemde URL. Deze waarden worden ontvangen tijdens de configuratie van de invoegtoepassing Jira, die verderop in de zelfstudie wordt beschreven.
- 
-4. Voor het genereren van de **metagegevens** -url, de volgende stappen uitvoeren:
 
-    a. Klik op **App registraties**.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
     
-    ![Eenmalige aanmelding configureren](.\media\active-directory-saas-msaadssojira-tutorial\appregistrations.png)
-   
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Eenmalige aanmelding configureren](.\media\active-directory-saas-msaadssojira-tutorial\endpointicon.png)
-
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-    
-    ![Eenmalige aanmelding configureren](.\media\active-directory-saas-msaadssojira-tutorial\endpoint.png)
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-msaadssojira-tutorial/tutorial_metadataurl.png)
      
-    d. Nu gaat u naar de eigenschappenpagina van **Microsoft Azure Active Directory eenmalige aanmelding voor JIRA** en kopieer de **toepassings-Id** met **kopie** knop en plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding configureren](.\media\active-directory-saas-msaadssojira-tutorial\appid.png)
-
-    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` en kopieer deze waarde in Kladblok, zoals het later voor de configuratie van de invoegtoepassing gebruikt wordt.
-
 5. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_400.png)
@@ -175,34 +159,30 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     > [!TIP]
     > Zorg ervoor dat er slechts één certificaat toegewezen aan de app, zodat er geen fout is bij het oplossen van de metagegevens. Als er meerdere certificaten, bij het omzetten van de metagegevens, haalt de beheerder een fout opgetreden.
- 
-    a. In **metagegevens-URL** plak de **metagegevens-URL** gegenereerd op basis van Azure AD en klik op de **oplossen** knop. De URL van de metagegevens IdP worden gelezen en alle informatie in de velden gevuld.
+
+    a. In de **metagegevens-URL** textbox plakken **App-Url voor federatieve metagegevens** waarde die u hebt gekopieerd van de Azure-portal en klik op de **oplossen** knop. De URL van de metagegevens IdP worden gelezen en alle informatie in de velden gevuld.
 
     b. Kopiëren de **id, de antwoord-URL en de URL met eenmalige** waarden en plak ze in **id, de antwoord-URL en de URL met eenmalige** respectievelijk in tekstvakken **eenmalige aanmelding Microsoft Azure Active Directory voor JIRA domein en URL's** sectie op Azure-portal.
 
     c. In **aanmeldingsnaam van de knop** Typ de naam van uw organisatie wil de gebruikers dat te zien op het aanmeldingsscherm knop.
 
-    d. In **SAML-ID gebruikerslocaties** Selecteer **gebruikers-ID is in het element NameIdentifier van het onderwerp overzicht** of **gebruikers-ID is in een kenmerkelement**.  Deze ID is de JIRA gebruikers-id. Als de gebruikers-id niet overeen komt, kan vervolgens niet worden gebruikers zich aanmelden. 
+    d. In **SAML-ID gebruikerslocaties** Selecteer **gebruikers-ID is in het element NameIdentifier van het onderwerp overzicht** of **gebruikers-ID is in een kenmerkelement**.  Deze ID is de JIRA gebruikers-id. Als de gebruikers-id niet overeen komt, kan vervolgens niet worden gebruikers zich aanmelden.
 
     > [!Note]
     > Gebruikers-ID van SAML-standaardlocatie is naam-id. U kunt dit wijzigen in een kenmerk-optie en geef de juiste naam.
 
-    e. Als u selecteert **gebruikers-ID is in een kenmerkelement** optie, klik dan in **kenmerknaam** textbox Typ de naam van het kenmerk waar gebruikers-Id wordt verwacht. 
+    e. Als u selecteert **gebruikers-ID is in een kenmerkelement** optie, klik dan in **kenmerknaam** textbox Typ de naam van het kenmerk waar gebruikers-Id wordt verwacht.
 
     f. Als u het federatieve domein (zoals ADFS enz.) met Azure AD gebruikt, klikt u op de **inschakelen Thuisrealmdetectie** optie en configureer de **domeinnaam**.
     
     g. In **domeinnaam** typt u de domeinnaam hier in geval van de aanmelding op basis van AD FS.
 
-    h. Controleer **eenmalige aanmelding inschakelen uit** als u zich afmelden bij Azure AD wanneer een gebruiker zich wilt afmeldt van JIRA. 
+    h. Controleer **eenmalige aanmelding inschakelen uit** als u zich afmelden bij Azure AD wanneer een gebruiker zich wilt afmeldt van JIRA.
 
     i. Klik op **opslaan** knop de instellingen op te slaan.
 
     > [!NOTE]
     > Voor meer informatie over installatie en probleemoplossing, gaat u naar [MS JIRA SSO Connector Admin handleiding](ms-confluence-jira-plugin-adminguide.md) en er ook [Veelgestelde vragen over](ms-confluence-jira-plugin-faq.md) voor uw hulp
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 

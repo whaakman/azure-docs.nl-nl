@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f870bf1a282d7a044bb876e0015962b4f520a15f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Een bestaande voorspellende webservice opnieuw trainen
 Dit document beschrijft de retraining voor het volgende scenario:
@@ -26,8 +26,8 @@ Dit document beschrijft de retraining voor het volgende scenario:
 * U hebt een trainingsexperiment en een Voorspellend experiment die u hebt geïmplementeerd als een geoperationaliseerd webservice.
 * U hebt nieuwe gegevens die u uw predictive webservice om te gebruiken wilt voor het uitvoeren van de score berekenen.
 
-> [!NOTE] 
-> Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waaraan u de webservice implementeren. Zie voor meer informatie, [beheren van een webservice via de portal voor Azure Machine Learning-webservices](manage-new-webservice.md). 
+> [!NOTE]
+> Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waaraan u de webservice implementeren. Zie voor meer informatie, [beheren van een webservice via de portal voor Azure Machine Learning-webservices](manage-new-webservice.md).
 
 Beginnen met uw bestaande webservice en experimenten, moet u als volgt te werk:
 
@@ -54,7 +54,7 @@ Uw trainingsexperiment bijwerken:
 
 Voer uw experiment.
 
-Vervolgens moet u het trainingsexperiment implementeren als een webservice die een getraind model en de resultaten van evaluatie van model produceert.  
+Vervolgens moet u het trainingsexperiment implementeren als een webservice die een getraind model en de resultaten van evaluatie van model produceert.
 
 Klik aan de onderkant van het experimentcanvas **webservice ingesteld**, en selecteer vervolgens **Web Service implementeren [New]**. De portal voor Azure Machine Learning-webservices worden geopend met de **webservice implementeren** pagina. Typ een naam voor uw web-service, kies een betaald abonnement en klik vervolgens op **implementeren**. U kunt de Batchuitvoering methode alleen gebruiken voor het maken van modellen getraind.
 
@@ -84,7 +84,7 @@ Zoek de **apikey** declaratie:
 In de **Basic verbruik info** sectie van de **verbruiken** pagina, Ga naar de primaire sleutel en kopieert u deze naar de **apikey** declaratie.
 
 ### <a name="update-the-azure-storage-information"></a>De informatie van de Azure Storage bijwerken
-De voorbeeldcode BES uploadt een bestand vanaf een lokaal station (bijvoorbeeld ' C:\temp\CensusIpnput.csv') naar Azure Storage, verwerkt en schrijft de resultaten terug naar Azure Storage.  
+De voorbeeldcode BES uploadt een bestand vanaf een lokaal station (bijvoorbeeld ' C:\temp\CensusIpnput.csv') naar Azure Storage, verwerkt en schrijft de resultaten terug naar Azure Storage.
 
 Nadat uw experiment is uitgevoerd, moet de resulterende werkstroom ziet er als volgt:
 
@@ -126,7 +126,7 @@ Hier volgt een voorbeeld van uitvoer retraining:
 ## <a name="evaluate-the-retraining-results"></a>De retraining resultaten evalueren
 Wanneer u de toepassing uitvoert, wordt de uitvoer bevat de URL en de gedeelde handtekeningen toegangstoken die nodig zijn voor toegang tot de evaluatieresultaten.
 
-U kunt de prestatieresultaten van het model retrained zien door combineren de *BaseLocation*, *RelativeLocation*, en *SasBlobToken* uit de resultaten van de uitvoer voor *output2* (zoals weergegeven in de voorgaande retraining uitvoer afbeelding) en de volledige URL in de adresbalk van de browser te plakken.  
+U kunt de prestatieresultaten van het model retrained zien door combineren de *BaseLocation*, *RelativeLocation*, en *SasBlobToken* uit de resultaten van de uitvoer voor *output2* (zoals weergegeven in de voorgaande retraining uitvoer afbeelding) en de volledige URL in de adresbalk van de browser te plakken.
 
 Bekijk de resultaten om te bepalen of het zojuist getrainde model goed genoeg ter vervanging van de bestaande uitvoert.
 
@@ -136,7 +136,7 @@ Kopieer de *BaseLocation*, *RelativeLocation*, en *SasBlobToken* uit de resultat
 Wanneer u een nieuwe webservice opnieuw trainen, kunt u de voorspellende webservicedefinitie om te verwijzen naar het nieuwe getrainde model bijwerken. Definitie van de webservice is een interne representatie van het getrainde model van de webservice en kan niet rechtstreeks worden gewijzigd. Zorg ervoor dat u voor uw Voorspellend experiment en niet uw trainingsexperiment definitie van de webservice ophaalt.
 
 ## <a name="sign-in-to-azure-resource-manager"></a>Aanmelden voor Azure Resource Manager
-U moet eerst aanmelden bij uw Azure-account uit binnen de PowerShell-omgeving met behulp van de [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
+U moet eerst aanmelden bij uw Azure-account uit binnen de PowerShell-omgeving met behulp van de [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
 
 ## <a name="get-the-web-service-definition-object"></a>Het object webservicedefinitie ophalen
 Vervolgens wordt het webservicedefinitie-object ophalen door het aanroepen van de [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.

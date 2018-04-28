@@ -2,7 +2,7 @@
 title: Microsoft Dynamics CRM en Azure Application Insights | Microsoft Docs
 description: Telemetrie ophalen uit Microsoft Dynamics CRM Online met behulp van Application Insights. Overzicht van setup ophalen van gegevens, visualisatie en exporteren.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mazharmicrosoft
 manager: carmonm
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ced4f62b4f27ede28c61e8d2670432ddd7b76f9b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Overzicht: Telemetrie voor Microsoft Dynamics CRM Online met behulp van Application Insights inschakelen
 Dit artikel ziet u het ophalen van telemetriegegevens van [Microsoft Dynamics CRM Online](https://www.dynamics.com/) met [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). We doorlopen het complete proces van het Application Insights-script toevoegen aan uw toepassing vastleggen van gegevens en gegevensvisualisatie.
@@ -60,7 +60,7 @@ Voor het bewaken van uw toepassing, kunt u een Application Insights-SDK toevoege
     ![Open de teksteditor](./media/app-insights-sample-mscrm/00004.png)
 2. Kopieer de code uit de Application Insights. Tijdens het kopiëren, moet voor het negeren van script-tags. Raadpleeg de onderstaande schermafbeelding:
 
-    ![De instrumentatiesleutel instellen](./media/app-insights-sample-mscrm/00005.png)
+    ![De instrumentatiesleutel instellen](./media/app-insights-sample-mscrm/000005.png)
 
     De code bevat de instrumentatiesleutel die uw Application insights-resource identificeert.
 3. Opslaan en publiceren.
@@ -132,7 +132,7 @@ Klik in de grafiek als u meer informatie:
 ## <a name="power-bi"></a>Power BI
 U kunt zelfs grondigere analyse doen als u [de gegevens exporteren naar Microsoft Power BI](app-insights-export-power-bi.md).
 
-## <a name="sample-microsoft-dynamics-crm-solution"></a>Sample Microsoft Dynamics CRM Solution
+## <a name="sample-microsoft-dynamics-crm-solution"></a>Voorbeeld Microsoft Dynamics CRM-oplossing
 [Hier volgt de Voorbeeldoplossing geïmplementeerd in Microsoft Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
 
 ## <a name="learn-more"></a>Meer informatie

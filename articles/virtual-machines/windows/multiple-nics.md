@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 0f19ed89e49b34ff4b8abf5d22e7d59b89fd6d72
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b08e2b7315d180a387f27ab2082b7f9f6a9bbfff
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Maken en beheren van een virtuele Windows-machine met meerdere NIC 's
 Virtuele machines (VM's) in Azure, kunnen meerdere virtuele netwerkinterfacekaarten (NIC's) gekoppeld aan deze hebben. Een veelvoorkomend scenario is om verschillende subnetten voor front-end en back-end-verbinding of een netwerk dat is toegewezen aan een oplossing met bewaking of back-up. Dit artikel wordt uitgelegd hoe u een virtuele machine met meerdere NIC's die zijn gekoppeld aan het maken. U leert ook hoe toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig.
@@ -235,7 +235,7 @@ U kunt ook `copyIndex()` naar een nummer toevoegen aan de naam van een resource.
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-U kunt een compleet voorbeeld van lezen [meerdere NIC's maken met Resource Manager-sjablonen](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+U kunt een compleet voorbeeld van lezen [meerdere NIC's maken met Resource Manager-sjablonen](../../virtual-network/template-samples.md).
 
 Routes voor secundaire NIC's toevoegen aan het besturingssysteem door de stappen in [configureren van het besturingssysteem voor meerdere NIC's](#configure-guest-os-for-multiple-nics).
 

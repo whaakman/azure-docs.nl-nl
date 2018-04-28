@@ -2,10 +2,10 @@
 title: Azure API Management-services in meerdere Azure-regio's implementeren | Microsoft Docs
 description: Informatie over het implementeren van een Azure API Management-service-exemplaar op meerdere Azure-regio's.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 6f84c1b2092f71eaeba0005a36018390242869ea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ff0101bde54f99f99461d0f042af520b1642d0df
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Een Azure API Management-service-exemplaar implementeren op meerdere Azure-regio 's
 API Management biedt ondersteuning voor meerdere landen/regio-implementatie waarmee de API-uitgevers voor een enkele API management-service verdelen over een willekeurig aantal gewenste Azure-regio's. Dit vermindert de latentie waargenomen door geografisch verspreid API consumenten en verbetert tevens de servicebeschikbaarheid als één regio offline gaat. 
@@ -25,11 +25,11 @@ API Management biedt ondersteuning voor meerdere landen/regio-implementatie waar
 Wanneer u een API Management-service in eerste instantie is gemaakt, bevat deze slechts één [eenheid] [ unit] en bevindt zich op één Azure-regio, die is opgegeven als de primaire regio. Extra gebieden kunnen eenvoudig worden toegevoegd via de Azure-Portal. Een API Management-gatewayserver wordt geïmplementeerd voor elke regio en aanroep verkeer wordt doorgestuurd naar de dichtstbijzijnde gateway. Als een regio offline gaat, wordt het verkeer automatisch opnieuw gerichte naar de volgende dichtstbijzijnde gateway. 
 
 > [!IMPORTANT]
-> Implementatie van meerdere landen/regio is alleen beschikbaar in de  **[Premium] [ Premium]**  laag.
+> Implementatie van meerdere landen/regio is alleen beschikbaar in de **[Premium] [ Premium]** laag.
 > 
 > 
 
-## <a name="add-region"></a>Exemplaar van API Management-service implementeren in een nieuw gebied
+## <a name="add-region"> </a>Exemplaar van API Management-service implementeren in een nieuw gebied
 > [!NOTE]
 > Als u nog geen exemplaar van API Management-service hebt gemaakt, raadpleegt u [API Management service-exemplaar maken][Create an API Management service instance].
 > 
@@ -51,7 +51,7 @@ Klik op **toevoegen** uw selectie in de tabel locaties plaatsen.
 
 Herhaal dit proces totdat u alle geconfigureerde locaties en klik op **opslaan** van de werkbalk om het implementatieproces start.
 
-## <a name="remove-region"></a>Verwijderen van exemplaar van API Management-service van een locatie
+## <a name="remove-region"> </a>Verwijderen van exemplaar van API Management-service van een locatie
 
 Navigeer in de Azure Portal naar de **schaal en prijzen** pagina voor uw API Management-service-exemplaar. 
 

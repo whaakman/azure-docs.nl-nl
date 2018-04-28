@@ -1,24 +1,19 @@
 ---
 title: Hoe zoekresultaten in Azure Search | Microsoft Docs
 description: Paginering in Azure Search, een gehoste cloud search-service op Microsoft Azure.
-services: search
-documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: a0a1d315-8624-4cdf-b38e-ba12569c6fcc
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 3ef946c6c0ab9c111932b3145fd46ae6ef2684cd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Pagina's met zoekresultaten maken in Azure Search
 In dit artikel biedt richtlijnen voor het gebruik van de Azure Search Service REST API voor het implementeren van standaardelementen van een pagina met zoekresultaten, zoals het totale aantal, document ophalen, sorteervolgorde en navigatie.
@@ -51,7 +46,7 @@ Resultaten pagineren vereist zowel `$top` en `$skip`, waarbij `$top` Hiermee gee
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=30&$count=true
 
-## <a name="layout"></a>Lay-out
+## <a name="layout"></a>Indeling
 Op een pagina met zoekresultaten, is het raadzaam om een miniatuur, een subset van velden en een koppeling naar een product met volledig pagina weer te geven.
 
  ![][2]
@@ -73,7 +68,7 @@ Sorteervolgorde vaak standaard op relevantie, maar het is gebruikelijk om altern
 
  ![][3]
 
-In Azure Search sorteren is gebaseerd op de `$orderby` expressie, voor alle velden die zijn geïndexeerd als`"Sortable": true.`
+In Azure Search sorteren is gebaseerd op de `$orderby` expressie, voor alle velden die zijn geïndexeerd als `"Sortable": true.`
 
 Relevantie is ten zeerste aan score berekenen voor profielen gekoppeld. Kunt u het standaard scoren die afhankelijk is van de analyse van tekst en statistieken rangschikken volgorde alle resultaten met hogere scores gebeurt met documenten met meer of sterker komt overeen met een zoekterm.
 

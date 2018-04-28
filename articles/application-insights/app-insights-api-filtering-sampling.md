@@ -2,8 +2,8 @@
 title: Filteren en in de Application Insights-SDK van Azure voorverwerking | Microsoft Docs
 description: Schrijf telemetrie Processors en telemetrie initalisatiefuncties voor de SDK om te filteren of eigenschappen toevoegen aan de gegevens voordat de telemetrie wordt verzonden naar de Application Insights-portal.
 services: application-insights
-documentationcenter: 
-author: beckylino
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: borooji;mbullwin
-ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: mbullwin; borooji
+ms.openlocfilehash: 06f116fc5096fe4bda9c8433c3a33726acb67eea
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filteren en voorverwerking telemetrie in Application Insights-SDK
 
@@ -218,7 +218,7 @@ Telemetrie initalisatiefuncties gebruiken voor het definiëren van algemene eige
 
 De Application Insights voor Web-pakket verzamelt bijvoorbeeld telemetrie over HTTP-aanvragen. Standaard worden gemarkeerd als een aanvraag met een antwoordcode mislukt > = 400. Maar als u 400 behandelen als een is voltooid wilt, kunt u een initialisatiefunctie voor telemetrie die de eigenschap geslaagd opgeven.
 
-Als u een initialisatiefunctie telemetrie opgeeft, wordt aangeroepen wanneer een van de methoden Track*() wordt aangeroepen. Dit omvat de methoden die worden aangeroepen door de standaard telemetrie-modules. Volgens de conventies worden alle eigenschappen die al is ingesteld door een initialisatiefunctie voor objecten in deze modules niet ingesteld.
+Als u een initialisatiefunctie telemetrie opgeeft, is er sprake wanneer een van de methoden Track*() worden aangeroepen. Dit omvat de methoden die worden aangeroepen door de standaard telemetrie-modules. Volgens de conventies worden alle eigenschappen die al is ingesteld door een initialisatiefunctie voor objecten in deze modules niet ingesteld.
 
 **De initialisatiefunctie definiëren**
 

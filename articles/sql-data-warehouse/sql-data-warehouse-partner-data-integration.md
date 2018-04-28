@@ -2,41 +2,36 @@
 title: SQL Data Warehouse gegevens integratiepartners | Microsoft Docs
 description: Lijsten met partners van derden met oplossingen voor integratie die ondersteuning bieden voor Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: 
-ms.assetid: 450730a8-87df-4b8f-917b-debe3c906283
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: partners
-ms.date: 01/30/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: a7102474875517a7454f778a0030fa514075a021
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: 6a1604dbca09e65d8d6d5b45b31b0d3c7f053ccd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL Data Warehouse gegevens integratiepartners
-Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw datawarehouse-oplossing voor end-to-end-gegevens. In dit artikel worden Microsoft partnerbedrijven gemarkeerd met oplossingen voor integratie met de ondersteuning van Azure SQL Data Warehouse.
+Voor het maken van uw datawarehouse-oplossing kiezen uit een groot aantal toonaangevende hulpprogramma's. In dit artikel worden Microsoft partnerbedrijven gemarkeerd met oplossingen voor integratie met de ondersteuning van Azure SQL Data Warehouse.
 
-## <a name="our-data-integration-partners"></a>Onze partners van de integratie van gegevens
+## <a name="data-integration-partners"></a>Gegevens integratiepartners
 | Partner | Beschrijving | Koppelingen | Video's |
 | --- | --- | --- | --- |
-| ![Alteryx][1] |**Alteryx**<br> Alteryx Designer biedt een herhaalbare werkstroom voor self-service gegevensanalyse die tot een beter inzicht in uren, niet de weken van traditionele methoden typische leidt! Alteryx Designer machtigt gegevensanalisten door een combinatie van voorbereiden van gegevens, gegevens overvloeien en analytics – voorspeld, statistische en ruimtelijke – met de dezelfde intuïtieve gebruikersinterface. |[Marketplace][alteryx_marketplace]<br>[Website][alteryx_designer_website]<br>[Witboek][alteryx_whitepaper]<br>[Gegevensblad][alteryx_designer_datasheet]<br>[Twitter][alteryx_designer_twitter]<br>[YouTube][alteryx_designer_youtube] |[![Alteryx video](./media/sql-data-warehouse-partner-data-integration/alteryx_designer_video.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |
+| ![Alteryx][1] |**Alteryx**<br> Alteryx Designer biedt een herhaalbare werkstroom voor self-service gegevensanalyse die tot een beter inzicht in uren, niet de weken van traditionele methoden typische leidt! Gegevensanalisten helpt Alteryx Designer door een combinatie van voorbereiden van gegevens, gegevens overvloeien en analytics – voorspeld, statistische en ruimtelijke – met de dezelfde intuïtieve gebruikersinterface. |[Marketplace][alteryx_marketplace]<br>[Website][alteryx_designer_website]<br>[Witboek][alteryx_whitepaper]<br>[Gegevensblad][alteryx_designer_datasheet]<br>[Twitter][alteryx_designer_twitter]<br>[YouTube][alteryx_designer_youtube] |[![Alteryx video](./media/sql-data-warehouse-partner-data-integration/alteryx_designer_video.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |
 | ![Attunity][2] |**Attunity**<br>Attunity CloudBeam biedt een oplossing voor geautomatiseerde en geoptimaliseerd voor het laden van gegevens naar SQL Data Warehouse. Met een ontwerp 'Klik load' het vereenvoudigt en versnelt zowel batch laden als incrementele replicatie van veel heterogene databases, met inbegrip van SQL Server, Oracle, DB2, Sybase en mySQL. |[Marketplace][attunity_marketplace]<br>[Snel starten][attunity_quickstart]<br>[Website][attunity_cloudbeam_website]<br>[Gegevensblad][attunity_cloudbeam_datasheet]<br>[Twitter][attunity_cloudbeam_twitter]<br>[YouTube][attunity_cloudbeam_youtube] |[![Video Attunity](./media/sql-data-warehouse-partner-data-integration/attunity_video.jpg)](https://www.youtube.com/watch?v=w14zuSjMlok) |
-| ![Bryte systemen][3] |**Bryte systemen**<br>Bryte systemen automatiseert gegevensoverdracht naar SQL Data Warehouse uit verschillende databases en bronnen. Er is een Bryte systemen gespecialiseerd in data movement en integratie-technologieën. Ze bouwen schaalbare cloud-gebaseerde Datawarehouses en gegevens meren om inzichten bloot te. |[Marketplace][bryte_systems_marketplace]<br>[Website][bryte_systems_azure_website] | |
-| ![Informatica][4] |**Informatica Cloud-Services voor Azure – betalen naar gebruik**<br> De waarde van uw Azure-Services te optimaliseren en afgeleid bruikbare insights buiten alle uw hybride gegevenssets met Cloudservices Informatica voor Azure – betalen naar gebruik. Informatica Cloud biedt een oplossing best in klasse voor gegevensintegratie Cloud Analytics, integratie van toepassingen en gegevens beheren. Met selfservice gegevensmigratie, kunnen integratie en management mogelijkheden klanten snel en betrouwbaar importeren, exporteren, synchroniseren en plannen van petabytes aan gegevens naar Azure uit diverse bronnen zoals SaaS-toepassingen, meren gegevens op basis van Hadoop en andere on-premises gegevensbronnen (Oracle, SAP).  Cloudservices informatica voor Azure biedt systeemeigen, hoog volume, hoge prestaties verbindingsproblemen met Azure SQL Data Warehouse, Sgl Database, Blob Storage, Data Lake Store en Azure Cosmos DB. |[Marketplace][informatica_Cloud_Services_marketplace]<br>[Gratis proefversie][informatica_cloud_free_trial]<br>[Configuratie-handleiding][informatica_cloud_services_config]<br>[Website][informatica_Cloud_Services_website]<br>[Gegevensblad][informatica_cloud_datasheet]<br>[Twitter][informatica_cloud_twitter]<br>[YouTube][informatica_cloud_youtube] | |
+| ![Bryte systemen][3] |**Bryte systemen**<br>Bryte systemen automatiseert gegevensoverdracht naar SQL Data Warehouse uit verschillende databases en bronnen. Er is een Bryte systemen gespecialiseerd in data movement en integratie-technologieën. Ze bouwen cloud-gebaseerde Datawarehouses en gegevens meren om inzichten bloot te. |[Marketplace][bryte_systems_marketplace]<br>[Website][bryte_systems_azure_website] | |
+| ![Informatica][4] |**Informatica Cloud-Services voor Azure – betalen naar gebruik**<br> De waarde van uw Azure-Services te optimaliseren en afgeleid bruikbare insights buiten alle uw hybride gegevenssets met Cloudservices Informatica voor Azure – betalen naar gebruik. Informatica Cloud biedt een oplossing best in klasse voor integratie, Cloud Analytics, integratie van toepassingen en gegevensbeheer gegevens. Met selfservice gegevensmigratie, kunnen integratie en management mogelijkheden klanten snel en betrouwbaar importeren, exporteren, synchroniseren en plannen van petabytes aan gegevens naar Azure uit diverse bronnen zoals SaaS-toepassingen, meren gegevens op basis van Hadoop en andere on-premises gegevensbronnen (Oracle, SAP). Cloudservices informatica voor Azure biedt systeemeigen, hoog volume, hoge prestaties verbindingsproblemen met Azure SQL Data Warehouse, SQL-Database, Blob Storage, Data Lake Store en Azure Cosmos DB. |[Marketplace][informatica_Cloud_Services_marketplace]<br>[Gratis proefversie][informatica_cloud_free_trial]<br>[Configuratie-handleiding][informatica_cloud_services_config]<br>[Website][informatica_Cloud_Services_website]<br>[Gegevensblad][informatica_cloud_datasheet]<br>[Twitter][informatica_cloud_twitter]<br>[YouTube][informatica_cloud_youtube] | |
 | ![Informatica][4] |**Informatica PowerCenter**<br>Informatica is een van de wereld meest herkenbare onafhankelijke leveranciers van software-integratie gegevens. PowerCenter vormt de basis voor uw initiatieven voor de integratie van gegevens. Gebruik PowerCenter voor analyses, gegevensopslag, toepassingsmigratie, consolidatie of gegevensbeheer. |[Marketplace (standaard)][informatica_PowerCenter_std_marketplace]<br>[Marketplace (Geavanceerd)][informatica_PowerCenter_adv_marketplace]<br>[Website][informatica_PowerCenter_website]<br>[Gegevensblad][informatica_powercenter_datasheet]<br>[Twitter][informatica_powercenter_twitter]<br>[YouTube][informatica_powercenter_youtube] | |
 | ![Redgate][5] |**Redgate gegevens Platform Studio (Preview)**<br>De Redgate gegevens Platform Studio biedt een eenvoudige en betrouwbare manier om te migreren van lokale SQL-databases naar Azure SQL Data Warehouse. Het zodanig ontworpen slimme beslissingen te nemen voor een volledig geautomatiseerde migratie en kan worden gebruikt voor eenmalige migraties. |[Website][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] |[![Redgate video](./media/sql-data-warehouse-partner-data-integration/redgate_video.jpg)](https://www.youtube.com/watch?v=IR9HNvnU46s) |
-| ![SnapLogic][6] |**SnapLogic**<br>De SnapLogic integratie-platform als een service (iPaaS) kan klanten snel gegevens overdraagt naar en van Microsoft Azure SQL Data Warehouse.  SnapLogic biedt de mogelijkheid te integreren honderden toepassingen, services en IoT-scenario's in één oplossing. Bieden snel en effectief inzicht in de cloud, lokaal of in de hybride-modus met SnapLogic! |[Marketplace][snaplogic_marketplace]<br>[Website][snaplogic_website]<br>[Gegevensblad][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] |[![Snaplogic video](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
+| ![SnapLogic][6] |**SnapLogic**<br>De SnapLogic integratie-platform als een service (iPaaS) kan klanten snel gegevens overdraagt naar en van Microsoft Azure SQL Data Warehouse. SnapLogic biedt de mogelijkheid te integreren honderden toepassingen, services en IoT-scenario's in één oplossing. Bieden snel en effectief inzicht in de cloud, lokaal of in de hybride-modus met SnapLogic! |[Marketplace][snaplogic_marketplace]<br>[Website][snaplogic_website]<br>[Gegevensblad][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] |[![Snaplogic video](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over een aantal andere onze partners, [Business Intelligence partners] [ bi_partners] en [gegevensbeheer partners][dm_partners].
+Zie voor meer informatie over andere partners, [Business Intelligence partners] [ bi_partners] en [gegevensbeheer partners][dm_partners].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png

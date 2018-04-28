@@ -2,10 +2,10 @@
 title: Verzamelen van gegevens met een runbook in Azure Automation Log Analytics | Microsoft Docs
 description: Stapsgewijze zelfstudie die helpt bij het maken van een runbook in Azure Automation voor het verzamelen van gegevens in de OMS-opslagplaats voor analyse van logboekanalyse.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: operations-management-suite
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 59f674c9c6404da7f5384539189f41a4ba1a939a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0784e2317fbc98561b486547654ca27bb30e76c3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Gegevens verzamelen in logboekanalyse met een Azure Automation-runbook
 U kunt een aanzienlijke hoeveelheid gegevens in logboekanalyse verzamelen uit diverse bronnen, zoals [gegevensbronnen](../log-analytics/log-analytics-data-sources.md) op agents en ook [gegevens verzameld van Azure](../log-analytics/log-analytics-azure-storage.md).  Er zijn een scenario's waarin u wilt verzamelen van gegevens die niet worden geopend via deze standaard bronnen.  In dergelijke gevallen kunt u de [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) om gegevens te schrijven met logboekanalyse vanaf elke client REST-API.  Een veelgebruikte methode voor het uitvoeren van deze gegevensverzameling maakt gebruik van een runbook in Azure Automation.   
@@ -97,7 +97,7 @@ Azure Automation heeft een editor in de portal kunt u bewerken en test uw runboo
         # Code copied from the runbook AzureAutomationTutorial.
         $connectionName = "AzureRunAsConnection"
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -185,9 +185,9 @@ De meeste gevallen een runbook dat bewakingsgegevens verzamelt starten is om te 
 | Eigenschap | Waarde |
 |:--|:--|
 | Naam | AutomationJobs-per uur |
-| Wordt gestart | Selecteer die telkens wanneer u ten minste 5 minuten na de huidige tijd. |
+| Start | Selecteer die telkens wanneer u ten minste 5 minuten na de huidige tijd. |
 | Terugkeerpatroon | Terugkerend |
-| Herhaald elke | 1 uur |
+| Herhalen elke | 1 uur |
 | Vervaldatum van de set | Nee |
 
 Zodra de planning is gemaakt, moet u de parameterwaarden die worden gebruikt telkens wanneer die deze planning wordt gestart voor het runbook instellen.
@@ -205,7 +205,7 @@ Telkens wanneer een runbook wordt gestart, [wordt een taak gemaakt](../automatio
 2. U ziet een lijst met taken voor elke keer dat het runbook is gestart.
 3. Klik op een van de taken om de details ervan weer te geven.
 4. Klik op **alle logboeken** de logboekbestanden weergeven en de uitvoer van het runbook.
-5. Schuif naar beneden naar een vermelding zoeken die lijken op de onderstaande afbeelding.<br>![Uitgebreide](media/operations-management-suite-runbook-datacollect/verbose.png)
+5. Schuif naar beneden naar een vermelding zoeken die lijken op de onderstaande afbeelding.<br>![Uitgebreid](media/operations-management-suite-runbook-datacollect/verbose.png)
 6. Klik op dit item om de gedetailleerde json-gegevens die is verzonden met logboekanalyse weer te geven.
 
 

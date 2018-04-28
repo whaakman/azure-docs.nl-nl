@@ -2,28 +2,27 @@
 title: Meer informatie over de autorisatie protocollen die worden ondersteund door Azure AD v2.0 | Microsoft Docs
 description: Een handleiding voor protocollen die worden ondersteund door het Azure AD v2.0-eindpunt.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
+ms.date: 04/22/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ce9a7cb14b933da23873d69e1f14a744d012a858
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 29d9e2d9ee05b755ef40179e0e75fb0c8a6b010b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0-protocollen - OAuth 2.0 & OpenID Connect
-Het v2.0-eindpunt kunt Azure AD voor identity-as-a-service met de protocollen volgens de industrienorm, OpenID Connect en OAuth 2.0 gebruiken.  De service is compatibel met de standaarden, kunnen er subtiele verschillen tussen de twee implementaties van deze protocollen.  Hier de informatie is nuttig als u uw code te schrijven wilt door rechtstreeks verzenden & afhandeling van HTTP-aanvragen of gebruik een 3rd partij open source bibliotheek in plaats van met een van onze open-source bibliotheken.
-<!-- TODO: Need link to libraries above -->
+Het v2.0-eindpunt kunt Azure AD voor identity-as-a-service met de protocollen volgens de industrienorm, OpenID Connect en OAuth 2.0 gebruiken.  De service is compatibel met de standaarden, kunnen er subtiele verschillen tussen de twee implementaties van deze protocollen.  Hier de informatie is nuttig als u ervoor kiest uw code te schrijven door rechtstreeks verzenden & verwerking van HTTP-aanvragen of gebruik een 3e partij open-source-bibliotheek in plaats van met een van onze [open-source bibliotheken](active-directory-v2-libraries.md).
 
 > [!NOTE]
 > Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt.  Meer informatie over om te bepalen of moet u het v2.0-eindpunt, [v2.0 beperkingen](active-directory-v2-limitations.md).

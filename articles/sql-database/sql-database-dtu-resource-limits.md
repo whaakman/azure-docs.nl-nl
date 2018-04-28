@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: c4c85395856756e8ec6a788aa958b479a297892d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 6602a4ab8f6081c1b96c7da3bc94291d05d79862
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Limieten voor het model van Azure SQL Database DTU gebaseerde-resource
 
@@ -39,7 +39,7 @@ De volgende tabellen tonen voor individuele databases, de beschikbare resources 
 ### <a name="standard-service-tier"></a>Standaardservicelaag
 | **Prestatieniveau** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| Maximale aantal dtu's ** | 10 | 20 | 50 | 100 |
+| Maximaal aantal DTU's | 10 | 20 | 50 | 100 |
 | Opgenomen opslag (GB) | 250 | 250 | 250 | 250 |
 | Maximum aantal opslagopties (GB) * | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Maximale OLTP-opslag in het geheugen (GB) | N/A | N/A | N/A | N/A |
@@ -51,7 +51,7 @@ De volgende tabellen tonen voor individuele databases, de beschikbare resources 
 ### <a name="standard-service-tier-continued"></a>Standaard-servicelaag (vervolg)
 | **Prestatieniveau** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| Maximale aantal dtu's ** | 200 | 400 | 800 | 1600 | 3000 |
+| Maximaal aantal DTU's | 200 | 400 | 800 | 1600 | 3000 |
 | Opgenomen opslag (GB) | 250 | 250 | 250 | 250 | 250 |
 | Maximum aantal opslagopties (GB) * | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Maximale OLTP-opslag in het geheugen (GB) | N/A | N/A | N/A | N/A |N/A |
@@ -78,8 +78,6 @@ De volgende tabellen tonen voor individuele databases, de beschikbare resources 
 >
 >\* In de Premium-laag is momenteel ruim 1 TB opslag beschikbaar voor de volgende regio's: Australië - oost, Australië - zuidoost, Brazilië - zuid, Canada - centraal, Canada - oost, VS - midden, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Japan - west, Korea - centraal, VS Noord-Centraal, Noord-Europa, VS Zuid-Centraal, Zuidoost-Azië, UK - zuid, UK - west, VS - oost2, VS - west, VS (overheid) - Virginia, en West-Europa. Zie [P11-P15: huidige beperkingen](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
->\*\* Maximale aantal dtu's per database starten op 200 dtu's en hoger in de standaardmodus zijn Preview-versie.
->
 
 
 ## <a name="single-database-change-storage-size"></a>Individuele database: opslaggrootte wijzigen
@@ -97,7 +95,7 @@ De volgende video toont dynamisch wijzigen van de prestatielaag voor een verhogi
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
-Als u de servicelaag en/of het prestatieniveau van een database wijzigt, wordt er een replica van de oorspronkelijke database gemaakt op het nieuwe prestatieniveau en worden vervolgens de verbindingen overgeschakeld op de replica. Er gaan geen gegevens verloren tijdens dit proces, maar tijdens het korte moment waarop we overschakelen naar de replica, worden verbindingen met de database uitgeschakeld, zodat sommige actieve transacties kunnen worden teruggedraaid. De tijdsduur voor de overgeschakeld verschilt, maar wordt doorgaans onder 4 seconden is minder dan 30 seconden 99% van de tijd. Als er grote aantallen transacties tijdens de vlucht op het moment dat verbindingen zijn uitgeschakeld, wordt de tijdsduur voor de overgeschakeld mogelijk ook langer. 
+Als u de servicelaag en/of het prestatieniveau van een database wijzigt, wordt er een replica van de oorspronkelijke database gemaakt op het nieuwe prestatieniveau en worden vervolgens de verbindingen overgeschakeld op de replica. Er gaan geen gegevens verloren tijdens dit proces, maar tijdens het korte moment waarop we overschakelen naar de replica, worden verbindingen met de database uitgeschakeld, zodat sommige actieve transacties kunnen worden teruggedraaid. De tijdsduur voor de overgeschakeld verschilt, maar is minder dan 30 seconden 99% van de tijd. Als er grote aantallen transacties tijdens de vlucht op het moment dat verbindingen zijn uitgeschakeld, wordt de tijdsduur voor de overgeschakeld mogelijk ook langer. 
 
 De duur van het volledige proces voor omhoog schalen is afhankelijk van de grootte en de servicelaag van de database vóór en na de wijziging. Bijvoorbeeld, moet een 250 GB-database die wordt gewijzigd naar, uit of binnen een laag Standard-service uitvoeren binnen zes uur. Voor een database dezelfde grootte hebben prestatieniveaus binnen de Premium servicecategorie wordt gewijzigd, moet de scale-up uitvoeren binnen drie uur.
 
@@ -229,7 +227,7 @@ De volgende tabel beschrijft de eigenschappen voor gegroepeerde databases.
 |:--- |:--- |
 | Maximaal aantal eDTU’s per database |Het maximum aantal eDTU's dat elke database in de groep mag gebruiken, is afhankelijk van het gebruik door andere databases in de groep. Het maximum aantal eDTU's per database is geen resourcegarantie voor een database. Het is een algemene instelling voor alle databases in de groep. Stel het maximum aantal eDTU's per database hoog genoeg zijn om pieken in databasegebruik te kunnen afhandelen. Enige mate van overtoewijzing is normaal, omdat de groep in het algemeen uitgaat van pieken en dalen in gebruikspatronen voor databases, waarbij alle databases niet tegelijkertijd pieken. Stel, het piekgebruik per database is twintig eDTU's en slechts 20% van de 100 databases in de groep pieken op hetzelfde moment. Als het maximum aantal eDTU's per database is ingesteld op twintig eDTU's, kan de groep redelijkerwijs vijf keer worden overtoegewezen en kan het aantal eDTU's per groep worden ingesteld op 400. |
 | Minimaal aantal eDTU’s per database |Het minimum aantal eDTU's dat voor elke database in de groep wordt gegarandeerd. Het is een algemene instelling voor alle databases in de groep. Het minimum aantal eDTU’s per database kan worden ingesteld op 0. Dat is ook de standaardwaarde. Deze eigenschap wordt ingesteld op een waarde tussen 0 en het gemiddelde eDTU-gebruik per database. Het product van het aantal databases in de groep en het minimum aantal eDTU's per database mag niet groter zijn dan het aantal eDTU's per groep. Als een groep bijvoorbeeld twintig databases heeft en het minimum aantal eDTU's per database is ingesteld op tien eDTU's, dan moet het aantal eDTU's per groep minimaal 200 eDTU's zijn. |
-| Maximale opslag per database |De maximale databasegrootte ingesteld door de gebruiker voor een database in een pool. Gegroepeerde databases Groepsopslag wordt gedeeld door toegewezen, zodat de grootte van een database kan bereiken beperkt tot is de kleinste van de resterende servergroep van opslag en grootte van de database. Maximale grootte van de database verwijst naar de maximale grootte van de gegevensbestanden en omvat niet de ruimte die wordt gebruikt door logboekbestanden. |
+| Maximale opslag per database |De maximale databasegrootte ingesteld door de gebruiker voor een database in een pool. Echter delen gegroepeerde databases toegewezen Groepsopslag. Zelfs als de maximale totale opslag **per database* is ingesteld op niet groter zijn dan de totale beschikbare opslag **ruimte van de groep*, de totale ruimte die daadwerkelijk wordt gebruikt door alle databases worden niet langer zijn dan de de limiet van de beschikbare groep. Maximale grootte van de database verwijst naar de maximale grootte van de gegevensbestanden en omvat niet de ruimte die wordt gebruikt door logboekbestanden. |
 |||
  
 ## <a name="elastic-pool-change-storage-size"></a>Elastische pool: opslaggrootte wijzigen

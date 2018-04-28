@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 8A336052-8520-41D2-AF6F-0CCE23F727B4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/23/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 452ed1de0588b380747edaa44dd0cc3805c51392
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1ea65c9c1f69c8eec77eb498a5963b0d77ce57f1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Profielen voor API-versie in Azure-Stack beheren
 
@@ -38,15 +36,28 @@ In dit onderwerp helpt u:
 ## <a name="summary-of-api-profiles"></a>Overzicht van de API-profielen
 
 - API-profielen worden gebruikt om een verzameling Azure-resourceproviders en de versies van hun API te representeren.
-- API-profielen zijn gemaakt voor ontwikkelaars om sjablonen te maken tussen meerdere Azure-Clouds. Ze zijn ontworpen om te voldoen aan de behoefte aan een compatibel en stabiele-interfaces.
+- API-profielen zijn gemaakt voor ontwikkelaars om sjablonen te maken tussen meerdere Azure-Clouds. Ze zijn ontworpen om te voldoen aan uw behoeften voor een compatibel en stabiele-interface.
 - Profielen worden vrijgegeven vier keer per jaar.
 - Er zijn drie naamgevingsregels van profiel:
     - **meest recente**  
         Meest recente API-versies uitgebracht in Azure.
     - **yyyy-mm-dd-hybrid**  
-    Uitgebracht op een halfjaarlijkse uitgebracht, deze release gericht op consistentie en stabiliteit tussen meerdere clouds.
+    Uitgebracht op een halfjaarlijkse uitgebracht, deze release gericht op consistentie en stabiliteit tussen meerdere clouds. Dit profiel is bedoeld voor optimale Azure Stack-compatibiliteit. 
     - **jjjj-mm-dd-profiel**  
     Bevindt zich tussen optimale stabiliteit en de nieuwste functies.
+
+### <a name="api-profiles-and-azure-stack-compatibility"></a>Azure-Stack-compatibiliteit en API-profielen
+
+De nieuwste API-profielen zijn niet compatibel met Azure-Stack. De naamconventies kunt u bepalen van de profielen voor gebruik in uw Azure-Stack-oplossingen.
+
+**meest recente**  
+Dit profiel is de meest recente API-versies gevonden in globale Azure niet in de Azure-Stack werkt. Dit profiel is het grootste aantal grote wijzigingen. Het profiel wordt gereserveerd stabiliteit en compatibiliteit met andere clouds. Als u de meest recente API-versies gebruiken wilt, is dit het profiel dat u moet gebruiken.
+
+**Jjjj-mm-dd-hybride**  
+Dit profiel is uitgebracht op maart en September elk jaar. Dit profiel heeft optimale stabiliteit en compatibiliteit met verschillende clouds. Dit profiel is bedoeld voor het doel van de globale Azure- en Azure-Stack. De Azure-API-versies die worden beschreven in dit profiel is hetzelfde als de waarden die worden vermeld op Azure-Stack. U kunt dit profiel gebruiken voor het ontwikkelen van code voor hybride cloudoplossingen.
+
+**jjjj-mm-dd-profiel**  
+Dit profiel wordt voor globale Azure uitgebracht in juni en December. Dit profiel wordt niet in combinatie met Azure-Stack; Er zijn veel grote wijzigingen. Deze bevindt zich achter optimale stabiliteit en de nieuwste functies, is het verschil tussen de meest recente en dit profiel dat laatste altijd uit de nieuwste API-versies bestaat, ongeacht wanneer de API werd uitgebracht. Als een nieuwe API-versie is gemaakt voor de Compute-API morgen, worden die API-versie wordt weergegeven in het meest recente profiel, maar niet in het profiel jjjj-mm-dd-profiel als dit profiel tot stand is gebracht tevoren. Deze heeft de meest recente versies die zijn uitgebracht vóór juni of December.
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure Resource Manager-API-profielen
 
@@ -67,14 +78,13 @@ Als een ontwikkelaar, kunt u zich richten op het schrijven van uw oplossing. In 
 Hier vindt u codevoorbeelden kunt u uw oplossing integreren met uw voorkeurstaal met Azure-Stack door middel van profielen. Op dit moment vindt u instructies en voorbeelden voor de volgende talen:
 
 - **PowerShell**  
-U kunt de **AzureRM.Bootstrapper** module beschikbaar via de PowerShell-galerie ophalen van de PowerShell-cmdlets die werken met profielen voor API-versie vereist.  
-Zie voor informatie [profielen voor gebruik API-versie voor PowerShell](azure-stack-version-profiles-powershell.md).
+U kunt de **AzureRM.Bootstrapper** module beschikbaar via de PowerShell-galerie ophalen van de PowerShell-cmdlets die werken met profielen voor API-versie vereist. Zie voor informatie [profielen voor gebruik API-versie voor PowerShell](azure-stack-version-profiles-powershell.md).
 - **Azure CLI 2.0**  
-U kunt de configuratie van uw omgeving voor het gebruik van de Azure-Stack specifiek API-versie profiel bijwerken.  
-Zie voor meer informatie [profielen voor gebruik API-versie voor Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+U kunt de configuratie van uw omgeving voor het gebruik van de Azure-Stack specifiek API-versie profiel bijwerken. Zie voor meer informatie [profielen voor gebruik API-versie voor Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
 - **GO**  
-In de SDK gaat u is een profiel een combinatie van verschillende brontypen met verschillende versies van andere services. profielen zijn beschikbaar onder de profielen / pad met de versie in de **jjjj-MM-DD** indeling.  
-Zie voor meer informatie [profielen voor gebruik API-versie voor Ga](azure-stack-version-profiles-go.md).
+In de SDK gaat u is een profiel een combinatie van verschillende brontypen met verschillende versies van andere services. profielen zijn beschikbaar onder de profielen / pad met de versie in de **jjjj-MM-DD** indeling. Zie voor informatie [profielen voor gebruik API-versie voor Ga](azure-stack-version-profiles-go.md).
+- **Ruby**  
+De SDK voor Ruby voor Azure Stack van Resource Manager biedt hulpprogramma's waarmee u kunt ontwikkelen en beheren van uw infrastructuur. Resourceproviders in de SDK bevatten compute, virtuele netwerken en opslag, waarbij de Ruby taal. Zie voor informatie [gebruik API-versie profielen met Ruby](azure-stack-version-profiles-ruby.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [PowerShell voor Azure Stack installeren](azure-stack-powershell-install.md)

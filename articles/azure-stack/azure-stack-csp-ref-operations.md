@@ -2,10 +2,10 @@
 title: Registreren van tenants voor gebruik in Azure-Stack bijhouden | Microsoft Docs
 description: Gegevens over de bewerkingen die worden gebruikt voor het beheren van de tenant registraties en hoe het gebruik van de tenant wordt bijgehouden in Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: be15fbc5fad79f1079b901b3d6cb4948c45a0ab4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
-ms.translationtype: MT
+ms.openlocfilehash: fbdf4023bc70f1ad05dd52ac1eabe95b12be9be2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Registratie in Azure-Stack tenant beheren
 
@@ -47,7 +47,7 @@ Houd er rekening mee dat slechts één Azure-abonnement gekoppeld aan een tenant
 
 ### <a name="powershell"></a>PowerShell
 
-Gebruik de cmdlet New-AzureRmResource bijwerken van de bron van de registratie. Aanmelden bij Azure (`Login-AzureRMAccount`) met het account dat u voor de initiële registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
+Gebruik de cmdlet New-AzureRmResource bijwerken van de bron van de registratie. Aanmelden bij Azure (`Connect-AzureRmAccount`) met het account dat u voor de initiële registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +78,7 @@ Een lijst van alle tenants die zijn toegevoegd aan een registratie ophalen.
 
 ### <a name="powershell"></a>PowerShell
 
-Gebruik de cmdlet Get-AzureRmResovurce voor een lijst met alle geregistreerde tenants. Aanmelden bij Azure (`Login-AzureRMAccount`) met het account dat u voor de initiële registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
+Gebruik de cmdlet Get-AzureRmResovurce voor een lijst met alle geregistreerde tenants. Aanmelden bij Azure (`Connect-AzureRmAccount`) met het account dat u voor de initiële registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

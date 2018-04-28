@@ -2,12 +2,12 @@
 title: Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver | Microsoft Docs
 description: Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5654dac7-4204-4387-b312-3d8b2898eb3a
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855fc155bbdef9a3a0ab8415067102e607fab0f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f8e8f1bc6f43c78e500e198a222fd29051138505
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -237,7 +237,7 @@ ms.lasthandoff: 03/09/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -290,7 +290,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -810,18 +810,18 @@ Enkele overwegingen met behulp van een beschikbaarheidsgroep-Listener zijn:
 
 [comment]: <> (Oude TODO-blog)
 [comment]: <> (De gedetailleerde stappen en de noodzakelijke items moeten meebrengen van het installeren van een AlwaysOn-configuratie op Azure zijn het best wanneer roulatie van de zelfstudie beschikbaar [here][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups])
-[comment]: <> (Vooraf geconfigureerde AlwaysOn-setup via de Azure-galerie < https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
+[comment]: <> (Vooraf geconfigureerde AlwaysOn-setup via de Azure-galerie <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
 [comment]: <> (Het maken van een beschikbaarheidsgroep-Listener is beste beschreven in de zelfstudie [this][virtual-machines-windows-classic-ps-sql-int-listener])
 [comment]: <> (Beveiligen netwerkeindpunten met ACL's worden uitgelegd beste hier:)
-[comment]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
-[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
-[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
-[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
+[comment]: <> (* <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
+[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
+[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
+[comment]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
 
 Het is mogelijk een SQL Server altijd op beschikbaarheidsgroep via verschillende Azure-regio's ook implementeren. Deze functie maakt gebruik van de Azure VNet-naar-Vnet-connectiviteit ([meer details][virtual-networks-configure-vnet-to-vnet-connection]).
 
 [comment]: <> (Oude TODO-blog)
-[comment]: <> (De installatie van SQL Server AlwaysOn-beschikbaarheidsgroepen in een dergelijk scenario Hier wordt beschreven: < https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
+[comment]: <> (De installatie van SQL Server AlwaysOn-beschikbaarheidsgroepen in een dergelijk scenario Hier wordt beschreven: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
 
 #### <a name="summary-on-sql-server-high-availability-in-azure"></a>Overzicht van hoge beschikbaarheid van SQL Server in Azure
 Gezien het feit dat de inhoud wordt beveiligd door Azure Storage, zijn er nog een minder reden te noemen op een hot stand-by-installatiekopie. Dit betekent dat uw scenario hoge beschikbaarheid moet alleen bescherming tegen de volgende gevallen:
@@ -915,9 +915,9 @@ Voor SAP-systemen die van SAP-as-omgeving als databaseplatform gebruikmaken, is 
 
 Als met on-premises systemen verschillende stappen zijn vereist om alle SAP NetWeaver functionaliteit die wordt gebruikt door de Webdynpro uitvoering van de DBACockpit te schakelen. Ga als volgt SAP-notitie [1245200] voor het gebruik van webdynpros inschakelen en het genereren van de vereiste waarden. Wanneer u de instructies in de bovenstaande notities te volgen, configureren u ook de Internet-Communicatiemanager (icm) samen met de poorten die worden gebruikt voor http en https-verbindingen. De standaardinstelling voor HTTP-ziet er als volgt:
 
-> icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
+> ICM/server_port_0 = b = HTTP, poort = 8000, PROCTIMEOUT = 600, time-out = 600
 > 
-> icm/server_port_1 = PROT=HTTPS,PORT=443$$,PROCTIMEOUT=600,TIMEOUT=600
+> ICM/server_port_1 = b = HTTPS, poort = 443$ $, PROCTIMEOUT = 600, time-out = 600
 > 
 > 
 
@@ -1068,9 +1068,9 @@ Voor SAP-systemen die van SAP-as-omgeving als databaseplatform gebruikmaken, is 
 
 Als met on-premises systemen verschillende stappen zijn vereist om alle SAP NetWeaver functionaliteit die wordt gebruikt door de Webdynpro uitvoering van de DBACockpit te schakelen. Ga als volgt SAP-notitie [1245200] voor het gebruik van webdynpros inschakelen en het genereren van de vereiste waarden. Wanneer u de instructies in de bovenstaande notities te volgen, configureren u ook de Internet-Communicatiemanager (icm) samen met de poorten die worden gebruikt voor http en https-verbindingen. De standaardinstelling voor HTTP-ziet er als volgt:
 
-> icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
+> ICM/server_port_0 = b = HTTP, poort = 8000, PROCTIMEOUT = 600, time-out = 600
 > 
-> icm/server_port_1 = PROT=HTTPS,PORT=443$$,PROCTIMEOUT=600,TIMEOUT=600
+> ICM/server_port_1 = b = HTTPS, poort = 443$ $, PROCTIMEOUT = 600, time-out = 600
 > 
 > 
 

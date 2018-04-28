@@ -2,10 +2,10 @@
 title: Voorwaardelijke toegang tot lokale in Azure Active Directory instellen | Microsoft Docs
 description: Een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Lokale voorwaardelijke toegang instellen met behulp van Azure Active Directory-apparaatregistratie
 Als u werkplek koppelen gebruikers hun persoonlijke apparaten naar de apparaatregistratieservice van Azure Active Directory (Azure AD), kunnen hun apparaten kunnen worden gemarkeerd als bekend is bij uw organisatie. Hier volgt een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -89,7 +89,7 @@ Volg de stappen in de controlelijst inschakelen en configureren van de Azure Act
 | Deel 2 van "Enabling device writeback in Azure AD Connect." Nadat u klaar bent, keert u terug naar deze handleiding. |[Apparaat terugschrijven inschakelen in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Optioneel] Deel 4: Schakel multi-factor Authentication
-Sterk aanbevolen een van de verschillende opties voor multi-factor Authentication te configureren. Als u meervoudige authenticatie wilt, Zie [de multi-factor Authentication-beveiligingsoplossing kiezen voor u](../multi-factor-authentication/multi-factor-authentication-get-started.md). Het bevat een beschrijving van elke oplossing en koppelingen naar informatie waarmee u de oplossing van uw keuze configureren.
+Sterk aanbevolen een van de verschillende opties voor multi-factor Authentication te configureren. Als u meervoudige authenticatie wilt, Zie [de multi-factor Authentication-beveiligingsoplossing kiezen voor u](authentication/concept-mfa-whichversion.md). Het bevat een beschrijving van elke oplossing en koppelingen naar informatie waarmee u de oplossing van uw keuze configureren.
 
 ## <a name="part-5-verification"></a>Deel 5: verificatie
 De implementatie is voltooid en u een aantal scenario's kunt uitproberen. Gebruik de volgende koppelingen om te experimenteren met de service en vertrouwd raken met de functies.
@@ -156,7 +156,7 @@ Er zijn veel verschillende manieren om te communiceren deze URL voor uw gebruike
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Lid worden van een Windows 8.1-apparaat met Azure Active Directory-apparaatregistratie
 1. Selecteer op het apparaat Windows 8.1 **PC-instellingen** > **netwerk** > **werkplek**.
-2. Voer uw gebruikersnaam in UPN-indeling. bijvoorbeeld:  **dan@contoso.com** .
+2. Voer uw gebruikersnaam in UPN-indeling. bijvoorbeeld: **dan@contoso.com**.
 3. Selecteer **Join**.
 4. Wanneer u wordt gevraagd, aanmelden met uw referenties. Het apparaat is nu lid geworden.
 
@@ -186,7 +186,7 @@ De volgende stappen ziet u hoe u dit scenario implementeert.
 1. Open het hulpprogramma voor AD FS MMC en selecteer vervolgens **AD FS** > **vertrouwensrelaties** > **Relying Party-vertrouwensrelaties**.
 2. Ga naar de toepassing die deze nieuwe toegangsregel van toepassing is. Met de rechtermuisknop op de toepassing en selecteer vervolgens **Claimregels bewerken**.
 3. Selecteer de **autorisatieregels voor uitgifte** tabblad en selecteer vervolgens **regel toevoegen**.
-4. Van de **claimregel** sjabloon vervolgkeuzelijst, selecteer **toestaan of weigeren gebruikers op basis van een binnenkomende Claim**. Selecteer vervolgens **volgende**.
+4. Van de **claimregel** sjabloon vervolgkeuzelijst, selecteer **toestaan of weigeren gebruikers op basis van een binnenkomende Claim**. Selecteer vervolgens **Volgende**.
 5. In de **naam Claimregel** veld **toegang verlenen van geregistreerde apparaten**.
 6. Van de **type binnenkomende claim** vervolgkeuzelijst, selecteer **geregistreerde gebruiker Is**.
 7. In de **binnenkomende claimwaarde** veld **true**.

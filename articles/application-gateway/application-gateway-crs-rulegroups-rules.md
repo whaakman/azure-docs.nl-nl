@@ -1,25 +1,22 @@
 ---
-title: Azure Application Gateway web application firewall CRS regel groepen en regels | Microsoft Docs
+title: Azure Application Gateway web application firewall CRS regel groepen en regels
 description: Deze pagina bevat informatie over groepen met web application firewall CRS regels en voorschriften.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
+author: vhorne
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-ms.author: davidmu
-ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/16/2018
+ms.author: victorh
+ms.openlocfilehash: 5ba291eaa93a48e3aadc11b1f0f7b48b01683b07
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lijst met groepen met web application firewall CRS regels en regels die worden aangeboden
 
@@ -27,28 +24,8 @@ Application Gateway web application firewall (WAF) beschermt webtoepassingen teg
 
 De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij het gebruik van Application Gateway met web application firewall.  Elke tabel vertegenwoordigt de regels in de regelgroep van een voor een specifieke CRS versie gevonden.
 
-##<a name="owasp30"></a>OWASP_3.0
+## <a name="owasp30"></a> OWASP_3.0
 
-### <a name="crs910"></a>  <p x-ms-format-detection="none">AANVRAAG-910-IP-REPUTATIE</p>
-
-|ruleId|Beschrijving|
-|---|---|
-|910011|Regel 910011|
-|910012|Regel 910012|
-|910000|Aanvragen van bekende schadelijke Client (op basis van de vorige verkeer schendingen).|
-|910100|Client IP-adres is van een hoog risico land locatie.|
-|910120|Regel 910120|
-|910130|Regel 910130|
-|910150|HTTP-Blacklist overeenkomen voor engine voor het IP-adres zoeken|
-|910160|HTTP-Blacklist overeenkomst voor IP-adres van afzender|
-|910170|HTTP-Blacklist overeenkomst voor verdachte IP-adres|
-|910180|HTTP-Blacklist overeenkomst voor harvester IP-adres|
-|910013|Regel 910013|
-|910014|Regel 910014|
-|910015|Regel 910015|
-|910016|Regel 910016|
-|910017|Regel 910017|
-|910018|Regel 910018|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">AANVRAAG 911-METHODE AFDWINGEN</p>
 
@@ -64,26 +41,6 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |911017|Regel 911017|
 |911018|Regel 911018|
 
-### <a name="crs912"></a> <p x-ms-format-detection="none">AANVRAAG 912-DOS-BEVEILIGING</p>
-
-|ruleId|Beschrijving|
-|---|---|
-|912100|Regel 912100|
-|912012|Regel 912012|
-|912120|Denial of Service (DoS) aanval geïdentificeerd van % @{tx.real_ip} (% @{tx.dos_block_counter} treffers sinds de laatste melding)|
-|912130|Regel 912130|
-|912140|Regel 912140|
-|912150|Regel 912150|
-|912160|Regel 912160|
-|912170|Aanval Denial of Service (DoS) van % @{tx.real_ip} - # van aanvragen barst = % @{ip.dos_burst_counter}|
-|912013|Regel 912013|
-|912014|Regel 912014|
-|912019|Regel 912019|
-|912171|Aanval Denial of Service (DoS) van % @{tx.real_ip} - # van aanvragen barst = % @{ip.dos_burst_counter}|
-|912015|Regel 912015|
-|912016|Regel 912016|
-|912017|Regel 912017|
-|912018|Regel 912018|
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">AANVRAAG 913-SCANNER DETECTIE</p>
 
@@ -334,9 +291,9 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |943017|Regel 943017|
 |943018|Regel 943018|
 
-##<a name="owasp229"></a>OWASP_2.2.9
+##<a name="owasp229"></a> OWASP_2.2.9
 
-### <a name="crs20"></a>crs_20_protocol_violations
+### <a name="crs20"></a> crs_20_protocol_violations
 
 |ruleId|Beschrijving|
 |---|---|
@@ -362,7 +319,7 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |960901|Ongeldig teken in de aanvraag|
 |960018|Ongeldig teken in de aanvraag|
 
-### <a name="crs21"></a>crs_21_protocol_anomalies
+### <a name="crs21"></a> crs_21_protocol_anomalies
 
 |ruleId|Beschrijving|
 |---|---|
@@ -375,7 +332,7 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |960904|Aanvragen van inhoud die bevat maar header Content-Type ontbreekt|
 |960017|Host-header is een numerieke IP-adres|
 
-### <a name="crs23"></a>crs_23_request_limits
+### <a name="crs23"></a> crs_23_request_limits
 
 |ruleId|Beschrijving|
 |---|---|
@@ -386,7 +343,7 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |960342|Geüploade bestand te groot|
 |960343|Totaal aantal verzonden bestanden te groot|
 
-### <a name="crs30"></a>crs_30_http_policy
+### <a name="crs30"></a> crs_30_http_policy
 
 |ruleId|Beschrijving|
 |---|---|
@@ -396,7 +353,7 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |960035|URL-bestandsextensie wordt beperkt door het beleid|
 |960038|HTTP-header is beperkt door het beleid|
 
-### <a name="crs35"></a>crs_35_bad_robots
+### <a name="crs35"></a> crs_35_bad_robots
 
 |ruleId|Beschrijving|
 |---|---|
@@ -405,7 +362,7 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |990902|Aanvraag geeft aan dat een beveiligingsscanner gescand de Site|
 |990012|Crawlermetagegevens: Rogue-website|
 
-### <a name="crs40"></a>crs_40_generic_attacks
+### <a name="crs40"></a> crs_40_generic_attacks
 
 |ruleId|Beschrijving|
 |---|---|
@@ -434,7 +391,7 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |958976|PHP-injectieaanvallen|
 |958977|PHP-injectieaanvallen|
 
-### <a name="crs41sql"></a>crs_41_sql_injection_attacks
+### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
 |ruleId|Beschrijving|
 |---|---|
@@ -471,7 +428,7 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |981253|Detecteert MySQL en PostgreSQL opgeslagen procedure/functie injectie|
 |981251|Detecteert MySQL UDF injectie en andere manipulatie structuur-gegevens probeert|
 
-### <a name="crs41xss"></a>crs_41_xss_attacks
+### <a name="crs41xss"></a> crs_41_xss_attacks
 
 |ruleId|Beschrijving|
 |---|---|
@@ -576,13 +533,13 @@ De volgende tabellen worden de regelgroepen en regels die beschikbaar zijn bij h
 |973329|Filters in Internet Explorer XSS - aanval gedetecteerd.|
 |973328|Filters in Internet Explorer XSS - aanval gedetecteerd.|
 
-### <a name="crs42"></a>crs_42_tight_security
+### <a name="crs42"></a> crs_42_tight_security
 
 |ruleId|Beschrijving|
 |---|---|
 |950103|Pad verandering aanval|
 
-### <a name="crs45"></a>crs_45_trojans
+### <a name="crs45"></a> crs_45_trojans
 
 |ruleId|Beschrijving|
 |---|---|

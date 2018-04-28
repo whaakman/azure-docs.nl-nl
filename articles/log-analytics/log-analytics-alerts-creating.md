@@ -2,7 +2,7 @@
 title: Maken van waarschuwingen in OMS Log Analytics | Microsoft Docs
 description: Waarschuwingen in logboekanalyse kunnen belangrijke informatie in de OMS-opslagplaats te identificeren en proactief zullen u informeren over problemen of acties uit om te proberen op te lossen ze aanroepen.  In dit artikel beschrijft het maken van een waarschuwingsregel en details van de verschillende acties die ze kunnen ondernemen.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,34 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b692822660ab12f89b274cea75727fb808d673f8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Werken met regels voor waarschuwingen in Log Analytics
-Waarschuwingen worden gemaakt door regels voor waarschuwingen die automatisch logboek zoekopdrachten met regelmatige tussenpozen worden uitgevoerd.  Ze maken een record voor een waarschuwing als de resultaten aan bepaalde criteria voldoen.  De regel kan een of meer acties voor het proactief zullen u informeren over de waarschuwing of een ander proces aanroepen vervolgens automatisch uitgevoerd.   
+
+> [!NOTE]
+> Dit artikel wordt beschreven klassieke Log Analytics-waarschuwingen die worden beheerd in de OMS-portal.  Waarschuwingen in logboekanalyse zijn [wordt uitgebreid naar Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Zodra dit is gebeurd, vervolgens wordt maken en bewerken van regels voor waarschuwingen in de Azure portal en Opmerking Gebruik de procedures in dit artikel.
+
+
+Waarschuwingen worden gemaakt door waarschuwingsregels die automatisch met regelmatige tussenpozen zoekopdrachten in logboeken uitvoeren.  Ze maken een record voor een waarschuwing als de resultaten aan bepaalde criteria voldoen.  De regel kan vervolgens automatisch een of meer acties uitvoeren om u proactief te informeren over de waarschuwing of een ander proces aanroepen.   
 
 Dit artikel worden de processen kunt maken en bewerken van regels voor waarschuwingen met de OMS-portal.  Zie voor meer informatie over de verschillende instellingen en het implementeren van vereiste logica [inzicht-waarschuwingen in logboekanalyse](log-analytics-alerts.md).
 
->[!NOTE]
-> U kunt momenteel maken of wijzigen van een waarschuwingsregel met de Azure portal. 
 
 ## <a name="create-an-alert-rule"></a>Een waarschuwingsregel maken
 
 Voor het maken van een waarschuwingsregel met de OMS-portal, begint u met het maken van een zoekopdracht logboek voor de records die de waarschuwing moet worden aangeroepen.  De **waarschuwing** knop kan vervolgens worden zodat u kunt maken en configureren van de waarschuwingsregel.
 
 >[!NOTE]
-> Maximaal 250 waarschuwingsregels kan momenteel worden gemaakt in een OMS-werkruimte. 
+> Maximaal 250 waarschuwingsregels kan momenteel worden gemaakt in een werkruimte voor logboekanalyse. 
 
 1. Klik op de pagina overzicht van OMS **logboek zoeken**.
 2. Maak een nieuw logboekbestand zoekquery of Selecteer een zoekbewerking opgeslagen logboek. 
-3. Klik op **waarschuwing** boven aan de pagina opent de **waarschuwingsregel toevoegen** scherm.
+3. Klik boven aan de pagina op **Waarschuwing** om het scherm **Waarschuwingsregel toevoegen** te openen.
 4. Configureren van de waarschuwingsregel met informatie in [Details van waarschuwingsregels](#details-of-alert-rules) hieronder.
-6. Klik op **opslaan** voltooien van de waarschuwingsregel.  Begint onmiddellijk uitgevoerd.
+6. Klik op **Opslaan** om de waarschuwingsregel te voltooien.  Begint onmiddellijk uitgevoerd.
 
 
 ## <a name="edit-an-alert-rule"></a>Een waarschuwingsregel bewerken
@@ -75,7 +78,7 @@ De query en het tijdstip zoekvenster die de records retourneren die worden geëv
 
 | Eigenschap | Beschrijving |
 |:--- |:---|
-| Zoekopdracht | Dit is de query die wordt uitgevoerd.  De records geretourneerd door deze query wordt gebruikt om te bepalen of een waarschuwing wordt gemaakt.<br><br>Selecteer **huidige zoekquery gebruiken** voor het gebruik van de huidige query of Selecteer een bestaande opgeslagen zoekopdracht uit de lijst.  De querysyntaxis van de is opgegeven in het tekstvak waar u kunt deze desgewenst wijzigen. |
+| Zoekquery | Dit is de query die wordt uitgevoerd.  De records geretourneerd door deze query wordt gebruikt om te bepalen of een waarschuwing wordt gemaakt.<br><br>Selecteer **huidige zoekquery gebruiken** voor het gebruik van de huidige query of Selecteer een bestaande opgeslagen zoekopdracht uit de lijst.  De querysyntaxis van de is opgegeven in het tekstvak waar u kunt deze desgewenst wijzigen. |
 | Tijdvenster |Hiermee geeft u het tijdsbereik voor de query.  De query retourneert alleen de records die zijn gemaakt binnen dit bereik van de huidige tijd.  Dit kan een waarde tussen 5 minuten en 24 uur zijn.  Deze moet groter zijn dan of gelijk zijn aan de frequentie van waarschuwingen.  <br><br> Bijvoorbeeld, als de periode is ingesteld op 60 minuten en de query wordt uitgevoerd om 1:15 uur, wordt alleen de records die zijn gemaakt tussen 12:15 uur en 1:15 uur geretourneerd. |
 
 Wanneer u de periode voor de waarschuwingsregel opgeeft, wordt het aantal bestaande records die overeenkomen met de zoekcriteria voor dat tijdvenster weergegeven.  Hiermee kunt u bepalen van de frequentie waarmee u het aantal resultaten die u verwacht.
@@ -88,7 +91,7 @@ Hiermee definieert u hoe vaak de zoekopdracht wordt uitgevoerd.
 | Frequentie van waarschuwingen | Hiermee geeft u op hoe vaak de query moet worden uitgevoerd. Is een waarde tussen 5 minuten en 24 uur. Moet gelijk zijn aan of kleiner is dan de periode.  Als de waarde groter dan de periode is, risico u records wordt overgeslagen.<br><br>Neem bijvoorbeeld een tijdvenster van 30 minuten en een frequentie van 60 minuten.  Als de query wordt uitgevoerd om 1:00 uur, wordt er records tussen 12:30 en 13:00 uur.  De volgende keer dat de query werd uitgevoerd is 2:00 wanneer er records tussen 1:30 en 2:00 zou geretourneerd.  Alle records gemaakt tussen de 1:00 en 1:30 zou nooit worden geëvalueerd. |
 
 
-### <a name="generate-alert-based-on"></a>Op basis van de waarschuwing wordt gegenereerd
+### <a name="generate-alert-based-on"></a>Waarschuwing genereren is gebaseerd op
 Hiermee definieert u de criteria die wordt geëvalueerd op basis van de resultaten van de zoekopdracht om te bepalen of een waarschuwing moet worden gemaakt.  Deze gegevens zullen afwijken, afhankelijk van het type van de waarschuwingsregel die u selecteert.  U kunt details ophalen voor de verschillende waarschuwingsregel typen uit [inzicht-waarschuwingen in logboekanalyse](log-analytics-alerts.md).
 
 | Eigenschap | Beschrijving |
@@ -105,8 +108,8 @@ Hiermee definieert u de criteria die wordt geëvalueerd op basis van de resultat
 
 | Eigenschap | Beschrijving |
 |:--- |:---|
-| Cumulatieve waarde | Elke cumulatieve waarde in de resultaten moet worden overschreden om te worden beschouwd als een schending van de drempelwaarde. |
-| Op basis van de trigger-waarschuwing | Het aantal schendingen van een waarschuwing moet worden gemaakt.  U kunt opgeven **totaal aantal schendingen** instellen voor elke combinatie van inbreuk op de resultaten of **opeenvolgende schendingen** om te vereisen dat de schendingen in opeenvolgende steekproeven plaatsvinden moeten. |
+| Aggregatiewaarde | Elke cumulatieve waarde in de resultaten moet worden overschreden om te worden beschouwd als een schending van de drempelwaarde. |
+| Waarschuwing activeren is gebaseerd op | Het aantal schendingen van een waarschuwing moet worden gemaakt.  U kunt opgeven **totaal aantal schendingen** instellen voor elke combinatie van inbreuk op de resultaten of **opeenvolgende schendingen** om te vereisen dat de schendingen in opeenvolgende steekproeven plaatsvinden moeten. |
 
 ### <a name="actions"></a>Acties
 Waarschuwingsregels maakt altijd een [waarschuwing record](#alert-records) wanneer de drempelwaarde wordt voldaan.  U kunt ook een of meer antwoorden worden uitgevoerd zoals een e-mailbericht verzenden of een runbook starten definiëren.
@@ -120,7 +123,7 @@ E-acties verzend een e-mailbericht met de details van de waarschuwing naar een o
 |:--- |:---|
 | E-mailmelding |Geef **Ja** als u wilt dat een e-mailbericht moet worden verzonden wanneer de waarschuwing wordt geactiveerd. |
 | Onderwerp |Onderwerpen in het e-mailbericht.  U kunt de hoofdtekst van het e-mailbericht niet wijzigen. |
-| ontvangers |De adressen van alle e-mailgeadresseerden.  Als u meer dan één adres opgeeft, scheidt u de adressen met een puntkomma (;). |
+| Geadresseerden |De adressen van alle e-mailgeadresseerden.  Als u meer dan één adres opgeeft, scheidt u de adressen van elkaar met een puntkomma (;). |
 
 #### <a name="webhook-actions"></a>Webhookacties
 Webhookacties kunnen u een extern proces via één HTTP POST-aanvraag worden aangeroepen.

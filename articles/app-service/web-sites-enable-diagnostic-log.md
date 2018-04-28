@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 27c4a169a906f8e53a5548a38e3f680fd38155b3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 15c580a026495d11ffdeb161d4bf0793850040f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Logboekregistratie van diagnostische gegevens van web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -84,7 +84,7 @@ Terwijl alle drie opslaglocaties de dezelfde basisgegevens voor vastgelegde gebe
 > Gegevens die zijn opgeslagen **tabel opslag** of **blobopslag** alleen toegankelijk is met een opslag-client of een toepassing die rechtstreeks met deze opslagsystemen kunt werken. Bijvoorbeeld, Visual Studio 2013 bevat een Opslagverkenner die kunnen worden gebruikt om te verkennen tabel of blob storage en HDInsight toegang tot de gegevens die zijn opgeslagen in blob storage. U kunt ook schrijven met een toepassing die toegang heeft tot Azure Storage via een van de [Azure SDK's](/downloads/#).
 >
 > [!NOTE]
-> Diagnostische gegevens kunnen ook worden ingeschakeld vanuit Azure PowerShell met behulp van de **Set AzureWebsite** cmdlet. Als u Azure PowerShell nog niet hebt geïnstalleerd, of het gebruik van uw Azure-abonnement niet hebt geconfigureerd, Zie [installeren en configureren van Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Diagnostische gegevens kunnen ook worden ingeschakeld vanuit Azure PowerShell met behulp van de **Set AzureWebsite** cmdlet. Als u Azure PowerShell nog niet hebt geïnstalleerd, of het gebruik van uw Azure-abonnement niet hebt geconfigureerd, Zie [installeren en configureren van Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -113,7 +113,7 @@ Downloaden van de logboekbestanden, start een nieuw exemplaar van Azure PowerShe
 Deze opdracht slaat u de logboeken voor de web-app die is opgegeven door de **-naam** parameter naar een bestand met de naam **logs.zip** in de huidige map.
 
 > [!NOTE]
-> Als u Azure PowerShell nog niet hebt geïnstalleerd, of het gebruik van uw Azure-abonnement niet hebt geconfigureerd, Zie [installeren en configureren van Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Als u Azure PowerShell nog niet hebt geïnstalleerd, of het gebruik van uw Azure-abonnement niet hebt geconfigureerd, Zie [installeren en configureren van Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -125,7 +125,7 @@ De logboekbestanden met de Azure-opdrachtregelinterface downloaden, opent u een 
 Deze opdracht slaat u de logboeken voor de web-app met de naam 'webappname' naar een bestand met de naam **diagnostics.zip** in de huidige map.
 
 > [!NOTE]
-> Als u de Azure-opdrachtregelinterface (Azure CLI) nog niet hebt geïnstalleerd of niet via uw Azure-abonnement hebt geconfigureerd, Zie [hoe Azure CLI gebruiken](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Als u de Azure-opdrachtregelinterface (Azure CLI) nog niet hebt geïnstalleerd of niet via uw Azure-abonnement hebt geconfigureerd, Zie [hoe Azure CLI gebruiken](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -225,7 +225,7 @@ Bij het aanmelden naar table storage, worden aanvullende eigenschappen gebruikt 
 | Gebeurtenis-id |De gebeurtenis-ID van deze gebeurtenis<p><p>De standaardwaarde is 0 als er geen opgegeven |
 | Instantie-id |Exemplaar van de web-app die de gebeurtenis is opgetreden op |
 | PID |Proces-id |
-| Tid |De thread-ID van de thread die de gebeurtenis geproduceerd |
+| TID |De thread-ID van de thread die de gebeurtenis geproduceerd |
 | Bericht |Detail gebeurtenisbericht |
 
 **Blob Storage**
@@ -241,7 +241,7 @@ Tijdens de registratie naar de blob storage, kunnen gegevens worden opgeslagen i
 | EventTickCount |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden, in de indeling van de maatstreepjes (nauwkeuriger) |
 | Gebeurtenis-id |De gebeurtenis-ID van deze gebeurtenis<p><p>De standaardwaarde is 0 als er geen opgegeven |
 | PID |Proces-id |
-| Tid |De thread-ID van de thread die de gebeurtenis geproduceerd |
+| TID |De thread-ID van de thread die de gebeurtenis geproduceerd |
 | Bericht |Detail gebeurtenisbericht |
 
 De gegevens die zijn opgeslagen in een blob eruit als in het volgende voorbeeld:

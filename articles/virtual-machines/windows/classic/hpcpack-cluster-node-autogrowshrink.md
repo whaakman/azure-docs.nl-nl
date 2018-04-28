@@ -2,9 +2,9 @@
 title: Automatisch schalen HPC Pack clusterknooppunten | Microsoft Docs
 description: Automatisch vergroten of verkleinen het aantal HPC Pack cluster-rekenknooppunten in Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: 
+manager: ''
 editor: tysonn
 ms.assetid: 38762cd1-f917-464c-ae5d-b02b1eb21e3f
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 4a2350183bc0cb9360e9315cd8a351be20b66584
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Automatisch vergroten of verkleinen van de clusterbronnen HPC Pack in Azure volgens de clusterwerkbelasting worden opgeslagen
 Als u Azure 'burst' knooppunten in het cluster HPC Pack implementeert, of u een cluster HPC Pack in Azure VM's maakt, kunt u een manier om automatisch vergroten of verkleinen van de clusterresources zoals knooppunten of kernen volgens de werkbelasting op het cluster. Schalen van de clusterresources op deze manier kunt u efficiënter gebruik van uw Azure-resources en hun kosten te verifiëren.
@@ -39,7 +39,7 @@ Momenteel kunt u alleen automatisch vergroten of verkleinen van HPC Pack rekenkn
 
 * **HPC Pack 2012 R2 Update 2 of hoger cluster** -het hoofdknooppunt van het cluster kan worden geïmplementeerd on-premises of in een Azure VM. Zie [een hybride-cluster met HPC Pack instellen](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) aan de slag met het hoofdknooppunt van een lokale en Azure 'burst' knooppunten. Zie de [HPC Pack IaaS-implementatiescript](hpcpack-cluster-powershell-script.md) snel implementeren een HPC Pack-cluster in Azure VM's.
 
-* **Voor een cluster met een hoofdknooppunt in Azure (Resource Manager-implementatiemodel)** - vanaf HPC Pack 2016, certificaatverificatie in een Azure Active Directory-toepassing wordt gebruikt voor het automatisch groeiende en comprimeren cluster virtuele machines geïmplementeerd met Azure Resource Manager. Een certificaat als volgt configureren:
+* **Voor een cluster met een hoofdknooppunt in Azure (Resource Manager-implementatiemodel)** - vanaf HPC Pack 2016, certificaatverificatie in een Azure Active Directory-toepassing wordt gebruikt voor het automatisch groeiende en comprimeren cluster virtuele machines geïmplementeerd met behulp van Azure Resource Manager. Een certificaat als volgt configureren:
 
   1. Na implementatie van het cluster, verbinding maken met extern bureaublad met één hoofdknooppunt.
 
@@ -50,13 +50,13 @@ Momenteel kunt u alleen automatisch vergroten of verkleinen van HPC Pack rekenkn
     ```powershell
         cd $env:CCP_HOME\bin
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     ```
         
     Als uw account meer dan één Azure Active Directory-tenant of Azure-abonnement is, kunt u de volgende opdracht de juiste tenant en het abonnement selecteren uitvoeren:
   
     ```powershell
-        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+        Connect-AzureRmAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
        
     Voer de volgende opdracht om de geselecteerde tenant en het abonnement weer te geven:
@@ -86,7 +86,7 @@ Momenteel kunt u alleen automatisch vergroten of verkleinen van HPC Pack rekenkn
     Voor meer informatie over **ConfigARMAutoGrowShrinkCert.ps1**, voert `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`.
 
 
-* **Voor een cluster met een hoofdknooppunt in Azure (klassieke implementatiemodel)** : als u het implementatiescript HPC Pack IaaS gebruiken om te maken van het cluster in het klassieke implementatiemodel, schakelt u de **AutoGrowShrink** eigenschap door de optie AutoGrowShrink in het configuratiebestand van de cluster-cluster. Zie voor meer informatie de documentatie bij de [script downloaden](https://www.microsoft.com/download/details.aspx?id=44949).
+* **Voor een cluster met een hoofdknooppunt in Azure (klassieke implementatiemodel)** : als u het implementatiescript HPC Pack IaaS gebruiken om te maken van het cluster in het klassieke implementatiemodel, schakelt u de **AutoGrowShrink** eigenschap door het cluster de optie AutoGrowShrink instellen in het configuratiebestand van het cluster. Zie voor meer informatie de documentatie bij de [script downloaden](https://www.microsoft.com/download/details.aspx?id=44949).
 
     U kunt ook inschakelen de **AutoGrowShrink** eigenschap cluster nadat u het cluster implementeren met behulp van HPC PowerShell-opdrachten in de volgende sectie beschreven. Als u wilt voorbereiden voor deze, moet u eerst de volgende stappen uitvoeren:
 
@@ -186,19 +186,19 @@ Standaard **SoaJobGrowThreshold** is ingesteld op 50000 en **SoaRequestsPerCore*
 * **HPC Pack 2012 R2 Update 1 of hoger cluster** : de **AzureAutoGrowShrink.ps1** script in de map % CCP_HOME % bin is geïnstalleerd. Het hoofdknooppunt van het cluster kan worden geïmplementeerd on-premises of in een Azure VM. Zie [een hybride-cluster met HPC Pack instellen](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) aan de slag met het hoofdknooppunt van een lokale en Azure 'burst' knooppunten. Zie de [HPC Pack IaaS-implementatiescript](hpcpack-cluster-powershell-script.md) om snel een HPC Pack cluster in Azure VM's implementeren, of gebruik een [snelstartsjabloon met de Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 * **Azure PowerShell 1.4.0** -het script op dat moment is afhankelijk van deze specifieke versie van Azure PowerShell.
 * **Voor een cluster met Azure burst knooppunten** -het script uitvoert op een clientcomputer waarop HPC Pack is geïnstalleerd of op het hoofdknooppunt. Als uitgevoerd op een clientcomputer, controleert u of u de variabele $env ingesteld: CCP_SCHEDULER om te verwijzen naar het hoofdknooppunt. De Azure 'burst'-knooppunten moeten worden toegevoegd aan het cluster, maar kunnen ze zich in de status niet geïmplementeerd.
-* **Voor een cluster dat is geïmplementeerd in Azure Virtual machines (Resource Manager-implementatiemodel)** -voor een cluster met virtuele Azure-machines geïmplementeerd in het Resource Manager-implementatiemodel, het script ondersteunt twee methoden voor verificatie op Azure: het script uitvoeren elke keer aanmelden bij uw Azure-account (door het uitvoeren van `Login-AzureRmAccount`, of een service-principal voor verificatie met een certificaat configureren. HPC Pack levert het script **ConfigARMAutoGrowShrinkCert.ps** een service-principal maken met certificaat. Het script wordt een Azure Active Directory (Azure AD)-toepassing en een service-principal gemaakt en wordt de rol Inzender toegewezen aan de service-principal. Het script wordt uitgevoerd, start u Azure PowerShell als administrator en voer de volgende opdrachten:
+* **Voor een cluster dat is geïmplementeerd in Azure Virtual machines (Resource Manager-implementatiemodel)** -voor een cluster met virtuele Azure-machines geïmplementeerd in het Resource Manager-implementatiemodel, het script ondersteunt twee methoden voor verificatie op Azure: aanmelden bij uw Azure-account om uit te voeren de Telkens wanneer een script (door het uitvoeren van `Connect-AzureRmAccount`, of een service-principal voor verificatie met een certificaat configureren. HPC Pack levert het script **ConfigARMAutoGrowShrinkCert.ps** een service-principal maken met certificaat. Het script wordt een Azure Active Directory (Azure AD)-toepassing en een service-principal gemaakt en wordt de rol Inzender toegewezen aan de service-principal. Het script wordt uitgevoerd, start u Azure PowerShell als administrator en voer de volgende opdrachten:
 
     ```powershell
     cd $env:CCP_HOME\bin
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -PfxFile "d:\yourcertificate.pfx"
     ```
 
     Voor meer informatie over **ConfigARMAutoGrowShrinkCert.ps1**, voert `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`,
 
-* **Voor een cluster dat is geïmplementeerd in Azure Virtual machines (klassieke implementatiemodel)** -het script uitvoeren op het hoofdknooppunt VM, omdat deze afhankelijk van is de **Start HpcIaaSNode.ps1** en **Stop HpcIaaSNode.ps1** scripts die zijn geïnstalleerd. Deze scripts Bovendien vereisen een Azure-beheercertificaat of bestand publicatie-instellingen (Zie [rekenknooppunten beheren in een Pack HPC-cluster in Azure](hpcpack-cluster-node-manage.md)). Controleer of alle het rekenknooppunt u moet virtuele machines zijn al toegevoegd aan het cluster. Ze mogelijk de status gestopt.
+* **Voor een cluster dat is geïmplementeerd in Azure Virtual machines (klassieke implementatiemodel)** -het script uitvoeren op het hoofdknooppunt VM, omdat deze afhankelijk van is de **Start HpcIaaSNode.ps1** en **Stop HpcIaaSNode.ps1** scripts die er worden geïnstalleerd. Deze scripts Bovendien vereisen een Azure-beheercertificaat of bestand publicatie-instellingen (Zie [rekenknooppunten beheren in een Pack HPC-cluster in Azure](hpcpack-cluster-node-manage.md)). Controleer of alle het rekenknooppunt u moet virtuele machines zijn al toegevoegd aan het cluster. Ze mogelijk de status gestopt.
 
 
 

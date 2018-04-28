@@ -1,11 +1,11 @@
 ---
 title: Inrichting handleiding voor SQL Server-VM's met Azure PowerShell | Microsoft Docs
-description: "Bevat de stappen en PowerShell-opdrachten voor het maken van een virtuele machine in Azure met SQL Server-installatiekopieën voor virtuele machine-galerie."
+description: Bevat de stappen en PowerShell-opdrachten voor het maken van een virtuele machine in Azure met SQL Server-installatiekopieën voor virtuele machine-galerie.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Het inrichten van SQL Server virtuele machines met Azure PowerShell
 
@@ -31,10 +31,10 @@ In dit artikel is de Azure PowerShell-moduleversie 3,6 of hoger vereist. Voer `G
 
 ## <a name="configure-your-subscription"></a>Configureer uw abonnement
 
-1. Open PowerShell en zorg dat u toegang hebt tot uw Azure-account door de opdracht **Add-AzureRmAccount** uit te voeren.
+1. Open PowerShell en toegang tot uw Azure-account maken door het uitvoeren van de **Connect-AzureRmAccount** opdracht.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Als het goed is, ziet u nu een aanmeldingsscherm waar u uw referenties kunt invoeren. Gebruik hetzelfde e-mailadres en wachtwoord waarmee u zich aanmeldt bij Azure Portal.
@@ -128,7 +128,7 @@ Voer de volgende cmdlet als u wilt maken van uw nieuwe resourcegroep.
 New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 De virtuele machine vereist storage-resources voor de besturingssysteemschijf en voor de SQL Server-gegevens en logboekbestanden. Voor de eenvoud maken we één schijf voor beide. U kunt extra schijven koppelen later via de [toevoegen Azure-schijf](/powershell/module/azure/add-azuredisk) cmdlet om te kunnen plaatsen van uw SQL Server-gegevens en logboekbestanden op schijven met specifieke bestanden. Gebruik de [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet een standard-opslag-account maken in uw nieuwe resourcegroep en met de naam van het opslagaccount, opslag Sku-naam en locatie die is gedefinieerd met behulp van de variabelen die u eerder is geïnitialiseerd .
 
 De volgende cmdlet als u wilt maken van uw nieuwe opslagaccount worden uitgevoerd.
@@ -142,7 +142,7 @@ $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupNam
 > [!TIP]
 > Maken van het opslagaccount kan een paar minuten duren.
 
-## <a name="create-network-resources"></a>Maken van netwerkbronnen
+## <a name="create-network-resources"></a>Netwerkbronnen maken
 De virtuele machine vereist een aantal netwerkbronnen voor verbinding met het netwerk.
 
 * Elke virtuele machine vereist een virtueel netwerk.
@@ -327,7 +327,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 U kunt ook alle resources die aan de virtuele machine zijn gekoppeld, definitief verwijderen met de opdracht **Remove-AzureRmResourceGroup**. Wees voorzichtig met het gebruik van deze opdracht, want hiermee verwijdert u ook de virtuele machine zelf definitief.
 
 ## <a name="example-script"></a>Voorbeeldscript
-Het volgende script bevat de volledige PowerShell-script voor deze zelfstudie. Er wordt vanuit gegaan dat u al ingesteld hebt voor gebruik met de Azure-abonnement de **Add-AzureRmAccount** en **Select-AzureRmSubscription** opdrachten.
+Het volgende script bevat de volledige PowerShell-script voor deze zelfstudie. Er wordt vanuit gegaan dat u al ingesteld hebt voor gebruik met de Azure-abonnement de **Connect-AzureRmAccount** en **Select-AzureRmSubscription** opdrachten.
 
 ```PowerShell
 # Variables

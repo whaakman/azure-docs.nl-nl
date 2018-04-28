@@ -1,12 +1,12 @@
 ---
-title: Opmerkingen bij de release van Microsoft Azure Opslagverkenner (Preview)
-description: Releaseopmerkingen voor Microsoft Azure Opslagverkenner (Preview)
+title: Opmerkingen bij de release van Microsoft Azure Storage Explorer
+description: Releaseopmerkingen voor Microsoft Azure Storage Explorer
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
-ms.translationtype: MT
+ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Opslagverkenner (Preview)
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
 Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.6 (Preview), evenals release-opmerkingen voor eerdere versies vrijgeven.
 
-[Microsoft Azure Opslagverkenner (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux.
+[Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux.
 
 ## <a name="version-096"></a>Versie 0.9.6
-02/28/2018
+28-02/2018
 
 ### <a name="download-azure-storage-explorer-096-preview"></a>Azure Storage Explorer 0.9.6 (Preview) downloaden
 - [Azure Opslagverkenner (Preview) 0.9.6 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
@@ -92,7 +92,7 @@ Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.6 (Prev
 * [Versie 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Versie 0.9.5
-02/06/2018
+06-02/2018
 
 ### <a name="download-azure-storage-explorer-095-preview"></a>Azure Storage Explorer 0.9.5 (Preview) downloaden
 - [Azure Opslagverkenner (Preview) 0.9.5 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)

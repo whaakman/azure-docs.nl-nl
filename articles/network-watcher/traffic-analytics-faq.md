@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 78449a527f5ee1410530ded18a11cb8c6a5dded5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Verkeer analytics Veelgestelde vragen
 
@@ -104,11 +104,15 @@ ms.lasthandoff: 04/16/2018
 
         U ziet de bronneninformatie op het dashboard; Er zijn echter geen stroom-gegevens aanwezig. Vanwege geen overdrachten van communicatie tussen de bronnen kunnen geen gegevens aanwezig zijn. Wacht tot 60 minuten en status controleren. Als u zeker weet dat overdrachten van communicatie tussen bronnen bestaat en vraagtekens in de [voice-gebruikersforum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Hoe wordt verkeer analytics prijs?
+14. Kan ik traffic analytics met PowerShell of een Azure Resource Manager-sjabloon configureren?
+
+    Nee, traffic analytics kan alleen worden geconfigureerd met de Azure portal.
+
+15.  Hoe wordt verkeer analytics prijs?
 
         Verkeer analytics datalimiet geldt voor het verbeteren van verminderde logboeken en de uitgebreide logboeken op te slaan in een werkruimte voor logboekanalyse. In de preview, traffic analytics wordt niet in rekening gebracht voor het verbeteren van de verminderde logboeken maar bewaren van gegevens in een werkruimte onderworpen aan facturering volgens de tarieven voor gepubliceerde is. Dit antwoord wordt bijgewerkt zodra de prijzen voor traffic analytics is beschikbaar.
 
-15.  Hoe kan ik navigeren met behulp van toetsenbord in Geo overzichtsweergave?
+16.  Hoe kan ik navigeren met behulp van toetsenbord in Geo overzichtsweergave?
 
         De pagina geo-kaart bevat twee hoofdsecties:
     

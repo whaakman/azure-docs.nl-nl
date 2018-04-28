@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: android
 author: danieldobalian
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 6c949c07c95c5d965b31725bce4ab2deac646bca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 25a908c542bf8fdd8008841a1865cdfb40d847fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD-Android aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -28,7 +28,7 @@ Als u een bureaubladtoepassing ontwikkelt, kunt Azure Active Directory (Azure AD
 
 Voor Android clients die toegang moeten krijgen tot beveiligde bronnen, levert Azure AD de Active Directory Authentication Library (ADAL). Het enige doel van ADAL is gemakkelijker voor uw app toegangstokens ophalen. Om te demonstreren hoe eenvoudig het is, moet we die een takenlijst Android-toepassing bouwen:
 
-* Krijgt toegang tot tokens voor een taak lijst-API aanroept met behulp van de [OAuth 2.0-verificatieprotocol](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+* Krijgt toegang tot tokens voor het aanroepen van een taak lijst API met [OAuth 2.0-verificatieprotocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
 * De takenlijst van een gebruiker opgehaald.
 * Tekenen van gebruikers.
 
@@ -37,7 +37,7 @@ Om te beginnen, moet u een Azure AD-tenant kunt u gebruikers maken en een toepas
 ## <a name="step-1-download-and-run-the-nodejs-rest-api-todo-sample-server"></a>Stap 1: Downloaden en uitvoeren van de server Node.js REST-API TODO-voorbeeld
 Het voorbeeld voor Node.js REST-API TODO wordt geschreven om specifiek te kunnen werken met onze huidige voorbeeld voor het bouwen van een één-tenant taak REST-API voor Azure AD. Dit is een vereiste voor snel starten.
 
-Zie voor informatie over hoe dit onze bestaande voorbeelden in [Microsoft Azure Active Directory-voorbeeld REST API-Service voor Node.js](active-directory-devquickstarts-webapi-nodejs.md).
+Zie voor informatie over hoe dit onze bestaande voorbeelden in [Azure Active Directory-voorbeeld REST API-Service voor Node.js](active-directory-devquickstarts-webapi-nodejs.md).
 
 
 ## <a name="step-2-register-your-web-api-with-your-azure-ad-tenant"></a>Stap 2: Uw web-API registreren bij uw Azure AD-tenant
@@ -81,8 +81,8 @@ Als u wilt maken met Maven, kunt u pom.xml op het hoogste niveau:
 
 1. Deze opslagplaats klonen naar een map van uw keuze:
 
-  `$ git clone git@github.com:AzureADSamples/NativeClient-Android.git`  
-2. Volg de stappen in de [vereisten voor het instellen van uw omgeving Maven voor Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android).
+  `$ git clone https://github.com/Azure-Samples/active-directory-android.git`  
+2. Volg de stappen in de [vereisten voor het instellen van uw omgeving Maven voor Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Maven).
 3. Instellen van de SDK-19-emulator.
 4. Ga naar de hoofdmap waar u de opslagplaats.
 5. Deze opdracht uitvoeren: `mvn clean install`
@@ -101,12 +101,12 @@ We hebben aangebracht u hebt meerdere mogelijkheden voor het gebruik van ADAL in
 * Als u Android Studio, kunt u gebruik van de indeling van het pakket AAR en verwijzen naar de binaire bestanden.
 
 ### <a name="option-1-source-zip"></a>Optie 1: Bron Zip
-Een kopie van de broncode downloaden, klikt u op **ZIP downloaden** aan de rechterkant van de pagina. U kunt [downloaden vanuit GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android/archive/v1.0.9.tar.gz).
+Een kopie van de broncode downloaden, klikt u op **ZIP downloaden** aan de rechterkant van de pagina. U kunt [downloaden vanuit GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android/releases).
 
 ### <a name="option-2-source-via-git"></a>Optie 2: Bron via Git
 Als u de broncode van de SDK via Git, typt u:
 
-    git clone git@github.com:AzureAD/azure-activedirectory-library-for-android.git
+    git clone https://github.com/AzureAD/azure-activedirectory-library-for-android.git
     cd ./azure-activedirectory-library-for-android/src
 
 ### <a name="option-3-binaries-via-gradle"></a>Optie 3: Binaire bestanden via Gradle
@@ -167,7 +167,7 @@ U kunt het JAR-bestand ophalen uit de opslagplaats met Maven en neer in de **bib
             ....
         <application/>
 
-4. Een exemplaar van AuthenticationContext op uw belangrijkste activiteit maken. De details van deze aanroep zijn buiten het bereik van dit onderwerp, maar u kunt een goede start ophalen door te kijken de [Android Native Client voorbeeld](https://github.com/AzureADSamples/NativeClient-Android). In het volgende voorbeeld is SharedPreferences de standaardcache en instantie is in de vorm van `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`:
+4. Een exemplaar van AuthenticationContext op uw belangrijkste activiteit maken. De details van deze aanroep zijn buiten het bereik van dit onderwerp, maar u kunt een goede start ophalen door te kijken de [Android Native Client voorbeeld](https://github.com/AzureAD/azure-activedirectory-library-for-android). In het volgende voorbeeld is SharedPreferences de standaardcache en instantie is in de vorm van `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`:
 
     `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
 
@@ -232,27 +232,11 @@ Hier volgt een uitleg van de parameters:
 Met behulp van dit scenario hebt u wat u moet is geïntegreerd met Azure Active Directory. Voor meer voorbeelden van deze werken, gaat u naar de AzureADSamples / opslagplaats op GitHub.
 
 ## <a name="important-information"></a>Belangrijke informatie
-### <a name="customization"></a>Aanpassing
-Uw toepassingsresources kunnen project bibliotheekresources overschrijven. Dit gebeurt wanneer uw app wordt samengesteld. Daarom kunt u verificatie activiteit indeling zoals die u wilt aanpassen. Zorg ervoor dat de ID van de besturingselementen dat gebruikmaakt van ADAL (webweergave).
 
 ### <a name="broker"></a>Broker
-De Microsoft Intune-bedrijfsportal-app biedt het broker-onderdeel. Het account wordt gemaakt in AccountManager. Het accounttype is 'com.microsoft.workaccount'. AccountManager kan slechts één SSO-account. Een SSO-cookie voor de gebruiker wordt gemaakt na het voltooien van de uitdaging van het apparaat voor een van de apps.
+De Intune-bedrijfsportal of Microsoft Authenticator-app biedt het broker-onderdeel. Het account wordt gemaakt in AccountManager. Het accounttype is 'com.microsoft.workaccount'. AccountManager kan slechts één SSO-account. Een SSO-cookie voor de gebruiker wordt gemaakt na het voltooien van de uitdaging van het apparaat voor een van de apps.
 
-ADAL maakt gebruik van het broker-account als een gebruikersaccount is gemaakt op deze verificator en u wilt niet overslaan. U kunt de broker-gebruiker met overslaan:
-
-   `AuthenticationSettings.Instance.setSkipBroker(true);`
-
-U moet een speciale RedirectUri voor het gebruik van de broker registreren. RedirectUri bevindt zich in de indeling van `msauth://packagename/Base64UrlencodedSignature`. U kunt uw RedirectUri ophalen voor uw app met behulp van het script brokerRedirectPrint.ps1 of de API-aanroep mContext.getBrokerRedirectUri. De handtekening is gerelateerd aan het ondertekenen van certificaten.
-
-Het huidige model van de broker is voor één gebruiker. AuthenticationContext biedt de API-methode voor het ophalen van de broker-gebruiker.
-
-   `String brokerAccount =  mContext.getBrokerUser(); //Broker user is returned if account is valid.`
-
-Uw app-manifest moet de volgende machtigingen hebben voor AccountManager accounts gebruiken. Zie voor meer informatie de [AccountManager informatie over de Android-site](http://developer.android.com/reference/android/accounts/AccountManager.html).
-
-* GET_ACCOUNTS
-* USE_CREDENTIALS
-* MANAGE_ACCOUNTS
+Voor meer informatie over het configureren met behulp van een broker, bekijk de [broker wiki-artikel](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Broker). 
 
 ### <a name="authority-url-and-ad-fs"></a>Instantie-URL en AD FS
 Active Directory Federation Services (AD FS) is niet herkend als productie STS, dus u moet voor het inschakelen van exemplaar van detectie en geef ' false ' in de constructor AuthenticationContext.
@@ -287,69 +271,15 @@ Dit zijn de primaire bronnen met informatie voor het oplossen van problemen:
 
 Houd er rekening mee dat de correlatie-id's centraal staat in de diagnostische gegevens in de bibliotheek zijn. U kunt instellen dat uw correlatie id's op basis van per aanvraag als u wilt een ADAL correleren met andere bewerkingen zijn in uw code aanvragen. Als u een correlatie-ID niet instelt, wordt de ADAL een willekeurige token genereren. Alle berichten logboekbestanden en netwerk aanroepen wordt vervolgens wordt voorzien van de correlatie-ID. De automatisch gegenereerde ID wijzigingen bij elke aanvraag.
 
-#### <a name="exceptions"></a>Uitzonderingen
+#### <a name="errors--exceptions"></a>Fouten en uitzonderingen
 Uitzonderingen zijn de eerste diagnose. We proberen te bieden handige foutberichten. Als u een die niet handig vinden, Controleer het bestand een probleem en laat ons weten. Apparaatgegevens zoals model en SDK getal bevatten.
+
+Voor meer informatie over welke fouten uw app moet verwerken, bekijk de [aanbevolen procedures voor foutafhandeling](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling). 
 
 #### <a name="logs"></a>Logboeken
 U kunt de bibliotheek voor het genereren van logboekberichten die u gebruiken kunt om u te helpen bij het analyseren van problemen. U kunt logboekregistratie configureren door het maken van de volgende oproep verzenden voor het configureren van een callback die ADAL aan de hand uit elk logboekbericht gebruiken zoals deze wordt gegenereerd.
 
-    Logger.getInstance().setExternalLogger(new ILogger() {
-        @Override
-        public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) {
-        ...
-        // You can write this to log file depending on level or error code.
-        writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
-        }
-    }
-
-Berichten kunnen worden geschreven naar een aangepaste logboekbestand, zoals wordt weergegeven in de volgende code. Er is geen standaardmethode voor het ophalen van Logboeken vanaf een apparaat. Er zijn bepaalde services waarmee u kunnen met deze. U kunt ook uw eigen, zoals het verzenden van het bestand naar een server voor voorraad.
-
-    private syncronized void writeToLogFile(Context ctx, String msg) {
-       File directory = ctx.getDir(ctx.getPackageName(), Context.MODE_PRIVATE);
-       File logFile = new File(directory, "logfile");
-       FileOutputStream outputStream = new FileOutputStream(logFile, true);
-       OutputStreamWriter osw = new OutputStreamWriter(outputStream);
-       osw.write(msg);
-       osw.flush();
-       osw.close();
-    }
-
-Dit zijn de registratieniveaus:
-* Fout (uitzonderingen)
-* Waarschuwen (waarschuwing)
-* Info (doelen)
-* Uitgebreid (meer informatie)
-
-U instellen het logboekniveau als volgt:
-
-    Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
-
- Alle berichten in het logboek zijn verzonden naar logcat, naast eventuele aangepaste logboek retouraanroepen.
-U kunt krijgen een logboek naar een bestand uit logcat als volgt:
-
-    adb logcat > "C:\logmsg\logfile.txt"
-
- Zie voor meer informatie over adb opdrachten de [logcat informatie over de Android-site](https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat).
-
-#### <a name="network-traces"></a>Netwerktracering
-U kunt verschillende hulpprogramma's gebruiken om vast te leggen van de HTTP-verkeer dat ADAL genereert.  Dit is vooral handig als u bekend met het OAuth-protocol bent of als u nodig hebt om Microsoft of andere ondersteuningskanalen diagnostische informatie te geven.
-
-Fiddler is de eenvoudigste hulpmiddel voor het traceren van HTTP. Gebruik de volgende koppelingen in te stellen tot correct record ADAL-netwerkverkeer. Voor een hulpprogramma zoals Fiddler of Jeroen nuttig voor tracering, moet u configureren om vast te leggen van niet-versleutelde SSL-verkeer.  
-
-> [!NOTE]
-> Traceringen gegenereerd op deze manier kunnen zeer vertrouwelijke informatie zoals toegangstokens, gebruikersnamen en wachtwoorden bevatten. Als u van productie-accounts gebruikmaakt, deze traceringen niet delen met derden. Als u nodig hebt om op te geven van een tracering voor iemand om ondersteuning krijgen, reproduceer het probleem met behulp van een tijdelijke rekening met gebruikersnamen en wachtwoorden op dat u geen rekening met het delen.
-
-* Van de website Telerik: [instelling Up Fiddler voor Android](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)
-* Vanuit GitHub: [Fiddler regels configureren voor ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)
-
-### <a name="dialog-mode"></a>Dialoogvenster modus
-De methode acquireToken zonder activiteit ondersteunt een dialoogvenster.
-
-### <a name="encryption"></a>Versleuteling
-ADAL versleutelt de tokens en opslaan in SharedPreferences standaard. U kunt zoeken op de klasse StorageHelper om de details te bekijken. Android Keystore android geïntroduceerd voor 4.3 (API 18) veilige opslag van persoonlijke sleutels. ADAL gebruikt voor API 18 en hoger. Als u gebruikmaken van ADAL voor lagere SDK-versies wilt, moet u een geheime sleutel op AuthenticationSettings.INSTANCE.setSecretKey bieden.
-
-### <a name="oauth2-bearer-challenge"></a>OAuth2 bearer uitdaging
-De klasse AuthenticationParameters biedt functionaliteit om authorization_uri ophalen uit de OAuth2 bearer-uitdaging.
+Inschakelen van logboekregistratie, bekijk de [logboekregistratie wiki-artikel](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Logging).
 
 ### <a name="session-cookies-in-webview"></a>Sessiecookies in webweergave
 Android webweergave wist niet sessiecookies nadat de app is gesloten. U kunt die verwerkt met behulp van deze voorbeeldcode:
@@ -360,17 +290,6 @@ Android webweergave wist niet sessiecookies nadat de app is gesloten. U kunt die
     CookieSyncManager.getInstance().sync();
 
 Zie voor meer informatie over cookies de [CookieSyncManager informatie over de Android-site](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
-
-### <a name="resource-overrides"></a>Resource-onderdrukkingen
-De ADAL-bibliotheek bevat Engelse tekenreeksen voor de ProgressDialog berichten. Uw toepassing moet ze als u gelokaliseerde tekenreeksen wilt overschrijven.
-
-     <string name="app_loading">Loading...</string>
-     <string name="broker_processing">Broker is processing</string>
-     <string name="http_auth_dialog_username">Username</string>
-     <string name="http_auth_dialog_password">Password</string>
-     <string name="http_auth_dialog_title">Sign In</string>
-     <string name="http_auth_dialog_login">Login</string>
-     <string name="http_auth_dialog_cancel">Cancel</string>
 
 ### <a name="ntlm-dialog-box"></a>Dialoogvenster NTLM
 ADAL-versie 1.1.0 ondersteunt een NTLM-dialoogvenster dat wordt verwerkt door de gebeurtenis onReceivedHttpAuthRequest van WebViewClient. U kunt de tekenreeksen voor het dialoogvenster met de indeling en aanpassen.

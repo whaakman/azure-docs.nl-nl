@@ -14,20 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7fa93e138bc9feb66c200597119bb12dbaf00480
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 865243a10bd5043ca04c392c043b37772271f68f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Een nieuwe Resource Manager gebaseerde webservice met Machine Learning Management PowerShell-cmdlets opnieuw trainen
-Wanneer u een nieuwe webservice opnieuw trainen, kunt u de voorspellende webservicedefinitie om te verwijzen naar het nieuwe getrainde model bijwerken.  
+Wanneer u een nieuwe webservice opnieuw trainen, kunt u de voorspellende webservicedefinitie om te verwijzen naar het nieuwe getrainde model bijwerken.
 
 ## <a name="prerequisites"></a>Vereisten
-U moet instellen van een trainingsexperiment en een Voorspellend experiment zoals weergegeven in [Retrain Machine Learning-modellen programmatisch](retrain-models-programmatically.md). 
+U moet instellen van een trainingsexperiment en een Voorspellend experiment zoals weergegeven in [Retrain Machine Learning-modellen programmatisch](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> De Voorspellend experiment moet worden geïmplementeerd als een Azure Resource Manager (nieuw) op basis van machine learning-webservice. Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waaraan u de webservice implementeren. Zie voor meer informatie [beheren van een webservice via de portal voor Azure Machine Learning-webservices](manage-new-webservice.md). 
+> De Voorspellend experiment moet worden geïmplementeerd als een Azure Resource Manager (nieuw) op basis van machine learning-webservice.
+> Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waaraan u de webservice implementeren. Zie voor meer informatie [beheren van een webservice via de portal voor Azure Machine Learning-webservices](manage-new-webservice.md).
 
 Zie voor meer informatie over webservices implementeren [Azure Machine Learning-webservice implementeren](publish-a-machine-learning-web-service.md).
 
@@ -48,7 +49,7 @@ De stappen zijn:
 6. De webservice bijwerken met definitie van een nieuwe Web-Service
 
 ## <a name="sign-in-to-your-azure-resource-manager-account"></a>Aanmelden bij uw account voor Azure Resource Manager
-U moet zich eerst aanmelden bij uw Azure-account uit binnen de PowerShell-omgeving met de [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
+U moet zich eerst aanmelden bij uw Azure-account uit binnen de PowerShell-omgeving met de [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
 
 ## <a name="get-the-web-service-definition"></a>Definitie van de webservice ophalen
 De Web-Service vervolgens ophalen door het aanroepen van de [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. Definitie van de webservice is een interne representatie van het getrainde model van de webservice en kan niet rechtstreeks worden gewijzigd. Zorg ervoor dat u voor uw Voorspellend experiment en niet uw trainingsexperiment definitie van de webservice ophaalt.

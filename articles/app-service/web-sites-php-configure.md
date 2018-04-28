@@ -1,24 +1,23 @@
 ---
-title: PHP configureren in Azure App Service WebApps | Microsoft Docs
+title: PHP configureren in Azure App Service WebApps
 description: Informatie over het configureren van de standaard PHP-installatie of het toevoegen van een aangepaste PHP-installatie voor Web-Apps in Azure App Service.
 services: app-service
 documentationcenter: php
-author: cephalin
+author: msangapu
 manager: cfowler
-editor: ''
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: cephalin
-ms.openlocfilehash: a9059be43a6188b81b57f1503bba241b3138e114
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 04/11/2018
+ms.author: msangapu
+ms.openlocfilehash: 3dbd41756ede8577fee43d9758e39eb36130a6ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>PHP configureren in Azure App Service WebApps
 
@@ -50,7 +49,7 @@ De versies van PHP 7.0 en PHP 7.2 zijn ook beschikbaar, maar niet standaard inge
 
 1. Open Azure PowerShell en meld u aan bij uw account:
 
-        PS C:\> Login-AzureRmAccount
+        PS C:\> Connect-AzureRmAccount
 1. Stel de PHP-versie voor de web-app.
 
         PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}

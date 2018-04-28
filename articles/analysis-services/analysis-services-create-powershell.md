@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cba5d5d6547421ed2d665fc78e35a654eda5fda6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3f0d3ae6786e9f63f0e4eb025118d0d217eced64
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>Een Azure Analysis Services-server maken met behulp van PowerShell
 
 In deze snelstartgids wordt beschreven hoe u PowerShell in de opdrachtregel kunt gebruiken om een Azure Analysis Services-server te maken in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) in uw Azure-abonnement.
 
-Voor deze taak is Azure PowerShell-moduleversie 4.0 of hoger vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) om de module te installeren of te upgraden. 
+Voor deze taak is Azure PowerShell-moduleversie 4.0 of hoger vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) om de module te installeren of te upgraden.
 
 > [!NOTE]
 > Het maken van een server kan zorgen voor een nieuwe factureerbare service. Zie [Prijzen van Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) voor meer informatie.
@@ -38,14 +38,14 @@ Import-Module AzureRM.AnalysisServices
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij uw Azure-abonnement met behulp van de opdracht [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount). Volg de aanwijzingen op het scherm.
+Aanmelden bij uw Azure-abonnement met behulp van de [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) opdracht. Volg de aanwijzingen op het scherm.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
- 
+
 Een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) is een logische container waarin Azure-resources worden geïmplementeerd en als groep beheerd. Wanneer u de server maakt, moet u een resourcegroep opgeven in uw abonnement. Als u nog geen resourcegroep hebt, maakt u een nieuwe met behulp van de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt in de regio VS - West.
 
 ```powershell
@@ -70,6 +70,6 @@ Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myReso
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure Analysis Services beheren met PowerShell](analysis-services-powershell.md)   
-[Een model implementeren vanuit SSDT](analysis-services-deploy.md)   
-[Een model maken in Azure Portal](analysis-services-create-model-portal.md)
+[Beheren van Azure Analysis Services met PowerShell](analysis-services-powershell.md)
+[implementeert een model uit SSDT](analysis-services-deploy.md)
+[een model maken in Azure portal](analysis-services-create-model-portal.md)

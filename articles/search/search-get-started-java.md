@@ -2,23 +2,17 @@
 title: Aan de slag met Azure Search in Java | Microsoft Docs
 description: Een gehoste cloudtoepassing voor zoeken in Azure bouwen met de programmeertaal Java.
 services: search
-documentationcenter: 
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
-ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
+author: jj09
+manager: jlembicz
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/14/2016
-ms.author: evboyle
-ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
-ms.translationtype: HT
+ms.author: jjed
+ms.openlocfilehash: d95abab1d1a489deba2ebc260e1e32963aa5639e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Aan de slag met Azure Search in Java
 > [!div class="op_single_selector"]
@@ -91,7 +85,7 @@ Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor d
 ## <a name="configure-the-service-url-and-api-key"></a>Configureer de service-URL en API-sleutel
 1. Dubbelklik in **Projectverkenner** op **config.properties** om de configuratie-instellingen met de servernaam en API-sleutel te bewerken.
 2. Raadpleeg de eerdere stappen in dit artikel, waarin u de service-URL en API-sleutel in de [Azure-portal](https://portal.azure.com) hebt gevonden, om de waarden te verkrijgen die u nu moet opgeven in **config.properties**.
-3. In **config.properties** vervangt u 'Api Key' door de API-sleutel voor uw service. Vervolgens wordt in hetzelfde bestand servicename (het eerste onderdeel van de URL http://servicename.search.windows.net) vervangen door de servicenaam.
+3. In **config.properties** vervangt u 'Api Key' door de API-sleutel voor uw service. Vervolgens worden de naam van service (het eerste onderdeel van de URL http://servicename.search.windows.net) vervangt 'service name' in hetzelfde bestand.
    
     ![][5]
 

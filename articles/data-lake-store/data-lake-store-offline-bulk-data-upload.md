@@ -1,8 +1,8 @@
 ---
 title: Grote hoeveelheden gegevens uploaden naar Data Lake Store met behulp van offline methoden | Microsoft Docs
-description: "Het hulpprogramma AdlCopy gebruiken om gegevens te kopiëren van Azure Storage-blobs naar Data Lake Store"
+description: Het hulpprogramma AdlCopy gebruiken om gegevens te kopiëren van Azure Storage-blobs naar Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee6f4ab1ac5892536d7f419c198158dc34d6f49e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Gebruik de Azure Import/Export-service voor offline kopiëren van gegevens naar Data Lake Store
 In dit artikel leert u hoe u kunt kopiëren van grote gegevenssets (> 200 GB) in een Azure Data Lake Store met behulp van methoden van offline-exemplaar, zoals de [Azure Import/Export-service](../storage/common/storage-import-export-service.md). Het bestand dat wordt gebruikt als voorbeeld in dit artikel is bijzonder 339,420,860,416 bytes of ongeveer 319 GB op schijf. Laten we dit bestand 319GB.tsv aanroepen.
@@ -195,7 +195,7 @@ We met een bestand dat is 319 GB en heeft deze niet actief in kleinere bestanden
 
 ````
 # Login to our account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List your subscriptions
 Get-AzureRmSubscription

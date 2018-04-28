@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 1f512cdbb0275e9ae2d868a326df0e4e5dd2ee24
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 54bf692f35e2529fe7d0b14684c9acc7d66b9903
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>Toegang tot databases beheren en verlenen
 
@@ -75,7 +75,7 @@ Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen
 1. Gebruik een beheerdersaccount om verbinding te maken met de hoofddatabase.
 2. Optionele stap: maak een aanmelding voor SQL-verificatie met de instructie [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Voorbeeldinstructie:
    
-   ```
+   ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
    ```
    
@@ -86,15 +86,15 @@ Een van deze beheerdersrollen is de rol **dbmanager**. Leden van deze rol kunnen
 
 3. Maak een gebruiker in de hoofddatabase met behulp van de instructie [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). De gebruiker kan een ingesloten databasegebruiker op basis van Azure Active Directory-verificatie zijn (als u uw omgeving hebt geconfigureerd voor Azure AD-verificatie), maar ook een ingesloten databasegebruiker op basis van SQL Server-verificatie of een gebruiker op basis van SQL Server-verificatie met aanmelding voor SQL Server-verificatie (gemaakt in de vorige stap). Voorbeeldinstructies:
    
-   ```
-   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
-   CREATE USER Tran WITH PASSWORD = '<strong_password>';
-   CREATE USER Mary FROM LOGIN Mary; 
+   ```sql
+   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
+   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
 4. Voeg de nieuwe gebruiker toe aan de databaserol **dbmanager** met behulp van de instructie [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Voorbeeldinstructies:
    
-   ```
+   ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
    ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
    ```
@@ -114,21 +114,25 @@ Niet-beheerdersaccounts hebben doorgaans geen toegang nodig tot de hoofddatabase
 
 Als u gebruikers wilt maken, maakt u verbinding met de database en voert u de instructies uit die in de volgende voorbeelden worden getoond:
 
-```
+```sql
 CREATE USER Mary FROM LOGIN Mary; 
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 In eerste instantie kan slechts een van de beheerders of de eigenaar van de database gebruikers maken. Om extra gebruikers te machtigen voor het maken van nieuwe gebruikers, verleent u de geselecteerde gebruikers de `ALTER ANY USER`-toestemming met behulp van een instructie zoals:
 
-```
+```sql
 GRANT ALTER ANY USER TO Mary;
 ```
 
 Om extra gebruikers volledig beheer van de database te geven, moet u ze lid maken van de vaste databaserol **db_owner** met behulp van de `ALTER ROLE`-instructie.
 
+```sql
+ALTER ROLE db_owner ADD MEMBER Mary; 
+```
+
 > [!NOTE]
-> De meest voorkomende reden om databasegebruikers te maken op basis van aanmelding, is wanneer u SQL Server-verificatiegebruikers hebt die toegang tot meerdere databases nodig hebben. Gebruikers op basis van aanmelding zijn gekoppeld aan de aanmelding. Voor deze aanmelding wordt slechts één wachtwoord bijgehouden. Ingesloten databasegebruikers in individuele databases zijn individuele entiteiten en hebben elk een eigen wachtwoord. Dit kan verwarrend zijn voor ingesloten databasegebruikers die hun wachtwoorden niet identiek hebben gehouden.
+> Er is een veelvoorkomende reden voor het maken van een databasegebruiker op basis van een logische server-aanmelding voor gebruikers die toegang nodig tot meerdere databases. Aangezien opgenomen databasegebruikers zijn afzonderlijke entiteiten, elke database onderhoudt een eigen gebruikers- en een eigen wachtwoord. Hierdoor kan overhead als de gebruiker vervolgens elk wachtwoord voor elke database moet, en het untenable worden kan bij een meerdere wachtwoorden voor veel databases te wijzigen. Echter, wanneer u SQL Server-aanmeldingen en hoge beschikbaarheid (actieve geo-replicatie en failover groepen), de SQL Server-aanmeldingen moeten worden ingesteld handmatig op elke server. Anders wordt worden de databasegebruiker niet meer toegewezen aan de server-aanmelding nadat een failover wordt uitgevoerd en toegang tot de database na failover kan niet worden. Zie voor meer informatie over het configureren van aanmeldingen voor geo-replicatie [configureren en beheren van Azure SQL Database-beveiliging voor de geo-herstel of failover](sql-database-geo-replication-security-config.md).
 
 ### <a name="configuring-the-database-level-firewall"></a>De firewall op databaseniveau configureren
 U doet er verstandig aan niet-beheerders alleen via de firewall toegang te verlenen tot de databases die ze gebruiken. In plaats van het machtigen van hun IP-adressen via de firewall op serverniveau en hun toegang te verlenen tot alle databases, kunt u de instructie [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) gebruiken om de firewall op databaseniveau te configureren. De firewall op databaseniveau kan niet worden geconfigureerd met behulp van de portal.
@@ -164,7 +168,7 @@ Bij het beheren van aanmeldingen en gebruikers in SQL Database, moet u het volge
 * Bij het uitvoeren van de `CREATE/ALTER/DROP LOGIN`- en `CREATE/ALTER/DROP DATABASE`-instructies in een ADO.NET-toepassing is het gebruik van geparametriseerde opdrachten is niet toegestaan. Zie [Opdrachten en parameters](https://msdn.microsoft.com/library/ms254953.aspx) voor meer informatie.
 * Bij het uitvoeren van de `CREATE/ALTER/DROP DATABASE`- en `CREATE/ALTER/DROP LOGIN`-instructies moet elk van deze instructies de enige instructie in een Transact-SQL-batch zijn. Als deze niet overeenkomen, treedt er een fout op. De volgende Transact-SQL controleert bijvoorbeeld of de database bestaat. Als deze bestaat, wordt een `DROP DATABASE`-instructie aangeroepen om de database te verwijderen. Omdat de `DROP DATABASE`-instructie niet de enige instructie in de batch is, leidt het uitvoeren van de volgende Transact-SQL-instructie tot een fout.
 
-  ```
+  ```sql
   IF EXISTS (SELECT [name]
            FROM   [sys].[databases]
            WHERE  [name] = N'database_name')

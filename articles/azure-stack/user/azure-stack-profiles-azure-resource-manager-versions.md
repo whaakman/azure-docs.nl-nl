@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 2E21C8DE-D540-4C1C-A0EF-1B7125DB7A6E
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 8cc5ce1ec113df7ce92c54022dbe1b6219c8c235
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: db01df21c95ee41197344cec719f1c2ab2dfc2ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versies ondersteund door de profielen in Azure-Stack
 
@@ -55,7 +53,7 @@ Toegangsbeheer op basis van rollen kunt u de acties die gebruikers in uw organis
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-De Azure Compute-API's bieden u programmatische toegang tot virtuele machines en hun ondersteunende bronnen. Zie voor meer informatie [Azure Compute](https://docs.microsoft.com/en-us/rest/api/compute/).
+De Azure Compute-API's bieden u programmatische toegang tot virtuele machines en hun ondersteunende bronnen. Zie voor meer informatie [Azure Compute](https://docs.microsoft.com/rest/api/compute/).
 
 | Resourcetype | API-versie |
 |---------------------------------------------------------------|-------------|
@@ -149,7 +147,7 @@ Azure Resource Manager kunt u de infrastructuur voor uw Azure-oplossingen implem
 | Resourcenaam controleren | 2015-012016-09-01 |
 | Gedelegeerde Providers | 2015-01-01 |
 | Gedelegeerde Providers/aanbiedingen | 2015-01-01 |
-| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
+| Aanbiedingen-DelegatedProviders/estimatePrice | 2015-01-01 |
 | Implementaties | 2016-0209-01 |
 | Implementaties/operations | 2016-0209-01 |
 | Extensies metagegevens | 2015-01-01 |

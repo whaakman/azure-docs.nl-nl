@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 09a1bfc47cd048e371575f80933f5bfd0116bf8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 131f147e2c445e8cfef12288d4d0d29f6fd7fe01
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Gegevens uit Xero met behulp van Azure Data Factory (bèta) kopiëren
 
@@ -55,7 +55,7 @@ De volgende eigenschappen worden ondersteund voor Xero gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **Xero** | Ja |
 | host | Het eindpunt van de server Xero (`api.xero.com`).  | Ja |
 | consumerKey | De consumentsleutel die is gekoppeld aan de Xero. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| privateKey | De persoonlijke sleutel uit het .pem-bestand dat is gegenereerd voor uw persoonlijke toepassing Xero Raadpleeg [maken van een openbaar/persoonlijk sleutelpaar](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). De tekst van het .pem-bestand met inbegrip van de regel Unix endings(\n) omvatten, zie onderstaand voorbeeld.<br/>Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| privateKey | De persoonlijke sleutel uit het .pem-bestand dat is gegenereerd voor uw persoonlijke toepassing Xero Raadpleeg [maken van een openbaar/persoonlijk sleutelpaar](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Houd er rekening mee te **genereren de privatekey.pem met numbits van 512** met `openssl genrsa -out privatekey.pem 512`; 1024 wordt niet ondersteund. De tekst van het .pem-bestand met inbegrip van de regel Unix endings(\n) omvatten, zie onderstaand voorbeeld.<br/><br/>Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Geeft aan of de eindpunten van de gegevensbron zijn versleuteld via HTTPS. De standaardwaarde is true.  | Nee |
 | useHostVerification | Hiermee geeft u op of de hostnaam is vereist in het certificaat van de server overeenkomen met de hostnaam van de server om verbinding te maken via SSL. De standaardwaarde is true.  | Nee |
 | usePeerVerification | Geeft aan of de identiteit van de server te verifiëren wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
@@ -196,7 +196,7 @@ De volgende tabellen kunnen alleen worden opgevraagd met volledige schema:
 - Complete.Contacts_Contact_ personen 
 - Complete.Credit_Note_Line_Items 
 - Complete.Credit_Notes_Line_Items_Tracking 
-- Complete.Expense_Claim_ Payments 
+- Complete.Expense_Claim_ betalingen 
 - Complete.Expense_Claim_Receipts 
 - Complete.Invoice_Line_Items 
 - Complete.Invoices_Line_Items_Tracking

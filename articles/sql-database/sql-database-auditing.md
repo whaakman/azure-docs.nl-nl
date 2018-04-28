@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 Azure SQL database auditing houdt databasegebeurtenissen en schrijft die deze naar een auditlogboek Meld u bij uw Azure storage-account. Ook controleren:
@@ -165,8 +165,18 @@ In productie bent u waarschijnlijk uw opslagsleutels periodiek te vernieuwen. Bi
 3. Ga terug naar de blade controle configuratie schakelt de toegangssleutel voor opslag van secundaire op primaire en klik vervolgens op **OK**. Klik vervolgens op **opslaan** aan de bovenkant van de controlemogelijkheden configuratie-blade.
 4. Ga terug naar de blade van de configuratie van opslag en opnieuw genereren van de secundaire toegangssleutel (in voorbereiding op de volgende sleutel vernieuwingscyclus).
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Controle van SQL-database met Azure PowerShell beheren
+## <a name="additional-information"></a>Aanvullende informatie
 
+* Voor meer informatie over het log-indeling, hiërarchie van de opslagmap en naamconventies, Zie de [Blobverwijzing Audit Log indeling](https://go.microsoft.com/fwlink/?linkid=829599).
+
+   > [!IMPORTANT]
+   > Azure SQL Database Audit worden 4000 tekens van gegevens voor teken velden in een controlerecord opgeslagen. Wanneer de **instructie** of de **data_sensitivity_information** waarden geretourneerd van een controleerbare actie meer dan 4000 tekens bevatten, kunnen alle gegevens na de eerste 4000 tekens,  **afgekapt en niet gecontroleerd**.
+
+* Controlelogboeken worden geschreven naar **toevoeg-Blobs** in een Azure Blob-opslag voor uw Azure-abonnement.
+   * **Premium-opslag** is momenteel **niet ondersteund** door toevoeg-Blobs.
+   * **Opslag in VNet** is momenteel **niet ondersteund**.
+
+## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Controle van SQL-database met Azure PowerShell beheren
 
 * **PowerShell-cmdlets**:
 

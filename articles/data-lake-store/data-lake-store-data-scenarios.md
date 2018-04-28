@@ -2,7 +2,7 @@
 title: Data-scenario's met betrekking tot Data Lake Store | Microsoft Docs
 description: Overzicht van de verschillende scenario's en hulpprogramma's met behulp van welke gegevens kunnen ingenomen, verwerkt, gedownload en weergegeven in een Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f8cd666af9e05b543b6794612ec5acf6f8a27756
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Met behulp van Azure Data Lake Store voor big data-vereisten
 Er zijn vier belangrijke fasen in grote gegevensverwerking:
@@ -40,8 +40,8 @@ Dit staat voor kleinere gegevenssets die worden gebruikt voor het maken van een 
 
 | Gegevensbron | Met behulp van opnemen |
 | --- | --- |
-| Lokale computer |<ul> <li>[Azure-portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure Cross-platform CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Met behulp van Data Lake Tools voor Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
-| Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy hulpprogramma](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp uitgevoerd op HDInsight-cluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| Lokale computer |<ul> <li>[Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure platformoverschrijdende CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Met behulp van Data Lake Tools voor Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Azure Storage-Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy hulpprogramma](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp uitgevoerd op HDInsight-cluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Gestroomde gegevens
 Hiermee worden gegevens die kunnen worden gegenereerd met verschillende bronnen zoals toepassingen, apparaten, sensoren, enzovoort. Deze gegevens kan door verschillende hulpprogramma's in een Data Lake Store worden ingenomen. Deze hulpprogramma's worden meestal vastleggen en verwerken van de gegevens op basis van door gebeurtenis in realtime, en schrijf vervolgens de gebeurtenissen in batches in Data Lake Store zodat ze verder kunnen worden verwerkt.
@@ -61,7 +61,7 @@ U kunt ook brongegevens van relationele databases. Gedurende een periode verzame
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Web server-logboekgegevens (uploaden met behulp van aangepaste toepassingen)
 Dit type dataset wordt specifiek genoemd, omdat analyse van de logboekgegevens van web server een algemene gebruiksvoorbeeld voor big data-toepassingen is en grote volumes van logboekbestanden wilt uploaden naar Data Lake Store is vereist. U kunt een van de volgende hulpprogramma's gebruiken om uw eigen scripts of toepassingen voor het uploaden van deze gegevens te schrijven.
 
-* [Azure Cross-platform CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+* [Azure platformoverschrijdende CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
@@ -121,7 +121,7 @@ In dergelijke gevallen kunt u een van de volgende opties gebruiken:
 
 U kunt ook de volgende methoden gebruiken om te schrijven van uw eigen scripttoepassing voor het downloaden van gegevens in Data Lake Store.
 
-* [Azure Cross-platform CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+* [Azure platformoverschrijdende CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)
 
@@ -131,4 +131,4 @@ U kunt een combinatie van services gebruiken voor het maken van visuele weergave
 ![Gegevens in Data Lake Store visualiseren](./media/data-lake-store-data-scenarios/visualize-data.png "visualiseren van gegevens in Data Lake Store")
 
 * U kunt starten met behulp van [Azure Data Factory om gegevens te verplaatsen van Data Lake Store met Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
-* Daarna kunt u [Power BI integreren met Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) visuele representatie van de gegevens maken.
+* Daarna kunt u [Power BI integreren met Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) visuele representatie van de gegevens maken.

@@ -2,11 +2,11 @@
 title: HDInsight Spark-scenario's met PySpark en Scala in Azure | Microsoft Docs
 description: Voorbeelden van het Team gegevens wetenschap proces om op een Azure HDInsight Spark predictive analytics doen met behulp van de PySpark en Scala.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 13e681ec8893aa2cbd97f6c4e2ca66be634c9cb9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 30204d1859cd72e5fb821d2f027b82c4eacaa5fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Teamprojecten voor Gegevenswetenschap gestructureerd in Azure Machine Learning Workbench
 
@@ -28,12 +28,12 @@ Aanvullende gegevens wetenschap-scenario's die het Team gegevens wetenschap proc
 
 ## <a name="classify-uci-incomes-in-azure-machine-learning-workbench"></a>UCI inkomsten in Azure Machine Learning Workbench classificeren
 
-Zie voor een zelfstudie wordt weergegeven hoe maken van een TDSP in Azure Machine Learning Workbench [Team gegevens wetenschappelijke Process Tutorial: inkomsten UCI classificeren in Azure Machine Learning Workbench](../preview/scenario-tdsp-classifying-us-incomes.md) 
+Zie voor een zelfstudie wordt weergegeven hoe maken van een TDSP in Azure Machine Learning Workbench [Team gegevens wetenschappelijke Process Tutorial: inkomsten UCI classificeren in Azure Machine Learning Workbench](../desktop-workbench/scenario-tdsp-classifying-us-incomes.md) 
 
 
 ## <a name="biomedical-entity-recognition-using-natural-language-processing-with-deep-learning"></a>Biomedische entiteit erkenning grondige Learning met verwerking van natuurlijke taal
 
-Zie voor een steekproef die gebruikmaakt van een project TDSP geïnstantieerd in Azure Machine Learning Workbench, [biomedische entiteit erkenning grondige Learning met verwerking van natuurlijke taal](../preview/scenario-tdsp-biomedical-recognition.md)
+Zie voor een steekproef die gebruikmaakt van een project TDSP geïnstantieerd in Azure Machine Learning Workbench, [biomedische entiteit erkenning grondige Learning met verwerking van natuurlijke taal](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

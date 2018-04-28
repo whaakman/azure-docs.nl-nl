@@ -3,10 +3,10 @@ title: Aan de slag met voorwaardelijke toegang in Azure Active Directory | Micro
 description: Voorwaardelijke toegang met behulp van een locatie voorwaarde testen.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 04a7736e85c0b149cb627411f61fc147220769ad
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Aan de slag met voorwaardelijke toegang in Azure Active Directory
 
@@ -30,7 +30,7 @@ In dit onderwerp vindt u instructies voor het testen van een voorwaardelijke toe
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-Een van de algemene vereisten in veel organisaties is het alleen meervoudige verificatie vereisen voor toegang tot apps die niet van het bedrijfsintranet wordt uitgevoerd. Met Azure Active Directory, kunt u eenvoudig deze doelstelling uitvoeren door het configureren van beleid voor voorwaardelijke toegang op basis van locatie. Dit onderwerp vindt u gedetailleerde instructies voor het configureren van een gerelateerd beleid. Het beleid maakt gebruik van [goedgekeurde IP-adressen](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) onderscheid maken tussen toegangspogingen tot van het bedrijf de intranet- en alle andere locaties.
+Een van de algemene vereisten in veel organisaties is het alleen meervoudige verificatie vereisen voor toegang tot apps die niet van het bedrijfsintranet wordt uitgevoerd. Met Azure Active Directory, kunt u eenvoudig deze doelstelling uitvoeren door het configureren van beleid voor voorwaardelijke toegang op basis van locatie. Dit onderwerp vindt u gedetailleerde instructies voor het configureren van een gerelateerd beleid. Het beleid maakt gebruik van [goedgekeurde IP-adressen](authentication/howto-mfa-mfasettings.md#trusted-ips) onderscheid maken tussen toegangspogingen tot van het bedrijf de intranet- en alle andere locaties.
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -47,7 +47,7 @@ Als u wilt testen van dit scenario, moet u:
 
 - Goedgekeurde IP-adressen configureren
 
-Als u meer informatie over de goedgekeurde IP-adressen, Zie [goedgekeurde IP-adressen](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+Als u meer informatie over de goedgekeurde IP-adressen, Zie [goedgekeurde IP-adressen](authentication/howto-mfa-mfasettings.md#trusted-ips).
 
 
 ## <a name="policy-configuration-steps"></a>Beleid configuratiestappen

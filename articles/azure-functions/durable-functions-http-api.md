@@ -4,9 +4,9 @@ description: Informatie over het implementeren van HTTP APIs in de uitbreiding d
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5fa5d9e66912bdeffdf553ddc0cb7d3feb0a5b77
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 07e6e5beb96042c2da82ac8be19e391d6153eabd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure-functies)
 
@@ -55,13 +55,13 @@ Hier volgt een voorbeeld van antwoord:
 HTTP/1.1 202 Accepted
 Content-Length: 923
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 
 {
     "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
+    "statusQueryGetUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "sendEventPostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "terminatePostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
 > [!NOTE]
@@ -87,7 +87,7 @@ Alle HTTP APIs geïmplementeerd door de uitbreiding nemen de volgende parameters
 
 | Parameter  | Parametertype  | Beschrijving |
 |------------|-----------------|-------------|
-| instanceId | URL             | De ID van de orchestration-exemplaar. |
+| Exemplaar-id | URL             | De ID van de orchestration-exemplaar. |
 | taskHub    | Querytekenreeks    | De naam van de [taak hub](durable-functions-task-hubs.md). Als niet wordt opgegeven, wordt de taaknaam hub van de huidige functie-app gebruikt. |
 | verbinding | Querytekenreeks    | De **naam** van de verbindingsreeks voor de storage-account. Als niet wordt opgegeven, wordt de standaard-verbindingsreeks voor de functie-app gebruikt. |
 | systemKey  | Querytekenreeks    | De autorisatiesleutel is vereist voor het aanroepen van de API. |
@@ -113,7 +113,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 De functies 2.0-indeling heeft dezelfde parameters, maar heeft een iets andere URL-voorvoegsel:
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Antwoord
@@ -133,7 +133,7 @@ De nettolading van de reactie voor de **HTTP 200** en **HTTP 202** gevallen is e
 | Invoer           | JSON      | De JSON-gegevens die wordt gebruikt voor het initialiseren van het exemplaar. |
 | output          | JSON      | De JSON-uitvoer van het exemplaar. Dit veld is `null` als het exemplaar niet in een voltooide status is. |
 | createdTime     | tekenreeks    | De tijd waarop het exemplaar is gemaakt. Maakt gebruik van ISO 8601-notatie wordt uitgebreid. |
-| lastUpdatedTime | tekenreeks    | De tijd waarop het exemplaar is opgeslagen. Maakt gebruik van ISO 8601-notatie wordt uitgebreid. |
+| LastUpdatedTime | tekenreeks    | De tijd waarop het exemplaar is opgeslagen. Maakt gebruik van ISO 8601-notatie wordt uitgebreid. |
 | historyEvents   | JSON      | Een JSON-matrix met de geschiedenis van de orchestration-uitvoering. Dit veld is `null` tenzij de `showHistory` querytekenreeksparameter is ingesteld op `true`.  | 
 
 Hier volgt een voorbeeld antwoord nettolading met inbegrip van de orchestration uitvoering geschiedenis en activiteit uitvoer (indeling voor de leesbaarheid):
@@ -207,7 +207,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 De functies 2.0-indeling heeft dezelfde parameters, maar heeft een iets andere URL-voorvoegsel:
 
 ```http
-POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
 Aanvragen parameters voor deze API bevatten de standaardset die eerder is vermeld en de volgende unieke parameters:
@@ -253,7 +253,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?r
 De functies 2.0-indeling heeft dezelfde parameters, maar heeft een iets andere URL-voorvoegsel:
 
 ```http
-DELETE /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 Aanvraag parameters voor deze API bevatten de standaardset die eerder is vermeld en de volgende unieke parameter.

@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 1aad242ff1e9161ad5dfbecd01a44d8fb3c93cbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b7529b0942cd86b0d9e657d8d0f61313aa7f0a66
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Zelfstudie: Azure Active Directory-integratie met Clever
 
@@ -101,37 +101,38 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-clever-tutorial/tutorial_clever_samlbase.png)
 
 3. Op de **slimme domein en de URL's** sectie, voert u de volgende stappen uit:
 
     ![Slimme domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-clever-tutorial/tutorial_clever_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://clever.com/in/<companyname>`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://clever.com/in/<companyname>`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://clever.com/<companyname>`
+    b. In de **id** textbox, typ de URL: `https://clever.com/oauth/saml/metadata.xml`
 
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [slimme Client ondersteuningsteam](https://clever.com/about/contact/) ophalen van deze waarden.
+    > [!NOTE]
+    > Eenmalige aanmelding URL-waarde is geen echte. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [slimme Client ondersteuningsteam](https://clever.com/about/contact/) deze waarde op te halen.
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
-
-    ![De downloadkoppeling certificaat](./media/active-directory-saas-clever-tutorial/tutorial_clever_certificate.png)
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
 
 5. De slimme toepassing de SAML-asserties verwacht in een specifieke indeling waarvoor u het toevoegen van aangepast kenmerktoewijzingen aan uw **SAML-Token kenmerken** configuratie.
 
     De volgende Schermafbeelding toont een voorbeeld voor deze.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-clever-tutorial/tutorial_clever_07.png) 
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-clever-tutorial/tutorial_clever_07.png)
 
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding hierboven en voer de volgende stappen uit:
     
-    | Kenmerknaam  | Waarde kenmerk |
-    | --------------- | -------------------- |    
-    | clever.student.credentials.district\_gebruikersnaam  | User.userPrincipalName |
+    | Naam kenmerk  | Waarde kenmerk |
+    | --------------- | -------------------- |
+    | clever.Teacher.credentials.district_username|User.userPrincipalName|
+    | clever.student.credentials.district_username| User.userPrincipalName |
     | Voornaam  | User.givenName |
-    | Achternaam  | User.surname |    
+    | Achternaam  | User.surname |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -145,56 +146,35 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     d. Laat de **Namespace** textbox leeg.
     
-    d. Klik op **OK**.     
-
-5. Klik op **opslaan** knop.
+    d. Klik op **OK**.
+    
+7. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-clever-tutorial/tutorial_general_400.png)
 
-8. Voor het genereren van de **metagegevens** -url, de volgende stappen uitvoeren:
+8. In een ander browservenster, meld u aan bij uw site slimme bedrijf als beheerder.
 
-    a. Klik op **App registraties**.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-clever-tutorial/tutorial_clever_appregistrations.png)
-   
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpointicon.png)
-
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpoint.png)
-     
-    d. Nu gaat u naar de eigenschappenpagina van **Clever** en kopieer de **toepassings-Id** met **kopie** knop en plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-clever-tutorial/tutorial_clever_appid.png)
-
-    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-9. In een ander browservenster, meld u aan bij uw site slimme bedrijf als beheerder.
-
-10. Klik in de werkbalk op **directe aanmelding**.
+9. Klik in de werkbalk op **directe aanmelding**.
 
     ![Directe aanmelding](./media/active-directory-saas-clever-tutorial/ic798984.png "directe aanmelding")
 
-11. Op de **directe aanmelding** pagina, voert u de volgende stappen uit:
-      
+    > [!NOTE]
+    > Voordat u eenmalige aanmelding testen kunt, hebt u contact opnemen met [slimme Client ondersteuningsteam](https://clever.com/about/contact/) Office 365 eenmalige aanmelding inschakelen in de back-end.
+
+10. Op de **directe aanmelding** pagina, voert u de volgende stappen uit:
+    
       ![Directe aanmelding](./media/active-directory-saas-clever-tutorial/ic798985.png "directe aanmelding")
-      
+    
       a. Typ de **aanmeldings-URL**.
-      
+    
       >[!NOTE]
       >De **aanmeldings-URL** is een aangepaste waarde. Neem contact op met [slimme Client ondersteuningsteam](https://clever.com/about/contact/) deze waarde op te halen.
-      
+    
       b. Als **identiteitsbeheersysteem**, selecteer **ADFS**.
 
-      c. Typ de **metagegevens-URL** in de **metagegevens-URL** textbox.
-      
+      c. In de **metagegevens-URL** textbox plakken **App-Url voor federatieve metagegevens** waarde die u hebt gekopieerd uit de Azure portal.
+    
       d. Klik op **Opslaan**.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -227,12 +207,12 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
     c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
- 
+
 ### <a name="create-a-clever-test-user"></a>Een slimme testgebruiker maken
 
 Om Azure AD-gebruikers zich aanmelden bij Clever, moeten ze worden ingericht in Clever.
 
-In geval van een Clever, werken met [slimme Client ondersteuningsteam](https://clever.com/about/contact/) toevoegen van de gebruikers in de slimme platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In geval van een Clever, werken met [slimme Client ondersteuningsteam](https://clever.com/about/contact/) toevoegen van de gebruikers in de slimme platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 >[!NOTE]
 >U kunt een andere gebruiker slimme account hulpmiddelen voor het maken of API's die is geleverd door Clever voor het inrichten van Azure AD-gebruikersaccounts.
@@ -241,17 +221,17 @@ In geval van een Clever, werken met [slimme Client ondersteuningsteam](https://c
 
 In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Clever.
 
-![Toewijzen van de gebruikersrol][200] 
+![Toewijzen van de gebruikersrol][200]
 
 **Britta Simon om aan te wijzen Clever, moet u de volgende stappen uitvoeren:**
 
 1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
-    ![Gebruiker toewijzen][201] 
+    ![Gebruiker toewijzen][201]
 
 2. Selecteer in de lijst met toepassingen **Clever**.
 
-    ![De Clever koppelen in de lijst met toepassingen](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)  
+    ![De Clever koppelen in de lijst met toepassingen](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
@@ -266,15 +246,15 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
-    
+
 ### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Wanneer u klikt op de slimme tegel in het deelvenster toegang u moet ophalen automatisch aangemeld bij uw slimme toepassing.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -9,17 +9,17 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: bsiva
-ms.openlocfilehash: cbb76aafe97e9e9b45c48a2b13bd1a6566b51fa5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 2a0f183770a07cd05963e88c672452cfeb80e567
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Repliceren en de failover van virtuele VMware-machines naar Azure met PowerShell
 
 In dit artikel ziet u hoe u voor replicatie en failover virtuele VMware-machines naar Azure met Azure PowerShell. 
 
-Procedures voor:
+In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > - Maak een Recovery Services-kluis.
@@ -42,10 +42,10 @@ Voordat u begint:
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Aanmelden bij uw Microsoft Azure-abonnement
 
-Aanmelden bij uw Azure-abonnement met de cmdlet Login-AzureRmAccount
+Aanmelden bij uw Azure-abonnement met de cmdlet Connect-AzureRmAccount
 
 ```azurepowershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Selecteer het Azure-abonnement dat u wilt uw virtuele VMware-machines te repliceren. Gebruik de cmdlet Get-AzureRmSubscription voor de lijst met Azure-abonnementen hebt u toegang tot. Selecteer het Azure-abonnement werken met behulp van de Select-AzureRmSubscription-cmdlet.
 

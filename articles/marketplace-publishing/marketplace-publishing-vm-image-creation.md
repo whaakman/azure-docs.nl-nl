@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: cb1d529f8e3eaabb4d49e8bbea03cab8e838cfa2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ea92275b26da4ac72f76b438f632bd1c048beb10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace
 In dit artikel **stap 2**, wordt u begeleid bij het voorbereiden van de virtuele harde schijven (VHD's) dat u naar Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces is afhankelijk van of u een SKU op basis van Linux of op basis van Windows biedt. In dit artikel komen beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [accountaanmaking en registratie][link-acct-creation].
@@ -514,11 +514,11 @@ Nadat u uw aanbieding en SKU hebt gemaakt, moet u de details van de afbeelding d
 
 |Probleem|Foutbericht|Oplossen|Koppeling van documentatie|
 |---|---|---|---|
-|Fout bij het kopiëren van afbeeldingen - '? ' is niet gevonden in het SAS-url|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|Update de SAS-Url met behulp van aanbevolen hulpprogramma 's|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen - parameters voor 'st' en 'se' niet in het SAS-url|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|De SAS-Url met de begin- en einddatums erop bijwerken|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen - 'sp = rl' niet in het SAS-url|Fout: Afbeeldingen kopiëren. Kan niet worden gedownload van de blob met behulp van SAS-Uri|Bijwerken van de SAS-Url met machtigingen zijn ingesteld als 'Lezen' en 'lijst|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen - SAS-url spaties hebben in de naam van de vhd|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|De SAS-Url zonder spaties bijwerken|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen – SAS-Url-autorisatie-fout|Fout: Afbeeldingen kopiëren. Er kan geen blob vanwege Autorisatiefout downloaden|Opnieuw genereren van SAS-Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen - '? ' is niet gevonden in het SAS-url|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|Update de SAS-Url met behulp van aanbevolen hulpprogramma 's|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen - parameters voor 'st' en 'se' niet in het SAS-url|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|De SAS-Url met de begin- en einddatums erop bijwerken|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen - 'sp = rl' niet in het SAS-url|Fout: Afbeeldingen kopiëren. Kan niet worden gedownload van de blob met behulp van SAS-Uri|Bijwerken van de SAS-Url met machtigingen zijn ingesteld als 'Lezen' en 'lijst|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen - SAS-url spaties hebben in de naam van de vhd|Fout: Afbeeldingen kopiëren. Kan geen downloaden blob met behulp van SAS-Uri.|De SAS-Url zonder spaties bijwerken|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen – SAS-Url-autorisatie-fout|Fout: Afbeeldingen kopiëren. Er kan geen blob vanwege Autorisatiefout downloaden|Opnieuw genereren van SAS-Url|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Fout bij het kopiëren van afbeeldingen – SAS-Url 'st' en 'se'-parameters hebben geen specificatie van datum / tijd|Fout: Afbeeldingen kopiëren. Kan niet worden gedownload van blob vanwege onjuiste SAS-Url |SAS-Url Start- en einddatum parameters ('st', 'se') hoeven te hebben van datum / tijd-specificatie, zoals 11-02-2017T00:00:00Z, en niet alleen de datum of verkort versies voor de tijd. Het is mogelijk dit scenario met Azure CLI 2.0 (az opdracht) optreden. Zorg ervoor dat de datum / tijd-specificatie en opnieuw genereren van SAS-Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Volgende stap

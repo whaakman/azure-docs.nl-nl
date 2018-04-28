@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: 79e807a1ee52c4b6b18671e25785ed14bd79624a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a8f272403a0c6903521acc7cc45935c4e5bc419c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK v1.x: Stel omhoog analytics-taken en uitvoeren met de Azure Stream Analytics-API voor .NET
 Informatie over het instellen en uitvoeren met behulp van de Stream Analytics-API voor .NET met de Management .NET SDK analytics-taken. Instellen van een project, invoer en uitvoer bronnen, transformaties en start maken en taken stoppen. U kunt gegevens uit Blob-opslag of van een event hub streamen voor uw analytics-taken.
@@ -45,7 +45,7 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* Instellen van een invoer bron- en uitvoer te gebruiken. Voor verdere instructies raadpleegt u [invoer toevoegen](stream-analytics-add-inputs.md) voor het instellen van een Voorbeeldinvoer en [uitvoer toevoegen](stream-analytics-add-outputs.md) voor het instellen van een voorbeeld van uitvoer.
+* Een invoerbron en uitvoerdoel voor de taak verbinding maken met instellen.
 
 ## <a name="set-up-a-project"></a>Instellen van een project
 U maakt met een analytics-taak de Stream Analytics-API voor .NET, Stel eerst uw project.

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: edd13e9372643769060f43e952737154d812292d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e55438c629b861e8dc095892c6c519855cd5e632
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="alias-server-names"></a>Servernamen alias
 
@@ -25,7 +25,7 @@ Alias servernamen zijn geschikt voor:
 - Gebruikers direct naar andere servers op verschillende tijdstippen van de dag. 
 - Directe gebruikers in verschillende regio's met exemplaren die geografisch dichter bij, zoals het bij het gebruik van Azure Traffic Manager. 
 
-Een HTTP-eindpunt dat een geldige naam voor de Azure Analysis Services-server retourneert kan fungeren als een alias.
+Een HTTPS-eindpunt dat een geldige naam voor de Azure Analysis Services-server retourneert kan fungeren als een alias. Het eindpunt moet ondersteunen van HTTPS via poort 443 en de poort niet in de URI moet worden opgegeven.
 
 ![Indeling voor de koppeling met alias](media/analysis-services-alias/aas-alias-browser.png)
 

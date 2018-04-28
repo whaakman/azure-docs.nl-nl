@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 829cedea9752fe41ad24427339d3f13c2f3e371a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database-servers en databases maken en beheren
 
@@ -52,7 +52,7 @@ Een logische server met Azure Database:
 - Biedt een verbindingseindpunt voor databasetoegang (<serverName>.database.windows.net)
 - Biedt toegang tot metagegevens van ingesloten resources via DMV's door verbinding te maken met een hoofddatabase 
 - Voorziet in het bereik voor management-beleidsregels die van toepassing op de databases - aanmeldingen, firewall-, controleren, dreiging detectie, enz. 
-- Wordt beperkt door een quotum binnen het bovenliggende abonnement (zes servers per abonnement standaard - [Zie abonnement hier beperkt](../azure-subscription-service-limits.md))
+- Wordt beperkt door een quotum binnen het bovenliggende abonnement (twintig servers per abonnement standaard - [Zie abonnement hier beperkt](../azure-subscription-service-limits.md))
 - Voorziet in het bereik voor de databasequotum en DTU of vCore quotum voor de resources die deze (zoals 45.000 DTU bevat)
 - Het bereik versiebeheer voor mogelijkheden ingeschakeld op ingesloten bronnen 
 - Hoofdaanmeldingen op serverniveau kunnen alle databases op een server beheren
@@ -65,11 +65,11 @@ Om uw gegevens te beveiligen een [SQL Database-firewall](sql-database-firewall-c
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Azure SQL-servers, databases, en firewalls beheren met behulp van de Azure-portal
 
-U kunt de Azure SQL database resourcegroep tevoren of tijdens het maken van de server zelf maken. Er zijn meerdere methoden voor het ophalen van een formulier nieuwe SQL server door het maken van een nieuwe SQL-server of als onderdeel van het maken van een nieuwe database. 
+U kunt de Azure SQL database resourcegroep tevoren of tijdens het maken van de server zelf maken. 
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Maak een lege SQL-server (logische server)
 
-Maken van een Azure SQL Database-server (zonder een database) met de [Azure-portal](https://portal.azure.com), gaat u naar een leeg formulier voor SQL server (logische server).  
+Maken van een Azure SQL Database-server (zonder een database) met de [Azure-portal](https://portal.azure.com), gaat u naar een leeg formulier voor SQL server (logische).  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Maak een lege of voorbeeld SQL-database
 
@@ -95,7 +95,7 @@ Voor het beheren van een bestaande database, gaat u naar de **SQL-databases** pa
 >
 
 > [!TIP]
-> Zie voor een Azure portal Quick Start-zelfstudie [maken van een Azure SQL database in de Azure portal](sql-database-get-started-portal.md).
+> Zie voor een Azure portal Quick Start, [maken van een Azure SQL database in de Azure portal](sql-database-get-started-portal.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Azure SQL-servers, databases, en firewalls beheren met behulp van PowerShell
@@ -120,7 +120,7 @@ Gebruik de volgende PowerShell-cmdlets voor het maken en beheren van Azure SQL-s
 | New-AzureRmSqlServerVirtualNetworkRule | Maakt een [ *virtueel netwerk regel*](sql-database-vnet-service-endpoint-rule-overview.md), op basis van een subnet plaatsen dat is een service-eindpunt van het virtuele netwerk. |
 
 > [!TIP]
-> Zie voor een PowerShell Quick Start-zelfstudie [maken van één Azure SQL database met behulp van PowerShell](sql-database-get-started-portal.md). Zie voor PowerShell-voorbeeldscripts, [Gebruik PowerShell één Azure SQL database maken en configureren van een firewallregel](scripts/sql-database-create-and-configure-database-powershell.md) en [bewaken en schalen van een enkele SQL-database met behulp van PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Zie voor een PowerShell-Quick Start [maken van één Azure SQL database met behulp van PowerShell](sql-database-get-started-portal.md). Zie voor PowerShell-voorbeeldscripts, [Gebruik PowerShell één Azure SQL database maken en configureren van een firewallregel](scripts/sql-database-create-and-configure-database-powershell.md) en [bewaken en schalen van een enkele SQL-database met behulp van PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Azure SQL-servers, databases, en firewalls beheren met de Azure CLI
@@ -150,7 +150,7 @@ Maken en beheren van Azure SQL-server, databases en firewalls met de [Azure CLI]
 |[AZ sql server-firewallregel verwijderen](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Hiermee verwijdert u een firewallregel|
 
 > [!TIP]
-> Zie voor een Azure CLI Quick Start-zelfstudie [maken van één Azure SQL database met de Azure CLI](sql-database-get-started-cli.md). Zie voor Azure CLI-voorbeeldscripts, [CLI gebruik één Azure SQL database maken en configureren van een firewallregel](scripts/sql-database-create-and-configure-database-cli.md) en [gebruik CLI bewaken en schalen van een enkele SQL-database](scripts/sql-database-monitor-and-scale-database-cli.md).
+> Zie voor een Azure CLI-Quick Start [maken van één Azure SQL database met de Azure CLI](sql-database-get-started-cli.md). Zie voor Azure CLI-voorbeeldscripts, [CLI gebruik één Azure SQL database maken en configureren van een firewallregel](scripts/sql-database-create-and-configure-database-cli.md) en [gebruik CLI bewaken en schalen van een enkele SQL-database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Azure SQL-servers, databases, en firewalls beheren met behulp van Transact-SQL
@@ -181,7 +181,7 @@ Gebruik de volgende T-SQL-opdrachten voor het maken en beheren van Azure SQL-ser
 
 
 > [!TIP]
-> Zelfstudie snel aan de slag met SQL Server Management Studio op Microsoft Windows Zie [Azure SQL Database: SQL Server Management Studio gebruiken om verbinding te en een query over gegevens](sql-database-connect-query-ssms.md). Zie voor een zelfstudie voor snel aan de slag met Visual Studio Code op de Mac OS-, Linux- of Windows, [Azure SQL Database: Gebruik Visual Studio Code verbinding maakt en gegevens opvragen](sql-database-connect-query-vscode.md).
+> Zie voor snel aan de slag met SQL Server Management Studio op Microsoft Windows, [Azure SQL Database: SQL Server Management Studio gebruiken om verbinding te en een query over gegevens](sql-database-connect-query-ssms.md). Zie voor een snel aan de slag met Visual Studio Code op de Mac OS-, Linux- of Windows, [Azure SQL Database: Gebruik Visual Studio Code verbinding maakt en gegevens opvragen](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Azure SQL-servers, databases, en firewalls beheren met behulp van de REST-API
 

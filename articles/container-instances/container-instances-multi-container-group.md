@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: 4159aa9d7f19d700ea8dfd9fc15f5f0baa95be62
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-a-container-group"></a>Een containergroep implementeren
 
@@ -108,7 +108,7 @@ In dit voorbeeld wordt een containergroep met twee containers is een openbaar IP
 }
 ```
 
-Voor het gebruik van een installatiekopie van privé-container register, moet u een object toevoegen aan het JSON-document met de volgende indeling.
+Voor het gebruik van een installatiekopie van privé-container register, moet u een object toevoegen aan het JSON-document met de volgende indeling. Zie voor een voorbeeld van de implementatie van deze configuratie de [ACI Resource Manager sjabloonverwijzing] [ template-reference] documentatie.
 
 ```json
 "imageRegistryCredentials": [
@@ -134,7 +134,7 @@ Implementeren van de sjabloon met de [az implementatie maken] [ az-group-deploym
 az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
 ```
 
-Binnen enkele seconden, moet u een eerste reactie ontvangen van Azure.
+U ontvangt binnen enkele seconden een eerste reactie van Azure.
 
 ## <a name="view-deployment-state"></a>Implementatiestatus weergeven
 
@@ -210,3 +210,4 @@ In dit artikel betrekking op de stappen die nodig zijn voor het implementeren va
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
+[template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups

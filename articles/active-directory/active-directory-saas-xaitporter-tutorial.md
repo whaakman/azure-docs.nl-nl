@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 2012d990f7cdcb8c12da5f16db518b261b06a5b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5e18850d902e5a11da904af719e598c4e247ce0d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Zelfstudie: Azure Active Directory-integratie met XaitPorter
 
@@ -108,38 +108,22 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en XaitPorter domein eenmalige aanmelding informatie](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.xaitporter.com/saml/login`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.xaitporter.com/saml/login`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.xaitporter.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.xaitporter.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [XaitPorter Client ondersteuningsteam](https://www.xait.com/support/) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [XaitPorter Client ondersteuningsteam](https://www.xait.com/support/) ophalen van deze waarden.
+     
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok. 
 
-4. Klik op **opslaan** knop.
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_certificate.png) 
+
+5. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-xaitporter-tutorial/tutorial_general_400.png)
 
-5. Voor het genereren van de **metagegevens** -url, de volgende stappen uitvoeren:
-
-    a. Klik op **App registraties**.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appregistrations.png)
-   
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpointicon.png)
-
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpoint.png)
-     
-    d. Nu gaat u naar de eigenschappenpagina van **XaitPorter** en kopieer de **toepassings-Id** met **kopie** knop en plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appid.png)
-
-    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Geef de **IP-adres** of de **metagegevens-URL** naar de [SmartRecruiters ondersteuningsteam](https://www.smartrecruiters.com/about-us/contact-us/), zodat XaitPorter zorgen kunt dat IP-adres bereikbaar is vanaf uw XaitPorter exemplaar van goedgekeurde IP-adressen configureren op hun kant. 
+6. Bieden de **IP-adres** of de **Url voor federatieve metagegevens App** aan de [SmartRecruiters-ondersteuningsteam](https://www.smartrecruiters.com/about-us/contact-us/), zodat XaitPorter ervoor zorgen kunnen dat IP-adres van uw XaitPorter exemplaar configureren "witte" lijst aan de zijkant. 
 
 7. In een ander browservenster, meld u aan bij uw bedrijf XaitPorter site als beheerder.
 
@@ -157,15 +141,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     a. Selecteer **Single Sign-On-verificatie inschakelen**.
 
-    b. In **identiteit Providerinstellingen** textbox plakken **metagegevens-URL** die u hebt gekopieerd in Azure en klik op **ophalen**.
+    b. In **Identity Providerinstellingen** textbox plakken **Url voor federatieve metagegevens App** die u hebt gekopieerd van de Azure portal en klik op **ophalen van**.
 
     c. Selecteer **Autocreation gebruikers inschakelen**.
 
     d. Klik op **OK**.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -240,7 +220,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel XaitPorter in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing XaitPorter.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

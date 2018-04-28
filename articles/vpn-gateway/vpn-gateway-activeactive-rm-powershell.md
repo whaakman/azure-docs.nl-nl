@@ -5,7 +5,7 @@ services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: yushwang
-ms.openlocfilehash: 41cca764335f21bed60fe968288bc8b8274f3215
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c09abe97d34b7220d76481a403165f1b7e07fcaa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Actieve S2S VPN-verbindingen met Azure VPN-Gateways configureren
 
@@ -94,7 +94,7 @@ Zorg ervoor dat u overschakelt naar de PowerShell-modus als u de Resource Manage
 Open de PowerShell-console en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -229,7 +229,7 @@ Het volgende voorbeeld bevat de parameters die u in de configuratiesectie BGP op
 
 De verbinding moet worden gemaakt na een paar minuten en de BGP-peeringsessie wordt gestart nadat de IPsec-verbinding tot stand is gebracht. In dit voorbeeld is tot nu toe geconfigureerd dat slechts één on-premises VPN-apparaat, wat resulteert in het diagram hieronder weergegeven:
 
-![active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
+![Active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
 ### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>Stap 3: verbinding maken met twee on-premises VPN-apparaten aan de actieve VPN-gateway
 Als u twee VPN-apparaten op de dezelfde on-premises netwerk hebt, kunt u dubbele redundantie kunt bereiken door de Azure VPN-gateway naar het tweede apparaat met een VPN-verbinding te maken.
@@ -276,7 +276,7 @@ Op deze manier hieronder een lijst met de parameters voert u in het tweede VPN-a
 
 Wanneer de verbinding (tunnels) worden gemaakt, hebt u twee redundante VPN-apparaten en tunnels verbinding maken met uw on-premises netwerk en Azure:
 
-![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
+![Dual-redundantie-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
 ## <a name ="aav2v"></a>Deel 3: een actieve VNet-naar-VNet-verbinding tot stand brengen
 Deze sectie maakt een actief / actief-VNet-naar-VNet-verbinding met BGP. 
@@ -416,7 +416,7 @@ In deze stap maakt u actieve-actieve modus inschakelen en bijwerken van de gatew
 
 * U kunt een verouderde SKU niet wijzigen in een van de nieuwe SKU's met behulp van deze stap. U kunt alleen een verouderde SKU op een andere ondersteunde verouderde SKU grootte. Bijvoorbeeld, kan u wijzigen de SKU van standaard VpnGw1 (Hoewel VpnGw1 wordt ondersteund voor actieve) omdat standaard een verouderde SKU is en VpnGw1 een huidige SKU. Zie voor meer informatie over het wijzigen van de grootte en migreren SKU's [Gateway-SKU's](vpn-gateway-about-vpngateways.md#gwsku).
 
-* Als u het formaat van een huidige SKU, bijvoorbeeld VpnGw1 naar VpnGw3, wilt kunt u doen met behulp van deze stap, omdat de SKU's zich in dezelfde SKU-serie. Om dit te doen, gebruikt u de waarde:```-GatewaySku VpnGw3```
+* Als u het formaat van een huidige SKU, bijvoorbeeld VpnGw1 naar VpnGw3, wilt kunt u doen met behulp van deze stap, omdat de SKU's zich in dezelfde SKU-serie. Om dit te doen, gebruikt u de waarde: ```-GatewaySku VpnGw3```
 
 Wanneer u dit in uw omgeving, als u niet hoeft te vergroten of verkleinen van de gateway, hoeft u niet de GatewaySku - opgeven. U ziet in deze stap moet u het gateway-object instellen in PowerShell voor het activeren van de feitelijke update. Deze update kan 30 tot 45 minuten duren, zelfs als u niet vergroten of uw gateway verkleinen bent.
 

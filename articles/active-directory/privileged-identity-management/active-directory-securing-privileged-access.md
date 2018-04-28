@@ -1,8 +1,8 @@
 ---
 title: Bevoegde toegang beveiligen in Azure AD | Microsoft Docs
-description: "Een onderwerp met uitleg over de strategieën voor het beveiligen van bevoegde toegang in Azure, Azure Active Directory en Microsoft Online Services."
+description: Een onderwerp met uitleg over de strategieën voor het beveiligen van bevoegde toegang in Azure, Azure Active Directory en Microsoft Online Services.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f49d5a629b9643df81253c57ee8e3458b43b0c59
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Bevoegde toegang beveiligen in Azure AD
 Bevoegde toegang beveiligen is een belangrijke eerste stap ter bescherming van zakelijke activa in een moderne organisatie. Bevoegde accounts zijn accounts dat beheren en het beheer van IT-systemen. Cyberbeveiliging aanvallers gericht zijn op deze accounts toegang krijgen tot gegevens en systemen van een organisatie. Als u wilt beveiligen bevoorrechte toegang, moet u de accounts en systemen van het risico worden blootgesteld aan een kwaadwillende gebruiker isoleren.
@@ -63,7 +63,7 @@ Om te verlagen van de blootstellingstijd van bevoegdheden en vergroot de zichtba
 Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory de specifieke voorwaarden die u bij het verifiëren van een gebruiker, alvorens deze toegang tot een toepassing kiezen. Als deze voorwaarden is voldaan, wordt de gebruiker geverifieerd en toegang te krijgen tot de toepassing.
 
 ## <a name="related-articles"></a>Verwante artikelen:
-* Schakel [Azure multi-factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
+* Schakel [Azure multi-factor Authentication](../authentication/howto-mfa-getstarted.md)
 * Schakel [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Schakel [Azure AD Identity Protection](../active-directory-identityprotection.md)
 * Schakel [voorwaardelijk toegangsbeheer](../active-directory-conditional-access-azure-portal.md)

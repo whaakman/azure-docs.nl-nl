@@ -2,10 +2,10 @@
 title: Een virtueel netwerk configureren voor een Premium Azure Redis-Cache | Microsoft Docs
 description: Meer informatie over het maken en beheren van Virtual Network-ondersteuning voor uw Azure Redis-Cache-exemplaren van Premium-laag
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 250c66c3a39519a6eddc1ecb51259ec1944c88a9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Ondersteuning voor virtuele netwerken configureren voor een Premium Azure Redis-Cache
 Azure Redis-Cache heeft verschillende cache aanbiedingen die flexibiliteit bij de keuze van cachegrootte en -functies bieden, zoals de Premium-laag functies zoals clustering, persistentie en virtual network-ondersteuning. Een VNet is een particulier netwerk in de cloud. Wanneer een Azure Redis-Cache-exemplaar is geconfigureerd met een VNet, is niet openbaar toegankelijk en kan alleen worden benaderd vanuit virtuele machines en toepassingen binnen het VNet. In dit artikel wordt beschreven hoe het configureren van virtual network-ondersteuning voor een premium Azure Redis-Cache-exemplaar.
@@ -84,12 +84,13 @@ De volgende lijst bevat antwoorden op veelgestelde vragen over het schalen van A
 
 * [Wat zijn enkele veelvoorkomende configuratiefouten bij Azure Redis-Cache en VNets?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 * [Hoe kan ik mijn cache werkt in een VNET controleren?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
+* [Wanneer u probeert verbinding maken met mijn Redis-cache in een VNET, waarom krijg ik een foutmelding weergegeven dat het externe certificaat is ongeldig?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [Kan ik VNets met een standaard of basic-cache gebruiken?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * [Waarom een Redis-cache niet in sommige subnetten maar geen andere?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
 * [Wat zijn de subnet-adresvereisten?](#what-are-the-subnet-address-space-requirements)
 * [Werk alle functies van de cache bij het hosten van een cache in een VNET?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
-## <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Wat zijn enkele veelvoorkomende configuratiefouten bij Azure Redis-Cache en VNets?
+### <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Wat zijn enkele veelvoorkomende configuratiefouten bij Azure Redis-Cache en VNets?
 Wanneer Azure Redis-Cache wordt gehost in een VNet, worden de poorten in de volgende tabellen worden gebruikt. 
 
 >[!IMPORTANT]
@@ -100,7 +101,7 @@ Wanneer Azure Redis-Cache wordt gehost in een VNet, worden de poorten in de volg
 - [Vereisten voor de uitgaande poort](#outbound-port-requirements)
 - [Vereisten voor de binnenkomende poort](#inbound-port-requirements)
 
-### <a name="outbound-port-requirements"></a>Vereisten voor de uitgaande poort
+#### <a name="outbound-port-requirements"></a>Vereisten voor de uitgaande poort
 
 Er zijn zeven vereisten van de uitgaande poort.
 
@@ -120,7 +121,7 @@ Er zijn zeven vereisten van de uitgaande poort.
 | 6379-6380 |Uitgaand |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
 
 
-### <a name="inbound-port-requirements"></a>Vereisten voor de binnenkomende poort
+#### <a name="inbound-port-requirements"></a>Vereisten voor de binnenkomende poort
 
 Er zijn acht vereisten voor het bereik van binnenkomende poort. Inkomende aanvragen in deze bereiken zijn inkomende verkeer van andere services die worden gehost in hetzelfde VNET of interne tot de Redis-subnet-communicatie.
 
@@ -135,7 +136,7 @@ Er zijn acht vereisten voor het bereik van binnenkomende poort. Inkomende aanvra
 | 16001 |Inkomend |TCP/UDP |Azure load balancing | (Redis subnet) |Azure Load Balancer |
 | 20226 |Inkomend |TCP |Interne communicatie voor Redis | (Redis subnet) |(Redis subnet) |
 
-### <a name="additional-vnet-network-connectivity-requirements"></a>Aanvullende VNET-connectiviteit netwerkvereisten
+#### <a name="additional-vnet-network-connectivity-requirements"></a>Aanvullende VNET-connectiviteit netwerkvereisten
 
 Er zijn verbindingsproblemen netwerkvereisten voor Azure Redis-Cache kan niet in eerste instantie in een virtueel netwerk worden voldaan. Azure Redis-Cache is vereist voor de volgende items goed te laten functioneren wanneer binnen een virtueel netwerk wordt gebruikt.
 
@@ -164,6 +165,24 @@ Nadat de Poortvereisten zijn geconfigureerd zoals beschreven in de vorige sectie
   - Testen op een andere manier is het maken van een test-cacheclient (die mogelijk een eenvoudige consoletoepassing met StackExchange.Redis) die verbinding maakt met de cache en wordt toegevoegd en sommige items opgehaald uit de cache. Installeer de voorbeeld-clienttoepassing op een virtuele machine die zich in hetzelfde VNET als de cache en uitvoeren om te controleren of de verbinding met de cache.
 
 
+### <a name="when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid"></a>Wanneer u probeert verbinding maken met mijn Redis-cache in een VNET, waarom krijg ik een foutmelding weergegeven dat het externe certificaat is ongeldig?
+
+Wanneer u probeert verbinding maken met een Redis-cache in een VNET, ziet u een certificaat validatiefout zoals deze:
+
+`{"No connection is available to service this operation: SET mykey; The remote certificate is invalid according to the validation procedure.; …"}`
+
+De oorzaak kan zijn dat u verbinding maakt met de host door het IP-adres. U kunt het beste de hostnaam gebruikt. Met andere woorden, gebruikt u het volgende:     
+
+`[mycachename].redis.windows.net:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+
+Vermijd het gebruik van het IP-adres die vergelijkbaar is met de volgende verbindingsreeks:
+
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+
+Als u niet omzetten van de DNS-naam, sommige clientbibliotheken omvatten configuratieopties, zoals `sslHost` dat wordt geleverd door de client StackExchange.Redis. Hiermee kunt u voor het onderdrukken van de hostnaam gebruikt om certificaten te valideren. Bijvoorbeeld:
+
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
+
 ### <a name="can-i-use-vnets-with-a-standard-or-basic-cache"></a>Kan ik VNets met een standaard of basic-cache gebruiken?
 VNets kan alleen worden gebruikt met premium-caches.
 
@@ -182,7 +201,9 @@ Wanneer uw cache deel van een VNET uitmaakt, alleen de clients in het VNET, hebb
 
 * Console redis - omdat Redis-Console wordt uitgevoerd in uw lokale browser, die zich buiten het VNET, er kan geen verbinding met uw cache.
 
+
 ## <a name="use-expressroute-with-azure-redis-cache"></a>ExpressRoute gebruiken met Azure Redis-Cache
+
 Klanten kunnen verbinding maken met een [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit met hun virtuele netwerkinfrastructuur, waardoor hun on-premises netwerk uitbreiden naar Azure. 
 
 Standaard een nieuwe ExpressRoute-circuit voert geen geforceerde tunneling (aankondiging van een standaardroute 0.0.0.0/0) op een VNET. Als gevolg hiervan uitgaande internetverbinding is toegestaan rechtstreeks vanuit het VNET en clienttoepassingen kunnen geen verbinding maken met andere Azure-eindpunten met inbegrip van Azure Redis-Cache.

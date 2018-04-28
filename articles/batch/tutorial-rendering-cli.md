@@ -1,6 +1,6 @@
 ---
-title: "Een scène renderen in de cloud - Azure Batch"
-description: "Zelfstudie: Een Autodesk 3ds Max-scène renderen met Arnold met behulp van de Batch-renderingservice en de Azure-opdrachtregelinterface"
+title: Een scène renderen in de cloud - Azure Batch
+description: 'Zelfstudie: Een Autodesk 3ds Max-scène renderen met Arnold met behulp van de Batch-renderingservice en de Azure-opdrachtregelinterface'
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 02/05/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0531406ce50cf8cb549965d1f30b327afe52b003
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f8a93e873f79e99777fe2d8675c9426f5fc5ecda
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Zelfstudie: Een scène renderen met Azure Batch 
 
-Azure Batch biedt mogelijkheden voor rendering in de cloud waarbij u betaalt op basis van gebruik. De Batch-renderingservice ondersteunt Autodesk Maya, 3ds Max, Arnold en V-Ray. In deze zelfstudie wordt stapsgewijs uitgelegd hoe u een kleine scène rendert met Batch met behulp van de Azure-opdrachtregelinterface. Procedures voor:
+Azure Batch biedt mogelijkheden voor rendering in de cloud waarbij u betaalt op basis van gebruik. De Batch-renderingservice ondersteunt Autodesk Maya, 3ds Max, Arnold en V-Ray. In deze zelfstudie wordt stapsgewijs uitgelegd hoe u een kleine scène rendert met Batch met behulp van de Azure-opdrachtregelinterface. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een scène uploaden naar Azure Storage
@@ -50,7 +50,7 @@ az group create \
     --location eastus2
 ```
 
-Maak een algemeen opslagaccount in de resourcegroep met behulp van de opdracht [az storage account create](/cli/azure/storage/account#az_storage_account_create). Voor deze zelfstudie gebruikt u het opslagaccount om een 3ds Max-bronscène en de gerenderde uitvoer op te slaan.
+Maak een Azure-opslagaccount in de resourcegroep met behulp van de opdracht [az storage account create](/cli/azure/storage/account#az_storage_account_create). Voor deze zelfstudie gebruikt u het opslagaccount om een 3ds Max-bronscène en de gerenderde uitvoer op te slaan.
 
 ```azurecli-interactive
 az storage account create \

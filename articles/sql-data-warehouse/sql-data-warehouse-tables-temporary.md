@@ -1,41 +1,26 @@
 ---
 title: Tijdelijke tabellen in SQL Data Warehouse | Microsoft Docs
-description: Aan de slag met tijdelijke tabellen in Azure SQL Data Warehouse.
+description: Essentiële instructies voor het gebruik van tijdelijke tabellen en licht de beginselen van sessie niveau tijdelijke tabellen.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: a3e06a4074bc7b5cd8612162a624718107a50656
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tijdelijke tabellen in SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Overzicht][Overview]
-> * [Gegevenstypen][Data Types]
-> * [Distribueren][Distribute]
-> * [Index][Index]
-> * [Partitie][Partition]
-> * [Statistieken][Statistics]
-> * [Tijdelijke][Temporary]
-> 
-> 
-
-Tijdelijke tabellen zijn nuttig bij het verwerken van gegevens - met name tijdens transformatie waar de tussenliggende resultaten tijdelijke zijn. In SQL Data Warehouse bestaan tijdelijke tabellen op het niveau van de sessie.  Ze zijn alleen zichtbaar voor de sessie waarin ze zijn gemaakt en worden automatisch verwijderd wanneer die sessie zich afmeldt.  Tijdelijke tabellen bieden een voordeel van de prestaties omdat de resultaten worden geschreven naar lokale in plaats van de externe opslag.  Tijdelijke tabellen zijn enigszins afwijken in Azure SQL Data Warehouse Azure SQL Database, omdat ze toegankelijk zijn vanuit een willekeurige plaats in de sessie, inclusief zowel binnen als buiten een opgeslagen procedure.
-
 In dit artikel bevat essentiële instructies voor het gebruik van tijdelijke tabellen en markeert de beginselen van sessie niveau tijdelijke tabellen. Gebruik de informatie in dit artikel kunt u modularize uw code, zowel hergebruik en het gemak van onderhoud van uw code te verbeteren.
+
+## <a name="what-are-temporary-tables"></a>Wat zijn tijdelijke tabellen?
+Tijdelijke tabellen zijn nuttig bij het verwerken van gegevens - met name tijdens transformatie waar de tussenliggende resultaten tijdelijke zijn. In SQL Data Warehouse bestaan tijdelijke tabellen op het niveau van de sessie.  Ze zijn alleen zichtbaar voor de sessie waarin ze zijn gemaakt en worden automatisch verwijderd wanneer die sessie zich afmeldt.  Tijdelijke tabellen bieden een voordeel van de prestaties omdat de resultaten worden geschreven naar lokale in plaats van de externe opslag.  Tijdelijke tabellen zijn enigszins afwijken in Azure SQL Data Warehouse Azure SQL Database, omdat ze toegankelijk zijn vanuit een willekeurige plaats in de sessie, inclusief zowel binnen als buiten een opgeslagen procedure.
 
 ## <a name="create-a-temporary-table"></a>Maak een tijdelijke tabel
 Tijdelijke tabellen zijn gemaakt door het voorvoegsel van de tabelnaam van uw met een `#`.  Bijvoorbeeld:
@@ -112,7 +97,7 @@ FROM    t1
 ``` 
 
 > [!NOTE]
-> `CTAS`is een krachtige opdracht en de bijkomend voordeel is efficiënte tijdens het gebruik van ruimte voor transactielogboeken. 
+> `CTAS` is een krachtige opdracht en de bijkomend voordeel is efficiënte tijdens het gebruik van ruimte voor transactielogboeken. 
 > 
 > 
 
@@ -232,20 +217,5 @@ DROP TABLE #stats_ddl;
 SQL Data Warehouse een aantal beperkingen opleggen bij het implementeren van tijdelijke tabellen.  Op dit moment alleen tijdens de sessie bereik tijdelijke tabellen worden ondersteund.  Globale tijdelijke tabellen worden niet ondersteund.  Bovendien kunnen niet weergaven worden gemaakt op tijdelijke tabellen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie de artikelen op [tabel overzicht][Overview], [tabel gegevenstypen][Data Types], [distribueren van een tabel][Distribute], [indexeren van een tabel][Index], [partitioneren van een tabel] [ Partition] en [tabelstatistieken onderhouden][Statistics].  Zie voor meer informatie over best practices [aanbevolen procedures van SQL Data Warehouse][SQL Data Warehouse Best Practices].
+Zie voor meer informatie over het ontwikkelen van tabellen, de [tabel overzicht](sql-data-warehouse-tables-overview.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

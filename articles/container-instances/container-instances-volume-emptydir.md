@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 01b44f357d160a48852ee843cd8bebd138e95dfc
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: MT
+ms.openlocfilehash: 71725257697456b27f2cf79200789517005c4319
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Een volume emptyDir in Azure Containerexemplaren koppelen
 
@@ -41,6 +41,7 @@ Eerst vullen de `volumes` matrix in de containergroep `properties` gedeelte van 
 
 De volgende Resource Manager-sjabloon maakt u bijvoorbeeld een containergroep die bestaat uit twee containers elk welke koppelingen het *emptyDir* volume:
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
 [!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
 
 Zie voor een voorbeeld van de implementatie van de container-exemplaar met een Azure Resource Manager-sjabloon [implementeren meerdere container groepen in Azure Containerexemplaren](container-instances-multi-container-group.md).

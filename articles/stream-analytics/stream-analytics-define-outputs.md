@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 8d984c17ab373428b13ed59a598ca8ae4e88136a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 04/16/2018
+ms.openlocfilehash: 30fa7e081c24339b7fa9f572d9feb25a0f920a86
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Stream Analytics-uitvoer: opties voor opslag en analyse
 Houd rekening met hoe de geretourneerde gegevens wordt gebruikt bij het ontwerpen van een Stream Analytics-taak. Hoe kunt u de resultaten van de Stream Analytics-taak weergeven en waarin kunt u deze opslaan?
@@ -290,6 +290,8 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het 
 | Scheidingsteken |Alleen van toepassing voor CSV-serialisatie. Stream Analytics ondersteunt een aantal algemene scheidingstekens om gegevens te serialiseren in csv-indeling. Ondersteunde waarden zijn komma, puntkomma, schijfruimte, tabblad en de verticale balk. |
 | Indeling |Alleen van toepassing op JSON-type. Lijn gescheiden geeft aan dat de uitvoer wordt opgemaakt door elk JSON-object dat is gescheiden door een nieuwe regel. Matrix geeft aan dat de uitvoer wordt ingedeeld als een matrix met JSON-objecten. |
 
+Het aantal partities is [op basis van de Service Bus-SKU en grootte](../service-bus-messaging/service-bus-partitioning.md). De partitiesleutel is een unieke integer-waarde voor elke partitie.
+
 ## <a name="service-bus-topics"></a>Service Bus-onderwerpen
 Terwijl Service Bus-wachtrijen een communicatiemethode één van afzender naar ontvanger bieden [Service Bus-onderwerpen](https://msdn.microsoft.com/library/azure/hh367516.aspx) een een-op-veel-vorm van communicatie bieden.
 
@@ -305,6 +307,8 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het 
 | Gebeurtenis serialisatie-indeling |Serialisatie-indeling voor uitvoergegevens.  JSON, CSV en Avro worden ondersteund. |
  | Encoding |Als CSV- of JSON-indeling wordt gebruikt, moet een codering worden opgegeven. UTF-8 is de enige ondersteunde coderingsindeling op dit moment |
 | Scheidingsteken |Alleen van toepassing voor CSV-serialisatie. Stream Analytics ondersteunt een aantal algemene scheidingstekens om gegevens te serialiseren in csv-indeling. Ondersteunde waarden zijn komma, puntkomma, schijfruimte, tabblad en de verticale balk. |
+
+Het aantal partities is [op basis van de Service Bus-SKU en grootte](../service-bus-messaging/service-bus-partitioning.md). De partitiesleutel is een unieke integer-waarde voor elke partitie.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is van een database globaal gedistribueerd en modellen service dat aanbiedingen oneindig elastisch schalen rond de hele wereld, uitgebreide query en automatische indexeren via schema networkdirect gegevensmodellen, lage latentie gegarandeerd en toonaangevende uitgebreide Sla's. Raadpleeg voor meer informatie over opties voor het verzamelen van Cosmos DB voor Stream Analytics, de [Stream Analytics met Cosmos DB als uitvoer](stream-analytics-documentdb-output.md) artikel.
@@ -326,7 +330,7 @@ De volgende tabel beschrijft de eigenschappen voor het maken van een Azure DB di
 | Partitiesleutel | Optioneel. Dit is alleen nodig als u een token {partition} in het patroon van de naam van verzameling.<br/> De partitiesleutel is de naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor het opgeven van de sleutel voor het partitioneren van uitvoer in collecties.<br/> Voor één verzameling uitvoer, kan elke willekeurige uitvoerkolom bijvoorbeeld PartitionId worden gebruikt. |
 | Document-ID |Optioneel. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor de primaire sleutel opgeven in welke invoegen of updatebewerkingen zijn gebaseerd.  
 
-## <a name="azure-functions-in-preview"></a>Azure Functions (in preview)
+## <a name="azure-functions"></a>Azure Functions
 Azure Functions is een serverloze compute-service waarmee u code op aanvraag kunt uitvoeren zonder expliciet een infrastructuur in te richten of te beheren. Hiermee kunt u code die wordt geactiveerd door gebeurtenissen in Azure of services van derden implementeren.  Deze mogelijkheid van Azure Functions om te reageren op triggers maakt het een natuurlijke uitvoer voor een Azure Stream Analytics. Deze uitvoeradapter kan gebruikers verbinding van Stream Analytics met Azure Functions, en voer een script of een stuk code in reactie op tal van gebeurtenissen.
 
 Azure Stream Analytics roept Azure Functions via HTTP-triggers. De nieuwe uitvoer van de functie Azure-adapter is beschikbaar met de volgende eigenschappen kunnen worden geconfigureerd:
@@ -342,6 +346,23 @@ Azure Stream Analytics roept Azure Functions via HTTP-triggers. De nieuwe uitvoe
 Houd er rekening mee dat wanneer Azure Stream Analytics 413 (http-aanvragen entiteit te groot) uitzondering van de functie Azure ontvangt, het vermindert de grootte van de batches naar Azure Functions verzendt. Gebruik in uw Azure functiecode deze uitzondering om ervoor te zorgen dat Azure Stream Analytics te grote batches niet verzenden. Zorg ervoor dat de maximale batch-aantal en grootte waarden gebruikt in de functie consistent met de waarden die zijn opgegeven in de Stream Analytics-portal zijn. 
 
 Ook wordt in een situatie waarin er geen gebeurtenis in een tijdvenster aanvoer is, wordt geen uitvoer gegenereerd. Als gevolg hiervan computeResult functie niet wordt aangeroepen. Dit gedrag is consistent met de ingebouwde statistische functies in vensters.
+
+## <a name="partitioning"></a>Partitionering
+
+De volgende tabel geeft een overzicht van de partitie ondersteuning en het aantal uitvoer schrijvers voor elk uitvoertype:
+
+| Uitvoertype | Ondersteuning voor partitioneren | Partitiesleutel  | Aantal uitvoer schrijvers | 
+| --- | --- | --- | --- |
+| Azure Data Lake Store | Ja | Gebruik {date} en {time} tokens in het pad voorvoegsel-patroon. Kies de notatie van datum, zoals jjjj/MM/DD, MM-DD-JJJJ, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. | Hetzelfde als invoer. | 
+| Azure SQL Database | Nee | Geen | Niet van toepassing. | 
+| Azure Blob Storage | Ja | Gebruik {date} en {time} tokens in het pad-patroon. Kies de notatie van datum, zoals jjjj/MM/DD, MM-DD-JJJJ, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. | Hetzelfde als invoer. | 
+| Azure Event Hub | Ja | Ja | Zelfde als uitvoer Event Hub-partities. |
+| Power BI | Nee | Geen | Niet van toepassing. | 
+| Azure Table Storage | Ja | De uitvoer kolom.  | Hetzelfde als invoer of de vorige stap. | 
+| Azure Service Bus-onderwerp | Ja | Automatisch gekozen. Het aantal partities is gebaseerd op de [Service Bus-SKU's en de grootte van](../service-bus-messaging/service-bus-partitioning.md). De partitiesleutel is een unieke integer-waarde voor elke partitie.| Hetzelfde als uitvoer.  |
+| Azure Service Bus-wachtrij | Ja | Automatisch gekozen. Het aantal partities is gebaseerd op de [Service Bus-SKU's en de grootte van](../service-bus-messaging/service-bus-partitioning.md). De partitiesleutel is een unieke integer-waarde voor elke partitie.| Hetzelfde als uitvoer. |
+| Azure Cosmos DB | Ja | Token {partition} in de verzameling naampatroon gebruiken. de waarde {partition} is gebaseerd op de component PARTITION BY in de query. | Hetzelfde als invoer. |
+| Azure Functions | Nee | Geen | Niet van toepassing. | 
 
 
 ## <a name="get-help"></a>Help opvragen

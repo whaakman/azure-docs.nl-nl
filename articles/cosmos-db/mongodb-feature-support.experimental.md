@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
 ms.openlocfilehash: 0bae274a7bf849267aed92d1372bc26e86227cb2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>API-ondersteuning voor MongoDB voor MongoDB-functies en -syntaxis
 
@@ -58,7 +58,7 @@ Azure Cosmos DB ondersteunt de volgende databaseopdrachten op alle MongoDB-API-a
 - listIndexes
 - dropIndexes
 - ConnectionStatus
-- reIndex
+- REINDEX (Engelstalig)
 
 ### <a name="diagnostics-commands"></a>Opdrachten van diagnostische gegevens
 - buildInfo
@@ -75,7 +75,7 @@ Azure Cosmos DB ondersteunt de volgende databaseopdrachten op alle MongoDB-API-a
 Azure Cosmos DB ondersteunt aggregatie pijplijn in openbare preview. Zie de [Azure blog](https://aka.ms/mongodb-aggregation) voor instructies over het voorbereiden voor de openbare preview.
 
 ### <a name="aggregation-commands"></a>Aggregatie van opdrachten
-- aggregate
+- statistische functie
 - aantal
 - Afzonderlijke
 

@@ -1,24 +1,22 @@
 ---
 title: Instellen van de replicatie van de HBase-cluster in virtuele netwerken in Azure | Microsoft Docs
-description: "Informatie over het instellen van HBase-replicatie van één HDInsight versie naar een andere voor taakverdeling, hoge beschikbaarheid, nul uitvaltijd migratie en -updates en herstel na noodgevallen."
+description: Informatie over het instellen van HBase-replicatie van één HDInsight versie naar een andere voor taakverdeling, hoge beschikbaarheid, nul uitvaltijd migratie en -updates en herstel na noodgevallen.
 services: hdinsight,virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: c28c48b5842deec9d9c3898c5742c3d4d473094e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Instellen van de replicatie van de HBase-cluster in virtuele netwerken in Azure
 
@@ -255,7 +253,7 @@ De `print_usage()` sectie van de [script](https://github.com/Azure/hbase-utils/b
         -m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"
 
 
-## <a name="disable-replication"></a>Schakel replicatie uit
+## <a name="disable-replication"></a>Replicatie uitschakelen
 
 Als replicatie wilt uitschakelen, gebruikt u een ander script actiescript uit [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). Kunt u dezelfde procedure die wordt beschreven in [replicatie inschakelen](#enable-replication) de scriptactie niet aanroepen. Gebruik de volgende parameters:
 

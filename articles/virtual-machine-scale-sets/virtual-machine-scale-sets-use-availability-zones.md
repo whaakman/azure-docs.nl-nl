@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 70dff848ce0674461749075e6498741c3eb9a381
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9093fcf008f199cc1a78d50979f6387a2e1b5262
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Een virtuele-machineschaalset die gebruikmaakt van beschikbaarheid Zones maken
 
@@ -70,15 +70,15 @@ Beschikbaarheid om Zones te gebruiken, moet uw schaalset worden gemaakt in een [
 
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 
-Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-portal.md). Zorg ervoor dat u hebt [geregistreerd voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll). Wanneer u een ondersteunde Azure-regio selecteert, kunt u een schaal instellen in een van de beschikbare zones kunt maken, zoals wordt weergegeven in het volgende voorbeeld:
+Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-portal.md). Wanneer u een ondersteunde Azure-regio selecteert, kunt u een schaal instellen in een of meer van de beschikbare zones kunt maken, zoals wordt weergegeven in het volgende voorbeeld:
 
-![Een schaal instellen in een enkele beschikbaarheid Zone maken](media/virtual-machine-scale-sets-use-availability-zones/create-portal-single-az.png)
+![Een schaal instellen in een enkele beschikbaarheid Zone maken](media/virtual-machine-scale-sets-use-availability-zones/vmss-az-portal.png)
 
 De schaalaanpassingsset en de ondersteunende resources, zoals de Azure load balancer en het openbare IP-adres worden gemaakt in de enkele zone die u opgeeft.
 
 ## <a name="use-the-azure-cli-20"></a>De Azure CLI 2.0 gebruiken
 
-Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-cli.md). Beschikbaarheid om Zones te gebruiken, moet u uw scale set maken in een ondersteunde Azure-regio en hebben [geregistreerd voor een voorbeeld bekijken van de beschikbaarheid van Zones](http://aka.ms/azenroll).
+Het proces voor het maken van een schaalset die gebruikmaakt van een Zone beschikbaarheid is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-cli.md). Beschikbaarheid om Zones te gebruiken, moet u uw scale ingesteld in een ondersteunde Azure-regio.
 
 Voeg de `--zones` -parameter voor de [az vmss maken](/cli/azure/vmss#az_vmss_create) opdracht en opgeven welke zone moet worden gebruikt (zoals zone *1*, *2*, of *3*). Het volgende voorbeeld wordt een enkele zone-scale set met de naam *myScaleSet* in zone *1*:
 

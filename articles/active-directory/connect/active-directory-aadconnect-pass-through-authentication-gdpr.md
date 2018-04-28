@@ -1,9 +1,9 @@
 ---
-title: Azure AD Connect - Pass through-verificatie - GDPR naleving | Microsoft Docs
+title: Privacy van gebruikers en Azure Active Directory-Pass through-verificatie | Microsoft Docs
 description: In dit artikel behandelt de naleving van Azure Active Directory (Azure AD) Pass through-verificatie en GDPR.
 services: active-directory
 keywords: Azure AD Connect Pass-through-verificatie, GDPR, vereiste onderdelen voor Azure AD, SSO, Single Sign-on
-documentationcenter: 
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/28/2018
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 21874c961163e3efba45c2ee8557c03135987f95
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-active-directory-pass-through-authentication-gdpr-compliance"></a>Azure Active Directory Pass-through-verificatie: GDPR naleving
+# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacy van gebruikers en Azure Active Directory-Pass through-verificatie
+
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Overzicht
-
-In mei 2018, een Europese privacywetgeving de [algemene Data Protection regelgeving (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), vervalt kracht te laten worden. De GDPR legt nieuwe regels voor bedrijven, overheidsinstanties, non-profitorganisaties en andere organisaties aanbieding goederen en diensten naar mensen in de Europese Unie, of dat verzamelen en analyseren van gegevens die zijn gekoppeld aan de EU inwoners. De GDPR is van toepassing ongeacht waar u zich bevindt. 
-
-Microsoft-producten en services zijn vandaag beschikbaar waarmee u voldoen aan de vereisten GDPR. Meer informatie over het privacybeleid van Microsoft voor op [Vertrouwenscentrum](https://www.microsoft.com/trustcenter).
 
 Azure AD Pass-through-verificatie worden gemaakt van de volgende typen van het logboek, die kunnen EUII bevatten:
 
@@ -35,7 +34,7 @@ Azure AD Pass-through-verificatie worden gemaakt van de volgende typen van het l
 - Verificatie-Agent traceerlogboekbestanden.
 - Logboekbestanden van het Windows-gebeurtenis.
 
-GDPR naleving voor Pass-through-verificatie kan worden bereikt op twee manieren:
+Privacy van gebruikers voor Pass-through-verificatie kan worden bereikt op twee manieren:
 
 1.  Gegevens ophalen voor een persoon op verzoek en gegevens van die persoon de installaties verwijderen.
 2.  Zorg ervoor dat er geen gegevens behouden blijven na 48 uur.
@@ -104,4 +103,5 @@ Als u dit script uit te voeren plannen om 48 uur als volgt:
 Als logboekregistratie is ingeschakeld, kan dit product beveiligingslogboeken genereren voor uw domeincontrollers. Lees voor meer informatie over het configureren van controlebeleid dit [artikel](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
+* [Het beleid voor Microsoft Privacy op Vertrouwenscentrum bekijken](https://www.microsoft.com/trustcenter)
 - [**Problemen met** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.

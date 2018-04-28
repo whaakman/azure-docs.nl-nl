@@ -5,7 +5,7 @@ services: application-gateway
 documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
 ms.service: application-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 344d6922d1649449e26f2500e538b5a0b440476d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5d17a05f964367ff12a58c3e301a1741181003fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Maken van een aangepaste test voor Azure Application Gateway met behulp van PowerShell voor Azure Resource Manager
 
@@ -39,10 +39,10 @@ In dit artikel kunt u een aangepaste test toevoegen aan een bestaande applicatio
 
 ### <a name="sign-in-and-create-resource-group"></a>Aanmelden en resourcegroep maken
 
-1. Gebruik `Login-AzureRmAccount` om te verifiëren.
+1. Gebruik `Connect-AzureRmAccount` om te verifiëren.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 1. De abonnementen voor het account worden opgehaald.

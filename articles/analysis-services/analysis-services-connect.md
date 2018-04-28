@@ -1,20 +1,20 @@
 ---
-title: Verbinding maken met Azure analyseservices | Microsoft Docs
+title: Verbinding maken met Azure Analysis Services-servers | Microsoft Docs
 description: Informatie over het verbinding maken met en gegevens ophalen uit een Analysis Services-server in Azure.
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8493ff1e2b9be48fc8eec1e727684fe09f6af72c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 53a8a1eea5ffa50fcdaf4a60c9bbd03d30d8e311
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="connect-to-an-azure-analysis-services-server"></a>Verbinding maken met een Azure Analysis Services-server
+# <a name="connecting-to-servers"></a>Verbinding maken met servers
 
 Dit artikel wordt beschreven verbinding maken met een server met behulp van gegevens modelleren en toepassingen zoals SQL Server Management Studio (SSMS) of SQL Server Data Tools (SSDT). Of met client reporting toepassingen zoals Microsoft Excel, Power BI Desktop of aangepaste toepassingen. HTTPS gebruikt voor verbindingen met Azure Analysis Services.
 

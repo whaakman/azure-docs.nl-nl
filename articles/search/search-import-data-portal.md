@@ -1,25 +1,18 @@
 ---
 title: Gegevens importeren in Azure Search via de portal | Microsoft Docs
 description: Gebruik de wizard Gegevens importeren van Azure Search in Azure Portal om Azure-gegevens te verkennen vanuit NoSQL Azure Cosmos DB, Blob Storage, Table Storage, SQL Database en SQL Server op Azure-VM's.
-services: search
-documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: Azure Portal
-ms.assetid: f40fe07a-0536-485d-8dfa-8226eb72e2cd
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 286408fb0c3aa2b83cf17a4646f6f7420b6884f4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b651ccaa59e40b9d8d1c682fc8c266bf95b62a2e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Gegevens importeren in Azure Search via de portal
 In het Azure Search-dashboard van Azure Portal vindt u de wizard **Gegevens importeren** waarmee u gegevens in een index kunt laden. 
@@ -94,7 +87,7 @@ De index kan worden bevraagd zodra alle documenten zijn geladen.
 
 De portal bevat **Search Explorer**, zodat u een query kunt uitvoeren in een index zonder dat u code hoeft te schrijven. U kunt [Search Explorer](search-explorer.md) op elke index toepassen.
 
-De manier van zoeken is gebaseerd op de standaardinstellingen, zoals de [eenvoudige syntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en de standaard queryparameter searchMode (https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+De zoekervaring is gebaseerd op standaardinstellingen, zoals de [eenvoudige syntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en de standaard-queryparameter [searchMode(https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 Resultaten worden geretourneerd in JSON, in uitgebreide vorm, zodat u het hele document kunt inspecteren.
 

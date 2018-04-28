@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ponatara
-ms.openlocfilehash: a586eac3be39a4d3fb35dff7a4b1cc40f32f2720
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c389776f62db5fd04f67ef22822e21fd4aee368f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Uitvoeren van een DR-herstelanalyse voor Hyper-V-machines naar een secundaire site
 
@@ -30,7 +30,7 @@ U kunt een testfailover uitvoeren vanaf de primaire naar de secundaire site. Als
     - Voer de failover met een bestaand netwerk. U wordt aangeraden dat u niet een productienetwerk gebruikt.
     - De failover uitvoert en laat u Site Recovery automatisch maken van een testnetwerk. Site Recovery wordt in dit geval automatisch maken van het netwerk en opschonen wanneer de testfailover voltooid is.
 - U moet een herstelpunt voor de testfailover selecteren: 
-    - **Meest recente verwerkte**: deze optie wordt een virtuele machine overgenomen door de meest recente herstelpunt dat is verwerkt door Site Recovery. Deze optie biedt een laag RTO (beoogde hersteltijd), omdat er geen tijd besteed aan het verwerken van niet-verwerkte gegevens.
+    - **Meest recente verwerkte**: deze optie wordt een virtuele machine overgenomen door de meest recente herstelpunt dat is verwerkt door Site Recovery. Deze optie heeft een lage RTO (Recovery Time Objective), omdat er geen tijd wordt besteed aan het verwerken van niet-verwerkte gegevens.
     - **Meest recente app-consistente**: deze optie failover een virtuele machine naar de meest recente toepassingsconsistente herstelpunt verwerkt door Site Recovery. 
     - **Meest recente**: deze optie eerst alle gegevens die door een herstelpunt maken voor elke VM voordat deze is mislukt via het is verzonden naar Site Recovery-service verwerkt. Deze optie biedt de laagste RPO (beoogd herstelpunt), omdat de virtuele machine gemaakt nadat de failover moeten de gegevens die zijn gerepliceerd naar de Site Recovery wanneer de failover is geactiveerd.
     - **Meest recente multi-VM verwerkt**: beschikbaar voor herstelplannen die een of meer VM's die multi-VM consistentie ingeschakeld hebben bevatten. Virtuele machines met de instelling is ingeschakeld failover via naar de meest recente algemene multi-VM consistent herstelpunt. Andere VM's failover via naar de meest recente verwerkte herstelpunt.
@@ -45,17 +45,24 @@ Wanneer u een failovertest uitvoert, wordt u gevraagd netwerkinstellingen voor t
 
 **Optie** | **Details** 
 --- | --- 
-Geen | De virtuele testmachine wordt gemaakt op de host waarop de replica-VM zich bevindt. Het is niet toegevoegd aan de cloud en is niet verbonden met een netwerk.<br/><br/> Nadat deze is gemaakt, kunt u de machine verbinden met een VM-netwerk.
+**Geen** | De virtuele testmachine wordt gemaakt op de host waarop de replica-VM zich bevindt. Het is niet toegevoegd aan de cloud en is niet verbonden met een netwerk.<br/><br/> Nadat deze is gemaakt, kunt u de machine verbinden met een VM-netwerk.
 **Gebruik bestaande** | De virtuele testmachine wordt gemaakt op de host waarop de replica-VM zich bevindt. Dit is niet toegevoegd aan de cloud.<br/><br/>Maak een VM-netwerk dat is geïsoleerd van uw productienetwerk.<br/><br/>Als u een VLAN-netwerk gebruikt, raden wij u een afzonderlijke logische netwerk (niet gebruikt in productie) maken in VMM voor dit doel. Dit logische netwerk wordt gebruikt voor het maken van VM-netwerken voor testfailovers.<br/><br/>Het logische netwerk moet worden gekoppeld aan ten minste één van de netwerkadapters van alle Hyper-V-servers die als van virtuele machines host.<br/><br/>Voor logische netwerken met VLAN moeten de netwerksites die u aan het logische netwerk toevoegt worden geïsoleerd.<br/><br/>Als u een logisch netwerk voor op basis van Windows-Netwerkvirtualisatie, maakt Azure Site Recovery automatisch geïsoleerde VM-netwerken. 
 **Een netwerk maken** | Een tijdelijke testnetwerk is automatisch gemaakt op basis van de instelling die u opgeeft in **logisch netwerk** en de bijbehorende netwerksites.<br/><br/> Failover wordt gecontroleerd dat de virtuele machines worden gemaakt. |U moet deze optie gebruiken als een herstelplan gebruikmaakt van meer dan één VM-netwerk.<br/><br/> Als u Windows-Netwerkvirtualisatie-netwerken gebruikt, kunt deze optie automatisch maken van VM-netwerken met dezelfde instellingen (subnetten en IP-adresgroepen) in het netwerk van de replica virtuele machine. Deze VM-netwerken zijn automatisch opgeschoond nadat de testfailover voltooid is.<br/><br/> De test virtuele machine is gemaakt op de host waarop de replica virtuele machine bestaat. Dit is niet toegevoegd aan de cloud.
 
 ### <a name="best-practices"></a>Aanbevolen procedures
 
 - Testen van een productienetwerk zorgt ervoor dat de uitvaltijd voor productieworkloads. Vraag uw gebruikers niet te gebruiken van gerelateerde apps wanneer het herstel na noodgevallen inzoomen uitgevoerd wordt.
-- Het testnetwerk hoeft niet overeen met het VMM logisch netwerktype gebruikt voor de testfailover. Maar bepaalde combinaties werken niet: - als de replica maakt gebruik van DHCP- en isolatie op basis van VLAN VM-netwerk voor de replica niet een statische IP-adresgroep moet. Met behulp van Windows-Netwerkvirtualisatie voor de testfailover werkt niet omdat geen-adresgroepen beschikbaar zijn. 
-        -Test failover werkt niet als de replica-netwerk zonder isolatie, en het testnetwerk Windows-Netwerkvirtualisatie gebruikt. Dit is omdat het netwerk zonder isolatie beschikt niet over de subnetten die zijn vereist voor het maken van een Windows-Netwerkvirtualisatie-netwerk.
+
+- Het testnetwerk hoeft niet overeen met het VMM logisch netwerktype gebruikt voor de testfailover. Maar bepaalde combinaties werken niet:
+
+     - Als de replica maakt gebruik van DHCP- en isolatie op basis van een VLAN, hoeft het VM-netwerk voor de replica niet een statische IP-adresgroep. Met behulp van Windows-Netwerkvirtualisatie voor de testfailover werkt niet omdat geen-adresgroepen beschikbaar zijn. 
+        
+     - Testfailover werkt niet als de replica-netwerk zonder isolatie, en het testnetwerk Windows-Netwerkvirtualisatie gebruikt. Dit is omdat het netwerk zonder isolatie beschikt niet over de subnetten die zijn vereist voor het maken van een Windows-Netwerkvirtualisatie-netwerk.
+        
 - Het is raadzaam dat u het netwerk die u hebt geselecteerd voor netwerktoewijzing voor testfailover niet gebruikt.
+
 - Hoe gerepliceerde virtuele machines zijn verbonden met het VM-netwerken toegewezen nadat de failover is afhankelijk van hoe het VM-netwerk is geconfigureerd in de VMM-console.
+
 
 ### <a name="vm-network-configured-with-no-isolation-or-vlan-isolation"></a>VM-netwerk is geconfigureerd met geen isolatie- of VLAN-isolatie
 
@@ -116,7 +123,7 @@ Deze procedure wordt beschreven hoe u een testfailover voor een herstelplan uitv
 2. Op de **Testfailover** blade opgeven hoe replica VMs moet zijn verbonden met netwerken na de testfailover.
 3. Voortgang van de failover volgen op de **taken** tabblad.
 4. Nadat de failover is voltooid, moet u controleren of de virtuele machines worden gestart.
-5. Wanneer u bent klaar, klikt u op **testfailover opschonen** op het herstelplan. In **notities**, vastleggen en opslaan van eventuele opmerkingen die zijn gekoppeld aan de testfailover. Hiermee verwijdert u alle virtuele machines en de netwerken die zijn gemaakt door Site Recovery tijdens de testfailover. 
+5. Wanneer u bent klaar, klikt u op **testfailover opschonen** op het herstelplan. Leg in **Notities** eventuele opmerkingen over de testfailover vast en sla deze op. Hiermee verwijdert u alle virtuele machines en de netwerken die zijn gemaakt door Site Recovery tijdens de testfailover. 
 
 ![Testfailover](./media/hyper-v-vmm-test-failover/TestFailover.png)
  

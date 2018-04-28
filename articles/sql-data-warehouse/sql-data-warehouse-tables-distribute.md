@@ -1,42 +1,38 @@
 ---
-title: Richtlijnen voor gedistribueerde tabellen - Azure SQL Data Warehouse ontwerpen | Microsoft Docs
-description: Aanbevelingen voor het ontwerpen van hash-gedistribueerd en round-robin tabellen in Azure SQL Data Warehouse.
+title: Gedistribueerde tabellen ontwerpen richtlijnen - Azure SQL Data Warehouse | Microsoft Docs
+description: Aanbevelingen voor het ontwerpen van hash-gedistribueerd en round-robin gedistribueerde tabellen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d65ca91fc4cffa53adf3a7c56c7919e46c5037d9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Richtlijnen voor het ontwerpen van tabellen in Azure SQL Data Warehouse gedistribueerd
+Aanbevelingen voor het ontwerpen van hash-gedistribueerd en round-robin gedistribueerde tabellen in Azure SQL Data Warehouse.
 
-Dit artikel bevat aanbevelingen voor het ontwerpen van gedistribueerde tabellen in Azure SQL Data Warehouse. Tabellen hash gedistribueerde query's sneller op grote feitentabellen en zijn gericht aan dit artikel. Round robin-tabellen zijn nuttig voor het laden van de snelheid te verbeteren. Deze ontwerpkeuzes hebben een aanzienlijke gevolgen voor de verbetering van de query en laden van de prestaties.
+In dit artikel wordt ervan uitgegaan dat u bekend bent met gegevensdistributie en data movement concepten in SQL Data Warehouse.  Zie voor meer informatie [Azure SQL Data Warehouse - Massively parallelle verwerking MPP-architectuur](massively-parallel-processing-mpp-architecture.md). 
 
-## <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u bekend bent met gegevensdistributie en data movement concepten in SQL Data Warehouse.  Zie voor meer informatie de [architectuur](massively-parallel-processing-mpp-architecture.md) artikel. 
+## <a name="what-is-a-distributed-table"></a>Wat is een gedistribueerde tabel?
+Een gedistribueerde tabel wordt weergegeven als één tabel, maar de rijen daadwerkelijk over 60 distributies worden opgeslagen. De rijen worden gedistribueerd met een hash of round robin-algoritme.  
+
+**Tabellen hash gedistribueerd** queryprestaties op grote feitentabellen te verbeteren, en worden de focus van dit artikel. **Round robin tabellen** zijn nuttig voor het laden van de snelheid te verbeteren. Deze ontwerpkeuzes hebben een aanzienlijke gevolgen voor de verbetering van de query en laden van de prestaties.
+
+Een andere tabel opslagoptie is een kleine tabel repliceren op de rekenknooppunten. Zie voor meer informatie [richtlijnen voor gerepliceerde tabellen ontwerpen](design-guidance-for-replicated-tables.md). Om snel tussen de drie opties te selecteren, Zie gedistribueerde tabellen in de [tabellen overzicht](sql-data-warehouse-tables-overview.md). 
 
 Als onderdeel van tabelontwerp begrijpen zo veel mogelijk over uw gegevens en hoe de gegevens wordt opgevraagd.  Neem bijvoorbeeld deze vragen:
 
 - Hoe groot is de tabel?   
 - Hoe vaak wordt de tabel vernieuwd   
 - Heb ik feiten- en dimensietabellen tabellen in een datawarehouse?   
-
-## <a name="what-is-a-distributed-table"></a>Wat is een gedistribueerde tabel?
-Een gedistribueerde tabel wordt weergegeven als één tabel, maar de rijen daadwerkelijk over 60 distributies worden opgeslagen. De rijen worden gedistribueerd met een hash of round robin-algoritme. 
-
-Een andere tabel opslagoptie is een kleine tabel repliceren op de rekenknooppunten. Zie voor meer informatie [richtlijnen voor gerepliceerde tabellen ontwerpen](design-guidance-for-replicated-tables.md). Om snel tussen de drie opties te selecteren, Zie gedistribueerde tabellen in de [tabellen overzicht](sql-data-warehouse-tables-overview.md). 
 
 
 ### <a name="hash-distributed"></a>Hash gedistribueerd
@@ -67,7 +63,7 @@ Overweeg het gebruik van de distributie van round robin voor uw tabel in de volg
 - Als de join minder belangrijk dan andere joins in de query is
 - Als de tabel is een tijdelijke tabel fasering
 
-De zelfstudie [laden van gegevens uit Azure Storage-blob](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) geeft een voorbeeld van het laden van gegevens naar een tijdelijke tabel round robin.
+De zelfstudie [Load Den Haag taxi gegevens naar Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) geeft een voorbeeld van het laden van gegevens naar een tijdelijke tabel round robin.
 
 
 ## <a name="choosing-a-distribution-column"></a>Een kolom distributie kiezen
@@ -91,7 +87,7 @@ WITH
 ;
 ``` 
 
-Het kiezen van een distributie-kolom is een belangrijk ontwerpbeslissing aangezien de waarden in deze kolom bepalen hoe de rijen worden gedistribueerd. De beste keuze is afhankelijk van verschillende factoren en omvat het doorgaans voor-en nadelen. Echter, als u niet de aanbevolen kolom voor het eerst kiest, kunt u [maken tabel AS selecteren (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) opnieuw te maken in de tabel met een ander distributiepunt-kolom. 
+Het kiezen van een distributie-kolom is een belangrijk ontwerpbeslissing aangezien de waarden in deze kolom bepalen hoe de rijen worden gedistribueerd. De beste keuze is afhankelijk van verschillende factoren en omvat het doorgaans voor-en nadelen. Echter, als u niet de aanbevolen kolom voor het eerst kiest, kunt u [maken tabel AS selecteren (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) opnieuw te maken in de tabel met een ander distributiepunt-kolom. 
 
 ### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Kies een distributie-kolom die geen updates vereisen
 U kunt een distributie-kolom niet bijwerken, tenzij u de rij verwijderen en voegt u een nieuwe rij met de bijgewerkte waarden. Selecteer daarom een kolom met statische waarden. 
@@ -129,7 +125,7 @@ Wanneer u een tabel met hash gedistribueerd ontwerpt, wordt de volgende stap is 
 Controleer nadat gegevens zijn geladen in een tabel met hash is gedistribueerd, hoe gelijkmatig worden de rijen zijn verdeeld over de 60 distributies. Het aantal rijen per distributiepunt kunnen maximaal 10% zonder een merkbare invloed op prestaties variëren. 
 
 ### <a name="determine-if-the-table-has-data-skew"></a>Vaststellen of de tabel heeft leiden tot onjuiste gegevens
-Een snelle manier om te controleren of er gegevens tijdverschil is het gebruik van [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). De volgende SQL-code retourneert het aantal rijen die zijn opgeslagen in elk van de 60 distributies. Voor taakverdeling prestaties moeten de rijen in een gedistribueerde gelijkmatig worden verdeeld over alle verdelingen.
+Een snelle manier om te controleren of er gegevens tijdverschil is het gebruik van [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). De volgende SQL-code retourneert het aantal rijen die zijn opgeslagen in elk van de 60 distributies. Voor taakverdeling prestaties moeten de rijen in een gedistribueerde gelijkmatig worden verdeeld over alle verdelingen.
 
 ```sql
 -- Find data skew for a distributed table

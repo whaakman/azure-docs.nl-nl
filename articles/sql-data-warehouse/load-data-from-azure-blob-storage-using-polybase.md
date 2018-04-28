@@ -1,31 +1,24 @@
 ---
-title: 'Zelfstudie: Polybase-gegevens laden - Azure Storage Blob naar Azure SQL Data Warehouse | Microsoft Docs'
-description: Een zelfstudie die gebruikmaakt van Azure Portal en SQL Server Management Studio om gegevens over taxi‘s in New York vanuit Azure Blob Storage te laden naar Azure SQL Data Warehouse.
+title: 'Zelfstudie: Load New York taxi gegevens naar Azure SQL Data Warehouse | Microsoft Docs'
+description: Zelfstudie wordt gebruikgemaakt van Azure portal en SQL Server Management Studio New York taxi om gegevens te laden van een openbare Azure-blob naar Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/16/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: igorstan
+ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Zelfstudie: PolyBase gebruiken om gegevens vanuit Azure Blob Storage te laden naar Azure SQL Data Warehouse
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Zelfstudie: Load New York taxi gegevens naar Azure SQL Data Warehouse
 
-PolyBase is de standaardlaadtechnologie voor het ophalen van gegevens in SQL Data Warehouse. In deze zelfstudie gebruikt u PolyBase om gegevens over taxi‘s in New York vanuit Azure Blob Storage te laden naar Azure SQL Data Warehouse. De zelfstudie gebruikt [Azure Portal](https://portal.azure.com) en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) voor het volgende: 
+Deze zelfstudie maakt gebruik van PolyBase New York taxi om gegevens te laden vanuit een openbare Azure-blob naar Azure SQL Data Warehouse. De zelfstudie gebruikt [Azure Portal](https://portal.azure.com) en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) voor het volgende: 
 
 > [!div class="checklist"]
 > * Een datawarehouse maken in Azure Portal
@@ -50,7 +43,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Een leeg SQL Data Warehouse maken
 
-Er wordt een Azure SQL-databasewarehouse gemaakt met een gedefinieerde set [compute-resources](performance-tiers.md). De database wordt gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL-server](../sql-database/sql-database-features.md). 
+Er wordt een Azure SQL-databasewarehouse gemaakt met een gedefinieerde set [compute-resources](memory-and-concurrency-limits.md). De database wordt gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL-server](../sql-database/sql-database-features.md). 
 
 Volg deze stappen om een leeg SQL Data Warehouse te maken. 
 
@@ -170,7 +163,7 @@ In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-man
 
 ## <a name="create-a-user-for-loading-data"></a>Een gebruiker maken voor het laden van gegevens
 
-De serverbeheerdersaccount is bedoeld voor het uitvoeren van beheerbewerkingen en is niet geschikt voor het uitvoeren van query's op gebruikersgegevens. Het laden van gegevens is een geheugenintensieve bewerking. [Maximale geheugenwaarden](performance-tiers.md#memory-maximums) worden gedefinieerd volgens [prestatielaag](performance-tiers.md) en [bronklasse](resource-classes-for-workload-management.md). 
+De serverbeheerdersaccount is bedoeld voor het uitvoeren van beheerbewerkingen en is niet geschikt voor het uitvoeren van query's op gebruikersgegevens. Het laden van gegevens is een geheugenintensieve bewerking. Geheugen maximumwaarden worden gedefinieerd volgens [prestatielaag](memory-and-concurrency-limits.md#performance-tiers), [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md), en [bronklasse](resource-classes-for-workload-management.md). 
 
 Het is raadzaam een aanmelding en gebruiker te maken die speciaal wordt toegewezen voor het laden van gegevens. Voeg vervolgens de ladende gebruiker toe aan een [bronklasse](resource-classes-for-workload-management.md). Hiermee wordt een maximale hoeveelheid geheugen ingesteld.
 
@@ -221,7 +214,7 @@ De eerste stap voor het laden van gegevens bestaat uit aanmelding als LoaderRC20
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Externe tabellen voor de voorbeeldgegevens maken
 
-U bent klaar om te beginnen met het laden van gegevens in uw nieuwe datawarehouse. In deze zelfstudie wordt beschreven hoe u [Polybase](/sql/relational-databases/polybase/polybase-guide) gebruikt om gegevens over taxi's in New York te laden uit een Azure Storage-blob. Raadpleeg het [laadoverzicht](sql-data-warehouse-overview-load.md) voor informatie over het overbrengen van gegevens naar Azure-blobopslag of het rechtstreeks vanuit de bron laden van gegevens in SQL Data Warehouse.
+U bent klaar om te beginnen met het laden van gegevens in uw nieuwe datawarehouse. Deze zelfstudie laat zien hoe u externe tabellen New York City taxi CAB-bestand om gegevens te laden van een Azure storage-blob. Raadpleeg het [laadoverzicht](sql-data-warehouse-overview-load.md) voor informatie over het overbrengen van gegevens naar Azure-blobopslag of het rechtstreeks vanuit de bron laden van gegevens in SQL Data Warehouse.
 
 Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die u wilt laden. Deze informatie omvat de locatie waar de gegevens zich bevinden, de indeling van de inhoud van de gegevens en de tabeldefinitie voor de gegevens. 
 

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 94424a3d8aad56cf4504cccd8adb1a45523d95e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Bijhouden van aangepaste bewerkingen met Application Insights-SDK voor .NET
 
@@ -169,7 +169,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Proces
+#### <a name="process"></a>Verwerken
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -334,7 +334,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Proces
+#### <a name="process"></a>Verwerken
 
 In het volgende voorbeeld wordt wordt een binnenkomend bericht bijgehouden in een manier op dezelfde manier naar inkomende HTTP-aanvraag:
 
@@ -413,7 +413,7 @@ async Task BackgroundTask()
 }
 ```
 
-In dit voorbeeld `telemetryClient.StartOperation` maakt `RequestTelemetry` en vult u de context van de correlatie. Stel dat u hebt een bovenliggende-bewerking die is gemaakt door de inkomende aanvragen dat de bewerking gepland. Zolang `BackgroundTask` begint in dezelfde asynchrone transportbesturing als een inkomende aanvraag, deze worden gecorreleerd met die bovenliggende voor deze bewerking. `BackgroundTask`en alle geneste telemetrie-items automatisch worden gecorreleerd met de aanvraag, waardoor er, zelfs nadat de aanvraag wordt beëindigd.
+In dit voorbeeld `telemetryClient.StartOperation` maakt `RequestTelemetry` en vult u de context van de correlatie. Stel dat u hebt een bovenliggende-bewerking die is gemaakt door de inkomende aanvragen dat de bewerking gepland. Zolang `BackgroundTask` begint in dezelfde asynchrone transportbesturing als een inkomende aanvraag, deze worden gecorreleerd met die bovenliggende voor deze bewerking. `BackgroundTask` en alle geneste telemetrie-items automatisch worden gecorreleerd met de aanvraag, waardoor er, zelfs nadat de aanvraag wordt beëindigd.
 
 Wanneer de taak wordt gestart vanuit de achtergrondthread die geen bewerkingen (`Activity`) gekoppeld, `BackgroundTask` heeft een bovenliggende geen. Echter, het kan hebben genest bewerkingen. Alle telemetrie-items gerapporteerd door de taak zijn gecorreleerd met de `RequestTelemetry` gemaakt in `BackgroundTask`.
 
@@ -450,11 +450,11 @@ public async Task RunMyTaskAsync()
 
 Verwijdering van de bewerking wordt de bewerking moet worden gestopt zodat u dit in plaats van aanroepen doen kunt `StopOperation`.
 
-*Waarschuwing*: in sommige gevallen kan dit unhanded uitzondering [te voorkomen dat](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` moet worden aangeroepen zodat bewerkingen kunnen niet worden bijgehouden.
+*Waarschuwing*: in sommige gevallen kan dit unhanded uitzondering [te voorkomen dat](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` moet worden aangeroepen zodat bewerkingen kunnen niet worden bijgehouden.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Parallelle bewerkingen kunnen worden verwerkt en bijhouden
 
-`StopOperation`alleen stopt de bewerking die is gestart. Als de huidige actieve bewerking, komt niet overeen met de versie die u stoppen wilt, `StopOperation` , gebeurt er niets. Deze situatie kan gebeuren als u meerdere bewerkingen parallel in dezelfde uitvoeringscontext starten:
+`StopOperation` alleen stopt de bewerking die is gestart. Als de huidige actieve bewerking, komt niet overeen met de versie die u stoppen wilt, `StopOperation` , gebeurt er niets. Deze situatie kan gebeuren als u meerdere bewerkingen parallel in dezelfde uitvoeringscontext starten:
 
 ```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");

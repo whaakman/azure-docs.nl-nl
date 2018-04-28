@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: 45b148a9ccbd7c801821f23586810872a4a0d50d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c0e7f2060f81812cd69ed1af0246287757985243
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory en de multi-factor Authentication: persoonlijke gegevens beschermen met besturingselementen voor identiteits- en toegangsbeheer
 
@@ -125,7 +125,7 @@ Als uw gebruikers licenties met Azure multi-factor Authentication hebt, moet u g
 
 ![Gebruikers MFA ingeschakeld](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-Als u momenteel geen licenties die u wilt gaan door het proces voor het bepalen van het meest geschikte implementatietype voor uw scenario. U kunt starten door te kijken naar het artikel [kiezen van de Azure multi-factor Autehntication-oplossing voor u](../multi-factor-authentication/multi-factor-authentication-get-started.md). Als u besluit dat u moet een multi-Factor Authentication-server maken. U kunt starten met de volgende stappen:
+Als u momenteel geen licenties die u wilt gaan door het proces voor het bepalen van het meest geschikte implementatietype voor uw scenario. U kunt starten door te kijken naar het artikel [kiezen van de Azure multi-factor Autehntication-oplossing voor u](../active-directory/authentication/concept-mfa-whichversion.md). Als u besluit dat u moet een multi-Factor Authentication-server maken. U kunt starten met de volgende stappen:
 
 1. Selecteer **Active Directory** in de Azure portal (aangemeld als beheerder).
 
@@ -137,7 +137,7 @@ Als u momenteel geen licenties die u wilt gaan door het proces voor het bepalen 
 
 4. Klik op **Opslaan**.
 
-In dit venster hebt u ook de optie voor het downloaden van de MFA-Server. U kunt extra informatie over hoe u de grootte en het plannen van uw implementatie aan de hand van het artikel krijgen [aan de slag met de Azure multi-factor Authentication-server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
+In dit venster hebt u ook de optie voor het downloaden van de MFA-Server. U kunt extra informatie over hoe u de grootte en het plannen van uw implementatie aan de hand van het artikel krijgen [aan de slag met de Azure multi-factor Authentication-server](../active-directory/authentication/howto-mfaserver-deploy.md)
 
 Zie voor meer instructies voor het beheren van uw multi-factor Authentication-Provider [aan de slag met een Azure multi-factor Authentication-Provider.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 

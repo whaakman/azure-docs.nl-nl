@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 48c4ee60487ed4a78bf7a823011b833d46db4ecf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 786261b38fe27dccc9c7ef5ee6550f4b50c52e4b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 VM-grootten voor algemeen gebruik bieden taakverdeling verhouding van de CPU voor geheugen. Ideaal voor testen en ontwikkelen, kleine tot middelgrote databases en webservers met weinig of gemiddeld verkeer. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
 
@@ -20,7 +20,10 @@ VM-grootten voor algemeen gebruik bieden taakverdeling verhouding van de CPU voo
 
 - Virtuele machines uit de D-serie zijn ontworpen voor het uitvoeren van toepassingen die meer rekenvermogen en tijdelijke schijfprestaties vereisen. Virtuele machines uit de D-serie hebben snellere processors, een hogere geheugen-naar-vCPU-snelheid en een SSD (solid-state drive) voor de tijdelijke schijf. Voor meer informatie leest u de aankondiging in de Azure-blog [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (Nieuwe grootten van virtuele machines uit de D-serie).
 
-- Dv3-serie, Dv2-serie, een opvolger van de oorspronkelijke D-reeks, biedt een krachtige CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste generatie Intel Xeon® E5-2673 v3-processor van 2,4 GHz (Haswell). Met Intel Turbo Boost Technology 2.0 kunnen ze maar liefst 3,1 GHz bereiken. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
+- De Dv2-serie, de opvolger van de oorspronkelijke D-serie, heeft een krachtigere CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de meest recente generatie Intel Xeon® E5-2673 v3 2,4 GHz (Haswell) of E5 2673 v4 2.3 GHz (Broadwell) processors, en met de 2.0-technologie van Intel Turbo versterking tot 3.1 GHz kunt gaan. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
+
+- De Dv3-serie functies met de dezelfde processor(en) als de Dv2-serie, maar in een hyper-threaded configuratie biedt een betere toegevoegde waarde voor de meest algemene doel werkbelastingen en de Dv3 uitgelijnd met de virtuele machines in het algemeen van de meeste andere clouds te brengen.  Geheugen is (van ~3.5 GiB/vCPU naar 4 GiB/vCPU) uitgevouwen terwijl schijf en netwerk grenzen op basis van per core uitgelijnd met de overstap naar hyperthreading zijn aangepast.  De Dv3 heeft niet langer de VM-grootten van veel geheugen van de D/Dv2 families, die zijn verplaatst naar de nieuwe Ev3-familie.
+
 
 - De basislaaggrootten zijn met name bedoeld voor ontwikkelworkloads en andere toepassingen waarvoor geen taakverdeling, automatische schaling of geheugenintensieve virtuele machines zijn vereist.
 
@@ -77,6 +80,7 @@ Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als
 
 <sup>1</sup> Dv3-serie van de virtuele machine zijn uitgerust met Intel® Hyper-Threading-technologie
 
+
 ## <a name="dsv2-series"></a>DSv2-serie
 
 ACU: 210-250
@@ -99,8 +103,8 @@ ACU: 210-250
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 4              | 4 x 500            | 2 / 750                                      |
 | Standard_D2_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 8              | 8 x 500            | 2 / 1500                                     |
-| Standard_D3_v2 | 4    | 14          | 200                    | 12.000 / 187 / 93                                           | 16             | 16 x 500           | April 00                                       |
-| Standard_D4_v2 | 8    | 28          | 400                    | 24.000 / 375 / 187                                          | 32             | 32 x 500           | Augustus 00                                       |
+| Standard_D3_v2 | 4    | 14          | 200                    | 12.000 / 187 / 93                                           | 16             | 16 x 500           | 4 / 3000                                       |
+| Standard_D4_v2 | 8    | 28          | 400                    | 24.000 / 375 / 187                                          | 32             | 32 x 500           | 8 / 6000                                       |
 | Standard_D5_v2 | 16   | 56          | 800                    | 48.000 / 750 / 375                                          | 64             | 64 x 500           | 8 / 12000                                    |
 
 

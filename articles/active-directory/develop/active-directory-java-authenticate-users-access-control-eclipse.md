@@ -1,25 +1,24 @@
 ---
-title: Het gebruik van toegangsbeheer (Java) | Microsoft Docs
+title: Het gebruik van toegangsbeheer (Java)
 description: Informatie over het ontwikkelen en toegangsbeheer gebruiken met Java in Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: 
+manager: mbaldwin
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bd65da490bf3d7e17bf6ff36e76e306842d50653
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Hoe verifieert webgebruikers met Azure Access Control-Service met behulp van Eclipse
 Deze handleiding wordt beschreven hoe u met de Azure Access Control Service (ACS) binnen de Azure-Toolkit voor Eclipse. Zie voor meer informatie over ACS de [Vervolgstappen](#next_steps) sectie.
@@ -116,14 +115,14 @@ In deze taak configureert u ACS herkent uw Java-webtoepassing als een geldige RP
    
    1. In **naam**, typ de naam van de Resourceprovider. Typ voor deze zelfstudie **Azure-Web-App**.
    2. In **modus**, selecteer **Voer instellingen handmatig**.
-   3. In **Realm**, typt u de URI die het beveiligingstoken dat is uitgegeven door ACS van toepassing is. Typ voor deze taak **http://localhost: 8080 /**.
+   3. In **Realm**, typt u de URI die het beveiligingstoken dat is uitgegeven door ACS van toepassing is. Typ voor deze taak **http://localhost:8080/**.
       ![Realm voor de relying party voor gebruik in rekenemulator][relying_party_realm_emulator]
-   4. In **retour-URL** typt u de URL waarnaar ACS het beveiligingstoken retourneert. Typ voor deze taak **http://localhost:8080/MyACSHelloWorld/index.jsp**
-      ![Relying party retour-URL voor gebruik in rekenemulator][relying_party_return_url_emulator]
+   4. In **retour-URL** typt u de URL waarnaar ACS het beveiligingstoken retourneert. Typ voor deze taak ** http://localhost:8080/MyACSHelloWorld/index.jsp ** 
+       ![Relying party retour-URL voor gebruik in rekenemulator][relying_party_return_url_emulator]
    5. Accepteer de standaardwaarden in de rest van de velden.
 4. Klik op **Opslaan**.
 
-U hebt nu geconfigureerd uw Java-webtoepassing wanneer deze wordt uitgevoerd in de Azure-rekenemulator (op http://localhost: 8080 /) moet een RP in uw ACS-naamruimte. Maak vervolgens de regels die ACS gebruikt voor het verwerken van claims voor de Resourceprovider.
+U hebt nu geconfigureerd uw Java-webtoepassing wanneer deze wordt uitgevoerd in de Azure-rekenemulator (op http://localhost:8080/) moet een RP in uw ACS-naamruimte. Maak vervolgens de regels die ACS gebruikt voor het verwerken van claims voor de Resourceprovider.
 
 ## <a name="create-rules"></a>Regels maken
 In deze taak definieert u de regels die hoe claims van IP-adressen worden doorgegeven aan uw RP aansturen. Omwille van deze handleiding configureert we gewoon ACS voor het kopiëren van de invoer claimtypen en claimwaarden rechtstreeks in het uitvoertoken zonder deze wijzigen of filteren.

@@ -1,43 +1,30 @@
 ---
-title: Het beheren van statistieken over tabellen in SQL Data Warehouse | Microsoft Docs
-description: Aan de slag met statistieken over tabellen in Azure SQL Data Warehouse.
+title: Maken, bijwerken van statistieken - Azure SQL Data Warehouse | Microsoft Docs
+description: Aanbevelingen en voorbeelden voor het maken en bijwerken van statistieken op tabellen in Azure SQL Data Warehouse-queryoptimalisatie.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 11/06/2017
-ms.author: barbkess
-ms.openlocfilehash: 5e7fd3c8790bb9a1a7ae8662f9a7047ae54892d2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Het beheren van statistieken over tabellen in SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Gegevenstypen][Data Types]
-> * [Distribute][Distribute]
-> * [Index][Index]
-> * [Partitie][Partition]
-> * [Statistieken][Statistics]
-> * [Tijdelijke][Temporary]
-> 
-> 
+# <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>U maakt, werkt de statistieken voor tabellen in Azure SQL Data Warehouse
+Aanbevelingen en voorbeelden voor het maken en bijwerken van statistieken op tabellen in Azure SQL Data Warehouse-queryoptimalisatie.
 
+## <a name="why-use-statistics"></a>Waarom statistieken gebruiken?
 Hoe meer Azure SQL Data Warehouse weet over uw gegevens, hoe sneller een query uitgevoerd op deze kan worden uitgevoerd. Verzamelen van gegevens over uw gegevens en klik vervolgens in SQL Data Warehouse te laden is een van de belangrijkste dingen die u doen kunt om uw query's optimaliseren. Dit komt omdat SQL Data Warehouse queryoptimalisatie optimalisatie kosten op basis van een. Het vergelijkt de kosten van verschillende queryplannen en kiest vervolgens het plan met de laagste kosten die in de meeste gevallen het plan dat de snelste uitvoert. Bijvoorbeeld, als het optimalisatieprogramma maakt een schatting van de datum die u hebt gefilterd in uw query retourneert één rij, kunt het een ander schema dan als u deze maakt een schatting van die de geselecteerde datum worden 1 miljoen rijen geretourneerd.
 
 Het proces van het maken en bijwerken van statistieken is op dit moment een handmatig proces, maar het is heel eenvoudig doen.  U wordt binnenkort automatisch maken en bijwerken van statistieken op één kolommen en indexen.  U kunt het beheer van de statistieken aanzienlijk voor uw gegevens automatiseren met behulp van de volgende informatie. 
 
-## <a name="getting-started-with-statistics"></a>Aan de slag met statistieken
+## <a name="scenarios"></a>Scenario's
 Steekproef statistieken maken voor elke kolom is een eenvoudige manier om te beginnen. Verouderde statistieken leiden tot suboptimale queryprestaties. Echter, het bijwerken van statistieken voor alle kolommen wanneer uw gegevens groeit geheugen verbruiken. 
 
 Hier volgen de aanbevelingen voor verschillende scenario's:
@@ -94,7 +81,7 @@ WHERE
 
 **Datum van de kolommen** in een datawarehouse bijvoorbeeld meestal regelmatig hoeft te worden statistieken updates. Elke keer nieuwe rijen in het datawarehouse zijn geladen, worden nieuwe load datums of transactiedatums toegevoegd. Deze de verdeling van de gegevens wijzigen en de statistieken niet actueel te maken.  Als u daarentegen statistieken op een kolom geslacht in een tabel van de klant mogelijk nooit moeten worden bijgewerkt. Ervan uitgaande dat de distributie constant tussen klanten, eens toevoegen van nieuwe rijen aan de tabel variatie niet te wijzigen van de gegevensdistributie. Echter, als uw datawarehouse slechts één geslacht en een nieuwe vereiste resultaten in meerdere geslachten bevat, moet u statistieken voor de kolom geslacht moeten worden bijgewerkt.
 
-Zie voor verdere uitleg [statistieken] [ Statistics] op MSDN.
+Zie voor meer informatie, algemene richtlijnen voor [statistieken](/sql/relational-databases/statistics/statistics).
 
 ## <a name="implementing-statistics-management"></a>Implementatie van statistieken management
 Het is vaak een goed idee om uw gegevens laadproces om ervoor te zorgen dat de statistieken worden bijgewerkt aan het einde van de belasting uitbreiden. Het laden van gegevens is wanneer tabellen meest hun grootte en/of de distributie van de waarden wijzigen. Daarom is dit een logische plaats voor het implementeren van een aantal processen.
@@ -107,7 +94,7 @@ De volgende principes zijn beschikbaar voor het bijwerken van uw statistieken ti
 * U kunt statische distributiekolommen minder vaak bijwerken.
 * Denk eraan dat elke statistiek-object wordt bijgewerkt in de reeks. Gewoon implementeren `UPDATE STATISTICS <TABLE_NAME>` niet altijd ideaal, met name voor grote tabellen met veel objecten zijn statistieken.
 
-Zie voor verdere uitleg [Kardinaliteitsschatting] [ Cardinality Estimation] op MSDN.
+Zie voor meer informatie [Kardinaliteitsschatting](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
 ## <a name="examples-create-statistics"></a>Voorbeelden: Statistieken maken
 Deze voorbeelden laten zien hoe het gebruik van verschillende opties voor het maken van statistieken. De opties die u voor elke kolom gebruikt is afhankelijk van de kenmerken van uw gegevens en hoe u de kolom wordt gebruikt in query's.
@@ -172,7 +159,7 @@ U kunt ook de opties samen combineren. Het volgende voorbeeld wordt een gefilter
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Zie voor de volledige verwijzing [CREATE STATISTICS] [ CREATE STATISTICS] op MSDN.
+Zie voor de volledige verwijzing [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql).
 
 ### <a name="create-multi-column-statistics"></a>Statistieken met meerdere kolommen maken
 Voor het maken van een object met meerdere kolommen statistieken gewoon gebruiken de eerdere voorbeelden, maar meer kolommen opgeven.
@@ -362,9 +349,9 @@ Deze instructie is eenvoudig te gebruiken. Let erop dat wordt bijgewerkt *alle* 
 > 
 > 
 
-Voor een implementatie van een `UPDATE STATISTICS` procedure, Zie [tijdelijke tabellen][Temporary]. De implementatie-methode is enigszins afwijken van de voorgaande `CREATE STATISTICS` procedure, maar het resultaat is hetzelfde.
+Voor een implementatie van een `UPDATE STATISTICS` procedure, Zie [tijdelijke tabellen](sql-data-warehouse-tables-temporary.md). De implementatie-methode is enigszins afwijken van de voorgaande `CREATE STATISTICS` procedure, maar het resultaat is hetzelfde.
 
-Zie voor de volledige syntaxis [Update Statistics] [ Update Statistics] op MSDN.
+Zie voor de volledige syntaxis [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql).
 
 ## <a name="statistics-metadata"></a>Statistieken metagegevens
 Er zijn verschillende systeemweergaven en functies die u gebruiken kunt om informatie over statistieken te vinden. U kunt bijvoorbeeld zien als een object statistieken mogelijk verouderd met behulp van de functie statistieken datum om te zien wanneer statistieken laatste zijn gemaakt of bijgewerkt.
@@ -374,21 +361,21 @@ Deze systeemweergaven bevatten informatie over statistieken:
 
 | catalogusweergave | Beschrijving |
 |:--- |:--- |
-| [sys.columns][sys.columns] |Een rij voor elke kolom. |
-| [sys.objects][sys.objects] |Een rij voor elk object in de database. |
-| [sys.schemas][sys.schemas] |Een rij voor elk schema in de database. |
-| [sys.stats][sys.stats] |Een rij voor elk object statistieken. |
-| [sys.stats_columns][sys.stats_columns] |Een rij voor elke kolom in het object statistieken. Koppelingen naar sys.columns. |
-| [sys.tables][sys.tables] |Een rij voor elke tabel (inclusief externe tabellen). |
-| [sys.table_types][sys.table_types] |Een rij voor elk gegevenstype. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Een rij voor elke kolom. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Een rij voor elk object in de database. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Een rij voor elk schema in de database. |
+| [sys.Stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Een rij voor elk object statistieken. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |Een rij voor elke kolom in het object statistieken. Koppelingen naar sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Een rij voor elke tabel (inclusief externe tabellen). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |Een rij voor elk gegevenstype. |
 
 ### <a name="system-functions-for-statistics"></a>Systeemfuncties voor statistieken
 Deze systeemfuncties zijn nuttig voor het werken met statistieken:
 
 | De systeemfunctie | Beschrijving |
 |:--- |:--- |
-| [STATS_DATE][STATS_DATE] |De datum is die het object statistieken voor het laatst is bijgewerkt. |
-| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Samenvatting niveau en gedetailleerde informatie over de distributie van waarden die door het object statistieken begrepen. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |De datum is die het object statistieken voor het laatst is bijgewerkt. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Samenvatting niveau en gedetailleerde informatie over de distributie van waarden die door het object statistieken begrepen. |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Functies en statistieken kolommen combineren in één weergave
 Deze weergave maakt op kolommen met betrekking tot statistieken en resultaat is van de functie STATS_DATE() samen.
@@ -476,37 +463,5 @@ DBCC SHOW_STATISTICS() wordt meer strikt in SQL Data Warehouse vergeleken met SQ
 - Aangepaste foutpagina 2767 wordt niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie [DBCC SHOW_STATISTICS] [ DBCC SHOW_STATISTICS] op MSDN.
+Voor queryprestaties verder verbeteren, Zie [bewaken van uw werkbelasting](sql-data-warehouse-manage-monitor.md)
 
-  Zie voor meer informatie de artikelen op [tabel overzicht][Overview], [tabel gegevenstypen][Data Types], [distribueren van een tabel] [ Distribute], [Indexeren van een tabel][Index], [partitioneren van een tabel][Partition], en [Tijdelijke tabellen][Temporary].
-  
-   Zie voor meer informatie over best practices [aanbevolen procedures van SQL Data Warehouse][SQL Data Warehouse Best Practices].  
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
-[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
-[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
-[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-
-<!--Other Web references-->  

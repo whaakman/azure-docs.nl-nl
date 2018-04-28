@@ -2,7 +2,7 @@
 title: 'Azure Active Directory B2C: Een Azure AD-provider toevoegen met behulp van aangepaste beleidsregels | Microsoft Docs'
 description: Meer informatie over Azure Active Directory B2C aangepast beleid
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: parakhj
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: f34326bcb8a7cbf5b5cf75e8f18f2843abc0b3ab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: Meld u aan met behulp van Azure AD-accounts
 
@@ -46,12 +46,12 @@ Om in te schakelen aanmelden voor gebruikers met een specifiek Azure AD-organisa
 > We gebruiken 'contoso.com' voor de organisatie Azure AD-tenant en 'fabrikamb2c.onmicrosoft.com' als de Azure AD B2C-tenant in de volgende instructies.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Selecteer uw account op de bovenste balk. Van de **Directory** Kies de organisatie waar u de toepassing (contoso.com) registreren voor Azure AD-tenant.
-1. Selecteer **meer services** in het linkerdeelvenster, en zoek naar "App registraties."
-1. Selecteer **registratie van de nieuwe toepassing**.
-1. Voer een naam voor uw toepassing (bijvoorbeeld `Azure AD B2C App`).
-1. Selecteer **Web-app / API** voor het toepassingstype.
-1. Voor **aanmeldings-URL**, voer de volgende URL waar `yourtenant` wordt vervangen door de naam van uw Azure AD B2C-tenant (`fabrikamb2c.onmicrosoft.com`):
+2. Selecteer uw account op de bovenste balk. Van de **Directory** Kies de organisatie waar u de toepassing (contoso.com) registreren voor Azure AD-tenant.
+3. Selecteer **meer services** in het linkerdeelvenster, en zoek naar "App registraties."
+4. Selecteer **Nieuwe toepassing registreren**.
+5. Voer een naam voor uw toepassing (bijvoorbeeld `Azure AD B2C App`).
+6. Selecteer **Web-app / API** als toepassingstype.
+7. Voor **aanmeldings-URL**, voer de volgende URL waar `yourtenant` wordt vervangen door de naam van uw Azure AD B2C-tenant (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >De waarde voor 'yourtenant' moet alleen kleine letters in de **aanmeldings-URL**.
@@ -60,10 +60,10 @@ Om in te schakelen aanmelden voor gebruikers met een specifiek Azure AD-organisa
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Opslaan van de toepassings-ID.
-1. Selecteer de zojuist gemaakte toepassing.
-1. Onder de **instellingen** blade Selecteer **sleutels**.
-1. Maak een nieuwe sleutel en sla het. U gebruikt deze in de stappen in de volgende sectie.
+8. Opslaan van de toepassings-ID.
+9. Selecteer de zojuist gemaakte toepassing.
+10. Onder de **instellingen** blade Selecteer **sleutels**.
+11. Geef de sleutel beschrijving, selecteert u een duur en klik vervolgens op **opslaan**. De waarde van de sleutel wordt weergegeven. Kopieer de verbindingsreeks omdat deze wordt in de stappen in de volgende sectie worden gebruikt.
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>De Azure AD-sleutel toevoegen aan Azure AD B2C
 

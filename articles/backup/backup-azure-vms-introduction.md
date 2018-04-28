@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: markgal;trinadhk;sogup
+ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>De infrastructuur voor back-ups van virtuele Azure-machines plannen
 In dit artikel biedt de prestaties en suggesties voor het plannen van uw back-upinfrastructuur VM resource. Definieert ook belangrijke aspecten van de Backup-service; deze aspecten kunnen essentieel bij het bepalen van uw architectuur zijn capaciteitsplanning en planning. Als u hebt [uw omgeving voorbereid](backup-azure-arm-vms-prepare.md), is de volgende stap plannen voordat u begint met [back-up van virtuele machines](backup-azure-arm-vms.md). Als u meer informatie over virtuele machines in Azure nodig hebt, raadpleegt u de [documentatie Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -43,7 +43,7 @@ Wanneer de gegevensoverdracht is voltooid, wordt de momentopname verwijderd en w
 
 ### <a name="data-consistency"></a>Gegevensconsistentie
 Een back-up en herstellen van zakelijke essentiële gegevens wordt bemoeilijkt door het feit dat bedrijfskritieke gegevens moet een back-up tijdens de toepassingen die de gegevens produceren die worden uitgevoerd. Om dit op te lossen, Azure Backup biedt ondersteuning voor toepassingsconsistente back-ups voor zowel Windows als een virtuele Linux-machines
-#### <a name="windows-vm"></a>Windows VM
+#### <a name="windows-vm"></a>Windows-VM
 Azure Backup VSS volledige back-ups neemt op VM's van Windows (meer informatie over [VSS volledige back-up](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)). De volgende registersleutel moet worden ingesteld op de virtuele machine zodat VSS kopieback-ups.
 
 ```
@@ -99,7 +99,8 @@ Hoewel de meeste van de back-tijd is besteed aan het lezen van en kopiëren van 
 
 * Tijd die nodig zijn voor [installeren of bijwerken van de Backup-extensie](backup-azure-arm-vms.md).
 * Momentopname-tijd is de tijd die nodig is voor het activeren van een momentopname. Momentopnamen worden dicht bij de geplande back-uptijd geactiveerd.
-* Wachttijd in. Omdat de Backup-service met het verwerken van de back-ups van meerdere klanten, back-upgegevens kopiëren vanuit een momentopname naar de back-up of een Recovery Services-kluis mogelijk niet onmiddellijk starten. In tijden van piek geladen, de wachttijd kunt uitrekken tot acht uur vanwege het aantal back-ups wordt verwerkt. De totale tijd van de VM-back-up is echter minder dan 24 uur voor dagelijkse back-upbeleid.
+* Wachttijd in. Omdat de Backup-service met het verwerken van de back-ups van meerdere klanten, back-upgegevens kopiëren vanuit een momentopname naar de back-up of een Recovery Services-kluis mogelijk niet onmiddellijk starten. In tijden van piek geladen, de wachttijd kunt uitrekken tot acht uur vanwege het aantal back-ups wordt verwerkt. De totale tijd van de VM-back-up is echter minder dan 24 uur voor dagelijkse back-upbeleid. <br>
+**Dit is alleen geldig voor incrementele back-ups en niet voor de eerste back-up. Tijdstip van eerste back-up is evenredig en kan niet groter zijn dan 24 uur, afhankelijk van de grootte van de gegevens en de tijd back-up wordt uitgevoerd.**
 * Overdrachtstijd gegevens, de tijd die nodig is voor Backup-service voor het berekenen van de incrementele wijzigingen van eerdere back-up en dragen deze wijzigingen naar de opslag-kluis.
 
 ### <a name="why-am-i-observing-longer12-hours-backup-time"></a>Waarom heb ik observeren longer(>12 hours) back-up van tijd?

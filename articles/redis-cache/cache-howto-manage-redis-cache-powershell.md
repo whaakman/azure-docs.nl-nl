@@ -2,10 +2,10 @@
 title: Azure Redis-Cache met Azure PowerShell beheren | Microsoft Docs
 description: Informatie over het uitvoeren van beheertaken voor Azure Redis-Cache met Azure PowerShell.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure Redis-Cache met Azure PowerShell beheren
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Als u Azure PowerShell al hebt geïnstalleerd, moet u Azure PowerShell versie 1.
 
 Eerst moet u zich bij Azure met deze opdracht.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Geef het e-mailadres van uw Azure-account en het bijbehorende wachtwoord in het dialoogvenster van de aanmeldingspagina Microsoft Azure.
 
@@ -66,18 +66,18 @@ Als u bijvoorbeeld ondersteuning voor de `New-AzureRmRedisCache` cmdlet, type:
     Get-Help New-AzureRmRedisCache -Detailed
 
 ### <a name="how-to-connect-to-other-clouds"></a>Verbinding maken met andere clouds
-Standaard de Azure-omgeving is `AzureCloud`, die staat voor het globale Azure-cloud-exemplaar. Gebruiken voor verbinding met een ander exemplaar, de `Add-AzureRmAccount` opdracht met de `-Environment` of -`EnvironmentName` opdrachtregelparameter met de gewenste omgeving of de omgevingsnaam.
+Standaard de Azure-omgeving is `AzureCloud`, die staat voor het globale Azure-cloud-exemplaar. Gebruiken voor verbinding met een ander exemplaar, de `Connect-AzureRmAccount` opdracht met de `-Environment` of -`EnvironmentName` opdrachtregelparameter met de gewenste omgeving of de omgevingsnaam.
 
 Als u wilt zien van de lijst met beschikbare omgevingen, de `Get-AzureRmEnvironment` cmdlet.
 
 ### <a name="to-connect-to-the-azure-government-cloud"></a>Verbinding maken met de Azure Government-Cloud
 Voor verbinding met de Azure Government Cloud, gebruikt u een van de volgende opdrachten.
 
-    Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+    Connect-AzureRmAccount -EnvironmentName AzureUSGovernment
 
 of
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
 Voor het maken van een cache in de Cloud van Azure Government, gebruikt u een van de volgende locaties.
 
@@ -89,15 +89,15 @@ Zie voor meer informatie over de Azure Government Cloud [Microsoft Azure Governm
 ### <a name="to-connect-to-the-azure-china-cloud"></a>Verbinding maken met de Azure China-Cloud
 Voor verbinding met de Azure-Cloud China, moet u een van de volgende opdrachten gebruiken.
 
-    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 of
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 Voor het maken van een cache in de Azure China Cloud, gebruikt u een van de volgende locaties.
 
-* China - oost
+* China East
 * China - noord
 
 Zie voor meer informatie over de Azure-Cloud China [AzureChinaCloud voor Azure wordt beheerd door 21Vianet in China](http://www.windowsazure.cn/).
@@ -105,12 +105,12 @@ Zie voor meer informatie over de Azure-Cloud China [AzureChinaCloud voor Azure w
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Verbinding maken met Microsoft Azure Duitsland
 Voor verbinding met Microsoft Azure Duitsland, gebruikt u een van de volgende opdrachten.
 
-    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+    Connect-AzureRmAccount -EnvironmentName AzureGermanCloud
 
 
 of
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
 
 Voor het maken van een cache in Microsoft Azure Duitsland, gebruikt u een van de volgende locaties.
 
@@ -327,7 +327,7 @@ De volgende opdracht werkt het maxmemory-beleid voor de Redis-Cache met de naam 
 <a name="scale"></a>
 
 ## <a name="to-scale-a-redis-cache"></a>Schalen van een Redis-cache
-`Set-AzureRmRedisCache`kan worden gebruikt voor het schalen van een Azure Redis-cache-exemplaar wanneer de `Size`, `Sku`, of `ShardCount` eigenschappen zijn gewijzigd. 
+`Set-AzureRmRedisCache` kan worden gebruikt voor het schalen van een Azure Redis-cache-exemplaar wanneer de `Size`, `Sku`, of `ShardCount` eigenschappen zijn gewijzigd. 
 
 > [!NOTE]
 > Schalen van een cache met behulp van PowerShell is onderworpen aan dezelfde limieten en richtlijnen als het schalen van een cache van de Azure-portal. U kunt schalen naar een andere prijscategorie met de volgende beperkingen.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: stgriffi
-ms.openlocfilehash: 701edc784dcde067e8ec585a3b31d6075207fbbf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Azure Key Vault instellen met end-to-end sleutelrotatie en -controle
 ## <a name="introduction"></a>Inleiding
@@ -38,7 +38,7 @@ Dit artikel begeleidt bij een voorbeeld van het gebruik van Azure Key Vault voor
 Om een toepassing een geheim ophalen uit Sleutelkluis, moet u eerst het geheim maken en uploaden naar uw kluis. Dit kunt doen met Azure PowerShell-sessie starten en het aanmelden bij uw Azure-account met de volgende opdracht:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw Azure-account in. PowerShell haalt alle abonnementen die gekoppeld aan dit account zijn. PowerShell gebruikt de eerste standaard.
@@ -201,7 +201,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Add-AzureRmAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `

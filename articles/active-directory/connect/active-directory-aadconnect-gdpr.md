@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect en algemene gegevens beveiliging regelgeving | Microsoft Docs
+title: Azure AD Connect en gebruiker privacy | Microsoft Docs
 description: Dit document beschrijft het verkrijgen van GDPR compliancy met Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -11,36 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect"></a>GDPR naleving en Azure AD Connect 
+# <a name="user-privacy-and-azure-ad-connect"></a>Privacy van gebruikers en Azure AD Connect 
 
-In mei 2018, een Europese privacywetgeving de [algemene Data Protection regelgeving (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), vervalt kracht te laten worden. De GDPR legt nieuwe regels voor bedrijven, overheidsinstanties, non-profitorganisaties en andere organisaties aanbieding goederen en diensten naar mensen in de Europese Unie, of dat verzamelen en analyseren van gegevens die zijn gekoppeld aan de EU inwoners. De GDPR is van toepassing ongeacht waar u zich bevindt. 
-
-Microsoft-producten en services zijn vandaag beschikbaar waarmee u voldoen aan de vereisten GDPR. Meer informatie over het privacybeleid van Microsoft voor op [Vertrouwenscentrum](https://www.microsoft.com/trustcenter)
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->In dit artikel behandelt de naleving van Azure AD Connect en GDPR.  Voor informatie over Azure AD Connect Health en GDPR naleving Zie het artikel [hier](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
+>In dit artikel gaat over Azure AD Connect en gebruiker privacy.  Zie het artikel voor informatie over Azure AD Connect Health en gebruiker privacy [hier](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
-Naleving van regelgeving beveiliging algemene gegevens voor Azure AD Connect-installaties, kan worden bereikt op twee manieren:
+Privacy gebruikerscompatibiliteit voor Azure AD Connect-installaties, kan worden bereikt op twee manieren:
 
 1.  Gegevens ophalen voor een persoon op verzoek en gegevens van die persoon de installaties verwijderen
 2.  Zorg ervoor dat er geen gegevens behouden blijven na 48 uur.
 
 Het team van Azure AD Connect raadt de tweede optie, omdat het is veel eenvoudiger te implementeren en onderhouden.
 
-Een Azure AD Connect sync-server slaat de volgende gegevens op die binnen het bereik van GDPR naleving:
+Een Azure AD Connect sync-server slaat de gegevens van de volgende privacy:
 1.  Gegevens over een persoon in de **Azure AD Connect-database**
 2.  Gegevens in de **Windows-gebeurtenislogboek** bestanden die informatie over een persoon bevatten kunnen
 3.  Gegevens in de **logboekbestanden voor Azure AD Connect-installatie** die over een persoon kan bevatten
 
-Om te voldoen aan het beleid GDPR, gebruik Azure AD Connect klanten de volgende richtlijnen:
+Azure AD Connect-klanten gebruik de volgende richtlijnen bij het verwijderen van gebruikersgegevens:
 1.  Verwijder de inhoud van de map waarin de Azure AD Connect installatielogboekbestanden regelmatig: ten minste elke 48 uur
 2.  Dit product kan ook gebeurtenislogboeken maken.  Raadpleeg voor meer informatie over gebeurtenislogboeken Logboeken, het [documentatie hier](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
 
@@ -82,5 +80,5 @@ Gebruik de volgende stappen uit om te plannen dat het script uitvoeren om 48 uur
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md).
-- [Azure AD Connect Health en GDPR](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)
+* [Het beleid voor Microsoft Privacy op Vertrouwenscentrum bekijken](https://www.microsoft.com/trustcenter)
+- [Azure AD Connect Health en Privacy van gebruikers](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)

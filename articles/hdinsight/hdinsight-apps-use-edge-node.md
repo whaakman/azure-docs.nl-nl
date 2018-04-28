@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 04/19/2018
 ms.author: jgao
-ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Lege edge-knooppunten op Hadoop-clusters in HDInsight gebruiken
 
@@ -69,6 +69,9 @@ Nadat u een edge-knooppunt hebt gemaakt, kunt u verbinding maken met het edge-kn
 >
 > Als u een Apache-technologie gebruikt, u kunt mogelijk hulp via de Apache projectsites zoeken op [ http://apache.org ](http://apache.org), zoals de [Hadoop](http://hadoop.apache.org/) site.
 
+> [!NOTE]
+> Hetzelfde als de clusters, edge-knooppunten zijn ook patch beheerd.  Zie voor meer informatie [OS patches voor HDInsight](./hdinsight-os-patching.md).
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Een edge-knooppunt toevoegen aan een bestaand cluster
 In deze sectie kunt u een Resource Manager-sjabloon gebruiken een edge-knooppunt toevoegen aan een bestaand HDInsight-cluster.  De Resource Manager-sjabloon kunt u vinden in [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). De Resource Manager-sjabloon roept een scriptactie zich bevindt op https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Het script heeft geen acties uitvoeren.  Het is voor het demonstreren van aanroepen scriptactie van Resource Manager-sjabloon.
 
@@ -115,6 +118,10 @@ In deze sectie kunt u een Resource Manager-sjabloon maken van HDInsight-cluster 
      
      Sommige eigenschappen zijn vastgelegd in de sjabloon: clustertype, aantal Cluster worker-knooppunten, de grootte van de Edge-knooppunt en de naam van de Edge-knooppunt.
 4. Controleer **ik ga akkoord met de voorwaarden en bepalingen hierboven**, en klik vervolgens op **aankoop** het cluster maken met het edge-knooppunt.
+
+## <a name="add-multiple-edge-nodes"></a>Meerdere edge-knooppunten toevoegen
+
+U kunt meerdere edge-knooppunten toevoegen aan een HDInsight-cluster.  De configuratie met meerdere knooppunten rand kan alleen worden uitgevoerd met behulp van Azure Resource Manager-sjablonen.  Zie het voorbeeld van de sjabloon aan het begin van dit artikel.  Werk de **targetInstanceCount** in overeenstemming met het aantal edge-knooppunten die u wilt maken.
 
 ## <a name="access-an-edge-node"></a>Toegang tot een edge-knooppunt
 Het edge-knooppunt ssh-eindpunt is &lt;EdgeNodeName >.&lt; ClusterName >-ssh.azurehdinsight.net:22.  Bijvoorbeeld, nieuwe-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.

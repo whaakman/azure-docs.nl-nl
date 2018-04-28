@@ -12,28 +12,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 04/19/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 2a4eb909c39051ce9fa2efd7e7997644d9b8b1b1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: 5665af14b9b0d0705b68c8a27c593b19c31b053e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Een Windows-machine maken op Azure-Stack met Azure CLI
+# <a name="quickstart-create-a-windows-virtual-machine-in-azure-stack-using-azure-cli"></a>Snelstartgids: een virtuele Windows-machine maken in Azure-Stack met Azure CLI
 
-Azure CLI wordt gebruikt voor het maken en beheren van Azure-Stack-bronnen vanaf de opdrachtregel. Deze handleiding gegevens met Azure CLI voor het maken van een Windows Server 2016 virtuele machine in Azure-Stack. Zodra de virtuele machine is gemaakt, wordt u verbinding met extern bureaublad, IIS installeren en weergeven van de standaardwebsite. 
+Azure CLI wordt gebruikt voor het maken en beheren van Azure-Stack-bronnen vanaf de opdrachtregel. In dit artikel laat zien hoe Azure CLI gebruiken voor het maken en toegang tot een Windows Server 2016 virtuele machine in Azure-Stack.
 
-## <a name="prerequisites"></a>Vereisten 
+## <a name="prerequisites"></a>Vereisten
 
-* Zorg ervoor dat uw Azure-Stack-operator de installatiekopie van het 'WindowsServer 2016' is toegevoegd aan de Stack van Azure marketplace.  
+* Zorg ervoor dat uw Azure-Stack-operator de installatiekopie van het 'WindowsServer 2016' is toegevoegd aan de Stack van Azure marketplace.
 
 * Azure-Stack is vereist voor een specifieke versie van Azure CLI maken en beheren van de resources. Als u geen Azure CLI geconfigureerd voor Azure-Stack, volg de stappen voor [Azure CLI installeren en configureren](azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container in welke Azure-Stack resources worden geïmplementeerd en beheerd. Geïntegreerd systeem, uitvoeren van de SDK of de Azure-Stack de [az groep maken](/cli/azure/group#az_group_create) opdracht om een resourcegroep te maken. We waarden voor alle variabelen in dit document hebt toegewezen, kunt u deze als is of een andere waarde toe te wijzen. Het volgende voorbeeld maakt een resourcegroep met de naam myResourceGroup in de lokale locatie.
+Een resourcegroep is een logische container in welke Azure-Stack resources worden geïmplementeerd en beheerd. Geïntegreerd systeem, uitvoeren van de SDK of de Azure-Stack de [az groep maken](/cli/azure/group#az_group_create) opdracht om een resourcegroep te maken. Waarden voor de variabelen in dit document zijn toegewezen, kunt u deze waarden gebruiken of nieuwe waarden toewijzen. Het volgende voorbeeld maakt een resourcegroep met de naam myResourceGroup in de lokale locatie.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -54,8 +54,8 @@ az vm create \
   --location local
 ```
 
-Wanneer de virtuele machine wordt gemaakt, noteer de *PublicIPAddress* parameter dat wordt uitgevoerd, die u gebruiken wilt voor toegang tot de virtuele machine.
- 
+Wanneer de virtuele machine wordt gemaakt, de *PublicIPAddress* parameter wordt uitgevoerd. Noteer dit adres omdat u deze toegang krijgt tot de virtuele machine nodig hebt.
+
 ## <a name="open-port-80-for-web-traffic"></a>Poort 80 openen voor webverkeer
 
 Standaard mogen alleen RDP-verbindingen met een Windows virtuele machine is geïmplementeerd in Azure-Stack. Als deze virtuele machine wordt gebruikt als een webserver, moet u poort 80 openen voor verkeer vanaf internet. Gebruik de opdracht [az vm open-port](/cli/azure/vm#open-port) om de gewenste poort te openen.
@@ -74,7 +74,7 @@ mstsc /v <Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>IIS installeren met behulp van PowerShell
 
-U bent nu aangemeld bij de VM van Azure en er is nog maar één regel code van PowerShell nodig om IIS te installeren en de regel voor de lokale firewall in te schakelen om webverkeer toe te staan. Open een PowerShell-prompt en voer de volgende opdracht uit:
+Na het aanmelden op de virtuele machine in Azure, kunt u één regel PowerShell IIS installeren en activeren van de lokale firewallregel webverkeer toestaan. Open een PowerShell-prompt en voer de volgende opdracht uit:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -82,13 +82,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>De welkomstpagina van IIS weergeven
 
-Nu IIS is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van IIS weer te geven. Zorg ervoor dat u de standaardpagina bezoekt met het openbare IP-adres dat u hierboven hebt gedocumenteerd. 
+U kunt een webbrowser van uw keuze om weer te geven van de standaardwelkomstpagina van IIS. Gebruik het openbare IP-adres is beschreven in de vorige sectie de standaardpagina te bezoeken.
 
-![Standaardsite van IIS](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png) 
+![Standaardsite van IIS](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de opdracht [az group delete](/cli/azure/group#az_group_delete) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt.
+Wanneer deze niet langer nodig is, kunt u de [az groep verwijderen](/cli/azure/group#az_group_delete) opdracht voor het verwijderen van de resourcegroep, de virtuele machine, en alle bijbehorende resources.
 
 ```cli
 az group delete --name myResourceGroup

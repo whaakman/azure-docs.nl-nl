@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0da6bd56a684657d8275ca8c781847f31f8e05c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Computers voorbereiden voor beheer door Azure Automation DSC
 
@@ -53,7 +53,7 @@ De URL van de registratie van zoeken en sleutel voor het Automation-account om v
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -329,7 +329,7 @@ Om vrij te algemeen geven een aan Azure Automation DSC machine een [DSC-metaconf
 Als de PowerShell DSC Local Configuration Manager-standaardwaarden overeenkomen met uw gebruiksvoorbeeld en u vrijgeven machines wilt zo dat ze zowel pull van en aan Azure Automation DSC rapporteren, bieden de cmdlets van Azure Automation een vereenvoudigde methode voor het genereren van de DSC-metaconfigurations nodig:
 
 1. Open de PowerShell-console of PowerShell ISE als beheerder op een virtuele machine in uw lokale omgeving.
-2. Verbinding maken met behulp van Azure Resource Manager **Add-AzureRmAccount**
+2. Verbinding maken met behulp van Azure Resource Manager **Connect-AzureRmAccount**
 3. De PowerShell DSC-metaconfigurations voor de machines die u wilt downloaden om vrij te geven van het Automation-account die u vrijgeven knooppunten wilt:
 
     ```powershell

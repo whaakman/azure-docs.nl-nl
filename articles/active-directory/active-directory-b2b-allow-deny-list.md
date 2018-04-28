@@ -13,22 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 04/19/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: b9ead9643cc7926be3bd69e947977fa40d45a722
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a18193ee0d216416cda3145c85c8357813f794d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Uitnodigingen voor B2B gebruikers van specifieke organisaties blokkeren of toestaan
 
-U kunt een lijst met toegestane of een lijst weigeren toestaan of blokkeren uitnodigingen voor B2B gebruikers van specifieke organisaties. Bijvoorbeeld, als u wilt een persoonlijk e-mailadres domeinen blokkeren, kunt u instellen om een lijst weigeren met domeinen zoals Gmail.com en Outlook.com. Als uw bedrijf verbonden met andere bedrijven zoals Contoso.com, Fabrikam.com en Litware.com is en u wilt beperken tot alleen deze organisaties inschrijvingen, kunt u toevoegen Contoso.com, Fabrikam.com en Litware.com aan de lijst voor toestaan.
+U kunt een lijst met toegestane of een lijst weigeren toestaan of blokkeren uitnodigingen voor B2B gebruikers van specifieke organisaties. Bijvoorbeeld, als u wilt een persoonlijk e-mailadres domeinen blokkeren, kunt u instellen om een lijst weigeren met domeinen zoals Gmail.com en Outlook.com. Als uw bedrijf verbonden met andere bedrijven zoals Contoso.com, Fabrikam.com en Litware.com is en u wilt beperken tot alleen deze organisaties inschrijvingen, kunt u toevoegen Contoso.com, Fabrikam.com en Litware.com naar de lijst voor toestaan.
   
-> [!NOTE]
-> U kunt op dit moment alleen gebruik weigeren lijsten. De mogelijkheid te gebruiken kunt zo snel mogelijk afkomstig is lijsten.
-
 ## <a name="important-considerations"></a>Belangrijke overwegingen
 
 - U kunt een lijst met toegestane of een lijst weigeren maken. U kunt beide typen lijsten niet instellen. Standaard welke domeinen zijn niet in de lijst zijn op de lijst weigeren, en vice versa. 
@@ -50,22 +47,34 @@ Een lijst weigeren toevoegen:
 2. Selecteer **Azure Active Directory** > **gebruikers** > **gebruikersinstellingen**.
 3. Onder **externe gebruikers**, selecteer **beheren van instellingen voor externe samenwerking**.
 4. Onder **samenwerking beperkingen**, selecteer **uitnodigingen voor de opgegeven domeinen weigeren**.
-5. Onder **DOELDOMEINEN**, voer de naam van een van de domeinen die u wilt blokkeren. Geef elk domein op een nieuwe regel voor meerdere domeinen.
+5. Onder **DOELDOMEINEN**, voer de naam van een van de domeinen die u wilt blokkeren. Geef elk domein op een nieuwe regel voor meerdere domeinen. Bijvoorbeeld:
 
    ![Toont de optie weigeren met toegevoegde domeinen](./media/active-directory-b2b-allow-deny-list/DenyListSettings.png)
  
 6. Wanneer u bent klaar, klikt u op **opslaan**.
 
-Nadat u het beleid hebt ingesteld als u probeert uit te nodigen van een gebruiker uit een geblokkeerde domein, ontvangen een bericht weergegeven dat de gebruiker momenteel is geblokkeerd door uw uitnodiging-beleid.
+Nadat u het beleid hebt ingesteld als u probeert uit te nodigen van een gebruiker uit een geblokkeerde domein, ontvangen een bericht weergegeven dat het domein van de gebruiker momenteel is geblokkeerd door uw uitnodiging-beleid.
  
 ### <a name="add-an-allow-list"></a>Een lijst toevoegen
 
-> [!NOTE]
-> Op dit moment wordt de **uitnodigingen alleen voor de opgegeven domeinen (meest beperkende) toestaan** instelling is niet beschikbaar. De mogelijkheid te gebruiken kunt zo snel mogelijk afkomstig is lijsten.
-
 Dit is een meer beperkend configuratie, kunt u specifieke domeinen ingesteld in de lijst met toegestane en beperken van uitnodigingen aan een andere organisaties of domeinen die niet zijn genoemd. 
 
-Als u een acceptatielijst gebruiken wilt, zorg er dan voor dat u tijd volledig evalueren wat uw bedrijf moet besteden aan. Als u dit beleid te beperkend, kunt uw gebruikers documenten verzenden via e-mail of andere niet-IT erkende manieren om samen te werken niet vinden.
+Als u wilt een acceptatielijst gebruiken, zorg ervoor dat u tijd besteden aan het volledig evalueren wat uw bedrijf moet zijn. Als u dit beleid te beperkend, kunt uw gebruikers documenten verzenden via e-mail of andere niet-IT erkende manieren om samen te werken niet vinden.
+
+
+Een lijst toevoegen:
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer **Azure Active Directory** > **gebruikers** > **gebruikersinstellingen**.
+3. Onder **externe gebruikers**, selecteer **beheren van instellingen voor externe samenwerking**.
+4. Onder **samenwerking beperkingen**, selecteer **uitnodigingen alleen voor de opgegeven domeinen (meest beperkende) toestaan**.
+5. Onder **DOELDOMEINEN**, voer de naam van een van de domeinen die u wilt toestaan. Geef elk domein op een nieuwe regel voor meerdere domeinen. Bijvoorbeeld:
+
+   ![Ziet u de optie toestaan met toegevoegde domeinen](./media/active-directory-b2b-allow-deny-list/AllowListSettings.png)
+ 
+6. Wanneer u bent klaar, klikt u op **opslaan**.
+
+Nadat u het beleid hebt ingesteld als u probeert uit te nodigen van een gebruiker uit een domein dat zich niet op de lijst accepteren, ontvangen een bericht weergegeven dat het domein van de gebruiker momenteel is geblokkeerd door uw uitnodiging-beleid.
 
 ### <a name="switch-from-allow-to-deny-list-and-vice-versa"></a>Overschakelen van de lijst en vice versa weigeren toestaan 
 
@@ -116,9 +125,6 @@ Als de module is niet geïnstalleerd of u niet een vereiste versie hebt, een van
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>De AzureADPolicy-cmdlets gebruiken voor het beleid configureren
 
-> [!NOTE]
-> Op dit moment kunt u alleen configureren voor het weigeren van lijsten. De mogelijkheid te gebruiken kunt zo snel mogelijk afkomstig is lijsten.
-
 Gebruik wilt maken, toestaan of weigeren lijst, de [nieuw AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Het volgende voorbeeld ziet hoe u een lijst weigeren die blokkeert het domein 'live.com' instelt.
 
 ````powershell 
@@ -139,7 +145,7 @@ Voor het instellen van het toestaan of weigeren lijst beleid, gebruikt u de [Set
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ````
 
-Als u het beleid, gebruikt de [Get-AzureADPolicy](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Bijvoorbeeld:
+Als u het beleid, gebruikt de [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Bijvoorbeeld:
 
 ````powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 

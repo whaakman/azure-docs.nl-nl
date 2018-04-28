@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 88254966c8aa16bf9fa182702c9c742d908851e1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een aangepaste virtuele machine in Azure Stack beschikbaar maken
 
@@ -81,7 +81,7 @@ Als u wilt de installatiekopie toevoegen aan de Stack Azure Marketplace, moet u 
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Add-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID
       ```
@@ -109,7 +109,7 @@ Als u wilt de installatiekopie toevoegen aan de Stack Azure Marketplace, moet u 
           -ADFS `
           -EnvironmentName AzureStackAdmin
 
-        Login-AzureRmAccount `
+        Add-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
           -TenantId $TenantID
         ```
@@ -156,9 +156,9 @@ Remove-AzsVMImage `
 | --- | --- |
 | **publisher** |Het segment van de naam van uitgever van de VM-installatiekopie die gebruikers gebruiken wanneer ze de installatiekopie implementeren. Een voorbeeld is **Microsoft**. Neem geen een spatie of andere speciale tekens in dit veld. |
 | **offer** |De aanbieding naam segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Een voorbeeld is **Windows Server**. Neem geen een spatie of andere speciale tekens in dit veld. |
-| **sku** |De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Een voorbeeld is **Datacenter2016**. Neem geen een spatie of andere speciale tekens in dit veld. |
+| **SKU** |De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Een voorbeeld is **Datacenter2016**. Neem geen een spatie of andere speciale tekens in dit veld. |
 | **Versie** |De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Deze versie is in de notatie  *\#.\#. \#*. Een voorbeeld is **1.0.0**. Neem geen een spatie of andere speciale tekens in dit veld. |
-| **osType** |Het besturingssysteemtype van de afbeelding moet een **Windows** of **Linux**. |
+| **besturingssysteemtype** |Het besturingssysteemtype van de afbeelding moet een **Windows** of **Linux**. |
 | **osDiskLocalPath** |Het lokale pad naar de schijf met het besturingssysteem VHD die u als een VM-installatiekopie naar Azure-Stack uploaden wilt. |
 | **dataDiskLocalPaths** |Een optionele matrix van de lokale paden voor gegevensschijven dat als onderdeel van de VM-installatiekopie kunnen worden geüpload. |
 | **CreateGalleryItem** |Een Booleaanse vlag waarmee wordt bepaald of het maken van een item in de Marketplace. Standaard is ingesteld op **true**. |
@@ -186,7 +186,7 @@ Installatiekopieën moet kunnen worden verwezen door een Blob storage-URI. De in
 
    * Wanneer u uploadt de [Windows VM-installatiekopie](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), Vervang door de **aanmelden bij Azure** stap met het [configureren van de Azure-Stack-operator PowerShell-omgeving](azure-stack-powershell-configure-admin.md) stap.  
 
-   * Noteer de URI waar u de installatiekopie van het uploaden van Blob-opslag. De Blob storage-URI heeft de volgende indeling: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*VHD.
+   * Noteer de URI waar u de installatiekopie van het uploaden van Blob-opslag. De Blob storage-URI heeft de volgende indeling: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
 
    * U kunt de blob anoniem toegankelijk maken, gaat u naar de storage-account blob-container waar de VHD van de VM-installatiekopie is geüpload. Selecteer **Blob**, en selecteer vervolgens **toegangsbeleid**. Eventueel, kunt u in plaats daarvan een shared access signature voor de container genereren en opnemen als onderdeel van de blob-URI.
 

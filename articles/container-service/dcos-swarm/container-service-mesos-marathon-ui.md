@@ -3,17 +3,17 @@ title: Beheren van Azure DC/OS-cluster met Marathon-gebruikersinterface
 description: Implementeer containers naar een Azure Container Service-cluster met behulp van de webgebruikersinterface van Marathon.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b1c5fc223105b1dae0ce07f242a6b42b34fd2ab3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 43407d40db0aab2772cb1baeab3471be68aee2ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Een DC/OS-cluster in Azure Container Service beheren via de webgebruikersinterface van Marathon
 
@@ -33,12 +33,12 @@ Voer het uitvoeren van deze voorbeelden hebt u een DC/OS-cluster nodig dat is ge
 >
 
 ## <a name="explore-the-dcos-ui"></a>De DC/OS-gebruikersinterface verkennen
-Wanneer een SSH-tunnel (Secure Shell) is [ingesteld](../container-service-connect.md), gaat u naar http://localhost/. Hierdoor wordt de DC/OS-webgebruikersinterface geladen met informatie over het cluster, zoals gebruikte resources, actieve agents en actieve services.
+Met een tunnel Secure Shell (SSH) [tot stand gebracht](../container-service-connect.md), blader naar http://localhost/. Hierdoor wordt de DC/OS-webgebruikersinterface geladen met informatie over het cluster, zoals gebruikte resources, actieve agents en actieve services.
 
 ![DC/OS-webgebruikersinterface](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>De Marathon-gebruikersinterface verkennen
-Ga naar http://localhost/marathon overzicht van de Marathon-gebruikersinterface. In dit scherm kunt u een nieuwe container of een andere toepassing starten op het DC/OS-cluster in Azure Container Service. U ziet ook informatie over actieve containers en toepassingen.  
+Overzicht van de Marathon-gebruikersinterface, bladert u naar http://localhost/marathon. In dit scherm kunt u een nieuwe container of een andere toepassing starten op het DC/OS-cluster in Azure Container Service. U ziet ook informatie over actieve containers en toepassingen.  
 
 ![Marathon-gebruikersinterface](./media/container-service-mesos-marathon-ui/dcos3.png)
 
@@ -82,7 +82,7 @@ Op de hoofdpagina van Marathon ziet u de implementatiestatus voor de container. 
 
 ![Hoofdpagina van Marathon: implementatiestatus van container](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-Als u terugschakelt naar de DC/OS-webgebruikersinterface (http://localhost/), ziet u dat een taak (in dit geval een container in Docker-indeling) wordt uitgevoerd op het DC/OS-cluster.
+Wanneer u naar de DC/OS overschakelt-webgebruikersinterface (http://localhost/), ziet u dat een taak (in dit geval een met Docker ingedeelde container) wordt uitgevoerd op de DC/OS-cluster.
 
 ![DC/OS-webgebruikersinterface: taak die wordt uitgevoerd op het cluster](./media/container-service-mesos-marathon-ui/dcos8.png)
 

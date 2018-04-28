@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: fe6dd9545be17453be38ce9afd5836aa07882ce6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 72eb329c03893f801e112ad33bca0c57c5ee46a0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET wijziging Feed Processor SDK: Downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -41,6 +41,11 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
+### <a name="stable-builds"></a>Stabiele builds
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Verbeteringen in de schatting van de werkitems in de wachtrij.
+
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Verbeteringen in stabiliteit.
 * Ondersteuning voor handmatige plaatsen van controlepunten.
@@ -63,6 +68,23 @@ ms.lasthandoff: 04/16/2018
 * GA SDK
 * Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) versies 1.14.1 en lager.
 
+### <a name="pre-release-builds"></a>Voorlopige versie builds
+
+### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Nieuwe v2 API:
+  * Patroon van de opbouwfunctie voor flexibele constructie van de processor: de ChangeFeedProcessorBuilder-klasse.
+    * Kan duren voordat een combinatie van parameters.
+    * Kan duren DocumentClient exemplaar voor bewaking en/of lease verzameling (niet beschikbaar in v1).
+  * IChangeFeedObserver.ProcessChangesAsync neemt nu CancellationToken.
+  * IRemainingWorkEstimator - de resterende werk estimator kan afzonderlijk worden gebruikt vanuit de processor.
+  * Nieuwe uitbreidbaarheidspunten:
+    * IParitionLoadBalancingStrategy - voor de aangepaste-taakverdeling van partities tussen exemplaren van de processor.
+    * ILease wordt, ILeaseManager - voor het beheer van aangepaste lease.
+    * IPartitionProcessor - verwerking van aangepaste wijzigingen op een partitie.
+* Maakt gebruik van logboekregistratie - [LibLog](https://github.com/damianh/LibLog) bibliotheek.
+* 100% compatibel met v1 API.
+* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21.1 versies en hoger.
+
 ## <a name="release--retirement-dates"></a>Release & buiten gebruik stellen datums
 Microsoft biedt melding ten minste **12 maanden** voordat het buiten gebruik stellen van een SDK om de overgang naar een nieuwere/ondersteunde versie vloeiend.
 
@@ -74,6 +96,7 @@ Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SD
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |18 april 2018 |--- |
 | [1.3.1](#1.3.1) |13 maart 2018 |--- |
 | [1.2.0](#1.2.0) |31 oktober 2017 |--- |
 | [1.1.1](#1.1.1) |29 augustus 2017 |--- |

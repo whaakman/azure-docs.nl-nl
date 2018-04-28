@@ -11,13 +11,15 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: e5cc6a0974f9481491518779209ec5256870921f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 09d776b54941e33979d7969b25c35e67a53cf8f0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token verwijzing
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Azure Active Directory B2C (Azure AD B2C) verzendt verschillende typen beveiligingstokens tijdens de verwerking van elk [authenticatiestroom](active-directory-b2c-apps.md). Dit document beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token.
 
@@ -146,7 +148,7 @@ Voor een volledige lijst van validaties uw app moet worden uitgevoerd, raadpleeg
 ## <a name="token-lifetimes"></a>Levensduur van token
 De levensduur van de volgende tokens zijn bedoeld om uw kennis meer. Ze kunnen u helpen bij het ontwikkelen en foutopsporing van apps. Houd er rekening mee dat uw apps niet kunt verwachten van een van deze levensduur ongewijzigd moeten worden geschreven. Ze kunnen en wordt gewijzigd. Meer informatie over de [aanpassing van de levensduur van token](active-directory-b2c-token-session-sso.md) in Azure AD B2C.
 
-| Token | Lifetime | Beschrijving |
+| Token | Levensduur | Beschrijving |
 | --- | --- | --- |
 | ID-tokens |Een uur |ID-tokens zijn doorgaans geldig voor een uur. Uw web-app kunt deze levensduur gebruiken om de eigen sessies onderhouden met gebruikers (aanbevolen). U kunt ook de levensduur van een andere sessie. Als uw app een nieuwe ID-token ophalen moet, moet deze gewoon een nieuwe aanvraag voor aanmelden bij Azure AD maken. Als een gebruiker een ongeldig browsersessie met Azure AD heeft, wordt die gebruiker mogelijk niet vereist referenties opnieuw invoeren. |
 | Vernieuwen van tokens |14 dagen |Een enkele vernieuwingstoken is geldig voor een maximum van 14 dagen. Echter kan een vernieuwingstoken op elk gewenst moment voor een aantal redenen ongeldig worden. Uw app moet blijven proberen te gebruiken een vernieuwingstoken totdat de aanvraag is mislukt, of uw app vervangen door het vernieuwingstoken een nieuw. Een vernieuwingstoken kan ook ongeldig als 90 dagen zijn verstreken nadat de gebruiker referenties voor het laatst ingevoerd. |

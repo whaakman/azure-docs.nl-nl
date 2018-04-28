@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: bd2b65c31e7736346957dde4edfb7c32894c833e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 02849fb63a8d696fa4296f5ec885a2d24f9adca1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Uw on-premises directory's integreren met Azure Active Directory
 Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD. In dit onderwerp wordt de planning, implementatie en bewerking besproken. Het is een verzameling van koppelingen naar de onderwerpen die betrekking hebben op dit gebied.
 
 > [!IMPORTANT]
 > [Azure AD Connect is de beste manier om uw on-premises adreslijst te verbinden met Azure AD en Office 365. Dit is het perfecte moment om te upgraden van Windows Azure Active Directory-synchronisatie (DirSync) of Azure AD Sync naar Azure AD Connect, aangezien deze hulpprogramma's zijn afgeschaft en vanaf 13 april 2017 niet meer worden ondersteund.](active-directory-aadconnect-dirsync-deprecated.md)  Daarnaast:
+
+
+
 > 
 > - Gebruikers synchroniseren met Azure AD is een **gratis functie** waarvoor klanten geen betaald abonnement nodig hebben.
 >- Er worden aan gesynchroniseerde gebruikers **niet automatisch *licenties* verleend**. Beheerders hebben nog steeds het totale beheer van de licentietoewijzing. 
@@ -51,6 +54,10 @@ Azure Active Directory Connect bestaat uit drie primaire onderdelen: de synchron
 * Statusbewaking - Azure AD Connect Health kan goede bewaking en een centrale locatie in de Azure-portal bieden om deze activiteit weer te geven. Zie voor meer informatie [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## <a name="install-azure-ad-connect"></a>Azure AD Connect installeren
+
+> [!IMPORTANT]
+> Microsoft biedt geen ondersteuning voor het wijzigen of uitvoeren van Azure AD Connect-synchronisatie anders dan op de manier die officieel is gedocumenteerd. Alle andere acties kunnen resulteren in een inconsistente of niet-ondersteunde status van de Azure AD Connect-synchronisatie. Daarom biedt Microsoft geen technische ondersteuning voor dergelijke implementaties.
+
 U vindt de download voor Azure AD Connect op [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Oplossing | Scenario |

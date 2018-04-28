@@ -8,7 +8,7 @@ De volgende stappen laten zien hoe wachtwoordverificatie voor een AD-toepassing 
 1. Aanmelden bij uw Azure-abonnement met de volgende opdracht:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Als u meerdere Azure-abonnementen hebt, verleent aanmelden bij Azure u toegang tot alle de Azure-abonnementen die zijn gekoppeld aan uw referenties. Gebruik de volgende opdracht voor een lijst met de Azure-abonnementen beschikbaar moet worden gebruikt:
@@ -17,7 +17,7 @@ De volgende stappen laten zien hoe wachtwoordverificatie voor een AD-toepassing 
     Get-AzureRMSubscription
     ```
 
-    Gebruik de volgende opdracht om abonnement die u gebruiken wilt voor het uitvoeren van de opdrachten voor het beheren van uw IoT-hub te selecteren. U kunt de naam van abonnement of de ID van de uitvoer van de vorige opdracht gebruiken:
+    Gebruik de volgende opdracht om abonnement die u gebruiken wilt voor het uitvoeren van de opdrachten voor het beheren van uw IoT-hub te selecteren. U kunt de naam van het abonnement of de id van de uitvoer van de vorige opdracht gebruiken:
 
     ```powershell
     Select-AzureRMSubscription `

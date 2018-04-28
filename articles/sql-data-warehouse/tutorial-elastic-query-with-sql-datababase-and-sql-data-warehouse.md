@@ -1,29 +1,24 @@
 ---
-title: Elastische Query zelfstudie met Azure SQL datawarehouse | Microsoft Docs
-description: Informatie over het gebruik van elastische Query met Azure SQL Data Warehouse
+title: 'Zelfstudie: Elastische Query met Azure SQL datawarehouse | Microsoft Docs'
+description: Deze zelfstudie wordt de functie elastische Query op Azure SQL Data Warehouse-query uit Azure SQL Database.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 11/03/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
 ms.author: elbutter
-ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: igorstan
+ms.openlocfilehash: a31f035b5ec086a046028956c4a9c0de0d6a313d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-elastic-query-with-sql-data-warehouse"></a>Elastische Query configureren met SQL datawarehouse
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Zelfstudie: Gebruik elastische Query voor toegang tot gegevens in Azure SQL Data Warehouse van Azure SQL Database
 
-In deze zelfstudie leert u hoe u met elastische Query verzenden van een query uit SQL-Database met SQL Data Warehouse. Elastische Query is functionaliteit waarmee tussen Azure SQL-producten bestaat. Zie voor meer informatie over elastische Query als een concept [ **elastische Query gebruiken met SQL Data Warehouse**][How to use Elastic Query with SQL Data Warehouse].
+Deze zelfstudie wordt de functie elastische Query op Azure SQL Data Warehouse-query uit Azure SQL Database. 
 
 ## <a name="prerequisites-for-the-tutorial"></a>Vereisten voor de zelfstudie
 
@@ -128,7 +123,7 @@ We gaan in de volgende stappen een tabel maken in onze datawarehouse-exemplaar m
 
 5. Houd rekening met dat u hebt nu een definitie van een externe tabel uw **SQL database-instantie**.
 
-   ![de definitie van de externe tabel elastische query](./media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
+   ![de definitie van de externe tabel elastische query](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
 
 
 6. De volgende query die een exemplaar van het datawarehouse een query indienen. U ontvangt de vijf waarden die u in stap 2 hebt geplaatst. 
@@ -143,15 +138,5 @@ SELECT * FROM [dbo].[OrderInformation];
 
 Gefeliciteerd, u de basisbeginselen van elastische Query hebt ingesteld. 
 
-
-
-
-<!--Image references-->
-
-<!--Article references-->
-
-[How to use Elastic Query with SQL Data Warehouse]: ./how-to-use-elastic-query-with-sql-data-warehouse.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
+## <a name="next-steps"></a>Volgende stappen
+Zie voor aanbevelingen [aanbevolen procedures voor het gebruik van elastische Query met Azure SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md).

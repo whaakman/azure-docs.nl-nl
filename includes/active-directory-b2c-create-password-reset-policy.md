@@ -1,4 +1,4 @@
-Als u zeer specifieke regels wilt opgeven voor het opnieuw instellen van het wachtwoord voor een toepassing, kunt u hiervoor een beleid definiëren. Informatie over de optie voor het opnieuw instellen van het wachtwoord voor de tenant als geheel vindt u [hier](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). In dit beleid wordt de ervaring van consumenten beschreven als ze het wachtwoord opnieuw gaan instellen, evenals de inhoud van tokens die de toepassing ontvangt als de bewerking is voltooid.
+U gebruikt om fijnmazig wachtwoord opnieuw instellen op uw toepassing, een **wachtwoordherstel** beleid. Informatie over de optie voor het opnieuw instellen van het wachtwoord voor de tenant als geheel vindt u [hier](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Dit beleid beschrijft de ervaringen van de klanten doorlopen tijdens het wachtwoord opnieuw instellen en de inhoud van de tokens die de toepassing is gelukt ontvangt.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

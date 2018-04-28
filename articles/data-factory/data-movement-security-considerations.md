@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 46d4962040a78942adbad443d5cbde64755ddadf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 855cb159474836e4c015f84d7d57546b5e1a2e99
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor gegevensverplaatsing in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,7 @@ Sommige gegevens worden opgeslagen ondersteuning voor versleuteling van gegevens
 Transparent Data Encryption (TDE) in Azure SQL Data Warehouse biedt bescherming tegen de dreiging van schadelijke activiteiten door realtime versleuteling en ontsleuteling van uw gegevens in rust in te voeren. Dit gedrag is transparant voor de client. Zie voor meer informatie [beveiligen van een database in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL Database biedt ook ondersteuning voor transparante gegevensversleuteling (TDE), waarmee worden beschermd tegen de dreiging van schadelijke activiteiten door het uitvoeren van realtime versleuteling en ontsleuteling van de gegevens, zonder dat wijzigingen in de toepassing. Dit gedrag is transparant voor de client. Zie voor meer informatie [transparante gegevensversleuteling voor SQL-Database en datawarehouse](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Azure SQL Database biedt ook ondersteuning voor transparante gegevensversleuteling (TDE), waarmee worden beschermd tegen de dreiging van schadelijke activiteiten door het uitvoeren van realtime versleuteling en ontsleuteling van de gegevens, zonder dat wijzigingen in de toepassing. Dit gedrag is transparant voor de client. Zie voor meer informatie [transparante gegevensversleuteling voor SQL-Database en datawarehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store biedt ook versleuteling voor gegevens die zijn opgeslagen in het account. Wanneer dit is ingeschakeld, wordt Data Lake Store automatisch versleutelt gegevens voordat het behouden blijven en ontsleutelt voordat ophalen, waardoor het transparant voor de client die toegang heeft tot de gegevens. Zie voor meer informatie [beveiliging in Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
@@ -86,7 +86,7 @@ Amazon Redshift ondersteunt cluster versleuteling voor gegevens in rust. Zie voo
 SalesForce ondersteunt Shield Platform versleuteling waarmee versleuteling van alle bestanden, bijlagen en aangepaste velden. Zie voor meer informatie [inzicht in de Web Server OAuth-verificatie stromen](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Hybride scenario 's
-Hybride scenario's moet de host zichzelf integratie runtime moet worden geïnstalleerd op een on-premises netwerk binnen een virtueel netwerk (Azure) of binnen een virtuele privécloud (Amazon). De runtime host zichzelf integratie moet toegang kunnen krijgen tot de lokale gegevens worden opgeslagen. Zie voor meer informatie over de integratie van host zichzelf runtime [maken en configureren zelf gehost integratie runtime](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime). 
+Hybride scenario's moet de host zichzelf integratie runtime moet worden geïnstalleerd op een on-premises netwerk binnen een virtueel netwerk (Azure) of binnen een virtuele privécloud (Amazon). De runtime host zichzelf integratie moet toegang kunnen krijgen tot de lokale gegevens worden opgeslagen. Zie voor meer informatie over de integratie van host zichzelf runtime [maken en configureren zelf gehost integratie runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
 
 ![host zichzelf runtime-kanalen](media/data-movement-security-considerations/data-management-gateway-channels.png)
 

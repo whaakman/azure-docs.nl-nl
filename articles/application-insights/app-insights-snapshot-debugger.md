@@ -2,7 +2,7 @@
 title: Azure Application Insights foutopsporingsprogramma momentopname voor de .NET-toepassingen | Microsoft Docs
 description: Fouten opsporen in momentopnamen worden automatisch verzameld wanneer uitzonderingen worden veroorzaakt in productie .NET-toepassingen
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: pharring
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a2b3dbce1d969eaa9937ad866fd055ae72e6529
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-toepassingen
 
@@ -42,7 +42,7 @@ De volgende omgevingen worden ondersteund:
 
 1. [Application Insights inschakelen in uw web-app](app-insights-asp-net.md), als u dit nog niet hebt gedaan.
 
-2. Bevatten de [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app. 
+2. Bevatten de [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-pakket in uw app.
 
 3. Bekijk de standaardopties te gebruiken die het pakket worden toegevoegd aan [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -92,10 +92,18 @@ De volgende omgevingen worden ondersteund:
 
 3. Wijzigen van uw toepassing `Startup` klasse toevoegen en configureren van de momentopname-Collector telemetrie processor.
 
+    Voeg de volgende using-instructies naar `Startup.cs`
+
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
-   ...
+   using Microsoft.ApplicationInsights.AspNetCore;
+   using Microsoft.ApplicationInsights.Extensibility;
+   ```
+
+   Voeg de volgende `SnapshotCollectorTelemetryProcessorFactory` klasse naar `Startup` klasse.
+
+   ```csharp
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
@@ -111,11 +119,11 @@ De volgende omgevingen worden ondersteund:
                return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
            }
        }
+       ...
+    ```
+    Voeg de `SnapshotCollectorConfiguration` en `SnapshotCollectorTelemetryProcessorFactory` services voor het starten van de pijplijn:
 
-       public Startup(IConfiguration configuration) => Configuration = configuration;
-
-       public IConfiguration Configuration { get; }
-
+    ```csharp
        // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
@@ -178,7 +186,7 @@ De volgende omgevingen worden ondersteund:
         }
    }
     ```
-    
+
 ## <a name="grant-permissions"></a>Machtigingen verlenen
 
 Eigenaars van het Azure-abonnement kunnen inspecteren momentopnamen. Andere gebruikers moet machtiging worden verleend door een eigenaar.
@@ -208,7 +216,7 @@ In de weergave fouten opsporen in momentopname ziet u een aanroepstack en een de
 Momentopnamen kunnen gevoelige gegevens bevatten, en ze zijn standaard niet zichtbaar. Momentopnamen kunnen weergeven, hebt u de `Application Insights Snapshot Debugger` rol aan u toegewezen.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Fouten opsporen in momentopnamen met Visual Studio 2017 Enterprise
-1. Klik op de **momentopname downloaden** knop voor het downloaden van een `.diagsession` bestand, dat kan worden geopend door Visual Studio 2017 Enterprise. 
+1. Klik op de **momentopname downloaden** knop voor het downloaden van een `.diagsession` bestand, dat kan worden geopend door Visual Studio 2017 Enterprise.
 
 2. Openen van de `.diagsession` -bestand, moet u eerst [downloaden en installeren van de momentopname Debugger-extensie voor Visual Studio](https://aka.ms/snapshotdebugger).
 
@@ -312,7 +320,7 @@ U moet voor ten minste twee gelijktijdige momentopnamen toestaan.
 Bijvoorbeeld, als uw toepassing gebruikmaakt van 1 GB van totale werkset, moet u zorgen dat er ten minste 2 GB aan schijfruimte voor het opslaan van momentopnamen is.
 Volg deze stappen voor uw Cloudservice rol configureren met een specifieke lokale bron voor momentopnamen.
 
-1. Een nieuwe lokale resource toevoegen aan uw Cloud-Service door de Service in de Cloud-definitiebestand (.csdf) te bewerken. Het volgende voorbeeld definieert een resource aangeroepen `SnapshotStore` met een grootte van 5 GB.
+1. Een nieuwe lokale resource toevoegen aan uw Cloud-Service door de Service in de Cloud-definitiebestand (.csdef) te bewerken. Het volgende voorbeeld definieert een resource aangeroepen `SnapshotStore` met een grootte van 5 GB.
    ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
@@ -379,5 +387,5 @@ Als u een uitzondering met die ID momentopname niet ziet, is niet de uitzonderin
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Snappoints instellen in uw code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) momentopnamen ophalen zonder te wachten op een uitzondering.
-* [Diagnose van uitzonderingen in uw web-apps](app-insights-asp-net-exceptions.md) wordt uitgelegd hoe u meer uitzonderingen zichtbaar maken voor Application Insights. 
+* [Diagnose van uitzonderingen in uw web-apps](app-insights-asp-net-exceptions.md) wordt uitgelegd hoe u meer uitzonderingen zichtbaar maken voor Application Insights.
 * [Detectie van smartcard](app-insights-proactive-diagnostics.md) detecteert automatisch afwijkingen.

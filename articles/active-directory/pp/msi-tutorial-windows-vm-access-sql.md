@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 682998bb979c9b155b7b1389d8f605018ae135b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure SQL
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Deze zelfstudie laat zien hoe u een beheerde Service identiteit (MSI) voor een Windows virtuele machine (VM) gebruiken voor toegang tot een Azure SQL-server. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties invoegen in uw code. Procedures voor:
+Deze zelfstudie laat zien hoe u een beheerde Service identiteit (MSI) voor een Windows virtuele machine (VM) gebruiken voor toegang tot een Azure SQL-server. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties invoegen in uw code. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Inschakelen van MSI op een Windows VM 
@@ -39,7 +39,7 @@ Deze zelfstudie laat zien hoe u een beheerde Service identiteit (MSI) voor een W
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Aanmelden bij de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine in een nieuwe resourcegroep maken
 
@@ -101,7 +101,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Voeg vervolgens de MSI van de VM aan de groep.  U moet het MSI **ObjectId**, die u kunt ophalen met behulp van Azure PowerShell.  Eerst downloaden [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Meld u aan met `Login-AzureRmAccount`, en voer de volgende opdrachten:
+Voeg vervolgens de MSI van de VM aan de groep.  U moet het MSI **ObjectId**, die u kunt ophalen met behulp van Azure PowerShell.  Eerst downloaden [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Meld u aan met `Connect-AzureRmAccount`, en voer de volgende opdrachten:
 - Zorg ervoor dat de sessiecontext van uw is ingesteld op het gewenste Azure-abonnement, als er meerdere waarden.
 - Lijst van de beschikbare bronnen in uw Azure-abonnement, controleert u in de juiste resourcegroep en VM-namen.
 - Ophalen van de MSI VM-eigenschappen met behulp van de juiste waarden voor `<RESOURCE-GROUP>` en `<VM-NAME>`.

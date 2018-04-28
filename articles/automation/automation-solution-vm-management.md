@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Virtuele machines starten/stoppen tijdens rustige uren oplossing (preview) in Azure Automation
 
@@ -54,16 +54,15 @@ Voer de volgende stappen uit om toe te voegen van de starten/stoppen virtuele ma
    ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)
 
 1. De **oplossing toevoegen** pagina wordt weergegeven. U wordt gevraagd de oplossing configureren voordat u deze in uw Automation-abonnement importeren kunt.
+
    ![Pagina oplossing VM toevoegen](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+
 1. Op de **oplossing toevoegen** pagina **werkruimte**. Selecteer een werkruimte voor logboekanalyse die gekoppeld aan de dezelfde Azure-abonnement dat u het Automation-account in. Als u een werkruimte geen hebt, selecteert u **nieuwe werkruimte maken**. Op de **OMS-werkruimte** pagina, voert u het volgende:
    * Geef een naam op voor de nieuwe **OMS-werkruimte**.
    * Selecteer een **abonnement** om te koppelen aan door te selecteren in de vervolgkeuzelijst als de standaard geselecteerd niet geschikt is.
    * Voor **resourcegroep**, kunt u een nieuwe resourcegroep maken of een bestaande set selecteren.
    * Selecteer een **locatie**. Op dit moment de enige locaties beschikbaar zijn **Australië-Zuidoost**, **Canada centraal**, **centrale India**, **VS-Oost**, **Japan-Oost**, **Zuidoost-Azië**, **VK Zuid**, en **West-Europa**.
-   * Selecteer een **prijscategorie**. De oplossing biedt twee lagen: **vrije** en **Per knooppunt (OMS)**. Gratis laag heeft een limiet van de hoeveelheid gegevens die worden verzameld per dag, de bewaartermijn en de runbook-taak runtime minuten. De laag Per knooppunt heeft geen een limiet van de hoeveelheid gegevens die worden verzameld per dag.
-
-        > [!NOTE]
-        > Hoewel de laag Per GB (zelfstandig) betaald wordt weergegeven als een optie, is het niet van toepassing. Als u selecteert en doorgaan met het maken van deze oplossing in uw abonnement, mislukt dit. Dit wordt opgelost bij de officiële release van deze oplossing. Deze oplossing alleen gebruikt taak minuten voor automation en het logboek opnamesnelheid. Dit biedt extra knooppunten niet toevoegen aan uw omgeving.
+   * Selecteer een **prijscategorie**. Kies de **Per GB (zelfstandig)** optie. Logboekanalyse is bijgewerkt [prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) en is de enige optie voor de Per GB-laag.
 
 1. Na het opgeven van de vereiste informatie op de **OMS-werkruimte** pagina, klikt u op **maken**. U kunt de voortgang onder volgen **meldingen** in het menu dat keert u terug naar de **oplossing toevoegen** pagina wanneer u klaar bent.
 1. Op de **oplossing toevoegen** pagina **Automation-account**. Als u een nieuwe werkruimte voor logboekanalyse maakt, moet u ook een nieuw Automation-account worden gekoppeld aan deze te maken. Selecteer **een Automation-account maken**, en klik op de **toevoegen Automation-account** pagina, biedt het volgende:
@@ -80,6 +79,9 @@ Voer de volgende stappen uit om toe te voegen van de starten/stoppen virtuele ma
    * Geef de **VM uitsluiten lijst (tekenreeks)**. Dit is de naam van een of meer virtuele machines van de doelresourcegroep. U kunt meer dan één naam invoeren en scheid elk met een komma (waarden zijn niet hoofdlettergevoelig). Met een jokerteken wordt ondersteund. Deze waarde wordt opgeslagen de **External_ExcludeVMNames** variabele.
    * Selecteer een **planning**. Dit is een terugkerende datum en tijd voor het starten en stoppen van de virtuele machines in de doel-resourcegroepen. De planning is standaard geconfigureerd voor de UTC-tijdzone. Als u een andere regio is niet beschikbaar. Zie voor meer informatie over het configureren van de planning voor de tijdzone van uw specifieke na het configureren van de oplossing [wijzigen van de planning voor opstarten en afsluiten](#modify-the-startup-and-shutdown-schedule).
    * Voor het ontvangen van **e-mailmeldingen** van SendGrid, accepteer de standaardwaarde van **Ja** en geef een geldig e-mailadres. Als u selecteert **Nee** maar toch op een later tijdstip dat u wilt ontvangen van e-mailmeldingen, kunt u bijwerken de **External_EmailToAddress** variabele met geldige e-mailadressen, gescheiden door komma's, en vervolgens wijzigen van de variabele **External_IsSendEmail** met de waarde **Ja**.
+
+> [!IMPORTANT]
+> De standaardwaarde voor **ResourceGroup doelnamen** is een **&ast;**. Dit is bedoeld voor alle VM's in een abonnement. Als u niet dat de oplossing wilt voor alle VM's in uw abonnement is deze waarde worden bijgewerkt naar een lijst met namen van resourcegroepen moet voordat u de planning inschakelt als doel.
 
 1. Nadat u de oorspronkelijke instellingen vereist voor de oplossing hebt geconfigureerd, klikt u op **OK** sluiten de **Parameters** pagina en selecteer **maken**. Nadat alle instellingen zijn geverifieerd, wordt de oplossing is geïmplementeerd voor uw abonnement. Dit proces kan enkele seconden duren en u kunt de voortgang onder volgen **meldingen** in het menu.
 
@@ -225,8 +227,8 @@ U moet alle schema's, niet inschakelen omdat dit overlappende planning acties mo
 |Schedule_AutoStop_CreateAlert_Parent | Om de 8 uur | Kan het runbook AutoStop_CreateAlert_Parent om de 8 uur die op zijn beurt Hiermee stopt u de waarden op basis van een VM in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames en External_ExcludeVMNames in Azure Automation-variabelen worden uitgevoerd. U kunt ook een door komma's gescheiden lijst met virtuele machines opgeven met behulp van de parameter VMList.|
 |Scheduled_StopVM | De gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van het *stoppen* elke dag op de opgegeven tijd. Automatisch alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door asset variabelen gestopt. U moet het bijbehorende schema inschakelen **geplande-StartVM**.|
 |Scheduled_StartVM | De gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van het *Start* elke dag op de opgegeven tijd.  Alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door de juiste variabelen wordt automatisch gestart. U moet het bijbehorende schema inschakelen **geplande StopVM**.|
-|Sequenced-StopVM | 1:00 uur (UTC), elke vrijdag | Het runbook Sequenced_Parent uitvoert met een parameter van het *stoppen* elke vrijdag op de opgegeven tijd. Sequentieel (oplopend) stopt alle virtuele machines met een code van **SequenceStop** gedefinieerd door de betreffende variabelen. Raadpleeg het gedeelte Runbooks voor meer informatie over labelwaarden en activa-variabelen. U moet het bijbehorende schema inschakelen **geordende StartVM**.|
-|Sequenced-StartVM | 13:00 uur (UTC), elke maandag | Het runbook Sequenced_Parent uitvoert met een parameter van het *Start* elke maandag op de opgegeven tijd. Sequentieel alle VM's (aflopend) begint met een code van **klikvolgorde** gedefinieerd door de betreffende variabelen. Raadpleeg het gedeelte Runbooks voor meer informatie over labelwaarden en activa-variabelen. U moet het bijbehorende schema inschakelen **geordende StopVM**.|
+|Gesequentieerd StopVM | 1:00 uur (UTC), elke vrijdag | Het runbook Sequenced_Parent uitvoert met een parameter van het *stoppen* elke vrijdag op de opgegeven tijd. Sequentieel (oplopend) stopt alle virtuele machines met een code van **SequenceStop** gedefinieerd door de betreffende variabelen. Raadpleeg het gedeelte Runbooks voor meer informatie over labelwaarden en activa-variabelen. U moet het bijbehorende schema inschakelen **geordende StartVM**.|
+|Gesequentieerd StartVM | 13:00 uur (UTC), elke maandag | Het runbook Sequenced_Parent uitvoert met een parameter van het *Start* elke maandag op de opgegeven tijd. Sequentieel alle VM's (aflopend) begint met een code van **klikvolgorde** gedefinieerd door de betreffende variabelen. Raadpleeg het gedeelte Runbooks voor meer informatie over labelwaarden en activa-variabelen. U moet het bijbehorende schema inschakelen **geordende StopVM**.|
 
 ## <a name="log-analytics-records"></a>Log Analytics-records
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 6926ae6c67e3397006e95595a8dc28bab67256da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 29fb74e49ad3fdca0bc54a431da40b02ef24882b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Gegevens kopiëren van Azure Data Factory met ServiceNow
 
@@ -45,7 +45,7 @@ De volgende eigenschappen worden ondersteund voor ServiceNow gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **ServiceNow** | Ja |
-| endpoint | Het eindpunt van de server ServiceNow (`http://ServiceNowData.com`).  | Ja |
+| endpoint | Het eindpunt van de server ServiceNow (`http://<instance>.service-now.com`).  | Ja |
 | authenticationType | Het verificatietype dat moet worden gebruikt. <br/>Toegestane waarden zijn: **Basic**, **OAuth2** | Ja |
 | gebruikersnaam | De gebruikersnaam voor verbinding met de server ServiceNow voor Basic en OAuth2-verificatie gebruikt.  | Nee |
 | wachtwoord | Het wachtwoord dat overeenkomt met de gebruikersnaam voor de verificatie Basic en OAuth2. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
@@ -63,7 +63,7 @@ De volgende eigenschappen worden ondersteund voor ServiceNow gekoppelde service:
     "properties": {
         "type": "ServiceNow",
         "typeProperties": {
-            "endpoint" : "http://ServiceNowData.com",
+            "endpoint" : "http://<instance>.service-now.com",
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {

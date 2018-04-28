@@ -11,15 +11,15 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2077eeb5177b07c458476ae900f81b72e35f0dc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b3f30dc5d185615370a8273f71554f784d286cd9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Veelgestelde vragen
 
-Dit artikel worden de bovenste query's die moet u wellicht hebben betrekking op Microsoft Genomics. Zie voor meer informatie over de service Microsoft Genomics [wat is Microsoft Genomics?](overview-what-is-genomics.md) 
+Dit artikel worden de bovenste query's die u mogelijk met betrekking tot Microsoft Genomics. Zie voor meer informatie over de service Microsoft Genomics [wat is Microsoft Genomics?](overview-what-is-genomics.md). Zie voor meer informatie over het oplossen van onze [Troubleshooting Guide](troubleshooting-guide-genomics.md). 
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Wat is de SLA voor Microsoft Genomics?
@@ -57,7 +57,7 @@ Sleutel van uw opslagaccount wordt gebruikt voor de korte termijn toegangstokens
 ## <a name="what-genome-references-can-i-use"></a>Welke genetisch materiaal verwijst naar kan ik gebruiken?
 
 Deze referenties worden ondersteund:
- |Naslaginformatie              | Waarde van`-pa/--process-args` |
+ |Referentie              | Waarde van `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
@@ -74,13 +74,13 @@ Witruimte wordt genegeerd.
 
  |Opdrachtregelargument            | Regel voor configuratie-bestand |
  |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://URL*    |
+ |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
  |`-k/--access-key KEY`            | *access_key:Key*              |      
  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Gebruik de volgende bronnen voor aan de slag met Microsoft Genomics:
-- Aan de slag door het uitvoeren van uw eerste werkstroom via de service Microsoft Genomics. [Een werkstroom uitvoeren via de service Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
+- Aan de slag door het uitvoeren van uw eerste werkstroom via de service Microsoft Genomics. [Een werkstroom uitvoeren via de service Microsoft Genomics ](quickstart-run-genomics-workflow-portal.md)
 - Verzenden van uw eigen gegevens voor verwerking door de service Microsoft Genomics: [gekoppeld FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [meerdere FASTQ of BAM](quickstart-input-multiple.md) 
 

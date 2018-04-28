@@ -14,15 +14,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 5979ded9afaa31054f835b5f16fe525809f5730d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 52843c926248627e4e530612cfe9326d4302eb95
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Verifiëren met Mobile Engagement REST-API 's
 > [!IMPORTANT]
-> Azure Mobile Engagement beëindigen op 3/31/2018. Deze pagina wordt kort na worden verwijderd.
+> Azure Mobile Engagement wordt op 31-03-2018 buiten gebruik gesteld. Deze pagina wordt kort daarna verwijderd.
 > 
 
 ## <a name="overview"></a>Overzicht
@@ -67,7 +67,7 @@ Eventueel, u kunt ook de instructies in de [handmatige installatie](mobile-engag
         Import-Module Azure
 3. Meld u in Azure Resource Manager vanuit PowerShell door de volgende opdracht uit te voeren. Geef de gebruikersnaam en het wachtwoord voor uw Azure-account: 
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 4. Als u meerdere abonnementen hebt, kunt u de volgende stappen uitvoeren:
 
     a. Een lijst van al uw abonnementen ophalen. Kopieer de **SubscriptionId** van het abonnement dat u wilt gebruiken. Zorg ervoor dat dit abonnement heeft de Mobile Engagement-app. U gaat deze app gebruiken om te communiceren met de API's. 

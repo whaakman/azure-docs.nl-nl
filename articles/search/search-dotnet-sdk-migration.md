@@ -1,23 +1,19 @@
 ---
 title: Een upgrade naar de Azure Search .NET SDK versie 3 | Microsoft Docs
 description: Een upgrade naar de Azure Search .NET SDK versie 3
-services: search
-documentationcenter: 
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 48238788e06057ccaba41d1d3f500b5c10c93cb7
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 161d22e0ff4ec4ab28107919a80ecc48cd027967
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Een upgrade naar de Azure Search .NET SDK versie 3
 Als u versie 2.0 preview of oudere van de [Azure Search .NET SDK](https://aka.ms/search-sdk), dit artikel helpt u bij het bijwerken van uw toepassing versie 3 gebruiken.
@@ -56,7 +52,7 @@ Als uw build is mislukt, ziet u een build-fout als volgt:
 
 De volgende stap is om deze build-fout te corrigeren. Zie [wijzigingen op te splitsen in versie 3](#ListOfChanges) voor meer informatie over wat de fout veroorzaakt en hoe u dit herstelt.
 
-Mogelijk ziet u extra build-waarschuwingen verouderd methoden of eigenschappen. De waarschuwingen bevat instructies over wat u moet gebruiken in plaats van de afgeschafte functies. Als uw toepassing gebruikt bijvoorbeeld de `IndexingParameters.Base64EncodeKeys` eigenschap, krijgt u een waarschuwing dat`"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
+Mogelijk ziet u extra build-waarschuwingen verouderd methoden of eigenschappen. De waarschuwingen bevat instructies over wat u moet gebruiken in plaats van de afgeschafte functies. Als uw toepassing gebruikt bijvoorbeeld de `IndexingParameters.Base64EncodeKeys` eigenschap, krijgt u een waarschuwing dat `"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
 
 Als u eventuele fouten in de build hebt opgelost, kunt u wijzigingen aanbrengen aan uw toepassing om te profiteren van nieuwe functionaliteit als u wenst. Nieuwe functies in de SDK worden beschreven in [wat is er nieuw in versie 3](#WhatsNew).
 
@@ -125,7 +121,7 @@ index.Analyzers = new Analyzer[]
 
 Mogelijk ziet u build fouten met betrekking tot methoden of eigenschappen die zijn gemarkeerd als verouderd in versie 2.0-preview en vervolgens verwijderd in versie 3. Als u dergelijke fouten optreden, wordt hier hoe u deze op te lossen:
 
-- Als u deze constructor: `ScoringParameter(string name, string value)`, gebruik in plaats daarvan deze:`ScoringParameter(string name, IEnumerable<string> values)`
+- Als u deze constructor: `ScoringParameter(string name, string value)`, gebruik in plaats daarvan deze: `ScoringParameter(string name, IEnumerable<string> values)`
 - Als u de `ScoringParameter.Value` eigenschap, gebruikt de `ScoringParameter.Values` eigenschap of de `ToString` methode in plaats daarvan.
 - Als u de `SearchRequestOptions.RequestId` eigenschap, gebruikt de `ClientRequestId` eigenschap in plaats daarvan.
 

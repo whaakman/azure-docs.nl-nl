@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
-ms.openlocfilehash: d384f8867ddfd28acaf78a47a7d32729e87c5580
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3fee44e282424caa0a9e57dae1228d8af075e4a6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Het beheren van DNS-Zones in Azure DNS met de Azure CLI 2.0
 
@@ -47,7 +47,7 @@ Controleer voordat u met de configuratie begint of u de volgende items hebt.
 
 ### <a name="sign-in-to-your-azure-account"></a>Aanmelden bij uw Azure-account
 
-Open een consolevenster en doorloop de verificatie met uw referenties. Raadpleeg [Log in to Azure from the Azure CLI (Aanmelden bij Azure vanaf de Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest) voor meer informatie.
+Open een consolevenster en doorloop de verificatie met uw referenties. Raadpleeg [Log in to Azure from the Azure CLI (Aanmelden bij Azure vanaf de Azure CLI)](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) voor meer informatie.
 
 ```
 az login
@@ -68,7 +68,7 @@ az account set --subscription "subscription name"
 ```
 
 ### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Optioneel: Als u wilt installeren/gebruik Azure persoonlijke DNS-Zones functie (openbare Preview)
-De functie Azure persoonlijke DNS-Zone wordt vrijgegeven in Public Preview via een uitbreiding van de Azure CLI. De Azure CLI-extensie 'dns' installeren 
+De functie Azure DNS Private Zones wordt uitgebracht in een openbare preview via een extensie van Azure CLI. De extensie dns van Azure CLI installeren 
 ```
 az extension add --name dns
 ``` 
@@ -143,30 +143,30 @@ Het volgende voorbeeld is het antwoord.
 }
 ```
 
-Houd er rekening mee dat DNS-records worden niet geretourneerd door `az network dns zone show`. DNS-records weergeven door gebruiken `az network dns record-set list`.
+DNS-records worden niet door `az network dns zone show` geretourneerd. Gebruik `az network dns record-set list` als u DNS-records wilt vermelden.
 
 
-## <a name="list-dns-zones"></a>Lijst met DNS-zones
+## <a name="list-dns-zones"></a>DNS-zones vermelden
 
-Gebruik voor het inventariseren van DNS-zones `az network dns zone list`. Zie `az network dns zone list --help` voor help.
+Gebruik `az network dns zone list` als u een opsomming wilt maken van DNS-zones. Zie `az network dns zone list --help` voor help.
 
-Het opgeven van de resourcegroep bevat alleen deze zones binnen de resourcegroep:
+Bij het opgeven van de resourcegroep worden alleen de zones in de resourcegroep vermeld:
 
 ```azurecli
 az network dns zone list --resource-group MyResourceGroup
 ```
 
-Als de resourcegroep wordt weggelaten, worden alle zones in het abonnement:
+Als de resourcegroepen worden weggelaten, worden alle zones in het abonnement vermeld:
 
 ```azurecli
 az network dns zone list 
 ```
 
-## <a name="update-a-dns-zone"></a>Bijwerken van een DNS-zone
+## <a name="update-a-dns-zone"></a>Een DNS-zone bijwerken
 
-Een DNS-zone-bron kan worden gewijzigd met behulp van `az network dns zone update`. Zie `az network dns zone update --help` voor help.
+Wijzigingen aan een DNS-zoneresource kunnen met `az network dns zone update` worden gemaakt. Zie `az network dns zone update --help` voor help.
 
-Met deze opdracht wordt de DNS-recordsets binnen de zone niet bijgewerkt (Zie [het beheren van DNS-records](dns-operations-recordsets-cli.md)). Het wordt alleen gebruikt om de eigenschappen van de bron van de zone zelf te werken. Deze eigenschappen zijn momenteel beperkt tot de [Azure Resource Manager 'labels'](dns-zones-records.md#tags) voor de zoneresource.
+Met deze opdracht worden geen DNS-recordsets in de zone bijgewerkt (zie [DNS-records beheren](dns-operations-recordsets-cli.md)). De opdracht wordt alleen gebruikt voor het bijwerken van eigenschappen van de zoneresource zelf. Deze eigenschappen zijn momenteel beperkt tot de [Azure Resource Manager 'labels'](dns-zones-records.md#tags) voor de zoneresource.
 
 Het volgende voorbeeld laat zien hoe de labels voor een DNS-zone bijwerken. De bestaande labels worden vervangen door de opgegeven waarde.
 
@@ -176,14 +176,14 @@ az network dns zone update --resource-group myresourcegroup --name contoso.com -
 
 ## <a name="delete-a-dns-zone"></a>Een DNS-zone verwijderen
 
-DNS-zones worden verwijderd met een `az network dns zone delete`. Zie `az network dns zone delete --help` voor help.
+DNS-zones kunnen worden verwijderd met `az network dns zone delete`. Zie `az network dns zone delete --help` voor help.
 
 > [!NOTE]
-> Een DNS-zone verwijderen, verwijdert tevens alle DNS-records in de zone. Deze bewerking kan niet ongedaan worden gemaakt. Als de DNS-zone gebruikt wordt, worden services met behulp van de zone mislukt wanneer de zone wordt verwijderd.
+> Als u een DNS-zone verwijdert, worden ook alle DNS-records binnen de zone verwijderd. Deze bewerking kan niet ongedaan worden gemaakt. Als de DNS-zone in gebruik is en de zone wordt verwijderd, werken services die van de zone gebruik maken niet langer.
 >
->Als u wilt beveiligen tegen het onbedoeld zone verwijderen, Zie [het beveiligen van DNS-zones en records](dns-protect-zones-recordsets.md).
+>Zie [DNS-zones en records beschermen](dns-protect-zones-recordsets.md) om beveiliging in te stellen tegen het per ongeluk verwijderen van zones.
 
-Met deze opdracht vraagt om bevestiging. De optionele `--yes` schakeloptie deze vraag wordt geblokkeerd.
+Met deze opdracht wordt om bevestiging gevraagd. De optionele `--yes`-schakelaar onderdrukt deze vraag.
 
 Het volgende voorbeeld laat zien hoe de zone verwijderen *contoso.com* uit resourcegroep *MyResourceGroup*.
 

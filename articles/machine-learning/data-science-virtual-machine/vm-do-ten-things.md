@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: 09c48b92e39aa347c97d42358b50c338851fa59b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Tien dingen die u kunt doen in de virtuele wetenschapsgegevensmachine
+# <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tien kunt u dingen op de gegevens wetenschappelijke virtuele Windows-computer doen
 
-Microsoft Data wetenschappelijke virtuele Machine (DSVM) is een krachtige gegevens wetenschappelijke ontwikkelingsomgeving waarmee u verschillende gegevens te verkennen en modellering taken uit te voeren. De omgeving wordt al geleverd gebouwd en gebundelde verschillende populaire gegevens analytics hulpprogramma's waarmee u gemakkelijk kunt snel aan de slag met uw analyse voor On-premises, Cloud of hybride implementaties. De DSVM nauw met vele Azure-services en kan worden gelezen en verwerkt gegevens die al zijn opgeslagen in Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage of Azure Cosmos DB. Het kan ook gebruikmaken van andere hulpprogramma's voor webanalyse zoals Azure Machine Learning en Azure Data Factory.
+Windows gegevens wetenschappelijke virtuele Machine (DSVM) is een krachtige gegevens wetenschappelijke ontwikkelingsomgeving waarmee u verschillende gegevens te verkennen en modellering taken uit te voeren. De omgeving wordt al geleverd gebouwd en gebundelde verschillende populaire gegevens analytics hulpprogramma's waarmee u gemakkelijk kunt snel aan de slag met uw analyse voor On-premises Cloud of hybride implementaties. De DSVM nauw met vele Azure-services en kan worden gelezen en verwerkt gegevens die al zijn opgeslagen in Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage of Azure Cosmos DB. Het kan ook gebruikmaken van andere hulpprogramma's voor webanalyse zoals Azure Machine Learning en Azure Data Factory.
 
 In dit artikel leert u hoe u met uw DSVM verschillende gegevens wetenschappelijke taken uitvoeren en communiceren met andere Azure-services. Hier volgen enkele dingen die u op de DSVM kunt uitvoeren:
 
@@ -208,7 +208,7 @@ Gegevenswetenschappers kunnen delen grote gegevenssets, code of andere bronnen i
 U kunt Azure Powershell gebruiken voor het maken van een share Azure File-Service. Hier wordt het script worden uitgevoerd met Azure PowerShell om een Azure-service bestandsshare te maken.
 
     # Authenticate to Azure.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     # Select your subscription
     Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
     # Create a new resource group.

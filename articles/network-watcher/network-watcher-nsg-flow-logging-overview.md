@@ -1,11 +1,11 @@
 ---
-title: Inleiding tot registratie van de stroom voor Netwerkbeveiligingsgroepen met Azure-netwerk-Watcher | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u NSG stroom Logboeken gebruiken een functie van Azure-netwerk-Watcher
+title: Inleiding tot registratie van de stroom voor netwerkbeveiliging groepen met Azure-netwerk-Watcher | Microsoft Docs
+description: In dit artikel wordt uitgelegd hoe de functie NSG stroom logboeken van de netwerk-Watcher Azure gebruiken.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4eaffba08ccf601e440709d804891668340a376d
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c6a24fbca37d6aa1d775a70c708a139dfb70b813
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Inleiding tot registratie van de stroom voor Netwerkbeveiligingsgroepen
+# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Inleiding tot registratie van de stroom voor netwerkbeveiligingsgroepen
 
-Netwerkbeveiligingsgroep stroom logboeken zijn een functie van netwerk-Watcher waarmee u informatie bekijken over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep. Deze stroom logboeken zijn geschreven in json-indeling en binnenkomende en uitgaande stromen weergeven op basis van een per regel, de NIC die de stroom van toepassing, 5-tuple informatie over de stroom (bron/het doel-IP, bron/het doel-poort, het Protocol) en als het verkeer is toegestaan of geweigerd.
+Groep (NSG) netwerk-stroom beveiligingslogboeken zijn een functie van netwerk-Watcher waarmee u informatie bekijken over inkomende en uitgaande IP-verkeer via een NSG. Stroom logboeken zijn geschreven in json-indeling en binnenkomende en uitgaande stromen op basis van per regel, de netwerkinterface (NIC) de stroom is van toepassing op, 5-tuple informatie over de stroom (bron/het doel-IP, bron/het doel-poort en protocol) weergeven en als het verkeer is toegestaan of geweigerd.
 
-![Overzicht van de stroom-Logboeken][1]
+![Overzicht van de stroom-Logboeken](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
-Stroom registreert Netwerkbeveiligingsgroepen doel, zijn ze niet dezelfde als de andere logboeken worden weergegeven. Stroom logboeken worden alleen binnen een opslagaccount en het pad van de logboekregistratie opgeslagen, zoals wordt weergegeven in het volgende voorbeeld:
+Stroom registreert nsg's doel, zijn ze niet dezelfde als de andere logboeken worden weergegeven. Stroom Logboeken alleen binnen een opslagaccount worden opgeslagen en volgt u de logboekregistratie pad dat wordt weergegeven in het volgende voorbeeld:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Het bewaarbeleid dezelfde Denk op andere logboeken van toepassing op de logboeken van de stroom. Logboeken hebben een bewaarbeleid die kan worden ingesteld van 1 dag en 365 dagen. Als geen bewaarbeleid is ingesteld, worden de logboeken voor altijd bewaard.
+De dezelfde bewaarbeleidsregels zichtbaar voor andere logboeken van toepassing op de logboeken van de stroom. U kunt bewaarbeleid instellen van 1 dag en 365 dagen. Als geen bewaarbeleid is ingesteld, worden de logboeken voor altijd bewaard.
 
 ## <a name="log-file"></a>Logboekbestand
 
-Stroom logboeken hebben meerdere eigenschappen. De volgende lijst bevat een overzicht van de eigenschappen die worden geretourneerd binnen het NSG stroom logboek:
+Stroom logboeken bevatten de volgende eigenschappen:
 
 * **tijd** - tijd wanneer de gebeurtenis is vastgelegd
 * **systeem-id** -Netwerkbeveiligingsgroep resource-id.
-* **categorie** -de categorie van de gebeurtenis is dit altijd NetworkSecurityGroupFlowEvent zijn
+* **categorie** -de categorie van de gebeurtenis. De categorie is altijd **NetworkSecurityGroupFlowEvent**
 * **ResourceID** -de resource-Id van de NSG
 * **operationName** -altijd NetworkSecurityGroupFlowEvents
 * **eigenschappen** -een verzameling eigenschappen van de stroom
@@ -59,15 +59,14 @@ Stroom logboeken hebben meerdere eigenschappen. De volgende lijst bevat een over
                     * **Verkeer van de stroom** -de richting van het netwerkverkeer. Geldige waarden zijn **ik** voor binnenkomend en **O** voor uitgaand.
                     * **Verkeer** - of verkeer is toegestaan of geweigerd. Geldige waarden zijn **A** voor toegestaan en **D** voor geweigerd.
 
-
-Hier volgt een voorbeeld van een stroom voor logboekbestanden. Zoals u er zijn meerdere records die de lijst met eigenschappen die worden beschreven in de vorige sectie volgen ziet. 
+De tekst die volgt is een voorbeeld van een stroom-logboek. Zoals u ziet, zijn er meerdere records die de lijst met eigenschappen die worden beschreven in de vorige sectie volgen.
 
 > [!NOTE]
-> Waarden in de eigenschap flowTuples zijn een door komma's gescheiden lijst.
+> De waarden in de **flowTuples* eigenschap zijn een door komma's gescheiden lijst.
  
 ```json
 {
-    "records": 
+    "records":
     [
         
         {
@@ -102,12 +101,6 @@ Hier volgt een voorbeeld van een stroom voor logboekbestanden. Zoals u er zijn m
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het inschakelen van stroom Logboeken in via [logboekregistratie inschakelen stromen](network-watcher-nsg-flow-logging-portal.md).
-
-Meer informatie over NSG logboekregistratie in via [Meld analytics voor netwerkbeveiligingsgroepen (nsg's)](../virtual-network/virtual-network-nsg-manage-log.md).
-
-Ontdek als verkeer wordt toegestaan of geweigerd op een virtuele machine in via [controleren verkeer met IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
-[1]: ./media/network-watcher-nsg-flow-logging-overview/figure1.png
-
+- Zie voor meer informatie over het inschakelen van Logboeken van de stroom, [NSG inschakelen stroom logboekregistratie](network-watcher-nsg-flow-logging-portal.md).
+- Zie voor meer informatie over logboekregistratie van het NSG, [Meld analytics voor netwerkbeveiligingsgroepen (nsg's)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Om te bepalen of verkeer wordt toegestaan of geweigerd naar of van een virtuele machine, Zie [een VM verkeer filter netwerkprobleem onderzoeken](diagnose-vm-network-traffic-filtering-problem.md)

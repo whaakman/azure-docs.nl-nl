@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: df2e25bca907e90c12d18ea76f9c6a94c38a4ece
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3986b07c3568c3dcbb4077361d38f74d658458cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Het maken en groepen gebruiken voor het beheren van de ontwikkelaarsaccounts in Azure API Management
 In API Management worden groepen gebruikt voor het beheren van de zichtbaarheid van producten voor ontwikkelaars. Producten voor het eerst zichtbaar aan groepen zijn gemaakt en vervolgens de ontwikkelaars van die groepen kunnen weergeven en zich abonneren op de producten die gekoppeld aan de groepen zijn. 
@@ -32,7 +32,7 @@ Naast deze systeemgroepen kunnen beheerders aangepaste groepen maken of [gebruik
 
 Deze handleiding wordt getoond hoe beheerders van een exemplaar van API Management kunnen nieuwe groepen toevoegen en koppel deze aan de producten en -ontwikkelaars.
 
-Naast het maken en beheren van groepen in de publicatieportal bevindt, kunt u maken en beheren van uw groepen met de REST-API van API Management [groep](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entiteit.
+Naast het maken en beheren van groepen in de publicatieportal bevindt, kunt u maken en beheren van uw groepen met de REST-API van API Management [groep](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entiteit.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -94,7 +94,7 @@ Als de koppeling tussen de ontwikkelaar en de groep wordt toegevoegd, kunt u het
 ## <a name="next-steps"> </a>Volgende stappen
 
 * Als een ontwikkelaar is toegevoegd aan een groep, kunnen ze bekijken en zich abonneren op de producten die zijn gekoppeld aan die groep. Zie voor meer informatie [maken en een product publiceren in Azure API Management][How create and publish a product in Azure API Management],
-* Naast het maken en beheren van groepen in de publicatieportal bevindt, kunt u maken en beheren van uw groepen met de REST-API van API Management [groep](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entiteit.
+* Naast het maken en beheren van groepen in de publicatieportal bevindt, kunt u maken en beheren van uw groepen met de REST-API van API Management [groep](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entiteit.
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

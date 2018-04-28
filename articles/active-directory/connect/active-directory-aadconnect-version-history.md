@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2018
+ms.date: 04/17/2018
 ms.author: billmath
-ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen zijn van toepassing op alle doelgroepen.
 
+
 Dit artikel is bedoeld om u te helpen u de versies die zijn uitgebracht en om te begrijpen of u wilt bijwerken naar de nieuwste versie of niet.
 
 Dit is een lijst met verwante onderwerpen:
-
-
 
 Onderwerp |  Details
 --------- | --------- |
@@ -35,6 +34,21 @@ Stappen voor het upgraden van Azure AD Connect | Methoden om [upgrade van een ee
 Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update van toepassing, [accounts en machtigingen](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Download | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="117510"></a>1.1.751.0
+Status 12-4/2018: uitgebracht voor alleen downloaden
+
+>[!NOTE]
+>Dit is een hotfix voor Azure AD Connect
+
+### <a name="azure-ad-connect-sync"></a>Azure AD Connect-synchronisatie
+#### <a name="fixed-issues"></a>Opgeloste problemen
+Een probleem waarbij Azure-instantie automatische detectie voor China tenants soms vertoonde gecorrigeerd.  
+
+### <a name="ad-fs-management"></a>AD FS-beheer
+#### <a name="fixed-issues"></a>Opgeloste problemen
+
+Er is een probleem in de configuratie Pogingslogica dat zou leiden tot een ArgumentException met de mededeling "een item met dezelfde sleutel is al toegevoegd."  Hierdoor zou de bewerkingen van de nieuwe poging mislukken.
 
 ## <a name="117500"></a>1.1.750.0
 Status 22-3/2018: beschikbaar voor automatische clientupdate en downloaden.
@@ -99,8 +113,7 @@ Status: Beschikbaar voor klanten selecteren
 De wijzigingen zorgt voor het volgende:
 1. Snelle installatie
 2. Aangepaste installaties met account automatisch maken
-
-* Het installatieprogramma wordt gewijzigd zodat het SA-bevoegdheden op een schone installatie van Azure AD Connect niet nodig
+3. Het installatieprogramma wordt gewijzigd zodat het SA-bevoegdheden op een schone installatie van Azure AD Connect niet nodig
 
 * Een nieuw hulpprogramma voor het oplossen van problemen met synchronisatie voor een specifiek object toegevoegd. Is deze beschikbaar is onder de optie 'Object synchronisatie oplossen' van Azure AD Connect Wizard oplossen aanvullende taak. Op dit moment controleert het hulpprogramma voor het volgende:
 
@@ -251,7 +264,7 @@ Status: Oktober 19 2017
 
 * Voorheen als u Hash wachtwoordsynchronisatie inschakelen probeerde, Azure AD Connect controleert niet of het AD-Connector-account vereist machtigingen voor het synchroniseren van de wachtwoord-hashes van on-premises AD dat. Azure AD Connect-wizard wordt nu, Controleer en waarschuwen als de AD-Connector-account niet beschikt over voldoende machtigingen.
 
-### <a name="ad-fs-management"></a>AD FS Management
+### <a name="ad-fs-management"></a>AD FS-beheer
 #### <a name="fixed-issue"></a>Opgelost probleem
 * Een probleem is gerelateerd aan het gebruik van opgelost [msDS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) functie. Dit probleem geldt voor klanten die u hebt geconfigureerd *Federatie met AD FS* als de gebruiker aanmelden methode. Wanneer u de uitvoert *Bronanker configureren* verandert in met behulp van een taak in de wizard, Azure AD Connect * ms-DS-ConsistencyGuid als bronkenmerk voor onveranderbare id genoemd. Als onderdeel van deze wijziging probeert Azure AD Connect bij te werken van de claimregels voor onveranderbare id genoemd in AD FS. Deze stap is echter mislukt omdat Azure AD Connect heeft niet de beheerdersreferenties vereist AD FS kunt configureren. Met deze oplossing Azure AD Connect nu vraagt u de administrator-referenties invoeren voor AD FS, wanneer u uitvoert het *Bronanker configureren* taak.
 
@@ -293,7 +306,7 @@ Status: September 05 2017
 #### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
 * Ondersteuning toegevoegd voor Microsoft Azure Government Cloud en Microsoft Cloud Duitsland.
 
-### <a name="ad-fs-management"></a>AD FS Management
+### <a name="ad-fs-management"></a>AD FS-beheer
 #### <a name="fixed-issues"></a>Opgeloste problemen
 * De cmdlet initialiseren ADSyncNGCKeysWriteBack in de AD-prep powershell-module is onjuist ACL'ing de device registration-container en zou daarom alleen bestaande machtigingen overnemen.  Dit is bijgewerkt, zodat de synchronisatie-serviceaccount de juiste machtigingen heeft.
 
@@ -479,7 +492,7 @@ CBool(
     |CertSubject|CertIssuer|CertKeyAlgorithm|
     |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
     |CertSubjectNameOid|CertIssuerDN|IsCert|
-    |CertFriendlyName|CertThumbprint|CertExtensionOids|
+    |CertFriendlyName|certThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecteer|
@@ -497,7 +510,7 @@ CBool(
   * Volgende kenmerken zijn toegevoegd aan Azure AD-Connector schema:
     * Group: OnPremisesSamAccountName
     * Groep: NetBiosName
-    * Group: DnsDomainName
+    * Groep: DNS-domeinnaam
     * Gebruiker: OnPremisesDistinguishedName
 
 * Het script van de cmdlet ADSyncDomainJoinedComputerSync heeft nu een nieuwe optionele parameter met de naam AzureEnvironment. De parameter wordt gebruikt om op te geven welke regio die wordt gehost door de bijbehorende Azure Active Directory-tenant. Geldige waarden zijn:

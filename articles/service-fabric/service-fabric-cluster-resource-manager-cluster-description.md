@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
 ms.service: Service-Fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26ce9e96dd4df170e80c2c61dcc08c70357eec22
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
-ms.translationtype: MT
+ms.openlocfilehash: 396f1d3d8c69ba3204d16f06d49656fd138a1126
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Met een beschrijving van een service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt verschillende mechanismen voor het beschrijven van een cluster. De Cluster Resource Manager gebruikt tijdens runtime, deze informatie om te controleren of de hoge beschikbaarheid van de services die in het cluster wordt uitgevoerd. Bij het afdwingen van deze belangrijke regels ook probeert te optimaliseren het brongebruik binnen het cluster.
@@ -95,7 +95,8 @@ Er is dat geen best beantwoordt welke indeling u moet kiezen, elk heeft een aant
 Het meest voorkomende model is de matrix FD/UD, waarbij de FDs en UDs een tabel vormen en knooppunten worden geplaatst langs de diagonaal wordt gestart. Dit is de standaard gebruikt in Service Fabric-clusters in Azure. Voor clusters met knooppunten die veel belandt alles wat u ziet eruit als het bovenstaande compacte matrix-patroon.
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Beperkingen voor fouttolerantie en het upgraden van domein en het resulterende gedrag
-De Cluster Resource Manager beschouwt behoefte aan een service verdeeld zijn over de fout en -domeinen upgraden als een beperking behouden. U vindt meer informatie over de beperkingen in [in dit artikel](service-fabric-cluster-resource-manager-management-integration.md). De status van de beperkingen voor probleem- en het upgraden van domein: ' voor een bepaalde service partitie moet nooit er een verschil *meer dan één* in het aantal serviceobjecten tussen (stateless service-exemplaren of stateful service replica's) twee domeinen." Dit voorkomt dat bepaalde verplaatst of regelingen die strijdig zijn met deze beperking.
+### <a name="default-approach"></a>*Standaard-benadering*
+Standaard blijft het Cluster Resource Manager services verdeeld zijn over de fout en -domeinen upgraden. Dit is gemodelleerd als een [beperking](service-fabric-cluster-resource-manager-management-integration.md). De fout en het upgraden van domein beperking-status: 'voor de partitie van een bepaalde service, moet nooit er een verschil hoger zijn dan het aantal serviceobjecten (stateless service-exemplaren of stateful service replica's) tussen twee willekeurige domeinen op hetzelfde niveau van de hiërarchie'. Stel dat u dat deze beperking biedt een garantie 'maximale verschil'. De beperking-fout en het upgraden van domein voorkomt u dat bepaalde verplaatst of regelingen die strijdig zijn met de hierboven vermelde regel. 
 
 Bekijk een voorbeeld. Stel dat we een cluster met zes knooppunten zijn geconfigureerd met vijf domeinen met fouten en vijf domeinen upgraden hebben.
 
@@ -106,6 +107,8 @@ Bekijk een voorbeeld. Stel dat we een cluster met zes knooppunten zijn geconfigu
 | **UD2** | | |N3 | | |
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
+
+*Configuratie 1*
 
 Nu gaan we spreken maken we een service met een TargetReplicaSetSize (of voor een stateless service een InstanceCount) van vijf. De replica's neerzetten op N1 N5. In feite is nooit N6 gebruikt ongeacht hoeveel services zoals deze die u maakt. Maar waarom? Bekijk het verschil tussen de huidige indeling en wat er gebeurt als N6 is gekozen.
 
@@ -120,6 +123,9 @@ Dit is de indeling die wij en het totale aantal replica's per fouttolerantie en 
 | **UD4** | | | | |R5 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
+*Indeling 1*
+
+
 Deze indeling wordt verdeeld in termen van knooppunten per domein met fouten en het upgraden van domein. Het is ook taakverdeling in termen van het aantal replica's per probleem- en Upgrade-domein. Elk domein heeft hetzelfde aantal knooppunten en hetzelfde aantal replica's.
 
 Nu gaan we kijken wat gebeurt er als er N6 in plaats van N2 gebruikt waren. Hoe wordt de replica's worden gedistribueerd vervolgens?
@@ -133,7 +139,10 @@ Nu gaan we kijken wat gebeurt er als er N6 in plaats van N2 gebruikt waren. Hoe 
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |2 |0 |1 |1 |1 |- |
 
-Deze lay-out is in strijd met onze definitie voor de beperking van het domein met fouten. FD0 heeft twee replica's, terwijl FD1 nul heeft, waardoor het verschil tussen FD0 en FD1 een totaal van twee. De Cluster Resource Manager is niet toegestaan voor deze benadering. Op dezelfde manier als we N2 en N6 (in plaats van N1 en N2 gekozen) dat we zouden krijgen:
+*Indeling 2*
+
+
+Deze lay-out is in strijd met onze definitie van de garantie 'maximale verschil' voor de beperking van het domein met fouten. FD0 heeft twee replica's, terwijl FD1 nul heeft, waardoor het verschil tussen FD0 en FD1 een totaal van twee, is groter dan het maximale verschil van één. Omdat de beperking wordt geschonden, staat deze regeling niet in de Cluster Resource Manager toe. Op dezelfde manier als we N2 en N6 (in plaats van N1 en N2 gekozen) dat we zouden krijgen:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -144,7 +153,85 @@ Deze lay-out is in strijd met onze definitie voor de beperking van het domein me
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
-Deze indeling wordt verdeeld in termen van domeinen met fouten. Echter, nu deze wordt overtreden van de beperking voor het upgraden van domein. Dit is omdat UD0 nul replica's heeft terwijl UD1 twee heeft. Daarom wordt deze lay-out ook is ongeldig en won't worden verzameld door de Cluster Resource Manager. 
+*Indeling 3*
+
+
+Deze indeling wordt verdeeld in termen van domeinen met fouten. Echter, nu deze wordt overtreden van de beperking voor het upgraden van domein omdat UD0 nul replica's heeft terwijl UD1 twee heeft. Daarom wordt deze lay-out ook is ongeldig en won't worden verzameld door de Cluster Resource Manager.
+
+Deze aanpak voor de distributie van stateful replica's of stateless exemplaren biedt de best mogelijke fouttolerantie. In een situatie wanneer één domein uitvalt, gaat het minimale aantal replica's / exemplaren verloren. 
+
+Aan de andere kant deze benadering te strikt worden en het cluster gebruikmaken van alle bronnen niet toestaan. Voor bepaalde configuraties van clusters op kunnen niet bepaalde knooppunten worden gebruikt. Dit kan leiden tot Service Fabric niet plaatsen van uw services, wat resulteert in waarschuwingsberichten. In het vorige voorbeeld enkele van de clusterknooppunten kan niet worden gebruikt (N6 in het opgegeven voorbeeld). Zelfs als u knooppunten toevoegen aan dit cluster (N7 – N10), zou replica's / exemplaren alleen op N1 – N5 vanwege beperkingen voor fouttolerantie en het upgraden van domein worden geplaatst. 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | |N10 |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | |N9 |N5 |
+
+*Configuratie 2*
+
+
+### <a name="alternative-approach"></a>*Alternatieve methode*
+
+De Cluster Resource Manager biedt ondersteuning voor een andere versie van de fouten en het upgraden van domein beperking waarmee plaatsing terwijl u nog steeds een minimaal niveau van de veiligheid te garanderen. De alternatieve probleem- en Upgrade Domain-beperking kunt als volgt worden opgegeven: 'Voor de partitie van een bepaalde service, replica-verdeling tussen domeinen moet ervoor zorgen dat de partitie niet te een quorumverlies maken'. Stel dat u dat deze beperking biedt een 'quorum veilige' garantie. 
+
+> [!NOTE]
+>Voor een stateful service definiëren we *quorumverlies* in een situatie wanneer een meerderheid van de partitie replica's zijn niet beschikbaar op hetzelfde moment. Als TargetReplicaSetSize 5, vertegenwoordigt een set van alle drie replica's quorum. Op dezelfde manier als TargetReplicaSetSize 6, zijn vier replica's nodig voor quorum. In beide gevallen kunnen niet meer dan twee replica's niet beschikbaar op hetzelfde moment als de partitie wil gaan normaal functioneert. Voor een stateless service is niet goed als *quorumverlies* als conitnue naar functionate normaal zelfs als een meerderheid van exemplaren gaat u naar beneden op hetzelfde moment stateless services. Daarom gaan we in op stateful services in de rest van de tekst.
+>
+
+Daarvoor gaat u terug naar het vorige voorbeeld. Alle drie opgegeven indelingen kunnen worden gebruikt met de 'quorum veilige'-versie van de beperking. Dit is omdat zelfs als er fout van FD0 in de tweede indeling of UD1 in de indeling van de derde zijn zouden, de partitie nog steeds quorum (een meerderheid van de replica's moeten nog steeds up) hebben. Met deze versie van de beperking kan N6 bijna altijd worden gebruikt.
+
+De methode 'quorum veilige' biedt meer flexibiliteit dan de methode 'maximale verschil' omdat dit eenvoudiger te vinden van de replica-distributies die geldig in de clustertopologie van vrijwel elk zijn. Echter deze aanpak biedt geen garantie de beste fout tolerantie kenmerken omdat een aantal fouten slechter dan andere. In het ergste geval, kan een meerderheid van de replica's met het uitvallen van één domein en één extra replica verloren gaan. Bijvoorbeeld, in plaats van 3 fouten moeten quorum met 5 replica's of exemplaren verliest, kunt u nu verliezen meerderheid met slechts twee fouten. 
+
+### <a name="adaptive-approach"></a>*Adaptieve benadering*
+Omdat beide van de methoden sterke en zwakke punten hebben, hebben we een adaptieve benadering die deze twee strategieën combineert geïntroduceerd.
+
+> [!NOTE]
+>Dit is het standaardgedrag beginnen met Service Fabric-versie 6.2. 
+>
+De adaptieve aanpak maakt standaard gebruik van de logica 'maximale verschil' en verandert in de logica 'quorum veilige' alleen indien nodig. De Cluster Resource Manager automatisch weten welke strategie hoeft door te kijken hoe het cluster en de services worden geconfigureerd te achterhalen. Voor een bepaalde service: *als de TargetReplicaSetSize deelbaar is door het aantal Foutdomeinen en het aantal domeinen upgraden **en** het aantal knooppunten is kleiner dan of gelijk zijn aan de (aantal Foutdomeinen) * (de aantal domeinen upgraden), de 'quorum op basis van'-logica voor de service moet gebruikmaken van de Cluster Resource Manager.* Vergeet dat de Cluster Resource Manager gebruikt deze benadering voor zowel stateless als stateful services, ondanks quorumverlies wordt niet relevant voor stateless services.
+
+Daarvoor gaat u terug naar het vorige voorbeeld en wordt ervan uitgegaan dat een cluster heeft nu 8 knooppunten (Er is nog steeds het cluster met vijf domeinen met fouten en vijf domeinen upgraden en de TargetReplicaSetSize van een service die wordt gehost op dat cluster blijft vijf geconfigureerd). 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | | |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | | |N5 |
+
+*Configuratie 3*
+
+Omdat alle benodigde voorwaarden is voldaan, wordt de 'quorumconfiguratie op basis van logica in het distribueren van de service gebruikmaken van Cluster Resource Manager. Hiermee wordt informatie over het gebruik van N6 – N8. Een mogelijke Serviceverdeling in dit geval kan er als volgt uitzien:
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |R1 | | | | |1 |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | | | |0 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |2 |1 |1 |0 |1 |- |
+
+*Indeling 4*
+
+Als uw service TargetReplicaSetSize wordt beperkt tot vier (bijvoorbeeld), wordt de Cluster Resource Manager ziet die wijziging en hervatten met behulp van de logica 'maximale verschil' omdat de TargetReplicaSetSize dividable door het aantal FDs en UDs niet meer. Als gevolg hiervan wordt bepaalde verplaatsingen replica uitgevoerd om te distribueren vier replica's op knooppunten N1 N5 resterende zodat de versie 'maximale verschil' van de domein-logica Foutdomein en Upgrade niet is geschonden. 
+
+Zie de vierde indeling en de TargetReplicaSetSize van vijf. Als N1 wordt verwijderd uit het cluster, wordt het aantal domeinen upgraden gelijk aan vier. De Cluster Resource Manager opnieuw wordt gestart met behulp van 'maximale verschil' logica van de service TargetReplicaSetSize niet gelijkmatig meer delen door het aantal UDs. Als gevolg hiervan moet replica R1, wanneer opnieuw opgebouwd land op N4 zodat probleem- en Upgrade Domain-beperking niet is geschonden.
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N/A |N/A |N/A |N/A |N/A |N/A |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | |R1 | |1 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |1 |1 |1 |1 |1 |- |
+
+*Lay-out 5*
 
 ## <a name="configuring-fault-and-upgrade-domains"></a>Configureren van de fout en domeinen upgraden
 Domeinen met fouten en -domeinen upgraden definiëren gebeurt automatisch in Azure gehoste Service Fabric-implementaties. Service Fabric opgehaald en worden de gegevens van de omgeving van Azure gebruikt.
@@ -271,7 +358,7 @@ De opgegeven waarde in de eigenschap van het knooppunt kan string, bool, of lang
 
 1) voorwaardelijke controles voor het maken van bepaalde instructies
 
-| Instructie | Syntaxis |
+| Verklaring | Syntaxis |
 | --- |:---:|
 | 'gelijk zijn aan' | "==" |
 | 'is niet gelijk aan' | "!=" |
@@ -282,7 +369,7 @@ De opgegeven waarde in de eigenschap van het knooppunt kan string, bool, of lang
 
 2) Boole-instructies voor groepering en logische bewerkingen
 
-| Instructie | Syntaxis |
+| Verklaring | Syntaxis |
 | --- |:---:|
 | 'en' | "&&" |
 | "of" | "&#124;&#124;" |
@@ -515,7 +602,7 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Bekijk voor meer informatie over de architectuur en de informatiestroom binnen het Cluster Resource Manager, [in dit artikel](service-fabric-cluster-resource-manager-architecture.md)
+* Bekijk voor meer informatie over de architectuur en de informatiestroom binnen het Cluster Resource Manager, [in dit artikel ](service-fabric-cluster-resource-manager-architecture.md)
 * Defragmentatie metrische gegevens definiëren, is een manier om te consolideren belasting van de knooppunten in plaats van af te spreiden. Raadpleeg voor meer informatie over het configureren van defragmentatie, [in dit artikel](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Vanaf het begin starten en [Maak kennis met de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * Als u wilt weten over hoe de Cluster Resource Manager beheert en een compromis tussen de werklast van het cluster, Raadpleeg het artikel op [load balancing](service-fabric-cluster-resource-manager-balancing.md)

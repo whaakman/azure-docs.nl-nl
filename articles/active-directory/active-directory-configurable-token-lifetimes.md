@@ -2,31 +2,31 @@
 title: Configureerbare token levensduur in Azure Active Directory | Microsoft Docs
 description: Informatie over het instellen van de levensduur voor tokens die zijn uitgegeven door Azure AD.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
-ms.author: billmath
+ms.date: 04/19/2018
+ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Configureerbare token levensduur in Azure Active Directory (openbare Preview)
 U kunt de levensduur van een token dat is uitgegeven door Azure Active Directory (Azure AD) opgeven. Token levensduur voor alle apps in uw organisatie, voor een multitenant (meerdere organisatie)-toepassing of voor een specifieke service-principal kunt u instellen in uw organisatie.
 
-> [!NOTE]
-> Deze mogelijkheid is momenteel in de openbare Preview. Wees voorbereid om te herstellen of verwijderen van eventuele wijzigingen. De functie is beschikbaar in een abonnement voor Azure Active Directory tijdens de openbare Preview. Echter, wanneer de functie algemeen beschikbaar wordt, sommige aspecten van de functie mogelijk een [Azure Active Directory Premium](active-directory-get-started-premium.md) abonnement.
+> [!IMPORTANT]
+> Na de behandeling van klanten tijdens de preview we van plan bent deze functionaliteit vervangt door een nieuwe functie in Azure Active Directory voorwaardelijke toegang.  Zodra de nieuwe functie voltooid is, wordt deze functionaliteit uiteindelijk na een meldingsperiode afgeschaft.  Als u het beleid configureerbare levensduur van Token gebruikt, worden voorbereid om over te schakelen naar de nieuwe functie voor voorwaardelijke toegang, zodra deze beschikbaar is. 
 >
 >
 
@@ -45,19 +45,19 @@ U kunt een beleid aanwijzen als het standaardbeleid voor uw organisatie. Het bel
 U kunt de levensduur van token-beleid voor het vernieuwen van tokens, toegangstokens, sessie tokens en ID-tokens instellen.
 
 ### <a name="access-tokens"></a>Toegangstokens
-Clients gebruiken toegangstokens voor toegang tot een beveiligde bron. Een toegangstoken kan alleen worden gebruikt voor een specifieke combinatie van de gebruiker, de client en de resource. Toegangstokens kunnen niet worden ingetrokken, en zijn geldig totdat ze aflopen. Een kwaadwillende actor dat een toegangstoken is verkregen kunt gebruiken voor het gebied van de levensduur. Het aanpassen van de levensduur van een toegangstoken is een compromis tussen de systeemprestaties verbeteren en vergroot de hoeveelheid tijd dat de client toegang behouden nadat het account van de gebruiker is uitgeschakeld. Verbeterde systeemprestaties wordt bereikt door het verminderen van het aantal keren dat een client moet een nieuw toegangstoken verkrijgen.
+Clients gebruiken toegangstokens voor toegang tot een beveiligde bron. Een toegangstoken kan alleen worden gebruikt voor een specifieke combinatie van de gebruiker, de client en de resource. Toegangstokens kunnen niet worden ingetrokken, en zijn geldig totdat ze aflopen. Een kwaadwillende actor dat een toegangstoken is verkregen kunt gebruiken voor het gebied van de levensduur. Het aanpassen van de levensduur van een toegangstoken is een compromis tussen de systeemprestaties verbeteren en vergroot de hoeveelheid tijd dat de client toegang behouden nadat het account van de gebruiker is uitgeschakeld. Verbeterde systeemprestaties wordt bereikt door het verminderen van het aantal keren dat een client moet een nieuw toegangstoken verkrijgen.  De standaardwaarde is 1 uur - na 1 uur, de client het vernieuwingstoken (meestal achtergrond) een nieuwe vernieuwingstoken verkrijgen en toegang hebben tot token moet gebruiken. 
 
 ### <a name="refresh-tokens"></a>Vernieuwen van tokens
-Wanneer een client een toegangstoken verkrijgt voor toegang tot een beveiligde bron, wordt de client ontvangt een vernieuwingstoken zowel een toegangstoken. Het vernieuwingstoken dat is gebruikt voor nieuwe toegang/vernieuwen token paren wanneer het huidige toegangstoken is verlopen. Een vernieuwingstoken dat is gebonden aan een combinatie van client en de gebruiker. Een vernieuwingstoken kan worden ingetrokken en de geldigheid van het token is ingeschakeld, telkens wanneer het token wordt gebruikt.
+Wanneer een client een toegangstoken verkrijgt voor toegang tot een beveiligde bron, ontvangt de client ook een vernieuwingstoken. Het vernieuwingstoken dat is gebruikt voor nieuwe toegang/vernieuwen token paren wanneer het huidige toegangstoken is verlopen. Een vernieuwingstoken dat is gebonden aan een combinatie van client en de gebruiker. Een vernieuwingstoken mag [ingetrokken op elk gewenst moment](develop/active-directory-token-and-claims.md#token-revocation), en de geldigheid van het token is ingeschakeld, telkens wanneer het token wordt gebruikt.  
 
-Het is belangrijk om onderscheid maken tussen vertrouwelijk en openbare-clients. Zie voor meer informatie over de verschillende soorten clients [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
+Is belangrijk om onderscheid maken tussen vertrouwelijk en openbare-clients, omdat dit van invloed is op hoe lang vernieuwen van tokens kunnen worden gebruikt. Zie voor meer informatie over de verschillende soorten clients [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Levensduur van token met het vernieuwen van tokens vertrouwelijke client
-Vertrouwelijke clients zijn toepassingen waarvan het wachtwoord van een client (geheim genoemd) kunnen veilig worden opgeslagen. Zij kunnen aantonen dat verzoeken die worden verzonden vanuit de clienttoepassing en niet vanuit een schadelijke actor. Een web-app is bijvoorbeeld een vertrouwelijk client omdat deze een clientgeheim kunt opslaan op de webserver. Deze wordt niet weergegeven. Omdat deze stromen veiliger zijn, is het de standaardlevensduur van vernieuwen van tokens verleend aan deze stromen `until-revoked`, kan niet worden gewijzigd met behulp van beleid en niet op vrijwillige wachtwoorden opnieuw ingesteld, worden ingetrokken.
+Vertrouwelijke clients zijn toepassingen waarvan het wachtwoord van een client (geheim genoemd) kunnen veilig worden opgeslagen. Zij kunnen aantonen dat verzoeken die worden verzonden vanaf de beveiligde clienttoepassing en niet vanaf een schadelijke actor. Een web-app is bijvoorbeeld een vertrouwelijk client omdat deze een clientgeheim kunt opslaan op de webserver. Deze wordt niet weergegeven. Omdat deze stromen veiliger zijn, is het de standaardlevensduur van vernieuwen van tokens verleend aan deze stromen `until-revoked`, kan niet worden gewijzigd met behulp van beleid en niet op vrijwillige wachtwoorden opnieuw ingesteld, worden ingetrokken.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Levensduur van token met openbare-client vernieuwen van tokens
 
-Openbare clients kunnen niet veilig opslaan van het wachtwoord van een client (geheim genoemd). Bijvoorbeeld een iOS-/ Android-app kan niet verbergen, weergeven een geheim van de resource-eigenaar, zodat deze wordt beschouwd als een openbare-client. U kunt beleid instellen voor bronnen om te voorkomen dat het verkrijgen van een nieuw token toegang/vernieuwen paar vernieuwen van tokens van openbare clients die ouder zijn dan een opgegeven periode. (Gebruik hiervoor de eigenschap vernieuwen Token maximale niet-actieve tijd.) U kunt beleid gebruiken om in te stellen van een periode waarboven het vernieuwen van tokens niet meer worden geaccepteerd. (Gebruik hiervoor de eigenschap Token Max Age vernieuwen.) De levensduur van een vernieuwingstoken om te bepalen wanneer en hoe vaak de gebruiker is vereist in plaats van de achtergrond worden geverifieerd, bij gebruik van een openbare clienttoepassing de referenties opnieuw in te voeren, kunt u aanpassen.
+Openbare clients kunnen niet veilig opslaan van het wachtwoord van een client (geheim genoemd). Bijvoorbeeld een iOS-/ Android-app kan niet verbergen, weergeven een geheim van de resource-eigenaar, zodat deze wordt beschouwd als een openbare-client. U kunt beleid instellen voor bronnen om te voorkomen dat het verkrijgen van een nieuw token toegang/vernieuwen paar vernieuwen van tokens van openbare clients die ouder zijn dan een opgegeven periode. (Hiervoor gebruikt u de eigenschap vernieuwen Token maximale niet-actieve tijd (`MaxInactiveTime`).) U kunt beleid gebruiken om in te stellen van een periode waarboven het vernieuwen van tokens niet meer worden geaccepteerd. (Gebruik hiervoor de eigenschap Token Max Age vernieuwen.) De levensduur van een vernieuwingstoken om te bepalen wanneer en hoe vaak de gebruiker is vereist in plaats van de achtergrond worden geverifieerd, bij gebruik van een openbare clienttoepassing de referenties opnieuw in te voeren, kunt u aanpassen.
 
 ### <a name="id-tokens"></a>ID-tokens
 ID-tokens worden doorgegeven aan websites en systeemeigen clients. ID-tokens profielinformatie bevatten over een gebruiker. Een token ID is gebonden aan een specifieke combinatie van client en de gebruiker. ID-tokens worden beschouwd als geldig totdat ze aflopen. Meestal een gebruiker in een webtoepassing overeenkomt met de levensduur van de sessie in de toepassing op de levensduur van het token ID uitgegeven voor de gebruiker. U kunt de levensduur van een token ID om te bepalen hoe vaak de webtoepassing de toepassingssessie is verlopen, en hoe vaak moet de gebruiker te worden geverifieerd met Azure AD (achtergrond of interactief).
@@ -77,7 +77,7 @@ Een beleid van de levensduur van token is een soort beleidsobject dat de levensd
 ### <a name="configurable-token-lifetime-properties"></a>Eigenschappen van de configureerbare levensduur van token
 | Eigenschap | Tekenreeks van de eigenschap beleid | Is van invloed op | Standaard | Minimum | Maximum |
 | --- | --- | --- | --- | --- | --- |
-| Access Token Lifetime |AccessTokenLifetime |Toegangstokens, ID-tokens, SAML2-tokens |1 uur |10 minuten |1 dag |
+| Levensduur van Token toegang |AccessTokenLifetime |Toegangstokens, ID-tokens, SAML2-tokens |1 uur |10 minuten |1 dag |
 | Token maximale niet-actieve tijd van vernieuwen |MaxInactiveTime |Vernieuwen van tokens |90 dagen |10 minuten |90 dagen |
 | Token maximumleeftijd één Factor vernieuwen |MaxAgeSingleFactor |Vernieuwen van tokens (voor alle gebruikers) |Until-revoked |10 minuten |Until-revoked<sup>1</sup> |
 | Token maximumleeftijd meerledige vernieuwen |MaxAgeMultiFactor |Vernieuwen van tokens (voor alle gebruikers) |Until-revoked |10 minuten |Until-revoked<sup>1</sup> |
@@ -109,6 +109,8 @@ Zie voor meer informatie over de relatie tussen toepassingsobjecten en service-p
 
 De geldigheid van het token wordt geëvalueerd op het moment dat het token wordt gebruikt. Het beleid met de hoogste prioriteit voor de toepassing die wordt benaderd wordt van kracht.
 
+Alle timespans hier gebruikt zijn ingedeeld volgens de C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) object - D.HH:MM:SS.  80 dagen en 30 minuten zou dus `80.00:30:00`.  De voorloopspaties D kan worden verwijderd als dit nul, dus 90 minuten zou worden `00:90:00`.  
+
 > [!NOTE]
 > Hier volgt een voorbeeldscenario.
 >
@@ -131,15 +133,15 @@ De geldigheid van het token wordt geëvalueerd op het moment dat het token wordt
 >
 
 ## <a name="configurable-policy-property-details"></a>Details van de eigenschap configureerbaar beleid
-### <a name="access-token-lifetime"></a>Access Token Lifetime
-**String:** AccessTokenLifetime
+### <a name="access-token-lifetime"></a>Levensduur van Token toegang
+**Tekenreeks:** AccessTokenLifetime
 
 **Is van invloed op:** toegangstokens, ID-tokens
 
 **Overzicht:** dit beleid bepaalt hoe lang toegang en ID-tokens voor deze resource als geldig beschouwd. De levensduur van Token toegang eigenschap verminderen vermindert het risico van een toegangstoken of de ID-token wordt gebruikt door een kwaadwillende actor gedurende langere tijd. (Deze tokens kunnen niet worden ingetrokken.) De verhouding is dat prestaties nadelig worden beïnvloed, omdat de tokens moeten vaker worden vervangen.
 
 ### <a name="refresh-token-max-inactive-time"></a>Token maximale niet-actieve tijd van vernieuwen
-**String:** MaxInactiveTime
+**Tekenreeks:** MaxInactiveTime
 
 **Is van invloed op:** Vernieuwingstokens
 
@@ -150,7 +152,7 @@ Dit beleid zorgt ervoor dat gebruikers die niet op de client te verifiëren voor
 De eigenschap vernieuwen Token maximale niet-actieve tijd moet worden ingesteld op een lagere waarde dan de één-Factor Token Max Age en de eigenschappen van meerdere factoren vernieuwen Token Max Age.
 
 ### <a name="single-factor-refresh-token-max-age"></a>Token maximumleeftijd één Factor vernieuwen
-**String:** MaxAgeSingleFactor
+**Tekenreeks:** MaxAgeSingleFactor
 
 **Is van invloed op:** Vernieuwingstokens
 
@@ -159,7 +161,7 @@ De eigenschap vernieuwen Token maximale niet-actieve tijd moet worden ingesteld 
 De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd vaker. Omdat authenticatie wordt beschouwd als minder veilig dan multi-factor authentication-server, wordt u aangeraden dat u deze eigenschap instellen op een waarde die gelijk is aan of kleiner zijn dan de eigenschap Multi-factor vernieuwen Token Max Age.
 
 ### <a name="multi-factor-refresh-token-max-age"></a>Token maximumleeftijd meerledige vernieuwen
-**String:** MaxAgeMultiFactor
+**Tekenreeks:** MaxAgeMultiFactor
 
 **Is van invloed op:** Vernieuwingstokens
 
@@ -168,7 +170,7 @@ De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd
 De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd vaker. Omdat authenticatie wordt beschouwd als minder veilig dan multi-factor authentication-server, wordt u aangeraden dat u deze eigenschap instellen op een waarde die gelijk is aan of groter zijn dan de eigenschap één Factor vernieuwen Token Max Age.
 
 ### <a name="single-factor-session-token-max-age"></a>Token maximumleeftijd één Factor-sessie
-**String:** MaxAgeSessionSingleFactor
+**Tekenreeks:** MaxAgeSessionSingleFactor
 
 **Is van invloed op:** sessie tokens (persistent en niet-persistente)
 
@@ -177,7 +179,7 @@ De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd
 De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd vaker. Omdat authenticatie wordt beschouwd als minder veilig dan multi-factor authentication-server, wordt u aangeraden dat u deze eigenschap instellen op een waarde die gelijk is aan of kleiner zijn dan de eigenschap Multi-factor sessie Token Max Age.
 
 ### <a name="multi-factor-session-token-max-age"></a>Token maximumleeftijd multi-factor-sessie
-**String:** MaxAgeSessionMultiFactor
+**Tekenreeks:** MaxAgeSessionMultiFactor
 
 **Is van invloed op:** sessie tokens (persistent en niet-persistente)
 
@@ -188,9 +190,9 @@ De maximale leeftijd verminderen zorgt ervoor dat gebruikers worden geverifieerd
 ## <a name="example-token-lifetime-policies"></a>Voorbeeld van de levensduur van token-beleid
 Veel scenario's zijn mogelijk in Azure AD wanneer u kunt maken en beheren van token levensduur voor apps, service-principals en uw hele organisatie zijn. In deze sectie doorlopen we enkele algemene scenario's voor beleid waarmee u nieuwe regels voor opleggen kunnen:
 
-* Token Lifetime
+* Levensduur van token
 * Token maximale niet-actieve tijd
-* Token Max Age
+* Token maximumleeftijd
 
 In de voorbeelden, leert u hoe:
 

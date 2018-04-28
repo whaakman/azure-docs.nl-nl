@@ -12,26 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 440f7eba99e5fa02a597ae62d5d14329f5e50af7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f982e859892965379b7ffb08e15dd1cf51b9801f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Toepassingen implementeren op rekenknooppunten met Batch-toepassingspakketten
 
 De functie voor de toepassing-pakketten van Azure Batch biedt eenvoudig beheer van toepassingen van de taak en de implementatie ervan in de rekenknooppunten in uw groep. U kunt met toepassingspakketten kunt uploaden en beheren van meerdere versies van de toepassingen die de taken worden uitgevoerd, met inbegrip van hun ondersteunende bestanden. U kunt vervolgens automatisch implementeren een of meer van deze toepassingen aan de rekenknooppunten in uw groep.
 
-In dit artikel leert u hoe uploaden en beheren in de Azure portal-toepassingspakketten. Vervolgens leert u hoe u ze moet installeren op een pool van rekenknooppunten met de [Batch .NET] [ api_net] bibliotheek.
+In dit artikel leert u het uploaden en beheren in de Azure portal-toepassingspakketten. Vervolgens leert u hoe u deze installeren op een pool van rekenknooppunten met de [Batch .NET] [ api_net] bibliotheek.
 
 > [!NOTE]
 > 
 > Toepassingspakketten worden ondersteund in alle Batch-pools die na 5 juli 2017 zijn gemaakt. De pakketten worden ondersteund in Batch-pools die zijn gemaakt tussen 10 maart 2016 en 5 juli 2017, maar alleen als de pool is gemaakt met behulp van een cloudservice-configuratie. Batch-pools die zijn gemaakt vóór 10 maart 2016 bieden geen ondersteuning voor toepassingspakketten.
 >
-> De API's voor het maken en beheren van toepassingspakketten deel uitmaken van de [Batch Management .NET] [[api_net_mgmt]] bibliotheek. De API's voor toepassingspakketten installeren op een rekenknooppunt deel uitmaken van de [Batch .NET] [ api_net] bibliotheek.  
+> De API's voor het maken en beheren van toepassingspakketten deel uitmaken van de [Batch Management .NET] [ api_net_mgmt] bibliotheek. De API's voor toepassingspakketten installeren op een rekenknooppunt deel uitmaken van de [Batch .NET] [ api_net] bibliotheek. Er zijn vergelijkbare functies in de beschikbare Batch-API's voor andere talen. 
 >
 > De toepassing pakketten functie hier beschreven vervangt de beschikbaar in eerdere versies van de service Batch Apps-functie.
 > 
@@ -39,13 +39,6 @@ In dit artikel leert u hoe uploaden en beheren in de Azure portal-toepassingspak
 
 ## <a name="application-package-requirements"></a>Vereisten voor Application-pakket
 Voor het gebruik van toepassingspakketten, moet u [een Azure Storage-account koppelen](#link-a-storage-account) aan uw Batch-account.
-
-Deze functie is geïntroduceerd [Batch REST-API] [ api_rest] versie 2015-12-01.2.2 en de bijbehorende [Batch .NET] [ api_net] library-versie 3.1.0. Het is raadzaam dat u de nieuwste API-versie altijd gebruiken bij het werken met de Batch.
-
-> [!NOTE]
-> Toepassingspakketten worden ondersteund in alle Batch-pools die na 5 juli 2017 zijn gemaakt. De pakketten worden ondersteund in Batch-pools die zijn gemaakt tussen 10 maart 2016 en 5 juli 2017, maar alleen als de pool is gemaakt met behulp van een cloudservice-configuratie. Batch-pools die zijn gemaakt vóór 10 maart 2016 bieden geen ondersteuning voor toepassingspakketten.
->
->
 
 ## <a name="about-applications-and-application-packages"></a>Over de toepassingen en toepassingspakketten
 In Azure Batch een *toepassing* verwijst naar een set van samengestelde binaire bestanden gebruikt die automatisch kan worden gedownload op de rekenknooppunten in uw groep. Een *toepassingspakket* verwijst naar een *specifieke set* van deze binaire bestanden en vertegenwoordigt een gegeven *versie* van de toepassing.
@@ -85,50 +78,50 @@ Met toepassingspakketten kunt geen begintaak uw pool een lange lijst met afzonde
 >
 
 ## <a name="upload-and-manage-applications"></a>Uploaden en beheren van toepassingen
-U kunt de [Azure-portal] [ portal] of de [Batch Management .NET](batch-management-dotnet.md) bibliotheek voor het beheren van de toepassingspakketten in uw Batch-account. In de volgende secties laten we eerst zien hoe een opslagaccount te koppelen en vervolgens bespreken toe te voegen toepassingen en pakketten en deze te beheren met de portal.
+U kunt de [Azure-portal] [ portal] of de Batch Management API's voor het beheren van de toepassingspakketten in uw Batch-account. In de volgende secties laten we eerst zien hoe een opslagaccount te koppelen en vervolgens bespreken toe te voegen toepassingen en pakketten en deze te beheren met de portal.
 
 ### <a name="link-a-storage-account"></a>Storage-account koppelen
-Voor het gebruik van toepassingspakketten, moet u eerst een Azure Storage-account koppelen aan uw Batch-account. Als u een opslagaccount nog niet hebt geconfigureerd, de Azure-portal wordt weergegeven een waarschuwing de eerste keer dat u op de **toepassingen** -tegel in de **Batch-account** blade.
+Voor het gebruik van toepassingspakketten, moet u eerst koppelen een [Azure Storage-account](batch-api-basics.md#azure-storage-account) aan uw Batch-account. Als u een opslagaccount nog niet hebt geconfigureerd, de Azure-portal wordt weergegeven een waarschuwing de eerste keer dat u op **toepassingen** in uw Batch-account.
 
-> [!IMPORTANT]
-> Batch ondersteunt momenteel *alleen* de **algemeen** opslagaccounttype zoals beschreven in stap 5, [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account)in [over Azure Storage-accounts](../storage/common/storage-create-storage-account.md). Wanneer u een Azure Storage-account aan uw Batch-account koppelt, een koppeling *alleen* een **algemeen** storage-account.
-> 
-> 
+
 
 !['Er is geen opslagaccount geconfigureerd' waarschuwing in Azure-portal][9]
 
-De Batch-service gebruikt het bijbehorende opslagaccount voor het opslaan van uw toepassingspakketten. Nadat u de twee accounts hebt gekoppeld, kan de pakketten die zijn opgeslagen in de gekoppelde Storage-account aan uw rekenknooppunten automatisch implementeren door Batch. Als u wilt een Storage-account koppelen aan uw Batch-account, klikt u op **instellingen voor de opslag** op de **waarschuwing** blade en klik vervolgens op **Opslagaccount** op de  **Storage-Account** blade.
+De Batch-service gebruikt het bijbehorende opslagaccount voor het opslaan van uw toepassingspakketten. Nadat u de twee accounts hebt gekoppeld, kan de pakketten die zijn opgeslagen in de gekoppelde Storage-account aan uw rekenknooppunten automatisch implementeren door Batch. Als u wilt een Storage-account koppelen aan uw Batch-account, klikt u op **opslagaccount** op de **waarschuwing** venster en klik vervolgens op **Opslagaccount** opnieuw.
 
 ![Kies de blade opslagaccount in Azure-portal][10]
 
-Het is raadzaam dat u een opslagaccount maken *specifiek* voor gebruik met uw Batch-account en selecteert u deze hier. Zie voor meer informatie over het maken van een opslagaccount 'Een opslagaccount maken' [over Azure Storage-accounts](../storage/common/storage-create-storage-account.md). Nadat u een opslagaccount hebt gemaakt, kunt u vervolgens deze koppelen aan uw Batch-account met behulp van de **Opslagaccount** blade.
+Het is raadzaam dat u een opslagaccount maken *specifiek* voor gebruik met uw Batch-account en selecteert u deze hier. Nadat u een opslagaccount hebt gemaakt, kunt u vervolgens deze koppelen aan uw Batch-account met behulp van de **Opslagaccount** venster.
 
-> [!WARNING]
-> De Batch-service gebruikt Azure Storage voor het opslaan van uw toepassingspakketten als blok-blobs. U bent [in rekening gebracht als normale] [ storage_pricing] voor de blok-blob-gegevens. Moet u rekening met de grootte en het nummer van uw toepassingspakketten en verwijderen periodiek verouderde pakketten om de kosten kunt minimaliseren.
+> [!NOTE] 
+> Momenteel u toepassingspakketten niet gebruiken met een Azure Storage-account dat is geconfigureerd met [firewall-regels](../storage/common/storage-network-security.md).
+> 
+
+De Batch-service gebruikt Azure Storage voor het opslaan van uw toepassingspakketten als blok-blobs. U bent [in rekening gebracht als normale] [ storage_pricing] voor de blok-blob-gegevens. Moet u rekening met de grootte en het nummer van uw toepassingspakketten en verwijderen periodiek verouderde pakketten om de kosten kunt minimaliseren.
 > 
 > 
 
 ### <a name="view-current-applications"></a>De huidige toepassingen weergeven
-U kunt de toepassingen in uw Batch-account op de **toepassingen** menu-item in het menu links tijdens weer te geven de **Batch-account** blade.
+U kunt de toepassingen in uw Batch-account op de **toepassingen** menu-item in het menu links tijdens weer te geven uw **Batch-account**.
 
 ![Toepassingen-tegel][2]
 
-Met deze optie menu opent de **toepassingen** blade:
+Met deze optie menu opent de **toepassingen** venster:
 
 ![Lijst met toepassingen][3]
 
-De **toepassingen** blade geeft de ID van elke toepassing in uw account en de volgende eigenschappen:
+Dit venster geeft de ID van elke toepassing in uw account en de volgende eigenschappen:
 
 * **Pakketten**: het aantal versies die zijn gekoppeld aan deze toepassing.
 * **Standaardversie**: de versie van de toepassing wordt geïnstalleerd als u niet een versie aangeven wanneer u de toepassing voor een groep opgeeft. Deze instelling is optioneel.
 * **Toestaan dat updates**: de waarde die aangeeft of het pakket updates, verwijderingen en toevoegingen zijn toegestaan. Als deze is ingesteld op **Nee**, pakket bijwerken en verwijderen zijn uitgeschakeld voor de toepassing. Alleen nieuwe toepassingspakketversies kunnen worden toegevoegd. De standaardinstelling is **Ja**.
 
 ### <a name="view-application-details"></a>Toepassingdetails weergeven
-Als de blade met de details voor een toepassing, schakelt u de toepassing in de **toepassingen** blade.
+Voor de details voor een toepassing, selecteert u de toepassing in de **toepassingen** venster.
 
 ![App-details][4]
 
-In de blade toepassing details kunt u de volgende instellingen configureren voor uw toepassing.
+In de toepassing, kunt u de volgende instellingen configureren voor uw toepassing.
 
 * **Toestaan dat updates**: opgeven of de toepassingspakketten kunnen worden bijgewerkt of verwijderd. Zie 'Werken of te verwijderen van een toepassingspakket' verderop in dit artikel.
 * **Standaardversie**: Geef een toepassingspakket standaard voor het implementeren van rekenknooppunten.
@@ -137,11 +130,11 @@ In de blade toepassing details kunt u de volgende instellingen configureren voor
 ### <a name="add-a-new-application"></a>Een nieuwe toepassing toevoegen
 Een nieuwe toepassing maken, toevoegen van een toepassingspakket en geef een nieuwe, unieke toepassing-ID. Het eerste toepassingspakket dat u met de nieuwe toepassings-ID toevoegen wordt ook de nieuwe toepassing gemaakt.
 
-Klik op **toevoegen** op de **toepassingen** blade openen de **nieuwe toepassing** blade.
+Klik op **Toepassingen** > **Toevoegen**.
 
 ![Blade voor een nieuwe toepassing in Azure-portal][5]
 
-De **nieuwe toepassing** blade biedt de volgende velden om op te geven van de instellingen van uw nieuwe toepassing en het application-pakket.
+De **nieuwe toepassing** venster biedt de volgende velden om op te geven van de instellingen van uw nieuwe toepassing en het application-pakket.
 
 **Toepassings-id**
 
@@ -165,28 +158,28 @@ Dit veld geeft u de versie van het toepassingspakket dat u uploadt. Versietekenr
 
 Dit veld geeft de ZIP-bestand dat de binaire bestanden van de toepassing bevat en de ondersteunende bestanden die nodig zijn voor de toepassing uitvoeren. Klik op de **selecteert u een bestand** box of het pictogram van de map te bladeren naar en selecteer een ZIP-bestand met de bestanden van uw toepassing.
 
-Nadat u een bestand hebt geselecteerd, klikt u op **OK** om te beginnen met het uploaden naar Azure Storage. Wanneer het uploaden voltooid is, wordt de portal een melding weergegeven en sluit u de blade. Deze bewerking kan enige tijd duren, afhankelijk van de grootte van het bestand dat u uploadt en de snelheid van uw netwerkverbinding.
+Nadat u een bestand hebt geselecteerd, klikt u op **OK** om te beginnen met het uploaden naar Azure Storage. Wanneer het uploaden voltooid is, wordt een melding weergegeven in de portal. Deze bewerking kan enige tijd duren, afhankelijk van de grootte van het bestand dat u uploadt en de snelheid van uw netwerkverbinding.
 
 > [!WARNING]
-> Sluit niet de **nieuwe toepassing** blade voordat het uploaden voltooid is. In dat geval wordt het uploadproces gestopt.
+> Sluit niet de **nieuwe toepassing** venster voordat het uploaden voltooid is. In dat geval stopt het uploadproces.
 > 
 > 
 
 ### <a name="add-a-new-application-package"></a>Een nieuw toepassingspakket toevoegen
-Selecteer een toepassing in om een nieuwe Pakketversie voor de toepassing van een bestaande toepassing toe de **toepassingen** blade, klikt u op **pakketten**, klikt u vervolgens op **toevoegen** openen de **Toevoegen pakket** blade.
+Als u wilt de versie van een toepassingspakket voor een bestaande toepassing toevoegen, selecteert u een toepassing in de **toepassingen** windows en klik op **pakketten** > **toevoegen**.
 
 ![Toepassing pakket blade toevoegen in Azure-portal][8]
 
-Zoals u ziet de velden overeenkomen met die van de **nieuwe toepassing** blade, maar de **toepassings-id** selectievakje is uitgeschakeld. Net als voor de nieuwe toepassing, geef de **versie** voor het nieuwe pakket, blader naar uw **toepassingspakket** ZIP-bestand en klik vervolgens op **OK** voor het uploaden van het pakket.
+Zoals u ziet de velden overeenkomen met die van de **nieuwe toepassing** venster, maar de **toepassings-id** selectievakje is uitgeschakeld. Net als voor de nieuwe toepassing, geef de **versie** voor het nieuwe pakket, blader naar uw **toepassingspakket** ZIP-bestand en klik vervolgens op **OK** voor het uploaden van het pakket.
 
 ### <a name="update-or-delete-an-application-package"></a>Bijwerken of verwijderen van een toepassingspakket
-Als u wilt bijwerken of verwijderen van een bestaand toepassingspakket, open de blade met details voor de toepassing, klikt u op **pakketten** openen de **pakketten** blade, klikt u op de **weglatingsteken** in de rij van het toepassingspakket dat u wilt wijzigen, en selecteer de actie die u wilt uitvoeren.
+Als u wilt bijwerken of verwijderen van een bestaand toepassingspakket, opent u de details voor de toepassing, klikt u op **pakketten**, klikt u op de **weglatingsteken** in de rij van het toepassingspakket dat u wilt wijzigen, en selecteer de actie die u wilt uitvoeren.
 
 ![Bijwerken of verwijderen van pakket in Azure-portal][7]
 
 **Update**
 
-Wanneer u klikt op **Update**, wordt de *updatepakket* blade wordt weergegeven. Deze blade is vergelijkbaar met de *nieuw toepassingspakket* blade echter alleen het veld pakket is ingeschakeld, zodat u kunt het opgeven van een nieuwe ZIP-bestand te uploaden.
+Wanneer u klikt op **Update**, wordt de **updatepakket** windows wordt weergegeven. Dit venster is vergelijkbaar met de **nieuw toepassingspakket** venster, maar alleen het veld pakket is ingeschakeld, zodat u kunt het opgeven van een nieuwe ZIP-bestand te uploaden.
 
 ![Blade voor update-pakket in Azure-portal][11]
 
@@ -283,7 +276,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_blender_2_7
 ``` 
 
-Wanneer u toepassingspakketten uploadt, kunt u een standaardversie voor het implementeren van uw rekenknooppunten. Als u een standaardversie voor een toepassing hebt opgegeven, kunt u het versieachtervoegsel weglaten wanneer u verwijst naar de toepassing. Geef de versie van de toepassing standaard in de Azure-portal op de blade toepassingen, zoals wordt weergegeven in [uploaden en beheren van toepassingen](#upload-and-manage-applications).
+Wanneer u toepassingspakketten uploadt, kunt u een standaardversie voor het implementeren van uw rekenknooppunten. Als u een standaardversie voor een toepassing hebt opgegeven, kunt u het versieachtervoegsel weglaten wanneer u verwijst naar de toepassing. U kunt de standaardversie van de toepassing in de Azure portal opgeven in de **toepassingen** venster, zoals wordt weergegeven in [uploaden en beheren van toepassingen](#upload-and-manage-applications).
 
 Als u '2.7' instellen als de standaardversie voor toepassing bijvoorbeeld *blender*, en uw taken verwijzen naar de volgende omgevingsvariabele, en vervolgens uw Windows-knooppunten versie 2.7 wordt uitgevoerd:
 
@@ -348,7 +341,7 @@ Met toepassingspakketten kunt u uw klanten, selecteer de toepassingen voor hun t
 
 ## <a name="next-steps"></a>Volgende stappen
 * De [Batch REST-API] [ api_rest] biedt ook ondersteuning voor gebruik met toepassingspakketten. Zie bijvoorbeeld de [applicationPackageReferences] [ rest_add_pool_with_packages] -element in [een groep toevoegen aan een account] [ rest_add_pool] voor informatie over het opgeven pakketten installeren met behulp van de REST-API. Zie [toepassingen] [ rest_applications] voor meer informatie over het verkrijgen van informatie over toepassingen met behulp van de Batch REST-API.
-* Meer informatie over hoe u programmatisch [beheren van Azure Batch-accounts en quota's met Batch Management .NET](batch-management-dotnet.md). De [Batch Management .NET][api_net_mgmt] bibliotheek account maken en verwijderen-functies voor uw Batch-toepassing of service kunt inschakelen.
+* Meer informatie over hoe u programmatisch [beheren van Azure Batch-accounts en quota's met Batch Management .NET](batch-management-dotnet.md). De [Batch Management .NET] [ api_net_mgmt] bibliotheek account maken en verwijderen-functies voor uw Batch-toepassing of service kunt inschakelen.
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
 [api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet

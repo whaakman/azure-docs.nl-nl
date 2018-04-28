@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 713b830717cce7b4b2b0fb1171596659c2275b85
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 13c3c948fbe24d5536b32967c8394060ee898377
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Een streaming gegevens invoer- of gegevens toevoegen aan Stream Analytics-taak
 Informatie over het aansluiten van een gegevensbron om uw Stream Analytics-taak als streaming gegevensinvoer uit Event Hubs of verwijzing gegevens uit Blob storage.
@@ -49,12 +49,12 @@ Een invoer toevoegen aan Stream Analytics-taak:
     ![Gegevens gegevensstroominvoer toevoegen](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)  
 4. Geef een beschrijvende naam voor deze invoer in het vak Invoeralias.  Deze naam wordt gebruikt in uw job query later op om te verwijzen naar de invoer.
    
-    Vul in de rest van de vereiste verbindingseigenschappen verbinding maken met de gegevensbron. Deze velden verschillen per type van het type invoer- en bron en worden gedefinieerd in detail [hier](stream-analytics-create-a-job.md).  
+    Vul in de rest van de vereiste verbindingseigenschappen verbinding maken met de gegevensbron. 
    
     ![Event hub gegevensinvoer toevoegen](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
 5. Geef de serialisatie-instellingen voor de ingevoerde gegevens:
    
-   * Om er zeker van te zijn uw query's werken zoals verwacht, geef de **gebeurtenis serialisatie-indeling** van binnenkomende gegevens.  Ondersteunde serialisatie-indelingen zijn JSON, CSV en Avro.
+   * Om er zeker van te zijn uw query's werken zoals verwacht, geef de **gebeurtenis serialisatie-indeling** van binnenkomende gegevens.  Ondersteunde serialisatie-indelingen zijn JSON, CSV en Avro. Controleer of de JSON-indeling wordt uitgelijnd met de specificatie en bevat geen voorloop 0 voor decimale getallen.
    * Controleer of de **codering** voor de gegevens.  Alleen de coderingsindeling UTF-8 wordt momenteel ondersteund.
      
      ![Instellingen voor serialisatie van gegevens voor de gegevens invoeren](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  

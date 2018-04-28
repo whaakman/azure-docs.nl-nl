@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 489d1044de49c63ac7e1423708cc0638355ab1b5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5fcf33d3d54b118c1c25f1467a496da3644a2345
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>PowerShell gebruiken voor het maken van een virtuele Service-eindpunt en een regel voor Azure SQL Database
 
@@ -50,6 +50,9 @@ De volgende lijst ziet u de volgorde van andere *belangrijke* cmdlets die u uitv
 - U kunt al aanmelden bij Azure, zoals via de [Azure-portal][http-azure-portal-link-ref-477t].
 - U kunt al PowerShell-scripts uitvoeren.
 
+> [!NOTE]
+> Zorg ervoor dat de service-eindpunten zijn ingeschakeld voor het Vnet/Subnet die u wilt toevoegen aan uw Server anders mislukt het maken van de firewallregel Vnet.
+
 #### <a name="one-script-divided-into-four-chunks"></a>Een script onderverdeeld in vier segmenten
 
 Onze demonstratie PowerShell-script is onderverdeeld in een reeks van kleinere scripts. De deling learning vereenvoudigt en biedt flexibiliteit. De scripts moeten worden uitgevoerd in de aangegeven volgorde. Als u geen tijd nu de scripts worden uitgevoerd, wordt na script 4 onze werkelijke testuitvoer weergegeven.
@@ -79,7 +82,7 @@ Deze eerste PowerShell-script waarden worden toegewezen aan variabelen. De volge
 ###########################################################
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 ###########################################################
 ##  Assignments to variables used by the later scripts.  ##
@@ -519,7 +522,7 @@ Dit script werkt niet bij alles zijn, tenzij u Ja reageert als PowerShell wordt 
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 # Assignments to variables used by the later scripts.
 # You can EDIT these values, if necessary.

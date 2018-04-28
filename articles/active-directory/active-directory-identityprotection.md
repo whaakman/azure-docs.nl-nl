@@ -3,7 +3,7 @@ title: Azure Active Directory Identity Protection | Microsoft Docs
 description: Meer informatie over hoe Azure AD Identity Protection kunt u de mogelijkheid van een aanvaller misbruik maakt van een verdachte identiteit of het apparaat en voor het beveiligen van een identiteit of een apparaat dat eerder is verdacht of bekend is dat inbreuk wordt gepleegd beperken.
 services: active-directory
 keywords: beveiliging in Azure active directory-identiteit, cloud app discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e66d033d95efccf53ea2de889b5811fe2eafb76a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: b8ae865e06e085ebe1bb71b35d812024190e2b21
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -290,7 +290,7 @@ Het gerelateerde dialoogvenster biedt twee verschillende methoden om uw wachtwoo
 
 **Tijdelijke wachtwoord** : Selecteer **genereren van een tijdelijk wachtwoord** onmiddellijk het bestaande wachtwoord ongeldig te maken en het maken van een nieuw tijdelijk wachtwoord voor de gebruiker. Nieuw tijdelijk wachtwoord verzenden naar een alternatief e-mailadres voor de gebruiker of de manager van de gebruiker. Omdat het wachtwoord tijdelijk is, wordt de gebruiker gevraagd het wachtwoord van de aanmeldingspagina te wijzigen.
 
-![Beleid](./media/active-directory-identityprotection/1005.png "beleid")
+![Beleid voor](./media/active-directory-identityprotection/1005.png "beleid")
 
 **Opent het dialoogvenster gerelateerde configuratie**:
 
@@ -369,7 +369,7 @@ We raden u aan Azure multi-factor authentication-server voor de gebruikersaanmel
 
 ![Gebruikersbeleid ridk](./media/active-directory-identityprotection/1019.png "ridk gebruikersbeleid")
 
-Zie voor meer informatie [wat is Azure multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+Zie voor meer informatie [wat is Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
 
 Azure AD Identity Protection helpt u de uitrollen van multi-factor authentication-registratie beheren door een beleid waarmee u kunt configureren:
 
@@ -388,7 +388,7 @@ Azure AD Identity Protection helpt u de uitrollen van multi-factor authenticatio
 
 Zie voor een overzicht van de gerelateerde gebruikerservaring:
 
-* [Registratie voor meervoudige authenticatiestroom](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
+* [Meerledige verificatie inschrijving stroom](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
 * [Aanmelden-ervaringen met Azure AD Identity Protection](active-directory-identityprotection-flows.md).  
 
 **Opent het dialoogvenster gerelateerde configuratie**:
@@ -410,7 +410,7 @@ Zie voor een overzicht van de gerelateerde gebruikerservaring:
 
 * [Playbook voor Azure Active Directory: Identity Protection](active-directory-identityprotection-playbook.md)
 
-* [Azure Active Directory: Identity Protection verklarende woordenlijst](active-directory-identityprotection-glossary.md)
+* [Azure Active Directory identiteitsbeveiliging woordenlijst](active-directory-identityprotection-glossary.md)
 
 * [Aanmelden-ervaring met Azure AD Identity Protection](active-directory-identityprotection-flows.md)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: rimman
-ms.openlocfilehash: 182f9fcfd03d736f66dd8ca11720c88c9f5b36fc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b69b3b5fee0d1148a762f817d9c5a8bc67806e7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 
@@ -209,38 +209,6 @@ Bijvoorbeeld:
 5. De aanvraag eenheid kosten van alle aangepaste scripts (opgeslagen procedures, triggers, gebruiker gedefinieerde functies) gebruikt door de toepassing registreren
 6. Berekenen van de vereiste aanvraageenheden gezien het geschatte aantal bewerkingen die u verwacht te per seconde worden uitgevoerd.
 
-## <a id="GetLastRequestStatistics"></a>Gebruik de opdracht MongoDB API GetLastRequestStatistics
-De MongoDB-API biedt ondersteuning voor een aangepaste opdracht *getLastRequestStatistics*, voor het ophalen van de kosten van de aanvraag voor een bepaalde bewerking.
-
-Bijvoorbeeld, in de Mongo-Shell uitvoeren van de bewerking die u wilt controleren of de kosten van de aanvraag voor.
-```
-> db.sample.find()
-```
-
-Voer vervolgens de opdracht *getLastRequestStatistics*.
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-Met dat gegeven in gedachte, één methode voor het schatten van de hoeveelheid gereserveerde doorvoer vereist door uw toepassing is voor het vastleggen van de aanvraag eenheid kosten die zijn gekoppeld aan met het normale bewerkingen uitvoeren in een representatieve item gebruikt door de toepassing en vervolgens schatting maken van de aantal bewerkingen die om uit te voeren per seconde wordt verwacht.
-
-> [!NOTE]
-> Als er itemtypen die aanzienlijk in termen van de grootte en het aantal geïndexeerde eigenschappen verschillen wordt, en noteer vervolgens de betreffende bewerking aanvraag eenheid kosten die zijn gekoppeld aan elk *type* van typische item.
-> 
-> 
-
-## <a name="use-mongodb-api-portal-metrics"></a>Gebruik van MongoDB API portal metrische gegevens
-De eenvoudigste manier om een goede indicatie van aanvraag ophalen eenheid kosten voor de MongoDB-API-database is het gebruik van de [Azure-portal](https://portal.azure.com) metrische gegevens. Met de *aantal aanvragen* en *aanvraag kosten* grafieken, kunt u een schatting van het aantal aanvraageenheden elke bewerking verbruikt en het aantal aanvraageenheden die ze gebruiken ten opzichte van elkaar ophalen.
-
-![MongoDB API portal metrische gegevens][6]
-
 ## <a name="a-request-unit-estimate-example"></a>Een voorbeeld van een aanvraag eenheid schatting
 Houd rekening met het volgende ~ 1 KB-document:
 
@@ -344,9 +312,6 @@ Als u gebruikmaakt van de Client-SDK voor .NET en LINQ-query's en vervolgens de 
 
 Als er meer dan één client cumulatief werken boven het percentage aanvragen, het standaardgedrag voor opnieuw proberen niet toereikend zijn en de client genereert een `DocumentClientException` met de status code 429 tot de toepassing. U kunt in gevallen als volgt, kunt u de logica in routines voor foutafhandeling van uw toepassing en het gedrag voor het opnieuw of verhoog de ingerichte doorvoer voor de container.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Overschrijding van gereserveerde doorvoer grenzen in de MongoDB-API
-Toepassingen die groter is dan de ingerichte doorvoer voor een container zijn beperkt in de frequentie waarmee totdat het verbruiksniveau onder de snelheid van de ingerichte doorvoer zakt. Wanneer een snelheid-beperking optreedt, de back-end optie preventief beëindigd wanneer de aanvraag met een `16500` foutcode - `Too Many Requests`. Standaard de MongoDB-API wordt automatisch opnieuw geprobeerd maximaal 10 keer voordat er een `Too Many Requests` foutcode. Als er veel `Too Many Requests` foutcodes, kunt u overwegen een toe te voegen aan een Pogingslogica routines voor foutafhandeling van uw toepassing of [verhogen ingerichte doorvoer voor de container](set-throughput.md).
-
 ## <a name="next-steps"></a>Volgende stappen
 Lees deze informatiebronnen voor meer informatie over gereserveerde doorvoer met Azure Cosmos DB databases:
 
@@ -361,4 +326,3 @@ Als u wilt beginnen met de schaal en prestaties testen met Azure Cosmos DB, Zie 
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/api-for-mongodb-metrics.png

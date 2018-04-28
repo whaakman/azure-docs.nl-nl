@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 82f7abbe5814f9b154b6888d5b599e7706eb879b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 51a088ccdcc018b85a70f72a5f88fab8de3c7363
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Een multitenant toepassing toevoegen aan de Azure AD-toepassingsgalerie
 
@@ -28,9 +28,9 @@ Azure Active Directory (Azure AD) is een cloud-gebaseerde identity-service. De [
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Als uw toepassing biedt ondersteuning voor SAML- of OpenIDConnect
 Als u een multitenant-toepassing die u wilt weergegeven in de galerie van Azure AD-toepassing hebt, moet u eerst controleren of uw toepassing een van de volgende eenmalige aanmelding technologieën ondersteunt:
 
-- **OpenID Connect**: als u uw app vermeld, de multitenant-toepassing in Azure AD maken en implementeren van de [Azure AD toestemming framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) voor uw toepassing. Het aanmeldingsverzoek verzenden naar een gemeenschappelijk eindpunt zodat elke klant toestemming voor de toepassing kunt bieden. U kunt de toegang van een gebruiker op basis van de tenant-ID en de gebruiker UPN in het token wordt ontvangen. De aanvraag indienen met behulp van het proces beschreven in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: als u uw app vermeld, de multitenant-toepassing in Azure AD maken en implementeren van de [Azure AD toestemming framework](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) voor uw toepassing. Het aanmeldingsverzoek verzenden naar een gemeenschappelijk eindpunt zodat elke klant toestemming voor de toepassing kunt bieden. U kunt de toegang van een gebruiker op basis van de tenant-ID en de gebruiker UPN in het token wordt ontvangen. De aanvraag indienen met behulp van het proces beschreven in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-- **SAML**: als uw toepassing SAML 2.0 ondersteunt, de app kan worden weergegeven in de galerie. Volg de instructies in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **SAML**: als uw toepassing SAML 2.0 ondersteunt, de app kan worden weergegeven in de galerie. Volg de instructies in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Als uw toepassing biedt geen ondersteuning voor SAML of OpenIDConnect
 Toepassingen die geen ondersteuning voor SAML- of OpenIDConnect bieden kunnen nog steeds worden geïntegreerd in de app-galerie via één wachtwoord aanmelding technologie.
@@ -38,8 +38,8 @@ Toepassingen die geen ondersteuning voor SAML- of OpenIDConnect bieden kunnen no
 Wachtwoord eenmalige aanmelding, ook wel wachtwoordkluizen, kunt u gebruikerstoegang en wachtwoorden tot webtoepassingen die geen ondersteuning voor identiteitsfederatie beheren. Het is ook nuttig voor scenario's waarin meerdere gebruikers moeten één account, zoals delen op uw organisatie sociale media app accounts. 
 
 Als u wilt dat uw toepassing met deze technologie weergeven:
-1. Maak een webtoepassing met een HTML-aanmeldingspagina configureren [eenmalige aanmelding wachtwoord](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). 
-2. De aanvraag indient zoals beschreven in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
+1. Maak een webtoepassing met een HTML-aanmeldingspagina configureren [eenmalige aanmelding wachtwoord](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). 
+2. De aanvraag indient zoals beschreven in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="escalations"></a>Escalaties
 

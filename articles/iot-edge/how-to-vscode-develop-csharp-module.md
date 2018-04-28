@@ -10,10 +10,10 @@ ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: 48c6cacebdeb7505c8dc2bcaed099c33862589ac
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-a-c-module-with-azure-iot-edge"></a>Visual Studio Code gebruiken voor het ontwikkelen van een C#-module met Azure IoT rand
 In dit artikel vindt u gedetailleerde instructies voor het gebruik van [Visual Studio Code](https://code.visualstudio.com/) als de belangrijkste ontwikkelprogramma te ontwikkelen en implementeren van uw Azure-IoT-Edge-modules. 
@@ -31,7 +31,7 @@ Hier volgt een controlelijst waarin de items dat moet u nadat u de voorgaande ze
 - [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 - [C# voor uitbreiding van de Visual Studio Code (via OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
 - [Docker](https://docs.docker.com/engine/installation/)
-- [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd) 
+- [.NET core SDK 2.0](https://www.microsoft.com/net/core#windowscmd) 
 - [Python 2.7](https://www.python.org/downloads/)
 - [IoT-rand besturingselement script](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 - Sjabloon AzureIoTEdgeModule (`dotnet new -i Microsoft.Azure.IoT.Edge.Module`)

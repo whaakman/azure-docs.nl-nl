@@ -1,47 +1,46 @@
 ---
-title: Belangrijke verschillen tussen Azure en Azure Stack wanneer u services gebruiken en bouwen van apps | Microsoft Docs
-description: Wat u moet weten wanneer u services gebruiken of voor het bouwen van apps voor Azure-Stack.
+title: De belangrijkste verschillen tussen Azure en Azure Stack begrijpen bij gebruik van services en apps bouwen | Microsoft Docs
+description: Wat u moet weten voor het gebruik van services of het bouwen van apps voor Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: c81f551d-c13e-47d9-a5c2-eb1ea4806228
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/25/2017
+ms.date: 04/16/2018
 ms.author: mabrigg
-ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eab208175f7eb3b761ec7266483a7cd5268198e8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Belangrijke overwegingen: met behulp van services of het ontwikkelen van apps voor Azure-Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
-
-Wanneer u services gebruiken of apps voor Azure-Stack maken, moet u begrijpen dat er verschillen tussen Azure-Stack en Azure zijn. Dit artikel bevat een overzicht van de belangrijke aandachtspunten voor wanneer u Azure-Stack als uw ontwikkelomgeving voor hybride cloud.
+Voordat u services gebruiken of apps voor Azure-Stack maken, moet u de verschillen tussen Azure-Stack en Azure begrijpen. In dit artikel identificeert de belangrijke aandachtspunten voor wanneer u Azure-Stack als uw ontwikkelomgeving voor hybride cloud gebruiken.
 
 ## <a name="overview"></a>Overzicht
 
-Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt gebruiken vanuit het datacenter van uw bedrijf of serviceprovider. Als een ontwikkelaar, kunt u apps die worden uitgevoerd op Azure-Stack. Vervolgens kunt u deze apps implementeren naar Azure-Stack naar Azure, of kunt u echt hybride-apps die gebruikmaken van de verbinding tussen een Azure-Stack cloud en Azure.
+Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt gebruiken vanuit het datacenter van uw bedrijf of serviceprovider. U kunt een app in Azure-Stack is opgebouwd en vervolgens te implementeren naar Azure Stack naar Azure of naar uw Azure hybride cloud.
 
 Uw Azure-Stack-operator kunt u weten welke services beschikbaar zijn voor u om te gebruiken en ondersteuning krijgen. Ze bieden deze services via hun aangepaste schema's en aanbiedingen.
 
 De Azure technische inhoud wordt ervan uitgegaan dat apps worden ontwikkeld voor een Azure-service in plaats van Azure-Stack. Wanneer u bouwen en implementeren van apps op Azure-Stack, moet u enkele belangrijke verschillen, zoals begrijpen:
 
 * Azure-Stack biedt een subset van de services en functies die beschikbaar in Azure zijn.
-* Uw bedrijf of service provider kunt kiezen welke services die ze willen aanbieden. Dit omvat aangepaste services of toepassingen. Ze kunnen hun eigen aangepaste documentatie aanbieden.
+* Uw bedrijf of service provider kunt kiezen welke services die ze willen aanbieden. De beschikbare opties kunnen aangepaste services of toepassingen bevatten. Ze kunnen hun eigen aangepaste documentatie aanbieden.
 * Moet u de juiste Azure Stack-specifieke eindpunten (bijvoorbeeld de URL's van de portal en het Azure Resource Manager-eindpunt).
-* U moet PowerShell en API-versies die worden ondersteund door Azure-Stack gebruiken. Dit zorgt ervoor dat uw apps in Azure-Stack en Azure werkt.
+* U moet PowerShell en API-versies die worden ondersteund door Azure-Stack gebruiken. Ondersteunde versies zorgt ervoor dat uw apps in Azure-Stack en Azure werkt.
 
 ## <a name="cheat-sheet-high-level-differences"></a>Blad cheats: belangrijke verschillen
 
-De volgende tabel beschrijft de belangrijke verschillen tussen Azure-Stack en Azure. Houd de volgende punten wanneer u voor Azure-Stack ontwikkelen of services van Azure-Stack gebruiken.
+De volgende tabel beschrijft de belangrijke verschillen tussen Azure-Stack en Azure. Houd deze verschillen in rekening wanneer u voor Azure-Stack ontwikkelen of services van Azure-Stack gebruiken.
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 | Onderwerp | Azure (global) | Azure Stack |
 | -------- | ------------- | ----------|
@@ -64,15 +63,15 @@ De volgende tabel beschrijft de belangrijke verschillen tussen Azure-Stack en Az
 | Aanbeveling | Verwijzingen | 
 | -------- | ------------- | 
 | Installeer de juiste hulpprogramma's op uw werkstation ontwikkelaars. | - [Installeer PowerShell](azure-stack-powershell-install.md)<br>- [Hulpprogramma's downloaden](azure-stack-powershell-download.md)<br>- [PowerShell configureren](azure-stack-powershell-configure-user.md)<br>- [Installeer Visual Studio](azure-stack-install-visual-studio.md) 
-| Informatie over het volgende bekijken:<br>-Overwegingen met betrekking tot azure Resource Manager-sjabloon<br>-Het zoeken van Quick Start-sjablonen<br>-Een beleidsmodule gebruiken voor het gebruik van Azure te ontwikkelen voor Azure-Stack | [Ontwikkelen voor Azure Stack](azure-stack-developer.md) | 
+| Lees de informatie over de volgende items:<br>-Overwegingen met betrekking tot azure Resource Manager-sjabloon<br>-Het zoeken van Quick Start-sjablonen<br>-Een beleidsmodule gebruiken voor het gebruik van Azure te ontwikkelen voor Azure-Stack | [Ontwikkelen voor Azure Stack](azure-stack-developer.md) | 
 | Controleer en volg de aanbevolen procedures voor sjablonen. | [Resource Manager Quick Start-sjablonen](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
 | | |
 
 ## <a name="version-requirements"></a>Versievereisten
 
-Azure-Stack ondersteunt specifieke versies van Azure PowerShell en Azure service API's. Ondersteunde versies moet u gebruiken om ervoor te zorgen dat uw app voor beide Azure-Stack en naar Azure implementeren kunt.
+Azure-Stack ondersteunt specifieke versies van Azure PowerShell en Azure service API's. Ondersteunde versies gebruiken om ervoor te zorgen dat uw app voor beide Azure-Stack en naar Azure implementeren kunt.
 
-Om ervoor te zorgen dat u een juiste versie van Azure PowerShell, gebruikt u [API-versie profielen](azure-stack-version-profiles.md). Om te bepalen het meest recente versie profiel voor API die u kunt gebruiken, moet u weten dat build van Azure-Stack u. U kunt deze informatie ophalen van de beheerder van uw Azure-Stack.
+Om ervoor te zorgen dat u een juiste versie van Azure PowerShell, gebruikt u [API-versie profielen](azure-stack-version-profiles.md). Om te bepalen het meest recente versie profiel voor API die u kunt gebruiken, kijk dan van de build van Azure-Stack u. U kunt deze informatie ophalen van de beheerder van uw Azure-Stack.
 
 >[!NOTE]
  Als u de Azure-Stack Development Kit en u beheerderstoegang hebben, Zie de sectie 'De huidige versie niet vaststellen' [updates beheren](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) om te bepalen van de Azure-Stack-build.

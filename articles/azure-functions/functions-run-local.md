@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: f3278c064a01e3dea1d7a629b4a7b2e846a71208
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
 
@@ -31,45 +31,88 @@ Als u een Azure-functies van Visual Studio C# ontwikkelaar, ook bent [kan worden
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools installeren
 
-[Azure Functions kernonderdelen] is een lokale versie van de Azure Functions-runtime die kunnen worden uitgevoerd op de lokale computer. Het is niet een emulator of simulator. Het is de dezelfde runtime bevoegdheden werkt in Azure. Er zijn twee versies van Azure Functions Core-hulpprogramma's voor versie 1.x van de runtime en één voor versie 2.x. Beide versies zijn beschikbaar als een [npm pakket](https://docs.npmjs.com/getting-started/what-is-npm).
+[Azure Functions kernonderdelen] is een lokale versie van de Azure Functions-runtime die kunnen worden uitgevoerd op de lokale computer. Het is niet een emulator of simulator. Het is de dezelfde runtime bevoegdheden werkt in Azure. Er zijn twee versies van Azure Functions Core hulpprogramma's:
 
->[!NOTE]  
-> Voordat u eender welke versie installeert, moet u [installeren NodeJS](https://docs.npmjs.com/getting-started/installing-node), waaronder npm. Voor versie 2.x van de hulpprogramma's, alleen Node.js 8.5 en latere versies worden ondersteund. 
++ [Versie 1.x](#v1): ondersteunt versie 1.x van de runtime. Deze versie wordt alleen ondersteund op Windows-computers en wordt geïnstalleerd vanuit een [npm pakket](https://docs.npmjs.com/getting-started/what-is-npm).
++ [Versie 2.x](#v2): versie ondersteunt 2.x van de runtime. Deze versie ondersteunt [Windows](#windows-npm), [Mac OS](#brew), en [Linux](#linux). Platform-specifieke pakket managers of npm gebruikt voor de installatie. 
 
-### <a name="version-2x-runtime"></a>Versie 2.x runtime
+### <a name="v1"></a>Versie 1.x
 
-Versie 2.x van de hulpprogramma's gebruikmaakt van de Azure Functions-runtime 2.x die is gebaseerd op .NET Core. Deze versie wordt ondersteund op alle platforms .NET Core 2.x ondersteunt. Deze versie gebruiken voor platformoverschrijdende ontwikkeling en wanneer de runtime van Functions 2.x is vereist. 
+De runtime van Functions 1.x maakt gebruik van de oorspronkelijke versie van de hulpprogramma's. Deze versie .NET Framework (4.7.1) wordt gebruikt en wordt alleen ondersteund op Windows-computers. Voordat u de versie 1.x-hulpprogramma's installeert, moet u [installeren NodeJS](https://docs.npmjs.com/getting-started/installing-node), waaronder npm.
 
->[!IMPORTANT]   
-> Voordat u Azure Functions Core Tools installeert [Installeer .NET Core 2.0](https://www.microsoft.com/net/core).  
->
-> Azure Functions-runtime 2.0 is een Preview-versie en op dit moment niet alle functies van Azure Functions worden ondersteund. Zie voor meer informatie [Azure Functions-runtime 2.0 bekende problemen](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
-
- Gebruik de volgende opdracht voor het installeren van de versie 2.0-hulpprogramma's:
-
-```bash
-npm install -g azure-functions-core-tools@core
-```
-
-Wanneer u installeert op Ubuntu gebruik `sudo`als volgt:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core
-```
-
-Wanneer u installeert op Mac OS- en Linux, moet u wellicht omvatten de `unsafe-perm` markeren als volgt:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
-```
-
-### <a name="version-1x-runtime"></a>Versie 1.x runtime
-
-De runtime van Functions 1.x maakt gebruik van de oorspronkelijke versie van de hulpprogramma's. Deze versie van .NET Framework gebruikt en wordt alleen ondersteund op Windows-computers. Gebruik de volgende opdracht voor het installeren van de versie 1.x-hulpprogramma's:
+Gebruik de volgende opdracht voor het installeren van de versie 1.x-hulpprogramma's:
 
 ```bash
 npm install -g azure-functions-core-tools
 ```
+
+### <a name="v2"></a>Versie 2.x
+
+>[!NOTE]
+> Azure Functions-runtime 2.0 is een Preview-versie en op dit moment niet alle functies van Azure Functions worden ondersteund. Zie voor meer informatie [Azure Functions-versies](functions-versions.md) 
+
+Versie 2.x van de hulpprogramma's gebruikmaakt van de Azure Functions-runtime 2.x die is gebaseerd op .NET Core. Deze versie wordt ondersteund op alle platforms .NET Core 2.x ondersteunt, met inbegrip van [Windows](#windows-npm), [Mac OS](#brew), en [Linux](#linux).
+
+#### <a name="windows-npm"></a>Windows
+
+De volgende stappen gebruikt npm Core hulpprogramma's installeren op Windows. U kunt ook [Chocolatey](https://chocolatey.org/). Zie voor meer informatie de [kernonderdelen Leesmij](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+
+1. Installeer [.NET Core 2.0 voor Windows](https://www.microsoft.com/net/download/windows).
+
+2. Installeer [Node.js], waaronder npm. Voor versie 2.x van de hulpprogramma's, alleen Node.js 8.5 en latere versies worden ondersteund.
+
+3. Installeer het pakket Core's:
+
+  ```bash
+  npm install -g azure-functions-core-tools@core
+  ```
+
+#### <a name="brew"></a>Mac OS met Homebrew
+
+De volgende stappen gebruikt Homebrew de Core-hulpprogramma's installeren op Mac OS.
+
+1. Installeer [.NET Core 2.0 voor Mac OS](https://www.microsoft.com/net/download/macos).
+
+1. Installeer [Homebrew](https://brew.sh/), als deze nog niet is geïnstalleerd.
+
+2. Installeer het pakket Core's:
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools 
+    ```
+
+#### <a name="linux"></a> Linux (Ubuntu/Debian) met APT
+
+De volgende stappen uitvoeren om [APT](https://wiki.debian.org/Apt) Core hulpprogramma's installeren op uw Ubuntu/Debian Linux-distributie. Zie voor andere Linux-distributies de [kernonderdelen Leesmij](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
+
+1. Installeer [.NET Core 2.0 voor Linux](https://www.microsoft.com/net/download/linux).
+
+1. De productcode van Microsoft als vertrouwd registreren:
+
+  ```bash
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+  ```
+
+2.  Instellen van het pakket feeds vervangen `<version>` in de volgende opdracht met de naam van de juiste versie van de tabel:
+
+  ```bash
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo apt-get update
+  ```
+
+  | Linux-distributie | `<version>` |
+  | --------------- | ----------- |
+  | Ubuntu 17.10    | `artful`    |
+  | Ubuntu 17.04    | `zesty`     |
+  | Ubuntu 16.04/Linux 18 voorkomt    | `xenial`  |
+
+3. Installeer het pakket Core's:
+
+  ```bash
+  sudo apt-get install azure-functions-core-tools
+  ```
 
 ## <a name="run-azure-functions-core-tools"></a>Azure Functions Core hulpprogramma's uitvoeren
  
@@ -137,15 +180,19 @@ Het bestand local.settings.json slaat app-instellingen, verbindingsreeksen en in
 | Instelling      | Beschrijving                            |
 | ------------ | -------------------------------------- |
 | **isEncrypted** | Als de waarde **true**, alle waarden zijn versleuteld met een sleutel van de lokale computer. Gebruikt met `func settings` opdrachten. Standaardwaarde is **false**. |
-| **Waarden** | Verzameling toepassingsinstellingen gebruikt bij lokale uitvoering. **AzureWebJobsStorage** en **AzureWebJobsDashboard** zijn voorbeelden; Zie voor een volledige lijst [app naslaginformatie](functions-app-settings.md).  |
+| **Waarden** | Verzameling toepassingsinstellingen gebruikt bij lokale uitvoering. **AzureWebJobsStorage** en **AzureWebJobsDashboard** zijn voorbeelden; Zie voor een volledige lijst [app naslaginformatie](functions-app-settings.md). Veel triggers en bindingen hebben een eigenschap die naar een app-instelling, zoals verwijst **verbinding** voor de Blob-opslag-trigger. Voor dergelijke eigenschappen, moet u een toepassingsinstelling gedefinieerd in de **waarden** matrix. Dit geldt ook voor elke bindingseigenschap die u op de naam van de instelling van een app instelt door de waarde in procenttekens, bijvoorbeeld `%AppSettingName%`. |
 | **Host** | Instellingen in deze sectie aanpassen het hostproces van de functies bij lokale uitvoering. | 
 | **LocalHttpPort** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie heeft voorrang op deze waarde. |
 | **CORS** | Definieert de oorsprongen toegestaan voor [cross-origin-resource delen (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (\*) wordt ondersteund, waarmee aanvragen van een oorsprong. |
 | **ConnectionStrings** | De tekenreeksen voor databaseverbindingen voor uw functies bevat. Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype **System.Data.SqlClient**.  | 
 
-De meeste triggers en bindingen hebben een **verbinding** eigenschap die is toegewezen aan de naam van een omgeving variabele of een app-instelling. Voor elke verbindingseigenschap moet worden gedefinieerd in local.settings.json-bestand van app-instelling. 
+Deze instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. Zie voor meer informatie het gedeelte van de omgeving variabelen van de volgende onderwerpen taalspecifieke verwijzing:
 
-Deze instellingen kunnen ook worden gelezen in uw code als omgevingsvariabelen. Gebruik in C#, [System.Environment.GetEnvironmentVariable](https://msdn.microsoft.com/library/system.environment.getenvironmentvariable(v=vs.110).aspx) of [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx). Gebruik in JavaScript, `process.env`. Instellingen die zijn opgegeven als een systeemomgevingsvariabele hebben voorrang op de waarden in het bestand local.settings.json. 
++ [Vooraf gecompileerd voor C#](functions-dotnet-class-library.md#environment-variables)
++ [C# script (.csx)](functions-reference-csharp.md#environment-variables)
++ [F#](functions-reference-fsharp.md#environment-variables)
++ [Java](functions-reference-java.md#environment-variables) 
++ [JavaScript](functions-reference-node.md#environment-variables)
 
 Instellingen in het bestand local.settings.json worden alleen gebruikt door extra functies bij lokale uitvoering. Standaard worden deze instellingen niet gemigreerd automatisch wanneer het project wordt gepubliceerd naar Azure. Gebruik de `--publish-local-settings` overschakelen [bij het publiceren van](#publish) om ervoor te zorgen dat deze instellingen zijn toegevoegd aan de functie-app in Azure.
 
@@ -167,7 +214,7 @@ Als u wilt een waarde voor verbindingsreeksen instelt, kunt u een van de volgend
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
-    Beide opdrachten moeten u eerst aanmelden bij Azure.
+    Beide opdrachten moeten u de eerste aanmelding bij Azure.
 
 <a name="create-func"></a>
 ## <a name="create-a-function"></a>Een functie maken
@@ -275,7 +322,7 @@ Het volgende voorbeeld wordt dezelfde functie aangeroepen vanuit een POST-aanvra
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-Houd er rekening mee dat kunt u aanvragen ophalen vanuit een browser het doorgeven van gegevens in de queryreeks. Voor alle andere HTTP-methoden, moet u cURL, Fiddler, Postman of een vergelijkbaar testen HTTP-hulpprogramma gebruiken.  
+U kunt aanvragen ophalen vanuit een browser het doorgeven van gegevens in de queryreeks. Voor alle andere HTTP-methoden, moet u cURL, Fiddler, Postman of een vergelijkbaar testen HTTP-hulpprogramma gebruiken.  
 
 #### <a name="non-http-triggered-functions"></a>Niet-HTTP-geactiveerde functies
 Voor alle soorten functies dan HTTP-triggers en webhooks, kunt u uw functies testen lokaal door het aanroepen van een beheer-eindpunt. De functie voor het aanroepen van dit eindpunt met een HTTP POST-aanvraag op de lokale server wordt geactiveerd. U kunt eventueel testgegevens doorgeven aan de uitvoering in de hoofdtekst van de POST-aanvraag. Deze functionaliteit is vergelijkbaar met de **Test** tabblad in de Azure-portal.  
@@ -361,3 +408,4 @@ Fout of het onderdeel aanvragen [opent u een probleem met de GitHub](https://git
 
 [Azure Functions kernonderdelen]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure-portal]: https://portal.azure.com 
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

@@ -2,10 +2,10 @@
 title: Automatische SaaS app gebruikers inrichten in Azure AD | Microsoft Docs
 description: Een inleiding tot hoe u Azure AD kunt gebruiken voor het automatisch inrichten, inrichten ongedaan, en werk continu gebruikersaccounts voor meerdere derde SaaS-toepassingen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: e14ba62ce2d6c48e47a6b75387bcede68bb1a5b0
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 56af1915326429b37f87dbaa397e1c9b832c675a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker inrichting en het opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Wat is geautomatiseerde gebruikersinrichting voor SaaS-apps?
@@ -176,7 +176,7 @@ Inrichtingstaak van de wordt verwijderd uit quarantaine nadat u alle van de stri
 
 Prestaties zijn afwijken, afhankelijk van of uw inrichtingstaak van een initiële synchronisatie of een incrementele synchronisatie wordt uitgevoerd.
 
-Voor de eerste wordt gesynchroniseerd worden de tijd die nodig zijn om te voltooien rechtstreeks afhankelijk van hoeveel gebruikers, groepen en groepsleden aanwezig in het bronsysteem zijn. Initiële synchronisatie binnen een paar minuten kunnen uitvoeren die zeer kleine bronsystemen honderden objecten. Bronsystemen met honderden of duizenden of miljoenen gecombineerde objecten kunnen echter erg lang duren.
+Voor de eerste wordt gesynchroniseerd worden de tijd die nodig zijn om te voltooien rechtstreeks afhankelijk van hoeveel gebruikers, groepen en groepsleden aanwezig in het bronsysteem zijn. Initiële synchronisatie binnen een paar minuten kunnen uitvoeren die zeer kleine bronsystemen honderden objecten. Bronsystemen met honderden of duizenden of miljoenen gecombineerde objecten duurt langer.
 
 Voor incrementele synchronisaties is de tijd die nodig is afhankelijk van de wijzigingen in synchronisatiecyclus gedetecteerd. Als er minder dan 5000 gebruikers- of wijzigingen in groepslidmaatschappen gedetecteerd, kunnen deze vaak in een cyclus 40 minuten worden gesynchroniseerd. 
 

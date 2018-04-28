@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: eb4ebe0b1c0e4799aea6401b068d881e5aa47026
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8af5c124332fcc0c919b419f68235c52456c01cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Resources implementeren met Resource Manager-sjablonen en Azure PowerShell
 
@@ -26,7 +26,7 @@ In dit artikel wordt uitgelegd hoe u Azure PowerShell gebruiken met Resource Man
 
 De Resource Manager-sjabloon die u implementeert, kan een lokaal bestand op uw computer of een extern bestand dat zich bevindt in een zoals GitHub-opslagplaats. De sjabloon die u in dit artikel implementeert vindt u in de [voorbeeldsjabloon](#sample-template) sectie, of als [storage accountsjabloon in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-Installeer zo nodig de Azure PowerShell-module met behulp van de instructies in de [Azure PowerShell handleiding](/powershell/azure/overview), en voer vervolgens `Login-AzureRmAccount` geen verbinding maken met Azure.
+Installeer zo nodig de Azure PowerShell-module met behulp van de instructies in de [Azure PowerShell handleiding](/powershell/azure/overview), en voer vervolgens `Connect-AzureRmAccount` geen verbinding maken met Azure.
 
 <a id="deploy-local-template" />
 
@@ -43,7 +43,7 @@ Een sjabloon kunt opnemen parameters waarmee u de implementatie aanpassen. U kun
 Het volgende voorbeeld maakt u een resourcegroep en implementeert een sjabloon op basis van uw lokale computer:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  

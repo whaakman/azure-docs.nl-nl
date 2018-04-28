@@ -7,14 +7,14 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/12/2018
+ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 3c6907e8eb4ae4bbfae76a5a220d670427afd703
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: e6bfe2423bfe97f53970283c113cd40b7f3ade25
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Gegevens uit Azure Data Lake Store met SQL Data Warehouse laden
 PolyBase externe tabellen gebruiken om gegevens te laden in Azure Data Lake Store in Azure SQL Data Warehouse. Hoewel u ad-hoc-query's op gegevens die zijn opgeslagen in ADLS uitvoeren kunt, raden wij aan de gegevens importeren in de SQL Data Warehouse voor de beste prestaties.

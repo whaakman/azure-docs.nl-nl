@@ -2,7 +2,7 @@
 title: Gebruik van een Linux-VM-MSI voor toegang tot Azure Resource Manager
 description: Een zelfstudie die u bij het proces helpt van het gebruik van een Linux VM beheerde Service identiteit (MSI) voor toegang tot Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 842e0b42dee7e03f0ddb3f3a2445007a812ceb7e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 130d4756ff6be6b3a625e71536968c9dcbf92ad0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u beheerde Service identiteit (MSI) inschakelen voor een virtuele Linux-Machine en vervolgens die identiteit gebruiken voor toegang tot de Azure Resource Manager-API. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie zonder referenties invoegen in uw code. Procedures voor:
+Deze zelfstudie laat zien hoe u beheerde Service identiteit (MSI) inschakelen voor een virtuele Linux-Machine en vervolgens die identiteit gebruiken voor toegang tot de Azure Resource Manager-API. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie zonder referenties invoegen in uw code. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * MSI op een virtuele Linux-Machine inschakelen 
@@ -38,7 +38,7 @@ Deze zelfstudie laat zien hoe u beheerde Service identiteit (MSI) inschakelen vo
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-Machine in een nieuwe resourcegroep maken
 
@@ -56,7 +56,7 @@ Voor deze zelfstudie maken we een nieuwe Linux VM. U kunt ook MSI op een bestaan
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen
 
-De MSI van een virtuele Machine kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Achter de MSI inschakelen biedt twee dingen: het installeren van de MSI-VM-extensie op uw virtuele machine en zorgt ervoor dat MSI voor de virtuele machine.  
+De MSI van een virtuele Machine kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Inschakelen van de Service-identiteit beheerd op een virtuele machine, biedt twee dingen: registreert uw virtuele machine met Azure Active Directory voor het maken van de beheerde identiteit en configureert u de identiteit op de virtuele machine.
 
 1. Selecteer de **virtuele Machine** dat u inschakelen van MSI wilt op.
 2. Klik op de linkernavigatiebalk **configuratie**.
@@ -64,10 +64,6 @@ De MSI van een virtuele Machine kunt u toegangstokens ophalen uit Azure AD zonde
 4. Zorg ervoor dat u klikt op **opslaan** aan de configuratie op te slaan.
 
     ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Als u wilt controleren welke uitbreidingen zijn op deze **Linux VM**, klikt u op **extensies**. Als MSI is ingeschakeld, de **ManagedIdentityExtensionforLinux** verschijnt in de lijst.
-
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Uw VM-toegang verlenen aan een resourcegroep in Azure Resource Manager 
 
@@ -94,7 +90,7 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
     De aanvraag CURL voor het toegangstoken is lager dan.  
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
     
     > [!NOTE]

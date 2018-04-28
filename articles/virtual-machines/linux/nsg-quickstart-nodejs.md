@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: e94b2ee3a14e9046703b66c00e3ba1a305dd3a7d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9520f76ed2ed1d9953f887bc27003e3e640341ba
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-10"></a>Openen van poorten en eindpunten voor een Linux-VM in Azure met behulp van de Azure CLI 1.0
 U opent een poort of een eindpunt met een virtuele machine (VM) in Azure maken met het maken van een netwerk-filter op een subnet of een VM-netwerkinterface. U kunt deze filters die binnenkomend en uitgaand verkeer worden beheerd, plaatsen op een Netwerkbeveiligingsgroep gekoppeld aan de resource die het verkeer ontvangt. We gebruiken een voorbeeld van webverkeer op poort 80. In dit artikel leest u hoe een poort voor een virtuele machine moet worden geopend met behulp van de Azure CLI 1.0.
@@ -83,7 +83,7 @@ azure network vnet subnet set \
 ## <a name="more-information-on-network-security-groups"></a>Meer informatie over Netwerkbeveiligingsgroepen
 De snelle opdrachten hier kunt u aan de slag te kunnen met verkeer naar uw virtuele machine. Netwerkbeveiligingsgroepen bieden veel handige functies en granulatie voor het beheren van toegang tot uw resources. U kunt meer lezen over [hier maken van een Netwerkbeveiligingsgroep en ACL regels](../../virtual-network/tutorial-filter-network-traffic-cli.md).
 
-U kunt Netwerkbeveiligingsgroepen en ACL-regels definiëren als onderdeel van Azure Resource Manager-sjablonen. Lees meer over [Netwerkbeveiligingsgroepen maken met behulp van sjablonen](../../virtual-network/virtual-networks-create-nsg-arm-template.md).
+U kunt Netwerkbeveiligingsgroepen en ACL-regels definiëren als onderdeel van Azure Resource Manager-sjablonen. Lees meer over [Netwerkbeveiligingsgroepen maken met behulp van sjablonen](../../virtual-network/template-samples.md).
 
 Als u gebruiken poort-doorsturen wilt naar een unieke externe poort toewijzen aan een interne poort op de virtuele machine, gebruikt u een load balancer en Network Address Translation (NAT)-regels. U wilt bijvoorbeeld TCP-poort 8080 extern beschikbaar en hebt verkeer op TCP-poort 80 op een virtuele machine wordt gestuurd. U kunt meer informatie over [maken van een Internet gerichte load balancer](../../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 

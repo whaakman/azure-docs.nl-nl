@@ -6,19 +6,21 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cb7797f5322b9288faf96be2ede164f156fd66cc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event raster gebeurtenis schema
 
 In dit artikel beschrijft de eigenschappen en het schema die aanwezig zijn voor alle gebeurtenissen. Gebeurtenissen bestaan uit een set van vijf vereiste tekenreekseigenschappen en een object van de vereiste gegevens. De eigenschappen gelden voor alle gebeurtenissen vanaf een willekeurige uitgever. Het gegevensobject bevat eigenschappen die specifiek voor elke uitgever zijn. Deze eigenschappen zijn specifiek voor de resourceprovider, zoals Azure Storage of Azure Event Hubs voor systeemonderwerpen.
 
-Gebeurtenissen worden verzonden naar Azure gebeurtenis raster in een matrix die meerdere gebeurtenisobjecten kan bevatten. Als er slechts één gebeurtenis, heeft de matrix een lengte van 1. De matrix kan een totale grootte van maximaal 1 MB hebben. Elke gebeurtenis in de matrix is beperkt tot 64 KB.
+Bronnen van gebeurtenissen voor het verzenden van gebeurtenissen naar Azure gebeurtenis raster in een matrix die meerdere gebeurtenisobjecten kan bevatten. Bij het publiceren van gebeurtenissen naar een onderwerp van het raster gebeurtenis kan een totale grootte van maximaal 1 MB hebben in de matrix. Elke gebeurtenis in de matrix is beperkt tot 64 KB. Als een gebeurtenis of de matrix de maximale grootte overschrijdt, ontvangt u het antwoord **413 nettolading te groot**.
+
+Gebeurtenis raster verzendt gebeurtenissen naar abonnees in een matrix met één gebeurtenis. Dit gedrag kan in de toekomst wijzigen.
 
 U vindt de JSON-schema voor de gebeurtenis gebeurtenis raster en elke Azure uitgever nettolading met gegevens in de [gebeurtenis Schema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
@@ -81,7 +83,7 @@ Alle gebeurtenissen bevatten dezelfde volgende op het hoogste niveau gegevens:
 | -------- | ---- | ----------- |
 | Onderwerp | tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. Gebeurtenis raster bevat deze waarde. |
 | Onderwerp | tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| eventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
+| EventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
 | eventTime | tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
 | id | tekenreeks | De unieke id voor de gebeurtenis. |
 | gegevens | object | Gebeurtenisgegevens die specifiek zijn voor de resourceprovider. |

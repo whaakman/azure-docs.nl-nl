@@ -9,16 +9,14 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: nitinme
-ms.openlocfilehash: 011471224d79ae326ccc33fc23fd6fada347497b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6ef0b1ce589bd19693d45a9e4f579ef260530a40
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark-cluster gebruiken om te lezen en schrijven van gegevens naar Azure SQL-database
 
@@ -87,7 +85,7 @@ In deze sectie kunt u gegevens lezen van een tabel (bijvoorbeeld **SalesLT.Addre
        val jdbcPort = 1433
        val jdbcDatabase ="<AZURE SQL DB NAME>"
 
-    Druk op **SHIFT + ENTER** om uit te voeren van de codecel.  
+    Druk op **SHIFT + ENTER** om de codecel uit te voeren.  
 
 2. Het volgende fragment maakt een JDBC-URL die u kunt doorgeven aan de Spark dataframe API's maakt een `Properties` object voor het opslaan van de parameters. Plak het codefragment in een codecel en druk op **SHIFT + ENTER** om uit te voeren.
 
@@ -132,7 +130,7 @@ In deze sectie gebruiken we een CSV-voorbeeldbestand beschikbaar op het cluster 
        val jdbcPort = 1433
        val jdbcDatabase ="<AZURE SQL DB NAME>"
 
-    Druk op **SHIFT + ENTER** om uit te voeren van de codecel.  
+    Druk op **SHIFT + ENTER** om de codecel uit te voeren.  
 
 2. Het volgende fragment maakt een JDBC-URL die u kunt doorgeven aan de Spark dataframe API's maakt een `Properties` object voor het opslaan van de parameters. Plak het codefragment in een codecel en druk op **SHIFT + ENTER** om uit te voeren.
 

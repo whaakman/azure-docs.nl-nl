@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 9078b56ae9c5582aa21201c168974eb6cc7a4ed6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>De ondersteuningsmatrix voor Hyper-V-replicatie naar Azure
 
@@ -170,7 +170,7 @@ Om te zorgen dat uw implementatie is compatibel met de instellingen in dit artik
 
 **Naam** | **Beschrijving** | **Details**
 --- | --- | --- | --- | ---
-Azure Site Recovery-provider | Coördineert de communicatie tussen de on-premises servers en Azure <br/><br/> Hyper-V met Virtual Machine Manager: geïnstalleerd op de Virtual Machine Manager-servers<br/><br/> Hyper-V zonder Virtual Machine Manager: geïnstalleerd op de Hyper-V-hosts| Meest recente versie: 5.1.2700.1 (beschikbaar via de Azure-portal)<br/><br/> [Meest recente functies en oplossingen](https://aka.ms/latest_asr_updates)
+Azure Site Recovery-provider | Coördineert de communicatie tussen de on-premises servers en Azure <br/><br/> Hyper-V met Virtual Machine Manager: geïnstalleerd op de Virtual Machine Manager-servers<br/><br/> Hyper-V zonder Virtual Machine Manager: geïnstalleerd op de Hyper-V-hosts| Meest recente versie: 5.1.2700.1 (beschikbaar via de Azure-portal)<br/><br/> [Meest recente functies en oplossingen](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services-agent | Coördineert de replicatie tussen Hyper-V-machines en Azure<br/><br/> Geïnstalleerd op de on-premises Hyper-V-servers (met of zonder Virtual Machine Manager) | Meest recente agent beschikbaar is via de portal
 
 

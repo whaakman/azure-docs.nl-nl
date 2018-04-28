@@ -2,11 +2,11 @@
 title: Gegevens tijdverschil problemen oplossen met behulp van Azure Data Lake Tools voor Visual Studio | Microsoft Docs
 description: Het oplossen van problemen die gegevens tijdverschil mogelijke oplossingen met behulp van Azure Data Lake Tools voor Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1d33b5d2392832899fd30636e9d40231fc74ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Gegevens tijdverschil problemen oplossen met behulp van Azure Data Lake Tools voor Visual Studio
 
@@ -49,13 +49,13 @@ In plaats van alleen _status_ als een partitiesleutel, kunt u meer dan één sle
 
 ### <a name="option-4-use-round-robin-distribution"></a>Optie 4: Round-robin distributie gebruiken
 
-Als u niet een geschikte sleutel voor partitie en distributie vinden, kunt u proberen om te gebruiken van round-robin distributie. Round-robin distributie worden alle rijen gelijk behandeld en worden ze willekeurig in bijbehorende buckets geplaatst. De gegevens opgehaald gelijkmatig worden verdeeld, maar een nadeel van het ook zo de prestaties van de taak voor bepaalde bewerkingen plaats informatie verliest. Bovendien, als u aggregatie voor de asymmetrische sleutel toch doet, bewaard het probleem gegevens tijdverschil. Voor meer informatie over round-robin distributie, Zie de sectie distributies van U-SQL-tabel in [CREATE TABLE (U-SQL): het maken van een tabel met Schema](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch).
+Als u niet een geschikte sleutel voor partitie en distributie vinden, kunt u proberen om te gebruiken van round-robin distributie. Round-robin distributie worden alle rijen gelijk behandeld en worden ze willekeurig in bijbehorende buckets geplaatst. De gegevens opgehaald gelijkmatig worden verdeeld, maar een nadeel van het ook zo de prestaties van de taak voor bepaalde bewerkingen plaats informatie verliest. Bovendien, als u aggregatie voor de asymmetrische sleutel toch doet, bewaard het probleem gegevens tijdverschil. Voor meer informatie over round-robin distributie, Zie de sectie distributies van U-SQL-tabel in [CREATE TABLE (U-SQL): het maken van een tabel met Schema](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch).
 
 ## <a name="solution-2-improve-the-query-plan"></a>Oplossing 2: Het queryplan verbeteren
 
 ### <a name="option-1-use-the-create-statistics-statement"></a>Optie 1: De instructie CREATE STATISTICS gebruiken
 
-U-SQL biedt de instructie CREATE STATISTICS voor tabellen. Deze instructie biedt meer informatie naar de queryoptimalisatie over de gegevens kenmerken, zoals distributie waarde, die zijn opgeslagen in een tabel. Voor de meeste query's genereert de queryoptimalisatie al de benodigde statistieken voor een hoge kwaliteit queryplan. Soms moet u mogelijk queryprestaties verbeteren door het maken van aanvullende statistieken met CREATE STATISTICS of door het ontwerp van de query wijzigen. Zie voor meer informatie de [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx) pagina.
+U-SQL biedt de instructie CREATE STATISTICS voor tabellen. Deze instructie biedt meer informatie naar de queryoptimalisatie over de gegevens kenmerken, zoals distributie waarde, die zijn opgeslagen in een tabel. Voor de meeste query's genereert de queryoptimalisatie al de benodigde statistieken voor een hoge kwaliteit queryplan. Soms moet u mogelijk queryprestaties verbeteren door het maken van aanvullende statistieken met CREATE STATISTICS of door het ontwerp van de query wijzigen. Zie voor meer informatie de [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx) pagina.
 
 Codevoorbeeld:
 

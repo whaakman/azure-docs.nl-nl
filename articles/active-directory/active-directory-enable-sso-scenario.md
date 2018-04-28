@@ -2,7 +2,7 @@
 title: Toepassingen beheren met Azure Active Directory | Microsoft Docs
 description: Dit artikel de voordelen van Azure Active Directory integreren met uw on-premises, cloud en SaaS-toepassingen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c6f01a16f5f60193c81a03a7374649f87eeb270a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Toepassingen beheren met Azure Active Directory
 Afgezien van de werkstroom of inhoud hebben bedrijven twee basisvereisten voor alle toepassingen:
@@ -111,5 +111,6 @@ U kunt uw toepassingen met gedetailleerde toegangsbeleid en vooraf geïntegreerd
 Om te beginnen toepassingen integreren met Azure AD te kijken hoe de [integratie van Azure Active Directory met toepassingen aan de slag](active-directory-integrating-applications-getting-started.md).
 
 ## <a name="see-also"></a>Zie ook
-[Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
+[Index voor Toepassingsbeheer in Azure Active Directory artikel](active-directory-apps-index.md)
+[stapsgewijze implementatieplan voor eenmalige aanmelding in een SaaS-toepassing](http://aka.ms/ssodeploymentplan)
 

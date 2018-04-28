@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.author: babanisa
-ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e5499fca98118de6ef8e08c8ce278b90520425e6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepten in Azure Event raster
 
@@ -20,7 +20,7 @@ De belangrijkste concepten in Azure gebeurtenis raster zijn:
 
 ## <a name="events"></a>Gebeurtenissen
 
-Een gebeurtenis is de kleinste hoeveelheid informatie op die volledig beschrijft iets die hebben plaatsgevonden in het systeem.  Elke gebeurtenis heeft een algemene informatie, zoals: bron van de gebeurtenis wanneer de gebeurtenis plaatsgevonden en de unieke id heeft.  Elke gebeurtenis heeft ook specifieke informatie die is alleen relevant zijn voor het specifieke type van de gebeurtenis. Bijvoorbeeld een gebeurtenis over een nieuw bestand wordt gemaakt in Azure Storage bevat details over het bestand, zoals de `lastTimeModified` waarde. Of een gebeurtenis over een virtuele machine opnieuw opstarten bevat de naam van de virtuele machine en de reden voor het opnieuw opstarten. Elke gebeurtenis is beperkt tot 64 KB aan gegevens.
+Een gebeurtenis is de kleinste hoeveelheid informatie op die volledig beschrijft iets die hebben plaatsgevonden in het systeem. Elke gebeurtenis heeft een algemene informatie, zoals: bron van de gebeurtenis wanneer de gebeurtenis plaatsgevonden en de unieke id heeft. Elke gebeurtenis heeft ook specifieke informatie die is alleen relevant zijn voor het specifieke type van de gebeurtenis. Bijvoorbeeld een gebeurtenis over een nieuw bestand wordt gemaakt in Azure Storage bevat details over het bestand, zoals de `lastTimeModified` waarde. Of een gebeurtenis over een virtuele machine opnieuw opstarten bevat de naam van de virtuele machine en de reden voor het opnieuw opstarten. Elke gebeurtenis is beperkt tot 64 KB aan gegevens.
 
 ## <a name="event-sourcespublishers"></a>Gebeurtenisuitgevers bronnen
 
@@ -32,7 +32,7 @@ Uitgevers categoriseren gebeurtenissen in onderwerpen. Het onderwerp bevat een e
 
 Systeemonderwerpen zijn ingebouwde onderwerpen die worden geleverd door de Azure-services. Aangepaste onderwerpen zijn toepassing en onderwerpen van derden.
 
-Maak een aangepaste onderwerp voor elke categorie van gerelateerde gebeurtenissen bij het ontwerpen van uw toepassing. Neem bijvoorbeeld een toepassing die gebeurtenissen met betrekking tot het wijzigen van gebruikersaccounts en verwerken van bestellingen verzendt. Het lijkt onwaarschijnlijk dat een gebeurtenishandler wil beide soorten gebeurtenissen. Maak twee aangepaste onderwerpen en gebeurtenis-handlers abonneren op die het interesseert laten. Wanneer u zich abonneert op het aangepaste onderwerp, wordt de gebeurtenis-handler kunt filteren op gebeurtenistype.
+Bij het ontwerpen van uw toepassing, hebt u flexibiliteit wanneer u beslist hoeveel onderwerpen maken. Maak een eigen onderwerp voor elke categorie van gerelateerde gebeurtenissen voor grote oplossingen. Neem bijvoorbeeld een toepassing die gebeurtenissen met betrekking tot het wijzigen van gebruikersaccounts en verwerken van bestellingen verzendt. Het lijkt onwaarschijnlijk dat een gebeurtenishandler wil beide soorten gebeurtenissen. Maak twee aangepaste onderwerpen en gebeurtenis-handlers abonneren op die het interesseert laten. Voor kleine oplossingen, moet u liever alle gebeurtenissen verzenden naar een enkel onderwerp. Gebeurtenisabonnees kunnen filteren op de typen gebeurtenissen die ze willen.
 
 ## <a name="event-subscriptions"></a>Gebeurtenisabonnementen
 
@@ -40,7 +40,7 @@ Een abonnement geïnstrueerd gebeurtenis raster op welke gebeurtenissen op een o
 
 ## <a name="event-handlers"></a>Gebeurtenis-handlers
 
-Een gebeurtenis-handler is vanuit het perspectief van een raster gebeurtenis, de plaats waar de gebeurtenis wordt verzonden. De handler duurt enkele verdere actie voor het verwerken van de gebeurtenis.  Raster gebeurtenis biedt ondersteuning voor meerdere Abonneetypen. Afhankelijk van het type van abonnee volgt gebeurtenis raster verschillende mechanismen voor het garanderen van de levering van de gebeurtenis.  Voor HTTP-webhook gebeurtenis-handlers de gebeurtenis is vaak herhaald totdat de handler statuscode retourneert `200 – OK`. Azure Storage-wachtrij, worden de gebeurtenissen vaak herhaald totdat de Queue-service kan worden verwerkt op de push-bewerking van het bericht in de wachtrij.
+Een gebeurtenis-handler is vanuit het perspectief van een raster gebeurtenis, de plaats waar de gebeurtenis wordt verzonden. De handler duurt enkele verdere actie voor het verwerken van de gebeurtenis. Raster gebeurtenis biedt ondersteuning voor meerdere Abonneetypen. Afhankelijk van het type van abonnee volgt gebeurtenis raster verschillende mechanismen voor het garanderen van de levering van de gebeurtenis. Voor HTTP-webhook gebeurtenis-handlers de gebeurtenis is vaak herhaald totdat de handler statuscode retourneert `200 – OK`. Azure Storage-wachtrij, worden de gebeurtenissen vaak herhaald totdat de Queue-service kan worden verwerkt op de push-bewerking van het bericht in de wachtrij.
 
 ## <a name="filters"></a>Filters
 

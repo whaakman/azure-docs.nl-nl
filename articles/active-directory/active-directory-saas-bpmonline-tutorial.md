@@ -1,10 +1,10 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Bpm''online | Microsoft Docs'
+title: "Zelfstudie: Azure Active Directory-integratie met Bpm'online | Microsoft Docs"
 description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Bpm'online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0214fcbdde886bd14d84917e496568027d417096
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9359fc76d2198cab8e61b151fcd8672cb6b65b6e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Zelfstudie: Azure Active Directory-integratie met Bpm'online
 
@@ -101,54 +101,35 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_samlbase.png)
 
 3. Op de **Bpm'online domein en de URL's** sectie, voert u de volgende stappen uit als u wilt configureren, de toepassing in **IDP** modus gestart:
 
     ![URL's en Bpm'online domein eenmalige aanmelding informatie](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<client site name>.bpmonline.com/`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<client site name>.bpmonline.com/`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![URL's en Bpm'online domein eenmalige aanmelding informatie](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<client site name>.bpmonline.com/`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<client site name>.bpmonline.com/`
      
-    > [!NOTE] 
+    > [!NOTE]
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [Bpm'online Client ondersteuningsteam](mailto:support@bpmonline.com) ophalen van deze waarden. 
 
-5. Voor het genereren van de **metagegevens** -url, de volgende stappen uitvoeren:
-
-    a. Klik op **App registraties**.
+5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
     
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appregistrations.png)
-   
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpointicon.png)
-
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpoint.png)
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-bpmonline-tutorial/tutorial_metadataurl.png)
      
-    d. Nu gaat u naar de eigenschappenpagina van **Bpm'online** en kopieer de **toepassings-ID** met **kopie** knop en plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appid.png)
-
-     e. Genereren van de **metagegevens-URL** met het volgende patroon volgen:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
-
 6. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-bpmonline-tutorial/tutorial_general_400.png)
     
-8. Eenmalige aanmelding configureren op **Bpm'online** kant die u wilt verzenden de **metagegevens-URL** naar [Bpm'online ondersteuningsteam](mailto:support@bpmonline.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Eenmalige aanmelding configureren op **Bpm'online** kant die u wilt verzenden de **App-Url voor federatieve metagegevens** naar [Bpm'online ondersteuningsteam](mailto:support@bpmonline.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -223,7 +204,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Bpm'online in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Bpm'online.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

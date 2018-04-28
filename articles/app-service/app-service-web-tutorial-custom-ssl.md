@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7c14b241155e10f0bb325b50819e2277622e4dff
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Zelfstudie: een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden
 
@@ -149,7 +149,7 @@ Als u IIS of _Certreq.exe_ hebt gebruikt voor het genereren van uw certificaataa
 
 ### <a name="upload-your-ssl-certificate"></a>Uw SSL-certificaat uploaden
 
-Als u uw SSL-certificaat wilt uploaden, klikt u in het linkernavigatievenster van uw web-app op **SSL-certificaten**.
+Als u het SSL-certificaat wilt uploaden, klikt u in het linkernavigatievenster van de web-app op **SSL-instellingen**.
 
 Klik op **Certificaat uploaden**. 
 
@@ -159,7 +159,7 @@ Klik op **Uploaden**.
 
 ![Certificaat uploaden](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
-Wanneer App Service klaar is met het uploaden van uw certificaat, wordt het op de pagina **SSL-certificaten** weergegeven.
+Wanneer App Service klaar is met het uploaden van uw certificaat, wordt het op de pagina **SSL-instellingen** weergegeven.
 
 ![Het certificaat is geüpload](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
@@ -216,7 +216,7 @@ Nu hoeft u alleen nog maar te controleren of HTTPS werkt voor uw aangepaste dome
 
 Standaard heeft iedereen nog steeds toegang tot uw web-app via HTTP. U kunt alle HTTP-aanvragen omleiden naar de HTTPS-poort.
 
-Selecteer in het linkernavigatievenster van de web-app-pagina **Aangepaste domeinen**. Klik op **Alleen HTTPS** en selecteer **Aan**.
+Selecteer in het linkernavigatievenster van de web-app-pagina **SSL-instellingen**. Klik op **Alleen HTTPS** en selecteer **Aan**.
 
 ![HTTPS afdwingen](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -225,6 +225,16 @@ Wanneer de bewerking is voltooid, gaat u naar een van de HTTP-URL's die naar uw 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
 - `http://www.contoso.com`
+
+## <a name="enforce-tls-1112"></a>TLS 1.1/1.2 afdwingen
+
+Voor uw app is standaard [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 toegestaan, wat volgens industrienormen niet meer veilig is, zoals [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Als u hogere TLS-versies wilt afdwingen, volgt u deze stappen:
+
+Selecteer in het linkernavigatievenster van de web-app-pagina **SSL-instellingen**. Selecteer vervolgens bij **TLS-versie** de gewenste minimale TLS-versie.
+
+![HTTPS afdwingen](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+
+Als de bewerking is voltooid, worden in de app alle verbindingen met lagere TLS-versies geweigerd.
 
 ## <a name="automate-with-scripts"></a>Automatiseren met scripts
 
